@@ -1,0 +1,702 @@
+[
+  {
+    "id": "l3.sanfang.命宮.pressure",
+    "kind": "sanfang",
+    "key": "命宮",
+    "variant": "pressure",
+    "body": "命宮的三方四正見多顆煞曜。這說的是條件，不是本質：你要做成一件事，通常得先處理一批不在計畫內的東西。基調本身沒有變，變的是達成它要繞幾個彎。",
+    "rule_ids": [
+      "sanfang.命宮-pressure.structural"
+    ],
+    "status": "reviewed"
+  },
+  {
+    "id": "l3.sanfang.兄弟.pressure",
+    "kind": "sanfang",
+    "key": "兄弟",
+    "variant": "pressure",
+    "body": "兄弟宮的三方四正見多顆煞曜。平輩之間的來往條件較多，話說到哪一層、幫到哪一步，往往要各自拿捏。這描述的是相處的成本，不是誰對誰錯。",
+    "rule_ids": [
+      "sanfang.兄弟-pressure.structural"
+    ],
+    "status": "reviewed"
+  },
+  {
+    "id": "l3.sanfang.夫妻.pressure",
+    "kind": "sanfang",
+    "key": "夫妻",
+    "variant": "pressure",
+    "body": "夫妻宮的三方四正見多顆煞曜。親密關係裡需要交代的事情比較多，節奏也容易被外面的事情打斷。這說的是相處的條件，不是這段關係的成敗。",
+    "rule_ids": [
+      "sanfang.夫妻-pressure.structural"
+    ],
+    "status": "reviewed"
+  },
+  {
+    "id": "l3.sanfang.子女.pressure",
+    "kind": "sanfang",
+    "key": "子女",
+    "variant": "pressure",
+    "body": "子女宮的三方四正見多顆煞曜。你在培育一件事或一個人的時候，中途要處理的變數比較多，放手的時機不容易剛好。這說的是過程，不涉及生育這件事。",
+    "rule_ids": [
+      "sanfang.子女-pressure.structural"
+    ],
+    "status": "reviewed"
+  },
+  {
+    "id": "l3.sanfang.財帛.pressure",
+    "kind": "sanfang",
+    "key": "財帛",
+    "variant": "pressure",
+    "body": "財帛宮的三方四正見多顆煞曜。資源進出的條件較多，來路和去路往往不在同一條線上。這說的是錢的流動方式，不是多少，也不能拿去做買賣判斷。",
+    "rule_ids": [
+      "sanfang.財帛-pressure.structural"
+    ],
+    "status": "reviewed"
+  },
+  {
+    "id": "l3.sanfang.疾厄.pressure",
+    "kind": "sanfang",
+    "key": "疾厄",
+    "variant": "pressure",
+    "body": "疾厄宮的三方四正見多顆煞曜。這裡只讀負荷的形狀：你身上同時扛著的事情條件較多，回氣的空檔不容易連在一起。此處不涉病名，也不作任何風險分級。",
+    "rule_ids": [
+      "sanfang.疾厄-pressure.structural"
+    ],
+    "status": "reviewed"
+  },
+  {
+    "id": "l3.sanfang.遷移.pressure",
+    "kind": "sanfang",
+    "key": "遷移",
+    "variant": "pressure",
+    "body": "遷移宮的三方四正見多顆煞曜。在陌生的環境裡要應付的條件較多，離開熟悉的地方之後，重新架起節奏往往要花時間。這說的是適應，不是吉凶。",
+    "rule_ids": [
+      "sanfang.遷移-pressure.structural"
+    ],
+    "status": "reviewed"
+  },
+  {
+    "id": "l3.sanfang.僕役.pressure",
+    "kind": "sanfang",
+    "key": "僕役",
+    "variant": "pressure",
+    "body": "交友宮的三方四正見多顆煞曜。人群裡的來往條件較多，親疏的界線不容易一次劃清。這描述的是圈子的結構，不指認任何一個具體的人。",
+    "rule_ids": [
+      "sanfang.僕役-pressure.structural"
+    ],
+    "status": "reviewed"
+  },
+  {
+    "id": "l3.sanfang.官祿.pressure",
+    "kind": "sanfang",
+    "key": "官祿",
+    "variant": "pressure",
+    "body": "官祿宮的三方四正見多顆煞曜。做事這件事在你這裡條件較多：要成一件事，往往得先把不相干的東西擺平。這說的是過程，不是能力，也不預測職位。",
+    "rule_ids": [
+      "sanfang.官祿-pressure.structural"
+    ],
+    "status": "reviewed"
+  },
+  {
+    "id": "l3.sanfang.田宅.pressure",
+    "kind": "sanfang",
+    "key": "田宅",
+    "variant": "pressure",
+    "body": "田宅宮的三方四正見多顆煞曜。與住的地方、與家的關係條件較多，要安頓下來通常不是一次到位。這說的是安頓的過程，不等同於買不買樓。",
+    "rule_ids": [
+      "sanfang.田宅-pressure.structural"
+    ],
+    "status": "reviewed"
+  },
+  {
+    "id": "l3.sanfang.福德.pressure",
+    "kind": "sanfang",
+    "key": "福德",
+    "variant": "pressure",
+    "body": "福德宮的三方四正見多顆煞曜。內在安放自己的條件較多，想要靜下來，往往要先把幾件事放好。這只作反思題目，不作任何臨床判斷。",
+    "rule_ids": [
+      "sanfang.福德-pressure.structural"
+    ],
+    "status": "reviewed"
+  },
+  {
+    "id": "l3.sanfang.父母.pressure",
+    "kind": "sanfang",
+    "key": "父母",
+    "variant": "pressure",
+    "body": "父母宮的三方四正見多顆煞曜。與權威、與長輩之間要交代的事情比較多，規矩和自己的判斷不總是同一個方向。這說的是你這一邊的相處結構。",
+    "rule_ids": [
+      "sanfang.父母-pressure.structural"
+    ],
+    "status": "reviewed"
+  },
+  {
+    "id": "l3.sanfang.命宮.support",
+    "kind": "sanfang",
+    "key": "命宮",
+    "variant": "support",
+    "body": "命宮的三方四正見多顆吉曜。條件相對配合：你想推一件事的時候，通常不必從最基本的地方開始鋪。這說的是環境給的餘裕，不等於事情自己會成。",
+    "rule_ids": [
+      "sanfang.命宮-support.structural"
+    ],
+    "status": "reviewed"
+  },
+  {
+    "id": "l3.sanfang.兄弟.support",
+    "kind": "sanfang",
+    "key": "兄弟",
+    "variant": "support",
+    "body": "兄弟宮的三方四正見多顆吉曜。平輩之間的來往相對順，要找人商量或者並肩做一件事，起手的門檻比較低。這說的是找不找得到人，交情有多深是另一回事。",
+    "rule_ids": [
+      "sanfang.兄弟-support.structural"
+    ],
+    "status": "reviewed"
+  },
+  {
+    "id": "l3.sanfang.夫妻.support",
+    "kind": "sanfang",
+    "key": "夫妻",
+    "variant": "support",
+    "body": "夫妻宮的三方四正見多顆吉曜。親密關係裡的條件相對配合，話說得出口、事情擺得上檯面。這說的是溝通的餘地，不預測任何一段關係的結果。",
+    "rule_ids": [
+      "sanfang.夫妻-support.structural"
+    ],
+    "status": "reviewed"
+  },
+  {
+    "id": "l3.sanfang.子女.support",
+    "kind": "sanfang",
+    "key": "子女",
+    "variant": "support",
+    "body": "子女宮的三方四正見多顆吉曜。你在培育一件事或一個人的時候，手上可用的東西比較多，不必事事親力親為。這說的是資源，不推斷生育結果。",
+    "rule_ids": [
+      "sanfang.子女-support.structural"
+    ],
+    "status": "reviewed"
+  },
+  {
+    "id": "l3.sanfang.財帛.support",
+    "kind": "sanfang",
+    "key": "財帛",
+    "variant": "support",
+    "body": "財帛宮的三方四正見多顆吉曜。資源的來路相對通，要張羅一件事的時候，可調動的東西比較多。這說的是流動性，不是數目，也不作理財建議。",
+    "rule_ids": [
+      "sanfang.財帛-support.structural"
+    ],
+    "status": "reviewed"
+  },
+  {
+    "id": "l3.sanfang.疾厄.support",
+    "kind": "sanfang",
+    "key": "疾厄",
+    "variant": "support",
+    "body": "疾厄宮的三方四正見多顆吉曜。這裡只讀負荷：你手上通常留得住一點餘力，不至於所有事情同時壓到底。此處不涉病名，也不作任何風險分級。",
+    "rule_ids": [
+      "sanfang.疾厄-support.structural"
+    ],
+    "status": "reviewed"
+  },
+  {
+    "id": "l3.sanfang.遷移.support",
+    "kind": "sanfang",
+    "key": "遷移",
+    "variant": "support",
+    "body": "遷移宮的三方四正見多顆吉曜。在外面的條件相對配合，到一個新地方，通常不必太久就接得上線。這說的是適應的速度，不是際遇的好壞。",
+    "rule_ids": [
+      "sanfang.遷移-support.structural"
+    ],
+    "status": "reviewed"
+  },
+  {
+    "id": "l3.sanfang.僕役.support",
+    "kind": "sanfang",
+    "key": "僕役",
+    "variant": "support",
+    "body": "交友宮的三方四正見多顆吉曜。人群裡的來往相對通，要接上一條線、找到一個人，路徑比較短。這描述的是圈子的密度，不指認任何人。",
+    "rule_ids": [
+      "sanfang.僕役-support.structural"
+    ],
+    "status": "reviewed"
+  },
+  {
+    "id": "l3.sanfang.官祿.support",
+    "kind": "sanfang",
+    "key": "官祿",
+    "variant": "support",
+    "body": "官祿宮的三方四正見多顆吉曜。做事的條件相對配合：要推一件事，願意接的人通常找得到。這說的是環境，不是能力，也不預測職位升降。",
+    "rule_ids": [
+      "sanfang.官祿-support.structural"
+    ],
+    "status": "reviewed"
+  },
+  {
+    "id": "l3.sanfang.田宅.support",
+    "kind": "sanfang",
+    "key": "田宅",
+    "variant": "support",
+    "body": "田宅宮的三方四正見多顆吉曜。與住的地方、與家的關係條件相對配合，安頓下來的阻力比較小。這說的是過程順不順，不等同於置業這件事。",
+    "rule_ids": [
+      "sanfang.田宅-support.structural"
+    ],
+    "status": "reviewed"
+  },
+  {
+    "id": "l3.sanfang.福德.support",
+    "kind": "sanfang",
+    "key": "福德",
+    "variant": "support",
+    "body": "福德宮的三方四正見多顆吉曜。內在有比較多可以安放自己的地方，靜下來不必等所有事情都處理完。這只作反思題目，不作任何臨床判斷。",
+    "rule_ids": [
+      "sanfang.福德-support.structural"
+    ],
+    "status": "reviewed"
+  },
+  {
+    "id": "l3.sanfang.父母.support",
+    "kind": "sanfang",
+    "key": "父母",
+    "variant": "support",
+    "body": "父母宮的三方四正見多顆吉曜。與長輩、與權威之間相對談得通，要交代一件事的路徑比較直接。這說的是你這一邊的相處結構，不推論家人的處境。",
+    "rule_ids": [
+      "sanfang.父母-support.structural"
+    ],
+    "status": "reviewed"
+  },
+  {
+    "id": "l3.shen.命宮",
+    "kind": "shen",
+    "key": "命宮",
+    "body": "身宮也落在命宮。先天的基調和後天著力的地方是同一處，所以你花力氣的方向，通常就是別人形容你的那個方向。這種一致本身是結構，不是好壞。",
+    "rule_ids": [
+      "structure.shen.命宮"
+    ],
+    "status": "reviewed"
+  },
+  {
+    "id": "l3.shen.夫妻",
+    "kind": "shen",
+    "key": "夫妻",
+    "body": "身宮落在夫妻宮。你把力氣放在關係上，一段關係的狀態容易帶動整體的基調。這說的是著力點，不預測任何一段關係的走向，也不代伴侶發言。",
+    "rule_ids": [
+      "structure.shen.夫妻"
+    ],
+    "status": "reviewed"
+  },
+  {
+    "id": "l3.shen.財帛",
+    "kind": "shen",
+    "key": "財帛",
+    "body": "身宮落在財帛宮。你把力氣放在資源上，處理實際的東西是你安放自己的方式。這說的是著力點，不是財富多少，也不能拿去做任何金錢決定。",
+    "rule_ids": [
+      "structure.shen.財帛"
+    ],
+    "status": "reviewed"
+  },
+  {
+    "id": "l3.shen.遷移",
+    "kind": "shen",
+    "key": "遷移",
+    "body": "身宮落在遷移宮。你把力氣放在外面，在陌生的地方比在熟悉的地方更用得上勁。這說的是著力點，不等於你會搬遷或者離開。",
+    "rule_ids": [
+      "structure.shen.遷移"
+    ],
+    "status": "reviewed"
+  },
+  {
+    "id": "l3.shen.官祿",
+    "kind": "shen",
+    "key": "官祿",
+    "body": "身宮落在官祿宮。你把力氣放在做事上，手上有沒有一件正在推的事，很大程度決定你的狀態。這說的是著力點，不是成就，也不預測職位。",
+    "rule_ids": [
+      "structure.shen.官祿"
+    ],
+    "status": "reviewed"
+  },
+  {
+    "id": "l3.shen.福德",
+    "kind": "shen",
+    "key": "福德",
+    "body": "身宮落在福德宮。你把力氣放在內在，安不安頓比做成了什麼更影響你的狀態。這說的是著力點，只作反思題目，不作任何臨床判斷。",
+    "rule_ids": [
+      "structure.shen.福德"
+    ],
+    "status": "reviewed"
+  },
+  {
+    "id": "l3.empty.命宮",
+    "kind": "empty",
+    "key": "命宮",
+    "body": "命宮沒有主星，要借對宮的遷移宮來看。這不是弱，是說你的基調比較多由所處的環境帶出來：換一個場合，別人看到的你可以差得很遠。",
+    "rule_ids": [
+      "structure.empty.命宮"
+    ],
+    "status": "reviewed"
+  },
+  {
+    "id": "l3.empty.兄弟",
+    "kind": "empty",
+    "key": "兄弟",
+    "body": "兄弟宮沒有主星，要借對宮的交友宮來看。平輩這一塊的樣子，比較多由你身處的圈子決定，而不是由固定的相處方式決定。這是結構，不是疏離。",
+    "rule_ids": [
+      "structure.empty.兄弟"
+    ],
+    "status": "reviewed"
+  },
+  {
+    "id": "l3.empty.夫妻",
+    "kind": "empty",
+    "key": "夫妻",
+    "body": "夫妻宮沒有主星，要借對宮的官祿宮來看。親密關係這一塊沒有自己的定調，容易跟著你做事的狀態走。這說的是連動，不預測關係的成敗。",
+    "rule_ids": [
+      "structure.empty.夫妻"
+    ],
+    "status": "reviewed"
+  },
+  {
+    "id": "l3.empty.子女",
+    "kind": "empty",
+    "key": "子女",
+    "body": "子女宮沒有主星，要借對宮的田宅宮來看。你對下一代、對創造的態度，比較多跟著你安頓自己的方式走。這是結構，不推斷生育結果。",
+    "rule_ids": [
+      "structure.empty.子女"
+    ],
+    "status": "reviewed"
+  },
+  {
+    "id": "l3.empty.財帛",
+    "kind": "empty",
+    "key": "財帛",
+    "body": "財帛宮沒有主星，要借對宮的福德宮來看。你與資源的關係沒有自己的定調，比較多由你想要什麼樣的生活帶出來。這不涉及金額，也不作理財建議。",
+    "rule_ids": [
+      "structure.empty.財帛"
+    ],
+    "status": "reviewed"
+  },
+  {
+    "id": "l3.empty.疾厄",
+    "kind": "empty",
+    "key": "疾厄",
+    "body": "疾厄宮沒有主星，要借對宮的父母宮來看。這裡只讀負荷：你身上的壓力形狀不固定，比較多由外部的要求決定。此處不涉病名，不作風險分級。",
+    "rule_ids": [
+      "structure.empty.疾厄"
+    ],
+    "status": "reviewed"
+  },
+  {
+    "id": "l3.empty.遷移",
+    "kind": "empty",
+    "key": "遷移",
+    "body": "遷移宮沒有主星，要借對宮的命宮來看。在外面的樣子沒有另外一套，基本上就是你本來的樣子拿到陌生的地方用。這是結構，不是好壞。",
+    "rule_ids": [
+      "structure.empty.遷移"
+    ],
+    "status": "reviewed"
+  },
+  {
+    "id": "l3.empty.僕役",
+    "kind": "empty",
+    "key": "僕役",
+    "body": "交友宮沒有主星，要借對宮的兄弟宮來看。你在人群裡的位置，比較多沿用你和平輩相處的那一套。這描述的是結構，不指認任何一個人。",
+    "rule_ids": [
+      "structure.empty.僕役"
+    ],
+    "status": "reviewed"
+  },
+  {
+    "id": "l3.empty.官祿",
+    "kind": "empty",
+    "key": "官祿",
+    "body": "官祿宮沒有主星，要借對宮的夫妻宮來看。你做事的定調不在事情本身，而在你和身邊那個人的狀態裡。這說的是連動，不混同能力與環境，也不預測職位。",
+    "rule_ids": [
+      "structure.empty.官祿"
+    ],
+    "status": "reviewed"
+  },
+  {
+    "id": "l3.empty.田宅",
+    "kind": "empty",
+    "key": "田宅",
+    "body": "田宅宮沒有主星，要借對宮的子女宮來看。你與家、與空間的關係，比較多由你想培育什麼帶出來。這是結構，不等同於買不買樓。",
+    "rule_ids": [
+      "structure.empty.田宅"
+    ],
+    "status": "reviewed"
+  },
+  {
+    "id": "l3.empty.福德",
+    "kind": "empty",
+    "key": "福德",
+    "body": "福德宮沒有主星，要借對宮的財帛宮來看。內在安放自己的方式沒有另外一套，比較多繫在實際的東西上。這只作反思題目，不作任何臨床判斷。",
+    "rule_ids": [
+      "structure.empty.福德"
+    ],
+    "status": "reviewed"
+  },
+  {
+    "id": "l3.empty.父母",
+    "kind": "empty",
+    "key": "父母",
+    "body": "父母宮沒有主星，要借對宮的疾厄宮來看。與長輩、與權威的相處結構不固定，比較多跟著你當時的負荷走。這說的是你這一邊，不推論家人的處境。",
+    "rule_ids": [
+      "structure.empty.父母"
+    ],
+    "status": "reviewed"
+  },
+  {
+    "id": "l3.geju.junchen-qinghui",
+    "kind": "geju",
+    "key": "junchen-qinghui",
+    "body": "這一組星形成君臣慶會：主導的一方和輔佐的一方同時到位。《全書》記這個組合，講的是有人可用，不是必然得位；能不能用得上，仍然要看你肯不肯讓人插手。",
+    "rule_ids": [
+      "geju.junchen-qinghui.core"
+    ],
+    "status": "reviewed"
+  },
+  {
+    "id": "l3.geju.fubi-jiadi",
+    "kind": "geju",
+    "key": "fubi-jiadi",
+    "body": "這一組星形成輔弼夾帝：主導的位置左右都有支撐，結構是完整的。這說的是站得穩，不是走得快；一個完整的結構同樣可以停在原地。",
+    "rule_ids": [
+      "geju.fubi-jiadi.core"
+    ],
+    "status": "reviewed"
+  },
+  {
+    "id": "l3.geju.kuiyue-tongxing",
+    "kind": "geju",
+    "key": "kuiyue-tongxing",
+    "body": "這一組星形成魁鉞同行：機會和引薦容易出現，你做的事比較容易被看見。這說的是可見度，不是評價；被看見和被認可是兩件事。",
+    "rule_ids": [
+      "geju.kuiyue-tongxing.core"
+    ],
+    "status": "reviewed"
+  },
+  {
+    "id": "l3.geju.rima-jiaochi",
+    "kind": "geju",
+    "key": "rima-jiaochi",
+    "body": "這一組星形成祿馬交馳：資源跟著走動流轉，動起來比守著更容易得力。這說的是資源的流動方式，不涉及金額，也不能拿去做買賣判斷。",
+    "rule_ids": [
+      "geju.rima-jiaochi.core"
+    ],
+    "status": "reviewed"
+  },
+  {
+    "id": "l3.geju.riligzhongtian",
+    "kind": "geju",
+    "key": "riligzhongtian",
+    "body": "這一組星形成日麗中天：照得出去，位置顯眼，你做的事不容易無聲無息。這說的是可見度高，代價是同樣看得見的，還有沒做好的部分。",
+    "rule_ids": [
+      "geju.riligzhongtian.core"
+    ],
+    "status": "reviewed"
+  },
+  {
+    "id": "l3.geju.shuicheng-guie",
+    "kind": "geju",
+    "key": "shuicheng-guie",
+    "body": "這一組星形成水澄桂萼：收納得地，積累的過程比較順。這說的是累積這件事對你不費力，但累積和用得上，中間還隔著一步。",
+    "rule_ids": [
+      "geju.shuicheng-guie.core"
+    ],
+    "status": "reviewed"
+  },
+  {
+    "id": "l3.geju.shanyin-chaogang",
+    "kind": "geju",
+    "key": "shanyin-chaogang",
+    "body": "這一組星形成善蔭朝綱：轉圜的餘地和照顧他人的傾向並存。這說的是你手上通常留得住一條路，但那條路多數也留給了別人。",
+    "rule_ids": [
+      "geju.shanyin-chaogang.core"
+    ],
+    "status": "reviewed"
+  },
+  {
+    "id": "l3.geju.cai-ju-caiwei",
+    "kind": "geju",
+    "key": "cai-ju-caiwei",
+    "body": "這一組星形成財居財位：處理資源這件事在本位上，做起來順手。這說的是手感，不是數目；順手的人一樣可以把事情做得太滿。",
+    "rule_ids": [
+      "geju.cai-ju-caiwei.core"
+    ],
+    "status": "reviewed"
+  },
+  {
+    "id": "l3.geju.gui-ru-guixiang",
+    "kind": "geju",
+    "key": "gui-ru-guixiang",
+    "body": "這一組星形成貴入貴鄉：被提攜的機會來得早。這說的是時機，不是結果；早來的機會同樣需要你當時接得住。",
+    "rule_ids": [
+      "geju.gui-ru-guixiang.core"
+    ],
+    "status": "reviewed"
+  },
+  {
+    "id": "l3.geju.huangdian-chaoban",
+    "kind": "geju",
+    "key": "huangdian-chaoban",
+    "body": "這一組星形成皇殿朝班：呈現和可見度兼備，成果說得出口。這說的是表達的條件，不是成果本身的份量。",
+    "rule_ids": [
+      "geju.huangdian-chaoban.core"
+    ],
+    "status": "reviewed"
+  },
+  {
+    "id": "l3.geju.changong-zhegui",
+    "kind": "geju",
+    "key": "changong-zhegui",
+    "body": "這一組星形成蟾宮折桂：細緻和表達兩樣兼備。這說的是能力的組合，不是名次；古書把它繫在科考上，本書只取前面那一半。",
+    "rule_ids": [
+      "geju.changong-zhegui.core"
+    ],
+    "status": "reviewed"
+  },
+  {
+    "id": "l3.geju.duijin-jiyu",
+    "kind": "geju",
+    "key": "duijin-jiyu",
+    "body": "這一組星形成堆金積玉：資源留得住，守得穩。這說的是留存的傾向，不涉及金額；守得穩的人，放手的時候通常也比較慢。",
+    "rule_ids": [
+      "geju.duijin-jiyu.core"
+    ],
+    "status": "reviewed"
+  },
+  {
+    "id": "l3.geju.caiyin-qianyi",
+    "kind": "geju",
+    "key": "caiyin-qianyi",
+    "body": "這一組星形成財蔭坐遷移：在外得助，庇護多數來自外部。這說的是助力的來源在外面，不預測你會不會離開熟悉的地方。",
+    "rule_ids": [
+      "geju.caiyin-qianyi.core"
+    ],
+    "status": "reviewed"
+  },
+  {
+    "id": "l3.geju.yuxiu-tianxiang",
+    "kind": "geju",
+    "key": "yuxiu-tianxiang",
+    "body": "這一組星形成玉袖天香：精神生活有寄託，品味是它的外顯。這只作反思題目，說的是內在有地方安放，不作任何臨床判斷。",
+    "rule_ids": [
+      "geju.yuxiu-tianxiang.core"
+    ],
+    "status": "reviewed"
+  },
+  {
+    "id": "l3.geju.huo-tan",
+    "kind": "geju",
+    "key": "huo-tan",
+    "body": "這一組星形成火貪。《全書》火星歌記「若得貪狼會，旺地貴無倫」，說的是機會來得猛、來得急。急的另一面是短：來得快的東西，走得也快。",
+    "rule_ids": [
+      "geju.huo-tan.core"
+    ],
+    "status": "reviewed"
+  },
+  {
+    "id": "l3.geju.ling-tan",
+    "kind": "geju",
+    "key": "ling-tan",
+    "body": "這一組星形成鈴貪。《全書》鈴星歌記「若與貪狼會，指日立邊庭」，同樣說驟發。這描述的是節奏不是份量，而驟發之後怎樣接住，盤上答不到。",
+    "rule_ids": [
+      "geju.ling-tan.core"
+    ],
+    "status": "reviewed"
+  },
+  {
+    "id": "l3.relation.命宮",
+    "kind": "relation",
+    "key": "命宮",
+    "body": "命宮不是獨立看的。它與遷移宮正對，又與財帛宮、官祿宮連成一組：你是誰、你怎樣賺、你做什麼、你在外面的樣子，四件事要一起讀。單看一宮會得出沒有條件的結論。",
+    "rule_ids": [],
+    "status": "reviewed"
+  },
+  {
+    "id": "l3.relation.兄弟",
+    "kind": "relation",
+    "key": "兄弟",
+    "body": "兄弟宮不是獨立看的。它與交友宮正對，又與疾厄宮、田宅宮連成一組：平輩、圈子、負荷、家，這幾樣其實是同一個生活半徑裡的事。分開看會把它們讀成互不相干。",
+    "rule_ids": [],
+    "status": "reviewed"
+  },
+  {
+    "id": "l3.relation.夫妻",
+    "kind": "relation",
+    "key": "夫妻",
+    "body": "夫妻宮不是獨立看的。它與官祿宮正對，又與遷移宮、福德宮連成一組：關係、做事、在外的狀態、內在的安頓，會互相拉扯。只讀這一宮，看不出那股拉扯從哪裡來。",
+    "rule_ids": [],
+    "status": "reviewed"
+  },
+  {
+    "id": "l3.relation.子女",
+    "kind": "relation",
+    "key": "子女",
+    "body": "子女宮不是獨立看的。它與田宅宮正對，又與交友宮、父母宮連成一組：下一代、家、圈子、上一輩，串起來就是你在世代之間的位置。單讀一宮會看漏那條線。",
+    "rule_ids": [],
+    "status": "reviewed"
+  },
+  {
+    "id": "l3.relation.財帛",
+    "kind": "relation",
+    "key": "財帛",
+    "body": "財帛宮不是獨立看的。它與福德宮正對，又與命宮、官祿宮連成一組：你怎樣賺、你是誰、你做什麼、你想要什麼樣的日子，是同一件事的幾面。分開讀會讀成理財問題。",
+    "rule_ids": [],
+    "status": "reviewed"
+  },
+  {
+    "id": "l3.relation.疾厄",
+    "kind": "relation",
+    "key": "疾厄",
+    "body": "疾厄宮不是獨立看的。它與父母宮正對，又與兄弟宮、田宅宮連成一組：負荷從來不只是自己一個人的事，它連著平輩、長輩和你住的地方。此章只讀負荷的形狀。",
+    "rule_ids": [],
+    "status": "reviewed"
+  },
+  {
+    "id": "l3.relation.遷移",
+    "kind": "relation",
+    "key": "遷移",
+    "body": "遷移宮不是獨立看的。它與命宮正對，又與夫妻宮、福德宮連成一組：在外的樣子、本來的樣子、身邊的人、內在的安頓，是同一個人的幾個切面。正對這一組最要一起讀。",
+    "rule_ids": [],
+    "status": "reviewed"
+  },
+  {
+    "id": "l3.relation.僕役",
+    "kind": "relation",
+    "key": "僕役",
+    "body": "交友宮不是獨立看的。它與兄弟宮正對，又與子女宮、父母宮連成一組：朋友、手足、晚輩、長輩，其實是同一套相處方式落在不同的人身上。單讀一宮會以為它們無關。",
+    "rule_ids": [],
+    "status": "reviewed"
+  },
+  {
+    "id": "l3.relation.官祿",
+    "kind": "relation",
+    "key": "官祿",
+    "body": "官祿宮不是獨立看的。它與夫妻宮正對，又與命宮、財帛宮連成一組：你做什麼、你是誰、你怎樣賺、身邊那個人的狀態，四樣一起動。單看一宮談事業會漏掉條件。",
+    "rule_ids": [],
+    "status": "reviewed"
+  },
+  {
+    "id": "l3.relation.田宅",
+    "kind": "relation",
+    "key": "田宅",
+    "body": "田宅宮不是獨立看的。它與子女宮正對，又與兄弟宮、疾厄宮連成一組：住的地方、要培育的人和事、平輩、身上的負荷，構成同一個生活的底盤。分開讀會失去分量。",
+    "rule_ids": [],
+    "status": "reviewed"
+  },
+  {
+    "id": "l3.relation.福德",
+    "kind": "relation",
+    "key": "福德",
+    "body": "福德宮不是獨立看的。它與財帛宮正對，又與夫妻宮、遷移宮連成一組：內在的安頓、手上的資源、身邊的人、在外的狀態，會互相牽動。此章只作反思，不作臨床判斷。",
+    "rule_ids": [],
+    "status": "reviewed"
+  },
+  {
+    "id": "l3.relation.父母",
+    "kind": "relation",
+    "key": "父母",
+    "body": "父母宮不是獨立看的。它與疾厄宮正對，又與子女宮、交友宮連成一組：上一輩、下一代、身邊的人、自己的負荷，是同一條世代線上的位置。此章只讀你這一邊。",
+    "rule_ids": [],
+    "status": "reviewed"
+  }
+]

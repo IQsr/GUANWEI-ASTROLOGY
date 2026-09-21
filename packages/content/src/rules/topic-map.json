@@ -1,0 +1,53 @@
+{
+  "$note": "主題 → 查閱入口（voice-spec §12）。呢個係查閱表，唔係判斷表 —— 所以佢唔喺規則庫入面，冇觸發條件、唔出 evidence。宮名唔等於事件：每個主題嘅 prohibited 就係規範原文嗰句。",
+  "source": "docs/voice-spec.md §12",
+  "version": "1.0",
+  "topics": {
+    "self": {
+      "label": "自我與行為",
+      "entry": ["命宮", "身宮"],
+      "crosscheck": ["命宮三方四正", "相關四化"],
+      "prohibited": ["不得診斷人格障礙"]
+    },
+    "career": {
+      "label": "職涯與成果",
+      "entry": ["官祿"],
+      "crosscheck": ["命宮", "財帛", "遷移", "相關四化"],
+      "prohibited": ["依結構區分能力與環境，唔准混為一談"]
+    },
+    "finance": {
+      "label": "財務與資源",
+      "entry": ["財帛"],
+      "crosscheck": ["官祿", "田宅"],
+      "prohibited": ["收入、資產、現金流不可混同"]
+    },
+    "relationship": {
+      "label": "關係與承諾",
+      "entry": ["夫妻"],
+      "crosscheck": ["命宮", "福德"],
+      "prohibited": ["不得代言伴侶", "不得推婚次", "夫妻宮有忌不等於離婚"]
+    },
+    "home": {
+      "label": "居住與家庭安排",
+      "entry": ["田宅"],
+      "crosscheck": ["相關限流", "資源結構"],
+      "prohibited": ["不得直接等同買樓", "田宅被觸發不等於置業"]
+    },
+    "social": {
+      "label": "合作與社群",
+      "entry": ["僕役", "兄弟"],
+      "crosscheck": ["官祿", "財帛", "已驗證互動"],
+      "prohibited": ["不得指認小人"]
+    },
+    "load": {
+      "label": "生活負荷",
+      "entry": ["疾厄", "福德"],
+      "crosscheck": [],
+      "prohibited": [
+        "僅作反思主題，不作臨床風險評級",
+        "疾厄大限不等於患病",
+        "父母宮有煞不等於父母有災"
+      ]
+    }
+  }
+}

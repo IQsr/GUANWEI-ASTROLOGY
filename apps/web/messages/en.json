@@ -1,0 +1,59 @@
+{
+  "brand": {
+    "name": "Guan Wei",
+    "latin": "GUAN WEI",
+    "essence": "Reading the stars is reading yourself.",
+    "philosophy": "Observe the small, and you will know the shape."
+  },
+  "ruzhai": {
+    "meta": "A way of reading and understanding yourself, through Zi Wei Dou Shu.",
+    "proposition": "Among ten thousand volumes, one is yours.",
+    "enter": "Begin",
+    "hint": "Five questions, about three minutes. An unknown birth hour is fine.",
+    "sealLabel": "Guan Wei seal",
+    "resume": "Continue reading"
+  },
+  "theme": {
+    "day": "Day",
+    "night": "Night"
+  },
+  "tokens": {
+    "title": "Visual system",
+    "subtitle": "Ticket A2 · token verification page",
+    "intro": "This page is not the product; it is a check sheet. Every value comes from the tokens in globals.css, so it is easy to see whether they match the visual system spec. E1 replaces this page entirely.",
+    "colorTitle": "Colour",
+    "colorNote": "Four materials, not four colours. Switch day/night at the top right — everything should change together.",
+    "ratioTitle": "Proportion",
+    "ratioNote": "A hard rule. More than one cell of cinnabar is a mistake, not a style choice.",
+    "typeTitle": "Type",
+    "typeNote": "Song for the frame, Spectral alongside it, Noto Sans TC for utility only. Line height 1.95, 32–40 characters per line, never embolden Chinese.",
+    "specimen": {
+      "display": "觀微",
+      "h1": "命宮 · 天府",
+      "h2": "觀其微，而知其勢",
+      "lead": "Your Life Palace falls in Shen.",
+      "body": "Zi Wei Dou Shu carries the structure of a life across twelve palaces. It speaks of tendencies, not conclusions.",
+      "sm": "This passage is inference, not assertion.",
+      "cap": "YIN ZHAI · ENTERING"
+    },
+    "layoutTitle": "Layout",
+    "layoutNote": "Text block 690px, head margin 104px, foot margin 64px (8:5). The frame below is the real text-block width.",
+    "banxinLabel": "Text block",
+    "tiantouLabel": "Head margin",
+    "dijiaoLabel": "Foot margin",
+    "motionTitle": "Motion",
+    "motionNote": "Three panels below animate in. All start from a visible state: with JS off, or reduced motion on, the content is complete — it simply does not move.",
+    "motionOne": "Once only",
+    "motionOneNote": "Scrolling back up does not replay it.",
+    "motionTwo": "One direction",
+    "motionTwoNote": "Only translateY ≤ 16px plus opacity.",
+    "motionThree": "Slow",
+    "motionThreeNote": "900ms in — three times a typical site.",
+    "engineTitle": "Engine",
+    "engineNote": "Also proves packages/ziwei still imports.",
+    "engineLabel": "Engine version",
+    "castLabel": "cast() response",
+    "localeLabel": "Current locale",
+    "nextUp": "Next ticket: B3 — settle the three school divergences"
+  }
+}

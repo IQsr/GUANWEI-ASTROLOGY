@@ -1,0 +1,882 @@
+[
+ {
+  "id": "mod.sihua.紫微.權",
+  "kind": "sihua",
+  "star": "紫微",
+  "key": "權",
+  "text": "帝座得權：主導的姿態有了實際的支點，說出來的話開始算數。要留意權帶來的是責任而不是地位。",
+  "sources": [
+   {
+    "corpus": "quanshu",
+    "passage_id": "sihua.化权",
+    "quote": "权星掌判生杀之神",
+    "scope": "star"
+   },
+   {
+    "corpus": "quanshu",
+    "passage_id": "sihua.verse",
+    "quote": "乙机梁紫月交侵",
+    "scope": "star"
+   }
+  ],
+  "status": "reviewed"
+ },
+ {
+  "id": "mod.sihua.紫微.科",
+  "kind": "sihua",
+  "star": "紫微",
+  "key": "科",
+  "text": "帝座化科：體面被看見，名分理順。它讓紫微的標準說得出口，但不增加它可以動用的東西。",
+  "sources": [
+   {
+    "corpus": "quanshu",
+    "passage_id": "sihua.化科",
+    "quote": "科星上界应试，主掌文墨之星",
+    "scope": "star"
+   },
+   {
+    "corpus": "quanshu",
+    "passage_id": "sihua.verse",
+    "quote": "丙同机昌廉贞位",
+    "scope": "star"
+   }
+  ],
+  "status": "reviewed"
+ },
+ {
+  "id": "mod.sihua.天機.祿",
+  "kind": "sihua",
+  "star": "天機",
+  "key": "祿",
+  "text": "機變化祿：想法找得到出路，繞的那條路真的通。它增加的是可能性，不是穩定性。",
+  "sources": [
+   {
+    "corpus": "quanshu",
+    "passage_id": "sihua.化禄",
+    "quote": "禄为福德之神",
+    "scope": "star"
+   },
+   {
+    "corpus": "quanshu",
+    "passage_id": "sihua.verse",
+    "quote": "甲廉破武阳为伴",
+    "scope": "star"
+   }
+  ],
+  "status": "reviewed"
+ },
+ {
+  "id": "mod.sihua.天機.權",
+  "kind": "sihua",
+  "star": "天機",
+  "key": "權",
+  "text": "機變化權：轉圜開始有分量，它的方案有人採納。代價是它要為自己的變通負責。",
+  "sources": [
+   {
+    "corpus": "quanshu",
+    "passage_id": "sihua.化权",
+    "quote": "权星掌判生杀之神",
+    "scope": "star"
+   },
+   {
+    "corpus": "quanshu",
+    "passage_id": "sihua.verse",
+    "quote": "乙机梁紫月交侵",
+    "scope": "star"
+   }
+  ],
+  "status": "reviewed"
+ },
+ {
+  "id": "mod.sihua.天機.科",
+  "kind": "sihua",
+  "star": "天機",
+  "key": "科",
+  "text": "機變化科：思路被整理成說得出口的樣子。這是它最容易被低估卻最實用的一化。",
+  "sources": [
+   {
+    "corpus": "quanshu",
+    "passage_id": "sihua.化科",
+    "quote": "科星上界应试，主掌文墨之星",
+    "scope": "star"
+   },
+   {
+    "corpus": "quanshu",
+    "passage_id": "sihua.verse",
+    "quote": "丙同机昌廉贞位",
+    "scope": "star"
+   }
+  ],
+  "status": "reviewed"
+ },
+ {
+  "id": "mod.sihua.天機.忌",
+  "kind": "sihua",
+  "star": "天機",
+  "key": "忌",
+  "text": "機變化忌：想得停不下來，同一件事反覆推演。要留意這不是猶豫，是收不了尾。",
+  "sources": [
+   {
+    "corpus": "quanshu",
+    "passage_id": "sihua.化忌",
+    "quote": "忌为多管之神",
+    "scope": "star"
+   },
+   {
+    "corpus": "quanshu",
+    "passage_id": "sihua.verse",
+    "quote": "癸破巨阴贪狼停",
+    "scope": "star"
+   }
+  ],
+  "status": "reviewed"
+ },
+ {
+  "id": "mod.sihua.太陽.祿",
+  "kind": "sihua",
+  "star": "太陽",
+  "key": "祿",
+  "text": "日照化祿：付出接得回回應，照出去的地方真的亮起來。它讓太陽的給予不再是空轉。",
+  "sources": [
+   {
+    "corpus": "quanshu",
+    "passage_id": "sihua.化禄",
+    "quote": "禄为福德之神",
+    "scope": "star"
+   },
+   {
+    "corpus": "quanshu",
+    "passage_id": "sihua.verse",
+    "quote": "甲廉破武阳为伴",
+    "scope": "star"
+   }
+  ],
+  "status": "reviewed"
+ },
+ {
+  "id": "mod.sihua.太陽.權",
+  "kind": "sihua",
+  "star": "太陽",
+  "key": "權",
+  "text": "日照化權：承擔的位置變得明確，它被放到檯面上。留意它本來就不擅長推辭。",
+  "sources": [
+   {
+    "corpus": "quanshu",
+    "passage_id": "sihua.化权",
+    "quote": "权星掌判生杀之神",
+    "scope": "star"
+   },
+   {
+    "corpus": "quanshu",
+    "passage_id": "sihua.verse",
+    "quote": "乙机梁紫月交侵",
+    "scope": "star"
+   }
+  ],
+  "status": "reviewed"
+ },
+ {
+  "id": "mod.sihua.太陽.忌",
+  "kind": "sihua",
+  "star": "太陽",
+  "key": "忌",
+  "text": "日照化忌：照出去而收不回來，付出與回應之間出現缺口。這一化最耗的是它的熱度。",
+  "sources": [
+   {
+    "corpus": "quanshu",
+    "passage_id": "sihua.化忌",
+    "quote": "忌为多管之神",
+    "scope": "star"
+   },
+   {
+    "corpus": "quanshu",
+    "passage_id": "sihua.verse",
+    "quote": "癸破巨阴贪狼停",
+    "scope": "star"
+   }
+  ],
+  "status": "reviewed"
+ },
+ {
+  "id": "mod.sihua.武曲.祿",
+  "kind": "sihua",
+  "star": "武曲",
+  "key": "祿",
+  "text": "武曲化祿：資源與執行接上了，做得成也拿得到。它是十化裡最直接的一組。",
+  "sources": [
+   {
+    "corpus": "quanshu",
+    "passage_id": "sihua.化禄",
+    "quote": "禄为福德之神",
+    "scope": "star"
+   },
+   {
+    "corpus": "quanshu",
+    "passage_id": "sihua.verse",
+    "quote": "甲廉破武阳为伴",
+    "scope": "star"
+   }
+  ],
+  "status": "reviewed"
+ },
+ {
+  "id": "mod.sihua.武曲.權",
+  "kind": "sihua",
+  "star": "武曲",
+  "key": "權",
+  "text": "武曲化權：決斷有了授權，敢下手也下得了手。要留意剛加上權容易過猛。方向對就推得遠，方向錯就撞得重。",
+  "sources": [
+   {
+    "corpus": "quanshu",
+    "passage_id": "sihua.化权",
+    "quote": "权星掌判生杀之神",
+    "scope": "star"
+   },
+   {
+    "corpus": "quanshu",
+    "passage_id": "sihua.verse",
+    "quote": "乙机梁紫月交侵",
+    "scope": "star"
+   }
+  ],
+  "status": "reviewed"
+ },
+ {
+  "id": "mod.sihua.武曲.科",
+  "kind": "sihua",
+  "star": "武曲",
+  "key": "科",
+  "text": "武曲化科：務實被整理成章法，硬的部分有了說法。它讓武曲不那麼容易傷人。",
+  "sources": [
+   {
+    "corpus": "quanshu",
+    "passage_id": "sihua.化科",
+    "quote": "科星上界应试，主掌文墨之星",
+    "scope": "star"
+   },
+   {
+    "corpus": "quanshu",
+    "passage_id": "sihua.verse",
+    "quote": "丙同机昌廉贞位",
+    "scope": "star"
+   }
+  ],
+  "status": "reviewed"
+ },
+ {
+  "id": "mod.sihua.武曲.忌",
+  "kind": "sihua",
+  "star": "武曲",
+  "key": "忌",
+  "text": "武曲化忌：決斷卡住，想做而做不成，或者做成了代價超出預期。它的形狀是硬碰硬。",
+  "sources": [
+   {
+    "corpus": "quanshu",
+    "passage_id": "sihua.化忌",
+    "quote": "忌为多管之神",
+    "scope": "star"
+   },
+   {
+    "corpus": "quanshu",
+    "passage_id": "sihua.verse",
+    "quote": "癸破巨阴贪狼停",
+    "scope": "star"
+   }
+  ],
+  "status": "reviewed"
+ },
+ {
+  "id": "mod.sihua.天同.祿",
+  "kind": "sihua",
+  "star": "天同",
+  "key": "祿",
+  "text": "天同化祿：安穩有了實際的憑藉，舒服不再只是感覺。它讓自足變成可以維持的狀態。",
+  "sources": [
+   {
+    "corpus": "quanshu",
+    "passage_id": "sihua.化禄",
+    "quote": "禄为福德之神",
+    "scope": "star"
+   },
+   {
+    "corpus": "quanshu",
+    "passage_id": "sihua.verse",
+    "quote": "甲廉破武阳为伴",
+    "scope": "star"
+   }
+  ],
+  "status": "reviewed"
+ },
+ {
+  "id": "mod.sihua.天同.權",
+  "kind": "sihua",
+  "star": "天同",
+  "key": "權",
+  "text": "天同化權：和緩的人拿起了主動，難得。要留意這一化推的是它本來不太想推的事。",
+  "sources": [
+   {
+    "corpus": "quanshu",
+    "passage_id": "sihua.化权",
+    "quote": "权星掌判生杀之神",
+    "scope": "star"
+   },
+   {
+    "corpus": "quanshu",
+    "passage_id": "sihua.verse",
+    "quote": "乙机梁紫月交侵",
+    "scope": "star"
+   }
+  ],
+  "status": "reviewed"
+ },
+ {
+  "id": "mod.sihua.天同.忌",
+  "kind": "sihua",
+  "star": "天同",
+  "key": "忌",
+  "text": "天同化忌：想安頓而安頓不下，舒服的條件恰好最缺。它的形狀是拖而不是痛。",
+  "sources": [
+   {
+    "corpus": "quanshu",
+    "passage_id": "sihua.化忌",
+    "quote": "忌为多管之神",
+    "scope": "star"
+   },
+   {
+    "corpus": "quanshu",
+    "passage_id": "sihua.verse",
+    "quote": "癸破巨阴贪狼停",
+    "scope": "star"
+   }
+  ],
+  "status": "reviewed"
+ },
+ {
+  "id": "mod.sihua.廉貞.祿",
+  "kind": "sihua",
+  "star": "廉貞",
+  "key": "祿",
+  "text": "廉貞化祿：投入找到了值得的對象，濃度轉成專注。它是廉貞最順的一化。值得的對象出現時，它的效率驚人。",
+  "sources": [
+   {
+    "corpus": "quanshu",
+    "passage_id": "sihua.化禄",
+    "quote": "禄为福德之神",
+    "scope": "star"
+   },
+   {
+    "corpus": "quanshu",
+    "passage_id": "sihua.verse",
+    "quote": "甲廉破武阳为伴",
+    "scope": "star"
+   }
+  ],
+  "status": "reviewed"
+ },
+ {
+  "id": "mod.sihua.廉貞.忌",
+  "kind": "sihua",
+  "star": "廉貞",
+  "key": "忌",
+  "text": "廉貞化忌：投入而沒有回應，原則被現實卡住。要留意它的反應會比事情本身大。",
+  "sources": [
+   {
+    "corpus": "quanshu",
+    "passage_id": "sihua.化忌",
+    "quote": "忌为多管之神",
+    "scope": "star"
+   },
+   {
+    "corpus": "quanshu",
+    "passage_id": "sihua.verse",
+    "quote": "癸破巨阴贪狼停",
+    "scope": "star"
+   }
+  ],
+  "status": "reviewed"
+ },
+ {
+  "id": "mod.sihua.天府.科",
+  "kind": "sihua",
+  "star": "天府",
+  "key": "科",
+  "text": "天府化科：守成被整理成制度，穩定有了名目。天府只有這一化，所以它出現時份量不輕。",
+  "sources": [
+   {
+    "corpus": "quanshu",
+    "passage_id": "sihua.化科",
+    "quote": "科星上界应试，主掌文墨之星",
+    "scope": "star"
+   },
+   {
+    "corpus": "quanshu",
+    "passage_id": "sihua.verse",
+    "quote": "丙同机昌廉贞位",
+    "scope": "star"
+   }
+  ],
+  "status": "reviewed"
+ },
+ {
+  "id": "mod.sihua.太陰.祿",
+  "kind": "sihua",
+  "star": "太陰",
+  "key": "祿",
+  "text": "太陰化祿：積累有了去處，收得住也用得著。它讓內斂不再只是不花。它讓內斂的積累有機會被用起來，而不是永遠留著。",
+  "sources": [
+   {
+    "corpus": "quanshu",
+    "passage_id": "sihua.化禄",
+    "quote": "禄为福德之神",
+    "scope": "star"
+   },
+   {
+    "corpus": "quanshu",
+    "passage_id": "sihua.verse",
+    "quote": "甲廉破武阳为伴",
+    "scope": "star"
+   }
+  ],
+  "status": "reviewed"
+ },
+ {
+  "id": "mod.sihua.太陰.權",
+  "kind": "sihua",
+  "star": "太陰",
+  "key": "權",
+  "text": "太陰化權：照料的人開始拿主意，細緻轉成安排。留意它未必會把這件事說出口。",
+  "sources": [
+   {
+    "corpus": "quanshu",
+    "passage_id": "sihua.化权",
+    "quote": "权星掌判生杀之神",
+    "scope": "star"
+   },
+   {
+    "corpus": "quanshu",
+    "passage_id": "sihua.verse",
+    "quote": "乙机梁紫月交侵",
+    "scope": "star"
+   }
+  ],
+  "status": "reviewed"
+ },
+ {
+  "id": "mod.sihua.太陰.科",
+  "kind": "sihua",
+  "star": "太陰",
+  "key": "科",
+  "text": "太陰化科：細膩被看見，內裡的東西有了形狀。這一化讓太陰不再是默默做完的那個。",
+  "sources": [
+   {
+    "corpus": "quanshu",
+    "passage_id": "sihua.化科",
+    "quote": "科星上界应试，主掌文墨之星",
+    "scope": "star"
+   },
+   {
+    "corpus": "quanshu",
+    "passage_id": "sihua.verse",
+    "quote": "丙同机昌廉贞位",
+    "scope": "star"
+   }
+  ],
+  "status": "reviewed"
+ },
+ {
+  "id": "mod.sihua.太陰.忌",
+  "kind": "sihua",
+  "star": "太陰",
+  "key": "忌",
+  "text": "太陰化忌：收得太緊，情緒往內積而不往外說。它的形狀是安靜而不是激烈。",
+  "sources": [
+   {
+    "corpus": "quanshu",
+    "passage_id": "sihua.化忌",
+    "quote": "忌为多管之神",
+    "scope": "star"
+   },
+   {
+    "corpus": "quanshu",
+    "passage_id": "sihua.verse",
+    "quote": "癸破巨阴贪狼停",
+    "scope": "star"
+   }
+  ],
+  "status": "reviewed"
+ },
+ {
+  "id": "mod.sihua.貪狼.祿",
+  "kind": "sihua",
+  "star": "貪狼",
+  "key": "祿",
+  "text": "貪狼化祿：想要的東西拿得到，才藝換得到實際的收穫。它讓驅力有了出口。",
+  "sources": [
+   {
+    "corpus": "quanshu",
+    "passage_id": "sihua.化禄",
+    "quote": "禄为福德之神",
+    "scope": "star"
+   },
+   {
+    "corpus": "quanshu",
+    "passage_id": "sihua.verse",
+    "quote": "甲廉破武阳为伴",
+    "scope": "star"
+   }
+  ],
+  "status": "reviewed"
+ },
+ {
+  "id": "mod.sihua.貪狼.權",
+  "kind": "sihua",
+  "star": "貪狼",
+  "key": "權",
+  "text": "貪狼化權：慾望有了推動力，敢要也要得到。要留意方向由它當下想要什麼決定。",
+  "sources": [
+   {
+    "corpus": "quanshu",
+    "passage_id": "sihua.化权",
+    "quote": "权星掌判生杀之神",
+    "scope": "star"
+   },
+   {
+    "corpus": "quanshu",
+    "passage_id": "sihua.verse",
+    "quote": "乙机梁紫月交侵",
+    "scope": "star"
+   }
+  ],
+  "status": "reviewed"
+ },
+ {
+  "id": "mod.sihua.貪狼.忌",
+  "kind": "sihua",
+  "star": "貪狼",
+  "key": "忌",
+  "text": "貪狼化忌：想要而得不到，驅力轉成比較與不甘。這一化的措辭要特別小心。",
+  "sources": [
+   {
+    "corpus": "quanshu",
+    "passage_id": "sihua.化忌",
+    "quote": "忌为多管之神",
+    "scope": "star"
+   },
+   {
+    "corpus": "quanshu",
+    "passage_id": "sihua.verse",
+    "quote": "癸破巨阴贪狼停",
+    "scope": "star"
+   }
+  ],
+  "status": "reviewed"
+ },
+ {
+  "id": "mod.sihua.巨門.祿",
+  "kind": "sihua",
+  "star": "巨門",
+  "key": "祿",
+  "text": "巨門化祿：講得明白換得到東西，口舌成為本事。它是巨門最實用的一化。它把辨析變成收入，而不是變成摩擦。",
+  "sources": [
+   {
+    "corpus": "quanshu",
+    "passage_id": "sihua.化禄",
+    "quote": "禄为福德之神",
+    "scope": "star"
+   },
+   {
+    "corpus": "quanshu",
+    "passage_id": "sihua.verse",
+    "quote": "甲廉破武阳为伴",
+    "scope": "star"
+   }
+  ],
+  "status": "reviewed"
+ },
+ {
+  "id": "mod.sihua.巨門.權",
+  "kind": "sihua",
+  "star": "巨門",
+  "key": "權",
+  "text": "巨門化權：質疑有了分量，提出的問題有人正視。代價是它會講得更直。講得直是它的優勢，也是要留意的地方。",
+  "sources": [
+   {
+    "corpus": "quanshu",
+    "passage_id": "sihua.化权",
+    "quote": "权星掌判生杀之神",
+    "scope": "star"
+   },
+   {
+    "corpus": "quanshu",
+    "passage_id": "sihua.verse",
+    "quote": "乙机梁紫月交侵",
+    "scope": "star"
+   }
+  ],
+  "status": "reviewed"
+ },
+ {
+  "id": "mod.sihua.巨門.忌",
+  "kind": "sihua",
+  "star": "巨門",
+  "key": "忌",
+  "text": "巨門化忌：話說出口容易被誤解，辨析轉成糾纏。要留意這不等於人際有難。",
+  "sources": [
+   {
+    "corpus": "quanshu",
+    "passage_id": "sihua.化忌",
+    "quote": "忌为多管之神",
+    "scope": "star"
+   },
+   {
+    "corpus": "quanshu",
+    "passage_id": "sihua.verse",
+    "quote": "癸破巨阴贪狼停",
+    "scope": "star"
+   }
+  ],
+  "status": "reviewed"
+ },
+ {
+  "id": "mod.sihua.天梁.祿",
+  "kind": "sihua",
+  "star": "天梁",
+  "key": "祿",
+  "text": "天梁化祿：庇護有了資源，接得住人也養得起。它讓承擔不再是純付出。肯擔的人這時候擔得起，這一點值得寫。",
+  "sources": [
+   {
+    "corpus": "quanshu",
+    "passage_id": "sihua.化禄",
+    "quote": "禄为福德之神",
+    "scope": "star"
+   },
+   {
+    "corpus": "quanshu",
+    "passage_id": "sihua.verse",
+    "quote": "甲廉破武阳为伴",
+    "scope": "star"
+   }
+  ],
+  "status": "reviewed"
+ },
+ {
+  "id": "mod.sihua.天梁.權",
+  "kind": "sihua",
+  "star": "天梁",
+  "key": "權",
+  "text": "天梁化權：原則有了執行力，說的話有人照做。留意它會因此更不願意退讓。",
+  "sources": [
+   {
+    "corpus": "quanshu",
+    "passage_id": "sihua.化权",
+    "quote": "权星掌判生杀之神",
+    "scope": "star"
+   },
+   {
+    "corpus": "quanshu",
+    "passage_id": "sihua.verse",
+    "quote": "乙机梁紫月交侵",
+    "scope": "star"
+   }
+  ],
+  "status": "reviewed"
+ },
+ {
+  "id": "mod.sihua.天梁.科",
+  "kind": "sihua",
+  "star": "天梁",
+  "key": "科",
+  "text": "天梁化科：公道被寫成規矩，庇護有了名分。這一化最接近天梁本來的樣子。",
+  "sources": [
+   {
+    "corpus": "quanshu",
+    "passage_id": "sihua.化科",
+    "quote": "科星上界应试，主掌文墨之星",
+    "scope": "star"
+   },
+   {
+    "corpus": "quanshu",
+    "passage_id": "sihua.verse",
+    "quote": "丙同机昌廉贞位",
+    "scope": "star"
+   }
+  ],
+  "status": "reviewed"
+ },
+ {
+  "id": "mod.sihua.破軍.祿",
+  "kind": "sihua",
+  "star": "破軍",
+  "key": "祿",
+  "text": "破軍化祿：更替換得回東西，投入的成本收得返。它讓破舊不至於變成純耗。",
+  "sources": [
+   {
+    "corpus": "quanshu",
+    "passage_id": "sihua.化禄",
+    "quote": "禄为福德之神",
+    "scope": "star"
+   },
+   {
+    "corpus": "quanshu",
+    "passage_id": "sihua.verse",
+    "quote": "甲廉破武阳为伴",
+    "scope": "star"
+   }
+  ],
+  "status": "reviewed"
+ },
+ {
+  "id": "mod.sihua.破軍.權",
+  "kind": "sihua",
+  "star": "破軍",
+  "key": "權",
+  "text": "破軍化權：推翻有了授權，敢拆也拆得動。要留意它開得了頭，未必收得了尾。",
+  "sources": [
+   {
+    "corpus": "quanshu",
+    "passage_id": "sihua.化权",
+    "quote": "权星掌判生杀之神",
+    "scope": "star"
+   },
+   {
+    "corpus": "quanshu",
+    "passage_id": "sihua.verse",
+    "quote": "乙机梁紫月交侵",
+    "scope": "star"
+   }
+  ],
+  "status": "reviewed"
+ },
+ {
+  "id": "mod.sihua.左輔.科",
+  "kind": "sihua",
+  "star": "左輔",
+  "key": "科",
+  "text": "左輔化科：協助被看見，居中的那一個有了名分。它修飾的是支援而不是主體。",
+  "sources": [
+   {
+    "corpus": "quanshu",
+    "passage_id": "sihua.化科",
+    "quote": "科星上界应试，主掌文墨之星",
+    "scope": "star"
+   },
+   {
+    "corpus": "quanshu",
+    "passage_id": "sihua.verse",
+    "quote": "丙同机昌廉贞位",
+    "scope": "star"
+   }
+  ],
+  "status": "reviewed"
+ },
+ {
+  "id": "mod.sihua.右弼.科",
+  "kind": "sihua",
+  "star": "右弼",
+  "key": "科",
+  "text": "右弼化科：協助被看見，補位的分量被承認。與左輔同性質，方向略偏內。它修飾的是支援的角色，不是主體本身。",
+  "sources": [
+   {
+    "corpus": "quanshu",
+    "passage_id": "sihua.化科",
+    "quote": "科星上界应试，主掌文墨之星",
+    "scope": "star"
+   },
+   {
+    "corpus": "quanshu",
+    "passage_id": "sihua.verse",
+    "quote": "丙同机昌廉贞位",
+    "scope": "star"
+   }
+  ],
+  "status": "reviewed"
+ },
+ {
+  "id": "mod.sihua.文昌.科",
+  "kind": "sihua",
+  "star": "文昌",
+  "key": "科",
+  "text": "文昌化科：條理與文字被肯定，說得清楚本身成為優勢。它修飾的是呈現方式，不改變事情的方向。",
+  "sources": [
+   {
+    "corpus": "quanshu",
+    "passage_id": "sihua.化科",
+    "quote": "科星上界应试，主掌文墨之星",
+    "scope": "star"
+   },
+   {
+    "corpus": "quanshu",
+    "passage_id": "sihua.verse",
+    "quote": "丙同机昌廉贞位",
+    "scope": "star"
+   }
+  ],
+  "status": "reviewed"
+ },
+ {
+  "id": "mod.sihua.文昌.忌",
+  "kind": "sihua",
+  "star": "文昌",
+  "key": "忌",
+  "text": "文昌化忌：文書與表述上容易出岔，細節要多看一次。這是條件提示，不是預言。",
+  "sources": [
+   {
+    "corpus": "quanshu",
+    "passage_id": "sihua.化忌",
+    "quote": "忌为多管之神",
+    "scope": "star"
+   },
+   {
+    "corpus": "quanshu",
+    "passage_id": "sihua.verse",
+    "quote": "癸破巨阴贪狼停",
+    "scope": "star"
+   }
+  ],
+  "status": "reviewed"
+ },
+ {
+  "id": "mod.sihua.文曲.科",
+  "kind": "sihua",
+  "star": "文曲",
+  "key": "科",
+  "text": "文曲化科：表達與才藝被看見，口才與筆下都占便宜。它修飾的是表達方式，不改變事情的方向。",
+  "sources": [
+   {
+    "corpus": "quanshu",
+    "passage_id": "sihua.化科",
+    "quote": "科星上界应试，主掌文墨之星",
+    "scope": "star"
+   },
+   {
+    "corpus": "quanshu",
+    "passage_id": "sihua.verse",
+    "quote": "丙同机昌廉贞位",
+    "scope": "star"
+   }
+  ],
+  "status": "reviewed"
+ },
+ {
+  "id": "mod.sihua.文曲.忌",
+  "kind": "sihua",
+  "star": "文曲",
+  "key": "忌",
+  "text": "文曲化忌：話與文字容易生誤會，該確認的要確認。這是條件提示，不是預言。",
+  "sources": [
+   {
+    "corpus": "quanshu",
+    "passage_id": "sihua.化忌",
+    "quote": "忌为多管之神",
+    "scope": "star"
+   },
+   {
+    "corpus": "quanshu",
+    "passage_id": "sihua.verse",
+    "quote": "癸破巨阴贪狼停",
+    "scope": "star"
+   }
+  ],
+  "status": "reviewed"
+ }
+]

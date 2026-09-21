@@ -1,0 +1,1130 @@
+{
+ "$note": "格局（工單 C7）。三個狀態：\n  approved      —— 觸發查得到，象義有出處，而且映射得到本書容許嘅詞彙\n  needs_review  —— 觸發查得到，象義未有足夠出處\n  rejected      —— **永久拒絕**。原文記錄嘅唯一象義係規範 §19 硬閘禁止嘅推斷。\n                   觸發條件照留低 —— 唔係為咗用，係為咗令呢個格局唔會被人重新發現。\n古書嘅凶格語言（路上埋屍、必定死亡、須當刑戮）唔會因為人手覆核而變成可發布。",
+ "source": "《紫微斗數全書》卷一 太微賦、火星歌、鈴星歌",
+ "geju": [
+  {
+   "id": "junchen-qinghui",
+   "name": "君臣慶會",
+   "trigger": {
+    "all": [
+     {
+      "star": "紫微",
+      "in": {
+       "name": "命宮"
+      }
+     },
+     {
+      "any": [
+       {
+        "together": [
+         "紫微",
+         "左輔"
+        ]
+       },
+       {
+        "together": [
+         "紫微",
+         "右弼"
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   "allowed_xiang": [
+    "主導與輔佐到位",
+    "有人可用"
+   ],
+   "prohibited_inferences": [
+    "君臣慶會必然顯達",
+    "把格局讀成身份"
+   ],
+   "topics": [
+    "self"
+   ],
+   "status": "approved",
+   "sources": [
+    {
+     "corpus": "quanshu",
+     "passage_id": "fu.太微賦",
+     "quote": "君臣慶會，材善經邦",
+     "scope": "cell"
+    }
+   ],
+   "note": "紫微最怕孤君 —— 呢個格局講嘅正正係唔孤。"
+  },
+  {
+   "id": "fubi-jiadi",
+   "name": "輔弼夾帝",
+   "trigger": {
+    "star": "紫微",
+    "between": [
+     "左輔",
+     "右弼"
+    ]
+   },
+   "allowed_xiang": [
+    "主導有左右支撐",
+    "結構完整"
+   ],
+   "prohibited_inferences": [
+    "夾帝必貴",
+    "單憑夾宮下結論"
+   ],
+   "topics": [
+    "self"
+   ],
+   "status": "approved",
+   "sources": [
+    {
+     "corpus": "quanshu",
+     "passage_id": "fu.太微賦",
+     "quote": "輔弼夾帝為上品",
+     "scope": "cell"
+    }
+   ],
+   "note": "夾係鄰宮，唔係三合，兩者唔可以撈亂。"
+  },
+  {
+   "id": "kuiyue-tongxing",
+   "name": "魁鉞同行",
+   "trigger": {
+    "together": [
+     "天魁",
+     "天鉞"
+    ]
+   },
+   "allowed_xiang": [
+    "機會",
+    "引薦",
+    "被看見"
+   ],
+   "prohibited_inferences": [
+    "魁鉞必得貴人",
+    "保證有人幫"
+   ],
+   "topics": [
+    "self",
+    "career"
+   ],
+   "status": "approved",
+   "sources": [
+    {
+     "corpus": "quanshu",
+     "passage_id": "fu.太微賦",
+     "quote": "魁鉞同行，位居臺輔",
+     "scope": "cell"
+    }
+   ],
+   "note": ""
+  },
+  {
+   "id": "rima-jiaochi",
+   "name": "祿馬交馳",
+   "trigger": {
+    "any": [
+     {
+      "together": [
+       "祿存",
+       "天馬"
+      ]
+     },
+     {
+      "opposite": [
+       "祿存",
+       "天馬"
+      ]
+     }
+    ]
+   },
+   "allowed_xiang": [
+    "資源流動",
+    "動中得利"
+   ],
+   "prohibited_inferences": [
+    "祿馬必富",
+    "保證得財"
+   ],
+   "topics": [
+    "finance",
+    "career"
+   ],
+   "status": "approved",
+   "sources": [
+    {
+     "corpus": "quanshu",
+     "passage_id": "fu.太微賦",
+     "quote": "祿馬最喜交馳",
+     "scope": "cell"
+    }
+   ],
+   "note": "動係條件，唔係結果。"
+  },
+  {
+   "id": "riligzhongtian",
+   "name": "日麗中天",
+   "trigger": {
+    "all": [
+     {
+      "star": "太陽",
+      "brightness": [
+       "廟"
+      ]
+     },
+     {
+      "sanfangOf": {
+       "name": "命宮"
+      },
+      "contains": "太陽"
+     }
+    ]
+   },
+   "allowed_xiang": [
+    "可見度高",
+    "照得出去"
+   ],
+   "prohibited_inferences": [
+    "日麗中天必貴",
+    "把可見度讀成地位"
+   ],
+   "topics": [
+    "self",
+    "career"
+   ],
+   "status": "approved",
+   "sources": [
+    {
+     "corpus": "quanshu",
+     "passage_id": "fu.太微賦",
+     "quote": "太陽居午，謂之日麗中天",
+     "scope": "cell"
+    }
+   ],
+   "note": "原文指太陽居午。本盤用廟旺加會照做近似觸發，已標明。"
+  },
+  {
+   "id": "shuicheng-guie",
+   "name": "水澄桂萼",
+   "trigger": {
+    "all": [
+     {
+      "star": "太陰",
+      "brightness": [
+       "廟"
+      ]
+     },
+     {
+      "sanfangOf": {
+       "name": "命宮"
+      },
+      "contains": "太陰"
+     }
+    ]
+   },
+   "allowed_xiang": [
+    "收納得地",
+    "積累順"
+   ],
+   "prohibited_inferences": [
+    "必得清要之職",
+    "把積累讀成財富"
+   ],
+   "topics": [
+    "self",
+    "finance"
+   ],
+   "status": "approved",
+   "sources": [
+    {
+     "corpus": "quanshu",
+     "passage_id": "fu.太微賦",
+     "quote": "太陰居子，號曰水澄桂萼",
+     "scope": "cell"
+    }
+   ],
+   "note": "原文指太陰居子。同上，用廟旺近似。"
+  },
+  {
+   "id": "matou-daijian",
+   "name": "馬頭帶劍",
+   "trigger": {
+    "all": [
+     {
+      "star": "擎羊",
+      "in": {
+       "name": "遷移"
+      }
+     },
+     {
+      "star": "擎羊",
+      "brightness": [
+       "廟",
+       "旺"
+      ]
+     }
+    ]
+   },
+   "allowed_xiang": [
+    "鋒芒外露",
+    "在外承壓"
+   ],
+   "prohibited_inferences": [
+    "必鎮邊疆",
+    "把鋒芒讀成暴力"
+   ],
+   "topics": [
+    "self"
+   ],
+   "status": "needs_review",
+   "sources": [
+    {
+     "corpus": "quanshu",
+     "passage_id": "fu.太微賦",
+     "quote": "馬頭帶劍，鎮衛邊疆",
+     "scope": "cell"
+    }
+   ],
+   "note": "原文指午宮擎羊。本盤嘅近似觸發未核，留待 B5。"
+  },
+  {
+   "id": "shanyin-chaogang",
+   "name": "善蔭朝綱",
+   "trigger": {
+    "any": [
+     {
+      "together": [
+       "天機",
+       "天梁"
+      ]
+     },
+     {
+      "opposite": [
+       "天機",
+       "天梁"
+      ]
+     }
+    ]
+   },
+   "allowed_xiang": [
+    "轉圜與庇護並存",
+    "照顧他人"
+   ],
+   "prohibited_inferences": [
+    "必為仁慈之長",
+    "把性格讀成評價"
+   ],
+   "topics": [
+    "self",
+    "social"
+   ],
+   "status": "approved",
+   "sources": [
+    {
+     "corpus": "quanshu",
+     "passage_id": "fu.太微賦",
+     "quote": "善蔭朝綱，仁慈之長",
+     "scope": "cell"
+    }
+   ],
+   "note": ""
+  },
+  {
+   "id": "cai-ju-caiwei",
+   "name": "財居財位",
+   "trigger": {
+    "star": "武曲",
+    "in": {
+     "name": "財帛"
+    }
+   },
+   "allowed_xiang": [
+    "本位得地",
+    "處理資源順手"
+   ],
+   "prohibited_inferences": [
+    "遇者富奢",
+    "推斷金額"
+   ],
+   "topics": [
+    "finance"
+   ],
+   "status": "approved",
+   "sources": [
+    {
+     "corpus": "quanshu",
+     "passage_id": "fu.太微賦",
+     "quote": "財居財位，遇者富奢",
+     "scope": "cell"
+    }
+   ],
+   "note": "財帛主坐財帛，係本位，唔係保證。"
+  },
+  {
+   "id": "gui-ru-guixiang",
+   "name": "貴入貴鄉",
+   "trigger": {
+    "any": [
+     {
+      "star": "天魁",
+      "in": {
+       "name": "命宮"
+      }
+     },
+     {
+      "star": "天鉞",
+      "in": {
+       "name": "命宮"
+      }
+     }
+    ]
+   },
+   "allowed_xiang": [
+    "被提攜",
+    "機會來得早"
+   ],
+   "prohibited_inferences": [
+    "逢之富貴",
+    "保證有貴人"
+   ],
+   "topics": [
+    "self"
+   ],
+   "status": "approved",
+   "sources": [
+    {
+     "corpus": "quanshu",
+     "passage_id": "fu.太微賦",
+     "quote": "貴入貴鄉，逢之富貴",
+     "scope": "cell"
+    }
+   ],
+   "note": ""
+  },
+  {
+   "id": "huangdian-chaoban",
+   "name": "皇殿朝班",
+   "trigger": {
+    "all": [
+     {
+      "star": "太陽",
+      "in": {
+       "name": "官祿"
+      }
+     },
+     {
+      "star": "文昌",
+      "in": {
+       "name": "官祿"
+      }
+     }
+    ]
+   },
+   "allowed_xiang": [
+    "呈現與可見度兼備",
+    "成果說得出口"
+   ],
+   "prohibited_inferences": [
+    "富貴全美",
+    "預測職位"
+   ],
+   "topics": [
+    "career"
+   ],
+   "status": "approved",
+   "sources": [
+    {
+     "corpus": "quanshu",
+     "passage_id": "fu.太微賦",
+     "quote": "太陽會文昌於官祿，皇殿朝班",
+     "scope": "cell"
+    }
+   ],
+   "note": ""
+  },
+  {
+   "id": "changong-zhegui",
+   "name": "蟾宮折桂",
+   "trigger": {
+    "all": [
+     {
+      "star": "太陰",
+      "in": {
+       "name": "夫妻"
+      }
+     },
+     {
+      "star": "文曲",
+      "in": {
+       "name": "夫妻"
+      }
+     }
+    ]
+   },
+   "allowed_xiang": [
+    "細緻與表達兼備"
+   ],
+   "prohibited_inferences": [
+    "文章全盛",
+    "推斷婚配"
+   ],
+   "topics": [
+    "relationship"
+   ],
+   "status": "approved",
+   "sources": [
+    {
+     "corpus": "quanshu",
+     "passage_id": "fu.太微賦",
+     "quote": "太陰會文曲於妻宮，蟾宮折桂",
+     "scope": "cell"
+    }
+   ],
+   "note": "夫妻宮嘅格局唔准讀成婚姻結果。"
+  },
+  {
+   "id": "duijin-jiyu",
+   "name": "堆金積玉",
+   "trigger": {
+    "any": [
+     {
+      "star": "祿存",
+      "in": {
+       "name": "田宅"
+      }
+     },
+     {
+      "star": "祿存",
+      "in": {
+       "name": "財帛"
+      }
+     }
+    ]
+   },
+   "allowed_xiang": [
+    "資源留得住",
+    "守得穩"
+   ],
+   "prohibited_inferences": [
+    "堆金積玉必富",
+    "推斷資產"
+   ],
+   "topics": [
+    "finance",
+    "home"
+   ],
+   "status": "approved",
+   "sources": [
+    {
+     "corpus": "quanshu",
+     "passage_id": "fu.太微賦",
+     "quote": "祿存守於田財，堆金積玉",
+     "scope": "cell"
+    }
+   ],
+   "note": ""
+  },
+  {
+   "id": "caiyin-qianyi",
+   "name": "財蔭坐遷移",
+   "trigger": {
+    "star": "天梁",
+    "in": {
+     "name": "遷移"
+    }
+   },
+   "allowed_xiang": [
+    "在外得助",
+    "庇護來自外部"
+   ],
+   "prohibited_inferences": [
+    "必為巨商高賈",
+    "預測行業"
+   ],
+   "topics": [
+    "self",
+    "career"
+   ],
+   "status": "approved",
+   "sources": [
+    {
+     "corpus": "quanshu",
+     "passage_id": "fu.太微賦",
+     "quote": "財蔭坐於遷移，巨商高賈",
+     "scope": "cell"
+    }
+   ],
+   "note": ""
+  },
+  {
+   "id": "yuxiu-tianxiang",
+   "name": "玉袖天香",
+   "trigger": {
+    "any": [
+     {
+      "star": "文昌",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "star": "文曲",
+      "in": {
+       "name": "福德"
+      }
+     }
+    ]
+   },
+   "allowed_xiang": [
+    "精神生活有寄託",
+    "品味"
+   ],
+   "prohibited_inferences": [
+    "必享清福",
+    "評估心理狀態"
+   ],
+   "topics": [
+    "load"
+   ],
+   "status": "approved",
+   "sources": [
+    {
+     "corpus": "quanshu",
+     "passage_id": "fu.太微賦",
+     "quote": "福安文曜謂之玉袖天香",
+     "scope": "cell"
+    }
+   ],
+   "note": ""
+  },
+  {
+   "id": "zhongshui-chaodong",
+   "name": "眾水朝東",
+   "trigger": {
+    "all": [
+     {
+      "together": [
+       "文曲",
+       "破軍"
+      ]
+     }
+    ]
+   },
+   "allowed_xiang": [
+    "變動中求表達",
+    "來勢集中"
+   ],
+   "prohibited_inferences": [
+    "必主漂蕩",
+    "讀成災禍"
+   ],
+   "topics": [
+    "self"
+   ],
+   "status": "needs_review",
+   "sources": [
+    {
+     "corpus": "quanshu",
+     "passage_id": "fu.太微賦",
+     "quote": "文耗居寅卯，謂之眾水朝東",
+     "scope": "cell"
+    }
+   ],
+   "note": "原文限寅卯二宮，本盤觸發未收窄，待核。"
+  },
+  {
+   "id": "xingqiu-jiayin",
+   "name": "刑囚夾印",
+   "trigger": {
+    "star": "天相",
+    "between": [
+     "廉貞",
+     "擎羊"
+    ]
+   },
+   "allowed_xiang": [
+    "受壓",
+    "兩邊都要交代"
+   ],
+   "prohibited_inferences": [
+    "刑杖惟司",
+    "推斷訴訟或刑罰"
+   ],
+   "topics": [
+    "self",
+    "career"
+   ],
+   "status": "needs_review",
+   "sources": [
+    {
+     "corpus": "quanshu",
+     "passage_id": "fu.太微賦",
+     "quote": "刑囚夾印，刑杖惟司",
+     "scope": "cell"
+    }
+   ],
+   "note": "⚠ 原文嘅象義係刑杖，本書唔採用。現代講法係壓力結構，但要另一個來源先審。"
+  },
+  {
+   "id": "huo-tan",
+   "name": "火貪",
+   "trigger": {
+    "any": [
+     {
+      "together": [
+       "火星",
+       "貪狼"
+      ]
+     },
+     {
+      "opposite": [
+       "火星",
+       "貪狼"
+      ]
+     }
+    ]
+   },
+   "allowed_xiang": [
+    "驟發",
+    "急速",
+    "機會來得猛"
+   ],
+   "prohibited_inferences": [
+    "火貪必發財",
+    "保證橫財",
+    "預測時間"
+   ],
+   "topics": [
+    "self",
+    "finance"
+   ],
+   "status": "approved",
+   "sources": [
+    {
+     "corpus": "quanshu",
+     "passage_id": "malefic.火星",
+     "quote": "若得贪狼会，旺地贵无伦",
+     "scope": "cell"
+    }
+   ],
+   "note": "出處係卷一火星歌。原文有「旺地」前提，本盤未收窄，象義已相應保守。"
+  },
+  {
+   "id": "ling-tan",
+   "name": "鈴貪",
+   "trigger": {
+    "any": [
+     {
+      "together": [
+       "鈴星",
+       "貪狼"
+      ]
+     },
+     {
+      "opposite": [
+       "鈴星",
+       "貪狼"
+      ]
+     }
+    ]
+   },
+   "allowed_xiang": [
+    "驟發",
+    "急速",
+    "機會來得猛"
+   ],
+   "prohibited_inferences": [
+    "鈴貪必發財",
+    "保證橫財",
+    "預測時間"
+   ],
+   "topics": [
+    "self",
+    "finance"
+   ],
+   "status": "approved",
+   "sources": [
+    {
+     "corpus": "quanshu",
+     "passage_id": "malefic.鈴星",
+     "quote": "若与贪狼会，指日立边庭",
+     "scope": "cell"
+    }
+   ],
+   "note": "出處係卷一鈴星歌。"
+  },
+  {
+   "id": "sha-po-lang",
+   "name": "殺破狼",
+   "trigger": {
+    "any": [
+     {
+      "star": "七殺",
+      "in": {
+       "name": "命宮"
+      }
+     },
+     {
+      "star": "破軍",
+      "in": {
+       "name": "命宮"
+      }
+     },
+     {
+      "star": "貪狼",
+      "in": {
+       "name": "命宮"
+      }
+     }
+    ]
+   },
+   "allowed_xiang": [
+    "變動",
+    "開創",
+    "節奏起伏"
+   ],
+   "prohibited_inferences": [
+    "殺破狼必勞碌",
+    "必然大起大落"
+   ],
+   "topics": [
+    "self"
+   ],
+   "status": "needs_review",
+   "sources": [],
+   "note": "⚠ 三合關係係幾何，查得到；但「殺破狼」呢個名目同佢嘅象義唔喺《全書》，要另一本書。"
+  },
+  {
+   "id": "ji-yue-tong-liang",
+   "name": "機月同梁",
+   "trigger": {
+    "all": [
+     {
+      "sanfangOf": {
+       "name": "命宮"
+      },
+      "contains": "天機"
+     },
+     {
+      "sanfangOf": {
+       "name": "命宮"
+      },
+      "contains": "天梁"
+     }
+    ]
+   },
+   "allowed_xiang": [
+    "穩健",
+    "適合有結構嘅環境"
+   ],
+   "prohibited_inferences": [
+    "必為公職",
+    "預測行業"
+   ],
+   "topics": [
+    "self",
+    "career"
+   ],
+   "status": "needs_review",
+   "sources": [],
+   "note": "⚠ 名目同象義唔喺《全書》，要另一本書。"
+  },
+  {
+   "id": "lushang-maishi",
+   "name": "路上埋屍",
+   "trigger": {
+    "together": [
+     "七殺",
+     "廉貞"
+    ]
+   },
+   "allowed_xiang": [],
+   "prohibited_inferences": [
+    "原文象義：死亡意象"
+   ],
+   "topics": [
+    "self"
+   ],
+   "status": "rejected",
+   "sources": [
+    {
+     "corpus": "quanshu",
+     "passage_id": "fu.太微賦",
+     "quote": "七殺廉貞同位，路上埋屍",
+     "scope": "cell"
+    }
+   ],
+   "note": "⚠ 永久拒絕。《全書》記錄嘅唯一象義係「七殺廉貞同位，路上埋屍」—— 屬規範 §19 硬閘（死亡意象）。觸發條件照留低，係為咗令呢個格局唔會被人「重新發現」再當成新嘢寫出嚟。"
+  },
+  {
+   "id": "shuizhong-zuozhong",
+   "name": "水中作塚",
+   "trigger": {
+    "together": [
+     "破軍",
+     "巨門"
+    ]
+   },
+   "allowed_xiang": [],
+   "prohibited_inferences": [
+    "原文象義：死亡意象"
+   ],
+   "topics": [
+    "self"
+   ],
+   "status": "rejected",
+   "sources": [
+    {
+     "corpus": "quanshu",
+     "passage_id": "fu.太微賦",
+     "quote": "破軍暗曜同鄉，水中作塚",
+     "scope": "cell"
+    }
+   ],
+   "note": "⚠ 永久拒絕。《全書》記錄嘅唯一象義係「破軍暗曜同鄉，水中作塚」—— 屬規範 §19 硬閘（死亡意象）。觸發條件照留低，係為咗令呢個格局唔會被人「重新發現」再當成新嘢寫出嚟。"
+  },
+  {
+   "id": "sha-ju-juedi",
+   "name": "殺居絕地",
+   "trigger": {
+    "all": [
+     {
+      "star": "七殺",
+      "brightness": [
+       "陷"
+      ]
+     }
+    ]
+   },
+   "allowed_xiang": [],
+   "prohibited_inferences": [
+    "原文象義：壽命推斷"
+   ],
+   "topics": [
+    "self"
+   ],
+   "status": "rejected",
+   "sources": [
+    {
+     "corpus": "quanshu",
+     "passage_id": "fu.太微賦",
+     "quote": "殺居絕地，天年夭似顏回",
+     "scope": "cell"
+    }
+   ],
+   "note": "⚠ 永久拒絕。《全書》記錄嘅唯一象義係「殺居絕地，天年夭似顏回」—— 屬規範 §19 硬閘（壽命推斷）。觸發條件照留低，係為咗令呢個格局唔會被人「重新發現」再當成新嘢寫出嚟。"
+  },
+  {
+   "id": "ling-yang-baihu",
+   "name": "鈴羊合命",
+   "trigger": {
+    "all": [
+     {
+      "together": [
+       "鈴星",
+       "擎羊"
+      ]
+     }
+    ]
+   },
+   "allowed_xiang": [],
+   "prohibited_inferences": [
+    "原文象義：刑戮推斷"
+   ],
+   "topics": [
+    "self"
+   ],
+   "status": "rejected",
+   "sources": [
+    {
+     "corpus": "quanshu",
+     "passage_id": "fu.太微賦",
+     "quote": "鈴羊合於命宮遇白虎，須當刑戮",
+     "scope": "cell"
+    }
+   ],
+   "note": "⚠ 永久拒絕。《全書》記錄嘅唯一象義係「鈴羊合於命宮遇白虎，須當刑戮」—— 屬規範 §19 硬閘（刑戮推斷）。觸發條件照留低，係為咗令呢個格局唔會被人「重新發現」再當成新嘢寫出嚟。"
+  },
+  {
+   "id": "qisha-linshen",
+   "name": "七殺臨身命加惡殺",
+   "trigger": {
+    "all": [
+     {
+      "star": "七殺",
+      "in": {
+       "name": "命宮"
+      }
+     },
+     {
+      "sanfangOf": {
+       "name": "命宮"
+      },
+      "count": "malefic",
+      "op": "gte",
+      "n": 2
+     }
+    ]
+   },
+   "allowed_xiang": [],
+   "prohibited_inferences": [
+    "原文象義：死亡推斷"
+   ],
+   "topics": [
+    "self"
+   ],
+   "status": "rejected",
+   "sources": [
+    {
+     "corpus": "quanshu",
+     "passage_id": "fu.太微賦",
+     "quote": "七殺臨於身命加惡殺，必定死亡",
+     "scope": "cell"
+    }
+   ],
+   "note": "⚠ 永久拒絕。《全書》記錄嘅唯一象義係「七殺臨於身命加惡殺，必定死亡」—— 屬規範 §19 硬閘（死亡推斷）。觸發條件照留低，係為咗令呢個格局唔會被人「重新發現」再當成新嘢寫出嚟。"
+  },
+  {
+   "id": "jiakou-nantao",
+   "name": "枷杻難逃",
+   "trigger": {
+    "all": [
+     {
+      "star": "廉貞",
+      "in": {
+       "name": "官祿"
+      }
+     },
+     {
+      "star": "擎羊",
+      "in": {
+       "name": "官祿"
+      }
+     }
+    ]
+   },
+   "allowed_xiang": [],
+   "prohibited_inferences": [
+    "原文象義：訴訟結果推斷"
+   ],
+   "topics": [
+    "self"
+   ],
+   "status": "rejected",
+   "sources": [
+    {
+     "corpus": "quanshu",
+     "passage_id": "fu.太微賦",
+     "quote": "刑殺同廉貞於官祿，枷杻難逃",
+     "scope": "cell"
+    }
+   ],
+   "note": "⚠ 永久拒絕。《全書》記錄嘅唯一象義係「刑殺同廉貞於官祿，枷杻難逃」—— 屬規範 §19 硬閘（訴訟結果推斷）。觸發條件照留低，係為咗令呢個格局唔會被人「重新發現」再當成新嘢寫出嚟。"
+  },
+  {
+   "id": "lixiang-zaopei",
+   "name": "離鄉遭配",
+   "trigger": {
+    "all": [
+     {
+      "star": "擎羊",
+      "in": {
+       "name": "遷移"
+      }
+     },
+     {
+      "star": "陀羅",
+      "in": {
+       "name": "遷移"
+      }
+     }
+    ]
+   },
+   "allowed_xiang": [],
+   "prohibited_inferences": [
+    "原文象義：犯罪與流放推斷"
+   ],
+   "topics": [
+    "self"
+   ],
+   "status": "rejected",
+   "sources": [
+    {
+     "corpus": "quanshu",
+     "passage_id": "fu.太微賦",
+     "quote": "官符加刑殺於遷移，離鄉遭配",
+     "scope": "cell"
+    }
+   ],
+   "note": "⚠ 永久拒絕。《全書》記錄嘅唯一象義係「官符加刑殺於遷移，離鄉遭配」—— 屬規範 §19 硬閘（犯罪與流放推斷）。觸發條件照留低，係為咗令呢個格局唔會被人「重新發現」再當成新嘢寫出嚟。"
+  },
+  {
+   "id": "yantu-qishi",
+   "name": "沿途乞食",
+   "trigger": {
+    "all": [
+     {
+      "star": "破軍",
+      "in": {
+       "name": "官祿"
+      }
+     }
+    ]
+   },
+   "allowed_xiang": [],
+   "prohibited_inferences": [
+    "原文象義：貧困定論"
+   ],
+   "topics": [
+    "self"
+   ],
+   "status": "rejected",
+   "sources": [
+    {
+     "corpus": "quanshu",
+     "passage_id": "fu.太微賦",
+     "quote": "耗居祿位，沿途乞食",
+     "scope": "cell"
+    }
+   ],
+   "note": "⚠ 永久拒絕。《全書》記錄嘅唯一象義係「耗居祿位，沿途乞食」—— 屬規範 §19 硬閘（貧困定論）。觸發條件照留低，係為咗令呢個格局唔會被人「重新發現」再當成新嘢寫出嚟。"
+  },
+  {
+   "id": "zhongshen-shuqie",
+   "name": "終身鼠竊",
+   "trigger": {
+    "all": [
+     {
+      "star": "貪狼",
+      "brightness": [
+       "廟",
+       "旺"
+      ]
+     },
+     {
+      "star": "貪狼",
+      "in": {
+       "name": "命宮"
+      }
+     }
+    ]
+   },
+   "allowed_xiang": [],
+   "prohibited_inferences": [
+    "原文象義：犯罪推斷"
+   ],
+   "topics": [
+    "self"
+   ],
+   "status": "rejected",
+   "sources": [
+    {
+     "corpus": "quanshu",
+     "passage_id": "fu.太微賦",
+     "quote": "貪會旺宮，終身鼠竊",
+     "scope": "cell"
+    }
+   ],
+   "note": "⚠ 永久拒絕。《全書》記錄嘅唯一象義係「貪會旺宮，終身鼠竊」—— 屬規範 §19 硬閘（犯罪推斷）。觸發條件照留低，係為咗令呢個格局唔會被人「重新發現」再當成新嘢寫出嚟。"
+  }
+ ]
+}

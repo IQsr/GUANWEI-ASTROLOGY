@@ -1,0 +1,20 @@
+{
+  "name": "guanwei",
+  "private": true,
+  "packageManager": "pnpm@10.28.0",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "preinstall": "npx --yes only-allow pnpm",
+    "dev": "pnpm --filter @guanwei/web dev",
+    "build": "pnpm --filter @guanwei/web build",
+    "start": "pnpm --filter @guanwei/web start",
+    "lint": "pnpm --filter @guanwei/web lint",
+    "typecheck": "pnpm -r typecheck",
+    "test": "pnpm -r test"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.2"
+  }
+}

@@ -1,0 +1,24 @@
+node_modules/
+
+# 呢個 repo 只用 pnpm。root package.json 有 preinstall 閘擋住 npm/yarn，
+# 但 npm 喺被擋之前已經寫低 lockfile，所以再 ignore 多一層。
+package-lock.json
+yarn.lock
+
+.next/
+out/
+dist/
+coverage/
+.turbo/
+
+.env
+.env.local
+.env*.local
+
+.DS_Store
+*.log
+.vercel
+*.tsbuildinfo
+
+# 執手尾嗰陣影低嘅截圖，唔係資產
+shot-*.png

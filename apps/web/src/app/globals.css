@@ -1,0 +1,1250 @@
+@import "tailwindcss";
+
+/* ============================================================
+   觀微 GUAN WEI — design tokens
+   出處：《觀微 視覺系統 v0.1》§3 色 · §4 字 · §5 版 · §6 痕 · §7 動
+
+   規矩（唔好破）：
+   1. Tailwind 只可以引用 CSS 變數，唔准喺任何地方寫死 hex —— 夜讀會斷。
+   2. 每隻顏色都要喺 bare :root 定義一次。淨係喺 media query 或者
+      [data-theme] 入面定義嘅顏色，喺「跟系統」狀態下唔會套用。
+   3. 圓角一律 0，陰影一律 0，分隔一律 1px 界欄。
+   ============================================================ */
+
+:root {
+  /* ── 紙 ── */
+  --paper: #efeae0;
+  --paper-2: #e6e0d3;
+  --paper-3: #dcd5c6;
+
+  /* ── 墨 ── */
+  --ink: #23262b;
+  --ink-2: #565c62;
+  --ink-3: #76797c;
+
+  /* ── 界 ── */
+  --rule: #c6bfb1;
+  --rule-2: #d9d3c6;
+
+  /* ── 靛：互動態（hover / focus / 化祿 / 已讀） ── */
+  --indigo: #2c4058;
+  --indigo-2: #5a7390;
+
+  /* ── 朱砂：唔係警示色，係「此處為要」。全站面積 ≤ 1% ── */
+  --cinnabar: #ae3b2b;
+  --cinnabar-wash: rgb(174 59 43 / 0.09);
+
+  /* ── 紙紋 ── */
+  --grain-blend: multiply;
+  --grain-opacity: 0.055;
+
+  /* ── 字級（視覺系統 §4） ── */
+  --t-cap: 0.75rem; /* 12px  標籤 */
+  --t-sm: 0.84375rem; /* 13.5px 註 */
+  --t-body: 1.03125rem; /* 16.5px 正文 */
+  --t-lead: 1.1875rem; /* 19px  導言 */
+  --t-h3: 1.3125rem; /* 21px  節標題 */
+  --t-h2: 1.6875rem; /* 27px  引文 */
+  --t-h1: 2.375rem; /* 38px  幕標題 */
+  --t-display: 3.75rem; /* 60px  品牌字 */
+
+  /* ── 版（視覺系統 §5） ── */
+  --banxin: 690px; /* 版心：32–40 字／行 */
+  --page: 1080px; /* 全頁：命盤、書架、對照表 */
+
+  /* 天頭 : 地腳 = 8 : 5 —— 淨係呢一條，成版就唔似普通網站 */
+  --tiantou: 104px;
+  --dijiao: 64px;
+
+  /* ── 動（視覺系統 §7） ── */
+  --motion-ease-ink: cubic-bezier(0.22, 0.61, 0.36, 1); /* 出墨 */
+  --motion-ease-scroll: cubic-bezier(0.16, 1, 0.3, 1); /* 展卷 */
+  --dur-1: 240ms; /* 微：hover */
+  --dur-2: 520ms; /* 元件 */
+  --dur-3: 900ms; /* 章節入場 —— 一般網站三倍，「靜」靠時間拉出嚟 */
+  --dur-4: 1600ms; /* 墨滲、展卷 */
+
+  /* ── 字體 stack ── */
+  --font-serif-stack: "Spectral", "Noto Serif TC", "Songti TC",
+    "Source Han Serif TC", "PMingLiU", serif;
+  --font-latin-stack: "Spectral", "Noto Serif TC", Georgia, serif;
+  --font-sans-stack: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei",
+    system-ui, sans-serif;
+}
+
+/* 跟系統 = 冇 data-theme stamp，只有 prefers-color-scheme 分得出。
+   :not([data-theme="light"]) 令明示揀咗日讀嘅人唔會被系統覆蓋。 */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #191b1e;
+    --paper-2: #212429;
+    --paper-3: #292d33;
+    --ink: #dcd7cb;
+    --ink-2: #9ea3a6;
+    --ink-3: #7e8286;
+    --rule: #383d44;
+    --rule-2: #2c3036;
+    --indigo: #93aac4;
+    --indigo-2: #6c839c;
+    --cinnabar: #cb5a47;
+    --cinnabar-wash: rgb(203 90 71 / 0.12);
+    --grain-blend: screen;
+    --grain-opacity: 0.045;
+  }
+}
+
+/* 明示揀夜讀：喺任何系統設定之下都要贏。 */
+:root[data-theme="dark"] {
+  --paper: #191b1e;
+  --paper-2: #212429;
+  --paper-3: #292d33;
+  --ink: #dcd7cb;
+  --ink-2: #9ea3a6;
+  --ink-3: #7e8286;
+  --rule: #383d44;
+  --rule-2: #2c3036;
+  --indigo: #93aac4;
+  --indigo-2: #6c839c;
+  --cinnabar: #cb5a47;
+  --cinnabar-wash: rgb(203 90 71 / 0.12);
+  --grain-blend: screen;
+  --grain-opacity: 0.045;
+}
+
+/* ============================================================
+   Tailwind 映射：全部指返上面嘅變數，一個 hex 都冇
+   ============================================================ */
+@theme inline {
+  --color-paper: var(--paper);
+  --color-paper-2: var(--paper-2);
+  --color-paper-3: var(--paper-3);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-ink-3: var(--ink-3);
+  --color-rule: var(--rule);
+  --color-rule-2: var(--rule-2);
+  --color-indigo: var(--indigo);
+  --color-indigo-2: var(--indigo-2);
+  --color-cinnabar: var(--cinnabar);
+  --color-cinnabar-wash: var(--cinnabar-wash);
+
+  --font-serif: var(--font-serif-stack);
+  --font-latin: var(--font-latin-stack);
+  --font-sans: var(--font-sans-stack);
+
+  --text-cap: var(--t-cap);
+  --text-sm: var(--t-sm);
+  --text-body: var(--t-body);
+  --text-lead: var(--t-lead);
+  --text-h3: var(--t-h3);
+  --text-h2: var(--t-h2);
+  --text-h1: var(--t-h1);
+  --text-display: var(--t-display);
+
+  --container-banxin: var(--banxin);
+  --container-page: var(--page);
+
+  --ease-ink: var(--motion-ease-ink);
+  --ease-scroll: var(--motion-ease-scroll);
+
+  /* 節奏只准揀呢七個值（視覺系統 §5）。
+     Tailwind 預設 spacing base 已經係 4px，所以：
+     sp-1=1 · sp-2=2 · sp-3=4 · sp-4=6 · sp-5=10 · sp-6=16 · sp-7=26
+     例如 gap-10 就係 40px。唔好用呢七個以外嘅值。 */
+  --spacing-tiantou: var(--tiantou);
+  --spacing-dijiao: var(--dijiao);
+}
+
+/* ============================================================
+   基線
+   ============================================================ */
+@layer base {
+  html {
+    color-scheme: light dark;
+  }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-serif-stack);
+    font-weight: 300;
+    font-size: var(--t-body);
+    /* 中文方塊字要鬆過英文：低過 1.8 即刻變擠，「靜」就冇咗 */
+    line-height: 1.95;
+    letter-spacing: 0.02em;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    /* 令「，」「。」唔會撐開一個全形空位。未支援嘅瀏覽器照樣可讀。 */
+    text-spacing-trim: trim-start;
+  }
+
+  /* 紙紋：一層 fixed，唔隨 scroll 郁（視覺系統 §6） */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    opacity: var(--grain-opacity);
+    mix-blend-mode: var(--grain-blend);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    text-wrap: balance;
+    font-weight: 600;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--cinnabar);
+    outline-offset: 3px;
+  }
+
+  /* 數字對齊：命盤、字數、歲數全部用得著 */
+  [data-nums] {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+@layer components {
+  /* ── 按鈕三級（視覺系統 §8）──
+     墨 = 前進。界 = 次要。朱砂 = 不可逆，全流程只出現一次。
+     零圓角、零陰影、字距 .24em。 */
+  .btn-mo {
+    display: inline-block;
+    background: var(--ink);
+    color: var(--paper);
+    border: 1px solid var(--ink);
+    padding: 14px 40px;
+    font-family: var(--font-serif-stack);
+    font-size: var(--t-body);
+    font-weight: 400;
+    letter-spacing: 0.24em;
+    /* 字距推咗右邊一格出嚟，補返左邊先至視覺置中 */
+    text-indent: 0.24em;
+    transition:
+      background var(--dur-1) var(--motion-ease-ink),
+      color var(--dur-1) var(--motion-ease-ink);
+  }
+
+  .btn-mo:hover {
+    background: transparent;
+    color: var(--ink);
+  }
+
+  /* 一粒撳唔得嘅墨掣唔應該望落撳得 —— 退成一個界框。 */
+  .btn-mo:disabled {
+    background: transparent;
+    border-color: var(--rule);
+    color: var(--ink-3);
+    cursor: not-allowed;
+  }
+
+  .btn-jie {
+    display: inline-block;
+    background: none;
+    border: 1px solid var(--rule);
+    color: var(--ink-2);
+    padding: 8px 18px;
+    font-family: var(--font-sans-stack);
+    font-size: var(--t-cap);
+    letter-spacing: 0.16em;
+    transition:
+      border-color var(--dur-1) var(--motion-ease-ink),
+      color var(--dur-1) var(--motion-ease-ink);
+  }
+
+  .btn-jie:hover {
+    border-color: var(--ink-2);
+    color: var(--ink);
+  }
+
+  /* ── 印（視覺系統 §8）──
+     朱砂方印，陰文。外框朱砂，內一條紙色細界。零圓角零陰影 —— 
+     方印本身就係一個實色方塊，唔使任何深度效果。 */
+  .yin {
+    display: inline-block;
+    background: var(--cinnabar);
+    padding: 3px;
+    line-height: 0;
+  }
+
+  .yin > span {
+    display: grid;
+    place-items: center;
+    gap: 1px;
+    border: 1px solid var(--paper);
+    padding: 5px 4px;
+    color: var(--paper);
+    font-family: var(--font-serif-stack);
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 1.06;
+    letter-spacing: 0;
+  }
+
+  /* ── 落款欄（視覺系統 §8）──
+     淨係一條底線。focus 嗰陣朱砂由左掃過 520ms —— 朱砂喺呢度唔係
+     裝飾，係「而家輪到呢一欄」。所以掃線本身就係 focus 指示，
+     唔另外加 outline。 */
+  .ruled {
+    width: 100%;
+    padding: 4px 2px;
+    background: none;
+    border: 0;
+    border-bottom: 1px solid var(--rule);
+    border-radius: 0;
+    appearance: none;
+    color: var(--ink);
+    font-family: var(--font-serif-stack);
+    font-size: var(--t-body);
+    font-weight: 300;
+    letter-spacing: 0.04em;
+    background-image: linear-gradient(var(--cinnabar), var(--cinnabar));
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+    background-size: 0% 1px;
+    transition: background-size var(--dur-2) var(--motion-ease-ink);
+  }
+
+  .ruled:focus,
+  .ruled:focus-visible {
+    outline: none;
+    background-size: 100% 1px;
+  }
+
+  .ruled:disabled {
+    color: var(--ink-3);
+    cursor: not-allowed;
+  }
+
+  /*
+   * 剔（工單 E4）。瀏覽器原裝嗰個係藍色圓角 —— 同紙、界、朱砂
+   * 完全唔夾，而且佢係全版唯一一個唔係我哋畫嘅嘢。
+   * 所以自己畫：一個 1px 方格，剔咗就入朱砂。零圓角。
+   */
+  .gou {
+    width: 15px;
+    height: 15px;
+    flex: 0 0 auto;
+    appearance: none;
+    border: 1px solid var(--rule);
+    border-radius: 0;
+    background: none;
+    cursor: pointer;
+    transition:
+      background var(--dur-1) var(--motion-ease-ink),
+      border-color var(--dur-1) var(--motion-ease-ink);
+  }
+
+  .gou:hover {
+    border-color: var(--ink-3);
+  }
+
+  .gou:checked {
+    border-color: var(--cinnabar);
+    background: var(--cinnabar);
+  }
+
+  /* select 自己嗰個箭嘴同紙唔夾，用兩條斜線砌一個細角 */
+  select.ruled {
+    padding-right: 18px;
+    background-image:
+      linear-gradient(var(--cinnabar), var(--cinnabar)),
+      linear-gradient(45deg, transparent 50%, currentColor 50%),
+      linear-gradient(135deg, currentColor 50%, transparent 50%);
+    background-position: 0 100%, right 6px center, right 2px center;
+    background-size: 0% 1px, 4px 4px, 4px 4px;
+  }
+
+  select.ruled:focus,
+  select.ruled:focus-visible {
+    background-size: 100% 1px, 4px 4px, 4px 4px;
+  }
+
+  input.ruled::-webkit-calendar-picker-indicator {
+    opacity: 0.45;
+    cursor: pointer;
+  }
+
+  /* ── 命盤（視覺系統 §8）──
+     4×4 + 中宮 2×2。宮名左下、地支右下。命宮素底加朱砂宮名。
+     四化細框字（祿權科靛、忌朱砂）。星曜宋體，零圖示零星星符號。
+
+     字級全部行 container query（cqi）—— 個盤唔論擺喺全頁定係命書
+     右側細盤，入面嘅比例都一樣，唔使兩套 CSS。手機唔會橫向滾。 */
+  .pan-wrap {
+    container-type: inline-size;
+    width: 100%;
+    margin-inline: auto;
+  }
+
+  .pan {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    aspect-ratio: 1 / 0.82;
+    gap: 1px;
+    background: var(--rule-2);
+    border: 1px solid var(--ink-3);
+  }
+
+  .gong {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-width: 0;
+    padding: 6px 7px 5px;
+    background: var(--paper);
+    text-align: start;
+    cursor: pointer;
+    transition: background var(--dur-1) var(--motion-ease-ink);
+  }
+
+  .gong:hover {
+    background: var(--paper-2);
+  }
+
+  /* 三方四正：本宮朱砂界，三合同對宮靛底 */
+  .gong[data-lit="san"] {
+    background: color-mix(in srgb, var(--indigo) 7%, var(--paper));
+  }
+
+  .gong[data-lit="self"] {
+    background: var(--paper-2);
+    box-shadow: inset 0 0 0 1px var(--cinnabar);
+  }
+
+  .gong[data-ming="1"] {
+    background: var(--paper-2);
+  }
+
+  .gong[data-ming="1"][data-lit="san"] {
+    background: color-mix(in srgb, var(--indigo) 7%, var(--paper-2));
+  }
+
+  .gong:focus-visible {
+    outline: 2px solid var(--cinnabar);
+    outline-offset: -3px;
+  }
+
+  .xing-lie {
+    display: flex;
+    flex: 1;
+    gap: clamp(3px, 0.7cqi, 6px);
+    min-height: 0;
+    overflow: hidden;
+    align-items: flex-start;
+  }
+
+  /* 星名直排。刻意唔用 writing-mode: vertical-rl —— 佢靠字體嘅直排
+     度量（vmtx），字體未載入或者 fallback 嗰陣兩個字會疊埋一齊。
+     逐個字一行，邊度都啱。 */
+  .xing {
+    display: flex;
+    flex: 0 0 auto;
+    flex-direction: column;
+    align-items: center;
+    line-height: 1;
+  }
+
+  .xing > .zi {
+    display: block;
+    font-size: clamp(9.5px, 1.8cqi, 14px);
+    font-weight: 500;
+    line-height: 1.08;
+    letter-spacing: 0;
+    color: var(--ink);
+  }
+
+  .xing[data-kind="aux"] > .zi {
+    font-size: clamp(8.5px, 1.58cqi, 12.5px);
+    font-weight: 300;
+    color: var(--ink-2);
+  }
+
+  /* 冇廟旺嘅星照樣留一行位，四化框先至對得齊 */
+  .miaowang {
+    display: block;
+    margin-top: 2px;
+    font-size: clamp(7.5px, 1.34cqi, 10.5px);
+    line-height: 1.25;
+    color: var(--ink-3);
+  }
+
+  .miaowang[data-empty="1"] {
+    visibility: hidden;
+  }
+
+  .sihua {
+    display: block;
+    margin-top: 3px;
+    padding: 1px 1.5px;
+    border: 1px solid currentColor;
+    font-size: clamp(7px, 1.22cqi, 9.5px);
+    line-height: 1;
+    color: var(--indigo);
+  }
+
+  .sihua[data-hua="忌"] {
+    color: var(--cinnabar);
+  }
+
+  .gong-jiao {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 4px;
+    min-width: 0;
+    font-family: var(--font-sans-stack);
+    white-space: nowrap;
+  }
+
+  .gong-ming {
+    font-size: clamp(9px, 1.55cqi, 12px);
+    letter-spacing: 0.04em;
+    color: var(--ink-2);
+  }
+
+  .gong[data-ming="1"] .gong-ming {
+    color: var(--cinnabar);
+    font-weight: 500;
+  }
+
+  .gong-shen {
+    margin-left: 2px;
+    font-size: clamp(8px, 1.35cqi, 10px);
+    color: var(--cinnabar);
+  }
+
+  .gong-daxian {
+    overflow: hidden;
+    font-size: clamp(7.5px, 1.28cqi, 10px);
+    font-variant-numeric: tabular-nums;
+    text-overflow: ellipsis;
+    color: var(--ink-3);
+  }
+
+  .gong-zhi {
+    font-size: clamp(8.5px, 1.45cqi, 11.5px);
+    letter-spacing: 0.02em;
+    color: var(--ink-3);
+  }
+
+  /* 個盤細過 420px（手機）嗰陣，大限歲數會迫到要截字。
+     截住嘅「113-…」比冇更差，所以索性收起 —— 宮名、地支、星曜
+     先係細盤要保住嘅嘢。 */
+  @container (max-width: 420px) {
+    .gong-daxian {
+      display: none;
+    }
+  }
+
+  .zhong-gong {
+    grid-column: 2 / 4;
+    grid-row: 2 / 4;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: clamp(6px, 1.2cqi, 11px);
+    min-width: 0;
+    padding: clamp(10px, 2.4cqi, 22px);
+    background: var(--paper);
+  }
+
+  /* 版心：所有正文、命書內文 */
+  .banxin {
+    width: 100%;
+    max-width: var(--banxin);
+    margin-inline: auto;
+    /* 側邊留白最低 24px（手機闊度保障） */
+    padding-inline: 24px;
+  }
+
+  /* 天頭 8 : 地腳 5 */
+  .juan {
+    padding-block: var(--tiantou) var(--dijiao);
+  }
+
+  /* 強調唔加粗 —— 宋體加粗會變黑塊（視覺系統 §4）。
+     用換色或者隔空（字距拉闊）代替。 */
+  .em {
+    color: var(--ink);
+    letter-spacing: 0.22em;
+  }
+
+  .em-zhu {
+    color: var(--cinnabar);
+  }
+
+  /* 界欄：永遠 1px，永遠 --rule */
+  .jielan {
+    border-color: var(--rule);
+  }
+
+  /*
+   * 已答（視覺系統 §9 落款幕）：「已答嘅留喺上面淡到 20%」。
+   *
+   * ⚠ 20% 唔係「淡啲」，係一個數 —— 佢係「已經寫咗落去」同
+   * 「而家寫緊」之間嗰個差距。`check-cast.mjs` 會量佢。
+   */
+  .da {
+    opacity: 0.2;
+  }
+}
+
+/* ============================================================
+   「書」元件（工單 E2 · 視覺系統 §7 動 · §8 元件）
+
+   E 線其餘五張全部食呢一個元件，所以佢淨係做一件事：
+   **由一個形變成另一個形。** 入面塞乜由 caller 決定。
+
+   ⚠ 三條硬規矩，一破成件事就冇咗：
+
+   1. **只准 width。** 零 3D、零 scale、零 rotate、零 perspective。
+      「書轉過嚟面向你」係書脊收窄、封面長闊 —— 兩格闊度一齊行，
+      眼睛自己會讀成「轉過嚟」。一用 rotateY 就即刻變咗一個
+      普通 3D 書架網頁，而嗰樣嘢滿街都係。
+   2. **書脊喺中間，唔係最左。** 合埋嗰陣左頁闊度係零，書脊自然企咗
+      喺左邊；打開嗰陣左頁長出嚟，書脊自然去咗中間。一套排法，
+      唔使為「合上」同「打開」各寫一份。
+   3. **內容唔會跟住闊度擠。** 每一頁入面嗰層永遠係一版闊（絕對定位），
+      外面嗰格負責剪。所以轉場睇落係「揭出嚟」，唔係「啲字被壓扁」。
+
+   闊度表同 `src/lib/book.ts` 嘅 GEOMETRY 一一對應，
+   `test/book.test.ts` 逐條對返呢個檔 —— 改一邊唔改另一邊就會爆。
+   ============================================================ */
+
+.shu-wrap {
+  container: shu / inline-size;
+  width: 100%;
+}
+
+.shu {
+  /* 一版闊度。cqi 令個書跟住容器走 —— 手機唔使另一套值。 */
+  --shu-ye: min(400px, 88cqi);
+  /* 書脊：合埋嗰陣淨係一條邊 */
+  --shu-ji: 7px;
+  /* 架上嗰條書脊，要放得落直排書名 */
+  --shu-ji-jia: 34px;
+  /* 書口：架上見到嗰 3px 頁邊（視覺系統 §8） */
+  --shu-kou: 3px;
+  /* 書唔會因為打開咗就變矮 —— 高度全程唔變 */
+  --shu-gao: calc(var(--shu-ye) * 1.42);
+
+  display: inline-flex;
+  align-items: stretch;
+  height: var(--shu-gao);
+  max-width: 100%;
+  border: 1px solid var(--ink-3);
+  background: var(--paper-2);
+}
+
+/* ── 三個形（唔係五個狀態 —— 見 lib/book.ts）── */
+.shu[data-shape="shelf"] {
+  --w-verso: var(--shu-kou);
+  --w-ji: var(--shu-ji-jia);
+  --w-recto: 0px;
+}
+
+.shu[data-shape="closed"] {
+  --w-verso: 0px;
+  --w-ji: var(--shu-ji);
+  --w-recto: var(--shu-ye);
+}
+
+.shu[data-shape="opened"] {
+  --w-verso: var(--shu-ye);
+  --w-ji: var(--shu-ji);
+  --w-recto: var(--shu-ye);
+}
+
+.shu-ye {
+  position: relative;
+  flex: 0 0 auto;
+  height: 100%;
+  overflow: hidden;
+  background: var(--paper);
+  transition: width var(--dur-2) var(--motion-ease-ink);
+}
+
+.shu-verso {
+  width: var(--w-verso);
+}
+
+.shu-recto {
+  width: var(--w-recto);
+}
+
+.shu-ji {
+  position: relative;
+  flex: 0 0 auto;
+  width: var(--w-ji);
+  height: 100%;
+  overflow: hidden;
+  background: var(--paper-3);
+  /* 兩條 1px 界欄，唔係陰影 —— 同命盤嘅命宮框一樣用 inset 畫線 */
+  box-shadow:
+    inset 1px 0 0 var(--rule),
+    inset -1px 0 0 var(--rule);
+  transition: width var(--dur-2) var(--motion-ease-ink);
+}
+
+/* 書脊上面嘅直排書名。逐個字一行，唔用 writing-mode —— 
+   同命盤星名一樣嘅理由：字體未載到嗰陣直排度量會疊字。 */
+.shu-ji-zi {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  width: var(--shu-ji-jia);
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  padding-top: 18px;
+  font-size: 14.5px;
+  line-height: 1.05;
+  letter-spacing: 0;
+  color: var(--ink-2);
+}
+
+/* 封面同內頁兩層都住喺右頁，靠 opacity 換 —— 
+   opacity 唔喺禁止名單（禁嘅係 scale / rotate / 3D）。 */
+.shu-mian,
+.shu-nei {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: var(--shu-ye);
+  height: 100%;
+  transition: opacity var(--dur-2) var(--motion-ease-ink);
+}
+
+.shu[data-shape="opened"] .shu-mian {
+  opacity: 0;
+}
+
+.shu:not([data-shape="opened"]) .shu-nei {
+  opacity: 0;
+}
+
+/*
+ * ── 手機收成單頁 ──
+ *
+ * 用 display:none，唔係闊度零：闊度零嘅嘢仲留喺無障礙樹入面，
+ * 讀屏會讀一版睇唔見嘅嘢。
+ *
+ * ⚠ 代價要寫明：**手機之下真係得一版。** 所以 caller 唔可以將
+ * 必需嘅嘢單獨擺喺另一版 —— `active` 就係畀佢揀邊版行先。
+ */
+@container shu (max-width: 820px) {
+  .shu[data-shape="opened"][data-active="recto"] .shu-verso {
+    display: none;
+  }
+
+  .shu[data-shape="opened"][data-active="verso"] .shu-recto {
+    display: none;
+  }
+}
+
+/* reduced-motion：唔係快啲，係**直接到位**（驗收標準第三條）。 */
+@media (prefers-reduced-motion: reduce) {
+  .shu-ye,
+  .shu-ji,
+  .shu-mian,
+  .shu-nei {
+    transition: none !important;
+  }
+}
+
+/* ============================================================
+   書櫃（工單 E3 · 視覺系統 §8 元件 · §6 痕）
+
+   ⚠ 成個書櫃**得五條線**：頂板、兩塊立板、兩塊層板。
+
+   零木紋、零陰影、零透視 —— 呢三樣唔係「盡量唔用」，係一樣都冇。
+   視覺系統 §10 將木紋羊皮紙貼圖同圓角投影玻璃列咗入「避」，
+   §2 又寫住「古意來自版式同比例，唔來自貼圖」。
+   一個畫咗木紋嘅書櫃，係一張插圖；五條線嘅書櫃，係一個版式。
+
+   `scripts/check-shelf.mjs` 喺真瀏覽器度數呢五條線，
+   同埋確認冇 box-shadow、冇 background-image、冇 perspective。
+   ============================================================ */
+
+.jia {
+  position: relative;
+  /* 立板喺左右兩邊，所以入面要讓出位 */
+  padding-inline: 22px;
+  /*
+   * ⚠ 個櫃唔可以扯到成版咁闊。
+   *
+   * 第一版係 100%（1080px）。四本書企晒喺左邊，右邊得一大片空 ——
+   * 讀落唔似一個書櫃，似三條界欄夾住幾條直線。
+   * 收返去版心（690）之後比例先啱返：一個櫃應該同一版字一樣闊。
+   */
+  max-width: var(--banxin);
+}
+
+/* 兩塊立板 —— 成個櫃嘅高度 */
+.jia::before,
+.jia::after {
+  content: "";
+  position: absolute;
+  inset-block: 0;
+  width: 1px;
+  background: var(--rule);
+  transition: opacity var(--dur-2) var(--motion-ease-ink);
+}
+
+.jia::before {
+  inset-inline-start: 0;
+}
+
+.jia::after {
+  inset-inline-end: 0;
+}
+
+/* 頂板、兩塊層板 */
+.jia-ban {
+  height: 1px;
+  background: var(--rule);
+  transition: opacity var(--dur-2) var(--motion-ease-ink);
+}
+
+/* 頂板同層板一之間嗰條淺帶。唔係一格空書架 —— 佢係個櫃嘅頂緣。 */
+.jia-ding-dai {
+  height: 34px;
+}
+
+/* 書格：書脊企喺層板二上面 */
+.jia-ge {
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+  min-height: 210px;
+  padding-top: 20px;
+}
+
+/*
+ * ⚠ 取書之後個櫃淡到 16%，**唔消失**。
+ *
+ * 消失咗就變咗「跳去另一版」；留住就仲係「你喺書齋度，
+ * 手上攞住一本」。呢個分別就係六幕流程同五個頁嘅分別。
+ */
+.jia[data-dim="1"] .jia-ban,
+.jia[data-dim="1"]::before,
+.jia[data-dim="1"]::after {
+  opacity: 0.16;
+}
+
+/* ── 書脊 ────────────────────────────────────────────────
+   直排、左側 3px 書口、在讀嗰本朱砂、hover 升 10px（視覺 §8）。 */
+.ji {
+  display: flex;
+  width: 34px;
+  height: 190px;
+  flex: 0 0 auto;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  padding: 16px 0 10px;
+  border: 1px solid var(--rule);
+  /* 3px 書口喺左邊 */
+  border-inline-start: 3px solid var(--rule-2);
+  background: var(--paper-2);
+  color: var(--ink-2);
+  font-family: var(--font-serif-stack);
+  font-size: 14.5px;
+  line-height: 1.05;
+  letter-spacing: 0;
+  /*
+   * 唯一一個位移。視覺 §7 第二條：只准 translateY ≤ 16px ——
+   * 10px 喺入面，而且冇 scale、冇 rotate、冇 3D。
+   */
+  transition:
+    transform var(--dur-1) var(--motion-ease-ink),
+    opacity var(--dur-2) var(--motion-ease-ink),
+    color var(--dur-1) var(--motion-ease-ink),
+    border-color var(--dur-1) var(--motion-ease-ink);
+}
+
+.ji:hover {
+  transform: translateY(-10px);
+  border-color: var(--ink-3);
+  color: var(--ink);
+}
+
+/* 在讀嗰本。朱砂喺呢度嘅意思係「你停咗喺呢度」。 */
+.ji[data-reading="1"] {
+  border-inline-start-color: var(--cinnabar);
+  color: var(--cinnabar);
+}
+
+/* 待時辰、＋ 新書：虛線。 */
+.ji[data-kind="awaiting"],
+.ji[data-kind="new"] {
+  border-style: dashed;
+  background: none;
+  color: var(--ink-3);
+}
+
+.ji[data-kind="new"] {
+  justify-content: center;
+  padding-top: 10px;
+}
+
+.jia[data-dim="1"] .ji {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* 攞咗落嚟嗰本唔淡 —— 佢就係而家手上嗰本。 */
+.jia[data-dim="1"] .ji-kong {
+  opacity: 1;
+}
+
+.ji-kong {
+  width: 190px;
+  flex: 0 0 auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ji {
+    transition: none !important;
+  }
+
+  .ji:hover {
+    transform: none !important;
+  }
+}
+
+/* ============================================================
+   展卷（工單 E6 · 視覺系統 §9）
+
+   「界欄逐條畫出成十二宮，星以點落位，然後就係命書正文。」
+
+   ⚠ 界欄係**畫**出嚟，唔係淡入 —— 一條淡入嘅線係一條本來就喺度
+   嘅線，而呢一幕講嘅係「而家先有」。所以佢哋用長度：
+   橫嘅長闊度，直嘅長高度。同 E2 個「書」一樣，一個 transform 都冇。
+
+   ⚠ 全站唯一一次 pin scroll 就係呢一下（視覺 §7 第五條）。
+   鎖 scroll 喺 `Zhanjuan.tsx` 度做，而且全站得嗰度做 ——
+   `test/zhanjuan.test.ts` 掃住呢一點。
+   ============================================================ */
+
+.zhan {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 0.82;
+}
+
+.zhan-xian {
+  position: absolute;
+  background: var(--rule);
+}
+
+.zhan-xian[data-axis="heng"] {
+  width: 0;
+  height: 1px;
+}
+
+.zhan-xian[data-axis="shu"] {
+  width: 1px;
+  height: 0;
+}
+
+.zhan-dian {
+  position: absolute;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  inset: 0;
+}
+
+.zhan-dian > i {
+  width: 5px;
+  height: 5px;
+  align-self: center;
+  justify-self: center;
+  /* 星 = 點（視覺 §6）。同註層嗰點一樣：一個方點唔係一粒星。 */
+  border-radius: 50%;
+  background: var(--ink-3);
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .zhan-xian[data-axis="heng"] {
+    animation: zhan-heng var(--zhan-dur) var(--motion-ease-ink) both;
+  }
+
+  .zhan-xian[data-axis="shu"] {
+    animation: zhan-shu var(--zhan-dur) var(--motion-ease-ink) both;
+  }
+
+  .zhan-dian > i {
+    animation: zhan-luo var(--zhan-star) var(--motion-ease-ink) both;
+  }
+}
+
+@keyframes zhan-heng {
+  to {
+    width: var(--zhan-len);
+  }
+}
+
+@keyframes zhan-shu {
+  to {
+    height: var(--zhan-len);
+  }
+}
+
+/* 落位：由上面少少落嚟。單向、≤ 16px（視覺 §7 第二條）。 */
+@keyframes zhan-luo {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/*
+ * reduced-motion 係對等體驗，唔係「快咗嘅版本」：
+ * 界欄即刻有、點即刻喺度、而且唔會鎖 scroll。
+ */
+@media (prefers-reduced-motion: reduce) {
+  .zhan-xian[data-axis="heng"] {
+    width: var(--zhan-len);
+  }
+
+  .zhan-xian[data-axis="shu"] {
+    height: var(--zhan-len);
+  }
+
+  .zhan-dian > i {
+    opacity: 1;
+  }
+}
+
+/* ============================================================
+   註層（工單 F1 · 內容系統 §4 · 視覺系統 §6）
+
+   「術語**墨點展開**註層，註層尾連去藏經閣。」
+
+   ⚠ 展開，唔係浮窗。浮窗蓋住正文，讀完要撳走；
+   展開係版面讓一讓位，讀完照住讀落去。
+   所以呢度冇 position:absolute、冇 z-index、冇 portal ——
+   一段註就係一段字，插喺嗰一段之後。
+   ============================================================ */
+
+.zhu {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  letter-spacing: inherit;
+  cursor: pointer;
+}
+
+/*
+ * 墨點。視覺 §6：「星唔畫星形，星 = 點。」呢度同一個做法 ——
+ * 一個術語唔加底線、唔轉色、唔加框，只係旁邊多一點墨。
+ *
+ * ⚠ 呢一點係全站唯一一個圓形。「零圓角」講嘅係框同掣 ——
+ * 一個方點唔係墨點，係一個細方格。
+ */
+.zhu::after {
+  content: "";
+  display: inline-block;
+  width: 4px;
+  height: 4px;
+  margin-inline-start: 3px;
+  border-radius: 50%;
+  background: var(--indigo);
+  vertical-align: 0.42em;
+  transition: background var(--dur-1) var(--motion-ease-ink);
+}
+
+.zhu:hover::after {
+  background: var(--ink);
+}
+
+/* 撳過就退色，但**唔會消失** —— 消失會令成段字跳位。 */
+.zhu[data-seen="1"]::after {
+  background: var(--rule);
+}
+
+.zhu:focus-visible {
+  outline: 2px solid var(--cinnabar);
+  outline-offset: 2px;
+}
+
+/* 註層：素底、一條 1px 界欄靠左。唔用陰影分層（視覺 §3）。 */
+.zhu-ceng {
+  margin-top: 16px;
+  padding: 16px 20px;
+  border-inline-start: 1px solid var(--rule);
+  background: var(--paper-2);
+}
+
+/* ============================================================
+   合書題名（工單 E5 · 視覺系統 §9）
+
+   ⚠ 呢一幕冇任何界面。
+
+   兩條驗收標準睇落打交：「呢一幕冇任何掣 —— 用戶淨係睇」
+   同「唔自動翻開，一定要用戶自己撳」。冇掣，噉撳乜？
+
+   撳本書。一本書唔係靠一粒「開啟」掣打開嘅，你伸手揭佢。
+   所以呢層熱區**冇邊框、冇底色、冇字、冇 hover 樣** ——
+   佢喺畫面上根本唔存在，佢淨係令本書撳得。
+
+   `scripts/check-naming.mjs` 會確認：成幕行緊嗰陣一個互動元素都冇，
+   行完之後啱啱好一個，而且嗰個一睇就知唔係一粒掣。
+   ============================================================ */
+
+.mu-ti-kai {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  appearance: none;
+}
+
+/* 焦點要見得到 —— 鍵盤用戶都要揭得到書。 */
+.mu-ti-kai:focus-visible {
+  outline: 2px solid var(--cinnabar);
+  outline-offset: 4px;
+}
+
+/* ============================================================
+   動效基礎層（視覺系統 §7）
+
+   .rv 預設就係「已經喺度」。JS 只會為未入視窗嘅元素補上 .rv-pend，
+   所以第一幀 render 出嚟嘅嘢一定睇得到 —— 唔會有 opacity:0 等
+   observer 嘅情況（thumbnail、分享連結、關咗 JS 都照睇到）。
+   ============================================================ */
+.rv {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .rv-pend {
+    opacity: 0;
+    /* 單向，≤ 16px。唔准 scale、rotate、3D、blur。 */
+    transform: translateY(14px);
+  }
+
+  .rv-show {
+    opacity: 1;
+    transform: none;
+    transition:
+      opacity var(--dur-3) var(--motion-ease-scroll),
+      transform var(--dur-3) var(--motion-ease-scroll);
+  }
+}
+
+/* ============================================================
+   入齋幕序（視覺系統 §9）
+
+   「觀微」墨滲 1600ms 後靜止 → 三行字 → 一枚印 → 一粒掣。
+
+   全部靠 animation-delay 排，冇 JS 冇 observer —— 所以呢個唔係
+   「等 observer 嘅 opacity:0」，係一段自己會行完嘅載入序列，
+   2.6 秒之後頁面就係最終狀態。
+
+   reduced-motion 之下成段唔會套用（睇下面），三行字同印即刻見到，
+   唔係淡化版，係對等體驗。
+   ============================================================ */
+@media (prefers-reduced-motion: no-preference) {
+  /* 墨滲：由化開到收乾。唔用 scale —— 墨落紙係擴散，唔係放大。 */
+  .moshen {
+    animation: moshen var(--dur-4) var(--motion-ease-ink) both;
+  }
+
+  /* 三行字：由下入場，同 .rv 一樣單向 ≤ 16px */
+  .mu-in {
+    animation: mu-in var(--dur-3) var(--motion-ease-scroll) both;
+  }
+
+  /* 落印：由上向下壓落去 */
+  .yin-luo {
+    animation: yin-luo var(--dur-2) var(--motion-ease-ink) both;
+  }
+}
+
+@keyframes moshen {
+  0% {
+    opacity: 0;
+    filter: blur(11px);
+  }
+  45% {
+    opacity: 0.6;
+    filter: blur(3.5px);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+@keyframes mu-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes yin-luo {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* reduced-motion 唔係 fallback，係對等體驗：
+   位移全部取消，內容一樣完整，只保留一下極短嘅 opacity。 */
+@media (prefers-reduced-motion: reduce) {
+  .rv,
+  .rv-pend,
+  .rv-show {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: opacity 120ms linear !important;
+  }
+
+  /* 入齋幕序：位移同模糊全部取消，內容即刻完整。 */
+  .moshen,
+  .mu-in,
+  .yin-luo {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 120ms !important;
+    scroll-behavior: auto !important;
+  }
+}

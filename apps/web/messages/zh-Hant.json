@@ -1,0 +1,59 @@
+{
+  "brand": {
+    "name": "觀微",
+    "latin": "GUAN WEI",
+    "essence": "觀星，亦觀己。",
+    "philosophy": "觀其微，而知其勢。"
+  },
+  "ruzhai": {
+    "meta": "透過紫微斗數，提供一種閱讀與理解自己的方式。",
+    "proposition": "萬卷之中，有你一書。",
+    "enter": "起　盤",
+    "hint": "落款五步，約三分鐘。唔知時辰都排得。",
+    "sealLabel": "觀微印",
+    "resume": "續讀上一本"
+  },
+  "theme": {
+    "day": "日讀",
+    "night": "夜讀"
+  },
+  "tokens": {
+    "title": "視覺系統",
+    "subtitle": "工單 A2 · tokens 落地驗證頁",
+    "intro": "呢一版唔係產品，係一張對數表。所有數值都由 globals.css 嘅 tokens 出，對唔對得上《觀微 視覺系統 v0.1》一睇就知。E1「入齋」會將佢整個換走。",
+    "colorTitle": "色",
+    "colorNote": "四種材料，唔係四隻顏色。撳右上角換日讀夜讀，全部應該一齊轉。",
+    "ratioTitle": "用量配比",
+    "ratioNote": "硬規則。朱砂超過一格就係錯咗，唔係風格問題。",
+    "typeTitle": "字",
+    "typeNote": "宋體做骨、Spectral 做配、Noto Sans TC 做工具字。行高 1.95、行長 32–40 字、唔加粗中文。",
+    "specimen": {
+      "display": "觀微",
+      "h1": "命宮 · 天府",
+      "h2": "觀其微，而知其勢",
+      "lead": "你嘅命宮落喺申。",
+      "body": "紫微斗數以十二宮承載一生的結構。它講的是傾向，不是結論。",
+      "sm": "此段為推演，非斷言。",
+      "cap": "YIN ZHAI · 入齋"
+    },
+    "layoutTitle": "版",
+    "layoutNote": "版心 690px、天頭 104px、地腳 64px（8:5）。下面個框就係實際版心闊度。",
+    "banxinLabel": "版心",
+    "tiantouLabel": "天頭",
+    "dijiaoLabel": "地腳",
+    "motionTitle": "動",
+    "motionNote": "下面三格入場動效。全部由可見狀態出發：關咗 JS、或者揀咗減少動態效果，內容一樣完整，只係唔會郁。",
+    "motionOne": "一次過",
+    "motionOneNote": "scroll 返上去唔會重播。",
+    "motionTwo": "單向",
+    "motionTwoNote": "只准 translateY ≤ 16px 加 opacity。",
+    "motionThree": "慢",
+    "motionThreeNote": "入場 900ms，一般網站三倍。",
+    "engineTitle": "引擎",
+    "engineNote": "順便證明 packages/ziwei 仲係引得到。",
+    "engineLabel": "引擎版本",
+    "castLabel": "cast() 回應",
+    "localeLabel": "目前語言",
+    "nextUp": "下一張工單：B3　揀定三個流派分歧點"
+  }
+}

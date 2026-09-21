@@ -1,0 +1,1586 @@
+[
+  {
+    "id": "base.紫微.命宮",
+    "star": "紫微",
+    "palace": "命宮",
+    "body": "帝座落在自己的基調上，標準就直接架在自己身上。《全書》形容其人「忠厚老成，謙恭耿直」——這是自我要求的樣子，不是地位。這一格最容易被誤讀為命好，實際上它描述的是一種不容易放鬆的姿態：事情擺在眼前就想接過來，接過來就想做到體面。有輔佐時這是主導，沒有輔佐時古人稱為孤君，同一種姿態變成獨力硬撐。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.命宮",
+        "quote": "紫微面紫色或白青，腰背肥满",
+        "scope": "cell"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.紫微",
+        "quote": "紫微屬土，乃中天之尊星為帝座",
+        "scope": "star"
+      }
+    ],
+    "disputed": false,
+    "status": "reviewed"
+  },
+  {
+    "id": "base.紫微.兄弟",
+    "star": "紫微",
+    "palace": "兄弟",
+    "body": "主導遇上平輩，是這一格的張力所在。《全書》記「紫微有倚靠年長之兄」，指向的是這段關係裡有一個位階感——不是你帶頭，就是你傾向於找一個可以倚靠的對象。平輩關係本該是平的，紫微卻習慣有上有下。於是合作時容易變成一個人拿主意，或者反過來完全交出去，中間那種並肩的狀態反而最難維持。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.兄弟",
+        "quote": "紫微有倚靠年长之兄",
+        "scope": "cell"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.紫微",
+        "quote": "紫微屬土，乃中天之尊星為帝座",
+        "scope": "star"
+      }
+    ],
+    "disputed": false,
+    "status": "reviewed"
+  },
+  {
+    "id": "base.紫微.夫妻",
+    "star": "紫微",
+    "palace": "夫妻",
+    "body": "《全書》這一格寫「晚聘諧老性剛」，三個字裡最有用的是「性剛」。紫微的標準感放進親密關係，會變成對相處方式有清楚的期待：什麼算體面、什麼算過分，界線畫得比較明確。這使關係穩定，也使讓步變得困難——退一步在別的地方只是妥協，在這裡會被讀成失去分寸。至於遲婚早婚，屬於事件，本書不作推斷。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.夫妻",
+        "quote": "紫微晚聘谐老性刚",
+        "scope": "cell"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.紫微",
+        "quote": "紫微屬土，乃中天之尊星為帝座",
+        "scope": "star"
+      }
+    ],
+    "disputed": false,
+    "status": "reviewed"
+  },
+  {
+    "id": "base.紫微.子女",
+    "star": "紫微",
+    "palace": "子女",
+    "body": "《全書》在這一格談子息數目與庶出，本書一概不採用——生育結果屬規範硬閘。可以保留的是紫微對「培養」這件事的姿態：它傾向於給出標準，而不是給出空間。對後輩、學生或自己的作品，這個人容易把自己認定的好投射過去，要求對方達到。結果往往是關係緊密而壓力偏高，尤其在對方想走另一條路的時候。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.子女",
+        "quote": "紫微庙旺男三女二",
+        "scope": "cell"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.紫微",
+        "quote": "紫微屬土，乃中天之尊星為帝座",
+        "scope": "star"
+      }
+    ],
+    "disputed": false,
+    "status": "reviewed"
+  },
+  {
+    "id": "base.紫微.財帛",
+    "star": "紫微",
+    "palace": "財帛",
+    "body": "《全書》寫「紫微豐足倉箱」，語氣是穩而不是多。紫微處理資源的方式偏向維持體面：該花的不省，不該讓人看見拮据的地方尤其不省。它不擅長精算，也不太願意為小數目反覆計較。這使收支通常過得去，但也使「維持某個水準」本身成為一項固定開支。金額多少盤上看不出，這裡描述的只是花用的優先次序。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.財帛",
+        "quote": "紫微丰足仓箱",
+        "scope": "cell"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.紫微",
+        "quote": "紫微屬土，乃中天之尊星為帝座",
+        "scope": "star"
+      }
+    ],
+    "disputed": false,
+    "status": "reviewed"
+  },
+  {
+    "id": "base.紫微.疾厄",
+    "star": "紫微",
+    "palace": "疾厄",
+    "body": "《全書》寫「紫微災少」，古人的意思是這一格的斷語比較輕。本書不描述身體狀況，這一格只讀消耗的來源。紫微的消耗不來自事情多，而來自把事情攬上身之後不肯放手——標準在自己這裡，交出去就不放心。於是長期的疲勞多半是責任堆疊而成，而不是某一件大事造成。鬆手比休息更能解決問題。這一格的提醒是分工，不是休息。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.疾厄",
+        "quote": "紫微灾少",
+        "scope": "cell"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.紫微",
+        "quote": "紫微屬土，乃中天之尊星為帝座",
+        "scope": "star"
+      }
+    ],
+    "disputed": false,
+    "status": "reviewed"
+  },
+  {
+    "id": "base.紫微.遷移",
+    "star": "紫微",
+    "palace": "遷移",
+    "body": "《全書》記「紫微同左右出外貴人扶持發福」，關鍵在「同左右」三個字：這一格的表現高度依賴有沒有人同行。紫微在陌生場合不擅長主動求助，卻又習慣站在被看見的位置，於是有人引介時相當順利，孤身一人時則容易顯得拘謹。換環境對這個人不是難事，難的是在新環境裡承認自己需要幫忙。外部條件對這一格的影響，大於它自身的強弱。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.遷移",
+        "quote": "紫微同左右出外贵人扶持发福",
+        "scope": "cell"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.紫微",
+        "quote": "紫微屬土，乃中天之尊星為帝座",
+        "scope": "star"
+      }
+    ],
+    "disputed": false,
+    "status": "reviewed"
+  },
+  {
+    "id": "base.紫微.僕役",
+    "star": "紫微",
+    "palace": "僕役",
+    "body": "《全書》寫「紫微成行得力」，描述的是這個人在群體裡自然被推到中心。這一格的張力在於：紫微給得出方向，卻不太給得出親近。旁人會尊重你、依賴你，但未必會跟你講心事。於是人脈通常不薄，深交卻不多。規範明文禁止指認小人，本書在這一格只描述讀者自己站的位置，不評論身邊任何人。群體給你位置，未必給你親近，這個落差本身就是消耗。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.僕役",
+        "quote": "紫微成行得力，旺主生财",
+        "scope": "cell"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.紫微",
+        "quote": "紫微屬土，乃中天之尊星為帝座",
+        "scope": "star"
+      }
+    ],
+    "disputed": false,
+    "status": "reviewed"
+  },
+  {
+    "id": "base.紫微.官祿",
+    "star": "紫微",
+    "palace": "官祿",
+    "body": "《全書》這一格特別點名「遇左右昌曲魁鉞」，是十二宮裡最強調輔佐的一段。紫微的做事方式是先立標準再推進，適合有結構、有分工的場合；在需要單打獨鬥或事事親力親為的位置上，同一種方式會變成事必躬親。要留意規範要求區分能力與環境：這一格說的是方法合不合用，不說明成就高低，也不指向任何具體職位。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.官祿",
+        "quote": "紫微庙旺遇左右昌曲魁钺",
+        "scope": "cell"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.紫微",
+        "quote": "紫微屬土，乃中天之尊星為帝座",
+        "scope": "star"
+      }
+    ],
+    "disputed": false,
+    "status": "reviewed"
+  },
+  {
+    "id": "base.紫微.田宅",
+    "star": "紫微",
+    "palace": "田宅",
+    "body": "《全書》寫「紫微茂盛自置旺相」，「自置」兩個字是這一格的重點。紫微對居所的態度是要合乎自己的標準，而不是有地方住就算——寧可遲一點、貴一點，也要是自己安排出來的樣子。這使安置這件事被拖長，也使搬遷時的心理成本偏高。是否置業牽涉現實條件，規範禁止由此推斷，本書只講態度。歸屬感對這一格而言，是安排出來的，不是住出來的。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.田宅",
+        "quote": "紫微茂盛自置旺相",
+        "scope": "cell"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.紫微",
+        "quote": "紫微屬土，乃中天之尊星為帝座",
+        "scope": "star"
+      }
+    ],
+    "disputed": false,
+    "status": "reviewed"
+  },
+  {
+    "id": "base.紫微.福德",
+    "star": "紫微",
+    "palace": "福德",
+    "body": "《全書》寫「紫微福厚享福安樂」，但這一格真正有用的是它的反面。紫微的安定來自事情處在自己認可的狀態——整齊、說得過去、不失禮。一旦某件事擺得不妥，即使無關緊要也會持續佔用心神。所以這個人的精神消耗常常不在大事，而在收不了尾的小事。能放著不管，對這一格而言是最有效的休息。留一件事不處理，比多做一件事更難。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.福德",
+        "quote": "紫微福厚享福安乐",
+        "scope": "cell"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.紫微",
+        "quote": "紫微屬土，乃中天之尊星為帝座",
+        "scope": "star"
+      }
+    ],
+    "disputed": false,
+    "status": "reviewed"
+  },
+  {
+    "id": "base.紫微.父母",
+    "star": "紫微",
+    "palace": "父母",
+    "body": "《全書》寫「紫微無克」，本書不採用任何關於家人遭遇的斷語。這一格只讀讀者自己面對權威與規則時的方式。紫微傾向於尊重制度，同時也傾向於認為自己的判斷同樣站得住——於是對長輩與上級多半客氣而不盲從。表面順從、實際保留意見，是這一格常見的相處模式。文書與正式程序上，你通常做得相當周到。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.父母",
+        "quote": "紫微无克",
+        "scope": "cell"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.紫微",
+        "quote": "紫微屬土，乃中天之尊星為帝座",
+        "scope": "star"
+      }
+    ],
+    "disputed": false,
+    "status": "reviewed"
+  },
+  {
+    "id": "base.天府.命宮",
+    "star": "天府",
+    "palace": "命宮",
+    "body": "《全書》形容這一格「心性溫和」，而天府的溫和是有底的那種。它的基調是先把底盤做穩再談其他：不冒進、不空手承諾、對風險的容忍度偏低。這使你可靠，也使你在需要當機立斷的場合顯得慢半拍。與紫微的差別在於，紫微在意事情做得體面，天府在意事情不要出缺口——一個向前，一個向下紮。穩與保守是同一種性質，處境不同評價就不同。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.命宮",
+        "quote": "容红齿白，心性温和",
+        "scope": "cell"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.天府",
+        "quote": "天府屬土，南斗主令第一星也",
+        "scope": "star"
+      }
+    ],
+    "disputed": false,
+    "status": "reviewed"
+  },
+  {
+    "id": "base.天府.兄弟",
+    "star": "天府",
+    "palace": "兄弟",
+    "body": "《全書》在這一格談人數，本書不採用。可讀的是天府在平輩關係裡的位置：它是接得住的那一個。朋友有事會找你，而且多半是找你處理善後而不是出主意。這使你在群體裡的分量穩定累積，也使你承接的分量往往超出自己開口要求的。長期下來，關係裡的付出與索取容易失衡，而你自己不太察覺。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.兄弟",
+        "quote": "天府有五人",
+        "scope": "cell"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.天府",
+        "quote": "天府屬土，南斗主令第一星也",
+        "scope": "star"
+      }
+    ],
+    "disputed": false,
+    "status": "reviewed"
+  },
+  {
+    "id": "base.天府.夫妻",
+    "star": "天府",
+    "palace": "夫妻",
+    "body": "《全書》寫「天府相生寵愛」，這一格的特點是天府把關係當作要守住的東西。它願意投入時間與安排，傾向於用穩定而不是激情去維持——記得對方的習慣、把日子安排妥當、避免爭執升級。相對地，它對變動的耐受度低，關係裡出現不確定時，反應往往是先收緊而不是先談開。婚姻結果屬事件，本書不推斷。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.夫妻",
+        "quote": "天府相生宠爱夫主贵",
+        "scope": "cell"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.天府",
+        "quote": "天府屬土，南斗主令第一星也",
+        "scope": "star"
+      }
+    ],
+    "disputed": false,
+    "status": "reviewed"
+  },
+  {
+    "id": "base.天府.子女",
+    "star": "天府",
+    "palace": "子女",
+    "body": "《全書》這一格談子息多寡，本書不採用。可讀的是天府對培養的態度：它給的是環境而不是要求。對後輩、學生或自己在做的事，這個人傾向於先把條件備齊——資源、餘裕、退路——再讓對方自己長。這種方式安全，但也可能過度保護，把本該由對方承擔的難處提前接了過來，使對方少了一次自己撐住的經驗。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.子女",
+        "quote": "天府同加吉星四五人",
+        "scope": "cell"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.天府",
+        "quote": "天府屬土，南斗主令第一星也",
+        "scope": "star"
+      }
+    ],
+    "disputed": false,
+    "status": "reviewed"
+  },
+  {
+    "id": "base.天府.財帛",
+    "star": "天府",
+    "palace": "財帛",
+    "body": "《全書》寫「終身保守」，四個字相當準確。天府處理資源的核心是持有而不是流動：先留下安全邊際，再考慮動用。它不追高、不好賭、對來得太快的錢反而警覺。這使資源不容易大起大落，也使它較難抓住需要果斷投入的時機。要留意這描述的是方式不是金額，而財務決定牽涉現實條件，規範禁止由此推斷。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.財帛",
+        "quote": "天府同富足终身保守",
+        "scope": "cell"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.天府",
+        "quote": "天府屬土，南斗主令第一星也",
+        "scope": "star"
+      }
+    ],
+    "disputed": false,
+    "status": "reviewed"
+  },
+  {
+    "id": "base.天府.疾厄",
+    "star": "天府",
+    "palace": "疾厄",
+    "body": "《全書》寫「天府災少臨災有救」，古人用的是輕語。本書不描述身體狀況，只讀消耗的來源。天府的消耗來自警覺：它習慣預先想好萬一，於是即使風平浪靜也在維持一份防備。這種長期低度的緊張不劇烈，卻不容易間斷。對這一格而言，真正的休息不是停下來，而是有一段時間確定不需要準備什麼。有底比有閒更能讓這一格鬆下來。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.疾厄",
+        "quote": "天府灾少临灾有救",
+        "scope": "cell"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.天府",
+        "quote": "天府屬土，南斗主令第一星也",
+        "scope": "star"
+      }
+    ],
+    "disputed": false,
+    "status": "reviewed"
+  },
+  {
+    "id": "base.天府.遷移",
+    "star": "天府",
+    "palace": "遷移",
+    "body": "《全書》寫「天府出外遇貴人扶」，而這一格的實際樣子是：天府在陌生環境裡不搶先，先觀察。它適應得不快但適應得穩，通常在一段時間之後才開始發揮。這使短期的場合對它不利——來不及鋪墊就要表現——而長期外派或長住則相當合適。換言之，它的優勢在時間，不在臨場。所以評估這一格，要看它有沒有足夠的時間可以鋪墊。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.遷移",
+        "quote": "天府出外遇贵人扶",
+        "scope": "cell"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.天府",
+        "quote": "天府屬土，南斗主令第一星也",
+        "scope": "star"
+      }
+    ],
+    "disputed": false,
+    "status": "reviewed"
+  },
+  {
+    "id": "base.天府.僕役",
+    "star": "天府",
+    "palace": "僕役",
+    "body": "《全書》寫「天府得力一呼百諾」，但這一格更準確的描述是：天府在群體裡是被信任的那一個，而不是被跟隨的那一個。旁人把事情交給你，因為知道不會出漏子。這使你累積的關係偏向可靠而非熱絡，圈子不大但流失率低。規範禁止指認小人，本書只寫讀者自己在群體裡的位置與消耗。圈子不大，但流失率低，長期算下來未必吃虧。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.僕役",
+        "quote": "天府得力一呼百诺",
+        "scope": "cell"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.天府",
+        "quote": "天府屬土，南斗主令第一星也",
+        "scope": "star"
+      }
+    ],
+    "disputed": false,
+    "status": "reviewed"
+  },
+  {
+    "id": "base.天府.官祿",
+    "star": "天府",
+    "palace": "官祿",
+    "body": "《全書》寫「天府入廟文武皆吉」，語氣寬。天府的做事方式是把流程與資源先安排妥當，再開始推進——它擅長守住一攤已經存在的事，也擅長把混亂的局面整理成可運作的樣子。相對地，從零開創、或者需要冒風險換取速度的位置，同一種方式會顯得保守。這說明方法合不合用，不說明成就，亦不指向職位。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.官祿",
+        "quote": "天府入庙文武皆吉",
+        "scope": "cell"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.天府",
+        "quote": "天府屬土，南斗主令第一星也",
+        "scope": "star"
+      }
+    ],
+    "disputed": false,
+    "status": "reviewed"
+  },
+  {
+    "id": "base.天府.田宅",
+    "star": "天府",
+    "palace": "田宅",
+    "body": "《全書》寫「守祖自置旺相」，兩種都提到了。這一格是天府最順的位置之一：安置與歸屬本來就是它的本行。這個人對住處與長期基地看得比多數人重，願意為此付出額外成本，也不容易輕率搬動。要留意的反面是，一旦這個基地出現變數，你受到的擾動會比想像中大。置業與否牽涉現實條件，本書不作推斷。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.田宅",
+        "quote": "天府田园茂盛，守祖自置旺相",
+        "scope": "cell"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.天府",
+        "quote": "天府屬土，南斗主令第一星也",
+        "scope": "star"
+      }
+    ],
+    "disputed": false,
+    "status": "reviewed"
+  },
+  {
+    "id": "base.天府.福德",
+    "star": "天府",
+    "palace": "福德",
+    "body": "《全書》寫「天府安靜享福」，這一格的安定條件相當具體：有餘裕。天府需要知道還有多的——多的時間、多的錢、多一條路——才放鬆得下來。剛剛好對它而言不是安全而是緊繃。所以這個人的精神狀態與實際處境的關係，往往不在於處境有多好，而在於邊際有多寬。留白比享受更能讓它安定。對這一格而言，留白本身就是一種收入。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.福德",
+        "quote": "天府安静享福",
+        "scope": "cell"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.天府",
+        "quote": "天府屬土，南斗主令第一星也",
+        "scope": "star"
+      }
+    ],
+    "disputed": false,
+    "status": "reviewed"
+  },
+  {
+    "id": "base.天府.父母",
+    "star": "天府",
+    "palace": "父母",
+    "body": "《全書》寫「天府父母雙全」，本書不採用關於家人的斷語。這一格只讀讀者面對長輩與規則時的方式。天府傾向於照章辦事，也傾向於維持關係的表面完整——有分歧多半自己消化，不輕易攤開。這使相處平順，也使真正的意見長期沒有被說出口。文書與制度上，你處理得穩妥，少有疏漏。你在制度裡待得住，因為制度提供的正是你要的那份確定。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.父母",
+        "quote": "天府父母双全",
+        "scope": "cell"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.天府",
+        "quote": "天府屬土，南斗主令第一星也",
+        "scope": "star"
+      }
+    ],
+    "disputed": false,
+    "status": "reviewed"
+  },
+  {
+    "id": "base.太陽.命宮",
+    "star": "太陽",
+    "palace": "命宮",
+    "body": "太陽在命，基調是向外的：先照顧場面、先把事情擺上檯、先讓別人過得去。《全書》寫「入廟形貌堂堂」，指的是這種存在感。這一格與其他格最大的分別在於廟陷落差極大——同樣一顆太陽，在午與在戌是兩種表現方式，一種是照出去，一種是往內收。所以讀這一格之前，必須先看它坐在哪一宮，否則說的只是一半。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.命宮",
+        "quote": "太阳入庙形貌堂堂",
+        "scope": "cell"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.太陽",
+        "quote": "太陽星屬火，日之精也",
+        "scope": "star"
+      }
+    ],
+    "disputed": false,
+    "status": "reviewed"
+  },
+  {
+    "id": "base.太陽.兄弟",
+    "star": "太陽",
+    "palace": "兄弟",
+    "body": "《全書》在這一格談人數，本書不採用。可讀的是太陽在平輩關係裡的給予方式：它是出面的那一個，也是先掏出來的那一個。朋友之間的飯局、引介、擔保，多半由你起頭。這使關係熱絡，也使付出與回收長期不對等——太陽不太擅長開口要求，於是給多了也不會說。失衡往往到很後期才被察覺。這一格的課題不是人緣，是記得替自己留一份。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.兄弟",
+        "quote": "太阳庙旺三人",
+        "scope": "cell"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.太陽",
+        "quote": "太陽星屬火，日之精也",
+        "scope": "star"
+      }
+    ],
+    "disputed": false,
+    "status": "reviewed"
+  },
+  {
+    "id": "base.太陽.夫妻",
+    "star": "太陽",
+    "palace": "夫妻",
+    "body": "《全書》寫「太陽廟旺遲娶吉」，本書不推斷婚期。可讀的是太陽在親密關係裡的模式：它習慣用照顧代替表達。安排、打點、擋在前面，這些都做得自然；而把自己的需要說出口則相對困難。於是關係裡容易出現一種不平衡——一方持續供給，另一方卻不清楚對方要什麼。廟陷差異在這一格特別明顯。照顧得很好，卻沒有人知道你要什麼，是這一格最常見的僵局。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.夫妻",
+        "quote": "太阳庙旺迟娶吉",
+        "scope": "cell"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.太陽",
+        "quote": "太陽星屬火，日之精也",
+        "scope": "star"
+      }
+    ],
+    "disputed": false,
+    "status": "reviewed"
+  },
+  {
+    "id": "base.太陽.子女",
+    "star": "太陽",
+    "palace": "子女",
+    "body": "《全書》談子息數目與晚得子，本書不採用。可讀的是太陽對培養的姿態：它給得多，而且給得明亮——願意花時間、給資源、替對方開路。這種方式使後輩受惠，也容易讓對方長期站在被照的位置上，較少自己摸索。太陽落陷時，同樣的心意會表現為想給而給不出，於是轉成焦急或反覆叮囑。放手讓對方走一段彎路，對這一格而言是最難的一課。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.子女",
+        "quote": "太阳入庙男三女二晚子贵",
+        "scope": "cell"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.太陽",
+        "quote": "太陽星屬火，日之精也",
+        "scope": "star"
+      }
+    ],
+    "disputed": false,
+    "status": "reviewed"
+  },
+  {
+    "id": "base.太陽.財帛",
+    "star": "太陽",
+    "palace": "財帛",
+    "body": "《全書》寫「入廟豐足，陷宮勞碌不遂」，這一格的廟陷差異比多數格明顯。太陽處理資源的方式是流出而不是積存：請客、資助、投在別人身上，都做得毫不猶豫。它不缺賺取的動力，缺的是留下的習慣。廟旺時流出與流入大致相抵，落陷時則容易出多入少。金額盤上看不出，這裡說的是流向。留得住與賺得到，在這一格是兩件不同的事。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.財帛",
+        "quote": "太阳入庙丰足，陷宫劳碌不遂",
+        "scope": "cell"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.太陽",
+        "quote": "太陽星屬火，日之精也",
+        "scope": "star"
+      }
+    ],
+    "disputed": false,
+    "status": "reviewed"
+  },
+  {
+    "id": "base.太陽.疾厄",
+    "star": "太陽",
+    "palace": "疾厄",
+    "body": "《全書》這一格列出具體徵狀，本書一律不採用。只讀消耗來源：太陽的耗損來自持續對外——要撐場面、要回應別人、要保持被看見的狀態。這種消耗的特點是不劇烈但不間斷，而且往往在別人看不見的時候才顯出來。對這一格而言，真正的休息是有一段時間完全不需要對誰交代。它的疲勞不在事情多，在沒有一刻是不用回應的。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.疾厄",
+        "quote": "太阳头风",
+        "scope": "cell"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.太陽",
+        "quote": "太陽星屬火，日之精也",
+        "scope": "star"
+      }
+    ],
+    "disputed": false,
+    "status": "reviewed"
+  },
+  {
+    "id": "base.太陽.遷移",
+    "star": "太陽",
+    "palace": "遷移",
+    "body": "《全書》寫「宜出外發福不耐靜守」，是十二宮裡態度最明確的一格。太陽在陌生環境反而更自在：有新的對象可照、有新的場面可撐，能量就有去處。留在熟悉而封閉的地方，同一股能量會轉成煩躁。所以這一格的人換環境的門檻低，成本也低。至於是否應該外出，屬個人決定，本書只說條件鬆緊。熟悉而封閉的地方，對這一格反而最耗力。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.遷移",
+        "quote": "太阳宜出外发福不耐静守",
+        "scope": "cell"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.太陽",
+        "quote": "太陽星屬火，日之精也",
+        "scope": "star"
+      }
+    ],
+    "disputed": false,
+    "status": "reviewed"
+  },
+  {
+    "id": "base.太陽.僕役",
+    "star": "太陽",
+    "palace": "僕役",
+    "body": "《全書》寫「入廟旺主發，陷宮無分」，落差寫得很白。太陽在群體裡是發光的那一個，朋友多、場合多、被找的次數多。它的課題不在人際不足，而在篩選——來者不拒使時間被切得很碎，而真正重要的關係反而排到後面。規範禁止指認小人，本書只寫讀者自己的位置與消耗。它需要的不是更多關係，是把時間分給真正重要的那幾個。這一格的難處在於，拒絕對太陽而言比付出更費力。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.僕役",
+        "quote": "太阳入庙旺主发，陷宫无分",
+        "scope": "cell"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.太陽",
+        "quote": "太陽星屬火，日之精也",
+        "scope": "star"
+      }
+    ],
+    "disputed": false,
+    "status": "reviewed"
+  },
+  {
+    "id": "base.太陽.官祿",
+    "star": "太陽",
+    "palace": "官祿",
+    "body": "《全書》寫「入廟文武為良」，語氣寬。太陽的做事方式是站到前面去：對外、對人、可見度高的位置最合它用；需要長期埋頭、成果不外顯的位置則容易消磨。它擅長把事情推動起來，未必擅長把事情收尾。要留意規範要求區分能力與環境——這一格說的是方法與場合的適配，不說明成就，也不指向任何職位。它推得動，未必收得尾，這一點值得在安排分工時考慮。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.官祿",
+        "quote": "太阳入庙文武为良",
+        "scope": "cell"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.太陽",
+        "quote": "太陽星屬火，日之精也",
+        "scope": "star"
+      }
+    ],
+    "disputed": false,
+    "status": "reviewed"
+  },
+  {
+    "id": "base.太陽.田宅",
+    "star": "太陽",
+    "palace": "田宅",
+    "body": "《全書》寫「入廟得祖業，初旺末平」，時間感是這一格的重點。太陽對居所的態度偏向開放：家是待客的地方，不是藏起來的地方。它願意讓空間被使用，也不太計較被打擾。相對地，它較少為長期持有做精算，安置的節奏多半跟著人走而不是跟著計畫走。置業與否牽涉現實條件，本書不推斷。家對這一格而言是一個開放的場所，不是一個退守的角落。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.田宅",
+        "quote": "太阳入庙得祖业",
+        "scope": "cell"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.太陽",
+        "quote": "太陽星屬火，日之精也",
+        "scope": "star"
+      }
+    ],
+    "disputed": false,
+    "status": "reviewed"
+  },
+  {
+    "id": "base.太陽.福德",
+    "star": "太陽",
+    "palace": "福德",
+    "body": "《全書》寫「太陽忙中發福」，四個字很準。這一格的安定不來自清閒，而來自有事可做、有人可顧。完全空下來時，太陽反而不安。所以它的精神狀態與忙碌程度的關係，跟多數人相反：適度的負荷是它的地面。真正令它耗損的不是事情多，是事情做了卻沒有人看見，或者對象根本不需要。被需要，是這一格最實在的安定來源。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.福德",
+        "quote": "太阳忙中发福",
+        "scope": "cell"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.太陽",
+        "quote": "太陽星屬火，日之精也",
+        "scope": "star"
+      }
+    ],
+    "disputed": false,
+    "status": "reviewed"
+  },
+  {
+    "id": "base.太陽.父母",
+    "star": "太陽",
+    "palace": "父母",
+    "body": "《全書》在這一格寫「陷地克父」，本書不採用任何關於家人遭遇的斷語。只讀讀者面對長輩與權威的方式：太陽傾向於正面迎上——有話直說、該爭取的爭取、不太繞路。這使關係清楚，也使摩擦來得直接。它與制度的關係同樣如此：認同就全力配合，不認同就明白表示，中間地帶不多。直接帶來清楚，也帶來摩擦，兩者同時存在。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.父母",
+        "quote": "太阳入庙无克，陷地克父",
+        "scope": "cell"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.太陽",
+        "quote": "太陽星屬火，日之精也",
+        "scope": "star"
+      }
+    ],
+    "disputed": false,
+    "status": "reviewed"
+  },
+  {
+    "id": "base.太陰.命宮",
+    "star": "太陰",
+    "palace": "命宮",
+    "body": "太陰在命，基調是往內收的：先觀察、先記住、先把感受放著。《全書》寫「心性溫和，清秀耿直」，溫和之外還有耿直，這兩樣同時存在正是這一格的特點——外表柔和，內裡有自己的一把尺。與太陽一樣，太陰的廟陷落差極大，夜生與日生、坐在什麼宮位，會改變它是收得從容還是收得緊。外柔內有尺，是這一格最容易被低估的地方。它不爭，但它記得，而且記得很久。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.命宮",
+        "quote": "太阴居命面方圆，心性温和",
+        "scope": "cell"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.太陰",
+        "quote": "太陰乃水之精，為田宅主，化富",
+        "scope": "star"
+      }
+    ],
+    "disputed": false,
+    "status": "reviewed"
+  },
+  {
+    "id": "base.太陰.兄弟",
+    "star": "太陰",
+    "palace": "兄弟",
+    "body": "《全書》在這一格談人數，本書不採用。可讀的是太陰在平輩關係裡的方式：它照料，但不宣告。記得對方的事、在需要時出現、不邀功——這些做得自然。相對地，它也期待對方同樣細心，而這種期待通常不會說出口。於是關係深而穩，一旦感覺沒被看見，退開也會退得安靜，對方往往不知道發生了什麼。它退開得安靜，所以對方通常不知道自己做錯了什麼。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.兄弟",
+        "quote": "太阴入庙兄弟五人",
+        "scope": "cell"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.太陰",
+        "quote": "太陰乃水之精，為田宅主，化富",
+        "scope": "star"
+      }
+    ],
+    "disputed": false,
+    "status": "reviewed"
+  },
+  {
+    "id": "base.太陰.夫妻",
+    "star": "太陰",
+    "palace": "夫妻",
+    "body": "《全書》寫「太陰同內助」，古人的角色框架本書不採用。可讀的是這一格的相處方式：太陰以維持為主——把日常安排妥當、把情緒接住、把衝突提前化開。它擅長讓關係運作，較不擅長把需求說明白。所以這一格常見的困境不是關係差，而是一方持續付出而另一方不知道有欠。婚姻結果屬事件，不推斷。說出口，對這一格而言比多做一件事更有用。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.夫妻",
+        "quote": "太阴同内助",
+        "scope": "cell"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.太陰",
+        "quote": "太陰乃水之精，為田宅主，化富",
+        "scope": "star"
+      }
+    ],
+    "disputed": false,
+    "status": "reviewed"
+  },
+  {
+    "id": "base.太陰.子女",
+    "star": "太陰",
+    "palace": "子女",
+    "body": "《全書》談子息數目與先後，本書不採用。可讀的是太陰對培養的姿態：它照顧細節，注意對方的狀態多於對方的成績。這種方式讓被照顧的一方感到安全，也容易變成過度貼近——替對方預先想好，反而減少了對方自己判斷的機會。太陰落陷時，同樣的細心會轉成憂慮，表現為反覆確認而不是放手。多留一點不確定給對方，反而是這一格最需要練習的事。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.子女",
+        "quote": "太阴女三男二先女后男",
+        "scope": "cell"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.太陰",
+        "quote": "太陰乃水之精，為田宅主，化富",
+        "scope": "star"
+      }
+    ],
+    "disputed": false,
+    "status": "reviewed"
+  },
+  {
+    "id": "base.太陰.財帛",
+    "star": "太陰",
+    "palace": "財帛",
+    "body": "《全書》寫「入廟富足倉箱，陷宮成敗不聚」，聚與不聚是這一格的核心。太陰處理資源的方式是慢慢積：小額、長期、不聲張，而且傾向於留給具體的用途而不是泛泛儲蓄。它對開銷敏感，對突然的支出尤其不安。廟旺時積得住，落陷時同樣的用力會變成反覆。金額盤上看不出，這裡只說方式。它怕的不是少，是突然。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.財帛",
+        "quote": "太阴入庙富足仓箱，陷宫成败不聚",
+        "scope": "cell"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.太陰",
+        "quote": "太陰乃水之精，為田宅主，化富",
+        "scope": "star"
+      }
+    ],
+    "disputed": false,
+    "status": "reviewed"
+  },
+  {
+    "id": "base.太陰.疾厄",
+    "star": "太陰",
+    "palace": "疾厄",
+    "body": "《全書》寫「廟旺無災，陷地災多主勞傷」，本書不描述身體狀況。只讀消耗來源：太陰的耗損來自承接——把別人的情緒、家裡的雜務、沒人處理的細節一一收起來。這種消耗隱形，因為每一件都很小，而且多半沒有人知道是你在做。對這一格而言，說出來比做完更能減輕負荷。每一件都很小，加起來卻沒有一刻是空的——這是這一格的實際處境。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.疾厄",
+        "quote": "太阴庙旺无灾，陷地灾多",
+        "scope": "cell"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.太陰",
+        "quote": "太陰乃水之精，為田宅主，化富",
+        "scope": "star"
+      }
+    ],
+    "disputed": false,
+    "status": "reviewed"
+  },
+  {
+    "id": "base.太陰.遷移",
+    "star": "太陰",
+    "palace": "遷移",
+    "body": "《全書》寫「入廟出外遇貴發財，陷宮招是非」。太陰在陌生環境的方式是先安頓再展開：找到住處、摸清節奏、建立幾個熟悉的點，之後才真正開始。它不適合頻繁移動，因為每一次都要重來一遍這個過程。相對地，一旦安頓下來，它在異地累積的東西往往比原地更多。是否外出屬個人決定。每一次移動都要重來一次安頓的過程，所以頻繁變動對它特別不划算。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.遷移",
+        "quote": "太阴入庙出外遇贵发财",
+        "scope": "cell"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.太陰",
+        "quote": "太陰乃水之精，為田宅主，化富",
+        "scope": "star"
+      }
+    ],
+    "disputed": false,
+    "status": "reviewed"
+  },
+  {
+    "id": "base.太陰.僕役",
+    "star": "太陰",
+    "palace": "僕役",
+    "body": "《全書》寫「太陰廟地得力成行」。太陰在群體裡是維繫的那一個：記得誰的近況、把人和人接上、在別人沒開口時先遞一句。這使關係網細密而持久，卻也使它承接了大量不被記錄的情緒工作。它很少主動索取，於是付出往往被當成理所當然。規範禁止指認小人，本書只寫讀者自己的位置。情緒工作不被記錄，也就不被承認，這是它最常見的委屈。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.僕役",
+        "quote": "太阴庙地得力成行",
+        "scope": "cell"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.太陰",
+        "quote": "太陰乃水之精，為田宅主，化富",
+        "scope": "star"
+      }
+    ],
+    "disputed": false,
+    "status": "reviewed"
+  },
+  {
+    "id": "base.太陰.官祿",
+    "star": "太陰",
+    "palace": "官祿",
+    "body": "《全書》寫「入廟多貴，陷地氣高橫破難顯達」。太陰的做事方式是把底層打理妥當——資料、流程、關係、細節，長期累積而不張揚。這在需要穩定積累的位置上很有力；在需要快速表態或對外爭取的位置上則容易被略過。廟陷差異在這一格表現為積得住還是積不住。這說明方法適配，不說明成就。它的成果通常要一段時間之後才看得出來。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.官祿",
+        "quote": "太阴入庙多贵，陷地气高横破难显达",
+        "scope": "cell"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.太陰",
+        "quote": "太陰乃水之精，為田宅主，化富",
+        "scope": "star"
+      }
+    ],
+    "disputed": false,
+    "status": "reviewed"
+  },
+  {
+    "id": "base.太陰.田宅",
+    "star": "太陰",
+    "palace": "田宅",
+    "body": "《全書》寫「太陰入廟田多」，而太陰本就是田宅主，這是它最順的一格。這個人對住處有明確的要求，不是大小而是感覺——安靜、可控、屬於自己。你願意花很多力氣把空間弄成想要的樣子，也會因為住得不對而長期不舒服卻說不出原因。是否置業牽涉現實條件，規範禁止推斷，本書只講態度。住得不對會影響它很久，而且它多半說不清楚原因。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.田宅",
+        "quote": "太阴入庙田多",
+        "scope": "cell"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.太陰",
+        "quote": "太陰乃水之精，為田宅主，化富",
+        "scope": "star"
+      }
+    ],
+    "disputed": false,
+    "status": "reviewed"
+  },
+  {
+    "id": "base.太陰.福德",
+    "star": "太陰",
+    "palace": "福德",
+    "body": "《全書》寫「入廟享福快樂」，但這一格的安定條件很具體：需要獨處。太陰要有一段沒有人要求你的時間，才把白天收起來的東西放下。缺了這段時間，即使外在順利，內裡也會持續積壓。所以它的精神狀態與社交量成反比。身邊的人常把這種需要誤讀為疏遠，其實只是它要的那段時間還沒有出現。留白對它不是奢侈，是必要。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.福德",
+        "quote": "太阴入庙享福快乐",
+        "scope": "cell"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.太陰",
+        "quote": "太陰乃水之精，為田宅主，化富",
+        "scope": "star"
+      }
+    ],
+    "disputed": false,
+    "status": "reviewed"
+  },
+  {
+    "id": "base.太陰.父母",
+    "star": "太陰",
+    "palace": "父母",
+    "body": "《全書》這一格的斷語圍繞刑傷，本書一律不採用。只讀讀者面對長輩與規則的方式：太陰傾向於順著來——不正面衝突、不公開反對、把不同意見放在心裡慢慢處理。這使關係表面和睦，也使真正的距離不容易被察覺。它對規則的態度同樣如此：照做，但保留自己的判斷。照做但保留判斷，於是關係看起來近，實際的距離未必短。這一格的疏離往往沒有任何徵兆。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.父母",
+        "quote": "太阴同免刑",
+        "scope": "cell"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.太陰",
+        "quote": "太陰乃水之精，為田宅主，化富",
+        "scope": "star"
+      }
+    ],
+    "disputed": false,
+    "status": "reviewed"
+  },
+  {
+    "id": "base.武曲.命宮",
+    "star": "武曲",
+    "palace": "命宮",
+    "body": "《全書》寫「性剛果決，心直無毒」，後四個字常被略過卻很重要：武曲的剛不帶陰險，它只是直接。這一格的基調是把想法立刻轉成動作，不繞路也不太願意等。長處是事情會被真的做完，代價是過程中的人與細節容易被輾過。與紫微的分別在於，紫微在意做得體面，武曲在意做完；一個看樣子，一個看結果。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.命宮",
+        "quote": "武曲性刚果决，心直无毒",
+        "scope": "cell"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.武曲",
+        "quote": "武曲北斗第六星，屬金，乃財帛宮主",
+        "scope": "star"
+      }
+    ],
+    "disputed": false,
+    "status": "reviewed"
+  },
+  {
+    "id": "base.武曲.兄弟",
+    "star": "武曲",
+    "palace": "兄弟",
+    "body": "《全書》在這一格寫「不合」，用字相當直。武曲在平輩關係裡的問題不是冷淡，是尺度——它把做事的標準原封不動搬進交情裡，對方沒做到就直接說。這種直接在共事時是效率，在私交裡是傷害。於是它的平輩關係往往極好或極僵，中間地帶很窄。人數之類的斷語本書不採用。它把共事的尺搬進交情，於是關係不是極好就是極僵，中間地帶很窄。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.兄弟",
+        "quote": "武曲庙旺有二人，不合",
+        "scope": "cell"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.武曲",
+        "quote": "武曲北斗第六星，屬金，乃財帛宮主",
+        "scope": "star"
+      }
+    ],
+    "disputed": false,
+    "status": "reviewed"
+  },
+  {
+    "id": "base.武曲.夫妻",
+    "star": "武曲",
+    "palace": "夫妻",
+    "body": "《全書》這一格用了重語，本書不採用。可讀的是武曲在親密關係裡的方式：它用做事表達在意——解決問題、承擔開支、把麻煩擋掉。至於情緒上的靠近，它既不擅長也不太認為必要。於是關係裡常見的落差是：一方覺得自己付出了很多，另一方覺得沒有被理解，而兩邊說的其實都成立。問題不在誰付出得少，在兩種語言沒有翻譯。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.夫妻",
+        "quote": "武曲背克宜迟娶",
+        "scope": "cell"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.武曲",
+        "quote": "武曲北斗第六星，屬金，乃財帛宮主",
+        "scope": "star"
+      }
+    ],
+    "disputed": false,
+    "status": "reviewed"
+  },
+  {
+    "id": "base.武曲.子女",
+    "star": "武曲",
+    "palace": "子女",
+    "body": "《全書》在這一格談子息數目與刑剋，本書一概不採用。可讀的是武曲對培養的方式：它給標準也給資源，但不太給耐性。對後輩或自己在做的事，它期待對方跟得上節奏，跟不上時傾向於直接接手而不是等。結果是事情做成了，對方卻沒有經歷過自己撐住的那一段。放慢，對這一格是最難的調整。等對方自己撐住那一段，比替對方做完更有價值。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.子女",
+        "quote": "武曲主一子",
+        "scope": "cell"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.武曲",
+        "quote": "武曲北斗第六星，屬金，乃財帛宮主",
+        "scope": "star"
+      }
+    ],
+    "disputed": false,
+    "status": "reviewed"
+  },
+  {
+    "id": "base.武曲.財帛",
+    "star": "武曲",
+    "palace": "財帛",
+    "body": "武曲本就是財帛主，這是它最順的一格。《全書》寫「豐足化吉有巨萬家資」，語氣是十二宮裡最強的。武曲處理資源的方式是主動經營：看得準、下得了手、不為小錢反覆。它對數字有感覺，也願意承擔相應的風險。要留意這描述的是能力傾向而非結果，而任何買賣借貸的決定，規範明文禁止由盤面支持。它對數字有感覺，這一點在十二宮裡是少見的優勢。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.財帛",
+        "quote": "武曲丰足化吉有巨万家资",
+        "scope": "cell"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.武曲",
+        "quote": "武曲北斗第六星，屬金，乃財帛宮主",
+        "scope": "star"
+      }
+    ],
+    "disputed": false,
+    "status": "reviewed"
+  },
+  {
+    "id": "base.武曲.疾厄",
+    "star": "武曲",
+    "palace": "疾厄",
+    "body": "《全書》這一格列出具體傷病，本書一律不採用。只讀消耗來源：武曲的耗損來自硬撐——它不擅長示弱，也不太承認自己需要停。於是疲勞多半累積到不能不停為止，而不是在中途被處理掉。這一格的特點是消耗來得猛而不是來得久。對它有用的不是休息的技巧，是願意提早承認。它的消耗來得猛而不是來得久，所以提早承認比學會休息更有用。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.疾厄",
+        "quote": "武曲襁褓灾迍手足头面有伤",
+        "scope": "cell"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.武曲",
+        "quote": "武曲北斗第六星，屬金，乃財帛宮主",
+        "scope": "star"
+      }
+    ],
+    "disputed": false,
+    "status": "reviewed"
+  },
+  {
+    "id": "base.武曲.遷移",
+    "star": "武曲",
+    "palace": "遷移",
+    "body": "《全書》寫「鬧忙中進少不宜靜守」，判斷相當明確。武曲在陌生而繁忙的環境最能發揮：有事要解決、有節奏要跟上，它立刻進入狀態。安靜、緩慢、需要慢慢鋪墊的場合則令它煩躁。所以這一格的人換環境不猶豫，但對環境的要求集中在一點——要有事做。是否外出屬個人決定，本書只說條件。它對環境只有一個要求：要有事做。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.遷移",
+        "quote": "武曲闹忙中进少不宜静守",
+        "scope": "cell"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.武曲",
+        "quote": "武曲北斗第六星，屬金，乃財帛宮主",
+        "scope": "star"
+      }
+    ],
+    "disputed": false,
+    "status": "reviewed"
+  },
+  {
+    "id": "base.武曲.僕役",
+    "star": "武曲",
+    "palace": "僕役",
+    "body": "《全書》寫「旺宮不少，一呼百諾」。武曲在群體裡靠的是實績而不是交情：它說得出做得到，於是被信任、被依賴。但它很少花力氣維繫關係本身，也不太處理別人的情緒。結果是共事的人多，走得近的人少，而它自己通常不覺得這是問題。規範禁止指認小人，本書只寫讀者自己的位置與消耗，不評論任何具體的人。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.僕役",
+        "quote": "武曲旺宫不少，一呼百诺",
+        "scope": "cell"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.武曲",
+        "quote": "武曲北斗第六星，屬金，乃財帛宮主",
+        "scope": "star"
+      }
+    ],
+    "disputed": false,
+    "status": "reviewed"
+  },
+  {
+    "id": "base.武曲.官祿",
+    "star": "武曲",
+    "palace": "官祿",
+    "body": "《全書》寫「與昌曲左右同宮，武職崢嶸」，並點名需要輔佐。武曲的做事方式是直取目標：分解、執行、收尾，路徑越短越好。這在目標明確、責任清楚的位置上極有力；在需要協調多方、講究過程與人情的位置上則容易碰撞。要留意規範要求區分能力與環境——這說的是方法適配，不說明成就，亦不指向職位。路徑越短越好，這在需要繞的地方就成了代價。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.官祿",
+        "quote": "武曲入庙与昌曲左右同宫，武职峥嵘",
+        "scope": "cell"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.武曲",
+        "quote": "武曲北斗第六星，屬金，乃財帛宮主",
+        "scope": "star"
+      }
+    ],
+    "disputed": false,
+    "status": "reviewed"
+  },
+  {
+    "id": "base.武曲.田宅",
+    "star": "武曲",
+    "palace": "田宅",
+    "body": "《全書》寫「單居旺地，得祖父大業」。武曲對居所的態度是務實的：它看的是功能與價值，不太看氣氛。夠用、划算、將來處理得掉，這幾樣比住得舒服更能說服它。所以它在安置上決斷快、猶豫少，也較少為了感覺付出溢價。置業與否牽涉現實條件，規範禁止由此推斷，本書只講態度。夠用、划算、將來處理得掉，比住得舒服更能說服它。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.田宅",
+        "quote": "武曲单居旺地，得祖父大业",
+        "scope": "cell"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.武曲",
+        "quote": "武曲北斗第六星，屬金，乃財帛宮主",
+        "scope": "star"
+      }
+    ],
+    "disputed": false,
+    "status": "reviewed"
+  },
+  {
+    "id": "base.武曲.福德",
+    "star": "武曲",
+    "palace": "福德",
+    "body": "《全書》寫「勞心費力，入廟安然享福」，兩句並列正是這一格的樣子。武曲的安定來自事情在推進——只要有進度，它就不覺得累。真正令它不安的是停滯：等待、拖延、懸而未決的事，比工作量本身更消耗它。所以對這一格而言，把事情推到有結論，往往比放下它更能讓人睡得著。停滯比工作量更消耗它，所以推到有結論往往比放下更有效。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.福德",
+        "quote": "武曲劳心费力，入庙安然享福",
+        "scope": "cell"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.武曲",
+        "quote": "武曲北斗第六星，屬金，乃財帛宮主",
+        "scope": "star"
+      }
+    ],
+    "disputed": false,
+    "status": "reviewed"
+  },
+  {
+    "id": "base.武曲.父母",
+    "star": "武曲",
+    "palace": "父母",
+    "body": "《全書》這一格用了重語，本書不採用關於家人的斷語。只讀讀者面對長輩與權威的方式：武曲不太懂得迂迴，認為對就堅持，認為不對就直說。這使關係裡的立場清楚，也使衝突來得快。它對規則的態度同樣直接——合理就遵守，不合理就繞過去，較少花時間在程序上與人周旋。立場清楚，衝突也就來得快，兩者是同一件事。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.父母",
+        "quote": "武曲克早，退祖业不刑",
+        "scope": "cell"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.武曲",
+        "quote": "武曲北斗第六星，屬金，乃財帛宮主",
+        "scope": "star"
+      }
+    ],
+    "disputed": false,
+    "status": "reviewed"
+  },
+  {
+    "id": "base.天機.命宮",
+    "star": "天機",
+    "palace": "命宮",
+    "body": "《全書》寫「性急心慈，機謀多變」，三樣並列。天機在命的基調是轉：遇到阻力先想別的路，而不是硬推。這使它靈活、學得快、少與人正面相撞，也使它不容易在一件事上待夠久。《全書》另有一句「在廟旺有力，陷地無力」——這一格的表現高度依賴條件，比多數格更需要看它坐在哪一宮。它繞得開阻力，也繞得開需要待久的事。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.命宮",
+        "quote": "入庙身长肥胖，性急心慈，机谋多变",
+        "scope": "cell"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.天機",
+        "quote": "天機屬木，南斗第三益算之善星也",
+        "scope": "star"
+      }
+    ],
+    "disputed": false,
+    "status": "reviewed"
+  },
+  {
+    "id": "base.天機.兄弟",
+    "star": "天機",
+    "palace": "兄弟",
+    "body": "天機本就是兄弟主，這是它的本位。《全書》在這一格談人數，本書不採用。可讀的是天機在平輩關係裡的角色：它是居中的那一個——傳話、調停、把兩邊接上。這使它在群體裡不可或缺，也使它長期站在別人的事情中間。久了會出現一種疲倦：所有人的狀況它都知道，而它自己的事沒有人接。居中的位置給它分量，也讓它少了一個可以靠的人。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.兄弟",
+        "quote": "天机庙旺有二人",
+        "scope": "cell"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.天機",
+        "quote": "天機屬木，南斗第三益算之善星也",
+        "scope": "star"
+      }
+    ],
+    "disputed": false,
+    "status": "reviewed"
+  },
+  {
+    "id": "base.天機.夫妻",
+    "star": "天機",
+    "palace": "夫妻",
+    "body": "《全書》在這一格談年齡與生離，本書不採用這類推斷。可讀的是天機在親密關係裡的方式：它想得多、調整得快，願意為對方改變做法。這種彈性讓關係少有僵局，也讓它顯得不夠穩定——因為想法會變，說法也跟著變。對方感受到的常常不是不在乎，而是抓不住。婚姻結果屬事件，本書不推斷。對方感受到的不是不在乎，是抓不住，這個分別值得說清楚。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.夫妻",
+        "quote": "天机宜年少刚强之",
+        "scope": "cell"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.天機",
+        "quote": "天機屬木，南斗第三益算之善星也",
+        "scope": "star"
+      }
+    ],
+    "disputed": false,
+    "status": "reviewed"
+  },
+  {
+    "id": "base.天機.子女",
+    "star": "天機",
+    "palace": "子女",
+    "body": "《全書》談子息數目與庶出，本書不採用。可讀的是天機對培養的方式：它擅長教方法而不是教內容——遇到問題怎麼拆、路不通時怎麼繞。這對後輩相當受用，但也容易變成不斷提供選項，反而使對方難以定下來。天機落陷時，同樣的多想會表現為反覆修改安排，讓被帶的一方無所適從。選項太多，反而使被帶的一方難以定下來。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.子女",
+        "quote": "天机庙旺二人",
+        "scope": "cell"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.天機",
+        "quote": "天機屬木，南斗第三益算之善星也",
+        "scope": "star"
+      }
+    ],
+    "disputed": false,
+    "status": "reviewed"
+  },
+  {
+    "id": "base.天機.財帛",
+    "star": "天機",
+    "palace": "財帛",
+    "body": "《全書》寫「勞心費力生財」，五個字寫盡這一格。天機賺取資源的方式靠腦不靠本：看機會、找縫隙、把不對盤的東西接起來。這種方式起伏較大，因為每一筆都要重新想過，難以形成穩定的重複。它也較少把錢放在長期不動的地方——對天機而言，動起來的資源才算資源，放著不動就等於沒有。金額盤上看不出。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.財帛",
+        "quote": "天机劳心费力生财",
+        "scope": "cell"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.天機",
+        "quote": "天機屬木，南斗第三益算之善星也",
+        "scope": "star"
+      }
+    ],
+    "disputed": false,
+    "status": "reviewed"
+  },
+  {
+    "id": "base.天機.疾厄",
+    "star": "天機",
+    "palace": "疾厄",
+    "body": "《全書》這一格列出具體徵狀，本書一律不採用。只讀消耗來源：天機的耗損來自停不下來的思慮——事情處理完了，腦裡還在演其他版本。這種消耗不隨事情結束而結束，所以它的疲勞常常出現在空閒的時候，而不是忙碌的時候。對這一格有用的不是少做事，是有辦法讓念頭落地：寫下來、說出口、或者乾脆做一個決定。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.疾厄",
+        "quote": "天机襁褓多灾",
+        "scope": "cell"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.天機",
+        "quote": "天機屬木，南斗第三益算之善星也",
+        "scope": "star"
+      }
+    ],
+    "disputed": false,
+    "status": "reviewed"
+  },
+  {
+    "id": "base.天機.遷移",
+    "star": "天機",
+    "palace": "遷移",
+    "body": "《全書》寫「出外遇貴居家有是非」，對比相當清楚。天機在外面比在原地順：新環境提供新的變數，而變數正是它的長處；待在熟悉而固定的地方，同一份機變會轉成挑剔與不安。所以這一格的人多半動得比別人頻密，也比別人更快適應新的規矩與人事。是否外出屬個人決定，本書只說條件的鬆緊。它換環境的門檻低，重新開始對它不算成本。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.遷移",
+        "quote": "天机出外遇贵居家有是非",
+        "scope": "cell"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.天機",
+        "quote": "天機屬木，南斗第三益算之善星也",
+        "scope": "star"
+      }
+    ],
+    "disputed": false,
+    "status": "reviewed"
+  },
+  {
+    "id": "base.天機.僕役",
+    "star": "天機",
+    "palace": "僕役",
+    "body": "《全書》寫「入廟得力，陷空怨主」，落差寫得很白。天機在群體裡靠的是消息與接點：它知道誰認識誰、哪條路走得通，於是成為關鍵的中間人。這使它的人脈廣而輕——接觸的面很大，沉澱下來的關係未必多。中間人的位置消耗的是時間與記性，而這兩樣都不會被記錄。規範禁止指認小人，本書只寫讀者自己的位置。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.僕役",
+        "quote": "天机入庙得力，陷空怨主",
+        "scope": "cell"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.天機",
+        "quote": "天機屬木，南斗第三益算之善星也",
+        "scope": "star"
+      }
+    ],
+    "disputed": false,
+    "status": "reviewed"
+  },
+  {
+    "id": "base.天機.官祿",
+    "star": "天機",
+    "palace": "官祿",
+    "body": "《全書》寫「入廟權貴，會文曲為良」。天機的做事方式是拆解與變通：把難題切開、找替代路徑、在限制裡找空間。這在需要應變與設計的位置上很有力；在需要長期重複、不容更動的位置上則容易失去耐性。廟陷差異在這一格表現為變通還是搖擺。這說明方法適配，不說明成就與職位。長期重複、不容更動的位置，最容易磨掉它的耐性。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.官祿",
+        "quote": "天机入庙权贵",
+        "scope": "cell"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.天機",
+        "quote": "天機屬木，南斗第三益算之善星也",
+        "scope": "star"
+      }
+    ],
+    "disputed": false,
+    "status": "reviewed"
+  },
+  {
+    "id": "base.天機.田宅",
+    "star": "天機",
+    "palace": "田宅",
+    "body": "《全書》寫「退祖新創置」，這一格的特點是不守舊。天機對居所的態度是可換的：它不太把某個地方認定為唯一的家，也較少為長期持有付出額外代價。搬動對它的心理成本低，甚至帶點新鮮感。相對地，歸屬感也就比較薄。置業與否牽涉現實條件，規範禁止由此推斷，本書只講態度。搬動的心理成本低，歸屬感也就比較薄，兩者是同一件事的兩面。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.田宅",
+        "quote": "天机退祖新创置",
+        "scope": "cell"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.天機",
+        "quote": "天機屬木，南斗第三益算之善星也",
+        "scope": "star"
+      }
+    ],
+    "disputed": false,
+    "status": "reviewed"
+  },
+  {
+    "id": "base.天機.福德",
+    "star": "天機",
+    "palace": "福德",
+    "body": "《全書》寫「先勞後逸」，順序是這一格的重點。天機的安定要等到事情想通為止——沒想通之前，休息也是在想。所以它的精神狀態不隨工作量變化，而隨懸而未決的事情數量變化。清空待辦不如清空疑問——有一個可以把念頭寫下來的地方，對這一格比放假更有用。事情懸著，它就一直開著。事情懸著，它就一直開著，這是它最實在的消耗來源。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.福德",
+        "quote": "天机先劳后逸",
+        "scope": "cell"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.天機",
+        "quote": "天機屬木，南斗第三益算之善星也",
+        "scope": "star"
+      }
+    ],
+    "disputed": false,
+    "status": "reviewed"
+  },
+  {
+    "id": "base.天機.父母",
+    "star": "天機",
+    "palace": "父母",
+    "body": "《全書》這一格談寄居與重拜，本書不採用關於家人遭遇的斷語。只讀讀者面對長輩與規則的方式：天機不正面對抗，它繞。不認同的時候不爭辯，而是找另一條路把事情辦成。這使關係少有衝突，也使真正的分歧從來沒有被攤開處理。它對制度的態度同樣是找空間，而不是改規則。它找空間，而不是改規則，於是分歧從來沒有被攤開處理過。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.父母",
+        "quote": "天机庙旺无刑",
+        "scope": "cell"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.天機",
+        "quote": "天機屬木，南斗第三益算之善星也",
+        "scope": "star"
+      }
+    ],
+    "disputed": false,
+    "status": "reviewed"
+  }
+]

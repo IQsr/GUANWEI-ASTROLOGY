@@ -1,0 +1,26 @@
+{
+  "$警告": "呢個唔係書本例盤。佢係用本引擎自己算出嚟嘅，只係用嚟示範格式同埋自我測試個對照器。底線開頭嘅檔案唔會當書本例盤計。",
+
+  "source": {
+    "book": "（非書本例盤）",
+    "ref": "由 @guanwei/ziwei cast() 生成，2026-09-12",
+    "note": "用嚟驗證對照器本身行得通。唔可以當驗證引擎正確性。"
+  },
+
+  "input": {
+    "lunar": { "y": 1998, "m": 2, "d": 14, "isLeapMonth": false },
+    "shichen": 4,
+    "sex": "male"
+  },
+
+  "expect": {
+    "wuxingJu": "水二局",
+    "mingGong": "亥",
+    "shenGong": "未",
+    "palaces": {
+      "申": { "majorStars": ["紫微", "天府"] },
+      "亥": { "name": "命宮" }
+    },
+    "decadals": { "亥": "2-11" }
+  }
+}

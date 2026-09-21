@@ -1,0 +1,80 @@
+{
+  "$note": "嚴重程度字庫。描述嘅係『盤內阻力集中程度』，唔係現實危險概率（voice-spec §8）。",
+  "$source": "docs/voice-spec.md §8 嚴重程度字庫、§16 吉凶評級",
+  "$rule": "字庫唔可以單獨觸發評級 —— 評級由證據門檻決定，字庫只係限制用到幾重嘅字。",
+
+  "grades": {
+    "+3": {
+      "name": "盛",
+      "定義": "多層有利訊號同向，強度門檻全部通過",
+      "allow": ["多層有利訊號同向", "條件較有利", "值得主動爭取", "配合較順", "可逐步推進"],
+      "requiresManualReview": true
+    },
+    "+2": {
+      "name": "進",
+      "定義": "有利方向清楚，跨層支持充分",
+      "allow": ["條件較有利", "值得主動爭取", "配合較順", "可逐步推進"],
+      "requiresManualReview": false
+    },
+    "+1": {
+      "name": "順",
+      "定義": "有限但可支持嘅有利方向",
+      "allow": ["配合較順", "可逐步推進"],
+      "requiresManualReview": false
+    },
+    "0": {
+      "name": "平",
+      "定義": "資料完整，經檢查後無突出方向",
+      "allow": ["未見突出方向", "無明顯偏向"],
+      "requiresManualReview": false,
+      "$warn": "禁止由缺資料或者正負相抵自動produce『平』（§16.5）"
+    },
+    "-1": {
+      "name": "慎",
+      "定義": "有限但可支持嘅阻力方向",
+      "allow": ["值得留意", "稍有阻力", "可能反覆", "未必如預期"],
+      "requiresManualReview": false
+    },
+    "-2": {
+      "name": "逆",
+      "定義": "不利方向清楚，跨層支持充分",
+      "allow": ["阻力較集中", "不宜忽視", "值得重新評估", "推進條件較不利"],
+      "requiresManualReview": false
+    },
+    "-3": {
+      "name": "險",
+      "定義": "多層不利訊號同向，強度門檻全部通過",
+      "allow": ["多層阻力集中於此主題", "宜先核對承擔，再考慮擴張", "錯誤成本偏高"],
+      "requiresManualReview": true
+    },
+    "null": {
+      "name": "未定／交錯",
+      "定義": "資料不足，或者重要支持同阻力形成唔到單一方向",
+      "allow": ["暫不能定調", "資料不足以支持此判斷", "暫不宜用單一吉凶概括"],
+      "requiresManualReview": false,
+      "$warn": "「交錯」唔係「平」。唔准用『平安無事』填未知（§8）"
+    }
+  },
+
+  "$note2": "下面呢啲字句只可以喺對應（或者更重）嘅評級出現。低評級用重字 = 標題／正文強度高過評級（§26 內容檢查）。",
+  "minGrade": [
+    { "phrase": "多層阻力集中", "requires": -3 },
+    { "phrase": "宜先核對承擔", "requires": -3 },
+    { "phrase": "錯誤成本偏高", "requires": -3, "alsoRequires": "user_context" },
+    { "phrase": "停止追加承擔", "requires": -3, "alsoRequires": "user_context" },
+    { "phrase": "阻力較集中", "requires": -2 },
+    { "phrase": "不宜忽視", "requires": -2 },
+    { "phrase": "推進條件較不利", "requires": -2 },
+    { "phrase": "值得重新評估", "requires": -2 },
+    { "phrase": "多層有利訊號同向", "requires": 3 },
+    { "phrase": "值得主動爭取", "requires": 2 },
+    { "phrase": "條件較有利", "requires": 2 }
+  ],
+
+  "$note3": "極重語氣唔設 -4。只可以喺『險』而且有讀者已確認嘅現實失控背景先用（§8 最後一行）。",
+  "extremeToneRequires": {
+    "grade": -3,
+    "userContext": true,
+    "phrases": ["停止追加承擔", "先尋求協助", "停止擴大風險"]
+  }
+}

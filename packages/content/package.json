@@ -1,0 +1,23 @@
+{
+  "name": "@guanwei/content",
+  "version": "0.0.0",
+  "private": true,
+  "description": "觀微內容 schema、lint 同規則庫（工單 C1、C2）",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@guanwei/ziwei": "workspace:*",
+    "zod": "^4.1.5"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.2",
+    "vitest": "^3.2.4"
+  }
+}

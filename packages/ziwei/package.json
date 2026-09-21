@@ -1,0 +1,23 @@
+{
+  "name": "@guanwei/ziwei",
+  "version": "0.0.0",
+  "private": true,
+  "description": "觀微 紫微斗數排盤引擎（私有）",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./contract": "./src/types.ts"
+  },
+  "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit",
+    "checksum": "node -e \"const{createHash}=require('node:crypto'),{readFileSync}=require('node:fs');console.log(createHash('sha256').update(readFileSync('src/calendar/tables.json')).digest('hex'))\""
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.2",
+    "iztro": "^2.6.1",
+    "typescript": "^5.9.2",
+    "vitest": "^3.2.4"
+  }
+}

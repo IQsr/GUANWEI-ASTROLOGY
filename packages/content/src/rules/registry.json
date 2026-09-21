@@ -1,0 +1,62 @@
+{
+ "$note": "規則庫（工單 C2）。**觸發條件係資料唔係程式** —— 由 src/condition.ts 直接對住 Chart 行。\n來源有兩種，唔好撈亂：\n  (a) 規範本身 —— 「我哋准講邊啲詞」係我哋自己嘅house rule，voice-spec 就係出處；\n  (b) 斗數主張 —— 「呢個格局代表乜」係對紫微斗數嘅主張，要書，要頁碼。\n而家 approved 嘅全部係 (a) 或者純幾何。所有 (b) 類（格局、星曜象義）一律 needs_review，\n等 B5／C3 攞到書先審。呢個唔係保守，係規範 §10「缺少已審核規則時，不得即席創作星曜含義」。\n\n2026-09 C6：手寫嘅 sihua.natal-* 六條由 modifier.ts 嘅 sihuaRules() 取代（4 化 × 12 宮）；brightness.* 兩條移走 —— 廟旺同基塊講緊同一粒星，唔可以自己一個去重群（§15）。廟旺而家係貼喺基塊上面嘅修飾語，唔進入門檻計數。\n\n2026-09 C7：sanfang.*、structure.*、geju.* 全部搬咗去 src/structure.ts 派生（12 宮 × 三方四正、12 宮空宮、6 身宮、30 格局）。",
+ "registry_id": "r1",
+ "spec_version": "voice-spec v1.0",
+ "rules": [
+  {
+   "rule_id": "sihua.annual-ji.career",
+   "version": "1.0",
+   "schools": [
+    "zhongzhou-v1"
+   ],
+   "requires": [
+    "natal",
+    "decade",
+    "annual"
+   ],
+   "role": "core",
+   "independence_group": "sihua.annual.忌",
+   "trigger": {
+    "hua": "忌",
+    "in": {
+     "name": "官祿",
+     "layer": "annual"
+    },
+    "layer": "annual"
+   },
+   "exclude": null,
+   "allowed_xiang": [
+    "牽制",
+    "反覆",
+    "需要承擔"
+   ],
+   "prohibited_inferences": [
+    "忌必凶",
+    "預言失業或破財",
+    "單一化忌判「逆」",
+    "脫離本命同大限背景下定論"
+   ],
+   "topics": [
+    "career"
+   ],
+   "depends_on": [
+    "sihua.natal-忌.官祿"
+   ],
+   "review_status": "approved",
+   "review_reasons": [
+    "象義範圍出自規範 §14"
+   ],
+   "sources": [
+    {
+     "book": "觀微・名書 語言規範與推理規範 v1.0",
+     "ref": "§14 四化與單一訊號禁則"
+    },
+    {
+     "book": "觀微・名書 語言規範與推理規範 v1.0",
+     "ref": "§12 主題與宮位映射"
+    }
+   ],
+   "note": "requires 有 decade —— 未起運嗰幾年會出 not_applicable，唔係 unmatched。年度結論要三層（§13）。"
+  }
+ ]
+}

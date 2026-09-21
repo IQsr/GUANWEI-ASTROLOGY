@@ -1,0 +1,1542 @@
+[
+  {
+    "id": "mod.brightness.紫微.廟旺",
+    "kind": "brightness",
+    "star": "紫微",
+    "key": "廟旺",
+    "text": "主導的姿態站得住：說了算，也扛得起，旁人願意讓位給它。方向不必打折，但仍要看身邊有沒有輔佐。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.紫微",
+        "quote": "紫微屬土，乃中天之尊星為帝座",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "attrs.table",
+        "quote": "紫微属土中天星南北斗化帝座为官禄主",
+        "scope": "star"
+      }
+    ],
+    "status": "reviewed"
+  },
+  {
+    "id": "mod.brightness.紫微.得利",
+    "kind": "brightness",
+    "star": "紫微",
+    "key": "得利",
+    "text": "主導仍在，但要靠場合配合；位置不對時它會收起來不說。要判斷它，先看它有沒有可以指揮的東西。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.紫微",
+        "quote": "紫微屬土，乃中天之尊星為帝座",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "attrs.table",
+        "quote": "紫微属土中天星南北斗化帝座为官禄主",
+        "scope": "star"
+      }
+    ],
+    "status": "reviewed"
+  },
+  {
+    "id": "mod.brightness.紫微.平",
+    "kind": "brightness",
+    "star": "紫微",
+    "key": "平",
+    "text": "標準還在，推動的力氣不足，多半停在提出意見的階段。讀這一檔要把預期由主導調成參與。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.紫微",
+        "quote": "紫微屬土，乃中天之尊星為帝座",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "attrs.table",
+        "quote": "紫微属土中天星南北斗化帝座为官禄主",
+        "scope": "star"
+      }
+    ],
+    "status": "reviewed"
+  },
+  {
+    "id": "mod.brightness.紫微.不",
+    "kind": "brightness",
+    "star": "紫微",
+    "key": "不",
+    "text": "想主導而使不上力，容易變成對細節反覆要求。要留意它把力氣花在了哪些小事上。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.紫微",
+        "quote": "紫微屬土，乃中天之尊星為帝座",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "attrs.table",
+        "quote": "紫微属土中天星南北斗化帝座为官禄主",
+        "scope": "star"
+      }
+    ],
+    "status": "reviewed"
+  },
+  {
+    "id": "mod.brightness.紫微.陷",
+    "kind": "brightness",
+    "star": "紫微",
+    "key": "陷",
+    "text": "帝座失位：標準不減，可以支配的東西卻很少。讀這一檔要把重點放在落差，而不是放在能力。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.紫微",
+        "quote": "紫微屬土，乃中天之尊星為帝座",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "attrs.table",
+        "quote": "紫微属土中天星南北斗化帝座为官禄主",
+        "scope": "star"
+      }
+    ],
+    "status": "reviewed"
+  },
+  {
+    "id": "mod.brightness.天機.廟旺",
+    "kind": "brightness",
+    "star": "天機",
+    "key": "廟旺",
+    "text": "機變用得上：轉圜快、路數多，難題到它手上通常有第二條路。可以放心把它當作解法的來源。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.天機",
+        "quote": "天機屬木，南斗第三益算之善星也",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "attrs.table",
+        "quote": "天机属木南斗化善为兄弟主",
+        "scope": "star"
+      }
+    ],
+    "status": "reviewed"
+  },
+  {
+    "id": "mod.brightness.天機.得利",
+    "kind": "brightness",
+    "star": "天機",
+    "key": "得利",
+    "text": "轉得動，但要時間；倉促之下它的方案未必比直來直往好。要給它時間，倉促之下反而不準。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.天機",
+        "quote": "天機屬木，南斗第三益算之善星也",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "attrs.table",
+        "quote": "天机属木南斗化善为兄弟主",
+        "scope": "star"
+      }
+    ],
+    "status": "reviewed"
+  },
+  {
+    "id": "mod.brightness.天機.平",
+    "kind": "brightness",
+    "star": "天機",
+    "key": "平",
+    "text": "想得多而落實少，選項列得出，決定下不了。讀它時重點放在想法而不是結果。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.天機",
+        "quote": "天機屬木，南斗第三益算之善星也",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "attrs.table",
+        "quote": "天机属木南斗化善为兄弟主",
+        "scope": "star"
+      }
+    ],
+    "status": "reviewed"
+  },
+  {
+    "id": "mod.brightness.天機.不",
+    "kind": "brightness",
+    "star": "天機",
+    "key": "不",
+    "text": "機變轉成搖擺，同一件事反覆改口，旁人抓不住。它的反覆不是不在乎，是選項太多。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.天機",
+        "quote": "天機屬木，南斗第三益算之善星也",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "attrs.table",
+        "quote": "天机属木南斗化善为兄弟主",
+        "scope": "star"
+      }
+    ],
+    "status": "reviewed"
+  },
+  {
+    "id": "mod.brightness.天機.陷",
+    "kind": "brightness",
+    "star": "天機",
+    "key": "陷",
+    "text": "《全書》明寫「陷地無力」：想得再多都缺一個可以施展的空間。要看它身邊有沒有可以合作的人。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.天機",
+        "quote": "天機屬木，南斗第三益算之善星也",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "attrs.table",
+        "quote": "天机属木南斗化善为兄弟主",
+        "scope": "star"
+      }
+    ],
+    "status": "reviewed"
+  },
+  {
+    "id": "mod.brightness.太陽.廟旺",
+    "kind": "brightness",
+    "star": "太陽",
+    "key": "廟旺",
+    "text": "日麗中天：照得出去，也被看得見，付出有人接得住。它的付出這時候收得到回應。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.太陽",
+        "quote": "太陽星屬火，日之精也",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "attrs.table",
+        "quote": "太阳属火南北斗化贵为官禄主",
+        "scope": "star"
+      }
+    ],
+    "status": "reviewed"
+  },
+  {
+    "id": "mod.brightness.太陽.得利",
+    "kind": "brightness",
+    "star": "太陽",
+    "key": "得利",
+    "text": "仍然向外，但範圍縮小，照顧得到身邊而未必照顧得到場面。範圍縮小了，重心要跟著調整。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.太陽",
+        "quote": "太陽星屬火，日之精也",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "attrs.table",
+        "quote": "太阳属火南北斗化贵为官禄主",
+        "scope": "star"
+      }
+    ],
+    "status": "reviewed"
+  },
+  {
+    "id": "mod.brightness.太陽.平",
+    "kind": "brightness",
+    "star": "太陽",
+    "key": "平",
+    "text": "光度平常：願意給，給出去的分量卻不特別顯眼。分量平常，不必寫成特別顯眼。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.太陽",
+        "quote": "太陽星屬火，日之精也",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "attrs.table",
+        "quote": "太阳属火南北斗化贵为官禄主",
+        "scope": "star"
+      }
+    ],
+    "status": "reviewed"
+  },
+  {
+    "id": "mod.brightness.太陽.不",
+    "kind": "brightness",
+    "star": "太陽",
+    "key": "不",
+    "text": "將落未落：想照而力不繼，容易在無人回應的地方空轉。要留意它在哪些地方白費了力氣。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.太陽",
+        "quote": "太陽星屬火，日之精也",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "attrs.table",
+        "quote": "太阳属火南北斗化贵为官禄主",
+        "scope": "star"
+      }
+    ],
+    "status": "reviewed"
+  },
+  {
+    "id": "mod.brightness.太陽.陷",
+    "kind": "brightness",
+    "star": "太陽",
+    "key": "陷",
+    "text": "失輝：付出轉向內裡，熱度還在而照不出去。做了很多卻沒有人知道，是這一檔最實在的處境。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.太陽",
+        "quote": "太陽星屬火，日之精也",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "attrs.table",
+        "quote": "太阳属火南北斗化贵为官禄主",
+        "scope": "star"
+      }
+    ],
+    "status": "reviewed"
+  },
+  {
+    "id": "mod.brightness.武曲.廟旺",
+    "kind": "brightness",
+    "star": "武曲",
+    "key": "廟旺",
+    "text": "決斷落實得到：想得到就做得成，過程短，代價也算得清。目標清楚的時候它最值得倚靠。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.武曲",
+        "quote": "武曲北斗第六星，屬金，乃財帛宮主",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "attrs.table",
+        "quote": "武曲属金北斗化财为财帛主",
+        "scope": "star"
+      }
+    ],
+    "status": "reviewed"
+  },
+  {
+    "id": "mod.brightness.武曲.得利",
+    "kind": "brightness",
+    "star": "武曲",
+    "key": "得利",
+    "text": "執行力仍在，但要有明確目標；方向模糊時它反而停住。方向模糊會令它停下來，這一點要交代。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.武曲",
+        "quote": "武曲北斗第六星，屬金，乃財帛宮主",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "attrs.table",
+        "quote": "武曲属金北斗化财为财帛主",
+        "scope": "star"
+      }
+    ],
+    "status": "reviewed"
+  },
+  {
+    "id": "mod.brightness.武曲.平",
+    "kind": "brightness",
+    "star": "武曲",
+    "key": "平",
+    "text": "剛的部分收斂了，衝勁也跟著收：做得完，做不快。這一檔的武曲比平時容易商量。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.武曲",
+        "quote": "武曲北斗第六星，屬金，乃財帛宮主",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "attrs.table",
+        "quote": "武曲属金北斗化财为财帛主",
+        "scope": "star"
+      }
+    ],
+    "status": "reviewed"
+  },
+  {
+    "id": "mod.brightness.武曲.不",
+    "kind": "brightness",
+    "star": "武曲",
+    "key": "不",
+    "text": "剛用錯地方：在小事上堅持，在該爭的地方反而繞開。它的堅持用錯了地方，值得指出來。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.武曲",
+        "quote": "武曲北斗第六星，屬金，乃財帛宮主",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "attrs.table",
+        "quote": "武曲属金北斗化财为财帛主",
+        "scope": "star"
+      }
+    ],
+    "status": "reviewed"
+  },
+  {
+    "id": "mod.brightness.武曲.陷",
+    "kind": "brightness",
+    "star": "武曲",
+    "key": "陷",
+    "text": "金氣受制：決斷變成硬撐，事情做成了而代價高於原本值得付的。代價高於值得付的，這才是重點。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.武曲",
+        "quote": "武曲北斗第六星，屬金，乃財帛宮主",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "attrs.table",
+        "quote": "武曲属金北斗化财为财帛主",
+        "scope": "star"
+      }
+    ],
+    "status": "reviewed"
+  },
+  {
+    "id": "mod.brightness.天同.廟旺",
+    "kind": "brightness",
+    "star": "天同",
+    "key": "廟旺",
+    "text": "福氣厚：日子過得舒服，人緣寬，不必用力也有人願意幫。它的舒服是真的，不必替它擔心。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.天同",
+        "quote": "天同星屬水，乃南方第四星也，為福德宮之主宰",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "attrs.table",
+        "quote": "天同属水金南斗化福为福德主",
+        "scope": "star"
+      }
+    ],
+    "status": "reviewed"
+  },
+  {
+    "id": "mod.brightness.天同.得利",
+    "kind": "brightness",
+    "star": "天同",
+    "key": "得利",
+    "text": "安穩仍在，但需要條件配合；順的時候特別順，緊的時候拖得住。順與緊的落差要一併寫出來。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.天同",
+        "quote": "天同星屬水，乃南方第四星也，為福德宮之主宰",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "attrs.table",
+        "quote": "天同属水金南斗化福为福德主",
+        "scope": "star"
+      }
+    ],
+    "status": "reviewed"
+  },
+  {
+    "id": "mod.brightness.天同.平",
+    "kind": "brightness",
+    "star": "天同",
+    "key": "平",
+    "text": "不好不壞：既沒有推力，也沒有阻力。要留意它停留的時間會比自己以為的長很多。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.天同",
+        "quote": "天同星屬水，乃南方第四星也，為福德宮之主宰",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "attrs.table",
+        "quote": "天同属水金南斗化福为福德主",
+        "scope": "star"
+      }
+    ],
+    "status": "reviewed"
+  },
+  {
+    "id": "mod.brightness.天同.不",
+    "kind": "brightness",
+    "star": "天同",
+    "key": "不",
+    "text": "安逸變成惰性：知道該動而遲遲不動，理由永遠找得到。這一檔的難處不在能力，在起步。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.天同",
+        "quote": "天同星屬水，乃南方第四星也，為福德宮之主宰",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "attrs.table",
+        "quote": "天同属水金南斗化福为福德主",
+        "scope": "star"
+      }
+    ],
+    "status": "reviewed"
+  },
+  {
+    "id": "mod.brightness.天同.陷",
+    "kind": "brightness",
+    "star": "天同",
+    "key": "陷",
+    "text": "福薄：想安頓而安頓不下來，舒服的條件反而最缺。最缺的反而是它最需要的條件。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.天同",
+        "quote": "天同星屬水，乃南方第四星也，為福德宮之主宰",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "attrs.table",
+        "quote": "天同属水金南斗化福为福德主",
+        "scope": "star"
+      }
+    ],
+    "status": "reviewed"
+  },
+  {
+    "id": "mod.brightness.廉貞.廟旺",
+    "kind": "brightness",
+    "star": "廉貞",
+    "key": "廟旺",
+    "text": "投入有去處：原則守得住，濃度轉成專注而不是糾纏。專注是它這一檔最實在的長處。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.廉貞",
+        "quote": "廉貞屬火，北斗第五星也",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "attrs.table",
+        "quote": "廉真属火北斗化杀囚在官禄为官禄主",
+        "scope": "star"
+      }
+    ],
+    "status": "reviewed"
+  },
+  {
+    "id": "mod.brightness.廉貞.得利",
+    "kind": "brightness",
+    "star": "廉貞",
+    "key": "得利",
+    "text": "仍然認真，但要對象值得；不值得的時候它撤得很快。值不值得，由它自己判斷得相當快。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.廉貞",
+        "quote": "廉貞屬火，北斗第五星也",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "attrs.table",
+        "quote": "廉真属火北斗化杀囚在官禄为官禄主",
+        "scope": "star"
+      }
+    ],
+    "status": "reviewed"
+  },
+  {
+    "id": "mod.brightness.廉貞.平",
+    "kind": "brightness",
+    "star": "廉貞",
+    "key": "平",
+    "text": "熱度中等：投入得起，也放得下，少見極端。這一檔的廉貞最容易被當成隨和。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.廉貞",
+        "quote": "廉貞屬火，北斗第五星也",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "attrs.table",
+        "quote": "廉真属火北斗化杀囚在官禄为官禄主",
+        "scope": "star"
+      }
+    ],
+    "status": "reviewed"
+  },
+  {
+    "id": "mod.brightness.廉貞.不",
+    "kind": "brightness",
+    "star": "廉貞",
+    "key": "不",
+    "text": "投入而無回應，濃度轉向內裡，容易反覆想同一件事。原則仍在，只是沒有放它的地方。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.廉貞",
+        "quote": "廉貞屬火，北斗第五星也",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "attrs.table",
+        "quote": "廉真属火北斗化杀囚在官禄为官禄主",
+        "scope": "star"
+      }
+    ],
+    "status": "reviewed"
+  },
+  {
+    "id": "mod.brightness.廉貞.陷",
+    "kind": "brightness",
+    "star": "廉貞",
+    "key": "陷",
+    "text": "《全書》所謂化囚為殺，講的正是這一檔：力氣仍在而找不到出口，於是往內燒。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.廉貞",
+        "quote": "廉貞屬火，北斗第五星也",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "attrs.table",
+        "quote": "廉真属火北斗化杀囚在官禄为官禄主",
+        "scope": "star"
+      }
+    ],
+    "status": "reviewed"
+  },
+  {
+    "id": "mod.brightness.天府.廟旺",
+    "kind": "brightness",
+    "star": "天府",
+    "key": "廟旺",
+    "text": "庫房豐足：接得住、守得穩，是可以託付的那一個。可以託付，而且它自己也知道。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.天府",
+        "quote": "天府屬土，南斗主令第一星也",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "attrs.table",
+        "quote": "天府属土南斗化令星为财帛田宅主",
+        "scope": "star"
+      }
+    ],
+    "status": "reviewed"
+  },
+  {
+    "id": "mod.brightness.天府.得利",
+    "kind": "brightness",
+    "star": "天府",
+    "key": "得利",
+    "text": "守成仍然可靠，但餘裕不多：做事會比平時保守，也比平時更在意有沒有退路可走。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.天府",
+        "quote": "天府屬土，南斗主令第一星也",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "attrs.table",
+        "quote": "天府属土南斗化令星为财帛田宅主",
+        "scope": "star"
+      }
+    ],
+    "status": "reviewed"
+  },
+  {
+    "id": "mod.brightness.天府.平",
+    "kind": "brightness",
+    "star": "天府",
+    "key": "平",
+    "text": "穩而不豐：底盤在，可調度的部分有限。這一檔的天府守得住一攤事，撐不開新的。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.天府",
+        "quote": "天府屬土，南斗主令第一星也",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "attrs.table",
+        "quote": "天府属土南斗化令星为财帛田宅主",
+        "scope": "star"
+      }
+    ],
+    "status": "reviewed"
+  },
+  {
+    "id": "mod.brightness.天府.不",
+    "kind": "brightness",
+    "star": "天府",
+    "key": "不",
+    "text": "想守而守不牢：安全邊際被壓縮，警覺轉成緊張。警覺轉成緊張，這是這一檔的樣子。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.天府",
+        "quote": "天府屬土，南斗主令第一星也",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "attrs.table",
+        "quote": "天府属土南斗化令星为财帛田宅主",
+        "scope": "star"
+      }
+    ],
+    "status": "reviewed"
+  },
+  {
+    "id": "mod.brightness.天府.陷",
+    "kind": "brightness",
+    "star": "天府",
+    "key": "陷",
+    "text": "空庫：周全的習慣還在，可以周全的資源卻不足，容易只剩形式。只剩形式的時候，要誠實指出來。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.天府",
+        "quote": "天府屬土，南斗主令第一星也",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "attrs.table",
+        "quote": "天府属土南斗化令星为财帛田宅主",
+        "scope": "star"
+      }
+    ],
+    "status": "reviewed"
+  },
+  {
+    "id": "mod.brightness.太陰.廟旺",
+    "kind": "brightness",
+    "star": "太陰",
+    "key": "廟旺",
+    "text": "月華得地：積得住、照料得周到，內裡與外面都安頓得下。這是太陰最順的一檔。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.太陰",
+        "quote": "太陰乃水之精，為田宅主，化富",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "attrs.table",
+        "quote": "太阴属水南北斗化富为财帛田宅主",
+        "scope": "star"
+      }
+    ],
+    "status": "reviewed"
+  },
+  {
+    "id": "mod.brightness.太陰.得利",
+    "kind": "brightness",
+    "star": "太陰",
+    "key": "得利",
+    "text": "仍然細緻，範圍縮小；照顧得了自己人，顧不了太遠。顧不了太遠，範圍要寫清楚。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.太陰",
+        "quote": "太陰乃水之精，為田宅主，化富",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "attrs.table",
+        "quote": "太阴属水南北斗化富为财帛田宅主",
+        "scope": "star"
+      }
+    ],
+    "status": "reviewed"
+  },
+  {
+    "id": "mod.brightness.太陰.平",
+    "kind": "brightness",
+    "star": "太陰",
+    "key": "平",
+    "text": "收得住也散得掉：積累的速度慢，但不至於流失。節奏比強弱更能形容這一檔。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.太陰",
+        "quote": "太陰乃水之精，為田宅主，化富",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "attrs.table",
+        "quote": "太阴属水南北斗化富为财帛田宅主",
+        "scope": "star"
+      }
+    ],
+    "status": "reviewed"
+  },
+  {
+    "id": "mod.brightness.太陰.不",
+    "kind": "brightness",
+    "star": "太陰",
+    "key": "不",
+    "text": "想積而積不起，細膩轉成容易被小事牽動，對語氣特別在意。積累的心沒變，變的是節奏。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.太陰",
+        "quote": "太陰乃水之精，為田宅主，化富",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "attrs.table",
+        "quote": "太阴属水南北斗化富为财帛田宅主",
+        "scope": "star"
+      }
+    ],
+    "status": "reviewed"
+  },
+  {
+    "id": "mod.brightness.太陰.陷",
+    "kind": "brightness",
+    "star": "太陰",
+    "key": "陷",
+    "text": "日生人太陰落陷：收得太緊，該說的話留在心裡。這一檔的安靜不等於沒有意見。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.太陰",
+        "quote": "太陰乃水之精，為田宅主，化富",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "attrs.table",
+        "quote": "太阴属水南北斗化富为财帛田宅主",
+        "scope": "star"
+      }
+    ],
+    "status": "reviewed"
+  },
+  {
+    "id": "mod.brightness.貪狼.廟旺",
+    "kind": "brightness",
+    "star": "貪狼",
+    "key": "廟旺",
+    "text": "慾望有去處：學得快、玩得開，想要的東西多半拿得到。這一檔的貪狼最舒展。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.貪狼",
+        "quote": "貪狼北斗解厄之神，第一星也",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "attrs.table",
+        "quote": "贪狼属水木北斗化桃花杀主祸福",
+        "scope": "star"
+      }
+    ],
+    "status": "reviewed"
+  },
+  {
+    "id": "mod.brightness.貪狼.得利",
+    "kind": "brightness",
+    "star": "貪狼",
+    "key": "得利",
+    "text": "驅力仍在，但要條件配合；沒有舞台時它會顯得浮躁。沒有舞台的時候它會顯得浮躁。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.貪狼",
+        "quote": "貪狼北斗解厄之神，第一星也",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "attrs.table",
+        "quote": "贪狼属水木北斗化桃花杀主祸福",
+        "scope": "star"
+      }
+    ],
+    "status": "reviewed"
+  },
+  {
+    "id": "mod.brightness.貪狼.平",
+    "kind": "brightness",
+    "star": "貪狼",
+    "key": "平",
+    "text": "興趣廣而不深：什麼都碰一點，多數停在入門。這一檔的課題不在好奇，在收尾。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.貪狼",
+        "quote": "貪狼北斗解厄之神，第一星也",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "attrs.table",
+        "quote": "贪狼属水木北斗化桃花杀主祸福",
+        "scope": "star"
+      }
+    ],
+    "status": "reviewed"
+  },
+  {
+    "id": "mod.brightness.貪狼.不",
+    "kind": "brightness",
+    "star": "貪狼",
+    "key": "不",
+    "text": "想要而得不到，慾望轉成比較與不甘。慾望轉成比較，這一點要指出。不甘的成分比想要更多一些。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.貪狼",
+        "quote": "貪狼北斗解厄之神，第一星也",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "attrs.table",
+        "quote": "贪狼属水木北斗化桃花杀主祸福",
+        "scope": "star"
+      }
+    ],
+    "status": "reviewed"
+  },
+  {
+    "id": "mod.brightness.貪狼.陷",
+    "kind": "brightness",
+    "star": "貪狼",
+    "key": "陷",
+    "text": "桃花失地：驅力仍強而出口窄，最容易走向消耗自己的那幾種。出口窄而驅力強，要特別小心措辭。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.貪狼",
+        "quote": "貪狼北斗解厄之神，第一星也",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "attrs.table",
+        "quote": "贪狼属水木北斗化桃花杀主祸福",
+        "scope": "star"
+      }
+    ],
+    "status": "reviewed"
+  },
+  {
+    "id": "mod.brightness.巨門.廟旺",
+    "kind": "brightness",
+    "star": "巨門",
+    "key": "廟旺",
+    "text": "暗處被照亮：辨得清、講得明，口舌成為專業而不是是非。這一檔的巨門摩擦最少。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.巨門",
+        "quote": "巨門屬水、金。北斗第二星也",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "attrs.table",
+        "quote": "巨门属水北斗化暗主是非",
+        "scope": "star"
+      }
+    ],
+    "status": "reviewed"
+  },
+  {
+    "id": "mod.brightness.巨門.得利",
+    "kind": "brightness",
+    "star": "巨門",
+    "key": "得利",
+    "text": "仍然能辨，但要有人聽；沒有對象時它會把話憋著。沒有對象的時候它會把話憋著。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.巨門",
+        "quote": "巨門屬水、金。北斗第二星也",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "attrs.table",
+        "quote": "巨门属水北斗化暗主是非",
+        "scope": "star"
+      }
+    ],
+    "status": "reviewed"
+  },
+  {
+    "id": "mod.brightness.巨門.平",
+    "kind": "brightness",
+    "star": "巨門",
+    "key": "平",
+    "text": "問得出問題，未必問得到答案。這一檔的巨門敏銳仍在，追下去的力度不足。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.巨門",
+        "quote": "巨門屬水、金。北斗第二星也",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "attrs.table",
+        "quote": "巨门属水北斗化暗主是非",
+        "scope": "star"
+      }
+    ],
+    "status": "reviewed"
+  },
+  {
+    "id": "mod.brightness.巨門.不",
+    "kind": "brightness",
+    "star": "巨門",
+    "key": "不",
+    "text": "質疑失了分寸：該問的沒問，不該問的追到底。分寸失了，該問與不該問會顛倒。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.巨門",
+        "quote": "巨門屬水、金。北斗第二星也",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "attrs.table",
+        "quote": "巨门属水北斗化暗主是非",
+        "scope": "star"
+      }
+    ],
+    "status": "reviewed"
+  },
+  {
+    "id": "mod.brightness.巨門.陷",
+    "kind": "brightness",
+    "star": "巨門",
+    "key": "陷",
+    "text": "化暗而無日照：話說出口容易被誤解，這一檔的摩擦最密。摩擦最密，但那不是它的錯。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.巨門",
+        "quote": "巨門屬水、金。北斗第二星也",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "attrs.table",
+        "quote": "巨门属水北斗化暗主是非",
+        "scope": "star"
+      }
+    ],
+    "status": "reviewed"
+  },
+  {
+    "id": "mod.brightness.天相.廟旺",
+    "kind": "brightness",
+    "star": "天相",
+    "key": "廟旺",
+    "text": "印信在手：規矩用得好，也守得住，場面由它撐得起。這一檔最能替旁人把關。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.天相",
+        "quote": "天相屬水，南斗第五星也",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "attrs.table",
+        "quote": "天相属水南斗化印为官禄主",
+        "scope": "star"
+      }
+    ],
+    "status": "reviewed"
+  },
+  {
+    "id": "mod.brightness.天相.得利",
+    "kind": "brightness",
+    "star": "天相",
+    "key": "得利",
+    "text": "協調仍然順，但要有既定的章法可依。沒有章法的場合，它會先花力氣把規矩立起來。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.天相",
+        "quote": "天相屬水，南斗第五星也",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "attrs.table",
+        "quote": "天相属水南斗化印为官禄主",
+        "scope": "star"
+      }
+    ],
+    "status": "reviewed"
+  },
+  {
+    "id": "mod.brightness.天相.平",
+    "kind": "brightness",
+    "star": "天相",
+    "key": "平",
+    "text": "穩妥而平淡：不出錯，也不出頭。妥當是它的底色，亮點要靠同宮或者三方的星來給。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.天相",
+        "quote": "天相屬水，南斗第五星也",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "attrs.table",
+        "quote": "天相属水南斗化印为官禄主",
+        "scope": "star"
+      }
+    ],
+    "status": "reviewed"
+  },
+  {
+    "id": "mod.brightness.天相.不",
+    "kind": "brightness",
+    "star": "天相",
+    "key": "不",
+    "text": "想妥當而拿不定：沒有前例的時候，它會一直等別人先說。沒有前例它會一直等，這要說明。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.天相",
+        "quote": "天相屬水，南斗第五星也",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "attrs.table",
+        "quote": "天相属水南斗化印为官禄主",
+        "scope": "star"
+      }
+    ],
+    "status": "reviewed"
+  },
+  {
+    "id": "mod.brightness.天相.陷",
+    "kind": "brightness",
+    "star": "天相",
+    "key": "陷",
+    "text": "印而無位：體面的要求還在，可以動用的權責卻不足。權責不足而要求還在，是關鍵。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.天相",
+        "quote": "天相屬水，南斗第五星也",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "attrs.table",
+        "quote": "天相属水南斗化印为官禄主",
+        "scope": "star"
+      }
+    ],
+    "status": "reviewed"
+  },
+  {
+    "id": "mod.brightness.天梁.廟旺",
+    "kind": "brightness",
+    "star": "天梁",
+    "key": "廟旺",
+    "text": "蔭得住人：公道講得出口，庇護也給得出去，旁人願意聽它的。代價是事情容易找上門。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.天梁",
+        "quote": "天梁屬土，南斗第二星也",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "attrs.table",
+        "quote": "天梁属土南斗化荫主寿星",
+        "scope": "star"
+      }
+    ],
+    "status": "reviewed"
+  },
+  {
+    "id": "mod.brightness.天梁.得利",
+    "kind": "brightness",
+    "star": "天梁",
+    "key": "得利",
+    "text": "仍然肯擔，只是範圍收窄了：顧得了近處，顧不了全局。分量要按實際情況寫。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.天梁",
+        "quote": "天梁屬土，南斗第二星也",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "attrs.table",
+        "quote": "天梁属土南斗化荫主寿星",
+        "scope": "star"
+      }
+    ],
+    "status": "reviewed"
+  },
+  {
+    "id": "mod.brightness.天梁.平",
+    "kind": "brightness",
+    "star": "天梁",
+    "key": "平",
+    "text": "原則還在，出面的次數減少。這一檔的天梁比平時容易被略過，也比平時省力。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.天梁",
+        "quote": "天梁屬土，南斗第二星也",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "attrs.table",
+        "quote": "天梁属土南斗化荫主寿星",
+        "scope": "star"
+      }
+    ],
+    "status": "reviewed"
+  },
+  {
+    "id": "mod.brightness.天梁.不",
+    "kind": "brightness",
+    "star": "天梁",
+    "key": "不",
+    "text": "想擔而擔不動：說了不算，反而落得多管閒事。這一檔最需要先分清楚界線。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.天梁",
+        "quote": "天梁屬土，南斗第二星也",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "attrs.table",
+        "quote": "天梁属土南斗化荫主寿星",
+        "scope": "star"
+      }
+    ],
+    "status": "reviewed"
+  },
+  {
+    "id": "mod.brightness.天梁.陷",
+    "kind": "brightness",
+    "star": "天梁",
+    "key": "陷",
+    "text": "蔭星失地：承擔照舊，回報與理解都少，這一檔最容易累積委屈，而委屈多數不會說出口。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.天梁",
+        "quote": "天梁屬土，南斗第二星也",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "attrs.table",
+        "quote": "天梁属土南斗化荫主寿星",
+        "scope": "star"
+      }
+    ],
+    "status": "reviewed"
+  },
+  {
+    "id": "mod.brightness.七殺.廟旺",
+    "kind": "brightness",
+    "star": "七殺",
+    "key": "廟旺",
+    "text": "斗中上將：扛得起硬仗，開得了局面，壓力反而讓它清醒。這是七殺最有力的一檔。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.七殺",
+        "quote": "七殺南斗第六星也，屬火、金",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "attrs.table",
+        "quote": "七杀属火金南斗降星遇帝为权",
+        "scope": "star"
+      }
+    ],
+    "status": "reviewed"
+  },
+  {
+    "id": "mod.brightness.七殺.得利",
+    "kind": "brightness",
+    "star": "七殺",
+    "key": "得利",
+    "text": "決斷仍在，但要方向明確；卷二那句「遇帝為權」講的正是這件事。方向明確是它這一檔的前提。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.七殺",
+        "quote": "七殺南斗第六星也，屬火、金",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "attrs.table",
+        "quote": "七杀属火金南斗降星遇帝为权",
+        "scope": "star"
+      }
+    ],
+    "status": "reviewed"
+  },
+  {
+    "id": "mod.brightness.七殺.平",
+    "kind": "brightness",
+    "star": "七殺",
+    "key": "平",
+    "text": "獨立仍在，鋒芒收斂：做事變得謹慎，衝的部分收起來，成果也因此平穩許多。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.七殺",
+        "quote": "七殺南斗第六星也，屬火、金",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "attrs.table",
+        "quote": "七杀属火金南斗降星遇帝为权",
+        "scope": "star"
+      }
+    ],
+    "status": "reviewed"
+  },
+  {
+    "id": "mod.brightness.七殺.不",
+    "kind": "brightness",
+    "star": "七殺",
+    "key": "不",
+    "text": "硬而無處著力：力氣用在撐住而不是推進。這一檔的疲勞來得比成果快得多。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.七殺",
+        "quote": "七殺南斗第六星也，屬火、金",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "attrs.table",
+        "quote": "七杀属火金南斗降星遇帝为权",
+        "scope": "star"
+      }
+    ],
+    "status": "reviewed"
+  },
+  {
+    "id": "mod.brightness.七殺.陷",
+    "kind": "brightness",
+    "star": "七殺",
+    "key": "陷",
+    "text": "孤辰失地：距離感加深，扛得住事而扛不住長期的孤立。扛不住的是孤立，不是事情。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.七殺",
+        "quote": "七殺南斗第六星也，屬火、金",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "attrs.table",
+        "quote": "七杀属火金南斗降星遇帝为权",
+        "scope": "star"
+      }
+    ],
+    "status": "reviewed"
+  },
+  {
+    "id": "mod.brightness.破軍.廟旺",
+    "kind": "brightness",
+    "star": "破軍",
+    "key": "廟旺",
+    "text": "子午入廟：破得舊，也立得起新的，代價換得回東西。這一檔的更替是有方向的。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.破軍",
+        "quote": "破軍屬水，北斗第七星也",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "attrs.table",
+        "quote": "破军属水北斗化耗司夫妻子女奴仆",
+        "scope": "star"
+      }
+    ],
+    "status": "reviewed"
+  },
+  {
+    "id": "mod.brightness.破軍.得利",
+    "kind": "brightness",
+    "star": "破軍",
+    "key": "得利",
+    "text": "更替仍然有效，但幅度要控制：一次拆太多它接不住，收尾那一段就會出問題。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.破軍",
+        "quote": "破軍屬水，北斗第七星也",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "attrs.table",
+        "quote": "破军属水北斗化耗司夫妻子女奴仆",
+        "scope": "star"
+      }
+    ],
+    "status": "reviewed"
+  },
+  {
+    "id": "mod.brightness.破軍.平",
+    "kind": "brightness",
+    "star": "破軍",
+    "key": "平",
+    "text": "改得動，改完與改前差別不大。這一檔的破軍動得多而動得淺，成本卻照付。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.破軍",
+        "quote": "破軍屬水，北斗第七星也",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "attrs.table",
+        "quote": "破军属水北斗化耗司夫妻子女奴仆",
+        "scope": "star"
+      }
+    ],
+    "status": "reviewed"
+  },
+  {
+    "id": "mod.brightness.破軍.不",
+    "kind": "brightness",
+    "star": "破軍",
+    "key": "不",
+    "text": "反覆而無成：拆掉了，新的還沒有建起來。新的還沒建起來，這是當下狀態。拆得快而立得慢，中間有空檔。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.破軍",
+        "quote": "破軍屬水，北斗第七星也",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "attrs.table",
+        "quote": "破军属水北斗化耗司夫妻子女奴仆",
+        "scope": "star"
+      }
+    ],
+    "status": "reviewed"
+  },
+  {
+    "id": "mod.brightness.破軍.陷",
+    "kind": "brightness",
+    "star": "破軍",
+    "key": "陷",
+    "text": "耗星失地：投入的成本收不回。這一檔最需要的是先守一段，而不是再拆一次。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "star.破軍",
+        "quote": "破軍屬水，北斗第七星也",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "attrs.table",
+        "quote": "破军属水北斗化耗司夫妻子女奴仆",
+        "scope": "star"
+      }
+    ],
+    "status": "reviewed"
+  }
+]

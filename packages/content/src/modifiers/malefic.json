@@ -1,0 +1,1802 @@
+[
+  {
+    "id": "mod.malefic.擎羊.命宮",
+    "kind": "malefic",
+    "star": "擎羊",
+    "key": "命宮",
+    "text": "擎羊化氣為刑，快而直。性子偏急，遇事先切開再說。它讓行動變快，也讓緩衝變少。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "malefic.擎羊",
+        "quote": "擎羊北斗之助星",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "malefic.羊陀合論",
+        "quote": "羊化气曰刑，陀化气曰忌",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.命宮",
+        "quote": "羊陀火铃",
+        "scope": "palace"
+      }
+    ],
+    "status": "reviewed",
+    "note": "擎羊化氣 —— 刑：快、直、割得開"
+  },
+  {
+    "id": "mod.malefic.擎羊.兄弟",
+    "kind": "malefic",
+    "star": "擎羊",
+    "key": "兄弟",
+    "text": "擎羊化氣為刑，快而直。平輩之間容易一刀兩斷，話說得直而收不回。翻臉之後多半不會回頭找。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "malefic.擎羊",
+        "quote": "擎羊北斗之助星",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "malefic.羊陀合論",
+        "quote": "羊化气曰刑，陀化气曰忌",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.兄弟",
+        "quote": "加羊陀火铃空劫",
+        "scope": "palace"
+      }
+    ],
+    "status": "reviewed",
+    "note": "擎羊化氣 —— 刑：快、直、割得開"
+  },
+  {
+    "id": "mod.malefic.擎羊.夫妻",
+    "kind": "malefic",
+    "star": "擎羊",
+    "key": "夫妻",
+    "text": "擎羊化氣為刑，快而直。相處上少了緩衝，爭執來得快也結束得快。這是節奏，不是結果。它修飾節奏，不推斷關係結果。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "malefic.擎羊",
+        "quote": "擎羊北斗之助星",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "malefic.羊陀合論",
+        "quote": "羊化气曰刑，陀化气曰忌",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.夫妻",
+        "quote": "加羊陀火铃空劫",
+        "scope": "palace"
+      }
+    ],
+    "status": "reviewed",
+    "note": "擎羊化氣 —— 刑：快、直、割得開"
+  },
+  {
+    "id": "mod.malefic.擎羊.子女",
+    "kind": "malefic",
+    "star": "擎羊",
+    "key": "子女",
+    "text": "擎羊化氣為刑，快而直。對後輩要求直接，容錯的空間偏窄。期待講得明白，但少了轉圜。它修飾培養方式，不推生育結果。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "malefic.擎羊",
+        "quote": "擎羊北斗之助星",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "malefic.羊陀合論",
+        "quote": "羊化气曰刑，陀化气曰忌",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.子女",
+        "quote": "加羊陀火铃空劫",
+        "scope": "palace"
+      }
+    ],
+    "status": "reviewed",
+    "note": "擎羊化氣 —— 刑：快、直、割得開"
+  },
+  {
+    "id": "mod.malefic.擎羊.財帛",
+    "kind": "malefic",
+    "star": "擎羊",
+    "key": "財帛",
+    "text": "擎羊化氣為刑，快而直。進得快也支得爽，資源流動的速度高於一般。該斷的斷得早，這是長處。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "malefic.擎羊",
+        "quote": "擎羊北斗之助星",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "malefic.羊陀合論",
+        "quote": "羊化气曰刑，陀化气曰忌",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.財帛",
+        "quote": "加羊陀火铃空劫",
+        "scope": "palace"
+      }
+    ],
+    "status": "reviewed",
+    "note": "擎羊化氣 —— 刑：快、直、割得開"
+  },
+  {
+    "id": "mod.malefic.擎羊.疾厄",
+    "kind": "malefic",
+    "star": "擎羊",
+    "key": "疾厄",
+    "text": "擎羊化氣為刑，快而直。耗損來得急，多半是繃到某一點才停。這裡不談身體。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "malefic.擎羊",
+        "quote": "擎羊北斗之助星",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "malefic.羊陀合論",
+        "quote": "羊化气曰刑，陀化气曰忌",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.疾厄",
+        "quote": "加羊陀火铃空劫",
+        "scope": "palace"
+      }
+    ],
+    "status": "reviewed",
+    "note": "擎羊化氣 —— 刑：快、直、割得開"
+  },
+  {
+    "id": "mod.malefic.擎羊.遷移",
+    "kind": "malefic",
+    "star": "擎羊",
+    "key": "遷移",
+    "text": "擎羊化氣為刑，快而直。在外反應快，也容易與人正面撞上。它在外的反應比在家更直。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "malefic.擎羊",
+        "quote": "擎羊北斗之助星",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "malefic.羊陀合論",
+        "quote": "羊化气曰刑，陀化气曰忌",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.遷移",
+        "quote": "加羊陀火铃空劫",
+        "scope": "palace"
+      }
+    ],
+    "status": "reviewed",
+    "note": "擎羊化氣 —— 刑：快、直、割得開"
+  },
+  {
+    "id": "mod.malefic.擎羊.僕役",
+    "kind": "malefic",
+    "star": "擎羊",
+    "key": "僕役",
+    "text": "擎羊化氣為刑，快而直。在群體裡立場鮮明，喜歡與不喜歡都寫在面上。立場鮮明，因此敵友分明。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "malefic.擎羊",
+        "quote": "擎羊北斗之助星",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "malefic.羊陀合論",
+        "quote": "羊化气曰刑，陀化气曰忌",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.僕役",
+        "quote": "加羊陀火铃空劫",
+        "scope": "palace"
+      }
+    ],
+    "status": "reviewed",
+    "note": "擎羊化氣 —— 刑：快、直、割得開"
+  },
+  {
+    "id": "mod.malefic.擎羊.官祿",
+    "kind": "malefic",
+    "star": "擎羊",
+    "key": "官祿",
+    "text": "擎羊化氣為刑，快而直。做事乾脆，不繞路；需要斡旋的場合會顯得生硬。它修飾做事的方式，不指向職位。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "malefic.擎羊",
+        "quote": "擎羊北斗之助星",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "malefic.羊陀合論",
+        "quote": "羊化气曰刑，陀化气曰忌",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.官祿",
+        "quote": "加羊陀火铃空劫",
+        "scope": "palace"
+      }
+    ],
+    "status": "reviewed",
+    "note": "擎羊化氣 —— 刑：快、直、割得開"
+  },
+  {
+    "id": "mod.malefic.擎羊.田宅",
+    "kind": "malefic",
+    "star": "擎羊",
+    "key": "田宅",
+    "text": "擎羊化氣為刑，快而直。安置上決斷快，也容易一次推翻重來。它修飾安置的節奏，不涉置業。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "malefic.擎羊",
+        "quote": "擎羊北斗之助星",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "malefic.羊陀合論",
+        "quote": "羊化气曰刑，陀化气曰忌",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.田宅",
+        "quote": "加羊陀火铃空劫",
+        "scope": "palace"
+      }
+    ],
+    "status": "reviewed",
+    "note": "擎羊化氣 —— 刑：快、直、割得開"
+  },
+  {
+    "id": "mod.malefic.擎羊.福德",
+    "kind": "malefic",
+    "star": "擎羊",
+    "key": "福德",
+    "text": "擎羊化氣為刑，快而直。心裡的事擺不久，不是解決就是切掉。不留過夜，是它的處理方式。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "malefic.擎羊",
+        "quote": "擎羊北斗之助星",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "malefic.羊陀合論",
+        "quote": "羊化气曰刑，陀化气曰忌",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.福德",
+        "quote": "加羊陀火铃空劫",
+        "scope": "palace"
+      }
+    ],
+    "status": "reviewed",
+    "note": "擎羊化氣 —— 刑：快、直、割得開"
+  },
+  {
+    "id": "mod.malefic.擎羊.父母",
+    "kind": "malefic",
+    "star": "擎羊",
+    "key": "父母",
+    "text": "擎羊化氣為刑，快而直。對長輩與規則的態度直接，少有迂迴。意見不同會當場說出來。它修飾你的應對，不推論家人。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "malefic.擎羊",
+        "quote": "擎羊北斗之助星",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "malefic.羊陀合論",
+        "quote": "羊化气曰刑，陀化气曰忌",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.父母",
+        "quote": "加羊陀火铃空劫",
+        "scope": "palace"
+      }
+    ],
+    "status": "reviewed",
+    "note": "擎羊化氣 —— 刑：快、直、割得開"
+  },
+  {
+    "id": "mod.malefic.陀羅.命宮",
+    "kind": "malefic",
+    "star": "陀羅",
+    "key": "命宮",
+    "text": "陀羅化氣為忌，慢而纏。事情在心裡轉得久，進退之間反覆。它讓判斷慢下來。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "malefic.陀羅",
+        "quote": "陀罗北斗之助星",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "malefic.羊陀合論",
+        "quote": "羊化气曰刑，陀化气曰忌",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.命宮",
+        "quote": "羊陀火铃",
+        "scope": "palace"
+      }
+    ],
+    "status": "reviewed",
+    "note": "陀羅化氣 —— 忌：慢、纏、拖得長"
+  },
+  {
+    "id": "mod.malefic.陀羅.兄弟",
+    "kind": "malefic",
+    "star": "陀羅",
+    "key": "兄弟",
+    "text": "陀羅化氣為忌，慢而纏。平輩之間的芥蒂不容易散，過去的事會一直帶著。舊事翻得出來，而且記得細節。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "malefic.陀羅",
+        "quote": "陀罗北斗之助星",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "malefic.羊陀合論",
+        "quote": "羊化气曰刑，陀化气曰忌",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.兄弟",
+        "quote": "加羊陀火铃空劫",
+        "scope": "palace"
+      }
+    ],
+    "status": "reviewed",
+    "note": "陀羅化氣 —— 忌：慢、纏、拖得長"
+  },
+  {
+    "id": "mod.malefic.陀羅.夫妻",
+    "kind": "malefic",
+    "star": "陀羅",
+    "key": "夫妻",
+    "text": "陀羅化氣為忌，慢而纏。相處上少有爆發，卻容易長期積壓。這是節奏，不是結果。它修飾節奏，不推斷關係結果。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "malefic.陀羅",
+        "quote": "陀罗北斗之助星",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "malefic.羊陀合論",
+        "quote": "羊化气曰刑，陀化气曰忌",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.夫妻",
+        "quote": "加羊陀火铃空劫",
+        "scope": "palace"
+      }
+    ],
+    "status": "reviewed",
+    "note": "陀羅化氣 —— 忌：慢、纏、拖得長"
+  },
+  {
+    "id": "mod.malefic.陀羅.子女",
+    "kind": "malefic",
+    "star": "陀羅",
+    "key": "子女",
+    "text": "陀羅化氣為忌，慢而纏。對後輩放心不下，交代過的事會再交代一次。它修飾培養方式，不推生育結果。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "malefic.陀羅",
+        "quote": "陀罗北斗之助星",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "malefic.羊陀合論",
+        "quote": "羊化气曰刑，陀化气曰忌",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.子女",
+        "quote": "加羊陀火铃空劫",
+        "scope": "palace"
+      }
+    ],
+    "status": "reviewed",
+    "note": "陀羅化氣 —— 忌：慢、纏、拖得長"
+  },
+  {
+    "id": "mod.malefic.陀羅.財帛",
+    "kind": "malefic",
+    "star": "陀羅",
+    "key": "財帛",
+    "text": "陀羅化氣為忌，慢而纏。資源進出都慢，該收的收得遲，該斷的斷得晚。它修飾資源的流向，不涉金額。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "malefic.陀羅",
+        "quote": "陀罗北斗之助星",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "malefic.羊陀合論",
+        "quote": "羊化气曰刑，陀化气曰忌",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.財帛",
+        "quote": "加羊陀火铃空劫",
+        "scope": "palace"
+      }
+    ],
+    "status": "reviewed",
+    "note": "陀羅化氣 —— 忌：慢、纏、拖得長"
+  },
+  {
+    "id": "mod.malefic.陀羅.疾厄",
+    "kind": "malefic",
+    "star": "陀羅",
+    "key": "疾厄",
+    "text": "陀羅化氣為忌，慢而纏。耗損是持續的那種，沒有明顯起點。這裡不談身體。它修飾消耗的形狀，不涉身體。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "malefic.陀羅",
+        "quote": "陀罗北斗之助星",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "malefic.羊陀合論",
+        "quote": "羊化气曰刑，陀化气曰忌",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.疾厄",
+        "quote": "加羊陀火铃空劫",
+        "scope": "palace"
+      }
+    ],
+    "status": "reviewed",
+    "note": "陀羅化氣 —— 忌：慢、纏、拖得長"
+  },
+  {
+    "id": "mod.malefic.陀羅.遷移",
+    "kind": "malefic",
+    "star": "陀羅",
+    "key": "遷移",
+    "text": "陀羅化氣為忌，慢而纏。換環境之後適應期偏長，舊的牽掛帶得走。它修飾在外的條件，不決定去留。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "malefic.陀羅",
+        "quote": "陀罗北斗之助星",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "malefic.羊陀合論",
+        "quote": "羊化气曰刑，陀化气曰忌",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.遷移",
+        "quote": "加羊陀火铃空劫",
+        "scope": "palace"
+      }
+    ],
+    "status": "reviewed",
+    "note": "陀羅化氣 —— 忌：慢、纏、拖得長"
+  },
+  {
+    "id": "mod.malefic.陀羅.僕役",
+    "kind": "malefic",
+    "star": "陀羅",
+    "key": "僕役",
+    "text": "陀羅化氣為忌，慢而纏。關係散得慢，就算已經淡了也不會正式結束。它修飾你的位置，不指認任何人。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "malefic.陀羅",
+        "quote": "陀罗北斗之助星",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "malefic.羊陀合論",
+        "quote": "羊化气曰刑，陀化气曰忌",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.僕役",
+        "quote": "加羊陀火铃空劫",
+        "scope": "palace"
+      }
+    ],
+    "status": "reviewed",
+    "note": "陀羅化氣 —— 忌：慢、纏、拖得長"
+  },
+  {
+    "id": "mod.malefic.陀羅.官祿",
+    "kind": "malefic",
+    "star": "陀羅",
+    "key": "官祿",
+    "text": "陀羅化氣為忌，慢而纏。做事拖得長，細節反覆；穩妥的一面同時存在。它修飾做事的方式，不指向職位。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "malefic.陀羅",
+        "quote": "陀罗北斗之助星",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "malefic.羊陀合論",
+        "quote": "羊化气曰刑，陀化气曰忌",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.官祿",
+        "quote": "加羊陀火铃空劫",
+        "scope": "palace"
+      }
+    ],
+    "status": "reviewed",
+    "note": "陀羅化氣 —— 忌：慢、纏、拖得長"
+  },
+  {
+    "id": "mod.malefic.陀羅.田宅",
+    "kind": "malefic",
+    "star": "陀羅",
+    "key": "田宅",
+    "text": "陀羅化氣為忌，慢而纏。搬動與處置都拖，決定了也要很久才執行。它修飾安置的節奏，不涉置業。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "malefic.陀羅",
+        "quote": "陀罗北斗之助星",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "malefic.羊陀合論",
+        "quote": "羊化气曰刑，陀化气曰忌",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.田宅",
+        "quote": "加羊陀火铃空劫",
+        "scope": "palace"
+      }
+    ],
+    "status": "reviewed",
+    "note": "陀羅化氣 —— 忌：慢、纏、拖得長"
+  },
+  {
+    "id": "mod.malefic.陀羅.福德",
+    "kind": "malefic",
+    "star": "陀羅",
+    "key": "福德",
+    "text": "陀羅化氣為忌，慢而纏。想不通的事會一直開著，睡前特別響。它修飾心力的形狀，不作狀態評估。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "malefic.陀羅",
+        "quote": "陀罗北斗之助星",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "malefic.羊陀合論",
+        "quote": "羊化气曰刑，陀化气曰忌",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.福德",
+        "quote": "加羊陀火铃空劫",
+        "scope": "palace"
+      }
+    ],
+    "status": "reviewed",
+    "note": "陀羅化氣 —— 忌：慢、纏、拖得長"
+  },
+  {
+    "id": "mod.malefic.陀羅.父母",
+    "kind": "malefic",
+    "star": "陀羅",
+    "key": "父母",
+    "text": "陀羅化氣為忌，慢而纏。對長輩的意見不當面反對，回去之後想很久。它修飾你的應對，不推論家人。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "malefic.陀羅",
+        "quote": "陀罗北斗之助星",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "malefic.羊陀合論",
+        "quote": "羊化气曰刑，陀化气曰忌",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.父母",
+        "quote": "加羊陀火铃空劫",
+        "scope": "palace"
+      }
+    ],
+    "status": "reviewed",
+    "note": "陀羅化氣 —— 忌：慢、纏、拖得長"
+  },
+  {
+    "id": "mod.malefic.火星.命宮",
+    "kind": "malefic",
+    "star": "火星",
+    "key": "命宮",
+    "text": "火星性急，來得猛去得也快。性急，起手快；熱度來得猛，退得也快。它修飾基調，不改變基調。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "malefic.火星",
+        "quote": "火星乃南斗浮星也",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.命宮",
+        "quote": "羊陀火铃",
+        "scope": "palace"
+      }
+    ],
+    "status": "reviewed",
+    "note": "火星化氣 —— 急：爆發、來得快去得快"
+  },
+  {
+    "id": "mod.malefic.火星.兄弟",
+    "kind": "malefic",
+    "star": "火星",
+    "key": "兄弟",
+    "text": "火星性急，來得猛去得也快。與平輩容易一拍即合，也容易突然就淡了。熟得快，淡得也快，起落明顯。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "malefic.火星",
+        "quote": "火星乃南斗浮星也",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.兄弟",
+        "quote": "加羊陀火铃空劫",
+        "scope": "palace"
+      }
+    ],
+    "status": "reviewed",
+    "note": "火星化氣 —— 急：爆發、來得快去得快"
+  },
+  {
+    "id": "mod.malefic.火星.夫妻",
+    "kind": "malefic",
+    "star": "火星",
+    "key": "夫妻",
+    "text": "火星性急，來得猛去得也快。關係的溫度起伏大，濃時很濃。這是節奏，不是結果。它修飾節奏，不推斷關係結果。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "malefic.火星",
+        "quote": "火星乃南斗浮星也",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.夫妻",
+        "quote": "加羊陀火铃空劫",
+        "scope": "palace"
+      }
+    ],
+    "status": "reviewed",
+    "note": "火星化氣 —— 急：爆發、來得快去得快"
+  },
+  {
+    "id": "mod.malefic.火星.子女",
+    "kind": "malefic",
+    "star": "火星",
+    "key": "子女",
+    "text": "火星性急，來得猛去得也快。對後輩熱心而缺耐性，教得快也急得快。它修飾培養方式，不推生育結果。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "malefic.火星",
+        "quote": "火星乃南斗浮星也",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.子女",
+        "quote": "加羊陀火铃空劫",
+        "scope": "palace"
+      }
+    ],
+    "status": "reviewed",
+    "note": "火星化氣 —— 急：爆發、來得快去得快"
+  },
+  {
+    "id": "mod.malefic.火星.財帛",
+    "kind": "malefic",
+    "star": "火星",
+    "key": "財帛",
+    "text": "火星性急，來得猛去得也快。資源進出突然，來一筆去一筆都不在計劃內。它修飾資源的流向，不涉金額。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "malefic.火星",
+        "quote": "火星乃南斗浮星也",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.財帛",
+        "quote": "加羊陀火铃空劫",
+        "scope": "palace"
+      }
+    ],
+    "status": "reviewed",
+    "note": "火星化氣 —— 急：爆發、來得快去得快"
+  },
+  {
+    "id": "mod.malefic.火星.疾厄",
+    "kind": "malefic",
+    "star": "火星",
+    "key": "疾厄",
+    "text": "火星性急，來得猛去得也快。耗損集中在短時間裡爆出來。這裡不談身體。它修飾消耗的形狀，不涉身體。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "malefic.火星",
+        "quote": "火星乃南斗浮星也",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.疾厄",
+        "quote": "加羊陀火铃空劫",
+        "scope": "palace"
+      }
+    ],
+    "status": "reviewed",
+    "note": "火星化氣 —— 急：爆發、來得快去得快"
+  },
+  {
+    "id": "mod.malefic.火星.遷移",
+    "kind": "malefic",
+    "star": "火星",
+    "key": "遷移",
+    "text": "火星性急，來得猛去得也快。在外開局快，衝勁足，續航要另外安排。它修飾在外的條件，不決定去留。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "malefic.火星",
+        "quote": "火星乃南斗浮星也",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.遷移",
+        "quote": "加羊陀火铃空劫",
+        "scope": "palace"
+      }
+    ],
+    "status": "reviewed",
+    "note": "火星化氣 —— 急：爆發、來得快去得快"
+  },
+  {
+    "id": "mod.malefic.火星.僕役",
+    "kind": "malefic",
+    "star": "火星",
+    "key": "僕役",
+    "text": "火星性急，來得猛去得也快。在群體裡帶得起氣氛，也容易點起火頭。它修飾你的位置，不指認任何人。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "malefic.火星",
+        "quote": "火星乃南斗浮星也",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.僕役",
+        "quote": "加羊陀火铃空劫",
+        "scope": "palace"
+      }
+    ],
+    "status": "reviewed",
+    "note": "火星化氣 —— 急：爆發、來得快去得快"
+  },
+  {
+    "id": "mod.malefic.火星.官祿",
+    "kind": "malefic",
+    "star": "火星",
+    "key": "官祿",
+    "text": "火星性急，來得猛去得也快。推進猛，適合開局；長期維持要靠別的條件。它修飾做事的方式，不指向職位。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "malefic.火星",
+        "quote": "火星乃南斗浮星也",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.官祿",
+        "quote": "加羊陀火铃空劫",
+        "scope": "palace"
+      }
+    ],
+    "status": "reviewed",
+    "note": "火星化氣 —— 急：爆發、來得快去得快"
+  },
+  {
+    "id": "mod.malefic.火星.田宅",
+    "kind": "malefic",
+    "star": "火星",
+    "key": "田宅",
+    "text": "火星性急，來得猛去得也快。安置上說搬就搬，決定與行動之間幾乎沒有間隔。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "malefic.火星",
+        "quote": "火星乃南斗浮星也",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.田宅",
+        "quote": "加羊陀火铃空劫",
+        "scope": "palace"
+      }
+    ],
+    "status": "reviewed",
+    "note": "火星化氣 —— 急：爆發、來得快去得快"
+  },
+  {
+    "id": "mod.malefic.火星.福德",
+    "kind": "malefic",
+    "star": "火星",
+    "key": "福德",
+    "text": "火星性急，來得猛去得也快。情緒起伏明顯，來得急，過得也快。情緒來得急，收得也算快。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "malefic.火星",
+        "quote": "火星乃南斗浮星也",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.福德",
+        "quote": "加羊陀火铃空劫",
+        "scope": "palace"
+      }
+    ],
+    "status": "reviewed",
+    "note": "火星化氣 —— 急：爆發、來得快去得快"
+  },
+  {
+    "id": "mod.malefic.火星.父母",
+    "kind": "malefic",
+    "star": "火星",
+    "key": "父母",
+    "text": "火星性急，來得猛去得也快。與長輩衝突來得突然，多半當場就過去了。它修飾你的應對，不推論家人。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "malefic.火星",
+        "quote": "火星乃南斗浮星也",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.父母",
+        "quote": "加羊陀火铃空劫",
+        "scope": "palace"
+      }
+    ],
+    "status": "reviewed",
+    "note": "火星化氣 —— 急：爆發、來得快去得快"
+  },
+  {
+    "id": "mod.malefic.鈴星.命宮",
+    "kind": "malefic",
+    "star": "鈴星",
+    "key": "命宮",
+    "text": "鈴星性沉，悶燒而不散。外表沉，內裡熱；情緒藏得住，積得也久。它修飾基調，不改變基調。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "malefic.鈴星",
+        "quote": "铃星乃南斗助星也",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.命宮",
+        "quote": "羊陀火铃",
+        "scope": "palace"
+      }
+    ],
+    "status": "reviewed",
+    "note": "鈴星化氣 —— 沉：悶燒、藏得住而不散"
+  },
+  {
+    "id": "mod.malefic.鈴星.兄弟",
+    "kind": "malefic",
+    "star": "鈴星",
+    "key": "兄弟",
+    "text": "鈴星性沉，悶燒而不散。與平輩的不滿不說出口，會放在心裡記著。不滿記在心裡，表面看不出。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "malefic.鈴星",
+        "quote": "铃星乃南斗助星也",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.兄弟",
+        "quote": "加羊陀火铃空劫",
+        "scope": "palace"
+      }
+    ],
+    "status": "reviewed",
+    "note": "鈴星化氣 —— 沉：悶燒、藏得住而不散"
+  },
+  {
+    "id": "mod.malefic.鈴星.夫妻",
+    "kind": "malefic",
+    "star": "鈴星",
+    "key": "夫妻",
+    "text": "鈴星性沉，悶燒而不散。不吵，但也不說；壓在下面的東西比表面多。這是節奏，不是結果。它修飾節奏，不推斷關係結果。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "malefic.鈴星",
+        "quote": "铃星乃南斗助星也",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.夫妻",
+        "quote": "加羊陀火铃空劫",
+        "scope": "palace"
+      }
+    ],
+    "status": "reviewed",
+    "note": "鈴星化氣 —— 沉：悶燒、藏得住而不散"
+  },
+  {
+    "id": "mod.malefic.鈴星.子女",
+    "kind": "malefic",
+    "star": "鈴星",
+    "key": "子女",
+    "text": "鈴星性沉，悶燒而不散。對後輩的期待不明說，落差出現時反應會偏大。它修飾培養方式，不推生育結果。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "malefic.鈴星",
+        "quote": "铃星乃南斗助星也",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.子女",
+        "quote": "加羊陀火铃空劫",
+        "scope": "palace"
+      }
+    ],
+    "status": "reviewed",
+    "note": "鈴星化氣 —— 沉：悶燒、藏得住而不散"
+  },
+  {
+    "id": "mod.malefic.鈴星.財帛",
+    "kind": "malefic",
+    "star": "鈴星",
+    "key": "財帛",
+    "text": "鈴星性沉，悶燒而不散。資源上的計較不外露，心裡的帳算得很清。它修飾資源的流向，不涉金額。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "malefic.鈴星",
+        "quote": "铃星乃南斗助星也",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.財帛",
+        "quote": "加羊陀火铃空劫",
+        "scope": "palace"
+      }
+    ],
+    "status": "reviewed",
+    "note": "鈴星化氣 —— 沉：悶燒、藏得住而不散"
+  },
+  {
+    "id": "mod.malefic.鈴星.疾厄",
+    "kind": "malefic",
+    "star": "鈴星",
+    "key": "疾厄",
+    "text": "鈴星性沉，悶燒而不散。耗損是悶著的那種，外面看不出來。這裡不談身體。它修飾消耗的形狀，不涉身體。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "malefic.鈴星",
+        "quote": "铃星乃南斗助星也",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.疾厄",
+        "quote": "加羊陀火铃空劫",
+        "scope": "palace"
+      }
+    ],
+    "status": "reviewed",
+    "note": "鈴星化氣 —— 沉：悶燒、藏得住而不散"
+  },
+  {
+    "id": "mod.malefic.鈴星.遷移",
+    "kind": "malefic",
+    "star": "鈴星",
+    "key": "遷移",
+    "text": "鈴星性沉，悶燒而不散。在外不張揚，適應靠自己消化而不是找人。它修飾在外的條件，不決定去留。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "malefic.鈴星",
+        "quote": "铃星乃南斗助星也",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.遷移",
+        "quote": "加羊陀火铃空劫",
+        "scope": "palace"
+      }
+    ],
+    "status": "reviewed",
+    "note": "鈴星化氣 —— 沉：悶燒、藏得住而不散"
+  },
+  {
+    "id": "mod.malefic.鈴星.僕役",
+    "kind": "malefic",
+    "star": "鈴星",
+    "key": "僕役",
+    "text": "鈴星性沉，悶燒而不散。在群體裡話不多，記性好，恩怨都留著。它修飾你的位置，不指認任何人。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "malefic.鈴星",
+        "quote": "铃星乃南斗助星也",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.僕役",
+        "quote": "加羊陀火铃空劫",
+        "scope": "palace"
+      }
+    ],
+    "status": "reviewed",
+    "note": "鈴星化氣 —— 沉：悶燒、藏得住而不散"
+  },
+  {
+    "id": "mod.malefic.鈴星.官祿",
+    "kind": "malefic",
+    "star": "鈴星",
+    "key": "官祿",
+    "text": "鈴星性沉，悶燒而不散。做事沉得住氣，壓力往內收；爆發時幅度大。它修飾做事的方式，不指向職位。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "malefic.鈴星",
+        "quote": "铃星乃南斗助星也",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.官祿",
+        "quote": "加羊陀火铃空劫",
+        "scope": "palace"
+      }
+    ],
+    "status": "reviewed",
+    "note": "鈴星化氣 —— 沉：悶燒、藏得住而不散"
+  },
+  {
+    "id": "mod.malefic.鈴星.田宅",
+    "kind": "malefic",
+    "star": "鈴星",
+    "key": "田宅",
+    "text": "鈴星性沉，悶燒而不散。對居所的不滿不說，長期忍受直到忍不住。它修飾安置的節奏，不涉置業。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "malefic.鈴星",
+        "quote": "铃星乃南斗助星也",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.田宅",
+        "quote": "加羊陀火铃空劫",
+        "scope": "palace"
+      }
+    ],
+    "status": "reviewed",
+    "note": "鈴星化氣 —— 沉：悶燒、藏得住而不散"
+  },
+  {
+    "id": "mod.malefic.鈴星.福德",
+    "kind": "malefic",
+    "star": "鈴星",
+    "key": "福德",
+    "text": "鈴星性沉，悶燒而不散。心事不外露，安靜並不代表已經放下。它修飾內在的節奏，不作判斷。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "malefic.鈴星",
+        "quote": "铃星乃南斗助星也",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.福德",
+        "quote": "加羊陀火铃空劫",
+        "scope": "palace"
+      }
+    ],
+    "status": "reviewed",
+    "note": "鈴星化氣 —— 沉：悶燒、藏得住而不散"
+  },
+  {
+    "id": "mod.malefic.鈴星.父母",
+    "kind": "malefic",
+    "star": "鈴星",
+    "key": "父母",
+    "text": "鈴星性沉，悶燒而不散。對長輩的不同意見長期不說，累積得比想像多。它修飾你的應對，不推論家人。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "malefic.鈴星",
+        "quote": "铃星乃南斗助星也",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.父母",
+        "quote": "加羊陀火铃空劫",
+        "scope": "palace"
+      }
+    ],
+    "status": "reviewed",
+    "note": "鈴星化氣 —— 沉：悶燒、藏得住而不散"
+  },
+  {
+    "id": "mod.malefic.地空.命宮",
+    "kind": "malefic",
+    "star": "地空",
+    "key": "命宮",
+    "text": "地空主空，想法容易離地。想法容易離地：構想大，落實的一段最容易斷。它修飾基調，不改變基調。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "malefic.地空地劫",
+        "quote": "二星守身命，遇吉则吉，遇凶则凶",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.命宮",
+        "quote": "羊陀火铃",
+        "scope": "palace"
+      }
+    ],
+    "status": "reviewed",
+    "note": "地空化氣 —— 空：想法離地、落不到實處"
+  },
+  {
+    "id": "mod.malefic.地空.兄弟",
+    "kind": "malefic",
+    "star": "地空",
+    "key": "兄弟",
+    "text": "地空主空，想法容易離地。與平輩的約定常停在說過，很少走到做完。說過的事很少走到做完。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "malefic.地空地劫",
+        "quote": "二星守身命，遇吉则吉，遇凶则凶",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.兄弟",
+        "quote": "加羊陀火铃空劫",
+        "scope": "palace"
+      }
+    ],
+    "status": "reviewed",
+    "note": "地空化氣 —— 空：想法離地、落不到實處"
+  },
+  {
+    "id": "mod.malefic.地空.夫妻",
+    "kind": "malefic",
+    "star": "地空",
+    "key": "夫妻",
+    "text": "地空主空，想法容易離地。對關係的想像與實際有落差。這是條件提示，不是結果。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "malefic.地空地劫",
+        "quote": "二星守身命，遇吉则吉，遇凶则凶",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.夫妻",
+        "quote": "加羊陀火铃空劫",
+        "scope": "palace"
+      }
+    ],
+    "status": "reviewed",
+    "note": "地空化氣 —— 空：想法離地、落不到實處"
+  },
+  {
+    "id": "mod.malefic.地空.子女",
+    "kind": "malefic",
+    "star": "地空",
+    "key": "子女",
+    "text": "地空主空，想法容易離地。對後輩的期待偏理想，現實的準備容易不足。它修飾培養方式，不推生育結果。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "malefic.地空地劫",
+        "quote": "二星守身命，遇吉则吉，遇凶则凶",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.子女",
+        "quote": "加羊陀火铃空劫",
+        "scope": "palace"
+      }
+    ],
+    "status": "reviewed",
+    "note": "地空化氣 —— 空：想法離地、落不到實處"
+  },
+  {
+    "id": "mod.malefic.地空.財帛",
+    "kind": "malefic",
+    "star": "地空",
+    "key": "財帛",
+    "text": "地空主空，想法容易離地。計劃與實際收支之間常有缺口，帳目要多看一次。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "malefic.地空地劫",
+        "quote": "二星守身命，遇吉则吉，遇凶则凶",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.財帛",
+        "quote": "加羊陀火铃空劫",
+        "scope": "palace"
+      }
+    ],
+    "status": "reviewed",
+    "note": "地空化氣 —— 空：想法離地、落不到實處"
+  },
+  {
+    "id": "mod.malefic.地空.疾厄",
+    "kind": "malefic",
+    "star": "地空",
+    "key": "疾厄",
+    "text": "地空主空，想法容易離地。耗損來自想得多而做得少的那種空轉。這裡不談身體。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "malefic.地空地劫",
+        "quote": "二星守身命，遇吉则吉，遇凶则凶",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.疾厄",
+        "quote": "加羊陀火铃空劫",
+        "scope": "palace"
+      }
+    ],
+    "status": "reviewed",
+    "note": "地空化氣 —— 空：想法離地、落不到實處"
+  },
+  {
+    "id": "mod.malefic.地空.遷移",
+    "kind": "malefic",
+    "star": "地空",
+    "key": "遷移",
+    "text": "地空主空，想法容易離地。出外的規劃容易不夠實際，準備要比預期多。它修飾在外的條件，不決定去留。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "malefic.地空地劫",
+        "quote": "二星守身命，遇吉则吉，遇凶则凶",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.遷移",
+        "quote": "加羊陀火铃空劫",
+        "scope": "palace"
+      }
+    ],
+    "status": "reviewed",
+    "note": "地空化氣 —— 空：想法離地、落不到實處"
+  },
+  {
+    "id": "mod.malefic.地空.僕役",
+    "kind": "malefic",
+    "star": "地空",
+    "key": "僕役",
+    "text": "地空主空，想法容易離地。人際上的期望偏高，落差出現時容易失望。它修飾你的位置，不指認任何人。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "malefic.地空地劫",
+        "quote": "二星守身命，遇吉则吉，遇凶则凶",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.僕役",
+        "quote": "加羊陀火铃空劫",
+        "scope": "palace"
+      }
+    ],
+    "status": "reviewed",
+    "note": "地空化氣 —— 空：想法離地、落不到實處"
+  },
+  {
+    "id": "mod.malefic.地空.官祿",
+    "kind": "malefic",
+    "star": "地空",
+    "key": "官祿",
+    "text": "地空主空，想法容易離地。構想能力強，執行環節要靠別人補上。它修飾做事的方式，不指向職位。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "malefic.地空地劫",
+        "quote": "二星守身命，遇吉则吉，遇凶则凶",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.官祿",
+        "quote": "加羊陀火铃空劫",
+        "scope": "palace"
+      }
+    ],
+    "status": "reviewed",
+    "note": "地空化氣 —— 空：想法離地、落不到實處"
+  },
+  {
+    "id": "mod.malefic.地空.田宅",
+    "kind": "malefic",
+    "star": "地空",
+    "key": "田宅",
+    "text": "地空主空，想法容易離地。對居所的想像與可負擔的條件之間有距離。它修飾安置的節奏，不涉置業。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "malefic.地空地劫",
+        "quote": "二星守身命，遇吉则吉，遇凶则凶",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.田宅",
+        "quote": "加羊陀火铃空劫",
+        "scope": "palace"
+      }
+    ],
+    "status": "reviewed",
+    "note": "地空化氣 —— 空：想法離地、落不到實處"
+  },
+  {
+    "id": "mod.malefic.地空.福德",
+    "kind": "malefic",
+    "star": "地空",
+    "key": "福德",
+    "text": "地空主空，想法容易離地。心裡常有一塊懸著的地方，說不清楚在缺什麼。它修飾心力的形狀，不作狀態評估。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "malefic.地空地劫",
+        "quote": "二星守身命，遇吉则吉，遇凶则凶",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.福德",
+        "quote": "加羊陀火铃空劫",
+        "scope": "palace"
+      }
+    ],
+    "status": "reviewed",
+    "note": "地空化氣 —— 空：想法離地、落不到實處"
+  },
+  {
+    "id": "mod.malefic.地空.父母",
+    "kind": "malefic",
+    "star": "地空",
+    "key": "父母",
+    "text": "地空主空，想法容易離地。與長輩之間的期待多半沒有對過，各想各的。它修飾你的應對，不推論家人。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "malefic.地空地劫",
+        "quote": "二星守身命，遇吉则吉，遇凶则凶",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.父母",
+        "quote": "加羊陀火铃空劫",
+        "scope": "palace"
+      }
+    ],
+    "status": "reviewed",
+    "note": "地空化氣 —— 空：想法離地、落不到實處"
+  },
+  {
+    "id": "mod.malefic.地劫.命宮",
+    "kind": "malefic",
+    "star": "地劫",
+    "key": "命宮",
+    "text": "地劫主奪，成形之後被拿走。東西成形之後容易被拿走，得而復失是它的形狀。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "malefic.地空地劫",
+        "quote": "二星俱不宜见，定主破财",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.命宮",
+        "quote": "羊陀火铃",
+        "scope": "palace"
+      }
+    ],
+    "status": "reviewed",
+    "note": "地劫化氣 —— 劫：成形之後又被拿走"
+  },
+  {
+    "id": "mod.malefic.地劫.兄弟",
+    "kind": "malefic",
+    "star": "地劫",
+    "key": "兄弟",
+    "text": "地劫主奪，成形之後被拿走。平輩之間的幫忙常常落空，說好的事會變。幫忙常常落空，不必讀成人心。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "malefic.地空地劫",
+        "quote": "二星俱不宜见，定主破财",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.兄弟",
+        "quote": "加羊陀火铃空劫",
+        "scope": "palace"
+      }
+    ],
+    "status": "reviewed",
+    "note": "地劫化氣 —— 劫：成形之後又被拿走"
+  },
+  {
+    "id": "mod.malefic.地劫.夫妻",
+    "kind": "malefic",
+    "star": "地劫",
+    "key": "夫妻",
+    "text": "地劫主奪，成形之後被拿走。關係裡投入的部分不容易被看見。這是條件提示，不是結果。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "malefic.地空地劫",
+        "quote": "二星俱不宜见，定主破财",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.夫妻",
+        "quote": "加羊陀火铃空劫",
+        "scope": "palace"
+      }
+    ],
+    "status": "reviewed",
+    "note": "地劫化氣 —— 劫：成形之後又被拿走"
+  },
+  {
+    "id": "mod.malefic.地劫.子女",
+    "kind": "malefic",
+    "star": "地劫",
+    "key": "子女",
+    "text": "地劫主奪，成形之後被拿走。為後輩做的安排容易被打亂，要留後路。安排要留後路，變數偏多。它修飾培養方式，不推生育結果。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "malefic.地空地劫",
+        "quote": "二星俱不宜见，定主破财",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.子女",
+        "quote": "加羊陀火铃空劫",
+        "scope": "palace"
+      }
+    ],
+    "status": "reviewed",
+    "note": "地劫化氣 —— 劫：成形之後又被拿走"
+  },
+  {
+    "id": "mod.malefic.地劫.財帛",
+    "kind": "malefic",
+    "star": "地劫",
+    "key": "財帛",
+    "text": "地劫主奪，成形之後被拿走。到手的資源留不住，支出多半不在預期之內。它修飾資源的流向，不涉金額。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "malefic.地空地劫",
+        "quote": "二星俱不宜见，定主破财",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.財帛",
+        "quote": "加羊陀火铃空劫",
+        "scope": "palace"
+      }
+    ],
+    "status": "reviewed",
+    "note": "地劫化氣 —— 劫：成形之後又被拿走"
+  },
+  {
+    "id": "mod.malefic.地劫.疾厄",
+    "kind": "malefic",
+    "star": "地劫",
+    "key": "疾厄",
+    "text": "地劫主奪，成形之後被拿走。耗損來自反覆重來，做好的又要再做一次。這裡不談身體。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "malefic.地空地劫",
+        "quote": "二星俱不宜见，定主破财",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.疾厄",
+        "quote": "加羊陀火铃空劫",
+        "scope": "palace"
+      }
+    ],
+    "status": "reviewed",
+    "note": "地劫化氣 —— 劫：成形之後又被拿走"
+  },
+  {
+    "id": "mod.malefic.地劫.遷移",
+    "kind": "malefic",
+    "star": "地劫",
+    "key": "遷移",
+    "text": "地劫主奪，成形之後被拿走。在外的安排容易變動，備案要早一點準備。它修飾在外的條件，不決定去留。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "malefic.地空地劫",
+        "quote": "二星俱不宜见，定主破财",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.遷移",
+        "quote": "加羊陀火铃空劫",
+        "scope": "palace"
+      }
+    ],
+    "status": "reviewed",
+    "note": "地劫化氣 —— 劫：成形之後又被拿走"
+  },
+  {
+    "id": "mod.malefic.地劫.僕役",
+    "kind": "malefic",
+    "star": "地劫",
+    "key": "僕役",
+    "text": "地劫主奪，成形之後被拿走。人際上的投入回收率低，這是條件不是評價。它修飾你的位置，不指認任何人。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "malefic.地空地劫",
+        "quote": "二星俱不宜见，定主破财",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.僕役",
+        "quote": "加羊陀火铃空劫",
+        "scope": "palace"
+      }
+    ],
+    "status": "reviewed",
+    "note": "地劫化氣 —— 劫：成形之後又被拿走"
+  },
+  {
+    "id": "mod.malefic.地劫.官祿",
+    "kind": "malefic",
+    "star": "地劫",
+    "key": "官祿",
+    "text": "地劫主奪，成形之後被拿走。成果容易被外部因素打斷，收尾要抓緊。它修飾做事的方式，不指向職位。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "malefic.地空地劫",
+        "quote": "二星俱不宜见，定主破财",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.官祿",
+        "quote": "加羊陀火铃空劫",
+        "scope": "palace"
+      }
+    ],
+    "status": "reviewed",
+    "note": "地劫化氣 —— 劫：成形之後又被拿走"
+  },
+  {
+    "id": "mod.malefic.地劫.田宅",
+    "kind": "malefic",
+    "star": "地劫",
+    "key": "田宅",
+    "text": "地劫主奪，成形之後被拿走。安置好的東西容易再變動，穩定期偏短。它修飾安置的節奏，不涉置業。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "malefic.地空地劫",
+        "quote": "二星俱不宜见，定主破财",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.田宅",
+        "quote": "加羊陀火铃空劫",
+        "scope": "palace"
+      }
+    ],
+    "status": "reviewed",
+    "note": "地劫化氣 —— 劫：成形之後又被拿走"
+  },
+  {
+    "id": "mod.malefic.地劫.福德",
+    "kind": "malefic",
+    "star": "地劫",
+    "key": "福德",
+    "text": "地劫主奪，成形之後被拿走。覺得做了很多而剩下不多，這種感覺要說出來。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "malefic.地空地劫",
+        "quote": "二星俱不宜见，定主破财",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.福德",
+        "quote": "加羊陀火铃空劫",
+        "scope": "palace"
+      }
+    ],
+    "status": "reviewed",
+    "note": "地劫化氣 —— 劫：成形之後又被拿走"
+  },
+  {
+    "id": "mod.malefic.地劫.父母",
+    "kind": "malefic",
+    "star": "地劫",
+    "key": "父母",
+    "text": "地劫主奪，成形之後被拿走。與長輩之間的安排常有變數，不必讀成誰的錯。它修飾你的應對，不推論家人。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "malefic.地空地劫",
+        "quote": "二星俱不宜见，定主破财",
+        "scope": "star"
+      },
+      {
+        "corpus": "quanshu",
+        "passage_id": "palace.父母",
+        "quote": "加羊陀火铃空劫",
+        "scope": "palace"
+      }
+    ],
+    "status": "reviewed",
+    "note": "地劫化氣 —— 劫：成形之後又被拿走"
+  }
+]
