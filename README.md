@@ -23,11 +23,20 @@ docs/               規則決策日誌（rules.md · engine-divergence.md）
 ```bash
 pnpm install
 pnpm dev          # 起 apps/web
-pnpm build
+pnpm build        # next build —— 淨係 build，冇掃描
+pnpm verify       # 九層驗收掃描（要 build 完先，會開 headless Chromium）
 pnpm typecheck    # 全 workspace
 pnpm test         # 全 workspace
 pnpm lint         # apps/web
 ```
+
+⚠ `build` 同 `verify` 分開兩個指令，唔係一個。
+
+九層掃描要起一個 server、開一個 Chromium，逐頁量真嘢 ——
+闊度、動畫時序、有幾多個掣、有冇價錢出現過。嗰啲喺 CI 同本機跑得，
+**喺 Vercel 上面跑唔到**（冇 Chromium，亦都唔應該喺 build 期間起 server）。
+
+合埋一個指令嘅話，部署就永遠 fail。
 
 需要 Node 22+ 同 pnpm 10。
 

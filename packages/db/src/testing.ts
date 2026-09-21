@@ -77,7 +77,21 @@ export async function createTestDb(): Promise<TestDb> {
   const db = await PGlite.create();
   await db.exec(AUTH_SHIM);
 
-  for (const file of readdirSync(MIGRATIONS).filter((f) => f.endsWith('.sql')).sort()) {
+  /*
+   * ⚠ 只跑編咗號嗰啲，唔係全部 `.sql`。
+   *
+   * `migrations/all.sql` 係一個生成檔（五隻接埋一齊，畀你貼落
+   * Supabase SQL Editor）。佢一擺入呢個資料夾，原本嗰句
+   * 「全部 .sql 順住跑」就會將成套 schema 跑多次 ——
+   * 三十條測試一次過紅，而錯誤訊息淨係話 "already exists"。
+   *
+   * 加咗之後即刻爆咗一次，所以呢個註釋唔係假設，係記錄。
+   */
+  const numbered = readdirSync(MIGRATIONS)
+    .filter((f) => /^0\d+_.*\.sql$/.test(f))
+    .sort();
+
+  for (const file of numbered) {
     await db.exec(readFileSync(join(MIGRATIONS, file), 'utf8'));
   }
 

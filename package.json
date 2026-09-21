@@ -9,6 +9,7 @@
     "preinstall": "npx --yes only-allow pnpm",
     "dev": "pnpm --filter @guanwei/web dev",
     "build": "pnpm --filter @guanwei/web build",
+    "verify": "pnpm --filter @guanwei/web verify",
     "start": "pnpm --filter @guanwei/web start",
     "lint": "pnpm --filter @guanwei/web lint",
     "typecheck": "pnpm -r typecheck",

@@ -31,3 +31,13 @@ jobs:
 
       - name: Build
         run: pnpm build
+
+      # ⚠ 九層驗收掃描會開一個 headless Chromium，逐頁量真嘢
+      #    （闊度、動畫時序、有幾多個掣、有冇價錢出現過）。
+      #    所以佢同 build 分開兩步：build 要喺 Vercel 上面跑得，
+      #    而 Vercel 冇 Chromium。
+      - name: Install Chromium
+        run: pnpm --filter @guanwei/web exec playwright install --with-deps chromium
+
+      - name: Verify
+        run: pnpm verify

@@ -4,11 +4,12 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build && node scripts/check-lexicon-build.mjs && node scripts/check-routes.mjs && node scripts/check-book.mjs && node scripts/check-bundle.mjs && node scripts/check-shelf.mjs && node scripts/check-cast.mjs && node scripts/check-naming.mjs && node scripts/check-juan.mjs && node scripts/check-zhan.mjs && node scripts/check-copy.mjs",
+    "build": "next build",
     "start": "next start",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
-    "test": "vitest run"
+    "test": "vitest run",
+    "verify": "node scripts/check-lexicon-build.mjs && node scripts/check-routes.mjs && node scripts/check-book.mjs && node scripts/check-bundle.mjs && node scripts/check-shelf.mjs && node scripts/check-cast.mjs && node scripts/check-naming.mjs && node scripts/check-juan.mjs && node scripts/check-zhan.mjs && node scripts/check-copy.mjs"
   },
   "dependencies": {
     "@guanwei/content": "workspace:*",
