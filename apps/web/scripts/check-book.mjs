@@ -13,9 +13,8 @@
  * 全部係測試同 curl 捉唔到、影相先見到嘅。呢個 script 就係將嗰一類
  * 檢查寫成會 fail 嘅嘢，唔使靠人記得去睇。
  */
-import { spawn } from 'node:child_process';
+import { launchBrowser, startServer, stopServer } from './_server.mjs';
 import { setTimeout as sleep } from 'node:timers/promises';
-import { chromium } from 'playwright';
 
 const PORT = Number(process.env.CHECK_BOOK_PORT ?? 3998);
 const BASE = `http://localhost:${PORT}`;
@@ -23,10 +22,7 @@ const PATH = '/tokens/shu';
 const STATES = ['架上書脊', '封面', '跨頁', '合上題名', '展開'];
 const fail = [];
 
-const server = spawn('npx', ['next', 'start', '-p', String(PORT)], {
-  stdio: 'ignore',
-  detached: true,
-});
+const server = startServer(PORT);
 
 function check(name, cond, detail) {
   if (!cond) fail.push(`${name}：${detail}`);
@@ -58,7 +54,7 @@ try {
     console.error('✗ server 起唔到');
     process.exit(1);
   }
-  browser = await chromium.launch({ executablePath: '/opt/pw-browsers/chromium' });
+  browser = await launchBrowser();
 
   /* ── 一、五個狀態，一個 transform 都冇 ───────────────── */
   const wide = await browser.newPage({ viewport: { width: 1280, height: 900 } });
@@ -179,7 +175,7 @@ try {
   check('樣板 noindex', /name="robots" content="noindex/.test(html), '冇 noindex');
 } finally {
   if (browser) await browser.close();
-  process.kill(-server.pid);
+  stopServer(server);
 }
 
 if (fail.length) {

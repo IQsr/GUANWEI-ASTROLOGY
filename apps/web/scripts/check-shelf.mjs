@@ -9,19 +9,15 @@
  *
  * 第二條（次序、朱砂、空狀態）係純函數，喺 `test/shelf.test.ts`。
  */
-import { spawn } from 'node:child_process';
+import { launchBrowser, startServer, stopServer } from './_server.mjs';
 import { setTimeout as sleep } from 'node:timers/promises';
-import { chromium } from 'playwright';
 
 const PORT = Number(process.env.CHECK_SHELF_PORT ?? 3997);
 const BASE = `http://localhost:${PORT}`;
 const PATH = '/tokens/shelf';
 const fail = [];
 
-const server = spawn('npx', ['next', 'start', '-p', String(PORT)], {
-  stdio: 'ignore',
-  detached: true,
-});
+const server = startServer(PORT);
 
 function check(name, cond, detail) {
   if (!cond) fail.push(`${name}：${detail}`);
@@ -45,7 +41,7 @@ try {
     console.error('✗ server 起唔到');
     process.exit(1);
   }
-  browser = await chromium.launch({ executablePath: '/opt/pw-browsers/chromium' });
+  browser = await launchBrowser();
   const page = await browser.newPage({ viewport: { width: 1280, height: 1000 } });
   await page.goto(`${BASE}${PATH}`, { waitUntil: 'domcontentloaded' });
   await page.waitForTimeout(800);
@@ -196,7 +192,7 @@ try {
   }
 } finally {
   if (browser) await browser.close();
-  process.kill(-server.pid);
+  stopServer(server);
 }
 
 if (fail.length) {

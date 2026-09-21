@@ -8,9 +8,8 @@
  *
  * 第三條（唔用 spinner）掃 CSS，喺 `test/zhanjuan.test.ts`。
  */
-import { spawn } from 'node:child_process';
+import { launchBrowser, startServer, stopServer } from './_server.mjs';
 import { setTimeout as sleep } from 'node:timers/promises';
-import { chromium } from 'playwright';
 
 const PORT = Number(process.env.CHECK_ZHAN_PORT ?? 3993);
 const BASE = `http://localhost:${PORT}`;
@@ -24,10 +23,7 @@ const LINES = 12;
 const LINES_MS = (LINES - 1) * STAGGER_MS + RULE_MS;
 const ZHANJUAN_MS = LINES_MS + 11 * 60 + 240;
 
-const server = spawn('npx', ['next', 'start', '-p', String(PORT)], {
-  stdio: 'ignore',
-  detached: true,
-});
+const server = startServer(PORT);
 
 function check(name, cond, detail) {
   if (!cond) fail.push(`${name}：${detail}`);
@@ -51,7 +47,7 @@ try {
     console.error('✗ server 起唔到');
     process.exit(1);
   }
-  browser = await chromium.launch({ executablePath: '/opt/pw-browsers/chromium' });
+  browser = await launchBrowser();
   const page = await browser.newPage({ viewport: { width: 1280, height: 1100 } });
   await page.goto(`${BASE}${PATH}`, { waitUntil: 'domcontentloaded' });
   /* ⚠ 唔好等太耐 —— 成幕 2.1 秒，等完就乜都量唔到。 */
@@ -180,7 +176,7 @@ try {
   check('400px', over <= 0, `橫向滾多咗 ${over}px`);
 } finally {
   if (browser) await browser.close();
-  process.kill(-server.pid);
+  stopServer(server);
 }
 
 if (fail.length) {

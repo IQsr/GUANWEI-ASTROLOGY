@@ -17,7 +17,7 @@
  * 手畫一次 SVG 就係第二套值，日後改 token 佢唔會跟 —— 又多一處要記得同步。
  * render 一版真 HTML 再影，用嘅就係同一份 `globals.css`。
  */
-import { chromium } from 'playwright';
+import { launchBrowser } from './_server.mjs';
 import { readFileSync, writeFileSync } from 'node:fs';
 
 const OUT = 'public/og-lexicon.png';
@@ -63,7 +63,7 @@ const html = `<!doctype html><meta charset="utf-8">
   <span class="brand">觀微 · 藏經閣</span>
 </div>`;
 
-const b = await chromium.launch({ executablePath: '/opt/pw-browsers/chromium' });
+const b = await launchBrowser();
 const p = await b.newPage({ viewport: { width: 1200, height: 630 }, deviceScaleFactor: 1 });
 await p.setContent(html, { waitUntil: 'load' });
 await p.waitForTimeout(400);

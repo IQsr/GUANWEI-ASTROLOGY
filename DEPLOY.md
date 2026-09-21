@@ -79,6 +79,14 @@ NEXT_PUBLIC_SUPABASE_ANON_KEY  = anon / public key
 嗰啲喺 CI 同你部機跑，**喺 Vercel 上面跑唔到**（冇 Chromium）。
 兩個指令特登分開就係為咗呢件事。
 
+### 本機想跑埋九層掃描
+
+```bash
+pnpm --filter @guanwei/web exec playwright install chromium   # 一次就夠
+pnpm build
+pnpm verify
+```
+
 ---
 
 ## 三、跑完之後先試呢六樣

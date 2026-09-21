@@ -9,18 +9,14 @@
  *   打字期間唔准重畫粒掣　　　→ 要真係打字，再比較個 DOM 節點
  *   冇確認頁，五步完直入題名　→ 要由頭行到尾
  */
-import { spawn } from 'node:child_process';
+import { launchBrowser, startServer, stopServer } from './_server.mjs';
 import { setTimeout as sleep } from 'node:timers/promises';
-import { chromium } from 'playwright';
 
 const PORT = Number(process.env.CHECK_CAST_PORT ?? 3996);
 const BASE = `http://localhost:${PORT}`;
 const fail = [];
 
-const server = spawn('npx', ['next', 'start', '-p', String(PORT)], {
-  stdio: 'ignore',
-  detached: true,
-});
+const server = startServer(PORT);
 
 function check(name, cond, detail) {
   if (!cond) fail.push(`${name}：${detail}`);
@@ -66,7 +62,7 @@ try {
     console.error('✗ server 起唔到');
     process.exit(1);
   }
-  browser = await chromium.launch({ executablePath: '/opt/pw-browsers/chromium' });
+  browser = await launchBrowser();
   const page = await browser.newPage({ viewport: { width: 1280, height: 1000 } });
 
   /*
@@ -204,7 +200,7 @@ try {
   }
 } finally {
   if (browser) await browser.close();
-  process.kill(-server.pid);
+  stopServer(server);
 }
 
 if (fail.length) {

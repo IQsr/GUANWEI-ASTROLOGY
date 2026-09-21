@@ -38,6 +38,18 @@ pnpm lint         # apps/web
 
 合埋一個指令嘅話，部署就永遠 fail。
 
+第一次跑 `verify` 之前要裝一次瀏覽器：
+
+```bash
+pnpm --filter @guanwei/web exec playwright install chromium
+```
+
+（要用一個唔喺預設位置嘅 Chromium，就設 `GUANWEI_CHROMIUM=<路徑>`。）
+
+⚠ Windows 同 macOS 都行得。九個掃描起 server 同開瀏覽器嗰兩段
+抽咗去 `apps/web/scripts/_server.mjs` —— 之前嗰版寫死咗
+POSIX 嘅 `process.kill(-pid)` 同一條容器入面先有嘅 Chromium 路徑。
+
 需要 Node 22+ 同 pnpm 10。
 
 ## 環境變數

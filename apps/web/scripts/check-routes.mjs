@@ -17,17 +17,14 @@
  *
  * 呢個 script 起一個真 server，逐條 route 撳一次，對 status 同內容。
  */
-import { spawn } from 'node:child_process';
+import { startServer, stopServer } from './_server.mjs';
 import { setTimeout as sleep } from 'node:timers/promises';
 
 const PORT = Number(process.env.CHECK_PORT ?? 3999);
 const BASE = `http://localhost:${PORT}`;
 const fail = [];
 
-const server = spawn('npx', ['next', 'start', '-p', String(PORT)], {
-  stdio: 'ignore',
-  detached: true,
-});
+const server = startServer(PORT);
 
 async function waitUp(tries = 40) {
   for (let i = 0; i < tries; i++) {
@@ -195,7 +192,7 @@ try {
     }
   }
 } finally {
-  process.kill(-server.pid);
+  stopServer(server);
 }
 
 if (fail.length) {

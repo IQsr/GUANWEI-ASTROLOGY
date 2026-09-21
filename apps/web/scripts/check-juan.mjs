@@ -8,19 +8,15 @@
  *
  * 另外量兩樣睇得見先知嘅嘢：**註層係展開唔係浮窗**、撳完個點會退色。
  */
-import { spawn } from 'node:child_process';
+import { launchBrowser, startServer, stopServer } from './_server.mjs';
 import { setTimeout as sleep } from 'node:timers/promises';
-import { chromium } from 'playwright';
 
 const PORT = Number(process.env.CHECK_JUAN_PORT ?? 3994);
 const BASE = `http://localhost:${PORT}`;
 const PATH = '/tokens/mingshu';
 const fail = [];
 
-const server = spawn('npx', ['next', 'start', '-p', String(PORT)], {
-  stdio: 'ignore',
-  detached: true,
-});
+const server = startServer(PORT);
 
 function check(name, cond, detail) {
   if (!cond) fail.push(`${name}：${detail}`);
@@ -44,7 +40,7 @@ try {
     console.error('✗ server 起唔到');
     process.exit(1);
   }
-  browser = await chromium.launch({ executablePath: '/opt/pw-browsers/chromium' });
+  browser = await launchBrowser();
   const page = await browser.newPage({ viewport: { width: 1280, height: 1100 } });
   await page.goto(`${BASE}${PATH}`, { waitUntil: 'domcontentloaded' });
   await page.waitForTimeout(900);
@@ -149,7 +145,7 @@ try {
   check('400px', over <= 0, `橫向滾多咗 ${over}px`);
 } finally {
   if (browser) await browser.close();
-  process.kill(-server.pid);
+  stopServer(server);
 }
 
 if (fail.length) {

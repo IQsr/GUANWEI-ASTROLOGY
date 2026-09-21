@@ -8,9 +8,8 @@
  *   唔自動翻開，一定要用戶自己撳　　　→ 等完成幕再睇本書開咗未
  *   呢一幕之前冇出現過任何價錢　　　　→ 掃成條流程嘅字
  */
-import { spawn } from 'node:child_process';
+import { launchBrowser, startServer, stopServer } from './_server.mjs';
 import { setTimeout as sleep } from 'node:timers/promises';
-import { chromium } from 'playwright';
 
 const PORT = Number(process.env.CHECK_NAMING_PORT ?? 3995);
 const BASE = `http://localhost:${PORT}`;
@@ -23,10 +22,7 @@ const SEAL_MS = 520;
 const SEAL_DELAY_MS = INK_MS + STILL_MS;
 const NAMING_MS = SEAL_DELAY_MS + SEAL_MS;
 
-const server = spawn('npx', ['next', 'start', '-p', String(PORT)], {
-  stdio: 'ignore',
-  detached: true,
-});
+const server = startServer(PORT);
 
 function check(name, cond, detail) {
   if (!cond) fail.push(`${name}：${detail}`);
@@ -68,7 +64,7 @@ try {
     console.error('✗ server 起唔到');
     process.exit(1);
   }
-  browser = await chromium.launch({ executablePath: '/opt/pw-browsers/chromium' });
+  browser = await launchBrowser();
   const page = await browser.newPage({ viewport: { width: 1280, height: 1000 } });
   await page.goto(`${BASE}/cast`, { waitUntil: 'domcontentloaded' });
   await page.waitForTimeout(700);
@@ -337,7 +333,7 @@ try {
   check('reduced-motion 即刻撳得', quiet.kai, '要等');
 } finally {
   if (browser) await browser.close();
-  process.kill(-server.pid);
+  stopServer(server);
 }
 
 if (fail.length) {
