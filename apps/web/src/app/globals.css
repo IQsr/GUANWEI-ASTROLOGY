@@ -1204,7 +1204,9 @@
   display: grid;
   grid-template-columns: minmax(0, var(--banxin));
   justify-content: center;
-  column-gap: var(--sp-5);
+  /* 40px —— 節奏七個值之一（視覺 §5）。呢度係純 CSS，冇 --sp-* 變數，
+     嗰七個值住喺 Tailwind 嘅 spacing scale 度（gap-10 = 40px）。 */
+  column-gap: 40px;
 }
 
 .suidu-pan {
@@ -1238,7 +1240,7 @@
 /* 跟住捲 —— 個盤唔會捲走。 */
 .suidu-ding {
   position: sticky;
-  top: var(--sp-5);
+  top: 40px;
 }
 
 /* ⚠ 隨讀嗰個盤撳唔郁，所以唔可以有 hover／cursor 嘅樣。 */

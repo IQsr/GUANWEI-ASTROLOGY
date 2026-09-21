@@ -178,6 +178,24 @@ try {
   /* 佢跟住字行 —— 一個撳得嘅盤會令讀者以為佢揀咗嘅嘢會留低。 */
   check('細盤撳唔郁', panes.clickable === 0, `${panes.clickable} 格撳得`);
 
+  /*
+   * ⚠ 個盤要真係黐住 —— 唔係「有個盤喺 DOM 度」。
+   *
+   * 第一版寫 `top: var(--sp-5)`，而呢個 app 根本冇 `--sp-*` 變數
+   * （嗰七個節奏值住喺 Tailwind 嘅 spacing scale）。變數唔存在，
+   * `top` 就係 auto，sticky 等於冇 —— 個盤跟住捲走。
+   *
+   * 而上面幾條 check **全部照樣綠**：佢哋量嘅係邊幾格亮，
+   * 而一個捲走咗嘅盤一樣亮得啱。量錯咗嘢嘅 check 唔會救你。
+   */
+  await wide.evaluate(() => window.scrollBy(0, 600));
+  await wide.waitForTimeout(500);
+  const stuck = await wide.evaluate(() => {
+    const el = document.querySelector('.suidu-ding');
+    return el ? Math.round(el.getBoundingClientRect().top) : null;
+  });
+  check('個盤黐住唔會捲走', stuck !== null && stuck >= 0 && stuck <= 80, `頂部喺 ${stuck}px`);
+
   const kai = await atSlot('開場');
   check('捲到開場', kai.at === '開場', `跟緊「${kai.at}」`);
   check('開場亮本宮', kai.self === 1 && kai.san === 0, JSON.stringify(kai));
