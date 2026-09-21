@@ -1,0 +1,741 @@
+From 7766b76cdea8189e86ad0518a06e3102083bc8fa Mon Sep 17 00:00:00 2001
+From: Issac <isagaming718@gmail.com>
+Date: Mon, 21 Sep 2026 02:08:15 +0000
+Subject: [PATCH] =?UTF-8?q?=E9=A1=8C=E5=90=8D=EF=BC=8F=E5=B1=95=E5=8D=B7?=
+ =?UTF-8?q?=EF=BC=9A=E4=B8=80=E5=B9=95=E4=BC=81=E8=BF=94=E5=96=BA=E7=89=88?=
+ =?UTF-8?q?=E5=BF=83=E4=B8=AD=E9=96=93=EF=BC=88=E8=A6=96=E8=A6=BA=20=C2=A7?=
+ =?UTF-8?q?5=EF=BC=89?=
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+影咗相先見到：呢一幕本來冇版位可言。`.mu-ti` 一直只係一個畀測試
+捉嘅 hook，一條 CSS 都冇 —— 即係話本書跟住 <main> 嘅左上角企，
+1280 闊嘅視窗入面右邊同下面加埋差唔多六成係空。
+
+§5 寫住「留白係內容」，亦明文准許題名得三行字加一枚印。
+但「留白」同「冇擺過位」唔同：前者係度出嚟嘅，後者係跌咗落嗰度。
+
+  .mu-wei  三個狀態（落款跨頁／題名合埋／展卷跨頁）都置中，
+           上下用 8:5（正中之後向上推返 104 − 64 = 40px）
+
+⚠ 中間試過一個做法，推翻咗，理由寫咗落 CSS 註釋度：
+
+第一版唔係置中個盒，係置中書脊 —— 合埋嗰陣左頁闊度係零，
+所以書脊企喺個盒最左，要用 margin-left 推返。量出嚟三個數字
+一模一樣（640 → 640 → 640），但影相一睇就知錯：一本合埋咗嘅書
+貼住畫面正中向右長，左邊成半版吉。
+
+推翻嘅理由唔係「唔夠靚」，係前提本身錯 —— 落款同題名係兩個
+唔同 component，中間係硬切唔係轉場，所以嗰一下根本冇嘢會飄。
+
+⚠ 順手捉到一條會喺乜都冇嘅情況下綠嘅 check：
+
+第一次綠嗰次，個頁其實一條 CSS 都冇落（serve 緊舊 build，
+stylesheet 404）。冇 CSS 之下 .shu 同 .mu-wei 都係成版闊嘅 block，
+兩個中心自然重疊 —— 「偏咗 0px」，綠。
+
+所以 check-naming.mjs 而家量位之前先量「有冇排過版」：
+.mu-wei 要係 flex，本書要窄過版心。
+
+check-naming.mjs：＋5 條（版位真係排過、本書唔係成版闊、三個狀態各一）
+
+Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_019sobrcHWhU2aphtaucT5Jd
+---
+ apps/web/scripts/check-naming.mjs   |  62 +++++++-
+ apps/web/src/app/globals.css        |  64 ++++++++
+ apps/web/src/components/Luokuan.tsx | 233 ++++++++++++++++------------
+ apps/web/src/components/Naming.tsx  |  84 +++++-----
+ 4 files changed, 307 insertions(+), 136 deletions(-)
+
+diff --git a/apps/web/scripts/check-naming.mjs b/apps/web/scripts/check-naming.mjs
+index bd0a554..fca5733 100644
+--- a/apps/web/scripts/check-naming.mjs
++++ b/apps/web/scripts/check-naming.mjs
+@@ -79,7 +79,65 @@ try {
+    * 行緊嗰陣一個互動元素都唔應該有：冇掣、冇連結、冇輸入欄。
+    * 「用戶淨係睇」係字面意思。
+    */
++  /*
++   * ── 零、⚠ 本書要企喺版心中間 ──────────────────────
++   *
++   * 影咗相先見到：呢一幕本來冇版位可言 —— `.mu-ti` 一條 CSS 都冇，
++   * 本書跟住 `<main>` 嘅左上角企，右邊同下面加埋差唔多六成係空。
++   *
++   * 「留白係內容」（視覺 §5）同「冇擺過位」唔同：
++   * 前者係度出嚟嘅，後者係跌咗落嗰度。
++   *
++   * ⚠ 量嘅係**個盒嘅中心**，唔係書脊。
++   * 第一版量書脊（合埋嗰陣書脊企喺盒最左，所以要將個盒推右），
++   * 三個數字啱晒，但出嚟嘅畫面係一本書貼住正中向右長、左邊成半版吉。
++   * 量啱咗一樣唔應該量嘅嘢。
++   */
++  const bookCentre = async () =>
++    page.evaluate(() => {
++      const el = document.querySelector('.shu');
++      const stage = document.querySelector('.mu-wei');
++      if (!el || !stage) return null;
++      const b = el.getBoundingClientRect();
++      const s = stage.getBoundingClientRect();
++      return Math.round(b.left + b.width / 2 - (s.left + s.width / 2));
++    });
++
++  /*
++   * ⚠ 先確認 CSS 真係落咗。
++   *
++   * 呢條 check 第一次綠嗰次，個頁其實**一條 CSS 都冇落**（server 手多多
++   * 重啟咗，serve 緊舊 build，個 stylesheet 404）。冇 CSS 之下
++   * `.shu` 同 `.mu-wei` 都係 block、都係成版闊，兩個中心自然重疊 ——
++   * 「偏咗 0px」，綠。
++   *
++   * **一條喺乜都冇嘅情況下都會綠嘅 check，量緊嘅係零。**
++   * 所以量位之前，先量佢有冇排過版。
++   */
++  const laid = await page.evaluate(() => {
++    const stage = document.querySelector('.mu-wei');
++    const book = document.querySelector('.shu');
++    if (!stage || !book) return null;
++    return {
++      display: getComputedStyle(stage).display,
++      bookW: Math.round(book.getBoundingClientRect().width),
++      stageW: Math.round(stage.getBoundingClientRect().width),
++    };
++  });
++  check('版位真係排過', laid?.display === 'flex', laid?.display ?? '搵唔到 .mu-wei');
++  check(
++    '本書唔係成版闊（即係 CSS 落咗）',
++    laid !== null && laid.bookW > 0 && laid.bookW < laid.stageW - 40,
++    `本書 ${laid?.bookW}px／版心 ${laid?.stageW}px`,
++  );
++
++  const offLuokuan = await bookCentre();
++  check('落款嗰陣本書企中間', offLuokuan !== null && Math.abs(offLuokuan) <= 2, `偏咗 ${offLuokuan}px`);
++
+   await toNaming(page);
++  const offNaming = await bookCentre();
++  check('題名嗰陣本書企中間', offNaming !== null && Math.abs(offNaming) <= 2, `偏咗 ${offNaming}px`);
++
+   const during = await page.evaluate(() => {
+     /*
+      * ⚠ 量成版，唔係量本書嗰忽。
+@@ -184,7 +242,9 @@ try {
+     /* 揭開之後兩件工具要返嚟 —— 嗰陣已經係喺度讀緊。 */
+     chrome: document.querySelectorAll('header a, header button').length,
+   }));
++  const offZhan = after.kai ? await bookCentre() : null;
+   if (after.kai) {
++    check('展卷嗰陣本書企中間', offZhan !== null && Math.abs(offZhan) <= 2, `偏咗 ${offZhan}px`);
+     check('撳咗就揭開', opened.shape === 'opened', opened.shape ?? '冇書');
+     check('入面係盤', opened.gong === 12, `${opened.gong} 宮`);
+     check('揭開咗之後冇咗熱區', !opened.kai, '熱區仲喺度');
+@@ -263,5 +323,5 @@ if (fail.length) {
+   process.exit(1);
+ }
+ console.log(
+-  '✓ 題名：1600 → 停 1.2 秒 → 落印、行緊冇任何掣、唔自動翻開、撳本書先揭開、寫唔入就唔扮有',
++  '✓ 題名：1600 → 停 1.2 秒 → 落印、行緊冇任何掣、唔自動翻開、撳本書先揭開、寫唔入就唔扮有、三個狀態都企喺版心中間',
+ );
+diff --git a/apps/web/src/app/globals.css b/apps/web/src/app/globals.css
+index 875613e..4990c48 100644
+--- a/apps/web/src/app/globals.css
++++ b/apps/web/src/app/globals.css
+@@ -1124,6 +1124,70 @@
+   outline-offset: 4px;
+ }
+ 
++/* ── 一幕企喺邊（視覺系統 §5）──────────────────────────────
++
++   ⚠ 呢一幕本來冇版位可言。
++
++   `.mu-ti` 一直只係一個畀測試捉嘅 hook，一條 CSS 都冇 ——
++   即係話本書跟住 `<main>` 嘅左上角企。影咗相先見到：一個 1280 闊
++   嘅視窗入面，本書佔左上角，右邊同下面加埋差唔多六成係空。
++
++   §5 寫住「留白係內容」，而且明文准許「入齋」「題名」得三行字加一枚印。
++   但**「留白」同「冇擺過位」唔同**：前者係度出嚟嘅，後者係跌咗落嗰度。
++
++   ⚠ 點解置中 —— 唔係因為靚，係因為書脊。
++
++   E2 第二條規矩：書脊喺中間，唔係最左。而成條流程係
++   跨頁（落款）→ 合埋（題名）→ 跨頁（展卷）：本書由兩版闊
++   變一版闊再變兩版闊。
++
++   靠左嘅話，書脊會左右飄兩次 —— 每一次都係同一本書突然搬咗位。
++   置中嘅話**書脊企喺原位，兩頁向左右長出嚟同縮返入去**，
++   同你揭一本真書一模一樣。`check-naming.mjs` 量住呢一點。
++
++   ⚠ 上下唔係數學正中，係 8:5。
++   §5：「天頭 : 地腳 = 8 : 5 → padding-block: 104px 64px。
++   淨係呢一條，成版就唔似普通網站。」所以擺正中之後，
++   再向上推返嗰個差（104 − 64 = 40px），唔係 `justify-content: center` 算數。
++   ============================================================ */
++
++.mu-wei {
++  display: flex;
++  flex-direction: column;
++  align-items: center;
++  justify-content: center;
++  min-height: calc(100svh - var(--tiantou) - var(--dijiao));
++  padding-bottom: calc(var(--tiantou) - var(--dijiao));
++}
++
++/* ⚠ 唔可以用 text-align 置中。
++
++   `.shu` 係 inline-flex，text-align 擺得郁佢 —— 但嗰個值會**繼承落
++   書入面每一頁**，封面上面個名同落款嗰幾行字會一齊變咗置中。
++   所以由外面嗰格排，唔郁 text-align。 */
++.mu-wei .shu-wrap {
++  display: flex;
++  justify-content: center;
++}
++
++/* ⚠ 一個試過之後推翻咗嘅做法，寫低免得有人再行一次。
++
++   第一版唔係置中個盒，係**置中書脊**：合埋嗰陣左頁闊度係零，
++   所以書脊企喺個盒最左；用 margin-left 將個盒向右推
++   (右頁 − 左頁)，書脊就由頭到尾企喺同一點。
++
++   量出嚟係啱嘅（640px → 640px → 640px），**但影咗相就知錯**：
++   一本合埋咗嘅書貼住畫面正中向右長，左邊成半版吉 ——
++   一幕情感高點變咗似排版爛咗。
++
++   推翻嘅理由唔係「唔夠靚」，係**前提本身錯**：
++   落款同題名係兩個唔同 component，中間係硬切唔係轉場，
++   所以嗰一下根本冇嘢會「飄」。真係有轉場嗰段係題名 → 展卷
++   （同一本書，闊度動畫），而嗰段書脊點行，留白反而讀得順。
++
++   所以：三個狀態都置中個盒。`check-naming.mjs` 量住本書嘅
++   水平中心同版心中心對唔對得返。 */
++
+ /* ============================================================
+    動效基礎層（視覺系統 §7）
+ 
+diff --git a/apps/web/src/components/Luokuan.tsx b/apps/web/src/components/Luokuan.tsx
+index c58d91e..75b7075 100644
+--- a/apps/web/src/components/Luokuan.tsx
++++ b/apps/web/src/components/Luokuan.tsx
+@@ -1,10 +1,10 @@
+-'use client';
++"use client";
+ 
+-import { useEffect, useRef, useState } from 'react';
+-import { Book } from '@/components/Book';
+-import { Naming } from '@/components/Naming';
+-import { FlowChrome } from '@/components/FlowChrome';
+-import { castChart, type CastOutcome } from '@/app/[locale]/cast/actions';
++import { useEffect, useRef, useState } from "react";
++import { Book } from "@/components/Book";
++import { Naming } from "@/components/Naming";
++import { FlowChrome } from "@/components/FlowChrome";
++import { castChart, type CastOutcome } from "@/app/[locale]/cast/actions";
+ import {
+   EMPTY_DRAFT,
+   PLACES,
+@@ -17,7 +17,7 @@ import {
+   toCastRequest,
+   type Draft,
+   type Step,
+-} from '@/lib/luokuan';
++} from "@/lib/luokuan";
+ 
+ /**
+  * 開卷落款（工單 E4 · 架構 §3 · 視覺系統 §9）
+@@ -39,19 +39,19 @@ import {
+  */
+ 
+ const LABEL: Record<Step, string> = {
+-  name: '姓　名',
+-  date: '出生日期',
+-  time: '時　辰',
+-  place: '出生地',
+-  sex: '性　別',
++  name: "姓　名",
++  date: "出生日期",
++  time: "時　辰",
++  place: "出生地",
++  sex: "性　別",
+ };
+ 
+ const ASK: Record<Step, string> = {
+-  name: '這本書要寫上誰的名字？',
+-  date: '國曆的出生年月日。農曆由我們自己轉。',
+-  time: '出生的時間。',
+-  place: '在哪裡出生？',
+-  sex: '大限的順逆由陰陽男女決定，所以這一項排盤要用。',
++  name: "這本書要寫上誰的名字？",
++  date: "國曆的出生年月日。農曆由我們自己轉。",
++  time: "出生的時間。",
++  place: "在哪裡出生？",
++  sex: "大限的順逆由陰陽男女決定，所以這一項排盤要用。",
+ };
+ 
+ /**
+@@ -66,11 +66,16 @@ const ASK: Record<Step, string> = {
+  * 一張寫住未來計劃嘅目次，就係扮有（架構 §8）。
+  * 所以而家列真嘢：序、命宮，然後其餘逐宮章。
+  */
+-const MULU = ['序 · 你的命盤', '一 · 命宮', '身宮與五行局', '⋯ 以下逐宮而讀，共十一章'];
++const MULU = [
++  "序 · 你的命盤",
++  "一 · 命宮",
++  "身宮與五行局",
++  "⋯ 以下逐宮而讀，共十一章",
++];
+ 
+ export function Luokuan() {
+   const [draft, setDraft] = useState<Draft>(EMPTY_DRAFT);
+-  const [step, setStep] = useState<Step>('name');
++  const [step, setStep] = useState<Step>("name");
+   const [outcome, setOutcome] = useState<CastOutcome | null>(null);
+   const [casting, setCasting] = useState(false);
+   const started = useRef(false);
+@@ -94,15 +99,15 @@ export function Luokuan() {
+   useEffect(() => {
+     if (started.current) return;
+     started.current = true;
+-    const query = new URLSearchParams(window.location.search).get('step');
++    const query = new URLSearchParams(window.location.search).get("step");
+     setStep(stepFromQuery(query, EMPTY_DRAFT));
+   }, []);
+ 
+   /* `?step=` 只係為咗 back 掣行為，唔係一個可以入嘅網址（架構 §3）。 */
+   useEffect(() => {
+     const url = new URL(window.location.href);
+-    url.searchParams.set('step', step);
+-    window.history.replaceState(null, '', url);
++    url.searchParams.set("step", step);
++    window.history.replaceState(null, "", url);
+   }, [step]);
+ 
+   const answered = answeredBefore(step, draft);
+@@ -120,7 +125,13 @@ export function Luokuan() {
+     if (!request) return;
+     token.current ??= crypto.randomUUID();
+     setCasting(true);
+-    setOutcome(await castChart({ ...request, name: draft.name.trim(), token: token.current }));
++    setOutcome(
++      await castChart({
++        ...request,
++        name: draft.name.trim(),
++        token: token.current,
++      }),
++    );
+     setCasting(false);
+   }
+ 
+@@ -136,8 +147,12 @@ export function Luokuan() {
+    * 十居其九係打錯咗一個數字。
+    */
+   if (outcome?.ok === true) {
+-    return outcome.kind === 'full' ? (
+-      <Naming name={draft.name.trim()} chart={outcome.chart} bookId={outcome.bookId} />
++    return outcome.kind === "full" ? (
++      <Naming
++        name={draft.name.trim()}
++        chart={outcome.chart}
++        bookId={outcome.bookId}
++      />
+     ) : (
+       <FlowChrome>
+         <DaiShiChen name={draft.name.trim()} />
+@@ -147,65 +162,81 @@ export function Luokuan() {
+ 
+   return (
+     <FlowChrome>
+-    <Book
+-      state="spread"
+-      label="落款"
+-      cover={null}
+-      verso={
+-        <div className="h-full p-7">
+-          <p className="font-sans text-cap tracking-[0.2em] text-ink-3">目　次</p>
+-          <ul className="mt-5 flex flex-col gap-3">
+-            {MULU.map((m) => (
+-              <li key={m} className="border-b jielan pb-2 text-sm tracking-[0.06em] text-ink-2">
+-                {m}
+-              </li>
+-            ))}
+-          </ul>
+-          <p className="mt-8 font-sans text-cap leading-[1.9] tracking-[0.1em] text-ink-3">
+-            這幾章在寫生辰之前就已經定好。
+-            <br />
+-            寫完，它們才會有內容。
+-          </p>
+-        </div>
+-      }
+-      recto={
+-        <div className="flex h-full flex-col p-7">
+-          {/* 已答嘅留喺上面，淡到 20% */}
+-          <div className="flex flex-col gap-2">
+-            {answered.map((s) => (
+-              <p key={s} className="da text-sm leading-[1.9]">
+-                <span className="font-sans text-cap tracking-[0.16em]">{LABEL[s]}</span>
+-                <span className="ms-3">{summaryOf(s, draft)}</span>
++      {/* ⚠ 同題名幕共用一個版位 —— 書脊唔可以由跨頁跳去合埋（見 globals.css）。 */}
++      <div className="mu-wei">
++        <Book
++          state="spread"
++          label="落款"
++          cover={null}
++          verso={
++            <div className="h-full p-7">
++              <p className="font-sans text-cap tracking-[0.2em] text-ink-3">
++                目　次
+               </p>
+-            ))}
+-          </div>
++              <ul className="mt-5 flex flex-col gap-3">
++                {MULU.map((m) => (
++                  <li
++                    key={m}
++                    className="border-b jielan pb-2 text-sm tracking-[0.06em] text-ink-2"
++                  >
++                    {m}
++                  </li>
++                ))}
++              </ul>
++              <p className="mt-8 font-sans text-cap leading-[1.9] tracking-[0.1em] text-ink-3">
++                這幾章在寫生辰之前就已經定好。
++                <br />
++                寫完，它們才會有內容。
++              </p>
++            </div>
++          }
++          recto={
++            <div className="flex h-full flex-col p-7">
++              {/* 已答嘅留喺上面，淡到 20% */}
++              <div className="flex flex-col gap-2">
++                {answered.map((s) => (
++                  <p key={s} className="da text-sm leading-[1.9]">
++                    <span className="font-sans text-cap tracking-[0.16em]">
++                      {LABEL[s]}
++                    </span>
++                    <span className="ms-3">{summaryOf(s, draft)}</span>
++                  </p>
++                ))}
++              </div>
+ 
+-          <div className="mt-6 flex-1">
+-            <p className="font-sans text-cap tracking-[0.16em] text-ink-3">{LABEL[step]}</p>
+-            <p className="mt-2 text-sm leading-[1.9] text-ink-2">{ASK[step]}</p>
+-            <Field step={step} draft={draft} setDraft={setDraft} />
+-          </div>
++              <div className="mt-6 flex-1">
++                <p className="font-sans text-cap tracking-[0.16em] text-ink-3">
++                  {LABEL[step]}
++                </p>
++                <p className="mt-2 text-sm leading-[1.9] text-ink-2">
++                  {ASK[step]}
++                </p>
++                <Field step={step} draft={draft} setDraft={setDraft} />
++              </div>
+ 
+-          {outcome && !outcome.ok ? (
+-            <p className="mb-4 text-sm leading-[1.9] text-cinnabar">{outcome.message}</p>
+-          ) : null}
++              {outcome && !outcome.ok ? (
++                <p className="mb-4 text-sm leading-[1.9] text-cinnabar">
++                  {outcome.message}
++                </p>
++              ) : null}
+ 
+-          {/*
+-            * ⚠ 呢粒掣**永遠都喺度**，只會轉 disabled 同字。
+-            * 條件 render（`{ready ? <button/> : null}`）會令打字期間
+-            * 個節點換咗，用戶撳落空。
+-            */}
+-          <button
+-            type="button"
+-            className="btn-mo self-start"
+-            disabled={!ready || casting}
+-            onClick={next}
+-          >
+-            {casting ? '排　盤　中' : last ? '成　書' : '下　一　步'}
+-          </button>
+-        </div>
+-      }
+-    />
++              {/*
++               * ⚠ 呢粒掣**永遠都喺度**，只會轉 disabled 同字。
++               * 條件 render（`{ready ? <button/> : null}`）會令打字期間
++               * 個節點換咗，用戶撳落空。
++               */}
++              <button
++                type="button"
++                className="btn-mo self-start"
++                disabled={!ready || casting}
++                onClick={next}
++              >
++                {casting ? "排　盤　中" : last ? "成　書" : "下　一　步"}
++              </button>
++            </div>
++          }
++        />
++      </div>
+     </FlowChrome>
+   );
+ }
+@@ -220,7 +251,9 @@ export function Luokuan() {
+ function DaiShiChen({ name }: { name: string }) {
+   return (
+     <div className="max-w-banxin">
+-      <p className="font-sans text-cap tracking-[0.2em] text-ink-3">待　時　辰</p>
++      <p className="font-sans text-cap tracking-[0.2em] text-ink-3">
++        待　時　辰
++      </p>
+       <p className="mt-6 text-h2 font-semibold tracking-[0.18em]">{name}</p>
+       <p className="mt-6 text-body leading-[1.95] text-ink-2">
+         年月日已經排好，命宮還要等時辰。這本書會留在書架上，書脊是虛線的。
+@@ -240,7 +273,7 @@ function Field({
+   setDraft: (d: Draft) => void;
+ }) {
+   switch (step) {
+-    case 'name':
++    case "name":
+       return (
+         <input
+           className="ruled mt-6"
+@@ -252,7 +285,7 @@ function Field({
+         />
+       );
+ 
+-    case 'date':
++    case "date":
+       return (
+         <input
+           className="ruled mt-6"
+@@ -265,7 +298,7 @@ function Field({
+         />
+       );
+ 
+-    case 'time':
++    case "time":
+       return (
+         <>
+           <input
+@@ -274,7 +307,9 @@ function Field({
+             value={draft.time}
+             disabled={draft.noHour}
+             aria-label="出生時間"
+-            onChange={(e) => setDraft({ ...draft, time: e.target.value, noHour: false })}
++            onChange={(e) =>
++              setDraft({ ...draft, time: e.target.value, noHour: false })
++            }
+           />
+           {/* R-007：呢句要出現喺畫面上，唔係出現喺一份說明文件度。 */}
+           <p className="mt-4 font-sans text-cap leading-[1.9] tracking-[0.08em] text-ink-3">
+@@ -292,27 +327,30 @@ function Field({
+           </label>
+ 
+           {/*
+-            * 「唔知時辰」嘅安撫文案（工單 AC）。
+-            * 架構 §8：冇時辰定唔到命宮 = 冇書，**但唔好扮有**。
+-            */}
++           * 「唔知時辰」嘅安撫文案（工單 AC）。
++           * 架構 §8：冇時辰定唔到命宮 = 冇書，**但唔好扮有**。
++           */}
+           {draft.noHour ? (
+             <p className="mt-4 text-sm leading-[1.9] text-ink-2">
+-              沒有時辰就定不到命宮，所以這本書會先留在書架上，書脊是虛線的
+-              —— 此書待時辰而成。出世紙上通常有；問家人也常常問得回來。
++              沒有時辰就定不到命宮，所以這本書會先留在書架上，書脊是虛線的 ——
++              此書待時辰而成。出世紙上通常有；問家人也常常問得回來。
+               補回時辰，書就成了。
+             </p>
+           ) : null}
+         </>
+       );
+ 
+-    case 'place':
++    case "place":
+       return (
+         <select
+           className="ruled mt-6"
+-          value={draft.placeIndex ?? ''}
++          value={draft.placeIndex ?? ""}
+           aria-label="出生地"
+           onChange={(e) =>
+-            setDraft({ ...draft, placeIndex: e.target.value === '' ? null : Number(e.target.value) })
++            setDraft({
++              ...draft,
++              placeIndex: e.target.value === "" ? null : Number(e.target.value),
++            })
+           }
+         >
+           <option value="">請揀一個</option>
+@@ -324,10 +362,10 @@ function Field({
+         </select>
+       );
+ 
+-    case 'sex':
++    case "sex":
+       return (
+         <div className="mt-6 flex gap-3">
+-          {(['male', 'female'] as const).map((sex) => (
++          {(["male", "female"] as const).map((sex) => (
+             <button
+               key={sex}
+               type="button"
+@@ -335,16 +373,15 @@ function Field({
+               aria-pressed={draft.sex === sex}
+               style={
+                 draft.sex === sex
+-                  ? { borderColor: 'var(--cinnabar)', color: 'var(--cinnabar)' }
++                  ? { borderColor: "var(--cinnabar)", color: "var(--cinnabar)" }
+                   : undefined
+               }
+               onClick={() => setDraft({ ...draft, sex })}
+             >
+-              {sex === 'male' ? '男' : '女'}
++              {sex === "male" ? "男" : "女"}
+             </button>
+           ))}
+         </div>
+       );
+   }
+ }
+-
+diff --git a/apps/web/src/components/Naming.tsx b/apps/web/src/components/Naming.tsx
+index 8fe2afc..974da80 100644
+--- a/apps/web/src/components/Naming.tsx
++++ b/apps/web/src/components/Naming.tsx
+@@ -1,15 +1,15 @@
+-'use client';
++"use client";
+ 
+-import { useEffect, useState } from 'react';
+-import { Book } from '@/components/Book';
+-import { Link } from '@/i18n/navigation';
+-import { FlowChrome } from '@/components/FlowChrome';
+-import { Zhanjuan } from '@/components/Zhanjuan';
+-import { Seal } from '@/components/Seal';
+-import { Chart } from '@/components/Chart';
+-import { INK_MS, NAMING_MS, SEAL_DELAY_MS } from '@/lib/timing';
+-import { MARK } from '@/lib/site';
+-import type { Chart as ZChart } from '@guanwei/ziwei/contract';
++import { useEffect, useState } from "react";
++import { Book } from "@/components/Book";
++import { Link } from "@/i18n/navigation";
++import { FlowChrome } from "@/components/FlowChrome";
++import { Zhanjuan } from "@/components/Zhanjuan";
++import { Seal } from "@/components/Seal";
++import { Chart } from "@/components/Chart";
++import { INK_MS, NAMING_MS, SEAL_DELAY_MS } from "@/lib/timing";
++import { MARK } from "@/lib/site";
++import type { Chart as ZChart } from "@guanwei/ziwei/contract";
+ 
+ /**
+  * 合書題名（工單 E5 · 視覺系統 §9）
+@@ -51,7 +51,7 @@ export function Naming({
+   const [open, setOpen] = useState(false);
+ 
+   useEffect(() => {
+-    const still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
++    const still = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+     if (still) {
+       setReady(true);
+       return;
+@@ -70,9 +70,13 @@ export function Naming({
+    * 揭開之後先返嚟：嗰陣已經係喺度讀緊，唔再係嗰一下。
+    */
+   const scene = (
+-    <div className="mu-ti" data-ready={ready ? '1' : '0'} data-open={open ? '1' : '0'}>
++    <div
++      className="mu-ti mu-wei"
++      data-ready={ready ? "1" : "0"}
++      data-open={open ? "1" : "0"}
++    >
+       <Book
+-        state={open ? 'open' : 'titled'}
++        state={open ? "open" : "titled"}
+         label={`${name}命書`}
+         spine={`${name}命書`}
+         cover={
+@@ -82,12 +86,12 @@ export function Naming({
+             </span>
+             <div>
+               {/*
+-                * 墨滲寫名：1600ms。同入齋「觀微」兩個字一樣嘅時間。
+-                *
+-                * ⚠ 時間由 `lib/timing.ts` 出，唔係由 `--dur-4` 出 ——
+-                * 嗰個 token 係畀成站用嘅，而呢一幕嘅時序係一份規格：
+-                * 改咗 `--dur-4` 唔應該連呢一幕嘅節奏都跟住變。
+-                */}
++               * 墨滲寫名：1600ms。同入齋「觀微」兩個字一樣嘅時間。
++               *
++               * ⚠ 時間由 `lib/timing.ts` 出，唔係由 `--dur-4` 出 ——
++               * 嗰個 token 係畀成站用嘅，而呢一幕嘅時序係一份規格：
++               * 改咗 `--dur-4` 唔應該連呢一幕嘅節奏都跟住變。
++               */}
+               <p
+                 className="moshen text-h2 font-semibold tracking-[0.18em]"
+                 style={{ animationDuration: `${INK_MS}ms` }}
+@@ -107,7 +111,9 @@ export function Naming({
+         }
+         verso={
+           <div className="h-full p-7">
+-            <p className="font-sans text-cap tracking-[0.2em] text-ink-3">序 · 你的命盤</p>
++            <p className="font-sans text-cap tracking-[0.2em] text-ink-3">
++              序 · 你的命盤
++            </p>
+             <p className="mt-5 text-sm leading-[1.95] text-ink-2">
+               這是你出生那一刻的天象位置。十二宮由此排出，往後每一章都從這裡長出來。
+             </p>
+@@ -151,25 +157,27 @@ export function Naming({
+       />
+ 
+       {/*
+-        * ⚠ 呢一行唔係一粒掣。
+-        *
+-        * 佢係一句細字，講畀你聽而家撳得。真正撳嘅係本書 ——
+-        * 所以佢冇邊框、冇底色、唔會 hover 變樣。
+-        * 而且成幕未行完之前，佢根本唔喺度。
+-        */}
++       * ⚠ 呢一行唔係一粒掣。
++       *
++       * 佢係一句細字，講畀你聽而家撳得。真正撳嘅係本書 ——
++       * 所以佢冇邊框、冇底色、唔會 hover 變樣。
++       * 而且成幕未行完之前，佢根本唔喺度。
++       */}
+       {ready && !open ? (
+-        <p className="mt-10 font-sans text-cap tracking-[0.16em] text-ink-3">揭開</p>
++        <p className="mt-10 font-sans text-cap tracking-[0.16em] text-ink-3">
++          揭開
++        </p>
+       ) : null}
+ 
+       {/*
+-        * ⚠ 呢一行係六幕同命書之間嗰道門，而佢一直都冇（G5 之前）。
+-        *
+-        * 之前題名完就停喺張盤度：本書冇寫落 DB，所以連一個 id 都冇，
+-        * 連唔到去 `/book/[id]`。而家有咗。
+-        *
+-        * `bookId` 係 null 嗰陣呢一行唔出 —— 唔係出一條死連結，
+-        * 亦都唔係出一句「已收入書齋」。冇寫到就係冇寫到。
+-        */}
++       * ⚠ 呢一行係六幕同命書之間嗰道門，而佢一直都冇（G5 之前）。
++       *
++       * 之前題名完就停喺張盤度：本書冇寫落 DB，所以連一個 id 都冇，
++       * 連唔到去 `/book/[id]`。而家有咗。
++       *
++       * `bookId` 係 null 嗰陣呢一行唔出 —— 唔係出一條死連結，
++       * 亦都唔係出一句「已收入書齋」。冇寫到就係冇寫到。
++       */}
+       {open && bookId ? (
+         <p className="mt-10">
+           <Link
+@@ -195,7 +203,9 @@ function ChartPane({ chart, name }: { chart: ZChart; name: string }) {
+       onSelect={setLit}
+       maxWidth={400}
+       center={
+-        <p className="text-center font-sans text-cap tracking-[0.16em] text-ink-3">{name}</p>
++        <p className="text-center font-sans text-cap tracking-[0.16em] text-ink-3">
++          {name}
++        </p>
+       }
+     />
+   );
+-- 
+2.43.0
+

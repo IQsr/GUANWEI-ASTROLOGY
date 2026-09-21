@@ -1,0 +1,528 @@
+From 9f20fa517b3e8a593170b33ea500989227ff53c2 Mon Sep 17 00:00:00 2001
+From: Issac <isagaming718@gmail.com>
+Date: Mon, 21 Sep 2026 16:06:20 +0000
+Subject: [PATCH] =?UTF-8?q?=E4=B9=9D=E5=B1=A4=E9=A9=97=E6=94=B6=E6=8E=83?=
+ =?UTF-8?q?=E6=8F=8F=EF=BC=9AWindows=20=E5=90=8C=20CI=20=E4=B8=8A=E9=9D=A2?=
+ =?UTF-8?q?=E8=A1=8C=E5=BE=97=E8=BF=94?=
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+⚠ 呢九個掃描由第一日起就只喺開發嗰個容器行得到。
+唔係「Windows 行唔到」—— 係除咗嗰一部機，邊度都行唔到，連 CI 都係。
+而冇人發現，因為冇人喺第二度跑過。
+
+三個寫死咗嘅嘢：
+
+  spawn('npx', …)                    Windows 嘅 npx 係 npx.cmd，
+                                     Node 由 v18.20/v20.12 起唔准喺冇 shell
+                                     之下 spawn .cmd（CVE-2024-27980）
+                                     → 掟「spawn npx ENOENT」，
+                                       訊息一個字都冇提 Windows
+
+  process.kill(-server.pid)          POSIX 嘅「殺成個 group」。Windows 冇
+                                     process group；經 shell 起仲會留低孤兒
+                                     node，下次跑撞「port 有人用」
+
+  executablePath:'/opt/pw-browsers/  容器入面先有嗰條路
+  chromium'
+
+全部抽咗去 scripts/_server.mjs：startServer / stopServer / launchBrowser，
+逐條解釋點解要分平台。Chromium 預設交返畀 Playwright 自己搵
+（要指定就設 GUANWEI_CHROMIUM），開唔到就出一句叫人點裝，
+唔係掟一段 stack trace。
+
+順手接住 spawn 自己個 'error' event —— 唔接嘅話成個 process 即刻死，
+前面幾層掃描嘅結果一條都唔會印（E5 學過一次，呢度再犯咗一次）。
+
+CI 已經喺上一個 commit 加咗 playwright install。
+
+⚠ Windows 嗰條路我跑唔到 —— 呢個容器係 Linux。
+POSIX 嗰邊九層照樣全綠；Windows 嗰邊係照住上面兩條寫嘅，未驗過。
+
+Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_019sobrcHWhU2aphtaucT5Jd
+---
+ DEPLOY.md                         |  8 +++
+ README.md                         | 12 ++++
+ apps/web/scripts/_server.mjs      | 97 +++++++++++++++++++++++++++++++
+ apps/web/scripts/check-book.mjs   | 12 ++--
+ apps/web/scripts/check-cast.mjs   | 12 ++--
+ apps/web/scripts/check-juan.mjs   | 12 ++--
+ apps/web/scripts/check-naming.mjs | 12 ++--
+ apps/web/scripts/check-routes.mjs |  9 +--
+ apps/web/scripts/check-shelf.mjs  | 12 ++--
+ apps/web/scripts/check-zhan.mjs   | 12 ++--
+ apps/web/scripts/make-og.mjs      |  4 +-
+ 11 files changed, 146 insertions(+), 56 deletions(-)
+ create mode 100644 apps/web/scripts/_server.mjs
+
+diff --git a/DEPLOY.md b/DEPLOY.md
+index fbad2c3..a00aee4 100644
+--- a/DEPLOY.md
++++ b/DEPLOY.md
+@@ -79,6 +79,14 @@ NEXT_PUBLIC_SUPABASE_ANON_KEY  = anon / public key
+ 嗰啲喺 CI 同你部機跑，**喺 Vercel 上面跑唔到**（冇 Chromium）。
+ 兩個指令特登分開就係為咗呢件事。
+ 
++### 本機想跑埋九層掃描
++
++```bash
++pnpm --filter @guanwei/web exec playwright install chromium   # 一次就夠
++pnpm build
++pnpm verify
++```
++
+ ---
+ 
+ ## 三、跑完之後先試呢六樣
+diff --git a/README.md b/README.md
+index 4c01bde..d8c4e79 100644
+--- a/README.md
++++ b/README.md
+@@ -38,6 +38,18 @@ pnpm lint         # apps/web
+ 
+ 合埋一個指令嘅話，部署就永遠 fail。
+ 
++第一次跑 `verify` 之前要裝一次瀏覽器：
++
++```bash
++pnpm --filter @guanwei/web exec playwright install chromium
++```
++
++（要用一個唔喺預設位置嘅 Chromium，就設 `GUANWEI_CHROMIUM=<路徑>`。）
++
++⚠ Windows 同 macOS 都行得。九個掃描起 server 同開瀏覽器嗰兩段
++抽咗去 `apps/web/scripts/_server.mjs` —— 之前嗰版寫死咗
++POSIX 嘅 `process.kill(-pid)` 同一條容器入面先有嘅 Chromium 路徑。
++
+ 需要 Node 22+ 同 pnpm 10。
+ 
+ ## 環境變數
+diff --git a/apps/web/scripts/_server.mjs b/apps/web/scripts/_server.mjs
+new file mode 100644
+index 0000000..1ea05c4
+--- /dev/null
++++ b/apps/web/scripts/_server.mjs
+@@ -0,0 +1,97 @@
++import { spawn, execFileSync } from 'node:child_process';
++import { chromium } from 'playwright';
++
++/**
++ * 驗收腳本用嘅 server（工單 G6）
++ *
++ * ⚠ 呢個檔存在嘅原因係一個真 bug：九個驗收腳本喺 Windows 上面
++ * **一個都行唔到**。
++ *
++ * 每個腳本本來都係自己寫一次：
++ *
++ *   spawn('npx', ['next', 'start', …], { detached: true })
++ *   …
++ *   process.kill(-server.pid)
++ *
++ * 兩句喺 Windows 都唔得：
++ *
++ * 一、`npx` 喺 Windows 係 `npx.cmd`。Node 由 v18.20 / v20.12 起
++ *     唔准喺冇 shell 之下 spawn 一個 `.cmd`（CVE-2024-27980），
++ *     所以掟 `spawn npx ENOENT` —— 個訊息一個字都冇提 Windows。
++ *
++ * 二、`process.kill(-pid)` 係 POSIX 嘅「殺成個 process group」。
++ *     Windows 冇 process group，而且經 shell 起嘅話 `server.pid`
++ *     係 cmd.exe，殺咗佢個 node 會變孤兒 —— 下次跑就會撞到
++ *     「port 已經有人用」，而嗰個錯同今次呢個完全唔似。
++ *
++ * ⚠ 老實講：**Windows 嗰條路我跑唔到。** 呢個容器係 Linux。
++ * POSIX 嗰邊同以前一模一樣（九層照樣綠），Windows 嗰邊係照住
++ * 上面兩條寫嘅，未驗過。
++ */
++
++const WIN = process.platform === 'win32';
++
++/** 起一個 production server，回一個 handle。 */
++export function startServer(port) {
++  const child = spawn('npx', ['next', 'start', '-p', String(port)], {
++    stdio: 'ignore',
++    /* POSIX：自成一個 group，收工嗰陣一次過殺埋啲仔。 */
++    detached: !WIN,
++    /* Windows：要行過 shell 先搵得到 npx.cmd。 */
++    shell: WIN,
++  });
++
++  /*
++   * ⚠ 接住 spawn 自己嘅 error。
++   *
++   * 唔接嘅話佢係一個 unhandled 'error' event —— 成個 process 即刻死，
++   * 掟一段 stack trace 出嚟，而**前面幾層掃描嘅結果一條都唔會印**。
++   * 一個一撞到就 crash 嘅驗收腳本，報唔到佢捉到乜（E5 嗰次已經學過一次）。
++   */
++  child.on('error', (err) => {
++    console.error(`✗ 起唔到 server（${process.platform}）：${err.message}`);
++    process.exit(1);
++  });
++
++  return child;
++}
++
++/** 收工。⚠ 要連埋啲仔一齊殺，否則下次撞到「port 有人用」。 */
++export function stopServer(child) {
++  if (!child?.pid) return;
++  try {
++    if (WIN) {
++      execFileSync('taskkill', ['/pid', String(child.pid), '/T', '/F'], { stdio: 'ignore' });
++    } else {
++      process.kill(-child.pid);
++    }
++  } catch {
++    /* 已經死咗就算數 —— 收工嗰陣唔應該再掟嘢。 */
++  }
++}
++
++/**
++ * 開一個 Chromium（工單 G6）
++ *
++ * ⚠ 呢一段之前係七個檔各自寫一次：
++ *
++ *     chromium.launch({ executablePath: '/opt/pw-browsers/chromium' })
++ *
++ * 嗰條路淨係喺開發用嗰個容器度存在。即係話**九層驗收掃描由第一日起
++ * 就只喺一部機上面行得到** —— 唔係 Windows 行唔到，係除咗嗰個容器
++ * 邊度都行唔到，連 CI 都係。而冇人發現，因為冇人喺第二度跑過。
++ *
++ * 而家預設交返畀 Playwright 自己搵（`playwright install chromium`
++ * 之後就搵得到）。要指定就設 `GUANWEI_CHROMIUM`。
++ */
++export async function launchBrowser() {
++  const exe = process.env.GUANWEI_CHROMIUM;
++  try {
++    return await chromium.launch(exe ? { executablePath: exe } : {});
++  } catch (err) {
++    console.error('✗ 開唔到 Chromium：' + String(err).split('\n')[0]);
++    console.error('  裝一個：pnpm --filter @guanwei/web exec playwright install chromium');
++    console.error('  或者指定一個：GUANWEI_CHROMIUM=<路徑>');
++    process.exit(1);
++  }
++}
+diff --git a/apps/web/scripts/check-book.mjs b/apps/web/scripts/check-book.mjs
+index 9c916bd..b1adf07 100644
+--- a/apps/web/scripts/check-book.mjs
++++ b/apps/web/scripts/check-book.mjs
+@@ -13,9 +13,8 @@
+  * 全部係測試同 curl 捉唔到、影相先見到嘅。呢個 script 就係將嗰一類
+  * 檢查寫成會 fail 嘅嘢，唔使靠人記得去睇。
+  */
+-import { spawn } from 'node:child_process';
++import { launchBrowser, startServer, stopServer } from './_server.mjs';
+ import { setTimeout as sleep } from 'node:timers/promises';
+-import { chromium } from 'playwright';
+ 
+ const PORT = Number(process.env.CHECK_BOOK_PORT ?? 3998);
+ const BASE = `http://localhost:${PORT}`;
+@@ -23,10 +22,7 @@ const PATH = '/tokens/shu';
+ const STATES = ['架上書脊', '封面', '跨頁', '合上題名', '展開'];
+ const fail = [];
+ 
+-const server = spawn('npx', ['next', 'start', '-p', String(PORT)], {
+-  stdio: 'ignore',
+-  detached: true,
+-});
++const server = startServer(PORT);
+ 
+ function check(name, cond, detail) {
+   if (!cond) fail.push(`${name}：${detail}`);
+@@ -58,7 +54,7 @@ try {
+     console.error('✗ server 起唔到');
+     process.exit(1);
+   }
+-  browser = await chromium.launch({ executablePath: '/opt/pw-browsers/chromium' });
++  browser = await launchBrowser();
+ 
+   /* ── 一、五個狀態，一個 transform 都冇 ───────────────── */
+   const wide = await browser.newPage({ viewport: { width: 1280, height: 900 } });
+@@ -179,7 +175,7 @@ try {
+   check('樣板 noindex', /name="robots" content="noindex/.test(html), '冇 noindex');
+ } finally {
+   if (browser) await browser.close();
+-  process.kill(-server.pid);
++  stopServer(server);
+ }
+ 
+ if (fail.length) {
+diff --git a/apps/web/scripts/check-cast.mjs b/apps/web/scripts/check-cast.mjs
+index b9f5a93..db0e841 100644
+--- a/apps/web/scripts/check-cast.mjs
++++ b/apps/web/scripts/check-cast.mjs
+@@ -9,18 +9,14 @@
+  *   打字期間唔准重畫粒掣　　　→ 要真係打字，再比較個 DOM 節點
+  *   冇確認頁，五步完直入題名　→ 要由頭行到尾
+  */
+-import { spawn } from 'node:child_process';
++import { launchBrowser, startServer, stopServer } from './_server.mjs';
+ import { setTimeout as sleep } from 'node:timers/promises';
+-import { chromium } from 'playwright';
+ 
+ const PORT = Number(process.env.CHECK_CAST_PORT ?? 3996);
+ const BASE = `http://localhost:${PORT}`;
+ const fail = [];
+ 
+-const server = spawn('npx', ['next', 'start', '-p', String(PORT)], {
+-  stdio: 'ignore',
+-  detached: true,
+-});
++const server = startServer(PORT);
+ 
+ function check(name, cond, detail) {
+   if (!cond) fail.push(`${name}：${detail}`);
+@@ -66,7 +62,7 @@ try {
+     console.error('✗ server 起唔到');
+     process.exit(1);
+   }
+-  browser = await chromium.launch({ executablePath: '/opt/pw-browsers/chromium' });
++  browser = await launchBrowser();
+   const page = await browser.newPage({ viewport: { width: 1280, height: 1000 } });
+ 
+   /*
+@@ -204,7 +200,7 @@ try {
+   }
+ } finally {
+   if (browser) await browser.close();
+-  process.kill(-server.pid);
++  stopServer(server);
+ }
+ 
+ if (fail.length) {
+diff --git a/apps/web/scripts/check-juan.mjs b/apps/web/scripts/check-juan.mjs
+index 05b1e12..328e338 100644
+--- a/apps/web/scripts/check-juan.mjs
++++ b/apps/web/scripts/check-juan.mjs
+@@ -8,19 +8,15 @@
+  *
+  * 另外量兩樣睇得見先知嘅嘢：**註層係展開唔係浮窗**、撳完個點會退色。
+  */
+-import { spawn } from 'node:child_process';
++import { launchBrowser, startServer, stopServer } from './_server.mjs';
+ import { setTimeout as sleep } from 'node:timers/promises';
+-import { chromium } from 'playwright';
+ 
+ const PORT = Number(process.env.CHECK_JUAN_PORT ?? 3994);
+ const BASE = `http://localhost:${PORT}`;
+ const PATH = '/tokens/mingshu';
+ const fail = [];
+ 
+-const server = spawn('npx', ['next', 'start', '-p', String(PORT)], {
+-  stdio: 'ignore',
+-  detached: true,
+-});
++const server = startServer(PORT);
+ 
+ function check(name, cond, detail) {
+   if (!cond) fail.push(`${name}：${detail}`);
+@@ -44,7 +40,7 @@ try {
+     console.error('✗ server 起唔到');
+     process.exit(1);
+   }
+-  browser = await chromium.launch({ executablePath: '/opt/pw-browsers/chromium' });
++  browser = await launchBrowser();
+   const page = await browser.newPage({ viewport: { width: 1280, height: 1100 } });
+   await page.goto(`${BASE}${PATH}`, { waitUntil: 'domcontentloaded' });
+   await page.waitForTimeout(900);
+@@ -149,7 +145,7 @@ try {
+   check('400px', over <= 0, `橫向滾多咗 ${over}px`);
+ } finally {
+   if (browser) await browser.close();
+-  process.kill(-server.pid);
++  stopServer(server);
+ }
+ 
+ if (fail.length) {
+diff --git a/apps/web/scripts/check-naming.mjs b/apps/web/scripts/check-naming.mjs
+index f5a9937..3da823b 100644
+--- a/apps/web/scripts/check-naming.mjs
++++ b/apps/web/scripts/check-naming.mjs
+@@ -8,9 +8,8 @@
+  *   唔自動翻開，一定要用戶自己撳　　　→ 等完成幕再睇本書開咗未
+  *   呢一幕之前冇出現過任何價錢　　　　→ 掃成條流程嘅字
+  */
+-import { spawn } from 'node:child_process';
++import { launchBrowser, startServer, stopServer } from './_server.mjs';
+ import { setTimeout as sleep } from 'node:timers/promises';
+-import { chromium } from 'playwright';
+ 
+ const PORT = Number(process.env.CHECK_NAMING_PORT ?? 3995);
+ const BASE = `http://localhost:${PORT}`;
+@@ -23,10 +22,7 @@ const SEAL_MS = 520;
+ const SEAL_DELAY_MS = INK_MS + STILL_MS;
+ const NAMING_MS = SEAL_DELAY_MS + SEAL_MS;
+ 
+-const server = spawn('npx', ['next', 'start', '-p', String(PORT)], {
+-  stdio: 'ignore',
+-  detached: true,
+-});
++const server = startServer(PORT);
+ 
+ function check(name, cond, detail) {
+   if (!cond) fail.push(`${name}：${detail}`);
+@@ -68,7 +64,7 @@ try {
+     console.error('✗ server 起唔到');
+     process.exit(1);
+   }
+-  browser = await chromium.launch({ executablePath: '/opt/pw-browsers/chromium' });
++  browser = await launchBrowser();
+   const page = await browser.newPage({ viewport: { width: 1280, height: 1000 } });
+   await page.goto(`${BASE}/cast`, { waitUntil: 'domcontentloaded' });
+   await page.waitForTimeout(700);
+@@ -337,7 +333,7 @@ try {
+   check('reduced-motion 即刻撳得', quiet.kai, '要等');
+ } finally {
+   if (browser) await browser.close();
+-  process.kill(-server.pid);
++  stopServer(server);
+ }
+ 
+ if (fail.length) {
+diff --git a/apps/web/scripts/check-routes.mjs b/apps/web/scripts/check-routes.mjs
+index f6212e0..afa3c31 100644
+--- a/apps/web/scripts/check-routes.mjs
++++ b/apps/web/scripts/check-routes.mjs
+@@ -17,17 +17,14 @@
+  *
+  * 呢個 script 起一個真 server，逐條 route 撳一次，對 status 同內容。
+  */
+-import { spawn } from 'node:child_process';
++import { startServer, stopServer } from './_server.mjs';
+ import { setTimeout as sleep } from 'node:timers/promises';
+ 
+ const PORT = Number(process.env.CHECK_PORT ?? 3999);
+ const BASE = `http://localhost:${PORT}`;
+ const fail = [];
+ 
+-const server = spawn('npx', ['next', 'start', '-p', String(PORT)], {
+-  stdio: 'ignore',
+-  detached: true,
+-});
++const server = startServer(PORT);
+ 
+ async function waitUp(tries = 40) {
+   for (let i = 0; i < tries; i++) {
+@@ -195,7 +192,7 @@ try {
+     }
+   }
+ } finally {
+-  process.kill(-server.pid);
++  stopServer(server);
+ }
+ 
+ if (fail.length) {
+diff --git a/apps/web/scripts/check-shelf.mjs b/apps/web/scripts/check-shelf.mjs
+index 74a5dcc..747f190 100644
+--- a/apps/web/scripts/check-shelf.mjs
++++ b/apps/web/scripts/check-shelf.mjs
+@@ -9,19 +9,15 @@
+  *
+  * 第二條（次序、朱砂、空狀態）係純函數，喺 `test/shelf.test.ts`。
+  */
+-import { spawn } from 'node:child_process';
++import { launchBrowser, startServer, stopServer } from './_server.mjs';
+ import { setTimeout as sleep } from 'node:timers/promises';
+-import { chromium } from 'playwright';
+ 
+ const PORT = Number(process.env.CHECK_SHELF_PORT ?? 3997);
+ const BASE = `http://localhost:${PORT}`;
+ const PATH = '/tokens/shelf';
+ const fail = [];
+ 
+-const server = spawn('npx', ['next', 'start', '-p', String(PORT)], {
+-  stdio: 'ignore',
+-  detached: true,
+-});
++const server = startServer(PORT);
+ 
+ function check(name, cond, detail) {
+   if (!cond) fail.push(`${name}：${detail}`);
+@@ -45,7 +41,7 @@ try {
+     console.error('✗ server 起唔到');
+     process.exit(1);
+   }
+-  browser = await chromium.launch({ executablePath: '/opt/pw-browsers/chromium' });
++  browser = await launchBrowser();
+   const page = await browser.newPage({ viewport: { width: 1280, height: 1000 } });
+   await page.goto(`${BASE}${PATH}`, { waitUntil: 'domcontentloaded' });
+   await page.waitForTimeout(800);
+@@ -196,7 +192,7 @@ try {
+   }
+ } finally {
+   if (browser) await browser.close();
+-  process.kill(-server.pid);
++  stopServer(server);
+ }
+ 
+ if (fail.length) {
+diff --git a/apps/web/scripts/check-zhan.mjs b/apps/web/scripts/check-zhan.mjs
+index 7ee23b6..cefc864 100644
+--- a/apps/web/scripts/check-zhan.mjs
++++ b/apps/web/scripts/check-zhan.mjs
+@@ -8,9 +8,8 @@
+  *
+  * 第三條（唔用 spinner）掃 CSS，喺 `test/zhanjuan.test.ts`。
+  */
+-import { spawn } from 'node:child_process';
++import { launchBrowser, startServer, stopServer } from './_server.mjs';
+ import { setTimeout as sleep } from 'node:timers/promises';
+-import { chromium } from 'playwright';
+ 
+ const PORT = Number(process.env.CHECK_ZHAN_PORT ?? 3993);
+ const BASE = `http://localhost:${PORT}`;
+@@ -24,10 +23,7 @@ const LINES = 12;
+ const LINES_MS = (LINES - 1) * STAGGER_MS + RULE_MS;
+ const ZHANJUAN_MS = LINES_MS + 11 * 60 + 240;
+ 
+-const server = spawn('npx', ['next', 'start', '-p', String(PORT)], {
+-  stdio: 'ignore',
+-  detached: true,
+-});
++const server = startServer(PORT);
+ 
+ function check(name, cond, detail) {
+   if (!cond) fail.push(`${name}：${detail}`);
+@@ -51,7 +47,7 @@ try {
+     console.error('✗ server 起唔到');
+     process.exit(1);
+   }
+-  browser = await chromium.launch({ executablePath: '/opt/pw-browsers/chromium' });
++  browser = await launchBrowser();
+   const page = await browser.newPage({ viewport: { width: 1280, height: 1100 } });
+   await page.goto(`${BASE}${PATH}`, { waitUntil: 'domcontentloaded' });
+   /* ⚠ 唔好等太耐 —— 成幕 2.1 秒，等完就乜都量唔到。 */
+@@ -180,7 +176,7 @@ try {
+   check('400px', over <= 0, `橫向滾多咗 ${over}px`);
+ } finally {
+   if (browser) await browser.close();
+-  process.kill(-server.pid);
++  stopServer(server);
+ }
+ 
+ if (fail.length) {
+diff --git a/apps/web/scripts/make-og.mjs b/apps/web/scripts/make-og.mjs
+index a236453..096f284 100644
+--- a/apps/web/scripts/make-og.mjs
++++ b/apps/web/scripts/make-og.mjs
+@@ -17,7 +17,7 @@
+  * 手畫一次 SVG 就係第二套值，日後改 token 佢唔會跟 —— 又多一處要記得同步。
+  * render 一版真 HTML 再影，用嘅就係同一份 `globals.css`。
+  */
+-import { chromium } from 'playwright';
++import { launchBrowser } from './_server.mjs';
+ import { readFileSync, writeFileSync } from 'node:fs';
+ 
+ const OUT = 'public/og-lexicon.png';
+@@ -63,7 +63,7 @@ const html = `<!doctype html><meta charset="utf-8">
+   <span class="brand">觀微 · 藏經閣</span>
+ </div>`;
+ 
+-const b = await chromium.launch({ executablePath: '/opt/pw-browsers/chromium' });
++const b = await launchBrowser();
+ const p = await b.newPage({ viewport: { width: 1200, height: 630 }, deviceScaleFactor: 1 });
+ await p.setContent(html, { waitUntil: 'load' });
+ await p.waitForTimeout(400);
+-- 
+2.43.0
+

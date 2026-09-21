@@ -1,0 +1,295 @@
+From 23018d80c1808c8590583cf6a06b82e6dca0bf7a Mon Sep 17 00:00:00 2001
+From: Issac <isagaming718@gmail.com>
+Date: Mon, 21 Sep 2026 15:41:02 +0000
+Subject: [PATCH] =?UTF-8?q?=E5=BA=8F=E5=8F=AA=E5=87=86=E5=AF=AB=E4=B8=80?=
+ =?UTF-8?q?=E6=AC=A1=EF=BC=9A=E9=A1=8C=E5=90=8D=E5=B9=95=E5=B7=A6=E9=A0=81?=
+ =?UTF-8?q?=E6=94=B9=E7=82=BA=E7=94=B1=20server=20=E5=B8=B6=E7=9C=9F?=
+ =?UTF-8?q?=E5=97=B0=E7=AB=A0=E9=81=8E=E5=9A=9F?=
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+同一章嘅文字之前散喺三個地方：
+
+  packages/content/src/free.ts      真嗰個序（C12）
+  apps/web/src/components/Naming.tsx  手寫嘅兩句 stand-in
+  apps/web/src/components/Luokuan.tsx 落款目次第一行
+
+三份各寫各，改一份唔會影響另外兩份 —— 讀者喺封面見到一句，
+揭開之後讀到另一句。
+
+做法：
+
+  XU_SLUG / XU_TITLE   由 packages/content export，章名只寫一次
+  CastOutcome.preface  server action 由真嗰章攞章名同章首帶過嚟
+  Naming               收 props；攞唔到就乜都唔出（一版白紙好過
+                       一版寫住別人嘅序）
+
+⚠ 唔可以喺 client 度 import xuChapter()：嗰邊拉住成個規則庫同
+詞條庫，同排盤引擎一樣嘅理由（架構 §9）。
+
+守住呢一點嘅三條：
+
+  vitest    Naming.tsx 唔准出現章名或者序文；落款目次第一行要
+            逐字等於 XU_TITLE
+  瀏覽器    題名幕左頁真係有章名同一段 30–60 字嘅章首
+            —— 條線一斷就係一片白，而一片白冇人會 report
+
+變異測試：將 preface 寫死做 null → 兩條即刻紅。
+
+apps/web 227 → 230 條；check-naming.mjs ＋2 條。
+
+Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_019sobrcHWhU2aphtaucT5Jd
+---
+ apps/web/scripts/check-naming.mjs         | 25 ++++++++++++++++-
+ apps/web/src/app/[locale]/cast/actions.ts | 26 +++++++++++++++--
+ apps/web/src/components/Luokuan.tsx       |  1 +
+ apps/web/src/components/Naming.tsx        | 27 ++++++++++++------
+ apps/web/test/chengshu.test.ts            | 34 +++++++++++++++++++++--
+ packages/content/src/free.ts              | 12 +++++++-
+ 6 files changed, 111 insertions(+), 14 deletions(-)
+
+diff --git a/apps/web/scripts/check-naming.mjs b/apps/web/scripts/check-naming.mjs
+index fca5733..f5a9937 100644
+--- a/apps/web/scripts/check-naming.mjs
++++ b/apps/web/scripts/check-naming.mjs
+@@ -138,6 +138,29 @@ try {
+   const offNaming = await bookCentre();
+   check('題名嗰陣本書企中間', offNaming !== null && Math.abs(offNaming) <= 2, `偏咗 ${offNaming}px`);
+ 
++  /*
++   * ── 零之二、⚠ 左頁真係有序 ────────────────────────
++   *
++   * 題名幕左頁嗰兩行，以前係喺 component 度手寫嘅 stand-in ——
++   * 同 `free.ts` 嗰個真序講唔同嘅嘢，讀者喺封面見到一句，
++   * 揭開之後讀到另一句。而家由 server 帶過嚟。
++   *
++   * ⚠ 所以呢度要量嘅唔係「寫成點」，係「到唔到」：
++   * 條線一斷（preface 係 null），左頁就會一片白，
++   * 而一片白係唔會有人 report 嘅 bug。
++   */
++  const verso = await page.evaluate(() => {
++    const el = document.querySelector('.shu-verso');
++    const ps = el ? [...el.querySelectorAll('p')].map((p) => p.textContent?.trim() ?? '') : [];
++    return { title: ps[0] ?? '', lead: ps[1] ?? '' };
++  });
++  check('左頁有章名', verso.title.includes('序'), `「${verso.title}」`);
++  check(
++    '左頁有章首（30–60 字）',
++    verso.lead.length >= 30 && verso.lead.length <= 60,
++    `${verso.lead.length} 字：「${verso.lead.slice(0, 20)}…」`,
++  );
++
+   const during = await page.evaluate(() => {
+     /*
+      * ⚠ 量成版，唔係量本書嗰忽。
+@@ -323,5 +346,5 @@ if (fail.length) {
+   process.exit(1);
+ }
+ console.log(
+-  '✓ 題名：1600 → 停 1.2 秒 → 落印、行緊冇任何掣、唔自動翻開、撳本書先揭開、寫唔入就唔扮有、三個狀態都企喺版心中間',
++  '✓ 題名：1600 → 停 1.2 秒 → 落印、行緊冇任何掣、唔自動翻開、撳本書先揭開、寫唔入就唔扮有、三個狀態都企喺版心中間、左頁係真嗰個序',
+ );
+diff --git a/apps/web/src/app/[locale]/cast/actions.ts b/apps/web/src/app/[locale]/cast/actions.ts
+index 3c91646..62806ca 100644
+--- a/apps/web/src/app/[locale]/cast/actions.ts
++++ b/apps/web/src/app/[locale]/cast/actions.ts
+@@ -34,8 +34,20 @@ import { bookChapters } from '@/lib/mingshu';
+  *
+  * 但 null 就係 null —— 冇 id 就冇書齋入口。唔好扮有（架構 §8）。
+  */
++/**
++ * 序嘅開頭 —— 題名幕嗰版左頁見到嗰兩行。
++ *
++ * ⚠ 由 server 帶過嚟，唔喺 component 度再寫一次。
++ * 之前 `Naming.tsx` 手寫咗兩句 stand-in，同 `free.ts` 嗰個真序
++ * 講唔同嘅嘢；而讀者揭開之後讀到嘅係第三個版本。
++ *
++ * 亦都唔可以喺 client 度 import `xuChapter()` —— 嗰邊拉住成個
++ * 規則庫同詞條庫（架構 §9 同排盤引擎一樣嘅理由）。
++ */
++export type Preface = { title: string; lead: string };
++
+ export type CastOutcome =
+-  | { ok: true; kind: 'full'; chart: Chart; bookId: string | null }
++  | { ok: true; kind: 'full'; chart: Chart; bookId: string | null; preface: Preface | null }
+   | { ok: true; kind: 'partial'; chart: PartialChart; bookId: string | null }
+   | { ok: false; code: string; message: string };
+ 
+@@ -121,7 +133,17 @@ export async function castChart(raw: unknown): Promise<CastOutcome> {
+       }),
+     );
+ 
+-    return { ok: true, kind: 'full', chart, bookId };
++    /*
++     * 序嘅章首（版權頁嗰段之前嗰一句）。
++     * 由真嗰章攞，所以封面揭開之前見到嘅，同揭開之後讀到嘅係同一句。
++     */
++    const xu = chapters[0];
++    const preface: Preface | null =
++      xu && xu.slug === '序'
++        ? { title: xu.title ?? '序', lead: xu.text.split('\n\n')[0] ?? '' }
++        : null;
++
++    return { ok: true, kind: 'full', chart, bookId, preface };
+   }
+ 
+   /* 唔知時辰：排得出年月日層，排唔出命宮 —— 所以係一本待時辰嘅書（架構 §8）。 */
+diff --git a/apps/web/src/components/Luokuan.tsx b/apps/web/src/components/Luokuan.tsx
+index 75b7075..1bdfb1d 100644
+--- a/apps/web/src/components/Luokuan.tsx
++++ b/apps/web/src/components/Luokuan.tsx
+@@ -152,6 +152,7 @@ export function Luokuan() {
+         name={draft.name.trim()}
+         chart={outcome.chart}
+         bookId={outcome.bookId}
++        preface={outcome.preface}
+       />
+     ) : (
+       <FlowChrome>
+diff --git a/apps/web/src/components/Naming.tsx b/apps/web/src/components/Naming.tsx
+index 974da80..da7c709 100644
+--- a/apps/web/src/components/Naming.tsx
++++ b/apps/web/src/components/Naming.tsx
+@@ -9,6 +9,7 @@ import { Seal } from "@/components/Seal";
+ import { Chart } from "@/components/Chart";
+ import { INK_MS, NAMING_MS, SEAL_DELAY_MS } from "@/lib/timing";
+ import { MARK } from "@/lib/site";
++import type { Preface } from "@/app/[locale]/cast/actions";
+ import type { Chart as ZChart } from "@guanwei/ziwei/contract";
+ 
+ /**
+@@ -40,11 +41,14 @@ export function Naming({
+   name,
+   chart,
+   bookId,
++  preface,
+ }: {
+   name: string;
+   chart: ZChart | null;
+   /** null = 冇寫落 DB。冇 id 就冇書齋入口 —— 唔好扮有（架構 §8）。 */
+   bookId: string | null;
++  /** 序嘅章名同章首，由 server 帶過嚟（見 cast/actions.ts）。 */
++  preface: Preface | null;
+ }) {
+   /* 成幕行完之前，本書撳唔郁。 */
+   const [ready, setReady] = useState(false);
+@@ -110,14 +114,21 @@ export function Naming({
+           </div>
+         }
+         verso={
+-          <div className="h-full p-7">
+-            <p className="font-sans text-cap tracking-[0.2em] text-ink-3">
+-              序 · 你的命盤
+-            </p>
+-            <p className="mt-5 text-sm leading-[1.95] text-ink-2">
+-              這是你出生那一刻的天象位置。十二宮由此排出，往後每一章都從這裡長出來。
+-            </p>
+-          </div>
++          /*
++           * ⚠ 呢兩行唔喺呢度寫。
++           *
++           * 佢哋係**真嗰章嘅頭兩樣嘢**（章名同章首），由 server 帶過嚟。
++           * 之前呢度手寫咗兩句 stand-in，同 `free.ts` 嗰個序講唔同嘅嘢 ——
++           * 讀者喺封面見到一句，揭開之後讀到另一句。
++           *
++           * 攞唔到就乜都唔出：一版白紙好過一版寫住別人嘅序。
++           */
++          preface ? (
++            <div className="h-full p-7">
++              <p className="font-sans text-cap tracking-[0.2em] text-ink-3">{preface.title}</p>
++              <p className="mt-5 text-sm leading-[1.95] text-ink-2">{preface.lead}</p>
++            </div>
++          ) : null
+         }
+         recto={
+           /*
+diff --git a/apps/web/test/chengshu.test.ts b/apps/web/test/chengshu.test.ts
+index 15a9f01..d0ed70c 100644
+--- a/apps/web/test/chengshu.test.ts
++++ b/apps/web/test/chengshu.test.ts
+@@ -1,5 +1,6 @@
+ import { describe, expect, it, vi } from 'vitest';
+ import { readFileSync } from 'node:fs';
++import { XU_TITLE } from '@guanwei/content';
+ import {
+   FREE_SLUGS,
+   bookDraft,
+@@ -201,8 +202,8 @@ describe('⚠ 落款嗰張目次唔准承諾生成唔到嘅章', () => {
+    * 呢條測試掃返 `Luokuan.tsx` 嗰張表：入面每一個章名，
+    * 都要係我哋而家真係出得到嗰啲。
+    */
+-  const SRC = readFileSync(new URL('../src/components/Luokuan.tsx', import.meta.url), 'utf8');
+-  const MULU = SRC.match(/const MULU = \[([^\]]*)\]/s)?.[1] ?? '';
++  const LUOKUAN = readFileSync(new URL('../src/components/Luokuan.tsx', import.meta.url), 'utf8');
++  const MULU = LUOKUAN.match(/const MULU = \[([^\]]*)\]/s)?.[1] ?? '';
+ 
+   it('搵到張表', () => {
+     expect(MULU).not.toBe('');
+@@ -219,3 +220,32 @@ describe('⚠ 落款嗰張目次唔准承諾生成唔到嘅章', () => {
+     expect(named.filter((n) => !buildable.has(n))).toEqual([]);
+   });
+ });
++
++describe('⚠ 序只准寫一次', () => {
++  /**
++   * 之前同一章嘅文字散喺三個地方：`free.ts` 嗰個真序、題名幕左頁
++   * 手寫嘅兩句 stand-in、落款嗰張目次。三份各寫各 ——
++   * 讀者喺封面見到一句，揭開之後讀到另一句。
++   */
++  const SRC = (f: string) => readFileSync(new URL(`../src/${f}`, import.meta.url), 'utf8');
++
++  it('落款目次第一行，同內容包嗰個章名一個字都唔爭', () => {
++    const mulu = SRC('components/Luokuan.tsx').match(/const MULU = \[([^\]]*)\]/s)?.[1] ?? '';
++    const first = [...mulu.matchAll(/["']([^"']+)["']/g)].map((m) => m[1]!)[0];
++    expect(first).toBe(XU_TITLE);
++  });
++
++  it('題名幕唔准自己寫一段序', () => {
++    const naming = SRC('components/Naming.tsx');
++    expect(naming).not.toContain(XU_TITLE);
++    expect(naming).not.toMatch(/這是你出生那一刻/);
++    /* 佢要收 props，唔係自己砌。 */
++    expect(naming).toContain('preface');
++  });
++
++  it('全 src 入面冇第二段序文', () => {
++    const files = ['components/Naming.tsx', 'components/Luokuan.tsx', 'lib/chengshu.ts'];
++    const hits = files.filter((f) => /這是你出生那一刻|天象位置/.test(SRC(f)));
++    expect(hits).toEqual([]);
++  });
++});
+diff --git a/packages/content/src/free.ts b/packages/content/src/free.ts
+index 59ad791..52f4772 100644
+--- a/packages/content/src/free.ts
++++ b/packages/content/src/free.ts
+@@ -44,6 +44,16 @@ import { cjkCount } from './lexicon';
+  * 就會出現一個叫「結構」但入面寫住生辰嘅格 —— 之後邊個讀 code
+  * 都會以為嗰度有象義。
+  */
++/**
++ * ⚠ 序嘅章名同章首，全個 repo 只喺呢度寫一次。
++ *
++ * 之前佢哋散喺三個地方：呢度、題名幕嗰版左頁（手寫咗兩句 stand-in）、
++ * 落款嗰張目次。三份文字各寫各，改一份唔會影響另外兩份 ——
++ * 而讀者見到嘅係「同一章喺三個位講唔同嘅嘢」。
++ */
++export const XU_SLUG = '序';
++export const XU_TITLE = '序 · 你的命盤';
++
+ export const XU_SLOTS = ['章首', '生辰', '盤面', '體系', '留白'] as const;
+ export type XuSlot = (typeof XU_SLOTS)[number];
+ 
+@@ -263,7 +273,7 @@ export function xuChapter(input: XuInput): { slug: string; title: string; segmen
+   assertNoReading(segments.filter((s) => s.slot !== '體系'));
+   assertSettingsOnly(lines.join(''), input.declaration);
+ 
+-  return { slug: '序', title: '序 · 你的命盤', segments };
++  return { slug: XU_SLUG, title: XU_TITLE, segments };
+ }
+ 
+ 
+-- 
+2.43.0
+
