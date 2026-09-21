@@ -34,8 +34,20 @@ import { bookChapters } from '@/lib/mingshu';
  *
  * 但 null 就係 null —— 冇 id 就冇書齋入口。唔好扮有（架構 §8）。
  */
+/**
+ * 序嘅開頭 —— 題名幕嗰版左頁見到嗰兩行。
+ *
+ * ⚠ 由 server 帶過嚟，唔喺 component 度再寫一次。
+ * 之前 `Naming.tsx` 手寫咗兩句 stand-in，同 `free.ts` 嗰個真序
+ * 講唔同嘅嘢；而讀者揭開之後讀到嘅係第三個版本。
+ *
+ * 亦都唔可以喺 client 度 import `xuChapter()` —— 嗰邊拉住成個
+ * 規則庫同詞條庫（架構 §9 同排盤引擎一樣嘅理由）。
+ */
+export type Preface = { title: string; lead: string };
+
 export type CastOutcome =
-  | { ok: true; kind: 'full'; chart: Chart; bookId: string | null }
+  | { ok: true; kind: 'full'; chart: Chart; bookId: string | null; preface: Preface | null }
   | { ok: true; kind: 'partial'; chart: PartialChart; bookId: string | null }
   | { ok: false; code: string; message: string };
 
@@ -121,7 +133,17 @@ export async function castChart(raw: unknown): Promise<CastOutcome> {
       }),
     );
 
-    return { ok: true, kind: 'full', chart, bookId };
+    /*
+     * 序嘅章首（版權頁嗰段之前嗰一句）。
+     * 由真嗰章攞，所以封面揭開之前見到嘅，同揭開之後讀到嘅係同一句。
+     */
+    const xu = chapters[0];
+    const preface: Preface | null =
+      xu && xu.slug === '序'
+        ? { title: xu.title ?? '序', lead: xu.text.split('\n\n')[0] ?? '' }
+        : null;
+
+    return { ok: true, kind: 'full', chart, bookId, preface };
   }
 
   /* 唔知時辰：排得出年月日層，排唔出命宮 —— 所以係一本待時辰嘅書（架構 §8）。 */

@@ -138,6 +138,29 @@ try {
   const offNaming = await bookCentre();
   check('題名嗰陣本書企中間', offNaming !== null && Math.abs(offNaming) <= 2, `偏咗 ${offNaming}px`);
 
+  /*
+   * ── 零之二、⚠ 左頁真係有序 ────────────────────────
+   *
+   * 題名幕左頁嗰兩行，以前係喺 component 度手寫嘅 stand-in ——
+   * 同 `free.ts` 嗰個真序講唔同嘅嘢，讀者喺封面見到一句，
+   * 揭開之後讀到另一句。而家由 server 帶過嚟。
+   *
+   * ⚠ 所以呢度要量嘅唔係「寫成點」，係「到唔到」：
+   * 條線一斷（preface 係 null），左頁就會一片白，
+   * 而一片白係唔會有人 report 嘅 bug。
+   */
+  const verso = await page.evaluate(() => {
+    const el = document.querySelector('.shu-verso');
+    const ps = el ? [...el.querySelectorAll('p')].map((p) => p.textContent?.trim() ?? '') : [];
+    return { title: ps[0] ?? '', lead: ps[1] ?? '' };
+  });
+  check('左頁有章名', verso.title.includes('序'), `「${verso.title}」`);
+  check(
+    '左頁有章首（30–60 字）',
+    verso.lead.length >= 30 && verso.lead.length <= 60,
+    `${verso.lead.length} 字：「${verso.lead.slice(0, 20)}…」`,
+  );
+
   const during = await page.evaluate(() => {
     /*
      * ⚠ 量成版，唔係量本書嗰忽。
@@ -323,5 +346,5 @@ if (fail.length) {
   process.exit(1);
 }
 console.log(
-  '✓ 題名：1600 → 停 1.2 秒 → 落印、行緊冇任何掣、唔自動翻開、撳本書先揭開、寫唔入就唔扮有、三個狀態都企喺版心中間',
+  '✓ 題名：1600 → 停 1.2 秒 → 落印、行緊冇任何掣、唔自動翻開、撳本書先揭開、寫唔入就唔扮有、三個狀態都企喺版心中間、左頁係真嗰個序',
 );

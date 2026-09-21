@@ -1,5 +1,6 @@
 import { describe, expect, it, vi } from 'vitest';
 import { readFileSync } from 'node:fs';
+import { XU_TITLE } from '@guanwei/content';
 import {
   FREE_SLUGS,
   bookDraft,
@@ -201,8 +202,8 @@ describe('⚠ 落款嗰張目次唔准承諾生成唔到嘅章', () => {
    * 呢條測試掃返 `Luokuan.tsx` 嗰張表：入面每一個章名，
    * 都要係我哋而家真係出得到嗰啲。
    */
-  const SRC = readFileSync(new URL('../src/components/Luokuan.tsx', import.meta.url), 'utf8');
-  const MULU = SRC.match(/const MULU = \[([^\]]*)\]/s)?.[1] ?? '';
+  const LUOKUAN = readFileSync(new URL('../src/components/Luokuan.tsx', import.meta.url), 'utf8');
+  const MULU = LUOKUAN.match(/const MULU = \[([^\]]*)\]/s)?.[1] ?? '';
 
   it('搵到張表', () => {
     expect(MULU).not.toBe('');
@@ -217,5 +218,34 @@ describe('⚠ 落款嗰張目次唔准承諾生成唔到嘅章', () => {
     /* 由真名單砌，唔好手抄 —— 手抄就會再走音一次。 */
     const buildable = new Set(['你的命盤', ...FREE_SLUGS, ...PALACES]);
     expect(named.filter((n) => !buildable.has(n))).toEqual([]);
+  });
+});
+
+describe('⚠ 序只准寫一次', () => {
+  /**
+   * 之前同一章嘅文字散喺三個地方：`free.ts` 嗰個真序、題名幕左頁
+   * 手寫嘅兩句 stand-in、落款嗰張目次。三份各寫各 ——
+   * 讀者喺封面見到一句，揭開之後讀到另一句。
+   */
+  const SRC = (f: string) => readFileSync(new URL(`../src/${f}`, import.meta.url), 'utf8');
+
+  it('落款目次第一行，同內容包嗰個章名一個字都唔爭', () => {
+    const mulu = SRC('components/Luokuan.tsx').match(/const MULU = \[([^\]]*)\]/s)?.[1] ?? '';
+    const first = [...mulu.matchAll(/["']([^"']+)["']/g)].map((m) => m[1]!)[0];
+    expect(first).toBe(XU_TITLE);
+  });
+
+  it('題名幕唔准自己寫一段序', () => {
+    const naming = SRC('components/Naming.tsx');
+    expect(naming).not.toContain(XU_TITLE);
+    expect(naming).not.toMatch(/這是你出生那一刻/);
+    /* 佢要收 props，唔係自己砌。 */
+    expect(naming).toContain('preface');
+  });
+
+  it('全 src 入面冇第二段序文', () => {
+    const files = ['components/Naming.tsx', 'components/Luokuan.tsx', 'lib/chengshu.ts'];
+    const hits = files.filter((f) => /這是你出生那一刻|天象位置/.test(SRC(f)));
+    expect(hits).toEqual([]);
   });
 });

@@ -9,6 +9,7 @@ import { Seal } from "@/components/Seal";
 import { Chart } from "@/components/Chart";
 import { INK_MS, NAMING_MS, SEAL_DELAY_MS } from "@/lib/timing";
 import { MARK } from "@/lib/site";
+import type { Preface } from "@/app/[locale]/cast/actions";
 import type { Chart as ZChart } from "@guanwei/ziwei/contract";
 
 /**
@@ -40,11 +41,14 @@ export function Naming({
   name,
   chart,
   bookId,
+  preface,
 }: {
   name: string;
   chart: ZChart | null;
   /** null = 冇寫落 DB。冇 id 就冇書齋入口 —— 唔好扮有（架構 §8）。 */
   bookId: string | null;
+  /** 序嘅章名同章首，由 server 帶過嚟（見 cast/actions.ts）。 */
+  preface: Preface | null;
 }) {
   /* 成幕行完之前，本書撳唔郁。 */
   const [ready, setReady] = useState(false);
@@ -110,14 +114,21 @@ export function Naming({
           </div>
         }
         verso={
-          <div className="h-full p-7">
-            <p className="font-sans text-cap tracking-[0.2em] text-ink-3">
-              序 · 你的命盤
-            </p>
-            <p className="mt-5 text-sm leading-[1.95] text-ink-2">
-              這是你出生那一刻的天象位置。十二宮由此排出，往後每一章都從這裡長出來。
-            </p>
-          </div>
+          /*
+           * ⚠ 呢兩行唔喺呢度寫。
+           *
+           * 佢哋係**真嗰章嘅頭兩樣嘢**（章名同章首），由 server 帶過嚟。
+           * 之前呢度手寫咗兩句 stand-in，同 `free.ts` 嗰個序講唔同嘅嘢 ——
+           * 讀者喺封面見到一句，揭開之後讀到另一句。
+           *
+           * 攞唔到就乜都唔出：一版白紙好過一版寫住別人嘅序。
+           */
+          preface ? (
+            <div className="h-full p-7">
+              <p className="font-sans text-cap tracking-[0.2em] text-ink-3">{preface.title}</p>
+              <p className="mt-5 text-sm leading-[1.95] text-ink-2">{preface.lead}</p>
+            </div>
+          ) : null
         }
         recto={
           /*

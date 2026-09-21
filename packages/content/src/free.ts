@@ -44,6 +44,16 @@ import { cjkCount } from './lexicon';
  * 就會出現一個叫「結構」但入面寫住生辰嘅格 —— 之後邊個讀 code
  * 都會以為嗰度有象義。
  */
+/**
+ * ⚠ 序嘅章名同章首，全個 repo 只喺呢度寫一次。
+ *
+ * 之前佢哋散喺三個地方：呢度、題名幕嗰版左頁（手寫咗兩句 stand-in）、
+ * 落款嗰張目次。三份文字各寫各，改一份唔會影響另外兩份 ——
+ * 而讀者見到嘅係「同一章喺三個位講唔同嘅嘢」。
+ */
+export const XU_SLUG = '序';
+export const XU_TITLE = '序 · 你的命盤';
+
 export const XU_SLOTS = ['章首', '生辰', '盤面', '體系', '留白'] as const;
 export type XuSlot = (typeof XU_SLOTS)[number];
 
@@ -263,7 +273,7 @@ export function xuChapter(input: XuInput): { slug: string; title: string; segmen
   assertNoReading(segments.filter((s) => s.slot !== '體系'));
   assertSettingsOnly(lines.join(''), input.declaration);
 
-  return { slug: '序', title: '序 · 你的命盤', segments };
+  return { slug: XU_SLUG, title: XU_TITLE, segments };
 }
 
 

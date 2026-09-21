@@ -152,6 +152,7 @@ export function Luokuan() {
         name={draft.name.trim()}
         chart={outcome.chart}
         bookId={outcome.bookId}
+        preface={outcome.preface}
       />
     ) : (
       <FlowChrome>
