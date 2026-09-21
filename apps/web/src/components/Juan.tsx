@@ -49,7 +49,11 @@ export function Juan({
         const note = shown ? notes[shown.id] : undefined;
 
         return (
-          <div key={`${seg.slot}-${i}`}>
+          /*
+           * ⚠ `data-slot` 唔係一個樣式 hook，係 F2 嗰個觀察點：
+           * 右邊個細盤靠佢知道你而家讀緊邊一格（見 lib/suidu.ts）。
+           */
+          <div key={`${seg.slot}-${i}`} data-slot={seg.slot}>
             <p className="text-body leading-[1.95]">
               {seg.runs.map((run, j) =>
                 run.term ? (

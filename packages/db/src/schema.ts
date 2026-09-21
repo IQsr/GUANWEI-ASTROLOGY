@@ -91,6 +91,20 @@ export const ChapterRow = z.object({
   body: z.string().nullable(),
   content_version: pinned,
   generated_at: ts,
+  /**
+   * ⚠ 裁開咗嘅時間（F4）。**唔係一個 UI flag。**
+   *
+   * 「裂開動畫一生只播一次」記喺 localStorage 嘅話，清 cookie 或者
+   * 換部機就會再裂一次 —— 而一本已經裁開咗嘅書唔會自己癒合。
+   */
+  cut_at: ts.nullable(),
+  /**
+   * 每一段係邊一格（開場／結構／牽動／擾動／留白）。
+   *
+   * ⚠ 同 `body` 分開兩欄，因為**格嘅名唔係內容**：未買嘅人睇得到
+   * 呢一版有幾多格、係乜嘢格，但讀唔到入面寫乜。咁先至係毛邊本。
+   */
+  slots: z.array(z.string()),
 });
 
 export const EntitlementRow = z.object({

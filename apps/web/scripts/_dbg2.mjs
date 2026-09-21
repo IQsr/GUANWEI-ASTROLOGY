@@ -1,0 +1,12 @@
+import { setTimeout as sleep } from 'node:timers/promises';
+import { launchBrowser } from './_server.mjs';
+const b=await launchBrowser();
+const p=await b.newPage({viewport:{width:1440,height:900}});
+p.on('console', m => console.log('['+m.type()+']', m.text().slice(0,300)));
+p.on('pageerror', e => console.log('[pageerror]', String(e).slice(0,400)));
+await p.goto('http://localhost:3223/en/tokens/suidu',{waitUntil:'networkidle'});
+await sleep(1500);
+console.log('suidu-pan in DOM:', await p.evaluate(()=>document.querySelectorAll('.suidu-pan').length));
+console.log('suidu in DOM:', await p.evaluate(()=>document.querySelectorAll('.suidu').length));
+console.log('html has suidu-pan:', (await p.content()).includes('suidu-pan'));
+await b.close();

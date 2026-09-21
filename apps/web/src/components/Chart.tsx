@@ -22,10 +22,21 @@ const GRID: Record<Branch, [row: number, col: number]> = {
   寅: [4, 1], 丑: [4, 2], 子: [4, 3], 亥: [4, 4],
 };
 
-/** 三方四正：本宮、對宮（+6）、三合（+4、+8）。 */
-function litState(index: number, selected: number | null): 'self' | 'san' | undefined {
+/**
+ * 三方四正：本宮、對宮（+6）、三合（+4、+8）。
+ *
+ * ⚠ `relations` 係 F2 加嘅。隨讀嗰陣，講緊呢一宮本身嗰幾段只亮本宮；
+ * 亮到三方四正係「牽動」嗰一格先至啱 —— 否則個盤由頭到尾都亮住四格，
+ * 而「牽動」嗰一段就冇咗佢唯一要講嘅嘢。
+ */
+function litState(
+  index: number,
+  selected: number | null,
+  relations: boolean,
+): 'self' | 'san' | undefined {
   if (selected === null) return undefined;
   if (index === selected) return 'self';
+  if (!relations) return undefined;
   const d = (index - selected + 12) % 12;
   return d === 4 || d === 6 || d === 8 ? 'san' : undefined;
 }
@@ -36,6 +47,8 @@ export function Chart({
   onSelect,
   center,
   maxWidth = 760,
+  relations = true,
+  interactive = true,
 }: {
   chart: ZChart;
   /** 地支索引 0–11，null = 冇揀。 */
@@ -44,6 +57,13 @@ export function Chart({
   /** 中宮內容。由呼叫者砌 —— 命書同排盤頁想擺嘅嘢唔同。 */
   center: React.ReactNode;
   maxWidth?: number;
+  /** 亮唔亮埋三方四正。預設亮（排盤頁同題名幕一直都係噉）。 */
+  relations?: boolean;
+  /**
+   * 撳唔撳得。隨讀嗰個細盤係**跟住字行**嘅，唔係一個控制項 ——
+   * 一個撳得嘅盤會令讀者以為佢揀咗嘅嘢會留低，但下一秒捲動就改咗佢。
+   */
+  interactive?: boolean;
 }) {
   return (
     <div className="pan-wrap" style={{ maxWidth }}>
@@ -52,7 +72,7 @@ export function Chart({
           const [row, col] = GRID[branch];
           const palace = chart.palaces.find((p) => p.branch === branch);
           const decadal = chart.decadals.find((d) => d.branch === branch);
-          const lit = litState(index, selected);
+          const lit = litState(index, selected, relations);
 
           return (
             <button
@@ -62,8 +82,11 @@ export function Chart({
               style={{ gridRow: row, gridColumn: col }}
               data-lit={lit}
               data-ming={palace?.name === '命宮' ? '1' : undefined}
-              aria-pressed={selected === index}
-              onClick={() => onSelect(selected === index ? null : index)}
+              aria-pressed={interactive ? selected === index : undefined}
+              disabled={!interactive}
+              onClick={
+                interactive ? () => onSelect(selected === index ? null : index) : undefined
+              }
             >
               <span className="xing-lie">
                 {palace?.stars.map((star) => (

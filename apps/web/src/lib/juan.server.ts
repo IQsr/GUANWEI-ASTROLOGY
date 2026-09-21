@@ -46,16 +46,29 @@ export function serverJuan(): JuanPort {
       const sb = supabaseServer();
       const { data: row, error } = await sb
         .from('chapters')
-        .select('id')
+        .select('id, slots')
         .eq('book_id', bookId)
         .eq('slug', slug)
         .maybeSingle();
       if (error) throw error;
       if (!row) return null;
 
+      /* ⚠ 正文一定要行 `chapter_body()`；`slots` 就直接 select 得到（0006）。 */
       const { data, error: bodyError } = await sb.rpc('chapter_body', { p_chapter: row.id });
       if (bodyError) throw bodyError;
-      return (data as string | null) ?? null;
+      return { text: (data as string | null) ?? null, slots: (row.slots as string[]) ?? [] };
+    },
+
+    async chart(bookId) {
+      const sb = supabaseServer();
+      const { data, error } = await sb
+        .from('books')
+        .select('charts(payload)')
+        .eq('id', bookId)
+        .maybeSingle();
+      if (error) throw error;
+      const chart = Array.isArray(data?.charts) ? data?.charts[0] : data?.charts;
+      return chart?.payload ?? null;
     },
   };
 }

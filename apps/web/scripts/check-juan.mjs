@@ -137,6 +137,85 @@ try {
   const phone = await browser.newPage({ viewport: { width: 400, height: 900 } });
   await phone.goto(`${BASE}${PATH}`, { waitUntil: 'domcontentloaded' });
   await phone.waitForTimeout(900);
+  /*
+   * ── 隨讀：右側細命盤跟捲動高亮（工單 F2）────────────
+   *
+   * ⚠ 量嘅唔係「有個盤」，係「捲到唔同段落佢真係唔同」。
+   * 一個由頭到尾都亮住同一格嘅盤，滿足唔到「跟捲動」三個字 ——
+   * 佢淨係做咗一個標籤。
+   */
+  const wide = await browser.newPage({ viewport: { width: 1440, height: 900 } });
+  await wide.goto(`${BASE}/tokens/suidu`, { waitUntil: 'domcontentloaded' });
+  await wide.waitForTimeout(900);
+
+  const atSlot = async (slot) => {
+    await wide.evaluate((s) => {
+      const el = [...document.querySelectorAll('.suidu [data-slot]')].find(
+        (e) => e.dataset.slot === s,
+      );
+      if (el) window.scrollBy(0, el.getBoundingClientRect().top - window.innerHeight / 3);
+    }, slot);
+    await wide.waitForTimeout(700);
+    return wide.evaluate(() => ({
+      /* ⚠ 連「而家跟緊邊一格」一齊攞 —— 捲唔到位嘅話要睇得出係捲唔到，
+         唔係個規則錯。 */
+      at: document.querySelector('.suidu-pan')?.dataset.at ?? '',
+      self: document.querySelectorAll('.suidu-pan .gong[data-lit="self"]').length,
+      san: document.querySelectorAll('.suidu-pan .gong[data-lit="san"]').length,
+    }));
+  };
+
+  const panes = await wide.evaluate(() => ({
+    url: location.href,
+    pane: document.querySelector('.suidu-pan')
+      ? getComputedStyle(document.querySelector('.suidu-pan')).display
+      : '冇 .suidu-pan',
+    gong: document.querySelectorAll('.suidu-pan .gong').length,
+    clickable: [...document.querySelectorAll('.suidu-pan .gong')].filter((g) => !g.disabled).length,
+  }));
+  check('夠闊就出個細盤', panes.pane !== 'none' && panes.pane !== '冇 .suidu-pan', `${panes.pane} @ ${panes.url}`);
+  check('細盤都係十二宮', panes.gong === 12, `${panes.gong} 宮`);
+  /* 佢跟住字行 —— 一個撳得嘅盤會令讀者以為佢揀咗嘅嘢會留低。 */
+  check('細盤撳唔郁', panes.clickable === 0, `${panes.clickable} 格撳得`);
+
+  const kai = await atSlot('開場');
+  check('捲到開場', kai.at === '開場', `跟緊「${kai.at}」`);
+  check('開場亮本宮', kai.self === 1 && kai.san === 0, JSON.stringify(kai));
+
+  const qian = await atSlot('牽動');
+  check('捲到牽動', qian.at === '牽動', `跟緊「${qian.at}」`);
+  check('牽動連三方四正一齊亮', qian.self === 1 && qian.san === 3, JSON.stringify(qian));
+
+  /* ⚠ 過場係一道橋，唔換題目 —— 佢唔可以熄個盤（視覺 §2 靜）。 */
+  const guo = await atSlot('過場');
+  check('過場唔熄個盤', guo.self === 1, JSON.stringify(guo));
+
+  /*
+   * ⚠ 留白句係「交返畀讀者」嗰一句（內容 §5）。
+   * 喺嗰一刻仲亮住一格盤，就係喺一句「留返畀你自己驗證」下面
+   * 繼續指住個盤 —— 講埋唔應該講嘅嘢。
+   *
+   * ⚠ 捲得到呢一格，本身就係一條驗收：冇章尾嗰段留白嘅話，
+   * 一章嘅最後三分二永遠捲唔到讀線度。
+   */
+  const liu = await atSlot('留白');
+  check('捲到留白', liu.at === '留白', `跟緊「${liu.at}」`);
+  check('留白乜都唔亮', liu.self === 0 && liu.san === 0, JSON.stringify(liu));
+
+  /* 手機唔出個盤 —— 400px 唔可以橫向滾（E2 同一條規矩）。 */
+  const narrow = await browser.newPage({ viewport: { width: 400, height: 900 } });
+  await narrow.goto(`${BASE}/tokens/suidu`, { waitUntil: 'domcontentloaded' });
+  await narrow.waitForTimeout(600);
+  const small = await narrow.evaluate(() => {
+    const el = document.querySelector('.suidu-pan');
+    return {
+      display: el ? getComputedStyle(el).display : '冇',
+      over: document.documentElement.scrollWidth - document.documentElement.clientWidth,
+    };
+  });
+  check('手機唔出個細盤', small.display === 'none', small.display);
+  check('隨讀喺 400px 唔橫向滾', small.over <= 0, `多咗 ${small.over}px`);
+
   await phone.locator('.zhu').first().click();
   await phone.waitForTimeout(400);
   const over = await phone.evaluate(
@@ -153,4 +232,6 @@ if (fail.length) {
   for (const f of fail) console.error('  ' + f);
   process.exit(1);
 }
-console.log('✓ 註層：目錄命宮行先、一個術語全書只標一次、註層係展開唔係浮窗、註尾連去藏經閣');
+console.log(
+  '✓ 註層：目錄命宮行先、一個術語全書只標一次、註層係展開唔係浮窗、註尾連去藏經閣、細盤跟捲動亮',
+);

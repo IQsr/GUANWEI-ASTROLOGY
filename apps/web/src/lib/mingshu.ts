@@ -30,6 +30,8 @@ export type Juan = {
   chapters: Chapter[];
   marked: MarkedChapter[];
   notes: Record<string, Note>;
+  /** ⚠ F2 要：右側細命盤跟捲動高亮，要有個盤先跟得到。 */
+  chart: ZChart;
 };
 
 /**
@@ -89,7 +91,7 @@ export function notesFor(marked: MarkedChapter[]): Record<string, Note> {
   return out;
 }
 
-export function buildJuan(raw: Chapter[]): Juan {
+export function buildJuan(raw: Chapter[], chart: ZChart): Juan {
   /* ⚠ 先排好次序先標註 —— 標註跟章次序算（見上面）。 */
   const chapters = inReadingOrder(raw);
   const marked = markBook(
@@ -98,7 +100,7 @@ export function buildJuan(raw: Chapter[]): Juan {
       segments: c.segments.map((s) => ({ slot: s.slot, text: s.text })),
     })),
   );
-  return { chapters, marked, notes: notesFor(marked) };
+  return { chapters, marked, notes: notesFor(marked), chart };
 }
 
 /**
@@ -194,5 +196,5 @@ export function demoJuan(): Juan | null {
   if (!r.ok) return null;
 
   const chapters = chaptersOf(r.value, { seed: 'demo', year: 2026 });
-  return chapters ? buildJuan(chapters) : null;
+  return chapters ? buildJuan(chapters, r.value) : null;
 }

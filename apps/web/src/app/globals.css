@@ -1189,6 +1189,77 @@
    水平中心同版心中心對唔對得返。 */
 
 /* ============================================================
+   隨讀：正文 ＋ 右側細命盤（工單 F2 · 視覺系統 §8）
+
+   ⚠ 版心唔可以因為右邊多咗個盤而縮。
+
+   §5 定死咗版心 690px（32–40 字／行）。如果個盤同正文分一條
+   `1fr 260px`，正文就會由 690 縮到 600 幾 —— 行長一短，
+   成版嘅呼吸就唔同咗，而讀者唔會知係點解。
+
+   所以正文照樣 690，個盤擺喺佢右邊嗰條邊上面；夠位先出。
+   ============================================================ */
+
+.suidu {
+  display: grid;
+  grid-template-columns: minmax(0, var(--banxin));
+  justify-content: center;
+  column-gap: var(--sp-5);
+}
+
+.suidu-pan {
+  display: none;
+}
+
+/*
+ * ⚠ 章尾要有足夠空間，最後幾段先至捲得上讀線。
+ *
+ * 讀線係版面三分一高。冇呢段留白嘅話，一章嘅最後三分二**永遠**
+ * 捲唔到讀線度 —— 即係留白句永遠亮唔到「唔亮」，而嗰一句正正係
+ * 唯一一句要個盤熄嘅。
+ *
+ * 呢個唔係為咗遷就個規則：一版書本來就係讀到尾有空。
+ */
+.suidu-wen {
+  padding-bottom: 66vh;
+}
+
+/* 夠位先出個盤：版心 690 ＋ gap 40 ＋ 盤 260 ＋ 兩邊留白。 */
+@media (min-width: 1120px) {
+  .suidu {
+    grid-template-columns: minmax(0, var(--banxin)) 260px;
+  }
+
+  .suidu-pan {
+    display: block;
+  }
+}
+
+/* 跟住捲 —— 個盤唔會捲走。 */
+.suidu-ding {
+  position: sticky;
+  top: var(--sp-5);
+}
+
+/* ⚠ 隨讀嗰個盤撳唔郁，所以唔可以有 hover／cursor 嘅樣。 */
+.suidu-pan .gong {
+  cursor: default;
+}
+
+/* 亮同暗之間要慢 —— 一個跟住捲動閃嘅盤，會搶走緊讀緊嘅字。 */
+.suidu-pan .gong {
+  transition:
+    background-color var(--dur-2) var(--motion-ease-ink),
+    border-color var(--dur-2) var(--motion-ease-ink);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .suidu-pan .gong {
+    transition: none;
+  }
+}
+
+/* ============================================================
    動效基礎層（視覺系統 §7）
 
    .rv 預設就係「已經喺度」。JS 只會為未入視窗嘅元素補上 .rv-pend，

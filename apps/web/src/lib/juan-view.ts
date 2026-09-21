@@ -20,13 +20,23 @@ export type JuanPort = {
   /** 目錄：本書 ＋ 每一章嘅**行**（唔包正文）。 */
   contents(bookId: string): Promise<{ title: string; chapters: ChapterMeta[] } | null>;
   /**
-   * 一章嘅正文。
+   * 一章嘅正文同佢嘅段落結構。
    *
-   * ⚠ 未買嘅深度章會回 `null` —— 而且**唔係呢度決定嘅**，
+   * ⚠ 未買嘅深度章 `text` 會回 `null` —— 而且**唔係呢度決定嘅**，
    * 係 DB 嗰個 `chapter_body()` 決定（G1）。
    * 一個只靠前端唔 render 嘅 paywall，唔係 paywall。
+   *
+   * ⚠ `slots` 就算未買都攞得到（F2 · 0006）。**格嘅名唔係內容**：
+   * 一個未裁開嘅讀者睇得到呢一版有幾多格、係乜嘢格 ——
+   * 咁先至係毛邊本，你揸得到本書，只係未裁開。
    */
-  body(bookId: string, slug: string): Promise<string | null>;
+  body(bookId: string, slug: string): Promise<{ text: string | null; slots: string[] } | null>;
+  /**
+   * 呢本書嗰張盤（F2：右側細命盤要跟捲動高亮）。
+   *
+   * 撈唔到就回 null —— 冇盤就唔出個細盤，唔係出一個空格。
+   */
+  chart(bookId: string): Promise<unknown | null>;
 };
 
 export type ContentsView =

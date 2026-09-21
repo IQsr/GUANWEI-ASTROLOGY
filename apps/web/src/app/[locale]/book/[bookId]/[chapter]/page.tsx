@@ -3,6 +3,9 @@ import { setRequestLocale } from 'next-intl/server';
 import { routing } from '@/i18n/routing';
 import { Link } from '@/i18n/navigation';
 import { Juan } from '@/components/Juan';
+import { Suidu } from '@/components/Suidu';
+import { paragraphs } from '@/lib/suidu';
+import type { Chart as ZChart } from '@guanwei/ziwei/contract';
 import { MarkRead } from '@/components/MarkRead';
 import { contentsView } from '@/lib/juan-view';
 import { serverJuan } from '@/lib/juan.server';
@@ -58,16 +61,24 @@ export default async function ChapterPage({
 
   const here = view.chapters.find((c) => c.slug === chapter);
   const upto = view.chapters.filter((c) => c.ord <= (here?.ord ?? 0));
-  const bodies = await Promise.all(upto.map((c) => port.body(bookId, c.slug)));
+  const fetched = await Promise.all(upto.map((c) => port.body(bookId, c.slug)));
 
+  /*
+   * ⚠ 標註要**成本書**一齊標，但跟捲動高亮只關呢一章事。
+   * 所以前面幾章照樣攞返嚟標，段落結構就只有呢一章要（F2）。
+   */
   const marked = markBook(
     upto.map((c, i) => ({
       palace: c.title,
-      segments: bodies[i] ? [{ slot: '正文', text: bodies[i]! }] : [],
+      segments: paragraphs(fetched[i]?.text ?? '', fetched[i]?.slots ?? []).map((para) => ({
+        slot: para.slot ?? '正文',
+        text: para.text,
+      })),
     })),
   );
   const mine = marked.at(-1);
-  const body = bodies.at(-1) ?? null;
+  const body = fetched.at(-1)?.text ?? null;
+  const chart = body === null ? null : ((await port.chart(bookId)) as ZChart | null);
 
   return (
     <main className="juan banxin">
@@ -102,7 +113,13 @@ export default async function ChapterPage({
                   裁開
                 </Link>
               </p>
+            ) : chart ? (
+              /* 隨讀：右側細命盤跟捲動高亮（F2）。 */
+              <Suidu chart={chart} palace={here.slug}>
+                <Juan segments={mine!.segments} notes={notesFor(marked)} />
+              </Suidu>
             ) : (
+              /* 撈唔到盤就淨係出正文 —— 唔出一個空格當個盤。 */
               <Juan segments={mine!.segments} notes={notesFor(marked)} />
             )}
           </div>
