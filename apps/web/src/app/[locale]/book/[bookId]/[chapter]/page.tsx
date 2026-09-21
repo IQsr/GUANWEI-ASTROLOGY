@@ -4,6 +4,10 @@ import { routing } from '@/i18n/routing';
 import { Link } from '@/i18n/navigation';
 import { Juan } from '@/components/Juan';
 import { Suidu } from '@/components/Suidu';
+import { Caikai } from '@/components/Caikai';
+import { Weicai } from '@/components/Weicai';
+import { cutPage } from './cut';
+import { serverIdentity } from '@/lib/identity.server';
 import { paragraphs } from '@/lib/suidu';
 import type { Chart as ZChart } from '@guanwei/ziwei/contract';
 import { MarkRead } from '@/components/MarkRead';
@@ -80,6 +84,24 @@ export default async function ChapterPage({
   const body = fetched.at(-1)?.text ?? null;
   const chart = body === null ? null : ((await port.chart(bookId)) as ZChart | null);
 
+  /*
+   * ⚠ 「今次先裁開」係 DB 答嘅（`cut_page()`，0006），唔係 client 記住嘅。
+   * 攞唔到正文就唔使問 —— 一版未裁嘅頁冇嘢好裁。
+   */
+  const justCut = here && body !== null ? await cutPage(here.id) : false;
+
+  /*
+   * 匿名就去認領，認領咗先去付款（架構 §4 硬閘）。
+   * ⚠ 撈唔到就當匿名 —— 帶去 `/claim` 最多係行多一步，
+   * 帶去 checkout 就係令一個匿名讀者行一條 DB 嗰邊實會彈嘅路。
+   */
+  let isAnonymous = true;
+  try {
+    isAnonymous = (await serverIdentity().currentReader())?.isAnonymous ?? true;
+  } catch {
+    /* 冇 session 就係匿名。 */
+  }
+
   return (
     <main className="juan banxin">
       <Link
@@ -100,24 +122,25 @@ export default async function ChapterPage({
           <div className="mt-10">
             {body === null ? (
               /*
-               * ⚠ 未裁之頁（架構 §6）—— 而家係一句話，F4 先做成毛邊。
-               * 但「攞唔到正文」呢件事唔係喺呢度決定嘅：DB 嗰個
-               * `chapter_body()` 查過票先回值（G1）。
+               * 未裁之頁（架構 §6 · F4）。
+               *
+               * ⚠ 「攞唔到正文」唔係喺呢度決定嘅：DB 嗰個 `chapter_body()`
+               * 查過票先回值（G1）。一個只靠前端唔 render 嘅 paywall
+               * 唔係 paywall。
                */
-              <p className="text-body leading-[1.95] text-ink-2">
-                這一頁還沒有裁開。
-                <Link
-                  href={`/pay/${bookId}`}
-                  className="ms-3 text-indigo transition-colors duration-[240ms] hover:text-ink"
-                >
-                  裁開
-                </Link>
-              </p>
+              <Weicai
+                title={here.title}
+                slots={fetched.at(-1)?.slots ?? []}
+                bookId={bookId}
+                isAnonymous={isAnonymous}
+              />
             ) : chart ? (
               /* 隨讀：右側細命盤跟捲動高亮（F2）。 */
-              <Suidu chart={chart} palace={here.slug}>
-                <Juan segments={mine!.segments} notes={notesFor(marked)} />
-              </Suidu>
+              <Caikai play={justCut}>
+                <Suidu chart={chart} palace={here.slug}>
+                  <Juan segments={mine!.segments} notes={notesFor(marked)} />
+                </Suidu>
+              </Caikai>
             ) : (
               /* 撈唔到盤就淨係出正文 —— 唔出一個空格當個盤。 */
               <Juan segments={mine!.segments} notes={notesFor(marked)} />

@@ -31,7 +31,7 @@ export function serverJuan(): JuanPort {
 
       const { data: rows, error: chapterError } = await sb
         .from('chapters')
-        .select('slug, title, ord, tier')
+        .select('id, slug, title, ord, tier')
         .eq('book_id', bookId)
         .order('ord');
       if (chapterError) throw chapterError;

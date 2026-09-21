@@ -10,6 +10,8 @@ import type { MarkedChapter } from '@/lib/zhu';
  */
 
 export type ChapterMeta = {
+  /** ⚠ F4 要：`cut_page()` 收嘅係章嘅 id，唔係 slug。 */
+  id: string;
   slug: string;
   title: string;
   ord: number;

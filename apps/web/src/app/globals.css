@@ -1262,6 +1262,97 @@
 }
 
 /* ============================================================
+   未裁之頁（工單 F4 · 架構 §6 · 視覺系統 §6）
+
+   線裝書「毛邊本」：書頁邊位未裁開，要讀者自己裁。
+   未買嘅深度章 = 未裁嘅頁。
+
+   ⚠ 三樣工單明文唔准用：modal、模糊偷睇、倒數。
+   三樣都係喺讀嘅過程入面插一個銷售動作 ——
+   一版毛邊冇呢啲，佢就係一版未裁開嘅紙，靜靜噉喺度。
+
+   ⚠ 毛邊係一條 `clip-path: polygon()`，零張圖片（視覺 §6）。
+   深淺由 `lib/weicai.ts` 嗰條序列出：睇落唔規則，但同一版永遠一樣。
+   圓角零、陰影零 —— 一條撕痕唔需要任何一樣。
+   ============================================================ */
+
+.weicai {
+  position: relative;
+  max-width: var(--banxin);
+}
+
+/* 一版未裁嘅紙。左邊齊，右邊撕開。 */
+.weicai-zhi {
+  clip-path: var(--mao);
+  background: var(--paper-2);
+  border-inline-start: 1px solid var(--rule);
+  padding: var(--gap-page, 40px);
+  padding-inline-end: 64px;
+}
+
+/*
+ * 呢一版有幾多格、係乜嘢格 —— 架構 §6：「未裁章喺目錄照樣列出章名，
+ * 唔收埋。」所以佢講得出自己嘅形狀，只係讀唔到入面寫乜。
+ */
+.weicai-ge {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.weicai-ge li {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  color: var(--ink-3);
+  font-family: var(--font-sans-stack);
+  font-size: var(--t-cap);
+  letter-spacing: 0.16em;
+}
+
+/* 一格＝一條界欄。長度跟格嘅位置，唔係隨機。 */
+.weicai-ge i {
+  display: block;
+  flex: 1;
+  height: 1px;
+  background: var(--rule);
+}
+
+/* ── 裁開：右邊毛邊由上而下裂開一次，1600ms（架構 §6）── */
+.caikai {
+  position: relative;
+}
+
+.caikai-zhi {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: var(--paper-2);
+  animation: cai-kai var(--cut-dur, 1600ms) var(--motion-ease-scroll) forwards;
+}
+
+/* 紙由上而下退走，底下嗰版字就露出嚟。 */
+@keyframes cai-kai {
+  from {
+    clip-path: inset(0 0 0 0);
+  }
+  to {
+    clip-path: inset(100% 0 0 0);
+  }
+}
+
+/*
+ * ⚠ reduced-motion 唔係「快啲裂」，係一裁就裁咗（視覺 §7 第六條）。
+ * 一個唔想睇動畫嘅人，唔應該等 1.6 秒先睇到自己買咗嘅字。
+ */
+@media (prefers-reduced-motion: reduce) {
+  .caikai-zhi {
+    animation: none;
+    display: none;
+  }
+}
+
+/* ============================================================
    動效基礎層（視覺系統 §7）
 
    .rv 預設就係「已經喺度」。JS 只會為未入視窗嘅元素補上 .rv-pend，
