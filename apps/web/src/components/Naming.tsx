@@ -1,15 +1,15 @@
-'use client';
+"use client";
 
-import { useEffect, useState } from 'react';
-import { Book } from '@/components/Book';
-import { Link } from '@/i18n/navigation';
-import { FlowChrome } from '@/components/FlowChrome';
-import { Zhanjuan } from '@/components/Zhanjuan';
-import { Seal } from '@/components/Seal';
-import { Chart } from '@/components/Chart';
-import { INK_MS, NAMING_MS, SEAL_DELAY_MS } from '@/lib/timing';
-import { MARK } from '@/lib/site';
-import type { Chart as ZChart } from '@guanwei/ziwei/contract';
+import { useEffect, useState } from "react";
+import { Book } from "@/components/Book";
+import { Link } from "@/i18n/navigation";
+import { FlowChrome } from "@/components/FlowChrome";
+import { Zhanjuan } from "@/components/Zhanjuan";
+import { Seal } from "@/components/Seal";
+import { Chart } from "@/components/Chart";
+import { INK_MS, NAMING_MS, SEAL_DELAY_MS } from "@/lib/timing";
+import { MARK } from "@/lib/site";
+import type { Chart as ZChart } from "@guanwei/ziwei/contract";
 
 /**
  * 合書題名（工單 E5 · 視覺系統 §9）
@@ -51,7 +51,7 @@ export function Naming({
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    const still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const still = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (still) {
       setReady(true);
       return;
@@ -70,9 +70,13 @@ export function Naming({
    * 揭開之後先返嚟：嗰陣已經係喺度讀緊，唔再係嗰一下。
    */
   const scene = (
-    <div className="mu-ti" data-ready={ready ? '1' : '0'} data-open={open ? '1' : '0'}>
+    <div
+      className="mu-ti mu-wei"
+      data-ready={ready ? "1" : "0"}
+      data-open={open ? "1" : "0"}
+    >
       <Book
-        state={open ? 'open' : 'titled'}
+        state={open ? "open" : "titled"}
         label={`${name}命書`}
         spine={`${name}命書`}
         cover={
@@ -82,12 +86,12 @@ export function Naming({
             </span>
             <div>
               {/*
-                * 墨滲寫名：1600ms。同入齋「觀微」兩個字一樣嘅時間。
-                *
-                * ⚠ 時間由 `lib/timing.ts` 出，唔係由 `--dur-4` 出 ——
-                * 嗰個 token 係畀成站用嘅，而呢一幕嘅時序係一份規格：
-                * 改咗 `--dur-4` 唔應該連呢一幕嘅節奏都跟住變。
-                */}
+               * 墨滲寫名：1600ms。同入齋「觀微」兩個字一樣嘅時間。
+               *
+               * ⚠ 時間由 `lib/timing.ts` 出，唔係由 `--dur-4` 出 ——
+               * 嗰個 token 係畀成站用嘅，而呢一幕嘅時序係一份規格：
+               * 改咗 `--dur-4` 唔應該連呢一幕嘅節奏都跟住變。
+               */}
               <p
                 className="moshen text-h2 font-semibold tracking-[0.18em]"
                 style={{ animationDuration: `${INK_MS}ms` }}
@@ -107,7 +111,9 @@ export function Naming({
         }
         verso={
           <div className="h-full p-7">
-            <p className="font-sans text-cap tracking-[0.2em] text-ink-3">序 · 你的命盤</p>
+            <p className="font-sans text-cap tracking-[0.2em] text-ink-3">
+              序 · 你的命盤
+            </p>
             <p className="mt-5 text-sm leading-[1.95] text-ink-2">
               這是你出生那一刻的天象位置。十二宮由此排出，往後每一章都從這裡長出來。
             </p>
@@ -151,25 +157,27 @@ export function Naming({
       />
 
       {/*
-        * ⚠ 呢一行唔係一粒掣。
-        *
-        * 佢係一句細字，講畀你聽而家撳得。真正撳嘅係本書 ——
-        * 所以佢冇邊框、冇底色、唔會 hover 變樣。
-        * 而且成幕未行完之前，佢根本唔喺度。
-        */}
+       * ⚠ 呢一行唔係一粒掣。
+       *
+       * 佢係一句細字，講畀你聽而家撳得。真正撳嘅係本書 ——
+       * 所以佢冇邊框、冇底色、唔會 hover 變樣。
+       * 而且成幕未行完之前，佢根本唔喺度。
+       */}
       {ready && !open ? (
-        <p className="mt-10 font-sans text-cap tracking-[0.16em] text-ink-3">揭開</p>
+        <p className="mt-10 font-sans text-cap tracking-[0.16em] text-ink-3">
+          揭開
+        </p>
       ) : null}
 
       {/*
-        * ⚠ 呢一行係六幕同命書之間嗰道門，而佢一直都冇（G5 之前）。
-        *
-        * 之前題名完就停喺張盤度：本書冇寫落 DB，所以連一個 id 都冇，
-        * 連唔到去 `/book/[id]`。而家有咗。
-        *
-        * `bookId` 係 null 嗰陣呢一行唔出 —— 唔係出一條死連結，
-        * 亦都唔係出一句「已收入書齋」。冇寫到就係冇寫到。
-        */}
+       * ⚠ 呢一行係六幕同命書之間嗰道門，而佢一直都冇（G5 之前）。
+       *
+       * 之前題名完就停喺張盤度：本書冇寫落 DB，所以連一個 id 都冇，
+       * 連唔到去 `/book/[id]`。而家有咗。
+       *
+       * `bookId` 係 null 嗰陣呢一行唔出 —— 唔係出一條死連結，
+       * 亦都唔係出一句「已收入書齋」。冇寫到就係冇寫到。
+       */}
       {open && bookId ? (
         <p className="mt-10">
           <Link
@@ -195,7 +203,9 @@ function ChartPane({ chart, name }: { chart: ZChart; name: string }) {
       onSelect={setLit}
       maxWidth={400}
       center={
-        <p className="text-center font-sans text-cap tracking-[0.16em] text-ink-3">{name}</p>
+        <p className="text-center font-sans text-cap tracking-[0.16em] text-ink-3">
+          {name}
+        </p>
       }
     />
   );

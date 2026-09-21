@@ -79,7 +79,65 @@ try {
    * 行緊嗰陣一個互動元素都唔應該有：冇掣、冇連結、冇輸入欄。
    * 「用戶淨係睇」係字面意思。
    */
+  /*
+   * ── 零、⚠ 本書要企喺版心中間 ──────────────────────
+   *
+   * 影咗相先見到：呢一幕本來冇版位可言 —— `.mu-ti` 一條 CSS 都冇，
+   * 本書跟住 `<main>` 嘅左上角企，右邊同下面加埋差唔多六成係空。
+   *
+   * 「留白係內容」（視覺 §5）同「冇擺過位」唔同：
+   * 前者係度出嚟嘅，後者係跌咗落嗰度。
+   *
+   * ⚠ 量嘅係**個盒嘅中心**，唔係書脊。
+   * 第一版量書脊（合埋嗰陣書脊企喺盒最左，所以要將個盒推右），
+   * 三個數字啱晒，但出嚟嘅畫面係一本書貼住正中向右長、左邊成半版吉。
+   * 量啱咗一樣唔應該量嘅嘢。
+   */
+  const bookCentre = async () =>
+    page.evaluate(() => {
+      const el = document.querySelector('.shu');
+      const stage = document.querySelector('.mu-wei');
+      if (!el || !stage) return null;
+      const b = el.getBoundingClientRect();
+      const s = stage.getBoundingClientRect();
+      return Math.round(b.left + b.width / 2 - (s.left + s.width / 2));
+    });
+
+  /*
+   * ⚠ 先確認 CSS 真係落咗。
+   *
+   * 呢條 check 第一次綠嗰次，個頁其實**一條 CSS 都冇落**（server 手多多
+   * 重啟咗，serve 緊舊 build，個 stylesheet 404）。冇 CSS 之下
+   * `.shu` 同 `.mu-wei` 都係 block、都係成版闊，兩個中心自然重疊 ——
+   * 「偏咗 0px」，綠。
+   *
+   * **一條喺乜都冇嘅情況下都會綠嘅 check，量緊嘅係零。**
+   * 所以量位之前，先量佢有冇排過版。
+   */
+  const laid = await page.evaluate(() => {
+    const stage = document.querySelector('.mu-wei');
+    const book = document.querySelector('.shu');
+    if (!stage || !book) return null;
+    return {
+      display: getComputedStyle(stage).display,
+      bookW: Math.round(book.getBoundingClientRect().width),
+      stageW: Math.round(stage.getBoundingClientRect().width),
+    };
+  });
+  check('版位真係排過', laid?.display === 'flex', laid?.display ?? '搵唔到 .mu-wei');
+  check(
+    '本書唔係成版闊（即係 CSS 落咗）',
+    laid !== null && laid.bookW > 0 && laid.bookW < laid.stageW - 40,
+    `本書 ${laid?.bookW}px／版心 ${laid?.stageW}px`,
+  );
+
+  const offLuokuan = await bookCentre();
+  check('落款嗰陣本書企中間', offLuokuan !== null && Math.abs(offLuokuan) <= 2, `偏咗 ${offLuokuan}px`);
+
   await toNaming(page);
+  const offNaming = await bookCentre();
+  check('題名嗰陣本書企中間', offNaming !== null && Math.abs(offNaming) <= 2, `偏咗 ${offNaming}px`);
+
   const during = await page.evaluate(() => {
     /*
      * ⚠ 量成版，唔係量本書嗰忽。
@@ -184,7 +242,9 @@ try {
     /* 揭開之後兩件工具要返嚟 —— 嗰陣已經係喺度讀緊。 */
     chrome: document.querySelectorAll('header a, header button').length,
   }));
+  const offZhan = after.kai ? await bookCentre() : null;
   if (after.kai) {
+    check('展卷嗰陣本書企中間', offZhan !== null && Math.abs(offZhan) <= 2, `偏咗 ${offZhan}px`);
     check('撳咗就揭開', opened.shape === 'opened', opened.shape ?? '冇書');
     check('入面係盤', opened.gong === 12, `${opened.gong} 宮`);
     check('揭開咗之後冇咗熱區', !opened.kai, '熱區仲喺度');
@@ -263,5 +323,5 @@ if (fail.length) {
   process.exit(1);
 }
 console.log(
-  '✓ 題名：1600 → 停 1.2 秒 → 落印、行緊冇任何掣、唔自動翻開、撳本書先揭開、寫唔入就唔扮有',
+  '✓ 題名：1600 → 停 1.2 秒 → 落印、行緊冇任何掣、唔自動翻開、撳本書先揭開、寫唔入就唔扮有、三個狀態都企喺版心中間',
 );

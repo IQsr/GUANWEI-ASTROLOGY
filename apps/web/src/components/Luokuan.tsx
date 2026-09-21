@@ -1,10 +1,10 @@
-'use client';
+"use client";
 
-import { useEffect, useRef, useState } from 'react';
-import { Book } from '@/components/Book';
-import { Naming } from '@/components/Naming';
-import { FlowChrome } from '@/components/FlowChrome';
-import { castChart, type CastOutcome } from '@/app/[locale]/cast/actions';
+import { useEffect, useRef, useState } from "react";
+import { Book } from "@/components/Book";
+import { Naming } from "@/components/Naming";
+import { FlowChrome } from "@/components/FlowChrome";
+import { castChart, type CastOutcome } from "@/app/[locale]/cast/actions";
 import {
   EMPTY_DRAFT,
   PLACES,
@@ -17,7 +17,7 @@ import {
   toCastRequest,
   type Draft,
   type Step,
-} from '@/lib/luokuan';
+} from "@/lib/luokuan";
 
 /**
  * 開卷落款（工單 E4 · 架構 §3 · 視覺系統 §9）
@@ -39,19 +39,19 @@ import {
  */
 
 const LABEL: Record<Step, string> = {
-  name: '姓　名',
-  date: '出生日期',
-  time: '時　辰',
-  place: '出生地',
-  sex: '性　別',
+  name: "姓　名",
+  date: "出生日期",
+  time: "時　辰",
+  place: "出生地",
+  sex: "性　別",
 };
 
 const ASK: Record<Step, string> = {
-  name: '這本書要寫上誰的名字？',
-  date: '國曆的出生年月日。農曆由我們自己轉。',
-  time: '出生的時間。',
-  place: '在哪裡出生？',
-  sex: '大限的順逆由陰陽男女決定，所以這一項排盤要用。',
+  name: "這本書要寫上誰的名字？",
+  date: "國曆的出生年月日。農曆由我們自己轉。",
+  time: "出生的時間。",
+  place: "在哪裡出生？",
+  sex: "大限的順逆由陰陽男女決定，所以這一項排盤要用。",
 };
 
 /**
@@ -66,11 +66,16 @@ const ASK: Record<Step, string> = {
  * 一張寫住未來計劃嘅目次，就係扮有（架構 §8）。
  * 所以而家列真嘢：序、命宮，然後其餘逐宮章。
  */
-const MULU = ['序 · 你的命盤', '一 · 命宮', '身宮與五行局', '⋯ 以下逐宮而讀，共十一章'];
+const MULU = [
+  "序 · 你的命盤",
+  "一 · 命宮",
+  "身宮與五行局",
+  "⋯ 以下逐宮而讀，共十一章",
+];
 
 export function Luokuan() {
   const [draft, setDraft] = useState<Draft>(EMPTY_DRAFT);
-  const [step, setStep] = useState<Step>('name');
+  const [step, setStep] = useState<Step>("name");
   const [outcome, setOutcome] = useState<CastOutcome | null>(null);
   const [casting, setCasting] = useState(false);
   const started = useRef(false);
@@ -94,15 +99,15 @@ export function Luokuan() {
   useEffect(() => {
     if (started.current) return;
     started.current = true;
-    const query = new URLSearchParams(window.location.search).get('step');
+    const query = new URLSearchParams(window.location.search).get("step");
     setStep(stepFromQuery(query, EMPTY_DRAFT));
   }, []);
 
   /* `?step=` 只係為咗 back 掣行為，唔係一個可以入嘅網址（架構 §3）。 */
   useEffect(() => {
     const url = new URL(window.location.href);
-    url.searchParams.set('step', step);
-    window.history.replaceState(null, '', url);
+    url.searchParams.set("step", step);
+    window.history.replaceState(null, "", url);
   }, [step]);
 
   const answered = answeredBefore(step, draft);
@@ -120,7 +125,13 @@ export function Luokuan() {
     if (!request) return;
     token.current ??= crypto.randomUUID();
     setCasting(true);
-    setOutcome(await castChart({ ...request, name: draft.name.trim(), token: token.current }));
+    setOutcome(
+      await castChart({
+        ...request,
+        name: draft.name.trim(),
+        token: token.current,
+      }),
+    );
     setCasting(false);
   }
 
@@ -136,8 +147,12 @@ export function Luokuan() {
    * 十居其九係打錯咗一個數字。
    */
   if (outcome?.ok === true) {
-    return outcome.kind === 'full' ? (
-      <Naming name={draft.name.trim()} chart={outcome.chart} bookId={outcome.bookId} />
+    return outcome.kind === "full" ? (
+      <Naming
+        name={draft.name.trim()}
+        chart={outcome.chart}
+        bookId={outcome.bookId}
+      />
     ) : (
       <FlowChrome>
         <DaiShiChen name={draft.name.trim()} />
@@ -147,65 +162,81 @@ export function Luokuan() {
 
   return (
     <FlowChrome>
-    <Book
-      state="spread"
-      label="落款"
-      cover={null}
-      verso={
-        <div className="h-full p-7">
-          <p className="font-sans text-cap tracking-[0.2em] text-ink-3">目　次</p>
-          <ul className="mt-5 flex flex-col gap-3">
-            {MULU.map((m) => (
-              <li key={m} className="border-b jielan pb-2 text-sm tracking-[0.06em] text-ink-2">
-                {m}
-              </li>
-            ))}
-          </ul>
-          <p className="mt-8 font-sans text-cap leading-[1.9] tracking-[0.1em] text-ink-3">
-            這幾章在寫生辰之前就已經定好。
-            <br />
-            寫完，它們才會有內容。
-          </p>
-        </div>
-      }
-      recto={
-        <div className="flex h-full flex-col p-7">
-          {/* 已答嘅留喺上面，淡到 20% */}
-          <div className="flex flex-col gap-2">
-            {answered.map((s) => (
-              <p key={s} className="da text-sm leading-[1.9]">
-                <span className="font-sans text-cap tracking-[0.16em]">{LABEL[s]}</span>
-                <span className="ms-3">{summaryOf(s, draft)}</span>
+      {/* ⚠ 同題名幕共用一個版位 —— 書脊唔可以由跨頁跳去合埋（見 globals.css）。 */}
+      <div className="mu-wei">
+        <Book
+          state="spread"
+          label="落款"
+          cover={null}
+          verso={
+            <div className="h-full p-7">
+              <p className="font-sans text-cap tracking-[0.2em] text-ink-3">
+                目　次
               </p>
-            ))}
-          </div>
+              <ul className="mt-5 flex flex-col gap-3">
+                {MULU.map((m) => (
+                  <li
+                    key={m}
+                    className="border-b jielan pb-2 text-sm tracking-[0.06em] text-ink-2"
+                  >
+                    {m}
+                  </li>
+                ))}
+              </ul>
+              <p className="mt-8 font-sans text-cap leading-[1.9] tracking-[0.1em] text-ink-3">
+                這幾章在寫生辰之前就已經定好。
+                <br />
+                寫完，它們才會有內容。
+              </p>
+            </div>
+          }
+          recto={
+            <div className="flex h-full flex-col p-7">
+              {/* 已答嘅留喺上面，淡到 20% */}
+              <div className="flex flex-col gap-2">
+                {answered.map((s) => (
+                  <p key={s} className="da text-sm leading-[1.9]">
+                    <span className="font-sans text-cap tracking-[0.16em]">
+                      {LABEL[s]}
+                    </span>
+                    <span className="ms-3">{summaryOf(s, draft)}</span>
+                  </p>
+                ))}
+              </div>
 
-          <div className="mt-6 flex-1">
-            <p className="font-sans text-cap tracking-[0.16em] text-ink-3">{LABEL[step]}</p>
-            <p className="mt-2 text-sm leading-[1.9] text-ink-2">{ASK[step]}</p>
-            <Field step={step} draft={draft} setDraft={setDraft} />
-          </div>
+              <div className="mt-6 flex-1">
+                <p className="font-sans text-cap tracking-[0.16em] text-ink-3">
+                  {LABEL[step]}
+                </p>
+                <p className="mt-2 text-sm leading-[1.9] text-ink-2">
+                  {ASK[step]}
+                </p>
+                <Field step={step} draft={draft} setDraft={setDraft} />
+              </div>
 
-          {outcome && !outcome.ok ? (
-            <p className="mb-4 text-sm leading-[1.9] text-cinnabar">{outcome.message}</p>
-          ) : null}
+              {outcome && !outcome.ok ? (
+                <p className="mb-4 text-sm leading-[1.9] text-cinnabar">
+                  {outcome.message}
+                </p>
+              ) : null}
 
-          {/*
-            * ⚠ 呢粒掣**永遠都喺度**，只會轉 disabled 同字。
-            * 條件 render（`{ready ? <button/> : null}`）會令打字期間
-            * 個節點換咗，用戶撳落空。
-            */}
-          <button
-            type="button"
-            className="btn-mo self-start"
-            disabled={!ready || casting}
-            onClick={next}
-          >
-            {casting ? '排　盤　中' : last ? '成　書' : '下　一　步'}
-          </button>
-        </div>
-      }
-    />
+              {/*
+               * ⚠ 呢粒掣**永遠都喺度**，只會轉 disabled 同字。
+               * 條件 render（`{ready ? <button/> : null}`）會令打字期間
+               * 個節點換咗，用戶撳落空。
+               */}
+              <button
+                type="button"
+                className="btn-mo self-start"
+                disabled={!ready || casting}
+                onClick={next}
+              >
+                {casting ? "排　盤　中" : last ? "成　書" : "下　一　步"}
+              </button>
+            </div>
+          }
+        />
+      </div>
     </FlowChrome>
   );
 }
@@ -220,7 +251,9 @@ export function Luokuan() {
 function DaiShiChen({ name }: { name: string }) {
   return (
     <div className="max-w-banxin">
-      <p className="font-sans text-cap tracking-[0.2em] text-ink-3">待　時　辰</p>
+      <p className="font-sans text-cap tracking-[0.2em] text-ink-3">
+        待　時　辰
+      </p>
       <p className="mt-6 text-h2 font-semibold tracking-[0.18em]">{name}</p>
       <p className="mt-6 text-body leading-[1.95] text-ink-2">
         年月日已經排好，命宮還要等時辰。這本書會留在書架上，書脊是虛線的。
@@ -240,7 +273,7 @@ function Field({
   setDraft: (d: Draft) => void;
 }) {
   switch (step) {
-    case 'name':
+    case "name":
       return (
         <input
           className="ruled mt-6"
@@ -252,7 +285,7 @@ function Field({
         />
       );
 
-    case 'date':
+    case "date":
       return (
         <input
           className="ruled mt-6"
@@ -265,7 +298,7 @@ function Field({
         />
       );
 
-    case 'time':
+    case "time":
       return (
         <>
           <input
@@ -274,7 +307,9 @@ function Field({
             value={draft.time}
             disabled={draft.noHour}
             aria-label="出生時間"
-            onChange={(e) => setDraft({ ...draft, time: e.target.value, noHour: false })}
+            onChange={(e) =>
+              setDraft({ ...draft, time: e.target.value, noHour: false })
+            }
           />
           {/* R-007：呢句要出現喺畫面上，唔係出現喺一份說明文件度。 */}
           <p className="mt-4 font-sans text-cap leading-[1.9] tracking-[0.08em] text-ink-3">
@@ -292,27 +327,30 @@ function Field({
           </label>
 
           {/*
-            * 「唔知時辰」嘅安撫文案（工單 AC）。
-            * 架構 §8：冇時辰定唔到命宮 = 冇書，**但唔好扮有**。
-            */}
+           * 「唔知時辰」嘅安撫文案（工單 AC）。
+           * 架構 §8：冇時辰定唔到命宮 = 冇書，**但唔好扮有**。
+           */}
           {draft.noHour ? (
             <p className="mt-4 text-sm leading-[1.9] text-ink-2">
-              沒有時辰就定不到命宮，所以這本書會先留在書架上，書脊是虛線的
-              —— 此書待時辰而成。出世紙上通常有；問家人也常常問得回來。
+              沒有時辰就定不到命宮，所以這本書會先留在書架上，書脊是虛線的 ——
+              此書待時辰而成。出世紙上通常有；問家人也常常問得回來。
               補回時辰，書就成了。
             </p>
           ) : null}
         </>
       );
 
-    case 'place':
+    case "place":
       return (
         <select
           className="ruled mt-6"
-          value={draft.placeIndex ?? ''}
+          value={draft.placeIndex ?? ""}
           aria-label="出生地"
           onChange={(e) =>
-            setDraft({ ...draft, placeIndex: e.target.value === '' ? null : Number(e.target.value) })
+            setDraft({
+              ...draft,
+              placeIndex: e.target.value === "" ? null : Number(e.target.value),
+            })
           }
         >
           <option value="">請揀一個</option>
@@ -324,10 +362,10 @@ function Field({
         </select>
       );
 
-    case 'sex':
+    case "sex":
       return (
         <div className="mt-6 flex gap-3">
-          {(['male', 'female'] as const).map((sex) => (
+          {(["male", "female"] as const).map((sex) => (
             <button
               key={sex}
               type="button"
@@ -335,16 +373,15 @@ function Field({
               aria-pressed={draft.sex === sex}
               style={
                 draft.sex === sex
-                  ? { borderColor: 'var(--cinnabar)', color: 'var(--cinnabar)' }
+                  ? { borderColor: "var(--cinnabar)", color: "var(--cinnabar)" }
                   : undefined
               }
               onClick={() => setDraft({ ...draft, sex })}
             >
-              {sex === 'male' ? '男' : '女'}
+              {sex === "male" ? "男" : "女"}
             </button>
           ))}
         </div>
       );
   }
 }
-
