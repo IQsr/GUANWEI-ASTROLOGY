@@ -199,6 +199,8 @@ try {
     '/shelf',
     '/book/00000000-0000-0000-0000-000000000000',
     '/book/00000000-0000-0000-0000-000000000000/ming',
+    /* 裁書（工單 G3）—— 私密層，而且係全站唯一有價錢嗰版。 */
+    '/pay/00000000-0000-0000-0000-000000000000',
     ...TOKEN_PAGES,
   ]) {
     const res = await fetch(`${BASE}${path}`);
@@ -222,6 +224,34 @@ try {
       check(`${path} 唔賣嘢`, !visibleText(html).includes(word), `出現咗「${word}」`);
     }
   }
+
+  /*
+   * ── 六之三、價錢全站只准喺一個地方（工單 G3） ────────
+   *
+   * 上面兩條掃嘅係「題名之前」嗰兩版。但架構 §6 嗰條硬規則真正嘅
+   * 意思係更加窄嘅：**價錢只應該喺 `/pay` 出現，一版都唔多。**
+   *
+   * 一個價錢喺書齋、喺命書、喺藏經閣頁尾出現，每一個都會有佢自己
+   * 嘅理由（「畀人知幾錢啊嘛」），而加埋就係一個成日喺度叫你畀錢嘅網。
+   * 所以唔係逐版加禁令，係全站掃，`/pay` 係唯一例外。
+   *
+   * ⚠ 呢條同 `test/pay.test.ts` 嗰條唔重複：嗰條掃 source（捉住
+   * 一個未接線嘅常數），呢條掃**畫出嚟嗰版**（捉住由 DB、由
+   * messages、由 Stripe 帶返嚟嘅字）。
+   */
+  const PRICEY = ['升級', '免費試', '優惠', '限時', '訂閱', 'US$', '£'];
+  let scanned = 0;
+  for (const path of TOKEN_PAGES.concat(['/', '/lexicon', '/cast', '/claim', '/shelf'])) {
+    const res = await fetch(`${BASE}${path}`);
+    if (!res.headers.get('content-type')?.includes('text/html')) continue;
+    const text = visibleText(await res.text());
+    scanned++;
+    for (const word of PRICEY) {
+      check(`${path} 冇價錢`, !text.includes(word), `出現咗「${word}」`);
+    }
+  }
+  /* 先證明佢掃到嘢 —— 一個掃咗零版嘅檢查會靜靜雞全綠。 */
+  check('價錢掃描', scanned >= 10, `只掃到 ${scanned} 版`);
 } finally {
   stopServer(server);
 }

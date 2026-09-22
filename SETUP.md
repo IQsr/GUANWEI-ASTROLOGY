@@ -18,7 +18,7 @@ pnpm dev          # → http://localhost:3000
 其餘指令：
 
 ```bash
-pnpm test         # 910 條
+pnpm test         # 949 條
 pnpm typecheck
 pnpm lint
 pnpm build        # next build —— 淨係 build，冇掃描

@@ -61,6 +61,15 @@ const ALLOWED_HOSTS = ['fonts.googleapis.com', 'fonts.gstatic.com'];
 const ROUTES = [
   '/',
   '/lexicon',
+  /*
+   * ⚠ 裁書嗰版要掃（工單 G3）。
+   *
+   * 收卡嘅版最容易多一個第三方：Stripe.js、風控 script、3DS iframe。
+   * 我哋揀咗 hosted checkout 就係為咗唔使載佢哋 —— 而「揀咗」
+   * 同「真係冇」之間差一個量度。冇 session 嘅話呢一版會出
+   * 「一時裁不開」／「這個瀏覽器沒有書」，照樣量得到有冇第三方。
+   */
+  '/pay/00000000-0000-0000-0000-000000000000',
   '/lexicon/star/%E7%B4%AB%E5%BE%AE',
   '/lexicon/palace/%E5%91%BD%E5%AE%AE',
   '/cast',

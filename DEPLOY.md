@@ -74,13 +74,40 @@ NEXT_PUBLIC_SITE_URL           = https://<你個 domain>
 
 ---
 
+## 一之二、Stripe（工單 G3）
+
+⚠ **價錢而家係一個明顯假嘅數（US$1.00），而且 `PRICE.placeholder` 標住佢係假。**
+真價錢未定 —— 先行 test mode 通條路。
+
+1. `dashboard.stripe.com` → 右上角轆去 **Test mode**
+2. Developers → API keys → 抄 **Secret key**（`sk_test_…`）做 `STRIPE_SECRET_KEY`
+3. Developers → Webhooks → Add endpoint
+   - URL：`https://<你個 domain>/api/stripe/webhook`
+   - 事件：**只揀 `checkout.session.completed`**
+   - 建立之後抄 **Signing secret**（`whsec_…`）做 `STRIPE_WEBHOOK_SECRET`
+
+本機試嘅話唔使開 endpoint，用 CLI：
+
+```bash
+stripe listen --forward-to localhost:3000/api/stripe/webhook
+```
+
+佢會印一條 `whsec_…` 出嚟 —— 嗰條先係本機用嗰條，同 dashboard 嗰條唔同。
+
+⚠ **兩條 Stripe key 都唔好貼落對話、issue 或者截圖度**，同 service role key 一樣。
+報錯就貼錯誤訊息本身。
+
+⚠ **Webhook 係唯一發票嘅路。** 個人畀完錢之後返唔返到我哋版頁，我哋控制唔到
+（熄 tab、斷線、撳返上一頁）。如果 endpoint 未開，佢畀咗錢但攞唔到書 ——
+而 Stripe dashboard 嗰邊會見到一條一直紅嘅紀錄。
+
 ## 二、Vercel
 
 1. `vercel.com` → Add New Project → Import 你個 GitHub repo
 2. **Root Directory** 揀 `apps/web`（唔係 repo 根目錄）
 3. Framework 佢會自己認到 Next.js
 4. Build Command 留返預設（即係 `pnpm build`）
-5. Environment Variables 加上面**三條**，三個環境（Production / Preview / Development）都加
+5. Environment Variables 加上面**五條**（三條 Supabase／站點 ＋ 兩條 Stripe），三個環境（Production / Preview / Development）都加
 6. Deploy
 
 ⚠ **Build Command 一定要係 `pnpm build`，唔係 `pnpm build && pnpm verify`。**

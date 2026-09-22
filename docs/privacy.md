@@ -153,6 +153,28 @@ PECR 之下唔使 consent，所以**「唔要 cookie banner」呢個立場仲成
 瀏覽器由頭到尾冇直接同 Supabase 講過嘢，生辰行嘅路係
 `瀏覽器 → 我哋部 server（server action）→ Supabase`。
 
+### Stripe：係 processor，但**唔喺上面張表**（工單 G3）
+
+Stripe 收到付款資料，所以佢一定要喺呢份文件出現。
+但佢唔喺「第三方 host」嗰張表，因為**佢唔喺我哋版頁度載任何嘢**：
+
+我哋用 hosted Checkout —— 個人係由我哋部 server 被**轉去**
+`checkout.stripe.com`，而唔係一入 `/pay` 就有一段 Stripe.js 喺度睇住佢。
+`check-privacy.mjs` 而家連 `/pay` 一齊掃，就係為咗令「揀咗唔載」
+同「真係冇載」之間唔差一個量度。
+
+| | |
+|---|---|
+| **Stripe 收到** | 卡資料（我哋永遠見唔到）· email（佢哋自己問嘅）· IP · 金額 · 兩個 metadata 字串（`book_id`、`reader_id`） |
+| **我哋收到** | 一個 session id、`payment_status`、同埋我哋自己塞落去嗰兩個 id。**冇卡號、冇最後四位、冇卡種** |
+| **角色** | Stripe 係獨立 controller（佢要守自己嗰套反洗錢同保留規定），同時係我哋嘅 processor |
+| **⚠ 跨境** | Stripe 會將資料送去佢哋自己嘅基建，包括英國以外。上線前要喺 `/privacy` 寫明 |
+
+⚠ **`book_id` 同 `reader_id` 係假名，唔係匿名。** 送兩個 UUID 去 Stripe，
+即係 Stripe 嗰邊多咗一條「呢個付款人對應我哋系統入面呢個 id」嘅線。
+呢個係必要嘅（冇佢 webhook 唔知發邊本書），但要講出嚟 ——
+而且正正係點解 analytics 嗰邊連呢兩個 id 都唔准入 event。
+
 ### ⚠ Google Fonts 係一個要講出嚟嘅取捨
 
 冇 cookie，但**用戶部機會將 IP 送去 Google**，而呢件事喺歐盟／英國
@@ -187,7 +209,13 @@ PECR 之下唔使 consent，所以**「唔要 cookie banner」呢個立場仲成
 呢個分別要喺 `/privacy` 度寫明，亦要喺 `/account` 嗰粒刪除掣旁邊寫明。
 一句「我哋會刪除你所有資料」而實際留咗一行，就係一句大話。
 
-**⚠ 而家一分錢都未收過，所以呢一段係 G3 落地之前要 settle 嘅嘢，唔係而家嘅現況描述。**
+**⚠ 更新（2026-09-22，工單 G3）：收錢嘅路而家寫咗，但一分錢都未收過（test mode）。**
+
+即係話上面呢段由「將來要諗」變成「收第一蚊之前一定要有答案」：
+
+- 會計法定保留期實際係幾年 —— **要問會計**，唔可以估
+- `/account` 嗰粒刪除掣旁邊要寫明邊樣真刪、邊樣留
+- 退款之後張票要點 —— 而家 `charge.refunded` **完全唔處理**（見 `docs/pay.md` 第七節）
 
 ---
 
@@ -201,7 +229,9 @@ PECR 之下唔使 consent，所以**「唔要 cookie banner」呢個立場仲成
 | 一個真 provider，同埋接線之後再量一次 | 未開 |
 | Google Fonts 自 host | 未開（`fonts.ts` 有路線） |
 | `NEXT_LOCALE` 關唔關 | H3 |
-| 付款紀錄保留期嘅實際年期（要問會計） | G3 前 |
+| 付款紀錄保留期嘅實際年期（要問會計） | ⚠ 收第一蚊之前 |
+| 退款之後張票要點（`charge.refunded` 而家唔處理） | 見 `docs/pay.md` |
+| 跨境賣數碼商品嘅 VAT／GST | 未掂過，要問人 |
 | **`NEXT_PUBLIC_SITE_URL` 冇入 `.env.example` 同 `DEPLOY.md`** | 見下 |
 
 ### ⚠ 順手量到一個唔關私隱但會咬人嘅嘢

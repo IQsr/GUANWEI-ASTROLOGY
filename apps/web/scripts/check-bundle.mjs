@@ -44,7 +44,26 @@ if (files.length === 0) {
 }
 
 /* ── 一、秘密 ──────────────────────────────────────────── */
-const SECRETS = ['SUPABASE_SERVICE_ROLE_KEY', 'sb_secret_', 'service_role'];
+/*
+ * ⚠ 三組 key，三個唔同嘅災難（工單 G3 加咗 Stripe 嗰兩組）：
+ *
+ *   service role      bypass 晒 RLS —— 所有人嘅生辰
+ *   sk_ / STRIPE_…    收錢同退錢都做得到
+ *   whsec_            冇咗佢，任何人都可以扮 Stripe 送一個「畀咗錢」入嚟
+ *
+ * 第三組先係最易睇漏嗰個：佢唔係一條「攞到錢」嘅 key，
+ * 佢係一條「令我哋信一個假事件」嘅 key —— 而假事件寫出嚟嘅係真票。
+ */
+const SECRETS = [
+  'SUPABASE_SERVICE_ROLE_KEY',
+  'sb_secret_',
+  'service_role',
+  'STRIPE_SECRET_KEY',
+  'STRIPE_WEBHOOK_SECRET',
+  'sk_live_',
+  'sk_test_',
+  'whsec_',
+];
 const leaked = [];
 for (const file of files) {
   const text = readFileSync(file, 'utf8');
@@ -56,7 +75,8 @@ for (const file of files) {
 if (leaked.length) {
   console.error('✗ client bundle 漏咗嘢出嚟：');
   for (const l of leaked) console.error('  ' + l);
-  console.error('  service role key bypass 晒 RLS —— 轆咗嗰條 key，再搵返邊度 import 錯咗。');
+  console.error('  service role key bypass 晒 RLS；Stripe secret 收得到錢；webhook secret 令假事件變真票。');
+  console.error('  轆咗嗰條 key，再搵返邊度 import 錯咗。');
   process.exit(1);
 }
 
