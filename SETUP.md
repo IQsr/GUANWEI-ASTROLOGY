@@ -18,10 +18,11 @@ pnpm dev          # → http://localhost:3000
 其餘指令：
 
 ```bash
-pnpm test         # 817 條
+pnpm test         # 910 條
 pnpm typecheck
 pnpm lint
-pnpm build        # 連九層驗收掃描（會開 headless 瀏覽器量真嘢）
+pnpm build        # next build —— 淨係 build，冇掃描
+pnpm verify       # 十二層驗收掃描（要 build 完先，會開 headless Chromium）
 ```
 
 ## 二、推上 GitHub
@@ -55,8 +56,9 @@ git push -u origin main
 ### 部署
 
 Vercel 揀 `apps/web` 做 root，環境變數照上面。
-`pnpm build` 會行九層驗收掃描，會開 headless 瀏覽器 ——
-如果 CI 環境冇 Chromium，要改成只行 `next build`。
+⚠ **Vercel 個 Build Command 要係 `pnpm build`，唔好加 `pnpm verify`。**
+驗收掃描會起 server、開 headless Chromium，喺 Vercel 上面跑唔到 ——
+兩個指令特登分開就係為咗呢件事（見 `DEPLOY.md`）。
 
 ## 四、睇邊度
 

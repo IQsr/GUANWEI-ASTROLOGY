@@ -55,6 +55,17 @@ NEXT_PUBLIC_SUPABASE_URL       = Project URL
 NEXT_PUBLIC_SUPABASE_ANON_KEY  = anon / public key
 ```
 
+⚠ **仲有第三條，同 Supabase 無關但一定要入**（工單 H1 量到嘅）：
+
+```
+NEXT_PUBLIC_SITE_URL           = https://<你個 domain>
+```
+
+`lib/site.ts` 冇呢條就 fallback 去 `http://localhost:3000`。
+唔入嘅話，全站 canonical、每個 OG URL、`sitemap.xml` 全部 37 條、
+同 `robots.txt` 嗰句 `Sitemap:` —— **一律指住 localhost**。
+藏經閣係全站唯一嘅流量入口，所以呢條漏咗等於個站收唔到錄。
+
 ⚠ 同一版嗰個 **service_role key 唔好掂**。佢 bypass 晒 RLS，
 即係話 `packages/db` 嗰十五條 RLS 測試一次過失效，而個 app 會照樣行得好地地。
 而家冇任何一段 code 用得著佢（要到 G3 Stripe webhook 先要）。
@@ -69,17 +80,17 @@ NEXT_PUBLIC_SUPABASE_ANON_KEY  = anon / public key
 2. **Root Directory** 揀 `apps/web`（唔係 repo 根目錄）
 3. Framework 佢會自己認到 Next.js
 4. Build Command 留返預設（即係 `pnpm build`）
-5. Environment Variables 加上面兩條，三個環境（Production / Preview / Development）都加
+5. Environment Variables 加上面**三條**，三個環境（Production / Preview / Development）都加
 6. Deploy
 
 ⚠ **Build Command 一定要係 `pnpm build`，唔係 `pnpm build && pnpm verify`。**
 
-`verify` 係九層驗收掃描 —— 佢會起一個 server、開一個 headless Chromium，
+`verify` 係十二層驗收掃描 —— 佢會起一個 server、開一個 headless Chromium，
 逐頁量闊度、動畫時序、有幾多個掣、有冇價錢出現過。
 嗰啲喺 CI 同你部機跑，**喺 Vercel 上面跑唔到**（冇 Chromium）。
 兩個指令特登分開就係為咗呢件事。
 
-### 本機想跑埋九層掃描
+### 本機想跑埋十二層掃描
 
 ```bash
 pnpm --filter @guanwei/web exec playwright install chromium   # 一次就夠

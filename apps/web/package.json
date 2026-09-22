@@ -9,7 +9,7 @@
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
-    "verify": "node scripts/check-lexicon-build.mjs && node scripts/check-routes.mjs && node scripts/check-book.mjs && node scripts/check-bundle.mjs && node scripts/check-shelf.mjs && node scripts/check-cast.mjs && node scripts/check-naming.mjs && node scripts/check-juan.mjs && node scripts/check-caijuan.mjs && node scripts/check-zhan.mjs && node scripts/check-copy.mjs"
+    "verify": "node scripts/check-lexicon-build.mjs && node scripts/check-routes.mjs && node scripts/check-book.mjs && node scripts/check-bundle.mjs && node scripts/check-shelf.mjs && node scripts/check-cast.mjs && node scripts/check-naming.mjs && node scripts/check-juan.mjs && node scripts/check-caijuan.mjs && node scripts/check-zhan.mjs && node scripts/check-privacy.mjs && node scripts/check-copy.mjs"
   },
   "dependencies": {
     "@guanwei/content": "workspace:*",
