@@ -25,8 +25,9 @@
  */
 import { startServer, stopServer } from './_server.mjs';
 import { setTimeout as sleep } from 'node:timers/promises';
-import { readFileSync } from 'node:fs';
+import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
 
 const PORT = Number(process.env.CHECK_PRIVACY_PORT ?? 3994);
 const BASE = `http://localhost:${PORT}`;
@@ -161,6 +162,61 @@ try {
   for (const host of hosts) {
     if (host.startsWith('localhost')) continue;
     check('第三方', ALLOWED_HOSTS.includes(host), `冇宣告過嘅第三方「${host}」`);
+  }
+
+  /*
+   * ── 二之二、撈用戶資料嗰啲版，唔准烘成靜態（工單 G4） ──
+   *
+   * ⚠ 呢個窿係做 `/account` 嗰陣量到嘅，而佢一直喺度。
+   *
+   * `/shelf` 冇宣告過 `dynamic`，所以 `pnpm build` 將佢**預先
+   * render 咗**落 `.next/server/app/<locale>/shelf.html`。
+   *
+   * 佢僥倖冇事，因為 build 期冇 Supabase 環境變數：`publicEnv()`
+   * 喺掂到 `cookies()` 之前就掟咗，於是 Next 由頭到尾見唔到一個
+   * dynamic API，安心噉將「一時搵不到」嗰版烘咗做靜態頁。
+   *
+   * 即係話呢個保護係一個**意外**：環境變數一行得通，烘出嚟嗰版
+   * 就係 build 期撈到嘅嘢；而且烘咗之後，所有人、所有 session
+   * 見到同一份 HTML，直到下次部署為止。
+   *
+   * 一版講緊「你嘅書」嘅頁，唔應該有一份大家共用嘅 HTML。
+   *
+   * 邊幾版算？**由檔案系統自己答**：一版 page.tsx 如果 import 咗
+   * 一個 `*.server` adapter，佢就係喺 server 度撈緊用戶資料。
+   * 唔使人手維護一張名單（B16 嗰課）。
+   */
+  const APP = fileURLToPath(new URL('../src/app/[locale]', import.meta.url));
+  const OUT = fileURLToPath(new URL('../.next/server/app', import.meta.url));
+
+  const pages = [];
+  const walk = (dir, route) => {
+    for (const e of readdirSync(dir, { withFileTypes: true })) {
+      if (e.isDirectory()) walk(join(dir, e.name), `${route}/${e.name}`);
+      else if (e.name === 'page.tsx') pages.push({ file: join(dir, e.name), route });
+    }
+  };
+  walk(APP, '');
+
+  const dataPages = pages.filter((p) =>
+    /from '@\/lib\/[\w.]+\.server'/.test(readFileSync(p.file, 'utf8')),
+  );
+
+  /* 先證明佢搵到嘢 —— 一個數到零版嘅檢查會靜靜雞全綠。 */
+  check('動態掃描', pages.length >= 10, `只搵到 ${pages.length} 版 page.tsx`);
+  check('動態掃描', dataPages.length >= 3, `只搵到 ${dataPages.length} 版撈用戶資料`);
+
+  for (const p of dataPages) {
+    /* 動態段（`[bookId]`）本來就唔會烘成一個固定檔名，跳過。 */
+    if (p.route.includes('[')) continue;
+    for (const locale of ['zh-Hant', 'en']) {
+      const baked = join(OUT, locale, `${p.route.slice(1)}.html`);
+      check(
+        `${p.route} 唔准烘成靜態`,
+        !existsSync(baked),
+        `${locale}${p.route}.html 存在 —— 加 export const dynamic = 'force-dynamic'`,
+      );
+    }
   }
 
   /* ── 三、文件要同量度對得返 ──────────────────── */

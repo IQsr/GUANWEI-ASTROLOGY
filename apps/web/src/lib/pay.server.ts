@@ -158,6 +158,16 @@ export async function grantEntitlement(input: {
     p_reader: input.readerId,
     p_product: PRODUCT,
     p_payment_id: input.paymentId,
+    /*
+     * ⚠ 金額同貨幣要寫入會計紀錄（G4 嘅 `payment_records`）。
+     *
+     * 呢度傳嘅係**我哋自己嗰個 PRICE**，唔係 Stripe 回嘅 `amount_total` ——
+     * 而嗰個分別將來會咬人：折扣碼、稅、退款差額都會令兩者唔同。
+     * 真正收咗幾多錢，Stripe 先係權威。
+     * ⚠ 而家兩者一定一樣（冇折扣冇稅），所以夠用；接稅嗰日要改呢度。
+     */
+    p_amount: PRICE.amount,
+    p_currency: PRICE.currency,
   });
   if (error) throw error;
   return Boolean(data);

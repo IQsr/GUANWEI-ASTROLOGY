@@ -40,7 +40,14 @@ async function seedBook(reader: string) {
 }
 
 const grant = (book: string, reader: string, payment: string) =>
-  db.sql('select grant_entitlement($1, $2, $3, $4) as ok', [book, reader, 'book', payment]);
+  db.sql('select grant_entitlement($1, $2, $3, $4, $5, $6) as ok', [
+    book,
+    reader,
+    'book',
+    payment,
+    100,
+    'usd',
+  ]);
 
 describe('⚠ Stripe 重送唔可以出兩張票', () => {
   /**

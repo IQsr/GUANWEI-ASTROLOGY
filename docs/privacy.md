@@ -193,18 +193,44 @@ Stripe 收到付款資料，所以佢一定要喺呢份文件出現。
 
 | 權利 | 而家 | 邊張工單 |
 |---|---|---|
-| 查閱 / 攜帶（匯出） | ❌ 冇 | **G4** |
-| 更正（校訂生辰） | ❌ 冇 | **G4** |
-| 刪除 | ❌ 冇 | **G4** —— 而且要**真刪**，唔係標記（架構 §10） |
+| 查閱 / 攜帶（匯出） | ✅ `/account` 下載一個 JSON | G4 |
+| 更正（校訂生辰） | 🟡 **唔係就地改** —— 照同一個生辰再排一本新書，舊嗰本留低（R-008） | G4 |
+| 刪除 | ✅ **真刪**（`delete`，唔係 `deleted_at`） | G4 |
 | 反對 / 限制 | 冇 analytics、冇 profiling-for-marketing，暫時無從反對 | — |
+
+### ⚠ 匯出唔係一道後門
+
+「畀我全部我嘅資料」最順手嘅實作係 service_role 撈晒佢名下所有行 ——
+而噉樣會連**未買嘅深度章正文**一齊交出去，即係 paywall 有一條叫「匯出」嘅繞路。
+
+`export_reader()` 係 **security invoker**：佢跑喺讀者自己嘅權限之下，
+`body` 呢一欄本來就 select 唔到，要行 `chapter_body()`，而嗰個會查票。
+未買嘅章喺匯出檔入面係 `null`，而且檔案自己寫明點解。
+
+### ⚠ 真刪係兩步，而第二步會仆街
+
+| 步 | 做乜 | 要乜 |
+|---|---|---|
+| 一 | `delete_reader()` —— 生辰、盤、書、章、票跟 cascade 走 | 讀者自己嘅權限 |
+| 二 | `auth.admin.deleteUser()` —— 個 email | **service_role** |
+
+第二步斷咗嘅話，剩低嘅係一個冇任何資料嘅帳戶（得返個 email）。
+`/account` **唔准報「已經全部刪除」** —— 要照直講，因為佢以為自己個 email
+冇咗，實情係仲喺度，而佢下次想用同一個 email 開過會撞到「已經有人用」。
 
 ### ⚠ 「真刪」有一個做唔到嘅角落，而家就要講清楚
 
 `entitlements` 入面嘅付款紀錄受**會計法定保留期**管住，
 所以「刪除全部資料」實際上係：
 
-- `subjects` / `charts` / `books` / `chapters` —— **真刪**
-- `entitlements` —— 留返金額同 `stripe_payment_id`，**但斬斷指返個人嗰條線**
+- `subjects` / `charts` / `books` / `chapters` / `entitlements` —— **真刪，全部跟 cascade 走**
+- `payment_records` —— ✅ **G4 已經分咗家**：一張唔連住任何人嘅表
+  （`stripe_payment_id` · 金額 · 貨幣 · 日期），冇 `reader_id`、冇 `book_id`、冇 FK
+
+⚠ 呢個分家唔係為咗方便，係為咗令「真刪」講得出口：
+`entitlements.reader_id` 係 `on delete cascade`，即係一撳刪除，
+「呢筆錢幾時收過」同張票一齊消失 —— 而做唔到會計嘅系統，
+遲早會被一句「不過我哋要留返紀錄」推翻，然後變成標記刪除。
 
 呢個分別要喺 `/privacy` 度寫明，亦要喺 `/account` 嗰粒刪除掣旁邊寫明。
 一句「我哋會刪除你所有資料」而實際留咗一行，就係一句大話。

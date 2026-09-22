@@ -63,7 +63,19 @@ describe('all.sql 同逐隻 migration 唔准走音', () => {
         "select count(*)::int as n from information_schema.tables where table_schema = 'public'",
       )
     ).rows;
-    expect(rows[0]!.n).toBe(6);
+    /*
+     * ⚠ 呢度本來寫死咗 `6`，而 G4 加一張表就即刻紅。
+     *
+     * 一個要人記得去改嘅數，就係一個會錯嘅數（B16 嗰張路由名單、
+     * H1 嗰個掃描層數，同一件事第三次）。所以而家由 migration
+     * 自己數返出嚟：新開一張表唔使記得，佢自動入數。
+     */
+    const declared = parts
+      .map((f) => readFileSync(join(DIR, f), 'utf8'))
+      .join('\n')
+      .match(/^create table (?!if)/gim)?.length;
+    expect(declared, '數唔到 create table —— 掃描器壞咗').toBeGreaterThanOrEqual(6);
+    expect(rows[0]!.n).toBe(declared);
     await db.close();
   }, 60_000);
 });

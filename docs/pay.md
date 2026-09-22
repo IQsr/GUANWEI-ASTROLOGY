@@ -148,7 +148,7 @@ Stripe 收到乜、保留幾耐，見 `docs/privacy.md` 第四節同第五節。
 | **真價錢** | 未定。定咗改 `PRICE` 兩個值，同埋熄咗 `placeholder` |
 | **退款** | 冇做。`charge.refunded` 事件而家唔處理 —— 即係退咗錢張票仲喺度。要人手喺 Supabase 度刪 |
 | **收據／發票** | 靠 Stripe 自己嗰封。我哋唔寄 |
-| **付款紀錄保留期** | 會計法定年期未問過（見 `docs/privacy.md` 第五節）。⚠ **G4 嘅「真刪」要喺呢個答案出咗之後先做得準** |
+| **付款紀錄保留期** | ⚠ 會計法定年期**仲係未問過**。但 G4 已經將付款紀錄同人分咗家（`payment_records`，冇 reader_id），所以「真刪」而家講得出口 —— 剩低嘅只係「留幾耐」，唔再係「刪唔刪得」 |
 | **`/account` 睇得到買過乜** | G4 |
 | **⚠ 冇跑過** | `lib/pay.server.ts`、webhook route、`/pay` 版面 —— 呢個環境接唔到真 Stripe。判斷全部喺 `lib/pay.ts`（測過），接 API 嗰半零判斷 |
 | **Stripe 稅** | 完全冇掂過。跨境賣數碼商品有 VAT／GST 嘅問題，要問人 |

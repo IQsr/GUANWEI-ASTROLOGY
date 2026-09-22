@@ -37,6 +37,9 @@ export const metadata: Metadata = {
  * 存住「邊幾個術語標咗」，而嗰樣嘢一改內容就即刻過時 ——
  * **一個算得返出嚟嘅嘢，唔好存。**
  */
+/** ⚠ 同目錄嗰版一樣：一版講緊「你本書」嘅頁唔應該有一份大家共用嘅 HTML。 */
+export const dynamic = 'force-dynamic';
+
 export default async function ChapterPage({
   params,
 }: {

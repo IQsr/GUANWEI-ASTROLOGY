@@ -101,6 +101,21 @@ stripe listen --forward-to localhost:3000/api/stripe/webhook
 （熄 tab、斷線、撳返上一頁）。如果 endpoint 未開，佢畀咗錢但攞唔到書 ——
 而 Stripe dashboard 嗰邊會見到一條一直紅嘅紀錄。
 
+## 一之三、跑 migration（工單 G3 · G4）
+
+新 project：SQL Editor 貼 `packages/db/migrations/all.sql`，跑一次。
+
+已經接咗 Supabase 嘅話，**唔好再跑 `all.sql`**（佢冇 `IF NOT EXISTS`，
+會由第一行撞到 already exists）。順住跑未跑過嗰幾隻：
+
+```
+0007_pay.sql       裁書：寫票、查票
+0008_account.sql   設定：匯出、真刪、⚠ 付款紀錄同人分家
+```
+
+⚠ `0008` 入面有一句 `drop function … grant_entitlement(uuid, uuid, text, text)` ——
+因為簽名改咗（多咗金額同貨幣）。**一定要 0007 跑咗先跑 0008。**
+
 ## 二、Vercel
 
 1. `vercel.com` → Add New Project → Import 你個 GitHub repo
