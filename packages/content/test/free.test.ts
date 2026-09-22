@@ -41,7 +41,13 @@ function chartOf(opts: Partial<{ trueSolarTime: boolean }> = {}) {
 const DECL = SCHOOL_PROFILE.declaration;
 
 const XU = () =>
-  xuChapter({ chart: chartOf(), solar: { y: 1996, m: 6, d: 16 }, place: '香港', declaration: DECL });
+  xuChapter({
+    chart: chartOf(),
+    solar: { y: 1996, m: 6, d: 16 },
+    place: '香港',
+    declaration: DECL,
+    contentVersion: RULE_REGISTRY.ref,
+  });
 
 describe('⚠ 序一個象義字都冇', () => {
   /**
@@ -109,6 +115,7 @@ describe('⚠ 版權頁：規矩由盤講', () => {
       solar: { y: 1996, m: 6, d: 16 },
       place: '香港',
       declaration: DECL,
+      contentVersion: RULE_REGISTRY.ref,
     }).segments.find((s) => s.slot === '體系')!.text;
     expect(text).toContain('未作真太陽時校正');
     expect(text).not.toContain('已按出生地經度');
@@ -127,18 +134,46 @@ describe('⚠ 版權頁：規矩由盤講', () => {
     expect(text).not.toContain('本書以三合派為骨');
   });
 
-  it('流派設定同引擎版本都印得出', () => {
+  /**
+   * ⚠ 工單 B16 第二條 AC：版權頁要列**三個**版本號 ——
+   * engine_version、school_profile_id、content_version。
+   *
+   * 呢條之前得兩個。少嗰個係規則庫版本，而佢正正係最容易靜靜雞變嗰個：
+   * 改一句基塊尾句，盤一粒星都冇郁，但本書入面啲字唔同咗。
+   */
+  it('三個版本號都印得出：引擎、流派設定、規則庫', () => {
     const chart = chartOf();
     const text = xuChapter({
       chart,
       solar: { y: 1996, m: 6, d: 16 },
       place: '香港',
       declaration: DECL,
+      contentVersion: RULE_REGISTRY.ref,
     }).segments.find((s) => s.slot === '體系')!.text;
     expect(text).toContain(chart.meta.schoolProfile);
     expect(text).toContain(chart.meta.engineVersion);
+    expect(text).toContain(RULE_REGISTRY.ref);
     /* 規範 §17：版本欄唔准 latest。印出街嗰個一樣。 */
     expect(text).not.toContain('latest');
+  });
+
+  /** 三個號要真係唔同嘅嘢 —— 唔可以印咗同一個號三次就當交足貨。 */
+  it('三個號係三樣嘢', () => {
+    const chart = chartOf();
+    const three = [chart.meta.engineVersion, chart.meta.schoolProfile, RULE_REGISTRY.ref];
+    expect(new Set(three).size).toBe(3);
+  });
+
+  /**
+   * ⚠ R-008：舊書唔自動重算。
+   *
+   * 三個號淨係記低咗設定；「日後改版唔會跟住郁」呢句先至係承諾本身。
+   * 冇咗佢，讀者會當自己讀緊最新版 —— 而佢讀緊嘅係成書嗰日嗰版。
+   */
+  it('版權頁講明呢本書唔會自動跟住改（R-008）', () => {
+    const text = XU().segments.find((s) => s.slot === '體系')!.text;
+    expect(text).toContain('成書當時');
+    expect(text).toContain('不會自動');
   });
 
   it('三個分歧點逐個寫明，唔靜靜咁揀一邊', () => {

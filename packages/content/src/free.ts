@@ -152,6 +152,20 @@ export type XuInput = {
    * 批評緊競品嗰件事。所以佢而家係一個參數，唔係一句文案。
    */
   declaration: string;
+  /**
+   * 規則庫版本（`RULE_REGISTRY.ref`）—— 工單 B16 第二條 AC。
+   *
+   * ⚠ 版權頁要列**三個**版本號，唔係兩個。
+   *
+   * 引擎版本同流派設定講嘅係「張盤點樣排出嚟」；規則庫版本講嘅係
+   * 「啲字點樣寫出嚟」。兩件事會分開變：C8 改一句基塊尾句，
+   * 盤一粒星都冇郁，但本書入面啲字唔同咗。
+   *
+   * R-008 話明舊書唔自動重算 —— 而「唔自動重算」呢個承諾，
+   * 要三個號都寫喺書入面先兌現得到。少咗規則庫版本，
+   * 讀者就分唔到「我本書用緊舊引擎」同「我本書用緊舊文字」。
+   */
+  contentVersion: string;
 };
 
 /**
@@ -255,7 +269,15 @@ export function xuChapter(input: XuInput): { slug: string; title: string; segmen
       ? '出生時間已按出生地經度作真太陽時校正。'
       : '出生時間未作真太陽時校正，按時區時間直接換算。',
     `${BOUNDARY[r.yearBoundary] ?? r.yearBoundary}；${LATE_ZI[r.lateZiHour] ?? r.lateZiHour}；${SIHUA[r.sihuaSet] ?? r.sihuaSet}。`,
-    `排盤引擎 ${chart.meta.engineVersion}。遇到各家說法不一的地方，本書會在該處寫明，不會替你挑一邊。`,
+    `排盤引擎 ${chart.meta.engineVersion}，規則庫 ${input.contentVersion}。遇到各家說法不一的地方，本書會在該處寫明，不會替你挑一邊。`,
+    /*
+     * ⚠ 呢一句係 R-008 本身，唔係一句免責。
+     *
+     * 上面三個號記低咗成書嗰一刻嘅設定。日後引擎、流派表或者規則庫改咗，
+     * 呢本書一個字都唔會跟住郁 —— 而讀者要知呢件事，
+     * 否則佢會以為自己讀緊嘅一定係最新版。
+     */
+    '以上三個版本號，記的是這本書成書當時的設定。日後算法或文字改版，這本書不會自動跟著改。',
   ];
 
   const segments = [

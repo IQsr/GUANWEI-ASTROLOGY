@@ -19,6 +19,31 @@
  */
 import { startServer, stopServer } from './_server.mjs';
 import { setTimeout as sleep } from 'node:timers/promises';
+import { readdirSync } from 'node:fs';
+import { fileURLToPath } from 'node:url';
+
+/**
+ * 全部 `/tokens/*` 樣板，由檔案系統自己數（工單 B16 順手修）
+ *
+ * ⚠ 呢度本來係一張人手維護嘅名單，而佢漏咗三條
+ * （`/tokens/suidu`、`/tokens/weicai`、`/tokens/chongpai`）——
+ * F2、F4、B16 各開一版，冇一版加返入去。
+ *
+ * 即係話「樣板唔准索引」呢條規矩，量緊嘅一直係舊嗰五版。
+ * **一張要人記得去加嘅名單，就係一張會漏嘅名單。**
+ * 而漏嘅代價係一版內部參考頁上得到 Google。
+ *
+ * 所以而家由 `src/app/[locale]/tokens` 自己行出嚟：下次開多一版，
+ * 唔使記得，佢自動入數。
+ */
+const TOKENS_DIR = fileURLToPath(new URL('../src/app/[locale]/tokens', import.meta.url));
+const TOKEN_PAGES = [
+  '/tokens',
+  ...readdirSync(TOKENS_DIR, { withFileTypes: true })
+    .filter((e) => e.isDirectory())
+    .map((e) => `/tokens/${e.name}`)
+    .sort(),
+];
 
 const PORT = Number(process.env.CHECK_PORT ?? 3999);
 const BASE = `http://localhost:${PORT}`;
@@ -158,17 +183,23 @@ try {
   }
 
   /* ── 六、私密層唔准索引 ──────────────────────────── */
+
+  /*
+   * ⚠ 先證明佢數到嘢，再去量佢。
+   *
+   * `readdirSync` 一失手（改咗路徑、搬咗 `[locale]`），`TOKEN_PAGES`
+   * 就淨返 `/tokens` 一條，而下面個迴圈照樣跑完、照樣冇 fail ——
+   * 即係呢個 session 撞咗六次嗰樣嘢：**一個喺乜都冇之上通過嘅檢查**。
+   */
+  check('樣板名單', TOKEN_PAGES.length >= 8, `淨係數到 ${TOKEN_PAGES.length} 版樣板`);
+
   for (const path of [
     '/cast',
     '/claim',
     '/shelf',
     '/book/00000000-0000-0000-0000-000000000000',
     '/book/00000000-0000-0000-0000-000000000000/ming',
-    '/tokens',
-    '/tokens/shu',
-    '/tokens/shelf',
-    '/tokens/mingshu',
-    '/tokens/zhanjuan',
+    ...TOKEN_PAGES,
   ]) {
     const res = await fetch(`${BASE}${path}`);
     check(`${path}`, res.status === 200, `HTTP ${res.status}`);
