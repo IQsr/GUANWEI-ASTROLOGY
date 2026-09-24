@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import { setRequestLocale } from 'next-intl/server';
 import { CORPUS, citationRef, distinctBooks } from '@guanwei/content';
 import { Link } from '@/i18n/navigation';
+import { Juanshou } from '@/components/Juanshou';
 import { LEXICON_LOCALE, allEntryParams, canonicalOf, entryOf, hrefOf, isKind, relatedOf, teaser } from '@/lib/lexicon';
 import { LexiconCta } from '@/components/LexiconCta';
 import { MARK, OG_LEXICON } from '@/lib/site';
@@ -95,87 +96,86 @@ export default async function LexiconEntryPage({
   const related = relatedOf(e);
 
   return (
-    <main className="banxin juan">
-      <Link
-        href="/lexicon"
-        className="font-sans text-cap tracking-[0.24em] text-ink-3 transition-colors duration-[240ms] hover:text-indigo"
-      >
-        藏經閣
-      </Link>
+    <main className="juan tai">
+      <Juanshou back="lexicon" theme />
 
-      <p className="mt-tiantou font-sans text-cap tracking-[0.24em] text-ink-3">
-        {KIND_LABEL[kind]}
-      </p>
-      <h1 className="mt-3 text-h1 tracking-[0.06em]">{e.label}</h1>
-
-      {/* 摘要：註層用嘅同一份資產，寫一次用兩次（內容系統 §4）。 */}
-      <p className="mt-8 text-lead leading-[1.95] text-ink-2">{e.summary}</p>
-
-      <div className="mt-12 border-t border-rule pt-10">
-        {e.full.split('\n').map((para, i) => (
-          <p key={i} className="mb-6 text-body last:mb-0">
-            {para}
-          </p>
-        ))}
-      </div>
-
-      {/* ── 出處 ─────────────────────────────────────────── */}
-      <section className="mt-tiantou">
-        <h2 className="font-sans text-cap tracking-[0.24em] text-ink-3">出處</h2>
-        <ol className="mt-4 border-t border-rule">
-          {e.sources.map((src, i) => (
-            <li key={i} className="border-b border-rule-2 py-4">
-              <p className="font-sans text-sm text-ink-2">{citationRef(src)}</p>
-              {/*
-                引文逐字抄自原書，而且 build 嗰陣由 zod 落去語料庫核過
-                （抄錯一個字就 parse 唔到）。所以佢擺得出嚟畀人對。
-              */}
-              <blockquote className="mt-2 border-s border-rule ps-4 text-body text-ink">
-                「{src.quote}」
-              </blockquote>
-            </li>
-          ))}
-        </ol>
-
-        <p className="mt-4 font-sans text-sm leading-[1.9] text-ink-3">
-          {oneWitness ? (
-            <>
-              <span className="em-zhu">⚠</span>{' '}
-              以上引文全部出自《{books[0]}》的不同篇章 —— 是兩個文本位置，一個證人。
-              這一條目前未經第二本書覆核。
-            </>
-          ) : (
-            <>以上引文分別出自 {books.length} 本書：{books.join('、')}。</>
-          )}
+      <div className="banxin">
+        {/* ⚠ 詞條個名係資料，所以佢同章名一樣：喺頁頭之下，唔喺頁頭入面。 */}
+        <p className="font-sans text-cap tracking-[0.24em] text-ink-3">
+          {KIND_LABEL[kind]}
         </p>
-      </section>
+        <h1 className="mt-3 text-h1 font-semibold tracking-[0.16em]">{e.label}</h1>
 
-      {related.length > 0 && (
-        <section className="mt-16">
-          <h2 className="font-sans text-cap tracking-[0.24em] text-ink-3">相關</h2>
-          <ul className="mt-4 flex flex-wrap gap-x-6 gap-y-2">
-            {related.map((r) => (
-              <li key={r.id}>
-                <Link
-                  href={hrefOf(r)}
-                  className="text-body transition-colors duration-[240ms] hover:text-indigo"
-                >
-                  {r.label}
-                </Link>
+        {/* 摘要：註層用嘅同一份資產，寫一次用兩次（內容系統 §4）。 */}
+        <p className="mt-8 text-lead leading-[1.95] text-ink-2">{e.summary}</p>
+
+        <div className="mt-12 border-t border-rule pt-10">
+          {e.full.split('\n').map((para, i) => (
+            <p key={i} className="mb-6 text-body last:mb-0">
+              {para}
+            </p>
+          ))}
+        </div>
+
+        {/* ── 出處 ─────────────────────────────────────────── */}
+        <section className="mt-tiantou">
+          <h2 className="font-sans text-cap tracking-[0.24em] text-ink-3">出處</h2>
+          <ol className="mt-4 border-t border-rule">
+            {e.sources.map((src, i) => (
+              <li key={i} className="border-b border-rule-2 py-4">
+                <p className="font-sans text-sm text-ink-2">{citationRef(src)}</p>
+                {/*
+                  引文逐字抄自原書，而且 build 嗰陣由 zod 落去語料庫核過
+                  （抄錯一個字就 parse 唔到）。所以佢擺得出嚟畀人對。
+                */}
+                <blockquote className="mt-2 border-s border-rule ps-4 text-body text-ink">
+                  「{src.quote}」
+                </blockquote>
               </li>
             ))}
-          </ul>
-        </section>
-      )}
+          </ol>
 
-      <footer className="mt-tiantou border-t border-rule pt-4">
-        <LexiconCta />
-        <p className="mt-6 font-sans text-cap leading-[2] text-ink-3">
-          語料庫：《{CORPUS.quanshu?.book}》{CORPUS.quanshu?.edition}
-          <br />
-          這一頁不涉及任何人的命盤 —— 沒有生辰、沒有排盤、沒有帳號。
-        </p>
-      </footer>
+          <p className="mt-4 font-sans text-sm leading-[1.9] text-ink-3">
+            {oneWitness ? (
+              <>
+                <span className="em-zhu">⚠</span>{' '}
+                以上引文全部出自《{books[0]}》的不同篇章 —— 是兩個文本位置，一個證人。
+                這一條目前未經第二本書覆核。
+              </>
+            ) : (
+              <>以上引文分別出自 {books.length} 本書：{books.join('、')}。</>
+            )}
+          </p>
+        </section>
+
+        {related.length > 0 && (
+          <section className="mt-16">
+            <h2 className="font-sans text-cap tracking-[0.24em] text-ink-3">相關</h2>
+            <ul className="mt-4 flex flex-wrap gap-x-6 gap-y-2">
+              {related.map((r) => (
+                <li key={r.id}>
+                  <Link
+                    href={hrefOf(r)}
+                    className="text-body transition-colors duration-[240ms] hover:text-indigo"
+                  >
+                    {r.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
+
+        <footer className="mt-tiantou border-t border-rule pt-4">
+          <LexiconCta />
+          <p className="mt-6 font-sans text-cap leading-[2] text-ink-3">
+            語料庫：《{CORPUS.quanshu?.book}》{CORPUS.quanshu?.edition}
+            <br />
+            這一頁不涉及任何人的命盤 —— 沒有生辰、沒有排盤、沒有帳號。
+          </p>
+        </footer>
+    
+      </div>
     </main>
   );
 }

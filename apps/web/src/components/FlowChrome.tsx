@@ -1,6 +1,5 @@
 import type { ReactNode } from 'react';
-import { Link } from '@/i18n/navigation';
-import { ThemeToggle } from '@/components/ThemeToggle';
+import { Juanshou } from '@/components/Juanshou';
 
 /**
  * 流程層頁頂嗰兩件工具：返書齋、日夜讀。
@@ -10,19 +9,14 @@ import { ThemeToggle } from '@/components/ThemeToggle';
  * 一個由 server render 嘅 header 收唔起。
  *
  * 揭開咗之後佢就返嚟：嗰陣已經係喺度讀緊，唔再係嗰一下。
+ *
+ * ⚠ 佢自己唔再畫嗰條橫欄 —— 交返畀 `Juanshou`。
+ * 之前呢度同其餘六版各寫一次，而「各寫一次」就係「唔夠連貫」個源頭。
  */
 export function FlowChrome({ children }: { children: ReactNode }) {
   return (
     <>
-      <header className="mb-10 flex flex-wrap items-baseline justify-between gap-x-10 gap-y-4 border-b jielan pb-5">
-        <Link
-          href="/shelf"
-          className="font-sans text-cap tracking-[0.2em] text-ink-3 transition-colors duration-200 ease-ink hover:text-ink-2"
-        >
-          ← 書齋
-        </Link>
-        <ThemeToggle dayLabel="日讀" nightLabel="夜讀" />
-      </header>
+      <Juanshou back="shelf" theme />
       {children}
     </>
   );

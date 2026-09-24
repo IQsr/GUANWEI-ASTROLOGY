@@ -1,4 +1,5 @@
 import { spawn, execFileSync } from 'node:child_process';
+import { createServer } from 'node:net';
 import { chromium } from 'playwright';
 
 /**
@@ -31,8 +32,39 @@ import { chromium } from 'playwright';
 
 const WIN = process.platform === 'win32';
 
+/**
+ * ⚠ 條 port 有冇人霸咗（工單 UX1 加）
+ *
+ * 呢個窿咬過一次，而且咬得好靜：一個上次跑剩低嘅 `next-server`
+ * 孤兒霸住條 port，新起嗰個 `next start` 收到 EADDRINUSE 就靜靜雞
+ * 死咗（佢喺 stdio: 'ignore' 之下連句嘢都印唔到），而 `waitUp()`
+ * 撳落去見到 200 —— **因為撳緊嗰個係孤兒**。
+ *
+ * 結果：成個掃描量緊一個舊 build。我變異測試改咗書齋個容器、
+ * rebuild 完，掃描照樣全綠 —— 因為佢睇緊嘅係改之前嗰版。
+ *
+ * 呢個係「一個喺乜都冇之上通過嘅檢查」嘅第八次，
+ * 而頭七次都係喺 script 入面；呢次係喺起 server 嗰一層。
+ * 所以擋喺呢度：條 port 有人就即刻死，唔好扮跑過。
+ */
+async function portIsFree(port) {
+  return new Promise((resolve) => {
+    const probe = createServer();
+    probe.once('error', () => resolve(false));
+    probe.once('listening', () => probe.close(() => resolve(true)));
+    probe.listen(port, '127.0.0.1');
+  });
+}
+
 /** 起一個 production server，回一個 handle。 */
-export function startServer(port) {
+export async function startServer(port) {
+  if (!(await portIsFree(port))) {
+    console.error(`✗ port ${port} 已經有人用 —— 多數係上次跑剩低嘅 next-server 孤兒。`);
+    console.error('  佢會令呢次掃描量緊一個舊 build 而照樣全綠。');
+    console.error(`  殺咗佢：pkill -f next-server（或者 lsof -ti:${port} | xargs kill）`);
+    process.exit(1);
+  }
+
   const child = spawn('npx', ['next', 'start', '-p', String(port)], {
     stdio: 'ignore',
     /* POSIX：自成一個 group，收工嗰陣一次過殺埋啲仔。 */

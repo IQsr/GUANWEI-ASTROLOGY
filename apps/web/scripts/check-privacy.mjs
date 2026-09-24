@@ -96,7 +96,7 @@ async function waitUp(tries = 40) {
   return false;
 }
 
-const server = startServer(PORT);
+const server = await startServer(PORT);
 try {
   if (!(await waitUp())) {
     console.error('✗ server 起唔到');

@@ -22,7 +22,7 @@ pnpm test         # 984 條
 pnpm typecheck
 pnpm lint
 pnpm build        # next build —— 淨係 build，冇掃描
-pnpm verify       # 十二層驗收掃描（要 build 完先，會開 headless Chromium）
+pnpm verify       # 十三層驗收掃描（要 build 完先，會開 headless Chromium）
 ```
 
 ## 二、推上 GitHub

@@ -23,7 +23,7 @@ const LINES = 12;
 const LINES_MS = (LINES - 1) * STAGGER_MS + RULE_MS;
 const ZHANJUAN_MS = LINES_MS + 11 * 60 + 240;
 
-const server = startServer(PORT);
+const server = await startServer(PORT);
 
 function check(name, cond, detail) {
   if (!cond) fail.push(`${name}：${detail}`);

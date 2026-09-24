@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { setRequestLocale } from 'next-intl/server';
 import { routing } from '@/i18n/routing';
 import { Link } from '@/i18n/navigation';
+import { Juanshou } from '@/components/Juanshou';
 import { Shelf } from '@/components/Shelf';
 import { shelfView } from '@/lib/shelf';
 import { serverShelf } from '@/lib/shelf.server';
@@ -53,18 +54,8 @@ export default async function ShelfPage({ params }: { params: Promise<{ locale: 
   const view = await shelfView(serverShelf());
 
   return (
-    <main className="mx-auto w-full max-w-page px-6 pb-dijiao pt-10">
-      <header className="mb-10 flex flex-wrap items-baseline gap-x-8 gap-y-3 border-b jielan pb-5">
-        <h1 className="text-h1 font-semibold tracking-[0.16em]">書齋</h1>
-        <nav className="flex gap-6 font-sans text-cap tracking-[0.18em] text-ink-3">
-          <Link href="/lexicon" className="transition-colors duration-200 ease-ink hover:text-ink-2">
-            藏經閣
-          </Link>
-          <Link href="/account" className="transition-colors duration-200 ease-ink hover:text-ink-2">
-            設定
-          </Link>
-        </nav>
-      </header>
+    <main className="juan tai">
+      <Juanshou title="書齋" nav="shelf" theme />
 
       {view.kind === 'unavailable' ? (
         /*
@@ -73,7 +64,7 @@ export default async function ShelfPage({ params }: { params: Promise<{ locale: 
          * 撈唔到你有幾多本書嗰陣，唔應該請你開多一本 ——
          * 所以呢個狀態亦都冇「＋ 新書」。
          */
-        <p className="max-w-banxin text-body leading-[1.95] text-ink-2">
+        <p className="banxin text-body leading-[1.95] text-ink-2">
           一時搵不到你的書架。書沒有不見 —— 請過一會再試一次。
         </p>
       ) : (
@@ -83,7 +74,7 @@ export default async function ShelfPage({ params }: { params: Promise<{ locale: 
             * 唔擋路、撳唔走 —— 佢本來就唔阻住你。
             */}
           {view.prompt ? (
-            <p className="mb-10 max-w-banxin border-y jielan py-4 font-sans text-sm leading-[1.9] text-ink-3">
+            <p className="banxin mb-10 border-y jielan py-4 font-sans text-sm leading-[1.9] text-ink-3">
               這些書只認得這一部瀏覽器。
               <Link
                 href="/claim"
@@ -94,7 +85,9 @@ export default async function ShelfPage({ params }: { params: Promise<{ locale: 
             </p>
           ) : null}
 
-          <Shelf spines={view.spines} />
+          <div className="banxin">
+            <Shelf spines={view.spines} />
+          </div>
         </>
       )}
     </main>

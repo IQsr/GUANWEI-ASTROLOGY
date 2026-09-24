@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { setRequestLocale } from 'next-intl/server';
 import { routing } from '@/i18n/routing';
 import { Link } from '@/i18n/navigation';
+import { Juanshou } from '@/components/Juanshou';
 import { contentsView } from '@/lib/juan-view';
 import { serverJuan } from '@/lib/juan.server';
 
@@ -57,18 +58,17 @@ export default async function BookPage({
   const view = await contentsView(serverJuan(), bookId);
 
   return (
-    <main className="juan banxin">
-      <Link
-        href="/shelf"
-        className="font-sans text-cap tracking-[0.2em] text-ink-3 transition-colors duration-200 ease-ink hover:text-ink-2"
-      >
-        ← 書齋
-      </Link>
+    <main className="juan tai">
+      <Juanshou
+        back="shelf"
+        title={view.kind === 'ok' ? view.title : undefined}
+        nav="book"
+        theme
+      />
 
       {view.kind === 'ok' ? (
-        <>
-          <h1 className="mt-6 text-h1 font-semibold tracking-[0.16em]">{view.title}</h1>
-          <p className="mt-4 font-sans text-cap tracking-[0.2em] text-ink-3">目　次</p>
+        <div className="banxin">
+          <p className="font-sans text-cap tracking-[0.2em] text-ink-3">目　次</p>
           <ul className="mt-6 flex flex-col gap-3">
             {view.chapters.map((c) => (
               <li key={c.slug} className="border-b jielan pb-2">
@@ -85,9 +85,9 @@ export default async function BookPage({
               </li>
             ))}
           </ul>
-        </>
+        </div>
       ) : (
-        <p className="mt-10 max-w-banxin text-body leading-[1.95] text-ink-2">
+        <p className="banxin text-body leading-[1.95] text-ink-2">
           {view.kind === 'missing'
             ? '書齋裡沒有這一本。'
             : '一時找不到這本書。書沒有不見 —— 請過一會再試一次。'}

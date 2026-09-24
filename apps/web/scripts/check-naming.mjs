@@ -22,7 +22,7 @@ const SEAL_MS = 520;
 const SEAL_DELAY_MS = INK_MS + STILL_MS;
 const NAMING_MS = SEAL_DELAY_MS + SEAL_MS;
 
-const server = startServer(PORT);
+const server = await startServer(PORT);
 
 function check(name, cond, detail) {
   if (!cond) fail.push(`${name}：${detail}`);

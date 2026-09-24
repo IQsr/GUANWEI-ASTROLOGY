@@ -16,7 +16,7 @@ const PORT = Number(process.env.CHECK_CAST_PORT ?? 3996);
 const BASE = `http://localhost:${PORT}`;
 const fail = [];
 
-const server = startServer(PORT);
+const server = await startServer(PORT);
 
 function check(name, cond, detail) {
   if (!cond) fail.push(`${name}：${detail}`);

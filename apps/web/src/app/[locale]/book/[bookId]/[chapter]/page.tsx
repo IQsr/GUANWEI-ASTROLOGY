@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { setRequestLocale } from 'next-intl/server';
+import { Juanshou, backToContents } from '@/components/Juanshou';
 import { routing } from '@/i18n/routing';
-import { Link } from '@/i18n/navigation';
 import { Juan } from '@/components/Juan';
 import { Suidu } from '@/components/Suidu';
 import { Caikai } from '@/components/Caikai';
@@ -53,11 +53,9 @@ export default async function ChapterPage({
 
   if (view.kind !== 'ok') {
     return (
-      <main className="juan banxin">
-        <Link href="/shelf" className="font-sans text-cap tracking-[0.2em] text-ink-3">
-          ← 書齋
-        </Link>
-        <p className="mt-10 text-body leading-[1.95] text-ink-2">
+      <main className="juan tai">
+        <Juanshou back="shelf" nav="book" theme />
+        <p className="banxin text-body leading-[1.95] text-ink-2">
           {view.kind === 'missing'
             ? '書齋裡沒有這一本。'
             : '一時找不到這本書。書沒有不見 —— 請過一會再試一次。'}
@@ -106,22 +104,18 @@ export default async function ChapterPage({
   }
 
   return (
-    <main className="juan banxin">
-      <Link
-        href={`/book/${bookId}`}
-        className="font-sans text-cap tracking-[0.2em] text-ink-3 transition-colors duration-200 ease-ink hover:text-ink-2"
-      >
-        ← 目次
-      </Link>
+    <main className="juan tai">
+      <Juanshou back={backToContents(bookId)} nav="book" theme />
 
       {/* 冇畫面。記低讀到邊、幾時讀 —— 書架靠佢排序（E3）。 */}
       {here ? <MarkRead bookId={bookId} slug={here.slug} /> : null}
 
       {!here ? (
-        <p className="mt-10 text-body leading-[1.95] text-ink-2">這本書沒有這一章。</p>
+        <p className="banxin text-body leading-[1.95] text-ink-2">這本書沒有這一章。</p>
       ) : (
         <>
-          <h1 className="mt-6 text-h1 font-semibold tracking-[0.16em]">{here.title}</h1>
+          {/* ⚠ 章名擺喺頁頭之下、正文之上 —— 佢係內容嘅一部分，唔係頁頭。 */}
+          <h1 className="banxin text-h1 font-semibold tracking-[0.16em]">{here.title}</h1>
           <div className="mt-10">
             {body === null ? (
               /*

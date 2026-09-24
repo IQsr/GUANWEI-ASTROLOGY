@@ -3,6 +3,7 @@ import { setRequestLocale } from 'next-intl/server';
 import { ENGINE_VERSION, SCHOOL_PROFILE } from '@guanwei/ziwei';
 import { RULE_REGISTRY } from '@guanwei/content';
 import { Link } from '@/i18n/navigation';
+import { Juanshou } from '@/components/Juanshou';
 import { Chongpai } from '@/components/Chongpai';
 import { DeleteForm, ExportButton } from '@/components/AccountForms';
 import { DELETE_KEEPS, DELETE_REMOVES, RECAST_COPY, recastHref, recastRows } from '@/lib/account';
@@ -53,9 +54,9 @@ export default async function AccountPage({ params }: { params: Promise<{ locale
   } catch (error) {
     console.error('[account] ', error);
     return (
-      <main className="juan banxin">
-        <h1 className="text-h1 font-semibold tracking-[0.16em]">設定</h1>
-        <p className="mt-8 text-body leading-[1.95] text-ink-2">
+      <main className="juan tai">
+        <Juanshou back="shelf" title="設定" nav="account" theme />
+        <p className="banxin text-body leading-[1.95] text-ink-2">
           現在連不上。你的書和資料都沒有事 —— 待會再開這一頁就可以。
         </p>
       </main>
@@ -64,14 +65,11 @@ export default async function AccountPage({ params }: { params: Promise<{ locale
 
   if (!account) {
     return (
-      <main className="juan banxin">
-        <h1 className="text-h1 font-semibold tracking-[0.16em]">設定</h1>
-        <p className="mt-8 text-body leading-[1.95]">
+      <main className="juan tai">
+        <Juanshou back="shelf" title="設定" nav="account" theme />
+        <p className="banxin text-body leading-[1.95]">
           這個瀏覽器沒有書。如果書在另一部裝置上，請在那邊開啟。
         </p>
-        <Link href="/shelf" className="btn-mo mt-10 inline-block">
-          書齋
-        </Link>
       </main>
     );
   }
@@ -79,21 +77,14 @@ export default async function AccountPage({ params }: { params: Promise<{ locale
   const rows = recastRows(books, CURRENT);
 
   return (
-    <main className="mx-auto w-full max-w-page px-6 pb-dijiao pt-10">
-      <Link
-        href="/shelf"
-        className="font-sans text-cap tracking-[0.2em] text-ink-3 transition-colors duration-200 ease-ink hover:text-ink-2"
-      >
-        ← 書齋
-      </Link>
-
-      <h1 className="mt-6 text-h1 font-semibold tracking-[0.16em]">設定</h1>
-      <p className="mt-4 max-w-banxin text-sm leading-[1.9] text-ink-2">
+    <main className="juan tai">
+      <Juanshou back="shelf" title="設定" nav="account" theme />
+      <p className="banxin text-sm leading-[1.9] text-ink-2">
         {account.email ?? '這些書還沒有認領 —— 只有這一部瀏覽器認得它們。'}
       </p>
 
       {/* ── 一、匯出 ───────────────────────────────── */}
-      <section className="mt-tiantou max-w-banxin border-t jielan pt-8">
+      <section className="banxin mt-tiantou border-t jielan pt-8">
         <h2 className="text-h2 font-semibold tracking-[0.16em]">帶走</h2>
         <div className="mt-6 flex flex-col gap-4 text-body leading-[1.95]">
           <p>一個 JSON 檔，裡面是你寫過的每一個生辰、每一張盤、每一本書。</p>
@@ -106,7 +97,7 @@ export default async function AccountPage({ params }: { params: Promise<{ locale
       </section>
 
       {/* ── 二、重排（R-008） ──────────────────────── */}
-      <section className="mt-tiantou max-w-banxin border-t jielan pt-8">
+      <section className="banxin mt-tiantou border-t jielan pt-8">
         <h2 className="text-h2 font-semibold tracking-[0.16em]">新版本</h2>
         <p className="mt-6 text-body leading-[1.95] text-ink-2">
           算法和文字都會改版。你手上這些書不會跟著改 —— 它們記著自己成書當時的設定。
@@ -147,7 +138,7 @@ export default async function AccountPage({ params }: { params: Promise<{ locale
       </section>
 
       {/* ── 三、刪除 ───────────────────────────────── */}
-      <section className="mt-tiantou max-w-banxin border-t jielan pt-8">
+      <section className="banxin mt-tiantou border-t jielan pt-8">
         <h2 className="text-h2 font-semibold tracking-[0.16em]">刪除</h2>
         <p className="mt-6 text-body leading-[1.95]">
           這是真的刪除，不是隱藏。刪了就沒有了，我們這邊也沒有備份可以還原。

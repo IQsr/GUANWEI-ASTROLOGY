@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { setRequestLocale } from 'next-intl/server';
 import { routing } from '@/i18n/routing';
-import { Link } from '@/i18n/navigation';
+import { Juanshou } from '@/components/Juanshou';
 import { ClaimForm } from '@/components/ClaimForm';
 
 export function generateStaticParams() {
@@ -33,17 +33,11 @@ export default async function ClaimPage({ params }: { params: Promise<{ locale: 
   setRequestLocale(locale);
 
   return (
-    <main className="juan banxin">
-      <Link
-        href="/shelf"
-        className="font-sans text-cap tracking-[0.2em] text-ink-3 transition-colors duration-200 ease-ink hover:text-ink-2"
-      >
-        ← 書架
-      </Link>
+    <main className="juan tai">
+      {/* ⚠ 「書架」改咗做「書齋」—— 全站同一個地方，之前得呢一版叫錯。 */}
+      <Juanshou back="shelf" title="認領" theme />
 
-      <h1 className="mt-6 text-h1 font-semibold tracking-[0.16em]">認領</h1>
-
-      <div className="mt-10 flex flex-col gap-4 text-body leading-[1.95]">
+      <div className="banxin flex flex-col gap-4 text-body leading-[1.95]">
         <p>
           現在這些書只認得這一部瀏覽器。清掉瀏覽器資料、換一部機、或者換一個瀏覽器，
           它們就找不回來了 —— 我們沒有別的方法認出你。
@@ -53,10 +47,12 @@ export default async function ClaimPage({ params }: { params: Promise<{ locale: 
         </p>
       </div>
 
-      <ClaimForm />
+      <div className="banxin">
+        <ClaimForm />
+      </div>
 
       {/* 攞個 email 嚟做乜，講清楚。呢句唔係細則，係承諾。 */}
-      <p className="mt-16 border-t jielan pt-6 font-sans text-cap leading-[1.9] tracking-[0.1em] text-ink-3">
+      <p className="banxin mt-16 border-t jielan pt-6 font-sans text-cap leading-[1.9] tracking-[0.1em] text-ink-3">
         這個電郵只用來認出你的書。不會有推廣信。
         <br />
         立春前一年一封流年信，可以在設定裡關掉。

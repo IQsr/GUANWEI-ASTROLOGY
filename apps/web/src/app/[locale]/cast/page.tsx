@@ -34,7 +34,7 @@ export default async function CastPage({ params }: { params: Promise<{ locale: s
   setRequestLocale(locale);
 
   return (
-    <main className="mx-auto w-full max-w-page px-6 pb-dijiao pt-10">
+    <main className="juan tai">
       <Luokuan />
     </main>
   );

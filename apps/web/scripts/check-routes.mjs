@@ -49,7 +49,7 @@ const PORT = Number(process.env.CHECK_PORT ?? 3999);
 const BASE = `http://localhost:${PORT}`;
 const fail = [];
 
-const server = startServer(PORT);
+const server = await startServer(PORT);
 
 async function waitUp(tries = 40) {
   for (let i = 0; i < tries; i++) {

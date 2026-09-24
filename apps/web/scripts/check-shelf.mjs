@@ -17,7 +17,7 @@ const BASE = `http://localhost:${PORT}`;
 const PATH = '/tokens/shelf';
 const fail = [];
 
-const server = startServer(PORT);
+const server = await startServer(PORT);
 
 function check(name, cond, detail) {
   if (!cond) fail.push(`${name}：${detail}`);

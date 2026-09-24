@@ -22,7 +22,7 @@ const PATH = '/tokens/shu';
 const STATES = ['架上書脊', '封面', '跨頁', '合上題名', '展開'];
 const fail = [];
 
-const server = startServer(PORT);
+const server = await startServer(PORT);
 
 function check(name, cond, detail) {
   if (!cond) fail.push(`${name}：${detail}`);

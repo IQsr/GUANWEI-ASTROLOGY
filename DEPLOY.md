@@ -127,12 +127,12 @@ stripe listen --forward-to localhost:3000/api/stripe/webhook
 
 ⚠ **Build Command 一定要係 `pnpm build`，唔係 `pnpm build && pnpm verify`。**
 
-`verify` 係十二層驗收掃描 —— 佢會起一個 server、開一個 headless Chromium，
+`verify` 係十三層驗收掃描 —— 佢會起一個 server、開一個 headless Chromium，
 逐頁量闊度、動畫時序、有幾多個掣、有冇價錢出現過。
 嗰啲喺 CI 同你部機跑，**喺 Vercel 上面跑唔到**（冇 Chromium）。
 兩個指令特登分開就係為咗呢件事。
 
-### 本機想跑埋十二層掃描
+### 本機想跑埋十三層掃描
 
 ```bash
 pnpm --filter @guanwei/web exec playwright install chromium   # 一次就夠
