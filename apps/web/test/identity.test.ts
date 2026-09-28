@@ -1,3 +1,4 @@
+import zh from '../messages/zh-Hant.json';
 import { describe, expect, it } from 'vitest';
 import { claim, normaliseEmail, type IdentityPort, type Reader } from '@/lib/identity';
 
@@ -8,6 +9,11 @@ import { claim, normaliseEmail, type IdentityPort, type Reader } from '@/lib/ide
  * 一個真 Supabase instance。所以判斷同文案全部搬咗出嚟，
  * 用一個假 port 測；adapter 嗰邊淨低十幾行冇判斷嘅嘢。
  */
+
+/** 錯誤 code → 讀者見到嘅中文（messages `claim.errors.*`） */
+function message(r: { ok: false; code: string; email?: string }): string {
+  return (zh.claim.errors as Record<string, string>)[r.code]!.replace('{email}', r.email ?? '');
+}
 
 function fakePort(reader: Reader | null, link: Awaited<ReturnType<IdentityPort['linkEmail']>> = { ok: true }) {
   const calls: string[] = [];
@@ -74,7 +80,7 @@ describe('⚠ 冇 session 唔可以扮成功', () => {
     const { port, calls } = fakePort(null);
     const r = await claim(port, 'issac@example.com');
     expect(r.ok).toBe(false);
-    if (!r.ok) expect(r.message).toContain('這個瀏覽器沒有書');
+    if (!r.ok) expect(message(r)).toContain('這個瀏覽器沒有書');
     expect(calls).toEqual([]);
   });
 });
@@ -84,7 +90,7 @@ describe('⚠ 認咗領就唔好再寄信', () => {
     const { port, calls } = fakePort({ id: 'r1', isAnonymous: false, email: 'old@example.com' });
     const r = await claim(port, 'new@example.com');
     expect(r.ok).toBe(false);
-    if (!r.ok) expect(r.message).toContain('old@example.com');
+    if (!r.ok) expect(message(r)).toContain('old@example.com');
     expect(calls).toEqual([]);
   });
 });
@@ -99,7 +105,7 @@ describe('寄唔到嗰陣講人話', () => {
     const { port } = fakePort(anon, { ok: false, code });
     const r = await claim(port, 'issac@example.com');
     expect(r.ok).toBe(false);
-    if (!r.ok) expect(r.message).toContain(expected);
+    if (!r.ok) expect(message(r)).toContain(expected);
   });
 
   /** 四個錯誤碼唔可以出同一句 —— 出同一句即係等於冇分。 */
@@ -109,7 +115,7 @@ describe('寄唔到嗰陣講人話', () => {
     for (const code of codes) {
       const { port } = fakePort(anon, { ok: false, code });
       const r = await claim(port, 'issac@example.com');
-      if (!r.ok) messages.add(r.message);
+      if (!r.ok) messages.add(message(r));
     }
     expect(messages.size).toBe(codes.length);
   });

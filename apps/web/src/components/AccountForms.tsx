@@ -1,13 +1,14 @@
 'use client';
 
 import { useActionState, useState } from 'react';
+import { useTranslations } from 'next-intl';
 import {
   deleteAction,
   exportAction,
   type DeleteState,
   type ExportState,
 } from '@/app/[locale]/account/actions';
-import { DELETE_PHRASE, canDelete } from '@/lib/account';
+import { canDelete } from '@/lib/account';
 
 /**
  * 匯出（工單 G4）
@@ -17,6 +18,7 @@ import { DELETE_PHRASE, canDelete } from '@/lib/account';
  * 而第二條路就係 paywall 繞路出現嘅地方。
  */
 export function ExportButton() {
+  const t = useTranslations('account');
   const [state, action, pending] = useActionState<ExportState, FormData>(
     async () => {
       const result = await exportAction();
@@ -37,7 +39,7 @@ export function ExportButton() {
   return (
     <form action={action} className="mt-8">
       <button type="submit" disabled={pending} className="btn-mo">
-        {pending ? '整　理　中' : '下　載'}
+        {pending ? t('preparing') : t('download')}
       </button>
       {state && !state.ok ? (
         <p role="status" className="mt-6 text-sm leading-[1.9] text-cinnabar">
@@ -61,13 +63,15 @@ export function ExportButton() {
  * ⚠ 而且粒掣 disable 咗**唔算數** —— server action 嗰邊再查一次。
  */
 export function DeleteForm() {
+  const t = useTranslations('account');
+  const phrase = t('deletePhrase');
   const [typed, setTyped] = useState('');
   const [state, action, pending] = useActionState<DeleteState, FormData>(deleteAction, null);
 
   return (
     <form action={action} className="mt-8 max-w-96">
       <label htmlFor="confirm" className="block font-sans text-cap tracking-[0.16em] text-ink-3">
-        打「{DELETE_PHRASE}」兩個字
+        {t('typePhrase', { phrase })}
       </label>
       <input
         id="confirm"
@@ -82,10 +86,10 @@ export function DeleteForm() {
 
       <button
         type="submit"
-        disabled={pending || !canDelete(typed)}
+        disabled={pending || !canDelete(typed, phrase)}
         className="btn-mo mt-10 disabled:opacity-30"
       >
-        {pending ? '刪　除　中' : '刪　除'}
+        {pending ? t('deleting') : t('deleteButton')}
       </button>
 
       {state ? (

@@ -1,6 +1,7 @@
 'use client';
 
 import { useActionState } from 'react';
+import { useTranslations } from 'next-intl';
 import { checkoutAction, type CheckoutState } from '@/app/[locale]/pay/[bookId]/actions';
 
 /**
@@ -22,6 +23,7 @@ export function CaishuForm({
   chapter: string | null;
   priceLabel: string;
 }) {
+  const t = useTranslations('pay');
   const [state, action, pending] = useActionState<CheckoutState, FormData>(checkoutAction, null);
 
   return (
@@ -32,7 +34,7 @@ export function CaishuForm({
       <p className="text-lead tracking-[0.08em]">{priceLabel}</p>
 
       <button type="submit" disabled={pending} className="btn-mo mt-8">
-        {pending ? '前　往　付　款' : '裁　開'}
+        {pending ? t('going') : t('submit')}
       </button>
 
       {state ? (

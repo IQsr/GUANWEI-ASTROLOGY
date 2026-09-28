@@ -1,4 +1,5 @@
-import { DRIFT_LABEL, DRIFT_MEANS, drift, type Pinned } from '@/lib/chongpai';
+import { useTranslations } from 'next-intl';
+import { drift, type Pinned } from '@/lib/chongpai';
 
 /**
  * 並列新舊（工單 B16 第三條 AC · docs/rules.md R-008）
@@ -24,6 +25,7 @@ import { DRIFT_LABEL, DRIFT_MEANS, drift, type Pinned } from '@/lib/chongpai';
  * 呢一版嘅位置係 `/account`，唔係 `/book/[id]`。
  */
 export function Chongpai({ pinned, current }: { pinned: Pinned; current: Pinned }) {
+  const t = useTranslations('account');
   const rows = drift(pinned, current);
 
   /*
@@ -36,12 +38,12 @@ export function Chongpai({ pinned, current }: { pinned: Pinned; current: Pinned 
 
   return (
     <section className="border-t jielan pt-6">
-      <h2 className="font-sans text-cap tracking-[0.16em] text-ink-3">這本書成書之後，這些改過</h2>
+      <h2 className="font-sans text-cap tracking-[0.16em] text-ink-3">{t('chongpaiTitle')}</h2>
 
       <dl className="mt-5 space-y-5">
         {rows.map((r) => (
           <div key={r.field} className="grid gap-x-8 gap-y-1 sm:grid-cols-[10rem_1fr]">
-            <dt className="text-body">{DRIFT_LABEL[r.field]}</dt>
+            <dt className="text-body">{t(`layer.${r.field}`)}</dt>
             <dd>
               {/*
                 ⚠ 兩個版本號並排，舊嗰個唔劃走。
@@ -53,7 +55,7 @@ export function Chongpai({ pinned, current }: { pinned: Pinned; current: Pinned 
                 <span className="text-ink">{r.now}</span>
               </p>
               <p className="mt-1 font-sans text-cap leading-[1.9] text-ink-3">
-                {DRIFT_MEANS[r.field]}
+                {t(`effect.${r.field}`)}
               </p>
             </dd>
           </div>
@@ -65,8 +67,7 @@ export function Chongpai({ pinned, current }: { pinned: Pinned; current: Pinned 
         佢要講清楚兩件事：你本書冇變過；要新嗰版係另外造一本。
       */}
       <p className="mt-6 max-w-banxin text-sm leading-[1.9] text-ink-2">
-        你手上這本沒有變過，往後也不會自己變。想看新版本排出來是甚麼樣子，
-        可以另外排一本；兩本都會留在書齋，由你對照。
+        {t('chongpaiNote')}
       </p>
     </section>
   );

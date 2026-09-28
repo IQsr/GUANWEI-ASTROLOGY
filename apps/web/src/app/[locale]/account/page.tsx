@@ -1,12 +1,12 @@
 import type { Metadata } from 'next';
-import { setRequestLocale } from 'next-intl/server';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { ENGINE_VERSION, SCHOOL_PROFILE } from '@guanwei/ziwei';
 import { RULE_REGISTRY } from '@guanwei/content';
 import { Link } from '@/i18n/navigation';
 import { Juanshou } from '@/components/Juanshou';
 import { Chongpai } from '@/components/Chongpai';
 import { DeleteForm, ExportButton } from '@/components/AccountForms';
-import { DELETE_KEEPS, DELETE_REMOVES, RECAST_COPY, recastHref, recastRows } from '@/lib/account';
+import { recastHref, recastRows } from '@/lib/account';
 import { bookVersions, currentAccount } from '@/lib/account.server';
 import type { Pinned } from '@/lib/chongpai';
 
@@ -24,10 +24,15 @@ import type { Pinned } from '@/lib/chongpai';
  *
  * noindex 無 OG：私密層（架構 §9）。
  */
-export const metadata: Metadata = {
-  title: '設定',
-  robots: { index: false, follow: false },
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'account' });
+  return { title: t('metaTitle'), robots: { index: false, follow: false } };
+}
 
 export const dynamic = 'force-dynamic';
 
@@ -40,6 +45,8 @@ const CURRENT: Pinned = {
 export default async function AccountPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   setRequestLocale(locale);
+  const t = await getTranslations('account');
+  const tShelf = await getTranslations('shelf');
 
   /*
    * ⚠ 撈唔到 ≠ 你冇嘢（E3 嗰課）。
@@ -55,9 +62,9 @@ export default async function AccountPage({ params }: { params: Promise<{ locale
     console.error('[account] ', error);
     return (
       <main className="juan tai">
-        <Juanshou back="shelf" title="設定" nav="account" />
+        <Juanshou back="shelf" title={t('title')} nav="account" />
         <p className="banxin text-body leading-[1.95] text-ink-2">
-          現在連不上。你的書和資料都沒有事 —— 待會再開這一頁就可以。
+          {t('unreachable')}
         </p>
       </main>
     );
@@ -66,9 +73,9 @@ export default async function AccountPage({ params }: { params: Promise<{ locale
   if (!account) {
     return (
       <main className="juan tai">
-        <Juanshou back="shelf" title="設定" nav="account" />
+        <Juanshou back="shelf" title={t('title')} nav="account" />
         <p className="banxin text-body leading-[1.95]">
-          這個瀏覽器沒有書。如果書在另一部裝置上，請在那邊開啟。
+          {t('noBooks')}
         </p>
       </main>
     );
@@ -78,21 +85,20 @@ export default async function AccountPage({ params }: { params: Promise<{ locale
 
   return (
     <main className="juan tai">
-      <Juanshou back="shelf" title="設定" nav="account" />
+      <Juanshou back="shelf" title={t('title')} nav="account" />
       <p className="banxin text-sm leading-[1.9] text-ink-2">
-        {account.email ?? '這些書還沒有認領 —— 只有這一部瀏覽器認得它們。'}
+        {account.email ?? t('unclaimed')}
       </p>
 
       {/* 三件事，三張卡（重新設計第四期 · 參考稿閱讀卡） */}
       <div className="banxin mt-10 flex flex-col gap-6">
       {/* ── 一、匯出 ───────────────────────────────── */}
       <section className="ka p-6 sm:p-8">
-        <h2 className="text-h3 font-medium tracking-[0.16em]">帶走</h2>
+        <h2 className="text-h3 font-medium tracking-[0.16em]">{t('exportTitle')}</h2>
         <div className="mt-6 flex flex-col gap-4 text-body leading-[1.95]">
-          <p>一個 JSON 檔，裡面是你寫過的每一個生辰、每一張盤、每一本書。</p>
+          <p>{t('export1')}</p>
           <p className="text-ink-2">
-            已經裁開的章連正文一起；未裁的章只有章名和格 —— 那幾章還沒有購買，
-            檔案裡會寫明。
+            {t('export2')}
           </p>
         </div>
         <ExportButton />
@@ -100,24 +106,24 @@ export default async function AccountPage({ params }: { params: Promise<{ locale
 
       {/* ── 二、重排（R-008） ──────────────────────── */}
       <section className="ka p-6 sm:p-8">
-        <h2 className="text-h3 font-medium tracking-[0.16em]">新版本</h2>
+        <h2 className="text-h3 font-medium tracking-[0.16em]">{t('recastTitle')}</h2>
         <p className="mt-6 text-body leading-[1.95] text-ink-2">
-          算法和文字都會改版。你手上這些書不會跟著改 —— 它們記著自己成書當時的設定。
+          {t('recastIntro')}
         </p>
 
         {rows.length === 0 ? (
-          <p className="mt-8 text-sm leading-[1.9] text-ink-3">書齋裡還沒有書。</p>
+          <p className="mt-8 text-sm leading-[1.9] text-ink-3">{t('recastEmpty')}</p>
         ) : (
           <ul className="mt-8 flex flex-col gap-10">
             {rows.map((row) => (
               <li key={row.bookId}>
-                <h3 className="font-sans text-cap tracking-[0.16em] text-ink-3">{row.title}</h3>
+                <h3 className="font-sans text-cap tracking-[0.16em] text-ink-3">{row.title ?? tShelf('untitled')}</h3>
 
                 {row.unknown ? (
                   /* ⚠ 「答唔到」唔係「冇差異」。 */
-                  <p className="mt-4 text-sm leading-[1.9] text-cinnabar">{RECAST_COPY.unknown}</p>
+                  <p className="mt-4 text-sm leading-[1.9] text-cinnabar">{t('recast.unknown')}</p>
                 ) : row.drift.length === 0 ? (
-                  <p className="mt-4 text-sm leading-[1.9] text-ink-2">{RECAST_COPY.none}</p>
+                  <p className="mt-4 text-sm leading-[1.9] text-ink-2">{t('recast.none')}</p>
                 ) : (
                   <div className="mt-4">
                     <Chongpai pinned={row.pinned!} current={CURRENT} />
@@ -129,7 +135,7 @@ export default async function AccountPage({ params }: { params: Promise<{ locale
                       href={recastHref(row.bookId)}
                       className="mt-6 inline-block font-sans text-cap tracking-[0.16em] text-indigo underline-offset-4 hover:underline"
                     >
-                      照同一個生辰再排一本 →
+                      {t('recastLink')}
                     </Link>
                   </div>
                 )}
@@ -141,16 +147,16 @@ export default async function AccountPage({ params }: { params: Promise<{ locale
 
       {/* ── 三、刪除 ───────────────────────────────── */}
       <section className="ka border-cinnabar/40 p-6 sm:p-8">
-        <h2 className="text-h3 font-medium tracking-[0.16em]">刪除</h2>
+        <h2 className="text-h3 font-medium tracking-[0.16em]">{t('deleteTitle')}</h2>
         <p className="mt-6 text-body leading-[1.95]">
-          這是真的刪除，不是隱藏。刪了就沒有了，我們這邊也沒有備份可以還原。
+          {t('deleteIntro')}
         </p>
 
         <div className="mt-8 grid gap-8 sm:grid-cols-2">
           <div>
-            <h3 className="font-sans text-cap tracking-[0.16em] text-ink-3">會消失</h3>
+            <h3 className="font-sans text-cap tracking-[0.16em] text-ink-3">{t('removes')}</h3>
             <ul className="mt-3 flex flex-col gap-2">
-              {DELETE_REMOVES.map((line) => (
+              {(t.raw('removeList') as string[]).map((line) => (
                 <li key={line} className="text-sm leading-[1.9] text-ink-2">
                   {line}
                 </li>
@@ -162,9 +168,9 @@ export default async function AccountPage({ params }: { params: Promise<{ locale
               ⚠ 呢一欄唔可以省。
               一句「我哋會刪除你所有資料」而實際上留咗一行，就係一句大話。
             */}
-            <h3 className="font-sans text-cap tracking-[0.16em] text-ink-3">會留下</h3>
+            <h3 className="font-sans text-cap tracking-[0.16em] text-ink-3">{t('keeps')}</h3>
             <ul className="mt-3 flex flex-col gap-2">
-              {DELETE_KEEPS.map((line) => (
+              {(t.raw('keepList') as string[]).map((line) => (
                 <li key={line} className="text-sm leading-[1.9] text-ink-2">
                   {line}
                 </li>

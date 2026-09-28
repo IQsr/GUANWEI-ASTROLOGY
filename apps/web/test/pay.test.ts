@@ -3,16 +3,23 @@ import { readFileSync, readdirSync, statSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { join } from 'node:path';
 import {
-  PAY_BLOCKED,
+  PAY_BLOCKED as PAY_TARGETS,
   PRICE,
   PRODUCT,
-  RETURN_COPY,
   payGate,
   priceLabel,
   returnState,
   webhookVerdict,
   type PayFacts,
 } from '@/lib/pay';
+import zh from '../messages/zh-Hant.json';
+import en from '../messages/en.json';
+
+/* 文案搬咗去 messages（批三）：去處由 lib 出，字由中文 messages 出 —— 測讀者見到嘅字 */
+const PAY_BLOCKED = Object.fromEntries(
+  Object.entries(PAY_TARGETS).map(([why, target]) => [why, { ...target, ...zh.pay.blocked[why as keyof typeof zh.pay.blocked] }]),
+) as Record<keyof typeof PAY_TARGETS, { href: string | null; message: string; label: string }>;
+const RETURN_COPY = zh.pay.return;
 
 /**
  * 裁書（工單 G3 · 架構 §4、§6、§8）
@@ -166,6 +173,16 @@ describe('⚠ 成功頁只准照實講', () => {
   it('pending 嗰句唔叫人留喺度等', () => {
     expect(RETURN_COPY.pending.body).toContain('不用留在這一頁等');
     expect(RETURN_COPY.pending.body).not.toMatch(/請稍候|稍後刷新|重新整理/);
+  });
+
+  it('英文版 pending 一樣唔叫人等、唔叫人 refresh', () => {
+    expect(en.pay.return.pending.body).toContain('no need to stay on this page');
+    expect(en.pay.return.pending.body).not.toMatch(/please wait|refresh|reload/i);
+  });
+
+  /** 英文版搵唔到本書嗰句一樣唔可以泄露「存在但唔係你嘅」 */
+  it('英文版 not-yours 唔泄露', () => {
+    expect(en.pay.blocked['not-yours'].message).not.toMatch(/not yours|someone else|belongs to/i);
   });
 
   it('三個狀態都有字', () => {

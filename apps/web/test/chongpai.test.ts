@@ -2,7 +2,12 @@ import { describe, expect, it } from 'vitest';
 import { readFileSync, readdirSync, statSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { join } from 'node:path';
-import { DRIFT_LABEL, DRIFT_MEANS, drift, pinnedOf, type Pinned } from '@/lib/chongpai';
+import { drift, pinnedOf, type Pinned } from '@/lib/chongpai';
+import zh from '../messages/zh-Hant.json';
+
+/* 名同「換咗會點」搬咗去 messages（批三） */
+const DRIFT_LABEL = zh.account.layer;
+const DRIFT_MEANS = zh.account.effect;
 
 /**
  * 舊盤重算政策（工單 B16 · docs/rules.md R-008）
@@ -116,8 +121,8 @@ describe('並列新舊嗰一版（工單 AC 三）', () => {
   });
 
   it('三個版本號逐行分開講，唔合成一句', () => {
-    expect(bare).toContain('DRIFT_LABEL');
-    expect(bare).toContain('DRIFT_MEANS');
+    expect(bare).toContain('layer.');
+    expect(bare).toContain('effect.');
   });
 
   /**

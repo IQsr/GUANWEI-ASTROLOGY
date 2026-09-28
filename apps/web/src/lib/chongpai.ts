@@ -29,24 +29,11 @@ export type Drift = {
   now: string;
 };
 
-/**
- * ⚠ 三個版本各自講一件唔同嘅事，所以要分開講。
- *
- * 合成一句「有更新」嘅話，用戶唯一做得到嘅反應就係撳「更新」——
- * 而佢唔知自己換緊乜。
+/*
+ * ⚠ 三個版本各自講一件唔同嘅事，所以要分開講 —— 合成一句「有更新」嘅話，
+ * 用戶唯一做得到嘅反應就係撳「更新」，而佢唔知自己換緊乜。
+ * 名同「換咗會點」嗰句人話喺 messages：`account.layer.*`、`account.effect.*`。
  */
-export const DRIFT_LABEL: Record<DriftField, string> = {
-  engine: '排盤引擎',
-  school: '流派設定',
-  content: '命書內容',
-};
-
-/** 換咗會點 —— 一句人話，唔係版本號。 */
-export const DRIFT_MEANS: Record<DriftField, string> = {
-  engine: '盤面可能有格會唔同',
-  school: '四化、廟旺這類流派選擇可能有改動',
-  content: '文字可能改寫過，盤面不變',
-};
 
 export function drift(pinned: Pinned, current: Pinned): Drift[] {
   const fields: DriftField[] = ['engine', 'school', 'content'];

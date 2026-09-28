@@ -1,6 +1,7 @@
 'use server';
 
-import { canDelete, exportFilename, DELETE_COPY, EXPORT_NOTE } from '@/lib/account';
+import { getTranslations } from 'next-intl/server';
+import { canDelete, exportFilename } from '@/lib/account';
 import { deleteAccount, exportData } from '@/lib/account.server';
 
 export type ExportState = { ok: true; filename: string; json: string } | { ok: false; message: string } | null;
@@ -15,9 +16,11 @@ export type DeleteState = { ok: boolean; message: string } | null;
  * 唔同嘅路 —— 而嗰條路就係 paywall 繞路出現嘅地方。
  */
 export async function exportAction(): Promise<ExportState> {
+  const t = await getTranslations('account');
   try {
     const data = await exportData();
-    const payload = { note: EXPORT_NOTE, ...(data as Record<string, unknown>) };
+    /* 檔案入面嗰句解釋跟讀者語言 */
+    const payload = { note: t('exportNote'), ...(data as Record<string, unknown>) };
     return {
       ok: true,
       filename: exportFilename(new Date()),
@@ -25,7 +28,7 @@ export async function exportAction(): Promise<ExportState> {
     };
   } catch (error) {
     console.error('[account] export', error);
-    return { ok: false, message: '暫時匯出不了。請稍後再試一次。' };
+    return { ok: false, message: t('exportFailed') };
   }
 }
 
@@ -39,11 +42,13 @@ export async function exportAction(): Promise<ExportState> {
  * 而呢個動作冇得返轉頭。
  */
 export async function deleteAction(_prev: DeleteState, formData: FormData): Promise<DeleteState> {
+  const t = await getTranslations('account');
   const typed = String(formData.get('confirm') ?? '');
-  if (!canDelete(typed)) {
-    return { ok: false, message: '要照著打那兩個字，才會真的刪除。' };
+  /* ⚠ 粒掣 disable 咗唔算數：公開 endpoint，呢度再查一次（要打嘅字跟讀者語言） */
+  if (!canDelete(typed, t('deletePhrase'))) {
+    return { ok: false, message: t('deleteMismatch') };
   }
 
   const outcome = await deleteAccount();
-  return { ok: outcome.state === 'gone', message: DELETE_COPY[outcome.state] };
+  return { ok: outcome.state === 'gone', message: t(`deleteOutcome.${outcome.state}`) };
 }

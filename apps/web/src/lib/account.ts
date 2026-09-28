@@ -29,15 +29,10 @@ export function exportFilename(today: Date): string {
   return `guanwei-${y}${m}${d}.json`;
 }
 
-/**
- * ⚠ 匯出檔要講得出自己入面**冇**乜。
- *
- * 一份 JSON 入面有啲章嘅 `body` 係 `null`，如果冇解釋，讀落就似
- * 我哋漏咗嘢或者整爛咗。實情係嗰幾章未買 —— 而嗰個係一個事實，
- * 唔係一個要收埋嘅嘢。
+/*
+ * ⚠ 匯出檔要講得出自己入面**冇**乜：未買嘅章 `body` 係 null，冇解釋讀落就似
+ * 我哋漏咗嘢。嗰句喺 messages：`account.exportNote`（檔案跟讀者嘅語言）。
  */
-export const EXPORT_NOTE =
-  '未裁開的深度章，body 是 null —— 那幾章還沒有購買，不是這份檔案缺了東西。';
 
 /* ───────────────────────────────────────────────────────────
  * 重排（R-008）
@@ -51,7 +46,8 @@ export type BookVersions = {
 
 export type RecastRow = {
   bookId: string;
-  title: string;
+  /** null = 未題名（畫面用 messages `shelf.untitled`） */
+  title: string | null;
   /** 空陣列 = 呢本書同而家一樣。 */
   drift: Drift[];
   /** 講唔出自己係邊一版排嘅 —— 一個要修嘅資料問題，唔係一個好消息。 */
@@ -74,7 +70,8 @@ export function recastRows(books: BookVersions[], current: Pinned): RecastRow[] 
     const pinned = pinnedOf(b.pinned);
     return {
       bookId: b.bookId,
-      title: b.title ?? '未題名',
+      /* null = 未題名：畫面自己出（messages `shelf.untitled`） */
+      title: b.title,
       drift: pinned ? drift(pinned, current) : [],
       unknown: pinned === null,
       pinned,
@@ -95,16 +92,7 @@ export function recastHref(bookId: string): string {
   return `/cast?from=${encodeURIComponent(bookId)}`;
 }
 
-export const RECAST_COPY = {
-  none: '這本書用的設定和現在一樣。',
-  unknown: '這本書沒有記下自己是哪一版排的 —— 這是我們要修的資料問題，不是「和現在一樣」。',
-  /*
-   * ⚠ 呢句要同時講三件事：舊嗰本唔會變、新嗰本係另一本、兩本都留低。
-   * 少講任何一件，「由用戶揀」就變成「撳一下換咗佢」。
-   */
-  action:
-    '想看新版本排出來是甚麼樣子，可以照同一個生辰再排一本。這一本不會變，兩本都會留在書齋，由你對照。',
-} as const;
+/* 重排三句（none / unknown / action）喺 messages：`account.recast.*`。 */
 
 /* ───────────────────────────────────────────────────────────
  * 真刪
@@ -127,10 +115,13 @@ export type DeleteCounts = {
  *
  * 打兩個字唔會令佢改變主意，但會令佢**知道自己而家做緊乜**。
  */
-export const DELETE_PHRASE = '刪除';
 
-export function canDelete(typed: string): boolean {
-  return typed.trim() === DELETE_PHRASE;
+/**
+ * 要打嘅字跟讀者語言（messages `account.deletePhrase`：中文「刪除」、英文 "delete"），
+ * 所以由 caller 畀。英文唔分大小寫 —— 「Delete」同 "delete" 係同一個意思。
+ */
+export function canDelete(typed: string, phrase: string): boolean {
+  return typed.trim().toLowerCase() === phrase.toLowerCase();
 }
 
 /**
@@ -140,22 +131,7 @@ export function canDelete(typed: string): boolean {
  * （`docs/privacy.md` 第五節）。所以呢兩張表寫喺 code 度，
  * 而唔係散喺版面嘅文案入面。
  */
-export const DELETE_REMOVES = [
-  '你寫過的每一個生辰（姓名、日期、時辰、出生地）',
-  '每一張排出來的盤',
-  '每一本書，連已經裁開的深度章正文',
-  '購買記錄和你的帳戶之間的關聯',
-] as const;
-
-export const DELETE_KEEPS = [
-  /*
-   * ⚠ 呢一行唔可以含糊。
-   *
-   * 留低嘅係一筆數：金額、貨幣、日期、Stripe 個交易編號。
-   * 佢認唔返邊個畀嘅 —— 冇 reader_id、冇 book_id、冇 email。
-   */
-  '一筆不連到任何人的付款記錄（金額、日期、Stripe 交易編號）—— 會計法規要求保留',
-] as const;
+/* 「會消失」「會留下」兩張清單喺 messages：`account.removeList`、`account.keepList`。 */
 
 export type DeleteOutcome =
   | { state: 'gone'; counts: DeleteCounts }
@@ -174,12 +150,7 @@ export type DeleteOutcome =
  * 報「已經全部刪除」就係一句大話，而嗰句大話嘅代價係
  * 佢以為自己個 email 冇咗，實情係仲喺度。
  */
-export const DELETE_COPY: Record<DeleteOutcome['state'], string> = {
-  gone: '全部刪除了。這個帳戶和它的內容都不存在了。',
-  partial:
-    '生辰、盤和書都刪除了，但帳戶本身（你的電郵）刪不掉。這一步要我們這邊處理 —— 請來信告訴我們，我們會補做。',
-  failed: '暫時刪不了。沒有任何東西被刪除 —— 請稍後再試一次。',
-};
+/* 刪除三個結局嘅字喺 messages：`account.deleteOutcome.*`。 */
 
 /** 刪完之後個人應該去邊。⚠ 唔係書齋 —— 嗰度已經冇嘢。 */
 export const DELETE_DONE_HREF = '/';

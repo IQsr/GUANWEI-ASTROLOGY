@@ -253,5 +253,144 @@
     "cut": "Open",
     "hintAnonymous": "Leave an email to keep this book, then open it.",
     "hintClaimed": "Open once, and every deeper chapter in the book is yours."
+  },
+  "claim": {
+    "metaTitle": "Keep your books",
+    "title": "Keep your books",
+    "risk": "Right now these books are known only to this browser. Clear its data, switch devices or browsers, and they cannot be found again — we have no other way to recognise you.",
+    "how": "Leave an email and the books are kept under that address. We will send a confirmation email; open the link inside and it is done.",
+    "forCutting": "Once that is done, we will take you straight to opening this book.",
+    "readFree": "Go back to the free chapters first",
+    "promise1": "This email is only used to recognise your books. No promotional mail.",
+    "promise2": "One letter a year, before the start of spring, about the year ahead. You can turn it off in Settings.",
+    "email": "Email",
+    "submit": "Keep them",
+    "sending": "Sending",
+    "sent": "A confirmation email is on its way to {email}. Open the link inside and these books are yours — it will bring you back here.",
+    "errors": {
+      "invalid": "This email address looks incomplete. Please check it again.",
+      "noBooks": "There are no books in this browser. If your books are on another device, keep them from there.",
+      "alreadyTo": "These books already belong to {email}.",
+      "already": "These books have already been kept.",
+      "taken": "This email already has another account. Sign in to that account, or use a different email.",
+      "rate_limited": "We just sent one. Please wait a few minutes and try again.",
+      "unknown": "We could not send the confirmation email just now. Please try again later."
+    }
+  },
+  "pay": {
+    "metaTitle": "Open the book",
+    "title": "Open the book",
+    "unreachableTitle": "Cannot open it right now",
+    "unreachable": "We cannot connect at the moment. Nothing is wrong on your side, and your book and any payment are safe — try this page again in a little while.",
+    "back": "Back",
+    "toShelf": "Back to the study",
+    "readChapter": "Read “{title}”",
+    "openContents": "Open the contents",
+    "explain1": "Old thread-bound books came with their page edges uncut; the reader cut them open. The deeper chapters of this book are those uncut pages.",
+    "explain2": "Open once and every deeper chapter in the book is yours — not chapter by chapter, and no renewal. The free chapters you are reading stay exactly as they are.",
+    "stripe1": "Payment happens on Stripe. Your card number never passes through us.",
+    "stripe2": "We only learn that this book has been paid for, not which card you used.",
+    "submit": "Open",
+    "going": "Going to payment",
+    "product": "Guan Wei · deeper chapters",
+    "blocked": {
+      "signed-out": {
+        "message": "There are no books in this browser. If your book is on another device, open it there.",
+        "label": "Study"
+      },
+      "anonymous": {
+        "message": "Keep this book with an email before opening it — otherwise clearing your browser data would lose the book and any opened pages.",
+        "label": "Keep it"
+      },
+      "not-yours": {
+        "message": "We could not find this book.",
+        "label": "Study"
+      },
+      "already-paid": {
+        "message": "This book is already open.",
+        "label": "Back to the study"
+      },
+      "untitled": {
+        "message": "This book is still waiting for its hour. Add the birth hour and it will have a name.",
+        "label": "Add the hour"
+      }
+    },
+    "return": {
+      "paid": {
+        "title": "Opened",
+        "body": "Every deeper chapter of the book is now yours. Go back to your study, or turn straight to the next chapter."
+      },
+      "pending": {
+        "title": "Received",
+        "body": "Your payment has arrived. It takes a moment to go through; once it does, the book opens by itself — there is no need to stay on this page."
+      },
+      "cancelled": {
+        "title": "Not opened",
+        "body": "No payment was made this time, and the book is as it was. Come back whenever you are ready; the uncut pages will be here."
+      }
+    },
+    "errors": {
+      "noBook": "We could not find this book.",
+      "blocked": "This book cannot be opened right now.",
+      "failed": "We could not open the payment page just now. Please try again later."
+    }
+  },
+  "account": {
+    "metaTitle": "Settings",
+    "title": "Settings",
+    "unreachable": "We cannot connect at the moment. Your books and data are safe — try this page again in a little while.",
+    "noBooks": "There are no books in this browser. If your books are on another device, open them there.",
+    "unclaimed": "These books have not been kept with an email yet — only this browser knows them.",
+    "exportTitle": "Take it with you",
+    "export1": "A JSON file with every birth you have written, every chart and every book.",
+    "export2": "Opened chapters include their text; uncut chapters have only their titles and sections — those have not been purchased, and the file says so.",
+    "exportNote": "Uncut deeper chapters have a null body — they have not been purchased; nothing is missing from this file.",
+    "download": "Download",
+    "preparing": "Preparing",
+    "exportFailed": "We could not export just now. Please try again later.",
+    "recastTitle": "New versions",
+    "recastIntro": "The method and the writing will be revised over time. The books you have will not change with them — each remembers the settings it was made with.",
+    "recastEmpty": "There are no books in your study yet.",
+    "recastLink": "Make another book from the same birth →",
+    "recast": {
+      "none": "This book uses the same settings as today.",
+      "unknown": "This book did not record which version made it — that is a data problem for us to fix, not the same as “unchanged”.",
+      "action": "To see what the new version makes of it, make another book from the same birth. This one will not change; both will stay in your study for you to compare."
+    },
+    "chongpaiTitle": "Changed since this book was made",
+    "chongpaiNote": "The book you have has not changed and will not change by itself. To see the new version, make another one; both will stay in your study for you to compare.",
+    "layer": {
+      "engine": "Chart engine",
+      "school": "School settings",
+      "content": "Book text"
+    },
+    "effect": {
+      "engine": "Some cells of the chart may differ",
+      "school": "School choices such as the four transformations or star strength may differ",
+      "content": "The writing may have been revised; the chart is the same"
+    },
+    "deleteTitle": "Delete",
+    "deleteIntro": "This is a real deletion, not hiding. Once deleted it is gone, and we keep no backup to restore it from.",
+    "removes": "Will be removed",
+    "keeps": "Will remain",
+    "removeList": [
+      "Every birth you have written (name, date, hour, place)",
+      "Every chart that was cast",
+      "Every book, including the text of opened chapters",
+      "The link between your purchases and your account"
+    ],
+    "keepList": [
+      "A payment record linked to no one (amount, date, Stripe transaction ID) — kept because accounting law requires it"
+    ],
+    "deletePhrase": "delete",
+    "typePhrase": "Type “{phrase}”",
+    "deleteButton": "Delete",
+    "deleting": "Deleting",
+    "deleteMismatch": "Type the word exactly as shown to delete.",
+    "deleteOutcome": {
+      "gone": "Everything has been deleted. This account and its contents no longer exist.",
+      "partial": "Your births, charts and books have been deleted, but the account itself (your email) could not be. We need to do that step on our side — please write to us and we will finish it.",
+      "failed": "We could not delete just now. Nothing has been deleted — please try again later."
+    }
   }
 }

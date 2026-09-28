@@ -2,18 +2,21 @@ import { describe, expect, it } from 'vitest';
 import { readFileSync, readdirSync, statSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { join } from 'node:path';
-import {
-  DELETE_COPY,
-  DELETE_KEEPS,
-  DELETE_PHRASE,
-  DELETE_REMOVES,
-  EXPORT_NOTE,
-  RECAST_COPY,
-  canDelete,
-  exportFilename,
-  recastHref,
-  recastRows,
-} from '@/lib/account';
+import { canDelete as canDeleteWith, exportFilename, recastHref, recastRows } from '@/lib/account';
+import zh from '../messages/zh-Hant.json';
+import en from '../messages/en.json';
+
+/*
+ * 文案搬咗去 messages（批三）：由中文 messages 砌返同名常數，
+ * 下面每一條內容政策斷言照舊 —— 測嘅就係讀者見到嘅字。
+ */
+const DELETE_COPY = zh.account.deleteOutcome;
+const DELETE_KEEPS = zh.account.keepList;
+const DELETE_PHRASE = zh.account.deletePhrase;
+const DELETE_REMOVES = zh.account.removeList;
+const EXPORT_NOTE = zh.account.exportNote;
+const RECAST_COPY = zh.account.recast;
+const canDelete = (typed: string) => canDeleteWith(typed, DELETE_PHRASE);
 import type { Pinned } from '@/lib/chongpai';
 
 /**
@@ -76,7 +79,8 @@ describe('⚠ 重排：R-008 三條配套', () => {
   it('講唔出自己邊一版排嘅，標做 unknown，唔當佢一樣', () => {
     const rows = recastRows([{ bookId: 'b1', title: null, pinned: null }], NOW);
     expect(rows[0]!.unknown).toBe(true);
-    expect(rows[0]!.title).toBe('未題名');
+    /* 未題名由畫面出（messages `shelf.untitled`），lib 回 null */
+    expect(rows[0]!.title).toBeNull();
     expect(RECAST_COPY.unknown).not.toContain('和現在一樣。');
   });
 
@@ -177,6 +181,21 @@ describe('⚠ 「刪咗」同「刪咗一半」唔可以講同一句', () => {
   /** failed 要講明「一樣嘢都冇刪」—— 否則佢會以為刪咗一半。 */
   it('failed 要講明冇刪過任何嘢', () => {
     expect(DELETE_COPY.failed).toContain('沒有任何東西被刪除');
+  });
+
+  /** 英文版同一套規矩 */
+  it('英文版：三句唔同、partial 講電郵、failed 講冇刪', () => {
+    const e = en.account.deleteOutcome;
+    expect(new Set(Object.values(e)).size).toBe(3);
+    expect(e.partial.toLowerCase()).toContain('email');
+    expect(e.partial.toLowerCase()).not.toContain('everything has been deleted');
+    expect(e.failed).toContain('Nothing has been deleted');
+  });
+
+  /** 要打嘅字跟語言：英文 "delete"，唔分大小寫 */
+  it('英文版打 delete 先刪得', () => {
+    expect(canDeleteWith('Delete', en.account.deletePhrase)).toBe(true);
+    expect(canDeleteWith('del', en.account.deletePhrase)).toBe(false);
   });
 });
 

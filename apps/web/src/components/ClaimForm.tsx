@@ -1,6 +1,7 @@
 'use client';
 
 import { useActionState } from 'react';
+import { useTranslations } from 'next-intl';
 import { claimAction, type ClaimState } from '@/app/[locale]/claim/actions';
 
 /**
@@ -10,13 +11,14 @@ import { claimAction, type ClaimState } from '@/app/[locale]/claim/actions';
  * focus 嗰陣朱砂由左掃過 —— 朱砂喺呢度係「而家輪到呢一欄」。
  */
 export function ClaimForm({ next }: { next: string | null }) {
+  const t = useTranslations('claim');
   const [state, action, pending] = useActionState<ClaimState, FormData>(claimAction, null);
 
   return (
     <form action={action} className="mt-10 max-w-96">
       {next ? <input type="hidden" name="next" value={next} /> : null}
       <label htmlFor="claim-email" className="block font-sans text-cap tracking-[0.16em] text-ink-3">
-        電　郵
+        {t('email')}
       </label>
       <input
         id="claim-email"
@@ -30,7 +32,7 @@ export function ClaimForm({ next }: { next: string | null }) {
       />
 
       <button type="submit" disabled={pending} className="btn-mo mt-10">
-        {pending ? '寄　出　中' : '認　領'}
+        {pending ? t('sending') : t('submit')}
       </button>
 
       {state ? (

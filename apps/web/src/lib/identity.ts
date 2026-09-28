@@ -29,7 +29,12 @@ export type IdentityPort = {
   ): Promise<{ ok: true } | { ok: false; code: LinkFailure }>;
 };
 
-export type ClaimResult = { ok: true; email: string } | { ok: false; message: string };
+/** 認領失敗嘅原因。字喺 messages：`claim.errors.<code>`（`alreadyTo` 要埋 `email`）。 */
+export type ClaimFailure = 'invalid' | 'noBooks' | 'already' | 'alreadyTo' | LinkFailure;
+
+export type ClaimResult =
+  | { ok: true; email: string }
+  | { ok: false; code: ClaimFailure; email?: string };
 
 /**
  * ⚠ 呢個唔係一條「完整」嘅 email 規則 —— 世上冇。
@@ -52,7 +57,7 @@ export async function claim(
   const email = normaliseEmail(raw);
 
   if (!EMAIL.test(email)) {
-    return { ok: false, message: '這個電郵地址看來不完整，請再看一次。' };
+    return { ok: false, code: 'invalid' };
   }
 
   const reader = await port.currentReader();
@@ -63,7 +68,7 @@ export async function claim(
    * 而佢實際上係認領緊一個唔存在嘅人。
    */
   if (!reader) {
-    return { ok: false, message: '這個瀏覽器沒有書。如果書在另一部裝置上，請在那邊認領。' };
+    return { ok: false, code: 'noBooks' };
   }
 
   /*
@@ -72,22 +77,11 @@ export async function claim(
    * 撳多次，唔應該收到一封信。
    */
   if (!reader.isAnonymous) {
-    return {
-      ok: false,
-      message: reader.email
-        ? `這些書已經屬於 ${reader.email}。`
-        : '這些書已經認領過了。',
-    };
+    return reader.email ? { ok: false, code: 'alreadyTo', email: reader.email } : { ok: false, code: 'already' };
   }
 
   const linked = await port.linkEmail(email, redirectTo);
   if (linked.ok) return { ok: true, email };
 
-  const MESSAGES: Record<LinkFailure, string> = {
-    taken: '這個電郵已經有另一個帳號。請在那個帳號登入，或者換一個電郵。',
-    invalid: '這個電郵地址看來不完整，請再看一次。',
-    rate_limited: '剛才已經寄過一封，請等幾分鐘再試。',
-    unknown: '暫時寄不出驗證信。請稍後再試一次。',
-  };
-  return { ok: false, message: MESSAGES[linked.code] };
+  return { ok: false, code: linked.code };
 }

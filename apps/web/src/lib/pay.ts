@@ -102,35 +102,13 @@ export function payGate(facts: PayFacts): PayGate {
  * 分開講就係話畀人知「呢本書存在，但唔係你嘅」——
  * 而一個唔屬於你嘅 bookId，你唔應該知佢存唔存在。
  */
-export const PAY_BLOCKED: Record<
-  Exclude<PayGate, { can: 'checkout' }>['why'],
-  { message: string; href: string | null; label: string | null }
-> = {
-  'signed-out': {
-    message: '這個瀏覽器沒有書。如果書在另一部裝置上，請在那邊開啟。',
-    href: '/shelf',
-    label: '書齋',
-  },
-  anonymous: {
-    message: '裁書之前要先認領這本書 —— 否則清掉瀏覽器資料，書和已裁的頁都會一起消失。',
-    href: '/claim',
-    label: '認領',
-  },
-  'not-yours': {
-    message: '找不到這本書。',
-    href: '/shelf',
-    label: '書齋',
-  },
-  'already-paid': {
-    message: '這本書已經裁開了。',
-    href: '/shelf',
-    label: '回書齋',
-  },
-  untitled: {
-    message: '這本書還在等時辰，未成書。補回出生時辰，它才會有名字。',
-    href: '/cast',
-    label: '補時辰',
-  },
+export const PAY_BLOCKED: Record<Exclude<PayGate, { can: 'checkout' }>['why'], { href: string | null }> = {
+  /* 字（message、粒掣嘅 label）喺 messages：`pay.blocked.<why>`。呢度淨係去邊。 */
+  'signed-out': { href: '/shelf' },
+  anonymous: { href: '/claim' },
+  'not-yours': { href: '/shelf' },
+  'already-paid': { href: '/shelf' },
+  untitled: { href: '/cast' },
 };
 
 /* ───────────────────────────────────────────────────────────
@@ -212,24 +190,11 @@ export function returnState(input: {
   return input.cancelled ? 'cancelled' : 'pending';
 }
 
-export const RETURN_COPY: Record<ReturnState, { title: string; body: string }> = {
-  paid: {
-    title: '裁開了',
-    body: '整本書的深度章都可以讀了。回書齋，或者直接翻到下一章。',
-  },
-  /*
-   * ⚠ 呢一句唔准寫成「處理中，請稍候」再自動 refresh。
-   *
-   * 自動 refresh 係喺度扮緊「你等一等就會好」，而我哋唔知 ——
-   * webhook 可能一秒到，可能因為我哋部 server 有事而唔到。
-   * 講得出嘅係：錢收到咗，票未到，而且唔使佢做嘢。
-   */
-  pending: {
-    title: '收到了',
-    body: '付款已經收到。開通需要一點時間，完成之後這本書就會自己裁開 —— 不用留在這一頁等。',
-  },
-  cancelled: {
-    title: '沒有裁',
-    body: '這一次沒有付款，書還是原來那本。想好了再回來，未裁的頁一直在。',
-  },
-};
+/*
+ * 返嚟嗰三句（paid / pending / cancelled）喺 messages：`pay.return.*`。
+ *
+ * ⚠ pending 嗰句唔准寫成「處理中，請稍候」再自動 refresh。
+ * 自動 refresh 係喺度扮緊「你等一等就會好」，而我哋唔知 ——
+ * webhook 可能一秒到，可能因為我哋部 server 有事而唔到。
+ * 講得出嘅係：錢收到咗，票未到，而且唔使佢做嘢。`test/pay.test.ts` 量住中英兩版。
+ */

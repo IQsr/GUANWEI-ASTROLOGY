@@ -1,10 +1,10 @@
 import type { Metadata } from 'next';
-import { setRequestLocale } from 'next-intl/server';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import { Juanshou, backToContents } from '@/components/Juanshou';
 import { chapterHref, claimHref, contentsHref, payHref, safeSlug } from '@/lib/journey';
 import { CaishuForm } from '@/components/CaishuForm';
-import { PAY_BLOCKED, RETURN_COPY, payGate, priceLabel, returnState } from '@/lib/pay';
+import { PAY_BLOCKED, payGate, priceLabel, returnState } from '@/lib/pay';
 import { payFacts } from '@/lib/pay.server';
 
 /**
@@ -27,10 +27,15 @@ import { payFacts } from '@/lib/pay.server';
  *
  * noindex 無 OG：私密層（架構 §9）。
  */
-export const metadata: Metadata = {
-  title: '裁書',
-  robots: { index: false, follow: false },
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'pay' });
+  return { title: t('metaTitle'), robots: { index: false, follow: false } };
+}
 
 /** ⚠ 一定要 dynamic：呢一版嘅答案逐個讀者唔同，而且會變。 */
 export const dynamic = 'force-dynamic';
@@ -45,6 +50,7 @@ export default async function PayPage({
   const { locale, bookId } = await params;
   setRequestLocale(locale);
   const query = await searchParams;
+  const t = await getTranslations('pay');
 
   /*
    * 由邊一章嚟（重新設計第二期）。
@@ -56,8 +62,8 @@ export default async function PayPage({
   const ch = safeSlug(query.ch);
   const back = ch ? { href: chapterHref(bookId, ch), label: ch } : backToContents(bookId);
   const onward = ch
-    ? { href: chapterHref(bookId, ch), label: `讀《${ch}》` }
-    : { href: contentsHref(bookId), label: '打開目次' };
+    ? { href: chapterHref(bookId, ch), label: t('readChapter', { title: ch }) }
+    : { href: contentsHref(bookId), label: t('openContents') };
 
   /*
    * ⚠ 撈唔到 ≠ 你冇資格（E3 嗰課）。
@@ -72,13 +78,13 @@ export default async function PayPage({
     console.error('[pay] ', error);
     return (
       <main className="juan tai">
-        <Juanshou back={back} title="一時裁不開" step={4} />
+        <Juanshou back={back} title={t('unreachableTitle')} step={4} />
         <p className="banxin text-body leading-[1.95] text-ink-2">
-          現在連不上。這不是你的問題，書和已經付過的款都沒有事 —— 待會再開這一頁就可以。
+          {t('unreachable')}
         </p>
         <div className="banxin mt-10">
           <Link href={back.href} className="btn-mo">
-            返回
+            {t('back')}
           </Link>
         </div>
       </main>
@@ -91,7 +97,7 @@ export default async function PayPage({
   /* 由 Stripe 返嚟：三句之一，照實講。 */
   if (done || cancelled) {
     const state = returnState({ cancelled, hasEntitlement: facts.hasEntitlement });
-    const copy = RETURN_COPY[state];
+    const copy = { title: t(`return.${state}.title`), body: t(`return.${state}.body`) };
     return (
       <main className="juan tai">
         <Juanshou back={back} title={copy.title} step={4} />
@@ -99,11 +105,11 @@ export default async function PayPage({
         <div className="banxin mt-10 flex flex-wrap items-center gap-x-8 gap-y-4">
           {/* 裁開咗就直接去嗰一章；未到／冇畀都係返去嗰一章 —— 免費嗰啲照讀得 */}
           <Link href={onward.href} className="btn-mo">
-            {state === 'paid' ? onward.label : '返回'}
+            {state === 'paid' ? onward.label : t('back')}
             <span className="btn-jiantou" aria-hidden="true">→</span>
           </Link>
           <Link href="/shelf" className="lian">
-            回書齋
+            {t('toShelf')}
           </Link>
         </div>
       </main>
@@ -123,12 +129,12 @@ export default async function PayPage({
     const blocked = PAY_BLOCKED[gate.why];
     return (
       <main className="juan tai">
-        <Juanshou back={back} title="裁書" step={4} />
-        <p className="banxin text-body leading-[1.95]">{blocked.message}</p>
+        <Juanshou back={back} title={t('title')} step={4} />
+        <p className="banxin text-body leading-[1.95]">{t(`blocked.${gate.why}.message`)}</p>
         {blocked.href ? (
           <div className="banxin mt-10">
             <Link href={blockedHref(gate.why, blocked.href)} className="btn-mo">
-              {gate.why === 'already-paid' ? onward.label : blocked.label}
+              {gate.why === 'already-paid' ? onward.label : t(`blocked.${gate.why}.label`)}
             </Link>
           </div>
         ) : null}
@@ -138,16 +144,15 @@ export default async function PayPage({
 
   return (
     <main className="juan tai">
-      <Juanshou back={back} title="裁書" step={4} />
+      <Juanshou back={back} title={t('title')} step={4} />
 
       {/* 裁書：一張卡（重新設計第四期）。講清楚 → 價錢 → 一粒掣，全部喺同一格 */}
       <div className="banxin">
         <div className="ka p-6 sm:p-8">
           <div className="flex flex-col gap-4 text-body leading-[1.95]">
-            <p>線裝書的毛邊本，頁邊未裁開，要讀的人自己裁。這本書的深度章就是未裁的頁。</p>
+            <p>{t('explain1')}</p>
             <p className="text-ink-2">
-              裁一次，整本書的深度章都開了 —— 不是逐章買，也沒有續期。
-              已經在讀的免費章不會有任何改變。
+              {t('explain2')}
             </p>
           </div>
 
@@ -161,9 +166,9 @@ export default async function PayPage({
         所以連一段第三方 script 都唔會喺呢一版度載（見 docs/privacy.md）。
       */}
       <p className="banxin mt-16 border-t jielan pt-6 font-sans text-cap leading-[1.9] tracking-[0.1em] text-ink-3">
-        付款在 Stripe 上完成，卡號不會經過我們。
+        {t('stripe1')}
         <br />
-        我們只會知道這本書付過款，不會知道你用的是哪一張卡。
+        {t('stripe2')}
       </p>
     </main>
   );
