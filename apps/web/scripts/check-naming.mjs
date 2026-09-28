@@ -330,7 +330,13 @@ try {
    * （⚠ 有 DB 嗰陣呢個 script 會真係喺嗰個 Supabase 寫一本書。）
    */
   if (HAS_DB) {
-    check('有 DB 就有一個命書入口', pretend.links.length === 1, `${pretend.links.length} 個`);
+    /*
+     * ⚠ 入口唔止一條（2026-09）：「讀下去」之外，右邊窄邊（TurnEdges）都係翻去目次。
+     * 要守嘅係「有寫入先有入口」同「唔會指去兩本唔同嘅書」，唔係條數。
+     */
+    const books = new Set(pretend.links);
+    check('有 DB 就有命書入口', pretend.links.length >= 1, '一條都冇');
+    check('命書入口全部指去同一本書', books.size === 1, [...books].join('、'));
   } else {
     check('冇 DB 就冇命書入口', pretend.links.length === 0, pretend.links.join('、'));
     for (const w of ['收入書齋', '已收入', '已儲存', '已入藏'])
