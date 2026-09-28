@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import { Link, usePathname } from '@/i18n/navigation';
 import { ThemeToggle } from '@/components/ThemeToggle';
+import { LocaleSwitch } from '@/components/LocaleSwitch';
 import { MARK } from '@/lib/site';
 import { useQuiet } from '@/lib/quiet';
 
@@ -17,7 +18,7 @@ import { useQuiet } from '@/lib/quiet';
  *
  *   左　觀微 / GUAN WEI（返首頁）
  *   中　首頁 · 起盤 · 藏經閣
- *   右　日夜讀 · 「我的書齋」
+ *   右　語言（中 / EN）· 日夜讀 · 「我的書齋」
  *
  * ⚠ 右邊唔係「登入／註冊」。觀微係匿名先用：唔使註冊都排得到盤，
  * 認領（留電郵）喺書齋入面提。寫「登入」會令人以為要先有帳戶。
@@ -61,54 +62,68 @@ export function SiteHeader() {
   if (quiet) return null;
 
   return (
-    <header className="dao" data-over={overNight ? 'night' : undefined} data-float={onHome ? '' : undefined}>
-      <div className="dao-nei">
-        <Link href="/" className="flex flex-col leading-none" aria-label={`${MARK} 首頁`}>
-          <span className="font-serif text-[1.625rem] font-medium tracking-[0.32em]">{MARK}</span>
-          <span className="mt-1.5 font-latin text-[0.625rem] tracking-[0.5em] opacity-80">GUAN WEI</span>
-        </Link>
-
-        <nav aria-label="主要" className="hidden items-center gap-12 md:flex">
-          {NAV.map((n) => (
-            <Link
-              key={n.href}
-              href={n.href}
-              className="dao-lian"
-              aria-current={isAt(pathname, n.href) ? 'page' : undefined}
-            >
-              {n.label}
-            </Link>
-          ))}
-        </nav>
-
-        <div className="flex items-center gap-4">
-          {/* 夜景上面唔出日夜讀：首頁同落款永遠係夜、本書永遠係紙，撳咗都見唔到分別 */}
-          {overNight ? null : (
-            <span className="hidden sm:inline-flex">
-              <ThemeToggle dayLabel="日讀" nightLabel="夜讀" />
-            </span>
-          )}
-          <Link
-            href="/shelf"
-            className="dao-shu"
-            aria-current={isAt(pathname, '/shelf') ? 'page' : undefined}
-          >
-            我的書齋
+    <>
+      <header className="dao" data-over={overNight ? 'night' : undefined} data-float={onHome ? '' : undefined}>
+        <div className="dao-nei">
+          <Link href="/" className="flex flex-col leading-none" aria-label={`${MARK} 首頁`}>
+            <span className="font-serif text-[1.625rem] font-medium tracking-[0.32em]">{MARK}</span>
+            <span className="mt-1.5 font-latin text-[0.625rem] tracking-[0.5em] opacity-80">GUAN WEI</span>
           </Link>
-          <button
-            type="button"
-            className="flex h-10 w-10 flex-col items-center justify-center gap-[6px] md:hidden"
-            aria-expanded={open}
-            aria-controls="dao-mian"
-            aria-label={open ? '收起選單' : '打開選單'}
-            onClick={() => setOpen((v) => !v)}
-          >
-            <i className={`block h-px w-6 bg-current transition-transform duration-200 ${open ? 'translate-y-[3.5px] rotate-45' : ''}`} />
-            <i className={`block h-px w-6 bg-current transition-transform duration-200 ${open ? '-translate-y-[3.5px] -rotate-45' : ''}`} />
-          </button>
-        </div>
-      </div>
 
+          <nav aria-label="主要" className="hidden items-center gap-12 md:flex">
+            {NAV.map((n) => (
+              <Link
+                key={n.href}
+                href={n.href}
+                className="dao-lian"
+                aria-current={isAt(pathname, n.href) ? 'page' : undefined}
+              >
+                {n.label}
+              </Link>
+            ))}
+          </nav>
+
+          <div className="flex items-center gap-4">
+            {/* 語言：桌面喺度，手機喺選單入面 */}
+            <span className="hidden md:inline-flex">
+              <LocaleSwitch />
+            </span>
+            {/* 夜景上面唔出日夜讀：首頁同落款永遠係夜、本書永遠係紙，撳咗都見唔到分別 */}
+            {overNight ? null : (
+              <span className="hidden sm:inline-flex">
+                <ThemeToggle dayLabel="日讀" nightLabel="夜讀" />
+              </span>
+            )}
+            <Link
+              href="/shelf"
+              className="dao-shu"
+              aria-current={isAt(pathname, '/shelf') ? 'page' : undefined}
+            >
+              我的書齋
+            </Link>
+            <button
+              type="button"
+              className="flex h-10 w-10 flex-col items-center justify-center gap-[6px] md:hidden"
+              aria-expanded={open}
+              aria-controls="dao-mian"
+              aria-label={open ? '收起選單' : '打開選單'}
+              onClick={() => setOpen((v) => !v)}
+            >
+              <i className={`block h-px w-6 bg-current transition-transform duration-200 ${open ? 'translate-y-[3.5px] rotate-45' : ''}`} />
+              <i className={`block h-px w-6 bg-current transition-transform duration-200 ${open ? '-translate-y-[3.5px] -rotate-45' : ''}`} />
+            </button>
+          </div>
+        </div>
+      </header>
+
+      {/*
+       * ⚠ 手機選單要喺 <header> 外面。
+       *
+       * 導覽條有 `backdrop-filter`（半透模糊底），而 backdrop-filter 會令入面
+       * `position: fixed` 嘅嘢改為以導覽條定位，唔再以視窗定位 ——
+       * 選單會被困喺條 72px 高嘅導覽入面，同版面疊埋。第一期冇發現，
+       * 因為首頁條導覽冇 backdrop-filter，而我只喺首頁撳過個選單。
+       */}
       {open ? (
         <nav id="dao-mian" aria-label="主要" className="dao-mian md:hidden">
           {NAV.map((n) => (
@@ -118,11 +133,12 @@ export function SiteHeader() {
           ))}
           <Link href="/shelf">我的書齋</Link>
           <Link href="/account">設定</Link>
-          <div className="mt-6">
+          <div className="mt-6 flex flex-col gap-5">
+            <LocaleSwitch layout="list" />
             <ThemeToggle dayLabel="日讀" nightLabel="夜讀" />
           </div>
         </nav>
       ) : null}
-    </header>
+    </>
   );
 }
