@@ -120,7 +120,7 @@
       "sex": "Sex"
     },
     "ask": {
-      "name": "Whose name should this book carry?",
+      "name": "Whose name should this book carry? You may leave it blank; the book will then read 無名, “nameless”.",
       "date": "Your date of birth on the Gregorian calendar. We convert it to the lunar calendar for you.",
       "place": "Where were you born?",
       "time": "What time were you born?",

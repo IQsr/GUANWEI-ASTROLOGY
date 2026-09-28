@@ -5,6 +5,7 @@ import {
   PLACES,
   STEPS,
   answeredBefore,
+  canLeave,
   chineseDate,
   firstUnanswered,
   isAnswered,
@@ -287,5 +288,26 @@ describe('⚠ server action 係一個公開 endpoint', () => {
 
   it('唔知時辰嘅請求照收', () => {
     expect(parseCastRequest({ ...good, time: null })?.time).toBeNull();
+  });
+});
+
+describe('姓名可以留空（2026-09）', () => {
+  it('留空都撳得落一步', () => {
+    expect(canLeave('name', EMPTY_DRAFT)).toBe(true);
+    expect(canLeave('name', { ...EMPTY_DRAFT, name: '字'.repeat(41) })).toBe(false);
+    expect(canLeave('date', EMPTY_DRAFT)).toBe(false);
+  });
+
+  it('未撳過落一步，空名唔算答咗 —— 一開頁唔會跳過姓名', () => {
+    expect(isAnswered('name', EMPTY_DRAFT)).toBe(false);
+    expect(stepFromQuery(null, EMPTY_DRAFT)).toBe('name');
+    expect(stepFromQuery('date', EMPTY_DRAFT)).toBe('name');
+  });
+
+  it('留空撳咗落一步：算答咗，上面寫「無名」', () => {
+    const blank = { ...full, name: '  ', nameless: true };
+    expect(isAnswered('name', blank)).toBe(true);
+    expect(isComplete(blank)).toBe(true);
+    expect(summaryOf('name', blank, words)).toBe('無名');
   });
 });

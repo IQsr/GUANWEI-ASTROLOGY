@@ -6,14 +6,15 @@ import { Naming } from "@/components/Naming";
 import { FlowChrome } from "@/components/FlowChrome";
 import { slotName, slotSummary, type Slot } from "@/lib/slots";
 import { BookFlip } from "@/components/BookFlip";
+import { nameOf } from "@/lib/chengshu";
 import { castChart, type CastOutcome } from "@/app/[locale]/cast/actions";
 import {
   EMPTY_DRAFT,
   PLACES,
   STEPS,
   answeredBefore,
+  canLeave,
   chineseDate,
-  isAnswered,
   stepFromQuery,
   summaryOf,
   toCastRequest,
@@ -131,12 +132,14 @@ export function Luokuan() {
   }, [step]);
 
   const answered = answeredBefore(step, draft);
-  const ready = isAnswered(step, draft);
+  const ready = canLeave(step, draft);
   const last = step === STEPS[STEPS.length - 1];
 
   async function next() {
     if (!ready) return;
     if (!last) {
+      /* 姓名留空撳落一步 = 答咗「無名」 */
+      if (step === "name") setDraft({ ...draft, nameless: draft.name.trim() === "" });
       setStep(STEPS[STEPS.indexOf(step) + 1]!);
       return;
     }
@@ -148,7 +151,7 @@ export function Luokuan() {
     setOutcome(
       await castChart({
         ...request,
-        name: draft.name.trim(),
+        name: nameOf(draft.name),
         token: token.current,
       }),
     );
@@ -169,14 +172,14 @@ export function Luokuan() {
   if (outcome?.ok === true) {
     return outcome.kind === "full" ? (
       <Naming
-        name={draft.name.trim()}
+        name={nameOf(draft.name)}
         chart={outcome.chart}
         bookId={outcome.bookId}
         preface={outcome.preface}
       />
     ) : (
       <FlowChrome>
-        <DaiShiChen name={draft.name.trim()} />
+        <DaiShiChen name={nameOf(draft.name)} />
       </FlowChrome>
     );
   }

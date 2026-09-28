@@ -98,6 +98,18 @@ export function chapterNumeral(n: number): string {
   return `${CHINESE_DIGITS[Math.floor(n / 10)]}十${n % 10 ? CHINESE_DIGITS[n % 10] : ''}`;
 }
 
+/**
+ * 唔填名嘅書（2026-09，Issac）：名可以留空，留空就寫「無名」，本書叫「無名命書」。
+ *
+ * 「無名」係寫落本書嘅字（同出生地「香港」一樣），唔跟讀者語言轉。
+ * DB 嗰條 CHECK（名 1–40 字）唔使改 —— 寫落去嘅永遠係一個名。
+ */
+export const NAMELESS = '無名';
+
+export function nameOf(raw: string): string {
+  return raw.trim() || NAMELESS;
+}
+
 /** 本書叫乜。同封面上面嗰兩行一樣（E5）—— 唔好兩個地方各有各叫法。 */
 export function bookTitle(name: string): string {
   return `${name}命書`;
@@ -223,13 +235,15 @@ export async function keepBook(port: ChengshuPort, draft: BookDraft): Promise<st
  * `parseCastRequest()` 核排盤嗰幾格；呢度核成書多出嗰兩格。
  * 名嘅長度同 DB 嗰條 CHECK 對齊（1–40）—— 唔對齊嘅話，
  * 個人會行完五步、排完盤、入咗題名，然後先至喺寫入嗰下仆街。
+ * 留空唔係錯：寫「無名」（`NAMELESS`）。
  */
 export function parseBookFields(raw: unknown): { name: string; token: string } | null {
   if (typeof raw !== 'object' || raw === null) return null;
   const r = raw as Record<string, unknown>;
 
-  const name = typeof r.name === 'string' ? r.name.trim() : '';
-  if (name.length < 1 || name.length > 40) return null;
+  if (r.name !== undefined && typeof r.name !== 'string') return null;
+  const name = nameOf(typeof r.name === 'string' ? r.name : '');
+  if (name.length > 40) return null;
 
   const token = typeof r.token === 'string' ? r.token : '';
   if (!/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(token)) return null;

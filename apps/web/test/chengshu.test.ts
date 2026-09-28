@@ -151,7 +151,12 @@ describe('⚠ 有盤先有名', () => {
 describe('⚠ server action 係一個公開 endpoint', () => {
   it('名要有，而且唔可以長過 DB 嗰條 CHECK', () => {
     expect(parseBookFields({ name: '思協', token: TOKEN })).toEqual({ name: '思協', token: TOKEN });
-    expect(parseBookFields({ name: '   ', token: TOKEN })).toBeNull();
+    /* 留空唔係錯：寫「無名」，本書叫「無名命書」（2026-09） */
+    expect(parseBookFields({ name: '   ', token: TOKEN })!.name).toBe('無名');
+    expect(parseBookFields({ name: '', token: TOKEN })!.name).toBe('無名');
+    expect(parseBookFields({ token: TOKEN })!.name).toBe('無名');
+    expect(parseBookFields({ name: 3, token: TOKEN })).toBeNull();
+    expect(bookTitle(parseBookFields({ name: '', token: TOKEN })!.name)).toBe('無名命書');
     expect(parseBookFields({ name: '字'.repeat(41), token: TOKEN })).toBeNull();
     expect(parseBookFields({ name: '字'.repeat(40), token: TOKEN })).not.toBeNull();
   });

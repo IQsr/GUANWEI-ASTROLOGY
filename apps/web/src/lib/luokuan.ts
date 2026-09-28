@@ -18,13 +18,21 @@
  * 排盤喺 server action（架構 §9：引擎唔准落 client bundle）。
  */
 
+import { nameOf } from '@/lib/chengshu';
+
 export const STEPS = ['name', 'date', 'place', 'time', 'sex'] as const;
 export type Step = (typeof STEPS)[number];
 
 export type Sex = 'male' | 'female';
 
 export type Draft = {
+  /** 可以留空：留空嘅書叫「無名命書」（`lib/chengshu.ts` `NAMELESS`）。 */
   name: string;
+  /**
+   * 留空之後撳咗「下一步」。冇呢格嘅話，空名一開頁就當答咗，
+   * 成個流程會由第二步開始 —— 要佢見過姓名嗰步先算。
+   */
+  nameless?: boolean;
   /** 國曆 yyyy-mm-dd。 */
   date: string;
   /** hh:mm。`noHour` 為 true 嗰陣冇意思。揀時辰嗰陣係嗰段嘅中間一分鐘。 */
@@ -73,7 +81,7 @@ export const PLACES = [
 export function isAnswered(step: Step, draft: Draft): boolean {
   switch (step) {
     case 'name':
-      return draft.name.trim().length > 0 && draft.name.trim().length <= 40;
+      return draft.name.trim().length <= 40 && (draft.name.trim().length > 0 || draft.nameless === true);
     case 'date':
       return /^\d{4}-\d{2}-\d{2}$/.test(draft.date);
     /* 「唔知時辰」都係一個答案 —— 佢唔係跳過，佢係揀咗一條分支。 */
@@ -84,6 +92,11 @@ export function isAnswered(step: Step, draft: Draft): boolean {
     case 'sex':
       return draft.sex !== null;
   }
+}
+
+/** 呢一步撳唔撳得「下一步」。姓名留空都得；其他步同 `isAnswered` 一樣。 */
+export function canLeave(step: Step, draft: Draft): boolean {
+  return step === 'name' ? draft.name.trim().length <= 40 : isAnswered(step, draft);
 }
 
 /** 答晒未。五步齊就直入題名 —— 冇確認頁（架構 §3）。 */
@@ -160,7 +173,7 @@ export type SummaryWords = {
 export function summaryOf(step: Step, draft: Draft, w: SummaryWords): string {
   switch (step) {
     case 'name':
-      return draft.name.trim();
+      return nameOf(draft.name);
     case 'date':
       return w.date(draft.date);
     case 'time':
