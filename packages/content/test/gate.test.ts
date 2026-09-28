@@ -22,6 +22,7 @@ import {
   inferAll,
   polishPrompt,
   traceRatio,
+  transitionBank,
   type Editor,
   type PolishedSegment,
 } from '../src/index';
@@ -134,18 +135,33 @@ describe('§7：過場句一個字都唔准改', () => {
   /**
    * 過場句係白名單本身。改一個字就即刻唔喺白名單 ——
    * 而白名單就係「呢句唔係命理主張」嘅唯一憑據（C7 決定）。
+   *
+   * ⚠ 新書已經唔出過場句（2026-09，改用排版分節）。但舊書寫咗落 DB 唔會變（R-008），
+   * 入面仲有過場段 —— 所以閘要照樣守。呢度砌返一章舊書嘅樣：喺 牽動 前面插一句句庫嘅過場。
    */
+  const t = transitionBank('結構', '牽動')[0]!;
+  const at = 官祿.segments.findIndex((s) => s.slot === '牽動');
+  const 舊官祿 = {
+    ...官祿,
+    segments: [
+      ...官祿.segments.slice(0, at),
+      { slot: '過場' as const, text: t.text, source_id: t.id, rule_ids: [] },
+      ...官祿.segments.slice(at),
+    ],
+  };
+
+  it('舊書原封不動 → 過得閘', () => {
+    expect(finishChapter(舊官祿, identity).gate.findings.map((f) => f.code)).not.toContain('G-TRANSITION');
+  });
+
   it('改一個標點都攔得住', () => {
-    const i = 官祿.segments.findIndex((s) => s.slot === '過場');
-    expect(i).toBeGreaterThanOrEqual(0);
-    const g = finishChapter(官祿, tamper(i, (t) => t.replace('。', ''))).gate;
+    const g = finishChapter(舊官祿, tamper(at, (t) => t.replace('。', ''))).gate;
     expect(g.ok).toBe(false);
     expect(g.findings.map((f) => f.code)).toContain('G-TRANSITION');
   });
 
   it('自己作一句過場 → 攔得住', () => {
-    const i = 官祿.segments.findIndex((s) => s.slot === '過場');
-    const g = finishChapter(官祿, tamper(i, () => '接下來談談你的事業運。')).gate;
+    const g = finishChapter(舊官祿, tamper(at, () => '接下來談談你的事業運。')).gate;
     expect(g.ok).toBe(false);
     expect(g.findings.map((f) => f.code)).toContain('G-TRANSITION');
   });

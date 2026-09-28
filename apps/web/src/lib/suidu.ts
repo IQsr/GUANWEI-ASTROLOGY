@@ -113,3 +113,26 @@ export const OPENING_SLOT = '開場';
 
 /** 命宮（章嘅 slug）：目次嗰陣左頁個盤亮呢一宮。 */
 export const LIFE_PALACE = '命宮';
+
+/**
+ * 分節：邊幾段前面要一個分節記號（2026-09，取代過場句）
+ *
+ * 一章讀落有三節：講呢一宮本身（開場 · 結構）→ 牽動三方四正（牽動 · 擾動）
+ * → 交返畀讀者（留白）。以前節與節之間靠一句過場句接，而家靠排版：
+ * 喺「牽動」同「留白」嗰節開頭留一個安靜嘅分節記號。
+ *
+ * ⚠ 記號擺喺**一節嘅開頭**，唔係每段前面 —— 留白有兩段（收束句 ＋ 章尾）只標第一段。
+ * ⚠ 舊書（R-008）仲有過場段：過場緊接住一節嘅話，記號擺喺過場前面，
+ *   唔好夾咗喺橋同橋對面之間。
+ * ⚠ 第一段前面唔標 —— 一章開頭本身就係分節。
+ */
+const SECTION_START = new Set(['牽動', '留白']);
+
+export function sectionBreaks(slots: readonly (string | null)[]): boolean[] {
+  return slots.map((slot, i) => {
+    if (i === 0 || slot === null) return false;
+    const prev = slots[i - 1];
+    if (slot === '過場') return SECTION_START.has(slots[i + 1] ?? '');
+    return SECTION_START.has(slot) && prev !== slot && prev !== '過場';
+  });
+}

@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { cast } from '@guanwei/ziwei';
 import {
   SLOT_FOCUS,
+  sectionBreaks,
   branchIndexOf,
   chartStateAt,
   focusOf,
@@ -160,5 +161,24 @@ describe('⚠ 過場句唔熄個盤', () => {
 
   it('捲出咗所有段落之外，保住最後嗰一段', () => {
     expect(resolveSlot(null, '留白')).toBe('留白');
+  });
+});
+
+describe('sectionBreaks：分節記號（取代過場句）', () => {
+  it('新書：牽動同留白嗰節開頭先有，留白第二段唔再標', () => {
+    expect(sectionBreaks(['章首', '開場', '結構', '牽動', '擾動', '留白', '留白'])).toEqual([
+      false, false, false, true, false, true, false,
+    ]);
+  });
+
+  it('舊書有過場：記號擺喺過場前面，唔夾喺過場同下一節之間', () => {
+    expect(sectionBreaks(['章首', '開場', '結構', '過場', '牽動', '過場', '擾動', '過場', '留白'])).toEqual([
+      false, false, false, true, false, false, false, true, false,
+    ]);
+  });
+
+  it('第一段、冇格名嘅段唔標', () => {
+    expect(sectionBreaks(['留白'])).toEqual([false]);
+    expect(sectionBreaks([null, null])).toEqual([false, false]);
   });
 });

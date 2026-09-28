@@ -4,6 +4,7 @@ import { useTranslations } from 'next-intl';
 import { useState } from 'react';
 import { Link } from '@/i18n/navigation';
 import type { MarkedSegment } from '@/lib/zhu';
+import { sectionBreaks } from '@/lib/suidu';
 
 /**
  * 命書正文 ＋ 註層（工單 F1 · 內容系統 §4 · 視覺系統 §6）
@@ -44,6 +45,8 @@ export function Juan({
   /** 撳過就唔再係一個「新嘢」—— 個點退色，但唔會消失（消失會令字跳位）。 */
   const [seen, setSeen] = useState<Set<string>>(() => new Set());
 
+  const breaks = sectionBreaks(segments.map((s) => s.slot));
+
   return (
     <div className="wen flex flex-col gap-6">
       {segments.map((seg, i) => {
@@ -56,6 +59,8 @@ export function Juan({
            * 右邊個細盤靠佢知道你而家讀緊邊一格（見 lib/suidu.ts）。
            */
           <div key={`${seg.slot}-${i}`} data-slot={seg.slot}>
+            {/* 分節記號：取代以前嘅過場句（lib/suidu.ts `sectionBreaks`）。純裝飾，讀屏唔讀。 */}
+            {breaks[i] ? <div className="fen-jie" aria-hidden="true" /> : null}
             <p className="text-body leading-[1.95]">
               {seg.runs.map((run, j) =>
                 run.term ? (

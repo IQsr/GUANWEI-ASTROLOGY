@@ -1283,6 +1283,22 @@
 }
 
 /* 註層：素底、一條 1px 界欄靠左。唔用陰影分層（視覺 §3）。 */
+/*
+ * 分節記號（2026-09，取代過場句）
+ *
+ * 一章三節之間留一口氣：三粒細金點，置中。唔係一條橫線 ——
+ * 橫線讀落係「完」，三點讀落係「停一停，再讀」。
+ * 段與段之間本身有 gap（24px），記號再多攞少少位，令節同段分得出。
+ */
+.fen-jie {
+  width: 32px;
+  height: 4px;
+  margin: 8px auto 32px;
+  background: radial-gradient(circle, var(--gold) 1.5px, transparent 2px) 0 50% / 12px 4px repeat-x;
+  background-position: center;
+  opacity: 0.85;
+}
+
 .zhu-ceng {
   margin-top: 16px;
   padding: 16px 20px;

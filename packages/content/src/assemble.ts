@@ -34,7 +34,7 @@ import { PALACE_TOPIC } from './baseblock';
 import { brightnessModifier, maleficModifier, sihuaModifier } from './modifier-data';
 import { MALEFICS } from './modifier';
 import { chapterFooter, emptyPalaceLine, type Slot } from './frame';
-import { closeFor, openFor, transitionBank } from './frame-data';
+import { closeFor, openFor } from './frame-data';
 import { cjkCount } from './lexicon';
 import { similarity } from './baseblock';
 import { L3_BLOCKS, l3For } from './l3-data';
@@ -127,16 +127,6 @@ export type Chapter = {
   missing: { slot: ChapterSlot; reason: string }[];
 };
 
-/** 同 frame.ts 一樣嘅 FNV-1a。組裝要可重現，所以一個 random 都唔准有。 */
-function hashSeed(str: string): number {
-  let h = 0x811c9dc5;
-  for (let i = 0; i < str.length; i++) {
-    h ^= str.charCodeAt(i);
-    h = Math.imul(h, 0x01000193) >>> 0;
-  }
-  return h >>> 0;
-}
-
 /**
  * 兩段文有冇一段 `n` 字以上嘅**逐字**重複。
  *
@@ -220,30 +210,17 @@ export function assemble(
   const o = res.interpretation;
   const matchedRuleIds = new Set(o.evidence.map((e) => e.rule_id));
   const push = (seg: Segment) => segments.push(seg);
-  /**
-   * 過場句要揀一句**唔會同跟住嗰段撞**嘅。
+  /*
+   * ⚠ 唔再出過場句（2026-09）。
    *
-   * 樣章第一次跑出嚟係咁：
-   *   〔過場〕這一宮不是獨立看的。
-   *   〔牽動〕命宮不是獨立看的。它與遷移宮正對⋯⋯
+   * 量過：一本書大約 29 句過場，得 8 句唔同 ——「接著要看它牽動到哪裡。」
+   * 一本書出現 8–9 次。句句都啱、都喺白名單，但讀落就係重複、係填充。
+   * 格與格之間改由排版分節（網頁嗰邊喺 牽動／留白 前面加一個分節記號），
+   * 唔再用字過場。
    *
-   * 兩句都啱、都有出處、各自都過晒閘 —— 但擺埋一齊就係同一句講兩次。
-   * 呢種撞法冇得喺寫嗰陣避，因為兩邊係喺唔同工單、唔同層寫嘅（C7 章框 vs C8b L3）。
-   * 所以要喺組裝嗰一刻先至避得到：bank 有三句，揀唔撞嗰句。
+   * 句庫（frames.json）同檢查閘嘅白名單保留：舊書（R-008，寫咗落 DB 唔會變）
+   * 仲有過場段，閘要照樣認得佢哋。
    */
-  const transition = (from: Slot, to: Slot, next: string) => {
-    const bank = transitionBank(from, to);
-    if (bank.length === 0) return;
-    const start = Math.abs(hashSeed(`${seed}:${palace}:${from}>${to}`)) % bank.length;
-    const nextHead = sentences(next)[0] ?? next;
-    for (let i = 0; i < bank.length; i++) {
-      const t = bank[(start + i) % bank.length]!;
-      if (similarity(t.text, nextHead) < 0.25) {
-        push({ slot: '過場', text: t.text, source_id: t.id, rule_ids: [] });
-        return;
-      }
-    }
-  };
 
   /* ── 章首（L5）──────────────────────────────────────── */
   const open = openFor(palace);
@@ -388,7 +365,6 @@ export function assemble(
     missing.push({ slot: '牽動', reason: `${palace} 冇 L3 結構塊命中 —— 三方四正、空宮、身宮、格局全部冇` });
   } else {
     const l3Text = l3.map((b) => b.body).join('');
-    transition('結構', '牽動', l3Text);
     push({
       slot: '牽動',
       text: l3Text,
@@ -422,7 +398,6 @@ export function assemble(
      * 喺詞條寫得出之前，呢度保留星名（讀者要知講緊邊粒星），剝走定義。
      */
     const shaText = mods.map((m) => stripDefinition(m!.text, m!.star)).join('');
-    transition('牽動', '擾動', shaText);
     push({
       slot: '擾動',
       text: shaText,
@@ -433,7 +408,6 @@ export function assemble(
 
   /* ── 留白（L5）──────────────────────────────────────── */
   const close = closeFor(palace, seed);
-  transition(shaHere.length > 0 ? '擾動' : '牽動', '留白', close.text);
   push({ slot: '留白', text: close.text, source_id: close.id, rule_ids: [] });
 
   const footer = chapterFooter(palace);

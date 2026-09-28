@@ -296,26 +296,15 @@ describe('⚠ 跨格重複：C5 一個內容問題喺組裝嗰陣先現形', () 
 
 describe('⚠ 兩個只喺組裝嗰一刻先睇得到嘅撞法', () => {
   /**
-   * 過場句同跟住嗰段撞。樣章第一次跑出嚟係咁：
+   * 以前呢度守「過場句唔會同跟住嗰段撞」。過場句而家唔再出（2026-09）：
+   * 一本書大約 29 句過場、得 8 句唔同，「接著要看它牽動到哪裡。」一本出現 8–9 次 ——
+   * 句句都過閘，但讀落就係填充。格與格之間改由網頁排版分節。
    *
-   *   〔過場〕這一宮不是獨立看的。
-   *   〔牽動〕命宮不是獨立看的。它與遷移宮正對⋯⋯
-   *
-   * 兩句都啱、都有出處、各自都過晒閘。但擺埋一齊就係同一句講兩次。
-   * 呢種撞法冇得喺寫嗰陣避 —— 兩邊係喺唔同工單、唔同層寫嘅（C7 章框 vs C8b L3）。
+   * ⚠ 呢條守住佢唔好靜靜雞返嚟。舊書（R-008）入面嘅過場段由 gate 測試守。
    */
-  it('過場句唔會同跟住嗰段撞', () => {
+  it('新書唔再出過場句', () => {
     for (const c of CH) {
-      for (let i = 0; i < c.segments.length - 1; i++) {
-        const cur = c.segments[i]!;
-        if (cur.slot !== '過場') continue;
-        const next = c.segments[i + 1]!;
-        const head = next.text.match(/^[^。！？]*[。！？]/)?.[0] ?? next.text;
-        expect(
-          similarity(cur.text, head),
-          `${c.palace}：「${cur.text}」撞「${head}」`,
-        ).toBeLessThan(0.25);
-      }
+      expect(c.segments.filter((s) => s.slot === '過場').map((s) => s.text), c.palace).toEqual([]);
     }
   });
 
