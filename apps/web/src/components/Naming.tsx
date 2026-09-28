@@ -9,6 +9,7 @@ import { Seal } from "@/components/Seal";
 import { Chart } from "@/components/Chart";
 import { INK_MS, NAMING_MS, SEAL_DELAY_MS } from "@/lib/timing";
 import { MARK } from "@/lib/site";
+import { setQuiet } from "@/lib/quiet";
 import type { Preface } from "@/app/[locale]/cast/actions";
 import type { Chart as ZChart } from "@guanwei/ziwei/contract";
 
@@ -63,6 +64,15 @@ export function Naming({
     const timer = window.setTimeout(() => setReady(true), NAMING_MS);
     return () => window.clearTimeout(timer);
   }, []);
+
+  /*
+   * 頁頂導覽都要收（重新設計第四期）：全站有導覽，但呢一幕「冇任何掣」。
+   * 揭開本書就返嚟；離開呢版（unmount）一定要放返，唔係成個站冇咗導覽。
+   */
+  useEffect(() => {
+    setQuiet(!open);
+    return () => setQuiet(false);
+  }, [open]);
 
   /*
    * ⚠ 成幕行緊嗰陣，連頁頂嗰條返回同夜讀開關都收起。

@@ -8,9 +8,20 @@
  *   唔自動翻開，一定要用戶自己撳　　　→ 等完成幕再睇本書開咗未
  *   呢一幕之前冇出現過任何價錢　　　　→ 掃成條流程嘅字
  */
+import { readFileSync } from 'node:fs';
 import { launchBrowser, startServer, stopServer } from './_server.mjs';
 import { setTimeout as sleep } from 'node:timers/promises';
 
+
+/* build 有冇接 Supabase：`next build` 會讀 `.env.local`，所以呢度都讀佢。 */
+const HAS_DB = (() => {
+  if (process.env.NEXT_PUBLIC_SUPABASE_URL) return true;
+  try {
+    return /^NEXT_PUBLIC_SUPABASE_URL=\S+/m.test(readFileSync('.env.local', 'utf8'));
+  } catch {
+    return false;
+  }
+})();
 const PORT = Number(process.env.CHECK_NAMING_PORT ?? 3995);
 const BASE = `http://localhost:${PORT}`;
 const fail = [];
@@ -258,8 +269,13 @@ try {
     shape: document.querySelector('.shu')?.dataset.shape,
     gong: document.querySelectorAll('.gong').length,
     kai: Boolean(document.querySelector('.mu-ti-kai')),
-    /* 揭開之後兩件工具要返嚟 —— 嗰陣已經係喺度讀緊。 */
-    chrome: document.querySelectorAll('header a, header button').length,
+    /*
+     * 揭開之後工具要返嚟 —— 嗰陣已經係喺度讀緊。
+     * ⚠ 重新設計之後：卷首得返「返回」一件（夜讀搬咗去頁頂導覽），
+     * 而頁頂導覽（`header.dao`）喺題名幕收起、揭開就返嚟。
+     */
+    chrome: document.querySelectorAll('main header a, main header button').length,
+    nav: Boolean(document.querySelector('header.dao')),
   }));
   const offZhan = after.kai ? await bookCentre() : null;
   if (after.kai) {
@@ -267,7 +283,8 @@ try {
     check('撳咗就揭開', opened.shape === 'opened', opened.shape ?? '冇書');
     check('入面係盤', opened.gong === 12, `${opened.gong} 宮`);
     check('揭開咗之後冇咗熱區', !opened.kai, '熱區仲喺度');
-    check('揭開咗之後兩件工具返嚟', opened.chrome === 2, `${opened.chrome} 件`);
+    check('揭開咗之後卷首嘅返回返嚟', opened.chrome === 1, `${opened.chrome} 件`);
+    check('揭開咗之後頁頂導覽返嚟', opened.nav, '冇導覽');
   }
 
   /*
@@ -288,9 +305,21 @@ try {
       .filter((h) => h.includes('/book/')),
     text: document.body.innerText,
   }));
-  check('冇 DB 就冇命書入口', pretend.links.length === 0, pretend.links.join('、'));
-  for (const w of ['收入書齋', '已收入', '已儲存', '已入藏'])
-    check('冇 DB 就唔准話收咗', !pretend.text.includes(w), `出現咗「${w}」`);
+  /*
+   * ⚠ 呢條要睇有冇接 DB。
+   *
+   * 寫呢條 check 嗰陣 build 冇 Supabase 環境變數。但 `.env.local` 一填，
+   * `keepBook()` 真係寫到，入口就應該出 —— 嗰陣冇入口先係錯。
+   * 所以：冇 DB 就唔准有入口；有 DB 就要啱啱好一個。
+   * （⚠ 有 DB 嗰陣呢個 script 會真係喺嗰個 Supabase 寫一本書。）
+   */
+  if (HAS_DB) {
+    check('有 DB 就有一個命書入口', pretend.links.length === 1, `${pretend.links.length} 個`);
+  } else {
+    check('冇 DB 就冇命書入口', pretend.links.length === 0, pretend.links.join('、'));
+    for (const w of ['收入書齋', '已收入', '已儲存', '已入藏'])
+      check('冇 DB 就唔准話收咗', !pretend.text.includes(w), `出現咗「${w}」`);
+  }
 
   /*
    * ── 五、⚠ 呢一幕之前冇出現過任何價錢 ───────────────

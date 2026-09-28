@@ -153,7 +153,16 @@ try {
       const el = [...document.querySelectorAll('.suidu [data-slot]')].find(
         (e) => e.dataset.slot === s,
       );
-      if (el) window.scrollBy(0, el.getBoundingClientRect().top - window.innerHeight / 3);
+      /*
+       * ⚠ 捲多 8px 入段落，唔係啱啱捲到段頂。
+       *
+       * 捲動只會落喺整數 pixel，段頂同讀線（innerHeight / 3）之間會有
+       * 零點幾 px 嘅誤差 —— 段頂落咗喺讀線下面半 px，就「壓唔住」讀線，
+       * 個盤保住上一段。呢個誤差由版面上面有幾高決定：重新設計第一期
+       * 加咗 72px 導覽、天頭改咗 64，就啱啱撞正。量嘅係「一段壓住讀線
+       * 就跟嗰段」，所以要捲到真係壓住。
+       */
+      if (el) window.scrollBy(0, el.getBoundingClientRect().top - window.innerHeight / 3 + 8);
     }, slot);
     await wide.waitForTimeout(700);
     return wide.evaluate(() => ({
@@ -194,7 +203,14 @@ try {
     const el = document.querySelector('.suidu-ding');
     return el ? Math.round(el.getBoundingClientRect().top) : null;
   });
-  check('個盤黐住唔會捲走', stuck !== null && stuck >= 0 && stuck <= 80, `頂部喺 ${stuck}px`);
+  /* ⚠ 頁頂導覽（72px）都黐住，所以個盤要喺佢下面：唔可以俾佢遮，亦唔好離得太遠。 */
+  check('個盤黐住唔會捲走', stuck !== null && stuck >= 72 && stuck <= 120, `頂部喺 ${stuck}px`);
+  const hidden = await wide.evaluate(() => {
+    const pan = document.querySelector('.suidu-ding')?.getBoundingClientRect();
+    const bar = document.querySelector('header.dao')?.getBoundingClientRect();
+    return pan && bar ? Math.round(bar.bottom - pan.top) : null;
+  });
+  check('個盤唔俾頁頂導覽遮住', hidden !== null && hidden <= 0, `遮住 ${hidden}px`);
 
   const kai = await atSlot('開場');
   check('捲到開場', kai.at === '開場', `跟緊「${kai.at}」`);

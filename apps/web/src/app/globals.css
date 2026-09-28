@@ -1423,7 +1423,9 @@
 /* 跟住捲 —— 個盤唔會捲走。 */
 .suidu-ding {
   position: sticky;
-  top: 40px;
+  /* ⚠ 要黐喺頁頂導覽下面（重新設計第一期）。之前係 40px —— 導覽 72px
+     高而且都黐住，個盤頂部會俾佢遮住一截。 */
+  top: calc(var(--header) + 24px);
 }
 
 /* ⚠ 隨讀嗰個盤撳唔郁，所以唔可以有 hover／cursor 嘅樣。 */

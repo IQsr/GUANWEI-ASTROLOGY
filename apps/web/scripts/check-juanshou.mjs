@@ -20,7 +20,7 @@
  *
  *   一、每版都有一個卷首
  *   二、卷首嘅左邊界，**逐版一模一樣**
- *   三、天頭 104、地腳 64（§5）
+ *   三、天頭 64、地腳 40（§5 嘅 8 : 5；重新設計加咗 72px 導覽之後由 104 / 64 收細）
  *   四、h1 嘅左邊界逐版一樣，字距一樣
  *   五、冇一版橫向滾
  */
@@ -105,9 +105,13 @@ try {
 
     check(`${label} main`, m.hasMain, '冇 <main>');
     check(`${label} 卷首`, m.headX !== null, '搵唔到卷首（main > header）');
-    /* §5：天頭 : 地腳 = 8 : 5 → 104 / 64。 */
-    check(`${label} 天頭`, m.padTop === '104px', `${m.padTop}，應該 104px`);
-    check(`${label} 地腳`, m.padBottom === '64px', `${m.padBottom}，應該 64px`);
+    /*
+     * §5：天頭 : 地腳 = 8 : 5。
+     * ⚠ 由 104 / 64 改做 64 / 40（重新設計第一期）：頁頂而家有一條 72px 導覽，
+     * 天頭由導覽底計起。比例冇變，變嘅係起點。
+     */
+    check(`${label} 天頭`, m.padTop === '64px', `${m.padTop}，應該 64px`);
+    check(`${label} 地腳`, m.padBottom === '40px', `${m.padBottom}，應該 40px`);
     check(`${label} 橫向滾`, m.overflow <= 0, `多咗 ${m.overflow}px`);
     seen.push({ label, ...m });
   }
@@ -160,4 +164,4 @@ if (fail.length) {
   process.exit(1);
 }
 
-console.log('✓ 卷首：九版同一個左邊界、同一個天頭（104 / 64）、h1 同一個位同一個字距、冇一版橫向滾');
+console.log('✓ 卷首：九版同一個左邊界、同一個天頭（64 / 40）、h1 同一個位同一個字距、冇一版橫向滾');

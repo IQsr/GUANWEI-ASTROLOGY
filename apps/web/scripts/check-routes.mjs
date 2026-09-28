@@ -175,7 +175,15 @@ try {
    */
   for (const path of ['/lexicon', '/lexicon/star/%E7%B4%AB%E5%BE%AE']) {
     const html = await fetch(`${BASE}${path}`).then((r) => r.text());
-    const ctas = [...html.matchAll(/href="\/cast"/g)].length;
+    /*
+     * ⚠ 頁頂導覽唔計（重新設計第一期）。
+     *
+     * 全站導覽有一格「起盤」，所以每一版都有一條 /cast。呢條 check
+     * 量嘅係**正文**入面嘅 CTA 係咪一行細字、剛好一個 —— 導覽唔係 CTA。
+     * 剷走 `<header class="dao">` 先數；佢入面冇第二個 header，非貪婪夠用。
+     */
+    const body = html.replace(/<header class="dao"[\s\S]*?<\/header>/, '');
+    const ctas = [...body.matchAll(/href="\/cast"/g)].length;
     check(`${path} CTA`, ctas === 1, `${ctas} 個 /cast 連結，應該剛好一個`);
     check(`${path} CTA 唔係彈窗`, !/<dialog|role="dialog"|aria-modal/.test(html), '有 dialog');
     check(`${path} CTA 唔係 banner`, !/\bfixed\b|\bsticky\b/.test(html), '有 fixed／sticky 定位');

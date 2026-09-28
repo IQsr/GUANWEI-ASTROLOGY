@@ -140,16 +140,19 @@ export default async function PayPage({
     <main className="juan tai">
       <Juanshou back={back} title="裁書" step={4} />
 
-      <div className="banxin flex flex-col gap-4 text-body leading-[1.95]">
-        <p>線裝書的毛邊本，頁邊未裁開，要讀的人自己裁。這本書的深度章就是未裁的頁。</p>
-        <p className="text-ink-2">
-          裁一次，整本書的深度章都開了 —— 不是逐章買，也沒有續期。
-          已經在讀的免費章不會有任何改變。
-        </p>
-      </div>
-
+      {/* 裁書：一張卡（重新設計第四期）。講清楚 → 價錢 → 一粒掣，全部喺同一格 */}
       <div className="banxin">
-        <CaishuForm bookId={bookId} chapter={ch} priceLabel={priceLabel()} />
+        <div className="ka p-6 sm:p-8">
+          <div className="flex flex-col gap-4 text-body leading-[1.95]">
+            <p>線裝書的毛邊本，頁邊未裁開，要讀的人自己裁。這本書的深度章就是未裁的頁。</p>
+            <p className="text-ink-2">
+              裁一次，整本書的深度章都開了 —— 不是逐章買，也沒有續期。
+              已經在讀的免費章不會有任何改變。
+            </p>
+          </div>
+
+          <CaishuForm bookId={bookId} chapter={ch} priceLabel={priceLabel()} />
+        </div>
       </div>
 
       {/*

@@ -85,6 +85,11 @@ export default async function ShelfPage({ params }: { params: Promise<{ locale: 
             </p>
           ) : null}
 
+          {/* 一句講清楚呢度係乜（重新設計第四期）：之前一入嚟淨係見到幾條直線 */}
+          <p className="banxin mb-10 text-lead leading-[1.9] text-ink-2">
+            你的每一本命書都在這裡。撳書脊打開，或者在最右邊開一本新的。
+          </p>
+
           <div className="banxin">
             <Shelf spines={view.spines} />
           </div>

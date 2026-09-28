@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { Link, usePathname } from '@/i18n/navigation';
 import { ThemeToggle } from '@/components/ThemeToggle';
 import { MARK } from '@/lib/site';
+import { useQuiet } from '@/lib/quiet';
 
 /**
  * 頁頂導覽：全站一條（重新設計第一期）
@@ -46,11 +47,15 @@ export function SiteHeader() {
   const pathname = usePathname();
   const overNight = pathname === '/';
   const [open, setOpen] = useState(false);
+  const quiet = useQuiet();
 
   /* 換咗版就收埋個選單 */
   useEffect(() => {
     setOpen(false);
   }, [pathname]);
+
+  /* 題名幕：成條導覽唔 render（見 lib/quiet.ts） */
+  if (quiet) return null;
 
   return (
     <header className="dao" data-over={overNight ? 'night' : undefined}>

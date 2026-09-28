@@ -83,9 +83,11 @@ export default async function AccountPage({ params }: { params: Promise<{ locale
         {account.email ?? '這些書還沒有認領 —— 只有這一部瀏覽器認得它們。'}
       </p>
 
+      {/* 三件事，三張卡（重新設計第四期 · 參考稿閱讀卡） */}
+      <div className="banxin mt-10 flex flex-col gap-6">
       {/* ── 一、匯出 ───────────────────────────────── */}
-      <section className="banxin mt-tiantou border-t jielan pt-8">
-        <h2 className="text-h2 font-semibold tracking-[0.16em]">帶走</h2>
+      <section className="ka p-6 sm:p-8">
+        <h2 className="text-h3 font-medium tracking-[0.16em]">帶走</h2>
         <div className="mt-6 flex flex-col gap-4 text-body leading-[1.95]">
           <p>一個 JSON 檔，裡面是你寫過的每一個生辰、每一張盤、每一本書。</p>
           <p className="text-ink-2">
@@ -97,8 +99,8 @@ export default async function AccountPage({ params }: { params: Promise<{ locale
       </section>
 
       {/* ── 二、重排（R-008） ──────────────────────── */}
-      <section className="banxin mt-tiantou border-t jielan pt-8">
-        <h2 className="text-h2 font-semibold tracking-[0.16em]">新版本</h2>
+      <section className="ka p-6 sm:p-8">
+        <h2 className="text-h3 font-medium tracking-[0.16em]">新版本</h2>
         <p className="mt-6 text-body leading-[1.95] text-ink-2">
           算法和文字都會改版。你手上這些書不會跟著改 —— 它們記著自己成書當時的設定。
         </p>
@@ -138,8 +140,8 @@ export default async function AccountPage({ params }: { params: Promise<{ locale
       </section>
 
       {/* ── 三、刪除 ───────────────────────────────── */}
-      <section className="banxin mt-tiantou border-t jielan pt-8">
-        <h2 className="text-h2 font-semibold tracking-[0.16em]">刪除</h2>
+      <section className="ka border-cinnabar/40 p-6 sm:p-8">
+        <h2 className="text-h3 font-medium tracking-[0.16em]">刪除</h2>
         <p className="mt-6 text-body leading-[1.95]">
           這是真的刪除，不是隱藏。刪了就沒有了，我們這邊也沒有備份可以還原。
         </p>
@@ -173,6 +175,7 @@ export default async function AccountPage({ params }: { params: Promise<{ locale
 
         <DeleteForm />
       </section>
+      </div>
     </main>
   );
 }
