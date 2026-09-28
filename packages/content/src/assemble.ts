@@ -63,10 +63,17 @@ import type { InferResult } from './infer';
  * 而且下一副雙星盤照樣爆。正確做法係規範嗰邊認咗一格可以有幾粒星，
  * 或者修飾語寫短啲。喺嗰個決定之前，`outOfRange` 照報。
  */
+/*
+ * ⚠ 2026-09 改咗兩格：開場上限 70 → 90、結構下限 60 → 40。
+ *
+ * 開場由基塊第一句起。以前好多塊第一句係一句短引文（「《全書》寫『入廟文武皆宜』，語氣寬。」），
+ * 拎走咗冇解釋嘅引文之後，開場由真正讀人嗰句起，而嗰句本身可以去到八十幾字。
+ * 結構跟基塊下限一齊降（基塊 120 → 70，見 baseblock.ts）：拎走嘅係內部規則句，唔係內容。
+ */
 export const SLOT_SPEC = [
   { slot: '章首' as const, min: 30, max: 50, required: true },
-  { slot: '開場' as const, min: 30, max: 70, required: true },
-  { slot: '結構' as const, min: 60, max: 200, required: true },
+  { slot: '開場' as const, min: 30, max: 90, required: true },
+  { slot: '結構' as const, min: 40, max: 200, required: true },
   { slot: '牽動' as const, min: 40, max: 140, required: true },
   { slot: '擾動' as const, min: 0, max: 60, required: false },
   { slot: '留白' as const, min: 25, max: 45, required: true },
@@ -280,11 +287,6 @@ export function assemble(
      * 讀者會見到同一格講兩次，而兩次都係完整嘅一套講法。
      * 結構格嘅上限係兩百字，本來就假設咗一格一套講法。
      */
-    for (const b of blocks.slice(1)) {
-      structure.push(leadIn(b.block.body, 40).lead);
-      ids.push(b.block.id);
-      rules.push(`base.${b.star.name}.${palace}`);
-    }
     /*
      * ── 廟旺同四化嘅分別 ──
      *
@@ -326,6 +328,20 @@ export function assemble(
         structure.push(m.text);
         ids.push(m.id);
       }
+    }
+    /*
+     * 同座嗰粒星擺喺領銜星嘅廟旺**之後**（2026-09）：以前次序係「領銜星 → 同座星 → 領銜星嘅廟旺」，
+     * 讀者讀完巨門，突然一句「日麗中天」—— 講緊嘅其實係前面嗰粒太陽。
+     *
+     * 而且同座星由**第一句提到佢名嘅句**開始攞：塊嘅頭一句有時係一句冇解釋嘅引文，
+     * 讀者唔知講緊邊粒星。
+     */
+    for (const b of blocks.slice(1)) {
+      const ss = sentences(b.block.body);
+      const at = ss.findIndex((x) => x.includes(b.star.name));
+      structure.push(leadIn(at > 0 ? ss.slice(at).join('') : b.block.body, 40).lead);
+      ids.push(b.block.id);
+      rules.push(`base.${b.star.name}.${palace}`);
     }
     for (const st of p.stars) {
       if (!st.sihua) continue;
