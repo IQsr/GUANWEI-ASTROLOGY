@@ -40,8 +40,9 @@ describe('182 句', () => {
     expect(modifierCoverage()).toEqual({ brightness: 70, sihua: 40, malefic: 72, total: 182 });
   });
 
-  it('每句 30–50 字', () => {
-    const bad = MODIFIERS.filter((m) => cjkCount(m.text) < 30 || cjkCount(m.text) > 50)
+  /* 下限 2026-09 由 30 降到 20：拎走咗「它修飾…不涉…」一類句（見 modifier.ts） */
+  it('每句 20–50 字', () => {
+    const bad = MODIFIERS.filter((m) => cjkCount(m.text) < 20 || cjkCount(m.text) > 50)
       .map((m) => `${m.id}=${cjkCount(m.text)}`);
     expect(bad).toEqual([]);
   });
@@ -126,13 +127,14 @@ describe('引文同語氣', () => {
     expect(hits).toEqual([]);
   });
 
-  /** 高風險宮嘅煞星提示，一定要寫明本書唔做乜。 */
-  it('六煞喺子女、疾厄、父母、夫妻四宮嘅提示都有界線句', () => {
-    for (const m of MODIFIERS) {
-      if (m.kind !== 'malefic') continue;
-      if (!['子女', '疾厄', '父母', '夫妻'].includes(m.key)) continue;
-      expect(/不推|不談|不涉|不作|不評價|不讀成|條件提示/.test(m.text), m.id).toBe(true);
-    }
+  /**
+   * ⚠ 2026-09 反轉：以前要求高風險宮嘅煞星提示逐句寫「它修飾…，不涉…」。
+   * 一章入面三粒煞就讀到三次「不指認任何人」。界線改為章首講一次（見 baseblock.test.ts 同一段）。
+   */
+  it('煞星提示唔再逐句重複界線句', () => {
+    /* 淨係煞星：四化嗰幾句「它修飾的是支援而不是主體」係講緊化科點樣作用，唔係界線句 */
+    const hits = MODIFIERS.filter((m) => m.kind === 'malefic' && /它修飾|這裡不談身體|本書|規範/.test(m.text)).map((m) => m.id);
+    expect(hits).toEqual([]);
   });
 });
 

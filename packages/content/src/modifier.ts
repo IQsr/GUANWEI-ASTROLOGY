@@ -74,9 +74,14 @@ export const Modifier = z
     if (kind !== m.kind || star !== m.star || key !== m.key) {
       ctx.addIssue({ code: 'custom', message: `${m.id}：id 同欄位唔夾` });
     }
+    /*
+     * ⚠ 下限 2026-09 降咗（Issac：啲字太空泛）。原本 30 字嘅下限，係假設咗每塊都會帶一兩句
+     * 「本書不採用…」「規範禁止…」「這說的是…不是…」—— 嗰啲句拎走之後，剩低嘅先係真內容，
+     * 只係短咗。補返夠字就要寫新嘅象義，冇出處，犯另一條規矩。所以降下限，上限唔郁。
+     */
     const w = cjkCount(m.text);
-    if (w < 30 || w > 50) {
-      ctx.addIssue({ code: 'custom', message: `${m.id}：${w} 字，要 30–50（內容系統 §3）` });
+    if (w < 20 || w > 50) {
+      ctx.addIssue({ code: 'custom', message: `${m.id}：${w} 字，要 20–50（內容系統 §3，下限 2026-09 改）` });
     }
     /*
      * ⚠ 同一句入面唔准有重複片段。

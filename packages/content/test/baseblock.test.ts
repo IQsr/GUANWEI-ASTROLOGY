@@ -43,8 +43,9 @@ describe('七十二格', () => {
     }
   });
 
-  it('每條 120–150 字', () => {
-    const bad = BASE_BLOCKS.filter((b) => cjkCount(b.body) < 120 || cjkCount(b.body) > 150)
+  /* 下限 2026-09 由 120 降到 70：拎走咗「本書不採用…」一類句（見 baseblock.ts） */
+  it('每條 70–150 字', () => {
+    const bad = BASE_BLOCKS.filter((b) => cjkCount(b.body) < 70 || cjkCount(b.body) > 150)
       .map((b) => `${b.id}=${cjkCount(b.body)}`);
     expect(bad).toEqual([]);
   });
@@ -202,17 +203,18 @@ describe('基塊文字要守自己立嘅禁令', () => {
   });
 
   /**
-   * 四個高風險宮嘅二十四條基塊，一定要明寫本書唔做乜。
-   * 古書喺呢四宮嘅斷語最重，亦都係最容易被抄落去嘅地方。
+   * ⚠ 2026-09 反轉（Issac：啲字太空泛）。
+   *
+   * 以前呢度要求四個高風險宮嘅基塊一定寫「本書不採用」—— 結果係讀者喺正文入面
+   * 讀到一百幾句「本書不採用」「規範禁止…」，講緊我哋自己嘅編輯規矩。
+   *
+   * 界線冇拎走，係搬咗位：每個高風險宮嘅章首講一次（`frames.json`，
+   * structure.test.ts 守住），疾厄章末仲有固定免責句。古書嘅重斷語一樣唔准入正文 ——
+   * 語氣 lint（F1–F11）照掃。改嘅只係：唔再逐塊重複一次「我哋唔講乜」。
    */
-  it('高風險宮位嘅基塊都寫咗「本書不採用」', () => {
-    const risky = ['子女', '疾厄', '父母', '夫妻'];
-    const missing: string[] = [];
-    for (const b of BASE_BLOCKS) {
-      if (!risky.includes(b.palace)) continue;
-      if (!/不採用|不推斷|不作推斷|不描述|不作任何|禁止推斷|一概不採/.test(b.body)) missing.push(b.id);
-    }
-    expect(missing).toEqual([]);
+  it('正文唔准講我哋自己嘅編輯規矩', () => {
+    const hits = BASE_BLOCKS.filter((b) => /本書|規範|硬閘/.test(b.body)).map((b) => b.id);
+    expect(hits).toEqual([]);
   });
 });
 

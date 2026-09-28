@@ -135,9 +135,14 @@ export const BaseBlock = z
     if (!PALACE_TOPIC[b.palace]) {
       ctx.addIssue({ code: 'custom', message: `${b.id}：唔認得宮位 ${b.palace}` });
     }
+    /*
+     * ⚠ 下限 2026-09 降咗（Issac：啲字太空泛）。原本 120 字嘅下限，係假設咗每塊都會帶一兩句
+     * 「本書不採用…」「規範禁止…」「這說的是…不是…」—— 嗰啲句拎走之後，剩低嘅先係真內容，
+     * 只係短咗。補返夠字就要寫新嘅象義，冇出處，犯另一條規矩。所以降下限，上限唔郁。
+     */
     const w = cjkCount(b.body);
-    if (w < 120 || w > 150) {
-      ctx.addIssue({ code: 'custom', message: `${b.id}：${w} 字，要 120–150（內容系統 §3）` });
+    if (w < 70 || w > 150) {
+      ctx.addIssue({ code: 'custom', message: `${b.id}：${w} 字，要 70–150（內容系統 §3，下限 2026-09 改）` });
     }
     /*
      * ⚠ 人稱只有兩個：**「你」（讀者）同「它」（星）**。

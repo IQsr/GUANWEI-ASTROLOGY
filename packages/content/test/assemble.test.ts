@@ -146,7 +146,12 @@ describe('AC ② 每章字數喺規格範圍內', () => {
      * 佢係兩條塊之間逐字重複，畀重複片段偵測器剷走之後自然跌返落範圍。）
      */
     /* C10 剝走咗煞星嘅定義句之後，由 82 跌到 66 —— 但仍然過線。 */
-    expect(bad).toEqual(['官祿/擾動=66(0–60)']);
+    /*
+     * 2026-09 拎走「它修飾…不涉…」一類句之後，官祿擾動跌返落範圍。
+     * 換咗疾厄開場超標：以前開場第一句係「《全書》這一格列出具體病症，本書一律不採用」，
+     * 拎走之後開場由基塊真正嘅第一句起，而嗰句本身比較長（80，上限 70）。
+     */
+    expect(bad).toEqual(['疾厄/開場=80(30–70)']);
   });
 
   it('必需嘅五格，十二章一格都冇空', () => {
@@ -245,7 +250,8 @@ describe('V-001：一章入面根本冇「勢」呢個插槽', () => {
   it('十一章冇方向，但十二章都有齊五格內容', () => {
     const graded = CH.filter((c) => c.topic_grade !== null && c.topic_grade !== 0);
     expect(graded.map((c) => c.palace)).toEqual(['財帛']);
-    for (const c of CH) expect(c.words, c.palace).toBeGreaterThan(300);
+    /* 2026-09 拎走內部規則句之後每章短咗；最短嗰章（財帛）約 300 */
+    for (const c of CH) expect(c.words, c.palace).toBeGreaterThan(250);
   });
 
   /** 主題得七個，宮位有十二個 —— 欄名要講得出佢係主題級數，唔係呢一宮嘅級數。 */
@@ -289,7 +295,8 @@ describe('⚠ 跨格重複：C5 一個內容問題喺組裝嗰陣先現形', () 
     const xiongdi = assemble(CHART, '兄弟', BY_TOPIC.social, { seed: 'c1' });
     const lead = xiongdi.segments.find((s) => s.slot === '開場')!.text;
     const body = xiongdi.segments.find((s) => s.slot === '結構')!.text;
-    expect(lead).toContain('本書不採用');
+    /* 2026-09 起基塊唔再寫「本書不採用」一類內部規則句 */
+    expect(lead).not.toMatch(/本書|規範/);
     expect(body.includes(lead.trim()), '開場嗰句唔應該喺結構再出現一次').toBe(false);
   });
 });
@@ -366,6 +373,7 @@ describe('⚠ 同一個湊字數嘅寫法，第六同第七次', () => {
     const tails = restatingTails(BASE_BLOCKS);
     // eslint-disable-next-line no-console
     console.log(`\n  尾句重述：${tails.length} / ${BASE_BLOCKS.length} —— 待人手覆核\n`);
-    expect(tails).toHaveLength(25);
+    /* 2026-09 拎走內部規則句嗰次跌咗一條（25 → 24） */
+    expect(tails).toHaveLength(24);
   });
 });

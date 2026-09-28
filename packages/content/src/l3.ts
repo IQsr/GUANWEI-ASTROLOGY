@@ -62,9 +62,14 @@ export const L3Block = z
     status: z.enum(['draft', 'reviewed', 'published']),
   })
   .superRefine((b, ctx) => {
+    /*
+     * ⚠ 下限 2026-09 降咗（Issac：啲字太空泛）。原本 40 字嘅下限，係假設咗每塊都會帶一兩句
+     * 「本書不採用…」「規範禁止…」「這說的是…不是…」—— 嗰啲句拎走之後，剩低嘅先係真內容，
+     * 只係短咗。補返夠字就要寫新嘅象義，冇出處，犯另一條規矩。所以降下限，上限唔郁。
+     */
     const w = cjkCount(b.body);
-    if (w < 40 || w > 70) {
-      ctx.addIssue({ code: 'custom', message: `${b.id}：${w} 字，L3 塊要 40–70（牽動插槽 40–140，最多砌兩塊）` });
+    if (w < 20 || w > 70) {
+      ctx.addIssue({ code: 'custom', message: `${b.id}：${w} 字，L3 塊要 20–70（牽動插槽最多砌兩塊）` });
     }
     if (b.kind === 'relation') {
       const bad = NO_CLAIM_TERMS.filter((t) => b.body.includes(t));
