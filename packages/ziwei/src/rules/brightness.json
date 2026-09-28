@@ -16,7 +16,7 @@
     "文墨天機 pro 2.5.9 — 21 張匯出命盤（test/fixtures/wenmo/）"
   ],
   "verification": "two-implementations",
-  "verificationNote": "工單 B9 原本嘅驗收要求「兩個來源核對過」。**而家達到咗一半。**\n第二個來源係文墨天機 pro 2.5.9（商業實作，同我哋完全獨立），用 A 組十二張盤逐格核 —— 呢十二張啱啱好鋪滿十四主星 × 十二宮 = 168 格，冇重複冇遺漏（見 test/conformance-wenmo.test.ts）。\n結果：**167 / 168 格一致**，一格唔同（天梁喺巳宮），記咗喺 disputed 同 docs/engine-divergence.md D-003。\n**但兩個軟件夾到唔等於啱。** 兩個都冇標明跟邊個流派，所以 verification 係 'two-implementations' 而唔係 'verified'。要升做 'verified' 要有文本出處 —— 即係工單 B5（書本例盤）同揭中州派講義。嗰陣先改呢個欄同 school 欄。",
+  "verificationNote": "工單 B9 原本嘅驗收要求「兩個來源核對過」。**而家達到咗一半。**\n第二個來源係文墨天機 pro 2.5.9（商業實作，同我哋完全獨立），用 A 組十二張盤逐格核 —— 呢十二張啱啱好鋪滿十四主星 × 十二宮 = 168 格，冇重複冇遺漏（見 test/conformance-wenmo.test.ts）。\n結果：**167 / 168 格一致**，一格唔同（天梁喺巳宮），記咗喺 disputed 同 docs/engine-divergence.md D-003。\n**但兩個軟件夾到唔等於啱。** 兩個都冇標明跟邊個流派，所以 verification 係 'two-implementations' 而唔係 'verified'。要升做 'verified' 要有文本出處 —— 即係工單 B5（書本例盤）同揭中州派講義。嗰陣先改呢個欄同 school 欄。\n2026-09-28（B5）：王亭之《中州派紫微斗數深造講義》p.327「紫微天府偉星廟陷表」已逐格抄同對過 —— 107/168 一致、61 格唔同（一半係檔數唔同：書用廟旺地平閑陷六檔，冇利、不）。但書內文同書表打交（巨門辰戌：內文話不利，表寫平／旺），所以**唔成張跟**，維持現行表；書表全文同逐格差異記喺 docs/b5-zhongzhou.md。之後淨係書內文明確支持嘅格先考慮改。",
   "disputed": {
     "天梁": {
       "巳": {

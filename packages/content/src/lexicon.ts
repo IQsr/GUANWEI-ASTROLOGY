@@ -22,6 +22,7 @@
  */
 import { z } from 'zod';
 import quanshu from './sources/quanshu.json';
+import zhongzhou from './sources/zhongzhou.json';
 import t2sDoc from './sources/t2s.json';
 
 type Corpus = {
@@ -32,6 +33,11 @@ type Corpus = {
 
 export const CORPUS: Record<string, Corpus> = {
   quanshu: quanshu as unknown as Corpus,
+  /*
+   * 王亭之《中州派紫微斗數深造講義》（2026-09-28，B5）。⚠ 有版權：只收我哋真係引用嗰幾句，唔係全書。
+   * `lines` 喺呢度係頁碼。見 sources/zhongzhou.json 同 docs/b5-zhongzhou.md。
+   */
+  zhongzhou: zhongzhou as unknown as Corpus,
 };
 
 /** 中文字數。標點、空白、拉丁字母唔計 —— 「四百字」講緊漢字。 */

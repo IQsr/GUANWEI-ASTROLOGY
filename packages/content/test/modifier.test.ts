@@ -35,9 +35,10 @@ const a = annual(r.value, 2026);
 if (!a.ok) throw new Error(a.message);
 const OUT = runRegistry(RULE_REGISTRY, { chart: r.value, annual: a.value }, SCHOOL_PROFILE.ref);
 
-describe('182 句', () => {
-  it('廟旺 70、四化 40、六煞 72', () => {
-    expect(modifierCoverage()).toEqual({ brightness: 70, sihua: 40, malefic: 72, total: 182 });
+/* 2026-09-28：加咗太陽化科（戊干改跟中州派，見 docs/b5-zhongzhou.md）—— 182 → 183 */
+describe('183 句', () => {
+  it('廟旺 70、四化 41、六煞 72', () => {
+    expect(modifierCoverage()).toEqual({ brightness: 70, sihua: 41, malefic: 72, total: 183 });
   });
 
   /* 下限 2026-09 由 30 降到 20：拎走咗「它修飾…不涉…」一類句（見 modifier.ts） */
@@ -82,7 +83,7 @@ describe('⚠ 同一句入面唔准有重複片段', () => {
    * 而補嗰句就係前面嗰句換個講法。修飾語得三四十字，
    * 重複一次等於成句得一半資訊。
    */
-  it('182 句一句都冇重複', () => {
+  it('183 句一句都冇重複', () => {
     const bad: string[] = [];
     for (const m of MODIFIERS) {
       const t = m.text.replace(/[^㐀-鿿]/g, '');
@@ -107,8 +108,8 @@ describe('⚠ 同一句入面唔准有重複片段', () => {
 });
 
 describe('引文同語氣', () => {
-  it('182 句嘅引文全部核得返原文（parse 成功即係核過）', () => {
-    expect(MODIFIERS).toHaveLength(182);
+  it('183 句嘅引文全部核得返原文（parse 成功即係核過）', () => {
+    expect(MODIFIERS).toHaveLength(183);
   });
 
   it('掃唔到黑名單字', () => {

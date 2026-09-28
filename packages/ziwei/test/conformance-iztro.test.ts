@@ -23,8 +23,8 @@ const KNOWN_DIVERGENCES = [
   {
     id: 'D-001',
     field: 'sihua',
-    when: (c: Chart) => c.ganzhi.year[0] === '庚',
-    why: '庚干四化：本引擎用中州派（天府化科），iztro 用陸斌兆（太陰化科）。見 docs/rules.md R-003。',
+    when: (c: Chart) => ['庚', '戊', '壬'].includes(c.ganzhi.year[0]),
+    why: '庚、戊、壬干化科：本引擎用中州派（庚天府、戊太陽、壬天府），iztro 用通行本（庚太陰、戊右弼、壬左輔）。見 docs/rules.md R-003。',
   },
 ] as const;
 
@@ -139,7 +139,7 @@ describe(`同 iztro 逐宮對照（${N.toLocaleString()} 個盤）`, () => {
   }
 
   const known = (d: Diff) =>
-    KNOWN_DIVERGENCES.some((k) => k.field === d.field && d.yearStem === '庚');
+    KNOWN_DIVERGENCES.some((k) => k.field === d.field && ['庚', '戊', '壬'].includes(d.yearStem));
   const unexpected = diffs.filter((d) => !known(d));
   const expected = diffs.filter(known);
 
@@ -153,10 +153,10 @@ describe(`同 iztro 逐宮對照（${N.toLocaleString()} 個盤）`, () => {
     ).toEqual([]);
   });
 
-  it('D-001 庚干四化：差異存在、而且只喺四化、只喺庚年', () => {
+  it('D-001 庚、戊、壬干化科：差異存在、而且只喺四化、只喺呢三個干嘅年', () => {
     expect(expected.length).toBeGreaterThan(0);
     expect(new Set(expected.map((d) => d.field))).toEqual(new Set(['sihua']));
-    expect(new Set(expected.map((d) => d.yearStem))).toEqual(new Set(['庚']));
+    for (const s of new Set(expected.map((d) => d.yearStem))) expect(['庚', '戊', '壬']).toContain(s);
   });
 
   it('差異摘要（印出嚟，同 docs/engine-divergence.md 對照）', () => {

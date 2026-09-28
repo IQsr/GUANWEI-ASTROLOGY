@@ -878,5 +878,27 @@
    }
   ],
   "status": "reviewed"
- }
+ },
+  {
+    "id": "mod.sihua.太陽.科",
+    "kind": "sihua",
+    "star": "太陽",
+    "key": "科",
+    "text": "太陽化科，付出被看見，名聲跟著來。它讓照出去的東西有了名目，但被看見的同時，注目也多了。",
+    "sources": [
+      {
+        "corpus": "quanshu",
+        "passage_id": "sihua.化科",
+        "quote": "科星上界应试，主掌文墨之星",
+        "scope": "star"
+      },
+      {
+        "corpus": "zhongzhou",
+        "passage_id": "sihua.太陽.戊科",
+        "quote": "太阳主贵，故喜化科",
+        "scope": "star"
+      }
+    ],
+    "status": "reviewed"
+  }
 ]

@@ -54,16 +54,19 @@ describe('流派設定（規範 §10、§17）', () => {
   it('流派聲明同四化表對得返', () => {
     const d = SCHOOL_PROFILE.declaration;
     const geng = sihuaOfStem('庚')!;
-    // 聲明講庚干採中州派「陽武府同」—— 資料要真係咁
-    expect(d).toContain('庚干採中州派');
+    // 聲明講四化依中州派、庚干「陽武府同」—— 資料要真係咁
+    expect(d).toContain('四化依中州派');
     expect(d).toContain('陽武府同');
     expect(`${geng.祿}化祿、${geng.權}化權、${geng.科}化科、${geng.忌}化忌`).toBe(
       '太陽化祿、武曲化權、天府化科、天同化忌',
     );
     expect(d).toContain('太陽化祿、武曲化權、天府化科、天同化忌');
-    // 聲明講其餘以通行本為底 —— 壬干就唔可以係中州派嘅天府
-    expect(d).toContain('通行本');
-    expect(sihuaOfStem('壬')!.科).toBe('左輔');
+    // 聲明講左輔右弼不化科、戊干太陽化科、壬干天府化科（2026-09-28，原書已核）
+    expect(d).toContain('左輔右弼不化科');
+    expect(d).toContain('戊干太陽化科');
+    expect(d).toContain('壬干天府化科');
+    expect(sihuaOfStem('戊')!.科).toBe('太陽');
+    expect(sihuaOfStem('壬')!.科).toBe('天府');
     // 聲明唔准淨係寫「中州派」三個字就算
     expect(d.length).toBeGreaterThan(40);
   });

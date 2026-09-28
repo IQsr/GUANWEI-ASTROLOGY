@@ -85,10 +85,12 @@ describe(`流年層同 iztro 對照（${CHARTS} 個盤 × ${YEARS_PER_CHART} 年
       // iztro 用農曆日期入 horoscope，避開年界問題：取該農曆年五月十五
       const h = a.horoscope(`${lunarYear}-06-15`);
       const tag = `${c.input.solar.y}-${c.input.solar.m}-${c.input.solar.d} → ${lunarYear}`;
+      /* 化科同 iztro 唔同嘅干（R-003）：庚、戊、壬 —— 生年、流年天干、大限宮干三個入口都算 */
+      const KE = ['庚', '戊', '壬'];
       const gengHere =
-        mine.ganzhi.year[0] === '庚' ||
-        mineAnnual.value.ganzhi[0] === '庚' ||
-        mineAnnual.value.decadal?.stem === '庚';
+        KE.includes(mine.ganzhi.year[0]) ||
+        KE.includes(mineAnnual.value.ganzhi[0]) ||
+        KE.includes(mineAnnual.value.decadal?.stem ?? '');
       const push = (field: string, m: string, t: string) => {
         if (m !== t) diffs.push({ case: tag, field, mine: m, theirs: t, geng: gengHere });
       };

@@ -64,10 +64,18 @@ describe('四化表', () => {
    *   壬 —— **原文同中州派兩邊都指向天府**，而我哋跟緊第三個版本。
    *         呢個唔再係「未核實」，係「核實咗但未決定改唔改」。保留 ⚠。
    */
-  it('戊：同《全書》原文一致，所以唔再係待核', () => {
-    expect(sihuaOfStem('戊')!.科).toBe('右弼');
-    expect(SIHUA_META.disputed['戊']!.note).not.toContain('⚠');
-    expect(SIHUA_META.disputed['戊']!.note).toContain('同《全書》原文一致');
+  /*
+   * 2026-09-28：王亭之原書到手（docs/b5-zhongzhou.md），戊、壬兩干改跟中州派。
+   * 戊 —— 太陽化科（p.287），唔再同《全書》原文一致；壬 —— 天府化科（p.293），反而同原文一致。
+   */
+  it('戊：改跟中州派（太陽化科），而且個決定有記錄', () => {
+    expect(sihuaOfStem('戊')!.科).toBe('太陽');
+    const d = SIHUA_META.disputed['戊']!;
+    expect(d.note).not.toContain('⚠');
+    expect(d.note).toContain('已決定');
+    const dec = (d as unknown as { decision?: Record<string, string> }).decision!;
+    for (const k of ['date', 'by', 'chose', 'rejected', 'reason', 'cost']) expect(dec[k], `decision.${k}`).toBeTruthy();
+    expect(dec.rejected).toContain('右弼');
   });
 
   /**
@@ -78,8 +86,8 @@ describe('四化表', () => {
    * 揀咗乜、否決咗乜、點解、代價係乜。
    * 冇呢啲欄位，呢個決定過幾個月就會退化成一個冇人記得點解嘅數字。
    */
-  it('壬：維持左輔，但個決定要有完整記錄', () => {
-    expect(sihuaOfStem('壬')!.科).toBe('左輔');
+  it('壬：改跟中州派（天府化科），而且個決定有完整記錄', () => {
+    expect(sihuaOfStem('壬')!.科).toBe('天府');
     const d = SIHUA_META.disputed['壬']!;
     // 唔再係 ⚠ 待決 —— 係已決定
     expect(d.note).not.toContain('⚠');
@@ -88,10 +96,8 @@ describe('四化表', () => {
     for (const k of ['date', 'by', 'chose', 'rejected', 'reason', 'cost']) {
       expect(dec[k], `decision.${k}`).toBeTruthy();
     }
-    expect(dec.rejected).toContain('天府');
-    // 三個版本入面，有兩個係天府 —— 我哋揀咗少數嗰個，所以更加要寫低
-    const fu = Object.values(d.variants).filter((x) => x['科'] === '天府');
-    expect(fu).toHaveLength(2);
+    expect(dec.rejected).toContain('左輔');
+    expect(Object.values(d.variants).some((x) => x['科'] === '左輔')).toBe(true);
   });
 
   it('查星化乜', () => {
@@ -173,11 +179,12 @@ describe(`對照 iztro（${oracle.cases.length} 個）`, () => {
     expect(bad.slice(0, 5)).toEqual([]);
   });
 
-  it('四化全對 —— 庚年除外（R-003 預期分歧）', () => {
+  /* 化科同 iztro 唔同嘅干：庚（天府）、戊（太陽）、壬（天府）—— R-003 */
+  it('四化全對 —— 庚、戊、壬年除外（R-003 預期分歧）', () => {
     const bad: string[] = [];
     let gengSkipped = 0;
     for (const c of oracle.cases) {
-      if (c.yearStem === '庚') {
+      if (['庚', '戊', '壬'].includes(c.yearStem)) {
         gengSkipped++;
         continue;
       }
