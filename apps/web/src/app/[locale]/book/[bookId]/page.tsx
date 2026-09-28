@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { setRequestLocale } from 'next-intl/server';
 import { routing } from '@/i18n/routing';
-import { Link } from '@/i18n/navigation';
+import { BookContents } from '@/components/BookContents';
 import { Juanshou } from '@/components/Juanshou';
 import { contentsView } from '@/lib/juan-view';
 import { serverJuan } from '@/lib/juan.server';
@@ -67,25 +67,7 @@ export default async function BookPage({
       />
 
       {view.kind === 'ok' ? (
-        <div className="banxin">
-          <p className="font-sans text-cap tracking-[0.2em] text-ink-3">目　次</p>
-          <ul className="mt-6 flex flex-col gap-3">
-            {view.chapters.map((c) => (
-              <li key={c.slug} className="border-b jielan pb-2">
-                <Link
-                  href={`/book/${bookId}/${c.slug}`}
-                  className="text-body tracking-[0.06em] text-ink-2 transition-colors duration-200 ease-ink hover:text-ink"
-                >
-                  {c.title}
-                </Link>
-                {/* 未裁章喺目錄照樣列出章名，唔收埋（架構 §6）。 */}
-                {c.tier === 'deep' ? (
-                  <span className="ms-4 font-sans text-cap tracking-[0.14em] text-ink-3">未裁</span>
-                ) : null}
-              </li>
-            ))}
-          </ul>
-        </div>
+        <BookContents bookId={bookId} chapters={view.chapters} lastRead={view.lastRead} cut={view.cut} />
       ) : (
         <p className="banxin text-body leading-[1.95] text-ink-2">
           {view.kind === 'missing'

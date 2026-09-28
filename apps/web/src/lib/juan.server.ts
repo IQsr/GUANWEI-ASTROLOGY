@@ -23,7 +23,7 @@ export function serverJuan(): JuanPort {
 
       const { data: book, error } = await sb
         .from('books')
-        .select('title')
+        .select('title, last_read_chapter')
         .eq('id', bookId)
         .maybeSingle();
       if (error) throw error;
@@ -36,9 +36,19 @@ export function serverJuan(): JuanPort {
         .order('ord');
       if (chapterError) throw chapterError;
 
+      /*
+       * 裁開咗未（重新設計第三期）。之前目次淨係睇 `tier`，
+       * 付完款之後深度章照樣寫住「未裁」。問同一個 `has_entitlement()`，
+       * 同 `/pay` 嗰邊一樣 —— 唔喺前端自己估。
+       */
+      const { data: cut, error: cutError } = await sb.rpc('has_entitlement', { p_book: bookId });
+      if (cutError) throw cutError;
+
       return {
         title: book.title ?? '未題名',
         chapters: (rows ?? []) as ChapterMeta[],
+        lastRead: book.last_read_chapter ?? null,
+        cut: Boolean(cut),
       };
     },
 

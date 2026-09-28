@@ -20,7 +20,14 @@ export type ChapterMeta = {
 
 export type JuanPort = {
   /** 目錄：本書 ＋ 每一章嘅**行**（唔包正文）。 */
-  contents(bookId: string): Promise<{ title: string; chapters: ChapterMeta[] } | null>;
+  contents(bookId: string): Promise<{
+    title: string;
+    chapters: ChapterMeta[];
+    /** 上次讀到邊一章（`books.last_read_chapter`）。未讀過係 null。 */
+    lastRead?: string | null;
+    /** 呢本書裁開咗未（`has_entitlement()`）。 */
+    cut?: boolean;
+  } | null>;
   /**
    * 一章嘅正文同佢嘅段落結構。
    *
@@ -42,7 +49,7 @@ export type JuanPort = {
 };
 
 export type ContentsView =
-  | { kind: 'ok'; title: string; chapters: ChapterMeta[] }
+  | { kind: 'ok'; title: string; chapters: ChapterMeta[]; lastRead: string | null; cut: boolean }
   | { kind: 'missing' }
   | { kind: 'unavailable' };
 
@@ -54,6 +61,8 @@ export async function contentsView(port: JuanPort, bookId: string): Promise<Cont
       kind: 'ok',
       title: found.title,
       chapters: [...found.chapters].sort((a, b) => a.ord - b.ord),
+      lastRead: found.lastRead ?? null,
+      cut: found.cut ?? false,
     };
   } catch {
     return { kind: 'unavailable' };
