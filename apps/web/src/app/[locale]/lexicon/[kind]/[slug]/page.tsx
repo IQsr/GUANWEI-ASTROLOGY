@@ -1,13 +1,13 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { setRequestLocale } from 'next-intl/server';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { CORPUS, citationRef, distinctBooks } from '@guanwei/content';
 import { Link } from '@/i18n/navigation';
 import { Juanshou } from '@/components/Juanshou';
 import { ReturnToReading } from '@/components/ReturnToReading';
 import { LEXICON_LOCALE, allEntryParams, canonicalOf, entryOf, hrefOf, isKind, relatedOf, teaser } from '@/lib/lexicon';
 import { LexiconCta } from '@/components/LexiconCta';
-import { MARK, OG_LEXICON } from '@/lib/site';
+import { OG_LEXICON } from '@/lib/site';
 
 /**
  * 詞條頁（工單 D1）
@@ -23,12 +23,7 @@ import { MARK, OG_LEXICON } from '@/lib/site';
  * 所以嗰個 ⚠ 唔係謙虛，係條件：講得出邊度嚟，就要講得出佢有幾實。
  */
 
-const KIND_LABEL: Record<string, string> = {
-  star: '主星',
-  palace: '宮位',
-  sihua: '四化',
-  ju: '五行局',
-};
+/* 類別名喺 messages：`lexicon.kind.*`。 */
 
 export function generateStaticParams() {
   return allEntryParams().map((p) => ({ ...p, locale: LEXICON_LOCALE }));
@@ -61,6 +56,7 @@ export async function generateMetadata({
    * 佢主動話畀搜尋器聽「呢版嘅正本喺嗰度」，而嗰度唔存在。
    */
   const path = canonicalOf(e);
+  const t = await getTranslations({ locale: LEXICON_LOCALE, namespace: 'lexicon' });
   return {
     title: e.label,
     description,
@@ -71,11 +67,11 @@ export async function generateMetadata({
        * 卡片入面真正有資訊嗰兩行係呢度出 ——
        * 張圖係共用嘅，所以標題同摘要要逐條唔同，否則分享出去三十五條一個樣。
        */
-      title: `${e.label} · ${MARK}藏經閣`,
+      title: t('entryTitle', { label: e.label }),
       description,
       type: 'article',
       url: path,
-      images: [{ url: OG_LEXICON, width: 1200, height: 630, alt: '觀微 藏經閣' }],
+      images: [{ url: OG_LEXICON, width: 1200, height: 630, alt: t('ogAlt') }],
     },
   };
 }
@@ -92,6 +88,7 @@ export default async function LexiconEntryPage({
   const e = entryOf(kind, slug);
   if (!e) notFound();
 
+  const t = await getTranslations({ locale: LEXICON_LOCALE, namespace: 'lexicon' });
   const books = distinctBooks(e);
   const oneWitness = books.length < 2;
   const related = relatedOf(e);
@@ -103,7 +100,7 @@ export default async function LexiconEntryPage({
       <div className="banxin">
         {/* ⚠ 詞條個名係資料，所以佢同章名一樣：喺頁頭之下，唔喺頁頭入面。 */}
         <p className="font-sans text-cap tracking-[0.24em] text-ink-3">
-          {KIND_LABEL[kind]}
+          {t(`kind.${kind}`)}
         </p>
         <h1 className="mt-3 text-h1 font-semibold tracking-[0.16em]">{e.label}</h1>
 
@@ -120,7 +117,7 @@ export default async function LexiconEntryPage({
 
         {/* ── 出處 ─────────────────────────────────────────── */}
         <section className="mt-tiantou">
-          <h2 className="font-sans text-cap tracking-[0.24em] text-ink-3">出處</h2>
+          <h2 className="font-sans text-cap tracking-[0.24em] text-ink-3">{t('sources')}</h2>
           <ol className="mt-4 border-t border-rule">
             {e.sources.map((src, i) => (
               <li key={i} className="border-b border-rule-2 py-4">
@@ -140,18 +137,17 @@ export default async function LexiconEntryPage({
             {oneWitness ? (
               <>
                 <span className="em-zhu">⚠</span>{' '}
-                以上引文全部出自《{books[0]}》的不同篇章 —— 是兩個文本位置，一個證人。
-                這一條目前未經第二本書覆核。
+                {t('oneWitness', { book: books[0] ?? '' })}
               </>
             ) : (
-              <>以上引文分別出自 {books.length} 本書：{books.join('、')}。</>
+              <>{t('manyBooks', { count: books.length, books: books.join('、') })}</>
             )}
           </p>
         </section>
 
         {related.length > 0 && (
           <section className="mt-16">
-            <h2 className="font-sans text-cap tracking-[0.24em] text-ink-3">相關</h2>
+            <h2 className="font-sans text-cap tracking-[0.24em] text-ink-3">{t('related')}</h2>
             <ul className="mt-4 flex flex-wrap gap-x-6 gap-y-2">
               {related.map((r) => (
                 <li key={r.id}>
@@ -170,9 +166,9 @@ export default async function LexiconEntryPage({
         <footer className="mt-tiantou border-t border-rule pt-4">
           <LexiconCta />
           <p className="mt-6 font-sans text-cap leading-[2] text-ink-3">
-            語料庫：《{CORPUS.quanshu?.book}》{CORPUS.quanshu?.edition}
+            {t('corpus', { book: CORPUS.quanshu?.book ?? '', edition: CORPUS.quanshu?.edition ?? '' })}
             <br />
-            這一頁不涉及任何人的命盤 —— 沒有生辰、沒有排盤、沒有帳號。
+            {t('noPersonalEntry')}
           </p>
         </footer>
     

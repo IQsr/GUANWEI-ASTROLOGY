@@ -1,3 +1,4 @@
+import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 
 /**
@@ -21,14 +22,15 @@ import { Link } from '@/i18n/navigation';
  * build 之後有掃描守住（`check-lexicon-build.mjs`）。
  */
 export function LexiconCta() {
+  const t = useTranslations('lexicon');
   return (
     <p className="font-sans text-sm leading-[1.9] text-ink-3">
-      這些詞條，也用來寫一本屬於你的書。
+      {t('ctaLead')}
       <Link
         href="/cast"
         className="ms-2 text-indigo transition-colors duration-[240ms] hover:text-ink"
       >
-        起盤
+        {t('ctaButton')}
       </Link>
     </p>
   );

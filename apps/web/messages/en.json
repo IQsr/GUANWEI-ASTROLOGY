@@ -392,5 +392,32 @@
       "partial": "Your births, charts and books have been deleted, but the account itself (your email) could not be. We need to do that step on our side — please write to us and we will finish it.",
       "failed": "We could not delete just now. Nothing has been deleted — please try again later."
     }
+  },
+  "lexicon": {
+    "title": "Library",
+    "ogTitle": "Library · Guan Wei",
+    "ogAlt": "Guan Wei Library",
+    "entryTitle": "{label} · Guan Wei Library",
+    "description": "Entries on Zi Wei Dou Shu: the fourteen major stars, the twelve palaces, the four transformations and the five-element bureaus. Every entry names its source, and every quotation can be checked word for word.",
+    "intro": "Entries on Zi Wei Dou Shu. Each names its source; quotations are copied word for word from the original texts, so you can check them yourself.",
+    "entries": "Entries",
+    "singleSource": "Resting on a single book",
+    "twoSourcesNote": "Every “two sources” so far comes from different chapters of the Complete Book of Zi Wei Dou Shu — two places in one text, a single witness. This number will not change until a second book is in hand.",
+    "kind": {
+      "star": "Major stars",
+      "palace": "Palaces",
+      "sihua": "Four transformations",
+      "ju": "Five-element bureaus"
+    },
+    "school": "Following the San He school · Zhongzhou school (Wang Tingzhi).",
+    "noPersonal": "Nothing here involves anyone’s chart — no birth details, no casting, no account.",
+    "noPersonalEntry": "This page involves no one’s chart — no birth details, no casting, no account.",
+    "sources": "Sources",
+    "oneWitness": "All quotations above come from different chapters of “{book}” — two places in one text, a single witness. This entry has not yet been checked against a second book.",
+    "manyBooks": "The quotations above come from {count} books: {books}.",
+    "related": "Related",
+    "corpus": "Corpus: “{book}” {edition}",
+    "ctaLead": "These entries are also used to write a book of your own.",
+    "ctaButton": "Begin"
   }
 }
