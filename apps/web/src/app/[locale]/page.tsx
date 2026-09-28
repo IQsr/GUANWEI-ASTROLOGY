@@ -3,6 +3,7 @@ import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { routing } from '@/i18n/routing';
 import { Link } from '@/i18n/navigation';
 import { Seal } from '@/components/Seal';
+import { StarWindow } from '@/components/StarWindow';
 import { MARK, OG_IMAGE } from '@/lib/site';
 
 export function generateStaticParams() {
@@ -10,26 +11,32 @@ export function generateStaticParams() {
 }
 
 /**
- * 工單 E1 —— 入齋
+ * 入齋（工單 E1 → 重新設計第一期）
  *
- * 全紙。三行字。一枚印。唯一出口一粒墨按鈕。（視覺系統 §9、架構 §4）
+ * 一幅書房夜景，窗外嘅星會郁。左邊三行字、一粒「起盤」；底下四步
+ * 講清楚成件事係點：落款 → 取書 → 閱讀 → 深讀。
  *
- * 呢一版刻意乜都冇：冇導覽列、冇 footer 連結、冇夜讀開關、冇價錢、
- * 冇「立即開始」式催促。唔係做少咗，係「唯一出口」呢句要真。
- * 夜讀開關放咗喺之後嘅頁；呢度照跟系統 prefers-color-scheme。
+ * ── 同 E1 唔同咗嘅地方 ──
  *
- * 亦都唔會因為你有書就 redirect 去 /shelf —— 一版之中最貴嗰樣係
- * 第一眼，唔可以因為 session 入面有嘢就偷走咗佢。有書只係喺底部
- * 多一行細字（見下面 hasBook）。
+ * E1 係「全紙、三行字、一枚印、唯一出口」。Issac 2026-09 揀咗：
+ *   一、全站有頁頂導覽（首頁都有）—— 唯一出口唔再成立
+ *   二、參考稿嘅夜景做首頁
+ *   三、加四步 —— 之前全站冇一處講清「一個生辰一本書、有免費章同
+ *       未裁章」，每樣概念都係撞到先講。四步就係嗰一處。
+ *
+ * ── 保留咗嘅 ──
+ *
+ * 冇價錢、冇「立即開始」式催促（架構 §6：題名之前唔准出現價錢）。
+ * 第四步講「未裁之頁」，唔講錢。
+ * 唔會因為你有書就 redirect 去 /shelf。
  */
 
 const SEQ = {
-  /** 「觀微」墨滲，0 → 1600ms 後靜止。 */
-  line1: 760,
-  line2: 850,
-  line3: 940,
-  seal: 1500,
-  button: 1700,
+  line1: 500,
+  line2: 700,
+  line3: 850,
+  button: 1100,
+  steps: 1400,
 } as const;
 
 export async function generateMetadata({
@@ -68,69 +75,93 @@ export default async function RuZhai({ params }: { params: Promise<{ locale: str
 
   const brand = await getTranslations('brand');
   const t = await getTranslations('ruzhai');
+  const steps = t.raw('steps') as { name: string; desc: string }[];
+  const vertical = t.raw('vertical') as string[];
 
   // G1（匿名 auth + DB）之後先接得通。而家冇書，所以底下嗰行唔會出。
   // 唔好用 localStorage 扮有書 —— 書係 server 上面嘅嘢。
   const hasBook = false;
 
   return (
-    <main className="juan mx-auto grid min-h-svh w-full max-w-page grid-rows-[1fr_auto] px-6">
-      <div className="flex flex-col items-start justify-center">
-        {/* 「觀微」墨滲 1600ms 後靜止 */}
-        <h1 className="moshen">
-          <span className="block text-display font-black leading-[1.12] tracking-[0.16em]">
-            {MARK}
-          </span>
-          <span className="mt-5 block font-latin text-cap uppercase tracking-[0.5em] text-ink-2">
-            {brand('latin')}
-          </span>
-        </h1>
+    <main className="ye">
+      <div className="ye-tu" aria-hidden="true" />
+      <StarWindow />
+      <div className="ye-an" aria-hidden="true" />
 
-        {/* 三行字 */}
-        <div className="mt-16 flex max-w-banxin flex-col gap-3">
-          <p className="mu-in text-h3 leading-[1.85] tracking-[0.12em]" style={{ animationDelay: `${SEQ.line1}ms` }}>
+      <div className="relative mx-auto flex min-h-svh w-full max-w-[1280px] flex-col px-6 pb-10 pt-[calc(var(--header)+40px)] md:px-10">
+        <div className="flex flex-1 flex-col justify-end pb-14 md:justify-center md:pb-10">
+          <h1 className="moshen font-serif text-[clamp(2.5rem,6.2vw,4.75rem)] font-medium leading-[1.2] tracking-[0.14em]">
             {brand('essence')}
-          </p>
-          <p className="mu-in text-h3 leading-[1.85] tracking-[0.12em]" style={{ animationDelay: `${SEQ.line2}ms` }}>
-            {brand('philosophy')}
-          </p>
+          </h1>
+
+          <span aria-hidden="true" className="mu-in mt-8 block h-px w-10 bg-night-ink-3" style={{ animationDelay: `${SEQ.line1}ms` }} />
+
+          <div className="mt-7 flex flex-col gap-2">
+            <p className="mu-in font-serif text-[clamp(1.125rem,1.9vw,1.4rem)] leading-[1.9] tracking-[0.22em]" style={{ animationDelay: `${SEQ.line1}ms` }}>
+              {brand('philosophy')}
+            </p>
+            <p className="mu-in font-serif text-[clamp(1.125rem,1.9vw,1.4rem)] leading-[1.9] tracking-[0.22em]" style={{ animationDelay: `${SEQ.line2}ms` }}>
+              {t('proposition')}
+            </p>
+          </div>
+
           <p
-            className="mu-in text-h3 leading-[1.85] tracking-[0.12em] text-ink-2"
+            className="mu-in mt-7 max-w-72 font-latin text-[0.75rem] leading-[2] tracking-[0.42em] text-night-ink-2"
             style={{ animationDelay: `${SEQ.line3}ms` }}
           >
-            {t('proposition')}
+            {t('tagline')}
           </p>
+
+          <div className="mu-in mt-10" style={{ animationDelay: `${SEQ.button}ms` }}>
+            <Link href="/cast" className="btn-ye">
+              {t('enter')}
+              <span className="btn-jiantou" aria-hidden="true">→</span>
+            </Link>
+            <p className="mt-4 max-w-80 text-cap leading-[1.9] tracking-[0.1em] text-night-ink-3">{t('hint')}</p>
+            {hasBook ? (
+              <p className="mt-6 text-sm tracking-[0.08em]">
+                <Link href="/shelf" className="border-b border-night-rule pb-0.5 text-night-ink-2 hover:text-night-ink">
+                  {t('resume')}
+                </Link>
+              </p>
+            ) : null}
+          </div>
         </div>
 
-        {/* 一枚印 */}
-        <Seal
-          text={MARK}
-          label={t('sealLabel')}
-          className="yin-luo mt-10"
-          style={{ animationDelay: `${SEQ.seal}ms` }}
-        />
+        {/* 四步：成件事係點（取代 E1 嘅「唯一出口」，講清楚之後會發生乜） */}
+        <ol className="bu mu-in border-t border-night-rule pt-7" style={{ animationDelay: `${SEQ.steps}ms` }}>
+          {steps.map((s, i) => (
+            <li key={s.name} className="flex gap-4 md:block">
+              <span className="font-latin text-[0.8125rem] tracking-[0.2em] text-night-ink-3" data-nums>
+                {String(i + 1).padStart(2, '0')}
+              </span>
+              <span className="md:mt-2 md:block">
+                <span className="font-serif tracking-[0.2em]">{s.name}</span>
+                <span className="ms-3 text-cap tracking-[0.08em] text-night-ink-3 md:ms-0 md:mt-1 md:block">{s.desc}</span>
+              </span>
+            </li>
+          ))}
+        </ol>
 
-        {/* 唯一出口 */}
-        <div className="mu-in mt-16" style={{ animationDelay: `${SEQ.button}ms` }}>
-          <Link href="/cast" className="btn-mo">
-            {t('enter')}
-          </Link>
-          <p className="mt-5 max-w-80 font-sans text-cap leading-[1.9] tracking-[0.1em] text-ink-3">
-            {t('hint')}
-          </p>
+        {/* 右邊直排兩行 ＋ 一枚印（桌面先出） */}
+        <div
+          aria-hidden="true"
+          className="mu-in pointer-events-none absolute end-10 top-[calc(var(--header)+72px)] hidden flex-col items-center gap-6 xl:flex"
+          style={{ animationDelay: `${SEQ.line3}ms` }}
+        >
+          <div className="zhi-pai font-serif text-[0.95rem] tracking-normal text-night-ink-2">
+            {vertical.map((line) => (
+              <span key={line}>
+                {[...line].map((ch, i) => (
+                  <span key={i}>{ch}</span>
+                ))}
+              </span>
+            ))}
+          </div>
+          <span className="block h-px w-7 bg-night-rule" />
+          <Seal text={MARK} label={t('sealLabel')} className="yin-luo" />
         </div>
       </div>
-
-      {/* 有書先出。而家恆常係 false —— 等 G1。 */}
-      {hasBook ? (
-        <p className="pt-10 text-sm tracking-[0.08em] text-ink-3">
-          <Link href="/shelf" className="border-b border-rule pb-0.5 hover:text-ink-2">
-            {t('resume')}
-          </Link>
-        </p>
-      ) : (
-        <div aria-hidden="true" />
-      )}
     </main>
   );
 }

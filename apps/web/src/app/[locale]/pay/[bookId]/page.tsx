@@ -58,7 +58,7 @@ export default async function PayPage({
     console.error('[pay] ', error);
     return (
       <main className="juan tai">
-        <Juanshou back="shelf" title="一時裁不開" theme />
+        <Juanshou back="shelf" title="一時裁不開" />
         <p className="banxin text-body leading-[1.95] text-ink-2">
           現在連不上。這不是你的問題，書和已經付過的款都沒有事 —— 待會再開這一頁就可以。
         </p>
@@ -80,7 +80,7 @@ export default async function PayPage({
     const copy = RETURN_COPY[state];
     return (
       <main className="juan tai">
-        <Juanshou back="shelf" title={copy.title} theme />
+        <Juanshou back="shelf" title={copy.title} />
         <p className="banxin text-body leading-[1.95]">{copy.body}</p>
         <div className="banxin mt-10">
           <Link href="/shelf" className="btn-mo inline-block">
@@ -97,7 +97,7 @@ export default async function PayPage({
     const blocked = PAY_BLOCKED[gate.why];
     return (
       <main className="juan tai">
-        <Juanshou back="shelf" title="裁書" theme />
+        <Juanshou back="shelf" title="裁書" />
         <p className="banxin text-body leading-[1.95]">{blocked.message}</p>
         {blocked.href ? (
           <div className="banxin mt-10">
@@ -112,7 +112,7 @@ export default async function PayPage({
 
   return (
     <main className="juan tai">
-      <Juanshou back="shelf" title="裁書" theme />
+      <Juanshou back="shelf" title="裁書" />
 
       <div className="banxin flex flex-col gap-4 text-body leading-[1.95]">
         <p>線裝書的毛邊本，頁邊未裁開，要讀的人自己裁。這本書的深度章就是未裁的頁。</p>

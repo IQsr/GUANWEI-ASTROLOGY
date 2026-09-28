@@ -6,6 +6,7 @@ import { routing } from '@/i18n/routing';
 import { SITE_URL } from '@/lib/site';
 import { themeInitScript } from '@/lib/theme';
 import { FONT_STYLESHEET_HREF } from '../fonts';
+import { SiteHeader } from '@/components/SiteHeader';
 import '../globals.css';
 
 export function generateStaticParams() {
@@ -75,7 +76,10 @@ export default async function LocaleLayout({
       </head>
       <body className="relative">
         <NextIntlClientProvider>
-          <div className="relative z-[1]">{children}</div>
+          <div className="relative z-[1]">
+            <SiteHeader />
+            {children}
+          </div>
         </NextIntlClientProvider>
       </body>
     </html>

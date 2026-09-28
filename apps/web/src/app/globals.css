@@ -2,41 +2,72 @@
 
 /* ============================================================
    觀微 GUAN WEI — design tokens
-   出處：《觀微 視覺系統 v0.1》§3 色 · §4 字 · §5 版 · §6 痕 · §7 動
+   出處：重新設計第一期（2026-09），取代《視覺系統 v0.1》§3 色 · §4 字 · §8 元件
+   §5 版 · §7 動 仍然有效（版心、節奏、動效時長）。
 
    規矩（唔好破）：
    1. Tailwind 只可以引用 CSS 變數，唔准喺任何地方寫死 hex —— 夜讀會斷。
    2. 每隻顏色都要喺 bare :root 定義一次。淨係喺 media query 或者
       [data-theme] 入面定義嘅顏色，喺「跟系統」狀態下唔會套用。
-   3. 圓角一律 0，陰影一律 0，分隔一律 1px 界欄。
+   3. 圓角只准用 --r（掣、欄）同 --r-2（卡）；陰影只准用 --lift。
+      唔再係「一律 0」—— 但亦唔係隨手加：得呢三個值。
+
+   五種材料（參考稿色板）：
+     墨 #101310 深沉專注 · 紙 #EEE6D8 閱讀留白 · 金褐 #B49A6A 古典雅緻
+     星空藍 #152B39 深邃思考 · 木質棕 #AA6F38 溫暖沉穩
    ============================================================ */
 
 :root {
   /* ── 紙 ── */
-  --paper: #efeae0;
-  --paper-2: #e6e0d3;
-  --paper-3: #dcd5c6;
+  --paper: #eee6d8;
+  --paper-2: #e6dcc9;
+  --paper-3: #dacdb6;
+  /* 卡片面：比紙淺少少，放喺紙上面先見到係一張卡 */
+  --card: #f5efe4;
 
   /* ── 墨 ── */
-  --ink: #23262b;
-  --ink-2: #565c62;
-  --ink-3: #76797c;
+  --ink: #101310;
+  --ink-2: #4a4a43;
+  --ink-3: #6b665c;
 
   /* ── 界 ── */
-  --rule: #c6bfb1;
-  --rule-2: #d9d3c6;
+  --rule: #cfc2aa;
+  --rule-2: #ddd2bf;
 
-  /* ── 靛：互動態（hover / focus / 化祿 / 已讀） ── */
-  --indigo: #2c4058;
-  --indigo-2: #5a7390;
+  /* ── 星空藍：互動態（hover / focus / 化祿 / 已讀）。沿用 indigo 呢個名 ── */
+  --indigo: #152b39;
+  --indigo-2: #3e5a6c;
 
-  /* ── 朱砂：唔係警示色，係「此處為要」。全站面積 ≤ 1% ── */
-  --cinnabar: #ae3b2b;
-  --cinnabar-wash: rgb(174 59 43 / 0.09);
+  /* ── 金褐：框、飾線、編號。做字色要用 --gold-ink，--gold 喺紙上對比唔夠 ── */
+  --gold: #b49a6a;
+  --gold-ink: #7a6338;
+  --gold-wash: rgb(180 154 106 / 0.14);
+
+  /* ── 木質棕：暖光、燈 ── */
+  --wood: #aa6f38;
+
+  /* ── 朱砂：唔係警示色，係「此處為要」（命宮、忌、印）。全站面積 ≤ 1% ── */
+  --cinnabar: #a8402e;
+  --cinnabar-wash: rgb(168 64 46 / 0.09);
+
+  /* ── 夜：首頁同入口嗰幅夜景。唔跟日夜讀轉 —— 張相本身就係夜晚 ── */
+  --night: #0b0d0b;
+  --night-ink: #eee6d8;
+  --night-ink-2: rgb(238 230 216 / 0.74);
+  --night-ink-3: rgb(238 230 216 / 0.5);
+  --night-rule: rgb(238 230 216 / 0.2);
+
+  /* ── 形 ── */
+  --r: 3px;
+  --r-2: 6px;
+  --lift: 0 1px 2px rgb(16 19 16 / 0.05), 0 12px 28px -16px rgb(16 19 16 / 0.28);
+
+  /* ── 頁頂導覽高度 ── */
+  --header: 72px;
 
   /* ── 紙紋 ── */
   --grain-blend: multiply;
-  --grain-opacity: 0.055;
+  --grain-opacity: 0.05;
 
   /* ── 字級（視覺系統 §4） ── */
   --t-cap: 0.75rem; /* 12px  標籤 */
@@ -52,9 +83,11 @@
   --banxin: 690px; /* 版心：32–40 字／行 */
   --page: 1080px; /* 全頁：命盤、書架、對照表 */
 
-  /* 天頭 : 地腳 = 8 : 5 —— 淨係呢一條，成版就唔似普通網站 */
-  --tiantou: 104px;
-  --dijiao: 64px;
+  /* 天頭 : 地腳 = 8 : 5 —— 淨係呢一條，成版就唔似普通網站。
+     ⚠ 由 104 : 64 收細到 64 : 40：頁頂而家有一條 72px 導覽，
+     天頭由導覽底計起，唔係由視窗頂計起。比例照舊 8 : 5。 */
+  --tiantou: 64px;
+  --dijiao: 40px;
 
   /* ── 動（視覺系統 §7） ── */
   --motion-ease-ink: cubic-bezier(0.22, 0.61, 0.36, 1); /* 出墨 */
@@ -65,9 +98,10 @@
   --dur-4: 1600ms; /* 墨滲、展卷 */
 
   /* ── 字體 stack ── */
-  --font-serif-stack: "Spectral", "Noto Serif TC", "Songti TC",
+  /* 宋體做標題同命書正文；黑體做內文同工具字；Playfair 做英文（參考稿字體規範） */
+  --font-serif-stack: "Playfair Display", "Noto Serif TC", "Songti TC",
     "Source Han Serif TC", "PMingLiU", serif;
-  --font-latin-stack: "Spectral", "Noto Serif TC", Georgia, serif;
+  --font-latin-stack: "Playfair Display", "Noto Serif TC", Georgia, serif;
   --font-sans-stack: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei",
     system-ui, sans-serif;
 }
@@ -76,39 +110,51 @@
    :not([data-theme="light"]) 令明示揀咗日讀嘅人唔會被系統覆蓋。 */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --paper: #191b1e;
-    --paper-2: #212429;
-    --paper-3: #292d33;
-    --ink: #dcd7cb;
-    --ink-2: #9ea3a6;
-    --ink-3: #7e8286;
-    --rule: #383d44;
-    --rule-2: #2c3036;
-    --indigo: #93aac4;
-    --indigo-2: #6c839c;
+    --paper: #101310;
+    --paper-2: #171a17;
+    --paper-3: #1f231f;
+    --card: #1a1d1a;
+    --ink: #eee6d8;
+    --ink-2: #b8b0a1;
+    --ink-3: #8e887c;
+    --rule: #33362f;
+    --rule-2: #262924;
+    --indigo: #8fa9bb;
+    --indigo-2: #5e7788;
+    --gold: #b49a6a;
+    --gold-ink: #c9b283;
+    --gold-wash: rgb(180 154 106 / 0.12);
+    --wood: #c08650;
     --cinnabar: #cb5a47;
     --cinnabar-wash: rgb(203 90 71 / 0.12);
+    --lift: 0 1px 2px rgb(0 0 0 / 0.3), 0 12px 28px -16px rgb(0 0 0 / 0.6);
     --grain-blend: screen;
-    --grain-opacity: 0.045;
+    --grain-opacity: 0.04;
   }
 }
 
 /* 明示揀夜讀：喺任何系統設定之下都要贏。 */
 :root[data-theme="dark"] {
-  --paper: #191b1e;
-  --paper-2: #212429;
-  --paper-3: #292d33;
-  --ink: #dcd7cb;
-  --ink-2: #9ea3a6;
-  --ink-3: #7e8286;
-  --rule: #383d44;
-  --rule-2: #2c3036;
-  --indigo: #93aac4;
-  --indigo-2: #6c839c;
+  --paper: #101310;
+  --paper-2: #171a17;
+  --paper-3: #1f231f;
+  --card: #1a1d1a;
+  --ink: #eee6d8;
+  --ink-2: #b8b0a1;
+  --ink-3: #8e887c;
+  --rule: #33362f;
+  --rule-2: #262924;
+  --indigo: #8fa9bb;
+  --indigo-2: #5e7788;
+  --gold: #b49a6a;
+  --gold-ink: #c9b283;
+  --gold-wash: rgb(180 154 106 / 0.12);
+  --wood: #c08650;
   --cinnabar: #cb5a47;
   --cinnabar-wash: rgb(203 90 71 / 0.12);
+  --lift: 0 1px 2px rgb(0 0 0 / 0.3), 0 12px 28px -16px rgb(0 0 0 / 0.6);
   --grain-blend: screen;
-  --grain-opacity: 0.045;
+  --grain-opacity: 0.04;
 }
 
 /* ============================================================
@@ -127,6 +173,20 @@
   --color-indigo-2: var(--indigo-2);
   --color-cinnabar: var(--cinnabar);
   --color-cinnabar-wash: var(--cinnabar-wash);
+  --color-card: var(--card);
+  --color-gold: var(--gold);
+  --color-gold-ink: var(--gold-ink);
+  --color-gold-wash: var(--gold-wash);
+  --color-wood: var(--wood);
+  --color-night: var(--night);
+  --color-night-ink: var(--night-ink);
+  --color-night-ink-2: var(--night-ink-2);
+  --color-night-ink-3: var(--night-ink-3);
+  --color-night-rule: var(--night-rule);
+
+  --radius-r: var(--r);
+  --radius-r-2: var(--r-2);
+  --shadow-lift: var(--lift);
 
   --font-serif: var(--font-serif-stack);
   --font-latin: var(--font-latin-stack);
@@ -166,8 +226,9 @@
   body {
     background: var(--paper);
     color: var(--ink);
-    font-family: var(--font-serif-stack);
-    font-weight: 300;
+    /* 內文用黑體（參考稿字體規範）。標題同命書正文喺下面同 .wen 轉返宋體。 */
+    font-family: var(--font-sans-stack);
+    font-weight: 400;
     font-size: var(--t-body);
     /* 中文方塊字要鬆過英文：低過 1.8 即刻變擠，「靜」就冇咗 */
     line-height: 1.95;
@@ -195,11 +256,12 @@
   h3,
   h4 {
     text-wrap: balance;
+    font-family: var(--font-serif-stack);
     font-weight: 600;
   }
 
   :focus-visible {
-    outline: 2px solid var(--cinnabar);
+    outline: 2px solid var(--gold);
     outline-offset: 3px;
   }
 
@@ -210,43 +272,89 @@
 }
 
 @layer components {
-  /* ── 按鈕三級（視覺系統 §8）──
-     墨 = 前進。界 = 次要。朱砂 = 不可逆，全流程只出現一次。
-     零圓角、零陰影、字距 .24em。 */
-  .btn-mo {
-    display: inline-block;
-    background: var(--ink);
-    color: var(--paper);
-    border: 1px solid var(--ink);
-    padding: 14px 40px;
+  /* ── 按鈕（參考稿「按鈕與表單」）──
+     金框紙底 = 主要（前進）。墨底金框 = 次要但要重（例如「探索命盤」）。
+     界 = 細工具掣。朱砂 = 不可逆，全流程只出現一次。
+     字距 .24em；圓角 --r。 */
+  .btn-mo,
+  .btn-jin,
+  .btn-ye {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    border: 1px solid var(--gold);
+    border-radius: var(--r);
+    padding: 13px 34px;
     font-family: var(--font-serif-stack);
     font-size: var(--t-body);
-    font-weight: 400;
+    font-weight: 500;
     letter-spacing: 0.24em;
     /* 字距推咗右邊一格出嚟，補返左邊先至視覺置中 */
     text-indent: 0.24em;
     transition:
       background var(--dur-1) var(--motion-ease-ink),
-      color var(--dur-1) var(--motion-ease-ink);
+      color var(--dur-1) var(--motion-ease-ink),
+      border-color var(--dur-1) var(--motion-ease-ink);
   }
 
-  .btn-mo:hover {
-    background: transparent;
+  /* 主要：金框、卡面底、墨字 */
+  .btn-jin {
+    background: var(--card);
     color: var(--ink);
   }
 
-  /* 一粒撳唔得嘅墨掣唔應該望落撳得 —— 退成一個界框。 */
-  .btn-mo:disabled {
+  .btn-jin:hover {
+    background: var(--gold-wash);
+  }
+
+  /* 次要但重：墨底、金框、紙字。沿用 .btn-mo 呢個名 —— 全站前進掣本來就係佢 */
+  .btn-mo {
+    background: var(--ink);
+    color: var(--paper);
+    border-color: var(--gold);
+  }
+
+  .btn-mo:hover {
+    background: color-mix(in srgb, var(--ink) 86%, var(--gold));
+  }
+
+  /* 夜景上面嘅主要掣：實紙底。張相好暗，一個淨框企唔穩 */
+  .btn-ye {
+    background: var(--night-ink);
+    color: var(--night);
+    border-color: var(--night-ink);
+  }
+
+  .btn-ye:hover {
+    background: color-mix(in srgb, var(--night-ink) 88%, var(--gold));
+  }
+
+  /* 一粒撳唔得嘅掣唔應該望落撳得 —— 退成一個界框。 */
+  .btn-mo:disabled,
+  .btn-jin:disabled {
     background: transparent;
     border-color: var(--rule);
     color: var(--ink-3);
     cursor: not-allowed;
   }
 
+  /* 掣入面嗰個箭嘴：hover 向右行 4px */
+  .btn-jiantou {
+    display: inline-block;
+    letter-spacing: 0;
+    transition: transform var(--dur-1) var(--motion-ease-ink);
+  }
+
+  :where(.btn-mo, .btn-jin, .btn-ye, .lian):hover .btn-jiantou {
+    transform: translateX(4px);
+  }
+
   .btn-jie {
     display: inline-block;
     background: none;
     border: 1px solid var(--rule);
+    border-radius: var(--r);
     color: var(--ink-2);
     padding: 8px 18px;
     font-family: var(--font-sans-stack);
@@ -258,8 +366,51 @@
   }
 
   .btn-jie:hover {
-    border-color: var(--ink-2);
+    border-color: var(--gold);
     color: var(--ink);
+  }
+
+  /* 文字連結：「了解更多 →」底下一條金線 */
+  .lian {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 10px;
+    padding-bottom: 3px;
+    border-bottom: 1px solid var(--gold);
+    color: var(--ink);
+    letter-spacing: 0.12em;
+    transition: color var(--dur-1) var(--motion-ease-ink);
+  }
+
+  .lian:hover {
+    color: var(--gold-ink);
+  }
+
+  /* ── 卡（參考稿「閱讀卡片」）── 卡面、1px 界、--r-2、一層 --lift */
+  .ka {
+    border: 1px solid var(--rule);
+    border-radius: var(--r-2);
+    background: var(--card);
+    box-shadow: var(--lift);
+  }
+
+  a.ka,
+  button.ka {
+    transition:
+      border-color var(--dur-1) var(--motion-ease-ink),
+      transform var(--dur-1) var(--motion-ease-ink);
+  }
+
+  a.ka:hover,
+  button.ka:hover {
+    border-color: var(--gold);
+    transform: translateY(-2px);
+  }
+
+  /* 命書正文：宋體。長文用宋體讀得落，黑體做工具字 */
+  .wen {
+    font-family: var(--font-serif-stack);
+    font-weight: 300;
   }
 
   /* ── 印（視覺系統 §8）──
@@ -286,34 +437,35 @@
     letter-spacing: 0;
   }
 
-  /* ── 落款欄（視覺系統 §8）──
-     淨係一條底線。focus 嗰陣朱砂由左掃過 520ms —— 朱砂喺呢度唔係
-     裝飾，係「而家輪到呢一欄」。所以掃線本身就係 focus 指示，
-     唔另外加 outline。 */
+  /* ── 輸入欄（參考稿「輸入欄位」）──
+     一個框：1px 界、卡面底、--r。聚焦嗰陣框轉星空藍、加一圈淡光 ——
+     框本身就係 focus 指示，唔另外加 outline。 */
   .ruled {
     width: 100%;
-    padding: 4px 2px;
-    background: none;
-    border: 0;
-    border-bottom: 1px solid var(--rule);
-    border-radius: 0;
+    padding: 12px 16px;
+    background-color: var(--card);
+    border: 1px solid var(--rule);
+    border-radius: var(--r);
     appearance: none;
     color: var(--ink);
-    font-family: var(--font-serif-stack);
+    font-family: var(--font-sans-stack);
     font-size: var(--t-body);
-    font-weight: 300;
-    letter-spacing: 0.04em;
-    background-image: linear-gradient(var(--cinnabar), var(--cinnabar));
-    background-repeat: no-repeat;
-    background-position: 0 100%;
-    background-size: 0% 1px;
-    transition: background-size var(--dur-2) var(--motion-ease-ink);
+    font-weight: 400;
+    letter-spacing: 0.06em;
+    transition:
+      border-color var(--dur-1) var(--motion-ease-ink),
+      box-shadow var(--dur-1) var(--motion-ease-ink);
+  }
+
+  .ruled:hover {
+    border-color: var(--ink-3);
   }
 
   .ruled:focus,
   .ruled:focus-visible {
     outline: none;
-    background-size: 100% 1px;
+    border-color: var(--indigo);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--indigo) 16%, transparent);
   }
 
   .ruled:disabled {
@@ -327,12 +479,12 @@
    * 所以自己畫：一個 1px 方格，剔咗就入朱砂。零圓角。
    */
   .gou {
-    width: 15px;
-    height: 15px;
+    width: 16px;
+    height: 16px;
     flex: 0 0 auto;
     appearance: none;
     border: 1px solid var(--rule);
-    border-radius: 0;
+    border-radius: 2px;
     background: none;
     cursor: pointer;
     transition:
@@ -345,24 +497,21 @@
   }
 
   .gou:checked {
-    border-color: var(--cinnabar);
-    background: var(--cinnabar);
+    border-color: var(--indigo);
+    background: var(--indigo)
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 8.5l2.5 2.5L12 5.5' fill='none' stroke='%23eee6d8' stroke-width='1.6'/%3E%3C/svg%3E")
+      center / 100% no-repeat;
   }
 
   /* select 自己嗰個箭嘴同紙唔夾，用兩條斜線砌一個細角 */
   select.ruled {
-    padding-right: 18px;
+    padding-right: 40px;
     background-image:
-      linear-gradient(var(--cinnabar), var(--cinnabar)),
       linear-gradient(45deg, transparent 50%, currentColor 50%),
       linear-gradient(135deg, currentColor 50%, transparent 50%);
-    background-position: 0 100%, right 6px center, right 2px center;
-    background-size: 0% 1px, 4px 4px, 4px 4px;
-  }
-
-  select.ruled:focus,
-  select.ruled:focus-visible {
-    background-size: 100% 1px, 4px 4px, 4px 4px;
+    background-position: right 20px center, right 16px center;
+    background-size: 4px 4px, 4px 4px;
+    background-repeat: no-repeat;
   }
 
   input.ruled::-webkit-calendar-picker-indicator {
@@ -1494,5 +1643,236 @@
     animation-iteration-count: 1 !important;
     transition-duration: 120ms !important;
     scroll-behavior: auto !important;
+  }
+}
+
+/* ============================================================
+   頁頂導覽（重新設計第一期）
+
+   ⚠ 取代咗「全站冇 header nav」（架構 §2）。Issac 2026-09 揀咗
+   全站都有 —— 讀者任何時候都知自己喺邊、去得邊。
+
+   兩個樣：
+     一、首頁：透明，疊喺夜景上面，用 --night-* 色（唔跟日夜讀）
+     二、其餘：黏喺頂、紙底半透、底下一條界欄
+   ============================================================ */
+
+.dao {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  height: var(--header);
+  border-bottom: 1px solid var(--rule);
+  background: color-mix(in srgb, var(--paper) 88%, transparent);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: var(--ink);
+}
+
+.dao[data-over="night"] {
+  position: absolute;
+  inset-inline: 0;
+  border-bottom-color: transparent;
+  background: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  color: var(--night-ink);
+}
+
+.dao-nei {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  height: 100%;
+  max-width: 1280px;
+  margin-inline: auto;
+  padding-inline: 24px;
+}
+
+@media (min-width: 768px) {
+  .dao-nei {
+    padding-inline: 40px;
+  }
+}
+
+.dao-lian {
+  position: relative;
+  padding-block: 6px;
+  font-family: var(--font-serif-stack);
+  font-size: var(--t-body);
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  opacity: 0.78;
+  transition: opacity var(--dur-1) var(--motion-ease-ink);
+}
+
+.dao-lian:hover,
+.dao-lian[aria-current="page"] {
+  opacity: 1;
+}
+
+/* 企緊嗰版：底下一條金線（參考稿「首頁」下面嗰條） */
+.dao-lian[aria-current="page"]::after {
+  content: "";
+  position: absolute;
+  inset-inline: 0.1em 0.3em;
+  bottom: -2px;
+  height: 1px;
+  background: var(--gold);
+}
+
+/* 右邊嗰粒「我的書齋」：細框掣 */
+.dao-shu {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid currentColor;
+  border-radius: var(--r);
+  padding: 8px 18px;
+  font-family: var(--font-serif-stack);
+  font-size: var(--t-sm);
+  letter-spacing: 0.2em;
+  transition:
+    background var(--dur-1) var(--motion-ease-ink),
+    border-color var(--dur-1) var(--motion-ease-ink);
+}
+
+.dao-shu:hover {
+  border-color: var(--gold);
+  background: var(--gold-wash);
+}
+
+.dao-mian {
+  position: fixed;
+  inset: var(--header) 0 0 0;
+  z-index: 19;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 24px;
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.dao-mian a {
+  padding-block: 14px;
+  border-bottom: 1px solid var(--rule);
+  font-family: var(--font-serif-stack);
+  font-size: var(--t-h3);
+  letter-spacing: 0.2em;
+}
+
+/* ============================================================
+   首頁夜景：書房相 ＋ 窗外會郁嘅星（重新設計第一期）
+
+   ⚠ 張相同星空遮罩要用**同一個** background-size / position，
+   星先會跌正喺窗入面。兩樣都由 --ye-pos 決定，`StarWindow` 讀返
+   computed style 嚟計，所以改位置只改呢度一處。
+   ============================================================ */
+
+.ye {
+  --ye-pos: 72% 30%;
+  position: relative;
+  isolation: isolate;
+  min-height: 100svh;
+  overflow: hidden;
+  background: var(--night);
+  color: var(--night-ink);
+}
+
+@media (min-width: 900px) {
+  .ye {
+    --ye-pos: 50% 45%;
+  }
+}
+
+.ye-tu,
+.ye-xing {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.ye-tu {
+  z-index: -3;
+  background-image: url("/hero/study.webp");
+  background-size: cover;
+  background-position: var(--ye-pos);
+}
+
+.ye-xing {
+  z-index: -2;
+  mix-blend-mode: screen;
+  pointer-events: none;
+  -webkit-mask-image: url("/hero/sky.png");
+  mask-image: url("/hero/sky.png");
+  -webkit-mask-size: cover;
+  mask-size: cover;
+  -webkit-mask-position: var(--ye-pos);
+  mask-position: var(--ye-pos);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+
+/* 令字企得穩：左邊（桌面）同下面（手機）壓暗 */
+.ye-an {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(to top, rgb(11 13 11 / 0.92) 0%, rgb(11 13 11 / 0.55) 42%, rgb(11 13 11 / 0.1) 70%),
+    linear-gradient(to bottom, rgb(11 13 11 / 0.55), transparent 22%);
+}
+
+@media (min-width: 900px) {
+  .ye-an {
+    background:
+      linear-gradient(to right, rgb(11 13 11 / 0.82) 0%, rgb(11 13 11 / 0.5) 38%, transparent 62%),
+      linear-gradient(to top, rgb(11 13 11 / 0.7), transparent 30%),
+      linear-gradient(to bottom, rgb(11 13 11 / 0.5), transparent 18%);
+  }
+}
+
+/* 直排：逐個字一行（同命盤星名一樣唔用 writing-mode，字體未載到唔會疊字） */
+.zhi-pai {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 14px;
+}
+
+.zhi-pai > span {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  line-height: 1;
+}
+
+/* 四步：01 落款 → 02 取書 → 03 閱讀 → 04 深讀 */
+.bu {
+  display: grid;
+  gap: 20px;
+}
+
+@media (min-width: 900px) {
+  .bu {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0;
+  }
+
+  .bu > li {
+    position: relative;
+    padding-inline-end: 32px;
+  }
+
+  /* 步與步之間一條細線 */
+  .bu > li:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    top: 0.62em;
+    inset-inline: 2.6em 40px;
+    height: 1px;
+    background: var(--night-rule);
   }
 }

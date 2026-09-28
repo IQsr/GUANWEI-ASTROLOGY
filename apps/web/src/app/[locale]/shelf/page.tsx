@@ -55,7 +55,7 @@ export default async function ShelfPage({ params }: { params: Promise<{ locale: 
 
   return (
     <main className="juan tai">
-      <Juanshou title="書齋" nav="shelf" theme />
+      <Juanshou title="書齋" nav="shelf" />
 
       {view.kind === 'unavailable' ? (
         /*

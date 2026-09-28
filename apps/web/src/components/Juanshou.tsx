@@ -1,5 +1,4 @@
 import { Link } from '@/i18n/navigation';
-import { ThemeToggle } from '@/components/ThemeToggle';
 
 /**
  * 卷首：全站唯一嘅頁頭（工單 UX1 · 視覺系統 §5 · 架構 §2）
@@ -18,7 +17,7 @@ import { ThemeToggle } from '@/components/ThemeToggle';
  *
  * ── 三行，次序固定 ──
  *
- *   一　返回（左）· 夜讀（右）
+ *   一　返回（左）。夜讀已經搬咗去頁頂導覽（`SiteHeader`）
  *   二　章名 ＋ 細 nav
  *   三　界欄
  *
@@ -74,16 +73,14 @@ export function Juanshou({
   back,
   title,
   nav,
-  theme = false,
 }: {
   back?: BackTo | { href: string; label: string };
   title?: string;
   /** 出細 nav，而且標明企緊邊度（企緊嗰個唔出連結）。 */
   nav?: NavAt | 'book';
-  theme?: boolean;
 }) {
   const to = typeof back === 'string' ? BACK[back] : (back ?? null);
-  const hasRowOne = Boolean(to || theme);
+  const hasRowOne = Boolean(to);
   const hasRowTwo = Boolean(title || nav);
 
   return (
@@ -100,7 +97,6 @@ export function Juanshou({
           ) : (
             <span />
           )}
-          {theme ? <ThemeToggle dayLabel="日讀" nightLabel="夜讀" /> : null}
         </div>
       ) : null}
 

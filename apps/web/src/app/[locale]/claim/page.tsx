@@ -35,7 +35,7 @@ export default async function ClaimPage({ params }: { params: Promise<{ locale: 
   return (
     <main className="juan tai">
       {/* ⚠ 「書架」改咗做「書齋」—— 全站同一個地方，之前得呢一版叫錯。 */}
-      <Juanshou back="shelf" title="認領" theme />
+      <Juanshou back="shelf" title="認領" />
 
       <div className="banxin flex flex-col gap-4 text-body leading-[1.95]">
         <p>

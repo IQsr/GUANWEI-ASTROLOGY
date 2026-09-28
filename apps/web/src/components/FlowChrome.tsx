@@ -16,7 +16,7 @@ import { Juanshou } from '@/components/Juanshou';
 export function FlowChrome({ children }: { children: ReactNode }) {
   return (
     <>
-      <Juanshou back="shelf" theme />
+      <Juanshou back="shelf" />
       {children}
     </>
   );

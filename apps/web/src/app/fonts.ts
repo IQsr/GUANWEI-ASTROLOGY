@@ -1,10 +1,10 @@
 /**
- * 字體（視覺系統 §4）
+ * 字體（重新設計第一期 · 參考稿「字體」）
  *
  * 三個角色：
- *   宋體  Noto Serif TC —— 中文，做骨
- *   西文  Spectral      —— 直立應力、楔形襯線，同宋體同一種呼吸
- *   工具  Noto Sans TC  —— 數字同細標籤，只做工具，唔上場
+ *   宋體  Noto Serif TC     —— 標題同命書正文
+ *   黑體  Noto Sans TC      —— 內文、工具字、數字
+ *   西文  Playfair Display  —— GUAN WEI 同英文標語（取代 Spectral）
  *
  * 三個都由同一條 Google Fonts stylesheet 載，唔用 next/font。兩個原因：
  *
@@ -24,7 +24,7 @@
 
 export const FONT_STYLESHEET_HREF =
   'https://fonts.googleapis.com/css2' +
-  '?family=Noto+Serif+TC:wght@300;400;600;900' +
-  '&family=Noto+Sans+TC:wght@400;500' +
-  '&family=Spectral:wght@300;400;600' +
+  '?family=Noto+Serif+TC:wght@300;400;500;600;900' +
+  '&family=Noto+Sans+TC:wght@300;400;500' +
+  '&family=Playfair+Display:wght@400;500;600' +
   '&display=swap';

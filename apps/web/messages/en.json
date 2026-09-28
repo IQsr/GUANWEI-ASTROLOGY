@@ -11,7 +11,30 @@
     "enter": "Begin",
     "hint": "Five questions, about three minutes. An unknown birth hour is fine.",
     "sealLabel": "Guan Wei seal",
-    "resume": "Continue reading"
+    "resume": "Continue reading",
+    "tagline": "BETWEEN THE COSMOS AND THE SELF.",
+    "vertical": [
+      "觀天地之微，",
+      "見自身之深。"
+    ],
+    "steps": [
+      {
+        "name": "Inscribe",
+        "desc": "Your birth details, about three minutes"
+      },
+      {
+        "name": "Receive",
+        "desc": "A book cast for you alone"
+      },
+      {
+        "name": "Read",
+        "desc": "Begin at the Life palace, one chapter each"
+      },
+      {
+        "name": "Go deeper",
+        "desc": "Uncut pages, opened when you choose"
+      }
+    ]
   },
   "theme": {
     "day": "Day",

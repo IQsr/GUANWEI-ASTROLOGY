@@ -56,7 +56,7 @@ export default async function LexiconIndex({
 
   return (
     <main className="juan tai">
-      <Juanshou title="藏經閣" theme />
+      <Juanshou title="藏經閣" />
 
       <div className="banxin">
         <p className="text-lead text-ink-2">

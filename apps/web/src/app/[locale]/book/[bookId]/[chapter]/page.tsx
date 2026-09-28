@@ -54,7 +54,7 @@ export default async function ChapterPage({
   if (view.kind !== 'ok') {
     return (
       <main className="juan tai">
-        <Juanshou back="shelf" nav="book" theme />
+        <Juanshou back="shelf" nav="book" />
         <p className="banxin text-body leading-[1.95] text-ink-2">
           {view.kind === 'missing'
             ? '書齋裡沒有這一本。'
@@ -105,7 +105,7 @@ export default async function ChapterPage({
 
   return (
     <main className="juan tai">
-      <Juanshou back={backToContents(bookId)} nav="book" theme />
+      <Juanshou back={backToContents(bookId)} nav="book" />
 
       {/* 冇畫面。記低讀到邊、幾時讀 —— 書架靠佢排序（E3）。 */}
       {here ? <MarkRead bookId={bookId} slug={here.slug} /> : null}

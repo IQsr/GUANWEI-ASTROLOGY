@@ -43,7 +43,7 @@ export function Juan({
   const [seen, setSeen] = useState<Set<string>>(() => new Set());
 
   return (
-    <div className="flex flex-col gap-6">
+    <div className="wen flex flex-col gap-6">
       {segments.map((seg, i) => {
         const shown = seg.runs.find((r) => r.term && open === r.term.id)?.term;
         const note = shown ? notes[shown.id] : undefined;

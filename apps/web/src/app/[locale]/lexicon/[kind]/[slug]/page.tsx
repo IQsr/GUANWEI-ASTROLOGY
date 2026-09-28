@@ -97,7 +97,7 @@ export default async function LexiconEntryPage({
 
   return (
     <main className="juan tai">
-      <Juanshou back="lexicon" theme />
+      <Juanshou back="lexicon" />
 
       <div className="banxin">
         {/* ⚠ 詞條個名係資料，所以佢同章名一樣：喺頁頭之下，唔喺頁頭入面。 */}

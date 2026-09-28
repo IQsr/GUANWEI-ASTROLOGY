@@ -55,7 +55,7 @@ export default async function AccountPage({ params }: { params: Promise<{ locale
     console.error('[account] ', error);
     return (
       <main className="juan tai">
-        <Juanshou back="shelf" title="設定" nav="account" theme />
+        <Juanshou back="shelf" title="設定" nav="account" />
         <p className="banxin text-body leading-[1.95] text-ink-2">
           現在連不上。你的書和資料都沒有事 —— 待會再開這一頁就可以。
         </p>
@@ -66,7 +66,7 @@ export default async function AccountPage({ params }: { params: Promise<{ locale
   if (!account) {
     return (
       <main className="juan tai">
-        <Juanshou back="shelf" title="設定" nav="account" theme />
+        <Juanshou back="shelf" title="設定" nav="account" />
         <p className="banxin text-body leading-[1.95]">
           這個瀏覽器沒有書。如果書在另一部裝置上，請在那邊開啟。
         </p>
@@ -78,7 +78,7 @@ export default async function AccountPage({ params }: { params: Promise<{ locale
 
   return (
     <main className="juan tai">
-      <Juanshou back="shelf" title="設定" nav="account" theme />
+      <Juanshou back="shelf" title="設定" nav="account" />
       <p className="banxin text-sm leading-[1.9] text-ink-2">
         {account.email ?? '這些書還沒有認領 —— 只有這一部瀏覽器認得它們。'}
       </p>

@@ -11,7 +11,30 @@
     "enter": "起　盤",
     "hint": "落款五步，約三分鐘。唔知時辰都排得。",
     "sealLabel": "觀微印",
-    "resume": "續讀上一本"
+    "resume": "續讀上一本",
+    "tagline": "BETWEEN THE COSMOS AND THE SELF.",
+    "vertical": [
+      "觀天地之微，",
+      "見自身之深。"
+    ],
+    "steps": [
+      {
+        "name": "落款",
+        "desc": "留下生辰，約三分鐘"
+      },
+      {
+        "name": "取書",
+        "desc": "排出只屬於你的一本"
+      },
+      {
+        "name": "閱讀",
+        "desc": "由命宮讀起，一章一宮"
+      },
+      {
+        "name": "深讀",
+        "desc": "未裁之頁，想讀自己裁"
+      }
+    ]
   },
   "theme": {
     "day": "日讀",
