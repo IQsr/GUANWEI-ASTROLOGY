@@ -28,6 +28,14 @@ export type ChapterDraft = {
   tier: Tier;
   title: string;
   body: string;
+  /**
+   * 每一段嘅格名（開場、結構、牽動⋯），同 `body` 用 `
+
+` 切出嚟嘅段一一對應。
+   * 讀嗰陣靠佢分段、左頁命盤靠佢跟住亮（`lib/suidu.ts` `paragraphs()`）。
+   * DB 嗰邊 0006 一早預留咗 `chapters.slots`，但到 2026-09 之前一直冇傳過去。
+   */
+  slots: string[];
   content_version: string;
 };
 
@@ -96,7 +104,16 @@ export function bookTitle(name: string): string {
 }
 
 /** 一章嘅來源：逐宮章唔自己起名（要數序），序自己帶名。 */
-export type ChapterSource = { slug: string; title?: string; text: string };
+export type ChapterSource = {
+  slug: string;
+  title?: string;
+  /** 段同段之間用 `
+
+` 分開。 */
+  text: string;
+  /** 每一段嘅格名，數目要同 `text` 嘅段數一樣。 */
+  slots?: readonly string[];
+};
 
 /**
  * ⚠ 章嘅 slug 用中文，同藏經閣同一個理由（D1）：
@@ -117,6 +134,7 @@ export function chapterDrafts(
     tier: tierOf(c.slug),
     title: c.title ?? `${chapterNumeral(++numbered)} · ${c.slug}`,
     body: c.text,
+    slots: [...(c.slots ?? [])],
     content_version: contentVersion,
   }));
 }

@@ -129,7 +129,7 @@ export default async function ChapterPage({
 
   return (
     /* 書桌閱讀：左頁命盤跟住右頁讀緊嘅段落亮，右頁喺頁入面捲 */
-    <main className="juan tai ye-ink">
+    <main className="juan tai shuzhuo-tai ye-ink">
       <NightScene variant="desk" />
       <Juanshou back={backToContents(bookId)} step={3} />
 

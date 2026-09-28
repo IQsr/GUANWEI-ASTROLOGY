@@ -418,9 +418,15 @@
   }
 
   /* 命書正文：宋體。長文用宋體讀得落，黑體做工具字 */
+  /*
+   * 命書正文（2026-09 調）：
+   *   一、宋體排第一 —— 之前第一隻係 Playfair Display，正文入面嘅英文字母
+   *       同數字會用佢；佢係一隻對比好強嘅標題字，同宋體撈埋唔夾。
+   *   二、字重 400 —— 300 喺紙色上面對比偏弱，Windows 尤其睇到發灰。
+   */
   .wen {
-    font-family: var(--font-serif-stack);
-    font-weight: 300;
+    font-family: "Noto Serif TC", "Songti TC", "Source Han Serif TC", "PMingLiU", serif;
+    font-weight: 400;
   }
 
   /* ── 印（視覺系統 §8）──
@@ -2345,7 +2351,7 @@
   grid-template-columns: minmax(0, 1fr);
   /* 視窗高度減：頁頂導覽、天頭、卷首、地腳 */
   height: max(520px, calc(100svh - var(--header) - 190px));
-  max-width: 1180px;
+  max-width: 1240px;
   margin-inline: auto;
   border-radius: 3px;
   box-shadow:
@@ -2372,8 +2378,24 @@
 
 @media (min-width: 900px) {
   .shuzhuo-ye {
-    padding: 44px 48px;
+    padding: 44px 40px;
   }
+}
+
+/*
+ * 書桌閱讀用一個闊啲嘅台（2026-09）。
+ *
+ * 普通嘅台最闊 1080px，本書夾喺入面，一頁得 410px 字位 —— 每行大約 24 字，
+ * 遠低過版心要求嘅 32–40 字。閱讀頁放寬到 1320px，本書最闊 1240px，
+ * 1280 闊嘅螢幕每行大約 33 字。卷首用 `.banxin` 置中，左邊界同其他版一樣。
+ */
+.tai.shuzhuo-tai {
+  max-width: 1320px;
+}
+
+/* 書入面嘅正文：16px（行長同頁闊一齊調，16.5px 會令一行少一至兩個字） */
+.shuzhuo-you .wen p {
+  font-size: 1rem;
 }
 
 /* 左頁：命盤。手機唔出（命盤收喺右頁頂嗰格） */

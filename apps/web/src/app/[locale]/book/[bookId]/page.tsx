@@ -81,7 +81,7 @@ export default async function BookPage({
      * 書桌閱讀：展卷之後本書一直攤開喺桌面上 —— 目次係本書嘅一頁，唔係另一個網頁。
      * 左頁命盤（亮命宮），右頁目次。
      */
-    <main className="juan tai ye-ink">
+    <main className="juan tai shuzhuo-tai ye-ink">
       <NightScene variant="desk" />
       {/* 書桌閱讀：卷首淨係返回同四步，書名寫喺左頁頂 —— 本書高啲，一眼睇得晒 */}
       <Juanshou back="shelf" step={3} title={view.kind === 'ok' ? undefined : tShelf('untitled')} />

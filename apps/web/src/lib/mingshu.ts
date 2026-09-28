@@ -146,11 +146,21 @@ export function chaptersOf(
 export function bookChapters(
   chart: ZChart,
   opts: { seed: string; year: number; solar: { y: number; m: number; d: number }; place: string },
-): { slug: string; title?: string; text: string }[] | null {
+): { slug: string; title?: string; text: string; slots: string[] }[] | null {
   const palaces = chaptersOf(chart, { seed: opts.seed, year: opts.year });
   if (!palaces) return null;
 
-  const join = (segments: { text: string }[]) => segments.map((s) => s.text).join('\n\n');
+  /*
+   * ⚠ 每一章都要分段、帶住格名（2026-09 修）。
+   *
+   * 之前宮位章直接用 `c.text` —— 內容庫嗰邊係 `join('')`，冇分段 ——
+   * 而 slots 從來冇寫落 DB。結果真書入面命宮等十二章每章一大段字牆，
+   * 左頁命盤亦跟唔到段落。樣板頁睇落冇事，因為佢直接讀內容庫嘅段，唔經 DB。
+   */
+  const body = (segments: readonly { text: string; slot: string }[]) => ({
+    text: segments.map((s) => s.text).join('\n\n'),
+    slots: segments.map((s) => s.slot),
+  });
 
   /*
    * ⚠ 流派聲明由引擎出（H2 第一條 AC：三處同源，唔准人手抄）。
@@ -175,10 +185,10 @@ export function bookChapters(
   const [ming, ...rest] = palaces;
 
   return [
-    { slug: xu.slug, title: xu.title, text: join(xu.segments) },
-    ...(ming ? [{ slug: ming.palace, text: ming.text }] : []),
-    ...(shen ? [{ slug: shen.slug, title: shen.title, text: join(shen.segments) }] : []),
-    ...rest.map((c) => ({ slug: c.palace, text: c.text })),
+    { slug: xu.slug, title: xu.title, ...body(xu.segments) },
+    ...(ming ? [{ slug: ming.palace, ...body(ming.segments) }] : []),
+    ...(shen ? [{ slug: shen.slug, title: shen.title, ...body(shen.segments) }] : []),
+    ...rest.map((c) => ({ slug: c.palace, ...body(c.segments) })),
   ];
 }
 
