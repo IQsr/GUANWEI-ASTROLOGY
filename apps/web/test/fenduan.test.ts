@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { cast } from '@guanwei/ziwei';
-import { transitionBank } from '@guanwei/content';
+import { legacyFrameTexts, transitionBank } from '@guanwei/content';
 import { chaptersOf, restoreParagraphs } from '@/lib/mingshu';
 import { needsResplit, resplit } from '@/lib/fenduan';
 
@@ -38,6 +38,17 @@ describe('resplit', () => {
     expect(resplit('甲。乙丁。丙。', segs, [])).toBeNull();
     expect(resplit('甲。乙乙。丙。多', segs, [])).toBeNull();
     expect(resplit('甲。乙乙。自己作。丙。', segs, ['接著。'])).toBeNull();
+  });
+
+  /** 2026-09 章首同收束句改寫過：舊書入面係舊句，都要認得返 */
+  it('舊句（改寫之前嗰句）都認得，包括前面有過場句', () => {
+    const alt = (slot: string) => (slot === '章首' ? ['舊甲。'] : slot === '留白' ? ['舊丙。'] : []);
+    expect(resplit('舊甲。乙乙。接著。舊丙。', segs, ['接著。'], alt)).toEqual({
+      text: ['舊甲。', '乙乙。', '接著。', '舊丙。'].join('\n\n'),
+      slots: ['章首', '結構', '過場', '留白'],
+    });
+    /* 唔係舊句名單入面嘅，照舊唔分 */
+    expect(resplit('亂寫。乙乙。丙。', segs, [], alt)).toBeNull();
   });
 
   it('淨係冇分段嘅舊章先要分', () => {
@@ -81,6 +92,21 @@ describe('restoreParagraphs：真引擎', () => {
     expect(out!.slots[at]).toBe('過場');
     expect(out!.text!.split('\n\n')[at]).toBe(t);
     expect(out!.text!.split('\n\n').join('')).toBe(text);
+  });
+
+  it('2026-09 之前嘅舊書：章首同收束句係舊句，照樣分得返', () => {
+    const ming = palaces[0]!;
+    const old = ming.segments.map((s) =>
+      s.slot === '章首'
+        ? legacyFrameTexts('命宮', 'open')[0]!
+        : s.slot === '留白' && s.source_id?.startsWith('frame.close')
+          ? legacyFrameTexts('命宮', 'close')[2]!
+          : s.text,
+    );
+    const text = old.join('');
+    const [out] = restoreParagraphs([{ slug: ming.palace, text, slots: [] }], { chart, seed, years: [2026] });
+    expect(out!.slots).toEqual(ming.segments.map((s) => s.slot));
+    expect(out!.text!.split('\n\n')).toEqual(old);
   });
 
   it('成書年份喺後備年份入面都搵得返', () => {

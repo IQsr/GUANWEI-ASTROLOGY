@@ -8,6 +8,7 @@ import {
   xuChapter,
   LEXICON,
   TRANSITION_WHITELIST,
+  legacyFrameTexts,
   type Chapter,
 } from '@guanwei/content';
 import { SCHOOL_PROFILE, annual, cast } from '@guanwei/ziwei';
@@ -164,18 +165,8 @@ export function bookChapters(
     slots: segments.map((s) => s.slot),
   });
 
-  /*
-   * ⚠ 流派聲明由引擎出（H2 第一條 AC：三處同源，唔准人手抄）。
-   * ⚠ 規則庫版本由規則庫自己出（B16 第二條 AC）——
-   *   寫死一個字串，就會出現「版權頁講緊 v1，實際跑緊 v2」。
-   */
-  const xu = xuChapter({
-    chart,
-    solar: opts.solar,
-    place: opts.place,
-    declaration: SCHOOL_PROFILE.declaration,
-    contentVersion: RULE_REGISTRY.ref,
-  });
+  /* 序唔再印版本號（2026-09）：版本照舊寫落 DB（成書嗰陣，見 cast/actions.ts）。 */
+  const xu = xuChapter({ chart, solar: opts.solar, place: opts.place });
   const shen = shenChapter({ chart });
 
   /*
@@ -221,7 +212,9 @@ export function restoreParagraphs<T extends { slug: string; text: string | null;
     for (const year of opts.years) {
       const palace = palacesOf(year)?.find((c) => c.palace === ch.slug);
       if (!palace) continue;
-      const split = resplit(ch.text!, palace.segments, bridges);
+      const split = resplit(ch.text!, palace.segments, bridges, (slot) =>
+        slot === '章首' ? legacyFrameTexts(ch.slug, 'open') : slot === '留白' ? legacyFrameTexts(ch.slug, 'close') : [],
+      );
       if (split) return { ...ch, text: split.text, slots: split.slots };
     }
     return ch;

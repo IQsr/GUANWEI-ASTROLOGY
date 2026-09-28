@@ -94,13 +94,13 @@ export const XU_FRAMES = [
     id: 'frame.open.序',
     slot: '章首',
     status: 'reviewed',
-    text: '這一章不讀吉凶。它把你出生那一刻換算成一張盤，並且寫明這本書用的是哪一套算法。往後每一章，都從這裡長出來。',
+    text: '你出生的那一刻，在這裡換算成一張命盤。十二宮的位置由此定下，往後每一章，都從這張盤讀起。',
   },
   {
     id: 'frame.close.序',
     slot: '留白',
     status: 'reviewed',
-    text: '以上都只是位置。位置本身不說好壞，往下幾章做的是把它們讀成傾向，最後交回你自己驗證。',
+    text: '這張盤是屬於你的底圖，一生不變。往後翻開的每一章，讀的都是你自己。',
   },
 ].map((f) => XuFrame.parse(f));
 
@@ -141,31 +141,11 @@ export type XuInput = {
   /** 國曆生辰同出生地 —— 盤入面冇留低，由落款嗰邊帶過嚟。 */
   solar: { y: number; m: number; d: number };
   place: string;
-  /**
-   * ⚠ 流派聲明要由引擎出，唔准喺呢度抄一份（工單 H2 第一條 AC）。
-   *
-   * `SCHOOL_PROFILE.declaration`。同一句要出現喺 `/about`、
-   * 每本命書版權頁、命書四化章 —— **三處同源**。
-   *
-   * 第一版喺呢個檔案入面自己寫咗一句「本書以三合派為骨…」，
-   * 即係 H2 明文禁止嗰樣：聲明同資料各講各話，正正就係我哋
-   * 批評緊競品嗰件事。所以佢而家係一個參數，唔係一句文案。
+  /*
+   * ⚠ 2026-09 拎走咗 `declaration`（流派聲明全文）同 `contentVersion`（規則庫版本）：
+   * 序唔再印設定細節同版本號（見 `xuChapter()` 體系段）。流派聲明全文照舊喺
+   * `/about`，同引擎同源（工單 H2）；版本號照舊寫落 DB（R-008）。
    */
-  declaration: string;
-  /**
-   * 規則庫版本（`RULE_REGISTRY.ref`）—— 工單 B16 第二條 AC。
-   *
-   * ⚠ 版權頁要列**三個**版本號，唔係兩個。
-   *
-   * 引擎版本同流派設定講嘅係「張盤點樣排出嚟」；規則庫版本講嘅係
-   * 「啲字點樣寫出嚟」。兩件事會分開變：C8 改一句基塊尾句，
-   * 盤一粒星都冇郁，但本書入面啲字唔同咗。
-   *
-   * R-008 話明舊書唔自動重算 —— 而「唔自動重算」呢個承諾，
-   * 要三個號都寫喺書入面先兌現得到。少咗規則庫版本，
-   * 讀者就分唔到「我本書用緊舊引擎」同「我本書用緊舊文字」。
-   */
-  contentVersion: string;
 };
 
 /**
@@ -200,6 +180,17 @@ const SIHUA: Record<string, string> = {
 };
 
 /**
+ * 序入面講流派嗰一句：淨係講邊一派，唔講設定細節（2026-09）。
+ * 由盤嘅 `schoolProfile` 揀 —— 唔認得嘅流派就唔講，唔好估。
+ */
+const SCHOOL_LINE: Record<string, string> = {
+  zhongzhou: '這張盤依中州派（王亭之）的算法排出。',
+};
+
+const TRUE_SOLAR = '出生時間已按出生地經度，校正為真太陽時。';
+const ZONE_TIME = '出生時間按當地時區時間換算。';
+
+/**
  * ⚠ 體系嗰一段用另一把尺，唔係豁免。
  *
  * `assertNoReading()` 掃到兩個字，而兩個都係真嘅：
@@ -218,8 +209,9 @@ const SETTINGS_VOCAB = [
   ...Object.values(BOUNDARY),
   ...Object.values(LATE_ZI),
   ...Object.values(SIHUA),
-  '出生時間已按出生地經度作真太陽時校正。',
-  '出生時間未作真太陽時校正，按時區時間直接換算。',
+  ...Object.values(SCHOOL_LINE),
+  TRUE_SOLAR,
+  ZONE_TIME,
 ].join('');
 
 export function assertSettingsOnly(text: string, declaration = ''): void {
@@ -262,22 +254,21 @@ export function xuChapter(input: XuInput): { slug: string; title: string; segmen
    * ⚠ 規矩逐條由盤度讀返出嚟，唔係喺呢度寫死。
    * 一張冇校正過真太陽時嘅盤，版權頁唔可以話佢校正過。
    */
+  /*
+   * ⚠ 2026-09 改（Issac）：版本號、流派設定 ID、年界、子時、四化表逐條列 ——
+   * 全部收返去幕後，唔再印喺書度。讀者唔需要知我哋用緊邊個引擎版本，
+   * 一串 `zhongzhou-v1@4f66c68baf4b17cf` 只會令一本命書讀落似一份系統報告。
+   *
+   * 佢哋冇唔見：`charts.engine_version`、`school_profile_id`、`chapters.content_version`
+   * 照舊逐本寫落 DB（R-008「舊書唔自動重算」靠嗰幾格兌現，唔靠印出嚟）。
+   *
+   * 留低嘅得兩樣讀者真係用得著嘅：邊一派（信得過嘅出處）、有冇按出生地校正時間。
+   */
   const r = chart.meta.rules;
+  const school = SCHOOL_LINE[chart.meta.schoolProfile.split('@')[0]!.replace(/-v\d+$/, '')];
   const lines = [
-    `${input.declaration}（流派設定 ${chart.meta.schoolProfile}）`,
-    r.trueSolarTime
-      ? '出生時間已按出生地經度作真太陽時校正。'
-      : '出生時間未作真太陽時校正，按時區時間直接換算。',
-    `${BOUNDARY[r.yearBoundary] ?? r.yearBoundary}；${LATE_ZI[r.lateZiHour] ?? r.lateZiHour}；${SIHUA[r.sihuaSet] ?? r.sihuaSet}。`,
-    `排盤引擎 ${chart.meta.engineVersion}，規則庫 ${input.contentVersion}。遇到各家說法不一的地方，本書會在該處寫明，不會替你挑一邊。`,
-    /*
-     * ⚠ 呢一句係 R-008 本身，唔係一句免責。
-     *
-     * 上面三個號記低咗成書嗰一刻嘅設定。日後引擎、流派表或者規則庫改咗，
-     * 呢本書一個字都唔會跟住郁 —— 而讀者要知呢件事，
-     * 否則佢會以為自己讀緊嘅一定係最新版。
-     */
-    '以上三個版本號，記的是這本書成書當時的設定。日後算法或文字改版，這本書不會自動跟著改。',
+    ...(school ? [school] : []),
+    r.trueSolarTime ? TRUE_SOLAR : ZONE_TIME,
   ];
 
   const segments = [
@@ -293,7 +284,7 @@ export function xuChapter(input: XuInput): { slug: string; title: string; segmen
    * 其餘四段一個象義字都唔准有。
    */
   assertNoReading(segments.filter((s) => s.slot !== '體系'));
-  assertSettingsOnly(lines.join(''), input.declaration);
+  assertSettingsOnly(lines.join(''));
 
   return { slug: XU_SLUG, title: XU_TITLE, segments };
 }
@@ -365,13 +356,13 @@ export const SHEN_FRAMES = [
     id: 'frame.open.身宮',
     slot: '章首',
     status: 'reviewed',
-    text: '這一章讀兩件事：你的局數，還有身宮落在哪裡。前者是起算點，後者是你後天花力氣的地方。兩樣都在說位置，不評高低。',
+    text: '這一章讀兩件事：你的五行局，還有身宮落在哪裡。五行局是你起運的起點，身宮是你後天最花力氣的地方。',
   },
   {
     id: 'frame.close.身宮',
     slot: '留白',
     status: 'reviewed',
-    text: '著力的地方會隨年歲移動，位置卻不會。值得你自己看的是：這些年花掉的力氣，落在哪裡。',
+    text: '身宮所在，就是你這些年最用力的地方。回頭看看，你的力氣是不是一直落在這裡。',
   },
 ].map((f) => ShenFrame.parse(f));
 

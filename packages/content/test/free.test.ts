@@ -45,8 +45,6 @@ const XU = () =>
     chart: chartOf(),
     solar: { y: 1996, m: 6, d: 16 },
     place: '香港',
-    declaration: DECL,
-    contentVersion: RULE_REGISTRY.ref,
   });
 
 describe('⚠ 序一個象義字都冇', () => {
@@ -98,89 +96,42 @@ describe('⚠ 序一個象義字都冇', () => {
   });
 });
 
-describe('⚠ 版權頁：規矩由盤講', () => {
+describe('體系段：講讀者用得著嘅，版本號留喺幕後（2026-09）', () => {
   /**
-   * 架構 §8：「真太陽時 —— 命書版權頁寫明用咗乜。」
+   * 以前序要做「版權頁」：三個版本號、流派設定 ID、年界、子時、四化表逐條列。
+   * Issac 2026-09：讀者唔需要知 —— 一串 `zhongzhou-v1@4f66…` 只會令命書讀落似系統報告。
+   * 版本號照舊逐本寫落 DB（charts / chapters），R-008 靠嗰幾格兌現。
+   */
+  it('冇版本號、冇設定 ID', () => {
+    const chart = chartOf();
+    const text = XU().segments.map((s) => s.text).join('');
+    expect(text).not.toContain(chart.meta.schoolProfile);
+    expect(text).not.toContain(chart.meta.engineVersion);
+    expect(text).not.toContain(RULE_REGISTRY.ref);
+    expect(text).not.toMatch(/引擎|規則庫|版本號|流派設定/);
+  });
+
+  it('講明依邊一派', () => {
+    const text = XU().segments.find((s) => s.slot === '體系')!.text;
+    expect(text).toContain('中州派');
+  });
+
+  /**
+   * 架構 §8：真太陽時要講明。規矩由盤講，唔由呢度寫死 ——
    * 寫死一句就係喺一張冇校正嘅盤上面講大話，而且印喺讀者最信嗰個位置。
    */
   it('校正咗就話校正咗', () => {
     const text = XU().segments.find((s) => s.slot === '體系')!.text;
-    expect(text).toContain('已按出生地經度作真太陽時校正');
+    expect(text).toContain('校正為真太陽時');
   });
 
   it('冇校正就唔准話校正', () => {
     const chart = chartOf({ trueSolarTime: false });
-    const text = xuChapter({
-      chart,
-      solar: { y: 1996, m: 6, d: 16 },
-      place: '香港',
-      declaration: DECL,
-      contentVersion: RULE_REGISTRY.ref,
-    }).segments.find((s) => s.slot === '體系')!.text;
-    expect(text).toContain('未作真太陽時校正');
-    expect(text).not.toContain('已按出生地經度');
-  });
-
-  /**
-   * ⚠ 工單 H2 第一條 AC：流派聲明直接讀 `SCHOOL_PROFILE.declaration`，
-   * 唔准人手抄一份。同一句要出現喺 /about、版權頁、四化章 —— 三處同源。
-   *
-   * 第一版喺 `free.ts` 入面自己寫咗一句「本書以三合派為骨…」，
-   * 即係 H2 明文禁止嗰樣。呢條測試守住唔會再犯。
-   */
-  it('聲明逐字由引擎出，唔係喺呢度抄一份', () => {
-    const text = XU().segments.find((s) => s.slot === '體系')!.text;
-    expect(text).toContain(SCHOOL_PROFILE.declaration);
-    expect(text).not.toContain('本書以三合派為骨');
-  });
-
-  /**
-   * ⚠ 工單 B16 第二條 AC：版權頁要列**三個**版本號 ——
-   * engine_version、school_profile_id、content_version。
-   *
-   * 呢條之前得兩個。少嗰個係規則庫版本，而佢正正係最容易靜靜雞變嗰個：
-   * 改一句基塊尾句，盤一粒星都冇郁，但本書入面啲字唔同咗。
-   */
-  it('三個版本號都印得出：引擎、流派設定、規則庫', () => {
-    const chart = chartOf();
-    const text = xuChapter({
-      chart,
-      solar: { y: 1996, m: 6, d: 16 },
-      place: '香港',
-      declaration: DECL,
-      contentVersion: RULE_REGISTRY.ref,
-    }).segments.find((s) => s.slot === '體系')!.text;
-    expect(text).toContain(chart.meta.schoolProfile);
-    expect(text).toContain(chart.meta.engineVersion);
-    expect(text).toContain(RULE_REGISTRY.ref);
-    /* 規範 §17：版本欄唔准 latest。印出街嗰個一樣。 */
-    expect(text).not.toContain('latest');
-  });
-
-  /** 三個號要真係唔同嘅嘢 —— 唔可以印咗同一個號三次就當交足貨。 */
-  it('三個號係三樣嘢', () => {
-    const chart = chartOf();
-    const three = [chart.meta.engineVersion, chart.meta.schoolProfile, RULE_REGISTRY.ref];
-    expect(new Set(three).size).toBe(3);
-  });
-
-  /**
-   * ⚠ R-008：舊書唔自動重算。
-   *
-   * 三個號淨係記低咗設定；「日後改版唔會跟住郁」呢句先至係承諾本身。
-   * 冇咗佢，讀者會當自己讀緊最新版 —— 而佢讀緊嘅係成書嗰日嗰版。
-   */
-  it('版權頁講明呢本書唔會自動跟住改（R-008）', () => {
-    const text = XU().segments.find((s) => s.slot === '體系')!.text;
-    expect(text).toContain('成書當時');
-    expect(text).toContain('不會自動');
-  });
-
-  it('三個分歧點逐個寫明，唔靜靜咁揀一邊', () => {
-    const text = XU().segments.find((s) => s.slot === '體系')!.text;
-    expect(text).toContain('換年');
-    expect(text).toContain('子時');
-    expect(text).toContain('四化用');
+    const text = xuChapter({ chart, solar: { y: 1996, m: 6, d: 16 }, place: '香港' }).segments.find(
+      (s) => s.slot === '體系',
+    )!.text;
+    expect(text).toContain('按當地時區時間換算');
+    expect(text).not.toContain('真太陽時');
   });
 });
 
