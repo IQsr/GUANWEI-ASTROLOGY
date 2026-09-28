@@ -1739,6 +1739,18 @@
   color: var(--night-ink);
 }
 
+/* 夜色導覽上面嘅日夜讀（命書版）：跟導覽用夜色字，唔係紙上嘅墨色 */
+.dao[data-over="night"] .dao-ye button {
+  border-color: color-mix(in srgb, currentColor 35%, transparent);
+  color: inherit;
+  opacity: 0.78;
+}
+
+.dao[data-over="night"] .dao-ye button:hover {
+  border-color: currentColor;
+  opacity: 1;
+}
+
 .dao-nei {
   display: flex;
   align-items: center;
@@ -2470,6 +2482,43 @@
 /* 跟讀：章尾留白，最後幾段先捲得上讀線（同 `.suidu-wen` 一樣嘅理由） */
 .shuzhuo-wei {
   height: 40vh;
+}
+
+/*
+ * 由題名幕拎起本書（2026-09）
+ *
+ * 揭開之後，本書由題名幕嗰個細跨頁放大到閱讀嗰個大小同位置，
+ * 之後「讀下去」、翻章都係同一本書、同一個框 —— 淨係右頁換字。
+ * 之前題名幕嗰本細（760 闊）、命盤喺右頁；一入目次就變 1240 闊、命盤跳去左頁。
+ *
+ * 放大期間頁上面啲字收起（放大係 transform，字會跟住拉扁），放大完先淡入。
+ * 時長喺 `lib/timing.ts`（GROW_MS）。reduced-motion 唔放大，直接到位。
+ */
+.shuzhuo-shu[data-grow] .shuzhuo-ye > * {
+  opacity: 0;
+}
+
+.shuzhuo-ye > * {
+  transition: opacity 480ms var(--ease-ink);
+}
+
+/* 題名幕嗰版冇 `.shuzhuo-tai`：本書喺入面就一樣咁闊 */
+.tai:has(.shuzhuo) {
+  max-width: 1320px;
+}
+
+/* 導覽同卷首由靜場返嚟：淡入，唔好「啪」一聲出現 */
+@media (prefers-reduced-motion: no-preference) {
+  .dao[data-back],
+  .jian-xian {
+    animation: jian-xian 600ms var(--ease-ink) both;
+  }
+}
+
+@keyframes jian-xian {
+  from {
+    opacity: 0;
+  }
 }
 
 /* ============================================================

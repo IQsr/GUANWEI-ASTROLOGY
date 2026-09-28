@@ -157,29 +157,6 @@ try {
   const offNaming = await bookCentre();
   check('題名嗰陣本書企中間', offNaming !== null && Math.abs(offNaming) <= 2, `偏咗 ${offNaming}px`);
 
-  /*
-   * ── 零之二、⚠ 左頁真係有序 ────────────────────────
-   *
-   * 題名幕左頁嗰兩行，以前係喺 component 度手寫嘅 stand-in ——
-   * 同 `free.ts` 嗰個真序講唔同嘅嘢，讀者喺封面見到一句，
-   * 揭開之後讀到另一句。而家由 server 帶過嚟。
-   *
-   * ⚠ 所以呢度要量嘅唔係「寫成點」，係「到唔到」：
-   * 條線一斷（preface 係 null），左頁就會一片白，
-   * 而一片白係唔會有人 report 嘅 bug。
-   */
-  const verso = await page.evaluate(() => {
-    const el = document.querySelector('.fan-bei');
-    const ps = el ? [...el.querySelectorAll('p')].map((p) => p.textContent?.trim() ?? '') : [];
-    return { title: ps[0] ?? '', lead: ps[1] ?? '' };
-  });
-  check('左頁有章名', verso.title.includes('序'), `「${verso.title}」`);
-  check(
-    '左頁有章首（30–60 字）',
-    verso.lead.length >= 30 && verso.lead.length <= 60,
-    `${verso.lead.length} 字：「${verso.lead.slice(0, 20)}…」`,
-  );
-
   const during = await page.evaluate(() => {
     /*
      * ⚠ 量成版，唔係量本書嗰忽。
@@ -278,12 +255,18 @@ try {
     /*
      * ⚠ 揭書改咗做封面繞書脊轉（`BookFlip`，1500ms），展卷等封面落定先開始。
      * 所以要等：揭書 1500 ＋ 展卷 2130 ＋ 餘量。
+     * ⚠ 2026-09 中間加咗拎起本書（GROW_MS 720），展卷等放大完先開始。
      */
-    await page.waitForTimeout(4400);
+    await page.waitForTimeout(5400);
   }
+  /*
+   * ⚠ 揭開之後本書唔再係 `.fan`（2026-09）：封面一落定就拎起、換做閱讀嗰本
+   * （`.shuzhuo-shu`，同目次、同每一章同一個元件），由細書嗰個盒放大過去。
+   */
   const opened = await page.evaluate(() => ({
-    shape: document.querySelector('.fan')?.dataset.shape,
-    gong: document.querySelectorAll('.gong').length,
+    shape: document.querySelector('.shuzhuo-shu') ? 'opened' : document.querySelector('.fan')?.dataset.shape,
+    /* 左頁嗰個盤（閱讀嗰本仲有一個收埋畀手機用，喺右頁頂，唔數） */
+    gong: document.querySelectorAll('.shuzhuo-zuo .gong').length,
     kai: Boolean(document.querySelector('.mu-ti-kai')),
     /*
      * 揭開之後工具要返嚟 —— 嗰陣已經係喺度讀緊。
@@ -293,7 +276,12 @@ try {
     chrome: document.querySelectorAll('main header a, main header button').length,
     nav: Boolean(document.querySelector('header.dao')),
   }));
-  const offZhan = after.kai ? await bookCentre() : null;
+  const offZhan = after.kai
+    ? await page.evaluate(() => {
+        const b = document.querySelector('.shuzhuo-shu')?.getBoundingClientRect();
+        return b ? Math.round(b.left + b.width / 2 - document.documentElement.clientWidth / 2) : null;
+      })
+    : null;
   if (after.kai) {
     check('展卷嗰陣本書企中間', offZhan !== null && Math.abs(offZhan) <= 2, `偏咗 ${offZhan}px`);
     check('撳咗就揭開', opened.shape === 'opened', opened.shape ?? '冇書');
@@ -301,6 +289,27 @@ try {
     check('揭開咗之後冇咗熱區', !opened.kai, '熱區仲喺度');
     check('揭開咗之後卷首嘅返回返嚟', opened.chrome === 1, `${opened.chrome} 件`);
     check('揭開咗之後頁頂導覽返嚟', opened.nav, '冇導覽');
+
+    /*
+     * ── 四之一、⚠ 右頁真係有序 ────────────────────────
+     *
+     * 呢兩行以前係喺 component 度手寫嘅 stand-in —— 同 `free.ts` 嗰個真序
+     * 講唔同嘅嘢。而家由 server 帶過嚟。量嘅唔係「寫成點」，係「到唔到」：
+     * 條線一斷（preface 係 null），右頁就會一片白，而一片白係唔會有人 report 嘅 bug。
+     *
+     * ⚠ 2026-09 起序喺右頁、命盤喺左頁 —— 同目次、同每一章一樣。
+     */
+    const xu = await page.evaluate(() => {
+      const el = document.querySelector('.shuzhuo-you');
+      return {
+        title: el?.querySelector('h1')?.textContent?.trim() ?? '',
+        lead: el?.querySelector('.wen p')?.textContent?.trim() ?? '',
+        chartLeft: Boolean(document.querySelector('.shuzhuo-zuo .gong')),
+      };
+    });
+    check('右頁有章名', xu.title.includes('序'), `「${xu.title}」`);
+    check('右頁有章首（30–60 字）', xu.lead.length >= 30 && xu.lead.length <= 60, `${xu.lead.length} 字：「${xu.lead.slice(0, 20)}…」`);
+    check('命盤喺左頁', xu.chartLeft, '左頁冇盤');
   }
 
   /*
@@ -352,6 +361,27 @@ try {
   const seen = await page.evaluate(() => document.body.innerText);
   for (const w of words) check('題名幕冇價錢', !seen.includes(w), `出現咗「${w}」`);
 
+  /* ⚠ 要喺價錢嗰條之後先翻：目次有「免費 3 章」，嗰版唔係題名幕 */
+  if (HAS_DB && after.kai) {
+    /*
+     * ⚠ 「讀下去」之後本書一個 px 都唔郁（2026-09）。
+     *
+     * 之前題名幕嗰本 760 闊、目次嗰本 1240 闊，一撳就換咗本書咁。
+     * 而家題名幕拎起嗰本同目次係同一個元件；呢度量佢哋真係疊得埋。
+     */
+    const frame = () =>
+      page.evaluate(() => {
+        const b = document.querySelector('.shuzhuo-shu')?.getBoundingClientRect();
+        return b ? [b.left, b.top, b.width, b.height].map(Math.round).join(',') : null;
+      });
+    const before = await frame();
+    await page.getByText('讀下去').click();
+    await page.waitForURL(/\/book\/[^/]+$/, { timeout: 15_000 });
+    await page.waitForTimeout(1500);
+    const later = await frame();
+    check('讀下去之後本書唔郁', before !== null && before === later, `${before} → ${later}`);
+  }
+
   /*
    * ── 六、reduced-motion 係對等體驗（視覺 §7 第六條）──
    *
@@ -393,5 +423,5 @@ if (fail.length) {
   process.exit(1);
 }
 console.log(
-  '✓ 題名：1600 → 停 1.2 秒 → 落印、行緊冇任何掣、唔自動翻開、撳本書先揭開、寫唔入就唔扮有、三個狀態都企喺版心中間、左頁係真嗰個序',
+  '✓ 題名：1600 → 停 1.2 秒 → 落印、行緊冇任何掣、唔自動翻開、撳本書先揭開、寫唔入就唔扮有、三個狀態都企喺版心中間、右頁係真嗰個序、讀下去本書唔郁',
 );

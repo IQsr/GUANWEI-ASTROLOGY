@@ -29,3 +29,9 @@ export const SEAL_DELAY_MS = INK_MS + STILL_MS;
 
 /** 成幕行完。之後本書先撳得 —— 之前撳唔郁（AC：唔自動翻開，用戶自己撳）。 */
 export const NAMING_MS = SEAL_DELAY_MS + SEAL_MS;
+
+/**
+ * 揭開之後拎起本書：由題名幕嗰個細跨頁放大到閱讀嗰個大小（2026-09）。
+ * 夠慢先似「拎近嚟睇」，唔似個窗彈大；再慢就變咗等。
+ */
+export const GROW_MS = 720;

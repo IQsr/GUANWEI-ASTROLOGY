@@ -1,8 +1,10 @@
 'use client';
 
-import { useEffect, useRef, useState, type ReactNode } from 'react';
+import { useEffect, useLayoutEffect, useRef, useState, type ReactNode } from 'react';
 import { useTranslations } from 'next-intl';
 import { Chart } from '@/components/Chart';
+import { Zhanjuan } from '@/components/Zhanjuan';
+import { GROW_MS } from '@/lib/timing';
 import { TurnEdges, type PageTurn } from '@/components/TurnEdges';
 import { OPENING_SLOT, chartStateAt, resolveSlot } from '@/lib/suidu';
 import type { Chart as ZChart } from '@guanwei/ziwei/contract';
@@ -32,6 +34,10 @@ import type { Chart as ZChart } from '@guanwei/ziwei/contract';
  */
 
 export type { PageTurn };
+
+/** 一個盒喺視窗入面嘅位（`getBoundingClientRect()` 嗰四個數）。 */
+export type Box = { left: number; top: number; width: number; height: number };
+
 export function BookSpread({
   chart,
   palace,
@@ -39,6 +45,7 @@ export function BookSpread({
   top,
   prev = null,
   next = null,
+  from = null,
   children,
 }: {
   chart: ZChart | null;
@@ -52,6 +59,11 @@ export function BookSpread({
   prev?: PageTurn | null;
   /** 撳右邊（或者 →）去邊。冇就唔出。 */
   next?: PageTurn | null;
+  /**
+   * 由題名幕拎起（2026-09）：本書由呢個盒放大到自己嘅位，左頁個盤喺放大完之後
+   * 先展卷（界欄逐條畫）。唔畀就一入嚟已經喺度。
+   */
+  from?: Box | null;
   children: ReactNode;
 }) {
   const t = useTranslations('reading');
@@ -59,6 +71,41 @@ export function BookSpread({
   const book = useRef<HTMLElement>(null);
   const [slot, setSlot] = useState<string | null>(null);
   const [live, setLive] = useState(false);
+  /* 放大完未。冇 `from` 就一開始已經放大完 */
+  const [grown, setGrown] = useState(from === null);
+  const lifted = useRef(false);
+
+  /*
+   * 拎起：FLIP。本書一開始就排喺最終嗰個位，然後用 transform 縮返去題名幕嗰個盒，
+   * 下一格先放手，由 transition 放大返嚟。量同改都要喺 paint 之前（layout effect），
+   * 唔係會閃一格大書。
+   */
+  useLayoutEffect(() => {
+    const el = book.current;
+    if (!from || !el || lifted.current) return;
+    lifted.current = true;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      setGrown(true);
+      return;
+    }
+    const to = el.getBoundingClientRect();
+    el.dataset.grow = '';
+    el.style.transformOrigin = '0 0';
+    el.style.transform = `translate(${from.left - to.left}px, ${from.top - to.top}px) scale(${from.width / to.width}, ${from.height / to.height})`;
+    void el.getBoundingClientRect();
+    el.style.transition = `transform ${GROW_MS}ms var(--ease-ink)`;
+    el.style.transform = '';
+    const land = (e: TransitionEvent) => {
+      if (e.target !== el || e.propertyName !== 'transform') return;
+      el.removeEventListener('transitionend', land);
+      el.style.transition = '';
+      el.style.transformOrigin = '';
+      delete el.dataset.grow;
+      setGrown(true);
+    };
+    el.addEventListener('transitionend', land);
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- 只喺第一次 render 拎起一次
+  }, []);
 
   /*
    * 轉咗章（同一本書、同一個 DOM）：清走上一次翻頁嘅標記，右頁捲返去頂。
@@ -126,7 +173,18 @@ export function BookSpread({
         <div className="shuzhuo-ye shuzhuo-zuo" aria-hidden="true">
           {top ? <div className="mb-6">{top}</div> : null}
           <div className="shuzhuo-pan" data-at={live ? (slot ?? '') : OPENING_SLOT}>
-            {plate}
+            {/*
+             * 由題名幕拎起：放大完先展卷；之前唔畫（放大緊嗰陣字會拉扁），
+             * 但個位要留定 —— 唔留嘅話左頁頂嗰行書名會企喺正中，盤一出就跳上頂。
+             * 1 : 0.82 同展卷個骨架（`.zhan`）一樣。
+             */}
+            {from === null ? (
+              plate
+            ) : plate ? (
+              <div className="mx-auto w-full" style={{ maxWidth: 520 }}>
+                {grown ? <Zhanjuan>{plate}</Zhanjuan> : <div style={{ aspectRatio: '1 / 0.82' }} />}
+              </div>
+            ) : null}
           </div>
         </div>
 

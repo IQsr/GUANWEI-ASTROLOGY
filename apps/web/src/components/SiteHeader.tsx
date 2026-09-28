@@ -6,7 +6,7 @@ import { Link, usePathname } from '@/i18n/navigation';
 import { ThemeToggle } from '@/components/ThemeToggle';
 import { LocaleSwitch } from '@/components/LocaleSwitch';
 import { MARK } from '@/lib/site';
-import { useQuiet } from '@/lib/quiet';
+import { useQuiet, useQuietBack } from '@/lib/quiet';
 
 /**
  * 頁頂導覽：全站一條（重新設計第一期）
@@ -30,8 +30,12 @@ import { useQuiet } from '@/lib/quiet';
  * ── 兩個樣 ──
  *
  *   首頁：透明，疊喺夜景上面（`data-over="night"` ＋ `data-float`）
- *   落款：透明、夜色字，但照舊黏喺頂佔位（背後係固定嘅夜景）
+ *   落款、命書：透明、夜色字，但照舊黏喺頂佔位（背後係固定嘅夜景）
  *   其餘：黏喺頂、紙底半透
+ *
+ * ⚠ 命書（`/book/*`）以前係紙底嗰款：由題名幕「讀下去」入目次，
+ * 導覽由夜色跳做紙色，同本書一齊郁 —— 睇落似換咗個網站（2026-09 改）。
+ * 兩版背後都係同一張夜景書桌，所以導覽都用同一款。
  */
 
 /* 名喺 messages：`nav.*` */
@@ -53,9 +57,11 @@ export function SiteHeader() {
   const pathname = usePathname();
   /* 首頁同落款都係夜景：透明、夜色字。只有首頁疊喺相上面唔佔位。 */
   const onHome = pathname === '/';
-  const overNight = onHome || pathname === '/cast';
+  const onBook = pathname.startsWith('/book/');
+  const overNight = onHome || pathname === '/cast' || onBook;
   const [open, setOpen] = useState(false);
   const quiet = useQuiet();
+  const back = useQuietBack();
 
   /* 換咗版就收埋個選單 */
   useEffect(() => {
@@ -67,7 +73,12 @@ export function SiteHeader() {
 
   return (
     <>
-      <header className="dao" data-over={overNight ? 'night' : undefined} data-float={onHome ? '' : undefined}>
+      <header
+        className="dao"
+        data-over={overNight ? 'night' : undefined}
+        data-float={onHome ? '' : undefined}
+        data-back={back ? '' : undefined}
+      >
         <div className="dao-nei">
           <Link href="/" className="flex flex-col leading-none" aria-label={t('homeAria')}>
             <span className="font-serif text-[1.625rem] font-medium tracking-[0.32em]">{MARK}</span>
@@ -92,9 +103,12 @@ export function SiteHeader() {
             <span className="hidden md:inline-flex">
               <LocaleSwitch />
             </span>
-            {/* 夜景上面唔出日夜讀：首頁同落款永遠係夜、本書永遠係紙，撳咗都見唔到分別 */}
-            {overNight ? null : (
-              <span className="hidden sm:inline-flex">
+            {/*
+             * 首頁同落款唔出日夜讀：永遠係夜、本書永遠係紙，撳咗都見唔到分別。
+             * 命書要出 —— 夜讀轉嘅係書頁。
+             */}
+            {overNight && !onBook ? null : (
+              <span className="dao-ye hidden sm:inline-flex">
                 <ThemeToggle dayLabel={tt('day')} nightLabel={tt('night')} />
               </span>
             )}

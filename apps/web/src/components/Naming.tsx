@@ -1,16 +1,16 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useTranslations } from "next-intl";
 import { BookFlip } from "@/components/BookFlip";
-import { TurnEdges } from "@/components/TurnEdges";
 import { PageTurnLink } from "@/components/PageTurnLink";
-import { FlowChrome } from "@/components/FlowChrome";
-import { Zhanjuan } from "@/components/Zhanjuan";
+import { Juanshou } from "@/components/Juanshou";
+import { BookSpread, type Box } from "@/components/BookSpread";
 import { Seal } from "@/components/Seal";
-import { Chart } from "@/components/Chart";
 import { INK_MS, NAMING_MS, SEAL_DELAY_MS } from "@/lib/timing";
 import { MARK } from "@/lib/site";
+import { LIFE_PALACE } from "@/lib/suidu";
+import { bookTitle } from "@/lib/chengshu";
 import { setQuiet } from "@/lib/quiet";
 import type { Preface } from "@/app/[locale]/cast/actions";
 import type { Chart as ZChart } from "@guanwei/ziwei/contract";
@@ -59,8 +59,19 @@ export function Naming({
   const tn = useTranslations("nav");
   const [ready, setReady] = useState(false);
   const [open, setOpen] = useState(false);
-  /* 封面落定咗未。展卷要等佢 —— 唔好喺封面仲喺度翻嗰陣，底下已經畫緊界欄。 */
-  const [landed, setLanded] = useState(false);
+  /*
+   * 封面落定之後：拎起本書（2026-09）。
+   *
+   * 由呢一刻開始唔再係題名幕嗰本細書，而係閱讀嗰本 —— 同目次、同每一章
+   * 一模一樣嘅書（`BookSpread`）：左頁命盤、右頁字。本書由細跨頁嗰個盒放大過去，
+   * 之後「讀下去」淨係翻右頁，個框唔再郁。
+   *
+   * 之前題名幕嗰本係另一個樣：細（760 闊）、命盤喺右頁、序喺左頁；
+   * 一入目次本書突然大咗、命盤跳咗去左邊、導覽由夜色變紙色 —— 讀落好割裂。
+   */
+  const [from, setFrom] = useState<Box | null>(null);
+  const [desk, setDesk] = useState(false);
+  const shell = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const still = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -74,12 +85,65 @@ export function Naming({
 
   /*
    * 頁頂導覽都要收（重新設計第四期）：全站有導覽，但呢一幕「冇任何掣」。
-   * 揭開本書就返嚟；離開呢版（unmount）一定要放返，唔係成個站冇咗導覽。
+   * 離開呢版（unmount）一定要放返，唔係成個站冇咗導覽。
+   *
+   * ⚠ 等本書拎起先放返，唔係一撳就放（2026-09）：導覽同卷首一出現，成版會向下推 ——
+   * 封面揭緊嗰陣本書跟住跳一截。而家佢哋同本書放大一齊淡入（`.jian-xian`）。
    */
   useEffect(() => {
-    setQuiet(!open);
+    setQuiet(!desk);
     return () => setQuiet(false);
-  }, [open]);
+  }, [desk]);
+
+  if (desk) {
+    return (
+      <>
+        <div className="jian-xian">
+          <Juanshou back="shelf" step={2} />
+        </div>
+        <BookSpread
+          chart={chart}
+          palace={LIFE_PALACE}
+          from={from}
+          /*
+           * 展卷之後撳右邊（或者 →）翻到目次 —— 同「讀下去」同一個去處。
+           * 左邊冇：呢個係本書第一個攤開，前面冇頁。
+           * 冇 bookId（寫唔入 DB）就冇地方翻去，唔好扮有。
+           */
+          next={bookId ? { href: `/book/${bookId}`, label: tr("turnTo", { title: tn("contents") }) } : null}
+          /* 同目次左頁頂一樣：翻去目次嗰陣左頁一個字都唔郁 */
+          top={<p className="font-serif text-h2 font-semibold tracking-[0.16em]">{bookTitle(name)}</p>}
+        >
+          {/*
+           * ⚠ 呢兩行唔喺呢度寫：佢哋係**真嗰章嘅頭兩樣嘢**（章名同章首），由 server 帶過嚟。
+           * 攞唔到就唔出 —— 一版白紙好過一版寫住別人嘅序。
+           */}
+          {preface ? (
+            <div>
+              <h1 className="text-h1 font-semibold tracking-[0.16em]">{preface.title}</h1>
+              <div className="wen mt-10 flex flex-col gap-6">
+                <p>{preface.lead}</p>
+              </div>
+            </div>
+          ) : null}
+          {/*
+           * ⚠ 呢一行係六幕同命書之間嗰道門。`bookId` 係 null 嗰陣唔出 ——
+           * 唔係出一條死連結，亦都唔係出一句「已收入書齋」。冇寫到就係冇寫到。
+           */}
+          {bookId ? (
+            <p className="mt-12">
+              <PageTurnLink
+                href={`/book/${bookId}`}
+                className="font-sans text-cap tracking-[0.16em] text-ink-3 transition-colors duration-200 ease-ink hover:text-ink-2"
+              >
+                {t("readOn")} →
+              </PageTurnLink>
+            </p>
+          ) : null}
+        </BookSpread>
+      </>
+    );
+  }
 
   /*
    * ⚠ 成幕行緊嗰陣，連頁頂嗰條返回同夜讀開關都收起。
@@ -92,24 +156,19 @@ export function Naming({
    */
   const scene = (
     <div
+      ref={shell}
       className="mu-ti mu-wei"
       data-ready={ready ? "1" : "0"}
       data-open={open ? "1" : "0"}
     >
       <BookFlip
         open={open}
-        onOpened={() => setLanded(true)}
-        /*
-         * 展卷之後撳右邊（或者 →）翻到目次 —— 同「讀下去」同一個去處。
-         * 左邊冇：呢個係本書第一個攤開，前面冇頁。
-         * ⚠ 封面落定、本書寫入咗先出：題名幕嗰陣「冇任何掣」（E5）；
-         * 冇 bookId（寫唔入 DB）就冇地方翻去，唔好扮有。
-         */
-        edges={
-          landed && bookId ? (
-            <TurnEdges next={{ href: `/book/${bookId}`, label: tr("turnTo", { title: tn("contents") }) }} />
-          ) : null
-        }
+        onOpened={() => {
+          /* 量低細書嗰個盒（放大由呢度起），然後換做閱讀嗰本 */
+          const r = shell.current?.querySelector(".fan")?.getBoundingClientRect();
+          setFrom(r ? { left: r.left, top: r.top, width: r.width, height: r.height } : null);
+          setDesk(true);
+        }}
         label={t("book", { name })}
         cover={
           <div className="flex h-full flex-col justify-between p-7 ps-10">
@@ -141,47 +200,12 @@ export function Naming({
             </div>
           </div>
         }
-        verso={
-          /*
-           * ⚠ 呢兩行唔喺呢度寫。
-           *
-           * 佢哋係**真嗰章嘅頭兩樣嘢**（章名同章首），由 server 帶過嚟。
-           * 之前呢度手寫咗兩句 stand-in，同 `free.ts` 嗰個序講唔同嘅嘢 ——
-           * 讀者喺封面見到一句，揭開之後讀到另一句。
-           *
-           * 攞唔到就乜都唔出：一版白紙好過一版寫住別人嘅序。
-           */
-          preface ? (
-            <div className="h-full">
-              <p className="font-sans text-cap tracking-[0.2em] text-ink-3">{preface.title}</p>
-              <p className="mt-5 text-sm leading-[1.95] text-ink-2">{preface.lead}</p>
-            </div>
-          ) : null
-        }
-        recto={
-          /*
-           * ⚠ 揭開咗先起個盤。
-           *
-           * E2 個「書」元件兩層都留喺 DOM（要淡入淡出），而未開嗰層係
-           * `inert` —— 撳唔到、讀屏讀唔到。但佢仲係十二個 `<button>`。
-           *
-           * 呢一幕嘅 AC 係「**冇任何掣**」，而一個要解釋「嗰十二個其實
-           * 撳唔到」先算數嘅畫面，唔叫冇掣。所以索性未開就唔起。
-           */
-          landed && chart ? (
-            /*
-             * 展卷（E6）：界欄逐條畫出成十二宮，星以點落位，
-             * 然後先出真盤。呢一幕唔係 loading —— 盤喺題名嗰陣已經算好。
-             */
-            <div className="flex h-full items-center">
-              <div className="w-full" style={{ maxWidth: 400 }}>
-                <Zhanjuan>
-                  <ChartPane chart={chart} name={name} />
-                </Zhanjuan>
-              </div>
-            </div>
-          ) : null
-        }
+        /*
+         * 揭開嗰一下兩頁係白紙：封面一落定，本書就拎起、換做閱讀嗰本，
+         * 字同盤喺嗰本入面先出（`BookSpread` `from`）。喺細書度寫咗又收，係白做一次。
+         */
+        verso={null}
+        recto={null}
         overlay={
           /* 本書自己就係嗰個撳得嘅嘢。成幕未行完之前，佢根本唔喺度。 */
           ready && !open ? (
@@ -201,51 +225,19 @@ export function Naming({
        * 佢係一句細字，講畀你聽而家撳得。真正撳嘅係本書 ——
        * 所以佢冇邊框、冇底色、唔會 hover 變樣。
        * 而且成幕未行完之前，佢根本唔喺度。
-       */}
-      {ready && !open ? (
-        <p className="mt-10 font-sans text-cap tracking-[0.16em] text-ink-3">
-          {t("open")}
-        </p>
-      ) : null}
-
-      {/*
-       * ⚠ 呢一行係六幕同命書之間嗰道門，而佢一直都冇（G5 之前）。
        *
-       * 之前題名完就停喺張盤度：本書冇寫落 DB，所以連一個 id 都冇，
-       * 連唔到去 `/book/[id]`。而家有咗。
-       *
-       * `bookId` 係 null 嗰陣呢一行唔出 —— 唔係出一條死連結，
-       * 亦都唔係出一句「已收入書齋」。冇寫到就係冇寫到。
+       * ⚠ 唔喺度 = 睇唔到，唔係唔 render（2026-09）：佢一出一收，`.mu-wei` 置中嘅
+       * 內容高度就變，本書會跟住上下跳 —— 揭緊封面嗰陣跳 31px。所以一直佔住個位。
        */}
-      {open && bookId ? (
-        <p className="mt-10">
-          <PageTurnLink
-            href={`/book/${bookId}`}
-            className="font-sans text-cap tracking-[0.16em] text-ink-3 transition-colors duration-200 ease-ink hover:text-ink-2"
-          >
-            {t("readOn")}
-          </PageTurnLink>
-        </p>
-      ) : null}
+      <p
+        className="mt-10 font-sans text-cap tracking-[0.16em] text-ink-3"
+        style={{ visibility: ready && !open ? "visible" : "hidden" }}
+        aria-hidden={ready && !open ? undefined : true}
+      >
+        {t("open")}
+      </p>
     </div>
   );
 
-  return open ? <FlowChrome step={2}>{scene}</FlowChrome> : scene;
-}
-
-function ChartPane({ chart, name }: { chart: ZChart; name: string }) {
-  const [lit, setLit] = useState<number | null>(null);
-  return (
-    <Chart
-      chart={chart}
-      selected={lit}
-      onSelect={setLit}
-      maxWidth={400}
-      center={
-        <p className="text-center font-sans text-cap tracking-[0.16em] text-ink-3">
-          {name}
-        </p>
-      }
-    />
-  );
+  return scene;
 }

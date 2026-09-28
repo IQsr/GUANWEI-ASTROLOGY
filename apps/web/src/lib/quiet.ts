@@ -17,10 +17,16 @@ import { useSyncExternalStore } from 'react';
  * 同一棵樹嘅上下，唔值得為一個 boolean 開 context。
  */
 let quiet = false;
+/**
+ * 啱啱由靜場返嚟（2026-09）：導覽要淡入，唔好「啪」一聲出現。
+ * 揭開本書之後導覽同卷首係同本書放大一齊返嚟嘅 —— 硬切會變返嗰種割裂感。
+ */
+let back = false;
 const listeners = new Set<() => void>();
 
 export function setQuiet(next: boolean) {
   if (quiet === next) return;
+  back = quiet && !next;
   quiet = next;
   for (const l of listeners) l();
 }
@@ -34,6 +40,15 @@ export function useQuiet(): boolean {
   return useSyncExternalStore(
     subscribe,
     () => quiet,
+    () => false,
+  );
+}
+
+/** 導覽係咪啱啱由靜場返嚟（用嚟淡入）。 */
+export function useQuietBack(): boolean {
+  return useSyncExternalStore(
+    subscribe,
+    () => back,
     () => false,
   );
 }
