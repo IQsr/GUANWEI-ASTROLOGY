@@ -38,6 +38,7 @@ import { closeFor, openFor } from './frame-data';
 import { cjkCount } from './lexicon';
 import { similarity } from './baseblock';
 import { L3_BLOCKS, l3For } from './l3-data';
+import { linkLine } from './link';
 import type { InferResult } from './infer';
 
 /**
@@ -393,15 +394,20 @@ export function assemble(
   }
 
   /* ── 牽動（L3 結構層）────────────────────────────────── */
-  const l3 = l3For(palace, p, chart, matchedRuleIds, opts.used);
-  if (l3.length === 0) {
-    missing.push({ slot: '牽動', reason: `${palace} 冇 L3 結構塊命中 —— 三方四正、空宮、身宮、格局全部冇` });
+  /*
+   * ⚠ 2026-09：牽動格頭一句唔再用固定嘅關係塊（「命宮與遷移宮正對…四件事要一起讀。
+   * 單看一宮會得出沒有條件的結論」—— 每本書一樣）。改為講**呢張盤**嘅對宮同三合宮坐咗乜，
+   * 每截由嗰粒星喺嗰個宮嘅基塊撮出嚟（見 link.ts）。關係塊留喺資料度，唔再出街。
+   */
+  const l3 = l3For(palace, p, chart, matchedRuleIds, opts.used).filter((b) => b.kind !== 'relation');
+  const link = linkLine(chart, p);
+  if (!link && l3.length === 0) {
+    missing.push({ slot: '牽動', reason: `${palace} 三方四正搵唔齊，亦冇 L3 結構塊命中` });
   } else {
-    const l3Text = l3.map((b) => b.body).join('');
     push({
       slot: '牽動',
-      text: l3Text,
-      source_id: l3.map((b) => b.id).join('+'),
+      text: [link?.text ?? '', ...l3.map((b) => b.body)].join(''),
+      source_id: [...(link ? ['frame.link', ...link.sources] : []), ...l3.map((b) => b.id)].join('+'),
       rule_ids: l3.flatMap((b) => b.rule_ids),
     });
   }

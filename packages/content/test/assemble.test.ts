@@ -199,7 +199,8 @@ describe('AC ④ 每句追得返去邊一塊 ＋ 邊條規則', () => {
       ...MODIFIERS.map((m) => m.id),
       ...L3_BLOCKS.map((b) => b.id),
       ...FRAMES.map((f) => f.id),
-      'frame.empty', 'frame.footer',
+      /* frame.link：牽動格頭一句，由盤面生成（宮名），每截接住嗰條基塊嘅 id（見 link.ts） */
+      'frame.empty', 'frame.footer', 'frame.link',
     ]);
     for (const c of CH) {
       for (const seg of c.segments) {
