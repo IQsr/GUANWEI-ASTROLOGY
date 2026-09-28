@@ -65,7 +65,7 @@ async function toNaming(page) {
   await page.getByLabel('出生地').selectOption('0');
   await btn.click();
   await page
-    .locator('[aria-label="揀一個時辰"] button', { hasText: '辰時' })
+    .locator('[aria-label="選一個時辰"] button', { hasText: '辰時' })
     .first()
     .click({ timeout: 10_000 });
   await btn.click();

@@ -124,11 +124,11 @@ try {
    * 每一格啱啱好係一個時辰，寫明鐘面幾點到幾點。十三格（子時頭尾各一），
    * 揀咗一格就行得落 —— 唔使填準確時間。
    */
-  await page.waitForSelector('[aria-label="揀一個時辰"] button', { timeout: 8000 }).catch(() => null);
-  const slotCount = await page.locator('[aria-label="揀一個時辰"] button').count();
+  await page.waitForSelector('[aria-label="選一個時辰"] button', { timeout: 8000 }).catch(() => null);
+  const slotCount = await page.locator('[aria-label="選一個時辰"] button').count();
   check('時辰選項', slotCount === 13, `${slotCount} 格，應該 13（子時頭尾各一）`);
   if (slotCount > 0) {
-    const wei = page.locator('[aria-label="揀一個時辰"] button', { hasText: '未' }).first();
+    const wei = page.locator('[aria-label="選一個時辰"] button', { hasText: '未' }).first();
     const weiLabel = (await wei.getAttribute('aria-label')) ?? '';
     check('時辰選項寫鐘面時間', /未時 · \d{2}:\d{2}–\d{2}:\d{2}/.test(weiLabel), `「${weiLabel}」`);
     await wei.click();
@@ -155,7 +155,7 @@ try {
   check('唔知時辰安撫文案', branch.includes('出世紙'), '冇教人去邊度搵');
   /* 揀咗唔知時辰：時間欄同時辰選項都收埋（唔係淨係變灰）—— 揀唔到嘅嘢唔擺喺度 */
   const timeGone = (await page.getByLabel('出生時間').count()) === 0;
-  const slotsGone = (await page.locator('[aria-label="揀一個時辰"]').count()) === 0;
+  const slotsGone = (await page.locator('[aria-label="選一個時辰"]').count()) === 0;
   check('揀咗唔知時辰', timeGone && slotsGone, '時間欄或者時辰選項仲喺度');
   const canGo = await page.locator('button.btn-mo').isEnabled();
   check('唔知時辰行得落', canGo, '揀咗唔知時辰之後粒掣仲係 disabled');

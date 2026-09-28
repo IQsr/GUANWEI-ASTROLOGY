@@ -1,9 +1,9 @@
 import { describe, expect, it } from 'vitest';
+import zh from '../messages/zh-Hant.json';
 import {
   EMPTY_DRAFT,
   PLACES,
   STEPS,
-  TIME_HINT,
   answeredBefore,
   chineseDate,
   firstUnanswered,
@@ -15,6 +15,17 @@ import {
   toCastRequest,
   type Draft,
 } from '@/lib/luokuan';
+
+/** 已答嗰行嘅中文字，由 messages 嚟 —— 測嘅就係讀者見到嘅字。 */
+const words = {
+  noHour: zh.cast.noHourSummary,
+  male: zh.cast.male,
+  female: zh.cast.female,
+  place: (key: string) => (zh.places as Record<string, string>)[key]!,
+  date: (iso: string) => chineseDate(iso) ?? iso,
+};
+
+const TIME_HINT = zh.cast.timeHint;
 
 const full: Draft = {
   name: '李文卿',
@@ -128,20 +139,20 @@ describe('答完之後留喺上面嗰一行', () => {
   });
 
   it('唔知時辰就明寫出嚟', () => {
-    expect(summaryOf('time', { ...full, noHour: true })).toBe('不知時辰');
+    expect(summaryOf('time', { ...full, noHour: true }, words)).toBe('不知時辰');
   });
 
   it('揀咗時辰就留返嗰個時辰同鐘面時間', () => {
-    expect(summaryOf('time', { ...full, time: '14:35', slot: '未時 · 13:36–15:35' })).toBe('未時 · 13:36–15:35');
+    expect(summaryOf('time', { ...full, time: '14:35', slot: '未時 · 13:36–15:35' }, words)).toBe('未時 · 13:36–15:35');
   });
 
   /** 填準確時間唔再估時辰：鐘面同真太陽時唔同，估就會錯。 */
   it('填準確時間就寫返個時間', () => {
-    expect(summaryOf('time', full)).toBe('07:40');
+    expect(summaryOf('time', full, words)).toBe('07:40');
   });
 
   it('五步每一步都有一行可以留低', () => {
-    for (const s of STEPS) expect(summaryOf(s, full), s).not.toBe('');
+    for (const s of STEPS) expect(summaryOf(s, full, words), s).not.toBe('');
   });
 });
 
@@ -193,6 +204,40 @@ describe('⚠ 夏令時嗰句（rules.md R-007）', () => {
    */
   it.each(['唔', '嘅', '嗰', '咗', '喺', '係'])('冇粵語口語「%s」', (word) => {
     expect(TIME_HINT).not.toContain(word);
+  });
+});
+
+describe('⚠ 所有讀者睇到嘅中文都係書面語', () => {
+  /**
+   * 文案搬去 messages 之後，呢條規矩唔再淨係守一句：成個檔都守。
+   * `tokens` 唔計 —— 嗰個係開發用嘅樣板頁，唔係讀者睇嘅。
+   */
+  const strings = (o: unknown, path = ''): [string, string][] =>
+    typeof o === 'string'
+      ? [[path, o]]
+      : Array.isArray(o)
+        ? o.flatMap((v, i) => strings(v, `${path}[${i}]`))
+        : o && typeof o === 'object'
+          ? Object.entries(o).flatMap(([k, v]) => (path === '' && k === 'tokens' ? [] : strings(v, path ? `${path}.${k}` : k)))
+          : [];
+
+  /*
+   * ⚠ 「係」要睇前面：「關係」「聯係」係書面語（人際關係），淨係單獨嘅「係」先係口語。
+   * 「撳」係第一批搬文案嗰陣捉到嘅（「撳書脊打開」）。
+   */
+  it.each([
+    ['唔', /唔/],
+    ['嘅', /嘅/],
+    ['嗰', /嗰/],
+    ['咗', /咗/],
+    ['喺', /喺/],
+    ['係', /(?<![關聯])係/],
+    ['揀', /揀/],
+    ['冇', /冇/],
+    ['佢', /佢/],
+    ['撳', /撳/],
+  ] as const)('冇粵語口語「%s」', (_word, re) => {
+    expect(strings(zh).filter(([, v]) => re.test(v)).map(([k]) => k)).toEqual([]);
   });
 });
 

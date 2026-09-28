@@ -1,3 +1,4 @@
+import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import { JourneyMark } from '@/components/JourneyMark';
 import type { StepN } from '@/lib/journey';
@@ -36,9 +37,15 @@ import type { ReactNode } from 'react';
  * 所以改一個唔會改到其餘五個。
  */
 export const BACK = {
-  shelf: { href: '/shelf', label: '書齋' },
-  lexicon: { href: '/lexicon', label: '藏經閣' },
+  shelf: { href: '/shelf', labelKey: 'shelf' },
+  lexicon: { href: '/lexicon', labelKey: 'lexicon' },
 } as const;
+
+/** 返回嘅名：messages `nav.*` 入面嘅 key。 */
+export type BackLabel = 'shelf' | 'lexicon' | 'contents' | 'back';
+
+/** 一個返回：固定名（`labelKey`）或者一個資料名（`label`，例如章名）。 */
+export type Back = { href: string; labelKey: BackLabel; label?: never } | { href: string; label: string; labelKey?: never };
 
 export type BackTo = keyof typeof BACK;
 
@@ -48,8 +55,8 @@ export type BackTo = keyof typeof BACK;
  * ⚠ 唔喺 `BACK` 嗰張表 —— 佢要 bookId，所以佢唔係一個固定去處。
  * 但個名（「目次」）一樣只喺呢度寫一次。
  */
-export function backToContents(bookId: string) {
-  return { href: `/book/${bookId}`, label: '目次' } as const;
+export function backToContents(bookId: string): Back {
+  return { href: `/book/${bookId}`, labelKey: 'contents' };
 }
 
 /**
@@ -65,9 +72,9 @@ export function backToContents(bookId: string) {
  * 冇用嘅掣。
  */
 const NAV = [
-  { at: 'shelf', href: '/shelf', label: '書齋' },
-  { at: 'lexicon', href: '/lexicon', label: '藏經閣' },
-  { at: 'account', href: '/account', label: '設定' },
+  { at: 'shelf', href: '/shelf' },
+  { at: 'lexicon', href: '/lexicon' },
+  { at: 'account', href: '/account' },
 ] as const;
 
 export type NavAt = (typeof NAV)[number]['at'];
@@ -79,7 +86,7 @@ export function Juanshou({
   step,
   aside,
 }: {
-  back?: BackTo | { href: string; label: string };
+  back?: BackTo | Back;
   title?: string;
   /** 出細 nav，而且標明企緊邊度（企緊嗰個唔出連結）。 */
   nav?: NavAt | 'book';
@@ -88,7 +95,9 @@ export function Juanshou({
   /** 第一行右邊放嘅嘢（冇 `step` 先用），例如藏經閣嘅「回到正文」。 */
   aside?: ReactNode;
 }) {
+  const t = useTranslations('nav');
   const to = typeof back === 'string' ? BACK[back] : (back ?? null);
+  const toLabel = !to ? '' : 'label' in to && to.label ? to.label : t(to.labelKey!);
   const hasRowOne = Boolean(to || step || aside);
   const hasRowTwo = Boolean(title || nav);
 
@@ -101,7 +110,7 @@ export function Juanshou({
               href={to.href}
               className="font-sans text-cap tracking-[0.2em] text-ink-3 transition-colors duration-200 ease-ink hover:text-ink-2"
             >
-              ← {to.label}
+              ← {toLabel}
             </Link>
           ) : (
             <span />
@@ -126,7 +135,7 @@ export function Juanshou({
                   href={n.href}
                   className="transition-colors duration-200 ease-ink hover:text-ink-2"
                 >
-                  {n.label}
+                  {t(n.at)}
                 </Link>
               ))}
             </nav>

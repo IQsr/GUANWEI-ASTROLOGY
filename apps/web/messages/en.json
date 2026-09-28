@@ -79,5 +79,179 @@
     "castLabel": "cast() response",
     "localeLabel": "Current locale",
     "nextUp": "Next ticket: B3 — settle the three school divergences"
+  },
+  "nav": {
+    "main": "Main",
+    "home": "Home",
+    "cast": "Begin",
+    "lexicon": "Library",
+    "shelf": "Study",
+    "myShelf": "My study",
+    "account": "Settings",
+    "homeAria": "Guan Wei home",
+    "menuOpen": "Open menu",
+    "menuClose": "Close menu",
+    "contents": "Contents",
+    "back": "Back"
+  },
+  "journey": {
+    "label": "Where you are",
+    "s1": "Inscribe",
+    "s2": "Receive",
+    "s3": "Read",
+    "s4": "Go deeper"
+  },
+  "places": {
+    "hongKong": "Hong Kong",
+    "guangzhou": "Guangzhou",
+    "taipei": "Taipei",
+    "singapore": "Singapore",
+    "london": "London",
+    "newYork": "New York"
+  },
+  "cast": {
+    "metaTitle": "Inscribe",
+    "bookLabel": "Inscription",
+    "label": {
+      "name": "Name",
+      "date": "Born",
+      "place": "Place",
+      "time": "Hour",
+      "sex": "Sex"
+    },
+    "ask": {
+      "name": "Whose name should this book carry?",
+      "date": "Your birth date on the Western calendar. We convert it to the lunar calendar ourselves.",
+      "place": "Where were you born?",
+      "time": "The time you were born.",
+      "sex": "The direction of the decade periods depends on yin, yang and sex, so the chart needs it."
+    },
+    "aria": {
+      "name": "Name",
+      "date": "Date of birth",
+      "place": "Place of birth",
+      "time": "Time of birth",
+      "slots": "Choose an hour"
+    },
+    "contents": "Contents",
+    "mulu": [
+      "Preface · Your chart",
+      "I · The Life palace",
+      "The Body palace and the Five Elements",
+      "… then one chapter for each palace, eleven in all"
+    ],
+    "muluNote1": "These chapters are set before you write in your birth.",
+    "muluNote2": "Once you do, they will fill in.",
+    "next": "Next",
+    "finish": "Make the book",
+    "casting": "Casting",
+    "choose": "Choose one",
+    "male": "Male",
+    "female": "Female",
+    "timeHint": "Use the clock time on your birth certificate. We handle daylight saving ourselves.",
+    "slotsLoading": "Working out the hours of that day…",
+    "exactToggle": "Exact time?",
+    "backToSlots": "Choose an hour instead",
+    "noHour": "Hour unknown",
+    "noHourSummary": "Hour unknown",
+    "noHourComfort": "Without the hour we can't place the Life palace, so this book will wait on your shelf with a dotted spine — a book waiting for its hour. It is usually on the birth certificate, and family can often remember. Add the hour and the book is complete.",
+    "awaitTitle": "Waiting for the hour",
+    "awaitBody1": "The year, month and day are in place; the Life palace is still waiting for the hour. The book will stay on your shelf with a dotted spine.",
+    "awaitBody2": "Add the hour and the book is complete.",
+    "errors": {
+      "BAD_REQUEST": "Something in these birth details looks off. Please go back a step and check.",
+      "OUT_OF_RANGE": "Our calendar covers 1900 to 2100. This birth date is outside it for now.",
+      "BAD_PLACE": "This place's coordinates look wrong. Please choose it again.",
+      "BAD_TIMEZONE": "We couldn't recognise this time zone. Please choose the place of birth again.",
+      "UNKNOWN_HOUR": "Without the hour we cannot place the Life palace. Please choose \"Hour unknown\".",
+      "NOT_IMPLEMENTED": "This part isn't ready yet."
+    }
+  },
+  "shichen": {
+    "branch": [
+      "Zi",
+      "Chou",
+      "Yin",
+      "Mao",
+      "Chen",
+      "Si",
+      "Wu",
+      "Wei",
+      "Shen",
+      "You",
+      "Xu",
+      "Hai"
+    ],
+    "hour": "{branch} hour",
+    "earlyZi": "Early Zi hour",
+    "lateZi": "Late Zi hour",
+    "prevZi": "Zi hour (previous night)"
+  },
+  "naming": {
+    "suffix": "A book of the self",
+    "book": "{name}'s book",
+    "openAria": "Open {name}'s book",
+    "open": "Open",
+    "readOn": "Read on",
+    "seal": "Guan Wei seal",
+    "openLabel": "Open {label}"
+  },
+  "shelf": {
+    "metaTitle": "Study",
+    "title": "Study",
+    "unavailable": "We can't reach your shelf right now. Your books are safe — please try again in a moment.",
+    "claimPrompt": "These books are only known to this browser.",
+    "claimLink": "Leave an email",
+    "intro": "Every book of yours is here. Tap a spine to open it, or start a new one on the far right.",
+    "newBook": "+ New book",
+    "newBookAria": "New book",
+    "untitled": "Untitled"
+  },
+  "book": {
+    "metaTitle": "Book",
+    "missing": "This book isn't in your study.",
+    "unavailable": "We can't reach this book right now. It is safe — please try again in a moment.",
+    "noChapter": "This book doesn't have that chapter.",
+    "intro": "Come to know yourself, slowly, through your chart.",
+    "total": "{n} chapters",
+    "free": "{n} free",
+    "uncut": "{n} uncut",
+    "allCut": "Every page is open",
+    "resume": "Continue “{title}”",
+    "start": "Begin with “{title}”",
+    "prefaceLead": "Opening: what your chart looks like",
+    "readHere": "You stopped here",
+    "uncutTag": "Uncut",
+    "rest": "Other chapters",
+    "uncutNote": "Chapters marked “uncut” are pages of this book not yet opened — their titles are listed so you can see what they hold. Open them once and every deeper chapter in the book is yours.",
+    "aboutCut": "About opening the book",
+    "themes": {
+      "xing": {
+        "title": "Character and gifts",
+        "lead": "Seeing who you really are"
+      },
+      "shi": {
+        "title": "Work and direction",
+        "lead": "Finding a path that suits you"
+      },
+      "ren": {
+        "title": "People and relationships",
+        "lead": "Understanding yourself with others"
+      }
+    }
+  },
+  "chapter": {
+    "nav": "Chapters",
+    "prev": "← Previous",
+    "next": "Next →",
+    "contents": "Contents",
+    "returnTo": "Back to “{title}”",
+    "lexiconNote": "Library · {term}"
+  },
+  "weicai": {
+    "notYet": "This page has not been cut open yet.",
+    "cut": "Open",
+    "hintAnonymous": "Leave an email to keep this book, then open it.",
+    "hintClaimed": "Open once, and every deeper chapter in the book is yours."
   }
 }

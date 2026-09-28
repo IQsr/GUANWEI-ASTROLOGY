@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { useLocale, useTranslations } from "next-intl";
 import { Naming } from "@/components/Naming";
 import { FlowChrome } from "@/components/FlowChrome";
 import { slotName, slotSummary, type Slot } from "@/lib/slots";
@@ -10,15 +11,17 @@ import {
   EMPTY_DRAFT,
   PLACES,
   STEPS,
-  TIME_HINT,
   answeredBefore,
+  chineseDate,
   isAnswered,
   stepFromQuery,
   summaryOf,
   toCastRequest,
   type Draft,
   type Step,
+  type SummaryWords,
 } from "@/lib/luokuan";
+import type { ShichenWords } from "@/lib/slots";
 
 /**
  * 開卷落款（工單 E4 · 架構 §3 · 視覺系統 §9）
@@ -39,22 +42,6 @@ import {
  * 三、**冇確認頁**。五步完直入排盤。
  */
 
-const LABEL: Record<Step, string> = {
-  name: "姓　名",
-  date: "出生日期",
-  time: "時　辰",
-  place: "出生地",
-  sex: "性　別",
-};
-
-const ASK: Record<Step, string> = {
-  name: "這本書要寫上誰的名字？",
-  date: "國曆的出生年月日。農曆由我們自己轉。",
-  time: "出生的時間。",
-  place: "在哪裡出生？",
-  sex: "大限的順逆由陰陽男女決定，所以這一項排盤要用。",
-};
-
 /**
  * 未寫生辰，但本書已經知道入面會有乜。
  *
@@ -67,14 +54,46 @@ const ASK: Record<Step, string> = {
  * 一張寫住未來計劃嘅目次，就係扮有（架構 §8）。
  * 所以而家列真嘢：序、命宮，然後其餘逐宮章。
  */
-const MULU = [
-  "序 · 你的命盤",
-  "一 · 命宮",
-  "身宮與五行局",
-  "⋯ 以下逐宮而讀，共十一章",
-];
+/* 目次嗰幾行喺 messages：`cast.mulu`（同真書對得返，見上面）。 */
+
+/** 時辰嘅字（messages `shichen.*`） */
+function useShichenWords(): ShichenWords {
+  const t = useTranslations("shichen");
+  return {
+    branch: t.raw("branch") as string[],
+    hour: (branch) => t("hour", { branch }),
+    earlyZi: t("earlyZi"),
+    lateZi: t("lateZi"),
+    prevZi: t("prevZi"),
+  };
+}
+
+/** 已答嗰行嘅字。中文日期用中文數字；其他語言用當地格式。 */
+function useSummaryWords(): SummaryWords {
+  const t = useTranslations("cast");
+  const tp = useTranslations("places");
+  const locale = useLocale();
+  return {
+    noHour: t("noHourSummary"),
+    male: t("male"),
+    female: t("female"),
+    place: (key) => tp(key),
+    date: (iso) =>
+      locale.startsWith("zh")
+        ? (chineseDate(iso) ?? iso)
+        : new Date(`${iso}T12:00:00Z`).toLocaleDateString(locale, {
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+            timeZone: "UTC",
+          }),
+  };
+}
+
 
 export function Luokuan() {
+  const t = useTranslations("cast");
+  const words = useSummaryWords();
   const [draft, setDraft] = useState<Draft>(EMPTY_DRAFT);
   const [step, setStep] = useState<Step>("name");
   const [outcome, setOutcome] = useState<CastOutcome | null>(null);
@@ -169,15 +188,15 @@ export function Luokuan() {
         {/* 攤開嘅書（揭書元件，冇動畫）：書脊喺正中，題名幕合埋嗰陣右頁唔郁 */}
         <BookFlip
           open
-          label="落款"
+          label={t("bookLabel")}
           cover={null}
           verso={
             <div className="h-full">
               <p className="font-sans text-cap tracking-[0.2em] text-ink-3">
-                目　次
+                {t("contents")}
               </p>
               <ul className="mt-5 flex flex-col gap-3">
-                {MULU.map((m) => (
+                {(t.raw("mulu") as string[]).map((m) => (
                   <li
                     key={m}
                     className="border-b jielan pb-2 text-sm tracking-[0.06em] text-ink-2"
@@ -187,9 +206,9 @@ export function Luokuan() {
                 ))}
               </ul>
               <p className="mt-8 font-sans text-cap leading-[1.9] tracking-[0.1em] text-ink-3">
-                這幾章在寫生辰之前就已經定好。
+                {t("muluNote1")}
                 <br />
-                寫完，它們才會有內容。
+                {t("muluNote2")}
               </p>
             </div>
           }
@@ -201,26 +220,26 @@ export function Luokuan() {
                 {answered.map((s) => (
                   <p key={s} className="da text-sm leading-[1.9]">
                     <span className="font-sans text-cap tracking-[0.16em]">
-                      {LABEL[s]}
+                      {t(`label.${s}`)}
                     </span>
-                    <span className="ms-3">{summaryOf(s, draft)}</span>
+                    <span className="ms-3">{summaryOf(s, draft, words)}</span>
                   </p>
                 ))}
               </div>
 
               <div className="mt-6 flex-1">
                 <p className="font-sans text-cap tracking-[0.16em] text-ink-3">
-                  {LABEL[step]}
+                  {t(`label.${step}`)}
                 </p>
                 <p className="mt-2 text-sm leading-[1.9] text-ink-2">
-                  {ASK[step]}
+                  {t(`ask.${step}`)}
                 </p>
                 <Field step={step} draft={draft} setDraft={setDraft} />
               </div>
 
               {outcome && !outcome.ok ? (
                 <p className="mb-4 text-sm leading-[1.9] text-cinnabar">
-                  {outcome.message}
+                  {t.has(`errors.${outcome.code}`) ? t(`errors.${outcome.code}`) : t("errors.NOT_IMPLEMENTED")}
                 </p>
               ) : null}
 
@@ -235,7 +254,7 @@ export function Luokuan() {
                 disabled={!ready || casting}
                 onClick={next}
               >
-                {casting ? "排　盤　中" : last ? "成　書" : "下　一　步"}
+                {casting ? t("casting") : last ? t("finish") : t("next")}
               </button>
             </div>
           }
@@ -253,15 +272,17 @@ export function Luokuan() {
  * 唔可以畀佢行一次同成書一模一樣嘅儀式。
  */
 function DaiShiChen({ name }: { name: string }) {
+  const t = useTranslations("cast");
   return (
     <div className="max-w-banxin">
       <p className="font-sans text-cap tracking-[0.2em] text-ink-3">
-        待　時　辰
+        {t("awaitTitle")}
       </p>
       <p className="mt-6 text-h2 font-semibold tracking-[0.18em]">{name}</p>
       <p className="mt-6 text-body leading-[1.95] text-ink-2">
-        年月日已經排好，命宮還要等時辰。這本書會留在書架上，書脊是虛線的。
-        補回時辰，書就成了。
+        {t("awaitBody1")}
+        <br />
+        {t("awaitBody2")}
       </p>
     </div>
   );
@@ -276,6 +297,8 @@ function Field({
   draft: Draft;
   setDraft: (d: Draft) => void;
 }) {
+  const t = useTranslations("cast");
+  const tp = useTranslations("places");
   switch (step) {
     case "name":
       return (
@@ -284,7 +307,7 @@ function Field({
           value={draft.name}
           maxLength={40}
           autoComplete="off"
-          aria-label="姓名"
+          aria-label={t("aria.name")}
           onChange={(e) => setDraft({ ...draft, name: e.target.value })}
         />
       );
@@ -297,7 +320,7 @@ function Field({
           value={draft.date}
           min="1900-01-01"
           max="2100-12-31"
-          aria-label="出生日期"
+          aria-label={t("aria.date")}
           onChange={(e) => setDraft({ ...draft, date: e.target.value, ...clearSlot(draft) })}
         />
       );
@@ -310,7 +333,7 @@ function Field({
         <select
           className="ruled mt-6"
           value={draft.placeIndex ?? ""}
-          aria-label="出生地"
+          aria-label={t("aria.place")}
           onChange={(e) =>
             setDraft({
               ...draft,
@@ -319,10 +342,10 @@ function Field({
             })
           }
         >
-          <option value="">請揀一個</option>
+          <option value="">{t("choose")}</option>
           {PLACES.map((p, i) => (
-            <option key={p.label} value={i}>
-              {p.label}
+            <option key={p.key} value={i}>
+              {tp(p.key)}
             </option>
           ))}
         </select>
@@ -344,7 +367,7 @@ function Field({
               }
               onClick={() => setDraft({ ...draft, sex })}
             >
-              {sex === "male" ? "男" : "女"}
+              {sex === "male" ? t("male") : t("female")}
             </button>
           ))}
         </div>
@@ -370,6 +393,8 @@ function clearSlot(draft: Draft): Partial<Draft> {
  * 計唔到（server 壞咗）就唔出格，準確時間照填得。
  */
 function TimeField({ draft, setDraft }: { draft: Draft; setDraft: (d: Draft) => void }) {
+  const t = useTranslations("cast");
+  const shichen = useShichenWords();
   const [slots, setSlots] = useState<Slot[] | null | "loading">("loading");
   /* 填準確時間：已經填咗（冇揀時辰）就一入嚟打開 */
   const [exact, setExact] = useState(() => Boolean(draft.time) && !draft.slot);
@@ -402,9 +427,7 @@ function TimeField({ draft, setDraft }: { draft: Draft; setDraft: (d: Draft) => 
          * 呢個時候時辰選項收埋 —— 揀唔到嘅嘢唔好擺喺度。
          */
         <p className="mt-5 text-sm leading-[1.9] text-ink-2">
-          沒有時辰就定不到命宮，所以這本書會先留在書架上，書脊是虛線的 ——
-          此書待時辰而成。出世紙上通常有；問家人也常常問得回來。
-          補回時辰，書就成了。
+          {t("noHourComfort")}
         </p>
       ) : exact ? (
         /* 記得準確時間：直接填。揀咗時辰嗰陣呢格係空嘅 —— 兩樣唔會同時生效。 */
@@ -413,7 +436,7 @@ function TimeField({ draft, setDraft }: { draft: Draft; setDraft: (d: Draft) => 
             className="ruled"
             type="time"
             value={draft.slot ? "" : draft.time}
-            aria-label="出生時間"
+            aria-label={t("aria.time")}
             onChange={(e) => setDraft({ ...draft, time: e.target.value, slot: null, noHour: false })}
           />
           <button
@@ -421,17 +444,17 @@ function TimeField({ draft, setDraft }: { draft: Draft; setDraft: (d: Draft) => 
             className="self-start text-cap tracking-[0.12em] text-ink-3 underline-offset-4 hover:text-ink hover:underline"
             onClick={() => setExact(false)}
           >
-            改為揀時辰
+            {t("backToSlots")}
           </button>
         </div>
       ) : slots === "loading" ? (
-        <p className="mt-5 text-cap tracking-[0.12em] text-ink-3">推算這一天的時辰⋯</p>
+        <p className="mt-5 text-cap tracking-[0.12em] text-ink-3">{t("slotsLoading")}</p>
       ) : slots ? (
         /* 窄就兩欄、夠闊先三欄（跟頁闊，唔跟視窗闊 —— 本書喺手機同桌面闊度唔同） */
         <div className="@container mt-3">
-          <div role="group" aria-label="揀一個時辰" className="grid grid-cols-2 gap-1 @[300px]:grid-cols-3">
+          <div role="group" aria-label={t("aria.slots")} className="grid grid-cols-2 gap-1 @[300px]:grid-cols-3">
             {slots.map((slot) => {
-              const summary = slotSummary(slot);
+              const summary = slotSummary(slot, shichen);
               const on = draft.slot === summary;
               return (
                 <button
@@ -444,7 +467,7 @@ function TimeField({ draft, setDraft }: { draft: Draft; setDraft: (d: Draft) => 
                     on ? "border-gold bg-gold-wash text-ink" : "border-rule text-ink-2 hover:border-ink-3"
                   }`}
                 >
-                  <span className="font-serif text-sm">{slotName(slot)}</span>
+                  <span className="font-serif text-sm">{slotName(slot, shichen)}</span>
                   <span className="whitespace-nowrap font-sans text-[0.6875rem] tracking-[0.02em] text-ink-3" data-nums>
                     {slot.from}–{slot.to}
                   </span>
@@ -459,13 +482,13 @@ function TimeField({ draft, setDraft }: { draft: Draft; setDraft: (d: Draft) => 
           className="ruled mt-5"
           type="time"
           value={draft.time}
-          aria-label="出生時間"
+          aria-label={t("aria.time")}
           onChange={(e) => setDraft({ ...draft, time: e.target.value, slot: null, noHour: false })}
         />
       )}
 
       {/* R-007：呢句要出現喺畫面上，唔係出現喺一份說明文件度。 */}
-      <p className="mt-2 font-sans text-cap leading-[1.7] tracking-[0.06em] text-ink-3">{TIME_HINT}</p>
+      <p className="mt-2 font-sans text-cap leading-[1.7] tracking-[0.06em] text-ink-3">{t("timeHint")}</p>
 
       <div className="mt-2 flex flex-wrap items-center justify-between gap-x-4 gap-y-2">
         {!exact && !draft.noHour && slots !== null ? (
@@ -474,7 +497,7 @@ function TimeField({ draft, setDraft }: { draft: Draft; setDraft: (d: Draft) => 
             className="text-cap tracking-[0.12em] text-ink-3 underline-offset-4 hover:text-ink hover:underline"
             onClick={() => setExact(true)}
           >
-            記得準確時間？
+            {t("exactToggle")}
           </button>
         ) : (
           <span />
@@ -486,7 +509,7 @@ function TimeField({ draft, setDraft }: { draft: Draft; setDraft: (d: Draft) => 
             checked={draft.noHour}
             onChange={(e) => setDraft({ ...draft, noHour: e.target.checked })}
           />
-          <span>不知道時辰</span>
+          <span>{t("noHour")}</span>
         </label>
       </div>
     </>

@@ -52,32 +52,23 @@ export const EMPTY_DRAFT: Draft = {
 };
 
 /** 出生地：時區同經度。經度用嚟做真太陽時校正（R-007）。 */
+/*
+ * ⚠ `label` 係資料，唔係介面文案：佢會交畀引擎、寫落本書（「出生地 香港」），
+ * 所以一直係中文。畫面上嗰個名由 `key` 查 messages（`places.*`）。
+ */
 export const PLACES = [
-  { label: '香港', tz: 'Asia/Hong_Kong', lng: 114.17, lat: 22.32 },
-  { label: '廣州', tz: 'Asia/Shanghai', lng: 113.26, lat: 23.13 },
-  { label: '台北', tz: 'Asia/Taipei', lng: 121.57, lat: 25.03 },
-  { label: '新加坡', tz: 'Asia/Singapore', lng: 103.82, lat: 1.35 },
-  { label: '倫敦', tz: 'Europe/London', lng: -0.13, lat: 51.51 },
-  { label: '紐約', tz: 'America/New_York', lng: -74.01, lat: 40.71 },
+  { key: 'hongKong', label: '香港', tz: 'Asia/Hong_Kong', lng: 114.17, lat: 22.32 },
+  { key: 'guangzhou', label: '廣州', tz: 'Asia/Shanghai', lng: 113.26, lat: 23.13 },
+  { key: 'taipei', label: '台北', tz: 'Asia/Taipei', lng: 121.57, lat: 25.03 },
+  { key: 'singapore', label: '新加坡', tz: 'Asia/Singapore', lng: 103.82, lat: 1.35 },
+  { key: 'london', label: '倫敦', tz: 'Europe/London', lng: -0.13, lat: 51.51 },
+  { key: 'newYork', label: '紐約', tz: 'America/New_York', lng: -74.01, lat: 40.71 },
 ] as const;
 
-/**
- * ⚠ 時間欄嗰句唔可以改鬆（rules.md R-007）。
- *
- * 夏令時係我哋自己由時區同日期算返出嚟嘅。如果用戶自己「調咗」一個鐘
- * 先填落嚟，我哋就會再調多次 —— 一個差一個鐘嘅生辰，時辰隨時差一格，
- * 而時辰定命宮。
- *
- * 所以呢句要出現喺畫面上，唔係出現喺一份說明文件度。
- * `check-cast.mjs` 會行到第三步再搵佢。
- *
- * ⚠ 第一版寫成粵語口語（「唔使自己調」）。**面向讀者嘅文案係書面語** ——
- * 粵語係我哋之間講嘢嘅話，唔係本書講嘢嘅話。
- * 同一頁入面「沒有時辰就定不到命宮」同「唔使」撈埋一齊，
- * 讀者唔會覺得親切，佢會覺得寫得唔小心。
+/*
+ * ⚠ 時間欄嗰句（rules.md R-007）而家喺 messages：`cast.timeHint`。
+ * 「不用自己調夏令時」同「出世紙」兩樣一定要有，`test/luokuan.test.ts` 量住。
  */
-export const TIME_HINT =
-  '填出世紙上、或者記憶中那個鐘錶時間。不用自己調夏令時 —— 我們自己算。';
 
 export function isAnswered(step: Step, draft: Draft): boolean {
   switch (step) {
@@ -155,24 +146,34 @@ export function chineseDate(date: string): string | null {
   return `${digits(m[1]!)}年${small(Number(m[2]))}月${small(Number(m[3]))}日`;
 }
 
+/** 已答嗰行要用嘅字（由 messages 嚟）。 */
+export type SummaryWords = {
+  noHour: string;
+  male: string;
+  female: string;
+  place: (key: (typeof PLACES)[number]['key']) => string;
+  /** 國曆日期點寫：中文用中文數字（`chineseDate`），英文用當地格式。 */
+  date: (iso: string) => string;
+};
+
 /** 每一步答完之後，喺上面留低嗰一行。 */
-export function summaryOf(step: Step, draft: Draft): string {
+export function summaryOf(step: Step, draft: Draft, w: SummaryWords): string {
   switch (step) {
     case 'name':
       return draft.name.trim();
     case 'date':
-      return chineseDate(draft.date) ?? draft.date;
+      return w.date(draft.date);
     case 'time':
       /*
        * ⚠ 填準確時間嗰陣唔再用 `shichenOf()` 講係邊個時辰：
        * 佢按鐘面計，但引擎按真太陽時計 —— 香港 07:40 鐘面係辰時，
        * 真太陽時可能已經係卯時。寫返用戶填嗰個時間，唔好估。
        */
-      return draft.noHour ? '不知時辰' : (draft.slot ?? draft.time);
+      return draft.noHour ? w.noHour : (draft.slot ?? draft.time);
     case 'place':
-      return draft.placeIndex === null ? '' : PLACES[draft.placeIndex]!.label;
+      return draft.placeIndex === null ? '' : w.place(PLACES[draft.placeIndex]!.key);
     case 'sex':
-      return draft.sex === 'male' ? '男' : draft.sex === 'female' ? '女' : '';
+      return draft.sex === 'male' ? w.male : draft.sex === 'female' ? w.female : '';
   }
 }
 

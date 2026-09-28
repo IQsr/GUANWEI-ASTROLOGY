@@ -52,14 +52,10 @@ export type CastOutcome =
   | { ok: false; code: string; message: string };
 
 /** 引擎嘅錯誤碼翻做人話。一個碼一句，唔共用 —— 共用即係等於冇分。 */
-const MESSAGES: Record<string, string> = {
-  BAD_REQUEST: '這份生辰資料有點不對，請回上一步再看一次。',
-  OUT_OF_RANGE: '萬年曆只到一九〇〇至二一〇〇年。這個生辰暫時排不到。',
-  BAD_PLACE: '這個出生地的經緯度不對，請再揀一次。',
-  BAD_TIMEZONE: '這個時區認不出來，請再揀一次出生地。',
-  UNKNOWN_HOUR: '沒有時辰就定不到命宮。請揀「不知道時辰」那一項。',
-  NOT_IMPLEMENTED: '這一部分還未做好。',
-};
+/*
+ * 錯誤嘅字喺 messages（`cast.errors.<code>`），畫面自己查 —— 呢度淨係回 code。
+ * `message` 留住 code 本身，畀 log 同舊 caller 睇得明發生乜。
+ */
 
 /**
  * 生辰嗰幾格 → DB 嗰張 subjects。
@@ -95,14 +91,14 @@ function subjectOf(req: CastRequest, corrected: boolean) {
 export async function castChart(raw: unknown): Promise<CastOutcome> {
   const req = parseCastRequest(raw);
   const fields = parseBookFields(raw);
-  if (!req || !fields) return { ok: false, code: 'BAD_REQUEST', message: MESSAGES.BAD_REQUEST! };
+  if (!req || !fields) return { ok: false, code: 'BAD_REQUEST', message: 'BAD_REQUEST' };
 
   const base = { solar: req.solar, tz: req.tz, place: req.place, sex: req.sex };
 
   if (req.time) {
     const result = cast({ ...base, time: req.time });
     if (!result.ok) {
-      return { ok: false, code: result.code, message: MESSAGES[result.code] ?? MESSAGES.NOT_IMPLEMENTED! };
+      return { ok: false, code: result.code, message: result.code };
     }
     const chart = result.value;
 
@@ -114,7 +110,7 @@ export async function castChart(raw: unknown): Promise<CastOutcome> {
       place: req.place.label,
     });
     if (!chapters) {
-      return { ok: false, code: 'NOT_IMPLEMENTED', message: MESSAGES.NOT_IMPLEMENTED! };
+      return { ok: false, code: 'NOT_IMPLEMENTED', message: 'NOT_IMPLEMENTED' };
     }
 
     const bookId = await keepBook(
@@ -149,7 +145,7 @@ export async function castChart(raw: unknown): Promise<CastOutcome> {
   /* 唔知時辰：排得出年月日層，排唔出命宮 —— 所以係一本待時辰嘅書（架構 §8）。 */
   const result = castPartial(base);
   if (!result.ok) {
-    return { ok: false, code: result.code, message: MESSAGES[result.code] ?? MESSAGES.NOT_IMPLEMENTED! };
+    return { ok: false, code: result.code, message: result.code };
   }
 
   /*

@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { setRequestLocale } from 'next-intl/server';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { routing } from '@/i18n/routing';
 import { Luokuan } from '@/components/Luokuan';
 import { NightScene } from '@/components/NightScene';
@@ -25,10 +25,15 @@ export function generateStaticParams() {
  *
  * noindex 無 OG：流程層（架構 §9）。
  */
-export const metadata: Metadata = {
-  title: '落款',
-  robots: { index: false, follow: false },
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'cast' });
+  return { title: t('metaTitle'), robots: { index: false, follow: false } };
+}
 
 export default async function CastPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;

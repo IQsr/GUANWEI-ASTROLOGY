@@ -1,7 +1,19 @@
 import { describe, expect, it } from 'vitest';
 import { resolveBirthMoment } from '@guanwei/ziwei';
 import { PLACES } from '@/lib/luokuan';
-import { slotName, slotsOfDay, slotSummary, type Resolve } from '@/lib/slots';
+import { slotName as nameOf, slotsOfDay, slotSummary as summaryOf, type Resolve, type ShichenWords } from '@/lib/slots';
+import zh from '../messages/zh-Hant.json';
+
+/** 中文字由 messages 嚟 —— 測嘅就係讀者見到嘅字。 */
+const W: ShichenWords = {
+  branch: zh.shichen.branch,
+  hour: (branch) => zh.shichen.hour.replace('{branch}', branch),
+  earlyZi: zh.shichen.earlyZi,
+  lateZi: zh.shichen.lateZi,
+  prevZi: zh.shichen.prevZi,
+};
+const slotName = (s: Parameters<typeof nameOf>[0]) => nameOf(s, W);
+const slotSummary = (s: Parameters<typeof summaryOf>[0]) => summaryOf(s, W);
 
 /**
  * 時辰選項（落款第四步）：每一格啱啱好係一個時辰，鐘面時間跟真太陽時。

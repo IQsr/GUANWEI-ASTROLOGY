@@ -22,7 +22,6 @@
  * 呢個檔係純函數：`resolve` 由 caller 畀（server 用引擎，test 用假嘅）。
  */
 
-export const BRANCHES = ['子', '丑', '寅', '卯', '辰', '巳', '午', '未', '申', '酉', '戌', '亥'] as const;
 
 export type Slot = {
   /** 邊個時辰（0 = 子）。 */
@@ -73,17 +72,30 @@ export function slotsOfDay(resolve: Resolve): Slot[] | null {
 }
 
 /**
+ * 時辰嘅字（由 messages 嚟：`shichen.*`）。lib 唔寫死任何一種語言。
+ */
+export type ShichenWords = {
+  /** 十二地支，0 = 子 */
+  branch: readonly string[];
+  /** 「{branch}時」／「{branch} hour」 */
+  hour: (branch: string) => string;
+  earlyZi: string;
+  lateZi: string;
+  prevZi: string;
+};
+
+/**
  * 畫面上嗰個名：「未時」。子時一日有兩格，用返傳統叫法：
  * 凌晨嗰格「早子時」，夜晚 23 點幾嗰格「夜子時」（預設歸翌日排盤）。
- * 學派設「晚子時屬當日」嗰陣，凌晨頭幾分鐘係前一晚嘅子時 —— 寫「子時（前夜）」。
+ * 學派設「晚子時屬當日」嗰陣，凌晨頭幾分鐘係前一晚嘅子時 —— 「子時（前夜）」。
  */
-export function slotName(slot: Pick<Slot, 'shichen' | 'dayOffset' | 'from'>): string {
-  if (slot.shichen !== 0) return `${BRANCHES[slot.shichen]}時`;
-  if (slot.dayOffset < 0) return '子時（前夜）';
-  return slot.from < '12:00' ? '早子時' : '夜子時';
+export function slotName(slot: Pick<Slot, 'shichen' | 'dayOffset' | 'from'>, w: ShichenWords): string {
+  if (slot.shichen !== 0) return w.hour(w.branch[slot.shichen]!);
+  if (slot.dayOffset < 0) return w.prevZi;
+  return slot.from < '12:00' ? w.earlyZi : w.lateZi;
 }
 
 /** 已答嗰行：「未時 · 13:36–15:35」。 */
-export function slotSummary(slot: Pick<Slot, 'shichen' | 'dayOffset' | 'from' | 'to'>): string {
-  return `${slotName(slot)} · ${slot.from}–${slot.to}`;
+export function slotSummary(slot: Pick<Slot, 'shichen' | 'dayOffset' | 'from' | 'to'>, w: ShichenWords): string {
+  return `${slotName(slot, w)} · ${slot.from}–${slot.to}`;
 }

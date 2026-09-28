@@ -16,14 +16,10 @@
 
 /* ── 四步 ─────────────────────────────────────────────── */
 
-export const STEPS = [
-  { n: 1, name: '落款' },
-  { n: 2, name: '取書' },
-  { n: 3, name: '閱讀' },
-  { n: 4, name: '深讀' },
-] as const;
+/** 四步。名喺 messages（`journey.s1`–`s4`）。 */
+export const STEPS = [1, 2, 3, 4] as const;
 
-export type StepN = (typeof STEPS)[number]['n'];
+export type StepN = (typeof STEPS)[number];
 
 /* ── 返去邊：只准站內路徑 ──────────────────────────────── */
 

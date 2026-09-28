@@ -9,7 +9,7 @@
     "meta": "透過紫微斗數，提供一種閱讀與理解自己的方式。",
     "proposition": "萬卷之中，有你一書。",
     "enter": "起　盤",
-    "hint": "落款五步，約三分鐘。唔知時辰都排得。",
+    "hint": "落款五步，約三分鐘。不知道時辰也可以排。",
     "sealLabel": "觀微印",
     "resume": "續讀上一本",
     "tagline": "BETWEEN THE COSMOS AND THE SELF.",
@@ -79,5 +79,179 @@
     "castLabel": "cast() 回應",
     "localeLabel": "目前語言",
     "nextUp": "下一張工單：B3　揀定三個流派分歧點"
+  },
+  "nav": {
+    "main": "主要",
+    "home": "首頁",
+    "cast": "起盤",
+    "lexicon": "藏經閣",
+    "shelf": "書齋",
+    "myShelf": "我的書齋",
+    "account": "設定",
+    "homeAria": "觀微 首頁",
+    "menuOpen": "打開選單",
+    "menuClose": "收起選單",
+    "contents": "目次",
+    "back": "返回"
+  },
+  "journey": {
+    "label": "你在第幾步",
+    "s1": "落款",
+    "s2": "取書",
+    "s3": "閱讀",
+    "s4": "深讀"
+  },
+  "places": {
+    "hongKong": "香港",
+    "guangzhou": "廣州",
+    "taipei": "台北",
+    "singapore": "新加坡",
+    "london": "倫敦",
+    "newYork": "紐約"
+  },
+  "cast": {
+    "metaTitle": "落款",
+    "bookLabel": "落款",
+    "label": {
+      "name": "姓　名",
+      "date": "出生日期",
+      "place": "出生地",
+      "time": "時　辰",
+      "sex": "性　別"
+    },
+    "ask": {
+      "name": "這本書要寫上誰的名字？",
+      "date": "國曆的出生年月日。農曆由我們自己轉。",
+      "place": "在哪裡出生？",
+      "time": "出生的時間。",
+      "sex": "大限的順逆由陰陽男女決定，所以這一項排盤要用。"
+    },
+    "aria": {
+      "name": "姓名",
+      "date": "出生日期",
+      "place": "出生地",
+      "time": "出生時間",
+      "slots": "選一個時辰"
+    },
+    "contents": "目　次",
+    "mulu": [
+      "序 · 你的命盤",
+      "一 · 命宮",
+      "身宮與五行局",
+      "⋯ 以下逐宮而讀，共十一章"
+    ],
+    "muluNote1": "這幾章在寫生辰之前就已經定好。",
+    "muluNote2": "寫完，它們才會有內容。",
+    "next": "下　一　步",
+    "finish": "成　書",
+    "casting": "排　盤　中",
+    "choose": "請選擇",
+    "male": "男",
+    "female": "女",
+    "timeHint": "填出世紙上、或者記憶中那個鐘錶時間。不用自己調夏令時 —— 我們自己算。",
+    "slotsLoading": "推算這一天的時辰⋯",
+    "exactToggle": "記得準確時間？",
+    "backToSlots": "改為選時辰",
+    "noHour": "不知道時辰",
+    "noHourSummary": "不知時辰",
+    "noHourComfort": "沒有時辰就定不到命宮，所以這本書會先留在書架上，書脊是虛線的 —— 此書待時辰而成。出世紙上通常有；問家人也常常問得回來。補回時辰，書就成了。",
+    "awaitTitle": "待　時　辰",
+    "awaitBody1": "年月日已經排好，命宮還要等時辰。這本書會留在書架上，書脊是虛線的。",
+    "awaitBody2": "補回時辰，書就成了。",
+    "errors": {
+      "BAD_REQUEST": "這份生辰資料有點不對，請回上一步再看一次。",
+      "OUT_OF_RANGE": "萬年曆只到一九〇〇至二一〇〇年。這個生辰暫時排不到。",
+      "BAD_PLACE": "這個出生地的經緯度不對，請再選一次。",
+      "BAD_TIMEZONE": "這個時區認不出來，請再選一次出生地。",
+      "UNKNOWN_HOUR": "沒有時辰就定不到命宮。請選「不知道時辰」那一項。",
+      "NOT_IMPLEMENTED": "這一部分還未做好。"
+    }
+  },
+  "shichen": {
+    "branch": [
+      "子",
+      "丑",
+      "寅",
+      "卯",
+      "辰",
+      "巳",
+      "午",
+      "未",
+      "申",
+      "酉",
+      "戌",
+      "亥"
+    ],
+    "hour": "{branch}時",
+    "earlyZi": "早子時",
+    "lateZi": "夜子時",
+    "prevZi": "子時（前夜）"
+  },
+  "naming": {
+    "suffix": "命書",
+    "book": "{name}命書",
+    "openAria": "揭開{name}命書",
+    "open": "揭開",
+    "readOn": "讀下去",
+    "seal": "觀微印",
+    "openLabel": "揭開{label}"
+  },
+  "shelf": {
+    "metaTitle": "書齋",
+    "title": "書齋",
+    "unavailable": "一時找不到你的書架。書沒有不見 —— 請過一會再試一次。",
+    "claimPrompt": "這些書只認得這一部瀏覽器。",
+    "claimLink": "留一個電郵",
+    "intro": "你的每一本命書都在這裡。點書脊打開，或者在最右邊開一本新的。",
+    "newBook": "＋ 新書",
+    "newBookAria": "新書",
+    "untitled": "未題名"
+  },
+  "book": {
+    "metaTitle": "命書",
+    "missing": "書齋裡沒有這一本。",
+    "unavailable": "一時找不到這本書。書沒有不見 —— 請過一會再試一次。",
+    "noChapter": "這本書沒有這一章。",
+    "intro": "從命盤，慢慢認識自己。",
+    "total": "共 {n} 章",
+    "free": "免費 {n} 章",
+    "uncut": "未裁 {n} 章",
+    "allCut": "全書已裁開",
+    "resume": "續讀《{title}》",
+    "start": "由《{title}》讀起",
+    "prefaceLead": "開卷：你的盤長甚麼樣子",
+    "readHere": "讀到這裡",
+    "uncutTag": "未裁",
+    "rest": "其餘各章",
+    "uncutNote": "標著「未裁」的章，是這本書還沒裁開的頁 —— 章名照樣列出，讀得到它有甚麼，只是還沒打開。裁一次，整本書的深度章都會開。",
+    "aboutCut": "關於裁書",
+    "themes": {
+      "xing": {
+        "title": "性格與天賦",
+        "lead": "看見真實的自己"
+      },
+      "shi": {
+        "title": "事業方向",
+        "lead": "找到適合的道路"
+      },
+      "ren": {
+        "title": "人際關係",
+        "lead": "理解關係中的自己"
+      }
+    }
+  },
+  "chapter": {
+    "nav": "章節",
+    "prev": "← 上一章",
+    "next": "下一章 →",
+    "contents": "目次",
+    "returnTo": "回到《{title}》",
+    "lexiconNote": "藏經閣 · {term}"
+  },
+  "weicai": {
+    "notYet": "這一頁還沒有裁開。",
+    "cut": "裁開",
+    "hintAnonymous": "先留一個電郵保存這本書，再裁開。",
+    "hintClaimed": "裁一次，整本書的深度章都會開。"
   }
 }

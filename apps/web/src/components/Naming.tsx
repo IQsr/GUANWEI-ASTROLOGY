@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useTranslations } from "next-intl";
 import { BookFlip } from "@/components/BookFlip";
 import { Link } from "@/i18n/navigation";
 import { FlowChrome } from "@/components/FlowChrome";
@@ -52,6 +53,7 @@ export function Naming({
   preface: Preface | null;
 }) {
   /* 成幕行完之前，本書撳唔郁。 */
+  const t = useTranslations("naming");
   const [ready, setReady] = useState(false);
   const [open, setOpen] = useState(false);
   /* 封面落定咗未。展卷要等佢 —— 唔好喺封面仲喺度翻嗰陣，底下已經畫緊界欄。 */
@@ -94,7 +96,7 @@ export function Naming({
       <BookFlip
         open={open}
         onOpened={() => setLanded(true)}
-        label={`${name}命書`}
+        label={t("book", { name })}
         cover={
           <div className="flex h-full flex-col justify-between p-7 ps-10">
             <span className="font-latin text-cap uppercase tracking-[0.42em] text-ink-3">
@@ -114,11 +116,11 @@ export function Naming({
               >
                 {name}
               </p>
-              <p className="mt-2 text-sm tracking-[0.1em] text-ink-2">命書</p>
+              <p className="mt-2 text-sm tracking-[0.1em] text-ink-2">{t("suffix")}</p>
               {/* 停 1.2 秒 —— 然後落印。 */}
               <Seal
                 text={MARK}
-                label="觀微印"
+                label={t("seal")}
                 className="yin-luo mt-6"
                 style={{ animationDelay: `${SEAL_DELAY_MS}ms` }}
               />
@@ -172,7 +174,7 @@ export function Naming({
             <button
               type="button"
               className="mu-ti-kai"
-              aria-label={`揭開${name}命書`}
+              aria-label={t("openAria", { name })}
               onClick={() => setOpen(true)}
             />
           ) : null
@@ -188,7 +190,7 @@ export function Naming({
        */}
       {ready && !open ? (
         <p className="mt-10 font-sans text-cap tracking-[0.16em] text-ink-3">
-          揭開
+          {t("open")}
         </p>
       ) : null}
 
@@ -207,7 +209,7 @@ export function Naming({
             href={`/book/${bookId}`}
             className="font-sans text-cap tracking-[0.16em] text-ink-3 transition-colors duration-200 ease-ink hover:text-ink-2"
           >
-            讀下去
+            {t("readOn")}
           </Link>
         </p>
       ) : null}

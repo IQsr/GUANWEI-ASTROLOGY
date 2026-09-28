@@ -1,3 +1,4 @@
+import zhMessages from '../messages/zh-Hant.json';
 import { describe, expect, it, vi } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { XU_TITLE } from '@guanwei/content';
@@ -199,20 +200,17 @@ describe('⚠ 落款嗰張目次唔准承諾生成唔到嘅章', () => {
    * 第一版照抄架構 §6 個免費五章名單，但入面三章生成唔到 ——
    * 即係話落款嗰陣本書答應咗五章，成書之後得兩章有字。
    *
-   * 呢條測試掃返 `Luokuan.tsx` 嗰張表：入面每一個章名，
-   * 都要係我哋而家真係出得到嗰啲。
+   * 呢條測試掃返落款嗰張表（文案搬咗去 messages：`cast.mulu`）：
+   * 入面每一個章名，都要係我哋而家真係出得到嗰啲。
    */
-  const LUOKUAN = readFileSync(new URL('../src/components/Luokuan.tsx', import.meta.url), 'utf8');
-  const MULU = LUOKUAN.match(/const MULU = \[([^\]]*)\]/s)?.[1] ?? '';
+  const MULU: string[] = zhMessages.cast.mulu;
 
   it('搵到張表', () => {
-    expect(MULU).not.toBe('');
+    expect(MULU.length).toBeGreaterThan(0);
   });
 
   it('列出嘅章名，全部生成得到', () => {
-    const named = [...MULU.matchAll(/'([^']+)'/g)]
-      .map((m) => m[1]!)
-      .map((line) => line.split('·').at(-1)!.trim())
+    const named = MULU.map((line) => line.split('·').at(-1)!.trim())
       .filter((name) => /^[一-鿿]+$/.test(name));
 
     /* 由真名單砌，唔好手抄 —— 手抄就會再走音一次。 */
@@ -230,9 +228,8 @@ describe('⚠ 序只准寫一次', () => {
   const SRC = (f: string) => readFileSync(new URL(`../src/${f}`, import.meta.url), 'utf8');
 
   it('落款目次第一行，同內容包嗰個章名一個字都唔爭', () => {
-    const mulu = SRC('components/Luokuan.tsx').match(/const MULU = \[([^\]]*)\]/s)?.[1] ?? '';
-    const first = [...mulu.matchAll(/["']([^"']+)["']/g)].map((m) => m[1]!)[0];
-    expect(first).toBe(XU_TITLE);
+    /* 文案搬咗去 messages（`cast.mulu`）；中文版嗰行一定要同內容包一字不差 */
+    expect(zhMessages.cast.mulu[0]).toBe(XU_TITLE);
   });
 
   it('題名幕唔准自己寫一段序', () => {

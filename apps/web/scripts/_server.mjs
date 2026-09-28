@@ -119,7 +119,20 @@ export function stopServer(child) {
 export async function launchBrowser() {
   const exe = process.env.GUANWEI_CHROMIUM;
   try {
-    return await chromium.launch(exe ? { executablePath: exe } : {});
+    const browser = await chromium.launch(exe ? { executablePath: exe } : {});
+    /*
+     * ⚠ 預設用中文瀏覽器（文案搬去 messages 之後）。
+     *
+     * 驗收量嘅係中文版：`getByLabel('姓名')`、「不用自己調夏令時」⋯⋯
+     * 一部英文瀏覽器開 `/cast` 會被轉去 `/en/cast`，而英文版而家真係英文 ——
+     * 之前全站都係中文所以冇事。要量英文版就自己傳 `locale`。
+     */
+    const withLocale = (opts = {}) => ({ locale: 'zh-TW', ...opts });
+    const newPage = browser.newPage.bind(browser);
+    const newContext = browser.newContext.bind(browser);
+    browser.newPage = (opts) => newPage(withLocale(opts));
+    browser.newContext = (opts) => newContext(withLocale(opts));
+    return browser;
   } catch (err) {
     console.error('✗ 開唔到 Chromium：' + String(err).split('\n')[0]);
     console.error('  裝一個：pnpm --filter @guanwei/web exec playwright install chromium');
