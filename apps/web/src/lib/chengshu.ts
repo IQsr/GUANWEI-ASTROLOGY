@@ -172,6 +172,29 @@ export type ChengshuPort = {
 };
 
 /**
+ * 成書之前，個 session 點處理（2026-09 修）
+ *
+ * - 冇 session → 開一個匿名 session（`readers` 由 auth trigger 生）
+ * - 有 session、有 `readers` 行 → 照用
+ * - 有 session、**冇** `readers` 行 → 登出，再開一個新嘅匿名 session
+ *
+ * 第三種係之前本書靜靜雞寫唔入 DB 嘅原因：`create_book` 寫 subjects 嗰下
+ * 撞 foreign key（reader_id 指住一個唔存在嘅讀者）。會出現嘅情況有兩個：
+ * trigger 未有之前開嘅舊 auth user；或者「刪除」做咗一半 ——
+ * 資料刪晒，auth 帳戶刪唔切（見 lib/account.ts `partial`），個 session 仲喺度。
+ *
+ * ⚠ 唔好幫佢補返一行 `readers`：刪咗一半嗰個係讀者自己要刪嘅帳戶，
+ * 補返就等於復活咗佢。換一個新匿名 session 冇嘢會唔見 ——
+ * 冇 `readers` 行，就唔可能有書（所有嘢都掛喺 readers 下面）。
+ */
+export type SessionPlan = 'use' | 'sign-in' | 'replace';
+
+export function sessionPlan(hasUser: boolean, hasReader: boolean): SessionPlan {
+  if (!hasUser) return 'sign-in';
+  return hasReader ? 'use' : 'replace';
+}
+
+/**
  * ⚠ 寫唔到**唔可以擋住六幕**。
  *
  * 呢一刻個人啱啱寫完五步生辰，個盤已經排好咗。如果因為 DB 接唔上

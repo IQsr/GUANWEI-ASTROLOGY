@@ -1,6 +1,6 @@
 import 'server-only';
 import { supabaseServer } from '@/lib/supabase.server';
-import type { ChengshuPort } from '@/lib/chengshu';
+import { sessionPlan, type ChengshuPort } from '@/lib/chengshu';
 
 /**
  * 成書嘅真 adapter（工單 G5）
@@ -28,7 +28,21 @@ export function serverChengshu(): ChengshuPort {
       const sb = supabaseServer();
 
       const { data: auth } = await sb.auth.getUser();
-      if (!auth.user) {
+      let hasReader = false;
+      if (auth.user) {
+        const { data: reader, error } = await sb.from('readers').select('id').eq('id', auth.user.id).maybeSingle();
+        if (error) throw error;
+        hasReader = reader !== null;
+      }
+
+      /* 有 session 但冇 readers 行：換一個新匿名 session（見 lib/chengshu.ts `sessionPlan`） */
+      const plan = sessionPlan(Boolean(auth.user), hasReader);
+      if (plan === 'replace') {
+        console.warn('[chengshu] session 冇 readers 行，換一個新匿名 session');
+        const { error } = await sb.auth.signOut({ scope: 'local' });
+        if (error) throw error;
+      }
+      if (plan !== 'use') {
         const { error } = await sb.auth.signInAnonymously();
         if (error) throw error;
       }

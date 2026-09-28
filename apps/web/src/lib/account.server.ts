@@ -23,8 +23,14 @@ export async function currentAccount(): Promise<AccountReader | null> {
     .from('readers')
     .select('is_anonymous, email')
     .eq('id', auth.user.id)
-    .single();
+    .maybeSingle();
   if (error) throw error;
+  /*
+   * ⚠ 有 session 但冇 readers 行（舊 auth user，或者刪除做咗一半）：
+   * 之前 `.single()` 喺度 throw PGRST116，成版變「一時連不上」。
+   * 冇 readers 行就冇任何書 —— 當冇讀者，版面講「呢個瀏覽器冇書」，係真話。
+   */
+  if (!data) return null;
 
   return { id: auth.user.id, email: data.email, isAnonymous: data.is_anonymous };
 }
