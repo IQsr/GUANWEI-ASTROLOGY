@@ -107,3 +107,9 @@ export function paragraphs(
   if (slots.length !== parts.length) return parts.map((text) => ({ slot: null, text }));
   return parts.map((text, i) => ({ slot: slots[i]!, text }));
 }
+
+/** 一章開頭嗰格嘅名（資料鍵）：未跟到之前，盤停喺呢格。 */
+export const OPENING_SLOT = '開場';
+
+/** 命宮（章嘅 slug）：目次嗰陣左頁個盤亮呢一宮。 */
+export const LIFE_PALACE = '命宮';

@@ -419,5 +419,8 @@
     "corpus": "Corpus: “{book}” {edition}",
     "ctaLead": "These entries are also used to write a book of your own.",
     "ctaButton": "Begin"
+  },
+  "reading": {
+    "showChart": "Show the chart"
   }
 }

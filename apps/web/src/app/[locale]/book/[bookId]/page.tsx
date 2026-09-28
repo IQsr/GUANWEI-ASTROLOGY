@@ -2,6 +2,10 @@ import type { Metadata } from 'next';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { routing } from '@/i18n/routing';
 import { BookContents } from '@/components/BookContents';
+import { BookSpread } from '@/components/BookSpread';
+import { LIFE_PALACE } from '@/lib/suidu';
+import { NightScene } from '@/components/NightScene';
+import type { Chart as ZChart } from '@guanwei/ziwei/contract';
 import { Juanshou } from '@/components/Juanshou';
 import { contentsView } from '@/lib/juan-view';
 import { serverJuan } from '@/lib/juan.server';
@@ -62,19 +66,33 @@ export default async function BookPage({
   const t = await getTranslations('book');
   const tShelf = await getTranslations('shelf');
 
-  const view = await contentsView(serverJuan(), bookId);
+  const port = serverJuan();
+  const view = await contentsView(port, bookId);
+  /* 左頁嘅命盤。撈唔到就冇盤，右頁照出目次 */
+  const chart = view.kind === 'ok' ? ((await port.chart(bookId).catch(() => null)) as ZChart | null) : null;
 
   return (
-    <main className="juan tai">
-      <Juanshou
-        back="shelf"
-        title={view.kind === 'ok' ? (view.title ?? tShelf('untitled')) : undefined}
-        nav="book"
-        step={3}
-      />
+    /*
+     * 書桌閱讀：展卷之後本書一直攤開喺桌面上 —— 目次係本書嘅一頁，唔係另一個網頁。
+     * 左頁命盤（亮命宮），右頁目次。
+     */
+    <main className="juan tai ye-ink">
+      <NightScene variant="desk" />
+      {/* 書桌閱讀：卷首淨係返回同四步，書名寫喺左頁頂 —— 本書高啲，一眼睇得晒 */}
+      <Juanshou back="shelf" step={3} title={view.kind === 'ok' ? undefined : tShelf('untitled')} />
 
       {view.kind === 'ok' ? (
-        <BookContents bookId={bookId} chapters={view.chapters} lastRead={view.lastRead} cut={view.cut} />
+        <BookSpread
+          chart={chart}
+          palace={LIFE_PALACE}
+          top={
+            <h1 className="font-serif text-h2 font-semibold tracking-[0.16em]">
+              {view.title ?? tShelf('untitled')}
+            </h1>
+          }
+        >
+          <BookContents bookId={bookId} chapters={view.chapters} lastRead={view.lastRead} cut={view.cut} />
+        </BookSpread>
       ) : (
         <p className="banxin text-body leading-[1.95] text-ink-2">
           {view.kind === 'missing'

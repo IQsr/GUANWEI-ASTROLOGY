@@ -26,7 +26,8 @@
  */
 :root,
 .ye-ink .shu-wrap,
-.ye-ink .fan-wrap {
+.ye-ink .fan-wrap,
+.ye-ink .shuzhuo {
   /* ── 紙 ── */
   --paper: #eee6d8;
   --paper-2: #e6dcc9;
@@ -1986,7 +1987,8 @@
  * 嘅夜色，紙上面淺字等於隱形。第一次行題名幕就見到個名唔見咗。
  */
 .ye-ink .shu-wrap,
-.ye-ink .fan-wrap {
+.ye-ink .fan-wrap,
+.ye-ink .shuzhuo {
   color: var(--ink);
 }
 
@@ -2322,5 +2324,197 @@
   /* 轉出去之後唔好喺左邊留一條邊 */
   .fan[data-state="open"]:not([data-anim]) .fan-ye {
     visibility: hidden;
+  }
+}
+
+/* ============================================================
+   書桌閱讀：本書一直攤開喺桌面上（`BookSpread`）
+
+   展卷之後唔再跳去紙色網頁。左頁命盤，右頁目次或者正文，喺頁入面捲。
+   書嘅高度跟視窗：頂係卷首，底留地腳 —— 成本書一眼睇得晒，捲嘅係頁，唔係網頁。
+   ============================================================ */
+
+.shuzhuo {
+  width: 100%;
+}
+
+.shuzhuo-shu {
+  position: relative;
+  perspective: 2600px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  /* 視窗高度減：頁頂導覽、天頭、卷首、地腳 */
+  height: max(520px, calc(100svh - var(--header) - 190px));
+  max-width: 1180px;
+  margin-inline: auto;
+  border-radius: 3px;
+  box-shadow:
+    0 1px 0 rgb(0 0 0 / 0.2),
+    0 40px 90px -34px rgb(0 0 0 / 0.85);
+}
+
+@media (min-width: 900px) {
+  .shuzhuo-shu {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+}
+
+.shuzhuo-ye {
+  position: relative;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 36px 28px;
+  background: var(--paper);
+  scrollbar-width: thin;
+  scrollbar-color: var(--rule) transparent;
+}
+
+@media (min-width: 900px) {
+  .shuzhuo-ye {
+    padding: 44px 48px;
+  }
+}
+
+/* 左頁：命盤。手機唔出（命盤收喺右頁頂嗰格） */
+.shuzhuo-zuo {
+  display: none;
+  border-radius: 3px 0 0 3px;
+  background:
+    linear-gradient(to left, rgb(40 30 15 / 0.16), rgb(40 30 15 / 0.05) 5%, transparent 12%),
+    var(--paper);
+}
+
+@media (min-width: 900px) {
+  .shuzhuo-zuo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
+.shuzhuo-pan {
+  width: 100%;
+}
+
+/* 右頁：書縫喺左邊，書口喺右邊 */
+.shuzhuo-you {
+  border-radius: 0 3px 3px 0;
+  background:
+    linear-gradient(to right, rgb(40 30 15 / 0.16), rgb(40 30 15 / 0.05) 5%, transparent 12%),
+    var(--paper);
+  box-shadow: 5px 0 0 -1px var(--paper-3), 6px 0 0 -1px rgb(0 0 0 / 0.12);
+}
+
+@media (max-width: 899px) {
+  .shuzhuo-you {
+    border-radius: 3px;
+  }
+}
+
+/* 手機先出嗰格命盤 */
+.shuzhuo-shouji {
+  display: block;
+}
+
+@media (min-width: 900px) {
+  .shuzhuo-shouji {
+    display: none;
+  }
+}
+
+/* 頁入面唔再加版心嘅左右留白 —— 頁本身已經有 */
+.shuzhuo-you .banxin {
+  max-width: none;
+  padding-inline: 0;
+}
+
+/* 跟讀：章尾留白，最後幾段先捲得上讀線（同 `.suidu-wen` 一樣嘅理由） */
+.shuzhuo-wei {
+  height: 40vh;
+}
+
+/* ============================================================
+   翻頁（`PageTurnLink`）：一頁紙繞書脊翻過去，翻完先轉頁
+
+   `data-fanye="next"`：右頁向左翻（向前讀）
+   `data-fanye="prev"`：左頁向右翻（翻返轉頭）
+   同揭封面一樣嘅做法：起慢、中快、落定；紙轉到側面變暗。
+   ============================================================ */
+
+.shuzhuo-shu[data-fanye]::after,
+.fan[data-fanye]::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 5;
+  pointer-events: none;
+  background:
+    linear-gradient(to right, rgb(40 30 15 / 0.14), transparent 14%),
+    var(--paper);
+  box-shadow: 0 0 0 1px rgb(0 0 0 / 0.1);
+  backface-visibility: visible;
+}
+
+/* 向前：右頁嗰頁紙，軸心喺書脊（左邊） */
+.shuzhuo-shu[data-fanye="next"]::after {
+  left: 50%;
+  width: 50%;
+  transform-origin: left center;
+  animation: fanye-next 650ms cubic-bezier(0.45, 0.05, 0.25, 1) forwards;
+}
+
+/* 翻返轉頭：左頁嗰頁紙，軸心喺書脊（右邊） */
+.shuzhuo-shu[data-fanye="prev"]::after {
+  left: 0;
+  width: 50%;
+  transform-origin: right center;
+  animation: fanye-prev 650ms cubic-bezier(0.45, 0.05, 0.25, 1) forwards;
+}
+
+/* 展卷之後「讀下去」：右頁翻過去 */
+.fan[data-fanye]::after {
+  left: var(--w);
+  width: var(--w);
+  transform-origin: left center;
+  animation: fanye-next 650ms cubic-bezier(0.45, 0.05, 0.25, 1) forwards;
+}
+
+/* 手機得一頁：成頁翻走 */
+@media (max-width: 899px) {
+  .shuzhuo-shu[data-fanye]::after {
+    left: 0;
+    width: 100%;
+    transform-origin: left center;
+    animation-name: fanye-next;
+  }
+}
+
+@keyframes fanye-next {
+  0% {
+    transform: rotateY(0deg);
+    filter: brightness(1);
+  }
+  50% {
+    filter: brightness(0.72);
+  }
+  100% {
+    transform: rotateY(-180deg);
+    filter: brightness(0.96);
+  }
+}
+
+@keyframes fanye-prev {
+  0% {
+    transform: rotateY(0deg);
+    filter: brightness(1);
+  }
+  50% {
+    filter: brightness(0.72);
+  }
+  100% {
+    transform: rotateY(180deg);
+    filter: brightness(0.96);
   }
 }

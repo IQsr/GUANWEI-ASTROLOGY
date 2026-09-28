@@ -1,5 +1,6 @@
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
+import { PageTurnLink } from '@/components/PageTurnLink';
 import { ThemeIcon } from '@/components/ThemeIcon';
 import { chapterHref, payHref } from '@/lib/journey';
 import { groupChapters, tally } from '@/lib/themes';
@@ -43,7 +44,7 @@ export function BookContents({
 
   const row = (c: ChapterMeta) => (
     <li key={c.slug}>
-      <Link
+      <PageTurnLink
         href={chapterHref(bookId, c.slug)}
         className="group flex items-baseline justify-between gap-4 border-b jielan py-3 transition-colors duration-200 ease-ink"
       >
@@ -60,7 +61,7 @@ export function BookContents({
             </span>
           )}
         </span>
-      </Link>
+      </PageTurnLink>
     </li>
   );
 
@@ -85,17 +86,17 @@ export function BookContents({
         </p>
         {start ? (
           <div>
-            <Link href={chapterHref(bookId, start.slug)} className="btn-mo">
+            <PageTurnLink href={chapterHref(bookId, start.slug)} className="btn-mo">
               {resume ? t('resume', { title: resume.title }) : t('start', { title: start.title })}
               <span className="btn-jiantou" aria-hidden="true">→</span>
-            </Link>
+            </PageTurnLink>
           </div>
         ) : null}
       </div>
 
       {/* 三：序 */}
       {preface ? (
-        <Link href={chapterHref(bookId, preface.slug)} className="ka flex items-center gap-4 p-5 sm:gap-5">
+        <PageTurnLink href={chapterHref(bookId, preface.slug)} className="ka flex items-center gap-4 p-5 sm:gap-5">
           <ThemeIcon kind="xu" />
           <span className="flex-1">
             <span className="block font-serif text-lead tracking-[0.12em] sm:text-h3">{preface.title}</span>
@@ -106,7 +107,7 @@ export function BookContents({
           ) : (
             <span aria-hidden="true" className="text-ink-3">›</span>
           )}
-        </Link>
+        </PageTurnLink>
       ) : null}
 
       {/* 四：三個主題 */}

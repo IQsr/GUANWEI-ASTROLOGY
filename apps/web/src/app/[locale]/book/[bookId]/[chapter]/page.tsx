@@ -3,7 +3,8 @@ import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Juanshou, backToContents } from '@/components/Juanshou';
 import { routing } from '@/i18n/routing';
 import { Juan } from '@/components/Juan';
-import { Suidu } from '@/components/Suidu';
+import { BookSpread } from '@/components/BookSpread';
+import { NightScene } from '@/components/NightScene';
 import { Caikai } from '@/components/Caikai';
 import { Weicai } from '@/components/Weicai';
 import { cutPage } from './cut';
@@ -55,6 +56,7 @@ export default async function ChapterPage({
   const { locale, bookId, chapter: rawChapter } = await params;
   setRequestLocale(locale);
   const t = await getTranslations('book');
+  const tShelf = await getTranslations('shelf');
   /* 章名係中文：無論 Next 畀嘅係 encode 咗定未，都解返做章名先對（交接文件嗰個疑點）。 */
   const chapter = chapterParam(rawChapter);
 
@@ -94,7 +96,8 @@ export default async function ChapterPage({
   );
   const mine = marked.at(-1);
   const body = fetched.at(-1)?.text ?? null;
-  const chart = body === null ? null : ((await port.chart(bookId)) as ZChart | null);
+  /* 左頁嘅命盤：未裁嘅章都出（盤唔係深度章嘅內容） */
+  const chart = (await port.chart(bookId).catch(() => null)) as ZChart | null;
 
   /*
    * ⚠ 「今次先裁開」係 DB 答嘅（`cut_page()`，0006），唔係 client 記住嘅。
@@ -115,8 +118,10 @@ export default async function ChapterPage({
   }
 
   return (
-    <main className="juan tai">
-      <Juanshou back={backToContents(bookId)} nav="book" step={3} />
+    /* 書桌閱讀：左頁命盤跟住右頁讀緊嘅段落亮，右頁喺頁入面捲 */
+    <main className="juan tai ye-ink">
+      <NightScene variant="desk" />
+      <Juanshou back={backToContents(bookId)} step={3} />
 
       {/* 冇畫面。記低讀到邊、幾時讀 —— 書架靠佢排序（E3）。 */}
       {here ? <MarkRead bookId={bookId} slug={here.slug} title={here.title} /> : null}
@@ -124,9 +129,14 @@ export default async function ChapterPage({
       {!here ? (
         <p className="banxin text-body leading-[1.95] text-ink-2">{t('noChapter')}</p>
       ) : (
-        <>
-          {/* ⚠ 章名擺喺頁頭之下、正文之上 —— 佢係內容嘅一部分，唔係頁頭。 */}
-          <h1 className="banxin text-h1 font-semibold tracking-[0.16em]">{here.title}</h1>
+        <BookSpread
+          chart={chart}
+          palace={here.slug}
+          follow={body !== null}
+          top={<p className="font-serif text-lead tracking-[0.16em] text-ink-2">{view.title ?? tShelf('untitled')}</p>}
+        >
+          {/* ⚠ 章名係內容嘅一部分，唔係頁頭：擺喺右頁頂 */}
+          <h1 className="text-h1 font-semibold tracking-[0.16em]">{here.title}</h1>
           <div className="mt-10">
             {body === null ? (
               /*
@@ -143,20 +153,14 @@ export default async function ChapterPage({
                 slug={here.slug}
                 isAnonymous={isAnonymous}
               />
-            ) : chart ? (
-              /* 隨讀：右側細命盤跟捲動高亮（F2）。 */
-              <Caikai play={justCut}>
-                <Suidu chart={chart} palace={here.slug}>
-                  <Juan segments={mine!.segments} notes={notesFor(marked)} />
-                </Suidu>
-              </Caikai>
             ) : (
-              /* 撈唔到盤就淨係出正文 —— 唔出一個空格當個盤。 */
-              <Juan segments={mine!.segments} notes={notesFor(marked)} />
+              <Caikai play={justCut}>
+                <Juan segments={mine!.segments} notes={notesFor(marked)} />
+              </Caikai>
             )}
           </div>
           <ChapterNav bookId={bookId} prev={prev} next={next} />
-        </>
+        </BookSpread>
       )}
     </main>
   );

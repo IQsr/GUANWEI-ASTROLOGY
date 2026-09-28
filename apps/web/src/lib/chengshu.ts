@@ -166,7 +166,12 @@ export type ChengshuPort = {
 export async function keepBook(port: ChengshuPort, draft: BookDraft): Promise<string | null> {
   try {
     return await port.create(draft);
-  } catch {
+  } catch (error) {
+    /*
+     * 照舊回 null（唔扮寫到），但要留低原因：之前呢度靜靜雞吞咗錯誤，
+     * 本書寫唔入 DB 嗰陣連 log 都冇 —— 撞到 session 同 readers 對唔上都查唔到。
+     */
+    console.error('[chengshu] 寫唔入本書', error);
     return null;
   }
 }

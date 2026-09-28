@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
 import { BookFlip } from "@/components/BookFlip";
-import { Link } from "@/i18n/navigation";
+import { PageTurnLink } from "@/components/PageTurnLink";
 import { FlowChrome } from "@/components/FlowChrome";
 import { Zhanjuan } from "@/components/Zhanjuan";
 import { Seal } from "@/components/Seal";
@@ -205,12 +205,12 @@ export function Naming({
        */}
       {open && bookId ? (
         <p className="mt-10">
-          <Link
+          <PageTurnLink
             href={`/book/${bookId}`}
             className="font-sans text-cap tracking-[0.16em] text-ink-3 transition-colors duration-200 ease-ink hover:text-ink-2"
           >
             {t("readOn")}
-          </Link>
+          </PageTurnLink>
         </p>
       ) : null}
     </div>

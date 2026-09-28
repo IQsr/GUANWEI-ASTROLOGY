@@ -1,5 +1,5 @@
 import { useTranslations } from 'next-intl';
-import { Link } from '@/i18n/navigation';
+import { PageTurnLink } from '@/components/PageTurnLink';
 import { chapterHref, contentsHref, type ChapterLink } from '@/lib/journey';
 
 /**
@@ -24,23 +24,24 @@ export function ChapterNav({
   return (
     <nav aria-label={t('nav')} className="banxin mt-16 grid grid-cols-[1fr_auto_1fr] items-stretch gap-4 border-t jielan pt-8">
       {prev ? (
-        <Link href={chapterHref(bookId, prev.slug)} className="ka group flex flex-col gap-1 px-5 py-4">
+        <PageTurnLink direction="prev" href={chapterHref(bookId, prev.slug)} className="ka group flex flex-col gap-1 px-5 py-4">
           <span className="text-cap tracking-[0.16em] text-ink-3">{t('prev')}</span>
           <span className="font-serif tracking-[0.08em] text-ink">{prev.title}</span>
-        </Link>
+        </PageTurnLink>
       ) : (
         <span />
       )}
 
-      <Link
+      <PageTurnLink
+        direction="prev"
         href={contentsHref(bookId)}
         className="self-center px-2 text-cap tracking-[0.2em] text-ink-3 transition-colors duration-200 hover:text-ink"
       >
         {t('contents')}
-      </Link>
+      </PageTurnLink>
 
       {next ? (
-        <Link href={chapterHref(bookId, next.slug)} className="ka group flex flex-col items-end gap-1 px-5 py-4 text-end">
+        <PageTurnLink direction="next" href={chapterHref(bookId, next.slug)} className="ka group flex flex-col items-end gap-1 px-5 py-4 text-end">
           <span className="text-cap tracking-[0.16em] text-ink-3">{t('next')}</span>
           <span className="font-serif tracking-[0.08em] text-ink">
             {next.title}
@@ -48,7 +49,7 @@ export function ChapterNav({
               <span className="ms-3 text-cap tracking-[0.14em] text-gold-ink">{tb('uncutTag')}</span>
             ) : null}
           </span>
-        </Link>
+        </PageTurnLink>
       ) : (
         <span />
       )}
