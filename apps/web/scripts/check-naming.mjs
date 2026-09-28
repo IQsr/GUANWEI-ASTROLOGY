@@ -100,9 +100,14 @@ try {
    * 三個數字啱晒，但出嚟嘅畫面係一本書貼住正中向右長、左邊成半版吉。
    * 量啱咗一樣唔應該量嘅嘢。
    */
+  /*
+   * ⚠ 揭書改咗之後（`BookFlip`）：量嘅係**書脊**企唔企中間。
+   * `.fan` 個舞台永遠係兩版闊、書脊喺正中 —— 合埋嗰陣本書企喺中線右邊，
+   * 揭開之後封面落喺左邊，書脊由頭到尾企喺版心中線。
+   */
   const bookCentre = async () =>
     page.evaluate(() => {
-      const el = document.querySelector('.shu');
+      const el = document.querySelector('.fan');
       const stage = document.querySelector('.mu-wei');
       if (!el || !stage) return null;
       const b = el.getBoundingClientRect();
@@ -123,7 +128,7 @@ try {
    */
   const laid = await page.evaluate(() => {
     const stage = document.querySelector('.mu-wei');
-    const book = document.querySelector('.shu');
+    const book = document.querySelector('.fan');
     if (!stage || !book) return null;
     return {
       display: getComputedStyle(stage).display,
@@ -157,7 +162,7 @@ try {
    * 而一片白係唔會有人 report 嘅 bug。
    */
   const verso = await page.evaluate(() => {
-    const el = document.querySelector('.shu-verso');
+    const el = document.querySelector('.fan-bei');
     const ps = el ? [...el.querySelectorAll('p')].map((p) => p.textContent?.trim() ?? '') : [];
     return { title: ps[0] ?? '', lead: ps[1] ?? '' };
   });
@@ -184,7 +189,7 @@ try {
       live: [...scene.querySelectorAll('button, a, input, select, textarea')].filter(
         (el) => !el.closest('[inert]'),
       ).length,
-      shape: scene.querySelector('.shu')?.dataset.shape,
+      shape: scene.querySelector('.fan')?.dataset.shape,
     };
   });
   check('行緊嗰陣冇任何掣', during.interactive === 0, `有 ${during.interactive} 個互動元素`);
@@ -228,7 +233,7 @@ try {
     const kai = scene.querySelector('.mu-ti-kai');
     const cs = kai ? getComputedStyle(kai) : null;
     return {
-      shape: scene.querySelector('.shu')?.dataset.shape,
+      shape: scene.querySelector('.fan')?.dataset.shape,
       interactive: scene.querySelectorAll('button, a, input, select, textarea').length,
       kai: Boolean(kai),
       text: kai?.textContent ?? '',
@@ -263,10 +268,14 @@ try {
      * 界欄逐條畫出（1230ms）＋ 星落位，成幕 2130ms，之後先出真盤。
      * 呢個等候時間唔係「畀佢 render 一陣」，係一段寫定咗嘅序列。
      */
-    await page.waitForTimeout(2800);
+    /*
+     * ⚠ 揭書改咗做封面繞書脊轉（`BookFlip`，1500ms），展卷等封面落定先開始。
+     * 所以要等：揭書 1500 ＋ 展卷 2130 ＋ 餘量。
+     */
+    await page.waitForTimeout(4400);
   }
   const opened = await page.evaluate(() => ({
-    shape: document.querySelector('.shu')?.dataset.shape,
+    shape: document.querySelector('.fan')?.dataset.shape,
     gong: document.querySelectorAll('.gong').length,
     kai: Boolean(document.querySelector('.mu-ti-kai')),
     /*

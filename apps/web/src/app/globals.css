@@ -25,7 +25,8 @@
  * 一個元素自己宣告嘅變數贏繼承返嚟嘅，夜讀模式之下本書都係紙色。
  */
 :root,
-.ye-ink .shu-wrap {
+.ye-ink .shu-wrap,
+.ye-ink .fan-wrap {
   /* ── 紙 ── */
   --paper: #eee6d8;
   --paper-2: #e6dcc9;
@@ -1984,7 +1985,8 @@
  * 唔係變數 —— 冇自己設顏色嘅字（例如封面個名）會照樣繼承 `.ye-ink`
  * 嘅夜色，紙上面淺字等於隱形。第一次行題名幕就見到個名唔見咗。
  */
-.ye-ink .shu-wrap {
+.ye-ink .shu-wrap,
+.ye-ink .fan-wrap {
   color: var(--ink);
 }
 
@@ -1999,5 +2001,320 @@
   /* 本書喺暗落去之後淡入 */
   .ye-ink .mu-wei {
     animation: mu-in var(--dur-3) var(--motion-ease-scroll) 240ms both;
+  }
+}
+
+/* ============================================================
+   揭書（樣板 · `BookFlip`）
+
+   封面繞書脊轉開；書脊企定；起 · 行 · 落；光影同厚度。
+   同 `.shu`（只准 width）並排比較緊 —— 見 /tokens/fanshu。
+
+   ⚠ 呢度用 3D（rotateY ＋ perspective），推翻咗 E2「零 3D」。
+   未入真流程；Issac 睇完樣板先決定。
+   ============================================================ */
+
+.fan-wrap {
+  container-type: inline-size;
+  width: 100%;
+}
+
+.fan {
+  /* 一版闊；兩版 = 舞台 */
+  --w: min(380px, 47cqi);
+  --h: calc(var(--w) * 1.42);
+  /* 慢鏡：樣板頁用嚟睇清楚每一段 */
+  --dur: calc(1500ms * var(--fan-slow, 1));
+  position: relative;
+  width: calc(var(--w) * 2);
+  height: var(--h);
+  margin-inline: auto;
+  perspective: 2400px;
+  perspective-origin: 50% 40%;
+}
+
+/* ── 右頁：一路喺度 ── */
+.fan-recto {
+  position: absolute;
+  top: 0;
+  left: var(--w);
+  width: var(--w);
+  height: 100%;
+  background:
+    /* 書縫：紙喺近書脊嗰度彎落去，暗少少 */
+    linear-gradient(to right, rgb(40 30 15 / 0.16), rgb(40 30 15 / 0.05) 6%, transparent 14%),
+    var(--paper);
+  border: 1px solid rgb(0 0 0 / 0.14);
+  border-left: 0;
+  border-radius: 0 3px 3px 0;
+  box-shadow:
+    0 1px 0 rgb(0 0 0 / 0.2),
+    0 36px 80px -34px rgb(0 0 0 / 0.85);
+}
+
+/* 封面轉嘅時候，下面嗰頁有一片影由書脊掃出去 */
+.fan-recto::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(to right, rgb(0 0 0 / 0.42), rgb(0 0 0 / 0.08) 55%, transparent);
+  opacity: 0;
+}
+
+/* 書口：幾層紙 */
+.fan-kou {
+  position: absolute;
+  top: 3px;
+  right: -5px;
+  bottom: 3px;
+  width: 5px;
+  border-radius: 0 2px 2px 0;
+  background: repeating-linear-gradient(
+    to right,
+    var(--paper-3) 0 1px,
+    var(--paper) 1px 2px
+  );
+  box-shadow: 1px 0 0 rgb(0 0 0 / 0.12);
+}
+
+/* ── 封面：雙面紙 ── */
+.fan-ye {
+  position: absolute;
+  top: 0;
+  left: var(--w);
+  z-index: 2;
+  width: var(--w);
+  height: 100%;
+  transform-origin: left center;
+  transform-style: preserve-3d;
+  transform: rotateY(0deg);
+  transition: transform 420ms var(--motion-ease-ink);
+}
+
+.fan[data-state="open"] .fan-ye {
+  transform: rotateY(-180deg);
+}
+
+/*
+ * 合埋嗰陣 hover：封面揭起少少，講佢揭得。
+ * ⚠ 只喺有掣（熱區）嗰陣先揭 —— 題名幕未行完之前本書撳唔得，
+ * 嗰陣佢唔應該扮揭得。
+ */
+.fan[data-state="closed"]:not([data-anim]) .fan-ye:has(button:hover),
+.fan[data-state="closed"]:not([data-anim]) .fan-ye:has(button:focus-visible) {
+  transform: rotateY(-7deg);
+}
+
+.fan-mian,
+.fan-bei {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  overflow: hidden;
+}
+
+/* 正面：封面。硬皮、一條書脊布邊 */
+.fan-mian {
+  border-radius: 0 3px 3px 0;
+  background:
+    linear-gradient(to right, var(--paper-3) 0 9px, rgb(0 0 0 / 0.08) 9px 10px, transparent 10px),
+    var(--paper-2);
+  border: 1px solid rgb(0 0 0 / 0.16);
+  box-shadow:
+    0 1px 0 rgb(0 0 0 / 0.2),
+    0 36px 80px -34px rgb(0 0 0 / 0.85);
+}
+
+/* 背面：左頁。轉返正先讀得 */
+.fan-bei {
+  transform: rotateY(180deg);
+  border-radius: 3px 0 0 3px;
+  background:
+    linear-gradient(to left, rgb(40 30 15 / 0.16), rgb(40 30 15 / 0.05) 6%, transparent 14%),
+    var(--paper);
+  border: 1px solid rgb(0 0 0 / 0.14);
+  border-right: 0;
+}
+
+/* 轉到側面嗰陣變暗：正面越轉越暗，背面由暗轉光 */
+.fan-mian::after,
+.fan-bei::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(to left, rgb(0 0 0 / 0.5), rgb(0 0 0 / 0.2));
+  opacity: 0;
+}
+
+.fan-nei {
+  position: absolute;
+  inset: 0;
+  padding: 28px;
+}
+
+/* 熱區：成個封面就係掣，冇框冇字（同題名幕 `.mu-ti-kai` 一樣） */
+.fan-kai {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+
+.fan-kai:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  /* ── 起 · 行 · 落 ── */
+  .fan[data-anim="kai"] .fan-ye {
+    animation: fan-kai var(--dur) both;
+  }
+
+  .fan[data-anim="he"] .fan-ye {
+    animation: fan-he calc(var(--dur) * 0.8) both;
+  }
+
+  .fan[data-anim] .fan-recto::after {
+    animation: fan-ying var(--dur) both;
+  }
+
+  .fan[data-anim="kai"] .fan-mian::after {
+    animation: fan-mian-an var(--dur) both;
+  }
+
+  .fan[data-anim="kai"] .fan-bei::after {
+    animation: fan-bei-guang var(--dur) both;
+  }
+
+  /* 封面落定先，兩頁啲字先浮出嚟 */
+  .fan[data-anim="kai"] .fan-nei {
+    animation: fan-mo 700ms var(--motion-ease-scroll) calc(var(--dur) * 0.78) both;
+  }
+}
+
+/*
+ * 揭開：
+ *   0–14%   捏住提起：好慢，只轉 10° 同浮高少少
+ *   14–70%  行：快，轉到 170°
+ *   70–88%  落：過咗少少（182.5°）—— 紙有彈性
+ *   88–100% 返正，靜落嚟
+ */
+@keyframes fan-kai {
+  0% {
+    transform: rotateY(0deg) translateZ(0);
+    animation-timing-function: cubic-bezier(0.55, 0, 0.9, 0.4);
+  }
+  14% {
+    transform: rotateY(-10deg) translateZ(8px);
+    animation-timing-function: cubic-bezier(0.3, 0.1, 0.35, 1);
+  }
+  70% {
+    transform: rotateY(-170deg) translateZ(8px);
+    animation-timing-function: cubic-bezier(0.3, 0, 0.5, 1);
+  }
+  88% {
+    transform: rotateY(-182.5deg) translateZ(0);
+    animation-timing-function: cubic-bezier(0.4, 0, 0.3, 1);
+  }
+  100% {
+    transform: rotateY(-180deg) translateZ(0);
+  }
+}
+
+/* 合上：唔使提起，一下拎返埋，落位輕輕過少少 */
+@keyframes fan-he {
+  0% {
+    transform: rotateY(-180deg) translateZ(0);
+    animation-timing-function: cubic-bezier(0.4, 0, 0.3, 1);
+  }
+  80% {
+    transform: rotateY(2deg) translateZ(4px);
+    animation-timing-function: cubic-bezier(0.4, 0, 0.3, 1);
+  }
+  100% {
+    transform: rotateY(0deg) translateZ(0);
+  }
+}
+
+@keyframes fan-ying {
+  0% {
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  62% {
+    opacity: 0.35;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes fan-mian-an {
+  0% {
+    opacity: 0;
+  }
+  42%,
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fan-bei-guang {
+  0%,
+  42% {
+    opacity: 1;
+  }
+  80%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes fan-mo {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fan-ye {
+    transition: none !important;
+  }
+}
+
+/*
+ * ── 手機：得一版 ──
+ *
+ * 兩版擺唔落。舞台收成一版闊，右頁同封面都由 0 起；揭開嗰陣封面
+ * 繞左邊（書脊）轉出畫面 —— 淨低右頁，同之前 `Book` 喺手機只出 recto 一樣。
+ * 左頁（封面背面）喺手機睇唔到，所以 caller 唔可以將必需嘅嘢單獨擺喺左頁。
+ */
+@container (max-width: 700px) {
+  .fan {
+    --w: min(400px, 92cqi);
+    width: var(--w);
+  }
+
+  .fan-recto,
+  .fan-ye {
+    left: 0;
+  }
+
+  /* 轉出去之後唔好喺左邊留一條邊 */
+  .fan[data-state="open"]:not([data-anim]) .fan-ye {
+    visibility: hidden;
   }
 }

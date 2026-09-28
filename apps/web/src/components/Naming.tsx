@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Book } from "@/components/Book";
+import { BookFlip } from "@/components/BookFlip";
 import { Link } from "@/i18n/navigation";
 import { FlowChrome } from "@/components/FlowChrome";
 import { Zhanjuan } from "@/components/Zhanjuan";
@@ -54,6 +54,8 @@ export function Naming({
   /* 成幕行完之前，本書撳唔郁。 */
   const [ready, setReady] = useState(false);
   const [open, setOpen] = useState(false);
+  /* 封面落定咗未。展卷要等佢 —— 唔好喺封面仲喺度翻嗰陣，底下已經畫緊界欄。 */
+  const [landed, setLanded] = useState(false);
 
   useEffect(() => {
     const still = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -89,12 +91,12 @@ export function Naming({
       data-ready={ready ? "1" : "0"}
       data-open={open ? "1" : "0"}
     >
-      <Book
-        state={open ? "open" : "titled"}
+      <BookFlip
+        open={open}
+        onOpened={() => setLanded(true)}
         label={`${name}命書`}
-        spine={`${name}命書`}
         cover={
-          <div className="flex h-full flex-col justify-between p-7">
+          <div className="flex h-full flex-col justify-between p-7 ps-10">
             <span className="font-latin text-cap uppercase tracking-[0.42em] text-ink-3">
               GUAN WEI
             </span>
@@ -134,7 +136,7 @@ export function Naming({
            * 攞唔到就乜都唔出：一版白紙好過一版寫住別人嘅序。
            */
           preface ? (
-            <div className="h-full p-7">
+            <div className="h-full">
               <p className="font-sans text-cap tracking-[0.2em] text-ink-3">{preface.title}</p>
               <p className="mt-5 text-sm leading-[1.95] text-ink-2">{preface.lead}</p>
             </div>
@@ -150,12 +152,12 @@ export function Naming({
            * 呢一幕嘅 AC 係「**冇任何掣**」，而一個要解釋「嗰十二個其實
            * 撳唔到」先算數嘅畫面，唔叫冇掣。所以索性未開就唔起。
            */
-          open && chart ? (
+          landed && chart ? (
             /*
              * 展卷（E6）：界欄逐條畫出成十二宮，星以點落位，
              * 然後先出真盤。呢一幕唔係 loading —— 盤喺題名嗰陣已經算好。
              */
-            <div className="flex h-full items-center p-4">
+            <div className="flex h-full items-center">
               <div className="w-full" style={{ maxWidth: 400 }}>
                 <Zhanjuan>
                   <ChartPane chart={chart} name={name} />

@@ -1,9 +1,9 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { Book } from "@/components/Book";
 import { Naming } from "@/components/Naming";
 import { FlowChrome } from "@/components/FlowChrome";
+import { BookFlip } from "@/components/BookFlip";
 import { castChart, type CastOutcome } from "@/app/[locale]/cast/actions";
 import {
   EMPTY_DRAFT,
@@ -165,12 +165,13 @@ export function Luokuan() {
     <FlowChrome>
       {/* ⚠ 同題名幕共用一個版位 —— 書脊唔可以由跨頁跳去合埋（見 globals.css）。 */}
       <div className="mu-wei">
-        <Book
-          state="spread"
+        {/* 攤開嘅書（揭書元件，冇動畫）：書脊喺正中，題名幕合埋嗰陣右頁唔郁 */}
+        <BookFlip
+          open
           label="落款"
           cover={null}
           verso={
-            <div className="h-full p-7">
+            <div className="h-full">
               <p className="font-sans text-cap tracking-[0.2em] text-ink-3">
                 目　次
               </p>
@@ -192,7 +193,7 @@ export function Luokuan() {
             </div>
           }
           recto={
-            <div className="flex h-full flex-col p-7">
+            <div className="flex h-full flex-col">
               {/* 已答嘅留喺上面，淡到 20% */}
               <div className="flex flex-col gap-2">
                 {answered.map((s) => (
