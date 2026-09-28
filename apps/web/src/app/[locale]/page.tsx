@@ -3,7 +3,7 @@ import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { routing } from '@/i18n/routing';
 import { Link } from '@/i18n/navigation';
 import { Seal } from '@/components/Seal';
-import { StarWindow } from '@/components/StarWindow';
+import { NightScene } from '@/components/NightScene';
 import { ResumeLink } from '@/components/ResumeLink';
 import { MARK, OG_IMAGE } from '@/lib/site';
 
@@ -81,9 +81,7 @@ export default async function RuZhai({ params }: { params: Promise<{ locale: str
 
   return (
     <main className="ye">
-      <div className="ye-tu" aria-hidden="true" />
-      <StarWindow />
-      <div className="ye-an" aria-hidden="true" />
+      <NightScene variant="home" />
 
       <div className="relative mx-auto flex min-h-svh w-full max-w-[1280px] flex-col px-6 pb-10 pt-[calc(var(--header)+40px)] md:px-10">
         <div className="flex flex-1 flex-col justify-end pb-14 md:justify-center md:pb-10">

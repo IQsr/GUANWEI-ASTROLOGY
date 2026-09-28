@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { setRequestLocale } from 'next-intl/server';
 import { routing } from '@/i18n/routing';
 import { Luokuan } from '@/components/Luokuan';
+import { NightScene } from '@/components/NightScene';
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -34,7 +35,12 @@ export default async function CastPage({ params }: { params: Promise<{ locale: s
   setRequestLocale(locale);
 
   return (
-    <main className="juan tai">
+    /*
+     * 夜景桌面（重新設計）：首頁嗰間書房延續落嚟，暗落去，本書喺中間。
+     * `ye-ink` 令桌面上嘅字用夜色，本書入面照舊係紙（見 globals.css）。
+     */
+    <main className="juan tai ye-ink">
+      <NightScene variant="desk" />
       <Luokuan />
     </main>
   );

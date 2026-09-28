@@ -27,7 +27,8 @@ import { useQuiet } from '@/lib/quiet';
  *
  * ── 兩個樣 ──
  *
- *   首頁：透明，疊喺夜景上面（`data-over="night"`）
+ *   首頁：透明，疊喺夜景上面（`data-over="night"` ＋ `data-float`）
+ *   落款：透明、夜色字，但照舊黏喺頂佔位（背後係固定嘅夜景）
  *   其餘：黏喺頂、紙底半透
  */
 
@@ -45,7 +46,9 @@ function isAt(pathname: string, href: string) {
 
 export function SiteHeader() {
   const pathname = usePathname();
-  const overNight = pathname === '/';
+  /* 首頁同落款都係夜景：透明、夜色字。只有首頁疊喺相上面唔佔位。 */
+  const onHome = pathname === '/';
+  const overNight = onHome || pathname === '/cast';
   const [open, setOpen] = useState(false);
   const quiet = useQuiet();
 
@@ -58,7 +61,7 @@ export function SiteHeader() {
   if (quiet) return null;
 
   return (
-    <header className="dao" data-over={overNight ? 'night' : undefined}>
+    <header className="dao" data-over={overNight ? 'night' : undefined} data-float={onHome ? '' : undefined}>
       <div className="dao-nei">
         <Link href="/" className="flex flex-col leading-none" aria-label={`${MARK} 首頁`}>
           <span className="font-serif text-[1.625rem] font-medium tracking-[0.32em]">{MARK}</span>
@@ -79,7 +82,7 @@ export function SiteHeader() {
         </nav>
 
         <div className="flex items-center gap-4">
-          {/* 夜景上面唔出日夜讀：首頁永遠係夜，撳咗都見唔到分別 */}
+          {/* 夜景上面唔出日夜讀：首頁同落款永遠係夜、本書永遠係紙，撳咗都見唔到分別 */}
           {overNight ? null : (
             <span className="hidden sm:inline-flex">
               <ThemeToggle dayLabel="日讀" nightLabel="夜讀" />

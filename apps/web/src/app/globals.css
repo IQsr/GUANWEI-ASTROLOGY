@@ -17,7 +17,15 @@
      星空藍 #152B39 深邃思考 · 木質棕 #AA6F38 溫暖沉穩
    ============================================================ */
 
-:root {
+/*
+ * ⚠ 第二個選擇器：落款桌上嗰本書（重新設計 · 夜景桌面）。
+ *
+ * 背景係夜晚、而且唔跟日夜讀轉，但本書永遠係紙 —— 所以本書嗰格
+ * 自己再宣告一次日讀嘅值。`:root` 嘅夜讀規則只套喺 `:root` 本身，
+ * 一個元素自己宣告嘅變數贏繼承返嚟嘅，夜讀模式之下本書都係紙色。
+ */
+:root,
+.ye-ink .shu-wrap {
   /* ── 紙 ── */
   --paper: #eee6d8;
   --paper-2: #e6dcc9;
@@ -1685,9 +1693,21 @@
   color: var(--ink);
 }
 
-.dao[data-over="night"] {
+/* 首頁：疊喺相上面，唔佔位 */
+.dao[data-float] {
   position: absolute;
   inset-inline: 0;
+}
+
+/* 落款：導覽照舊黏喺頂，本書捲上去唔好同導覽啲字疊埋 —— 少少半透深底 */
+.dao[data-over="night"]:not([data-float]) {
+  background: rgb(11 13 11 / 0.35);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* 夜景上面（首頁、落款）：透明、夜色字 */
+.dao[data-over="night"] {
   border-bottom-color: transparent;
   background: none;
   backdrop-filter: none;
@@ -1890,5 +1910,94 @@
     inset-inline: 2.6em 40px;
     height: 1px;
     background: var(--night-rule);
+  }
+}
+
+/* ============================================================
+   落款桌面：夜景延續落去，壓暗，本書喺中間打開（重新設計）
+
+   首頁撳「起盤」之後唔再跳去一版紙色頁：同一間書房、同一個窗，
+   暗落去到大約三成亮，本書喺正中。落款 → 題名 → 展卷三幕都係噉。
+   讀章、目次、書齋照舊紙色 —— 長篇中文喺深底讀耐會攰。
+   ============================================================ */
+
+.ye-desk {
+  position: fixed;
+  inset: 0;
+  /* ⚠ -1，唔係 0：佢喺 `.ye-ink`（z-index 1）個疊層入面，
+     0 會畫喺本書上面；-1 先企喺冇定位嘅內容後面。 */
+  z-index: -1;
+  min-height: 0;
+  pointer-events: none;
+}
+
+/* 微微模糊：本書先企得出。唔 scale —— 張相同星遮罩要對得正 */
+.ye-desk .ye-tu {
+  filter: blur(2.5px) saturate(0.85);
+}
+
+.ye-dim {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(ellipse at 50% 55%, rgb(11 13 11 / 0.55), rgb(11 13 11 / 0.8) 75%),
+    rgb(11 13 11 / 0.2);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  /* 由首頁嗰個光度暗落去 */
+  .ye-dim {
+    animation: ye-an-luo var(--dur-3) var(--motion-ease-ink) both;
+  }
+}
+
+@keyframes ye-an-luo {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/*
+ * 桌面上面嘅字（卷首、題名嗰行「揭開」、「讀下去」）用夜色；
+ * 本書入面喺上面 `:root, .ye-ink .shu-wrap` 度轉返紙色。
+ */
+.ye-ink {
+  --ink: var(--night-ink);
+  --ink-2: var(--night-ink-2);
+  --ink-3: var(--night-ink-3);
+  --rule: var(--night-rule);
+  --rule-2: rgb(238 230 216 / 0.12);
+  --gold-ink: #c9b283;
+  position: relative;
+  z-index: 1;
+  color: var(--ink);
+}
+
+/*
+ * ⚠ 本書入面要重新設一次 `color`。
+ *
+ * 變數喺 `.shu-wrap` 轉返紙色，但 `color` 係繼承**計好咗嘅值**，
+ * 唔係變數 —— 冇自己設顏色嘅字（例如封面個名）會照樣繼承 `.ye-ink`
+ * 嘅夜色，紙上面淺字等於隱形。第一次行題名幕就見到個名唔見咗。
+ */
+.ye-ink .shu-wrap {
+  color: var(--ink);
+}
+
+/* 深底上面嘅一本紙書要有啲厚度：一層落地影 */
+.ye-ink .shu {
+  box-shadow:
+    0 2px 0 rgb(0 0 0 / 0.25),
+    0 40px 90px -30px rgb(0 0 0 / 0.85);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  /* 本書喺暗落去之後淡入 */
+  .ye-ink .mu-wei {
+    animation: mu-in var(--dur-3) var(--motion-ease-scroll) 240ms both;
   }
 }
