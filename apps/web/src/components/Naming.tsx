@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
 import { BookFlip } from "@/components/BookFlip";
+import { TurnEdges } from "@/components/TurnEdges";
 import { PageTurnLink } from "@/components/PageTurnLink";
 import { FlowChrome } from "@/components/FlowChrome";
 import { Zhanjuan } from "@/components/Zhanjuan";
@@ -54,6 +55,8 @@ export function Naming({
 }) {
   /* 成幕行完之前，本書撳唔郁。 */
   const t = useTranslations("naming");
+  const tr = useTranslations("reading");
+  const tn = useTranslations("nav");
   const [ready, setReady] = useState(false);
   const [open, setOpen] = useState(false);
   /* 封面落定咗未。展卷要等佢 —— 唔好喺封面仲喺度翻嗰陣，底下已經畫緊界欄。 */
@@ -96,6 +99,17 @@ export function Naming({
       <BookFlip
         open={open}
         onOpened={() => setLanded(true)}
+        /*
+         * 展卷之後撳右邊（或者 →）翻到目次 —— 同「讀下去」同一個去處。
+         * 左邊冇：呢個係本書第一個攤開，前面冇頁。
+         * ⚠ 封面落定、本書寫入咗先出：題名幕嗰陣「冇任何掣」（E5）；
+         * 冇 bookId（寫唔入 DB）就冇地方翻去，唔好扮有。
+         */
+        edges={
+          landed && bookId ? (
+            <TurnEdges next={{ href: `/book/${bookId}`, label: tr("turnTo", { title: tn("contents") }) }} />
+          ) : null
+        }
         label={t("book", { name })}
         cover={
           <div className="flex h-full flex-col justify-between p-7 ps-10">

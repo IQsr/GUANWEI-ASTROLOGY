@@ -31,6 +31,7 @@ export function BookFlip({
   onToggle,
   onOpened,
   overlay,
+  edges,
   label,
   cover,
   verso,
@@ -43,6 +44,8 @@ export function BookFlip({
   onOpened?: () => void;
   /** 疊喺封面上面嘅嘢，例如題名幕嗰層熱區（`.mu-ti-kai`）。 */
   overlay?: ReactNode;
+  /** 撳左右兩邊翻頁（`TurnEdges`）。跟本書定位，所以擺喺書入面。 */
+  edges?: ReactNode;
   label: string;
   cover: ReactNode;
   verso: ReactNode;
@@ -86,6 +89,8 @@ export function BookFlip({
           if (e.animationName === (anim === 'kai' ? 'fan-mo' : 'fan-he')) setAnim(null);
         }}
       >
+        {edges}
+
         {/* 右頁：一路喺度，唔郁 */}
         <div className="fan-recto" {...(open ? {} : { inert: true })}>
           <div className="fan-nei">{recto}</div>

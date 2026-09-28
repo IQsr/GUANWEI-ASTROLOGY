@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState, type ReactNode } from 'react';
 import { useTranslations } from 'next-intl';
 import { Chart } from '@/components/Chart';
-import { PageTurnLink } from '@/components/PageTurnLink';
+import { TurnEdges, type PageTurn } from '@/components/TurnEdges';
 import { OPENING_SLOT, chartStateAt, resolveSlot } from '@/lib/suidu';
 import type { Chart as ZChart } from '@guanwei/ziwei/contract';
 
@@ -31,8 +31,7 @@ import type { Chart as ZChart } from '@guanwei/ziwei/contract';
  * 滑鼠移過去先見到一條影同一個箭嘴，平時唔搶眼。
  */
 
-/** 翻去邊：去處同埋讀屏／tooltip 講嘅名。 */
-export type PageTurn = { href: string; label: string };
+export type { PageTurn };
 export function BookSpread({
   chart,
   palace,
@@ -58,30 +57,6 @@ export function BookSpread({
   const t = useTranslations('reading');
   const page = useRef<HTMLDivElement>(null);
   const book = useRef<HTMLElement>(null);
-  const prevRef = useRef<HTMLAnchorElement>(null);
-  const nextRef = useRef<HTMLAnchorElement>(null);
-
-  /*
-   * ← → 鍵翻頁：撳返同一條連結（同一個翻頁動畫、同一個去處）。
-   * 打緊字（輸入欄）或者撳住 Ctrl／Cmd／Alt 嗰陣唔攔 —— 嗰啲係瀏覽器自己嘅快捷鍵。
-   */
-  useEffect(() => {
-    const onKey = (e: KeyboardEvent) => {
-      if (e.defaultPrevented || e.metaKey || e.ctrlKey || e.altKey || e.shiftKey) return;
-      /* target 唔一定係元素（例如 window）—— 先確認先問 closest */
-      const el = e.target instanceof Element ? e.target : null;
-      if (el?.closest('input, textarea, select, [contenteditable="true"]')) return;
-      if (e.key === 'ArrowLeft' && prevRef.current) {
-        e.preventDefault();
-        prevRef.current.click();
-      } else if (e.key === 'ArrowRight' && nextRef.current) {
-        e.preventDefault();
-        nextRef.current.click();
-      }
-    };
-    window.addEventListener('keydown', onKey);
-    return () => window.removeEventListener('keydown', onKey);
-  }, []);
   const [slot, setSlot] = useState<string | null>(null);
   const [live, setLive] = useState(false);
 
@@ -145,32 +120,8 @@ export function BookSpread({
   return (
     <div className="shuzhuo">
       <article ref={book} className="shuzhuo-shu">
-        {/* 撳左邊：上一頁 */}
-        {prev ? (
-          <PageTurnLink
-            ref={prevRef}
-            direction="prev"
-            href={prev.href}
-            aria-label={prev.label}
-            title={prev.label}
-            className="shuzhuo-bian shuzhuo-bian-zuo"
-          >
-            <span aria-hidden="true">‹</span>
-          </PageTurnLink>
-        ) : null}
-        {/* 撳右邊：下一頁 */}
-        {next ? (
-          <PageTurnLink
-            ref={nextRef}
-            direction="next"
-            href={next.href}
-            aria-label={next.label}
-            title={next.label}
-            className="shuzhuo-bian shuzhuo-bian-you"
-          >
-            <span aria-hidden="true">›</span>
-          </PageTurnLink>
-        ) : null}
+        {/* 撳左邊翻前、撳右邊翻後；← → 一樣 */}
+        <TurnEdges prev={prev} next={next} />
         {/* 左頁：命盤。aria-hidden —— 盤面嘅資訊正文已經講晒，讀屏唔使讀兩次 */}
         <div className="shuzhuo-ye shuzhuo-zuo" aria-hidden="true">
           {top ? <div className="mb-6">{top}</div> : null}
