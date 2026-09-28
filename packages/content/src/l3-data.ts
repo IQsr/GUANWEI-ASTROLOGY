@@ -40,6 +40,8 @@ export function l3For(
   _p: Palace,
   _chart: Chart,
   matchedRuleIds: Set<string>,
+  /** 成本書已經用過嘅塊（見 assemble.ts `AssembleOptions.used`）。格局橫跨幾個宮，只准講一次。 */
+  used?: Set<string>,
 ): L3Block[] {
   const pick: L3Block[] = [];
   const rel = L3_BLOCKS.find((b) => b.kind === 'relation' && b.key === palace);
@@ -65,6 +67,8 @@ export function l3For(
       if (b.kind !== kind) continue;
       if (kind !== 'geju' && b.key !== palace) continue;
       if (!fires(b)) continue;
+      if (kind === 'geju' && used?.has(b.id)) continue;
+      used?.add(b.id);
       pick.push(b);
       return pick;
     }

@@ -62,6 +62,35 @@ for (let i = 0; i < N; i++) {
   BOOKS.push(toBookText(`c${i}`, ch));
 }
 
+/**
+ * ⚠ 一本書入面同一句唔准出兩次（2026-09）。
+ *
+ * 以前會：空宮借對宮主星，連嗰粒星嘅廟旺修飾語都借埋（命宮讀「日麗中天」，遷移再讀一次）；
+ * 格局橫跨三方四正（「祿馬交馳」財帛、官祿各講一次）。讀者見到嘅係「呢本書喺度抄自己」。
+ * 而家廟旺跟返星自己個宮，四化同格局成本書先到先得（assemble.ts `used`）。
+ */
+describe('一本書入面冇一句重複', () => {
+  it('一百二十本書，逐本檢查', () => {
+    const bad: string[] = [];
+    CHAPTERS.forEach((book, i) => {
+      const seen = new Map<string, string>();
+      for (const c of book) {
+        for (const seg of c.segments) {
+          for (const s of sentencesOf(seg.text)) {
+            if (s.replace(/[^㐀-鿿]/g, '').length < 10) continue;
+            const at = seen.get(s);
+            if (at && at !== c.palace) bad.push(`c${i} ${at}／${c.palace}：${s}`);
+            else if (at === undefined) seen.set(s, c.palace);
+          }
+        }
+      }
+    });
+    // eslint-disable-next-line no-console
+    if (bad.length) console.log(['', ...bad.slice(0, 15), ''].join('\n  '));
+    expect(bad).toEqual([]);
+  });
+});
+
 describe('一百二十本書', () => {
   it('全部排得出，而且冇兩本完全一樣', () => {
     expect(BOOKS.length).toBe(N);

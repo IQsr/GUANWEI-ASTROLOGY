@@ -188,6 +188,11 @@ function majorsIn(p: Palace): { name: string; brightness?: Brightness; sihua?: s
 export type AssembleOptions = {
   /** 輪替種 —— 一本書一個。同一本書永遠揀返同一句（AC 第一條）。 */
   seed: string;
+  /**
+   * 成本書已經用過嘅修飾語同格局塊（id）。`assembleAll()` 逐章傳落嚟 ——
+   * 同一句唔准喺一本書出兩次（2026-09）。單獨砌一章就唔使畀。
+   */
+  used?: Set<string>;
 };
 
 /**
@@ -302,10 +307,22 @@ export function assemble(
      * 四化係一個**機制**，C6 畀咗佢自己一個去重群，就係認咗佢獨立。
      * 一件獨立嘅嘢，唔應該因為佢唔係領銜星就唔講。
      */
+    /*
+     * ⚠ 一本書入面同一句唔出兩次（2026-09）。
+     *
+     * 空宮借對宮主星嗰陣，以前連嗰粒星嘅廟旺修飾語都一齊借 —— 但對宮嗰章自己已經講過。
+     * 讀者喺命宮讀到「日麗中天：…」，翻去遷移又讀一次。廟旺係嗰粒星喺**佢自己個宮**嘅強弱，
+     * 屬於對宮嗰章，所以借星嘅章唔貼。其餘（四化、格局）用 `used` 擋：先到先得。
+     */
+    const fresh = (id: string) => {
+      if (opts.used?.has(id)) return false;
+      opts.used?.add(id);
+      return true;
+    };
     const leadStar = stars.find((x) => x.name === lead.star.name) ?? lead.star;
-    if (leadStar.brightness) {
+    if (leadStar.brightness && borrowed === null) {
       const m = brightnessModifier(leadStar.name, leadStar.brightness);
-      if (m) {
+      if (m && fresh(m.id)) {
         structure.push(m.text);
         ids.push(m.id);
       }
@@ -313,7 +330,7 @@ export function assemble(
     for (const st of p.stars) {
       if (!st.sihua) continue;
       const m = sihuaModifier(st.name, st.sihua);
-      if (!m) continue;
+      if (!m || !fresh(m.id)) continue;
       structure.push(m.text);
       ids.push(m.id);
       rules.push(`sihua.natal-${st.sihua}.${palace}`);
@@ -360,7 +377,7 @@ export function assemble(
   }
 
   /* ── 牽動（L3 結構層）────────────────────────────────── */
-  const l3 = l3For(palace, p, chart, matchedRuleIds);
+  const l3 = l3For(palace, p, chart, matchedRuleIds, opts.used);
   if (l3.length === 0) {
     missing.push({ slot: '牽動', reason: `${palace} 冇 L3 結構塊命中 —— 三方四正、空宮、身宮、格局全部冇` });
   } else {
@@ -480,15 +497,31 @@ export function assemble(
 }
 
 /** 十二宮逐章。 */
+/** 讀者讀嘅次序：命宮起，順住十二宮。同 apps/web `PALACE_ORDER` 一樣。 */
+export const READING_ORDER = ['命宮', '兄弟', '夫妻', '子女', '財帛', '疾厄', '遷移', '僕役', '官祿', '田宅', '福德', '父母'] as const;
+
 export function assembleAll(
   chart: Chart,
   byTopic: Record<string, InferResult>,
   opts: AssembleOptions,
 ): Chapter[] {
-  return chart.palaces
-    .map((p) => p.name)
-    .filter((n) => PALACE_TOPIC[n])
-    .map((n) => assemble(chart, n, byTopic[PALACE_TOPIC[n]!]!, opts));
+  /*
+   * 成本書共用一個 `used`：格局橫跨三方四正，一個「祿馬交馳」以前財帛、官祿各講一次。
+   *
+   * ⚠ 要跟**讀者讀嘅次序**砌（命宮、兄弟、夫妻…），唔係 `chart.palaces` 嘅地支次序 ——
+   * 先讀到嗰章攞，後面嗰章讓。砌完照舊按地支次序回，唔郁呢個函數嘅輸出次序。
+   */
+  const used = new Set<string>();
+  const names = chart.palaces.map((p) => p.name).filter((n) => PALACE_TOPIC[n]);
+  const rank = (n: string) => {
+    const i = (READING_ORDER as readonly string[]).indexOf(n);
+    return i === -1 ? READING_ORDER.length : i;
+  };
+  const built = new Map<string, Chapter>();
+  for (const n of [...names].sort((a, b) => rank(a) - rank(b))) {
+    built.set(n, assemble(chart, n, byTopic[PALACE_TOPIC[n]!]!, { ...opts, used }));
+  }
+  return names.map((n) => built.get(n)!);
 }
 
 /** 診斷：全盤有幾多個插槽揀唔到塊。 */
