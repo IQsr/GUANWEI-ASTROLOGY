@@ -1,3 +1,5 @@
+import zhMessages from '../messages/zh-Hant.json';
+import enMessages from '../messages/en.json';
 import { describe, expect, it } from 'vitest';
 import { readFileSync, readdirSync, statSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
@@ -35,9 +37,11 @@ describe('裁開去邊', () => {
     expect(cutTarget('b1', false).href).toBe('/pay/b1');
   });
 
-  it('兩邊都叫「裁開」—— 唔係「升級」唔係「解鎖」', () => {
-    expect(cutTarget('b1', true).label).toBe('裁開');
-    expect(cutTarget('b1', false).label).toBe('裁開');
+  /** 粒掣嘅字搬咗去 messages（`weicai.cut`）：中文叫「裁開」，英文唔准變成推銷字 */
+  it('叫「裁開」—— 唔係「升級」唔係「解鎖」', () => {
+    expect(zhMessages.weicai.cut).toBe('裁開');
+    for (const word of ['upgrade', 'unlock', 'buy', 'premium'])
+      expect(enMessages.weicai.cut.toLowerCase()).not.toContain(word);
   });
 });
 

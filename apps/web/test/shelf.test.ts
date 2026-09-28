@@ -1,5 +1,11 @@
 import { describe, expect, it } from 'vitest';
-import { isEmptyShelf, shelf, type ShelfBook } from '@/lib/shelf';
+import { isEmptyShelf, shelf as shelfOf, shelfView as shelfViewOf, type ShelfBook } from '@/lib/shelf';
+import zh from '../messages/zh-Hant.json';
+
+/** 書脊嘅字由 messages 嚟 —— 測嘅就係讀者見到嘅字。 */
+const W = { untitled: zh.shelf.untitled, newBook: zh.shelf.newBook };
+const shelf = (b: Parameters<typeof shelfOf>[0]) => shelfOf(b, W);
+const shelfView = (p: Parameters<typeof shelfViewOf>[0]) => shelfViewOf(p, W);
 
 /**
  * 工單 E3 驗收標準二、三（次序、朱砂、空狀態）。
@@ -138,7 +144,7 @@ describe('⚠ 在讀嗰本轉朱砂', () => {
 
 /* ── shelfView ────────────────────────────────────────────── */
 
-import { shelfView, type ShelfPort, type ShelfReader } from '@/lib/shelf';
+import { type ShelfPort, type ShelfReader } from '@/lib/shelf';
 
 function port(
   reader: ShelfReader | null,

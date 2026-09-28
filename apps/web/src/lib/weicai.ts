@@ -28,7 +28,8 @@ import { cutHref } from '@/lib/journey';
 
 export const CUT_MS = 1600;
 
-export type CutTarget = { href: string; label: string };
+/** 去邊。粒掣嘅字（「裁開」）喺 messages：`weicai.cut`。 */
+export type CutTarget = { href: string };
 
 /**
  * 撳「裁開」去邊（架構 §6：`/claim`（未認領先認領）→ `/pay/[bookId]`）。
@@ -42,10 +43,8 @@ export function cutTarget(bookId: string, isAnonymous: boolean, slug?: string): 
    * 帶住章名（重新設計第二期）：認領同付款兩條路都記住「嗰一章」，
    * 裁完返得去 —— 之前行完成條路只會落返書齋。
    */
-  if (slug) return { href: cutHref(bookId, slug, isAnonymous), label: '裁開' };
-  return isAnonymous
-    ? { href: '/claim', label: '裁開' }
-    : { href: `/pay/${bookId}`, label: '裁開' };
+  if (slug) return { href: cutHref(bookId, slug, isAnonymous) };
+  return isAnonymous ? { href: '/claim' } : { href: `/pay/${bookId}` };
 }
 
 /**

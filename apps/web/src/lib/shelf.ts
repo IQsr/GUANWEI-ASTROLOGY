@@ -37,7 +37,10 @@ function at(book: ShelfBook): number {
   return Date.parse(book.lastReadAt ?? book.createdAt);
 }
 
-export function shelf(books: ShelfBook[]): Spine[] {
+/** 書脊上面兩個固定嘅字（messages `shelf.untitled`、`shelf.newBook`）。lib 唔寫死語言。 */
+export type ShelfWords = { untitled: string; newBook: string };
+
+export function shelf(books: ShelfBook[], w: ShelfWords): Spine[] {
   /*
    * ⚠ `blank` 唔畫。
    *
@@ -62,14 +65,14 @@ export function shelf(books: ShelfBook[]): Spine[] {
 
   const spines: Spine[] = sorted.map((b) => ({
     key: b.id,
-    label: b.name ?? '未題名',
+    label: b.name ?? w.untitled,
     href: `/book/${b.id}`,
     kind: b.state === 'titled' ? 'titled' : 'awaiting',
     reading: b.id === readingId,
   }));
 
   /* 永遠喺最右。空書架就淨係得佢一條。 */
-  spines.push({ key: 'new', label: '＋ 新書', href: '/cast', kind: 'new', reading: false });
+  spines.push({ key: 'new', label: w.newBook, href: '/cast', kind: 'new', reading: false });
 
   return spines;
 }
@@ -114,7 +117,7 @@ export type ShelfView =
    */
   | { kind: 'unavailable' };
 
-export async function shelfView(port: ShelfPort): Promise<ShelfView> {
+export async function shelfView(port: ShelfPort, w: ShelfWords): Promise<ShelfView> {
   let reader: ShelfReader | null;
   let books: ShelfBook[];
 
@@ -128,7 +131,7 @@ export async function shelfView(port: ShelfPort): Promise<ShelfView> {
 
   return {
     kind: 'ok',
-    spines: shelf(books),
+    spines: shelf(books, w),
     prompt: reader
       ? claimPromptFor('shelf', {
           isAnonymous: reader.isAnonymous,

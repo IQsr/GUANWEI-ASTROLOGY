@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import { parseReading, type Reading } from '@/lib/journey';
 import { readSession } from '@/lib/local';
@@ -16,13 +17,14 @@ import { readSession } from '@/lib/local';
  * 呢條返回只喺 client 出，冇記錄就乜都唔出，唔會留一個空位。
  */
 export function ReturnToReading({ fallback }: { fallback?: { href: string; label: string } }) {
+  const t = useTranslations('chapter');
   const [reading, setReading] = useState<Reading | null>(null);
 
   useEffect(() => {
     setReading(parseReading(readSession('reading')));
   }, []);
 
-  const to = reading ? { href: reading.href, label: `回到《${reading.title}》` } : fallback;
+  const to = reading ? { href: reading.href, label: t('returnTo', { title: reading.title }) } : fallback;
   if (!to) return <span />;
 
   return (

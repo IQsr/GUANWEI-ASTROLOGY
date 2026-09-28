@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { setRequestLocale } from 'next-intl/server';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { routing } from '@/i18n/routing';
 import { BookContents } from '@/components/BookContents';
 import { Juanshou } from '@/components/Juanshou';
@@ -21,10 +21,15 @@ export function generateStaticParams() {
  */
 export const dynamicParams = true;
 
-export const metadata: Metadata = {
-  title: '命書',
-  robots: { index: false, follow: false },
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'book' });
+  return { title: t('metaTitle'), robots: { index: false, follow: false } };
+}
 
 /**
  * ⚠ 呢一版一定要 dynamic，唔可以靜態。
@@ -54,6 +59,8 @@ export default async function BookPage({
 }) {
   const { locale, bookId } = await params;
   setRequestLocale(locale);
+  const t = await getTranslations('book');
+  const tShelf = await getTranslations('shelf');
 
   const view = await contentsView(serverJuan(), bookId);
 
@@ -61,7 +68,7 @@ export default async function BookPage({
     <main className="juan tai">
       <Juanshou
         back="shelf"
-        title={view.kind === 'ok' ? view.title : undefined}
+        title={view.kind === 'ok' ? (view.title ?? tShelf('untitled')) : undefined}
         nav="book"
         step={3}
       />
@@ -71,8 +78,8 @@ export default async function BookPage({
       ) : (
         <p className="banxin text-body leading-[1.95] text-ink-2">
           {view.kind === 'missing'
-            ? '書齋裡沒有這一本。'
-            : '一時找不到這本書。書沒有不見 —— 請過一會再試一次。'}
+            ? t('missing')
+            : t('unavailable')}
         </p>
       )}
     </main>

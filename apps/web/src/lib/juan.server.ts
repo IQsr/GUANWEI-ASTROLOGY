@@ -45,7 +45,8 @@ export function serverJuan(): JuanPort {
       if (cutError) throw cutError;
 
       return {
-        title: book.title ?? '未題名',
+        /* 未題名：畫面自己出「未題名」（messages `shelf.untitled`） */
+        title: book.title ?? null,
         chapters: (rows ?? []) as ChapterMeta[],
         lastRead: book.last_read_chapter ?? null,
         cut: Boolean(cut),

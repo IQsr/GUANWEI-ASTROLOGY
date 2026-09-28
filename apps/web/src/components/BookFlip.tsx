@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState, type ReactNode } from 'react';
+import { useTranslations } from 'next-intl';
 
 /**
  * 揭書（落款 → 題名 → 展卷 用緊呢個；`Book` 留畀書架同樣板）
@@ -48,6 +49,7 @@ export function BookFlip({
   recto: ReactNode;
 }) {
   /* 只有「由一個狀態變去另一個」先播動畫；一入嚟就係最終狀態 */
+  const t = useTranslations('naming');
   const [anim, setAnim] = useState<'kai' | 'he' | null>(null);
   const first = useRef(true);
 
@@ -95,7 +97,7 @@ export function BookFlip({
           <div className="fan-mian" {...(open ? { inert: true } : {})}>
             {cover}
             {onToggle && !open ? (
-              <button type="button" className="fan-kai" aria-label={`揭開${label}`} onClick={onToggle} />
+              <button type="button" className="fan-kai" aria-label={t('openLabel', { label })} onClick={onToggle} />
             ) : null}
             {overlay}
           </div>

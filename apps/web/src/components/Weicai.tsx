@@ -1,3 +1,4 @@
+import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import { cutTarget, deckle, notches } from '@/lib/weicai';
 
@@ -24,6 +25,7 @@ export function Weicai({
   slug: string;
   isAnonymous: boolean;
 }) {
+  const t = useTranslations('weicai');
   const target = cutTarget(bookId, isAnonymous, slug);
 
   return (
@@ -32,7 +34,7 @@ export function Weicai({
         <p className="font-sans text-cap tracking-[0.2em] text-ink-3">{title}</p>
 
         <p className="mt-5 max-w-banxin text-body leading-[1.95] text-ink-2">
-          這一頁還沒有裁開。
+          {t('notYet')}
         </p>
 
         {slots.length > 0 ? (
@@ -55,12 +57,12 @@ export function Weicai({
         */}
       <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3">
         <Link href={target.href} className="btn-mo">
-          {target.label}
+          {t('cut')}
           <span className="btn-jiantou" aria-hidden="true">→</span>
         </Link>
         {/* 裁開之前講清楚會發生乜：一次過、成本書、唔係逐章 */}
         <p className="text-cap leading-[1.9] tracking-[0.08em] text-ink-3">
-          {isAnonymous ? '先留一個電郵保存這本書，再裁開。' : '裁一次，整本書的深度章都會開。'}
+          {isAnonymous ? t('hintAnonymous') : t('hintClaimed')}
         </p>
       </div>
     </div>

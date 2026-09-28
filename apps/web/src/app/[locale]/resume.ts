@@ -1,5 +1,6 @@
 'use server';
 
+import { getTranslations } from 'next-intl/server';
 import { shelf } from '@/lib/shelf';
 import { serverShelf } from '@/lib/shelf.server';
 import { resumeFrom } from '@/lib/journey';
@@ -17,7 +18,8 @@ import { resumeFrom } from '@/lib/journey';
  */
 export async function resumeAction(): Promise<{ href: string; label: string } | null> {
   try {
-    return resumeFrom(shelf(await serverShelf().books()));
+    const t = await getTranslations('shelf');
+    return resumeFrom(shelf(await serverShelf().books(), { untitled: t('untitled'), newBook: t('newBook') }));
   } catch {
     return null;
   }

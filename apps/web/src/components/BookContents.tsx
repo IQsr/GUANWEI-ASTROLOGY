@@ -1,3 +1,4 @@
+import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import { ThemeIcon } from '@/components/ThemeIcon';
 import { chapterHref, payHref } from '@/lib/journey';
@@ -32,6 +33,7 @@ export function BookContents({
   lastRead: string | null;
   cut: boolean;
 }) {
+  const t = useTranslations('book');
   const { preface, groups, rest } = groupChapters(chapters);
   const count = tally(chapters, cut);
   const resume = chapters.find((c) => c.slug === lastRead) ?? null;
@@ -48,10 +50,10 @@ export function BookContents({
         <span className="font-serif tracking-[0.08em] text-ink-2 group-hover:text-ink">{c.title}</span>
         <span className="flex-none text-cap tracking-[0.14em]">
           {c.slug === lastRead ? (
-            <span className="text-gold-ink">讀到這裡</span>
+            <span className="text-gold-ink">{t('readHere')}</span>
           ) : isUncut(c) ? (
             /* 未裁章照樣列出，唔收埋（架構 §6） */
-            <span className="text-ink-3">未裁</span>
+            <span className="text-ink-3">{t('uncutTag')}</span>
           ) : (
             <span aria-hidden="true" className="text-ink-3 opacity-0 transition-opacity group-hover:opacity-100">
               →
@@ -66,25 +68,25 @@ export function BookContents({
     <div className="banxin flex flex-col gap-10">
       {/* 一、二：幾多章 ＋ 下一步 */}
       <div className="flex flex-col gap-6">
-        <p className="text-lead leading-[1.9] text-ink-2">從命盤，慢慢認識自己。</p>
+        <p className="text-lead leading-[1.9] text-ink-2">{t('intro')}</p>
         <p className="text-cap tracking-[0.16em] text-ink-3" data-nums>
-          共 {count.total} 章
+          {t('total', { n: count.total })}
           <span className="mx-3 text-rule">·</span>
-          免費 {count.free} 章
+          {t('free', { n: count.free })}
           {count.uncut > 0 ? (
             <>
-              <span className="mx-3 text-rule">·</span>未裁 {count.uncut} 章
+              <span className="mx-3 text-rule">·</span>{t('uncut', { n: count.uncut })}
             </>
           ) : (
             <>
-              <span className="mx-3 text-rule">·</span>全書已裁開
+              <span className="mx-3 text-rule">·</span>{t('allCut')}
             </>
           )}
         </p>
         {start ? (
           <div>
             <Link href={chapterHref(bookId, start.slug)} className="btn-mo">
-              {resume ? `續讀《${resume.title}》` : `由《${start.title}》讀起`}
+              {resume ? t('resume', { title: resume.title }) : t('start', { title: start.title })}
               <span className="btn-jiantou" aria-hidden="true">→</span>
             </Link>
           </div>
@@ -97,10 +99,10 @@ export function BookContents({
           <ThemeIcon kind="xu" />
           <span className="flex-1">
             <span className="block font-serif text-lead tracking-[0.12em] sm:text-h3">{preface.title}</span>
-            <span className="mt-1 block text-sm tracking-[0.06em] text-ink-3">開卷：你的盤長甚麼樣子</span>
+            <span className="mt-1 block text-sm tracking-[0.06em] text-ink-3">{t('prefaceLead')}</span>
           </span>
           {preface.slug === lastRead ? (
-            <span className="text-cap tracking-[0.14em] text-gold-ink">讀到這裡</span>
+            <span className="text-cap tracking-[0.14em] text-gold-ink">{t('readHere')}</span>
           ) : (
             <span aria-hidden="true" className="text-ink-3">›</span>
           )}
@@ -115,9 +117,9 @@ export function BookContents({
               <ThemeIcon kind={theme.key} />
               <div>
                 <h2 id={`zhuti-${theme.key}`} className="text-h3 font-medium tracking-[0.14em]">
-                  {theme.title}
+                  {t(`themes.${theme.key}.title`)}
                 </h2>
-                <p className="mt-1 text-sm tracking-[0.06em] text-ink-3">{theme.lead}</p>
+                <p className="mt-1 text-sm tracking-[0.06em] text-ink-3">{t(`themes.${theme.key}.lead`)}</p>
               </div>
             </header>
             <ul className="mt-4">{list.map(row)}</ul>
@@ -128,7 +130,7 @@ export function BookContents({
         {rest.length > 0 ? (
           <section aria-labelledby="zhuti-rest" className="ka p-5 sm:p-6">
             <h2 id="zhuti-rest" className="text-h3 font-medium tracking-[0.14em]">
-              其餘各章
+              {t('rest')}
             </h2>
             <ul className="mt-4">{rest.map(row)}</ul>
           </section>
@@ -138,10 +140,9 @@ export function BookContents({
       {/* 「未裁」講一次，喺版尾 */}
       {count.uncut > 0 ? (
         <p className="border-t jielan pt-6 text-sm leading-[1.9] text-ink-3">
-          標著「未裁」的章，是這本書還沒裁開的頁 —— 章名照樣列出，讀得到它有甚麼，只是還沒打開。
-          裁一次，整本書的深度章都會開。
+          {t('uncutNote')}
           <Link href={payHref(bookId)} className="lian ms-2 text-sm">
-            關於裁書
+            {t('aboutCut')}
           </Link>
         </p>
       ) : null}

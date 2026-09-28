@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react';
+import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import type { Spine } from '@/lib/shelf';
 
@@ -56,6 +57,7 @@ export function Shelf({
 }
 
 function SpineEl({ spine, onTake }: { spine: Spine; onTake?: (key: string) => void }) {
+  const t = useTranslations('shelf');
   const inner = (
     <>
       {[...spine.label].map((zi, i) => (
@@ -69,7 +71,7 @@ function SpineEl({ spine, onTake }: { spine: Spine; onTake?: (key: string) => vo
     'data-kind': spine.kind,
     'data-reading': spine.reading ? '1' : '0',
     /* 直排書名要讀得返做一行字 —— 逐個字 render 之後讀屏會逐個字讀。 */
-    'aria-label': spine.kind === 'new' ? '新書' : spine.label,
+    'aria-label': spine.kind === 'new' ? t('newBookAria') : spine.label,
   };
 
   if (onTake) {

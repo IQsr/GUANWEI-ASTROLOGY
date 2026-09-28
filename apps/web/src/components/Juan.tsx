@@ -1,5 +1,6 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
 import { useState } from 'react';
 import { Link } from '@/i18n/navigation';
 import type { MarkedSegment } from '@/lib/zhu';
@@ -38,6 +39,7 @@ export function Juan({
   segments: MarkedSegment[];
   notes: Record<string, Note>;
 }) {
+  const t = useTranslations('chapter');
   const [open, setOpen] = useState<string | null>(null);
   /** 撳過就唔再係一個「新嘢」—— 個點退色，但唔會消失（消失會令字跳位）。 */
   const [seen, setSeen] = useState<Set<string>>(() => new Set());
@@ -91,7 +93,7 @@ export function Juan({
                     href={note.href}
                     className="text-indigo transition-colors duration-[240ms] hover:text-ink"
                   >
-                    藏經閣 · {note.term}
+                    {t('lexiconNote', { term: note.term })}
                   </Link>
                 </p>
               </div>

@@ -1,3 +1,4 @@
+import zhMessages from '../messages/zh-Hant.json';
 import { describe, expect, it } from 'vitest';
 import { groupChapters, tally, THEMES } from '@/lib/themes';
 import { FREE_SLUGS, tierOf } from '@/lib/chengshu';
@@ -43,7 +44,7 @@ describe('分法', () => {
   const of = (key: string) => g.groups.find((x) => x.theme.key === key)!.chapters.map((c) => c.slug);
 
   it('三個主題，照參考稿次序', () => {
-    expect(g.groups.map((x) => x.theme.title)).toEqual(['性格與天賦', '事業方向', '人際關係']);
+    expect(g.groups.map((x) => zhMessages.book.themes[x.theme.key].title)).toEqual(['性格與天賦', '事業方向', '人際關係']);
   });
 
   /** 免費嗰兩章（命宮、身宮）都喺第一個主題 —— 第一次打開，第一格就讀得。 */

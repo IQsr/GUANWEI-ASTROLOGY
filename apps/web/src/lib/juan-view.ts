@@ -21,7 +21,8 @@ export type ChapterMeta = {
 export type JuanPort = {
   /** 目錄：本書 ＋ 每一章嘅**行**（唔包正文）。 */
   contents(bookId: string): Promise<{
-    title: string;
+    /** null = 未題名（畫面用 messages `shelf.untitled`） */
+    title: string | null;
     chapters: ChapterMeta[];
     /** 上次讀到邊一章（`books.last_read_chapter`）。未讀過係 null。 */
     lastRead?: string | null;
@@ -49,7 +50,7 @@ export type JuanPort = {
 };
 
 export type ContentsView =
-  | { kind: 'ok'; title: string; chapters: ChapterMeta[]; lastRead: string | null; cut: boolean }
+  | { kind: 'ok'; title: string | null; chapters: ChapterMeta[]; lastRead: string | null; cut: boolean }
   | { kind: 'missing' }
   | { kind: 'unavailable' };
 

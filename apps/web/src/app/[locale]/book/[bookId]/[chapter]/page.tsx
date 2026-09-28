@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { setRequestLocale } from 'next-intl/server';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Juanshou, backToContents } from '@/components/Juanshou';
 import { routing } from '@/i18n/routing';
 import { Juan } from '@/components/Juan';
@@ -24,10 +24,15 @@ export function generateStaticParams() {
 
 export const dynamicParams = true;
 
-export const metadata: Metadata = {
-  title: '命書',
-  robots: { index: false, follow: false },
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'book' });
+  return { title: t('metaTitle'), robots: { index: false, follow: false } };
+}
 
 /**
  * 命書一章（工單 F1）
@@ -49,6 +54,7 @@ export default async function ChapterPage({
 }) {
   const { locale, bookId, chapter: rawChapter } = await params;
   setRequestLocale(locale);
+  const t = await getTranslations('book');
   /* 章名係中文：無論 Next 畀嘅係 encode 咗定未，都解返做章名先對（交接文件嗰個疑點）。 */
   const chapter = chapterParam(rawChapter);
 
@@ -61,8 +67,8 @@ export default async function ChapterPage({
         <Juanshou back="shelf" nav="book" step={3} />
         <p className="banxin text-body leading-[1.95] text-ink-2">
           {view.kind === 'missing'
-            ? '書齋裡沒有這一本。'
-            : '一時找不到這本書。書沒有不見 —— 請過一會再試一次。'}
+            ? t('missing')
+            : t('unavailable')}
         </p>
       </main>
     );
@@ -116,7 +122,7 @@ export default async function ChapterPage({
       {here ? <MarkRead bookId={bookId} slug={here.slug} title={here.title} /> : null}
 
       {!here ? (
-        <p className="banxin text-body leading-[1.95] text-ink-2">這本書沒有這一章。</p>
+        <p className="banxin text-body leading-[1.95] text-ink-2">{t('noChapter')}</p>
       ) : (
         <>
           {/* ⚠ 章名擺喺頁頭之下、正文之上 —— 佢係內容嘅一部分，唔係頁頭。 */}

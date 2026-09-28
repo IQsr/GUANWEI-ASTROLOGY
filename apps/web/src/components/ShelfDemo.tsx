@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { useTranslations } from 'next-intl';
 import { Book } from '@/components/Book';
 import { Shelf } from '@/components/Shelf';
 import { shelf, type ShelfBook } from '@/lib/shelf';
@@ -33,7 +34,8 @@ export function ShelfDemo() {
   const [scene, setScene] = useState('四本');
   const [taken, setTaken] = useState<string | null>(null);
 
-  const spines = shelf(BOOKS[scene]!);
+  const t = useTranslations('shelf');
+  const spines = shelf(BOOKS[scene]!, { untitled: t('untitled'), newBook: t('newBook') });
 
   return (
     <div>

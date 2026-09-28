@@ -24,31 +24,24 @@
 
 export type ThemeKey = 'xing' | 'shi' | 'ren';
 
+/** 主題名同細字喺 messages：`book.themes.<key>.title`／`.lead`。 */
 export type Theme = {
   key: ThemeKey;
-  title: string;
-  /** 參考稿閱讀卡嗰行細字 */
-  lead: string;
+  /** ⚠ 宮位名係內容資料（章嘅 slug），唔係介面文案 —— 唔搬。 */
   palaces: readonly string[];
 };
 
 export const THEMES: readonly Theme[] = [
   {
     key: 'xing',
-    title: '性格與天賦',
-    lead: '看見真實的自己',
     palaces: ['命宮', '身宮與五行局', '福德', '疾厄'],
   },
   {
     key: 'shi',
-    title: '事業方向',
-    lead: '找到適合的道路',
     palaces: ['官祿', '財帛', '遷移', '田宅'],
   },
   {
     key: 'ren',
-    title: '人際關係',
-    lead: '理解關係中的自己',
     palaces: ['夫妻', '子女', '兄弟', '僕役', '交友', '奴僕', '父母'],
   },
 ];

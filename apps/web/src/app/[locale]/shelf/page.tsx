@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { setRequestLocale } from 'next-intl/server';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { routing } from '@/i18n/routing';
 import { Link } from '@/i18n/navigation';
 import { Juanshou } from '@/components/Juanshou';
@@ -21,10 +21,15 @@ export function generateStaticParams() {
  *
  * noindex 無 OG：私密層（架構 §9）。
  */
-export const metadata: Metadata = {
-  title: '書齋',
-  robots: { index: false, follow: false },
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'shelf' });
+  return { title: t('metaTitle'), robots: { index: false, follow: false } };
+}
 
 /**
  * ⚠ 呢一版一定要 dynamic，唔可以靜態。
@@ -51,11 +56,12 @@ export default async function ShelfPage({ params }: { params: Promise<{ locale: 
   const { locale } = await params;
   setRequestLocale(locale);
 
-  const view = await shelfView(serverShelf());
+  const t = await getTranslations('shelf');
+  const view = await shelfView(serverShelf(), { untitled: t('untitled'), newBook: t('newBook') });
 
   return (
     <main className="juan tai">
-      <Juanshou title="書齋" nav="shelf" />
+      <Juanshou title={t('title')} nav="shelf" />
 
       {view.kind === 'unavailable' ? (
         /*
@@ -65,7 +71,7 @@ export default async function ShelfPage({ params }: { params: Promise<{ locale: 
          * 所以呢個狀態亦都冇「＋ 新書」。
          */
         <p className="banxin text-body leading-[1.95] text-ink-2">
-          一時搵不到你的書架。書沒有不見 —— 請過一會再試一次。
+          {t('unavailable')}
         </p>
       ) : (
         <>
@@ -75,19 +81,19 @@ export default async function ShelfPage({ params }: { params: Promise<{ locale: 
             */}
           {view.prompt ? (
             <p className="banxin mb-10 border-y jielan py-4 font-sans text-sm leading-[1.9] text-ink-3">
-              這些書只認得這一部瀏覽器。
+              {t('claimPrompt')}
               <Link
                 href="/claim"
                 className="ms-2 text-indigo transition-colors duration-[240ms] hover:text-ink"
               >
-                留一個電郵
+                {t('claimLink')}
               </Link>
             </p>
           ) : null}
 
           {/* 一句講清楚呢度係乜（重新設計第四期）：之前一入嚟淨係見到幾條直線 */}
           <p className="banxin mb-10 text-lead leading-[1.9] text-ink-2">
-            你的每一本命書都在這裡。撳書脊打開，或者在最右邊開一本新的。
+            {t('intro')}
           </p>
 
           <div className="banxin">
