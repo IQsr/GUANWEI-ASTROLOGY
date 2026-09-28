@@ -20,14 +20,16 @@ const full: Draft = {
   name: '李文卿',
   date: '1998-03-12',
   time: '07:40',
+  slot: null,
   noHour: false,
   placeIndex: 0,
   sex: 'male',
 };
 
 describe('五步', () => {
-  it('次序同架構 §3 一樣', () => {
-    expect([...STEPS]).toEqual(['name', 'date', 'time', 'place', 'sex']);
+  /** 出生地同時辰掉咗位（2026-09）：時辰選項要知出生地先計得出。 */
+  it('次序：出生地喺時辰前面', () => {
+    expect([...STEPS]).toEqual(['name', 'date', 'place', 'time', 'sex']);
   });
 
   it('答齊就完，唔使確認頁', () => {
@@ -91,8 +93,8 @@ describe('⚠ 一步都唔可以跳（架構 §3）', () => {
 });
 
 describe('已答嘅留喺上面', () => {
-  it('第三步嗰陣，上面有頭兩步', () => {
-    expect(answeredBefore('time', full)).toEqual(['name', 'date']);
+  it('時辰嗰步（第四步），上面有頭三步', () => {
+    expect(answeredBefore('time', full)).toEqual(['name', 'date', 'place']);
   });
 
   it('第一步嗰陣，上面乜都冇', () => {
@@ -127,6 +129,15 @@ describe('答完之後留喺上面嗰一行', () => {
 
   it('唔知時辰就明寫出嚟', () => {
     expect(summaryOf('time', { ...full, noHour: true })).toBe('不知時辰');
+  });
+
+  it('揀咗時辰就留返嗰個時辰同鐘面時間', () => {
+    expect(summaryOf('time', { ...full, time: '14:35', slot: '未時 · 13:36–15:35' })).toBe('未時 · 13:36–15:35');
+  });
+
+  /** 填準確時間唔再估時辰：鐘面同真太陽時唔同，估就會錯。 */
+  it('填準確時間就寫返個時間', () => {
+    expect(summaryOf('time', full)).toBe('07:40');
   });
 
   it('五步每一步都有一行可以留低', () => {

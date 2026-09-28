@@ -58,9 +58,16 @@ async function toNaming(page) {
   await btn.click();
   await page.getByLabel('出生日期').fill('1998-03-12');
   await btn.click();
-  await page.getByLabel('出生時間').fill('07:40');
-  await btn.click();
+  /*
+   * ⚠ 出生地喺時辰前面（2026-09），而且時辰係揀一格，唔係填時間。
+   * 呢度特登行「揀時辰」嗰條路：揀一格 → 排盤 → 題名，成條行得通先算。
+   */
   await page.getByLabel('出生地').selectOption('0');
+  await btn.click();
+  await page
+    .locator('[aria-label="揀一個時辰"] button', { hasText: '辰時' })
+    .first()
+    .click({ timeout: 10_000 });
   await btn.click();
   await page.getByRole('button', { name: '男', exact: true }).click();
   await page.waitForTimeout(150);

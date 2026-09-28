@@ -5,15 +5,20 @@
  *
  *   1 姓名　　最易答；呢個名之後會出現喺書上
  *   2 出生年月日（國曆）　引擎內部轉農曆，唔好要用戶自己轉
- *   3 時辰　　可以揀「唔知」→ 入分支，要有安撫文案
- *   4 出生地　真太陽時校正（經度）＋ 時區
+ *   3 出生地　真太陽時校正（經度）＋ 時區
+ *   4 時辰　　揀一個時辰（旁邊寫明鐘面幾點到幾點），或者填準確時間，
+ *            或者揀「唔知」→ 入分支，要有安撫文案
  *   5 性別　　大限順逆靠陰陽男女；最易卻步，所以擺喺已投入之後
+ *
+ * ⚠ 出生地同時辰掉咗位（2026-09，Issac 要「揀時辰唔使填時間」）。
+ * 時辰選項要知出生地先計得出：同一個未時，香港係鐘面 13:36–15:35，
+ * 倫敦夏天係 14:00 幾 —— 真太陽時校正跟經度同時區行（見 `lib/slots.ts`）。
  *
  * ⚠ 呢個檔淨係管**次序同答咗未**，唔管畫面，亦都唔識排盤 ——
  * 排盤喺 server action（架構 §9：引擎唔准落 client bundle）。
  */
 
-export const STEPS = ['name', 'date', 'time', 'place', 'sex'] as const;
+export const STEPS = ['name', 'date', 'place', 'time', 'sex'] as const;
 export type Step = (typeof STEPS)[number];
 
 export type Sex = 'male' | 'female';
@@ -22,8 +27,14 @@ export type Draft = {
   name: string;
   /** 國曆 yyyy-mm-dd。 */
   date: string;
-  /** hh:mm。`noHour` 為 true 嗰陣冇意思。 */
+  /** hh:mm。`noHour` 為 true 嗰陣冇意思。揀時辰嗰陣係嗰段嘅中間一分鐘。 */
   time: string;
+  /**
+   * 揀咗邊個時辰（已答嗰行用，例如「未時 · 13:36–15:35」）。
+   * 填準確時間就係 null。出生日期或者出生地一改，呢格就要清 ——
+   * 同一個時辰喺另一日、另一個地方對應唔同嘅鐘面時間。
+   */
+  slot: string | null;
   /** 唔知時辰。 */
   noHour: boolean;
   placeIndex: number | null;
@@ -34,6 +45,7 @@ export const EMPTY_DRAFT: Draft = {
   name: '',
   date: '',
   time: '',
+  slot: null,
   noHour: false,
   placeIndex: null,
   sex: null,
@@ -151,7 +163,12 @@ export function summaryOf(step: Step, draft: Draft): string {
     case 'date':
       return chineseDate(draft.date) ?? draft.date;
     case 'time':
-      return draft.noHour ? '不知時辰' : (shichenOf(draft.time) ?? draft.time);
+      /*
+       * ⚠ 填準確時間嗰陣唔再用 `shichenOf()` 講係邊個時辰：
+       * 佢按鐘面計，但引擎按真太陽時計 —— 香港 07:40 鐘面係辰時，
+       * 真太陽時可能已經係卯時。寫返用戶填嗰個時間，唔好估。
+       */
+      return draft.noHour ? '不知時辰' : (draft.slot ?? draft.time);
     case 'place':
       return draft.placeIndex === null ? '' : PLACES[draft.placeIndex]!.label;
     case 'sex':

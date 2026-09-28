@@ -2153,6 +2153,12 @@
   position: absolute;
   inset: 0;
   padding: 28px;
+  /* 一版放唔落（例如落款揀時辰嗰步）就喺頁入面捲，唔好溢出本書 */
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  /* 本書入面嘅捲動條要似紙上面一條淡線，唔好似瀏覽器 */
+  scrollbar-width: thin;
+  scrollbar-color: var(--rule) transparent;
 }
 
 /* 熱區：成個封面就係掣，冇框冇字（同題名幕 `.mu-ti-kai` 一樣） */

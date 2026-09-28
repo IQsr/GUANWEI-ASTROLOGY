@@ -5,7 +5,7 @@
  *
  *   已答嘅留喺上面淡到 20%　　→ 要 computed style
  *   唔知時辰有分支同安撫文案　→ 要撳一下個 checkbox
- *   時間欄嗰句夏令時（R-007）→ 要行到第三步先出現
+ *   時間欄嗰句夏令時（R-007）→ 要行到第四步先出現（出生地同時辰掉咗位，2026-09）
  *   打字期間唔准重畫粒掣　　　→ 要真係打字，再比較個 DOM 節點
  *   冇確認頁，五步完直入題名　→ 要由頭行到尾
  */
@@ -45,12 +45,15 @@ async function fill(page, upto) {
     await page.getByLabel('出生日期').fill('1998-03-12');
     await btn.click();
   }
+  /* ⚠ 出生地喺時辰前面（時辰選項要知出生地先計得出） */
   if (upto >= 3) {
-    await page.getByLabel('出生時間').fill('07:40');
+    await page.getByLabel('出生地').selectOption('0');
     await btn.click();
   }
   if (upto >= 4) {
-    await page.getByLabel('出生地').selectOption('0');
+    /* 準確時間收喺「記得準確時間？」後面（時辰選項係預設） */
+    await page.getByRole('button', { name: '記得準確時間？' }).click();
+    await page.getByLabel('出生時間').fill('07:40');
     await btn.click();
   }
   await page.waitForTimeout(300);
@@ -111,6 +114,32 @@ try {
   await page.getByLabel('出生日期').fill('1998-03-12');
   await page.locator('button.btn-mo').click();
   await page.waitForTimeout(400);
+  await page.getByLabel('出生地').selectOption('0');
+  await page.locator('button.btn-mo').click();
+  await page.waitForTimeout(400);
+
+  /*
+   * ── 三之二、揀時辰（2026-09）──────────────────────
+   *
+   * 每一格啱啱好係一個時辰，寫明鐘面幾點到幾點。十三格（子時頭尾各一），
+   * 揀咗一格就行得落 —— 唔使填準確時間。
+   */
+  await page.waitForSelector('[aria-label="揀一個時辰"] button', { timeout: 8000 }).catch(() => null);
+  const slotCount = await page.locator('[aria-label="揀一個時辰"] button').count();
+  check('時辰選項', slotCount === 13, `${slotCount} 格，應該 13（子時頭尾各一）`);
+  if (slotCount > 0) {
+    const wei = page.locator('[aria-label="揀一個時辰"] button', { hasText: '未' }).first();
+    const weiLabel = (await wei.getAttribute('aria-label')) ?? '';
+    check('時辰選項寫鐘面時間', /未時 · \d{2}:\d{2}–\d{2}:\d{2}/.test(weiLabel), `「${weiLabel}」`);
+    await wei.click();
+    await page.waitForTimeout(200);
+    const canGoSlot = await page.locator('button.btn-mo').isEnabled();
+    check('揀時辰就行得落', canGoSlot, '揀咗時辰之後粒掣仲係 disabled');
+    /* 準確時間欄要撳先出；打開之後應該係空 —— 揀咗時辰唔會扮成填咗時間 */
+    await page.getByRole('button', { name: '記得準確時間？' }).click();
+    await page.waitForTimeout(150);
+    check('揀時辰唔會填落準確時間欄', (await page.getByLabel('出生時間').inputValue()) === '', '準確時間欄有字');
+  }
   const timeText = await page.evaluate(() => document.body.innerText);
   check('R-007', timeText.includes('不用自己調夏令時'), '時間欄冇寫不用自己調夏令時');
   check('R-007', timeText.includes('出世紙'), '冇講清楚填邊個時間');
@@ -124,8 +153,10 @@ try {
   const branch = await page.evaluate(() => document.body.innerText);
   check('唔知時辰安撫文案', branch.includes('此書待時辰而成'), '冇「此書待時辰而成」');
   check('唔知時辰安撫文案', branch.includes('出世紙'), '冇教人去邊度搵');
-  const disabledAfter = await page.getByLabel('出生時間').isDisabled();
-  check('揀咗唔知時辰', disabledAfter, '時間欄冇 disable');
+  /* 揀咗唔知時辰：時間欄同時辰選項都收埋（唔係淨係變灰）—— 揀唔到嘅嘢唔擺喺度 */
+  const timeGone = (await page.getByLabel('出生時間').count()) === 0;
+  const slotsGone = (await page.locator('[aria-label="揀一個時辰"]').count()) === 0;
+  check('揀咗唔知時辰', timeGone && slotsGone, '時間欄或者時辰選項仲喺度');
   const canGo = await page.locator('button.btn-mo').isEnabled();
   check('唔知時辰行得落', canGo, '揀咗唔知時辰之後粒掣仲係 disabled');
 
