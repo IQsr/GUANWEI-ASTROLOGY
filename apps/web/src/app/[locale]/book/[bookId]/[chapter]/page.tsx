@@ -17,7 +17,7 @@ import { serverJuan } from '@/lib/juan.server';
 import { notesFor } from '@/lib/mingshu';
 import { markBook } from '@/lib/zhu';
 import { ChapterNav } from '@/components/ChapterNav';
-import { chapterParam, neighbours } from '@/lib/journey';
+import { chapterHref, chapterParam, contentsHref, neighbours } from '@/lib/journey';
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -78,6 +78,16 @@ export default async function ChapterPage({
 
   const here = view.chapters.find((c) => c.slug === chapter);
   const { prev, next } = neighbours(view.chapters, chapter);
+  /*
+   * 撳左邊／右邊（或者 ← →）翻去邊：上一章、下一章。
+   * 第一章嘅上一頁係目次；最後一章冇下一頁。
+   */
+  const tr = await getTranslations('reading');
+  const tn = await getTranslations('nav');
+  const turnPrev = prev
+    ? { href: chapterHref(bookId, prev.slug), label: tr('turnTo', { title: prev.title }) }
+    : { href: contentsHref(bookId), label: tr('turnTo', { title: tn('contents') }) };
+  const turnNext = next ? { href: chapterHref(bookId, next.slug), label: tr('turnTo', { title: next.title }) } : null;
   const upto = view.chapters.filter((c) => c.ord <= (here?.ord ?? 0));
   const fetched = await Promise.all(upto.map((c) => port.body(bookId, c.slug)));
 
@@ -133,6 +143,8 @@ export default async function ChapterPage({
           chart={chart}
           palace={here.slug}
           follow={body !== null}
+          prev={turnPrev}
+          next={turnNext}
           top={<p className="font-serif text-lead tracking-[0.16em] text-ink-2">{view.title ?? tShelf('untitled')}</p>}
         >
           {/* ⚠ 章名係內容嘅一部分，唔係頁頭：擺喺右頁頂 */}

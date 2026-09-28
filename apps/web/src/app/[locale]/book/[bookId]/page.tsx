@@ -4,6 +4,7 @@ import { routing } from '@/i18n/routing';
 import { BookContents } from '@/components/BookContents';
 import { BookSpread } from '@/components/BookSpread';
 import { LIFE_PALACE } from '@/lib/suidu';
+import { chapterHref } from '@/lib/journey';
 import { NightScene } from '@/components/NightScene';
 import type { Chart as ZChart } from '@guanwei/ziwei/contract';
 import { Juanshou } from '@/components/Juanshou';
@@ -70,6 +71,10 @@ export default async function BookPage({
   const view = await contentsView(port, bookId);
   /* 左頁嘅命盤。撈唔到就冇盤，右頁照出目次 */
   const chart = view.kind === 'ok' ? ((await port.chart(bookId).catch(() => null)) as ZChart | null) : null;
+  /* 撳右邊（或者 →）：由第一章讀起。目次係第一頁，冇上一頁 */
+  const tr = await getTranslations('reading');
+  const first = view.kind === 'ok' ? view.chapters[0] : undefined;
+  const next = first ? { href: chapterHref(bookId, first.slug), label: tr('turnTo', { title: first.title }) } : null;
 
   return (
     /*
@@ -85,6 +90,7 @@ export default async function BookPage({
         <BookSpread
           chart={chart}
           palace={LIFE_PALACE}
+          next={next}
           top={
             <h1 className="font-serif text-h2 font-semibold tracking-[0.16em]">
               {view.title ?? tShelf('untitled')}

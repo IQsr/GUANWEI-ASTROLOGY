@@ -421,6 +421,7 @@
     "ctaButton": "Begin"
   },
   "reading": {
-    "showChart": "Show the chart"
+    "showChart": "Show the chart",
+    "turnTo": "Turn to “{title}”"
   }
 }

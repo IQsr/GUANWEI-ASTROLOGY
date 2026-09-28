@@ -421,6 +421,7 @@
     "ctaButton": "起盤"
   },
   "reading": {
-    "showChart": "看命盤"
+    "showChart": "看命盤",
+    "turnTo": "翻到《{title}》"
   }
 }

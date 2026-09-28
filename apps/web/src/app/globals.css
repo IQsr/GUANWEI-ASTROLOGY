@@ -2518,3 +2518,74 @@
     filter: brightness(0.96);
   }
 }
+
+/* ============================================================
+   撳左邊翻前、撳右邊翻後（`BookSpread` 嘅 prev / next）
+
+   兩條窄邊擺喺頁邊留白入面：左頁嘅左邊、右頁嘅右邊。
+   ⚠ 右邊嗰條離頁邊 10px —— 讓出右頁嘅捲動條，唔好蓋住佢拉唔到。
+   平時透明；滑鼠移過去（或者鍵盤 focus）先有一條影同一個箭嘴。
+   ============================================================ */
+
+.shuzhuo-bian {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 4;
+  display: flex;
+  width: 40px;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink-3);
+  font-family: var(--font-serif-stack);
+  font-size: 1.75rem;
+  line-height: 1;
+  opacity: 0;
+  transition:
+    opacity var(--dur-1) var(--motion-ease-ink),
+    background var(--dur-1) var(--motion-ease-ink);
+}
+
+.shuzhuo-bian-zuo {
+  left: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.shuzhuo-bian-you {
+  right: 10px;
+}
+
+.shuzhuo-bian-zuo:hover,
+.shuzhuo-bian-zuo:focus-visible {
+  opacity: 1;
+  background: linear-gradient(to right, rgb(40 30 15 / 0.1), transparent);
+}
+
+.shuzhuo-bian-you:hover,
+.shuzhuo-bian-you:focus-visible {
+  opacity: 1;
+  background: linear-gradient(to left, rgb(40 30 15 / 0.1), transparent);
+}
+
+.shuzhuo-bian:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: -4px;
+}
+
+/* 手機：頁邊留白窄啲，冇 hover —— 淡淡見到個箭嘴，知道兩邊撳得 */
+@media (max-width: 899px) {
+  .shuzhuo-bian {
+    width: 26px;
+    font-size: 1.25rem;
+    opacity: 0.35;
+  }
+
+  .shuzhuo-bian-you {
+    right: 0;
+  }
+}
+
+/* 翻緊頁嗰陣唔好再撳多次 */
+.shuzhuo-shu[data-fanye] .shuzhuo-bian {
+  pointer-events: none;
+}
