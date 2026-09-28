@@ -23,11 +23,15 @@
  * 背景係夜晚、而且唔跟日夜讀轉，但本書永遠係紙 —— 所以本書嗰格
  * 自己再宣告一次日讀嘅值。`:root` 嘅夜讀規則只套喺 `:root` 本身，
  * 一個元素自己宣告嘅變數贏繼承返嚟嘅，夜讀模式之下本書都係紙色。
+ *
+ * ⚠ `.fanye-tai`（翻頁嗰頁紙）掛喺 body，唔喺本書入面 —— 唔喺呢度宣告就會跟 `:root`
+ * 嘅夜讀值，深色模式之下翻嗰頁變咗黑色（2026-09，Issac 撞到）。
  */
 :root,
 .ye-ink .shu-wrap,
 .ye-ink .fan-wrap,
-.ye-ink .shuzhuo {
+.ye-ink .shuzhuo,
+.fanye-tai {
   /* ── 紙 ── */
   --paper: #eee6d8;
   --paper-2: #e6dcc9;
@@ -2022,7 +2026,8 @@
  */
 .ye-ink .shu-wrap,
 .ye-ink .fan-wrap,
-.ye-ink .shuzhuo {
+.ye-ink .shuzhuo,
+.fanye-tai {
   color: var(--ink);
 }
 
@@ -2522,88 +2527,114 @@
 }
 
 /* ============================================================
-   翻頁（`PageTurnLink`）：一頁紙繞書脊翻過去，翻完先轉頁
+   翻頁（`PageTurnLink`）：一頁紙繞書脊翻過去，一撳就轉頁
 
-   `data-fanye="next"`：右頁向左翻（向前讀）
-   `data-fanye="prev"`：左頁向右翻（翻返轉頭）
+   `next`：右頁向左翻（向前讀）　`prev`：左頁向右翻（翻返轉頭）
    同揭封面一樣嘅做法：起慢、中快、落定；紙轉到側面變暗。
-   ============================================================ */
 
-.shuzhuo-shu[data-fanye]::after,
-.fan[data-fanye]::after {
-  content: "";
+   2026-09 重做：翻嗰頁係真嗰頁嘅複製，喺一個同本書一樣大嘅框入面翻（見 PageTurnLink.tsx）。
+   框 `overflow: hidden` 加遠啲嘅透視：張紙唔會凸出本書上下。
+   ============================================================ */
+.fanye-tai {
+  position: fixed;
+  z-index: 30;
+  pointer-events: none;
+  overflow: hidden;
+  perspective: 5200px;
+  border-radius: 3px;
+}
+
+.fanye-ye {
   position: absolute;
   top: 0;
   bottom: 0;
-  z-index: 5;
-  pointer-events: none;
-  background:
-    linear-gradient(to right, rgb(40 30 15 / 0.14), transparent 14%),
-    var(--paper);
-  box-shadow: 0 0 0 1px rgb(0 0 0 / 0.1);
-  backface-visibility: visible;
+  width: 50%;
+  transform-style: preserve-3d;
+  animation-duration: 700ms;
+  animation-timing-function: cubic-bezier(0.45, 0.05, 0.25, 1);
+  animation-fill-mode: forwards;
 }
 
-/* 向前：右頁嗰頁紙，軸心喺書脊（左邊） */
-.shuzhuo-shu[data-fanye="next"]::after {
+/* 向前：右頁揭起，軸心喺書脊（左邊），落地喺左頁 */
+.fanye-ye[data-dir="next"] {
   left: 50%;
-  width: 50%;
   transform-origin: left center;
-  animation: fanye-next 650ms cubic-bezier(0.45, 0.05, 0.25, 1) forwards;
+  animation-name: fanye-next;
 }
 
-/* 翻返轉頭：左頁嗰頁紙，軸心喺書脊（右邊） */
-.shuzhuo-shu[data-fanye="prev"]::after {
+/* 翻返轉頭：左頁揭起，軸心喺書脊（右邊），落地喺右頁 */
+.fanye-ye[data-dir="prev"] {
   left: 0;
-  width: 50%;
   transform-origin: right center;
-  animation: fanye-prev 650ms cubic-bezier(0.45, 0.05, 0.25, 1) forwards;
+  animation-name: fanye-prev;
 }
 
-/* 展卷之後「讀下去」：右頁翻過去 */
-.fan[data-fanye]::after {
-  left: var(--w);
-  width: var(--w);
+/* 手機得一頁：成頁向左翻走 */
+.fanye-ye[data-dir="single"] {
+  left: 0;
+  width: 100%;
   transform-origin: left center;
-  animation: fanye-next 650ms cubic-bezier(0.45, 0.05, 0.25, 1) forwards;
+  animation-name: fanye-single;
 }
 
-/* 手機得一頁：成頁翻走 */
-@media (max-width: 899px) {
-  .shuzhuo-shu[data-fanye]::after {
-    left: 0;
-    width: 100%;
-    transform-origin: left center;
-    animation-name: fanye-next;
-  }
+.fanye-mian {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  backface-visibility: hidden;
+  background: var(--paper);
+}
+
+/* 面上嘅複製頁要填滿成面（佢本身係一個會捲嘅頁）。唔郁 display：左頁係置中嘅 flex，改咗個盤會移位 */
+.fanye-mian > * {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.fanye-bei {
+  transform: rotateY(180deg);
+}
+
+/* 紙轉到側面變暗：蓋一層影，中段最深 */
+.fanye-mian::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgb(40 30 15 / 0.22);
+  opacity: 0;
+  animation: fanye-ying 700ms cubic-bezier(0.45, 0.05, 0.25, 1) forwards;
 }
 
 @keyframes fanye-next {
-  0% {
-    transform: rotateY(0deg);
-    filter: brightness(1);
-  }
-  50% {
-    filter: brightness(0.72);
-  }
-  100% {
-    transform: rotateY(-180deg);
-    filter: brightness(0.96);
-  }
+  from { transform: rotateY(0deg); }
+  to { transform: rotateY(-180deg); }
 }
 
+/* 翻返轉頭嗰頁落地喺右頁，而新嗰頁嘅字喺下面 —— 背面係白紙，落地前淡走 */
 @keyframes fanye-prev {
-  0% {
-    transform: rotateY(0deg);
-    filter: brightness(1);
-  }
-  50% {
-    filter: brightness(0.72);
-  }
-  100% {
-    transform: rotateY(180deg);
-    filter: brightness(0.96);
-  }
+  0% { transform: rotateY(0deg); opacity: 1; }
+  75% { opacity: 1; }
+  100% { transform: rotateY(180deg); opacity: 0; }
+}
+
+@keyframes fanye-single {
+  0% { transform: rotateY(0deg); opacity: 1; }
+  70% { opacity: 1; }
+  100% { transform: rotateY(-100deg); opacity: 0; }
+}
+
+@keyframes fanye-ying {
+  0% { opacity: 0; }
+  50% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+/* 翻緊頁：被揭起嗰邊嘅舊字收起（新一頁砌好，BookSpread 會拎走個標記） */
+.shuzhuo-shu[data-turning="next"] .shuzhuo-you > *,
+.shuzhuo-shu[data-turning="prev"] .shuzhuo-you > *,
+.shuzhuo-shu[data-turning="single"] .shuzhuo-you > * {
+  visibility: hidden;
 }
 
 /* ============================================================
@@ -2673,6 +2704,6 @@
 }
 
 /* 翻緊頁嗰陣唔好再撳多次 */
-.shuzhuo-shu[data-fanye] .shuzhuo-bian {
+.shuzhuo-shu[data-turning] .shuzhuo-bian {
   pointer-events: none;
 }

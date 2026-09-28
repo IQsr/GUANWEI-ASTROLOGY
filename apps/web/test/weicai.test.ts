@@ -185,8 +185,9 @@ describe('⚠ 裁開咗之後唔會再裂', () => {
     'utf8',
   );
 
+  /* 2026-09：淨係深度章播（Issac 揀）。「今次先裁開」照舊由 cut_page() 答 */
   it('命書嗰版明寫 play，唔靠預設', () => {
-    expect(page).toMatch(/<Caikai play=\{justCut\}>/);
+    expect(page).toMatch(/<Caikai play=\{justCut && here\.tier === 'deep'\}>/);
   });
 
   it('play 由 cut_page() 答，唔係喺頁度算', () => {

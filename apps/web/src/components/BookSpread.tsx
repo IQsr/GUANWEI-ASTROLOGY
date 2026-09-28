@@ -5,7 +5,9 @@ import { useTranslations } from 'next-intl';
 import { Chart } from '@/components/Chart';
 import { Zhanjuan } from '@/components/Zhanjuan';
 import { GROW_MS } from '@/lib/timing';
+import { usePathname } from 'next/navigation';
 import { TurnEdges, type PageTurn } from '@/components/TurnEdges';
+import { TURNING_ATTR } from '@/components/PageTurnLink';
 import { OPENING_SLOT, chartStateAt, resolveSlot } from '@/lib/suidu';
 import type { Chart as ZChart } from '@guanwei/ziwei/contract';
 
@@ -112,10 +114,15 @@ export function BookSpread({
    * 由一章去下一章，Next 會重用呢個元件 —— 唔清嘅話頁紙會停喺翻咗一半，
    * 右頁會停喺上一章讀到嘅位置。
    */
+  /*
+   * ⚠ 跟網址，唔跟 `palace`：目次同命宮嗰章都係亮命宮，由目次翻去命宮 palace 冇變，
+   * 翻頁嘅標記就會一直唔拎走（舊字永遠收埋）。
+   */
+  const pathname = usePathname();
   useEffect(() => {
-    book.current?.removeAttribute('data-fanye');
+    book.current?.removeAttribute(TURNING_ATTR);
     page.current?.scrollTo({ top: 0 });
-  }, [palace]);
+  }, [pathname]);
 
   useEffect(() => {
     const root = page.current;

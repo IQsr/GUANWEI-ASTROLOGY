@@ -10,6 +10,8 @@ import type { Chart as ZChart } from '@guanwei/ziwei/contract';
 import { Juanshou } from '@/components/Juanshou';
 import { contentsView } from '@/lib/juan-view';
 import { serverJuan } from '@/lib/juan.server';
+import { FontWarm } from '@/components/FontWarm';
+import { distinctChars } from '@/lib/fontwarm';
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -75,6 +77,9 @@ export default async function BookPage({
   const tr = await getTranslations('reading');
   const first = view.kind === 'ok' ? view.chapters[0] : undefined;
   const next = first ? { href: chapterHref(bookId, first.slug), label: tr('turnTo', { title: first.title }) } : null;
+  /* 由目次翻去第一章：先載定嗰章用到嘅字（見 FontWarm） */
+  const ahead = first ? await port.body(bookId, first.slug).catch(() => null) : null;
+  const warm = distinctChars(`${first?.title ?? ''}${ahead?.text ?? ''}`);
 
   return (
     /*
@@ -83,6 +88,7 @@ export default async function BookPage({
      */
     <main className="juan tai shuzhuo-tai ye-ink">
       <NightScene variant="desk" />
+      <FontWarm text={warm} />
       {/* 書桌閱讀：卷首淨係返回同四步，書名寫喺左頁頂 —— 本書高啲，一眼睇得晒 */}
       <Juanshou back="shelf" step={3} title={view.kind === 'ok' ? undefined : tShelf('untitled')} />
 

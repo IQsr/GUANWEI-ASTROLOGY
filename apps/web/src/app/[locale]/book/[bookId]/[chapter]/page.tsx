@@ -15,6 +15,8 @@ import { MarkRead } from '@/components/MarkRead';
 import { contentsView } from '@/lib/juan-view';
 import { serverJuan } from '@/lib/juan.server';
 import { notesFor } from '@/lib/mingshu';
+import { FontWarm } from '@/components/FontWarm';
+import { distinctChars } from '@/lib/fontwarm';
 import { markBook } from '@/lib/zhu';
 import { ChapterNav } from '@/components/ChapterNav';
 import { chapterHref, chapterParam, contentsHref, neighbours } from '@/lib/journey';
@@ -61,6 +63,12 @@ export default async function ChapterPage({
   const chapter = chapterParam(rawChapter);
 
   const port = serverJuan();
+  /* 命盤同身份唔使等目次：先開跑，下面先攞（見下面嗰段 Promise.all） */
+  const chartP = port.chart(bookId).catch(() => null);
+  const anonP = serverIdentity()
+    .currentReader()
+    .then((r) => r?.isAnonymous ?? true)
+    .catch(() => true);
   const view = await contentsView(port, bookId);
 
   if (view.kind !== 'ok') {
@@ -90,9 +98,23 @@ export default async function ChapterPage({
   const turnNext = next ? { href: chapterHref(bookId, next.slug), label: tr('turnTo', { title: next.title }) } : null;
   const upto = view.chapters.filter((c) => c.ord <= (here?.ord ?? 0));
 
-  /* 左頁嘅命盤：未裁嘅章都出（盤唔係深度章嘅內容） */
-  const chart = (await port.chart(bookId).catch(() => null)) as ZChart | null;
-  const fetched = await Promise.all(upto.map((c) => port.body(bookId, c.slug)));
+  /*
+   * ⚠ 呢幾樣互不相干，一齊攞（2026-09，Issac：翻頁 lag）。以前逐樣 await：
+   * 命盤 → 各章正文 → 下一章 → 裁開 → 身份，一個等一個。
+   *
+   *   左頁嘅命盤：未裁嘅章都出（盤唔係深度章嘅內容）
+   *   下一章用到嘅字：畀瀏覽器得閒嗰陣先載定字體（見 FontWarm）。鎖住嘅章 text 係 null，就淨係章名
+   *   匿名就去認領，認領咗先去付款（架構 §4 硬閘）。⚠ 撈唔到就當匿名 ——
+   *   帶去 `/claim` 最多係行多一步，帶去 checkout 就係令一個匿名讀者行一條 DB 嗰邊實會彈嘅路。
+   */
+  const [chartRaw, fetched, ahead, isAnonymous] = await Promise.all([
+    chartP,
+    Promise.all(upto.map((c) => port.body(bookId, c.slug))),
+    next ? port.body(bookId, next.slug).catch(() => null) : Promise.resolve(null),
+    anonP,
+  ]);
+  const chart = chartRaw as ZChart | null;
+  const warm = distinctChars(`${next?.title ?? ''}${ahead?.text ?? ''}`);
 
   /*
    * ⚠ 標註要**成本書**一齊標，但跟捲動高亮只關呢一章事。
@@ -115,18 +137,6 @@ export default async function ChapterPage({
    */
   const justCut = here && body !== null ? await cutPage(here.id) : false;
 
-  /*
-   * 匿名就去認領，認領咗先去付款（架構 §4 硬閘）。
-   * ⚠ 撈唔到就當匿名 —— 帶去 `/claim` 最多係行多一步，
-   * 帶去 checkout 就係令一個匿名讀者行一條 DB 嗰邊實會彈嘅路。
-   */
-  let isAnonymous = true;
-  try {
-    isAnonymous = (await serverIdentity().currentReader())?.isAnonymous ?? true;
-  } catch {
-    /* 冇 session 就係匿名。 */
-  }
-
   return (
     /* 書桌閱讀：左頁命盤跟住右頁讀緊嘅段落亮，右頁喺頁入面捲 */
     <main className="juan tai shuzhuo-tai ye-ink">
@@ -135,6 +145,7 @@ export default async function ChapterPage({
 
       {/* 冇畫面。記低讀到邊、幾時讀 —— 書架靠佢排序（E3）。 */}
       {here ? <MarkRead bookId={bookId} slug={here.slug} title={here.title} /> : null}
+      <FontWarm text={warm} />
 
       {!here ? (
         <p className="banxin text-body leading-[1.95] text-ink-2">{t('noChapter')}</p>
@@ -166,7 +177,12 @@ export default async function ChapterPage({
                 isAnonymous={isAnonymous}
               />
             ) : (
-              <Caikai play={justCut}>
+              /*
+               * 裁開動畫淨係深度章播（2026-09，Issac 揀）：畀咗錢之後第一次揭開，先係「裁開」嗰一下。
+               * 免費章以前每章第一次讀都播 1.6 秒，頭一次由頭讀到尾，翻一頁就等兩段動畫。
+               * `cut_page()` 照舊記低（第一次讀嘅時間），只係唔播。
+               */
+              <Caikai play={justCut && here.tier === 'deep'}>
                 <Juan segments={mine!.segments} notes={notesFor(marked)} />
               </Caikai>
             )}
