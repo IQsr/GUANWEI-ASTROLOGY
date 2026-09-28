@@ -1,4 +1,7 @@
 import { Link } from '@/i18n/navigation';
+import { JourneyMark } from '@/components/JourneyMark';
+import type { StepN } from '@/lib/journey';
+import type { ReactNode } from 'react';
 
 /**
  * 卷首：全站唯一嘅頁頭（工單 UX1 · 視覺系統 §5 · 架構 §2）
@@ -17,7 +20,7 @@ import { Link } from '@/i18n/navigation';
  *
  * ── 三行，次序固定 ──
  *
- *   一　返回（左）。夜讀已經搬咗去頁頂導覽（`SiteHeader`）
+ *   一　返回（左）· 你喺第幾步（右，`JourneyMark`）。夜讀已經搬咗去頁頂導覽
  *   二　章名 ＋ 細 nav
  *   三　界欄
  *
@@ -73,14 +76,20 @@ export function Juanshou({
   back,
   title,
   nav,
+  step,
+  aside,
 }: {
   back?: BackTo | { href: string; label: string };
   title?: string;
   /** 出細 nav，而且標明企緊邊度（企緊嗰個唔出連結）。 */
   nav?: NavAt | 'book';
+  /** 呢一版喺四步嘅第幾步（落款 1 · 取書 2 · 閱讀 3 · 深讀 4）。唔屬於四步嘅版唔使畀。 */
+  step?: StepN;
+  /** 第一行右邊放嘅嘢（冇 `step` 先用），例如藏經閣嘅「回到正文」。 */
+  aside?: ReactNode;
 }) {
   const to = typeof back === 'string' ? BACK[back] : (back ?? null);
-  const hasRowOne = Boolean(to);
+  const hasRowOne = Boolean(to || step || aside);
   const hasRowTwo = Boolean(title || nav);
 
   return (
@@ -97,6 +106,7 @@ export function Juanshou({
           ) : (
             <span />
           )}
+          {step ? <JourneyMark step={step} /> : (aside ?? null)}
         </div>
       ) : null}
 

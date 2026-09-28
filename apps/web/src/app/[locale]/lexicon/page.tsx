@@ -4,6 +4,7 @@ import { setRequestLocale } from 'next-intl/server';
 import { lexiconCoverage, singleBookEntries } from '@guanwei/content';
 import { Link } from '@/i18n/navigation';
 import { Juanshou } from '@/components/Juanshou';
+import { ReturnToReading } from '@/components/ReturnToReading';
 import { MARK, OG_LEXICON } from '@/lib/site';
 import { KINDS, LEXICON_LOCALE, entriesOf, hrefOf, teaser, type LexiconKind } from '@/lib/lexicon';
 import { LexiconCta } from '@/components/LexiconCta';
@@ -56,7 +57,7 @@ export default async function LexiconIndex({
 
   return (
     <main className="juan tai">
-      <Juanshou title="藏經閣" />
+      <Juanshou title="藏經閣" aside={<ReturnToReading />} />
 
       <div className="banxin">
         <p className="text-lead text-ink-2">

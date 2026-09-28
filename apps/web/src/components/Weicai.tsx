@@ -14,15 +14,17 @@ export function Weicai({
   title,
   slots,
   bookId,
+  slug,
   isAnonymous,
 }: {
   title: string;
   /** 呢一版有幾多格、係乜嘢格。⚠ 格嘅名唔係內容（0006）。 */
   slots: readonly string[];
   bookId: string;
+  slug: string;
   isAnonymous: boolean;
 }) {
-  const target = cutTarget(bookId, isAnonymous);
+  const target = cutTarget(bookId, isAnonymous, slug);
 
   return (
     <div className="weicai">
@@ -51,14 +53,16 @@ export function Weicai({
         * 「裁開」係一個動作嘅名，唔係「升級」「解鎖」「立即購買」。
         * 而且佢喺紙外面 —— 一版未裁開嘅紙上面唔會印住點樣買佢。
         */}
-      <p className="mt-6">
-        <Link
-          href={target.href}
-          className="font-sans text-cap tracking-[0.16em] text-indigo transition-colors duration-[240ms] ease-ink hover:text-ink"
-        >
+      <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3">
+        <Link href={target.href} className="btn-mo">
           {target.label}
+          <span className="btn-jiantou" aria-hidden="true">→</span>
         </Link>
-      </p>
+        {/* 裁開之前講清楚會發生乜：一次過、成本書、唔係逐章 */}
+        <p className="text-cap leading-[1.9] tracking-[0.08em] text-ink-3">
+          {isAnonymous ? '先留一個電郵保存這本書，再裁開。' : '裁一次，整本書的深度章都會開。'}
+        </p>
+      </div>
     </div>
   );
 }

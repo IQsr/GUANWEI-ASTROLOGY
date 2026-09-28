@@ -15,6 +15,8 @@ import { contentsView } from '@/lib/juan-view';
 import { serverJuan } from '@/lib/juan.server';
 import { notesFor } from '@/lib/mingshu';
 import { markBook } from '@/lib/zhu';
+import { ChapterNav } from '@/components/ChapterNav';
+import { chapterParam, neighbours } from '@/lib/journey';
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -45,8 +47,10 @@ export default async function ChapterPage({
 }: {
   params: Promise<{ locale: string; bookId: string; chapter: string }>;
 }) {
-  const { locale, bookId, chapter } = await params;
+  const { locale, bookId, chapter: rawChapter } = await params;
   setRequestLocale(locale);
+  /* 章名係中文：無論 Next 畀嘅係 encode 咗定未，都解返做章名先對（交接文件嗰個疑點）。 */
+  const chapter = chapterParam(rawChapter);
 
   const port = serverJuan();
   const view = await contentsView(port, bookId);
@@ -54,7 +58,7 @@ export default async function ChapterPage({
   if (view.kind !== 'ok') {
     return (
       <main className="juan tai">
-        <Juanshou back="shelf" nav="book" />
+        <Juanshou back="shelf" nav="book" step={3} />
         <p className="banxin text-body leading-[1.95] text-ink-2">
           {view.kind === 'missing'
             ? '書齋裡沒有這一本。'
@@ -65,6 +69,7 @@ export default async function ChapterPage({
   }
 
   const here = view.chapters.find((c) => c.slug === chapter);
+  const { prev, next } = neighbours(view.chapters, chapter);
   const upto = view.chapters.filter((c) => c.ord <= (here?.ord ?? 0));
   const fetched = await Promise.all(upto.map((c) => port.body(bookId, c.slug)));
 
@@ -105,10 +110,10 @@ export default async function ChapterPage({
 
   return (
     <main className="juan tai">
-      <Juanshou back={backToContents(bookId)} nav="book" />
+      <Juanshou back={backToContents(bookId)} nav="book" step={3} />
 
       {/* 冇畫面。記低讀到邊、幾時讀 —— 書架靠佢排序（E3）。 */}
-      {here ? <MarkRead bookId={bookId} slug={here.slug} /> : null}
+      {here ? <MarkRead bookId={bookId} slug={here.slug} title={here.title} /> : null}
 
       {!here ? (
         <p className="banxin text-body leading-[1.95] text-ink-2">這本書沒有這一章。</p>
@@ -129,6 +134,7 @@ export default async function ChapterPage({
                 title={here.title}
                 slots={fetched.at(-1)?.slots ?? []}
                 bookId={bookId}
+                slug={here.slug}
                 isAnonymous={isAnonymous}
               />
             ) : chart ? (
@@ -143,6 +149,7 @@ export default async function ChapterPage({
               <Juan segments={mine!.segments} notes={notesFor(marked)} />
             )}
           </div>
+          <ChapterNav bookId={bookId} prev={prev} next={next} />
         </>
       )}
     </main>

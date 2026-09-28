@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react';
 import { Juanshou } from '@/components/Juanshou';
+import type { StepN } from '@/lib/journey';
 
 /**
  * 流程層頁頂嗰兩件工具：返書齋、日夜讀。
@@ -13,10 +14,10 @@ import { Juanshou } from '@/components/Juanshou';
  * ⚠ 佢自己唔再畫嗰條橫欄 —— 交返畀 `Juanshou`。
  * 之前呢度同其餘六版各寫一次，而「各寫一次」就係「唔夠連貫」個源頭。
  */
-export function FlowChrome({ children }: { children: ReactNode }) {
+export function FlowChrome({ children, step = 1 }: { children: ReactNode; step?: StepN }) {
   return (
     <>
-      <Juanshou back="shelf" />
+      <Juanshou back="shelf" step={step} />
       {children}
     </>
   );

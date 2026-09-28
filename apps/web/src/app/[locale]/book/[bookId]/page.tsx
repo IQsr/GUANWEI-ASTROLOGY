@@ -63,6 +63,7 @@ export default async function BookPage({
         back="shelf"
         title={view.kind === 'ok' ? view.title : undefined}
         nav="book"
+        step={3}
       />
 
       {view.kind === 'ok' ? (

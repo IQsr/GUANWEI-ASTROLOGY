@@ -1,3 +1,5 @@
+import { cutHref } from '@/lib/journey';
+
 /**
  * 未裁之頁（工單 F4 · 架構 §6）
  *
@@ -23,6 +25,7 @@
  */
 
 /** 裁開動畫：右邊毛邊由上而下裂開一次（架構 §6）。 */
+
 export const CUT_MS = 1600;
 
 export type CutTarget = { href: string; label: string };
@@ -34,7 +37,12 @@ export type CutTarget = { href: string; label: string };
  * 而嗰道閘唔止喺呢度：DB 有個 trigger 擋住匿名讀者出票（G1），
  * 所以就算有人繞過呢個連結，webhook 嗰條路一樣過唔到。
  */
-export function cutTarget(bookId: string, isAnonymous: boolean): CutTarget {
+export function cutTarget(bookId: string, isAnonymous: boolean, slug?: string): CutTarget {
+  /*
+   * 帶住章名（重新設計第二期）：認領同付款兩條路都記住「嗰一章」，
+   * 裁完返得去 —— 之前行完成條路只會落返書齋。
+   */
+  if (slug) return { href: cutHref(bookId, slug, isAnonymous), label: '裁開' };
   return isAnonymous
     ? { href: '/claim', label: '裁開' }
     : { href: `/pay/${bookId}`, label: '裁開' };

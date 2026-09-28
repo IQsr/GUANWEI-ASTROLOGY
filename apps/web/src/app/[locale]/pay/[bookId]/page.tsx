@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
 import { setRequestLocale } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
-import { Juanshou } from '@/components/Juanshou';
+import { Juanshou, backToContents } from '@/components/Juanshou';
+import { chapterHref, claimHref, contentsHref, payHref, safeSlug } from '@/lib/journey';
 import { CaishuForm } from '@/components/CaishuForm';
 import { PAY_BLOCKED, RETURN_COPY, payGate, priceLabel, returnState } from '@/lib/pay';
 import { payFacts } from '@/lib/pay.server';
@@ -46,6 +47,19 @@ export default async function PayPage({
   const query = await searchParams;
 
   /*
+   * 由邊一章嚟（重新設計第二期）。
+   *
+   * 之前呢一版所有出口都係「回書齋」—— 行完未裁章 → 認領 → 付款 → Stripe
+   * 成條路，返唔到你想開嗰一章。而家嗰一章跟住條路行，
+   * 冇帶就退返目次（都係呢本書，唔係成個書齋）。
+   */
+  const ch = safeSlug(query.ch);
+  const back = ch ? { href: chapterHref(bookId, ch), label: ch } : backToContents(bookId);
+  const onward = ch
+    ? { href: chapterHref(bookId, ch), label: `讀《${ch}》` }
+    : { href: contentsHref(bookId), label: '打開目次' };
+
+  /*
    * ⚠ 撈唔到 ≠ 你冇資格（E3 嗰課）。
    *
    * Supabase 接唔上嗰陣，最順手係當佢冇票然後出個付款掣 ——
@@ -58,13 +72,13 @@ export default async function PayPage({
     console.error('[pay] ', error);
     return (
       <main className="juan tai">
-        <Juanshou back="shelf" title="一時裁不開" />
+        <Juanshou back={back} title="一時裁不開" step={4} />
         <p className="banxin text-body leading-[1.95] text-ink-2">
           現在連不上。這不是你的問題，書和已經付過的款都沒有事 —— 待會再開這一頁就可以。
         </p>
         <div className="banxin mt-10">
-          <Link href="/shelf" className="btn-mo inline-block">
-            回書齋
+          <Link href={back.href} className="btn-mo">
+            返回
           </Link>
         </div>
       </main>
@@ -80,10 +94,15 @@ export default async function PayPage({
     const copy = RETURN_COPY[state];
     return (
       <main className="juan tai">
-        <Juanshou back="shelf" title={copy.title} />
+        <Juanshou back={back} title={copy.title} step={4} />
         <p className="banxin text-body leading-[1.95]">{copy.body}</p>
-        <div className="banxin mt-10">
-          <Link href="/shelf" className="btn-mo inline-block">
+        <div className="banxin mt-10 flex flex-wrap items-center gap-x-8 gap-y-4">
+          {/* 裁開咗就直接去嗰一章；未到／冇畀都係返去嗰一章 —— 免費嗰啲照讀得 */}
+          <Link href={onward.href} className="btn-mo">
+            {state === 'paid' ? onward.label : '返回'}
+            <span className="btn-jiantou" aria-hidden="true">→</span>
+          </Link>
+          <Link href="/shelf" className="lian">
             回書齋
           </Link>
         </div>
@@ -93,16 +112,23 @@ export default async function PayPage({
 
   const gate = payGate(facts);
 
+  /* 擋住嗰幾種情況，出口都帶住嗰一章：要認領就認領完返嚟付款；已經裁開就直接去讀。 */
+  function blockedHref(why: string, fallback: string): string {
+    if (why === 'anonymous') return claimHref({ next: payHref(bookId, ch), from: back.href });
+    if (why === 'already-paid') return onward.href;
+    return fallback;
+  }
+
   if (gate.can !== 'checkout') {
     const blocked = PAY_BLOCKED[gate.why];
     return (
       <main className="juan tai">
-        <Juanshou back="shelf" title="裁書" />
+        <Juanshou back={back} title="裁書" step={4} />
         <p className="banxin text-body leading-[1.95]">{blocked.message}</p>
         {blocked.href ? (
           <div className="banxin mt-10">
-            <Link href={blocked.href} className="btn-mo inline-block">
-              {blocked.label}
+            <Link href={blockedHref(gate.why, blocked.href)} className="btn-mo">
+              {gate.why === 'already-paid' ? onward.label : blocked.label}
             </Link>
           </div>
         ) : null}
@@ -112,7 +138,7 @@ export default async function PayPage({
 
   return (
     <main className="juan tai">
-      <Juanshou back="shelf" title="裁書" />
+      <Juanshou back={back} title="裁書" step={4} />
 
       <div className="banxin flex flex-col gap-4 text-body leading-[1.95]">
         <p>線裝書的毛邊本，頁邊未裁開，要讀的人自己裁。這本書的深度章就是未裁的頁。</p>
@@ -123,7 +149,7 @@ export default async function PayPage({
       </div>
 
       <div className="banxin">
-        <CaishuForm bookId={bookId} priceLabel={priceLabel()} />
+        <CaishuForm bookId={bookId} chapter={ch} priceLabel={priceLabel()} />
       </div>
 
       {/*

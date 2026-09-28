@@ -19,7 +19,14 @@ export type LinkFailure = 'taken' | 'invalid' | 'rate_limited' | 'unknown';
 
 export type IdentityPort = {
   currentReader(): Promise<Reader | null>;
-  linkEmail(email: string): Promise<{ ok: true } | { ok: false; code: LinkFailure }>;
+  /**
+   * `redirectTo`：開咗驗證信條連結之後落喺邊（重新設計第二期）。
+   * 冇畀就跟 Supabase 嘅 Site URL —— 即係首頁，冇晒 context。
+   */
+  linkEmail(
+    email: string,
+    redirectTo?: string,
+  ): Promise<{ ok: true } | { ok: false; code: LinkFailure }>;
 };
 
 export type ClaimResult = { ok: true; email: string } | { ok: false; message: string };
@@ -37,7 +44,11 @@ export function normaliseEmail(raw: unknown): string {
   return typeof raw === 'string' ? raw.trim().toLowerCase() : '';
 }
 
-export async function claim(port: IdentityPort, raw: unknown): Promise<ClaimResult> {
+export async function claim(
+  port: IdentityPort,
+  raw: unknown,
+  redirectTo?: string,
+): Promise<ClaimResult> {
   const email = normaliseEmail(raw);
 
   if (!EMAIL.test(email)) {
@@ -69,7 +80,7 @@ export async function claim(port: IdentityPort, raw: unknown): Promise<ClaimResu
     };
   }
 
-  const linked = await port.linkEmail(email);
+  const linked = await port.linkEmail(email, redirectTo);
   if (linked.ok) return { ok: true, email };
 
   const MESSAGES: Record<LinkFailure, string> = {

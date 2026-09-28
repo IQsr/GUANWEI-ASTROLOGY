@@ -48,7 +48,7 @@ export function WeicaiDemo() {
             </div>
           </Caikai>
         ) : (
-          <Weicai title="二 · 兄弟" slots={SLOTS} bookId="demo" isAnonymous={false} />
+          <Weicai title="二 · 兄弟" slots={SLOTS} bookId="demo" slug="兄弟" isAnonymous={false} />
         )}
       </div>
     </div>

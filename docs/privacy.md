@@ -57,9 +57,10 @@
 |---|---|
 | `gw-theme` | 日讀／夜讀 |
 | `gw-last-read` | 上次讀到邊一段 |
+| `gw-reading`（sessionStorage） | 呢個分頁啱啱讀緊邊一章 —— 藏經閣「← 回到《章名》」用。關咗分頁就冇 |
 
-兩個都由 `lib/local.ts` 一個出入口管，`test/local.test.ts` 掃全 `src`：
-`localStorage` 出現喺嗰個檔以外就爆（工單 G1）。
+全部由 `lib/local.ts` 一個出入口管，`test/local.test.ts` 掃全 `src`：
+`localStorage`／`sessionStorage` 出現喺嗰個檔以外就爆（工單 G1）。
 
 ### ⚠ 架構 §10 嗰句「只用 session + 主題兩個 essential cookie」唔準確
 

@@ -63,3 +63,32 @@ export function clearLocal(key: LocalKey): void {
 export function inlineRead(key: LocalKey): string {
   return `localStorage.getItem(${JSON.stringify(LOCAL_KEYS[key])})`;
 }
+
+/**
+ * sessionStorage：同一個出入口，但另一張表（重新設計第二期）。
+ *
+ * 「啱啱讀緊邊一章」係呢個分頁嘅事，關咗分頁就應該冇 ——
+ * 所以唔放 localStorage。藏經閣靠佢出「← 回到《章名》」。
+ * 寫唔落（私密視窗、封咗 site data）就冇嗰條返回，其餘照行。
+ */
+export const SESSION_KEYS = {
+  reading: 'gw-reading',
+} as const;
+
+export type SessionKey = keyof typeof SESSION_KEYS;
+
+export function readSession(key: SessionKey): string | null {
+  try {
+    return sessionStorage.getItem(SESSION_KEYS[key]);
+  } catch {
+    return null;
+  }
+}
+
+export function writeSession(key: SessionKey, value: string): void {
+  try {
+    sessionStorage.setItem(SESSION_KEYS[key], value);
+  } catch {
+    /* 記唔到就算 */
+  }
+}

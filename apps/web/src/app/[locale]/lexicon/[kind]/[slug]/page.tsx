@@ -4,6 +4,7 @@ import { setRequestLocale } from 'next-intl/server';
 import { CORPUS, citationRef, distinctBooks } from '@guanwei/content';
 import { Link } from '@/i18n/navigation';
 import { Juanshou } from '@/components/Juanshou';
+import { ReturnToReading } from '@/components/ReturnToReading';
 import { LEXICON_LOCALE, allEntryParams, canonicalOf, entryOf, hrefOf, isKind, relatedOf, teaser } from '@/lib/lexicon';
 import { LexiconCta } from '@/components/LexiconCta';
 import { MARK, OG_LEXICON } from '@/lib/site';
@@ -97,7 +98,7 @@ export default async function LexiconEntryPage({
 
   return (
     <main className="juan tai">
-      <Juanshou back="lexicon" />
+      <Juanshou back="lexicon" aside={<ReturnToReading />} />
 
       <div className="banxin">
         {/* ⚠ 詞條個名係資料，所以佢同章名一樣：喺頁頭之下，唔喺頁頭入面。 */}

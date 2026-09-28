@@ -34,7 +34,7 @@ export function serverIdentity(): IdentityPort {
       };
     },
 
-    async linkEmail(email) {
+    async linkEmail(email, redirectTo) {
       /*
        * ⚠ 架構 §5 寫「認領 = `linkIdentity` 加 email」。
        * 實際上 `linkIdentity` 係用嚟接 OAuth 供應商嘅；
@@ -45,7 +45,15 @@ export function serverIdentity(): IdentityPort {
        * **佢哋都唔會換咗個 user。** `auth.uid()` 唔變，
        * 所以書同票一件都唔使搬（§5：「唔好自己捲 cookie 之後搬資料」）。
        */
-      const { error } = await client().auth.updateUser({ email });
+      /*
+       * ⚠ `emailRedirectTo` 要喺 Supabase → Authentication → URL Configuration
+       * 嘅 Redirect URLs 入面准咗先有效（例如 `https://<domain>/**`）。
+       * 冇准嘅話 Supabase 會靜靜雞跌返去 Site URL —— 唔會報錯，只係返首頁。
+       */
+      const { error } = await client().auth.updateUser(
+        { email },
+        redirectTo ? { emailRedirectTo: redirectTo } : undefined,
+      );
       if (!error) return { ok: true as const };
       return { ok: false as const, code: failureOf(error.status, error.message) };
     },

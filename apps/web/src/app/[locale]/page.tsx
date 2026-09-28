@@ -4,6 +4,7 @@ import { routing } from '@/i18n/routing';
 import { Link } from '@/i18n/navigation';
 import { Seal } from '@/components/Seal';
 import { StarWindow } from '@/components/StarWindow';
+import { ResumeLink } from '@/components/ResumeLink';
 import { MARK, OG_IMAGE } from '@/lib/site';
 
 export function generateStaticParams() {
@@ -78,10 +79,6 @@ export default async function RuZhai({ params }: { params: Promise<{ locale: str
   const steps = t.raw('steps') as { name: string; desc: string }[];
   const vertical = t.raw('vertical') as string[];
 
-  // G1（匿名 auth + DB）之後先接得通。而家冇書，所以底下嗰行唔會出。
-  // 唔好用 localStorage 扮有書 —— 書係 server 上面嘅嘢。
-  const hasBook = false;
-
   return (
     <main className="ye">
       <div className="ye-tu" aria-hidden="true" />
@@ -118,13 +115,8 @@ export default async function RuZhai({ params }: { params: Promise<{ locale: str
               <span className="btn-jiantou" aria-hidden="true">→</span>
             </Link>
             <p className="mt-4 max-w-80 text-cap leading-[1.9] tracking-[0.1em] text-night-ink-3">{t('hint')}</p>
-            {hasBook ? (
-              <p className="mt-6 text-sm tracking-[0.08em]">
-                <Link href="/shelf" className="border-b border-night-rule pb-0.5 text-night-ink-2 hover:text-night-ink">
-                  {t('resume')}
-                </Link>
-              </p>
-            ) : null}
+            {/* 有書先出一行（掛載之後先問 —— 首頁係靜態頁，server 唔知你有冇書） */}
+            <ResumeLink template={t.raw('resumeNamed') as string} />
           </div>
         </div>
 

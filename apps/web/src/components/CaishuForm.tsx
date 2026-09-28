@@ -12,12 +12,22 @@ import { checkoutAction, type CheckoutState } from '@/app/[locale]/pay/[bookId]/
  * 一粒掣，冇「立即購買」、冇倒數、冇「限時」。
  * 同 F4 嗰課一樣：一個要人即刻決定嘅設計，係一個唔信自己本書嘅設計。
  */
-export function CaishuForm({ bookId, priceLabel }: { bookId: string; priceLabel: string }) {
+export function CaishuForm({
+  bookId,
+  chapter,
+  priceLabel,
+}: {
+  bookId: string;
+  /** 由邊一章嚟 —— 付完款帶你返去嗰一章。 */
+  chapter: string | null;
+  priceLabel: string;
+}) {
   const [state, action, pending] = useActionState<CheckoutState, FormData>(checkoutAction, null);
 
   return (
     <form action={action} className="mt-10">
       <input type="hidden" name="bookId" value={bookId} />
+      {chapter ? <input type="hidden" name="ch" value={chapter} /> : null}
 
       <p className="text-lead tracking-[0.08em]">{priceLabel}</p>
 

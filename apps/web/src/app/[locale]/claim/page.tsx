@@ -3,6 +3,8 @@ import { setRequestLocale } from 'next-intl/server';
 import { routing } from '@/i18n/routing';
 import { Juanshou } from '@/components/Juanshou';
 import { ClaimForm } from '@/components/ClaimForm';
+import { Link } from '@/i18n/navigation';
+import { safeNext } from '@/lib/journey';
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -28,14 +30,36 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 };
 
-export default async function ClaimPage({ params }: { params: Promise<{ locale: string }> }) {
+export default async function ClaimPage({
+  params,
+  searchParams,
+}: {
+  params: Promise<{ locale: string }>;
+  searchParams: Promise<Record<string, string | string[] | undefined>>;
+}) {
   const { locale } = await params;
   setRequestLocale(locale);
+
+  /*
+   * 由邊度嚟、認領完去邊（重新設計第二期）。
+   *
+   * 由未裁章嚟：`from` = 嗰一章，`next` = 付款頁。返回去嗰一章，
+   * 認領完（開咗驗證信）就落去付款頁，唔再係首頁。
+   * 由書齋條提示嚟：兩個都冇，同之前一樣返書齋。
+   */
+  const query = await searchParams;
+  const next = safeNext(query.next);
+  const from = safeNext(query.from);
+  const forCutting = Boolean(next?.startsWith('/pay/'));
 
   return (
     <main className="juan tai">
       {/* ⚠ 「書架」改咗做「書齋」—— 全站同一個地方，之前得呢一版叫錯。 */}
-      <Juanshou back="shelf" title="認領" />
+      <Juanshou
+        back={from ? { href: from, label: '返回' } : 'shelf'}
+        title="認領"
+        step={forCutting ? 4 : undefined}
+      />
 
       <div className="banxin flex flex-col gap-4 text-body leading-[1.95]">
         <p>
@@ -45,10 +69,20 @@ export default async function ClaimPage({ params }: { params: Promise<{ locale: 
         <p className="text-ink-2">
           留一個電郵，書就記在這個地址名下。我們會寄一封驗證信，開了信裡的連結就完成。
         </p>
+        {forCutting ? (
+          <p className="text-ink-2">認領之後，會直接帶你去裁開這本書。</p>
+        ) : null}
       </div>
 
       <div className="banxin">
-        <ClaimForm />
+        <ClaimForm next={next} />
+        {from ? (
+          <p className="mt-8">
+            <Link href={from} className="lian">
+              先回去讀免費的章
+            </Link>
+          </p>
+        ) : null}
       </div>
 
       {/* 攞個 email 嚟做乜，講清楚。呢句唔係細則，係承諾。 */}

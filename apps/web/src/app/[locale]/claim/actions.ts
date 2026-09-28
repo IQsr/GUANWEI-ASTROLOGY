@@ -1,7 +1,9 @@
 'use server';
 
 import { claim } from '@/lib/identity';
+import { headers } from 'next/headers';
 import { serverIdentity } from '@/lib/identity.server';
+import { safeNext } from '@/lib/journey';
 
 export type ClaimState = { ok: boolean; message: string } | null;
 
@@ -13,11 +15,21 @@ export type ClaimState = { ok: boolean; message: string } | null;
  */
 export async function claimAction(_prev: ClaimState, formData: FormData): Promise<ClaimState> {
   try {
-    const result = await claim(serverIdentity(), formData.get('email'));
+    /*
+     * 認領完落喺邊：表單帶住嘅 `next`（驗過係站內路徑），冇就書齋。
+     * origin 同 checkout 一樣由 request header 攞 —— preview 部署同 production 唔同。
+     */
+    const next = safeNext(formData.get('next')) ?? '/shelf';
+    const h = await headers();
+    const host = h.get('host');
+    const proto = h.get('x-forwarded-proto') ?? 'https';
+    const redirectTo = host ? `${proto}://${host}${next}` : undefined;
+
+    const result = await claim(serverIdentity(), formData.get('email'), redirectTo);
     return result.ok
       ? {
           ok: true,
-          message: `驗證信已經寄去 ${result.email}。開了信裡的連結，這些書就記在你名下。`,
+          message: `驗證信已經寄去 ${result.email}。開了信裡的連結，這些書就記在你名下，並會帶你回到這裡。`,
         }
       : { ok: false, message: result.message };
   } catch (error) {

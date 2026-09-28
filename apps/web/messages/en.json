@@ -34,7 +34,8 @@
         "name": "Go deeper",
         "desc": "Uncut pages, opened when you choose"
       }
-    ]
+    ],
+    "resumeNamed": "Continue reading {name}"
   },
   "theme": {
     "day": "Day",

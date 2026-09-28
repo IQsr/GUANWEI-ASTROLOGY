@@ -202,7 +202,7 @@ export function Naming({
     </div>
   );
 
-  return open ? <FlowChrome>{scene}</FlowChrome> : scene;
+  return open ? <FlowChrome step={2}>{scene}</FlowChrome> : scene;
 }
 
 function ChartPane({ chart, name }: { chart: ZChart; name: string }) {

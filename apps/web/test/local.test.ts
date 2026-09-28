@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { readFileSync, readdirSync, statSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { join, relative } from 'node:path';
-import { LOCAL_KEYS } from '@/lib/local';
+import { LOCAL_KEYS, SESSION_KEYS } from '@/lib/local';
 
 /**
  * 工單 G1 第四條 AC：**localStorage 只存主題同上次讀到邊段。**
@@ -44,6 +44,13 @@ describe('⚠ 得兩個 key', () => {
 
   it('key 名有 gw- 前綴 —— 同人哋嘅嘢分得開', () => {
     for (const v of Object.values(LOCAL_KEYS)) expect(v).toMatch(/^gw-/);
+  });
+});
+
+describe('⚠ sessionStorage 得一個 key', () => {
+  /** 重新設計第二期：藏經閣「回到正文」。加 key 要同時改 docs/privacy.md 嗰張表。 */
+  it('剛好一個：讀緊邊一章', () => {
+    expect(SESSION_KEYS).toEqual({ reading: 'gw-reading' });
   });
 });
 

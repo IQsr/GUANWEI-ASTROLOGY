@@ -3,6 +3,7 @@
 import { redirect } from 'next/navigation';
 import { headers } from 'next/headers';
 import { payGate } from '@/lib/pay';
+import { safeSlug } from '@/lib/journey';
 import { createCheckout, currentReaderId, payFacts } from '@/lib/pay.server';
 
 export type CheckoutState = { message: string } | null;
@@ -24,6 +25,8 @@ export async function checkoutAction(
 ): Promise<CheckoutState> {
   const bookId = String(formData.get('bookId') ?? '');
   if (!bookId) return { message: '找不到這本書。' };
+  /* 由邊一章嚟。公開 endpoint 收到乜都得，所以驗過先用；唔啱就當冇。 */
+  const chapter = safeSlug(formData.get('ch'));
 
   let url: string;
   try {
@@ -54,6 +57,7 @@ export async function checkoutAction(
       readerId,
       bookTitle: '觀微命書 · 深度章',
       origin: `${proto}://${host}`,
+      chapter,
     });
   } catch (error) {
     /* 行到呢度即係我哋自己壞咗（多數係環境變數）。真錯誤記落 server log。 */

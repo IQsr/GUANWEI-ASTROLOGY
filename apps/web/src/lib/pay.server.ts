@@ -114,7 +114,10 @@ export async function createCheckout(input: {
   readerId: string;
   bookTitle: string;
   origin: string;
+  /** 由邊一章嚟（已經過 `safeSlug`）。返嚟嗰版靠佢帶你返去嗰一章。 */
+  chapter?: string | null;
 }): Promise<string> {
+  const ch = input.chapter ? `&ch=${encodeURIComponent(input.chapter)}` : '';
   const session = await stripe().checkout.sessions.create({
     mode: 'payment',
     line_items: [
@@ -133,8 +136,8 @@ export async function createCheckout(input: {
      * 因為嗰陣個人已經畀咗錢。
      */
     metadata: { book_id: input.bookId, reader_id: input.readerId },
-    success_url: `${input.origin}/pay/${input.bookId}?done=1`,
-    cancel_url: `${input.origin}/pay/${input.bookId}?cancelled=1`,
+    success_url: `${input.origin}/pay/${input.bookId}?done=1${ch}`,
+    cancel_url: `${input.origin}/pay/${input.bookId}?cancelled=1${ch}`,
   });
 
   if (!session.url) throw new Error('Stripe 冇回一條 checkout URL');
