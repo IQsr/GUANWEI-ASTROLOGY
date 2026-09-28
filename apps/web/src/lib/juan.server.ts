@@ -81,17 +81,5 @@ export function serverJuan(): JuanPort {
       const chart = Array.isArray(data?.charts) ? data?.charts[0] : data?.charts;
       return chart?.payload ?? null;
     },
-
-    async origin(bookId) {
-      const sb = supabaseServer();
-      const { data, error } = await sb
-        .from('books')
-        .select('client_token, created_at')
-        .eq('id', bookId)
-        .maybeSingle();
-      if (error) throw error;
-      if (!data?.client_token) return null;
-      return { token: data.client_token as string, createdAt: data.created_at as string };
-    },
   };
 }

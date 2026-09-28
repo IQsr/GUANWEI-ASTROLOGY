@@ -7,8 +7,6 @@ import {
   shenChapter,
   xuChapter,
   LEXICON,
-  TRANSITION_WHITELIST,
-  legacyFrameTexts,
   type Chapter,
 } from '@guanwei/content';
 import { SCHOOL_PROFILE, annual, cast } from '@guanwei/ziwei';
@@ -16,7 +14,6 @@ import type { Chart as ZChart } from '@guanwei/ziwei/contract';
 import { hrefOf, slugOf } from '@/lib/lexicon';
 import { markBook, type MarkedChapter } from '@/lib/zhu';
 import type { Note } from '@/components/Juan';
-import { needsResplit, resplit } from '@/lib/fenduan';
 
 /**
  * 由一張盤砌一本命書（工單 F1）
@@ -183,42 +180,6 @@ export function bookChapters(
     ...(shen ? [{ slug: shen.slug, title: shen.title, ...body(shen.segments) }] : []),
     ...rest.map((c) => ({ slug: c.palace, ...body(c.segments) })),
   ];
-}
-
-/**
- * 舊書讀嗰陣分段（見 lib/fenduan.ts）。
- *
- * `seed` 係本書個 token（成書嗰陣用佢做 seed），`years` 係成書嗰年 ——
- * 流年層會入正文，年唔啱就對唔上。成書用 server 當地時間嘅年，
- * 而 `created_at` 係 UTC，所以跨年嗰幾個鐘要試埋前後一年。
- *
- * ⚠ 淨係郁冇分段嘅舊宮位章；新章、序、身宮原封不動。
- * ⚠ 重砌要成本書行一次推理 —— 所以真係有舊章先砌，而且一個年份只砌一次。
- */
-export function restoreParagraphs<T extends { slug: string; text: string | null; slots: string[] }>(
-  chapters: T[],
-  opts: { chart: ZChart; seed: string; years: number[] },
-): T[] {
-  if (!chapters.some(needsResplit)) return chapters;
-  const bridges = TRANSITION_WHITELIST();
-  const built = new Map<number, Chapter[] | null>();
-  const palacesOf = (year: number) => {
-    if (!built.has(year)) built.set(year, chaptersOf(opts.chart, { seed: opts.seed, year }));
-    return built.get(year)!;
-  };
-
-  return chapters.map((ch) => {
-    if (!needsResplit(ch)) return ch;
-    for (const year of opts.years) {
-      const palace = palacesOf(year)?.find((c) => c.palace === ch.slug);
-      if (!palace) continue;
-      const split = resplit(ch.text!, palace.segments, bridges, (slot) =>
-        slot === '章首' ? legacyFrameTexts(ch.slug, 'open') : slot === '留白' ? legacyFrameTexts(ch.slug, 'close') : [],
-      );
-      if (split) return { ...ch, text: split.text, slots: split.slots };
-    }
-    return ch;
-  });
 }
 
 /**

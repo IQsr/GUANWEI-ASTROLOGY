@@ -47,13 +47,6 @@ export type JuanPort = {
    * 撈唔到就回 null —— 冇盤就唔出個細盤，唔係出一個空格。
    */
   chart(bookId: string): Promise<unknown | null>;
-  /**
-   * 本書點樣砌出嚟：token（成書嗰陣做正文 seed）同成書時間。
-   *
-   * 舊書讀嗰陣分段要用（lib/fenduan.ts）：同一張盤、同一個 seed、同一年，
-   * 砌得返同一堆段落，先知道原本喺邊度分段。撈唔到就回 null，照舊一大段。
-   */
-  origin?(bookId: string): Promise<{ token: string; createdAt: string } | null>;
 };
 
 export type ContentsView =

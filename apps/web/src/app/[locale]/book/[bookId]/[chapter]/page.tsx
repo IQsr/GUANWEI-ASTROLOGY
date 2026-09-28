@@ -14,8 +14,7 @@ import type { Chart as ZChart } from '@guanwei/ziwei/contract';
 import { MarkRead } from '@/components/MarkRead';
 import { contentsView } from '@/lib/juan-view';
 import { serverJuan } from '@/lib/juan.server';
-import { notesFor, restoreParagraphs } from '@/lib/mingshu';
-import { needsResplit } from '@/lib/fenduan';
+import { notesFor } from '@/lib/mingshu';
 import { markBook } from '@/lib/zhu';
 import { ChapterNav } from '@/components/ChapterNav';
 import { chapterHref, chapterParam, contentsHref, neighbours } from '@/lib/journey';
@@ -91,27 +90,9 @@ export default async function ChapterPage({
   const turnNext = next ? { href: chapterHref(bookId, next.slug), label: tr('turnTo', { title: next.title }) } : null;
   const upto = view.chapters.filter((c) => c.ord <= (here?.ord ?? 0));
 
-  /*
-   * 2026-09 之前嘅舊書：宮位章冇分段。讀嗰陣用盤同 token 重砌、逐字對返先分段，
-   * DB 唔郁（R-008 · lib/fenduan.ts）。對唔上就照舊一大段。
-   */
-  const withParagraphs = async (
-    rows: ({ text: string | null; slots: string[] } | null)[],
-    metas: { slug: string }[],
-  ) => {
-    const items = rows.map((r, i) => ({ slug: metas[i]!.slug, text: r?.text ?? null, slots: r?.slots ?? [] }));
-    if (!chart || !items.some(needsResplit)) return items;
-    const origin = await port.origin?.(bookId).catch(() => null);
-    if (!origin) return items;
-    const y = new Date(origin.createdAt).getUTCFullYear();
-    return restoreParagraphs(items, { chart, seed: origin.token, years: [y, y + 1, y - 1] });
-  };
   /* 左頁嘅命盤：未裁嘅章都出（盤唔係深度章嘅內容） */
   const chart = (await port.chart(bookId).catch(() => null)) as ZChart | null;
-  const fetched = await withParagraphs(
-    await Promise.all(upto.map((c) => port.body(bookId, c.slug))),
-    upto,
-  );
+  const fetched = await Promise.all(upto.map((c) => port.body(bookId, c.slug)));
 
   /*
    * ⚠ 標註要**成本書**一齊標，但跟捲動高亮只關呢一章事。
