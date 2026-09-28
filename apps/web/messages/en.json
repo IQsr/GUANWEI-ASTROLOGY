@@ -3,7 +3,7 @@
     "name": "Guan Wei",
     "latin": "GUAN WEI",
     "essence": "Reading the stars is reading yourself.",
-    "philosophy": "Observe the small, and you will know the shape."
+    "philosophy": "Look closely at the small, and you will see which way things tend."
   },
   "ruzhai": {
     "meta": "A way of reading and understanding yourself, through Zi Wei Dou Shu.",
@@ -12,7 +12,7 @@
     "hint": "Five questions, about three minutes. An unknown birth hour is fine.",
     "sealLabel": "Guan Wei seal",
     "resume": "Continue reading",
-    "tagline": "BETWEEN THE COSMOS AND THE SELF.",
+    "tagline": "BETWEEN THE COSMOS AND THE SELF",
     "vertical": [
       "觀天地之微，",
       "見自身之深。"
@@ -28,7 +28,7 @@
       },
       {
         "name": "Read",
-        "desc": "Begin at the Life palace, one chapter each"
+        "desc": "Begin at the Life Palace, one chapter each"
       },
       {
         "name": "Go deeper",
@@ -85,8 +85,8 @@
     "home": "Home",
     "cast": "Begin",
     "lexicon": "Library",
-    "shelf": "Study",
-    "myShelf": "My study",
+    "shelf": "Shelf",
+    "myShelf": "My shelf",
     "account": "Settings",
     "homeAria": "Guan Wei home",
     "menuOpen": "Open menu",
@@ -110,7 +110,7 @@
     "newYork": "New York"
   },
   "cast": {
-    "metaTitle": "Inscribe",
+    "metaTitle": "Your birth details",
     "bookLabel": "Inscription",
     "label": {
       "name": "Name",
@@ -121,10 +121,10 @@
     },
     "ask": {
       "name": "Whose name should this book carry?",
-      "date": "Your birth date on the Western calendar. We convert it to the lunar calendar ourselves.",
+      "date": "Your date of birth on the Gregorian calendar. We convert it to the lunar calendar for you.",
       "place": "Where were you born?",
-      "time": "The time you were born.",
-      "sex": "The direction of the decade periods depends on yin, yang and sex, so the chart needs it."
+      "time": "What time were you born?",
+      "sex": "The chart needs this: whether your ten-year periods run forward or backward depends on the year's yin or yang and your sex."
     },
     "aria": {
       "name": "Name",
@@ -136,34 +136,34 @@
     "contents": "Contents",
     "mulu": [
       "Preface · Your chart",
-      "I · The Life palace",
-      "The Body palace and the Five Elements",
+      "I · The Life Palace",
+      "The Body Palace and the Five-Element Bureau",
       "… then one chapter for each palace, eleven in all"
     ],
-    "muluNote1": "These chapters are set before you write in your birth.",
-    "muluNote2": "Once you do, they will fill in.",
+    "muluNote1": "The chapters are fixed before you enter your birth details.",
+    "muluNote2": "Once you do, they fill with your text.",
     "next": "Next",
     "finish": "Make the book",
-    "casting": "Casting",
+    "casting": "Casting your chart…",
     "choose": "Choose one",
     "male": "Male",
     "female": "Female",
     "timeHint": "Use the clock time on your birth certificate. We handle daylight saving ourselves.",
     "slotsLoading": "Working out the hours of that day…",
-    "exactToggle": "Exact time?",
+    "exactToggle": "I know the exact time",
     "backToSlots": "Choose an hour instead",
     "noHour": "Hour unknown",
     "noHourSummary": "Hour unknown",
-    "noHourComfort": "Without the hour we can't place the Life palace, so this book will wait on your shelf with a dotted spine — a book waiting for its hour. It is usually on the birth certificate, and family can often remember. Add the hour and the book is complete.",
+    "noHourComfort": "Without the hour we can't place the Life Palace, so this book will stay on your shelf with a dotted spine, waiting for its hour. It is usually on the birth certificate, and family can often remember. Add the hour and the book is complete.",
     "awaitTitle": "Waiting for the hour",
-    "awaitBody1": "The year, month and day are in place; the Life palace is still waiting for the hour. The book will stay on your shelf with a dotted spine.",
+    "awaitBody1": "The year, month and day are in place; the Life Palace is still waiting for the hour. The book will stay on your shelf with a dotted spine.",
     "awaitBody2": "Add the hour and the book is complete.",
     "errors": {
       "BAD_REQUEST": "Something in these birth details looks off. Please go back a step and check.",
       "OUT_OF_RANGE": "Our calendar covers 1900 to 2100. This birth date is outside it for now.",
       "BAD_PLACE": "This place's coordinates look wrong. Please choose it again.",
       "BAD_TIMEZONE": "We couldn't recognise this time zone. Please choose the place of birth again.",
-      "UNKNOWN_HOUR": "Without the hour we cannot place the Life palace. Please choose \"Hour unknown\".",
+      "UNKNOWN_HOUR": "Without the hour we cannot place the Life Palace. Please choose \"Hour unknown\".",
       "NOT_IMPLEMENTED": "This part isn't ready yet."
     }
   },
@@ -197,19 +197,19 @@
     "openLabel": "Open {label}"
   },
   "shelf": {
-    "metaTitle": "Study",
-    "title": "Study",
+    "metaTitle": "Shelf",
+    "title": "Shelf",
     "unavailable": "We can't reach your shelf right now. Your books are safe — please try again in a moment.",
     "claimPrompt": "These books are only known to this browser.",
     "claimLink": "Leave an email",
-    "intro": "Every book of yours is here. Tap a spine to open it, or start a new one on the far right.",
+    "intro": "Every book of yours is here. Choose a spine to open it, or start a new one on the far right.",
     "newBook": "+ New book",
     "newBookAria": "New book",
     "untitled": "Untitled"
   },
   "book": {
     "metaTitle": "Book",
-    "missing": "This book isn't in your study.",
+    "missing": "This book isn't on your shelf.",
     "unavailable": "We can't reach this book right now. It is safe — please try again in a moment.",
     "noChapter": "This book doesn't have that chapter.",
     "intro": "Come to know yourself, slowly, through your chart.",
@@ -223,7 +223,7 @@
     "readHere": "You stopped here",
     "uncutTag": "Uncut",
     "rest": "Other chapters",
-    "uncutNote": "Chapters marked “uncut” are pages of this book not yet opened — their titles are listed so you can see what they hold. Open them once and every deeper chapter in the book is yours.",
+    "uncutNote": "Chapters marked “uncut” are pages of this book not yet opened — their titles are listed so you can see what they hold. One payment opens every deeper chapter in this book.",
     "aboutCut": "About opening the book",
     "themes": {
       "xing": {
@@ -250,9 +250,9 @@
   },
   "weicai": {
     "notYet": "This page has not been cut open yet.",
-    "cut": "Open",
+    "cut": "Open these pages",
     "hintAnonymous": "Leave an email to keep this book, then open it.",
-    "hintClaimed": "Open once, and every deeper chapter in the book is yours."
+    "hintClaimed": "One payment opens every deeper chapter in this book."
   },
   "claim": {
     "metaTitle": "Keep your books",
@@ -262,7 +262,7 @@
     "forCutting": "Once that is done, we will take you straight to opening this book.",
     "readFree": "Go back to the free chapters first",
     "promise1": "This email is only used to recognise your books. No promotional mail.",
-    "promise2": "One letter a year, before the start of spring, about the year ahead. You can turn it off in Settings.",
+    "promise2": "One letter a year, before Lichun (the start of spring), about the year ahead. You can turn it off in Settings.",
     "email": "Email",
     "submit": "Keep them",
     "sending": "Sending",
@@ -283,7 +283,7 @@
     "unreachableTitle": "Cannot open it right now",
     "unreachable": "We cannot connect at the moment. Nothing is wrong on your side, and your book and any payment are safe — try this page again in a little while.",
     "back": "Back",
-    "toShelf": "Back to the study",
+    "toShelf": "Back to your shelf",
     "readChapter": "Read “{title}”",
     "openContents": "Open the contents",
     "explain1": "Old thread-bound books came with their page edges uncut; the reader cut them open. The deeper chapters of this book are those uncut pages.",
@@ -296,7 +296,7 @@
     "blocked": {
       "signed-out": {
         "message": "There are no books in this browser. If your book is on another device, open it there.",
-        "label": "Study"
+        "label": "Shelf"
       },
       "anonymous": {
         "message": "Keep this book with an email before opening it — otherwise clearing your browser data would lose the book and any opened pages.",
@@ -304,11 +304,11 @@
       },
       "not-yours": {
         "message": "We could not find this book.",
-        "label": "Study"
+        "label": "Shelf"
       },
       "already-paid": {
         "message": "This book is already open.",
-        "label": "Back to the study"
+        "label": "Back to your shelf"
       },
       "untitled": {
         "message": "This book is still waiting for its hour. Add the birth hour and it will have a name.",
@@ -318,11 +318,11 @@
     "return": {
       "paid": {
         "title": "Opened",
-        "body": "Every deeper chapter of the book is now yours. Go back to your study, or turn straight to the next chapter."
+        "body": "Every deeper chapter of the book is now yours. Go back to your shelf, or turn straight to the next chapter."
       },
       "pending": {
         "title": "Received",
-        "body": "Your payment has arrived. It takes a moment to go through; once it does, the book opens by itself — there is no need to stay on this page."
+        "body": "We've received your payment. It takes a moment to confirm; once it does, the book opens by itself — no need to stay on this page."
       },
       "cancelled": {
         "title": "Not opened",
@@ -343,22 +343,22 @@
     "unclaimed": "These books have not been kept with an email yet — only this browser knows them.",
     "exportTitle": "Take it with you",
     "export1": "A JSON file with every birth you have written, every chart and every book.",
-    "export2": "Opened chapters include their text; uncut chapters have only their titles and sections — those have not been purchased, and the file says so.",
+    "export2": "Opened chapters include their text; uncut chapters include only their titles and section names — those have not been purchased, and the file says so.",
     "exportNote": "Uncut deeper chapters have a null body — they have not been purchased; nothing is missing from this file.",
     "download": "Download",
     "preparing": "Preparing",
     "exportFailed": "We could not export just now. Please try again later.",
     "recastTitle": "New versions",
     "recastIntro": "The method and the writing will be revised over time. The books you have will not change with them — each remembers the settings it was made with.",
-    "recastEmpty": "There are no books in your study yet.",
+    "recastEmpty": "There are no books on your shelf yet.",
     "recastLink": "Make another book from the same birth →",
     "recast": {
       "none": "This book uses the same settings as today.",
       "unknown": "This book did not record which version made it — that is a data problem for us to fix, not the same as “unchanged”.",
-      "action": "To see what the new version makes of it, make another book from the same birth. This one will not change; both will stay in your study for you to compare."
+      "action": "To see what the new version makes of it, make another book from the same birth. This one will not change; both will stay on your shelf for you to compare."
     },
     "chongpaiTitle": "Changed since this book was made",
-    "chongpaiNote": "The book you have has not changed and will not change by itself. To see the new version, make another one; both will stay in your study for you to compare.",
+    "chongpaiNote": "The book you have has not changed and will not change by itself. To see the new version, make another one; both will stay on your shelf for you to compare.",
     "layer": {
       "engine": "Chart engine",
       "school": "School settings",
