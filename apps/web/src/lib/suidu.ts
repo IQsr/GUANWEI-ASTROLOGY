@@ -136,3 +136,6 @@ export function sectionBreaks(slots: readonly (string | null)[]): boolean[] {
     return SECTION_START.has(slot) && prev !== slot && prev !== '過場';
   });
 }
+
+/** 過場句嘅格名（資料鍵）：舊書讀嗰陣分段，認返過場句用（lib/fenduan.ts）。 */
+export const BRIDGE_SLOT = '過場';
