@@ -28,3 +28,4 @@ export * from './free';
 export * from './barnum';
 export * from './reader';
 export * from './xingxi';
+export * from './xingxi-chapters';

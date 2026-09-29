@@ -5,6 +5,8 @@ import {
   assembleAll,
   inferAll,
   shenChapter,
+  gujiaChapter,
+  sanfangChapter,
   xuChapter,
   LEXICON,
   type Chapter,
@@ -165,18 +167,24 @@ export function bookChapters(
   /* 序唔再印版本號（2026-09）：版本照舊寫落 DB（成書嗰陣，見 cast/actions.ts）。 */
   const xu = xuChapter({ chart, solar: opts.solar, place: opts.place });
   const shen = shenChapter({ chart });
+  const gujia = gujiaChapter({ chart });
+  const sanfang = sanfangChapter({ chart });
 
   /*
-   * ⚠ 次序：序 → 命宮 → 身宮與五行局 → 其餘十一宮。
+   * ⚠ 次序：序 → 命宮 → 性格的骨架 → 三方四正 → 身宮與五行局 → 其餘十一宮。
    *
-   * 免費章行先（架構 §6），而身宮嗰章擺喺命宮後面 ——
-   * 佢講嘅係「後天著力喺邊」，讀完「先天基調」先至讀得通。
+   * 免費章行先（架構 §6）。骨架同三方四正緊跟命宮：三章都係讀命宮，
+   * 由「命宮坐乜」→「呢個星系嘅本質」→「三方四正推你向邊頭」。
+   * 骨架要行先 —— 佢先講出條軸，三方四正先講得到推向邊頭（見 content `xingxi-chapters.ts`）。
+   * 身宮嗰章擺喺後面：佢講嘅係「後天著力喺邊」，讀完「先天基調」先至讀得通。
    */
   const [ming, ...rest] = palaces;
 
   return [
     { slug: xu.slug, title: xu.title, ...body(xu.segments) },
     ...(ming ? [{ slug: ming.palace, ...body(ming.segments) }] : []),
+    ...(gujia ? [{ slug: gujia.slug, title: gujia.title, ...body(gujia.segments) }] : []),
+    ...(sanfang ? [{ slug: sanfang.slug, title: sanfang.title, ...body(sanfang.segments) }] : []),
     ...(shen ? [{ slug: shen.slug, title: shen.title, ...body(shen.segments) }] : []),
     ...rest.map((c) => ({ slug: c.palace, ...body(c.segments) })),
   ];

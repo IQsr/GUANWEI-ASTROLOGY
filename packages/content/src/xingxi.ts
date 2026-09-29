@@ -117,31 +117,54 @@ export function xingxiOf(chart: Chart): { system: Xingxi; borrowed: boolean } | 
   return system ? { system, borrowed } : null;
 }
 
-function fires(chart: Chart, m: Palace, four: Palace[], c: XingxiCond): boolean {
+/**
+ * 一條條件喺呢張盤上中咗乜。回一串讀得出嘅證據（例：「武曲化祿」「天府同宮見左輔」），
+ * 冇中就回空 —— 所以「中唔中」同「中咗乜」係同一個答案，唔會各講各。
+ */
+function evidence(m: Palace, four: Palace[], c: XingxiCond): string[] {
   if ('hua' in c) {
-    return four.some((p) => p.stars.some((s) => s.sihua && c.hua[s.name]?.includes(s.sihua)));
+    return four.flatMap((p) =>
+      p.stars.filter((s) => s.sihua && c.hua[s.name]?.includes(s.sihua)).map((s) => `${s.name}化${s.sihua}`),
+    );
   }
   if ('near' in c) {
-    return four.some((p) => p.stars.some((s) => s.name === c.near) && p.stars.some((s) => c.any.includes(s.name)));
+    return four.flatMap((p) => {
+      if (!p.stars.some((s) => s.name === c.near)) return [];
+      const with_ = p.stars.filter((s) => c.any.includes(s.name)).map((s) => s.name);
+      return with_.length ? [`${c.near}同宮見${with_.join('、')}`] : [];
+    });
   }
-  if ('inMing' in c) return m.stars.some((s) => c.inMing.includes(s.name));
+  if ('inMing' in c) {
+    const found = m.stars.filter((s) => c.inMing.includes(s.name)).map((s) => s.name);
+    return found.length ? [`命宮見${found.join('、')}`] : [];
+  }
   if ('inFour' in c) {
-    const seen = new Set(four.flatMap((p) => p.stars.map((s) => s.name)).filter((n) => c.inFour.includes(n)));
-    return seen.size >= c.min;
+    const names = new Set(four.flatMap((p) => p.stars.map((s) => s.name)));
+    const seen = c.inFour.filter((n) => names.has(n));
+    return seen.length >= c.min ? [`三方四正會${seen.join('、')}`] : [];
   }
-  return c.branch.includes(m.branch);
+  return c.branch.includes(m.branch) ? [`命宮在${m.branch}`] : [];
 }
 
 /**
  * 呢張盤喺條軸上偏向邊頭。逐條條件喺命宮三方四正對，數兩頭各中幾條；
- * 多嗰頭贏，一樣多就「平衡」。回埋中咗邊幾條（測試同 debug 用）。
+ * 多嗰頭贏，一樣多就「平衡」。`seen` 係兩頭各自喺盤上見到乜 —— 三方四正章逐樣講出嚟。
  */
-export function leanOf(chart: Chart, x: Xingxi): { pole: string; score: Record<string, number> } {
+export function leanOf(
+  chart: Chart,
+  x: Xingxi,
+): { pole: string; score: Record<string, number>; seen: Record<string, string[]> } {
   const m = ming(chart)!;
   const four = sanFangPalaces(chart.palaces, m.branch);
   const score: Record<string, number> = { [x.poles[0]]: 0, [x.poles[1]]: 0 };
-  for (const r of x.rules) if (fires(chart, m, four, r.when)) score[r.pole]! += 1;
+  const seen: Record<string, string[]> = { [x.poles[0]]: [], [x.poles[1]]: [] };
+  for (const r of x.rules) {
+    const e = evidence(m, four, r.when);
+    if (!e.length) continue;
+    score[r.pole]! += 1;
+    for (const t of e) if (!seen[r.pole]!.includes(t)) seen[r.pole]!.push(t);
+  }
   const [a, b] = x.poles;
   const pole = score[a]! > score[b]! ? a : score[b]! > score[a]! ? b : '平衡';
-  return { pole, score };
+  return { pole, score, seen };
 }

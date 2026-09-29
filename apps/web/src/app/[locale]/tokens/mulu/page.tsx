@@ -26,7 +26,10 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 };
 
-const SLUGS = ['序', '命宮', '身宮與五行局', '兄弟', '夫妻', '子女', '財帛', '疾厄', '遷移', '僕役', '官祿', '田宅', '福德', '父母'];
+const SLUGS = ['序', '命宮', '性格的骨架', '三方四正', '身宮與五行局', '兄弟', '夫妻', '子女', '財帛', '疾厄', '遷移', '僕役', '官祿', '田宅', '福德', '父母'];
+/* 自己帶名嗰幾章唔跟號（同 `chapterDrafts()` 一樣） */
+const TITLED = new Set(['序', '性格的骨架', '三方四正', '身宮與五行局']);
+const CHAPTERS_NUMBERED = SLUGS.filter((s) => !TITLED.has(s));
 const NUM = ['一', '二', '三', '四', '五', '六', '七', '八', '九', '十', '十一', '十二', '十三'];
 
 const CHAPTERS: ChapterMeta[] = SLUGS.map((slug, i) => ({
@@ -34,7 +37,7 @@ const CHAPTERS: ChapterMeta[] = SLUGS.map((slug, i) => ({
   slug,
   ord: i + 1,
   tier: tierOf(slug),
-  title: slug === '序' ? '序 · 你的命盤' : `${NUM[i - 1]} · ${slug}`,
+  title: slug === '序' ? '序 · 你的命盤' : TITLED.has(slug) ? slug : `${NUM[CHAPTERS_NUMBERED.indexOf(slug)]} · ${slug}`,
 }));
 
 export default async function MuluDemo({

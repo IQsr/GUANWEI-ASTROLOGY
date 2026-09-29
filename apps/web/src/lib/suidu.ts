@@ -46,6 +46,21 @@ export const SLOT_FOCUS: Record<string, Focus> = {
   體系: 'none',
   五行局: 'none',
   身宮: 'none',
+  /* 性格的骨架、三方四正（2026-09）：兩章都係讀命宮嗰個星系 */
+  命宮: 'palace',
+  骨架: 'palace',
+  四正: 'sanfang',
+  推力: 'sanfang',
+  偏向: 'sanfang',
+};
+
+/**
+ * 唔係逐宮章、但讀緊某一宮嘅章：個盤亮邊一宮。
+ * 性格的骨架、三方四正讀嘅都係命宮嗰個星系（`@guanwei/content` xingxi）。
+ */
+export const CHAPTER_PALACE: Record<string, string> = {
+  性格的骨架: '命宮',
+  三方四正: '命宮',
 };
 
 export function focusOf(slot: string): Focus {
@@ -78,7 +93,7 @@ export function chartStateAt(
   const focus = slot === null ? 'none' : focusOf(slot);
   /* `keep` 到咗呢度仲係 `keep`，即係前面根本冇嘢好保 —— 當唔亮。 */
   if (focus === 'none' || focus === 'keep') return { selected: null, relations: false };
-  const index = branchIndexOf(chart, palace);
+  const index = branchIndexOf(chart, CHAPTER_PALACE[palace] ?? palace);
   return { selected: index, relations: focus === 'sanfang' };
 }
 

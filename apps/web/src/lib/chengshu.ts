@@ -74,16 +74,12 @@ export type BookDraft = {
  * §6：「免費（基本書）：序·你的命盤 / 命宮 / 身宮與五行局 /
  * 三方四正 / 性格的骨架」。
  *
- * 五章入面而家生成得到三章：**序**、**命宮**、**身宮與五行局**。
+ * 五章齊晒（2026-09）：三方四正、性格的骨架等到 B5 本書（王亭之《深造講義》
+ * 六十星系）先寫得 —— 之前唔准喺冇來源之下自己砌。
  *
- * 餘下兩章（三方四正、性格的骨架）行乙案（Issac 2026-09-20）：
- * 佢哋要**新嘅 L3 塊**，而新塊要有來源 —— 即係要等 B5 本書。
- * 唔係實作做唔到，係唔准喺冇來源之下自己砌。
- *
- * 呢個唔係一個定價決定，係一個**未做完**。寫落呢度，
- * 免得有人由 code 度讀出「我哋決定咗免費只得三章」。
+ * ⚠ 呢張表係**名單**，唔係章序。章序喺 `mingshu.ts` `bookChapters()`。
  */
-export const FREE_SLUGS: readonly string[] = ['序', '命宮', '身宮與五行局'];
+export const FREE_SLUGS: readonly string[] = ['序', '命宮', '身宮與五行局', '三方四正', '性格的骨架'];
 
 export function tierOf(slug: string): Tier {
   return FREE_SLUGS.includes(slug) ? 'free' : 'deep';

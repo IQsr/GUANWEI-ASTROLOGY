@@ -11,7 +11,7 @@ import { FREE_SLUGS, tierOf } from '@/lib/chengshu';
 const PALACE_ORDER = ['命宮', '兄弟', '夫妻', '子女', '財帛', '疾厄', '遷移', '僕役', '官祿', '田宅', '福德', '父母'];
 
 /** 一本完整命書嘅章：序、兩章免費、其餘十一宮（同 chengshu 一樣嘅排法）。 */
-const BOOK = ['序', '命宮', '身宮與五行局', ...PALACE_ORDER.filter((p) => p !== '命宮')].map((slug, i) => ({
+const BOOK = ['序', '命宮', '性格的骨架', '三方四正', '身宮與五行局', ...PALACE_ORDER.filter((p) => p !== '命宮')].map((slug, i) => ({
   slug,
   ord: i + 1,
   tier: tierOf(slug),
@@ -71,8 +71,8 @@ describe('分法', () => {
 
 describe('認唔到嘅章', () => {
   it('落「其餘各章」，唔會唔見', () => {
-    const g = groupChapters([...BOOK, { slug: '三方四正', ord: 99, tier: 'free' }]);
-    expect(g.rest.map((c) => c.slug)).toEqual(['三方四正']);
+    const g = groupChapters([...BOOK, { slug: '未知一章', ord: 99, tier: 'free' }]);
+    expect(g.rest.map((c) => c.slug)).toEqual(['未知一章']);
   });
 
   it('冇章嘅主題唔出', () => {
@@ -82,8 +82,8 @@ describe('認唔到嘅章', () => {
 });
 
 describe('目次頂嗰行', () => {
-  it('未裁：十四章，三章免費，十一章未裁', () => {
-    expect(tally(BOOK, false)).toEqual({ total: 14, free: 3, uncut: 11 });
+  it('未裁：十六章，五章免費，十一章未裁', () => {
+    expect(tally(BOOK, false)).toEqual({ total: 16, free: 5, uncut: 11 });
   });
 
   /** 之前付完款目次照寫「未裁」—— 裁開咗就冇未裁。 */
