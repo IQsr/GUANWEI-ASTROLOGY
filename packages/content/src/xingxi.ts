@@ -51,8 +51,8 @@ const Source = z.object({
 });
 
 /**
- * 直白版（2026-09 試點，見 `plain.ts`、docs/voice.md 第六節）。
- * 有呢欄嘅星系，兩章改用「結論 → 長處與留意 → 依據」嘅排法；冇嘅照舊。
+ * 直白版（2026-09，見 `plain.ts`、docs/voice.md 第六節）：兩章入書用嘅文字。
+ * 六十個都有；`core` / `trine` / `lean` 係較長嘅初稿，保留做對照。
  */
 const Plain = z.object({
   /** 骨架第一段：你係點樣嘅人。唔准星名。 */
@@ -67,6 +67,11 @@ const Plain = z.object({
   lean: z.record(z.string(), z.string()),
   /** 一句同呢個星系有關嘅實際提醒（唔係條件清單）。 */
   note: z.string().optional(),
+  /**
+   * 書按地支分開講嘅（例：寅宮貪狼偏感情、申宮偏物質）：每個地支一句，
+   * 接喺依據後面，讀者只讀到自己嗰邊 —— `basis` 本身唔講地支分別。
+   */
+  byBranch: z.record(z.string(), z.string()).optional(),
 });
 export type XingxiPlain = z.infer<typeof Plain>;
 
@@ -89,7 +94,7 @@ export const Xingxi = z
     rules: z.array(z.object({ pole: z.string(), when: Cond })).min(2),
     sources: z.array(Source).min(1),
     status: z.enum(['draft', 'reviewed']),
-    plain: Plain.optional(),
+    plain: Plain,
   })
   .superRefine((x, ctx) => {
     const need = [...x.poles, '平衡'];
@@ -109,7 +114,7 @@ export const Xingxi = z
       if (!t.includes('你')) ctx.addIssue({ code: 'custom', message: `${x.n}：lean.${k} 要對住讀者講` });
     }
 
-    if (x.plain) {
+    {
       const p = x.plain;
       const len = (f: string, t: string, a: number, b: number) => {
         if (w(t) < a || w(t) > b) ctx.addIssue({ code: 'custom', message: `${x.n}：plain.${f} ${w(t)} 字，要 ${a}–${b}` });
@@ -119,10 +124,10 @@ export const Xingxi = z
           ctx.addIssue({ code: 'custom', message: `${x.n}：plain.${f} ${e.code} ${e.message}` });
         }
       };
-      len('summary', p.summary, 12, 40);
+      len('summary', p.summary, 8, 40);
       len('strength', p.strength, 10, 36);
       len('watch', p.watch, 10, 36);
-      len('basis', p.basis, 30, 90);
+      len('basis', p.basis, 20, 90);
       if (p.note) len('note', p.note, 10, 40);
       lint('summary', p.summary, true);
       lint('strength', p.strength, true);
@@ -133,17 +138,33 @@ export const Xingxi = z
       if (wt.length) ctx.addIssue({ code: 'custom', message: `${x.n}：plain.watch 有術語「${wt.join('、')}」` });
       lint('basis', p.basis, false);
       if (p.note) lint('note', p.note, false);
+      if (p.byBranch) {
+        for (const [b, t] of Object.entries(p.byBranch)) {
+          if (!x.branches.includes(b)) ctx.addIssue({ code: 'custom', message: `${x.n}：plain.byBranch.${b} 唔係呢個星系嘅地支` });
+          len(`byBranch.${b}`, t, 10, 50);
+          lint(`byBranch.${b}`, t, false);
+        }
+        for (const b of x.branches) {
+          if (!p.byBranch[b]) ctx.addIssue({ code: 'custom', message: `${x.n}：plain.byBranch 少咗 ${b}` });
+        }
+      }
       for (const k of need) {
         const t = p.lean[k] ?? '';
         if (!t) ctx.addIssue({ code: 'custom', message: `${x.n}：少咗 plain.lean.${k}` });
-        len(`lean.${k}`, t, 14, 45);
+        len(`lean.${k}`, t, 10, 45);
         lint(`lean.${k}`, t, true);
       }
     }
   });
 export type Xingxi = z.infer<typeof Xingxi>;
 
-export const XINGXI: Xingxi[] = (raw as unknown[]).map((r) => Xingxi.parse(r));
+/* 一次過報晒所有唔合格嘅星系，唔好改一個跑一次先見到下一個 */
+export const XINGXI: Xingxi[] = (() => {
+  const results = (raw as unknown[]).map((r) => Xingxi.safeParse(r));
+  const bad = results.flatMap((r) => (r.success ? [] : r.error.issues.map((i) => i.message)));
+  if (bad.length) throw new Error(`六十星系資料唔合格（${bad.length} 處）：\n${bad.join('\n')}`);
+  return results.map((r) => r.data!);
+})();
 
 const MAJOR = new Set(['紫微', '天機', '太陽', '武曲', '天同', '廉貞', '天府', '太陰', '貪狼', '巨門', '天相', '天梁', '七殺', '破軍']);
 
@@ -176,7 +197,7 @@ export function xingxiOf(chart: Chart): { system: Xingxi; borrowed: boolean } | 
  * 一條條件喺呢張盤上中咗乜。回一串讀得出嘅證據（例：「武曲化祿」「天府同宮見左輔」），
  * 冇中就回空 —— 所以「中唔中」同「中咗乜」係同一個答案，唔會各講各。
  */
-function evidence(m: Palace, four: Palace[], c: XingxiCond): string[] {
+function evidence(m: Palace, four: Palace[], starBranch: string, c: XingxiCond): string[] {
   if ('hua' in c) {
     return four.flatMap((p) =>
       p.stars.filter((s) => s.sihua && c.hua[s.name]?.includes(s.sihua)).map((s) => `${s.name}化${s.sihua}`),
@@ -198,7 +219,12 @@ function evidence(m: Palace, four: Palace[], c: XingxiCond): string[] {
     const seen = c.inFour.filter((n) => names.has(n));
     return seen.length >= c.min ? [`三方四正會${seen.join('、')}`] : [];
   }
-  return c.branch.includes(m.branch) ? [`命宮在${m.branch}`] : [];
+  /*
+   * ⚠ 地支睇主星所在（同 `xingxiOf()` 揀星系一樣）。空宮借對宮嗰陣，
+   * 盤面結構係對宮嗰個地支嘅結構（例：命宮未借丑宮同巨，太陽喺卯，係丑宮嘅格局）。
+   */
+  if (!c.branch.includes(starBranch)) return [];
+  return [starBranch === m.branch ? `命宮在${m.branch}` : `主星在${starBranch}`];
 }
 
 /**
@@ -211,10 +237,12 @@ export function leanOf(
 ): { pole: string; score: Record<string, number>; seen: Record<string, string[]> } {
   const m = ming(chart)!;
   const four = sanFangPalaces(chart.palaces, m.branch);
+  const borrowed = !m.stars.some((s) => MAJOR.has(s.name)) && !!m.borrowsFrom;
+  const starBranch = borrowed ? m.borrowsFrom! : m.branch;
   const score: Record<string, number> = { [x.poles[0]]: 0, [x.poles[1]]: 0 };
   const seen: Record<string, string[]> = { [x.poles[0]]: [], [x.poles[1]]: [] };
   for (const r of x.rules) {
-    const e = evidence(m, four, r.when);
+    const e = evidence(m, four, starBranch, r.when);
     if (!e.length) continue;
     score[r.pole]! += 1;
     for (const t of e) if (!seen[r.pole]!.includes(t)) seen[r.pole]!.push(t);

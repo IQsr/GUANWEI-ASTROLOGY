@@ -118,7 +118,7 @@ describe('兩章：性格的骨架、三方四正', () => {
       for (const ch of [gujiaChapter({ chart: c })!, sanfangChapter({ chart: c })!]) {
         for (const s of ch.segments) {
           expect(scanForbidden(withoutCitations(s.text), 'body'), `${ch.slug} · ${s.slot}：${s.text}`).toEqual([]);
-          if (['骨架', '四正', '偏向'].includes(s.slot)) expect(s.source_id).toMatch(/^xingxi\.\d+$/);
+          if (s.slot !== '推力' && s.slot !== '留白') expect(s.source_id).toMatch(/^xingxi\.\d+$/);
         }
       }
     }
@@ -129,7 +129,7 @@ describe('兩章：性格的骨架、三方四正', () => {
       const x = xingxiOf(c)!.system;
       const { pole, seen } = leanOf(c, x);
       const text = sanfangChapter({ chart: c })!.segments.find((s) => s.slot === '偏向')!.text;
-      expect(text).toBe((x.plain?.lean ?? x.lean)[pole]);
+      expect(text).toBe(x.plain.lean[pole]);
       for (const p of x.poles) for (const e of seen[p]!) {
         expect(sanfangChapter({ chart: c })!.segments.find((s) => s.slot === '推力')!.text).toContain(e);
       }
@@ -138,7 +138,7 @@ describe('兩章：性格的骨架、三方四正', () => {
 
   it('借對宮嗰陣講明', () => {
     const c = some.find((c) => xingxiOf(c)!.borrowed)!;
-    expect(gujiaChapter({ chart: c })!.segments.find((s) => s.slot === '命宮')!.text).toContain('借對宮');
+    expect(gujiaChapter({ chart: c })!.segments.find((s) => s.slot === '骨架')!.text).toContain('借對宮');
   });
 
   it('同一張盤，兩次一樣', () => {
@@ -149,7 +149,7 @@ describe('兩章：性格的骨架、三方四正', () => {
   });
 });
 
-describe('直白（2026-09 試點）', () => {
+describe('直白（2026-09）', () => {
   it('scanPlain 捉到講方法、列條件、第一句唔係結論', () => {
     expect(scanPlain('這一章讀你的星系。', 'x').map((f) => f.code)).toContain('P1');
     expect(scanPlain('你重感情，見火星則偏向物欲。', 'x').map((f) => f.code)).toContain('P3');
@@ -157,19 +157,32 @@ describe('直白（2026-09 試點）', () => {
     expect(scanPlain('你重感情：貪狼在寅。', 'x', { leadsWithConclusion: true })).toEqual([]);
   });
 
-  const piloted = CHARTS.filter((c) => xingxiOf(c)?.system.plain).slice(0, 200);
+  const piloted = CHARTS.slice(0, 600);
 
-  it('試點星系有盤抽得到', () => {
-    expect(piloted.length).toBeGreaterThan(20);
-  });
-
-  it('直白版冇章首，第一段就係結論', () => {
+  it('第一段就係結論；成章冇講方法、冇列條件', () => {
     for (const c of piloted) {
       for (const ch of [gujiaChapter({ chart: c })!, sanfangChapter({ chart: c })!]) {
-        expect(ch.segments.some((s) => s.slot === '章首'), ch.slug).toBe(false);
         expect(scanPlain(ch.segments[0]!.text, ch.slug, { leadsWithConclusion: true }), ch.segments[0]!.text).toEqual([]);
+        for (const s of ch.segments) expect(scanPlain(s.text, s.slot), s.text).toEqual([]);
       }
     }
+  });
+
+  it('按地支分嘅句子：讀者只讀到自己嗰邊', () => {
+    let checked = 0;
+    for (const c of piloted) {
+      const f = xingxiOf(c)!;
+      const bb = f.system.plain.byBranch;
+      if (!bb) continue;
+      const m = c.palaces.find((p) => p.name === '命宮')!;
+      const mine = f.borrowed ? m.borrowsFrom! : m.branch;
+      const other = f.system.branches.find((b) => b !== mine)!;
+      const text = gujiaChapter({ chart: c })!.segments.find((s) => s.slot === '骨架')!.text;
+      expect(text).toContain(bb[mine]!);
+      expect(text).not.toContain(bb[other]!);
+      checked++;
+    }
+    expect(checked).toBeGreaterThan(20);
   });
 
   it('原因段只講盤上有嘅：唔出「見⋯則⋯」', () => {
