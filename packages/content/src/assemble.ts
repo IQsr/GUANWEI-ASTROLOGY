@@ -34,11 +34,12 @@ import { PALACE_TOPIC } from './baseblock';
 import { brightnessModifier, maleficModifier, sihuaModifier } from './modifier-data';
 import { MALEFICS } from './modifier';
 import { chapterFooter, emptyPalaceLine, type Slot } from './frame';
-import { closeFor, openFor } from './frame-data';
+import { closeFor } from './frame-data';
+import { palacePlain } from './palace-plain';
 import { cjkCount } from './lexicon';
 import { similarity } from './baseblock';
 import { L3_BLOCKS, l3For } from './l3-data';
-import { linkLine } from './link';
+import { linkLine, palaceLabel } from './link';
 import type { InferResult } from './infer';
 
 /**
@@ -71,10 +72,15 @@ import type { InferResult } from './infer';
  * 拎走咗冇解釋嘅引文之後，開場由真正讀人嗰句起，而嗰句本身可以去到八十幾字。
  * 結構跟基塊下限一齊降（基塊 120 → 70，見 baseblock.ts）：拎走嘅係內部規則句，唔係內容。
  */
+/*
+ * ⚠ 2026-09-29 直白（docs/voice.md 第六節）：章首（「財帛宮看你與錢的關係⋯」—— 講方法）拎走，
+ * 換成「結論」：第一句就講你喺呢方面係點樣，跟住一句「要留意的是」。基塊變成後面嘅依據。
+ */
 export const SLOT_SPEC = [
-  { slot: '章首' as const, min: 30, max: 50, required: true },
-  { slot: '開場' as const, min: 30, max: 90, required: true },
-  { slot: '結構' as const, min: 40, max: 200, required: true },
+  { slot: '結論' as const, min: 15, max: 80, required: true },
+  /* 直白：開場由一句盤面事實起，重複結論嘅句剷走 —— 短基塊可能淨低嗰句事實 */
+  { slot: '開場' as const, min: 8, max: 90, required: true },
+  { slot: '結構' as const, min: 20, max: 200, required: true },
   { slot: '牽動' as const, min: 40, max: 140, required: true },
   { slot: '擾動' as const, min: 0, max: 60, required: false },
   { slot: '留白' as const, min: 25, max: 45, required: true },
@@ -222,7 +228,10 @@ export function assemble(
   const missing: Chapter['missing'] = [];
   const o = res.interpretation;
   const matchedRuleIds = new Set(o.evidence.map((e) => e.rule_id));
-  const push = (seg: Segment) => segments.push(seg);
+  /* 空段唔出（直白版剷走重複句之後，短基塊嘅結構格可能乜都唔剩）—— 空段會令段數同格名對唔上 */
+  const push = (seg: Segment) => {
+    if (seg.text.trim() !== '') segments.push(seg);
+  };
   /*
    * ⚠ 唔再出過場句（2026-09）。
    *
@@ -235,9 +244,29 @@ export function assemble(
    * 仲有過場段，閘要照樣認得佢哋。
    */
 
-  /* ── 章首（L5）──────────────────────────────────────── */
-  const open = openFor(palace);
-  push({ slot: '章首', text: open.text, source_id: open.id, rule_ids: [] });
+  /* ── 結論（直白）──────────────────────────────────────── */
+  let conclusion = '';
+  /*
+   * 領銜主星（空宮就借對宮嗰粒）喺呢個宮嘅結論句 ＋ 留意句。
+   * 兩句都由嗰格基塊撮出嚟（`palace-plain.ts`），出處同規則跟返基塊。
+   */
+  {
+    const own = majorsIn(p);
+    const opp = own.length === 0 && p.borrowsFrom ? chart.palaces.find((x) => x.branch === p.borrowsFrom) : undefined;
+    const lead = (own[0] ?? (opp ? majorsIn(opp)[0] : undefined))?.name;
+    const pp = lead ? palacePlain(lead, palace) : undefined;
+    if (pp) {
+      conclusion = `${pp.summary}${pp.watch}`;
+      push({
+        slot: '結論',
+        text: `${pp.summary}${pp.watch}`,
+        source_id: pp.id,
+        rule_ids: [`base.${lead}.${palace}`].filter((id) => matchedRuleIds.has(id)),
+      });
+    } else {
+      missing.push({ slot: '結論', reason: `${palace} 揀唔到領銜主星嘅結論句` });
+    }
+  }
 
   /* ── 開場 ＋ 結構（L1 ＋ L2）────────────────────────── */
   /*
@@ -268,7 +297,17 @@ export function assemble(
     missing.push({ slot: '結構', reason: '冇基塊就冇結構段' });
   } else {
     const lead = blocks[0]!;
-    const cut = leadIn(lead.block.body, SLOT_SPEC[1]!.min);
+    /*
+     * 直白（2026-09-29）：結論句由基塊第一句撮出嚟，所以基塊入面同結論重複嘅句要剷走，
+     * 唔係讀者一開頭就讀兩次「用做事表達在意」。開場由一句盤面事實起（你的夫妻宮坐武曲、天府），
+     * 跟住係基塊餘下嘅依據。空宮嗰陣上面已經有借對宮嗰句，唔使再講。
+     */
+    const dupOfConclusion = (t: string) =>
+      conclusion !== '' &&
+      cjkCount(t) >= 6 &&
+      (sharesRun(t, conclusion, 6) || sentences(conclusion).some((c) => similarity(t, c) >= 0.45));
+    const fact = borrowed ? '' : `你的${palaceLabel(palace)}坐${stars.map((s) => s.name).join('、')}。`;
+    const cut = leadIn(fact + sentences(lead.block.body).filter((t) => !dupOfConclusion(t)).join(''), SLOT_SPEC[1]!.min);
     push({
       slot: '開場',
       text: cut.lead,
@@ -374,7 +413,7 @@ export function assemble(
      *
      * 門檻仍然係 0.55（近乎逐字）。剷雜音唔會散文氣，剷內容先會。
      */
-    const kept = sentences(cut.lead);
+    const kept = [...sentences(cut.lead), ...sentences(conclusion)];
     const structureText = sentences(structure.join(''))
       .filter((t) => {
         if (cjkCount(t) < 10) return true;
@@ -436,7 +475,10 @@ export function assemble(
      *
      * 喺詞條寫得出之前，呢度保留星名（讀者要知講緊邊粒星），剝走定義。
      */
-    const shaText = mods.map((m) => stripDefinition(m!.text, m!.star)).join('');
+    /* 直白：「鈴星：外表沉⋯」讀落似一個標籤，改成一句話 —— 同宮還有鈴星：⋯ */
+    const shaText = mods
+      .map((m, i) => `${i === 0 ? '同宮還有' : '還有'}${stripDefinition(m!.text, m!.star)}`)
+      .join('');
     push({
       slot: '擾動',
       text: shaText,
@@ -487,7 +529,7 @@ export function assemble(
    * 而讀者見到嘅正正係嗰一句。
    */
   const real = segments
-    .filter((seg) => seg.slot !== '過場' && seg.slot !== '章首')
+    .filter((seg) => seg.slot !== '過場' && seg.slot !== '結論')
     .flatMap((seg) => sentences(seg.text).map((t) => ({ slot: seg.slot, t })));
   const duplicates: Chapter['duplicates'] = [];
   for (let i = 0; i < real.length; i++) {

@@ -16,6 +16,7 @@ import {
   L3_BLOCKS,
   MEDICAL_DISCLAIMER,
   MODIFIERS,
+  PALACE_PLAIN,
   RULE_REGISTRY,
   SLOT_SPEC,
   SPEC_VERSION,
@@ -170,7 +171,8 @@ describe('AC ② 每章字數喺規格範圍內', () => {
    * 照「首句」切，開場成格得九個字。所以切嘅係「開頭夠字為止」。
    */
   it('開場切法唔會因為原文有一句短引文就崩', () => {
-    for (const c of CH) expect(c.slotWords['開場'], c.palace).toBeGreaterThanOrEqual(30);
+    /* 直白（2026-09-29）：開場最少有一句盤面事實（你的X宮坐Y） */
+    for (const c of CH) expect(c.slotWords['開場'], c.palace).toBeGreaterThanOrEqual(8);
   });
 });
 
@@ -199,6 +201,8 @@ describe('AC ④ 每句追得返去邊一塊 ＋ 邊條規則', () => {
       ...MODIFIERS.map((m) => m.id),
       ...L3_BLOCKS.map((b) => b.id),
       ...FRAMES.map((f) => f.id),
+      /* 結論（直白，2026-09-29）：由嗰格基塊撮出嚟嘅結論句，見 palace-plain.ts */
+      ...PALACE_PLAIN.map((x) => x.id),
       /* frame.link：牽動格頭一句，由盤面生成（宮名），每截接住嗰條基塊嘅 id（見 link.ts） */
       'frame.empty', 'frame.footer', 'frame.link',
     ]);
@@ -252,8 +256,8 @@ describe('V-001：一章入面根本冇「勢」呢個插槽', () => {
   it('十一章冇方向，但十二章都有齊五格內容', () => {
     const graded = CH.filter((c) => c.topic_grade !== null && c.topic_grade !== 0);
     expect(graded.map((c) => c.palace)).toEqual(['財帛']);
-    /* 2026-09 拎走內部規則句之後每章短咗；最短嗰章（財帛）約 300 */
-    for (const c of CH) expect(c.words, c.palace).toBeGreaterThan(250);
+    /* 2026-09 拎走內部規則句之後每章短咗；2026-09-29 直白版剷走同結論重複嘅句，最短嗰章（田宅）約 230 */
+    for (const c of CH) expect(c.words, c.palace).toBeGreaterThan(200);
   });
 
   /** 主題得七個，宮位有十二個 —— 欄名要講得出佢係主題級數，唔係呢一宮嘅級數。 */
@@ -375,7 +379,7 @@ describe('⚠ 同一個湊字數嘅寫法，第六同第七次', () => {
     const tails = restatingTails(BASE_BLOCKS);
     // eslint-disable-next-line no-console
     console.log(`\n  尾句重述：${tails.length} / ${BASE_BLOCKS.length} —— 待人手覆核\n`);
-    /* 2026-09 拎走內部規則句嗰次跌咗一條（25 → 24） */
-    expect(tails).toHaveLength(24);
+    /* 2026-09 拎走內部規則句嗰次跌咗一條（25 → 24）；直白版刪講方法句又跌一條（24 → 23，武曲疾厄） */
+    expect(tails).toHaveLength(23);
   });
 });

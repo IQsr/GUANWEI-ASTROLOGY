@@ -43,9 +43,9 @@ describe('七十二格', () => {
     }
   });
 
-  /* 下限 2026-09 由 120 降到 70：拎走咗「本書不採用…」一類句（見 baseblock.ts） */
-  it('每條 70–150 字', () => {
-    const bad = BASE_BLOCKS.filter((b) => cjkCount(b.body) < 70 || cjkCount(b.body) > 150)
+  /* 下限 2026-09 由 120 降到 70，再降到 50：拎走咗「本書不採用…」「要連⋯一起讀」一類句（見 baseblock.ts） */
+  it('每條 50–150 字', () => {
+    const bad = BASE_BLOCKS.filter((b) => cjkCount(b.body) < 50 || cjkCount(b.body) > 150)
       .map((b) => `${b.id}=${cjkCount(b.body)}`);
     expect(bad).toEqual([]);
   });

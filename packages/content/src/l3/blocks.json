@@ -357,7 +357,7 @@
     "id": "l3.empty.子女",
     "kind": "empty",
     "key": "子女",
-    "body": "子女宮沒有主星，要借對宮的田宅宮來看。你對下一代、對創造的態度，比較多跟著你安頓自己的方式走。這是結構，不推斷生育結果。",
+    "body": "子女宮沒有主星，要借對宮的田宅宮來看。你對下一代、對創造的態度，比較多跟著你安頓自己的方式走。",
     "rule_ids": [
       "structure.empty.子女"
     ],
@@ -447,7 +447,7 @@
     "id": "l3.geju.junchen-qinghui",
     "kind": "geju",
     "key": "junchen-qinghui",
-    "body": "這一組星形成君臣慶會：主導的一方和輔佐的一方同時到位。《全書》記這個組合，講的是有人可用，不是必然得位；能不能用得上，仍然要看你肯不肯讓人插手。",
+    "body": "這一組星形成君臣慶會：主導的一方和輔佐的一方同時到位。《全書》記這個組合，講的是有人可用，不是必然得位；能不能用得上，仍然在於你肯不肯讓人插手。",
     "rule_ids": [
       "geju.junchen-qinghui.core"
     ],
@@ -457,7 +457,7 @@
     "id": "l3.geju.fubi-jiadi",
     "kind": "geju",
     "key": "fubi-jiadi",
-    "body": "這一組星形成輔弼夾帝：主導的位置左右都有支撐，結構是完整的。這說的是站得穩，不是走得快；一個完整的結構同樣可以停在原地。",
+    "body": "這一組星形成輔弼夾帝：主導的位置左右都有支撐，結構是完整的。意思是站得穩，不是走得快；一個完整的結構同樣可以停在原地。",
     "rule_ids": [
       "geju.fubi-jiadi.core"
     ],
@@ -467,7 +467,7 @@
     "id": "l3.geju.kuiyue-tongxing",
     "kind": "geju",
     "key": "kuiyue-tongxing",
-    "body": "這一組星形成魁鉞同行：機會和引薦容易出現，你做的事比較容易被看見。這說的是可見度，不是評價；被看見和被認可是兩件事。",
+    "body": "這一組星形成魁鉞同行：機會和引薦容易出現，你做的事比較容易被看見。意思是可見度，不是評價；被看見和被認可是兩件事。",
     "rule_ids": [
       "geju.kuiyue-tongxing.core"
     ],
@@ -487,7 +487,7 @@
     "id": "l3.geju.riligzhongtian",
     "kind": "geju",
     "key": "riligzhongtian",
-    "body": "這一組星形成日麗中天：照得出去，位置顯眼，你做的事不容易無聲無息。這說的是可見度高，代價是同樣看得見的，還有沒做好的部分。",
+    "body": "這一組星形成日麗中天：照得出去，位置顯眼，你做的事不容易無聲無息。意思是可見度高，代價是同樣看得見的，還有沒做好的部分。",
     "rule_ids": [
       "geju.riligzhongtian.core"
     ],
@@ -497,7 +497,7 @@
     "id": "l3.geju.shuicheng-guie",
     "kind": "geju",
     "key": "shuicheng-guie",
-    "body": "這一組星形成水澄桂萼：收納得地，積累的過程比較順。這說的是累積這件事對你不費力，但累積和用得上，中間還隔著一步。",
+    "body": "這一組星形成水澄桂萼：收納得地，積累的過程比較順。意思是累積這件事對你不費力，但累積和用得上，中間還隔著一步。",
     "rule_ids": [
       "geju.shuicheng-guie.core"
     ],
@@ -507,7 +507,7 @@
     "id": "l3.geju.shanyin-chaogang",
     "kind": "geju",
     "key": "shanyin-chaogang",
-    "body": "這一組星形成善蔭朝綱：轉圜的餘地和照顧他人的傾向並存。這說的是你手上通常留得住一條路，但那條路多數也留給了別人。",
+    "body": "這一組星形成善蔭朝綱：轉圜的餘地和照顧他人的傾向並存。意思是你手上通常留得住一條路，但那條路多數也留給了別人。",
     "rule_ids": [
       "geju.shanyin-chaogang.core"
     ],
@@ -517,7 +517,7 @@
     "id": "l3.geju.cai-ju-caiwei",
     "kind": "geju",
     "key": "cai-ju-caiwei",
-    "body": "這一組星形成財居財位：處理資源這件事在本位上，做起來順手。這說的是手感，不是數目；順手的人一樣可以把事情做得太滿。",
+    "body": "這一組星形成財居財位：處理資源這件事在本位上，做起來順手。意思是手感，不是數目；順手的人一樣可以把事情做得太滿。",
     "rule_ids": [
       "geju.cai-ju-caiwei.core"
     ],
@@ -527,7 +527,7 @@
     "id": "l3.geju.gui-ru-guixiang",
     "kind": "geju",
     "key": "gui-ru-guixiang",
-    "body": "這一組星形成貴入貴鄉：被提攜的機會來得早。這說的是時機，不是結果；早來的機會同樣需要你當時接得住。",
+    "body": "這一組星形成貴入貴鄉：被提攜的機會來得早。意思是時機，不是結果；早來的機會同樣需要你當時接得住。",
     "rule_ids": [
       "geju.gui-ru-guixiang.core"
     ],
@@ -537,7 +537,7 @@
     "id": "l3.geju.huangdian-chaoban",
     "kind": "geju",
     "key": "huangdian-chaoban",
-    "body": "這一組星形成皇殿朝班：呈現和可見度兼備，成果說得出口。這說的是表達的條件，不是成果本身的份量。",
+    "body": "這一組星形成皇殿朝班：呈現和可見度兼備，成果說得出口。意思是表達的條件，不是成果本身的份量。",
     "rule_ids": [
       "geju.huangdian-chaoban.core"
     ],
@@ -547,7 +547,7 @@
     "id": "l3.geju.changong-zhegui",
     "kind": "geju",
     "key": "changong-zhegui",
-    "body": "這一組星形成蟾宮折桂：細緻和表達兩樣兼備。這說的是能力的組合，不是名次。",
+    "body": "這一組星形成蟾宮折桂：細緻和表達兩樣兼備。意思是能力的組合，不是名次。",
     "rule_ids": [
       "geju.changong-zhegui.core"
     ],
@@ -557,7 +557,7 @@
     "id": "l3.geju.duijin-jiyu",
     "kind": "geju",
     "key": "duijin-jiyu",
-    "body": "這一組星形成堆金積玉：資源留得住，守得穩。這說的是留存的傾向，不涉及金額；守得穩的人，放手的時候通常也比較慢。",
+    "body": "這一組星形成堆金積玉：資源留得住，守得穩。意思是留存的傾向，不涉及金額；守得穩的人，放手的時候通常也比較慢。",
     "rule_ids": [
       "geju.duijin-jiyu.core"
     ],
@@ -567,7 +567,7 @@
     "id": "l3.geju.caiyin-qianyi",
     "kind": "geju",
     "key": "caiyin-qianyi",
-    "body": "這一組星形成財蔭坐遷移：在外得助，庇護多數來自外部。這說的是助力的來源在外面，不預測你會不會離開熟悉的地方。",
+    "body": "這一組星形成財蔭坐遷移：在外得助，庇護多數來自外部。意思是助力的來源在外面，不預測你會不會離開熟悉的地方。",
     "rule_ids": [
       "geju.caiyin-qianyi.core"
     ],

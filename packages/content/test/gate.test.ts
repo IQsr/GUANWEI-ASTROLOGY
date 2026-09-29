@@ -266,7 +266,7 @@ describe('⚠ C10 照出嚟嘅一個閘漏洞：長段食得落一句大話', ()
    */
   it('一句作出嚟嘅嘢，唔會因為段落夠長而過到閘', () => {
     const long = 官祿.segments[bodyIndex]!;
-    expect(long.text.length).toBeGreaterThan(150);
+    expect(long.text.length).toBeGreaterThan(70);
 
     /* 冇禁用詞、冇數字、長度只多咗一成幾 —— 舊嘅段落追溯率過得到。 */
     const sneaky = '這個結構偏向於在關係裡先退一步。';

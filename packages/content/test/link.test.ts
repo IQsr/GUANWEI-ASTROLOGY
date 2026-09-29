@@ -34,9 +34,11 @@ describe('牽動格頭一句', () => {
   it('對宮行先，三個宮都講到，而且係呢張盤嘅星', () => {
     const ming = chart.palaces.find((p) => p.name === '命宮')!;
     const line = linkLine(chart, ming)!;
-    expect(line.text.startsWith('命宮與遷移宮正對')).toBe(true);
+    /* 直白（2026-09-29）：講生活嘅邊一面，唔講宮名；對宮（遷移＝在外）行先 */
+    expect(line.text.startsWith('這一面也和你的在外表現、')).toBe(true);
     expect(line.sources).toHaveLength(3);
-    expect(line.text).toMatch(/在遷移宮，.+；在.+宮，.+；在.+宮，.+。$/);
+    expect(line.text).toMatch(/：在外時，.+；.+，.+；.+，.+。$/);
+    expect(line.text).not.toMatch(/正對|連成一組|宮，/);
   });
 
   it('唔再有「不是獨立看的」「單看一宮」呢類每本書一樣嘅句', () => {

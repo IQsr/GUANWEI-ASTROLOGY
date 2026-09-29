@@ -208,8 +208,8 @@ describe('人人都有嗰啲句：係章框，唔係命理', () => {
     /* 開場同結構係讀者judge緊嗰兩格 —— 佢哋要接近全獨有。 */
     expect(u['開場']!.unique / u['開場']!.total).toBeGreaterThan(0.9);
     expect(u['結構']!.unique / u['結構']!.total).toBeGreaterThan(0.85);
-    /* 章首同過場係固定句庫，零獨有係設計，唔係問題。 */
-    expect(u['章首']!.unique).toBe(0);
+    /* 章首已經拎走（2026-09-29 直白）：結論句跟領銜主星 × 宮，唔係固定句庫 */
+    expect(u['章首']).toBeUndefined();
   });
 });
 

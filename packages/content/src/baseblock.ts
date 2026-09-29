@@ -32,6 +32,7 @@ import { z } from 'zod';
 import { CORPUS, cjkCount, normaliseForMatch } from './lexicon';
 import { Topic } from './rule';
 import { phraseValence } from './valence';
+import { scanPlain } from './plain';
 
 /**
  * 來源嘅範圍。**呢個欄位存在嘅理由係誠實。**
@@ -139,10 +140,17 @@ export const BaseBlock = z
      * ⚠ 下限 2026-09 降咗（Issac：啲字太空泛）。原本 120 字嘅下限，係假設咗每塊都會帶一兩句
      * 「本書不採用…」「規範禁止…」「這說的是…不是…」—— 嗰啲句拎走之後，剩低嘅先係真內容，
      * 只係短咗。補返夠字就要寫新嘅象義，冇出處，犯另一條規矩。所以降下限，上限唔郁。
+     *
+     * 2026-09-29 再降到 50（直白，docs/voice.md 第六節）：刪走「財帛要連官祿與遷移一起讀」
+     * 呢類講方法嘅句（牽動格已經做咗呢份工），同一個理由 —— 唔補字。
      */
     const w = cjkCount(b.body);
-    if (w < 70 || w > 150) {
-      ctx.addIssue({ code: 'custom', message: `${b.id}：${w} 字，要 70–150（內容系統 §3，下限 2026-09 改）` });
+    if (w < 50 || w > 150) {
+      ctx.addIssue({ code: 'custom', message: `${b.id}：${w} 字，要 50–150（內容系統 §3，下限 2026-09 改）` });
+    }
+    /* 直白：基塊係依據，唔准講方法、唔准列條件（P1 / P3） */
+    for (const f of scanPlain(b.body, b.id)) {
+      ctx.addIssue({ code: 'custom', message: `${b.id}：${f.code} ${f.message}` });
     }
     /*
      * ⚠ 人稱只有兩個：**「你」（讀者）同「它」（星）**。

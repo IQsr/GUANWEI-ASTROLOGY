@@ -35,6 +35,7 @@ export function palaceLabel(name: string): string {
  */
 const GIST: Record<string, string> = {
   '紫微.命宮': '紫微把標準直接架在自己身上',
+  '天府.命宮': '天府的溫和是有底的那種',
   '紫微.兄弟': '紫微在平輩之間習慣有上有下',
   '紫微.財帛': '紫微處理資源的方式偏向維持體面',
   '紫微.疾厄': '紫微的消耗來自把事情攬上身之後不肯放手',
@@ -98,24 +99,49 @@ function leadStar(chart: Chart, p: Palace): string | null {
 }
 
 /**
+ * 宮 → 生活嘅一面（直白，2026-09-29）：[列舉用嘅名詞, 句頭]。
+ *
+ * 以前寫「命宮與遷移宮正對，又與官祿宮、財帛宮連成一組。在遷移宮，⋯」——
+ * 讀者要先識宮名同「正對、三合」先讀得明。而家直接講生活嘅邊一面。
+ */
+const AREA: Record<string, [string, string]> = {
+  命宮: ['性格', '性格上'],
+  兄弟: ['朋輩', '朋輩之間'],
+  夫妻: ['感情', '感情上'],
+  子女: ['後輩', '帶後輩時'],
+  財帛: ['錢', '錢方面'],
+  疾厄: ['身心負荷', '身心上'],
+  遷移: ['在外表現', '在外時'],
+  僕役: ['朋友圈', '朋友圈裡'],
+  官祿: ['工作', '工作上'],
+  田宅: ['家', '家裡'],
+  福德: ['心境', '心境上'],
+  父母: ['長輩關係', '對長輩時'],
+};
+
+/**
  * 牽動格嘅頭一段。回 null = 呢個宮嘅三方四正搵唔齊（唔應該發生）。
  *
- * 次序：對宮先（正對，最要一起讀），然後兩個三合宮。
+ * 次序：對宮先（正對，最牽動），然後兩個三合宮。
  */
 export function linkLine(chart: Chart, p: Palace): { text: string; sources: string[] } | null {
   const four = sanFangPalaces(chart.palaces, p.branch);
   if (four.length !== 4) return null;
   const [, a, dui, b] = four as [Palace, Palace, Palace, Palace];
 
-  const head = `${palaceLabel(p.name)}與${palaceLabel(dui.name)}正對，又與${palaceLabel(a.name)}、${palaceLabel(b.name)}連成一組。`;
   const parts: string[] = [];
+  const names: string[] = [];
   const sources: string[] = [];
   for (const q of [dui, a, b]) {
     const star = leadStar(chart, q);
     const g = star ? gistOf(star, q.name) : null;
-    if (!g || !star) continue;
-    parts.push(`在${palaceLabel(q.name)}，${g}`);
+    const area = AREA[q.name];
+    if (!g || !star || !area) continue;
+    names.push(area[0]);
+    parts.push(`${area[1]}，${g}`);
     sources.push(`base.${star}.${q.name}`);
   }
-  return { text: parts.length ? `${head}${parts.join('；')}。` : head, sources };
+  if (!parts.length) return null;
+  const list = names.length > 1 ? `${names.slice(0, -1).join('、')}和${names.at(-1)}` : names[0]!;
+  return { text: `這一面也和你的${list}連在一起：${parts.join('；')}。`, sources };
 }
