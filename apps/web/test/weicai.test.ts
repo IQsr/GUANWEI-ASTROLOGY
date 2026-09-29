@@ -95,8 +95,22 @@ describe('⚠ 唔用 modal、唔用模糊偷睇、唔用倒數', () => {
     expect(files.length).toBeGreaterThan(20);
   });
 
-  it('全站冇 modal / dialog / 彈窗', () => {
+  /*
+   * ⚠ 唯一例外：起盤之前嘅條款及私隱政策同意（ConsentGate，Issac 2026-09-29）。
+   * 呢條規矩擋嘅係「喺讀嘅過程入面插一個銷售動作」；同意條款唔係銷售，而且喺未讀之前。
+   * 例外只准呢一個檔，而且佢入面唔准有價錢、升級、付款字眼。
+   */
+  const DIALOG_OK = 'ConsentGate.tsx';
+
+  it('條款同意彈窗唔係一個銷售動作', () => {
+    const gate = files.find((f) => f.endsWith(DIALOG_OK));
+    expect(gate, '搵唔到 ConsentGate').toBeTruthy();
+    expect(code(gate!)).not.toMatch(/US\$|價錢|升級|訂閱|付款|\/pay/);
+  });
+
+  it('全站冇 modal / dialog / 彈窗（條款同意除外）', () => {
     const bad = files
+      .filter((f) => !f.endsWith(DIALOG_OK))
       .map((f) => [f, code(f)] as const)
       .filter(([, c]) => /<dialog|role="dialog"|showModal\(|\.modal\b/.test(c))
       .map(([f]) => f.replace(SRC, ''));

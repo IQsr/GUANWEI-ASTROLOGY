@@ -426,5 +426,14 @@
   "reading": {
     "showChart": "Show the chart",
     "turnTo": "Turn to “{title}”"
+  },
+  "consent": {
+    "title": "Before you begin",
+    "point1": "Your birth details, place of birth and name are used only to cast your chart and write your book. We never sell them or use them for advertising.",
+    "point2": "Your book is a reading based on classical Zi Wei Dou Shu texts. It is not medical, legal, financial or other professional advice; important decisions are yours to make.",
+    "point3": "You can export or permanently delete your data at any time in Settings.",
+    "read": "By continuing you confirm you have read and agree to the <terms>Terms of Use</terms> and <privacy>Privacy Policy</privacy>.",
+    "agree": "Agree and begin",
+    "back": "Back to home"
   }
 }

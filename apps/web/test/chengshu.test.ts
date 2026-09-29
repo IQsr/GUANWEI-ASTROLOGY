@@ -14,6 +14,7 @@ import {
   type BookDraft,
   type ChengshuPort,
 } from '@/lib/chengshu';
+import { LEGAL_VERSION } from '@/lib/legal';
 
 /**
  * 成書（工單 G5）
@@ -120,6 +121,7 @@ describe('⚠ 有盤先有名', () => {
       chart: CHART,
       chapters: BOOK,
       contentVersion: 'r1@x',
+      termsVersion: LEGAL_VERSION,
     });
     expect(draft.title).toBe('思協命書');
     expect(draft.seal).not.toBeNull();
@@ -139,6 +141,7 @@ describe('⚠ 有盤先有名', () => {
       chart: null,
       chapters: BOOK,
       contentVersion: 'r1@x',
+      termsVersion: LEGAL_VERSION,
     });
     expect(draft.title).toBeNull();
     expect(draft.seal).toBeNull();
@@ -150,25 +153,25 @@ describe('⚠ 有盤先有名', () => {
 
 describe('⚠ server action 係一個公開 endpoint', () => {
   it('名要有，而且唔可以長過 DB 嗰條 CHECK', () => {
-    expect(parseBookFields({ name: '思協', token: TOKEN })).toEqual({ name: '思協', token: TOKEN });
+    expect(parseBookFields({ name: '思協', token: TOKEN, terms: LEGAL_VERSION })).toEqual({ name: '思協', token: TOKEN, terms: LEGAL_VERSION });
     /* 留空唔係錯：寫「無名」，本書叫「無名命書」（2026-09） */
-    expect(parseBookFields({ name: '   ', token: TOKEN })!.name).toBe('無名');
-    expect(parseBookFields({ name: '', token: TOKEN })!.name).toBe('無名');
-    expect(parseBookFields({ token: TOKEN })!.name).toBe('無名');
-    expect(parseBookFields({ name: 3, token: TOKEN })).toBeNull();
-    expect(bookTitle(parseBookFields({ name: '', token: TOKEN })!.name)).toBe('無名命書');
-    expect(parseBookFields({ name: '字'.repeat(41), token: TOKEN })).toBeNull();
-    expect(parseBookFields({ name: '字'.repeat(40), token: TOKEN })).not.toBeNull();
+    expect(parseBookFields({ name: '   ', token: TOKEN, terms: LEGAL_VERSION })!.name).toBe('無名');
+    expect(parseBookFields({ name: '', token: TOKEN, terms: LEGAL_VERSION })!.name).toBe('無名');
+    expect(parseBookFields({ token: TOKEN, terms: LEGAL_VERSION })!.name).toBe('無名');
+    expect(parseBookFields({ name: 3, token: TOKEN, terms: LEGAL_VERSION })).toBeNull();
+    expect(bookTitle(parseBookFields({ name: '', token: TOKEN, terms: LEGAL_VERSION })!.name)).toBe('無名命書');
+    expect(parseBookFields({ name: '字'.repeat(41), token: TOKEN, terms: LEGAL_VERSION })).toBeNull();
+    expect(parseBookFields({ name: '字'.repeat(40), token: TOKEN, terms: LEGAL_VERSION })).not.toBeNull();
   });
 
   it('token 要似個 uuid', () => {
-    expect(parseBookFields({ name: '思協', token: 'abc' })).toBeNull();
+    expect(parseBookFields({ name: '思協', token: 'abc', terms: LEGAL_VERSION })).toBeNull();
     expect(parseBookFields({ name: '思協' })).toBeNull();
     expect(parseBookFields(null)).toBeNull();
   });
 
   it('名前後嘅空白剷走 —— 書脊上面唔可以有空白', () => {
-    expect(parseBookFields({ name: '  思協  ', token: TOKEN })!.name).toBe('思協');
+    expect(parseBookFields({ name: '  思協  ', token: TOKEN, terms: LEGAL_VERSION })!.name).toBe('思協');
   });
 });
 
@@ -249,5 +252,27 @@ describe('⚠ 序只准寫一次', () => {
     const files = ['components/Naming.tsx', 'components/Luokuan.tsx', 'lib/chengshu.ts'];
     const hits = files.filter((f) => /這是你出生那一刻|天象位置/.test(SRC(f)));
     expect(hits).toEqual([]);
+  });
+});
+
+
+describe('條款及私隱政策（2026-09-29）', () => {
+  it('冇同意、或者同意嘅係舊版本：唔收生辰', () => {
+    expect(parseBookFields({ name: '思協', token: TOKEN })).toBeNull();
+    expect(parseBookFields({ name: '思協', token: TOKEN, terms: '2020-01-01' })).toBeNull();
+    expect(parseBookFields({ name: '思協', token: TOKEN, terms: LEGAL_VERSION })!.terms).toBe(LEGAL_VERSION);
+  });
+
+  it('版本跟住本書寫落 DB', () => {
+    const d = bookDraft({
+      token: TOKEN,
+      name: '思協',
+      subject: { birth_date: '1996-06-16', birth_time: null, birth_tz: 'Asia/Hong_Kong', birth_place: '香港', lng: 114.17, lat: 22.32, sex: 'male', true_solar_corrected: false },
+      chart: null,
+      chapters: [],
+      contentVersion: 'r1@x',
+      termsVersion: LEGAL_VERSION,
+    });
+    expect(d.termsVersion).toBe(LEGAL_VERSION);
   });
 });

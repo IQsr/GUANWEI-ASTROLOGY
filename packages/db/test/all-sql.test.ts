@@ -49,8 +49,8 @@ describe('all.sql 同逐隻 migration 唔准走音', () => {
 
   it('冇多咗嘢 —— 淨係標題同內容', () => {
     const body = parts.map((f) => readFileSync(join(DIR, f), 'utf8')).join('').length;
-    /* 標題橫額每隻約 150 字元，加頂頭嗰段說明。 */
-    expect(all.length - body).toBeLessThan(2000);
+    /* 標題橫額每隻約 150 字元，加頂頭嗰段說明 —— 跟 migration 數目算，唔寫死（第十一隻就爆咗 2000） */
+    expect(all.length - body).toBeLessThan(parts.length * 160 + 500);
   });
 
   /** ⚠ 對得返內容唔代表跑得到 —— 所以真係跑一次。 */

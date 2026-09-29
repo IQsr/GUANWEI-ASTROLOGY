@@ -8,6 +8,8 @@ import { slotName, slotSummary, type Slot } from "@/lib/slots";
 import { BookFlip } from "@/components/BookFlip";
 import { nameOf } from "@/lib/chengshu";
 import { castChart, type CastOutcome } from "@/app/[locale]/cast/actions";
+import { ConsentGate } from "@/components/ConsentGate";
+import { LEGAL_VERSION } from "@/lib/legal";
 import {
   EMPTY_DRAFT,
   PLACES,
@@ -99,6 +101,8 @@ export function Luokuan() {
   const [step, setStep] = useState<Step>("name");
   const [outcome, setOutcome] = useState<CastOutcome | null>(null);
   const [casting, setCasting] = useState(false);
+  /* 同意咗條款及私隱政策先准排盤（ConsentGate）；server 同 DB 會再查一次 */
+  const [consented, setConsented] = useState(false);
   const started = useRef(false);
 
   /*
@@ -153,6 +157,7 @@ export function Luokuan() {
         ...request,
         name: nameOf(draft.name),
         token: token.current,
+        terms: consented ? LEGAL_VERSION : "",
       }),
     );
     setCasting(false);
@@ -186,6 +191,7 @@ export function Luokuan() {
 
   return (
     <FlowChrome>
+      <ConsentGate onConsent={() => setConsented(true)} />
       {/* ⚠ 同題名幕共用一個版位 —— 書脊唔可以由跨頁跳去合埋（見 globals.css）。 */}
       <div className="mu-wei">
         {/* 攤開嘅書（揭書元件，冇動畫）：書脊喺正中，題名幕合埋嗰陣右頁唔郁 */}

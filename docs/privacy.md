@@ -57,6 +57,7 @@
 |---|---|
 | `gw-theme` | 日讀／夜讀 |
 | `gw-last-read` | 上次讀到邊一段 |
+| `gw-consent` | 同意咗邊個版本嘅條款及私隱政策（2026-09-29）—— 唔使每次起盤都再問。成書嗰陣版本另外寫落 `books.terms_version`（migration 0011） |
 | `gw-reading`（sessionStorage） | 呢個分頁啱啱讀緊邊一章 —— 藏經閣「← 回到《章名》」用。關咗分頁就冇 |
 
 全部由 `lib/local.ts` 一個出入口管，`test/local.test.ts` 掃全 `src`：

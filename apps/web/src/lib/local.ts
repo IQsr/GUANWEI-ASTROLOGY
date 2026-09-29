@@ -20,6 +20,8 @@ export const LOCAL_KEYS = {
   theme: 'gw-theme',
   /** 上次讀到邊一段。回訪落點要接得返（架構 §4）。 */
   lastRead: 'gw-last-read',
+  /** 同意咗邊個版本嘅條款及私隱政策（`lib/legal.ts`）。冇佢，每次起盤都會再問。 */
+  consent: 'gw-consent',
 } as const;
 
 export type LocalKey = keyof typeof LOCAL_KEYS;

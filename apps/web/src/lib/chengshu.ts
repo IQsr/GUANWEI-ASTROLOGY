@@ -1,4 +1,5 @@
 import { MARK } from '@/lib/site';
+import { LEGAL_VERSION } from '@/lib/legal';
 
 /**
  * 成書：六幕行完之後留低嘅嘢（工單 G5 · 架構 §5）
@@ -66,6 +67,8 @@ export type BookDraft = {
   title: string | null;
   seal: string | null;
   chapters: ChapterDraft[];
+  /** 同意咗邊個版本嘅條款及私隱政策（`lib/legal.ts`）。DB 冇佢就唔成書（0011）。 */
+  termsVersion: string;
 };
 
 /**
@@ -154,6 +157,7 @@ export type ChengshuInput = {
   chart: ChartDraft | null;
   chapters: ChapterSource[];
   contentVersion: string;
+  termsVersion: string;
 };
 
 /**
@@ -171,6 +175,7 @@ export function bookDraft(input: ChengshuInput): BookDraft {
     title: titled ? bookTitle(input.name.trim()) : null,
     seal: titled ? MARK : null,
     chapters: titled ? chapterDrafts(input.chapters, input.contentVersion) : [],
+    termsVersion: input.termsVersion,
   };
 }
 
@@ -233,7 +238,7 @@ export async function keepBook(port: ChengshuPort, draft: BookDraft): Promise<st
  * 個人會行完五步、排完盤、入咗題名，然後先至喺寫入嗰下仆街。
  * 留空唔係錯：寫「無名」（`NAMELESS`）。
  */
-export function parseBookFields(raw: unknown): { name: string; token: string } | null {
+export function parseBookFields(raw: unknown): { name: string; token: string; terms: string } | null {
   if (typeof raw !== 'object' || raw === null) return null;
   const r = raw as Record<string, unknown>;
 
@@ -244,5 +249,11 @@ export function parseBookFields(raw: unknown): { name: string; token: string } |
   const token = typeof r.token === 'string' ? r.token : '';
   if (!/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(token)) return null;
 
-  return { name, token };
+  /*
+   * 條款及私隱政策（2026-09-29）：一定要係而家嗰個版本。
+   * 舊版本（彈窗之後條款改過）或者冇 —— 唔收生辰，返去再同意一次。
+   */
+  if (r.terms !== LEGAL_VERSION) return null;
+
+  return { name, token, terms: LEGAL_VERSION };
 }

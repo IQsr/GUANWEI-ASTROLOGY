@@ -2,6 +2,9 @@ import { beforeEach, afterEach, describe, expect, it } from 'vitest';
 import { bookState } from '../src/schema';
 import { createTestDb, seedReader, type TestDb } from '../src/testing';
 
+/** 0011：成書要帶住同意咗嘅條款版本 */
+const TERMS = '2026-09-29';
+
 /**
  * 成書（工單 G5 · 架構 §5）
  *
@@ -66,13 +69,14 @@ function cheng(
   const chart = 'chart' in opts ? opts.chart : CHART;
   const title = 'title' in opts ? opts.title : '思協命書';
   const chapters = 'chapters' in opts ? opts.chapters : CHAPTERS;
-  return db.sql('select create_book($1, $2, $3, $4, $5, $6) as id', [
+  return db.sql('select create_book($1, $2, $3, $4, $5, $6, $7) as id', [
     token,
     JSON.stringify(SUBJECT),
     chart === null ? null : JSON.stringify(chart),
     title,
     '觀微',
     chapters === null ? null : JSON.stringify(chapters),
+    TERMS,
   ]);
 }
 
@@ -183,9 +187,10 @@ describe('待時辰（架構 §8）', () => {
    */
   it('冇盤冇名冇章，但書架見得到', async () => {
     await db.asReader(me);
-    const [row] = await db.sql('select create_book($1, $2, null, null, null, null) as id', [
+    const [row] = await db.sql('select create_book($1, $2, null, null, null, null, $3) as id', [
       TOKEN,
       JSON.stringify({ ...SUBJECT, birth_time: null }),
+      TERMS,
     ]);
 
     const [book] = await db.sql('select * from books where id = $1', [row!.id]);
@@ -269,5 +274,31 @@ describe('讀到邊、幾時讀', () => {
     await db.asReader(me);
     const [book] = await db.sql('select last_read_at from books where id = $1', [row!.id]);
     expect(book!.last_read_at).toBeNull();
+  });
+});
+
+describe('條款及私隱政策同意（0011）', () => {
+  it('成書寫低同意咗邊個版本、幾時', async () => {
+    await db.asReader(me);
+    const [row] = await cheng();
+    const [book] = await db.sql('select terms_version, terms_accepted_at from books where id = $1', [row!.id]);
+    expect(book!.terms_version).toBe(TERMS);
+    expect(book!.terms_accepted_at).not.toBeNull();
+  });
+
+  it('冇同意（null 或者空白）就成唔到書', async () => {
+    await db.asReader(me);
+    for (const v of [null, '', '  ']) {
+      await expect(
+        db.sql('select create_book($1, $2, null, null, null, null, $3)', [TOKEN, JSON.stringify({ ...SUBJECT, birth_time: null }), v]),
+      ).rejects.toThrow(/未同意條款/);
+    }
+  });
+
+  it('舊簽名（六個參數）已經冇咗', async () => {
+    await db.asReader(me);
+    await expect(
+      db.sql('select create_book($1, $2, null, null, null, null)', [TOKEN, JSON.stringify({ ...SUBJECT, birth_time: null })]),
+    ).rejects.toThrow(/does not exist/);
   });
 });

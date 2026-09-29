@@ -126,6 +126,7 @@ export async function castChart(raw: unknown): Promise<CastOutcome> {
         },
         chapters,
         contentVersion: RULE_REGISTRY.ref,
+        termsVersion: fields.terms,
       }),
     );
 
@@ -164,6 +165,7 @@ export async function castChart(raw: unknown): Promise<CastOutcome> {
       chart: null,
       chapters: [],
       contentVersion: RULE_REGISTRY.ref,
+        termsVersion: fields.terms,
     }),
   );
 

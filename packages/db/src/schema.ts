@@ -78,6 +78,9 @@ export const BookRow = z.object({
    * 攞返嘅係同一本書，唔係兩本一模一樣嘅書。
    */
   client_token: uuid.nullable(),
+  /** 同意咗邊個版本嘅條款及私隱政策、幾時（0011）。0011 之前成嘅書兩欄都係 null。 */
+  terms_version: z.string().nullable(),
+  terms_accepted_at: ts.nullable(),
 });
 
 export const ChapterRow = z.object({

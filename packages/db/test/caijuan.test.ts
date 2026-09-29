@@ -122,7 +122,7 @@ describe('⚠ 成書要連 slots 一齊寫（0006 重貼咗 create_book）', () 
    */
   it('create_book 寫入嘅章帶住 slots', async () => {
     await db.asReader(me);
-    const [row] = await db.sql('select create_book($1, $2, $3, $4, $5, $6) as id', [
+    const [row] = await db.sql('select create_book($1, $2, $3, $4, $5, $6, $7) as id', [
       '11111111-1111-4111-8111-111111111111',
       JSON.stringify({
         name: '測試',
@@ -148,6 +148,7 @@ describe('⚠ 成書要連 slots 一齊寫（0006 重貼咗 create_book）', () 
           slots: ['章首', '生辰'],
         },
       ]),
+      '2026-09-29',
     ]);
     const [ch] = await db.sql('select slots from chapters where book_id = $1', [row!.id]);
     expect(ch!.slots).toEqual(['章首', '生辰']);

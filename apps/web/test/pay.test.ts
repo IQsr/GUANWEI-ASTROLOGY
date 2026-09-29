@@ -223,7 +223,11 @@ describe('⚠ 題名之前唔准出現價錢（架構 §6 硬規則）', () => {
    * 但嗰個掃嘅係**畫出嚟嗰版**。呢條掃嘅係 source ——
    * 一個未接線嘅常數、一句註釋以外嘅 `US$`，喺呢度就捉到。
    */
-  const ALLOWED = [join('lib', 'pay.ts'), join('pay', '[bookId]')];
+  /*
+   * legal-text.ts：使用條款要講一句付款點處理（「價錢會在付款頁清楚列明」，冇數字）。
+   * 係法律文字，唔係推銷，所以明文放行，唔用同義詞避開個掃描。
+   */
+  const ALLOWED = [join('lib', 'pay.ts'), join('pay', '[bookId]'), join('lib', 'legal-text.ts')];
 
   it('價錢字眼只喺 pay 嗰幾個檔出現', () => {
     const offenders = walk(SRC)

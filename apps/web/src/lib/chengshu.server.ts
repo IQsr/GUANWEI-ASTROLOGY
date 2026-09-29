@@ -54,6 +54,7 @@ export function serverChengshu(): ChengshuPort {
         p_title: draft.title,
         p_seal: draft.seal,
         p_chapters: draft.chapters,
+        p_terms_version: draft.termsVersion,
       });
       if (error) throw error;
       if (!data) throw new Error('create_book 冇回一個 book id');
