@@ -32,7 +32,7 @@ export const GUJIA_SLUG = '性格的骨架';
 export const SANFANG_SLUG = '三方四正';
 
 export type XingxiSegment = {
-  slot: '章首' | '命宮' | '骨架' | '四正' | '推力' | '偏向' | '留白';
+  slot: '章首' | '命宮' | '結論' | '長處' | '骨架' | '四正' | '推力' | '偏向' | '提醒' | '留白';
   text: string;
   source_id: string | null;
   rule_ids: string[];
@@ -117,14 +117,41 @@ export function gujiaChapter(input: {
     ? `你的命宮在${m.branch}，宮內沒有主星，借對宮的${stars}來讀。`
     : `你的命宮在${m.branch}，坐${stars}。`;
 
-  const segments = [
-    plain('章首', frame('frame.open.性格的骨架')),
-    plain('命宮', where),
-    sourced('骨架', x.core, x),
-    plain('留白', frame('frame.close.性格的骨架')),
-  ];
+  /*
+   * 直白版：結論 → 長處與留意 → 依據（盤面事實 ＋ 書嘅理由）→ 留白。
+   * 冇章首：「這一章讀⋯」係講方法，第一段直接就係答案（docs/voice.md 第六節）。
+   */
+  const segments = x.plain
+    ? [
+        sourced('結論', x.plain.summary, x),
+        sourced('長處', `${x.plain.strength}${x.plain.watch}`, x),
+        sourced('骨架', `${where}${x.plain.basis}`, x),
+        plain('留白', frame('frame.close.性格的骨架')),
+      ]
+    : [
+        plain('章首', frame('frame.open.性格的骨架')),
+        plain('命宮', where),
+        sourced('骨架', x.core, x),
+        plain('留白', frame('frame.close.性格的骨架')),
+      ];
   assertNoReading(segments.filter((s) => s.slot === '章首' || s.slot === '留白'));
   return { slug: GUJIA_SLUG, title: GUJIA_SLUG, segments };
+}
+
+/**
+ * 直白版嘅「原因」：只講盤上有嘅，唔列冇嘅條件。
+ * 贏嗰頭行先；另一頭有就講「力量較小」，冇就直講冇。
+ */
+function reason(x: Xingxi, pole: string, seen: Record<string, string[]>): string {
+  const [a, b] = x.poles;
+  const ev = (p: string) => seen[p]!.join('、');
+  if (!seen[a]!.length && !seen[b]!.length) return '這樣看，是因為你的盤上兩邊都沒有特別的推力。';
+  if (pole === '平衡') {
+    return `這樣看，是因為你的盤上兩邊都有：${ev(a)}，推你偏向${a}；${ev(b)}，推你偏向${b}。`;
+  }
+  const other = pole === a ? b : a;
+  const rest = seen[other]!.length ? `；也有${ev(other)}，推你偏向${other}，只是力量較小` : `；推你偏向${other}的，一樣也沒有`;
+  return `這樣看，是因為你的盤上有${ev(pole)}，推你偏向${pole}${rest}。`;
 }
 
 /**
@@ -145,13 +172,21 @@ export function sanfangChapter(input: {
       ? '在你的盤上，上面這些條件一樣也沒有出現，兩股力量不相上下。'
       : `在你的盤上，${side(x.poles[0])}；${side(x.poles[1])}。`;
 
-  const segments = [
-    plain('章首', frame('frame.open.三方四正')),
-    sourced('四正', x.trine, x),
-    plain('推力', push),
-    sourced('偏向', x.lean[pole]!, x),
-    plain('留白', frame('frame.close.三方四正')),
-  ];
+  /* 直白版：結論 → 原因（盤上有乜）→ 提醒 → 留白。唔再列「見⋯則⋯」嘅條件清單。 */
+  const segments = x.plain
+    ? [
+        sourced('偏向', x.plain.lean[pole]!, x),
+        plain('推力', reason(x, pole, seen)),
+        ...(x.plain.note ? [sourced('提醒', x.plain.note, x)] : []),
+        plain('留白', frame('frame.close.三方四正')),
+      ]
+    : [
+        plain('章首', frame('frame.open.三方四正')),
+        sourced('四正', x.trine, x),
+        plain('推力', push),
+        sourced('偏向', x.lean[pole]!, x),
+        plain('留白', frame('frame.close.三方四正')),
+      ];
   assertNoReading(segments.filter((s) => s.slot === '章首' || s.slot === '留白'));
   return { slug: SANFANG_SLUG, title: SANFANG_SLUG, segments };
 }

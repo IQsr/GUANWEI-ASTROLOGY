@@ -4,6 +4,7 @@ import { XINGXI, leanOf, xingxiOf } from '../src/xingxi';
 import { CORPUS, normaliseForMatch, withoutCitations } from '../src/lexicon';
 import { scanForbidden } from '../src/lint';
 import { XINGXI_FRAMES, gujiaChapter, sanfangChapter } from '../src/xingxi-chapters';
+import { scanPlain } from '../src/plain';
 
 /**
  * 六十星系（B5 · 2026-09）。逐批寫（每批十個），寫到邊測到邊。
@@ -128,7 +129,7 @@ describe('兩章：性格的骨架、三方四正', () => {
       const x = xingxiOf(c)!.system;
       const { pole, seen } = leanOf(c, x);
       const text = sanfangChapter({ chart: c })!.segments.find((s) => s.slot === '偏向')!.text;
-      expect(text).toBe(x.lean[pole]);
+      expect(text).toBe((x.plain?.lean ?? x.lean)[pole]);
       for (const p of x.poles) for (const e of seen[p]!) {
         expect(sanfangChapter({ chart: c })!.segments.find((s) => s.slot === '推力')!.text).toContain(e);
       }
@@ -144,6 +145,37 @@ describe('兩章：性格的骨架、三方四正', () => {
     for (const c of some.slice(0, 50)) {
       expect(sanfangChapter({ chart: c })).toEqual(sanfangChapter({ chart: c }));
       expect(gujiaChapter({ chart: c })).toEqual(gujiaChapter({ chart: c }));
+    }
+  });
+});
+
+describe('直白（2026-09 試點）', () => {
+  it('scanPlain 捉到講方法、列條件、第一句唔係結論', () => {
+    expect(scanPlain('這一章讀你的星系。', 'x').map((f) => f.code)).toContain('P1');
+    expect(scanPlain('你重感情，見火星則偏向物欲。', 'x').map((f) => f.code)).toContain('P3');
+    expect(scanPlain('貪狼坐命，你重感情。', 'x', { leadsWithConclusion: true }).map((f) => f.code)).toContain('P2');
+    expect(scanPlain('你重感情：貪狼在寅。', 'x', { leadsWithConclusion: true })).toEqual([]);
+  });
+
+  const piloted = CHARTS.filter((c) => xingxiOf(c)?.system.plain).slice(0, 200);
+
+  it('試點星系有盤抽得到', () => {
+    expect(piloted.length).toBeGreaterThan(20);
+  });
+
+  it('直白版冇章首，第一段就係結論', () => {
+    for (const c of piloted) {
+      for (const ch of [gujiaChapter({ chart: c })!, sanfangChapter({ chart: c })!]) {
+        expect(ch.segments.some((s) => s.slot === '章首'), ch.slug).toBe(false);
+        expect(scanPlain(ch.segments[0]!.text, ch.slug, { leadsWithConclusion: true }), ch.segments[0]!.text).toEqual([]);
+      }
+    }
+  });
+
+  it('原因段只講盤上有嘅：唔出「見⋯則⋯」', () => {
+    for (const c of piloted) {
+      const t = sanfangChapter({ chart: c })!.segments.find((s) => s.slot === '推力')!.text;
+      expect(scanPlain(t, '推力'), t).toEqual([]);
     }
   });
 });

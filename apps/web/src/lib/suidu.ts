@@ -48,7 +48,10 @@ export const SLOT_FOCUS: Record<string, Focus> = {
   身宮: 'none',
   /* 性格的骨架、三方四正（2026-09）：兩章都係讀命宮嗰個星系 */
   命宮: 'palace',
+  結論: 'palace',
+  長處: 'palace',
   骨架: 'palace',
+  提醒: 'sanfang',
   四正: 'sanfang',
   推力: 'sanfang',
   偏向: 'sanfang',

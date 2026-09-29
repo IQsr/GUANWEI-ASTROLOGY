@@ -21,6 +21,8 @@ import { z } from 'zod';
 import { sanFangPalaces, type Chart, type Palace } from '@guanwei/ziwei';
 import raw from './xingxi/systems.json';
 import { cjkCount } from './lexicon';
+import { scanPlain } from './plain';
+import { FORBIDDEN_TERMS } from './frame';
 
 const HUA = z.enum(['祿', '權', '科', '忌']);
 
@@ -48,6 +50,26 @@ const Source = z.object({
   quote: z.string().min(4).max(20),
 });
 
+/**
+ * 直白版（2026-09 試點，見 `plain.ts`、docs/voice.md 第六節）。
+ * 有呢欄嘅星系，兩章改用「結論 → 長處與留意 → 依據」嘅排法；冇嘅照舊。
+ */
+const Plain = z.object({
+  /** 骨架第一段：你係點樣嘅人。唔准星名。 */
+  summary: z.string(),
+  /** 長處。 */
+  strength: z.string(),
+  /** 要留意。 */
+  watch: z.string(),
+  /** 點解咁講：可以有星名，擺喺結論後面做證據。 */
+  basis: z.string(),
+  /** 三方四正結論：三句揀一句，第一句唔准星名。 */
+  lean: z.record(z.string(), z.string()),
+  /** 一句同呢個星系有關嘅實際提醒（唔係條件清單）。 */
+  note: z.string().optional(),
+});
+export type XingxiPlain = z.infer<typeof Plain>;
+
 export const Xingxi = z
   .object({
     n: z.number().int().min(1).max(60),
@@ -67,6 +89,7 @@ export const Xingxi = z
     rules: z.array(z.object({ pole: z.string(), when: Cond })).min(2),
     sources: z.array(Source).min(1),
     status: z.enum(['draft', 'reviewed']),
+    plain: Plain.optional(),
   })
   .superRefine((x, ctx) => {
     const need = [...x.poles, '平衡'];
@@ -84,6 +107,38 @@ export const Xingxi = z
       const t = x.lean[k] ?? '';
       if (w(t) < 18 || w(t) > 50) ctx.addIssue({ code: 'custom', message: `${x.n}：lean.${k} ${w(t)} 字，要 18–50` });
       if (!t.includes('你')) ctx.addIssue({ code: 'custom', message: `${x.n}：lean.${k} 要對住讀者講` });
+    }
+
+    if (x.plain) {
+      const p = x.plain;
+      const len = (f: string, t: string, a: number, b: number) => {
+        if (w(t) < a || w(t) > b) ctx.addIssue({ code: 'custom', message: `${x.n}：plain.${f} ${w(t)} 字，要 ${a}–${b}` });
+      };
+      const lint = (f: string, t: string, lead: boolean) => {
+        for (const e of scanPlain(t, f, { leadsWithConclusion: lead })) {
+          ctx.addIssue({ code: 'custom', message: `${x.n}：plain.${f} ${e.code} ${e.message}` });
+        }
+      };
+      len('summary', p.summary, 12, 40);
+      len('strength', p.strength, 10, 36);
+      len('watch', p.watch, 10, 36);
+      len('basis', p.basis, 30, 90);
+      if (p.note) len('note', p.note, 10, 40);
+      lint('summary', p.summary, true);
+      lint('strength', p.strength, true);
+      /* 留意句以「要留意的是：」開頭，唔行第一句規矩；但一樣要講你、唔准術語 */
+      lint('watch', p.watch, false);
+      if (!p.watch.includes('你')) ctx.addIssue({ code: 'custom', message: `${x.n}：plain.watch 要對住讀者講` });
+      const wt = FORBIDDEN_TERMS.filter((t) => p.watch.includes(t));
+      if (wt.length) ctx.addIssue({ code: 'custom', message: `${x.n}：plain.watch 有術語「${wt.join('、')}」` });
+      lint('basis', p.basis, false);
+      if (p.note) lint('note', p.note, false);
+      for (const k of need) {
+        const t = p.lean[k] ?? '';
+        if (!t) ctx.addIssue({ code: 'custom', message: `${x.n}：少咗 plain.lean.${k}` });
+        len(`lean.${k}`, t, 14, 45);
+        lint(`lean.${k}`, t, true);
+      }
     }
   });
 export type Xingxi = z.infer<typeof Xingxi>;
