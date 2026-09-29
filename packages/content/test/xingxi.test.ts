@@ -5,7 +5,7 @@ import { CORPUS, normaliseForMatch, withoutCitations } from '../src/lexicon';
 import { scanForbidden } from '../src/lint';
 
 /**
- * 六十星系（B5 · 2026-09）。逐批寫：而家有第一批（1–10，紫微在子午嗰組）。
+ * 六十星系（B5 · 2026-09）。逐批寫（每批十個），寫到邊測到邊。
  * 資料未寫到嘅星系 `xingxiOf()` 回 null —— 兩個新章要等六十個齊先接入命書。
  */
 
@@ -31,8 +31,8 @@ const CHARTS = Array.from({ length: 4000 }, (_, i) => cast(sample(i)))
   .map((r) => (r as { ok: true; value: Parameters<typeof xingxiOf>[0] }).value);
 
 describe('資料', () => {
-  it('第一批十個，編號唔重複', () => {
-    expect(XINGXI.map((x) => x.n)).toEqual([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+  it('已寫好嘅星系，編號連續唔重複', () => {
+    expect(XINGXI.map((x) => x.n)).toEqual(Array.from({ length: XINGXI.length }, (_, i) => i + 1));
   });
 
   it('引文喺語料庫搵得返（王亭之原書嘅短句，唔係成段）', () => {
@@ -63,9 +63,9 @@ describe('資料', () => {
 describe('喺真盤上揀星系同偏向', () => {
   const hits = CHARTS.map((c) => ({ c, x: xingxiOf(c) })).filter((h) => h.x);
 
-  it('四千張盤，十個星系全部撞到', () => {
+  it('四千張盤，已寫好嘅星系全部撞到', () => {
     const seen = new Set(hits.map((h) => h.x!.system.n));
-    expect([...seen].sort((a, b) => a - b)).toEqual([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+    expect([...seen].sort((a, b) => a - b)).toEqual(XINGXI.map((x) => x.n));
   });
 
   it('揾到嘅星系同命宮主星（或者借嘅對宮主星）對得上', () => {

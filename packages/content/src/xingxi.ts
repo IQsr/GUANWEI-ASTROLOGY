@@ -31,12 +31,14 @@ const HUA = z.enum(['祿', '權', '科', '忌']);
  *   near   同某粒星同宮嘅輔星、煞星（例：太陰同宮見鈴星、陀羅）
  *   inMing 命宮本身見某啲星
  *   branch 命宮喺邊個地支（例：辰宮七殺多理想）
+ *   inFour 三方四正合共見到其中最少 `min` 粒（例：百官朝拱 —— 輔弼魁鉞會照）
  */
 const Cond = z.union([
   z.object({ hua: z.record(z.string(), z.array(HUA).min(1)) }),
   z.object({ near: z.string(), any: z.array(z.string()).min(1) }),
   z.object({ inMing: z.array(z.string()).min(1) }),
   z.object({ branch: z.array(z.string()).min(1) }),
+  z.object({ inFour: z.array(z.string()).min(1), min: z.number().int().min(1) }),
 ]);
 export type XingxiCond = z.infer<typeof Cond>;
 
@@ -123,6 +125,10 @@ function fires(chart: Chart, m: Palace, four: Palace[], c: XingxiCond): boolean 
     return four.some((p) => p.stars.some((s) => s.name === c.near) && p.stars.some((s) => c.any.includes(s.name)));
   }
   if ('inMing' in c) return m.stars.some((s) => c.inMing.includes(s.name));
+  if ('inFour' in c) {
+    const seen = new Set(four.flatMap((p) => p.stars.map((s) => s.name)).filter((n) => c.inFour.includes(n)));
+    return seen.size >= c.min;
+  }
   return c.branch.includes(m.branch);
 }
 
