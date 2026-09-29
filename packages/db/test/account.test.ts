@@ -250,7 +250,8 @@ describe('⚠ 付款紀錄唔跟住人走', () => {
           where table_schema = 'public' and table_name = 'payment_records'`,
       )
     ).map((r) => String(r.column_name));
-    expect(cols.sort()).toEqual(['amount', 'currency', 'paid_at', 'stripe_payment_id']);
+    /* 0009 加咗 refunded_at：一樣唔認得人，只係記低幾時退 */
+    expect(cols.sort()).toEqual(['amount', 'currency', 'paid_at', 'refunded_at', 'stripe_payment_id']);
   });
 
   it('讀者一行都睇唔到 —— 呢張表畀會計睇，唔係畀讀者睇', async () => {

@@ -240,3 +240,46 @@ describe('⚠ 成功頁只准問，唔准發', () => {
     expect(row!.ok).toBe(false);
   });
 });
+
+describe('退款（0009）：收票，會計紀錄留低', () => {
+  const revoke = (payment: string) => db.sql('select revoke_entitlement($1) as ok', [payment]);
+
+  it('全數退款：張票冇咗，付款紀錄記低幾時退', async () => {
+    const { book } = await seedBook(paid);
+    await db.asService();
+    await grant(book, paid, 'cs_r1');
+    const [r] = await revoke('cs_r1');
+    expect(r!.ok).toBe(true);
+    const [e] = await db.sql('select count(*)::int as n from entitlements where stripe_payment_id = $1', ['cs_r1']);
+    expect(e!.n).toBe(0);
+    const [p] = await db.sql('select amount, refunded_at from payment_records where stripe_payment_id = $1', ['cs_r1']);
+    expect(p!.amount).toBe(100);
+    expect(p!.refunded_at).not.toBeNull();
+  });
+
+  it('Stripe 重送同一個退款：第二次回 false，唔係錯', async () => {
+    const { book } = await seedBook(paid);
+    await db.asService();
+    await grant(book, paid, 'cs_r2');
+    await revoke('cs_r2');
+    const [r] = await revoke('cs_r2');
+    expect(r!.ok).toBe(false);
+  });
+
+  it('退款之後可以再買（同一本書）', async () => {
+    const { book } = await seedBook(paid);
+    await db.asService();
+    await grant(book, paid, 'cs_r3');
+    await revoke('cs_r3');
+    const [g] = await grant(book, paid, 'cs_r4');
+    expect(g!.ok).toBe(true);
+  });
+
+  it('讀者自己收唔到票，亦退唔到款', async () => {
+    const { book } = await seedBook(paid);
+    await db.asService();
+    await grant(book, paid, 'cs_r5');
+    await db.asReader(paid);
+    await expect(revoke('cs_r5')).rejects.toThrow(/permission denied|not exist/i);
+  });
+});

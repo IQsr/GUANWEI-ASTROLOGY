@@ -146,7 +146,9 @@ Stripe 收到乜、保留幾耐，見 `docs/privacy.md` 第四節同第五節。
 | | |
 |---|---|
 | **真價錢** | 未定。定咗改 `PRICE` 兩個值，同埋熄咗 `placeholder` |
-| **退款** | 冇做。`charge.refunded` 事件而家唔處理 —— 即係退咗錢張票仲喺度。要人手喺 Supabase 度刪 |
+| **退款** | ✅ 2026-09-29：`charge.refunded`（全數）→ 由 payment_intent 反查 session → `revoke_entitlement()`（migration 0009）收票，`payment_records.refunded_at` 記低。部分退款張票照留。Stripe webhook 要加訂 `charge.refunded` |
+| **service role key** | ✅ 2026-09-29：網站唔再攞（佢 bypass 晒 RLS）。webhook 用 anon key 叫 `pay_grant` / `pay_revoke`，憑 `PAY_WEBHOOK_TOKEN`（`select private.rotate_pay_token();` 生成，資料庫只存 hash；外洩最多發票收票，讀唔到讀者資料）。刪帳戶改用 `delete_my_auth_user()`，讀者只刪得自己（migration 0010） |
+| **認領驗證信** | ✅ 2026-09-29：`/api/auth/callback` 換 session（`exchangeCodeForSession` / `verifyOtp`）再 refresh，先落返 `next`。之前撳完驗證信仲係匿名 JWT，付款頁當佢未認領。Supabase → Authentication → URL Configuration 要准 `/api/auth/callback` |
 | **收據／發票** | 靠 Stripe 自己嗰封。我哋唔寄 |
 | **付款紀錄保留期** | ⚠ 會計法定年期**仲係未問過**。但 G4 已經將付款紀錄同人分咗家（`payment_records`，冇 reader_id），所以「真刪」而家講得出口 —— 剩低嘅只係「留幾耐」，唔再係「刪唔刪得」 |
 | **`/account` 睇得到買過乜** | G4 |

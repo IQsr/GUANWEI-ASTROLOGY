@@ -57,6 +57,8 @@ export default async function ClaimPage({
   const next = safeNext(query.next);
   const from = safeNext(query.from);
   const forCutting = Boolean(next?.startsWith('/pay/'));
+  /* 驗證連結換唔到 session（過期、用過、喺另一個瀏覽器開）—— 見 api/auth/callback */
+  const linkFailed = query.link === 'failed';
 
   return (
     <main className="juan tai">
@@ -74,6 +76,7 @@ export default async function ClaimPage({
         <p className="text-ink-2">
           {t('how')}
         </p>
+        {linkFailed ? <p className="text-ink">{t('linkFailed')}</p> : null}
         {forCutting ? (
           <p className="text-ink-2">{t('forCutting')}</p>
         ) : null}

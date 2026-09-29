@@ -86,19 +86,22 @@ export function publicEnv(): PublicEnv {
 }
 
 /**
- * ⚠ 只可以喺 server 行。
+ * 付款 token（2026-09-29 · migration 0010）。
  *
- * 呢個 function 唔會喺 client bundle 度出現 —— 但「唔會」係一個假設，
- * 而假設會變。所以佢自己再檢查一次：見到 `window` 就當係一個 bug，唔係一個 fallback。
+ * 網站唔再攞 service role key：webhook 用 anon key 叫 `pay_grant` / `pay_revoke`，
+ * 憑呢條 token 過閘。token 喺 Supabase SQL Editor 行 `select private.rotate_pay_token();` 生成，
+ * 資料庫只存 hash。外洩嘅話最多有人發票或者收票 —— 讀唔到任何讀者資料；再行一次就換咗。
+ *
+ * ⚠ 只可以喺 server 行（見到 `window` 就當係 bug），而且冇 `NEXT_PUBLIC_` 前綴。
  */
-export function serviceKey(): string {
+export function payToken(): string {
   if (typeof window !== 'undefined') {
-    throw new Error('service role key 唔可以喺瀏覽器攞 —— 呢條 key bypass 晒 RLS');
+    throw new Error('付款 token 唔可以喺瀏覽器攞');
   }
-  const key = process.env.SUPABASE_SERVICE_ROLE_KEY?.trim();
-  if (!key) throw new Error('冇 SUPABASE_SERVICE_ROLE_KEY');
-  if (!isSecretKey(key)) {
-    throw new Error('SUPABASE_SERVICE_ROLE_KEY 入面嗰條唔係 service role key');
+  const token = process.env.PAY_WEBHOOK_TOKEN?.trim();
+  if (!token) throw new Error('冇 PAY_WEBHOOK_TOKEN');
+  if (!/^[0-9a-f]{64}$/.test(token)) {
+    throw new Error('PAY_WEBHOOK_TOKEN 格式唔啱 —— 應該係 private.rotate_pay_token() 回嘅 64 個十六進位字');
   }
-  return key;
+  return token;
 }

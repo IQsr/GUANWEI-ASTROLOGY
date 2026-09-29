@@ -1,6 +1,6 @@
 import type Stripe from 'stripe';
-import { grantEntitlement, verifyEvent } from '@/lib/pay.server';
-import { webhookVerdict, type WebhookEvent } from '@/lib/pay';
+import { grantEntitlement, revokeByPaymentIntent, verifyEvent } from '@/lib/pay.server';
+import { refundVerdict, webhookVerdict, type WebhookEvent } from '@/lib/pay';
 
 /**
  * Stripe webhook（工單 G3 · 架構 §8）
@@ -69,6 +69,26 @@ export async function POST(req: Request): Promise<Response> {
      */
     console.error('[stripe] 簽名驗唔過：' + (err instanceof Error ? err.message : String(err)));
     return new Response('簽名唔啱', { status: 400 });
+  }
+
+  /* ── 退款（0009）：另一條路，唔同嘅物件（charge，唔係 session） ── */
+  if (event.type === 'charge.refunded') {
+    const charge = event.data.object as Stripe.Charge;
+    const pi = typeof charge.payment_intent === 'string' ? charge.payment_intent : (charge.payment_intent?.id ?? null);
+    const rv = refundVerdict({ type: event.type, refunded: charge.refunded, paymentIntent: pi });
+    if (rv.act === 'ignore') return Response.json({ ok: true, skipped: rv.why });
+    if (rv.act === 'broken') {
+      console.error(`[stripe] ⚠ 退咗款但認唔返係邊筆：${rv.why}（event ${event.id}）`);
+      return new Response('退款認唔返', { status: 500 });
+    }
+    try {
+      const revoked = await revokeByPaymentIntent(rv.paymentIntent);
+      /* null = 唔係經 checkout 收嘅錢，冇票可收；false = 重送。兩個都係成功 */
+      return Response.json({ ok: true, revoked });
+    } catch (err) {
+      console.error(`[stripe] ⚠ 收票失敗（event ${event.id}）：` + String(err));
+      return new Response('收唔到票', { status: 500 });
+    }
   }
 
   const verdict = webhookVerdict(flatten(event));

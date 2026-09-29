@@ -60,6 +60,7 @@ const SECRETS = [
   'service_role',
   'STRIPE_SECRET_KEY',
   'STRIPE_WEBHOOK_SECRET',
+  'PAY_WEBHOOK_TOKEN',
   'sk_live_',
   'sk_test_',
   'whsec_',

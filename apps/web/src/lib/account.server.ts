@@ -1,7 +1,5 @@
 import 'server-only';
-import { createClient } from '@supabase/supabase-js';
 import { supabaseServer } from '@/lib/supabase.server';
-import { publicEnv, serviceKey } from '@/lib/env';
 import type { BookVersions, DeleteCounts, DeleteOutcome } from '@/lib/account';
 
 /**
@@ -97,12 +95,12 @@ export async function deleteAccount(): Promise<DeleteOutcome> {
   const counts = data as DeleteCounts;
 
   try {
-    const env = publicEnv();
-    const admin = createClient(env.url, serviceKey(), {
-      auth: { persistSession: false, autoRefreshToken: false },
-    });
-    const { error: adminError } = await admin.auth.admin.deleteUser(auth.user.id);
-    if (adminError) throw adminError;
+    /*
+     * 2026-09-29：唔再用 admin API（要 service role key）。`delete_my_auth_user()`（0010）
+     * 只刪 `auth.uid()` 嗰一個，用讀者自己個 session 叫 —— 冇參數，冇得刪第二個人。
+     */
+    const { error: authError } = await sb.rpc('delete_my_auth_user');
+    if (authError) throw authError;
   } catch (err) {
     /*
      * ⚠ 呢度唔可以扮成功。

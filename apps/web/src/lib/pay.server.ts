@@ -2,7 +2,7 @@ import 'server-only';
 import Stripe from 'stripe';
 import { createClient } from '@supabase/supabase-js';
 import { supabaseServer } from '@/lib/supabase.server';
-import { publicEnv, serviceKey } from '@/lib/env';
+import { payToken, publicEnv } from '@/lib/env';
 import { PRICE, PRODUCT, type PayFacts } from '@/lib/pay';
 
 /**
@@ -23,7 +23,9 @@ import { PRICE, PRODUCT, type PayFacts } from '@/lib/pay';
  *
  *   STRIPE_SECRET_KEY      收錢同退錢都做得到
  *   STRIPE_WEBHOOK_SECRET  冇佢就分唔出邊個 request 真係 Stripe 送嘅
- *   SUPABASE_SERVICE_ROLE  bypass 晒 RLS（`lib/env.ts` 守住）
+ *   PAY_WEBHOOK_TOKEN      淨係發票、收票（0010）—— 讀唔到讀者資料
+ *
+ * ⚠ 2026-09-29 起網站**唔再攞 service role key**（佢 bypass 晒 RLS，外洩一次全部讀者資料都露）。
  *
  * 三條都**冇** `NEXT_PUBLIC_` 前綴，而 `test/pay.test.ts` 掃住
  * 冇人喺一個 client component 度攞佢哋。
@@ -53,9 +55,10 @@ export function verifyEvent(raw: string, signature: string): Stripe.Event {
 }
 
 /** ⚠ service role client：淨係 webhook 行得，而且唔帶 cookie（佢冇 session）。 */
-function supabaseService() {
+/** webhook 用嘅 client：anon key、冇 session。真正嗰道閘係 `pay_grant` / `pay_revoke` 入面嘅 token。 */
+function supabaseWebhook() {
   const env = publicEnv();
-  return createClient(env.url, serviceKey(), {
+  return createClient(env.url, env.anonKey, {
     auth: { persistSession: false, autoRefreshToken: false },
   });
 }
@@ -156,7 +159,8 @@ export async function grantEntitlement(input: {
   readerId: string;
   paymentId: string;
 }): Promise<boolean> {
-  const { data, error } = await supabaseService().rpc('grant_entitlement', {
+  const { data, error } = await supabaseWebhook().rpc('pay_grant', {
+    p_token: payToken(),
     p_book: input.bookId,
     p_reader: input.readerId,
     p_product: PRODUCT,
@@ -172,6 +176,21 @@ export async function grantEntitlement(input: {
     p_amount: PRICE.amount,
     p_currency: PRICE.currency,
   });
+  if (error) throw error;
+  return Boolean(data);
+}
+
+/**
+ * 退款：由 payment_intent 反查返 checkout session，再收票（0009 `revoke_entitlement`）。
+ *
+ * 回 `null` = 呢筆錢唔係經 checkout 收嘅（例如喺 dashboard 手動開嘅 charge）—— 冇票可收。
+ * 回 `false` = 本來就冇票（重送），**係成功**。
+ */
+export async function revokeByPaymentIntent(paymentIntent: string): Promise<boolean | null> {
+  const sessions = await stripe().checkout.sessions.list({ payment_intent: paymentIntent, limit: 1 });
+  const session = sessions.data[0];
+  if (!session) return null;
+  const { data, error } = await supabaseWebhook().rpc('pay_revoke', { p_token: payToken(), p_payment_id: session.id });
   if (error) throw error;
   return Boolean(data);
 }

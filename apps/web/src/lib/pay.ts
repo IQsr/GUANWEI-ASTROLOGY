@@ -163,6 +163,32 @@ export function webhookVerdict(event: WebhookEvent): WebhookVerdict {
 }
 
 /* ───────────────────────────────────────────────────────────
+ * 退款（2026-09-29 · migration 0009）
+ *
+ * `charge.refunded` 嘅物件係一張 charge，唔係 checkout session ——
+ * 而張票記住嘅係 session id。所以要由 charge 嘅 `payment_intent`
+ * 反查返 session（`pay.server.ts` 行 Stripe API），再收票。
+ *
+ * ⚠ 淨係**全數**退款先收票。Stripe 部分退款都會送 `charge.refunded`，
+ *   分別喺 `refunded`（全數先係 true）。部分退款多數係補償，張票照留。
+ * ─────────────────────────────────────────────────────────── */
+
+export type RefundEvent = { type: string; refunded?: boolean; paymentIntent?: string | null };
+
+export type RefundVerdict =
+  | { act: 'revoke'; paymentIntent: string }
+  | { act: 'ignore'; why: string }
+  | { act: 'broken'; why: string };
+
+export function refundVerdict(event: RefundEvent): RefundVerdict {
+  if (event.type !== 'charge.refunded') return { act: 'ignore', why: `唔關事嘅事件 ${event.type}` };
+  if (event.refunded !== true) return { act: 'ignore', why: '部分退款，張票照留' };
+  /* 退咗錢但認唔返係邊筆 —— 要嘈，唔係靜靜雞過 */
+  if (!event.paymentIntent) return { act: 'broken', why: '退款冇 payment_intent，認唔返係邊筆' };
+  return { act: 'revoke', paymentIntent: event.paymentIntent };
+}
+
+/* ───────────────────────────────────────────────────────────
  * 由 Stripe 返嚟嗰版：成功頁
  * ─────────────────────────────────────────────────────────── */
 

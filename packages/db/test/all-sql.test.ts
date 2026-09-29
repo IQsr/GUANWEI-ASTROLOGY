@@ -60,7 +60,8 @@ describe('all.sql 同逐隻 migration 唔准走音', () => {
     await db.exec(all);
     const rows = (
       await db.query<{ n: number }>(
-        "select count(*)::int as n from information_schema.tables where table_schema = 'public'",
+        /* 0010 起多咗 `private` schema（付款 token），一齊數 */
+        "select count(*)::int as n from information_schema.tables where table_schema in ('public', 'private')",
       )
     ).rows;
     /*

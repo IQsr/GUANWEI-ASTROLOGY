@@ -5,6 +5,7 @@ import { headers } from 'next/headers';
 import { getTranslations } from 'next-intl/server';
 import { serverIdentity } from '@/lib/identity.server';
 import { safeNext } from '@/lib/journey';
+import { claimRedirect } from '@/lib/auth-callback';
 
 export type ClaimState = { ok: boolean; message: string } | null;
 
@@ -24,7 +25,8 @@ export async function claimAction(_prev: ClaimState, formData: FormData): Promis
     const h = await headers();
     const host = h.get('host');
     const proto = h.get('x-forwarded-proto') ?? 'https';
-    const redirectTo = host ? `${proto}://${host}${next}` : undefined;
+    /* 經 `/api/auth/callback` 換 session，先落返 `next`（冇呢一步，撳完驗證信都仲係匿名） */
+    const redirectTo = host ? claimRedirect(`${proto}://${host}`, next) : undefined;
 
     const result = await claim(serverIdentity(), formData.get('email'), redirectTo);
     const t = await getTranslations('claim');
