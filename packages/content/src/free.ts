@@ -1,5 +1,6 @@
 import { z } from 'zod';
-import type { Chart, PalaceName } from '@guanwei/ziwei';
+import type { Chart, Palace, PalaceName } from '@guanwei/ziwei';
+import { shenLines } from './shen';
 import { L3_BLOCKS } from './l3-data';
 import { FORBIDDEN_TERMS } from './frame';
 import { cjkCount } from './lexicon';
@@ -317,7 +318,7 @@ export function xuChapter(input: XuInput): { slug: string; title: string; segmen
  * 一份資產，寫一次，用兩次。
  * ─────────────────────────────────────────────────────────── */
 
-export const SHEN_SLOTS = ['章首', '五行局', '身宮', '留白'] as const;
+export const SHEN_SLOTS = ['章首', '身宮', '身宮星', '五行局', '留白'] as const;
 export type ShenSlot = (typeof SHEN_SLOTS)[number];
 
 export type ShenSegment = {
@@ -366,19 +367,68 @@ export const SHEN_FRAMES = [
   },
 ].map((f) => ShenFrame.parse(f));
 
-export type ShenInput = { chart: Chart };
+export type ShenInput = {
+  chart: Chart;
+  /** 成書嗰年。有就講「寫這本書時你行緊邊個大限」；冇就只講起運。 */
+  year?: number;
+};
 
 /** 身宮落喺邊一宮。十二宮入面只有六個可能。 */
 export function shenPalace(chart: Chart): PalaceName | null {
   return chart.palaces.find((p) => p.isShen)?.name ?? null;
 }
 
+/** 年歲：大限去到一百幾歲（最後一個大限 113–122），`small()` 只去到九十九。 */
+function ageCN(n: number): string {
+  if (n < 100) return small(n);
+  const r = n % 100;
+  return `一百${r === 0 ? '' : r < 10 ? `零${small(r)}` : small(r)}`;
+}
+
+function starsOf(p: Palace): string {
+  const majors = p.stars.filter((s) => s.kind === 'major').map((s) => s.name);
+  return majors.length ? `，坐${majors.join('、')}` : '，宮內沒有主星';
+}
+
 /**
- * 身宮與五行局。
+ * 五行局嗰段（2026-09-29 直白）：兩本書都冇講「你係乜局所以點」——
+ * 局數只定起點，冇高低（詞條原文）。所以呢度唔作性格，講局數真正決定嘅嘢：
+ * 你嘅大限時間線 —— 寫書嗰年行緊邊個大限、落喺邊宮、坐乜星、下一個幾時轉。
  *
- * ⚠ 一句命理文字都唔喺呢度生 —— 身宮嗰段係原封不動嘅 L3 塊，
- * 五行局嗰段只講盤面數值（同序嘅「命宮在寅」同一類）。
- * 組裝器嗰條規矩（「冇一句文字係喺呢個檔案入面生出嚟」）呢度一樣守。
+ * ⚠ 只講事實，唔判斷大限好壞（大限解讀係另一層）。
+ * ⚠ 本書寫咗就唔變（R-008），所以寫明「寫這本書時」，唔寫「現在」。
+ */
+export function juLine(chart: Chart, bookYear?: number): string {
+  const first = chart.decadals[0];
+  let t = `你是${chart.wuxingJu.name}。`;
+  if (!first) return t;
+  t += `大限由虛歲${ageCN(first.fromAge)}歲起，每十年一步。`;
+  if (!bookYear) return t;
+  const age = bookYear - chart.lunar.y + 1;
+  const at = (branch: string) => chart.palaces.find((p) => p.branch === branch)!;
+  const label = (p: Palace) => (p.name === '僕役' ? '交友宮' : p.name.endsWith('宮') ? p.name : `${p.name}宮`);
+  if (age < first.fromAge) {
+    const p = at(first.branch);
+    return `${t}寫這本書時（${year(bookYear)}年），你虛歲${ageCN(age)}，第一個大限從虛歲${ageCN(first.fromAge)}歲開始，落在${label(p)}${starsOf(p)}。`;
+  }
+  const d = chart.decadals.find((x) => age >= x.fromAge && age <= x.toAge);
+  if (!d) return t;
+  const p = at(d.branch);
+  t += `寫這本書時（${year(bookYear)}年），你虛歲${ageCN(age)}，正行第${ageCN(d.index)}個大限（${ageCN(d.fromAge)}至${ageCN(d.toAge)}歲），落在${label(p)}${starsOf(p)}。`;
+  const next = chart.decadals.find((x) => x.index === d.index + 1);
+  if (next) t += `下一個大限從虛歲${ageCN(next.fromAge)}歲開始，轉到${label(at(next.branch))}。`;
+  return t;
+}
+
+/**
+ * 身宮與五行局（2026-09-29 直白）。
+ *
+ *   身宮     結論：你把力氣放在邊（L3 塊，第一句就係結論）
+ *   身宮星   盤面事實（身宮喺邊、坐乜）＋ 坐乜星／有乜化／命身組合（`shen.ts`，每句有原文）
+ *   五行局   大限時間線（盤面事實）
+ *   留白     章框
+ *
+ * 章首（「這一章讀兩件事⋯」）拎走：講方法（docs/voice.md 第六節）。
  */
 export function shenChapter(
   input: ShenInput,
@@ -389,22 +439,22 @@ export function shenChapter(
 
   const block = L3_BLOCKS.find((b) => b.kind === 'shen' && b.key === where);
   if (!block) return null;
-
-  /* 起運虛歲由引擎出 —— 唔係喺呢度按局數查表算多次。 */
-  const fromAge = chart.decadals[0]?.fromAge ?? null;
-  const ju =
-    `你的五行局是${chart.wuxingJu.name}。` +
-    (fromAge === null ? '' : `大限由虛歲${small(fromAge)}歲起，之後每十年一步。`);
+  const sp = chart.palaces.find((p) => p.isShen)!;
+  const label = where === '僕役' ? '交友宮' : where.endsWith('宮') ? where : `${where}宮`;
+  const lines = shenLines(chart);
+  const opp = sp.borrowsFrom && !sp.stars.some((s) => s.kind === 'major') ? chart.palaces.find((p) => p.branch === sp.borrowsFrom) : undefined;
+  const borrowed = opp ? `，借對宮的${opp.stars.filter((s) => s.kind === 'major').map((s) => s.name).join('、')}來看` : '';
+  const fact = where === '命宮' ? `你的身宮和命宮在同一宮${starsOf(sp)}${borrowed}。` : `你的身宮落在${label}${starsOf(sp)}${borrowed}。`;
 
   const segments: ShenSegment[] = [
-    { slot: '章首', text: SHEN_FRAMES[0]!.text, source_id: null, rule_ids: [] },
-    { slot: '五行局', text: ju, source_id: null, rule_ids: [] },
     { slot: '身宮', text: block.body, source_id: block.id, rule_ids: block.rule_ids },
+    { slot: '身宮星', text: fact + lines.map((l) => l.text).join(''), source_id: lines.map((l) => l.id).join('+') || null, rule_ids: [] },
+    { slot: '五行局', text: juLine(chart, input.year), source_id: null, rule_ids: [] },
     { slot: '留白', text: SHEN_FRAMES[1]!.text, source_id: null, rule_ids: [] },
   ];
 
-  /* 章首、五行局、留白三格唔准讀象；身宮嗰格係一塊有來源嘅正文，所以唔掃。 */
-  assertNoReading(segments.filter((s) => s.slot !== '身宮'));
+  /* 留白係章框，唔准讀象；其餘係有來源嘅正文或者盤面事實（事實會講星名） */
+  assertNoReading(segments.filter((s) => s.slot === '留白'));
 
   return { slug: '身宮與五行局', title: '身宮與五行局', segments };
 }

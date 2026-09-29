@@ -17,6 +17,8 @@ import {
   SHEN_FRAMES,
 } from '../src/free';
 import { cjkCount } from '../src/lexicon';
+import { scanPlain } from '../src/plain';
+import { shenLines } from '../src/shen';
 
 /**
  * 序 · 你的命盤（工單 C12）
@@ -193,8 +195,35 @@ describe('章框', () => {
 describe('免費章之二：身宮與五行局（甲案）', () => {
   const CH = () => shenChapter({ chart: chartOf() })!;
 
+  /* 2026-09-29 直白：冇章首，身宮結論行先，跟住身宮坐乜星、五行局時間線 */
   it('四格齊，次序固定', () => {
-    expect(CH().segments.map((s) => s.slot)).toEqual(['章首', '五行局', '身宮', '留白']);
+    expect(CH().segments.map((s) => s.slot)).toEqual(['身宮', '身宮星', '五行局', '留白']);
+  });
+
+  it('身宮第一句就係結論', () => {
+    expect(scanPlain(CH().segments[0]!.text, '身宮', { leadsWithConclusion: true })).toEqual([]);
+  });
+
+  it('身宮星嗰段：先講盤面事實，每句都有原文', () => {
+    for (let y = 1960; y < 2000; y++) {
+      for (const h of [3, 11, 19]) {
+        const r = cast({ solar: { y, m: 1 + (y % 12), d: 5 + (y % 20) }, time: { h, min: 0 }, tz: 'Asia/Hong_Kong', place: { lng: 114.17, lat: 22.32, label: '香港' }, sex: 'female' });
+        if (!r.ok) continue;
+        const seg = shenChapter({ chart: r.value })!.segments.find((s) => s.slot === '身宮星')!;
+        expect(seg.text).toMatch(/^你的身宮(落在|和命宮在同一宮)/);
+        for (const l of shenLines(r.value)) {
+          expect(seg.text).toContain(l.text);
+          expect(scanPlain(l.text, l.id)).toEqual([]);
+        }
+      }
+    }
+  });
+
+  it('五行局：有成書年份就講寫書嗰陣行緊邊個大限', () => {
+    const seg = shenChapter({ chart: chartOf(), year: 2026 })!.segments.find((s) => s.slot === '五行局')!;
+    expect(seg.text).toMatch(/寫這本書時（二〇二六年）/);
+    expect(seg.text).toMatch(/正行第.+個大限|第一個大限從/);
+    expect(seg.text).not.toMatch(/\d/);
   });
 
   /**

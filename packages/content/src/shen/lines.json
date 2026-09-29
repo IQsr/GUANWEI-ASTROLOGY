@@ -1,0 +1,27 @@
+{
+  "$note": "身宮章（2026-09-29 直白）：身宮坐乜星、有乜四化、命身組合。每句都由原文撮出嚟、改成直白，唔講死（「定歷艱辛」→「多數要經歷一番辛苦」）。講壽元、家庭事件嘅原句唔用（七殺守身終是夭、隨娘繼拜）。",
+  "stars": [
+    { "id": "shen.star.紫微", "star": "紫微", "text": "你的身宮坐紫微：你後天用力的地方，比較容易帶來財路和福氣。", "source": { "corpus": "quanshu", "passage_id": "palace.命宮", "quote": "紫微天中第一星，命身相遇福财兴" } },
+    { "id": "shen.star.天機", "star": "天機", "withSees": ["天梁"], "text": "你的身宮坐天機，又會天梁：你肯下功夫鑽研，往往練得出一門隨身的本事。", "source": { "corpus": "quanshu", "passage_id": "star.天機", "quote": "或守於身，更逢天梁，必有高藝隨身" } },
+    { "id": "shen.star.太陽", "star": "太陽", "withSeesAny": { "stars": ["左輔", "右弼", "文昌", "文曲", "天魁", "天鉞"], "min": 2 }, "text": "你的身宮坐太陽，又有吉星會合：你容易得到有地位的人賞識和提攜。", "source": { "corpus": "quanshu", "passage_id": "star.太陽", "quote": "若身居之，逢吉聚，則可在貴人門下客" } },
+    { "id": "shen.star.天同", "star": "天同", "text": "你的身宮坐天同：你待人謙遜，性情溫和，後天越過越懂得享受生活。", "source": { "corpus": "quanshu", "passage_id": "star.天同", "quote": "身命值之，主為人謙遜，稟性溫和" } },
+    { "id": "shen.star.廉貞", "star": "廉貞", "text": "你的身宮坐廉貞：你有吸引人的一面，人緣裡帶一點桃花。", "source": { "corpus": "quanshu", "passage_id": "attrs.table", "quote": "在身命為次桃花" } },
+    { "id": "shen.star.巨門", "star": "巨門", "text": "你的身宮坐巨門：你說話直，容易惹來口舌，開口之前多想一步。", "source": { "corpus": "quanshu", "passage_id": "star.巨門", "quote": "在身命一生招口舌之非" } },
+    { "id": "shen.star.天相", "star": "天相", "text": "你的身宮坐天相：你把事情辦得妥當，容易因此得到體面和名聲。", "source": { "corpus": "quanshu", "passage_id": "star.天相", "quote": "身命得之而榮耀" } },
+    { "id": "shen.star.天梁", "star": "天梁", "text": "你的身宮坐天梁：你身上有一份庇蔭，遇到難處，往往有人伸手。", "source": { "corpus": "quanshu", "passage_id": "star.天梁", "quote": "蔭於身福及子孫" } },
+    { "id": "shen.star.七殺", "star": "七殺", "text": "你的身宮坐七殺：你後天多數要經歷一番辛苦，才走得出自己的路。", "source": { "corpus": "quanshu", "passage_id": "star.七殺", "quote": "主於身定歷艱辛" } },
+    { "id": "shen.star.破軍", "star": "破軍", "brightness": ["陷"], "text": "你的身宮坐破軍而落陷：你多半要離開原來的家和環境，自己另起爐灶。", "source": { "corpus": "quanshu", "passage_id": "star.破軍", "quote": "在身命陷地，棄祖離宗" } }
+  ],
+  "sihua": [
+    { "id": "shen.hua.祿", "hua": "祿", "text": "你的身宮有化祿：你用力的地方比較順，付出容易有回報。", "source": { "corpus": "quanshu", "passage_id": "sihua.化禄", "quote": "禄为福德之神。守身命官禄之位" } },
+    { "id": "shen.hua.權", "hua": "權", "text": "你的身宮有化權：你用力的地方說得上話，容易掌握主導。", "source": { "corpus": "quanshu", "passage_id": "sihua.化权", "quote": "权星掌判生杀之神。守身命" } },
+    { "id": "shen.hua.科", "hua": "科", "text": "你的身宮有化科：你用力的地方容易得到名聲和肯定。", "source": { "corpus": "quanshu", "passage_id": "sihua.化科", "quote": "主掌文墨之星。守身命" } },
+    { "id": "shen.hua.忌", "hua": "忌", "text": "你的身宮有化忌：你用力的地方牽掛多，容易操心，事情未必一路順。", "source": { "corpus": "quanshu", "passage_id": "sihua.化忌", "quote": "忌为多管之神。守身命" } }
+  ],
+  "combos": [
+    { "id": "shen.combo.貪狼", "ming": ["貪狼"], "shen": ["七殺", "破軍"], "sha": true, "text": "你命宮坐貪狼，身宮又見{shen}，再會煞星：你的欲望和衝勁都重，最好給它們找一個正當的出口。", "source": { "corpus": "zhongzhou", "passage_id": "shen.貪狼", "quote": "凡推断贪狼之命，必须同时兼视身宫" } },
+    { "id": "shen.combo.機陰", "ming": ["天機"], "mingBranch": ["丑", "未"], "shen": ["太陰"], "text": "你命宮坐天機，身宮見太陰：你常常日夜奔忙，晚上也還在計劃、思量。", "source": { "corpus": "zhongzhou", "passage_id": "shen.機陰", "quote": "太阴守身宫者，主人日夜奔忙" } },
+    { "id": "shen.combo.日月", "ming": ["太陽"], "shen": ["太陰"], "shenBranch": ["辰", "戌"], "text": "你命宮坐太陽，身宮坐太陰：你較可能離開出生地，到外面發展。", "source": { "corpus": "zhongzhou", "passage_id": "shen.日月", "quote": "太阴守身宫于辰戌，主离乡背井" } },
+    { "id": "shen.combo.武貪", "shenAll": ["武曲", "貪狼"], "notMing": true, "text": "你的武曲貪狼落在身宮而不在命宮：這組星的力量不如坐命時完整，後天要多花一點力氣。", "source": { "corpus": "zhongzhou", "passage_id": "shen.武貪", "quote": "在身宫者，不及在命宫" } }
+  ]
+}

@@ -166,7 +166,7 @@ export function bookChapters(
 
   /* 序唔再印版本號（2026-09）：版本照舊寫落 DB（成書嗰陣，見 cast/actions.ts）。 */
   const xu = xuChapter({ chart, solar: opts.solar, place: opts.place });
-  const shen = shenChapter({ chart });
+  const shen = shenChapter({ chart, year: opts.year });
   const gujia = gujiaChapter({ chart });
   const sanfang = sanfangChapter({ chart });
 
