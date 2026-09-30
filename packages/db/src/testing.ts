@@ -85,12 +85,9 @@ export async function createTestDb(opts: { until?: string } = {}): Promise<TestD
   /*
    * ⚠ 只跑編咗號嗰啲，唔係全部 `.sql`。
    *
-   * `migrations/all.sql` 係一個生成檔（五隻接埋一齊，畀你貼落
-   * Supabase SQL Editor）。佢一擺入呢個資料夾，原本嗰句
-   * 「全部 .sql 順住跑」就會將成套 schema 跑多次 ——
-   * 三十條測試一次過紅，而錯誤訊息淨係話 "already exists"。
-   *
-   * 加咗之後即刻爆咗一次，所以呢個註釋唔係假設，係記錄。
+   * 以前資料夾入面有一個生成檔 `all.sql`（2026-09-30 合併成 baseline 之後刪咗）。
+   * 佢一擺入嚟，「全部 .sql 順住跑」就會將成套 schema 跑多次 ——
+   * 所以淨係跑編咗號嗰啲。將來再有非編號嘅檔都一樣唔會被跑。
    */
   const numbered = readdirSync(MIGRATIONS)
     .filter((f) => /^0\d+_.*\.sql$/.test(f))

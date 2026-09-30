@@ -30,11 +30,14 @@
 
 ### 2. 跑 schema
 
-SQL Editor → New query → 貼 `packages/db/migrations/all.sql` 成個檔 → Run。
+SQL Editor → New query → 貼 `packages/db/migrations/0001_baseline.sql` 成個檔 → Run。
 
 ⚠ 呢個檔冇 `IF NOT EXISTS`，跑第二次會撞 "already exists"。
 噉樣係**特登**嘅：一個靜靜雞跑得第二次嘅 migration，
 就係一個你永遠唔知跑到邊一步嘅 migration。
+
+（2026-09-30：原本 0001–0012 十二隻檔同 `all.sql` 合併成呢一個 baseline，
+合併前逐項對比過兩個資料庫一模一樣。之後有改動由 `0002_…` 開始加。）
 
 跑完應該見到 `Success. No rows returned`。
 
@@ -103,18 +106,10 @@ stripe listen --forward-to localhost:3000/api/stripe/webhook
 
 ## 一之三、跑 migration（工單 G3 · G4）
 
-新 project：SQL Editor 貼 `packages/db/migrations/all.sql`，跑一次。
+新 project：SQL Editor 貼 `packages/db/migrations/0001_baseline.sql`，跑一次。
 
-已經接咗 Supabase 嘅話，**唔好再跑 `all.sql`**（佢冇 `IF NOT EXISTS`，
-會由第一行撞到 already exists）。順住跑未跑過嗰幾隻：
-
-```
-0007_pay.sql       裁書：寫票、查票
-0008_account.sql   設定：匯出、真刪、⚠ 付款紀錄同人分家
-```
-
-⚠ `0008` 入面有一句 `drop function … grant_entitlement(uuid, uuid, text, text)` ——
-因為簽名改咗（多咗金額同貨幣）。**一定要 0007 跑咗先跑 0008。**
+已經接咗 Supabase（線上嗰個 2026-09-30 已經係 baseline 嘅狀態）：**唔好再跑 baseline**。
+之後加嘅 `0002_…` 起，順住跑未跑過嗰幾隻。
 
 ## 二、Vercel
 

@@ -1,50 +1,15 @@
--- 觀微 · 全部 migration，順住接埋一齊（生成檔，唔好手改）
+-- 觀微 · 資料庫 baseline（2026-09-30 由 0001–0012 合併）
 --
--- 用法：Supabase → SQL Editor → 新 query → 貼晒落去 → Run。
+-- 一張新 Supabase project：SQL Editor → New query → 貼晒 → Run，一次就夠。
+-- 線上嗰個已經行晒 0001–0012，唔使再跑呢個檔。之後有改動就由 0002 開始加。
 --
--- ⚠ 一張新 project 跑一次就夠。呢個檔冇 IF NOT EXISTS，
---    跑第二次會撞 "already exists" —— 噉樣係啱嘅：
---    一個靜靜雞跑得第二次嘅 migration，就係一個你永遠唔知
---    到底跑到邊一步嘅 migration。
+-- 合併嗰陣用兩個資料庫逐項對比過（表、欄、限制、索引、function、權限、RLS、trigger），同 0001–0012 一模一樣。
+-- 逐步嘅歷史（例如 create_book 點解改過三次）喺 git log。
 --
--- ⚠ 跑完之後喺 Supabase 個 Table Editor 度可能乜都見唔到。
---    唔係壞咗：六張表全部 `force row level security`，
---    連 owner 都要守 policy。冇 auth.uid() 就冇行 —— 呢個正正係
---    我哋要嘅嘢（架構 §10）。
---
--- 生成方法：packages/db/migrations/*.sql 順住檔名接埋。
-
-
--- ══════════════════════════════════════════════════════════
--- 0001_schema.sql
--- ══════════════════════════════════════════════════════════
-
--- 觀微 · 資料模型（工單 G1 · 資訊架構 §5）
---
--- ── 三條貫穿成個 schema 嘅決定 ──
---
--- 一、**reader.id 就係 auth.uid()，唔係我哋自己生成。**
---     所以「認領」（G2）唔使搬任何資料 —— `linkIdentity` 加一個 email
---     落同一個 auth user 度，id 一個字都冇變。架構 §5 寫住
---     「唔好自己捲 cookie 之後搬資料」，呢條 FK 就係嗰句嘅落實。
---
--- 二、**書屬於讀者，唔經 subject 推。**
---     架構 §5 原本嘅表寫 `books: id · subject_id · chart_id` ——
---     即係「本書屬於邊個」要經 subject 推出嚟。但六幕流程（v0.2）係
---     **書先出嚟，再寫生辰**：架上抽一本空白書落嚟嗰陣根本冇 subject。
---     一本冇 subject 嘅書如果冇 `reader_id`，就係一本**冇主人嘅書** ——
---     RLS 寫唔到，書架亦都撈唔返。所以 `books` 自己攞住 `reader_id`。
---
--- 三、**版本欄一律唔准 'latest'。**
---     規範 §17 明文禁止。呢個唔靠寫程式嗰個人記得 —— 寫落 CHECK。
---
--- 要 `auth.users` 同 `auth.uid()` 先行得到。Supabase 本身有；
--- 測試環境由 `src/testing.ts` 起一個一模一樣嘅 shim。
-
--- ⚠ 冇 `create extension pgcrypto`。
--- `gen_random_uuid()` 由 PostgreSQL 13 起就係核心函數，唔再需要 pgcrypto。
--- 呢句係一個抄開嘅反射動作 —— 寫咗落去，喺一個冇裝 contrib 嘅
--- Postgres 上面就會由第一行開始死。
+-- 三條貫穿成個 schema 嘅決定：
+--   一、reader.id 就係 auth.uid()：認領唔使搬資料。
+--   二、書屬於讀者（books.reader_id），唔經 subject 推：書可以先於生辰存在。
+--   三、版本欄一律唔准 'latest'（規範 §17）。
 
 -- ── readers ────────────────────────────────────────────────
 create table readers (
@@ -52,6 +17,11 @@ create table readers (
   is_anonymous boolean     not null default true,
   email        text,
   created_at   timestamptz not null default now(),
+  -- 回訪次數（0003）：認領提示「第二次回訪」要數；一日算一次。
+  visit_days         smallint    not null default 1,
+  last_visit_on      date        not null default current_date,
+  -- 成書後嗰個認領提示撳走咗就唔再嘈。
+  claim_dismissed_at timestamptz,
 
   -- 認領咗（唔再匿名）就一定有 email；匿名嗰陣一定冇。
   constraint readers_claim_shape check (is_anonymous = (email is null))
@@ -113,6 +83,13 @@ create table books (
   last_read_chapter text,
   created_at        timestamptz not null default now(),
   titled_at         timestamptz,
+  -- 書架按「幾時讀」排（0004），唔按開書日期。
+  last_read_at      timestamptz,
+  -- 防重送（0005）：由 client 生成，重試用返同一個，撳兩次成書攞返同一本。
+  client_token      uuid,
+  -- 同意咗邊個版本嘅條款及私隱政策、幾時（0011）。
+  terms_version     text,
+  terms_accepted_at timestamptz,
 
   -- subject 一定要係同一個讀者嘅。MATCH SIMPLE：subject_id 係 null
   -- 就跳過（未寫生辰），唔係 null 就一定要對得返 reader_id。
@@ -133,6 +110,8 @@ create table books (
   -- 題名同成盤係同一件事（E5：排盤成功先入題名動畫）。
   constraint books_titled_with_chart check ((chart_id is null) = (title is null)),
   constraint books_titled_at check ((titled_at is null) = (title is null)),
+  constraint books_last_read_together check ((last_read_chapter is null) = (last_read_at is null)),
+  constraint books_terms_together check ((terms_version is null) = (terms_accepted_at is null)),
 
   unique (id, reader_id)
 );
@@ -152,6 +131,10 @@ create table chapters (
   content_version text not null check (content_version <> 'latest'),
 
   generated_at    timestamptz not null default now(),
+  -- 裁開係書嘅屬性（0006）：一版裁咗就係裁咗，一生只播一次動畫。
+  cut_at          timestamptz,
+  -- 每一段嘅格名（0006），同 body 分開：格名唔係內容，未裁都睇得到。
+  slots           text[] not null default '{}',
 
   unique (book_id, slug),
   unique (book_id, ord)
@@ -198,12 +181,8 @@ create index charts_subject on charts (subject_id);
 create index books_reader on books (reader_id, created_at desc);
 create index chapters_book on chapters (book_id, ord);
 create index entitlements_reader on entitlements (reader_id);
-
-
-
--- ══════════════════════════════════════════════════════════
--- 0002_rls.sql
--- ══════════════════════════════════════════════════════════
+create index books_last_read on books (reader_id, last_read_at desc nulls last);
+create unique index books_client_token on books (reader_id, client_token);
 
 -- 觀微 · 列級權限（工單 G1 · 架構 §10）
 --
@@ -330,33 +309,6 @@ create policy entitlements_own on entitlements
 
 grant select on entitlements to authenticated;
 
-
-
--- ══════════════════════════════════════════════════════════
--- 0003_claim.sql
--- ══════════════════════════════════════════════════════════
-
--- 觀微 · 認領（工單 G2 · 架構 §4）
---
--- ── 認領係乜 ──
---
--- 匿名讀者 → 加一個 email 落同一個 auth user 度（`linkIdentity`）。
--- `auth.uid()` 一個字都冇變，所以佢啲書同票根本冇搬過 ——
--- 「認領後所有書同已購章節自動跟住走」呢條 AC，喺 G1 揀
--- `readers.id = auth.users.id` 嗰陣就已經贏咗。呢個檔做嘅係**守住佢**。
---
--- ── G1 留低咗一個窿 ──
---
--- G1 grant 咗 `update (email, is_anonymous) on readers to authenticated`，
--- 即係話一個匿名讀者可以自己一句 SQL 話自己認咗領。
---
--- 而「認咗領」唔係一個形容詞，係**付款硬閘嘅條件**（架構 §4）。
--- 一個自己講自己認咗領嘅欄位，同 entitlements 一樣 —— 唔係憑據。
---
--- 所以呢兩個欄由 `auth.users` 同步落嚟，讀者自己寫唔到。
--- 真正嘅認領喺 Supabase Auth 嗰邊發生（`linkIdentity` 要收驗證信），
--- 我哋呢邊淨係跟。
-
 -- ── 一、readers 由 auth.users 自己生 ─────────────────────
 --
 -- 本來係 app 去 insert 一行。但咁樣佢就 insert 得出一行
@@ -407,11 +359,6 @@ revoke update on readers from authenticated;
 --
 -- 一個「回訪」= 一日。唔用 session：同一日開兩次唔算兩次回訪，
 -- 而一日一次嘅寫入平到唔使諗。
-alter table readers
-  add column visit_days   smallint    not null default 1,
-  add column last_visit_on date       not null default current_date,
-  -- 成書後嗰次係「可撳走」嘅。撳走咗就唔好再喺嗰個位嘈。
-  add column claim_dismissed_at timestamptz;
 
 /**
  * 記一次回訪。同一日行幾多次都只會加一次。
@@ -457,92 +404,15 @@ $$;
 
 grant execute on function public.dismiss_claim_prompt() to authenticated;
 
-
-
--- ══════════════════════════════════════════════════════════
--- 0004_shelf.sql
--- ══════════════════════════════════════════════════════════
-
--- 觀微 · 書架（工單 E3 · 視覺 §8 · 架構 §4）
---
--- ⚠ E3 第二條驗收標準：「**最近讀嗰本喺最左**；在讀嗰本轉朱砂。」
---
--- 但 G1 排唔到呢個序：`books` 有 `last_read_chapter`（讀到邊一章），
--- **冇一個「幾時讀」**。知道讀到邊度，唔等於知道幾時讀。
---
--- 用 `created_at` 代替唔得：書架係回訪落點（架構 §4），
--- 而回訪嗰個人想見到嘅係「我上次喺度」，唔係「我幾時開咗呢本」。
--- 一個按開書日期排嘅書架，讀得越耐排得越後 —— 啱啱掉轉。
-alter table books add column last_read_at timestamptz;
-
--- 讀到邊、幾時讀，兩樣要一齊郁 —— 一個有章冇時間嘅 row 排唔到序。
-alter table books
-  add constraint books_last_read_together
-  check ((last_read_chapter is null) = (last_read_at is null));
-
-create index books_last_read on books (reader_id, last_read_at desc nulls last);
-
-
-
--- ══════════════════════════════════════════════════════════
--- 0005_chengshu.sql
--- ══════════════════════════════════════════════════════════
-
--- 觀微 · 成書（工單 G5 · 架構 §5）
---
--- ── 點解要有呢一個 migration ──
---
--- E4 寫生辰、E5 題名、E6 展卷，六幕由頭行到尾 —— 但行完之後
--- **一個字都冇留低**。本書淨係活喺 React state 度：
--- 撳一下重新整理就冇咗，書架永遠係空，`/book/[id]` 永遠撈唔到嘢。
---
--- 架構 §5 寫住：「命書內容存返落 DB，唔好每次即時生成 ——
--- 『一本書』嘅承諾包括『佢唔會自己變』」。呢個 migration 就係嗰句。
---
--- ── 點解成書要用一個 function，唔喺 adapter 度逐張表 insert ──
---
--- 一、**原子性。** Supabase 個 JS client 冇 transaction：四次 insert
---     就係四次獨立嘅請求。第三次仆街，留低嘅係一本有封面、
---     得三章正文嘅書 —— 而**一本殘缺嘅書比冇書差**，因為佢睇落係完整嘅。
---     一個 function 就係一個 statement，即係一個 transaction。
---
--- 二、**驗得到。** `identity/shelf/juan` 三個 adapter 到今日為止一次都冇
---     真係行過（冇 instance）。寫落 SQL 之後，成書呢條路可以喺 PGlite
---     度連 RLS 一齊跑 —— 即係話「寫落 DB」呢件事唔再靠睇落啱。
---
--- ⚠ **security invoker（預設），唔係 definer。**
--- RLS 要照行：呢個 function 寫入嘅每一行都要過 `reader_id = auth.uid()`
--- 嗰幾條 policy。一個 definer function 會繞過晒佢哋 ——
--- 噉樣做出嚟嘅原子性，代價係將六條 policy 一次過廢咗。
---
--- ⚠ **一個要老實講嘅限制。**
--- 呢個 function 係讀者身分行嘅，所以理論上有人可以攞住自己張 JWT
--- 直接呼叫佢，傳一個亂噏嘅 `engine_version`。
--- 影響範圍係**佢自己嗰本書**（RLS 擋住其他人），即係話佢呃嘅係自己。
--- 但噉都代表 `engine_version` 呢一欄係「我哋寫嗰陣係啱嘅」，
--- 唔係「數學上唔可能係假」。搬去 service_role 可以堵死 ——
--- 代價係成書要行 server-side key，而嗰條路現階段仲未鋪。記低，未做。
-
--- ── 重送 ────────────────────────────────────────────────────
---
--- ⚠ 撳「成書」之後網絡斷一下，粒掣返生，佢再撳一次 ——
--- 第一次可能已經寫成功咗，只係個回覆冇返到嚟。冇防重就出兩本一模一樣嘅書。
---
--- 同 `entitlements.stripe_payment_id` 一樣嘅做法：由 DB 保證，
--- 唔靠 handler 自己記得去 dedupe。個 token 由 client 一開始生成，
--- 重試用返同一個，所以第二次呼叫攞返嘅係**同一本書**嘅 id。
-alter table books add column client_token uuid;
-
-create unique index books_client_token on books (reader_id, client_token);
-
--- ── 成書 ────────────────────────────────────────────────────
+-- ── 成書（create_book：原子寫入 subjects / charts / books / chapters；0005 → 0006 → 0011 最終版）──
 create or replace function public.create_book(
   p_token    uuid,
   p_subject  jsonb,
   p_chart    jsonb,   -- null = 待時辰（架構 §8）
   p_title    text,    -- 同 p_chart 一齊有或者一齊冇
   p_seal     text,
-  p_chapters jsonb    -- [{slug, ord, tier, title, body, content_version}]
+  p_chapters jsonb,   -- [{slug, ord, tier, title, body, content_version}]
+  p_terms_version text  -- 同意咗邊個版本嘅條款及私隱政策（0011）
 ) returns uuid
 language plpgsql
 set search_path = public
@@ -558,6 +428,10 @@ begin
   end if;
   if p_token is null then
     raise exception '成書要一個 token —— 冇佢就防唔到重送' using errcode = '23514';
+  end if;
+  -- ⚠ 冇同意條款及私隱政策就唔收生辰（0011）。介面擋一次，呢度再擋一次。
+  if p_terms_version is null or length(trim(p_terms_version)) = 0 then
+    raise exception '未同意條款及私隱政策，成唔到書' using errcode = '23514';
   end if;
 
   -- 重送：攞返上次嗰本。
@@ -598,11 +472,13 @@ begin
     ) returning id into v_chart;
   end if;
 
-  insert into books (reader_id, subject_id, chart_id, title, cover_seal, titled_at, client_token)
+  insert into books (reader_id, subject_id, chart_id, title, cover_seal, titled_at, client_token,
+                     terms_version, terms_accepted_at)
   values (
     v_reader, v_subject, v_chart, p_title, p_seal,
     case when v_chart is null then null else now() end,
-    p_token
+    p_token,
+    p_terms_version, now()
   ) returning id into v_book;
 
   if v_chart is not null then
@@ -612,14 +488,19 @@ begin
       raise exception '題咗名就一定要有正文' using errcode = '23514';
     end if;
 
-    insert into chapters (book_id, slug, ord, tier, title, body, content_version)
+    insert into chapters (book_id, slug, ord, tier, title, body, content_version, slots)
     select v_book,
            c ->> 'slug',
            (c ->> 'ord')::smallint,
            c ->> 'tier',
            c ->> 'title',
            c ->> 'body',
-           c ->> 'content_version'
+           c ->> 'content_version',
+           coalesce(
+             (select array_agg(s #>> '{}' order by i)
+                from jsonb_array_elements(coalesce(c -> 'slots', '[]'::jsonb)) with ordinality t(s, i)),
+             '{}'
+           )
       from jsonb_array_elements(p_chapters) c;
   end if;
 
@@ -637,7 +518,8 @@ exception
 end;
 $$;
 
-grant execute on function public.create_book(uuid, jsonb, jsonb, text, text, jsonb) to authenticated;
+revoke all on function public.create_book(uuid, jsonb, jsonb, text, text, jsonb, text) from public, anon;
+grant execute on function public.create_book(uuid, jsonb, jsonb, text, text, jsonb, text) to authenticated;
 
 -- ── 讀到邊、幾時讀 ──────────────────────────────────────────
 --
@@ -658,46 +540,6 @@ as $$
 $$;
 
 grant execute on function public.touch_book(uuid, text) to authenticated;
-
-
-
--- ══════════════════════════════════════════════════════════
--- 0006_caijuan.sql
--- ══════════════════════════════════════════════════════════
-
--- 觀微 · 裁開同段落結構（工單 F2 · F4 · 架構 §6）
---
--- 兩樣嘢，一條 migration，因為兩樣都係「一章多知一件事」。
-
--- ── 一、⚠ 裁開係書上面嘅事，唔係瀏覽器上面嘅事 ──────────────
---
--- F4 驗收標準：「裂開動畫 1600ms，**一生只播一次**」。
---
--- 記喺邊？G1 立咗一條規矩：「localStorage 只存主題同上次讀到邊段」。
--- 加第三個 key 就係破咗佢，而且清 cookie、換部機，本已經裁開咗嘅書
--- 會再裂一次 —— 即係「一生」其實係「呢個瀏覽器呢一次」。
---
--- 之前提過用 `entitlements.purchased_at` 推。**嗰個唔成立**：
--- 買咗嘅時間唔會變，所以重新載入會再播。佢答嘅係「幾時買」，
--- 唔係「裁開咗未」。
---
--- 決定（Issac，2026-09-21）：**加一欄。**
--- 裁開一版書係一個唔可逆嘅動作 —— 一版裁咗就係裁咗，
--- 唔會因為你換咗部機而癒合。呢個唔係 UI 狀態，係書嘅屬性。
-alter table chapters add column cut_at timestamptz;
-
--- ── 二、段落結構 ────────────────────────────────────────────
---
--- F2：「右側細命盤**跟捲動**高亮對應宮位」。
---
--- 要跟捲動，就要知道而家讀緊嘅係邊一格（開場？牽動？留白？）——
--- 而 `body` 係一嚿接埋咗嘅字，結構喺寫入嗰陣冇咗。
---
--- ⚠ 所以 `slots` 同 `body` **分開兩欄**，而唔係將 body 改成 jsonb：
--- body 係收費嘅（欄級權限收住，要行 `chapter_body()`），
--- 而**格嘅名唔係內容**。一個未裁開嘅讀者睇得到呢一版有幾多格、
--- 係乜嘢格，咁先至係「毛邊本」—— 你揸得到本書，只係未裁開。
-alter table chapters add column slots text[] not null default '{}';
 
 -- ── 裁開 ────────────────────────────────────────────────────
 --
@@ -744,221 +586,7 @@ $$;
 
 grant execute on function public.cut_page(uuid) to authenticated;
 
--- 讀者本來就 select 得到 chapters 嗰幾欄，加埋新嗰兩欄。
--- （`body` 仍然冇喺入面 —— 嗰欄要行 `chapter_body()`。）
 grant select (cut_at, slots) on chapters to authenticated;
-
--- ── ⚠ create_book 要連 slots 一齊寫 ──────────────────────────
---
--- migration 係 append-only，`create or replace` 要成個 function 重貼一次。
--- 下面同 `0005_chengshu.sql` 嗰個**一個字都冇爭**，除咗 chapters
--- 嗰句 insert 多咗 `slots` 一欄（同埋佢喺 p_chapters 入面點攞）。
---
--- 重貼成段嘅代價係：改嘅時候兩邊都要改。所以 `test/caijuan.test.ts`
--- 有一條守住「成書之後 slots 真係入咗去」—— 漏咗重貼就會紅。
-
-create or replace function public.create_book(
-  p_token    uuid,
-  p_subject  jsonb,
-  p_chart    jsonb,   -- null = 待時辰（架構 §8）
-  p_title    text,    -- 同 p_chart 一齊有或者一齊冇
-  p_seal     text,
-  p_chapters jsonb    -- [{slug, ord, tier, title, body, content_version}]
-) returns uuid
-language plpgsql
-set search_path = public
-as $$
-declare
-  v_reader  uuid := auth.uid();
-  v_subject uuid;
-  v_chart   uuid;
-  v_book    uuid;
-begin
-  if v_reader is null then
-    raise exception '未登入，成唔到書' using errcode = '42501';
-  end if;
-  if p_token is null then
-    raise exception '成書要一個 token —— 冇佢就防唔到重送' using errcode = '23514';
-  end if;
-
-  -- 重送：攞返上次嗰本。
-  select id into v_book from books where reader_id = v_reader and client_token = p_token;
-  if found then
-    return v_book;
-  end if;
-
-  -- ⚠ 題名同成盤係同一件事（`books_titled_with_chart`）。
-  -- 呢度早一步擋住，係為咗出一句講得明嘅錯，唔係一句 constraint 名。
-  if (p_chart is null) <> (p_title is null) then
-    raise exception '有盤先有名，有名一定有盤' using errcode = '23514';
-  end if;
-
-  insert into subjects (
-    reader_id, name, birth_date, birth_time, birth_tz, birth_place,
-    lng, lat, sex, true_solar_corrected
-  ) values (
-    v_reader,
-    p_subject ->> 'name',
-    (p_subject ->> 'birth_date')::date,
-    (p_subject ->> 'birth_time')::time,
-    p_subject ->> 'birth_tz',
-    p_subject ->> 'birth_place',
-    (p_subject ->> 'lng')::double precision,
-    (p_subject ->> 'lat')::double precision,
-    p_subject ->> 'sex',
-    coalesce((p_subject ->> 'true_solar_corrected')::boolean, false)
-  ) returning id into v_subject;
-
-  if p_chart is not null then
-    insert into charts (subject_id, engine_version, school_profile_id, payload)
-    values (
-      v_subject,
-      p_chart ->> 'engine_version',
-      p_chart ->> 'school_profile_id',
-      p_chart -> 'payload'
-    ) returning id into v_chart;
-  end if;
-
-  insert into books (reader_id, subject_id, chart_id, title, cover_seal, titled_at, client_token)
-  values (
-    v_reader, v_subject, v_chart, p_title, p_seal,
-    case when v_chart is null then null else now() end,
-    p_token
-  ) returning id into v_book;
-
-  if v_chart is not null then
-    -- ⚠ 一本題咗名但冇正文嘅書，係一個封面。
-    -- 讓佢寫得入去，就等於畀書架出一本揭開係空白嘅書。
-    if p_chapters is null or jsonb_array_length(p_chapters) = 0 then
-      raise exception '題咗名就一定要有正文' using errcode = '23514';
-    end if;
-
-    insert into chapters (book_id, slug, ord, tier, title, body, content_version, slots)
-    select v_book,
-           c ->> 'slug',
-           (c ->> 'ord')::smallint,
-           c ->> 'tier',
-           c ->> 'title',
-           c ->> 'body',
-           c ->> 'content_version',
-           coalesce(
-             (select array_agg(s #>> '{}' order by i)
-                from jsonb_array_elements(coalesce(c -> 'slots', '[]'::jsonb)) with ordinality t(s, i)),
-             '{}'
-           )
-      from jsonb_array_elements(p_chapters) c;
-  end if;
-
-  return v_book;
-
-exception
-  -- 兩個請求撞正同一個 token：上面嗰句 select 兩邊都摷唔到，
-  -- 然後 unique index 彈一個出嚟。輸嗰個攞返贏嗰個本書。
-  when unique_violation then
-    select id into v_book from books where reader_id = v_reader and client_token = p_token;
-    if v_book is null then
-      raise;
-    end if;
-    return v_book;
-end;
-$$;
-
-grant execute on function public.create_book(uuid, jsonb, jsonb, text, text, jsonb) to authenticated;
-
-
-
--- ══════════════════════════════════════════════════════════
--- 0007_pay.sql
--- ══════════════════════════════════════════════════════════
-
--- 觀微 · 寫票（工單 G3 · 架構 §6、§8）
---
--- ── ⚠ 呢條 migration 淨係做一件事：令「寫票」變成一句唔可以寫錯嘅嘢 ──
---
--- `entitlements` 嗰張表 G1 已經起好，連三道保險：
---
---   unique (stripe_payment_id)        Stripe 重送唔會出兩張票
---   unique (reader_id, book_id, …)    同一本書唔會有兩張
---   trigger                           未認領嘅讀者唔可以有票（架構 §4 硬閘）
---
--- 而 RLS 嗰邊寫住：讀者對 entitlements **得 select，冇 insert** ——
--- 「一張票係『畀咗錢』嘅憑據，用戶自己寫得入就唔係憑據」。
---
--- 所以寫票淨係行得通一條路：**Stripe webhook，用 service_role**。
--- 而 service_role bypass 晒 RLS —— 即係話上面嗰三道保險入面，
--- 只有 unique 同 trigger 仲喺度，「呢本書係咪佢本書」冇人查。
---
--- 呢個 function 就係補返嗰一格。
-
--- ── grant_entitlement ──────────────────────────────────────
---
--- 回 true  = 今次寫咗一張新票
--- 回 false = 本來就有（Stripe 重送、或者用戶撳咗兩次 checkout）
---
--- ⚠ 兩個都係**成功**。webhook 收到 false 要回 200，唔係回錯 ——
--- 回錯 Stripe 就會再送，而再送一樣會 false，噉就永遠重試落去。
-create or replace function public.grant_entitlement(
-  p_book       uuid,
-  p_reader     uuid,
-  p_product    text,
-  p_payment_id text
-)
-returns boolean
-language plpgsql
--- ⚠ invoker，唔係 definer。
---
--- 呢個 function 由 webhook 行，而 webhook 攞住 service_role ——
--- 即係話佢本來就已經 bypass 晒 RLS，加 definer 一個字都唔會多。
--- 反而 invoker 令佢喺 PGlite 測試入面行得到真權限：
--- 一個攞住 `authenticated` 身分嘅人叫佢，照樣寫唔入。
-security invoker
-set search_path = public
-as $$
-declare
-  v_owner uuid;
-begin
-  /*
-   * ⚠ 一、呢本書係咪佢本書。
-   *
-   * service_role 之下冇 RLS，所以 `p_reader` 同 `p_book` 唔夾
-   * 係寫得入去嘅 —— 即係一條「畀 A 張 B 本書嘅票」嘅路。
-   * 冇人會有心噉做，但 webhook 收到嘅係 Stripe metadata，
-   * 而 metadata 係我哋自己喺 checkout 嗰陣塞落去嘅兩個字串。
-   * 一個字串打錯，就係一張錯票。
-   */
-  select reader_id into v_owner from books where id = p_book;
-
-  if v_owner is null then
-    raise exception '冇呢本書：%', p_book using errcode = 'foreign_key_violation';
-  end if;
-
-  if v_owner <> p_reader then
-    raise exception '呢本書唔屬於呢個讀者 —— 票唔可以跨人寫'
-      using errcode = 'check_violation';
-  end if;
-
-  /*
-   * ⚠ 二、冪等唔喺呢度做，喺 unique 度做。
-   *
-   * 「先 select 睇吓有冇，冇就 insert」係一條 race：Stripe 同一個
-   * 事件重送兩次，兩個 request 可以同時 select 到「冇」。
-   * `on conflict do nothing` 係由 DB 答，冇中間狀態。
-   */
-  insert into entitlements (reader_id, book_id, product, stripe_payment_id)
-  values (p_reader, p_book, p_product, p_payment_id)
-  on conflict do nothing;
-
-  return found;
-end;
-$$;
-
--- ⚠ 淨係 service_role 行得。
---
--- `authenticated` 冇 execute —— 一個讀者攞住自己個 session
--- 直接叫 RPC 都叫唔郁。（就算叫得郁，入面嗰句 insert 一樣過唔到 RLS，
--- 因為個 function 係 invoker。兩層都擋，唔靠其中一層。）
-revoke all on function public.grant_entitlement(uuid, uuid, text, text) from public;
-grant execute on function public.grant_entitlement(uuid, uuid, text, text) to service_role;
 
 -- ── has_entitlement ────────────────────────────────────────
 --
@@ -986,29 +614,6 @@ $$;
 
 grant execute on function public.has_entitlement(uuid) to authenticated;
 
-
-
--- ══════════════════════════════════════════════════════════
--- 0008_account.sql
--- ══════════════════════════════════════════════════════════
-
--- 觀微 · 設定：匯出、真刪（工單 G4 · 架構 §10）
---
--- ── ⚠ 一個由 G3 逼出嚟嘅 schema 改動 ──
---
--- 架構 §10：「`/account` 必須有**真刪**」。而 schema 由 G1 起就係
--- 一條 cascade 鏈：`auth.users → readers → subjects → charts → books
--- → chapters`，仲有 `entitlements`。刪一個 reader，全部跟住走。
---
--- 呢個係啱嘅 —— 除咗一樣：**付款紀錄有法定保留期。**
---
--- `entitlements.reader_id` 係 `on delete cascade`，即係話一個人一撳
--- 刪除，佢嗰張票同埋「呢筆錢幾時收過」呢件事**一齊消失**。
--- 噉樣唔係保護私隱，係做唔到會計 —— 而做唔到會計就代表真刪呢件事
--- 遲早會被一句「不過我哋要留返紀錄」推翻，然後變成「標記刪除」。
---
--- 所以喺删除之前先分家：**一張唔連住任何人嘅付款紀錄表。**
-
 -- ── payment_records ────────────────────────────────────────
 --
 -- ⚠ 呢張表刻意**冇** reader_id、冇 book_id、冇 FK。
@@ -1023,7 +628,9 @@ create table payment_records (
   stripe_payment_id text primary key,
   amount            integer not null check (amount > 0),
   currency          text not null check (length(currency) = 3),
-  paid_at           timestamptz not null default now()
+  paid_at           timestamptz not null default now(),
+  -- 全數退款（0009）：張票收走，呢行留低記幾時退。
+  refunded_at       timestamptz
 );
 
 alter table payment_records enable row level security;
@@ -1042,14 +649,7 @@ alter table payment_records force row level security;
 -- （呢個窿喺寫測試嗰陣即刻爆咗出嚟 —— 即係話唔喺 PGlite 度跑真權限，
 -- 佢就會留到上線，喺第一個人畀錢嗰一刻先出現。）
 grant select, insert on payment_records to service_role;
-
--- ── ⚠ grant_entitlement 要連會計紀錄一齊寫 ──────────────────
---
--- 改咗簽名（多咗金額同貨幣），所以要先 drop 返舊嗰個。
--- `create or replace` 喺簽名唔同嘅時候唔會覆蓋，只會**多一個**
--- overload —— 然後 `rpc('grant_entitlement', …)` 會撞到
--- 「function is not unique」，而嗰個錯同呢個改動完全唔似。
-drop function if exists public.grant_entitlement(uuid, uuid, text, text);
+grant update (refunded_at) on payment_records to service_role;
 
 create or replace function public.grant_entitlement(
   p_book       uuid,
@@ -1224,29 +824,6 @@ $$;
 
 grant execute on function public.delete_reader() to authenticated;
 
-
-
--- ══════════════════════════════════════════════════════════
--- 0009_refund.sql
--- ══════════════════════════════════════════════════════════
-
--- 觀微 · 退款（2026-09-29 · docs/pay.md 第七節「已知缺口」）
---
--- 之前 `charge.refunded` 唔處理：退咗錢，張票仲喺度，要人手喺 Supabase 度刪。
---
--- ── 兩樣嘢，唔同處理 ──
---
---   entitlements     張票刪走 —— 冇畀錢就冇票，同 grant 嗰邊一樣係「憑據」
---   payment_records  **唔刪**，記低幾時退 —— 會計要答得到「呢個月收咗幾多、退咗幾多」
---
--- ⚠ 淨係全數退款先收票。部分退款（例如補償）張票照留；由 webhook 嗰邊判斷。
-
-alter table payment_records add column refunded_at timestamptz;
-
--- 0008 淨係 grant 咗 select, insert；而家要改 refunded_at。
--- 只准改呢一欄 —— 金額同貨幣係收錢嗰一刻嘅事實，唔准事後郁。
-grant update (refunded_at) on payment_records to service_role;
-
 -- ── revoke_entitlement ─────────────────────────────────────
 --
 -- 回 true  = 今次收咗一張票
@@ -1274,26 +851,6 @@ $$;
 revoke all on function public.revoke_entitlement(text) from public;
 grant execute on function public.revoke_entitlement(text) to service_role;
 
-
-
--- ══════════════════════════════════════════════════════════
--- 0010_no_service_key.sql
--- ══════════════════════════════════════════════════════════
-
--- 觀微 · 網站唔再攞 service role key（2026-09-29 · Issac：「怕 service role key 權限太大」）
---
--- 之前網站 server 有兩處要 service role key：
---
---   一、Stripe webhook 發票／收票（grant_entitlement、revoke_entitlement）
---   二、刪帳戶嗰陣刪 auth 帳戶（auth.admin.deleteUser）
---
--- 而 service role key bypass 晒 RLS：外洩一次，全部讀者嘅生辰、盤、書都讀得到。
--- 呢條 migration 將兩件事都換成**權限只夠做嗰一件事**嘅 function：
---
---   一、pay_grant / pay_revoke：憑一條專用 token（資料庫只存 hash）。
---       token 外洩，最多有人發票或者收票 —— 一行讀者資料都讀唔到。
---   二、delete_my_auth_user：讀者用自己個 session 刪自己，刪唔到第二個人。
-
 -- ── 一、付款 token ─────────────────────────────────────────
 --
 -- 擺喺 `private` schema：Supabase 個 API 淨係開 `public`，
@@ -1306,6 +863,9 @@ create table private.pay_token (
   hash       bytea not null,
   rotated_at timestamptz not null default now()
 );
+
+-- 多一層（0012）：就算將來誤開咗權限，冇 policy 一樣讀唔到。
+alter table private.pay_token enable row level security;
 
 -- 生成一條新 token，淨係回一次；資料庫只記 hash。
 -- 用法（SQL Editor）：select private.rotate_pay_token();
@@ -1434,161 +994,3 @@ $$;
 
 revoke all on function public.delete_my_auth_user() from public, anon, authenticated;
 grant execute on function public.delete_my_auth_user() to authenticated;
-
-
-
--- ══════════════════════════════════════════════════════════
--- 0011_terms.sql
--- ══════════════════════════════════════════════════════════
-
--- 觀微 · 條款及私隱政策同意紀錄（2026-09-29 · Issac：起盤之前彈窗，同意記落本書）
---
--- 讀者喺起盤之前要同意條款及私隱政策。同意咗邊個版本、幾時同意，跟住本書寫入 DB ——
--- 同 content_version 一樣：一本書係喺邊套條款之下成嘅，事後查得返。
---
--- ⚠ 唔係 consent 作為處理生辰嘅 lawful basis（嗰個係 contract，見 docs/privacy.md 第一節），
---   而係「讀者睇過、同意咗條款」嘅紀錄。
---
--- create_book 多一個參數：migration 係 append-only，成個 function 重貼一次（同 0006 一樣），
--- 淨係改咗三處：多咗 p_terms_version、冇佢就拒絕、books 寫埋版本同時間。
-
-alter table books add column terms_version text;
-alter table books add column terms_accepted_at timestamptz;
-
--- 舊書（0011 之前成嘅）兩欄都係 null —— 嗰陣未有同意彈窗，照實留空。
-alter table books add constraint books_terms_together
-  check ((terms_version is null) = (terms_accepted_at is null));
-
--- 舊簽名要 drop：`create or replace` 簽名唔同只會多一個 overload（0008 嗰課）。
-drop function if exists public.create_book(uuid, jsonb, jsonb, text, text, jsonb);
-
-create or replace function public.create_book(
-  p_token    uuid,
-  p_subject  jsonb,
-  p_chart    jsonb,   -- null = 待時辰（架構 §8）
-  p_title    text,    -- 同 p_chart 一齊有或者一齊冇
-  p_seal     text,
-  p_chapters jsonb,   -- [{slug, ord, tier, title, body, content_version}]
-  p_terms_version text  -- 同意咗邊個版本嘅條款及私隱政策（0011）
-) returns uuid
-language plpgsql
-set search_path = public
-as $$
-declare
-  v_reader  uuid := auth.uid();
-  v_subject uuid;
-  v_chart   uuid;
-  v_book    uuid;
-begin
-  if v_reader is null then
-    raise exception '未登入，成唔到書' using errcode = '42501';
-  end if;
-  if p_token is null then
-    raise exception '成書要一個 token —— 冇佢就防唔到重送' using errcode = '23514';
-  end if;
-  -- ⚠ 冇同意條款及私隱政策就唔收生辰（0011）。介面擋一次，呢度再擋一次。
-  if p_terms_version is null or length(trim(p_terms_version)) = 0 then
-    raise exception '未同意條款及私隱政策，成唔到書' using errcode = '23514';
-  end if;
-
-  -- 重送：攞返上次嗰本。
-  select id into v_book from books where reader_id = v_reader and client_token = p_token;
-  if found then
-    return v_book;
-  end if;
-
-  -- ⚠ 題名同成盤係同一件事（`books_titled_with_chart`）。
-  -- 呢度早一步擋住，係為咗出一句講得明嘅錯，唔係一句 constraint 名。
-  if (p_chart is null) <> (p_title is null) then
-    raise exception '有盤先有名，有名一定有盤' using errcode = '23514';
-  end if;
-
-  insert into subjects (
-    reader_id, name, birth_date, birth_time, birth_tz, birth_place,
-    lng, lat, sex, true_solar_corrected
-  ) values (
-    v_reader,
-    p_subject ->> 'name',
-    (p_subject ->> 'birth_date')::date,
-    (p_subject ->> 'birth_time')::time,
-    p_subject ->> 'birth_tz',
-    p_subject ->> 'birth_place',
-    (p_subject ->> 'lng')::double precision,
-    (p_subject ->> 'lat')::double precision,
-    p_subject ->> 'sex',
-    coalesce((p_subject ->> 'true_solar_corrected')::boolean, false)
-  ) returning id into v_subject;
-
-  if p_chart is not null then
-    insert into charts (subject_id, engine_version, school_profile_id, payload)
-    values (
-      v_subject,
-      p_chart ->> 'engine_version',
-      p_chart ->> 'school_profile_id',
-      p_chart -> 'payload'
-    ) returning id into v_chart;
-  end if;
-
-  insert into books (reader_id, subject_id, chart_id, title, cover_seal, titled_at, client_token,
-                     terms_version, terms_accepted_at)
-  values (
-    v_reader, v_subject, v_chart, p_title, p_seal,
-    case when v_chart is null then null else now() end,
-    p_token,
-    p_terms_version, now()
-  ) returning id into v_book;
-
-  if v_chart is not null then
-    -- ⚠ 一本題咗名但冇正文嘅書，係一個封面。
-    -- 讓佢寫得入去，就等於畀書架出一本揭開係空白嘅書。
-    if p_chapters is null or jsonb_array_length(p_chapters) = 0 then
-      raise exception '題咗名就一定要有正文' using errcode = '23514';
-    end if;
-
-    insert into chapters (book_id, slug, ord, tier, title, body, content_version, slots)
-    select v_book,
-           c ->> 'slug',
-           (c ->> 'ord')::smallint,
-           c ->> 'tier',
-           c ->> 'title',
-           c ->> 'body',
-           c ->> 'content_version',
-           coalesce(
-             (select array_agg(s #>> '{}' order by i)
-                from jsonb_array_elements(coalesce(c -> 'slots', '[]'::jsonb)) with ordinality t(s, i)),
-             '{}'
-           )
-      from jsonb_array_elements(p_chapters) c;
-  end if;
-
-  return v_book;
-
-exception
-  -- 兩個請求撞正同一個 token：上面嗰句 select 兩邊都摷唔到，
-  -- 然後 unique index 彈一個出嚟。輸嗰個攞返贏嗰個本書。
-  when unique_violation then
-    select id into v_book from books where reader_id = v_reader and client_token = p_token;
-    if v_book is null then
-      raise;
-    end if;
-    return v_book;
-end;
-$$;
-
-revoke all on function public.create_book(uuid, jsonb, jsonb, text, text, jsonb, text) from public, anon;
-grant execute on function public.create_book(uuid, jsonb, jsonb, text, text, jsonb, text) to authenticated;
-
-
-
--- ══════════════════════════════════════════════════════════
--- 0012_private_rls.sql
--- ══════════════════════════════════════════════════════════
-
--- 觀微 · private.pay_token 開 RLS（2026-09-30 · Supabase SQL Editor 提示）
---
--- 呢張表本身已經安全：`private` schema 唔經 API 開放，anon / authenticated 冇任何權限（0010，測試守住）。
--- 開 RLS 係多一層：就算將來有人誤開咗權限，冇 policy 一樣一行都讀唔到。
---
--- 唔用 force：rotate_pay_token()（表主人喺 SQL Editor 行）同 pay_grant / pay_revoke
--- （擁有者 service_role，有 bypassrls）照舊行得。
-alter table private.pay_token enable row level security;

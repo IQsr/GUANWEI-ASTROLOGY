@@ -178,9 +178,8 @@ server action 係一個公開 HTTP endpoint：匿名讀者用 `curl` 直接 POST
 ## 四、下一步（照順序）
 
 1. **入 patch**：`0011-G4設定` → `0012-UX1卷首`（0011 未入）
-2. **跑 migration**：Supabase SQL Editor 順住跑 `0007_pay.sql` → `0008_account.sql`
-   ⚠ 唔好再跑 `all.sql`；`0008` 有 `drop function … grant_entitlement(4 個參數)`，
-   **一定要 0007 跑咗先**
+2. **跑 migration**：✅ 2026-09-30 線上已經行晒（0001–0012，之後合併成 `0001_baseline.sql`）。
+   新 project 貼 baseline 一次；之後嘅改動由 `0002_…` 起
 3. **環境變數**（五條，三個環境都加）：
    ```
    NEXT_PUBLIC_SUPABASE_URL
