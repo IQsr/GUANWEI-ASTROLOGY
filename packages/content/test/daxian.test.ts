@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { cast, sihuaOfStem, STEMS } from '@guanwei/ziwei';
-import { DAXIAN_HUA, decadeChapter, lifeStepsChapter } from '../src/daxian';
+import { DAXIAN_HUA, DAXIAN_PIVOTS, decadeChapter, lifeStepsChapter, pivotSteps } from '../src/daxian';
 import { scanForbidden } from '../src/lint';
 import { scanPlain } from '../src/plain';
 import { withoutCitations } from '../src/lexicon';
@@ -85,6 +85,53 @@ describe('兩章', () => {
       for (const ch of [lifeStepsChapter({ chart: c, year: 2026 })!, decadeChapter({ chart: c, year: 2026 })!]) {
         for (const s of ch.segments) expect(s.text).not.toMatch(/\d/);
       }
+    }
+  });
+});
+
+describe('樞紐大限（下篇宮垣論・命宮，p.336–366）', () => {
+  it('四十八條規則，引文喺原文、星名認得（載入嗰陣已經驗）', () => {
+    expect(DAXIAN_PIVOTS.length).toBe(48);
+  });
+
+  it('大部分盤有樞紐；書冇講嗰組命宮星就唔標', () => {
+    const hit = CHARTS.filter((c) => pivotSteps(c).steps.length > 0).length;
+    expect(hit / CHARTS.length).toBeGreaterThan(0.6);
+    expect(hit).toBeLessThan(CHARTS.length);
+  });
+
+  it('標出嚟嘅步，大限宮真係坐住規則講嘅星', () => {
+    for (const c of CHARTS.slice(0, 200)) {
+      const { steps, source } = pivotSteps(c);
+      if (!steps.length) continue;
+      const rule = DAXIAN_PIVOTS.find((r) => r.source.passage_id === source)!;
+      for (const n of steps) {
+        const d = c.decadals.find((x) => x.index === n)!;
+        const p = c.palaces.find((x) => x.branch === d.branch)!;
+        const names = p.stars.map((s) => s.name);
+        const ok = rule.cond === 'hua' ? p.stars.some((s) => s.sihua) : rule.pivots.some((g) => g.every((s) => names.includes(s)));
+        expect(ok, `${rule.id} 第${n}步 ${names.join('')}`).toBe(true);
+      }
+    }
+  });
+
+  it('紫府、紫相：順行逆行只用其中一套', () => {
+    for (const c of CHARTS) {
+      const { source } = pivotSteps(c);
+      if (!source?.includes('紫府') && !source?.includes('紫相')) continue;
+      const b0 = c.palaces.findIndex((p) => p.branch === c.decadals[0]!.branch);
+      const b1 = c.palaces.findIndex((p) => p.branch === c.decadals[1]!.branch);
+      const forward = (b1 - b0 + 12) % 12 === 1;
+      expect(source.endsWith(forward ? '.順' : '.逆'), source).toBe(true);
+    }
+  });
+
+  it('一生十二步：結論講齊關鍵大限，逐步標記數目對得上', () => {
+    for (const c of CHARTS.slice(0, 100)) {
+      const { steps } = pivotSteps(c);
+      const ch = lifeStepsChapter({ chart: c, year: 2026 })!;
+      expect(ch.segments.filter((s) => s.text.includes('關鍵大限。')).length).toBe(steps.length);
+      if (steps.length) expect(ch.segments[0]!.text).toContain('關鍵大限');
     }
   });
 });

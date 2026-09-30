@@ -1,7 +1,8 @@
 import { z } from 'zod';
-import { annual, sihuaOfStem, type Chart, type Palace, type Sihua } from '@guanwei/ziwei';
+import { annual, sanFangPalaces, sihuaOfStem, type Chart, type Palace, type Sihua } from '@guanwei/ziwei';
 import huaRaw from './daxian/hua.json';
 import rulesRaw from './daxian/rules.json';
+import pivotsRaw from './daxian/pivots.json';
 import { CORPUS, cjkCount, normaliseForMatch } from './lexicon';
 import { scanForbidden } from './lint';
 import { scanPlain } from './plain';
@@ -56,6 +57,72 @@ const RulesDoc = z.object({
 });
 
 export const DAXIAN_HUA = z.array(Hua).parse(huaRaw);
+
+/**
+ * 樞紐大限（2026-09-30）：《深造講義》下篇宮垣論・命宮（p.336–366）
+ * 「X守命，以Y宮垣為大限／大運／命運的樞紐」—— 行到嗰幾步，吉凶影響一生特別大（p.339）。
+ * 只收大限相關；淨係流年、年限嘅留畀流年章。條件：順逆行、命宮見唔見煞、丙年、天相獨坐睇四化。
+ */
+const STARS = ['紫微', '天機', '太陽', '武曲', '天同', '廉貞', '天府', '太陰', '貪狼', '巨門', '天相', '天梁', '七殺', '破軍', '文昌', '文曲'];
+const Pivot = z
+  .object({
+    id: z.string(),
+    ming: z.array(z.string()).min(1),
+    branches: z.array(z.string()).nullable(),
+    cond: z.enum(['forward', 'backward', 'sha', 'nosha', 'stem:丙', 'notstem:丙', 'hua']).nullable(),
+    pivots: z.array(z.array(z.string()).min(1)),
+    source: Source,
+  })
+  .superRefine((x, ctx) => {
+    const p = CORPUS[x.source.corpus]?.passages[x.source.passage_id];
+    if (!p || !normaliseForMatch(p.text).includes(normaliseForMatch(x.source.quote))) {
+      ctx.addIssue({ code: 'custom', message: `${x.id}：引文「${x.source.quote}」唔喺原文` });
+    }
+    for (const s of [...x.ming, ...x.pivots.flat()]) {
+      if (!STARS.includes(s)) ctx.addIssue({ code: 'custom', message: `${x.id}：唔認得「${s}」` });
+    }
+    if (x.cond !== 'hua' && x.pivots.length === 0) ctx.addIssue({ code: 'custom', message: `${x.id}：冇樞紐` });
+  });
+export const DAXIAN_PIVOTS = z.array(Pivot).parse(pivotsRaw);
+
+const SHA4 = ['擎羊', '陀羅', '火星', '鈴星'];
+
+/** 呢張盤邊幾步大限係樞紐。冇資料（書冇講嗰組命宮星）就回空。 */
+export function pivotSteps(chart: Chart): { steps: number[]; source: string | null } {
+  const ming = chart.palaces.find((p) => p.name === '命宮');
+  if (!ming || chart.decadals.length < 2) return { steps: [], source: null };
+  let stars = majors(ming);
+  let branch = ming.branch as string;
+  if (stars.length === 0 && ming.borrowsFrom) {
+    const opp = chart.palaces.find((p) => p.branch === ming.borrowsFrom);
+    stars = opp ? majors(opp) : [];
+    branch = ming.borrowsFrom;
+  }
+  const key = [...stars].sort().join('·');
+  const b0 = chart.palaces.findIndex((p) => p.branch === chart.decadals[0]!.branch);
+  const b1 = chart.palaces.findIndex((p) => p.branch === chart.decadals[1]!.branch);
+  const forward = (b1 - b0 + 12) % 12 === 1;
+  const sha = sanFangPalaces(chart.palaces, ming.branch).some((p) => p.stars.some((s) => SHA4.includes(s.name)));
+  const stem = chart.ganzhi.year[0];
+  const ok = (c: (typeof DAXIAN_PIVOTS)[number]['cond']) =>
+    c === null || c === 'hua' ||
+    (c === 'forward' && forward) || (c === 'backward' && !forward) ||
+    (c === 'sha' && sha) || (c === 'nosha' && !sha) ||
+    (c === 'stem:丙' && stem === '丙') || (c === 'notstem:丙' && stem !== '丙');
+  const rule = DAXIAN_PIVOTS.find(
+    (r) => [...r.ming].sort().join('·') === key && (!r.branches || r.branches.includes(branch)) && ok(r.cond),
+  );
+  if (!rule) return { steps: [], source: null };
+  const names = (p: Palace) => p.stars.filter((s) => s.kind === 'major' || s.name === '文昌' || s.name === '文曲').map((s) => s.name);
+  const steps = chart.decadals
+    .filter((d) => {
+      const p = chart.palaces.find((x) => x.branch === d.branch)!;
+      if (rule.cond === 'hua') return p.stars.some((s) => s.sihua);
+      return rule.pivots.some((g) => g.every((s) => names(p).includes(s)));
+    })
+    .map((d) => d.index);
+  return { steps, source: rule.source.passage_id };
+}
 export const DAXIAN_RULES = RulesDoc.parse(rulesRaw);
 
 /* 章框（冇來源，唔准讀象） */
@@ -117,9 +184,13 @@ export function lifeStepsChapter(input: { chart: Chart; year: number }): Out {
   const lead = at.started
     ? `你的大限由虛歲${num(first.fromAge)}歲起，每十年換一步，一生共十二步；寫這本書時（${yearCN(year)}年），你走到第${num(at.d.index)}步。`
     : `你的大限由虛歲${num(first.fromAge)}歲起，每十年換一步，一生共十二步；寫這本書時（${yearCN(year)}年），你還未起步。`;
+  const pv = pivotSteps(chart);
+  const keyLine = pv.steps.length
+    ? `你命盤裡的關鍵大限是${pv.steps.map((n) => `第${num(n)}步`).join('、')}：這幾步的得失，對你一生影響特別大。`
+    : '';
   const steps: DaxianSegment[] = chart.decadals.map((d) => {
     const p = chart.palaces.find((x) => x.branch === d.branch)!;
-    const now = at.started && d.index === at.d.index ? '　寫這本書時，你在這一步。' : '';
+    const now = (pv.steps.includes(d.index) ? '　關鍵大限。' : '') + (at.started && d.index === at.d.index ? '　寫這本書時，你在這一步。' : '');
     return {
       slot: '步',
       text: `第${num(d.index)}步　${num(d.fromAge)}至${num(d.toAge)}歲　${palaceLabel(p.name)}，${starsOf(chart, p)}。${now}`,
@@ -130,7 +201,7 @@ export function lifeStepsChapter(input: { chart: Chart; year: number }): Out {
   return {
     slug: STEPS_SLUG,
     title: STEPS_SLUG,
-    segments: [{ slot: '結論', text: lead, source_id: null, rule_ids: [] }, ...steps, { slot: '留白', text: DAXIAN_FRAMES.stepsClose, source_id: null, rule_ids: [] }],
+    segments: [{ slot: '結論', text: lead + keyLine, source_id: pv.source, rule_ids: [] }, ...steps, { slot: '留白', text: DAXIAN_FRAMES.stepsClose, source_id: null, rule_ids: [] }],
   };
 }
 
@@ -228,7 +299,7 @@ export function decadeChapter(input: { chart: Chart; year: number }): Out {
 
   const seg = (slot: string, text: string, source_id: string | null = null): DaxianSegment => ({ slot, text, source_id, rule_ids: [] });
   const segments = [
-    seg('結論', when + gist + young),
+    seg('結論', when + gist + young + (pivotSteps(chart).steps.includes(d.index) ? '這十年是你命盤裡的關鍵大限之一，這段時期的得失，對你一生影響特別大。' : '')),
     seg('大限', fact + leanLine, x ? `xingxi.${x.system.n}` : null),
     seg('四化', huaLines.map((l) => l.text).join(''), huaLines.map((l) => l.id).filter(Boolean).join('+') || null),
     ...(interSeg ? [seg('互動', interSeg.text, interSeg.id)] : []),
