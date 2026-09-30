@@ -662,6 +662,11 @@
     color: var(--cinnabar);
   }
 
+  /* 大限／流年層嘅四化：虛線框，同本命四化分得開 */
+  .sihua[data-layer="1"] {
+    border-style: dashed;
+  }
+
   .gong-jiao {
     display: flex;
     align-items: baseline;
@@ -2450,6 +2455,38 @@
 
 .shuzhuo-pan {
   width: 100%;
+}
+
+/* 命盤層：本命／大限／流年（2026-09-30）。一排細字掣，揀咗嗰個朱砂底線 */
+.pan-ceng {
+  display: flex;
+  justify-content: center;
+  gap: 1.25rem;
+  margin-bottom: 0.9rem;
+  font-family: var(--font-sans-stack);
+  font-size: 0.8125rem;
+  letter-spacing: 0.16em;
+}
+
+.pan-ceng button {
+  padding: 0.2rem 0.1rem;
+  border-bottom: 1px solid transparent;
+  color: var(--ink-3);
+  cursor: pointer;
+}
+
+.pan-ceng button:hover {
+  color: var(--ink-2);
+}
+
+.pan-ceng button[aria-pressed="true"] {
+  border-bottom-color: var(--cinnabar);
+  color: var(--ink);
+}
+
+.pan-ceng button:focus-visible {
+  outline: 2px solid var(--cinnabar);
+  outline-offset: 2px;
 }
 
 /* 右頁：書縫喺左邊，書口喺右邊 */

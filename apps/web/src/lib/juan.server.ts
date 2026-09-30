@@ -74,12 +74,14 @@ export function serverJuan(): JuanPort {
       const sb = supabaseServer();
       const { data, error } = await sb
         .from('books')
-        .select('charts(payload)')
+        .select('created_at, charts(payload)')
         .eq('id', bookId)
         .maybeSingle();
       if (error) throw error;
       const chart = Array.isArray(data?.charts) ? data?.charts[0] : data?.charts;
-      return chart?.payload ?? null;
+      if (!chart?.payload) return null;
+      /* 寫書嗰年：同成書嗰陣（server 時鐘，UTC）畀 `annual()` 嘅年一樣 */
+      return { payload: chart.payload, year: new Date(data!.created_at as string).getUTCFullYear() };
     },
   };
 }

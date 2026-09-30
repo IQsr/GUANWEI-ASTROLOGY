@@ -1,7 +1,7 @@
 'use client';
 
 /* ⚠ 由 `/contract` 攞，唔係由總入口 —— 總入口會拖埋成個引擎落 client（E4）。 */
-import { BRANCHES, type Branch, type Chart as ZChart } from '@guanwei/ziwei/contract';
+import { BRANCHES, type Branch, type Chart as ZChart, type Sihua } from '@guanwei/ziwei/contract';
 
 /**
  * 命盤元件（視覺系統 §8 · 工單 F2 底子）
@@ -41,8 +41,19 @@ function litState(
   return d === 4 || d === 6 || d === 8 ? 'san' : undefined;
 }
 
+/**
+ * 疊一層（大限或流年，`lib/layers.ts`）：宮名換做呢一層嘅宮名、命宮移去呢一層嘅命宮，
+ * 星曜照坐原位，呢一層嘅四化另外加一個框（虛線）。
+ */
+export type ChartLayer = {
+  ming: Branch;
+  names: Partial<Record<Branch, string>>;
+  sihua: Record<string, Sihua>;
+};
+
 export function Chart({
   chart,
+  layer = null,
   selected,
   onSelect,
   center,
@@ -51,6 +62,8 @@ export function Chart({
   interactive = true,
 }: {
   chart: ZChart;
+  /** 疊邊一層。null = 本命。 */
+  layer?: ChartLayer | null;
   /** 地支索引 0–11，null = 冇揀。 */
   selected: number | null;
   onSelect: (index: number | null) => void;
@@ -73,6 +86,8 @@ export function Chart({
           const palace = chart.palaces.find((p) => p.branch === branch);
           const decadal = chart.decadals.find((d) => d.branch === branch);
           const lit = litState(index, selected, relations);
+          const isMing = layer ? layer.ming === branch : palace?.name === '命宮';
+          const name = layer ? layer.names[branch] : palace?.name;
 
           return (
             <button
@@ -81,7 +96,7 @@ export function Chart({
               className="gong"
               style={{ gridRow: row, gridColumn: col }}
               data-lit={lit}
-              data-ming={palace?.name === '命宮' ? '1' : undefined}
+              data-ming={isMing ? '1' : undefined}
               aria-pressed={interactive ? selected === index : undefined}
               disabled={!interactive}
               onClick={
@@ -104,14 +119,19 @@ export function Chart({
                         {star.sihua}
                       </span>
                     ) : null}
+                    {layer?.sihua[star.name] ? (
+                      <span className="sihua" data-hua={layer.sihua[star.name]} data-layer="1">
+                        {layer.sihua[star.name]}
+                      </span>
+                    ) : null}
                   </span>
                 ))}
               </span>
 
               <span className="gong-jiao">
                 <span className="gong-ming">
-                  {palace?.name}
-                  {palace?.isShen ? <span className="gong-shen">身</span> : null}
+                  {name}
+                  {!layer && palace?.isShen ? <span className="gong-shen">身</span> : null}
                 </span>
                 <span className="gong-daxian" data-nums>
                   {decadal ? `${decadal.fromAge}–${decadal.toAge}` : ''}

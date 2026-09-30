@@ -72,7 +72,7 @@ export default async function BookPage({
   const port = serverJuan();
   const view = await contentsView(port, bookId);
   /* 左頁嘅命盤。撈唔到就冇盤，右頁照出目次 */
-  const chart = view.kind === 'ok' ? ((await port.chart(bookId).catch(() => null)) as ZChart | null) : null;
+  const chart = view.kind === 'ok' ? (((await port.chart(bookId).catch(() => null))?.payload ?? null) as ZChart | null) : null;
   /* 撳右邊（或者 →）：由第一章讀起。目次係第一頁，冇上一頁 */
   const tr = await getTranslations('reading');
   const first = view.kind === 'ok' ? view.chapters[0] : undefined;

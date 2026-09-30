@@ -55,6 +55,9 @@ export const SLOT_FOCUS: Record<string, Focus> = {
   四正: 'sanfang',
   推力: 'sanfang',
   偏向: 'sanfang',
+  /* 這十年、這一年（2026-09-30）：亮嘅係大限命宮／流年命宮，由 `at` 畀 */
+  大限: 'palace',
+  流年: 'palace',
 };
 
 /**
@@ -87,16 +90,20 @@ export function branchIndexOf(chart: Chart, palace: string): number | null {
  * 讀到第 n 段嗰陣，個盤應該係點。
  *
  * 回 `selected` 同 `relations` 兩個值，啱啱好就係 `<Chart>` 要嘅嘢。
+ *
+ * `at`：呢一章讀緊嘅格唔係本命某宮（〈這十年〉讀大限命宮、〈這一年〉讀流年命宮），
+ * 由外面直接畀地支索引。
  */
 export function chartStateAt(
   chart: Chart,
   palace: string,
   slot: string | null,
+  at?: number | null,
 ): { selected: number | null; relations: boolean } {
   const focus = slot === null ? 'none' : focusOf(slot);
   /* `keep` 到咗呢度仲係 `keep`，即係前面根本冇嘢好保 —— 當唔亮。 */
   if (focus === 'none' || focus === 'keep') return { selected: null, relations: false };
-  const index = branchIndexOf(chart, CHAPTER_PALACE[palace] ?? palace);
+  const index = at ?? branchIndexOf(chart, CHAPTER_PALACE[palace] ?? palace);
   return { selected: index, relations: focus === 'sanfang' };
 }
 

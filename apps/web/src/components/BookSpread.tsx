@@ -10,6 +10,7 @@ import { TurnEdges, type PageTurn } from '@/components/TurnEdges';
 import { TURNING_ATTR } from '@/components/PageTurnLink';
 import { OPENING_SLOT, chartStateAt, resolveSlot } from '@/lib/suidu';
 import type { Chart as ZChart } from '@guanwei/ziwei/contract';
+import { CHAPTER_LAYER, LAYER_KEYS, defaultLayer, hasLayer, layerMingIndex, layerOf, type ChartLayers, type LayerKey } from '@/lib/layers';
 
 /**
  * 喺本書入面讀（書桌閱讀）
@@ -42,6 +43,7 @@ export type Box = { left: number; top: number; width: number; height: number };
 
 export function BookSpread({
   chart,
+  layers = null,
   palace,
   follow = false,
   top,
@@ -51,6 +53,8 @@ export function BookSpread({
   children,
 }: {
   chart: ZChart | null;
+  /** 大限、流年兩層（server 計好）。null = 淨係本命，唔出切換。 */
+  layers?: ChartLayers | null;
   /** 呢一章講邊一宮（亮邊格）。目次嗰陣畀「命宮」。 */
   palace: string;
   /** 跟住右頁讀緊嘅段落亮（讀章用）。 */
@@ -76,6 +80,16 @@ export function BookSpread({
   /* 放大完未。冇 `from` 就一開始已經放大完 */
   const [grown, setGrown] = useState(from === null);
   const lifted = useRef(false);
+  /*
+   * 睇邊一層。一章打開停喺嗰章嘅層（〈這一年〉流年、〈這十年〉大限、其餘本命）；
+   * 讀者揀咗就跟讀者，翻去下一章再由嗰章嘅層開始。
+   */
+  const [layer, setLayer] = useState<LayerKey>(() => defaultLayer(palace, layers));
+  const [layerFor, setLayerFor] = useState(palace);
+  if (layerFor !== palace) {
+    setLayerFor(palace);
+    setLayer(defaultLayer(palace, layers));
+  }
 
   /*
    * 拎起：FLIP。本書一開始就排喺最終嗰個位，然後用 transform 縮返去題名幕嗰個盒，
@@ -156,30 +170,57 @@ export function BookSpread({
     };
   }, [follow, children]);
 
-  const state = chart ? chartStateAt(chart, palace, live ? slot : OPENING_SLOT) : null;
+  /* 〈這十年〉〈這一年〉讀緊嘅格係大限／流年命宮，唔係本命某宮 */
+  const at = palace in CHAPTER_LAYER ? layerMingIndex(layers, CHAPTER_LAYER[palace]!) : undefined;
+  const state = chart ? chartStateAt(chart, palace, live ? slot : OPENING_SLOT, at) : null;
+  const shown = layerOf(layers, layer);
+  const caption =
+    layer === 'decadal' && layers?.decadal
+      ? t('layerDecadalCap', { from: layers.decadal.fromAge, to: layers.decadal.toAge })
+      : layer === 'annual' && layers
+        ? t('layerAnnualCap', { year: layers.year, ganzhi: layers.ganzhi, age: layers.nominalAge })
+        : null;
 
   const plate =
     chart && state ? (
       <Chart
         chart={chart}
+        layer={shown}
         selected={state.selected}
         relations={state.relations}
         interactive={false}
         onSelect={() => {}}
         maxWidth={520}
-        center={<p className="text-center font-sans text-cap tracking-[0.16em] text-ink-3">{palace}</p>}
+        center={
+          <>
+            <p className="text-center font-sans text-cap tracking-[0.16em] text-ink-3">{palace}</p>
+            {caption ? <p className="text-center font-sans text-cap tracking-[0.08em] text-cinnabar">{caption}</p> : null}
+          </>
+        }
       />
     ) : null;
+
+  /* 本命／大限／流年。冇層（舊書、未起運）就唔出 */
+  const tabs = layers ? (
+    <div role="group" aria-label={t('layers')} className="pan-ceng">
+      {LAYER_KEYS.filter((k) => hasLayer(layers, k)).map((k) => (
+        <button key={k} type="button" aria-pressed={layer === k} onClick={() => setLayer(k)}>
+          {t(k === 'natal' ? 'layerNatal' : k === 'decadal' ? 'layerDecadal' : 'layerAnnual')}
+        </button>
+      ))}
+    </div>
+  ) : null;
 
   return (
     <div className="shuzhuo">
       <article ref={book} className="shuzhuo-shu">
         {/* 撳左邊翻前、撳右邊翻後；← → 一樣 */}
         <TurnEdges prev={prev} next={next} />
-        {/* 左頁：命盤。aria-hidden —— 盤面嘅資訊正文已經講晒，讀屏唔使讀兩次 */}
-        <div className="shuzhuo-ye shuzhuo-zuo" aria-hidden="true">
+        {/* 左頁：命盤。個盤 aria-hidden —— 盤面嘅資訊正文已經講晒，讀屏唔使讀兩次；揀層嗰排掣唔收 */}
+        <div className="shuzhuo-ye shuzhuo-zuo">
           {top ? <div className="mb-6">{top}</div> : null}
-          <div className="shuzhuo-pan" data-at={live ? (slot ?? '') : OPENING_SLOT}>
+          {tabs}
+          <div aria-hidden="true" className="shuzhuo-pan" data-at={live ? (slot ?? '') : OPENING_SLOT}>
             {/*
              * 由題名幕拎起：放大完先展卷；之前唔畫（放大緊嗰陣字會拉扁），
              * 但個位要留定 —— 唔留嘅話左頁頂嗰行書名會企喺正中，盤一出就跳上頂。
@@ -200,7 +241,10 @@ export function BookSpread({
           {plate ? (
             <details className="shuzhuo-shouji mb-8">
               <summary className="cursor-pointer text-cap tracking-[0.16em] text-ink-3">{t('showChart')}</summary>
-              <div className="mt-4">{plate}</div>
+              <div className="mt-4">
+                {tabs}
+                {plate}
+              </div>
             </details>
           ) : null}
           {children}

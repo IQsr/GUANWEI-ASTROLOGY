@@ -45,8 +45,9 @@ export type JuanPort = {
    * 呢本書嗰張盤（F2：右側細命盤要跟捲動高亮）。
    *
    * 撈唔到就回 null —— 冇盤就唔出個細盤，唔係出一個空格。
+   * `year` 係寫書嗰年：左頁個盤嘅大限、流年兩層跟佢（`layers.ts`）。
    */
-  chart(bookId: string): Promise<unknown | null>;
+  chart(bookId: string): Promise<{ payload: unknown; year: number } | null>;
 };
 
 export type ContentsView =

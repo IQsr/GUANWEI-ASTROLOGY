@@ -432,7 +432,13 @@
   },
   "reading": {
     "showChart": "看命盤",
-    "turnTo": "翻到《{title}》"
+    "turnTo": "翻到《{title}》",
+    "layers": "命盤層",
+    "layerNatal": "本命",
+    "layerDecadal": "大限",
+    "layerAnnual": "流年",
+    "layerDecadalCap": "大限 {from}–{to} 歲",
+    "layerAnnualCap": "{year} {ganzhi}年 · 虛歲 {age}"
   },
   "consent": {
     "title": "開始之前",

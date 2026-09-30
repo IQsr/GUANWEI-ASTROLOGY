@@ -432,7 +432,13 @@
   },
   "reading": {
     "showChart": "Show the chart",
-    "turnTo": "Turn to “{title}”"
+    "turnTo": "Turn to “{title}”",
+    "layers": "Chart layer",
+    "layerNatal": "Natal",
+    "layerDecadal": "Decade",
+    "layerAnnual": "Year",
+    "layerDecadalCap": "Decade · ages {from}–{to}",
+    "layerAnnualCap": "{year} ({ganzhi}) · age {age}"
   },
   "consent": {
     "title": "Before you begin",

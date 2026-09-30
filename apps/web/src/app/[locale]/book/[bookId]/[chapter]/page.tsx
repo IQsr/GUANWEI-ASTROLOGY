@@ -11,6 +11,7 @@ import { cutPage } from './cut';
 import { serverIdentity } from '@/lib/identity.server';
 import { paragraphs } from '@/lib/suidu';
 import type { Chart as ZChart } from '@guanwei/ziwei/contract';
+import { chartLayers } from '@/lib/layers.server';
 import { MarkRead } from '@/components/MarkRead';
 import { contentsView } from '@/lib/juan-view';
 import { serverJuan } from '@/lib/juan.server';
@@ -113,7 +114,9 @@ export default async function ChapterPage({
     next ? port.body(bookId, next.slug).catch(() => null) : Promise.resolve(null),
     anonP,
   ]);
-  const chart = chartRaw as ZChart | null;
+  const chart = (chartRaw?.payload ?? null) as ZChart | null;
+  /* 左頁個盤嘅大限、流年層：寫書嗰年（R-008）。計唔到就淨係本命 */
+  const layers = chart && chartRaw ? safeLayers(chart, chartRaw.year) : null;
   const warm = distinctChars(`${next?.title ?? ''}${ahead?.text ?? ''}`);
 
   /*
@@ -152,6 +155,7 @@ export default async function ChapterPage({
       ) : (
         <BookSpread
           chart={chart}
+          layers={layers}
           palace={here.slug}
           follow={body !== null}
           prev={turnPrev}
@@ -192,4 +196,13 @@ export default async function ChapterPage({
       )}
     </main>
   );
+}
+
+/** 舊盤 payload 對唔上引擎（例如欄位改過）唔好令成版 500：冇層就算。 */
+function safeLayers(chart: ZChart, year: number) {
+  try {
+    return chartLayers(chart, year);
+  } catch {
+    return null;
+  }
 }
