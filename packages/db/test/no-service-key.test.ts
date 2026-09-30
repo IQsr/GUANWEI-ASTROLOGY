@@ -101,3 +101,49 @@ describe('delete_my_auth_user：只刪得自己', () => {
     await expect(db.sql('select delete_my_auth_user()')).rejects.toThrow(/permission denied/i);
   });
 });
+
+describe('private.pay_token 開咗 RLS（0012）', () => {
+  it('RLS 開咗，而且發票照行得', async () => {
+    await db.asOwner();
+    const [r] = await db.sql(`select relrowsecurity as on from pg_class where oid = 'private.pay_token'::regclass`);
+    expect(r!.on).toBe(true);
+    const book = await seedBook(reader);
+    await db.asAnon();
+    const [g] = await payGrant(token, book, reader, 'cs_rls');
+    expect(g!.ok).toBe(true);
+  });
+});
+
+describe('⚠ 轉擁有者：喺 Supabase 唔係 superuser（2026-09-30 撞過）', () => {
+  /**
+   * Supabase 跑 migration 嘅係 postgres（唔係 superuser），而 service_role 喺 public 冇 CREATE。
+   * 直接 `alter … owner to service_role` 會撞「permission denied for schema public」。
+   * 呢度用一個非 superuser 角色重現，證明 0010 嗰個 do 區塊行得通，而且行完收返權限。
+   */
+  it('直接轉會撞錯；暫時畀權限嘅做法行得通，行完 service_role 冇 CREATE', async () => {
+    await db.asOwner();
+    await db.exec(`
+      create role mig;
+      grant service_role to mig;
+      grant usage, create on schema public to mig;
+      set role mig;
+      create function public.zz_probe() returns int language sql as 'select 1';
+    `);
+    await expect(db.exec('alter function public.zz_probe() owner to service_role')).rejects.toThrow(/permission denied for schema public/);
+    await db.exec('reset role; grant create on schema public to mig with grant option; set role mig;');
+    await db.exec(`
+      do $o$
+      declare had boolean := has_schema_privilege('service_role', 'public', 'CREATE');
+      begin
+        if not had then execute 'grant create on schema public to service_role'; end if;
+        execute 'alter function public.zz_probe() owner to service_role';
+        if not had then execute 'revoke create on schema public from service_role'; end if;
+      end $o$;
+    `);
+    await db.asOwner();
+    const [r] = await db.sql(`select pg_get_userbyid(proowner) as owner, has_schema_privilege('service_role', 'public', 'CREATE') as can
+                                from pg_proc where proname = 'zz_probe'`);
+    expect(r!.owner).toBe('service_role');
+    expect(r!.can).toBe(false);
+  });
+});

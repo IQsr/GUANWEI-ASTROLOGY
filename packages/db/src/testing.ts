@@ -62,6 +62,8 @@ const AUTH_SHIM = `
 
 export type TestDb = {
   sql: (query: string, params?: unknown[]) => Promise<Record<string, unknown>[]>;
+  /** 成段 SQL（幾句都得），例如一個 migration 檔。 */
+  exec: (script: string) => Promise<void>;
   /** 由呢一刻起，之後嘅 query 都當係呢個 uid 嘅已登入 session。 */
   asReader: (uid: string) => Promise<void>;
   /** 未登入。 */
@@ -73,7 +75,10 @@ export type TestDb = {
   close: () => Promise<void>;
 };
 
-export async function createTestDb(): Promise<TestDb> {
+/**
+ * `until`：淨係跑到呢個檔名為止（包埋），例如 '0006' —— 追趕檔測試用，模擬一個舊啲嘅線上資料庫。
+ */
+export async function createTestDb(opts: { until?: string } = {}): Promise<TestDb> {
   const db = await PGlite.create();
   await db.exec(AUTH_SHIM);
 
@@ -89,7 +94,8 @@ export async function createTestDb(): Promise<TestDb> {
    */
   const numbered = readdirSync(MIGRATIONS)
     .filter((f) => /^0\d+_.*\.sql$/.test(f))
-    .sort();
+    .sort()
+    .filter((f) => !opts.until || f.slice(0, opts.until.length) <= opts.until);
 
   for (const file of numbered) {
     await db.exec(readFileSync(join(MIGRATIONS, file), 'utf8'));
@@ -100,6 +106,9 @@ export async function createTestDb(): Promise<TestDb> {
 
   return {
     sql,
+    exec: async (script: string) => {
+      await db.exec(script);
+    },
     asReader: async (uid) => {
       await db.exec('reset role;');
       await db.query('select set_config($1, $2, false)', ['request.jwt.claim.sub', uid]);

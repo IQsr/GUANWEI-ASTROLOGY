@@ -101,8 +101,23 @@ grant usage on schema private to service_role;
 grant select on private.pay_token to service_role;
 grant execute on function private.pay_token_ok(text) to service_role;
 
-alter function public.pay_grant(text, uuid, uuid, text, text, integer, text) owner to service_role;
-alter function public.pay_revoke(text, text) owner to service_role;
+-- ⚠ 轉擁有者要新擁有者喺 public 有 CREATE 權限（Postgres 規定），而 Supabase 冇畀 service_role。
+-- 2026-09-30 喺 Supabase 撞咗「permission denied for schema public」—— PGlite 測試用 superuser
+-- 行，Postgres 會跳過呢個檢查，所以測試捉唔到。做法：暫時畀，轉完即刻收返；本身有就唔郁。
+do $o$
+declare
+  had boolean := has_schema_privilege('service_role', 'public', 'CREATE');
+begin
+  if not had then
+    execute 'grant create on schema public to service_role';
+  end if;
+  execute 'alter function public.pay_grant(text, uuid, uuid, text, text, integer, text) owner to service_role';
+  execute 'alter function public.pay_revoke(text, text) owner to service_role';
+  if not had then
+    execute 'revoke create on schema public from service_role';
+  end if;
+end
+$o$;
 
 -- webhook 用 anon key（冇 session）叫。token 先係真正嗰道閘。
 revoke all on function public.pay_grant(text, uuid, uuid, text, text, integer, text) from public, anon, authenticated;
