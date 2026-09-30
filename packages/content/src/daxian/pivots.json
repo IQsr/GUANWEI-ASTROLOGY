@@ -1,6 +1,7 @@
 [
  {
   "id": "dx.pivot.紫府.逆",
+  "scope": "decade",
   "ming": [
    "紫微",
    "天府"
@@ -23,6 +24,7 @@
  },
  {
   "id": "dx.pivot.紫府.順",
+  "scope": "decade",
   "ming": [
    "紫微",
    "天府"
@@ -45,6 +47,7 @@
  },
  {
   "id": "dx.pivot.紫貪",
+  "scope": "decade",
   "ming": [
    "紫微",
    "貪狼"
@@ -69,6 +72,7 @@
  },
  {
   "id": "dx.pivot.紫相.逆",
+  "scope": "decade",
   "ming": [
    "紫微",
    "天相"
@@ -92,6 +96,7 @@
  },
  {
   "id": "dx.pivot.紫相.順",
+  "scope": "decade",
   "ming": [
    "紫微",
    "天相"
@@ -114,6 +119,7 @@
  },
  {
   "id": "dx.pivot.紫殺",
+  "scope": "decade",
   "ming": [
    "紫微",
    "七殺"
@@ -141,6 +147,7 @@
  },
  {
   "id": "dx.pivot.天機.丑未",
+  "scope": "decade",
   "ming": [
    "天機"
   ],
@@ -165,6 +172,7 @@
  },
  {
   "id": "dx.pivot.機巨",
+  "scope": "decade",
   "ming": [
    "天機",
    "巨門"
@@ -188,6 +196,7 @@
  },
  {
   "id": "dx.pivot.機梁",
+  "scope": "decade",
   "ming": [
    "天機",
    "天梁"
@@ -208,6 +217,7 @@
  },
  {
   "id": "dx.pivot.天機.巳亥",
+  "scope": "decade",
   "ming": [
    "天機"
   ],
@@ -235,6 +245,7 @@
  },
  {
   "id": "dx.pivot.太陽.子午",
+  "scope": "decade",
   "ming": [
    "太陽"
   ],
@@ -263,6 +274,7 @@
  },
  {
   "id": "dx.pivot.日月",
+  "scope": "both",
   "ming": [
    "太陽",
    "太陰"
@@ -290,6 +302,7 @@
  },
  {
   "id": "dx.pivot.陽巨",
+  "scope": "both",
   "ming": [
    "太陽",
    "巨門"
@@ -317,6 +330,7 @@
  },
  {
   "id": "dx.pivot.陽梁.卯",
+  "scope": "decade",
   "ming": [
    "太陽",
    "天梁"
@@ -338,6 +352,7 @@
  },
  {
   "id": "dx.pivot.陽梁.酉",
+  "scope": "decade",
   "ming": [
    "太陽",
    "天梁"
@@ -359,6 +374,7 @@
  },
  {
   "id": "dx.pivot.太陽.辰戌",
+  "scope": "both",
   "ming": [
    "太陽"
   ],
@@ -387,6 +403,7 @@
  },
  {
   "id": "dx.pivot.太陽.巳",
+  "scope": "decade",
   "ming": [
    "太陽"
   ],
@@ -414,6 +431,7 @@
  },
  {
   "id": "dx.pivot.太陽.亥",
+  "scope": "both",
   "ming": [
    "太陽"
   ],
@@ -441,6 +459,7 @@
  },
  {
   "id": "dx.pivot.武府",
+  "scope": "decade",
   "ming": [
    "武曲",
    "天府"
@@ -464,6 +483,7 @@
  },
  {
   "id": "dx.pivot.武貪",
+  "scope": "decade",
   "ming": [
    "武曲",
    "貪狼"
@@ -488,6 +508,7 @@
  },
  {
   "id": "dx.pivot.武曲.辰戌",
+  "scope": "decade",
   "ming": [
    "武曲"
   ],
@@ -514,6 +535,7 @@
  },
  {
   "id": "dx.pivot.武相",
+  "scope": "decade",
   "ming": [
    "武曲",
    "天相"
@@ -540,6 +562,7 @@
  },
  {
   "id": "dx.pivot.武殺",
+  "scope": "decade",
   "ming": [
    "武曲",
    "七殺"
@@ -566,6 +589,7 @@
  },
  {
   "id": "dx.pivot.武破",
+  "scope": "decade",
   "ming": [
    "武曲",
    "破軍"
@@ -592,6 +616,7 @@
  },
  {
   "id": "dx.pivot.同陰.煞",
+  "scope": "both",
   "ming": [
    "天同",
    "太陰"
@@ -617,6 +642,7 @@
  },
  {
   "id": "dx.pivot.同陰.吉",
+  "scope": "both",
   "ming": [
    "天同",
    "太陰"
@@ -644,6 +670,7 @@
  },
  {
   "id": "dx.pivot.同巨",
+  "scope": "decade",
   "ming": [
    "天同",
    "巨門"
@@ -663,6 +690,7 @@
  },
  {
   "id": "dx.pivot.同梁",
+  "scope": "both",
   "ming": [
    "天同",
    "天梁"
@@ -692,6 +720,7 @@
  },
  {
   "id": "dx.pivot.天同.辰戌",
+  "scope": "both",
   "ming": [
    "天同"
   ],
@@ -724,6 +753,7 @@
  },
  {
   "id": "dx.pivot.廉相.丙",
+  "scope": "both",
   "ming": [
    "廉貞",
    "天相"
@@ -746,6 +776,7 @@
  },
  {
   "id": "dx.pivot.廉相",
+  "scope": "both",
   "ming": [
    "廉貞",
    "天相"
@@ -775,6 +806,7 @@
  },
  {
   "id": "dx.pivot.廉殺",
+  "scope": "both",
   "ming": [
    "廉貞",
    "七殺"
@@ -801,6 +833,7 @@
  },
  {
   "id": "dx.pivot.廉貞.寅申",
+  "scope": "decade",
   "ming": [
    "廉貞"
   ],
@@ -833,6 +866,7 @@
  },
  {
   "id": "dx.pivot.廉府",
+  "scope": "both",
   "ming": [
    "廉貞",
    "天府"
@@ -865,6 +899,7 @@
  },
  {
   "id": "dx.pivot.廉貪",
+  "scope": "both",
   "ming": [
    "廉貞",
    "貪狼"
@@ -895,6 +930,7 @@
  },
  {
   "id": "dx.pivot.天府.丑未",
+  "scope": "both",
   "ming": [
    "天府"
   ],
@@ -928,6 +964,7 @@
  },
  {
   "id": "dx.pivot.天府.卯酉",
+  "scope": "both",
   "ming": [
    "天府"
   ],
@@ -954,6 +991,7 @@
  },
  {
   "id": "dx.pivot.天府.巳亥",
+  "scope": "both",
   "ming": [
    "天府"
   ],
@@ -983,6 +1021,7 @@
  },
  {
   "id": "dx.pivot.太陰.卯酉",
+  "scope": "both",
   "ming": [
    "太陰"
   ],
@@ -1014,6 +1053,7 @@
  },
  {
   "id": "dx.pivot.太陰.辰戌",
+  "scope": "both",
   "ming": [
    "太陰"
   ],
@@ -1046,6 +1086,7 @@
  },
  {
   "id": "dx.pivot.太陰.巳亥",
+  "scope": "both",
   "ming": [
    "太陰"
   ],
@@ -1079,6 +1120,7 @@
  },
  {
   "id": "dx.pivot.貪狼",
+  "scope": "both",
   "ming": [
    "貪狼"
   ],
@@ -1112,6 +1154,7 @@
  },
  {
   "id": "dx.pivot.天梁.丑未",
+  "scope": "both",
   "ming": [
    "天梁"
   ],
@@ -1142,6 +1185,7 @@
  },
  {
   "id": "dx.pivot.七殺.寅申",
+  "scope": "both",
   "ming": [
    "七殺"
   ],
@@ -1173,6 +1217,7 @@
  },
  {
   "id": "dx.pivot.七殺.辰戌",
+  "scope": "both",
   "ming": [
    "七殺"
   ],
@@ -1202,6 +1247,7 @@
  },
  {
   "id": "dx.pivot.破軍.寅申",
+  "scope": "both",
   "ming": [
    "破軍"
   ],
@@ -1236,6 +1282,7 @@
  },
  {
   "id": "dx.pivot.破軍.辰戌",
+  "scope": "both",
   "ming": [
    "破軍"
   ],
@@ -1268,6 +1315,7 @@
  },
  {
   "id": "dx.pivot.天相",
+  "scope": "both",
   "ming": [
    "天相"
   ],
@@ -1278,6 +1326,536 @@
    "corpus": "zhongzhou",
    "passage_id": "daxian.pivot.天相",
    "quote": "为大运流年之枢纽"
+  }
+ },
+ {
+  "id": "dx.pivot.天機.丑未.年",
+  "scope": "year",
+  "ming": [
+   "天機"
+  ],
+  "branches": [
+   "丑",
+   "未"
+  ],
+  "cond": null,
+  "pivots": [
+   [
+    "天同",
+    "巨門"
+   ]
+  ],
+  "source": {
+   "corpus": "zhongzhou",
+   "passage_id": "daxian.pivot.天機.丑未.年",
+   "quote": "为流年的枢纽"
+  }
+ },
+ {
+  "id": "dx.pivot.機巨.年",
+  "scope": "year",
+  "ming": [
+   "天機",
+   "巨門"
+  ],
+  "branches": null,
+  "cond": null,
+  "pivots": [
+   [
+    "太陽",
+    "太陰"
+   ],
+   [
+    "七殺"
+   ],
+   [
+    "破軍"
+   ],
+   [
+    "貪狼"
+   ]
+  ],
+  "source": {
+   "corpus": "zhongzhou",
+   "passage_id": "daxian.pivot.機巨.年",
+   "quote": "为流年的枢纽"
+  }
+ },
+ {
+  "id": "dx.pivot.機梁.年",
+  "scope": "year",
+  "ming": [
+   "天機",
+   "天梁"
+  ],
+  "branches": null,
+  "cond": null,
+  "pivots": [
+   [
+    "紫微",
+    "七殺"
+   ],
+   [
+    "廉貞",
+    "破軍"
+   ],
+   [
+    "武曲",
+    "貪狼"
+   ]
+  ],
+  "source": {
+   "corpus": "zhongzhou",
+   "passage_id": "daxian.pivot.機梁.年",
+   "quote": "三宫垣为流年枢纽"
+  }
+ },
+ {
+  "id": "dx.pivot.天機.巳亥.年",
+  "scope": "year",
+  "ming": [
+   "天機"
+  ],
+  "branches": [
+   "巳",
+   "亥"
+  ],
+  "cond": null,
+  "pivots": [
+   [
+    "天同",
+    "巨門"
+   ],
+   [
+    "廉貞",
+    "天府"
+   ]
+  ],
+  "source": {
+   "corpus": "zhongzhou",
+   "passage_id": "daxian.pivot.天機.巳亥.年",
+   "quote": "两宫垣为流年的枢纽"
+  }
+ },
+ {
+  "id": "dx.pivot.太陽.子午.年",
+  "scope": "year",
+  "ming": [
+   "太陽"
+  ],
+  "branches": [
+   "子",
+   "午"
+  ],
+  "cond": null,
+  "pivots": [
+   [
+    "巨門"
+   ],
+   [
+    "天梁"
+   ],
+   [
+    "天同"
+   ],
+   [
+    "天相"
+   ]
+  ],
+  "source": {
+   "corpus": "zhongzhou",
+   "passage_id": "daxian.pivot.太陽.子午.年",
+   "quote": "为流年之枢纽"
+  }
+ },
+ {
+  "id": "dx.pivot.武府.年",
+  "scope": "year",
+  "ming": [
+   "武曲",
+   "天府"
+  ],
+  "branches": null,
+  "cond": null,
+  "pivots": [
+   [
+    "貪狼"
+   ],
+   [
+    "紫微",
+    "天相"
+   ],
+   [
+    "七殺"
+   ],
+   [
+    "破軍"
+   ]
+  ],
+  "source": {
+   "corpus": "zhongzhou",
+   "passage_id": "daxian.pivot.武府.年",
+   "quote": "各垣为流年之枢纽"
+  }
+ },
+ {
+  "id": "dx.pivot.武貪.年",
+  "scope": "year",
+  "ming": [
+   "武曲",
+   "貪狼"
+  ],
+  "branches": null,
+  "cond": null,
+  "pivots": [
+   [
+    "天府"
+   ],
+   [
+    "廉貞",
+    "破軍"
+   ],
+   [
+    "天機",
+    "天梁"
+   ]
+  ],
+  "source": {
+   "corpus": "zhongzhou",
+   "passage_id": "daxian.pivot.武貪.年",
+   "quote": "为流年之枢纽"
+  }
+ },
+ {
+  "id": "dx.pivot.武曲.辰戌.年",
+  "scope": "year",
+  "ming": [
+   "武曲"
+  ],
+  "branches": [
+   "辰",
+   "戌"
+  ],
+  "cond": null,
+  "pivots": [
+   [
+    "天府"
+   ],
+   [
+    "廉貞",
+    "破軍"
+   ],
+   [
+    "天機",
+    "天梁"
+   ]
+  ],
+  "source": {
+   "corpus": "zhongzhou",
+   "passage_id": "daxian.pivot.武曲.辰戌.年",
+   "quote": "大运流年之枢纽亦同"
+  }
+ },
+ {
+  "id": "dx.pivot.武相.年",
+  "scope": "year",
+  "ming": [
+   "武曲",
+   "天相"
+  ],
+  "branches": null,
+  "cond": null,
+  "pivots": [
+   [
+    "七殺"
+   ],
+   [
+    "破軍"
+   ],
+   [
+    "貪狼"
+   ],
+   [
+    "紫微"
+   ]
+  ],
+  "source": {
+   "corpus": "zhongzhou",
+   "passage_id": "daxian.pivot.武相.年",
+   "quote": "所在宫垣为流年枢纽"
+  }
+ },
+ {
+  "id": "dx.pivot.武殺.年",
+  "scope": "year",
+  "ming": [
+   "武曲",
+   "七殺"
+  ],
+  "branches": null,
+  "cond": null,
+  "pivots": [
+   [
+    "廉貞",
+    "貪狼"
+   ],
+   [
+    "紫微",
+    "破軍"
+   ],
+   [
+    "武曲",
+    "七殺"
+   ]
+  ],
+  "source": {
+   "corpus": "zhongzhou",
+   "passage_id": "daxian.pivot.武殺.年",
+   "quote": "为流年枢纽"
+  }
+ },
+ {
+  "id": "dx.pivot.武破.年",
+  "scope": "year",
+  "ming": [
+   "武曲",
+   "破軍"
+  ],
+  "branches": null,
+  "cond": null,
+  "pivots": [
+   [
+    "太陽"
+   ],
+   [
+    "天梁"
+   ],
+   [
+    "紫微",
+    "貪狼"
+   ],
+   [
+    "天機",
+    "太陰"
+   ]
+  ],
+  "source": {
+   "corpus": "zhongzhou",
+   "passage_id": "daxian.pivot.武破.年",
+   "quote": "为流年之枢纽"
+  }
+ },
+ {
+  "id": "dx.pivot.同巨.年",
+  "scope": "year",
+  "ming": [
+   "天同",
+   "巨門"
+  ],
+  "branches": null,
+  "cond": null,
+  "pivots": [
+   [
+    "太陽",
+    "天梁"
+   ],
+   [
+    "太陰"
+   ],
+   [
+    "破軍"
+   ],
+   [
+    "天機"
+   ]
+  ],
+  "source": {
+   "corpus": "zhongzhou",
+   "passage_id": "daxian.pivot.同巨.年",
+   "quote": "等宫垣为年限的枢纽"
+  }
+ },
+ {
+  "id": "dx.pivot.天同.卯酉.年",
+  "scope": "year",
+  "ming": [
+   "天同"
+  ],
+  "branches": [
+   "卯",
+   "酉"
+  ],
+  "cond": null,
+  "pivots": [
+   [
+    "天機"
+   ],
+   [
+    "七殺"
+   ],
+   [
+    "天梁"
+   ],
+   [
+    "巨門"
+   ]
+  ],
+  "source": {
+   "corpus": "zhongzhou",
+   "passage_id": "daxian.pivot.天同.卯酉.年",
+   "quote": "为年限枢纽"
+  }
+ },
+ {
+  "id": "dx.pivot.天同.巳亥.年",
+  "scope": "year",
+  "ming": [
+   "天同"
+  ],
+  "branches": [
+   "巳",
+   "亥"
+  ],
+  "cond": null,
+  "pivots": [
+   [
+    "破軍"
+   ],
+   [
+    "天機",
+    "巨門"
+   ],
+   [
+    "七殺"
+   ],
+   [
+    "廉貞"
+   ]
+  ],
+  "source": {
+   "corpus": "zhongzhou",
+   "passage_id": "daxian.pivot.天同.巳亥.年",
+   "quote": "为年限的枢纽"
+  }
+ },
+ {
+  "id": "dx.pivot.廉貞.寅申.年",
+  "scope": "year",
+  "ming": [
+   "廉貞"
+  ],
+  "branches": [
+   "寅",
+   "申"
+  ],
+  "cond": null,
+  "pivots": [
+   [
+    "七殺"
+   ],
+   [
+    "破軍"
+   ],
+   [
+    "貪狼"
+   ],
+   [
+    "天梁"
+   ],
+   [
+    "廉貞"
+   ]
+  ],
+  "source": {
+   "corpus": "zhongzhou",
+   "passage_id": "daxian.pivot.廉貞.寅申.年",
+   "quote": "为流年枢纽"
+  }
+ },
+ {
+  "id": "dx.pivot.廉破.年",
+  "scope": "year",
+  "ming": [
+   "廉貞",
+   "破軍"
+  ],
+  "branches": null,
+  "cond": null,
+  "pivots": [
+   [
+    "武曲",
+    "貪狼"
+   ],
+   [
+    "天同",
+    "太陰"
+   ],
+   [
+    "太陽",
+    "巨門"
+   ]
+  ],
+  "source": {
+   "corpus": "zhongzhou",
+   "passage_id": "daxian.pivot.廉破.年",
+   "quote": "为年限之枢纽"
+  }
+ },
+ {
+  "id": "dx.pivot.天梁.巳亥.年",
+  "scope": "year",
+  "ming": [
+   "天梁"
+  ],
+  "branches": [
+   "巳",
+   "亥"
+  ],
+  "cond": null,
+  "pivots": [
+   [
+    "貪狼"
+   ],
+   [
+    "天同"
+   ]
+  ],
+  "source": {
+   "corpus": "zhongzhou",
+   "passage_id": "daxian.pivot.天梁.巳亥.年",
+   "quote": "为年限之枢纽"
+  }
+ },
+ {
+  "id": "dx.pivot.天梁.子午.年",
+  "scope": "year",
+  "ming": [
+   "天梁"
+  ],
+  "branches": [
+   "子",
+   "午"
+  ],
+  "cond": null,
+  "pivots": [
+   [
+    "天機",
+    "太陰"
+   ],
+   [
+    "巨門"
+   ],
+   [
+    "太陽"
+   ],
+   [
+    "天同"
+   ]
+  ],
+  "source": {
+   "corpus": "zhongzhou",
+   "passage_id": "daxian.pivot.天梁.子午.年",
+   "quote": "为年限之枢纽"
   }
  }
 ]

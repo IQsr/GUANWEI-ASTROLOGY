@@ -90,8 +90,8 @@ describe('兩章', () => {
 });
 
 describe('樞紐大限（下篇宮垣論・命宮，p.336–366）', () => {
-  it('四十八條規則，引文喺原文、星名認得（載入嗰陣已經驗）', () => {
-    expect(DAXIAN_PIVOTS.length).toBe(48);
+  it('大限樞紐四十八條（流年另計），引文喺原文、星名認得（載入嗰陣已經驗）', () => {
+    expect(DAXIAN_PIVOTS.filter((r) => r.scope !== 'year').length).toBe(48);
   });
 
   it('大部分盤有樞紐；書冇講嗰組命宮星就唔標', () => {

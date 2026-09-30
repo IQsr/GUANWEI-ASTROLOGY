@@ -11,7 +11,7 @@ import { FREE_SLUGS, tierOf } from '@/lib/chengshu';
 const PALACE_ORDER = ['命宮', '兄弟', '夫妻', '子女', '財帛', '疾厄', '遷移', '僕役', '官祿', '田宅', '福德', '父母'];
 
 /** 一本完整命書嘅章：序、兩章免費、其餘十一宮（同 chengshu 一樣嘅排法）。 */
-const BOOK = ['序', '命宮', '性格的骨架', '三方四正', '身宮與五行局', '一生十二步', '這十年', ...PALACE_ORDER.filter((p) => p !== '命宮')].map((slug, i) => ({
+const BOOK = ['序', '命宮', '性格的骨架', '三方四正', '身宮與五行局', '一生十二步', '這十年', '這一年', ...PALACE_ORDER.filter((p) => p !== '命宮')].map((slug, i) => ({
   slug,
   ord: i + 1,
   tier: tierOf(slug),
@@ -83,8 +83,8 @@ describe('認唔到嘅章', () => {
 });
 
 describe('目次頂嗰行', () => {
-  it('未裁：十八章，六章免費，十二章未裁', () => {
-    expect(tally(BOOK, false)).toEqual({ total: 18, free: 6, uncut: 12 });
+  it('未裁：十九章，六章免費，十三章未裁', () => {
+    expect(tally(BOOK, false)).toEqual({ total: 19, free: 6, uncut: 13 });
   });
 
   /** 之前付完款目次照寫「未裁」—— 裁開咗就冇未裁。 */

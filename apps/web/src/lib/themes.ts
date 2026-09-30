@@ -39,7 +39,7 @@ export const THEMES: readonly Theme[] = [
   /* 時間（2026-09-30）：大限。讀者嚟嘅動機多數係「之後會點」，所以擺喺性格之後 */
   {
     key: 'time',
-    palaces: ['一生十二步', '這十年'],
+    palaces: ['一生十二步', '這十年', '這一年'],
   },
   {
     key: 'shi',

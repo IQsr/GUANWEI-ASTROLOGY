@@ -223,7 +223,7 @@ describe('⚠ 落款嗰張目次唔准承諾生成唔到嘅章', () => {
 
     /* 由真名單砌，唔好手抄 —— 手抄就會再走音一次。 */
     /* 〈這十年〉係收費章但生成得到（大限，2026-09-30） */
-    const buildable = new Set(['你的命盤', ...FREE_SLUGS, ...PALACES, '這十年']);
+    const buildable = new Set(['你的命盤', ...FREE_SLUGS, ...PALACES, '這十年', '這一年']);
     expect(named.filter((n) => !buildable.has(n))).toEqual([]);
   });
 });

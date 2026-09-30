@@ -32,4 +32,5 @@ export * from './xingxi-chapters';
 export * from './palace-plain';
 export * from './shen';
 export * from './daxian';
+export * from './liunian';
 export * from './plain';

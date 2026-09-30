@@ -8,6 +8,7 @@ import {
   gujiaChapter,
   lifeStepsChapter,
   decadeChapter,
+  yearChapter,
   sanfangChapter,
   xuChapter,
   LEXICON,
@@ -174,6 +175,8 @@ export function bookChapters(
   /* 大限（2026-09-30）：一生十二步免費，這十年收費；跟成書年份講 */
   const steps = lifeStepsChapter({ chart, year: opts.year });
   const decade = decadeChapter({ chart, year: opts.year });
+  /* 流年（2026-09-30）：寫書嗰年同下一年，收費 */
+  const liunian = yearChapter({ chart, year: opts.year });
 
   /*
    * ⚠ 次序：序 → 命宮 → 性格的骨架 → 三方四正 → 身宮與五行局 → 其餘十一宮。
@@ -193,6 +196,7 @@ export function bookChapters(
     ...(shen ? [{ slug: shen.slug, title: shen.title, ...body(shen.segments) }] : []),
     ...(steps ? [{ slug: steps.slug, title: steps.title, ...body(steps.segments) }] : []),
     ...(decade ? [{ slug: decade.slug, title: decade.title, ...body(decade.segments) }] : []),
+    ...(liunian ? [{ slug: liunian.slug, title: liunian.title, ...body(liunian.segments) }] : []),
     ...rest.map((c) => ({ slug: c.palace, ...body(c.segments) })),
   ];
 }

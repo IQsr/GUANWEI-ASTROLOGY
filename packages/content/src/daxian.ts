@@ -67,6 +67,8 @@ const STARS = ['紫微', '天機', '太陽', '武曲', '天同', '廉貞', '天�
 const Pivot = z
   .object({
     id: z.string(),
+    /** decade = 大限樞紐；year = 流年／年限樞紐；both = 原文講「大運流年」或者冇分 */
+    scope: z.enum(['decade', 'year', 'both']),
     ming: z.array(z.string()).min(1),
     branches: z.array(z.string()).nullable(),
     cond: z.enum(['forward', 'backward', 'sha', 'nosha', 'stem:丙', 'notstem:丙', 'hua']).nullable(),
@@ -87,10 +89,15 @@ export const DAXIAN_PIVOTS = z.array(Pivot).parse(pivotsRaw);
 
 const SHA4 = ['擎羊', '陀羅', '火星', '鈴星'];
 
-/** 呢張盤邊幾步大限係樞紐。冇資料（書冇講嗰組命宮星）就回空。 */
-export function pivotSteps(chart: Chart): { steps: number[]; source: string | null } {
+/**
+ * 呢張盤嘅樞紐規則（大限或流年）：回一個「呢個宮係咪樞紐」嘅判斷。冇資料就回 null。
+ */
+export function pivotRule(
+  chart: Chart,
+  scope: 'decade' | 'year',
+): { isPivot: (p: Palace) => boolean; source: string } | null {
   const ming = chart.palaces.find((p) => p.name === '命宮');
-  if (!ming || chart.decadals.length < 2) return { steps: [], source: null };
+  if (!ming || chart.decadals.length < 2) return null;
   let stars = majors(ming);
   let branch = ming.branch as string;
   if (stars.length === 0 && ming.borrowsFrom) {
@@ -110,18 +117,25 @@ export function pivotSteps(chart: Chart): { steps: number[]; source: string | nu
     (c === 'sha' && sha) || (c === 'nosha' && !sha) ||
     (c === 'stem:丙' && stem === '丙') || (c === 'notstem:丙' && stem !== '丙');
   const rule = DAXIAN_PIVOTS.find(
-    (r) => [...r.ming].sort().join('·') === key && (!r.branches || r.branches.includes(branch)) && ok(r.cond),
+    (r) =>
+      (r.scope === scope || r.scope === 'both') &&
+      [...r.ming].sort().join('·') === key &&
+      (!r.branches || r.branches.includes(branch)) &&
+      ok(r.cond),
   );
-  if (!rule) return { steps: [], source: null };
+  if (!rule) return null;
   const names = (p: Palace) => p.stars.filter((s) => s.kind === 'major' || s.name === '文昌' || s.name === '文曲').map((s) => s.name);
-  const steps = chart.decadals
-    .filter((d) => {
-      const p = chart.palaces.find((x) => x.branch === d.branch)!;
-      if (rule.cond === 'hua') return p.stars.some((s) => s.sihua);
-      return rule.pivots.some((g) => g.every((s) => names(p).includes(s)));
-    })
-    .map((d) => d.index);
-  return { steps, source: rule.source.passage_id };
+  const isPivot = (p: Palace) =>
+    rule.cond === 'hua' ? p.stars.some((s) => s.sihua) : rule.pivots.some((g) => g.every((s) => names(p).includes(s)));
+  return { isPivot, source: rule.source.passage_id };
+}
+
+/** 呢張盤邊幾步大限係樞紐。冇資料（書冇講嗰組命宮星）就回空。 */
+export function pivotSteps(chart: Chart): { steps: number[]; source: string | null } {
+  const r = pivotRule(chart, 'decade');
+  if (!r) return { steps: [], source: null };
+  const steps = chart.decadals.filter((d) => r.isPivot(chart.palaces.find((x) => x.branch === d.branch)!)).map((d) => d.index);
+  return { steps, source: r.source };
 }
 export const DAXIAN_RULES = RulesDoc.parse(rulesRaw);
 
@@ -142,7 +156,7 @@ export type DaxianSegment = { slot: string; text: string; source_id: string | nu
 type Out = { slug: string; title: string; segments: DaxianSegment[] } | null;
 
 const DIGITS = ['〇', '一', '二', '三', '四', '五', '六', '七', '八', '九'] as const;
-function num(n: number): string {
+export function num(n: number): string {
   if (n >= 100) {
     const r = n % 100;
     return `一百${r === 0 ? '' : r < 10 ? `零${DIGITS[r]}` : num(r)}`;
@@ -151,17 +165,17 @@ function num(n: number): string {
   if (n < 20) return `十${n % 10 ? DIGITS[n % 10] : ''}`;
   return `${DIGITS[Math.floor(n / 10)]}十${n % 10 ? DIGITS[n % 10] : ''}`;
 }
-const yearCN = (y: number) => [...String(y)].map((d) => DIGITS[Number(d)]).join('');
+export const yearCN = (y: number) => [...String(y)].map((d) => DIGITS[Number(d)]).join('');
 
 const majors = (p: Palace) => p.stars.filter((s) => s.kind === 'major').map((s) => s.name);
-function starsOf(chart: Chart, p: Palace): string {
+export function starsOf(chart: Chart, p: Palace): string {
   const own = majors(p);
   if (own.length) return `坐${own.join('、')}`;
   const opp = p.borrowsFrom ? chart.palaces.find((x) => x.branch === p.borrowsFrom) : undefined;
   const b = opp ? majors(opp) : [];
   return b.length ? `沒有主星，借對宮的${b.join('、')}` : '沒有主星';
 }
-const area = (palace: string | null) => (palace ? (AREA[palace]?.[0] ?? palaceLabel(palace)) : '');
+export const area = (palace: string | null) => (palace ? (AREA[palace]?.[0] ?? palaceLabel(palace)) : '');
 
 /** 寫書嗰年嘅虛歲同大限。未起運回第一個大限，`started: false`。 */
 function decadeAt(chart: Chart, year: number) {
@@ -210,7 +224,7 @@ export function lifeStepsChapter(input: { chart: Chart; year: number }): Out {
 type Hit = { star: string; hua: Sihua; decadalPalace: string | null };
 
 /** 大限命宮當命宮讀：改名，四化用大限嗰套（冇大限化嘅星留本命化）。 */
-function decadeView(chart: Chart, branch: string, hits: Hit[]): Chart {
+export function decadeView(chart: Chart, branch: string, hits: { star: string; hua: Sihua }[]): Chart {
   const by = new Map(hits.map((h) => [h.star, h.hua]));
   return {
     ...chart,
