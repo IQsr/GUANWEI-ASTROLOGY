@@ -15,6 +15,14 @@ export async function GET(req: Request): Promise<Response> {
   const plan = callbackPlan(url.searchParams);
   const supabase = supabaseServer();
 
+  const failed = () =>
+    NextResponse.redirect(new URL(`/claim?link=failed&next=${encodeURIComponent(plan.next)}`, url.origin));
+
+  if (plan.kind === 'failed') {
+    console.error('[auth] 驗證連結帶住錯誤返嚟：' + (url.searchParams.get('error_code') ?? url.searchParams.get('error')));
+    return failed();
+  }
+
   try {
     if (plan.kind === 'code') {
       const { error } = await supabase.auth.exchangeCodeForSession(plan.code);
@@ -31,7 +39,7 @@ export async function GET(req: Request): Promise<Response> {
   } catch (err) {
     /* 連結過期、用過一次、或者喺另一個瀏覽器開 —— 返去認領頁再寄一次 */
     console.error('[auth] 驗證連結換唔到 session：' + (err instanceof Error ? err.message : String(err)));
-    return NextResponse.redirect(new URL(`/claim?link=failed&next=${encodeURIComponent(plan.next)}`, url.origin));
+    return failed();
   }
 
   return NextResponse.redirect(new URL(plan.next, url.origin));

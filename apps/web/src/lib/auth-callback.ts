@@ -19,13 +19,21 @@ import { safeNext } from '@/lib/journey';
 export type CallbackPlan =
   | { kind: 'code'; code: string; next: string }
   | { kind: 'otp'; tokenHash: string; type: OtpType; next: string }
-  | { kind: 'refresh'; next: string };
+  | { kind: 'refresh'; next: string }
+  | { kind: 'failed'; next: string };
 
 export const OTP_TYPES = ['email_change', 'email', 'signup', 'magiclink', 'recovery', 'invite'] as const;
 export type OtpType = (typeof OTP_TYPES)[number];
 
 export function callbackPlan(params: URLSearchParams): CallbackPlan {
   const next = safeNext(params.get('next')) ?? '/shelf';
+  /*
+   * ⚠ Supabase 驗唔到（連結過期、用過、DB 彈咗）會帶 `error` / `error_code` 返嚟，冇 code。
+   * 以前當咗 refresh 照樣帶去 `next`（付款頁）—— 讀者以為認領咗，其實冇（2026-09-30 實測）。
+   */
+  if (params.get('error') || params.get('error_code')) return { kind: 'failed', next };
+  /* 實測見過 `?code=`（空）：確認喺 Supabase 嗰邊彈咗，冇碼。同樣當失敗 */
+  if (params.has('code') && !params.get('code')) return { kind: 'failed', next };
   const code = params.get('code');
   if (code) return { kind: 'code', code, next };
   const tokenHash = params.get('token_hash');

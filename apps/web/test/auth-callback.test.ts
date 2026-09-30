@@ -12,6 +12,13 @@ describe('認領驗證信嘅落腳點', () => {
     expect(plan('token_hash=h&type=email_change&next=/shelf')).toEqual({ kind: 'otp', tokenHash: 'h', type: 'email_change', next: '/shelf' });
   });
 
+  it('Supabase 帶錯誤返嚟 → 失敗，唔好扮認領咗', () => {
+    expect(plan('error=server_error&error_code=unexpected_failure&next=/pay/1')).toEqual({ kind: 'failed', next: '/pay/1' });
+    expect(plan('error_code=otp_expired&code=abc').kind).toBe('failed');
+    /* 2026-09-30 實測：確認彈咗，Supabase 帶返一個空嘅 code */
+    expect(plan('code=&next=/pay/1')).toEqual({ kind: 'failed', next: '/pay/1' });
+  });
+
   it('唔認得嘅 type 唔拎去驗', () => {
     expect(plan('token_hash=h&type=weird').kind).toBe('refresh');
   });
