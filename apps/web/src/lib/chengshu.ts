@@ -82,7 +82,7 @@ export type BookDraft = {
  *
  * ⚠ 呢張表係**名單**，唔係章序。章序喺 `mingshu.ts` `bookChapters()`。
  */
-export const FREE_SLUGS: readonly string[] = ['序', '命宮', '身宮與五行局', '三方四正', '性格的骨架'];
+export const FREE_SLUGS: readonly string[] = ['序', '命宮', '身宮與五行局', '三方四正', '性格的骨架', '一生十二步'];
 
 export function tierOf(slug: string): Tier {
   return FREE_SLUGS.includes(slug) ? 'free' : 'deep';

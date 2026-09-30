@@ -104,7 +104,7 @@ function leadStar(chart: Chart, p: Palace): string | null {
  * 以前寫「命宮與遷移宮正對，又與官祿宮、財帛宮連成一組。在遷移宮，⋯」——
  * 讀者要先識宮名同「正對、三合」先讀得明。而家直接講生活嘅邊一面。
  */
-const AREA: Record<string, [string, string]> = {
+export const AREA: Record<string, [string, string]> = {
   命宮: ['性格', '性格上'],
   兄弟: ['朋輩', '朋輩之間'],
   夫妻: ['感情', '感情上'],

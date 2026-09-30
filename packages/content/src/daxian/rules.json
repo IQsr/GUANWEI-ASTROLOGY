@@ -1,0 +1,90 @@
+{
+ "rules": [
+  {
+   "id": "dx.rule.stack.祿",
+   "natal": "祿",
+   "decade": "祿",
+   "text": "{star}在你本命化祿，這十年又化祿，兩者疊在一起，財祿的意義大為加強。",
+   "source": {
+    "corpus": "zhongzhou",
+    "passage_id": "daxian.rule.stack.祿",
+    "quote": "天同化禄的意义大为加强"
+   }
+  },
+  {
+   "id": "dx.rule.stack.權",
+   "natal": "權",
+   "decade": "權",
+   "text": "{star}在你本命化權，這十年又化權：權力疊得太重，反而容易招來壓制。",
+   "source": {
+    "corpus": "zhongzhou",
+    "passage_id": "daxian.rule.stack.權",
+    "quote": "反易招压制之力"
+   }
+  },
+  {
+   "id": "dx.rule.lu_to_ji",
+   "natal": "祿",
+   "decade": "忌",
+   "text": "{star}在你本命化祿，這十年卻化忌：可能因財惹麻煩，或原來生財的能力減弱。",
+   "source": {
+    "corpus": "zhongzhou",
+    "passage_id": "daxian.rule.lu_to_ji",
+    "quote": "原局化禄，在大运或流年化忌"
+   }
+  },
+  {
+   "id": "dx.rule.ji_to_lu",
+   "natal": "忌",
+   "decade": "祿",
+   "text": "{star}在你本命化忌，這十年卻化祿：原來不利的地方，這段時期可能轉為有利。",
+   "source": {
+    "corpus": "zhongzhou",
+    "passage_id": "daxian.rule.ji_to_lu",
+    "quote": "原局化忌，在大运或流年化禄"
+   }
+  },
+  {
+   "id": "dx.rule.quan_to_ji",
+   "natal": "權",
+   "decade": "忌",
+   "text": "{star}在你本命化權，這十年卻化忌：要防樹大招風、位高勢危。",
+   "source": {
+    "corpus": "zhongzhou",
+    "passage_id": "daxian.rule.quan_to_ji",
+    "quote": "为运限化忌相冲"
+   }
+  },
+  {
+   "id": "dx.rule.ji_to_quan",
+   "natal": "忌",
+   "decade": "權",
+   "text": "{star}在你本命化忌，這十年卻化權：要防壓制你的力量抬頭。",
+   "source": {
+    "corpus": "zhongzhou",
+    "passage_id": "daxian.rule.ji_to_quan",
+    "quote": "若原局化忌，忽在运限化为权星"
+   }
+  },
+  {
+   "id": "dx.rule.ke_to_ji",
+   "natal": "科",
+   "decade": "忌",
+   "text": "{star}在你本命化科，這十年卻化忌：名氣越高，越容易招來是非。",
+   "source": {
+    "corpus": "zhongzhou",
+    "passage_id": "daxian.rule.ke_to_ji",
+    "quote": "科忌相冲为遭谤"
+   }
+  }
+ ],
+ "none": {
+  "id": "dx.rule.none",
+  "text": "這十年的四化，沒有碰到你本命的四化。本命四化是你的本質，大限四化是這段時期的環境；不沖起，作用就小，你本來的底子不會變。",
+  "source": {
+   "corpus": "zhongzhou",
+   "passage_id": "daxian.rule.none",
+   "quote": "不冲起则作用甚小"
+  }
+ }
+}

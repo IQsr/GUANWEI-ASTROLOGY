@@ -11,7 +11,7 @@ import { FREE_SLUGS, tierOf } from '@/lib/chengshu';
 const PALACE_ORDER = ['命宮', '兄弟', '夫妻', '子女', '財帛', '疾厄', '遷移', '僕役', '官祿', '田宅', '福德', '父母'];
 
 /** 一本完整命書嘅章：序、兩章免費、其餘十一宮（同 chengshu 一樣嘅排法）。 */
-const BOOK = ['序', '命宮', '性格的骨架', '三方四正', '身宮與五行局', ...PALACE_ORDER.filter((p) => p !== '命宮')].map((slug, i) => ({
+const BOOK = ['序', '命宮', '性格的骨架', '三方四正', '身宮與五行局', '一生十二步', '這十年', ...PALACE_ORDER.filter((p) => p !== '命宮')].map((slug, i) => ({
   slug,
   ord: i + 1,
   tier: tierOf(slug),
@@ -43,13 +43,14 @@ describe('分法', () => {
   const g = groupChapters(BOOK);
   const of = (key: string) => g.groups.find((x) => x.theme.key === key)!.chapters.map((c) => c.slug);
 
-  it('三個主題，照參考稿次序', () => {
-    expect(g.groups.map((x) => zhMessages.book.themes[x.theme.key].title)).toEqual(['性格與天賦', '事業方向', '人際關係']);
+  /* 2026-09-30 加「時間」（大限），擺喺性格之後 */
+  it('四個主題：性格、時間、事業、人際', () => {
+    expect(g.groups.map((x) => zhMessages.book.themes[x.theme.key].title)).toEqual(['性格與天賦', '時間', '事業方向', '人際關係']);
   });
 
-  /** 免費嗰兩章（命宮、身宮）都喺第一個主題 —— 第一次打開，第一格就讀得。 */
-  it('免費章都喺「性格與天賦」', () => {
-    for (const slug of FREE_SLUGS.filter((s) => s !== '序')) expect(of('xing')).toContain(slug);
+  /** 免費章喺頭兩個主題（性格與天賦、時間）—— 第一次打開，頭兩格就讀得。 */
+  it('免費章都喺「性格與天賦」或者「時間」', () => {
+    for (const slug of FREE_SLUGS.filter((s) => s !== '序')) expect([...of('xing'), ...of('time')]).toContain(slug);
   });
 
   it('主題入面按章序，唔按主題表次序', () => {
@@ -82,8 +83,8 @@ describe('認唔到嘅章', () => {
 });
 
 describe('目次頂嗰行', () => {
-  it('未裁：十六章，五章免費，十一章未裁', () => {
-    expect(tally(BOOK, false)).toEqual({ total: 16, free: 5, uncut: 11 });
+  it('未裁：十八章，六章免費，十二章未裁', () => {
+    expect(tally(BOOK, false)).toEqual({ total: 18, free: 6, uncut: 12 });
   });
 
   /** 之前付完款目次照寫「未裁」—— 裁開咗就冇未裁。 */

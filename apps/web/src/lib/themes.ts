@@ -22,7 +22,7 @@
  * 呢度三個都認，章名改咗唔使改呢張表。
  */
 
-export type ThemeKey = 'xing' | 'shi' | 'ren';
+export type ThemeKey = 'xing' | 'time' | 'shi' | 'ren';
 
 /** 主題名同細字喺 messages：`book.themes.<key>.title`／`.lead`。 */
 export type Theme = {
@@ -35,6 +35,11 @@ export const THEMES: readonly Theme[] = [
   {
     key: 'xing',
     palaces: ['命宮', '性格的骨架', '三方四正', '身宮與五行局', '福德', '疾厄'],
+  },
+  /* 時間（2026-09-30）：大限。讀者嚟嘅動機多數係「之後會點」，所以擺喺性格之後 */
+  {
+    key: 'time',
+    palaces: ['一生十二步', '這十年'],
   },
   {
     key: 'shi',

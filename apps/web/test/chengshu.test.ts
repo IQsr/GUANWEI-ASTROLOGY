@@ -73,7 +73,7 @@ describe('邊幾章免費', () => {
   });
 
   it('免費名單係一個表，唔係散落喺各處嘅 if', () => {
-    expect([...FREE_SLUGS]).toEqual(['序', '命宮', '身宮與五行局', '三方四正', '性格的骨架']);
+    expect([...FREE_SLUGS]).toEqual(['序', '命宮', '身宮與五行局', '三方四正', '性格的骨架', '一生十二步']);
   });
 
   it('一本書一定至少有一章免費 —— 否則免費書等於冇', () => {
@@ -222,7 +222,8 @@ describe('⚠ 落款嗰張目次唔准承諾生成唔到嘅章', () => {
       .filter((name) => /^[一-鿿]+$/.test(name));
 
     /* 由真名單砌，唔好手抄 —— 手抄就會再走音一次。 */
-    const buildable = new Set(['你的命盤', ...FREE_SLUGS, ...PALACES]);
+    /* 〈這十年〉係收費章但生成得到（大限，2026-09-30） */
+    const buildable = new Set(['你的命盤', ...FREE_SLUGS, ...PALACES, '這十年']);
     expect(named.filter((n) => !buildable.has(n))).toEqual([]);
   });
 });
