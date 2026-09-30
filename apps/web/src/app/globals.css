@@ -83,15 +83,19 @@
   --grain-blend: multiply;
   --grain-opacity: 0.05;
 
-  /* ── 字級（視覺系統 §4） ── */
+  /* ── 字級（視覺系統 §4） ──
+     跟視窗闊度浮動（2026-09-30）：註釋嘅數係桌面（≥ 約 720px）嘅值，箭嘴後面係 375px 手機。
+     標題縮得多、正文幾乎唔縮 —— 手機嘅問題係標題大到食晒一屏，唔係正文大。
+     ⚠ 正文唔好低過 16px：中文筆畫密，再細讀落攰；iOS 輸入框細過 16px 仲會自己放大。
+     ⚠ 跟闊度，唔跟長闊比：打橫拎部機，字唔應該突然跳一級。 */
   --t-cap: 0.75rem; /* 12px  標籤 */
   --t-sm: 0.84375rem; /* 13.5px 註 */
-  --t-body: 1.03125rem; /* 16.5px 正文 */
-  --t-lead: 1.1875rem; /* 19px  導言 */
-  --t-h3: 1.3125rem; /* 21px  節標題 */
-  --t-h2: 1.6875rem; /* 27px  引文 */
-  --t-h1: 2.375rem; /* 38px  幕標題 */
-  --t-display: 3.75rem; /* 60px  品牌字 */
+  --t-body: clamp(1rem, 0.95rem + 0.25vw, 1.03125rem); /* 16.5px → 16px 正文 */
+  --t-lead: clamp(1.0625rem, 0.95rem + 0.6vw, 1.1875rem); /* 19px → 17.5px 導言 */
+  --t-h3: clamp(1.1875rem, 1.05rem + 0.6vw, 1.3125rem); /* 21px → 19px 節標題 */
+  --t-h2: clamp(1.375rem, 1.125rem + 1.25vw, 1.6875rem); /* 27px → 22.5px 引文 */
+  --t-h1: clamp(1.75rem, 1.25rem + 2.5vw, 2.375rem); /* 38px → 29.5px 幕標題 */
+  --t-display: clamp(2.5rem, 1.5rem + 5vw, 3.75rem); /* 60px → 43px 品牌字 */
 
   /* ── 版（視覺系統 §5） ── */
   --banxin: 690px; /* 版心：32–40 字／行 */
@@ -2371,6 +2375,28 @@
   }
 }
 
+/*
+ * 手機：落款同題名幕嗰本書攤到同閱讀頁一樣闊（2026-09-30）。
+ *
+ * 以前係台闊（375 − 2 × 24）嘅 92%，即係 300px，兩邊各留 37px；
+ * 閱讀頁本書（`.shuzhuo`）而家每邊得 8px，一前一後睇就顯得細咗一號。
+ * 同樣伸出台外 16px、佔滿，全站手機上嘅「本書」一樣大。
+ */
+@media (max-width: 767px) {
+  .fan-wrap {
+    width: calc(100% + 32px);
+    margin-inline: -16px;
+  }
+
+  .fan {
+    --w: 100cqi;
+  }
+
+  .fan-nei {
+    padding: 24px 20px;
+  }
+}
+
 /* ============================================================
    書桌閱讀：本書一直攤開喺桌面上（`BookSpread`）
 
@@ -2501,6 +2527,31 @@
 @media (max-width: 899px) {
   .shuzhuo-you {
     border-radius: 3px;
+  }
+}
+
+/*
+ * 手機：本書攤到差唔多成個屏闊（2026-09-30）。
+ *
+ * 以前台 24 ＋ 頁 28 = 每邊 52px，375 闊嘅手機得 271px 擺字，一行十六字。
+ * 而家每邊留 8px 見到少少桌面（仲係一本書），頁內 18px：一行大約二十字。
+ */
+@media (max-width: 899px) {
+  .shuzhuo {
+    width: calc(100% + 32px);
+    margin-inline: -16px;
+  }
+
+  .shuzhuo-ye {
+    padding: 24px 18px;
+  }
+
+  .shuzhuo-shu {
+    height: max(480px, calc(100svh - var(--header) - 120px));
+  }
+
+  .shuzhuo-you .wen p {
+    line-height: 1.85;
   }
 }
 
@@ -2743,4 +2794,22 @@
 /* 翻緊頁嗰陣唔好再撳多次 */
 .shuzhuo-shu[data-turning] .shuzhuo-bian {
   pointer-events: none;
+}
+
+/* ============================================================
+   手機（< 768px）：收窄天頭、導覽（2026-09-30）
+   ============================================================
+   375px 高 812px 嘅手機，以前本書由 220px 先開始：72 導覽 ＋ 64 天頭 ＋ 卷首。
+   天頭 : 地腳照舊 8 : 5。 */
+@media (max-width: 767px) {
+  :root {
+    --header: 60px;
+    --tiantou: 32px;
+    --dijiao: 20px;
+  }
+
+  .dao-shu {
+    padding: 6px 12px;
+    letter-spacing: 0.14em;
+  }
 }

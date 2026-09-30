@@ -81,7 +81,7 @@ export function SiteHeader() {
       >
         <div className="dao-nei">
           <Link href="/" className="flex flex-col leading-none" aria-label={t('homeAria')}>
-            <span className="font-serif text-[1.625rem] font-medium tracking-[0.32em]">{MARK}</span>
+            <span className="font-serif text-[1.375rem] font-medium md:text-[1.625rem] tracking-[0.32em]">{MARK}</span>
             <span className="mt-1.5 font-latin text-[0.625rem] tracking-[0.5em] opacity-80">GUAN WEI</span>
           </Link>
 
