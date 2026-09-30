@@ -123,8 +123,17 @@ export const AREA: Record<string, [string, string]> = {
  * 牽動格嘅頭一段。回 null = 呢個宮嘅三方四正搵唔齊（唔應該發生）。
  *
  * 次序：對宮先（正對，最牽動），然後兩個三合宮。
+ *
+ * ⚠ 全書每宮嗰截只詳講一次（2026-09-30）。每個宮會喺三章嘅牽動格出現（佢嘅對宮同兩個三合宮），
+ * 以前三次都係同一句 —— 量過一本書平均有 12 句重複。而家 `used` 記住邊截講過：
+ * 第一次（跟閱讀次序）講一截，之後淨係講「見〈財帛〉那一章」。宮同宮之間有牽連呢件事照講，
+ * 只係唔再重複講嗰一宮本身。唔畀 `used`（單獨砌一章）就三截都講。
  */
-export function linkLine(chart: Chart, p: Palace): { text: string; sources: string[] } | null {
+export function linkLine(
+  chart: Chart,
+  p: Palace,
+  used?: Set<string>,
+): { text: string; sources: string[] } | null {
   const four = sanFangPalaces(chart.palaces, p.branch);
   if (four.length !== 4) return null;
   const [, a, dui, b] = four as [Palace, Palace, Palace, Palace];
@@ -132,16 +141,31 @@ export function linkLine(chart: Chart, p: Palace): { text: string; sources: stri
   const parts: string[] = [];
   const names: string[] = [];
   const sources: string[] = [];
+  /* 講過嘅：[「家裡是天梁」, 章名] */
+  const seen: [string, string][] = [];
   for (const q of [dui, a, b]) {
     const star = leadStar(chart, q);
     const g = star ? gistOf(star, q.name) : null;
     const area = AREA[q.name];
     if (!g || !star || !area) continue;
     names.push(area[0]);
+    const key = `link.${q.name}`;
+    if (used?.has(key)) {
+      /* 章名：僕役正文一律叫交友（同 reader.ts） */
+      seen.push([`${area[1]}是${star}`, q.name === '僕役' ? '交友' : q.name]);
+      continue;
+    }
+    used?.add(key);
     parts.push(`${area[1]}，${g}`);
     sources.push(`base.${star}.${q.name}`);
   }
-  if (!parts.length) return null;
-  const list = names.length > 1 ? `${names.slice(0, -1).join('、')}和${names.at(-1)}` : names[0]!;
-  return { text: `這一面也和你的${list}連在一起：${parts.join('；')}。`, sources };
+  if (!names.length) return null;
+  const join = (xs: string[]) => (xs.length > 1 ? `${xs.slice(0, -1).join('、')}和${xs.at(-1)}` : xs[0]!);
+  const COUNT = ['', '一', '兩', '三'];
+  /* 「家裡是天梁、朋輩之間是太陽，分別見〈田宅〉〈兄弟〉兩章」—— 星名照講，呢張盤嘅嘢唔好收埋 */
+  const chs = seen.map((x) => `〈${x[1]}〉`).join('');
+  const ref = seen.length
+    ? `${seen.map((x) => x[0]).join('、')}，${seen.length === 1 ? `見${chs}那一章` : `分別見${chs}${COUNT[seen.length]}章`}`
+    : '';
+  return { text: `這一面也和你的${join(names)}連在一起：${[...parts, ref].filter(Boolean).join('；')}。`, sources };
 }

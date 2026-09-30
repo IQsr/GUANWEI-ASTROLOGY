@@ -48,3 +48,29 @@ describe('牽動格頭一句', () => {
     }
   });
 });
+
+describe('全書每宮嗰截只詳講一次（2026-09-30）', () => {
+  const r = cast({
+    solar: { y: 1990, m: 6, d: 16 }, time: { h: 7, min: 34 }, sex: 'female', tz: 'Asia/Hong_Kong',
+    place: { lng: 114.17, lat: 22.32, label: '香港' },
+  });
+  if (!r.ok) throw new Error('排唔到盤');
+  const chart = r.value;
+  const ORDER = ['命宮', '兄弟', '夫妻', '子女', '財帛', '疾厄', '遷移', '僕役', '官祿', '田宅', '福德', '父母'];
+
+  it('跟閱讀次序行一次：每一截只出一次，之後指返嗰章', () => {
+    const used = new Set<string>();
+    const lines = ORDER.map((n) => linkLine(chart, chart.palaces.find((p) => p.name === n)!, used)!.text);
+    const clauses = lines.flatMap((t) => t.split(/[：；。]/).slice(1)).filter((c) => /，/.test(c) && !/見〈/.test(c));
+    expect(clauses.length).toBe(new Set(clauses).size);
+    /* 十二宮每宮詳講一次，唔多唔少 */
+    expect(clauses).toHaveLength(12);
+    /* 最後一章嘅三個宮前面實講過 */
+    expect(lines.at(-1)).toMatch(/：.+是.+、.+是.+、.+是.+，分別見〈.+〉〈.+〉〈.+〉三章。$/);
+  });
+
+  it('唔畀 used 就三截都講（單獨砌一章）', () => {
+    const t = linkLine(chart, chart.palaces.find((p) => p.name === '父母')!)!.text;
+    expect(t).not.toMatch(/見〈/);
+  });
+});

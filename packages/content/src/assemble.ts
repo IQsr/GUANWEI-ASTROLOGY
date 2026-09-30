@@ -450,7 +450,7 @@ export function assemble(
    * 每截由嗰粒星喺嗰個宮嘅基塊撮出嚟（見 link.ts）。關係塊留喺資料度，唔再出街。
    */
   const l3 = l3For(palace, p, chart, matchedRuleIds, opts.used).filter((b) => b.kind !== 'relation');
-  const link = linkLine(chart, p);
+  const link = linkLine(chart, p, opts.used);
   if (!link && l3.length === 0) {
     missing.push({ slot: '牽動', reason: `${palace} 三方四正搵唔齊，亦冇 L3 結構塊命中` });
   } else {
