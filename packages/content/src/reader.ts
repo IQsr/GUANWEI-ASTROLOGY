@@ -29,7 +29,7 @@ function ordered(chapters: Chapter[]): Chapter[] {
 export function readerEdition(chapters: Chapter[], title = '命書'): string {
   const out = [`# ${title}`, ''];
   for (const c of ordered(chapters)) {
-    out.push(`## ${c.palace === '僕役' ? '交友' : c.palace}`, '', c.text, '');
+    out.push(`## ${c.palace}`, '', c.text, '');
   }
   return out.join('\n');
 }
@@ -75,7 +75,7 @@ export function markingSheet(chapters: Chapter[], label: string): string {
   let n = 0;
   const closing: string[] = [];
   for (const c of ordered(chapters)) {
-    const name = c.palace === '僕役' ? '交友' : c.palace;
+    const name = c.palace;
     out.push(`## ${name}`, '');
     for (const seg of c.segments) {
       if (!CLAIM_SLOTS.has(seg.slot)) {

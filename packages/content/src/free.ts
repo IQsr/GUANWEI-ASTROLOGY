@@ -406,7 +406,7 @@ export function juLine(chart: Chart, bookYear?: number): string {
   if (!bookYear) return t;
   const age = bookYear - chart.lunar.y + 1;
   const at = (branch: string) => chart.palaces.find((p) => p.branch === branch)!;
-  const label = (p: Palace) => (p.name === '僕役' ? '交友宮' : p.name.endsWith('宮') ? p.name : `${p.name}宮`);
+  const label = (p: Palace) => (p.name.endsWith('宮') ? p.name : `${p.name}宮`);
   if (age < first.fromAge) {
     const p = at(first.branch);
     return `${t}寫這本書時（${year(bookYear)}年），你虛歲${ageCN(age)}，第一個大限從虛歲${ageCN(first.fromAge)}歲開始，落在${label(p)}${starsOf(p)}。`;
@@ -440,7 +440,7 @@ export function shenChapter(
   const block = L3_BLOCKS.find((b) => b.kind === 'shen' && b.key === where);
   if (!block) return null;
   const sp = chart.palaces.find((p) => p.isShen)!;
-  const label = where === '僕役' ? '交友宮' : where.endsWith('宮') ? where : `${where}宮`;
+  const label = where.endsWith('宮') ? where : `${where}宮`;
   const lines = shenLines(chart);
   const opp = sp.borrowsFrom && !sp.stars.some((s) => s.kind === 'major') ? chart.palaces.find((p) => p.branch === sp.borrowsFrom) : undefined;
   const borrowed = opp ? `，借對宮的${opp.stars.filter((s) => s.kind === 'major').map((s) => s.name).join('、')}來看` : '';

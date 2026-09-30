@@ -23,9 +23,8 @@ function sentences(s: string): string[] {
   return (s.match(/[^。！？]*[。！？](?:[」』])?|[^。！？]+$/g) ?? []).filter((x) => x.trim());
 }
 
-/** 宮名點寫：僕役正文叫交友宮（同章首一致）。 */
+/** 宮名點寫：「命宮」照寫，其餘加「宮」。僕役正文亦叫僕役宮（2026-09-30 定，同章名一致）。 */
 export function palaceLabel(name: string): string {
-  if (name === '僕役') return '交友宮';
   return name.endsWith('宮') ? name : `${name}宮`;
 }
 
@@ -151,8 +150,7 @@ export function linkLine(
     names.push(area[0]);
     const key = `link.${q.name}`;
     if (used?.has(key)) {
-      /* 章名：僕役正文一律叫交友（同 reader.ts） */
-      seen.push([`${area[1]}是${star}`, q.name === '僕役' ? '交友' : q.name]);
+      seen.push([`${area[1]}是${star}`, q.name]);
       continue;
     }
     used?.add(key);

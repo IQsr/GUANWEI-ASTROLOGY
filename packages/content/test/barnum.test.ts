@@ -263,9 +263,9 @@ describe('真人測試材料', () => {
       expect(md.includes(leak), `讀者版漏咗 ${leak}`).toBe(false);
     }
     expect(md).toContain('## 命宮');
-    /* 僕役喺正文一律叫交友宮（C3 決定） */
-    expect(md.includes('僕役')).toBe(false);
-    expect(md).toContain('## 交友');
+    /* 僕役：正文、章名一律叫僕役宮（2026-09-30 定，同網頁章名一致） */
+    expect(md.includes('交友宮')).toBe(false);
+    expect(md).toContain('## 僕役');
   });
 
   it('標記表逐句一行，唔係逐章', () => {
