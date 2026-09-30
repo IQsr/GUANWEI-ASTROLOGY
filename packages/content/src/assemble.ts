@@ -36,6 +36,7 @@ import { MALEFICS } from './modifier';
 import { chapterFooter, emptyPalaceLine, type Slot } from './frame';
 import { closeFor } from './frame-data';
 import { palacePlain } from './palace-plain';
+import { lifeLine } from './life';
 import { cjkCount } from './lexicon';
 import { similarity } from './baseblock';
 import { L3_BLOCKS, l3For } from './l3-data';
@@ -81,6 +82,8 @@ export const SLOT_SPEC = [
   /* 直白：開場由一句盤面事實起，重複結論嘅句剷走 —— 短基塊可能淨低嗰句事實 */
   { slot: '開場' as const, min: 8, max: 90, required: true },
   { slot: '結構' as const, min: 20, max: 200, required: true },
+  /* 生活裡的樣子（2026-09-30）：結論講成一個現代場景，每格一段（`life.ts`） */
+  { slot: '生活' as const, min: 25, max: 110, required: true },
   { slot: '牽動' as const, min: 40, max: 140, required: true },
   { slot: '擾動' as const, min: 0, max: 60, required: false },
   { slot: '留白' as const, min: 25, max: 45, required: true },
@@ -441,6 +444,22 @@ export function assemble(
       source_id: ids.join('+'),
       rule_ids: rules.filter((id) => matchedRuleIds.has(id)),
     });
+
+    /*
+     * 生活裡的樣子（2026-09-30）：同結論跟同一粒領銜星。有王亭之出處就記出處，
+     * 冇就記返嗰格基塊 —— 句子只講基塊講過嘅嘢（見 life.ts）。
+     */
+    const life = lifeLine(lead.star.name, palace);
+    if (life) {
+      push({
+        slot: '生活',
+        text: life.text,
+        source_id: life.source?.passage_id ?? lead.block.id,
+        rule_ids: [`base.${lead.star.name}.${palace}`].filter((id) => matchedRuleIds.has(id)),
+      });
+    } else {
+      missing.push({ slot: '生活', reason: `${lead.star.name}·${palace} 冇生活場景` });
+    }
   }
 
   /* ── 牽動（L3 結構層）────────────────────────────────── */

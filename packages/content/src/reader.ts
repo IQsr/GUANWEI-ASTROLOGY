@@ -53,7 +53,7 @@ export function readerEdition(chapters: Chapter[], title = '命書'): string {
  * 但唔入標記表 —— 否則個表會收到一堆冇意義嘅格，
  * 而嗰啲格會溝淡真正有用嗰批（實質判斷嗰幾格）嘅比例。
  */
-const CLAIM_SLOTS = new Set(['開場', '結構', '牽動', '擾動']);
+const CLAIM_SLOTS = new Set(['開場', '結構', '生活', '牽動', '擾動']);
 
 export function markingSheet(chapters: Chapter[], label: string): string {
   const out = [

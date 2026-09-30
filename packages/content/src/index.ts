@@ -33,4 +33,5 @@ export * from './palace-plain';
 export * from './shen';
 export * from './daxian';
 export * from './liunian';
+export * from './life';
 export * from './plain';

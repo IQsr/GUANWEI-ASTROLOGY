@@ -55,6 +55,8 @@ export const SLOT_FOCUS: Record<string, Focus> = {
   四正: 'sanfang',
   推力: 'sanfang',
   偏向: 'sanfang',
+  /* 生活裡的樣子（2026-09-30）：講緊呢一宮，亮本宮 */
+  生活: 'palace',
   /* 這十年、這一年（2026-09-30）：亮嘅係大限命宮／流年命宮，由 `at` 畀 */
   大限: 'palace',
   流年: 'palace',

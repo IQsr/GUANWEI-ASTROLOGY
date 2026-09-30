@@ -10,7 +10,7 @@
  */
 import { describe, expect, it } from 'vitest';
 import { annual, cast, SCHOOL_PROFILE, type BirthInput } from '@guanwei/ziwei';
-import {
+import { LIFE_LINES,
   BASE_BLOCKS,
   FRAMES,
   L3_BLOCKS,
@@ -203,6 +203,8 @@ describe('AC ④ 每句追得返去邊一塊 ＋ 邊條規則', () => {
       ...FRAMES.map((f) => f.id),
       /* 結論（直白，2026-09-29）：由嗰格基塊撮出嚟嘅結論句，見 palace-plain.ts */
       ...PALACE_PLAIN.map((x) => x.id),
+      /* 生活裡的樣子（2026-09-30）：有王亭之出處就係語料庫嘅 life.*，冇就係嗰格基塊（見 life.ts） */
+      ...LIFE_LINES.flatMap((x) => (x.source ? [x.source.passage_id] : [])),
       /* frame.link：牽動格頭一句，由盤面生成（宮名），每截接住嗰條基塊嘅 id（見 link.ts） */
       'frame.empty', 'frame.footer', 'frame.link',
     ]);
