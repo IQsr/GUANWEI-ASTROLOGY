@@ -160,6 +160,21 @@ function sharesRun(a: string, b: string, n: number): boolean {
 }
 
 /**
+ * 基塊剷走同結論重複嗰幾句之後，餘下嘅句（直白版，2026-09-29）。
+ *
+ * 結論句係由基塊第一句撮出嚟，所以要剷；但剷咗之後，下一句如果用「這種方式」「這使」開頭，
+ * 就指住一句讀者冇讀到嘅句。呢啲句喺基塊入面寫成自己站得住（點名講邊粒星）——
+ * `test/anaphor.test.ts` 逐塊驗。
+ */
+export function afterConclusion(body: string, conclusion: string): string[] {
+  const dup = (t: string) =>
+    conclusion !== '' &&
+    cjkCount(t) >= 6 &&
+    (sharesRun(t, conclusion, 6) || sentences(conclusion).some((c) => similarity(t, c) >= 0.45));
+  return sentences(body).filter((t) => !dup(t));
+}
+
+/**
  * 「擎羊化氣為刑，快而直。做事乾脆⋯⋯」→「擎羊：做事乾脆⋯⋯」
  *
  * 剝走第一句（定義），保留星名（歸屬）。
@@ -302,12 +317,8 @@ export function assemble(
      * 唔係讀者一開頭就讀兩次「用做事表達在意」。開場由一句盤面事實起（你的夫妻宮坐武曲、天府），
      * 跟住係基塊餘下嘅依據。空宮嗰陣上面已經有借對宮嗰句，唔使再講。
      */
-    const dupOfConclusion = (t: string) =>
-      conclusion !== '' &&
-      cjkCount(t) >= 6 &&
-      (sharesRun(t, conclusion, 6) || sentences(conclusion).some((c) => similarity(t, c) >= 0.45));
     const fact = borrowed ? '' : `你的${palaceLabel(palace)}坐${stars.map((s) => s.name).join('、')}。`;
-    const cut = leadIn(fact + sentences(lead.block.body).filter((t) => !dupOfConclusion(t)).join(''), SLOT_SPEC[1]!.min);
+    const cut = leadIn(fact + afterConclusion(lead.block.body, conclusion).join(''), SLOT_SPEC[1]!.min);
     push({
       slot: '開場',
       text: cut.lead,
