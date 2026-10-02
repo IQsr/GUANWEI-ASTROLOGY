@@ -54,8 +54,12 @@ export const THEMES: readonly Theme[] = [
 /** 序自己一格，放喺主題之前 —— 佢係開卷，唔屬於任何一個主題。 */
 export const PREFACE_SLUG = '序';
 
+/** 書尾總結〈給你的話〉（2026-10-02）：同序一樣自己一格，放喺主題之後。 */
+export const EPILOGUE_SLUG = '給你的話';
+
 export type Grouped<T> = {
   preface: T | null;
+  epilogue: T | null;
   groups: { theme: Theme; chapters: T[] }[];
   /** 認唔到嘅章。正常係空；唔空就喺目次尾出一格「其餘各章」。 */
   rest: T[];
@@ -70,7 +74,8 @@ export type Grouped<T> = {
 export function groupChapters<T extends { slug: string; ord: number }>(chapters: readonly T[]): Grouped<T> {
   const sorted = [...chapters].sort((a, b) => a.ord - b.ord);
   const preface = sorted.find((c) => c.slug === PREFACE_SLUG) ?? null;
-  const taken = new Set<string>(preface ? [preface.slug] : []);
+  const epilogue = sorted.find((c) => c.slug === EPILOGUE_SLUG) ?? null;
+  const taken = new Set<string>([preface, epilogue].filter((c): c is T => c !== null).map((c) => c.slug));
 
   const groups = THEMES.map((theme) => {
     const inTheme = sorted.filter((c) => !taken.has(c.slug) && theme.palaces.includes(c.slug));
@@ -78,7 +83,7 @@ export function groupChapters<T extends { slug: string; ord: number }>(chapters:
     return { theme, chapters: inTheme };
   }).filter((g) => g.chapters.length > 0);
 
-  return { preface, groups, rest: sorted.filter((c) => !taken.has(c.slug)) };
+  return { preface, epilogue, groups, rest: sorted.filter((c) => !taken.has(c.slug)) };
 }
 
 /** 目次頂嗰行：幾多章、幾多免費、幾多未裁。 */

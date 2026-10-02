@@ -34,4 +34,5 @@ export * from './shen';
 export * from './daxian';
 export * from './liunian';
 export * from './life';
+export * from './epilogue';
 export * from './plain';

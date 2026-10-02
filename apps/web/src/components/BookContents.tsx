@@ -35,7 +35,7 @@ export function BookContents({
   cut: boolean;
 }) {
   const t = useTranslations('book');
-  const { preface, groups, rest } = groupChapters(chapters);
+  const { preface, epilogue, groups, rest } = groupChapters(chapters);
   const count = tally(chapters, cut);
   const resume = chapters.find((c) => c.slug === lastRead) ?? null;
   const start = resume ?? preface ?? chapters[0] ?? null;
@@ -126,6 +126,24 @@ export function BookContents({
             <ul className="mt-4">{list.map(row)}</ul>
           </section>
         ))}
+
+        {/* 五：給你的話（書尾總結，同序一樣自己一格） */}
+        {epilogue ? (
+          <PageTurnLink href={chapterHref(bookId, epilogue.slug)} className="ka flex items-center gap-4 p-5 sm:gap-5">
+            <ThemeIcon kind="xu" />
+            <span className="flex-1">
+              <span className="block font-serif text-lead tracking-[0.12em] sm:text-h3">{epilogue.title}</span>
+              <span className="mt-1 block text-sm tracking-[0.06em] text-ink-3">{t('epilogueLead')}</span>
+            </span>
+            {epilogue.slug === lastRead ? (
+              <span className="text-cap tracking-[0.14em] text-gold-ink">{t('readHere')}</span>
+            ) : isUncut(epilogue) ? (
+              <span className="text-cap tracking-[0.14em] text-ink-3">{t('uncutTag')}</span>
+            ) : (
+              <span aria-hidden="true" className="text-ink-3">›</span>
+            )}
+          </PageTurnLink>
+        ) : null}
 
         {/* 安全網：認唔到嘅章唔會唔見（`groupChapters` 嘅 rest） */}
         {rest.length > 0 ? (

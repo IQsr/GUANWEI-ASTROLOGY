@@ -9,6 +9,7 @@ import {
   lifeStepsChapter,
   decadeChapter,
   yearChapter,
+  epilogueChapter,
   sanfangChapter,
   xuChapter,
   LEXICON,
@@ -177,6 +178,8 @@ export function bookChapters(
   const decade = decadeChapter({ chart, year: opts.year });
   /* 流年（2026-09-30）：寫書嗰年同下一年，收費 */
   const liunian = yearChapter({ chart, year: opts.year });
+  /* 給你的話（2026-10-02）：書尾總結，收費 */
+  const epilogue = epilogueChapter({ chart, year: opts.year });
 
   /*
    * ⚠ 次序：序 → 命宮 → 性格的骨架 → 三方四正 → 身宮與五行局 → 其餘十一宮。
@@ -198,6 +201,7 @@ export function bookChapters(
     ...(decade ? [{ slug: decade.slug, title: decade.title, ...body(decade.segments) }] : []),
     ...(liunian ? [{ slug: liunian.slug, title: liunian.title, ...body(liunian.segments) }] : []),
     ...rest.map((c) => ({ slug: c.palace, ...body(c.segments) })),
+    ...(epilogue ? [{ slug: epilogue.slug, title: epilogue.title, ...body(epilogue.segments) }] : []),
   ];
 }
 

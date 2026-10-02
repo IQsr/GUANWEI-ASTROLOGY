@@ -263,7 +263,8 @@ export function adviceSegment(hits: readonly PeriodHit[], scope: '這十年' | '
   if (!lu && !ji) return null;
   const parts: string[] = [];
   if (lu) parts.push(`${area(lu)}方面是${scope}最順的地方，值得多花心思`);
-  if (ji && ji !== lu) parts.push(`${area(ji)}方面的決定，多花一點時間再定，簽字、承諾之前多問一句`);
+  /* 兩章嘅尾句唔同：給你的話會將兩段排埋一齊 */
+  if (ji && ji !== lu) parts.push(`${area(ji)}方面的決定，多花一點時間再定，${scope === '這十年' ? '簽字、承諾之前多問一句' : '急著要答覆的事，先放一晚'}`);
   if (ji && ji === lu) parts.push(`這方面有得著也有牽掛，進一步之前，先想好退路`);
   return { slot: '建議', text: `${scope}最值得做的事：${parts.join('；')}。`, source_id: null, rule_ids: [] };
 }
