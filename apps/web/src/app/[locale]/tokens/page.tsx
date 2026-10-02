@@ -91,11 +91,11 @@ export default async function TokensPage({
             className="max-h-64 border-r jielan pr-4 text-h3 leading-[1.9] tracking-[0.3em]"
             style={{ writingMode: 'vertical-rl', textOrientation: 'upright' }}
           >
-            {brand('philosophy')}
+            {brand('kind')}
           </div>
         ) : (
           <p className="max-w-64 border-l jielan pl-4 text-sm leading-[1.9] text-ink-2">
-            {brand('philosophy')}
+            {brand('kind')}
           </p>
         )}
       </header>

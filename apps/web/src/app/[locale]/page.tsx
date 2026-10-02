@@ -14,7 +14,7 @@ export function generateStaticParams() {
 /**
  * 入齋（工單 E1 → 重新設計第一期）
  *
- * 一幅書房夜景，窗外嘅星會郁。左邊三行字、一粒「起盤」；底下四步
+ * 一幅書房夜景，窗外嘅星會郁。左邊：「以星為序，以你為章。」、一句講係乜、一句命題、一粒「起盤」；底下四步
  * 講清楚成件事係點：落款 → 取書 → 閱讀 → 深讀。
  *
  * ── 同 E1 唔同咗嘅地方 ──
@@ -74,10 +74,13 @@ export default async function RuZhai({ params }: { params: Promise<{ locale: str
   const { locale } = await params;
   setRequestLocale(locale);
 
-  const brand = await getTranslations('brand');
   const t = await getTranslations('ruzhai');
   const steps = t.raw('steps') as { name: string; desc: string }[];
   const vertical = t.raw('vertical') as string[];
+  /* 標題兩行、短句（中文用）、導言段（英文用）：逐個語言自己定，排版跟住 */
+  const headline = t.raw('headline') as string[];
+  const lines = t.raw('lines') as string[];
+  const lede = t('lede');
 
   return (
     <main className="ye">
@@ -85,27 +88,39 @@ export default async function RuZhai({ params }: { params: Promise<{ locale: str
 
       <div className="relative mx-auto flex min-h-svh w-full max-w-[1280px] flex-col px-6 pb-10 pt-[calc(var(--header)+40px)] md:px-10">
         <div className="flex flex-1 flex-col justify-end pb-14 md:justify-center md:pb-10">
-          <h1 className="moshen font-serif text-[clamp(2.5rem,6.2vw,4.75rem)] font-medium leading-[1.2] tracking-[0.14em]">
-            {brand('essence')}
+          {/* 2026-10-02 改名星敘：「以星為序，以你為章。」兩句分兩行 */}
+          <h1 className="moshen font-serif text-[clamp(2.5rem,6.2vw,4.75rem)] font-medium leading-[1.3] tracking-[0.14em]">
+            {headline.map((line) => (
+              <span key={line} className="block">
+                {line}
+              </span>
+            ))}
           </h1>
 
           <span aria-hidden="true" className="mu-in mt-8 block h-px w-10 bg-night-ink-3" style={{ animationDelay: `${SEQ.line1}ms` }} />
 
-          <div className="mt-7 flex flex-col gap-2">
-            <p className="mu-in font-serif text-[clamp(1.125rem,1.9vw,1.4rem)] leading-[1.9] tracking-[0.22em]" style={{ animationDelay: `${SEQ.line1}ms` }}>
-              {brand('philosophy')}
+          {lines.length > 0 ? (
+            <div className="mt-7 flex flex-col gap-2">
+              {lines.map((line, i) => (
+                <p
+                  key={line}
+                  className="mu-in font-serif text-[clamp(1.125rem,1.9vw,1.4rem)] leading-[1.9] tracking-[0.22em]"
+                  style={{ animationDelay: `${i === 0 ? SEQ.line1 : SEQ.line2}ms` }}
+                >
+                  {line}
+                </p>
+              ))}
+            </div>
+          ) : null}
+          {/* 英文：一段導言，細字、正常字距（長句用中文嗰種闊字距會散） */}
+          {lede ? (
+            <p
+              className="mu-in mt-7 max-w-[34rem] font-serif text-[clamp(1rem,1.4vw,1.125rem)] leading-[1.8] tracking-[0.02em] text-night-ink-2"
+              style={{ animationDelay: `${SEQ.line1}ms` }}
+            >
+              {lede}
             </p>
-            <p className="mu-in font-serif text-[clamp(1.125rem,1.9vw,1.4rem)] leading-[1.9] tracking-[0.22em]" style={{ animationDelay: `${SEQ.line2}ms` }}>
-              {t('proposition')}
-            </p>
-          </div>
-
-          <p
-            className="mu-in mt-7 max-w-72 font-latin text-[0.75rem] leading-[2] tracking-[0.42em] text-night-ink-2"
-            style={{ animationDelay: `${SEQ.line3}ms` }}
-          >
-            {t('tagline')}
-          </p>
+          ) : null}
 
           <div className="mu-in mt-10" style={{ animationDelay: `${SEQ.button}ms` }}>
             <Link href="/cast" className="btn-ye">
@@ -133,7 +148,7 @@ export default async function RuZhai({ params }: { params: Promise<{ locale: str
           ))}
         </ol>
 
-        {/* 右邊直排兩行 ＋ 一枚印（桌面先出） */}
+        {/* 右邊直排兩行 ＋ 一枚印（桌面先出）。2026-10-02：「以星為引，敘你成書。」 */}
         <div
           aria-hidden="true"
           className="mu-in pointer-events-none absolute end-10 top-[calc(var(--header)+72px)] hidden flex-col items-center gap-6 xl:flex"

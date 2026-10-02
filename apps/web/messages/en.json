@@ -1,22 +1,16 @@
 {
   "brand": {
-    "name": "Guan Wei",
-    "latin": "GUAN WEI",
-    "essence": "Reading the stars is reading yourself.",
-    "philosophy": "Look closely at the small, and you will see which way things tend."
+    "name": "Stellogue",
+    "latin": "STELLOGUE",
+    "essence": "The stars, a prelude. Your life, the story.",
+    "kind": "A personalised book of Chinese astrology"
   },
   "ruzhai": {
-    "meta": "A way of reading and understanding yourself, through Zi Wei Dou Shu.",
-    "proposition": "Among ten thousand volumes, one is yours.",
-    "enter": "Begin",
+    "meta": "A personalised book of Chinese astrology, drawing on Zi Wei Dou Shu to explore your character, relationships and the unfolding chapters of your life.",
+    "enter": "Explore your chart",
     "hint": "Five questions, about three minutes. An unknown birth hour is fine.",
-    "sealLabel": "Guan Wei seal",
+    "sealLabel": "Stellogue seal",
     "resume": "Continue reading",
-    "tagline": "BETWEEN THE COSMOS AND THE SELF",
-    "vertical": [
-      "觀天地之微，",
-      "見自身之深。"
-    ],
     "steps": [
       {
         "name": "Inscribe",
@@ -35,7 +29,17 @@
         "desc": "Uncut pages, opened when you choose"
       }
     ],
-    "resumeNamed": "Continue reading {name}"
+    "resumeNamed": "Continue reading {name}",
+    "vertical": [
+      "以星為引，",
+      "敘你成書。"
+    ],
+    "headline": [
+      "The stars, a prelude.",
+      "Your life, the story."
+    ],
+    "lines": [],
+    "lede": "A personalised book of Chinese astrology, drawing on Zi Wei Dou Shu to explore your character, relationships and the unfolding chapters of your life."
   },
   "theme": {
     "day": "Day",
@@ -52,9 +56,9 @@
     "typeTitle": "Type",
     "typeNote": "Song for the frame, Spectral alongside it, Noto Sans TC for utility only. Line height 1.95, 32–40 characters per line, never embolden Chinese.",
     "specimen": {
-      "display": "觀微",
+      "display": "星敘",
       "h1": "命宮 · 天府",
-      "h2": "觀其微，而知其勢",
+      "h2": "以星為序，以你為章",
       "lead": "Your Life Palace falls in Shen.",
       "body": "Zi Wei Dou Shu carries the structure of a life across twelve palaces. It speaks of tendencies, not conclusions.",
       "sm": "This passage is inference, not assertion.",
@@ -88,7 +92,7 @@
     "shelf": "Shelf",
     "myShelf": "My shelf",
     "account": "Settings",
-    "homeAria": "Guan Wei home",
+    "homeAria": "Stellogue home",
     "menuOpen": "Open menu",
     "menuClose": "Close menu",
     "contents": "Contents",
@@ -198,7 +202,7 @@
     "openAria": "Open {name}'s book",
     "open": "Open",
     "readOn": "Read on",
-    "seal": "Guan Wei seal",
+    "seal": "Stellogue seal",
     "openLabel": "Open {label}"
   },
   "shelf": {
@@ -302,7 +306,7 @@
     "stripe2": "We only learn that this book has been paid for, not which card you used.",
     "submit": "Open",
     "going": "Going to payment",
-    "product": "Guan Wei · deeper chapters",
+    "product": "Stellogue · deeper chapters",
     "blocked": {
       "signed-out": {
         "message": "There are no books in this browser. If your book is on another device, open it there.",
@@ -405,9 +409,9 @@
   },
   "lexicon": {
     "title": "Library",
-    "ogTitle": "Library · Guan Wei",
-    "ogAlt": "Guan Wei Library",
-    "entryTitle": "{label} · Guan Wei Library",
+    "ogTitle": "Library · Stellogue",
+    "ogAlt": "Stellogue Library",
+    "entryTitle": "{label} · Stellogue Library",
     "description": "Entries on Zi Wei Dou Shu: the fourteen major stars, the twelve palaces, the four transformations and the five-element bureaus. Every entry names its source, and every quotation can be checked word for word.",
     "intro": "Entries on Zi Wei Dou Shu. Each names its source; quotations are copied word for word from the original texts, so you can check them yourself.",
     "entries": "Entries",

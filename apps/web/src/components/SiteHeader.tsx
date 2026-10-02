@@ -5,7 +5,7 @@ import { useTranslations } from 'next-intl';
 import { Link, usePathname } from '@/i18n/navigation';
 import { ThemeToggle } from '@/components/ThemeToggle';
 import { LocaleSwitch } from '@/components/LocaleSwitch';
-import { MARK } from '@/lib/site';
+import { MARK, LATIN } from '@/lib/site';
 import { useQuiet, useQuietBack } from '@/lib/quiet';
 
 /**
@@ -17,7 +17,7 @@ import { useQuiet, useQuietBack } from '@/lib/quiet';
  *
  * ── 放乜 ──
  *
- *   左　觀微 / GUAN WEI（返首頁）
+ *   左　星敘 / STELLOGUE（返首頁）
  *   中　首頁 · 起盤 · 藏經閣
  *   右　語言（中 / EN）· 日夜讀 · 「我的書齋」
  *
@@ -82,7 +82,7 @@ export function SiteHeader() {
         <div className="dao-nei">
           <Link href="/" className="flex flex-col leading-none" aria-label={t('homeAria')}>
             <span className="font-serif text-[1.375rem] font-medium md:text-[1.625rem] tracking-[0.32em]">{MARK}</span>
-            <span className="mt-1.5 font-latin text-[0.625rem] tracking-[0.5em] opacity-80">GUAN WEI</span>
+            <span className="mt-1.5 font-latin text-[0.625rem] tracking-[0.5em] opacity-80">{LATIN}</span>
           </Link>
 
           <nav aria-label={t('main')} className="hidden items-center gap-12 md:flex">

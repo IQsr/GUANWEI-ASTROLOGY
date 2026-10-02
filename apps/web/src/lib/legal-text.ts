@@ -17,7 +17,7 @@ const ZH_TERMS: LegalDoc = {
   title: '使用條款',
   updated: `最後更新：${zhDate}`,
   sections: [
-    { h: '一、這是甚麼服務', p: [`觀微（下稱「我們」，由${LEGAL.operator}營運）根據你提供的出生資料排出紫微斗數命盤，並寫成一本命書。部分章節免費閱讀，其餘深讀章節需要付款解鎖。`] },
+    { h: '一、這是甚麼服務', p: [`星敘（下稱「我們」，由${LEGAL.operator}營運）根據你提供的出生資料排出紫微斗數命盤，並寫成一本命書。部分章節免費閱讀，其餘深讀章節需要付款解鎖。`] },
     { h: '二、命書的性質', p: ['命書依據紫微斗數古籍與流派寫成，是一種文化與自我理解的參考讀物，不是對未來的保證或預測。', '命書不是醫療、心理、法律、投資、財務或其他專業意見。涉及健康、金錢、關係或法律的重要決定，請由你自己判斷，需要時請諮詢相關專業人士。'] },
     { h: '三、你提供的資料', p: ['你要確保填寫的出生資料正確；資料不準，排出的盤也會不準。', '如果你替別人排盤，請先取得對方同意。出生資料屬於對方的個人資料。'] },
     { h: '四、已完成的書不會自行改動', p: ['一本命書完成後，內容就固定下來，不會因為我們日後更新內容或規則而改變。想用新版內容，可以用同一組生辰再排一本。'] },
@@ -35,7 +35,7 @@ const ZH_PRIVACY: LegalDoc = {
   title: '私隱政策',
   updated: `最後更新：${zhDate}`,
   sections: [
-    { h: '一、我們是誰', p: [`觀微由${LEGAL.operator}營運，是你資料的控制者。聯絡：${LEGAL.contact}。`] },
+    { h: '一、我們是誰', p: [`星敘由${LEGAL.operator}營運，是你資料的控制者。聯絡：${LEGAL.contact}。`] },
     { h: '二、我們收集甚麼', p: [
       '出生資料：出生日期、時辰、出生地（經緯度）和性別，用來排盤。',
       '姓名：印在命書封面，可以留空。',
@@ -71,7 +71,7 @@ const EN_TERMS: LegalDoc = {
   title: 'Terms of Use',
   updated: `Last updated: ${LEGAL_VERSION}`,
   sections: [
-    { h: '1. The service', p: [`Guan Wei ("we", operated by ${LEGAL.operator}) casts a Zi Wei Dou Shu chart from the birth details you give and writes it into a book. Some chapters are free; the in-depth chapters are unlocked by payment.`] },
+    { h: '1. The service', p: [`Stellogue ("we", operated by ${LEGAL.operator}) casts a Zi Wei Dou Shu chart from the birth details you give and writes it into a book. Some chapters are free; the in-depth chapters are unlocked by payment.`] },
     { h: '2. What the book is', p: ['The book is a reading based on classical Zi Wei Dou Shu texts and schools. It is a cultural and self-reflection resource, not a guarantee or prediction of the future.', 'It is not medical, psychological, legal, investment, financial or other professional advice. Important decisions about health, money, relationships or the law are yours to make; consult a qualified professional where appropriate.'] },
     { h: '3. The details you provide', p: ['You are responsible for the accuracy of the birth details you enter; inaccurate details give an inaccurate chart.', 'If you cast a chart for someone else, get their consent first — their birth details are their personal data.'] },
     { h: '4. Finished books do not change', p: ['Once a book is written it is fixed; later updates to our content or rules do not change it. To get the newer content, cast a new book from the same birth details.'] },
@@ -89,7 +89,7 @@ const EN_PRIVACY: LegalDoc = {
   title: 'Privacy Policy',
   updated: `Last updated: ${LEGAL_VERSION}`,
   sections: [
-    { h: '1. Who we are', p: [`Guan Wei is operated by ${LEGAL.operator}, the controller of your data. Contact: ${LEGAL.contact}.`] },
+    { h: '1. Who we are', p: [`Stellogue is operated by ${LEGAL.operator}, the controller of your data. Contact: ${LEGAL.contact}.`] },
     { h: '2. What we collect', p: [
       'Birth details: date, hour, place of birth (coordinates) and sex, used to cast your chart.',
       'Name: printed on the cover of your book; you may leave it blank.',

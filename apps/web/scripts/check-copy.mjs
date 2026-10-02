@@ -40,6 +40,7 @@ const ALLOWED = {
   'components/Chart.tsx': '命盤：地支同宮位嘅格位（內容資料）',
   'components/Suidu.tsx': '隨讀：段落格名「開場」係資料鍵，唔顯示',
   'lib/suidu.ts': '隨讀：段落格名 → 盤面亮法（資料鍵）',
+  'lib/layers.ts': '命盤層：章 slug「這十年」「這一年」→ 開邊層（資料鍵）',
   'lib/mingshu.ts': '十二宮嘅閱讀次序（章嘅 slug）',
   'lib/chengshu.ts': '免費章 slug、章序用嘅中文數字（寫落本書嘅章名）',
   'lib/themes.ts': '主題入面嘅宮位名（章嘅 slug）；主題名本身喺 messages',
@@ -49,7 +50,7 @@ const ALLOWED = {
   'app/[locale]/book/[bookId]/[chapter]/page.tsx': '段落格名預設「正文」（資料鍵）',
 
   /* ── 品牌同語言名：任何語言都一樣 ── */
-  'lib/site.ts': '品牌「觀微」',
+  'lib/site.ts': '品牌「星敘」',
   'lib/locales.ts': '語言名用嗰種語言自己嘅寫法（「繁體中文」）',
   'components/LocaleSwitch.tsx': '「語言 · Language」刻意中英並列：睇唔明而家語言嘅人都要認得',
 
@@ -58,6 +59,7 @@ const ALLOWED = {
   'lib/pay.ts': 'webhook 判斷原因（寫入 log）',
   'lib/pay.server.ts': 'Stripe 設定錯誤（開發者訊息）',
   'lib/account.server.ts': '刪除失敗 log',
+  'app/api/auth/callback/route.ts': '驗證連結失敗 log（開發者訊息）',
   'lib/chengshu.server.ts': 'DB 回應錯誤（開發者訊息）',
   'lib/analytics.ts': '事件表嘅內部標籤（畀我哋睇 dashboard，唔畀讀者）',
   'app/api/stripe/webhook/route.ts': 'webhook log 同畀 Stripe 嘅回應',

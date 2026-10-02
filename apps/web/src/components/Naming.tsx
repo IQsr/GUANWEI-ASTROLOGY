@@ -8,7 +8,7 @@ import { Juanshou } from "@/components/Juanshou";
 import { BookSpread, type Box } from "@/components/BookSpread";
 import { Seal } from "@/components/Seal";
 import { INK_MS, NAMING_MS, SEAL_DELAY_MS } from "@/lib/timing";
-import { MARK } from "@/lib/site";
+import { MARK, LATIN } from "@/lib/site";
 import { LIFE_PALACE } from "@/lib/suidu";
 import { bookTitle } from "@/lib/chengshu";
 import { setQuiet } from "@/lib/quiet";
@@ -173,7 +173,7 @@ export function Naming({
         cover={
           <div className="flex h-full flex-col justify-between p-7 ps-10">
             <span className="font-latin text-cap uppercase tracking-[0.42em] text-ink-3">
-              GUAN WEI
+              {LATIN}
             </span>
             <div>
               {/*

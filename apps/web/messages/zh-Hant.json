@@ -1,22 +1,16 @@
 {
   "brand": {
-    "name": "觀微",
-    "latin": "GUAN WEI",
-    "essence": "觀星，亦觀己。",
-    "philosophy": "觀其微，而知其勢。"
+    "name": "星敘",
+    "latin": "STELLOGUE",
+    "essence": "以星為序，以你為章。",
+    "kind": "紫微斗數・專屬個人命書"
   },
   "ruzhai": {
     "meta": "透過紫微斗數，提供一種閱讀與理解自己的方式。",
-    "proposition": "萬卷之中，有你一書。",
     "enter": "起　盤",
     "hint": "落款五步，約三分鐘。不知道時辰也可以排。",
-    "sealLabel": "觀微印",
+    "sealLabel": "星敘印",
     "resume": "續讀上一本",
-    "tagline": "BETWEEN THE COSMOS AND THE SELF",
-    "vertical": [
-      "觀天地之微，",
-      "見自身之深。"
-    ],
     "steps": [
       {
         "name": "落款",
@@ -35,7 +29,20 @@
         "desc": "未裁之頁，想讀自己裁"
       }
     ],
-    "resumeNamed": "續讀《{name}》"
+    "resumeNamed": "續讀《{name}》",
+    "vertical": [
+      "以星為引，",
+      "敘你成書。"
+    ],
+    "headline": [
+      "以星為序，",
+      "以你為章。"
+    ],
+    "lines": [
+      "紫微斗數・專屬個人命書",
+      "萬卷之中，有你一書。"
+    ],
+    "lede": ""
   },
   "theme": {
     "day": "日讀",
@@ -44,7 +51,7 @@
   "tokens": {
     "title": "視覺系統",
     "subtitle": "工單 A2 · tokens 落地驗證頁",
-    "intro": "呢一版唔係產品，係一張對數表。所有數值都由 globals.css 嘅 tokens 出，對唔對得上《觀微 視覺系統 v0.1》一睇就知。E1「入齋」會將佢整個換走。",
+    "intro": "呢一版唔係產品，係一張對數表。所有數值都由 globals.css 嘅 tokens 出，對唔對得上《星敘 視覺系統 v0.1》一睇就知。E1「入齋」會將佢整個換走。",
     "colorTitle": "色",
     "colorNote": "四種材料，唔係四隻顏色。撳右上角換日讀夜讀，全部應該一齊轉。",
     "ratioTitle": "用量配比",
@@ -52,9 +59,9 @@
     "typeTitle": "字",
     "typeNote": "宋體做骨、Spectral 做配、Noto Sans TC 做工具字。行高 1.95、行長 32–40 字、唔加粗中文。",
     "specimen": {
-      "display": "觀微",
+      "display": "星敘",
       "h1": "命宮 · 天府",
-      "h2": "觀其微，而知其勢",
+      "h2": "以星為序，以你為章",
       "lead": "你嘅命宮落喺申。",
       "body": "紫微斗數以十二宮承載一生的結構。它講的是傾向，不是結論。",
       "sm": "此段為推演，非斷言。",
@@ -88,7 +95,7 @@
     "shelf": "書齋",
     "myShelf": "我的書齋",
     "account": "設定",
-    "homeAria": "觀微 首頁",
+    "homeAria": "星敘 首頁",
     "menuOpen": "打開選單",
     "menuClose": "收起選單",
     "contents": "目次",
@@ -198,7 +205,7 @@
     "openAria": "揭開{name}命書",
     "open": "揭開",
     "readOn": "讀下去",
-    "seal": "觀微印",
+    "seal": "星敘印",
     "openLabel": "揭開{label}"
   },
   "shelf": {
@@ -302,7 +309,7 @@
     "stripe2": "我們只會知道這本書付過款，不會知道你用的是哪一張卡。",
     "submit": "裁　開",
     "going": "前　往　付　款",
-    "product": "觀微命書 · 深度章",
+    "product": "星敘命書 · 深度章",
     "blocked": {
       "signed-out": {
         "message": "這個瀏覽器沒有書。如果書在另一部裝置上，請在那邊開啟。",
@@ -405,9 +412,9 @@
   },
   "lexicon": {
     "title": "藏經閣",
-    "ogTitle": "藏經閣 · 觀微",
-    "ogAlt": "觀微 藏經閣",
-    "entryTitle": "{label} · 觀微藏經閣",
+    "ogTitle": "藏經閣 · 星敘",
+    "ogAlt": "星敘 藏經閣",
+    "entryTitle": "{label} · 星敘藏經閣",
     "description": "紫微斗數詞條：十四主星、十二宮、四化、五行局。每條列明出處，引文逐字可核。",
     "intro": "紫微斗數的詞條。每一條都列明出處，引文逐字抄自原書，可以自己核。",
     "entries": "詞條",

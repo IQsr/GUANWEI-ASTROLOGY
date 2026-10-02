@@ -6,7 +6,7 @@ import { Book } from '@/components/Book';
 import { Shelf } from '@/components/Shelf';
 import { shelf, type ShelfBook } from '@/lib/shelf';
 import { Seal } from '@/components/Seal';
-import { MARK } from '@/lib/site';
+import { MARK, LATIN } from '@/lib/site';
 
 /**
  * 書架嘅活樣板（工單 E3）
@@ -75,11 +75,11 @@ export function ShelfDemo() {
             cover={
               <div className="flex h-full flex-col justify-between p-5">
                 <span className="font-latin text-[10px] uppercase tracking-[0.4em] text-ink-3">
-                  GUAN WEI
+                  {LATIN}
                 </span>
                 <div>
                   <p className="text-h3 font-semibold tracking-[0.18em]">李文卿</p>
-                  <Seal text={MARK} label="觀微印" className="mt-4" />
+                  <Seal text={MARK} label={`${MARK}印`} className="mt-4" />
                 </div>
               </div>
             }

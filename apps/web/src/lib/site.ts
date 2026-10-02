@@ -36,8 +36,13 @@ export const OG_LEXICON = '/og-lexicon.png';
 /**
  * 品牌字。**唔跟語言變。**
  *
- * 「觀微」係一個記號，唔係一句文案 —— 同 logo 一樣，出咗英文版都仲係
- * 「觀微」，下面嗰行 GUAN WEI 先係拼音。印亦都一樣：印文永遠係呢兩個字。
+ * 「星敘」係一個記號，唔係一句文案 —— 同 logo 一樣，出咗英文版都仲係
+ * 「星敘」，下面嗰行 STELLOGUE 先係英文名。印亦都一樣：印文永遠係呢兩個字。
  * （試過由 messages 攞，英文版個印就變成一串直排字母。）
+ *
+ * 2026-10-02 由「觀微」改名（觀微已經有人用）。
  */
-export const MARK = '觀微';
+export const MARK = '星敘';
+
+/** 品牌英文名：logo 下面、書封面頂嗰行。唔跟語言變。 */
+export const LATIN = 'STELLOGUE';

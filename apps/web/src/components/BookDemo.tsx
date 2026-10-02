@@ -6,7 +6,7 @@ import { Book } from '@/components/Book';
 import { Chart } from '@/components/Chart';
 import { Seal } from '@/components/Seal';
 import { BOOK_STATES, SHAPE_OF, type BookState } from '@/lib/book';
-import { MARK } from '@/lib/site';
+import { MARK, LATIN } from '@/lib/site';
 
 /**
  * 「書」元件嘅活樣板（工單 E2）
@@ -42,7 +42,7 @@ const MU = ['序 · 你的命盤', '一 · 命宮', '二 · 兄弟宮', '三 · 
 function BlankCover() {
   return (
     <div className="flex h-full flex-col justify-between p-7">
-      <span className="font-latin text-cap uppercase tracking-[0.42em] text-ink-3">GUAN WEI</span>
+      <span className="font-latin text-cap uppercase tracking-[0.42em] text-ink-3">{LATIN}</span>
       <div>
         {/* 未題名：得一條虛線，唔係一個 placeholder 名 */}
         <div className="h-px w-28 border-b border-dashed border-rule" />
@@ -55,11 +55,11 @@ function BlankCover() {
 function TitledCover() {
   return (
     <div className="flex h-full flex-col justify-between p-7">
-      <span className="font-latin text-cap uppercase tracking-[0.42em] text-ink-3">GUAN WEI</span>
+      <span className="font-latin text-cap uppercase tracking-[0.42em] text-ink-3">{LATIN}</span>
       <div>
         <p className="text-h2 font-semibold tracking-[0.18em]">{NAME}</p>
         <p className="mt-2 text-sm tracking-[0.1em] text-ink-2">命書</p>
-        <Seal text={MARK} label="觀微印" className="mt-6" />
+        <Seal text={MARK} label={`${MARK}印`} className="mt-6" />
       </div>
     </div>
   );

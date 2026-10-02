@@ -4,7 +4,7 @@ import { useState, type ReactNode } from 'react';
 import { Book } from '@/components/Book';
 import { BookFlip } from '@/components/BookFlip';
 import { Seal } from '@/components/Seal';
-import { MARK } from '@/lib/site';
+import { MARK, LATIN } from '@/lib/site';
 
 /**
  * 樣板：而家（`Book`，只准 width）對新版（`BookFlip`，封面繞書脊轉）
@@ -18,11 +18,11 @@ const NAME = '陳觀微';
 function Cover() {
   return (
     <div className="flex h-full flex-col justify-between p-7 ps-10">
-      <p className="font-latin text-cap tracking-[0.4em] text-ink-3">GUAN WEI</p>
+      <p className="font-latin text-cap tracking-[0.4em] text-ink-3">{LATIN}</p>
       <div>
         <p className="font-serif text-h2 font-semibold tracking-[0.18em]">{NAME}</p>
         <p className="mt-2 text-sm tracking-[0.3em] text-ink-2">命書</p>
-        <Seal text={MARK} label="觀微印" className="mt-6" />
+        <Seal text={MARK} label={`${MARK}印`} className="mt-6" />
       </div>
     </div>
   );
