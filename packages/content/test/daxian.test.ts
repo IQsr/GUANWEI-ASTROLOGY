@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { cast, sihuaOfStem, STEMS } from '@guanwei/ziwei';
-import { DAXIAN_HUA, DAXIAN_PIVOTS, decadeChapter, lifeStepsChapter, pivotSteps } from '../src/daxian';
+import { DAXIAN_HUA, DAXIAN_PIVOTS, STEPS_UNTIL_AGE, decadeChapter, lifeStepsChapter, pivotSteps } from '../src/daxian';
 import { scanForbidden } from '../src/lint';
 import { scanPlain } from '../src/plain';
 import { withoutCitations } from '../src/lexicon';
@@ -53,10 +53,13 @@ describe('兩章', () => {
     }
   });
 
-  it('十二步齊，而且標住寫書嗰陣行到邊步', () => {
+  it('列到九十歲左右起步嗰幾步，之後一句帶過；標住寫書嗰陣行到邊步', () => {
     const c = CHARTS[0]!;
     const ch = lifeStepsChapter({ chart: c, year: 2026 })!;
-    expect(ch.segments.filter((s) => s.slot === '步')).toHaveLength(12);
+    const shown = c.decadals.filter((d) => d.fromAge < STEPS_UNTIL_AGE).length;
+    const rows = ch.segments.filter((s) => s.slot === '步');
+    expect(rows).toHaveLength(shown + (shown < 12 ? 1 : 0));
+    expect(ch.segments.map((s) => s.text).join('')).not.toMatch(/一百/);
     expect(ch.segments.filter((s) => s.text.includes('寫這本書時，你在這一步')).length).toBeLessThanOrEqual(1);
   });
 
@@ -128,8 +131,9 @@ describe('樞紐大限（下篇宮垣論・命宮，p.336–366）', () => {
 
   it('一生十二步：結論講齊關鍵大限，逐步標記數目對得上', () => {
     for (const c of CHARTS.slice(0, 100)) {
-      const { steps } = pivotSteps(c);
       const ch = lifeStepsChapter({ chart: c, year: 2026 })!;
+      /* 只計列出嚟嗰幾步（九十歲左右之後唔細列） */
+      const steps = pivotSteps(c).steps.filter((n) => c.decadals.find((d) => d.index === n)!.fromAge < STEPS_UNTIL_AGE);
       expect(ch.segments.filter((s) => s.text.includes('關鍵大限。')).length).toBe(steps.length);
       if (steps.length) expect(ch.segments[0]!.text).toContain('關鍵大限');
     }

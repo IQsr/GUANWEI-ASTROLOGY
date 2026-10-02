@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { annual, cast, SCHOOL_PROFILE } from '@guanwei/ziwei';
-import { BASE_BLOCKS, RULE_REGISTRY, SPEC_VERSION, assembleAll, inferAll } from '../src/index';
+import { BASE_BLOCKS, RULE_REGISTRY, SPEC_VERSION, assembleAll, inferAll, withSubject } from '../src/index';
 
 /**
  * 懸空指代（2026-09-30）
@@ -60,7 +60,10 @@ function dangling(): string[] {
           const orig = sentences(block.body);
           const prev = orig[orig.indexOf(t) - 1];
           if (prev === undefined) return;
-          if (ss[i - 1] !== prev) out.add(`${block.id}：${t}`);
+          /* 結構格頭一句可能被加咗「星名：」或者「它」換咗星名（withSubject）—— 比對前還原 */
+          const before = ss[i - 1];
+          const same = before === prev || before === `${block.star}：${prev}` || before === prev.replace(/^它/, block.star);
+          if (!same) out.add(`${block.id}：${t}`);
         });
       }
     }
@@ -71,5 +74,19 @@ function dangling(): string[] {
 describe('宮位章：剷咗重複句之後', () => {
   it('冇一句用指代詞開頭而指住被剷走嗰句', { timeout: 120_000 }, () => {
     expect(dangling()).toEqual([]);
+  });
+});
+
+describe('結構格頭一句講得出係邊粒星（withSubject）', () => {
+  it('冇點名就加「星名：」；「它」開頭換做星名', () => {
+    expect(withSubject('不搶、不計較。', '天同')).toBe('天同：不搶、不計較。');
+    expect(withSubject('它不追高。', '天府')).toBe('天府不追高。');
+  });
+  it('頭一句講緊同座嗰粒星就唔加（以前錯加成「廉貞：貪狼⋯」）', () => {
+    expect(withSubject('貪狼對居所的態度偏向可換。', '廉貞', ['廉貞', '貪狼'])).toBe('貪狼對居所的態度偏向可換。');
+  });
+  it('「你」或者引文開頭唔加', () => {
+    expect(withSubject('你對數字有感覺。', '武曲')).toBe('你對數字有感覺。');
+    expect(withSubject('《全書》寫「終身保守」。', '天府')).toBe('《全書》寫「終身保守」。');
   });
 });

@@ -381,7 +381,8 @@ describe('⚠ 同一個湊字數嘅寫法，第六同第七次', () => {
     const tails = restatingTails(BASE_BLOCKS);
     // eslint-disable-next-line no-console
     console.log(`\n  尾句重述：${tails.length} / ${BASE_BLOCKS.length} —— 待人手覆核\n`);
-    /* 2026-09 拎走內部規則句嗰次跌咗一條（25 → 24）；直白版刪講方法句又跌一條（24 → 23，武曲疾厄） */
-    expect(tails).toHaveLength(23);
+    /* 2026-09 拎走內部規則句嗰次跌咗一條（25 → 24）；直白版刪講方法句又跌一條（24 → 23，武曲疾厄）；
+       2026-10-02 評論原文嘅句改寫做講讀者，再跌一條（23 → 22） */
+    expect(tails).toHaveLength(22);
   });
 });

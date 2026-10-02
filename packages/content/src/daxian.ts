@@ -190,19 +190,29 @@ function decadeAt(chart: Chart, year: number) {
 }
 
 /* ── 一生十二步（免費） ─────────────────────────────── */
+/**
+ * 一生十二步只列到虛歲九十歲左右起步嗰幾步（2026-10-02）。
+ * 以前列晒十二步，水二局會去到「第十二步 一百十二至一百二十一歲 關鍵大限」——
+ * 讀者見到百幾歲，第一個感覺係「機器排出嚟」。之後嘅一句帶過。
+ */
+export const STEPS_UNTIL_AGE = 90;
+
 export function lifeStepsChapter(input: { chart: Chart; year: number }): Out {
   const { chart, year } = input;
   const at = decadeAt(chart, year);
   if (!at || chart.decadals.length === 0) return null;
   const first = chart.decadals[0]!;
   const lead = at.started
-    ? `你的大限由虛歲${num(first.fromAge)}歲起，每十年換一步，一生共十二步；寫這本書時（${yearCN(year)}年），你走到第${num(at.d.index)}步。`
-    : `你的大限由虛歲${num(first.fromAge)}歲起，每十年換一步，一生共十二步；寫這本書時（${yearCN(year)}年），你還未起步。`;
+    ? `你的大限由虛歲${num(first.fromAge)}歲起，每十年換一步；寫這本書時（${yearCN(year)}年），你走到第${num(at.d.index)}步。`
+    : `你的大限由虛歲${num(first.fromAge)}歲起，每十年換一步；寫這本書時（${yearCN(year)}年），你還未起步。`;
+  const shown = chart.decadals.filter((d) => d.fromAge < STEPS_UNTIL_AGE);
+  const rest = chart.decadals.find((d) => d.fromAge >= STEPS_UNTIL_AGE);
   const pv = pivotSteps(chart);
-  const keyLine = pv.steps.length
-    ? `你命盤裡的關鍵大限是${pv.steps.map((n) => `第${num(n)}步`).join('、')}：這幾步的得失，對你一生影響特別大。`
+  const keySteps = pv.steps.filter((n) => shown.some((d) => d.index === n));
+  const keyLine = keySteps.length
+    ? `你命盤裡的關鍵大限是${keySteps.map((n) => `第${num(n)}步`).join('、')}：這幾步的得失，對你一生影響特別大。`
     : '';
-  const steps: DaxianSegment[] = chart.decadals.map((d) => {
+  const steps: DaxianSegment[] = shown.map((d) => {
     const p = chart.palaces.find((x) => x.branch === d.branch)!;
     const now = (pv.steps.includes(d.index) ? '　關鍵大限。' : '') + (at.started && d.index === at.d.index ? '　寫這本書時，你在這一步。' : '');
     return {
@@ -215,7 +225,12 @@ export function lifeStepsChapter(input: { chart: Chart; year: number }): Out {
   return {
     slug: STEPS_SLUG,
     title: STEPS_SLUG,
-    segments: [{ slot: '結論', text: lead + keyLine, source_id: pv.source, rule_ids: [] }, ...steps, { slot: '留白', text: DAXIAN_FRAMES.stepsClose, source_id: null, rule_ids: [] }],
+    segments: [
+      { slot: '結論', text: lead + keyLine, source_id: keySteps.length ? pv.source : null, rule_ids: [] },
+      ...steps,
+      ...(rest ? [{ slot: '步', text: `之後的大限從虛歲${num(rest.fromAge)}歲起，這裡不再細列。`, source_id: null, rule_ids: [] }] : []),
+      { slot: '留白', text: DAXIAN_FRAMES.stepsClose, source_id: null, rule_ids: [] },
+    ],
   };
 }
 

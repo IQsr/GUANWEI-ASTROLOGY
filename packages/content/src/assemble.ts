@@ -81,7 +81,11 @@ export const SLOT_SPEC = [
   { slot: '結論' as const, min: 15, max: 80, required: true },
   /* 直白：開場由一句盤面事實起，重複結論嘅句剷走 —— 短基塊可能淨低嗰句事實 */
   { slot: '開場' as const, min: 8, max: 90, required: true },
-  { slot: '結構' as const, min: 20, max: 200, required: true },
+  /*
+   * ⚠ 2026-10-02：結構格可以空。基塊同結論重複嘅句剷走、廟旺修飾語又只喺命宮出，
+   * 短基塊（例如田宅）可能乜都唔剩 —— 嗰陣由後面嘅「生活」格講具體，唔使硬湊。
+   */
+  { slot: '結構' as const, min: 0, max: 200, required: false },
   /* 生活裡的樣子（2026-09-30）：結論講成一個現代場景，每格一段（`life.ts`） */
   { slot: '生活' as const, min: 25, max: 110, required: true },
   { slot: '牽動' as const, min: 40, max: 140, required: true },
@@ -175,6 +179,23 @@ export function afterConclusion(body: string, conclusion: string): string[] {
     cjkCount(t) >= 6 &&
     (sharesRun(t, conclusion, 6) || sentences(conclusion).some((c) => similarity(t, c) >= 0.45));
   return sentences(body).filter((t) => !dup(t));
+}
+
+/**
+ * 結構格頭一句要講得出係邊粒星（2026-10-02）。
+ *
+ * 基塊頭一句（點名嗰句）同結論重複，組裝時剷咗；剩低嘅頭一句可能冇主語
+ * （「不搶、不計較、願意配合⋯」「改造的成本高，但對它而言⋯」）。400 本書量到七十幾款。
+ * 「它」開頭就換做星名；冇點名就加「星名：」—— 同擾動格「擎羊：⋯」一樣嘅寫法。
+ */
+export function withSubject(text: string, star: string, others: readonly string[] = []): string {
+  if (!text) return text;
+  const first = sentences(text)[0] ?? '';
+  /* 頭一句已經講緊呢格任何一粒主星（例如同座嗰粒），就唔使加 */
+  if ([star, ...others].some((s) => first.slice(0, 12).includes(s))) return text;
+  if (text.startsWith('它')) return star + text.slice(1);
+  if (/^(你|《全書》)/.test(text)) return text;
+  return `${star}：${text}`;
 }
 
 /**
@@ -322,9 +343,11 @@ export function assemble(
      */
     const fact = borrowed ? '' : `你的${palaceLabel(palace)}坐${stars.map((s) => s.name).join('、')}。`;
     const cut = leadIn(fact + afterConclusion(lead.block.body, conclusion).join(''), SLOT_SPEC[1]!.min);
+    const names = stars.map((s) => s.name);
     push({
       slot: '開場',
-      text: cut.lead,
+      /* 空宮冇「你的X宮坐…」嗰句事實，開場頭一句就係基塊 —— 一樣要講得出係邊粒星 */
+      text: borrowed ? withSubject(cut.lead, lead.star.name, names) : cut.lead,
       source_id: lead.block.id,
       rule_ids: [`base.${lead.star.name}.${palace}`].filter((id) => matchedRuleIds.has(id)),
     });
@@ -376,7 +399,11 @@ export function assemble(
       return true;
     };
     const leadStar = stars.find((x) => x.name === lead.star.name) ?? lead.star;
-    if (leadStar.brightness && borrowed === null) {
+    /*
+     * ⚠ 廟旺修飾語只喺命宮出（2026-10-02）。佢哋係「星 × 廟旺」寫嘅、同宮位無關，講嘅係性格
+     * （「日生人太陰落陷：收得太緊，該說的話留在心裡」）—— 擺喺財帛、福德讀落離題。
+     */
+    if (leadStar.brightness && borrowed === null && palace === '命宮') {
       const m = brightnessModifier(leadStar.name, leadStar.brightness);
       if (m && fresh(m.id)) {
         structure.push(m.text);
@@ -428,16 +455,20 @@ export function assemble(
      * 門檻仍然係 0.55（近乎逐字）。剷雜音唔會散文氣，剷內容先會。
      */
     const kept = [...sentences(cut.lead), ...sentences(conclusion)];
-    const structureText = sentences(structure.join(''))
-      .filter((t) => {
-        if (cjkCount(t) < 10) return true;
-        if (kept.some((l) => similarity(t, l) >= 0.55)) return false;
-        if (kept.some((l) => sharesRun(t, l, 8))) return false;
-        kept.push(t);
-        return true;
-      })
-      .join('')
-      .trim();
+    const structureText = withSubject(
+      sentences(structure.join(''))
+        .filter((t) => {
+          if (cjkCount(t) < 10) return true;
+          if (kept.some((l) => similarity(t, l) >= 0.55)) return false;
+          if (kept.some((l) => sharesRun(t, l, 8))) return false;
+          kept.push(t);
+          return true;
+        })
+        .join('')
+        .trim(),
+      lead.star.name,
+      names,
+    );
     push({
       slot: '結構',
       text: structureText,
