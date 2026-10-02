@@ -284,6 +284,118 @@ function decadeAt(chart: Chart, year: number) {
 }
 
 /* ── 一生十二步（免費） ─────────────────────────────── */
+/* ── 回看過去（2026-10-02 · 免費章）──────────────────────
+ *
+ * 讀者先喺免費章見到「對得上」嘅過去，之後嘅講法先容易接受（Issac）。
+ *
+ * ⚠ 唔講事件、唔講病、唔講意外。說服力嚟自「具體」（年份 × 方面，由張盤計出嚟、人人唔同），
+ *    唔係嚟自模糊得人人都中嘅暗示 —— 嗰種係巴納姆，`barnum.test.ts` 防嘅就係佢。
+ * ⚠ 引擎未有流羊流陀，推唔到事件細節；所以只講「呢方面變動較多／有轉機」。
+ *
+ * 依據：
+ *   一、流年四化係嗰段時期嘅環境（p.235「大運及流年四化所形成的，乃屬各時期的環境」）
+ *   二、流年樞紐（下篇宮垣論・命宮，`pivotRule(chart, 'year')`）
+ *   三、換大限 —— 新一個大限即係新一段環境
+ *
+ * 揀年：虛歲十八至去年，訊號最強嘅最多三年，年與年之間最少隔三年，按時間排。
+ */
+const JI_AREA: Record<string, string> = {
+  命宮: '你自己的狀態起伏較大',
+  兄弟: '朋輩之間的事比較費心',
+  夫妻: '感情上牽掛較多，容易有摩擦',
+  子女: '後輩或手上的作品比較費心',
+  財帛: '錢方面支出或周轉比較吃緊',
+  疾厄: '身心負荷較重，容易覺得累',
+  遷移: '在外奔走較多，環境變化大',
+  僕役: '人際來往比較費心',
+  官祿: '工作上變動較多，事情不容易照計劃走',
+  田宅: '住處或家裡的事變動較多',
+  福德: '心事較多，不容易靜下來',
+  父母: '和長輩或上司之間要交代的事較多',
+};
+const LU_AREA: Record<string, string> = {
+  命宮: '你自己的狀態比較順',
+  兄弟: '朋輩之間比較得力',
+  夫妻: '感情上比較順',
+  子女: '後輩或手上的作品有起色',
+  財帛: '錢方面有轉機',
+  疾厄: '身心比較鬆得下來',
+  遷移: '在外的機會較多',
+  僕役: '人際上有助力',
+  官祿: '工作上有轉機',
+  田宅: '住處或家裡的事有好的安排',
+  福德: '心境比較安穩',
+  父母: '和長輩或上司之間比較順',
+};
+
+export function lookBack(chart: Chart, year: number): DaxianSegment | null {
+  const born = chart.lunar.y;
+  const pivot = pivotRule(chart, 'year');
+  type Cand = { y: number; age: number; score: number; text: string; sources: string[] };
+  const cands: Cand[] = [];
+  for (let y = born + 17; y < year; y++) {
+    const r = annual(chart, y);
+    if (!r.ok) continue;
+    const A = r.value;
+    const parts: string[] = [];
+    const sources: string[] = [];
+    let score = 0;
+    const turn = chart.decadals.find((d) => d.fromAge === A.nominalAge);
+    if (turn) {
+      parts.push(`你走進第${num(turn.index)}個大限，生活的重心往往在這幾年轉了方向`);
+      score += 2;
+    }
+    const ji = A.sihua.annual.find((h) => h.hua === '忌');
+    const lu = A.sihua.annual.find((h) => h.hua === '祿');
+    if (ji?.annualPalace && JI_AREA[ji.annualPalace]) {
+      parts.push(JI_AREA[ji.annualPalace]!);
+      sources.push('huigu.env');
+      score += ['官祿', '夫妻', '田宅', '遷移', '財帛', '疾厄'].includes(ji.annualPalace) ? 2 : 1;
+    } else if (lu?.annualPalace && LU_AREA[lu.annualPalace]) {
+      parts.push(LU_AREA[lu.annualPalace]!);
+      sources.push('huigu.env');
+      score += 1;
+    }
+    const mp = chart.palaces.find((p) => p.branch === A.mingGong);
+    const key = Boolean(pivot && mp && pivot.isPivot(mp));
+    if (key) {
+      sources.push(pivot!.source);
+      score += 3;
+    }
+    if (score >= 3 && (parts.length || key)) {
+      /* 關鍵年份行先講，再講係邊方面 */
+      const text = key
+        ? `是你命盤裡關鍵的一年${parts.length ? `：${parts.join('；')}` : ''}`
+        : parts.join('；');
+      cands.push({ y, age: A.nominalAge, score, text, sources });
+    }
+  }
+  const picked: Cand[] = [];
+  for (const c of [...cands].sort((a, b) => b.score - a.score || b.y - a.y)) {
+    if (picked.length >= 3) break;
+    if (picked.some((p) => Math.abs(p.y - c.y) < 3)) continue;
+    picked.push(c);
+  }
+  if (!picked.length) return null;
+  picked.sort((a, b) => a.y - b.y);
+  /* 「是你命盤裡關鍵的一年」第二次起改講「同樣是」，唔好連講三次 */
+  let keySeen = false;
+  const lines = picked.map((c) => {
+    let text = c.text;
+    if (text.startsWith('是你命盤裡關鍵的一年')) {
+      if (keySeen) text = text.replace('是你命盤裡關鍵的一年', '同樣是關鍵的一年');
+      keySeen = true;
+    }
+    return `${yearCN(c.y)}年前後（你虛歲${num(c.age)}），${text}。`;
+  });
+  return {
+    slot: '回看',
+    text: `回看你走過的路：${lines.join('')}這幾年，對你來說是不是有過轉折？`,
+    source_id: [...new Set(picked.flatMap((c) => c.sources))].join('+') || null,
+    rule_ids: [],
+  };
+}
+
 /**
  * 一生十二步只列到虛歲九十歲左右起步嗰幾步（2026-10-02）。
  * 以前列晒十二步，水二局會去到「第十二步 一百十二至一百二十一歲 關鍵大限」——
@@ -300,6 +412,8 @@ export function lifeStepsChapter(input: { chart: Chart; year: number }): Out {
     ? `你的大限由虛歲${num(first.fromAge)}歲起，每十年換一步；寫這本書時（${yearCN(year)}年），你走到第${num(at.d.index)}步。`
     : `你的大限由虛歲${num(first.fromAge)}歲起，每十年換一步；寫這本書時（${yearCN(year)}年），你還未起步。`;
   const shown = chart.decadals.filter((d) => d.fromAge < STEPS_UNTIL_AGE);
+  /* 回看過去：讀者見到對得上嘅年份，之後嘅講法先容易接受 */
+  const back = lookBack(chart, year);
   const rest = chart.decadals.find((d) => d.fromAge >= STEPS_UNTIL_AGE);
   const pv = pivotSteps(chart);
   const keySteps = pv.steps.filter((n) => shown.some((d) => d.index === n));
@@ -321,6 +435,7 @@ export function lifeStepsChapter(input: { chart: Chart; year: number }): Out {
     title: STEPS_SLUG,
     segments: [
       { slot: '結論', text: lead + keyLine, source_id: keySteps.length ? pv.source : null, rule_ids: [] },
+      ...(back ? [back] : []),
       ...steps,
       ...(rest ? [{ slot: '步', text: `之後的大限從虛歲${num(rest.fromAge)}歲起，這裡不再細列。`, source_id: null, rule_ids: [] }] : []),
       { slot: '留白', text: DAXIAN_FRAMES.stepsClose, source_id: null, rule_ids: [] },
