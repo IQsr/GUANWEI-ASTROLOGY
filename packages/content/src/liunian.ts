@@ -2,7 +2,7 @@ import { annual, type AnnualChart, type Chart, type Sihua } from '@guanwei/ziwei
 import { FORBIDDEN_TERMS } from './frame';
 import { palaceLabel } from './link';
 import { leanOf, xingxiOf } from './xingxi';
-import { DAXIAN_HUA, DAXIAN_RULES, area, decadeView, num, pivotRule, starsOf, yearCN, type DaxianSegment } from './daxian';
+import { DAXIAN_HUA, DAXIAN_RULES, adviceSegment, area, areaSegments, decadeView, num, pivotRule, starsOf, yearCN, type DaxianSegment } from './daxian';
 
 /* ───────────────────────────────────────────────────────────
  * 流年章〈這一年〉（2026-09-30）
@@ -89,8 +89,13 @@ export function yearChapter(input: { chart: Chart; year: number }): { slug: stri
   const x = xingxiOf(view);
   const leanLine = x ? `這一年裡，${x.system.plain.lean[leanOf(view, x.system).pole]}` : '';
 
-  /* 流年四化 */
-  const huaLines = hits.map((h) => {
+  /* 分四方面（工作、錢、感情、心境）：讀流年盤嘅官祿、財帛、夫妻、福德 */
+  const periodHits = hits.map((h) => ({ star: h.star, hua: h.hua, palace: h.annualPalace }));
+  const areas = areaSegments(chart, (b) => A.overlay.find((o) => o.branch === b)?.annual ?? null, periodHits, '這一年');
+  const advice = adviceSegment(periodHits, '這一年');
+
+  /* 流年四化（四方面已經講咗嘅唔再講） */
+  const huaLines = hits.filter((h) => !areas.used.has(`${h.star}${h.hua}`)).map((h) => {
     const m = DAXIAN_HUA.find((e) => e.star === h.star && e.hua === h.hua);
     const where = h.annualPalace ? `（在這一年的${palaceLabel(h.annualPalace)}）` : '';
     return { text: m ? `${h.star}化${h.hua}${where}：${m.text}` : '', id: m?.id ?? null };
@@ -123,8 +128,10 @@ export function yearChapter(input: { chart: Chart; year: number }): { slug: stri
   const segments = [
     seg('結論', lead, isKey ? pivot!.source : null),
     seg('流年', fact + leanLine, x ? `xingxi.${x.system.n}` : null),
-    seg('四化', huaLines.map((l) => l.text).join(''), huaLines.map((l) => l.id).filter(Boolean).join('+') || null),
+    ...areas.segments,
+    seg('四化', huaLines.length && areas.segments.length ? `其餘的四化：${huaLines.map((l) => l.text).join('')}` : huaLines.map((l) => l.text).join(''), huaLines.map((l) => l.id).filter(Boolean).join('+') || null),
     ...(interSeg ? [seg('互動', interSeg.text, interSeg.id)] : []),
+    ...(advice ? [advice] : []),
     ...(nextLine ? [seg('明年', nextLine)] : []),
     seg('留白', LIUNIAN_CLOSE),
   ].filter((s) => s.text.trim() !== '');

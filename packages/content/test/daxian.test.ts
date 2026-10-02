@@ -63,10 +63,23 @@ describe('兩章', () => {
     expect(ch.segments.filter((s) => s.text.includes('寫這本書時，你在這一步')).length).toBeLessThanOrEqual(1);
   });
 
-  it('這十年：大限四化四句都講到，而且講明落喺呢十年邊宮', () => {
+  it('這十年：大限四化四句都講到 —— 落入四方面嘅喺嗰段講，其餘喺四化段講明落喺邊宮', () => {
     for (const c of CHARTS.slice(0, 100)) {
-      const s = decadeChapter({ chart: c, year: 2026 })!.segments.find((x) => x.slot === '四化')!;
-      expect(s.text.match(/化[祿權科忌]（在這十年的/g)?.length, s.text).toBe(4);
+      const segs = decadeChapter({ chart: c, year: 2026 })!.segments;
+      const rest = segs.find((x) => x.slot === '四化')?.text.match(/化[祿權科忌]（在這十年的/g)?.length ?? 0;
+      const inAreas = segs
+        .filter((x) => ['工作', '錢', '感情', '心境'].includes(x.slot))
+        .flatMap((x) => /；([^。]*)落在這裡/.exec(x.text)?.[1]?.split('、') ?? []).length;
+      expect(rest + inAreas, segs.map((x) => x.text).join(' ')).toBe(4);
+    }
+  });
+
+  it('這十年：已起運就分工作、錢、感情、心境四方面講，仲有一段建議', () => {
+    for (const c of CHARTS.slice(0, 100)) {
+      const ch = decadeChapter({ chart: c, year: 2026 })!;
+      const slots = ch.segments.map((x) => x.slot);
+      if (!ch.segments[0]!.text.includes('正行第')) continue;
+      expect(slots).toEqual(expect.arrayContaining(['工作', '錢', '感情', '心境', '建議']));
     }
   });
 

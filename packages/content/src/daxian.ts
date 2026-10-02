@@ -9,6 +9,7 @@ import { scanPlain } from './plain';
 import { AREA, palaceLabel } from './link';
 import { FORBIDDEN_TERMS } from './frame';
 import { leanOf, xingxiOf } from './xingxi';
+import { palacePlain } from './palace-plain';
 
 /* ───────────────────────────────────────────────────────────
  * 大限兩章（2026-09-30 · Issac：先做大限，參考書）
@@ -177,6 +178,96 @@ export function starsOf(chart: Chart, p: Palace): string {
 }
 export const area = (palace: string | null) => (palace ? (AREA[palace]?.[0] ?? palaceLabel(palace)) : '');
 
+/* ── 分四方面讀一段時期（2026-10-02）───────────────────────
+ *
+ * 《深造講義》讀運限，係將大限／流年嗰盤嘅宮當本命咁讀：「大運事業宮」「大運財帛宮」「流年夫妻宮」
+ * （p.235、p.440 嘅例子）。所以呢段時期嘅工作、錢、感情、心境，就睇嗰盤嘅官祿、財帛、夫妻、福德
+ * 坐乜星（用嗰粒星喺嗰類宮嘅結論句），同埋呢段時期嘅四化有冇落入去。
+ *
+ * ⚠ p.440 寫明「不可一見大運財帛宮的煞忌，便立刻武斷為財帛不佳」—— 化忌只講「要多留神」，唔講衰。
+ * ⚠ 唔講「大限落本命某宮＝重心」：書入面冇呢個講法。
+ */
+export const AREAS = [
+  { palace: '官祿', slot: '工作', says: /做事|工作/ },
+  { palace: '財帛', slot: '錢', says: /錢|資源|財/ },
+  { palace: '夫妻', slot: '感情', says: /感情|親密|伴侶/ },
+  { palace: '福德', slot: '心境', says: /安定|安心|心境/ },
+] as const;
+
+const TONE: Record<Sihua, string> = {
+  祿: '比較順',
+  權: '有發揮的空間，也要多扛一點',
+  科: '容易得到認可',
+  忌: '要多留神',
+};
+
+export type PeriodHit = { star: string; hua: Sihua; palace: string | null };
+
+/**
+ * 一段時期分四方面嘅段落。`nameAt(branch)` = 呢段時期嘅盤入面，嗰個地支叫乜宮。
+ * 回嘅 `used` = 已經喺四方面講咗嘅四化（四化段唔使再講一次）。
+ */
+export function areaSegments(
+  chart: Chart,
+  nameAt: (branch: string) => string | null,
+  hits: readonly PeriodHit[],
+  scope: '這十年' | '這一年',
+): { segments: DaxianSegment[]; used: Set<string> } {
+  const used = new Set<string>();
+  const segments: DaxianSegment[] = [];
+  for (const a of AREAS) {
+    const p = chart.palaces.find((x) => nameAt(x.branch) === a.palace);
+    if (!p) continue;
+    const own = majors(p);
+    const opp = own.length === 0 && p.borrowsFrom ? chart.palaces.find((x) => x.branch === p.borrowsFrom) : undefined;
+    const lead = (own[0] ?? (opp ? majors(opp)[0] : undefined)) as string | undefined;
+    const pp = lead ? palacePlain(lead, a.palace) : undefined;
+    if (!pp) continue;
+    const here = hits.filter((h) => h.palace === a.palace);
+    here.forEach((h) => used.add(`${h.star}${h.hua}`));
+    const label = AREA[a.palace]![1];
+    /* 化祿化忌同落一格：唔揀邊個，照講有得有失 */
+    const tones = [...new Set(here.map((h) => TONE[h.hua]))];
+    /*
+     * 開頭點寫：
+     *   有順／要留神 —— 一定講明係邊方面（「感情上，這十年要多留神。」）
+     *   冇，而結論句自己已經講明係邊方面（「你在感情裡⋯」）—— 唔再加「感情上」，唔好講兩次
+     */
+    const says = a.says.test(pp.summary.slice(0, 8));
+    const head = tones.length
+      ? `${label}，${scope}${tones.join('，也')}。${pp.summary}${pp.watch}`
+      : says
+        ? `${scope}，${pp.summary}${pp.watch}`
+        : `${label}，${scope}${pp.summary}${pp.watch}`;
+    const layer = scope === '這十年' ? '大限' : '流年';
+    const fact = `（依據：${layer}的${a.palace}宮${starsOf(chart, p)}${here.length ? `；${here.map((h) => `${h.star}化${h.hua}`).join('、')}落在這裡` : ''}。）`;
+    const huaText = here
+      .map((h) => DAXIAN_HUA.find((e) => e.star === h.star && e.hua === h.hua))
+      .filter((m): m is NonNullable<typeof m> => Boolean(m))
+      .map((m) => m.text)
+      .join('');
+    segments.push({
+      slot: a.slot,
+      text: head + fact + huaText,
+      source_id: [pp.id, ...here.map((h) => `dx.hua.${h.star}.${h.hua}`).filter((id) => DAXIAN_HUA.some((e) => e.id === id))].join('+'),
+      rule_ids: [],
+    });
+  }
+  return { segments, used };
+}
+
+/** 呢段時期最值得做嘅事：力氣放喺化祿嗰方面，化忌嗰方面嘅決定慢一步。 */
+export function adviceSegment(hits: readonly PeriodHit[], scope: '這十年' | '這一年'): DaxianSegment | null {
+  const lu = hits.find((h) => h.hua === '祿')?.palace ?? null;
+  const ji = hits.find((h) => h.hua === '忌')?.palace ?? null;
+  if (!lu && !ji) return null;
+  const parts: string[] = [];
+  if (lu) parts.push(`${area(lu)}方面是${scope}最順的地方，值得多花心思`);
+  if (ji && ji !== lu) parts.push(`${area(ji)}方面的決定，多花一點時間再定，簽字、承諾之前多問一句`);
+  if (ji && ji === lu) parts.push(`這方面有得著也有牽掛，進一步之前，先想好退路`);
+  return { slot: '建議', text: `${scope}最值得做的事：${parts.join('；')}。`, source_id: null, rule_ids: [] };
+}
+
 /** 寫書嗰年嘅虛歲同大限。未起運回第一個大限，`started: false`。 */
 function decadeAt(chart: Chart, year: number) {
   const a = annual(chart, year);
@@ -296,8 +387,19 @@ export function decadeChapter(input: { chart: Chart; year: number }): Out {
   const x = xingxiOf(view);
   const leanLine = x ? `這十年裡，${x.system.plain.lean[leanOf(view, x.system).pole]}` : '';
 
-  /* 四化：逐粒講，落喺呢十年嘅邊宮 */
-  const huaLines = hits.map((h) => {
+  /* 分四方面（工作、錢、感情、心境）：起咗運先有大限盤 */
+  const areas = started
+    ? areaSegments(
+        chart,
+        (b) => A.overlay.find((o) => o.branch === b)?.decadal ?? null,
+        hits.map((h) => ({ star: h.star, hua: h.hua, palace: h.decadalPalace })),
+        '這十年',
+      )
+    : { segments: [], used: new Set<string>() };
+  const advice = started ? adviceSegment(hits.map((h) => ({ star: h.star, hua: h.hua, palace: h.decadalPalace })), '這十年') : null;
+
+  /* 四化：逐粒講，落喺呢十年嘅邊宮（四方面已經講咗嘅唔再講） */
+  const huaLines = hits.filter((h) => !areas.used.has(`${h.star}${h.hua}`)).map((h) => {
     const m = DAXIAN_HUA.find((e) => e.star === h.star && e.hua === h.hua);
     const where = h.decadalPalace ? `（在這十年的${palaceLabel(h.decadalPalace)}）` : '';
     return { text: m ? `${h.star}化${h.hua}${where}：${m.text}` : '', id: m?.id ?? null };
@@ -330,8 +432,10 @@ export function decadeChapter(input: { chart: Chart; year: number }): Out {
   const segments = [
     seg('結論', when + gist + young + (pivotSteps(chart).steps.includes(d.index) ? '這十年是你命盤裡的關鍵大限之一，這段時期的得失，對你一生影響特別大。' : '')),
     seg('大限', fact + leanLine, x ? `xingxi.${x.system.n}` : null),
-    seg('四化', huaLines.map((l) => l.text).join(''), huaLines.map((l) => l.id).filter(Boolean).join('+') || null),
+    ...areas.segments,
+    seg('四化', huaLines.length && areas.segments.length ? `其餘的四化：${huaLines.map((l) => l.text).join('')}` : huaLines.map((l) => l.text).join(''), huaLines.map((l) => l.id).filter(Boolean).join('+') || null),
     ...(interSeg ? [seg('互動', interSeg.text, interSeg.id)] : []),
+    ...(advice ? [advice] : []),
     ...(nextLine ? [seg('下一步', nextLine)] : []),
     seg('留白', DAXIAN_FRAMES.decadeClose),
   ].filter((s) => s.text.trim() !== '');

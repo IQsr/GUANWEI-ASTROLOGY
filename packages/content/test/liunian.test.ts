@@ -41,10 +41,21 @@ describe('這一年', () => {
     }
   });
 
-  it('流年四化四句都講到，落喺今年邊宮', () => {
+  it('流年四化四句都講到 —— 落入四方面嘅喺嗰段講，其餘喺四化段講明落喺邊宮', () => {
     for (const c of CHARTS.slice(0, 100)) {
-      const s = yearChapter({ chart: c, year: 2026 })!.segments.find((x) => x.slot === '四化')!;
-      expect(s.text.match(/化[祿權科忌]（在這一年的/g)?.length, s.text).toBe(4);
+      const segs = yearChapter({ chart: c, year: 2026 })!.segments;
+      const rest = segs.find((x) => x.slot === '四化')?.text.match(/化[祿權科忌]（在這一年的/g)?.length ?? 0;
+      const inAreas = segs
+        .filter((x) => ['工作', '錢', '感情', '心境'].includes(x.slot))
+        .flatMap((x) => /；([^。]*)落在這裡/.exec(x.text)?.[1]?.split('、') ?? []).length;
+      expect(rest + inAreas, segs.map((x) => x.text).join(' ')).toBe(4);
+    }
+  });
+
+  it('分工作、錢、感情、心境四方面講，仲有一段建議', () => {
+    for (const c of CHARTS.slice(0, 100)) {
+      const slots = yearChapter({ chart: c, year: 2026 })!.segments.map((x) => x.slot);
+      expect(slots).toEqual(expect.arrayContaining(['工作', '錢', '感情', '心境', '建議']));
     }
   });
 
