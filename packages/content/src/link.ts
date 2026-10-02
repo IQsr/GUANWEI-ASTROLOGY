@@ -166,5 +166,18 @@ export function linkLine(
   const ref = seen.length
     ? `${seen.map((x) => x[0]).join('、')}，${seen.length === 1 ? `見${chs}那一章` : `分別見${chs}${COUNT[seen.length]}章`}`
     : '';
-  return { text: `這一面也和你的${join(names)}連在一起：${[...parts, ref].filter(Boolean).join('；')}。`, sources };
+  /*
+   * 開頭四款輪流用（2026-10-02）：以前十二章都係「這一面也和你的⋯連在一起」，一本書出十二次。
+   * 跟宮位次序輪，所以同一本書每款大約出三次，而且同一張盤永遠一樣。
+   */
+  const list = join(names);
+  const HEADS = [
+    `這一面也和你的${list}連在一起`,
+    `放在整張盤看，這一面和你的${list}分不開`,
+    `牽動這一面的，還有你的${list}`,
+    `你的${list}，也會影響這一面`,
+  ];
+  const ORDER = ['命宮', '兄弟', '夫妻', '子女', '財帛', '疾厄', '遷移', '僕役', '官祿', '田宅', '福德', '父母'];
+  const head = HEADS[Math.max(0, ORDER.indexOf(p.name)) % HEADS.length]!;
+  return { text: `${head}：${[...parts, ref].filter(Boolean).join('；')}。`, sources };
 }

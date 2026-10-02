@@ -117,11 +117,15 @@ describe('AC ① 純規則，可完全重現', () => {
   });
 
   /** 輪替係由種算出嚟，唔係 random —— 唔同嘅書結尾唔同，同一本永遠一樣。 */
-  it('換咗種，留白句會唔同；同一個種永遠一樣', () => {
+  /* 2026-10-02：每章以「生活」格收，唔再以一條反思問題收（一本書九條同款，讀落似模板） */
+  it('每章以生活場景收尾（疾厄後面只多一句免責）；同一個種永遠一樣', () => {
+    for (const c of CH) {
+      const body = c.segments.filter((s) => s.source_id !== 'frame.footer');
+      expect(body.at(-1)!.slot, c.palace).toBe('生活');
+      expect(c.segments.some((s) => s.source_id?.startsWith('frame.close'))).toBe(false);
+    }
     const other = assembleAll(CHART, BY_TOPIC, { seed: 'c2' });
-    const closeOf = (cs: typeof CH) => cs.map((c) => c.segments.find((s) => s.slot === '留白')!.source_id);
-    expect(closeOf(other)).not.toEqual(closeOf(CH));
-    expect(closeOf(assembleAll(CHART, BY_TOPIC, { seed: 'c2' }))).toEqual(closeOf(other));
+    expect(assembleAll(CHART, BY_TOPIC, { seed: 'c2' })).toEqual(other);
   });
 });
 
@@ -259,7 +263,8 @@ describe('V-001：一章入面根本冇「勢」呢個插槽', () => {
     const graded = CH.filter((c) => c.topic_grade !== null && c.topic_grade !== 0);
     expect(graded.map((c) => c.palace)).toEqual(['財帛']);
     /* 2026-09 拎走內部規則句之後每章短咗；2026-09-29 直白版剷走同結論重複嘅句，最短嗰章（田宅）約 230 */
-    for (const c of CH) expect(c.words, c.palace).toBeGreaterThan(200);
+    /* 2026-10-02 拎走結尾問題（約 35 字）之後，最短嗰章（田宅）約 197 */
+    for (const c of CH) expect(c.words, c.palace).toBeGreaterThan(170);
   });
 
   /** 主題得七個，宮位有十二個 —— 欄名要講得出佢係主題級數，唔係呢一宮嘅級數。 */

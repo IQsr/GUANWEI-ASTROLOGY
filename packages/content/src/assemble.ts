@@ -90,7 +90,8 @@ export const SLOT_SPEC = [
   { slot: '生活' as const, min: 25, max: 110, required: true },
   { slot: '牽動' as const, min: 40, max: 140, required: true },
   { slot: '擾動' as const, min: 0, max: 60, required: false },
-  { slot: '留白' as const, min: 25, max: 45, required: true },
+  /* 2026-10-02：宮位章唔再以反思問題收（改由「生活」格收），留白只剩疾厄嘅免責句 */
+  { slot: '留白' as const, min: 0, max: 45, required: false },
 ] as const;
 
 export type ChapterSlot = (typeof SLOT_SPEC)[number]['slot'];
@@ -268,6 +269,7 @@ export function assemble(
   const o = res.interpretation;
   const matchedRuleIds = new Set(o.evidence.map((e) => e.rule_id));
   /* 空段唔出（直白版剷走重複句之後，短基塊嘅結構格可能乜都唔剩）—— 空段會令段數同格名對唔上 */
+  let lifeSeg: Segment | null = null;
   const push = (seg: Segment) => {
     if (seg.text.trim() !== '') segments.push(seg);
   };
@@ -482,12 +484,12 @@ export function assemble(
      */
     const life = lifeLine(lead.star.name, palace);
     if (life) {
-      push({
+      lifeSeg = {
         slot: '生活',
         text: life.text,
         source_id: life.source?.passage_id ?? lead.block.id,
         rule_ids: [`base.${lead.star.name}.${palace}`].filter((id) => matchedRuleIds.has(id)),
-      });
+      };
     } else {
       missing.push({ slot: '生活', reason: `${lead.star.name}·${palace} 冇生活場景` });
     }
@@ -506,7 +508,8 @@ export function assemble(
   } else {
     push({
       slot: '牽動',
-      text: [link?.text ?? '', ...l3.map((b) => b.body)].join(''),
+      /* 「X宮的三方四正見多顆煞曜。」係術語、而且一本書出十次 —— 留後面嗰句白話（2026-10-02） */
+      text: [link?.text ?? '', ...l3.map((b) => b.body.replace(/^\S{1,3}宮的三方四正見多顆[煞吉]曜。/, ''))].join(''),
       source_id: [...(link ? ['frame.link', ...link.sources] : []), ...l3.map((b) => b.id)].join('+'),
       rule_ids: l3.flatMap((b) => b.rule_ids),
     });
@@ -548,9 +551,14 @@ export function assemble(
     });
   }
 
-  /* ── 留白（L5）──────────────────────────────────────── */
-  const close = closeFor(palace, seed);
-  push({ slot: '留白', text: close.text, source_id: close.id, rule_ids: [] });
+  /*
+   * ── 收尾：生活裡的樣子（2026-10-02）─────────────────────
+   *
+   * 以前每章以一條反思問題收（「⋯還是⋯？」），一本書九條同款，讀到第三章就睇得出係模板。
+   * 而家用「生活」格收：一個具體場景，比一條抽象問題更有用。留白句庫照留（舊書、閘要認得）。
+   */
+  if (lifeSeg) push(lifeSeg);
+  void closeFor;
 
   const footer = chapterFooter(palace);
   if (footer) push({ slot: '留白', text: footer, source_id: 'frame.footer', rule_ids: [] });

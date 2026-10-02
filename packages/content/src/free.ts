@@ -363,7 +363,7 @@ export const SHEN_FRAMES = [
     id: 'frame.close.身宮',
     slot: '留白',
     status: 'reviewed',
-    text: '身宮所在，就是你這些年最用力的地方。回頭看看，你的力氣是不是一直落在這裡。',
+    text: '身宮所在，就是你這些年最用力的地方；力氣用在這裡，最容易見到回報。',
   },
 ].map((f) => ShenFrame.parse(f));
 

@@ -23,7 +23,7 @@ import { DAXIAN_HUA, DAXIAN_RULES, adviceSegment, area, areaSegments, decadeView
 
 export const YEAR_SLUG = '這一年';
 
-export const LIUNIAN_CLOSE = '一年很快過去，但這一年的環境是這樣。回頭看看，你今年最花心思的，是不是這幾方面。';
+export const LIUNIAN_CLOSE = '一年很快過去。把力氣放在順的地方，對要留神的事慢一步，就是這一年最實在的做法。';
 {
   const bad = FORBIDDEN_TERMS.filter((w) => LIUNIAN_CLOSE.includes(w));
   if (bad.length) throw new Error(`流年章框唔准講命理：${bad.join('、')}`);

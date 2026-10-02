@@ -63,7 +63,7 @@ export const XINGXI_FRAMES = [
     id: 'frame.close.性格的骨架',
     slot: '留白',
     status: 'draft',
-    text: '骨架是天生的，長成怎樣的人，看你怎樣用它。回頭看看，這個底子在你身上站不站得住。',
+    text: '骨架是天生的，長成怎樣的人，看你怎樣用它；用在對的地方，同一副骨架就是長處。',
   },
   {
     id: 'frame.close.三方四正',

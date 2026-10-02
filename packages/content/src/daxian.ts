@@ -142,8 +142,8 @@ export const DAXIAN_RULES = RulesDoc.parse(rulesRaw);
 
 /* 章框（冇來源，唔准讀象） */
 export const DAXIAN_FRAMES = {
-  stepsClose: '十二步是一條路的形狀，走得快慢、走向哪裡，仍然在你。回頭看看，你走過的幾步，和這裡寫的像不像。',
-  decadeClose: '這十年的環境是這樣，怎樣走仍然在你。回頭看看，你現在最花心思的，是不是這幾方面。',
+  stepsClose: '十二步是一條路的形狀，走得快慢、走向哪裡，仍然在你；關鍵的幾步，值得提早準備。',
+  decadeClose: '環境只是背景；這十年要做成甚麼、做到哪一步，始終由你自己決定。',
 } as const;
 for (const t of Object.values(DAXIAN_FRAMES)) {
   const bad = FORBIDDEN_TERMS.filter((w) => t.includes(w));
@@ -234,11 +234,13 @@ export function areaSegments(
      *   冇，而結論句自己已經講明係邊方面（「你在感情裡⋯」）—— 唔再加「感情上」，唔好講兩次
      */
     const says = a.says.test(pp.summary.slice(0, 8));
+    /* 「要留意的是：」一本書已經出二十幾次（每宮結論都有），呢度改講「只是」 */
+    const watch = pp.watch.replace(/^要留意的是：/, '只是');
     const head = tones.length
-      ? `${label}，${scope}${tones.join('，也')}。${pp.summary}${pp.watch}`
+      ? `${label}，${scope}${tones.join('，也')}。${pp.summary}${watch}`
       : says
-        ? `${scope}，${pp.summary}${pp.watch}`
-        : `${label}，${scope}${pp.summary}${pp.watch}`;
+        ? `${scope}，${pp.summary}${watch}`
+        : `${label}，${scope}${pp.summary}${watch}`;
     const layer = scope === '這十年' ? '大限' : '流年';
     const fact = `（依據：${layer}的${a.palace}宮${starsOf(chart, p)}${here.length ? `；${here.map((h) => `${h.star}化${h.hua}`).join('、')}落在這裡` : ''}。）`;
     const huaText = here
