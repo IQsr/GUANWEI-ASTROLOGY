@@ -2638,6 +2638,76 @@
 }
 
 /*
+ * 經摺（2026-10-04 · 手機）：右頁唔再上下捲，改做左右掃，一摺一個屏闊 —— 好似拉開一本經摺裝。
+ *
+ * 用多欄排版自動分摺：頁高固定，內容溢出就自動開下一欄（下一摺）。
+ * 欄闊 ＝ 頁闊 − 左右留白；欄距 ＝ 左右留白 —— 所以每摺加欄距啱啱好一個頁闊，掃一下就係一摺。
+ * 摺痕同單雙摺深淺：一層跟內容捲（local）嘅背景；水墨山就跟頁框唔捲（scroll）。
+ * 對齊同摺數喺 BookSpread（掃到一半放手，跳去最近嗰摺）。只係讀章先摺（目次、未裁頁照舊）。
+ */
+@media (max-width: 899px) {
+  .shuzhuo-shu {
+    container-type: inline-size;
+  }
+
+  .shuzhuo-you[data-zhe] {
+    overflow-x: auto;
+    overflow-y: hidden;
+    overscroll-behavior-x: contain;
+    scrollbar-width: none;
+    column-width: calc(100cqi - 36px);
+    column-gap: 36px;
+    column-fill: auto;
+    background-image:
+      var(--shan),
+      repeating-linear-gradient(to right, rgb(40 30 15 / 0.12) 0, transparent 16px, transparent calc(100cqi - 22px), rgb(40 30 15 / 0.16) 100cqi),
+      repeating-linear-gradient(to right, transparent 0 100cqi, rgb(40 30 15 / 0.04) 100cqi 200cqi);
+    background-repeat: no-repeat, repeat, repeat;
+    background-position: bottom center, 0 0, 0 0;
+    background-size: 100% 12%, auto, auto;
+    background-attachment: scroll, local, local;
+    /* 底部留位畀水墨山同摺數 —— 每摺最尾一行字唔會壓喺山上面 */
+    padding-bottom: 64px;
+  }
+
+  .shuzhuo-you[data-zhe]::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* 摺入面唔好喺中間斷開嘅嘢 */
+  .shuzhuo-you[data-zhe] .xing-pan,
+  .shuzhuo-you[data-zhe] .zhang-ti,
+  .shuzhuo-you[data-zhe] nav {
+    break-inside: avoid;
+  }
+
+  /* 上下捲先要嘅章尾留白，摺起嚟唔使 */
+  .shuzhuo-you[data-zhe] .shuzhuo-wei {
+    display: none;
+  }
+
+  /* 摺數：頁底正中，細細一行 */
+  .zhe-shu {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    z-index: 3;
+    transform: translateX(-50%);
+    font-family: var(--font-sans-stack);
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--ink-3);
+    pointer-events: none;
+  }
+}
+
+@media (min-width: 900px) {
+  .zhe-shu {
+    display: none;
+  }
+}
+
+/*
  * 二、章名：桌面直排，浮喺右頁右上角，正文喺左邊繞住排；手機照舊橫排。
  */
 .zhang-ti-zhi {

@@ -138,7 +138,7 @@ export function BookSpread({
   const pathname = usePathname();
   useEffect(() => {
     book.current?.removeAttribute(TURNING_ATTR);
-    page.current?.scrollTo({ top: 0 });
+    page.current?.scrollTo({ top: 0, left: 0 });
   }, [pathname]);
 
   useEffect(() => {
@@ -175,6 +175,48 @@ export function BookSpread({
 
   /* 〈這十年〉〈這一年〉讀緊嘅格係大限／流年命宮，唔係本命某宮 */
   const at = palace in CHAPTER_LAYER ? layerMingIndex(layers, CHAPTER_LAYER[palace]!) : undefined;
+  /*
+   * 經摺（2026-10-04 · 手機）：右頁左右掃，一摺一個屏闊（排版喺 globals.css 嘅 .shuzhuo-you[data-zhe]）。
+   * 呢度做兩樣：掃到一半放手，跳去最近嗰摺；同埋數摺（「3 / 7」）。
+   * 桌面唔摺 —— matchMedia 唔中就乜都唔做。
+   */
+  const [zhe, setZhe] = useState<{ i: number; n: number } | null>(null);
+  useEffect(() => {
+    const el = page.current;
+    if (!el || !follow) return;
+    const mq = window.matchMedia('(max-width: 899px)');
+    let timer: number | undefined;
+    const measure = () => {
+      if (!mq.matches) {
+        setZhe(null);
+        return;
+      }
+      const w = el.clientWidth;
+      if (!w) return;
+      setZhe({ i: Math.round(el.scrollLeft / w) + 1, n: Math.max(1, Math.round(el.scrollWidth / w)) });
+    };
+    const onScroll = () => {
+      window.requestAnimationFrame(measure);
+      window.clearTimeout(timer);
+      timer = window.setTimeout(() => {
+        if (!mq.matches) return;
+        const w = el.clientWidth;
+        const target = Math.round(el.scrollLeft / w) * w;
+        if (Math.abs(target - el.scrollLeft) > 2) el.scrollTo({ left: target, behavior: 'smooth' });
+      }, 140);
+    };
+    measure();
+    el.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', measure);
+    mq.addEventListener('change', measure);
+    return () => {
+      window.clearTimeout(timer);
+      el.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', measure);
+      mq.removeEventListener('change', measure);
+    };
+  }, [follow, children]);
+
   const state = chart ? chartStateAt(chart, palace, live ? slot : OPENING_SLOT, at) : null;
   const shown = layerOf(layers, layer);
   const caption =
@@ -240,7 +282,13 @@ export function BookSpread({
         </div>
 
         {/* 右頁：目次或者正文，喺頁入面捲 */}
-        <div ref={page} className="shuzhuo-ye shuzhuo-you">
+        {/* 經摺嘅摺數（手機先出） */}
+        {zhe && zhe.n > 1 ? (
+          <div className="zhe-shu" aria-hidden="true" data-nums>
+            {zhe.i} / {zhe.n}
+          </div>
+        ) : null}
+        <div ref={page} className="shuzhuo-ye shuzhuo-you" data-zhe={follow ? '' : undefined}>
           {plate ? (
             <details className="shuzhuo-shouji mb-8">
               <summary className="cursor-pointer text-cap tracking-[0.16em] text-ink-3">{t('showChart')}</summary>
