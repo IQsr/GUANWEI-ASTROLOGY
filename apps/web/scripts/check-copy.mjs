@@ -41,6 +41,7 @@ const ALLOWED = {
   'components/Suidu.tsx': '隨讀：段落格名「開場」係資料鍵，唔顯示',
   'lib/suidu.ts': '隨讀：段落格名 → 盤面亮法（資料鍵）',
   'lib/layers.ts': '命盤層：章 slug「這十年」「這一年」→ 開邊層（資料鍵）',
+  'lib/dial.ts': '章尾星盤說明（「夫妻宮在午 · 巨門」）：書嘅內容，同章名一樣寫中文',
   'components/ChapterTitle.tsx': '直排章序「第一」：同章名一樣係書嘅內容（寫落本書嘅中文），唔跟介面語言轉',
   'lib/mingshu.ts': '十二宮嘅閱讀次序（章嘅 slug）',
   'lib/chengshu.ts': '免費章 slug、章序用嘅中文數字（寫落本書嘅章名）',

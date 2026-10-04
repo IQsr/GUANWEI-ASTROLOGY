@@ -3,6 +3,8 @@ import { setRequestLocale } from 'next-intl/server';
 import { cast } from '@guanwei/ziwei';
 import { BookSpread } from '@/components/BookSpread';
 import { ChapterTitle } from '@/components/ChapterTitle';
+import { StarDial } from '@/components/StarDial';
+import { dialFor } from '@/lib/dial';
 import { Juan } from '@/components/Juan';
 import { NightScene } from '@/components/NightScene';
 import { bookChapters } from '@/lib/mingshu';
@@ -42,6 +44,8 @@ export default async function ShuzhuoDemo({
   const sources = bookChapters(r.value, { seed: 'demo', year: 2026, solar: { y: 1990, m: 3, d: 21 }, place: '香港' }) ?? [];
   const drafts = chapterDrafts(sources, 'demo');
   const here = drafts.find((d) => d.slug === (ch ?? '命宮')) ?? drafts[1]!;
+  const layers = chartLayers(r.value, 2026);
+  const dial = dialFor(r.value, here.slug, layers);
   const segments = paragraphs(here.body, here.slots).map((p) => ({ slot: p.slot ?? '正文', runs: [{ text: p.text }] }));
 
   return (
@@ -49,7 +53,7 @@ export default async function ShuzhuoDemo({
       <NightScene variant="desk" />
       <BookSpread
         chart={r.value}
-        layers={chartLayers(r.value, 2026)}
+        layers={layers}
         palace={here.slug}
         tone={JADE_CHAPTERS.includes(here.slug) ? 'jade' : undefined}
         follow
@@ -59,6 +63,7 @@ export default async function ShuzhuoDemo({
         <div className="mt-10">
           <Juan segments={segments as never} notes={{}} />
         </div>
+        {dial ? <StarDial {...dial} /> : null}
       </BookSpread>
     </main>
   );

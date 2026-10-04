@@ -5,6 +5,8 @@ import { routing } from '@/i18n/routing';
 import { Juan } from '@/components/Juan';
 import { BookSpread } from '@/components/BookSpread';
 import { ChapterTitle } from '@/components/ChapterTitle';
+import { StarDial } from '@/components/StarDial';
+import { dialFor } from '@/lib/dial';
 import { NightScene } from '@/components/NightScene';
 import { Caikai } from '@/components/Caikai';
 import { Weicai } from '@/components/Weicai';
@@ -143,6 +145,8 @@ export default async function ChapterPage({
    * 攞唔到正文就唔使問 —— 一版未裁嘅頁冇嘢好裁。
    */
   const justCut = here && body !== null ? await cutPage(here.id) : false;
+  /* 章尾金線星盤（2026-10-04）：點出呢章講緊嗰一格 */
+  const dial = chart && here ? dialFor(chart, here.slug, layers) : null;
 
   return (
     /* 書桌閱讀：左頁命盤跟住右頁讀緊嘅段落亮，右頁喺頁入面捲 */
@@ -196,6 +200,7 @@ export default async function ChapterPage({
               </Caikai>
             )}
           </div>
+          {dial && body !== null ? <StarDial {...dial} /> : null}
           <ChapterNav bookId={bookId} prev={prev} next={next} />
         </BookSpread>
       )}
