@@ -4,6 +4,7 @@
   "star": "廉貞",
   "hua": "祿",
   "text": "你肯為生活品味和人際應酬花錢，也容易憑交際手段爭取進展。",
+  "areas": ["錢", "工作"],
   "source": {
    "corpus": "zhongzhou",
    "passage_id": "daxian.hua.廉貞.祿",
@@ -15,6 +16,7 @@
   "star": "破軍",
   "hua": "權",
   "text": "你說話有聲勢，別人容易順著你的主意走；未有把握的改變，先別急著說出口。",
+  "areas": ["工作"],
   "source": {
    "corpus": "zhongzhou",
    "passage_id": "daxian.hua.破軍.權",
@@ -26,6 +28,7 @@
   "star": "武曲",
   "hua": "科",
   "text": "你在自己那一行建立信譽，決斷也更穩當；名氣不宜張揚。",
+  "areas": ["工作"],
   "source": {
    "corpus": "zhongzhou",
    "passage_id": "daxian.hua.武曲.科",
@@ -37,6 +40,7 @@
   "star": "太陽",
   "hua": "忌",
   "text": "你在地位和人際上容易有摩擦，例如和上司不和；宜低調，少露鋒芒。",
+  "areas": ["工作"],
   "source": {
    "corpus": "zhongzhou",
    "passage_id": "daxian.hua.太陽.忌",
@@ -48,6 +52,7 @@
   "star": "天機",
   "hua": "祿",
   "text": "你容易主動找到機會，適合策劃、設計或替人奔走的工作；只是財來得快，不易長留。",
+  "areas": ["工作", "錢"],
   "source": {
    "corpus": "zhongzhou",
    "passage_id": "daxian.hua.天機.祿",
@@ -59,6 +64,7 @@
   "star": "天梁",
   "hua": "權",
   "text": "你在自己的行業裡容易建立威信和好口碑；遇到麻煩，也較快知道怎樣處理。",
+  "areas": ["工作"],
   "source": {
    "corpus": "zhongzhou",
    "passage_id": "daxian.hua.天梁.權",
@@ -70,6 +76,7 @@
   "star": "紫微",
   "hua": "科",
   "text": "你的名聲和信用會提升，說話容易令人信服，但也容易招人妒忌。",
+  "areas": ["工作"],
   "source": {
    "corpus": "zhongzhou",
    "passage_id": "daxian.hua.紫微.科",
@@ -81,6 +88,7 @@
   "star": "太陰",
   "hua": "忌",
   "text": "你容易有說不出口的感情困擾，和親近的人緣份較淡；才華也可能一時未被看見。",
+  "areas": ["感情", "心境"],
   "source": {
    "corpus": "zhongzhou",
    "passage_id": "daxian.hua.太陰.忌",
@@ -92,6 +100,7 @@
   "star": "天同",
   "hua": "祿",
   "text": "你的財祿有增加的機會，而且在運限見到比在本命更好；留意別因安逸而少了進取。",
+  "areas": ["錢"],
   "source": {
    "corpus": "zhongzhou",
    "passage_id": "daxian.hua.天同.祿",
@@ -103,6 +112,7 @@
   "star": "天機",
   "hua": "權",
   "text": "你的想法較穩定，也更有效率，意見容易被採納，但實權未必在你手上。",
+  "areas": ["工作"],
   "source": {
    "corpus": "zhongzhou",
    "passage_id": "daxian.hua.天機.權",
@@ -114,6 +124,7 @@
   "star": "文昌",
   "hua": "科",
   "text": "你利於考試、進修和寫作，作品容易有發表的機會。",
+  "areas": ["工作"],
   "source": {
    "corpus": "zhongzhou",
    "passage_id": "daxian.hua.文昌.科",
@@ -125,6 +136,7 @@
   "star": "廉貞",
   "hua": "忌",
   "text": "你的感情和人際容易有挫折，替人出力也可能反招怨言；量力而為，別勉強。",
+  "areas": ["感情"],
   "source": {
    "corpus": "zhongzhou",
    "passage_id": "daxian.hua.廉貞.忌",
@@ -136,6 +148,7 @@
   "star": "太陰",
   "hua": "祿",
   "text": "你的財源比較順遂；太陰化祿在大限見到，比在本命更好。",
+  "areas": ["錢"],
   "source": {
    "corpus": "zhongzhou",
    "passage_id": "daxian.hua.太陰.祿",
@@ -147,6 +160,7 @@
   "star": "天同",
   "hua": "權",
   "text": "你比平時更有衝勁開創，但也容易追求享樂或走捷徑，要給自己定一個目標。",
+  "areas": ["工作", "心境"],
   "source": {
    "corpus": "zhongzhou",
    "passage_id": "daxian.hua.天同.權",
@@ -158,6 +172,7 @@
   "star": "天機",
   "hua": "科",
   "text": "你學東西變得踏實，偏向理工或專門技術；適合做計劃，實行要靠別人配合。",
+  "areas": ["工作"],
   "source": {
    "corpus": "zhongzhou",
    "passage_id": "daxian.hua.天機.科",
@@ -169,6 +184,7 @@
   "star": "巨門",
   "hua": "忌",
   "text": "你身邊的是非口舌較多，事情常不如理想；越求全越容易失望，放寬標準反而順。",
+  "areas": ["工作", "心境"],
   "source": {
    "corpus": "zhongzhou",
    "passage_id": "daxian.hua.巨門.忌",
@@ -180,6 +196,7 @@
   "star": "貪狼",
   "hua": "祿",
   "text": "你容易藉交際應酬打開局面、帶來收入，但也容易為玩樂和人情多花錢。",
+  "areas": ["錢", "工作"],
   "source": {
    "corpus": "zhongzhou",
    "passage_id": "daxian.hua.貪狼.祿",
@@ -191,6 +208,7 @@
   "star": "太陰",
   "hua": "權",
   "text": "你手上較有財權，有一筆錢可以由你調度，但不一定等於富有。",
+  "areas": ["錢"],
   "source": {
    "corpus": "zhongzhou",
    "passage_id": "daxian.hua.太陰.權",
@@ -202,6 +220,7 @@
   "star": "太陽",
   "hua": "科",
   "text": "你容易受人注意、提升名聲；名氣來時，妒忌也會一起來。",
+  "areas": ["工作"],
   "source": {
    "corpus": "zhongzhou",
    "passage_id": "daxian.hua.太陽.科",
@@ -213,6 +232,7 @@
   "star": "天機",
   "hua": "忌",
   "text": "你的計劃容易延誤或出錯，也容易多思多慮；遇到風波，以不變應萬變最好。",
+  "areas": ["工作", "心境"],
   "source": {
    "corpus": "zhongzhou",
    "passage_id": "daxian.hua.天機.忌",
@@ -224,6 +244,7 @@
   "star": "武曲",
   "hua": "祿",
   "text": "你適合創業做事，事業做得越大，財祿越厚；也要記得留一份積蓄。",
+  "areas": ["工作", "錢"],
   "source": {
    "corpus": "zhongzhou",
    "passage_id": "daxian.hua.武曲.祿",
@@ -235,6 +256,7 @@
   "star": "貪狼",
   "hua": "權",
   "text": "你的欲望和競爭心都變強，愈遇競爭愈起勁，身心也會跟著勞累。",
+  "areas": ["工作", "心境"],
   "source": {
    "corpus": "zhongzhou",
    "passage_id": "daxian.hua.貪狼.權",
@@ -246,6 +268,7 @@
   "star": "天梁",
   "hua": "科",
   "text": "你的判斷和觀察力提升，有利專業考試；遇到難題，往往能從根本解決。",
+  "areas": ["工作"],
   "source": {
    "corpus": "zhongzhou",
    "passage_id": "daxian.hua.天梁.科",
@@ -257,6 +280,7 @@
   "star": "文曲",
   "hua": "忌",
   "text": "你說話和文書容易出錯，簽約、借貸要格外小心；感情上也容易有誤會。",
+  "areas": ["錢", "感情"],
   "source": {
    "corpus": "zhongzhou",
    "passage_id": "daxian.hua.文曲.忌",
@@ -268,6 +292,7 @@
   "star": "太陽",
   "hua": "祿",
   "text": "你容易憑名聲和地位得到收入，名大於利；要留意應酬開支。",
+  "areas": ["錢", "工作"],
   "source": {
    "corpus": "zhongzhou",
    "passage_id": "daxian.hua.太陽.祿",
@@ -279,6 +304,7 @@
   "star": "武曲",
   "hua": "權",
   "text": "你做事果斷有聲勢，適合財經和實務工作，但容易顧不上別人的感受。",
+  "areas": ["工作", "錢"],
   "source": {
    "corpus": "zhongzhou",
    "passage_id": "daxian.hua.武曲.權",
@@ -290,6 +316,7 @@
   "star": "天府",
   "hua": "科",
   "text": "你的信用和信譽增加，容易得到別人信任和上級提拔。",
+  "areas": ["工作"],
   "source": {
    "corpus": "zhongzhou",
    "passage_id": "daxian.hua.天府.科",
@@ -301,6 +328,7 @@
   "star": "天同",
   "hua": "忌",
   "text": "你的情緒容易不安定，感情也可能有困擾；這段時期多辛勞，要給自己留出安定心神的空間。",
+  "areas": ["心境", "感情"],
   "source": {
    "corpus": "zhongzhou",
    "passage_id": "daxian.hua.天同.忌",
@@ -312,6 +340,7 @@
   "star": "巨門",
   "hua": "祿",
   "text": "你的口才變成本錢，利於教學、法律、銷售、傳播；太想表現自己，反而容易惹是非。",
+  "areas": ["工作"],
   "source": {
    "corpus": "zhongzhou",
    "passage_id": "daxian.hua.巨門.祿",
@@ -323,6 +352,7 @@
   "star": "太陽",
   "hua": "權",
   "text": "你的地位和領導力提升，收入跟著地位增加；不宜過份擴張聲勢。",
+  "areas": ["工作", "錢"],
   "source": {
    "corpus": "zhongzhou",
    "passage_id": "daxian.hua.太陽.權",
@@ -334,6 +364,7 @@
   "star": "文曲",
   "hua": "科",
   "text": "你的口才和學雜學的能力增加，容易以言詞取悅別人。",
+  "areas": ["工作"],
   "source": {
    "corpus": "zhongzhou",
    "passage_id": "daxian.hua.文曲.科",
@@ -345,6 +376,7 @@
   "star": "文昌",
   "hua": "忌",
   "text": "你的文書、考試和合約容易出錯，替人擔保或借貸要特別小心。",
+  "areas": ["錢", "工作"],
   "source": {
    "corpus": "zhongzhou",
    "passage_id": "daxian.hua.文昌.忌",
@@ -356,6 +388,7 @@
   "star": "天梁",
   "hua": "祿",
   "text": "你容易被捲入別人的麻煩，處理起來拖得較長；適合做收費公開的專業服務，不宜追求名氣。",
+  "areas": ["工作"],
   "source": {
    "corpus": "zhongzhou",
    "passage_id": "daxian.hua.天梁.祿",
@@ -367,6 +400,7 @@
   "star": "紫微",
   "hua": "權",
   "text": "你手上有實權，能獨當一面，但容易給人壓力，辛勞而少人緣。",
+  "areas": ["工作"],
   "source": {
    "corpus": "zhongzhou",
    "passage_id": "daxian.hua.紫微.權",
@@ -378,6 +412,7 @@
   "star": "武曲",
   "hua": "忌",
   "text": "你的財務容易周轉不靈或超出預算；處理問題手段別太硬，感情上尤其如此。",
+  "areas": ["錢", "感情"],
   "source": {
    "corpus": "zhongzhou",
    "passage_id": "daxian.hua.武曲.忌",
@@ -389,6 +424,7 @@
   "star": "破軍",
   "hua": "祿",
   "text": "你的變動比較穩當，無論怎樣變，結果多半比變之前好。",
+  "areas": ["工作"],
   "source": {
    "corpus": "zhongzhou",
    "passage_id": "daxian.hua.破軍.祿",
@@ -400,6 +436,7 @@
   "star": "巨門",
   "hua": "權",
   "text": "你說話有說服力，影響力和地位都會提升，適合靠口才的工作。",
+  "areas": ["工作"],
   "source": {
    "corpus": "zhongzhou",
    "passage_id": "daxian.hua.巨門.權",
@@ -411,6 +448,7 @@
   "star": "太陰",
   "hua": "科",
   "text": "你的修養和才華容易被欣賞，名氣和信譽也會增加。",
+  "areas": ["工作"],
   "source": {
    "corpus": "zhongzhou",
    "passage_id": "daxian.hua.太陰.科",
@@ -422,6 +460,7 @@
   "star": "貪狼",
   "hua": "忌",
   "text": "你容易有不如理想的失落感，勞碌奔忙而收穫不如預期；記得多照顧家庭。",
+  "areas": ["心境", "工作"],
   "source": {
    "corpus": "zhongzhou",
    "passage_id": "daxian.hua.貪狼.忌",

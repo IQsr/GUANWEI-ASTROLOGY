@@ -63,14 +63,27 @@ describe('兩章', () => {
     expect(ch.segments.filter((s) => s.text.includes('寫這本書時，你在這一步')).length).toBeLessThanOrEqual(1);
   });
 
-  it('這十年：大限四化四句都講到 —— 落入四方面嘅喺嗰段講，其餘喺四化段講明落喺邊宮', () => {
+  it('這十年的四化四粒都講到；星嘅句只喺講緊嗰方面嘅段出現，唔啱方面就留喺四化段（2026-10-04）', () => {
+    const AREA_SLOTS = ['工作', '錢', '感情', '心境'];
     for (const c of CHARTS.slice(0, 100)) {
       const segs = decadeChapter({ chart: c, year: 2026 })!.segments;
       const rest = segs.find((x) => x.slot === '四化')?.text.match(/化[祿權科忌]（在這十年的/g)?.length ?? 0;
-      const inAreas = segs
-        .filter((x) => ['工作', '錢', '感情', '心境'].includes(x.slot))
-        .flatMap((x) => /；([^。]*)落在這裡/.exec(x.text)?.[1]?.split('、') ?? []).length;
-      expect(rest + inAreas, segs.map((x) => x.text).join(' ')).toBe(4);
+      const inAreas = new Set(
+        segs
+          .filter((x) => AREA_SLOTS.includes(x.slot))
+          .flatMap((x) => /；([^。]*)落在這裡/.exec(x.text)?.[1]?.split('、') ?? []),
+      );
+      const all = segs.map((x) => x.text).join(' ');
+      /* 四粒都有講到：喺四方面嘅依據入面，或者喺四化段 */
+      const fourth = segs.find((x) => x.slot === '四化')?.text ?? '';
+      const listed = [...inAreas].filter((h) => !fourth.includes(`${h}（在`)).length;
+      expect(rest + listed, all).toBe(4);
+      for (const e of DAXIAN_HUA) {
+        const where = segs.filter((x) => x.text.includes(e.text));
+        expect(where.length, `${e.id}：${all}`).toBeLessThanOrEqual(1);
+        const s = where[0];
+        if (s && AREA_SLOTS.includes(s.slot)) expect(e.areas, `${e.id} 唔講${s.slot}，唔應該出喺嗰段`).toContain(s.slot);
+      }
     }
   });
 

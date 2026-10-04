@@ -129,7 +129,7 @@ export function yearChapter(input: { chart: Chart; year: number }): { slug: stri
     seg('結論', lead, isKey ? pivot!.source : null),
     seg('流年', fact + leanLine, x ? `xingxi.${x.system.n}` : null),
     ...areas.segments,
-    seg('四化', huaLines.length && areas.segments.length ? `其餘的四化：${huaLines.map((l) => l.text).join('')}` : huaLines.map((l) => l.text).join(''), huaLines.map((l) => l.id).filter(Boolean).join('+') || null),
+    seg('四化', huaLines.length && areas.segments.length ? `四化各自的意思：${huaLines.map((l) => l.text).join('')}` : huaLines.map((l) => l.text).join(''), huaLines.map((l) => l.id).filter(Boolean).join('+') || null),
     ...(interSeg ? [seg('互動', interSeg.text, interSeg.id)] : []),
     ...(advice ? [advice] : []),
     ...(nextLine ? [seg('明年', nextLine)] : []),

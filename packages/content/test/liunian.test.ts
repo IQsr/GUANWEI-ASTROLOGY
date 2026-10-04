@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { annual, cast } from '@guanwei/ziwei';
 import { yearChapter } from '../src/liunian';
-import { pivotRule } from '../src/daxian';
+import { DAXIAN_HUA, pivotRule } from '../src/daxian';
 import { scanForbidden } from '../src/lint';
 import { scanPlain } from '../src/plain';
 import { withoutCitations } from '../src/lexicon';
@@ -41,14 +41,27 @@ describe('這一年', () => {
     }
   });
 
-  it('流年四化四句都講到 —— 落入四方面嘅喺嗰段講，其餘喺四化段講明落喺邊宮', () => {
+  it('這一年的四化四粒都講到；星嘅句只喺講緊嗰方面嘅段出現，唔啱方面就留喺四化段（2026-10-04）', () => {
+    const AREA_SLOTS = ['工作', '錢', '感情', '心境'];
     for (const c of CHARTS.slice(0, 100)) {
       const segs = yearChapter({ chart: c, year: 2026 })!.segments;
       const rest = segs.find((x) => x.slot === '四化')?.text.match(/化[祿權科忌]（在這一年的/g)?.length ?? 0;
-      const inAreas = segs
-        .filter((x) => ['工作', '錢', '感情', '心境'].includes(x.slot))
-        .flatMap((x) => /；([^。]*)落在這裡/.exec(x.text)?.[1]?.split('、') ?? []).length;
-      expect(rest + inAreas, segs.map((x) => x.text).join(' ')).toBe(4);
+      const inAreas = new Set(
+        segs
+          .filter((x) => AREA_SLOTS.includes(x.slot))
+          .flatMap((x) => /；([^。]*)落在這裡/.exec(x.text)?.[1]?.split('、') ?? []),
+      );
+      const all = segs.map((x) => x.text).join(' ');
+      /* 四粒都有講到：喺四方面嘅依據入面，或者喺四化段 */
+      const fourth = segs.find((x) => x.slot === '四化')?.text ?? '';
+      const listed = [...inAreas].filter((h) => !fourth.includes(`${h}（在`)).length;
+      expect(rest + listed, all).toBe(4);
+      for (const e of DAXIAN_HUA) {
+        const where = segs.filter((x) => x.text.includes(e.text));
+        expect(where.length, `${e.id}：${all}`).toBeLessThanOrEqual(1);
+        const s = where[0];
+        if (s && AREA_SLOTS.includes(s.slot)) expect(e.areas, `${e.id} 唔講${s.slot}，唔應該出喺嗰段`).toContain(s.slot);
+      }
     }
   });
 

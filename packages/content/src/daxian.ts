@@ -41,8 +41,14 @@ function checkLine(id: string, text: string, src: z.infer<typeof Source>, ctx: z
   for (const f of [...scanForbidden(text, 'body'), ...scanPlain(text, 'body')]) issue(`${f.code} ${f.message}`);
 }
 
+/*
+ * `areas`（2026-10-04）：句子講緊邊方面。四方面段落（`areaSegments`）只會用講緊嗰方面嘅句，
+ * 例如天同化祿嘅句講錢，落喺心境就唔用佢 —— 改用嗰方面嘅通用句，星嘅句留返去四化段。
+ */
+const AreaSlot = z.enum(['工作', '錢', '感情', '心境']);
+
 const Hua = z
-  .object({ id: z.string(), star: z.string(), hua: z.enum(['祿', '權', '科', '忌']), text: z.string(), source: Source })
+  .object({ id: z.string(), star: z.string(), hua: z.enum(['祿', '權', '科', '忌']), text: z.string(), areas: z.array(AreaSlot).min(1), source: Source })
   .superRefine((x, ctx) => {
     checkLine(x.id, x.text, x.source, ctx);
     if (!x.text.startsWith('你')) ctx.addIssue({ code: 'custom', message: `${x.id}：要對住讀者講（「你⋯」開頭）` });
@@ -201,6 +207,43 @@ const TONE: Record<Sihua, string> = {
   忌: '要多留神',
 };
 
+/*
+ * 四化落入某方面、但嗰粒星嘅句講緊另一方面時用嘅通用句（2026-10-04）。
+ * 只講「呢方面會點」，唔講星名、唔講化乜（括號嘅依據已經講咗）。化忌照 p.440 只講留神，唔講衰。
+ */
+export const AREA_HUA: Record<(typeof AREAS)[number]['slot'], Record<Sihua, string>> = {
+  工作: {
+    祿: '工作上容易遇到合適的機會，肯主動爭取，比較容易做出成績。',
+    權: '工作上你會多一點話事權，責任也跟著加重；不是每件事都要自己扛。',
+    科: '你在工作上的表現容易被看見，適合爭取認可、考證或建立口碑。',
+    忌: '工作上的計劃容易卡住或要返工，重要的決定先留一點餘地。',
+  },
+  錢: {
+    祿: '收入有增加的機會，進賬比較順；順的時候也記得留一份。',
+    權: '錢怎樣用多由你作主，可以主動規劃，但別一次押得太重。',
+    科: '你在錢上信用好，借貸、合作都容易得到別人信任。',
+    忌: '錢容易周轉緊或超出預算，大額支出和借貸先多想一步。',
+  },
+  感情: {
+    祿: '感情上比較甜，容易遇到合拍的人，或和伴侶相處更融洽。',
+    權: '感情裡你比較主導，記得留空間給對方，別變成一個人作主。',
+    科: '感情上相處有禮，你們的關係容易得到身邊的人認同。',
+    忌: '感情上容易有誤會，或有心事說不出口；有話早點講清楚。',
+  },
+  心境: {
+    祿: '你的心情比較寬鬆，懂得享受生活，也較容易感到滿足。',
+    權: '你心裡想做的事多，幹勁也足，但容易給自己太大壓力。',
+    科: '你容易找到讓自己靜下來的方法，讀書和修養都合適，靜下來時想得特別清楚。',
+    忌: '你心裡容易有放不下的事，多思多慮；記得給自己留出休息的時間。',
+  },
+};
+for (const [slot, lines] of Object.entries(AREA_HUA)) {
+  for (const [hua, text] of Object.entries(lines)) {
+    const bad = [...scanForbidden(text, 'body'), ...scanPlain(text, 'body')];
+    if (bad.length) throw new Error(`AREA_HUA ${slot}.${hua}：${bad.map((f) => `${f.code} ${f.message}`).join('；')}`);
+  }
+}
+
 export type PeriodHit = { star: string; hua: Sihua; palace: string | null };
 
 /**
@@ -224,7 +267,6 @@ export function areaSegments(
     const pp = lead ? palacePlain(lead, a.palace) : undefined;
     if (!pp) continue;
     const here = hits.filter((h) => h.palace === a.palace);
-    here.forEach((h) => used.add(`${h.star}${h.hua}`));
     const label = AREA[a.palace]![1];
     /* 化祿化忌同落一格：唔揀邊個，照講有得有失 */
     const tones = [...new Set(here.map((h) => TONE[h.hua]))];
@@ -243,15 +285,20 @@ export function areaSegments(
         : `${label}，${scope}${pp.summary}${watch}`;
     const layer = scope === '這十年' ? '大限' : '流年';
     const fact = `（依據：${layer}的${a.palace}宮${starsOf(chart, p)}${here.length ? `；${here.map((h) => `${h.star}化${h.hua}`).join('、')}落在這裡` : ''}。）`;
-    const huaText = here
+    /*
+     * 星嘅句講緊呢方面先用（記入 `used`，四化段唔再講）；講緊別方面就用呢方面嘅通用句，
+     * 星嘅句留畀四化段。同一種化只出一句通用句。
+     */
+    const fits = here
       .map((h) => DAXIAN_HUA.find((e) => e.star === h.star && e.hua === h.hua))
-      .filter((m): m is NonNullable<typeof m> => Boolean(m))
-      .map((m) => m.text)
-      .join('');
+      .filter((m): m is NonNullable<typeof m> => Boolean(m) && m!.areas.includes(a.slot));
+    fits.forEach((m) => used.add(`${m.star}${m.hua}`));
+    const generic = [...new Set(here.filter((h) => !fits.some((m) => m.star === h.star && m.hua === h.hua)).map((h) => h.hua))];
+    const huaText = fits.map((m) => m.text).join('') + generic.map((hua) => AREA_HUA[a.slot][hua]).join('');
     segments.push({
       slot: a.slot,
       text: head + fact + huaText,
-      source_id: [pp.id, ...here.map((h) => `dx.hua.${h.star}.${h.hua}`).filter((id) => DAXIAN_HUA.some((e) => e.id === id))].join('+'),
+      source_id: [pp.id, ...fits.map((m) => m.id)].join('+'),
       rule_ids: [],
     });
   }
@@ -551,7 +598,7 @@ export function decadeChapter(input: { chart: Chart; year: number }): Out {
     seg('結論', when + gist + young + (pivotSteps(chart).steps.includes(d.index) ? '這十年是你命盤裡的關鍵大限之一，這段時期的得失，對你一生影響特別大。' : '')),
     seg('大限', fact + leanLine, x ? `xingxi.${x.system.n}` : null),
     ...areas.segments,
-    seg('四化', huaLines.length && areas.segments.length ? `其餘的四化：${huaLines.map((l) => l.text).join('')}` : huaLines.map((l) => l.text).join(''), huaLines.map((l) => l.id).filter(Boolean).join('+') || null),
+    seg('四化', huaLines.length && areas.segments.length ? `四化各自的意思：${huaLines.map((l) => l.text).join('')}` : huaLines.map((l) => l.text).join(''), huaLines.map((l) => l.id).filter(Boolean).join('+') || null),
     ...(interSeg ? [seg('互動', interSeg.text, interSeg.id)] : []),
     ...(advice ? [advice] : []),
     ...(nextLine ? [seg('下一步', nextLine)] : []),
