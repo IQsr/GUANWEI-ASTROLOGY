@@ -21,7 +21,7 @@ const CHARTS = Array.from({ length: 200 }, (_, i) => {
   return r.ok ? r.value : null;
 }).filter((x) => x !== null);
 
-const yearsOf = (text: string) => [...text.matchAll(/虛歲([〇一二三四五六七八九十百]+)）/g)].length;
+const yearsOf = (text: string) => [...text.matchAll(/年，你虛歲([〇一二三四五六七八九十百]+)）/g)].length;
 
 describe('回看過去', () => {
   it('大部分人都有；最多三年', () => {
@@ -34,7 +34,7 @@ describe('回看過去', () => {
     for (const c of CHARTS) {
       const s = lookBack(c, 2026);
       if (!s) continue;
-      for (const m of s.text.matchAll(/([〇一二三四五六七八九]{4})年前後/g)) {
+      for (const m of s.text.matchAll(/([〇一二三四五六七八九]{4})年（/g)) {
         const y = Number([...m[1]!].map((d) => '〇一二三四五六七八九'.indexOf(d)).join(''));
         expect(y).toBeLessThan(2026);
         expect(y - c.lunar.y + 1).toBeGreaterThanOrEqual(18);
@@ -49,6 +49,29 @@ describe('回看過去', () => {
       expect(s.text).not.toMatch(/病|意外|手術|受傷|官非|破財|離婚|死/);
       expect(scanForbidden(s.text, 'body')).toEqual([]);
       expect(scanPlain(s.text, '回看')).toEqual([]);
+    }
+  });
+
+  it('講得實：年份有干支，每年都有「像是」嘅例子或者換大限（2026-10-04 試讀回饋）', () => {
+    for (const c of CHARTS) {
+      const s = lookBack(c, 2026);
+      if (!s) continue;
+      expect(s.text).not.toMatch(/年前後/);
+      for (const line of s.text.split(/(?=[〇一二三四五六七八九]{4}年（)/).slice(1)) {
+        expect(line, line).toMatch(/^[〇一二三四五六七八九]{4}年（[甲乙丙丁戊己庚辛壬癸][子丑寅卯辰巳午未申酉戌亥]年，/);
+        if (/[祿忌]|較|轉機/.test(line) && !/關鍵的一年。/.test(line)) expect(line, line).toMatch(/像是/);
+      }
+    }
+  });
+
+  it('同一年唔會心情吃緊又話身心鬆得下來', () => {
+    for (const c of CHARTS) {
+      const s = lookBack(c, 2026);
+      if (!s) continue;
+      for (const line of s.text.split('。')) {
+        const bad = /(狀態起伏|身心負荷|心事較多)/.test(line) && /同一年，(你自己的狀態比較順|身心比較鬆得下來|心境比較安穩)/.test(line);
+        expect(bad, line).toBe(false);
+      }
     }
   });
 

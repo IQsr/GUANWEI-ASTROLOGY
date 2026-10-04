@@ -346,39 +346,50 @@ function decadeAt(chart: Chart, year: number) {
  *
  * 揀年：虛歲十八至去年，訊號最強嘅最多三年，年與年之間最少隔三年，按時間排。
  */
-const JI_AREA: Record<string, string> = {
-  命宮: '你自己的狀態起伏較大',
-  兄弟: '朋輩之間的事比較費心',
-  夫妻: '感情上牽掛較多，容易有摩擦',
-  子女: '後輩或手上的作品比較費心',
-  財帛: '錢方面支出或周轉比較吃緊',
-  疾厄: '身心負荷較重，容易覺得累',
-  遷移: '在外奔走較多，環境變化大',
-  僕役: '人際來往比較費心',
-  官祿: '工作上變動較多，事情不容易照計劃走',
-  田宅: '住處或家裡的事變動較多',
-  福德: '心事較多，不容易靜下來',
-  父母: '和長輩或上司之間要交代的事較多',
+/*
+ * 2026-10-04（試讀回饋：「講返之前嗰件事」最深刻，想講得實啲）：
+ *   每方面加生活上常見嘅例子（「像是⋯」），年份講死（加干支、唔再寫「前後」），
+ *   同一年化祿化忌落唔同方面就兩樣都講。
+ * ⚠ 底線照舊：例子只係嗰方面常見嘅樣子，唔講病、意外、官非、離婚、生死（測試攔住）。
+ *   疾厄只講作息同疲累，唔講身體出事。
+ */
+type Area = { gist: string; eg: string };
+const JI_AREA: Record<string, Area> = {
+  命宮: { gist: '你自己的狀態起伏較大', eg: '像是對自己的方向沒把握，想法反反覆覆' },
+  兄弟: { gist: '朋輩之間的事比較費心', eg: '像是和兄弟姊妹、同學或合伙人有爭拗，或者要替他們分擔' },
+  夫妻: { gist: '感情上牽掛較多，容易有摩擦', eg: '像是吵得比平時多、聚少離多，或者一段關係走到要做決定的時候' },
+  子女: { gist: '後輩或手上的作品比較費心', eg: '像是為子女或下屬操心，或者自己的作品、計劃遲遲未有成果' },
+  財帛: { gist: '錢方面支出或周轉比較吃緊', eg: '像是有一筆大開支、收入一時不穩，或者借出去的錢收不回' },
+  疾厄: { gist: '身心負荷較重，容易覺得累', eg: '像是長時間加班、作息被打亂，總覺得睡不夠' },
+  遷移: { gist: '在外奔走較多，環境變化大', eg: '像是常要出差、搬到新的城市，或者在外面遇到的事不如預期' },
+  僕役: { gist: '人際來往比較費心', eg: '像是朋友之間有誤會、被人拖累，或者團隊裡的人事比較麻煩' },
+  官祿: { gist: '工作上變動較多，事情不容易照計劃走', eg: '像是轉工、換部門或換上司，或者手上的項目推倒重來' },
+  田宅: { gist: '住處或家裡的事變動較多', eg: '像是搬屋、裝修，或者家裡有事要你分心處理' },
+  福德: { gist: '心事較多，不容易靜下來', eg: '像是心裡有放不下的事，夜裡想個不停' },
+  父母: { gist: '和長輩或上司之間要交代的事較多', eg: '像是和父母意見不合、和上司關係緊張，或者要替長輩處理事情' },
 };
-const LU_AREA: Record<string, string> = {
-  命宮: '你自己的狀態比較順',
-  兄弟: '朋輩之間比較得力',
-  夫妻: '感情上比較順',
-  子女: '後輩或手上的作品有起色',
-  財帛: '錢方面有轉機',
-  疾厄: '身心比較鬆得下來',
-  遷移: '在外的機會較多',
-  僕役: '人際上有助力',
-  官祿: '工作上有轉機',
-  田宅: '住處或家裡的事有好的安排',
-  福德: '心境比較安穩',
-  父母: '和長輩或上司之間比較順',
+const LU_AREA: Record<string, Area> = {
+  命宮: { gist: '你自己的狀態比較順', eg: '像是做事特別順手，或者開始了一件後來證明值得的事' },
+  兄弟: { gist: '朋輩之間比較得力', eg: '像是得到兄弟姊妹、同學或合伙人幫忙' },
+  夫妻: { gist: '感情上比較順', eg: '像是遇到合拍的人、關係穩定下來，或者一起計劃將來' },
+  子女: { gist: '後輩或手上的作品有起色', eg: '像是子女或下屬帶來好消息，或者自己的作品有了成果' },
+  財帛: { gist: '錢方面有轉機', eg: '像是加薪、有額外收入，或者一筆錢的安排做對了' },
+  疾厄: { gist: '身心比較鬆得下來', eg: '像是作息回到正軌，整個人比之前輕鬆' },
+  遷移: { gist: '在外的機會較多', eg: '像是出外工作、讀書或旅行帶來機會' },
+  僕役: { gist: '人際上有助力', eg: '像是認識到後來幫得上忙的人' },
+  官祿: { gist: '工作上有轉機', eg: '像是升職、轉到更合適的工作，或者手上的事得到認可' },
+  田宅: { gist: '住處或家裡的事有好的安排', eg: '像是搬到更合適的地方、置業，或者家裡的事安頓下來' },
+  福德: { gist: '心境比較安穩', eg: '像是心情安定，有時間做自己喜歡的事' },
+  父母: { gist: '和長輩或上司之間比較順', eg: '像是得到長輩或上司提攜' },
 };
+/** 換大限嗰年：按年紀舉例 */
+const turnEg = (age: number) =>
+  age <= 24 ? '像是升學、畢業或出來工作' : age <= 40 ? '像是轉工、轉行、搬屋或成家' : '像是工作崗位、住處或家庭角色有了變化';
 
 export function lookBack(chart: Chart, year: number): DaxianSegment | null {
   const born = chart.lunar.y;
   const pivot = pivotRule(chart, 'year');
-  type Cand = { y: number; age: number; score: number; text: string; sources: string[] };
+  type Cand = { y: number; gz: string; age: number; score: number; key: boolean; parts: string[]; sources: string[] };
   const cands: Cand[] = [];
   for (let y = born + 17; y < year; y++) {
     const r = annual(chart, y);
@@ -389,17 +400,24 @@ export function lookBack(chart: Chart, year: number): DaxianSegment | null {
     let score = 0;
     const turn = chart.decadals.find((d) => d.fromAge === A.nominalAge);
     if (turn) {
-      parts.push(`你走進第${num(turn.index)}個大限，生活的重心往往在這幾年轉了方向`);
+      parts.push(`你走進第${num(turn.index)}個大限，生活的重心換了方向，${turnEg(A.nominalAge)}`);
       score += 2;
     }
     const ji = A.sihua.annual.find((h) => h.hua === '忌');
     const lu = A.sihua.annual.find((h) => h.hua === '祿');
-    if (ji?.annualPalace && JI_AREA[ji.annualPalace]) {
-      parts.push(JI_AREA[ji.annualPalace]!);
+    const jiA = ji?.annualPalace ? JI_AREA[ji.annualPalace] : undefined;
+    /* 心情、身心、自己嗰三方面一吃緊一順利，讀落自相矛盾（「心事較多⋯同一年身心鬆得下來」）：唔並講 */
+    const MOOD = ['命宮', '福德', '疾厄'];
+    const clash = Boolean(ji?.annualPalace && lu?.annualPalace && MOOD.includes(ji.annualPalace) && MOOD.includes(lu.annualPalace));
+    const luA = lu?.annualPalace && lu.annualPalace !== ji?.annualPalace && !clash ? LU_AREA[lu.annualPalace] : undefined;
+    if (jiA) {
+      /* 換大限嗰年已經有一組例子：方面只講一句，唔好兩串「像是」 */
+      parts.push(turn ? jiA.gist : `${jiA.gist}，${jiA.eg}`);
       sources.push('huigu.env');
-      score += ['官祿', '夫妻', '田宅', '遷移', '財帛', '疾厄'].includes(ji.annualPalace) ? 2 : 1;
-    } else if (lu?.annualPalace && LU_AREA[lu.annualPalace]) {
-      parts.push(LU_AREA[lu.annualPalace]!);
+      score += ['官祿', '夫妻', '田宅', '遷移', '財帛', '疾厄'].includes(ji!.annualPalace!) ? 2 : 1;
+      if (luA) parts.push(`同一年，${luA.gist}`);
+    } else if (luA) {
+      parts.push(turn ? luA.gist : `${luA.gist}，${luA.eg}`);
       sources.push('huigu.env');
       score += 1;
     }
@@ -409,13 +427,7 @@ export function lookBack(chart: Chart, year: number): DaxianSegment | null {
       sources.push(pivot!.source);
       score += 3;
     }
-    if (score >= 3 && (parts.length || key)) {
-      /* 關鍵年份行先講，再講係邊方面 */
-      const text = key
-        ? `是你命盤裡關鍵的一年${parts.length ? `：${parts.join('；')}` : ''}`
-        : parts.join('；');
-      cands.push({ y, age: A.nominalAge, score, text, sources });
-    }
+    if (score >= 3 && (parts.length || key)) cands.push({ y, gz: `${A.ganzhi[0]}${A.ganzhi[1]}`, age: A.nominalAge, score, key, parts, sources });
   }
   const picked: Cand[] = [];
   for (const c of [...cands].sort((a, b) => b.score - a.score || b.y - a.y)) {
@@ -425,15 +437,17 @@ export function lookBack(chart: Chart, year: number): DaxianSegment | null {
   }
   if (!picked.length) return null;
   picked.sort((a, b) => a.y - b.y);
-  /* 「是你命盤裡關鍵的一年」第二次起改講「同樣是」，唔好連講三次 */
+  /* 「是你命盤裡的關鍵年份」第二次起改講「同樣是」，唔好連講三次 */
   let keySeen = false;
   const lines = picked.map((c) => {
-    let text = c.text;
-    if (text.startsWith('是你命盤裡關鍵的一年')) {
-      if (keySeen) text = text.replace('是你命盤裡關鍵的一年', '同樣是關鍵的一年');
+    let head = '';
+    if (c.key) {
+      head = keySeen ? '同樣是關鍵的一年' : '是你命盤裡關鍵的一年';
       keySeen = true;
     }
-    return `${yearCN(c.y)}年前後（你虛歲${num(c.age)}），${text}。`;
+    const body = c.parts.join('；');
+    const text = head ? `${head}${body ? `：${body}` : ''}` : body;
+    return `${yearCN(c.y)}年（${c.gz}年，你虛歲${num(c.age)}），${text}。`;
   });
   return {
     slot: '回看',
