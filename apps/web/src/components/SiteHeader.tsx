@@ -6,6 +6,7 @@ import { Link, usePathname } from '@/i18n/navigation';
 import { ThemeToggle } from '@/components/ThemeToggle';
 import { LocaleSwitch } from '@/components/LocaleSwitch';
 import { MARK, LATIN } from '@/lib/site';
+import { BrandMark } from '@/components/BrandMark';
 import { useQuiet, useQuietBack } from '@/lib/quiet';
 
 /**
@@ -80,9 +81,13 @@ export function SiteHeader() {
         data-back={back ? '' : undefined}
       >
         <div className="dao-nei">
-          <Link href="/" className="flex flex-col leading-none" aria-label={t('homeAria')}>
-            <span className="font-serif text-[1.375rem] font-medium md:text-[1.625rem] tracking-[0.32em]">{MARK}</span>
-            <span className="mt-1.5 font-latin text-[0.625rem] tracking-[0.5em] opacity-80">{LATIN}</span>
+          <Link href="/" className="flex items-center gap-3 leading-none" aria-label={t('homeAria')}>
+            {/* 星敘標誌（2026-10-04）：夜景上面燙金，紙上面跟墨色 */}
+            <BrandMark size={34} className={overNight ? 'text-gilt' : 'text-gold-ink'} />
+            <span className="flex flex-col">
+              <span className="font-serif text-[1.375rem] font-medium md:text-[1.625rem] tracking-[0.32em]">{MARK}</span>
+              <span className="mt-1.5 font-latin text-[0.625rem] tracking-[0.5em] opacity-80">{LATIN}</span>
+            </span>
           </Link>
 
           <nav aria-label={t('main')} className="hidden items-center gap-12 md:flex">

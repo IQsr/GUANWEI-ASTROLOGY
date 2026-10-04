@@ -64,6 +64,15 @@
   --cinnabar: #a8402e;
   --cinnabar-wash: rgb(168 64 46 / 0.09);
 
+  /* ── 墨綠同燙金：星敘嘅品牌色（2026-10-04，參考實體書效果圖）──
+     封面、書脊、重點頁（流年等）用墨綠底；燙金係墨綠上面嘅字同線。
+     品牌色唔跟日夜讀轉 —— 一本書嘅封面唔會因為熄咗燈就變色。 */
+  --jade: #16251f;
+  --jade-2: #1f332a;
+  --jade-rule: rgb(201 173 116 / 0.28);
+  --gilt: #c9ad74;
+  --gilt-2: rgb(201 173 116 / 0.72);
+
   /* ── 夜：首頁同入口嗰幅夜景。唔跟日夜讀轉 —— 張相本身就係夜晚 ── */
   --night: #0b0d0b;
   --night-ink: #eee6d8;
@@ -196,6 +205,11 @@
   --color-gold-ink: var(--gold-ink);
   --color-gold-wash: var(--gold-wash);
   --color-wood: var(--wood);
+  --color-jade: var(--jade);
+  --color-jade-2: var(--jade-2);
+  --color-jade-rule: var(--jade-rule);
+  --color-gilt: var(--gilt);
+  --color-gilt-2: var(--gilt-2);
   --color-night: var(--night);
   --color-night-ink: var(--night-ink);
   --color-night-ink-2: var(--night-ink-2);
@@ -1063,9 +1077,11 @@
   padding: 16px 0 10px;
   border: 1px solid var(--rule);
   /* 3px 書口喺左邊 */
-  border-inline-start: 3px solid var(--rule-2);
-  background: var(--paper-2);
-  color: var(--ink-2);
+  /* 2026-10-04：墨綠書脊、燙金字 —— 一排排似效果圖嘅書盒 */
+  border-color: var(--jade-2);
+  border-inline-start: 3px solid var(--jade-rule);
+  background: var(--jade);
+  color: var(--gilt-2);
   font-family: var(--font-serif-stack);
   font-size: 14.5px;
   line-height: 1.05;
@@ -1083,20 +1099,21 @@
 
 .ji:hover {
   transform: translateY(-10px);
-  border-color: var(--ink-3);
-  color: var(--ink);
+  border-color: var(--gilt-2);
+  color: var(--gilt);
 }
 
 /* 在讀嗰本。朱砂喺呢度嘅意思係「你停咗喺呢度」。 */
 .ji[data-reading="1"] {
   border-inline-start-color: var(--cinnabar);
-  color: var(--cinnabar);
+  color: var(--gilt);
 }
 
 /* 待時辰、＋ 新書：虛線。 */
 .ji[data-kind="awaiting"],
 .ji[data-kind="new"] {
   border-style: dashed;
+  border-color: var(--rule);
   background: none;
   color: var(--ink-3);
 }
@@ -2165,12 +2182,19 @@
   overflow: hidden;
 }
 
-/* 正面：封面。硬皮、一條書脊布邊 */
+/* 正面：封面。硬皮、一條書脊布邊。
+   2026-10-04：墨綠封面、燙金字（參考實體書效果圖）。喺封面範圍入面將墨色換做燙金，
+   入面用 text-ink-* 嘅字自動跟住變，唔使逐個改。 */
 .fan-mian {
+  --ink: var(--gilt);
+  --ink-2: var(--gilt-2);
+  --ink-3: var(--gilt-2);
+  --rule: var(--jade-rule);
+  color: var(--gilt);
   border-radius: 0 3px 3px 0;
   background:
-    linear-gradient(to right, var(--paper-3) 0 9px, rgb(0 0 0 / 0.08) 9px 10px, transparent 10px),
-    var(--paper-2);
+    linear-gradient(to right, rgb(0 0 0 / 0.28) 0 9px, rgb(201 173 116 / 0.18) 9px 10px, transparent 10px),
+    var(--jade);
   border: 1px solid rgb(0 0 0 / 0.16);
   box-shadow:
     0 1px 0 rgb(0 0 0 / 0.2),

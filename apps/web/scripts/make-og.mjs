@@ -7,7 +7,7 @@
  * CJK 字體檔。Google Fonts 喺呢個環境連唔到，而自己 bundle 一個
  * Noto Serif CJK 係十幾二十 MB —— 為咗一張分享圖，唔值。
  *
- * 所以：一張藏經閣共用圖。分享一條詞條連結，卡片顯示「藏經閣 · 觀微」，
+ * 所以：一張藏經閣共用圖。分享一條詞條連結，卡片顯示「藏經閣 · 星敘」，
  * 而標題同摘要由 `<meta og:title>` / `<og:description>` 逐條出 ——
  * 卡片入面真正有資訊嗰兩行本來就唔喺張圖度。
  *
@@ -31,6 +31,10 @@ const ink2 = tok('ink-2');
 const ink3 = tok('ink-3');
 const rule = tok('rule');
 const cinnabar = tok('cinnabar');
+/* 品牌字由 site.ts 攞（2026-10-04 改名星敘）—— 唔喺呢度再寫一次 */
+const site = readFileSync('src/lib/site.ts', 'utf8');
+const MARK = site.match(/export const MARK = '([^']+)'/)[1];
+const LATIN = site.match(/export const LATIN = '([^']+)'/)[1];
 
 const html = `<!doctype html><meta charset="utf-8">
 <style>
@@ -54,13 +58,13 @@ const html = `<!doctype html><meta charset="utf-8">
   }
   .brand { font-size:21px; letter-spacing:.34em; color:${ink3} }
 </style>
-<div class="cap">GUAN WEI</div>
+<div class="cap">${LATIN}</div>
 <h1>藏經閣</h1>
 <div class="line"></div>
 <p>紫微斗數的詞條。每一條都列明出處，引文逐字抄自原書，可以自己核。</p>
 <div class="foot">
-  <span class="yin"><span><span>觀</span><span>微</span></span></span>
-  <span class="brand">觀微 · 藏經閣</span>
+  <span class="yin"><span>${[...MARK].map((c) => `<span>${c}</span>`).join('')}</span></span>
+  <span class="brand">${MARK} · 藏經閣</span>
 </div>`;
 
 const b = await launchBrowser();
