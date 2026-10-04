@@ -1,6 +1,8 @@
 import { describe, expect, it } from 'vitest';
 import { cast } from '@guanwei/ziwei';
-import { lookBack, lifeStepsChapter } from '../src/daxian';
+import { annual } from '@guanwei/ziwei';
+import { LOOKBACK_EVENTS, decadeChapter, lookBack, lookBackEvent, lifeStepsChapter } from '../src/daxian';
+import { yearChapter } from '../src/liunian';
 import { scanForbidden } from '../src/lint';
 import { scanPlain } from '../src/plain';
 
@@ -59,7 +61,9 @@ describe('回看過去', () => {
       expect(s.text).not.toMatch(/年前後/);
       for (const line of s.text.split(/(?=[〇一二三四五六七八九]{4}年（)/).slice(1)) {
         expect(line, line).toMatch(/^[〇一二三四五六七八九]{4}年（[甲乙丙丁戊己庚辛壬癸][子丑寅卯辰巳午未申酉戌亥]年，/);
-        if (/[祿忌]|較|轉機/.test(line) && !/關鍵的一年。/.test(line)) expect(line, line).toMatch(/像是/);
+        /* 身體、出行、是非、錢嗰幾句本身已經係具體情況，唔使再「像是」 */
+        const ev = LOOKBACK_EVENTS.some((e) => line.includes(e.text));
+        if (!ev && /[祿忌]|較|轉機/.test(line) && !/關鍵的一年。/.test(line)) expect(line, line).toMatch(/像是/);
       }
     }
   });
@@ -73,6 +77,51 @@ describe('回看過去', () => {
         expect(bad, line).toBe(false);
       }
     }
+  });
+
+  describe('身體、出行、是非、錢（2026-10-04，跟《深造講義》條件）', () => {
+    it('每條都有原文同頁數；句子唔出病名、手術、死傷、官非、破財', () => {
+      expect(LOOKBACK_EVENTS.map((e) => e.kind).sort()).toEqual(['出行', '是非', '身體', '錢'].sort());
+      for (const e of LOOKBACK_EVENTS) {
+        expect(e.sources.length, e.id).toBeGreaterThan(0);
+        expect(e.text).not.toMatch(/病|意外|手術|開刀|受傷|血|官非|官司|訴訟|破財|死|災/);
+      }
+    });
+
+    it('出現嗰年真係中條件；一本書最多兩年', () => {
+      for (const c of CHARTS) {
+        const s = lookBack(c, 2026);
+        if (!s) continue;
+        const lines = s.text.split(/(?=[〇一二三四五六七八九]{4}年（)/).slice(1);
+        let n = 0;
+        for (const line of lines) {
+          const e = LOOKBACK_EVENTS.find((x) => line.includes(x.text));
+          if (!e) continue;
+          n++;
+          const y = Number([...line.slice(0, 4)].map((d) => '〇一二三四五六七八九'.indexOf(d)).join(''));
+          const a = annual(c, y);
+          expect(a.ok && lookBackEvent(c, a.value)?.id, line).toBe(e.id);
+        }
+        expect(n).toBeLessThanOrEqual(2);
+        for (const e of LOOKBACK_EVENTS) expect(s.text.split(e.text).length - 1, e.id).toBeLessThanOrEqual(1);
+      }
+    });
+
+    it('唔係人人都有（約兩三成），亦唔係冇人有', () => {
+      const hit = CHARTS.filter((c) => LOOKBACK_EVENTS.some((e) => lookBack(c, 2026)?.text.includes(e.text))).length / CHARTS.length;
+      expect(hit).toBeGreaterThan(0.12);
+      expect(hit).toBeLessThan(0.45);
+    });
+
+    it('唔講將來：這十年、這一年都冇呢幾句', () => {
+      for (const c of CHARTS.slice(0, 80)) {
+        const future = [decadeChapter({ chart: c, year: 2026 }), yearChapter({ chart: c, year: 2026 })]
+          .flatMap((ch) => ch?.segments ?? [])
+          .map((s) => s.text)
+          .join('');
+        for (const e of LOOKBACK_EVENTS) expect(future).not.toContain(e.text);
+      }
+    });
   });
 
   it('擺喺一生十二步嘅結論之後', () => {

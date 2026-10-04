@@ -1,0 +1,69 @@
+[
+  {
+    "id": "huigu.ev.body",
+    "kind": "身體",
+    "text": "身體上要付出的比平時多，不少人在這樣的年份要停下來休養一段時間",
+    "rule": "流年化忌落流年疾厄宮，同宮煞刑（擎羊、陀羅、火星、鈴星、流羊、流陀、天刑）兩粒或以上，其中有流羊或流陀（書例：疾厄宮躔流陀）",
+    "sources": [
+      {
+        "corpus": "zhongzhou",
+        "passage_id": "huigu.zaibing",
+        "quote": "若刑忌煞曜重者，则主有灾病"
+      },
+      {
+        "corpus": "zhongzhou",
+        "passage_id": "huigu.jie",
+        "quote": "详视疾厄宫以推断其有无严重疾病"
+      },
+      {
+        "corpus": "zhongzhou",
+        "passage_id": "huigu.liutuo",
+        "quote": "躔流陀，于是肾石病发"
+      }
+    ]
+  },
+  {
+    "id": "huigu.ev.travel",
+    "kind": "出行",
+    "text": "出入、出行要格外小心，容易有磕碰，或者行程上的波折",
+    "rule": "流年命宮煞刑三粒或以上，其中有擎羊（本命、流年或大限）；而且流年化忌落流年命宮、遷移宮或疾厄宮",
+    "sources": [
+      {
+        "corpus": "zhongzhou",
+        "passage_id": "huigu.xueguang",
+        "quote": "若为流年命宫，见煞曜重者"
+      }
+    ]
+  },
+  {
+    "id": "huigu.ev.dispute",
+    "kind": "是非",
+    "text": "容易捲入是非爭拗，有些事要靠白紙黑字、找人評理才解決",
+    "rule": "流年太陽化忌或巨門化忌，落流年命宮、官祿宮或遷移宮；化忌嗰宮見擎羊（本命、流年或大限）或天刑",
+    "sources": [
+      {
+        "corpus": "zhongzhou",
+        "passage_id": "huigu.taiyang",
+        "quote": "太阳化忌，见煞刑诸曜，主纠纷、口舌、官非"
+      },
+      {
+        "corpus": "zhongzhou",
+        "passage_id": "huigu.jumen",
+        "quote": "是非口舌重重，且主官非词讼"
+      }
+    ]
+  },
+  {
+    "id": "huigu.ev.money",
+    "kind": "錢",
+    "text": "有一筆錢走得比預期多，事後回想，當時可以多留一手",
+    "rule": "流年太陰化忌，落流年財帛宮、命宮或田宅宮，同宮有流羊或流陀",
+    "sources": [
+      {
+        "corpus": "zhongzhou",
+        "passage_id": "huigu.taiyin",
+        "quote": "太阴化忌仅主破财"
+      }
+    ]
+  }
+]

@@ -11,7 +11,7 @@
  * 點解讀係規則庫（C2）同推理器（C8）嘅事。
  *
  * ── 唔喺呢層嘅嘢（講出嚟好過扮冇）──
- *   流曜（流昌流曲、流羊流陀、流魁流鉞…）—— 未做
+ *   流曜：流祿存、流羊、流陀做咗（`liuyao`，2026-10-04）；流昌流曲、流魁流鉞 —— 未做
  *   小限                                  —— 未做
  *   流月、流日                            —— 未做
  *   流年宮干 / 流年自化                    —— 三合派唔用，而且我哋唔安流年宮干
@@ -31,6 +31,7 @@ import { sihuaOfStem, SIHUA_ORDER } from './sihua';
 import { pillarFromIndex } from '../ganzhi/sexagenary';
 import { yearPillarIndexFromLunarYear } from '../ganzhi/four-pillars';
 import { lunarFromSolarDate } from '../calendar/lunar';
+import { flowStars, type FlowStars } from './liuyao';
 
 /** 一粒星喺某一層化乜，同埋佢坐嘅宮喺三層各自叫乜。 */
 export type SihuaHit = {
@@ -87,6 +88,11 @@ export type AnnualChart = {
     /** 流年四化：由太歲天干引動。 */
     annual: SihuaHit[];
   };
+  /**
+   * 流祿存、流羊、流陀（2026-10-04）：大限干一套、流年干一套。
+   * 書推運限吉凶差唔多每個例子都用（「受大運之流羊流陀照射」）。未起運就冇大限嗰套。
+   */
+  liuyao: { decadal: FlowStars | null; annual: FlowStars };
 };
 
 const idx = (b: Branch) => BRANCHES.indexOf(b);
@@ -186,6 +192,7 @@ export function annual(chart: Chart, lunarYear: number): Result<AnnualChart> {
         decadal: decadalStem ? hits(chart, decadalStem, nameAt) : null,
         annual: hits(chart, pillar.stem, nameAt),
       },
+      liuyao: { decadal: decadalStem ? flowStars(decadalStem) : null, annual: flowStars(pillar.stem) },
     },
   };
 }

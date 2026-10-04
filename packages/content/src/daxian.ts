@@ -1,8 +1,9 @@
 import { z } from 'zod';
-import { annual, sanFangPalaces, sihuaOfStem, type Chart, type Palace, type Sihua } from '@guanwei/ziwei';
+import { annual, sanFangPalaces, sihuaOfStem, tianxingBranch, type AnnualChart, type Branch, type Chart, type Palace, type Sihua } from '@guanwei/ziwei';
 import huaRaw from './daxian/hua.json';
 import rulesRaw from './daxian/rules.json';
 import pivotsRaw from './daxian/pivots.json';
+import eventsRaw from './daxian/events.json';
 import { CORPUS, cjkCount, normaliseForMatch } from './lexicon';
 import { scanForbidden } from './lint';
 import { scanPlain } from './plain';
@@ -64,6 +65,18 @@ const RulesDoc = z.object({
 });
 
 export const DAXIAN_HUA = z.array(Hua).parse(huaRaw);
+
+/*
+ * 回看過去：身體、出行、是非、錢（2026-10-04，Issac：試讀嘅人最在意「講中過去」）
+ *
+ * 條件全部跟《深造講義》（`daxian/events.json`，每條帶原文同頁數）。只講過去年份，寫法婉轉：
+ * 唔講病名、手術、死傷、官非、破財呢啲字，只講「身體要付出的多」「出入要小心」⋯
+ * ⚠ 唔用喺將來嘅年份（這一年、這十年）：講過去係印證，講將來係嚇人。
+ */
+const Event = z
+  .object({ id: z.string(), kind: z.enum(['身體', '出行', '是非', '錢']), text: z.string(), rule: z.string(), sources: z.array(Source).min(1) })
+  .superRefine((x, ctx) => x.sources.forEach((src) => checkLine(x.id, x.text, src, ctx)));
+export const LOOKBACK_EVENTS = z.array(Event).parse(eventsRaw);
 
 /**
  * 樞紐大限（2026-09-30）：《深造講義》下篇宮垣論・命宮（p.336–366）
@@ -386,10 +399,43 @@ const LU_AREA: Record<string, Area> = {
 const turnEg = (age: number) =>
   age <= 24 ? '像是升學、畢業或出來工作' : age <= 40 ? '像是轉工、轉行、搬屋或成家' : '像是工作崗位、住處或家庭角色有了變化';
 
+const NATAL_SHA = ['擎羊', '陀羅', '火星', '鈴星'];
+
+/**
+ * 某一年有冇中書入面身體、出行、是非、錢嘅條件（見 `daxian/events.json` 嘅 rule）。
+ * 一年最多一樣，次序：身體 → 出行 → 是非 → 錢。
+ */
+export function lookBackEvent(chart: Chart, A: AnnualChart): (typeof LOOKBACK_EVENTS)[number] | null {
+  const xing = tianxingBranch(chart);
+  const flows = [A.liuyao.annual, A.liuyao.decadal].filter((f): f is NonNullable<typeof f> => Boolean(f));
+  const natalAt = (b: Branch, names: string[]) =>
+    chart.palaces.find((p) => p.branch === b)!.stars.filter((s) => names.includes(s.name)).length;
+  /* 煞刑：本命四煞 ＋ 流年、大限嘅流羊流陀 ＋ 天刑 */
+  const sha = (b: Branch) =>
+    natalAt(b, NATAL_SHA) + flows.reduce((n, f) => n + (f.擎羊 === b ? 1 : 0) + (f.陀羅 === b ? 1 : 0), 0) + (xing === b ? 1 : 0);
+  /* 流羊流陀（流年或大限）：書推運限嘅例子差唔多都有 */
+  const flow = (b: Branch) => flows.some((f) => f.擎羊 === b || f.陀羅 === b);
+  const yang = (b: Branch) => natalAt(b, ['擎羊']) > 0 || flows.some((f) => f.擎羊 === b);
+  const at = (name: string) => A.overlay.find((o) => o.annual === name)?.branch ?? null;
+  const ji = A.sihua.annual.find((h) => h.hua === '忌');
+  const jiB = ji?.branch ?? null;
+  const jiIn = (...names: string[]) => Boolean(ji?.annualPalace && names.includes(ji.annualPalace));
+  const ev = (kind: string) => LOOKBACK_EVENTS.find((e) => e.kind === kind)!;
+
+  const ji厄 = at('疾厄');
+  if (jiB && ji厄 === jiB && sha(jiB) >= 2 && flow(jiB)) return ev('身體');
+  const m = A.mingGong;
+  if (sha(m) >= 3 && yang(m) && jiIn('命宮', '遷移', '疾厄')) return ev('出行');
+  if (jiB && ji && ['太陽', '巨門'].includes(ji.star) && jiIn('命宮', '官祿', '遷移') && (yang(jiB) || xing === jiB))
+    return ev('是非');
+  if (jiB && ji?.star === '太陰' && jiIn('財帛', '命宮', '田宅') && sha(jiB) >= 1 && flow(jiB)) return ev('錢');
+  return null;
+}
+
 export function lookBack(chart: Chart, year: number): DaxianSegment | null {
   const born = chart.lunar.y;
   const pivot = pivotRule(chart, 'year');
-  type Cand = { y: number; gz: string; age: number; score: number; key: boolean; parts: string[]; sources: string[] };
+  type Cand = { y: number; gz: string; age: number; score: number; key: boolean; event: string | null; parts: string[]; sources: string[] };
   const cands: Cand[] = [];
   for (let y = born + 17; y < year; y++) {
     const r = annual(chart, y);
@@ -410,7 +456,17 @@ export function lookBack(chart: Chart, year: number): DaxianSegment | null {
     const MOOD = ['命宮', '福德', '疾厄'];
     const clash = Boolean(ji?.annualPalace && lu?.annualPalace && MOOD.includes(ji.annualPalace) && MOOD.includes(lu.annualPalace));
     const luA = lu?.annualPalace && lu.annualPalace !== ji?.annualPalace && !clash ? LU_AREA[lu.annualPalace] : undefined;
-    if (jiA) {
+    /*
+     * 書入面身體、出行、是非、錢嘅條件（一本書最多兩年，見下面）。
+     * 佢講嘅就係呢年化忌嘅事，所以中咗就唔再出化忌嗰方面嘅句，免得同一件事講兩次。
+     */
+    const event = lookBackEvent(chart, A);
+    if (event) {
+      parts.push(event.text);
+      sources.push(...event.sources.map((x) => x.passage_id));
+      score += 3;
+      if (luA) parts.push(`同一年，${luA.gist}`);
+    } else if (jiA) {
       /* 換大限嗰年已經有一組例子：方面只講一句，唔好兩串「像是」 */
       parts.push(turn ? jiA.gist : `${jiA.gist}，${jiA.eg}`);
       sources.push('huigu.env');
@@ -427,12 +483,16 @@ export function lookBack(chart: Chart, year: number): DaxianSegment | null {
       sources.push(pivot!.source);
       score += 3;
     }
-    if (score >= 3 && (parts.length || key)) cands.push({ y, gz: `${A.ganzhi[0]}${A.ganzhi[1]}`, age: A.nominalAge, score, key, parts, sources });
+    if (score >= 3 && (parts.length || key)) cands.push({ y, gz: `${A.ganzhi[0]}${A.ganzhi[1]}`, age: A.nominalAge, score, key, event: event?.id ?? null, parts, sources });
   }
   const picked: Cand[] = [];
   for (const c of [...cands].sort((a, b) => b.score - a.score || b.y - a.y)) {
     if (picked.length >= 3) break;
     if (picked.some((p) => Math.abs(p.y - c.y) < 3)) continue;
+    /* 身體、出行、是非、錢一本書最多講兩年 —— 三年都係難關，讀落似咒 */
+    if (c.event && picked.filter((p) => p.event).length >= 2) continue;
+    /* 同一類（例如兩年都係是非）只講一次：同一句出兩次，讀落似模板 */
+    if (c.event && picked.some((p) => p.event === c.event)) continue;
     picked.push(c);
   }
   if (!picked.length) return null;

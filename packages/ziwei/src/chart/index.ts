@@ -6,3 +6,4 @@ export * from './sihua';
 export * from './decadal';
 export * from './sanfang';
 export * from './annual';
+export * from './liuyao';
