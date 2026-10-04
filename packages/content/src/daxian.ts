@@ -67,14 +67,21 @@ const RulesDoc = z.object({
 export const DAXIAN_HUA = z.array(Hua).parse(huaRaw);
 
 /*
- * 回看過去：身體、出行、是非、錢（2026-10-04，Issac：試讀嘅人最在意「講中過去」）
+ * 回看過去：身體、出行、是非、錢、感情（2026-10-04，Issac：試讀嘅人最在意「講中過去」）
  *
  * 條件全部跟《深造講義》（`daxian/events.json`，每條帶原文同頁數）。只講過去年份，寫法婉轉：
  * 唔講病名、手術、死傷、官非、破財呢啲字，只講「身體要付出的多」「出入要小心」⋯
  * ⚠ 唔用喺將來嘅年份（這一年、這十年）：講過去係印證，講將來係嚇人。
  */
 const Event = z
-  .object({ id: z.string(), kind: z.enum(['身體', '出行', '是非', '錢']), text: z.string(), rule: z.string(), sources: z.array(Source).min(1) })
+  .object({
+    id: z.string(),
+    kind: z.enum(['身體', '出行', '是非', '錢', '感情']),
+    text: z.string(),
+    /** 人睇嘅條件說明，同 `lookBackEvent()` 一條對一條 */
+    rules: z.array(z.string()).min(1),
+    sources: z.array(Source).min(1),
+  })
   .superRefine((x, ctx) => x.sources.forEach((src) => checkLine(x.id, x.text, src, ctx)));
 export const LOOKBACK_EVENTS = z.array(Event).parse(eventsRaw);
 
@@ -402,33 +409,54 @@ const turnEg = (age: number) =>
 const NATAL_SHA = ['擎羊', '陀羅', '火星', '鈴星'];
 
 /**
- * 某一年有冇中書入面身體、出行、是非、錢嘅條件（見 `daxian/events.json` 嘅 rule）。
- * 一年最多一樣，次序：身體 → 出行 → 是非 → 錢。
+ * 某一年有冇中書入面身體、出行、是非、錢、感情嘅條件（逐條見 `daxian/events.json` 嘅 rules）。
+ * 一年最多一樣，次序：身體 → 出行 → 是非 → 錢 → 感情。
+ *
+ * 羊陀迭并（本命羊陀同流年羊陀同宮）、迭忌（流年化忌同本命或大限化忌同宮）唔單獨成立 ——
+ * 試過：單獨用嘅話八成幾讀者都中。書入面都係疊埋講（「四煞並照，而且羊陀迭并」p.153），
+ * 所以當做加多一粒煞，而且只用喺出行、感情（書入面同出事一齊講嗰兩類）。
  */
 export function lookBackEvent(chart: Chart, A: AnnualChart): (typeof LOOKBACK_EVENTS)[number] | null {
   const xing = tianxingBranch(chart);
   const flows = [A.liuyao.annual, A.liuyao.decadal].filter((f): f is NonNullable<typeof f> => Boolean(f));
   const natalAt = (b: Branch, names: string[]) =>
     chart.palaces.find((p) => p.branch === b)!.stars.filter((s) => names.includes(s.name)).length;
+  const ji = A.sihua.annual.find((h) => h.hua === '忌');
+  const jiB = ji?.branch ?? null;
+  const natalJi = A.sihua.natal.find((h) => h.hua === '忌')?.branch ?? null;
+  const decJi = A.sihua.decadal?.find((h) => h.hua === '忌')?.branch ?? null;
+  /* 羊陀迭并、迭忌：各當多一粒煞 */
+  const diebing = (b: Branch) => natalAt(b, ['擎羊', '陀羅']) > 0 && (A.liuyao.annual.擎羊 === b || A.liuyao.annual.陀羅 === b);
+  const dieji = (b: Branch) => b === jiB && (b === natalJi || b === decJi);
   /* 煞刑：本命四煞 ＋ 流年、大限嘅流羊流陀 ＋ 天刑 */
   const sha = (b: Branch) =>
     natalAt(b, NATAL_SHA) + flows.reduce((n, f) => n + (f.擎羊 === b ? 1 : 0) + (f.陀羅 === b ? 1 : 0), 0) + (xing === b ? 1 : 0);
+  /* 出事嘅煞：再加迭并、迭忌。書入面呢兩樣係同意外、出事一齊講（p.153、p.386），所以淨係出行、感情用 */
+  const shaX = (b: Branch) => sha(b) + (diebing(b) ? 1 : 0) + (dieji(b) ? 1 : 0);
   /* 流羊流陀（流年或大限）：書推運限嘅例子差唔多都有 */
   const flow = (b: Branch) => flows.some((f) => f.擎羊 === b || f.陀羅 === b);
   const yang = (b: Branch) => natalAt(b, ['擎羊']) > 0 || flows.some((f) => f.擎羊 === b);
   const at = (name: string) => A.overlay.find((o) => o.annual === name)?.branch ?? null;
-  const ji = A.sihua.annual.find((h) => h.hua === '忌');
-  const jiB = ji?.branch ?? null;
   const jiIn = (...names: string[]) => Boolean(ji?.annualPalace && names.includes(ji.annualPalace));
   const ev = (kind: string) => LOOKBACK_EVENTS.find((e) => e.kind === kind)!;
-
-  const ji厄 = at('疾厄');
-  if (jiB && ji厄 === jiB && sha(jiB) >= 2 && flow(jiB)) return ev('身體');
   const m = A.mingGong;
-  if (sha(m) >= 3 && yang(m) && jiIn('命宮', '遷移', '疾厄')) return ev('出行');
-  if (jiB && ji && ['太陽', '巨門'].includes(ji.star) && jiIn('命宮', '官祿', '遷移') && (yang(jiB) || xing === jiB))
-    return ev('是非');
+
+  /* 身體 */
+  if (jiB && at('疾厄') === jiB && sha(jiB) >= 2 && flow(jiB)) return ev('身體');
+  /* 出行：流年命宮煞重；遷移宮化忌見煞 */
+  if (shaX(m) >= 3 && yang(m) && jiIn('命宮', '遷移', '疾厄')) return ev('出行');
+  if (jiB && jiIn('遷移') && shaX(jiB) >= 3 && flow(jiB)) return ev('出行');
+  /* 是非：太陽、巨門化忌見刑；化忌、擎羊、天刑同宮 */
+  if (jiB && ji && ['太陽', '巨門'].includes(ji.star) && jiIn('命宮', '官祿', '遷移') && (yang(jiB) || xing === jiB)) return ev('是非');
+  if (jiB && jiIn('命宮', '官祿', '遷移') && yang(jiB) && xing === jiB) return ev('是非');
+  /* 錢：太陰化忌、武曲化忌、羊陀夾忌、空劫加化忌 */
   if (jiB && ji?.star === '太陰' && jiIn('財帛', '命宮', '田宅') && sha(jiB) >= 1 && flow(jiB)) return ev('錢');
+  if (jiB && ji?.star === '武曲' && jiIn('財帛', '命宮') && sha(jiB) >= 2 && flow(jiB)) return ev('錢');
+  /* 羊陀夾忌：書講嘅係「羊陀夾武曲之忌」（p.12、p.76 例子都係武曲），唔推廣去其他星 */
+  if (jiB && ji?.star === '武曲' && jiIn('命宮', '財帛') && A.liuyao.annual.祿存 === jiB) return ev('錢');
+  if (jiB && jiIn('財帛') && natalAt(jiB, ['地空', '地劫']) > 0 && sha(jiB) >= 1 && flow(jiB)) return ev('錢');
+  /* 感情 */
+  if (jiB && jiIn('夫妻') && shaX(jiB) >= 3 && flow(jiB)) return ev('感情');
   return null;
 }
 

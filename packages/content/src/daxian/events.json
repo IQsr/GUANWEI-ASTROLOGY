@@ -3,7 +3,9 @@
     "id": "huigu.ev.body",
     "kind": "身體",
     "text": "身體上要付出的比平時多，不少人在這樣的年份要停下來休養一段時間",
-    "rule": "流年化忌落流年疾厄宮，同宮煞刑（擎羊、陀羅、火星、鈴星、流羊、流陀、天刑）兩粒或以上，其中有流羊或流陀（書例：疾厄宮躔流陀）",
+    "rules": [
+      "流年化忌落流年疾厄宮，同宮煞刑（擎羊、陀羅、火星、鈴星、流羊、流陀、天刑）兩粒或以上，其中有流羊或流陀（書例：疾厄宮躔流陀）"
+    ],
     "sources": [
       {
         "corpus": "zhongzhou",
@@ -26,12 +28,35 @@
     "id": "huigu.ev.travel",
     "kind": "出行",
     "text": "出入、出行要格外小心，容易有磕碰，或者行程上的波折",
-    "rule": "流年命宮煞刑三粒或以上，其中有擎羊（本命、流年或大限）；而且流年化忌落流年命宮、遷移宮或疾厄宮",
+    "rules": [
+      "流年命宮煞刑三粒或以上（羊陀迭并、迭忌各當一粒），其中有擎羊；而且流年化忌落流年命宮、遷移宮或疾厄宮",
+      "流年化忌落流年遷移宮，同宮煞刑三粒或以上（羊陀迭并、迭忌各當一粒），其中有流羊或流陀"
+    ],
     "sources": [
       {
         "corpus": "zhongzhou",
         "passage_id": "huigu.xueguang",
         "quote": "若为流年命宫，见煞曜重者"
+      },
+      {
+        "corpus": "zhongzhou",
+        "passage_id": "huigu.qianyi.zaihuo",
+        "quote": "主在外有灾祸"
+      },
+      {
+        "corpus": "zhongzhou",
+        "passage_id": "huigu.qianyi.daxiong",
+        "quote": "迁移宫大凶"
+      },
+      {
+        "corpus": "zhongzhou",
+        "passage_id": "huigu.diebing",
+        "quote": "火铃羊陀四煞并照，而且羊陀迭并"
+      },
+      {
+        "corpus": "zhongzhou",
+        "passage_id": "huigu.dieji",
+        "quote": "每在武曲、廉贞迭忌，或羊陀迭并之年"
       }
     ]
   },
@@ -39,7 +64,10 @@
     "id": "huigu.ev.dispute",
     "kind": "是非",
     "text": "容易捲入是非爭拗，有些事要靠白紙黑字、找人評理才解決",
-    "rule": "流年太陽化忌或巨門化忌，落流年命宮、官祿宮或遷移宮；化忌嗰宮見擎羊（本命、流年或大限）或天刑",
+    "rules": [
+      "流年太陽化忌或巨門化忌，落流年命宮、官祿宮或遷移宮；化忌嗰宮見擎羊（本命、流年或大限）或天刑",
+      "流年化忌、擎羊（本命、流年或大限）、天刑三樣同宮，喺流年命宮、官祿宮或遷移宮"
+    ],
     "sources": [
       {
         "corpus": "zhongzhou",
@@ -50,6 +78,16 @@
         "corpus": "zhongzhou",
         "passage_id": "huigu.jumen",
         "quote": "是非口舌重重，且主官非词讼"
+      },
+      {
+        "corpus": "zhongzhou",
+        "passage_id": "huigu.xingji",
+        "quote": "天刑，则主官非诉讼"
+      },
+      {
+        "corpus": "zhongzhou",
+        "passage_id": "huigu.lian.yang",
+        "quote": "廉贞与擎羊同会，主是非词讼"
       }
     ]
   },
@@ -57,12 +95,67 @@
     "id": "huigu.ev.money",
     "kind": "錢",
     "text": "有一筆錢走得比預期多，事後回想，當時可以多留一手",
-    "rule": "流年太陰化忌，落流年財帛宮、命宮或田宅宮，同宮有流羊或流陀",
+    "rules": [
+      "流年太陰化忌，落流年財帛宮、命宮或田宅宮，同宮有流羊或流陀",
+      "流年武曲化忌，落流年財帛宮或命宮，同宮煞刑兩粒或以上，其中有流羊或流陀",
+      "流年武曲化忌落流年命宮或財帛宮，畀流年羊陀夾住（「羊陀夾武曲之忌」）",
+      "流年化忌落流年財帛宮，同宮有地空或地劫，再見流羊或流陀"
+    ],
     "sources": [
       {
         "corpus": "zhongzhou",
         "passage_id": "huigu.taiyin",
         "quote": "太阴化忌仅主破财"
+      },
+      {
+        "corpus": "zhongzhou",
+        "passage_id": "huigu.wuqu.shiji",
+        "quote": "为失机破财的年份"
+      },
+      {
+        "corpus": "zhongzhou",
+        "passage_id": "huigu.wuqu.cuobai",
+        "quote": "为事业及财帛挫败之年"
+      },
+      {
+        "corpus": "zhongzhou",
+        "passage_id": "huigu.yangtuo.jiaji",
+        "quote": "羊陀夹武曲之忌，为斗数中相当坏的结构"
+      },
+      {
+        "corpus": "zhongzhou",
+        "passage_id": "huigu.yangtuo.jiaji.li",
+        "quote": "命宫武曲化忌，为流年羊陀所夹"
+      },
+      {
+        "corpus": "zhongzhou",
+        "passage_id": "huigu.kongjie",
+        "quote": "见空劫化忌"
+      },
+      {
+        "corpus": "zhongzhou",
+        "passage_id": "huigu.kongjie.li",
+        "quote": "且地空劫对冲，于是突生破败"
+      }
+    ]
+  },
+  {
+    "id": "huigu.ev.love",
+    "kind": "感情",
+    "text": "感情上經歷過一段考驗，可能是聚少離多，或者一段關係走到要做決定的時候",
+    "rules": [
+      "流年化忌落流年夫妻宮，同宮煞刑三粒或以上（羊陀迭并、迭忌各當一粒），其中有流羊或流陀"
+    ],
+    "sources": [
+      {
+        "corpus": "zhongzhou",
+        "passage_id": "huigu.ganqing",
+        "quote": "是年须防感情重大挫折"
+      },
+      {
+        "corpus": "zhongzhou",
+        "passage_id": "huigu.hunyin",
+        "quote": "或主婚姻反复"
       }
     ]
   }
