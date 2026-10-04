@@ -4,6 +4,7 @@ import { Juanshou, backToContents } from '@/components/Juanshou';
 import { routing } from '@/i18n/routing';
 import { Juan } from '@/components/Juan';
 import { BookSpread } from '@/components/BookSpread';
+import { ChapterTitle } from '@/components/ChapterTitle';
 import { NightScene } from '@/components/NightScene';
 import { Caikai } from '@/components/Caikai';
 import { Weicai } from '@/components/Weicai';
@@ -27,6 +28,9 @@ export function generateStaticParams() {
 }
 
 export const dynamicParams = true;
+
+/** 墨綠頁（2026-10-04）：講時間嘅兩章同書尾總結 —— 同效果圖嘅「流年」頁一樣做重點頁。 */
+const JADE_CHAPTERS = ['這十年', '這一年', '給你的話'];
 
 export async function generateMetadata({
   params,
@@ -157,13 +161,14 @@ export default async function ChapterPage({
           chart={chart}
           layers={layers}
           palace={here.slug}
+          tone={JADE_CHAPTERS.includes(here.slug) ? 'jade' : undefined}
           follow={body !== null}
           prev={turnPrev}
           next={turnNext}
           top={<p className="font-serif text-lead tracking-[0.16em] text-ink-2">{view.title ?? tShelf('untitled')}</p>}
         >
           {/* ⚠ 章名係內容嘅一部分，唔係頁頭：擺喺右頁頂 */}
-          <h1 className="text-h1 font-semibold tracking-[0.16em]">{here.title}</h1>
+          <ChapterTitle title={here.title} />
           <div className="mt-10">
             {body === null ? (
               /*

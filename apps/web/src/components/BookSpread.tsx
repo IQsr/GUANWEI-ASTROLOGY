@@ -50,6 +50,7 @@ export function BookSpread({
   prev = null,
   next = null,
   from = null,
+  tone,
   children,
 }: {
   chart: ZChart | null;
@@ -70,6 +71,8 @@ export function BookSpread({
    * 先展卷（界欄逐條畫）。唔畀就一入嚟已經喺度。
    */
   from?: Box | null;
+  /** 右頁用墨綠底燙金字（2026-10-04：這十年、這一年、給你的話 —— 參考效果圖嘅「流年」頁）。 */
+  tone?: 'jade';
   children: ReactNode;
 }) {
   const t = useTranslations('reading');
@@ -213,7 +216,7 @@ export function BookSpread({
 
   return (
     <div className="shuzhuo">
-      <article ref={book} className="shuzhuo-shu">
+      <article ref={book} className="shuzhuo-shu" data-tone={tone}>
         {/* 撳左邊翻前、撳右邊翻後；← → 一樣 */}
         <TurnEdges prev={prev} next={next} />
         {/* 左頁：命盤。個盤 aria-hidden —— 盤面嘅資訊正文已經講晒，讀屏唔使讀兩次；揀層嗰排掣唔收 */}
