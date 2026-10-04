@@ -177,7 +177,11 @@ export function BookSpread({
   const at = palace in CHAPTER_LAYER ? layerMingIndex(layers, CHAPTER_LAYER[palace]!) : undefined;
   /*
    * 經摺（2026-10-04 · 手機）：右頁左右掃，一摺一個屏闊（排版喺 globals.css 嘅 .shuzhuo-you[data-zhe]）。
-   * 呢度做兩樣：掃到一半放手，跳去最近嗰摺；同埋數摺（「3 / 7」）。
+   * 呢度只係數摺（「3 / 7」）。對齊交畀瀏覽器原生嘅 scroll snap（下面每摺一個 `.zhe-dian`）。
+   *
+   * ⚠ 2026-10-04 修：以前自己用程式對齊 —— 放手 140ms 後四捨五入去最近嗰摺。
+   *   真手機輕輕一掃唔夠半頁，就彈返原位，讀者覺得「翻唔到下一頁」；iPhone 嘅慣性滑動
+   *   亦同程式觸發嘅捲動打交。原生 snap 識睇掃嘅方向同速度。
    * 桌面唔摺 —— matchMedia 唔中就乜都唔做。
    */
   const [zhe, setZhe] = useState<{ i: number; n: number } | null>(null);
@@ -185,7 +189,6 @@ export function BookSpread({
     const el = page.current;
     if (!el || !follow) return;
     const mq = window.matchMedia('(max-width: 899px)');
-    let timer: number | undefined;
     const measure = () => {
       if (!mq.matches) {
         setZhe(null);
@@ -193,25 +196,37 @@ export function BookSpread({
       }
       const w = el.clientWidth;
       if (!w) return;
-      setZhe({ i: Math.round(el.scrollLeft / w) + 1, n: Math.max(1, Math.round(el.scrollWidth / w)) });
+      const i = Math.round(el.scrollLeft / w) + 1;
+      const n = Math.max(1, Math.round(el.scrollWidth / w));
+      setZhe((prev) => (prev && prev.i === i && prev.n === n ? prev : { i, n }));
     };
-    const onScroll = () => {
-      window.requestAnimationFrame(measure);
-      window.clearTimeout(timer);
-      timer = window.setTimeout(() => {
-        if (!mq.matches) return;
-        const w = el.clientWidth;
-        const target = Math.round(el.scrollLeft / w) * w;
-        if (Math.abs(target - el.scrollLeft) > 2) el.scrollTo({ left: target, behavior: 'smooth' });
-      }, 140);
-    };
+    const onScroll = () => window.requestAnimationFrame(measure);
     measure();
     el.addEventListener('scroll', onScroll, { passive: true });
+    /*
+     * ⚠ 2026-10-04 修（Issac：「未攞到內容／有 delay 嗰陣會跳返上一頁」）：
+     * 對齊點係跟摺數畫嘅。內容遲咗先排好 —— 字體後載、裁開動畫、正文遲到 —— 摺數會變多，
+     * 但以前只喺 mount 同捲動時數，冇對齊點嘅摺一掃過去就畀 mandatory snap 拉返轉頭。
+     * 而家：內容一變（大細、DOM、字體）就重數；手指一掂落去亦即刻數一次，掃之前對齊點已經齊。
+     */
+    const ro = new ResizeObserver(() => measure());
+    ro.observe(el);
+    for (const c of el.children) ro.observe(c);
+    const mo = new MutationObserver(() => measure());
+    mo.observe(el, { childList: true, subtree: true, characterData: true, attributes: true, attributeFilter: ['class', 'style', 'data-cutting'] });
+    document.fonts?.addEventListener('loadingdone', measure);
+    void document.fonts?.ready.then(measure);
+    el.addEventListener('touchstart', measure, { passive: true });
+    el.addEventListener('pointerdown', measure, { passive: true });
     window.addEventListener('resize', measure);
     mq.addEventListener('change', measure);
     return () => {
-      window.clearTimeout(timer);
       el.removeEventListener('scroll', onScroll);
+      ro.disconnect();
+      mo.disconnect();
+      document.fonts?.removeEventListener('loadingdone', measure);
+      el.removeEventListener('touchstart', measure);
+      el.removeEventListener('pointerdown', measure);
       window.removeEventListener('resize', measure);
       mq.removeEventListener('change', measure);
     };
@@ -301,6 +316,12 @@ export function BookSpread({
           {children}
           {/* 跟讀：章尾留白，最後幾段先捲得上讀線 */}
           {follow ? <div className="shuzhuo-wei" aria-hidden="true" /> : null}
+          {/* 經摺：每摺起點一個睇唔見嘅對齊點，畀瀏覽器原生 snap 用（手機先有） */}
+          {zhe
+            ? Array.from({ length: zhe.n }, (_, k) => (
+                <span key={k} className="zhe-dian" aria-hidden="true" style={{ left: `calc(${k} * 100cqi)` }} />
+              ))
+            : null}
         </div>
       </article>
     </div>

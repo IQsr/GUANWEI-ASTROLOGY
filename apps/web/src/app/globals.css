@@ -2668,6 +2668,19 @@
     background-attachment: scroll, local, local;
     /* 底部留位畀水墨山同摺數 —— 每摺最尾一行字唔會壓喺山上面 */
     padding-bottom: 64px;
+    /* 原生對齊：一摺一停（對齊點係下面嘅 .zhe-dian） */
+    scroll-snap-type: x mandatory;
+  }
+
+  /* 每摺起點一個睇唔見嘅點。always：一下快掃都只會翻一摺，唔會飛過幾摺 */
+  .zhe-dian {
+    position: absolute;
+    top: 0;
+    width: 1px;
+    height: 1px;
+    pointer-events: none;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
   }
 
   .shuzhuo-you[data-zhe]::-webkit-scrollbar {
