@@ -3,6 +3,7 @@ import { cast } from '@guanwei/ziwei';
 import { epilogueChapter, EPILOGUE_SLUG } from '../src/epilogue';
 import { scanForbidden } from '../src/lint';
 import { scanPlain } from '../src/plain';
+import { AREA } from '../src/link';
 
 /**
  * 給你的話（2026-10-02）：書尾總結。冇新主張，每句都係書入面已經有嘅句，只係揀同排。
@@ -44,6 +45,25 @@ describe('給你的話', () => {
         expect(new Set(items).size, items.join('|')).toBe(items.length);
       }
     }
+  });
+
+  it('長處同留意唔會講同一方面（2026-10-04）', () => {
+    const labels = Object.values(AREA).map(([, on]) => on);
+    const hit: string[] = [];
+    for (const c of CHARTS) {
+      const ch = epilogueChapter({ chart: c, year: 2026 })!;
+      const areas = (slot: string) =>
+        ch.segments
+          .find((s) => s.slot === slot)!
+          .text.split(/[一二三]、/)
+          .slice(1)
+          .map((t) => labels.find((l) => t.startsWith(`${l}，`)))
+          .filter((l): l is string => Boolean(l));
+      expect(areas('長處'), '疾厄唔做長處').not.toContain('身心上');
+      const both = areas('長處').filter((l) => areas('留意').includes(l));
+      if (both.length) hit.push(`${both.join('、')}：${ch.segments.find((s) => s.slot === '長處')!.text} ｜ ${ch.segments.find((s) => s.slot === '留意')!.text}`);
+    }
+    expect(hit.length, hit.slice(0, 3).join(' ／ ')).toBe(0);
   });
 
   it('過禁用詞同直白檢查；第一句就係結論', () => {

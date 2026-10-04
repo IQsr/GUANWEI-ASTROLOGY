@@ -13,8 +13,8 @@ import { yearChapter } from './liunian';
  * 畀咗錢、讀完十幾章，讀者要有一個「收穫」：幾句講得出口嘅說話。
  *
  *   結論   你是怎樣的人（性格的骨架嗰句總結）
- *   長處   三樣可以倚仗嘅：骨架嘅長處、做事（官祿）、本命化祿嗰方面
- *   留意   三件要記住嘅事：命宮嘅提醒、本命化忌嗰方面、骨架嘅提醒
+ *   長處   三樣可以倚仗嘅：骨架嘅長處、做事（官祿）、本命化祿嗰方面（化忌嗰宮、疾厄唔做長處）
+ *   留意   三件要記住嘅事：命宮嘅提醒、本命化忌嗰方面、骨架嘅提醒（長處用咗嘅方面唔再講）
  *   時間   這十年、這一年最值得做的事（兩章嘅建議段）
  *   留白
  *
@@ -63,22 +63,35 @@ export function epilogueChapter(input: { chart: Chart; year: number }): { slug: 
   /* 由宮位抽嘅句加返係邊方面（「心境上，」）—— 抽出嚟之後冇咗章名，讀者唔知講緊邊樣 */
   const tag = (name: string, text: string) => (name === '命宮' ? text : `${AREA[name]?.[1] ?? ''}，${text}`);
 
-  /* 長處：骨架嘅長處 → 做事 → 化祿嗰方面（同前面重複就跳過） */
+  /*
+   * ⚠ 長處同留意唔講同一方面（2026-10-04）：以前化忌落官祿，就會「長處：工作上⋯」「要記住：工作上⋯」
+   *   兩邊都係工作，讀落似自己矛盾（200 本有 28 本）。所以一個宮只會用一次，化忌嗰宮唔做長處。
+   * ⚠ 疾厄唔做長處：佢嘅結論句講身心負荷（「你的疲累⋯」），放喺「你可以倚仗的」唔通。
+   */
   const luP = palaceOfHua(chart, '祿');
+  const jiP = palaceOfHua(chart, '忌');
+  const taken = new Set<string>(['命宮']);
+
+  /* 長處：骨架嘅長處 → 做事 → 化祿嗰方面 → 錢、在外、心境、家（同前面重複就跳過） */
   const strengths: { text: string; id: string }[] = [{ text: plain.strength, id: xid }];
-  for (const name of ['官祿', luP?.name, '財帛', '遷移']) {
-    if (!name || strengths.length >= 3 || name === '命宮') continue;
+  for (const name of ['官祿', luP?.name, '財帛', '遷移', '福德', '田宅']) {
+    if (!name || strengths.length >= 3 || taken.has(name) || name === jiP?.name || name === '疾厄') continue;
     const pp = lineOf(name);
-    if (pp && !strengths.some((s) => s.id === pp.id)) strengths.push({ text: tag(name, pp.summary), id: pp.id });
+    if (pp && !strengths.some((s) => s.id === pp.id)) {
+      strengths.push({ text: tag(name, pp.summary), id: pp.id });
+      taken.add(name);
+    }
   }
 
-  /* 留意：命宮 → 化忌嗰方面 → 骨架 */
-  const jiP = palaceOfHua(chart, '忌');
+  /* 留意：命宮 → 化忌嗰方面 → 感情 → 心境、朋友圈（長處用咗嘅宮跳過）→ 骨架 */
   const watches: { text: string; id: string }[] = [];
-  for (const name of ['命宮', jiP?.name, '夫妻']) {
-    if (!name || watches.length >= 2) continue;
+  for (const name of ['命宮', jiP?.name, '夫妻', '福德', '僕役']) {
+    if (!name || watches.length >= 2 || (name !== '命宮' && taken.has(name))) continue;
     const pp = lineOf(name);
-    if (pp && !watches.some((w) => w.id === pp.id)) watches.push({ text: tag(name, strip(pp.watch)), id: pp.id });
+    if (pp && !watches.some((w) => w.id === pp.id)) {
+      watches.push({ text: tag(name, strip(pp.watch)), id: pp.id });
+      taken.add(name);
+    }
   }
   watches.push({ text: strip(plain.watch), id: xid });
 
