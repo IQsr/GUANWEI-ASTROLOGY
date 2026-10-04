@@ -54,8 +54,15 @@ export function safeNext(raw: unknown): string | null {
  * 放入 query（`?ch=`、`?next=`）嗰陣先 encode，嗰度係我哋自己砌字串。
  */
 export function chapterHref(bookId: string, slug: string): string {
-  return `/book/${bookId}/${slug}`;
+  return `${bookBase(bookId)}/${slug}`;
 }
+
+/**
+ * 示範命書（2026-10-04 · `/sample`）。用一個固定嘅「書號」，目次、章尾導覽等元件照用，
+ * 連結就去 `/sample/…` 而唔係 `/book/…`。示範書唔入 DB。
+ */
+export const SAMPLE_BOOK = 'sample';
+const bookBase = (bookId: string) => (bookId === SAMPLE_BOOK ? '/sample' : `/book/${bookId}`);
 
 /**
  * 路由參數入面嘅章名。
@@ -74,7 +81,7 @@ export function chapterParam(raw: string): string {
 
 /** 目次。 */
 export function contentsHref(bookId: string): string {
-  return `/book/${bookId}`;
+  return bookBase(bookId);
 }
 
 /** 付款頁，帶住「由邊一章嚟」。 */

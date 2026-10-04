@@ -39,7 +39,8 @@
       "Your life, the story."
     ],
     "lines": [],
-    "lede": "A personalised book of Chinese astrology, drawing on Zi Wei Dou Shu to explore your character, relationships and the unfolding chapters of your life."
+    "lede": "A personalised book of Chinese astrology, drawing on Zi Wei Dou Shu to explore your character, relationships and the unfolding chapters of your life.",
+    "sample": "Preview a sample book"
   },
   "theme": {
     "day": "Day",
@@ -453,5 +454,17 @@
     "read": "By continuing you confirm you have read and agree to the <terms>Terms of Use</terms> and <privacy>Privacy Policy</privacy>.",
     "agree": "Agree and begin",
     "back": "Back to home"
+  },
+  "sample": {
+    "metaTitle": "Sample book",
+    "metaDescription": "A sample Stellogue book, cast for an invented birth date — see how a book reads before you begin your own.",
+    "back": "Home",
+    "title": "Sample book",
+    "who": "21 March 1990 · 2:20 pm · Hong Kong · female",
+    "note": "This sample is cast for an invented birth date, with every page open. Your own book is cast from your birth details, so every chapter reads differently. Books are currently written in Chinese.",
+    "cta": "Begin your own",
+    "endTitle": "This is a sample book",
+    "endBody": "Every line in it comes from the chart. With your birth details, it becomes another book — one that is only yours.",
+    "missing": "The sample book has no such chapter."
   }
 }

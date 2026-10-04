@@ -3,6 +3,8 @@ import {
   chapterHref,
   chapterParam,
   claimHref,
+  contentsHref,
+  SAMPLE_BOOK,
   cutHref,
   neighbours,
   parseReading,
@@ -54,6 +56,12 @@ describe('一章嘅網址', () => {
   /** 路徑唔 encode（<Link> 會做），query 先 encode。 */
   it('路徑入面嘅中文唔 encode', () => {
     expect(chapterHref('b1', '命宮')).toBe('/book/b1/命宮');
+  });
+
+  it('示範命書去 /sample，唔入 /book（2026-10-04）', () => {
+    expect(chapterHref(SAMPLE_BOOK, '命宮')).toBe('/sample/命宮');
+    expect(contentsHref(SAMPLE_BOOK)).toBe('/sample');
+    expect(contentsHref('b1')).toBe('/book/b1');
   });
 
   it('query 入面嘅中文 encode', () => {

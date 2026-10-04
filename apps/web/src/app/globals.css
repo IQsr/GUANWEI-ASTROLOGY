@@ -2690,7 +2690,8 @@
   /* 摺入面唔好喺中間斷開嘅嘢 */
   .shuzhuo-you[data-zhe] .xing-pan,
   .shuzhuo-you[data-zhe] .zhang-ti,
-  .shuzhuo-you[data-zhe] nav {
+  .shuzhuo-you[data-zhe] nav,
+  .shuzhuo-you[data-zhe] aside {
     break-inside: avoid;
   }
 

@@ -42,6 +42,7 @@ const ALLOWED = {
   'lib/suidu.ts': '隨讀：段落格名 → 盤面亮法（資料鍵）',
   'lib/layers.ts': '命盤層：章 slug「這十年」「這一年」→ 開邊層（資料鍵）',
   'lib/dial.ts': '章尾星盤說明（「夫妻宮在午 · 巨門」）：書嘅內容，同章名一樣寫中文',
+  'lib/sample-book.ts': '示範命書嘅虛構出生地（「香港」）：排盤資料，寫入序章（書嘅內容係中文）',
   'components/ChapterTitle.tsx': '直排章序「第一」：同章名一樣係書嘅內容（寫落本書嘅中文），唔跟介面語言轉',
   'lib/mingshu.ts': '十二宮嘅閱讀次序（章嘅 slug）',
   'lib/chengshu.ts': '免費章 slug、章序用嘅中文數字（寫落本書嘅章名）',
@@ -50,6 +51,7 @@ const ALLOWED = {
   'lib/luokuan.ts': '出生地嘅中文名（交畀引擎、寫落書）同中文日期寫法；畫面上嘅地名喺 messages',
   'app/[locale]/cast/actions.ts': '序嘅 slug「序」（內容資料）',
   'app/[locale]/book/[bookId]/[chapter]/page.tsx': '段落格名預設「正文」（資料鍵）',
+  'app/[locale]/sample/[chapter]/page.tsx': '同真書一章一樣：段落格名預設「正文」、墨綠頁章 slug（資料鍵）',
 
   /* ── 品牌同語言名：任何語言都一樣 ── */
   'lib/site.ts': '品牌「星敘」',

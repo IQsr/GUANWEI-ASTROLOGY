@@ -128,6 +128,12 @@ export default async function RuZhai({ params }: { params: Promise<{ locale: str
               <span className="btn-jiantou" aria-hidden="true">→</span>
             </Link>
             <p className="mt-4 max-w-80 text-cap leading-[1.9] tracking-[0.1em] text-night-ink-3">{t('hint')}</p>
+            {/* 2026-10-04：未落款之前，可以先睇一本示範書（全書已裁開，虛構生辰） */}
+            <p className="mt-3">
+              <Link href="/sample" className="lian border-night-rule text-cap tracking-[0.14em] text-night-ink-2 hover:text-night-ink">
+                {t('sample')} →
+              </Link>
+            </p>
             {/* 有書先出一行（掛載之後先問 —— 首頁係靜態頁，server 唔知你有冇書） */}
             <ResumeLink template={t.raw('resumeNamed') as string} />
           </div>
