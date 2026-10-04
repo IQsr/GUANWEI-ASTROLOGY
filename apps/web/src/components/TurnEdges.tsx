@@ -18,8 +18,19 @@ export type PageTurn = { href: string; label: string };
  *
  * ← → 鍵撳返同一條連結 —— 同一個翻頁動畫、同一個去處。
  * 打緊字、或者撳住 Ctrl／Cmd／Alt／Shift 嗰陣唔攔（嗰啲係瀏覽器自己嘅快捷鍵）。
+ *
+ * `fold`（2026-10-04 · 手機經摺）：撳窄邊／← → 先問佢 —— 佢翻咗一摺就回 true，連結唔行；
+ * 翻到頭／尾回 false，先至轉章。
  */
-export function TurnEdges({ prev = null, next = null }: { prev?: PageTurn | null; next?: PageTurn | null }) {
+export function TurnEdges({
+  prev = null,
+  next = null,
+  fold,
+}: {
+  prev?: PageTurn | null;
+  next?: PageTurn | null;
+  fold?: (dir: -1 | 1) => boolean;
+}) {
   const prevRef = useRef<HTMLAnchorElement>(null);
   const nextRef = useRef<HTMLAnchorElement>(null);
 
@@ -48,6 +59,9 @@ export function TurnEdges({ prev = null, next = null }: { prev?: PageTurn | null
           ref={prevRef}
           direction="prev"
           href={prev.href}
+          onClick={(e) => {
+            if (fold?.(-1)) e.preventDefault();
+          }}
           aria-label={prev.label}
           title={prev.label}
           className="shuzhuo-bian shuzhuo-bian-zuo"
@@ -60,6 +74,9 @@ export function TurnEdges({ prev = null, next = null }: { prev?: PageTurn | null
           ref={nextRef}
           direction="next"
           href={next.href}
+          onClick={(e) => {
+            if (fold?.(1)) e.preventDefault();
+          }}
           aria-label={next.label}
           title={next.label}
           className="shuzhuo-bian shuzhuo-bian-you"

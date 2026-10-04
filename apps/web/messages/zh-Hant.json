@@ -447,7 +447,9 @@
     "layerDecadal": "大限",
     "layerAnnual": "流年",
     "layerDecadalCap": "大限 {from}–{to} 歲",
-    "layerAnnualCap": "{year} {ganzhi}年 · 虛歲 {age}"
+    "layerAnnualCap": "{year} {ganzhi}年 · 虛歲 {age}",
+    "prevFold": "上一摺",
+    "nextFold": "下一摺"
   },
   "consent": {
     "title": "開始之前",

@@ -444,7 +444,9 @@
     "layerDecadal": "Decade",
     "layerAnnual": "Year",
     "layerDecadalCap": "Decade · ages {from}–{to}",
-    "layerAnnualCap": "{year} ({ganzhi}) · age {age}"
+    "layerAnnualCap": "{year} ({ganzhi}) · age {age}",
+    "prevFold": "Previous fold",
+    "nextFold": "Next fold"
   },
   "consent": {
     "title": "Before you begin",

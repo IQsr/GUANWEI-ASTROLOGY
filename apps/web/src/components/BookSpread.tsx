@@ -260,6 +260,31 @@ export function BookSpread({
       />
     ) : null;
 
+  /*
+   * 手機經摺：兩邊窄邊（同 ← →）先逐摺翻，翻到頭／尾先轉章（2026-10-04）。
+   * 未到尾就將窄邊個名改做「下一摺」；本章冇上／下一章但仲有摺翻，都要出窄邊。
+   * 窄邊條連結嘅去處冇用到（`turnFold` 會攔），冇真去處就用返呢頁。
+   */
+  const midPrev = Boolean(zhe && zhe.i > 1);
+  const midNext = Boolean(zhe && zhe.i < zhe.n);
+  const edgePrev = midPrev ? { href: prev?.href ?? pathname, label: t('prevFold') } : prev;
+  const edgeNext = midNext ? { href: next?.href ?? pathname, label: t('nextFold') } : next;
+  const turnFold = (dir: -1 | 1): boolean => {
+    const el = page.current;
+    if (!el || !follow || !window.matchMedia('(max-width: 899px)').matches) return false;
+    const w = el.clientWidth;
+    if (!w) return false;
+    const i = Math.round(el.scrollLeft / w);
+    const n = Math.max(1, Math.round(el.scrollWidth / w));
+    const to = i + dir;
+    if (to >= 0 && to < n) {
+      el.scrollTo({ left: to * w, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+      return true;
+    }
+    /* 到咗頭／尾：有上／下一章就轉章；冇就乜都唔做（唔好跳去同一頁） */
+    return dir === -1 ? !prev : !next;
+  };
+
   /* 本命／大限／流年。冇層（舊書、未起運）就唔出 */
   const tabs = layers ? (
     <div role="group" aria-label={t('layers')} className="pan-ceng">
@@ -275,7 +300,7 @@ export function BookSpread({
     <div className="shuzhuo">
       <article ref={book} className="shuzhuo-shu" data-tone={tone}>
         {/* 撳左邊翻前、撳右邊翻後；← → 一樣 */}
-        <TurnEdges prev={prev} next={next} />
+        <TurnEdges prev={edgePrev} next={edgeNext} fold={turnFold} />
         {/* 左頁：命盤。個盤 aria-hidden —— 盤面嘅資訊正文已經講晒，讀屏唔使讀兩次；揀層嗰排掣唔收 */}
         <div className="shuzhuo-ye shuzhuo-zuo">
           {top ? <div className="mb-6">{top}</div> : null}
