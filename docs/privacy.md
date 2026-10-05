@@ -20,6 +20,7 @@
 | **Email** | 認領之後先有 | Contract（認領＝開帳號）；流年提醒要另外 **consent** | `auth.users` | 同上 |
 | **付款紀錄** | `stripe_payment_id`、`purchased_at` | Contract ＋ **Legal obligation**（會計紀錄） | `entitlements` | ⚠ 稅務紀錄有法定年期，**唔跟讀者刪除一齊走** —— 見第五節 |
 | **Session** | 匿名或已認領嘅 `reader.id` | Contract | cookie ＋ `auth.users` | Session 過期 |
+| **時辰小實驗**（2026-10-05） | 大概時段、每題年份 × 方面 × 答案、邊幾個候選預測「有」、猜中邊個、真時辰。**冇**生日、出生地、名、email、reader id、book id | **Consent**（Art. 6(1)(a)）—— 讀者剔格先記；唔剔照玩 | `rectify_trials`（0003），經 `rectify_record()` 寫；anon／authenticated 讀唔到 | 唔連人，所以唔跟讀者刪除走；本身認唔出係邊個。⚠ 仍然算唔算個人資料要律師睇：年份序列加時辰理論上可以同其他資料對上 |
 
 ### ⚠ 一個唔明顯嘅分類：盤面值**就係**生辰
 

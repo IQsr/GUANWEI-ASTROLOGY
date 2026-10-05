@@ -3,7 +3,8 @@
 import { useState, useTransition } from 'react';
 import type { Answer, Question } from '@guanwei/content';
 import { PLACES } from '@/lib/luokuan';
-import { finish, nextStep, type Asked, type Birth, type Verdict } from './actions';
+import { finish, nextStep, type Birth } from './actions';
+import type { Asked, Verdict } from '@/lib/dingshi-types';
 
 /** 十二時辰（子時跨兩日，23–1 時） */
 const SHICHEN = ['子', '丑', '寅', '卯', '辰', '巳', '午', '未', '申', '酉', '戌', '亥'];

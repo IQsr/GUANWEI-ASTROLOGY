@@ -22,6 +22,11 @@ export const LOCAL_KEYS = {
   lastRead: 'gw-last-read',
   /** 同意咗邊個版本嘅條款及私隱政策（`lib/legal.ts`）。冇佢，每次起盤都會再問。 */
   consent: 'gw-consent',
+  /**
+   * 邊幾本書做過時辰小實驗（2026-10-05）：書號，逗號分隔。冇生辰、冇答案 ——
+   * 只係防同一本書記錄兩次（記錄本身唔連書，所以要喺讀者部機度記）。
+   */
+  shiyan: 'gw-shiyan',
 } as const;
 
 export type LocalKey = keyof typeof LOCAL_KEYS;

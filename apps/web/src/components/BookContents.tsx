@@ -2,6 +2,7 @@ import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import { PageTurnLink } from '@/components/PageTurnLink';
 import { ThemeIcon } from '@/components/ThemeIcon';
+import { ShiyanCard } from '@/components/ShiyanCard';
 import { chapterHref, payHref } from '@/lib/journey';
 import { groupChapters, tally } from '@/lib/themes';
 import type { ChapterMeta } from '@/lib/juan-view';
@@ -28,11 +29,14 @@ export function BookContents({
   chapters,
   lastRead,
   cut,
+  experiment = false,
 }: {
   bookId: string;
   chapters: readonly ChapterMeta[];
   lastRead: string | null;
   cut: boolean;
+  /** 時辰小實驗嘅入口（有出生時間嘅書先出，2026-10-05） */
+  experiment?: boolean;
 }) {
   const t = useTranslations('book');
   const { preface, epilogue, groups, rest } = groupChapters(chapters);
@@ -155,6 +159,8 @@ export function BookContents({
           </section>
         ) : null}
       </div>
+
+      {experiment ? <ShiyanCard bookId={bookId} /> : null}
 
       {/* 「未裁」講一次，喺版尾 */}
       {count.uncut > 0 ? (

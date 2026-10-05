@@ -37,10 +37,11 @@ function code(file: string): string {
     .replace(/^\s*\/\/.*$/gm, '');
 }
 
-describe('⚠ 得三個 key', () => {
+describe('⚠ 得四個 key', () => {
   /* 2026-09-29 加咗 consent：同意咗邊個版本嘅條款（lib/legal.ts），唔係追蹤 —— docs/privacy.md 第二節有列 */
-  it('剛好三個：主題、上次讀到邊段、同意咗邊版條款', () => {
-    expect(Object.keys(LOCAL_KEYS).sort()).toEqual(['consent', 'lastRead', 'theme']);
+  /* 2026-10-05 加咗 shiyan：邊幾本書做過時辰小實驗（只係書號），防同一本書記錄兩次 —— 私隱政策第四節有列 */
+  it('剛好四個：主題、上次讀到邊段、同意咗邊版條款、做過小實驗嘅書', () => {
+    expect(Object.keys(LOCAL_KEYS).sort()).toEqual(['consent', 'lastRead', 'shiyan', 'theme']);
   });
 
   it('key 名有 gw- 前綴 —— 同人哋嘅嘢分得開', () => {

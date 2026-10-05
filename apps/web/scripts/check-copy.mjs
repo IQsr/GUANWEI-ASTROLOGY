@@ -42,6 +42,7 @@ const ALLOWED = {
   'lib/suidu.ts': '隨讀：段落格名 → 盤面亮法（資料鍵）',
   'lib/layers.ts': '命盤層：章 slug「這十年」「這一年」→ 開邊層（資料鍵）',
   'lib/dial.ts': '章尾星盤說明（「夫妻宮在午 · 巨門」）：書嘅內容，同章名一樣寫中文',
+  'lib/dingshi.server.ts': '伺服器 log（「記錄唔到」）：寫畀我哋睇，讀者見唔到',
   'lib/sample-book.ts': '示範命書嘅虛構出生地（「香港」）：排盤資料，寫入序章（書嘅內容係中文）',
   'components/ChapterTitle.tsx': '直排章序「第一」：同章名一樣係書嘅內容（寫落本書嘅中文），唔跟介面語言轉',
   'lib/mingshu.ts': '十二宮嘅閱讀次序（章嘅 slug）',

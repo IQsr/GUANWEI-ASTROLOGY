@@ -103,7 +103,7 @@ export default async function BookPage({
             </h1>
           }
         >
-          <BookContents bookId={bookId} chapters={view.chapters} lastRead={view.lastRead} cut={view.cut} />
+          <BookContents bookId={bookId} chapters={view.chapters} lastRead={view.lastRead} cut={view.cut} experiment={chart !== null} />
         </BookSpread>
       ) : (
         <p className="banxin text-body leading-[1.95] text-ink-2">
