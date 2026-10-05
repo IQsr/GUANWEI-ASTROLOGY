@@ -9,7 +9,7 @@ import { shiyanFinish, shiyanStep } from '@/app/[locale]/book/[bookId]/shiyan/ac
 import type { Asked, Verdict } from '@/lib/dingshi-types';
 
 /**
- * 時辰小實驗（2026-10-05 · 書入面）
+ * 溯時（2026-10-05 · 書入面；原名「時辰小實驗」）
  *
  * 揀大概時段 → 十二條「某年某方面有冇事」→ 猜時辰，同本書落款嘅真時間對。
  * 生辰同真時辰由 server 喺本書讀，呢度唔經手。讀者剔咗同意先記錄；同一本書只記一次（`gw-shiyan`）。
@@ -75,6 +75,8 @@ export function ShiyanTrial({ bookId }: { bookId: string }) {
   return (
     <div className="banxin flex flex-col gap-6" aria-busy={pending}>
       {error ? <p className="text-sm text-ink-2">{t('error')}</p> : null}
+
+      <p className="-mt-2 font-serif text-body text-ink-2">{t('cardSub')}</p>
 
       {stage.kind === 'start' ? (
         <div className="ka flex flex-col gap-5 p-6">

@@ -470,12 +470,12 @@
     "missing": "The sample book has no such chapter."
   },
   "shiyan": {
-    "cardTitle": "A small experiment",
-    "cardBody": "Let us try to guess your birth hour from your past alone. Twelve questions, about three minutes.",
+    "cardTitle": "Trace the Hour",
+    "cardBody": "Twelve questions about your past, about three minutes. (In trial)",
     "cardCta": "Try it",
-    "metaTitle": "Birth-hour experiment",
-    "title": "Birth-hour experiment",
-    "intro": "You know your birth time. We will set it aside and ask only about things that happened in your past, to see whether we can guess your hour. This is an experiment: wrong guesses are normal, and your book will not change.",
+    "metaTitle": "Trace the Hour",
+    "title": "Trace the Hour",
+    "intro": "You know your birth time. We will set it aside and ask only about things that happened in your past, to see whether we can work back to your hour. Trace the Hour is still in trial: wrong guesses are normal, and your book will not change.",
     "bandQ": "Roughly when were you born?",
     "bands": [
       "Late night to early morning (23:00–05:00)",
@@ -518,6 +518,7 @@
       "Xu",
       "Hai"
     ],
-    "outside": "The time band you chose does not include your birth time, so this run could not get it right."
+    "outside": "The time band you chose does not include your birth time, so this run could not get it right.",
+    "cardSub": "Trace the road you have walked to work back to your birth hour."
   }
 }
