@@ -12,9 +12,9 @@ Your Life Palace is shaped by Tian Tong (the Blessed) and Tian Liang (the Sage).
 
 For Tian Tong, the challenge is not hardship but drive — when nothing forces you to move, comfort itself weakens your reasons to. A certain amount of pressure actually works in your favour. You are well blessed: life is comfortable, you get on easily with people, and help comes without your having to push for it. That ease is genuine; there's no need to distrust it. Tian Liang in the Life Palace makes stepping forward your keynote: you speak up when something is unfair, and you take in people who are struggling. You hold to a set of standards of your own, and you don't bend them easily. Here Tian Tong turns to Obstruction: you want to settle, yet the very conditions for ease are the ones hardest to come by. What you feel is less pain than a recurring drag.
 
-This side of you also connects with the way you engage with the wider world, your work and your finances. Out in the world, Tian Tong makes you easy to warm to in unfamiliar places. At work, Tian Ji (the Strategist) has you take a problem apart and find another way through. With money, Tai Yin (the Moon) has you build up slowly and steadily.
-
 Huo Xing (Fire) also sits here, adding heat and speed: quick-tempered and quick to start; your enthusiasm flares fast and fades just as fast.
+
+The same pattern carries into other parts of the chart. Out in the world, Tian Tong makes you easy to warm to in unfamiliar places. At work, Tian Ji (the Strategist) has you take a problem apart and find another way through. With money, Tai Yin (the Moon) has you build up slowly and steadily.
 
 You know how to enjoy rest — a good meal and an afternoon nap are enough to make you content. But stay somewhere comfortable for too long, and big changes, like a new job or learning something new, usually need someone else's push first.
 
@@ -26,9 +26,9 @@ Your Siblings Palace is shaped by Tian Xiang (the Minister).
 
 Coordinating from the middle makes you comfortable in a group, and leaves you with few clear positions.
 
-Seen across the whole chart, this side of you can't be separated from your circle, your home and the load on your body and mind. In your circle, Zi Wei (the Emperor) naturally puts you at the centre of a group. At home, Lian Zhen (the Upright) has you want a space built to your own specification, and you'd rather start again than make do. In body and mind, Tian Fu (the Treasury) wears you down through long-term vigilance. Dealings with peers go relatively smoothly; finding someone to talk things over with or to work alongside is easy to start.
-
 Tuo Luo (the Weight) also sits here, slowing things down so they linger: grudges with peers don't easily clear, and the past gets carried along. Old matters can be dug up again, details and all.
+
+Dealings with peers go relatively smoothly; finding someone to talk things over with or to work alongside is easy to start. Seen across the whole chart, the picture fills out. In your circle, Zi Wei (the Emperor) naturally puts you at the centre of a group. At home, Lian Zhen (the Upright) has you want a space built to your own specification, and you'd rather start again than make do. In body and mind, Tian Fu (the Treasury) wears you down through long-term vigilance.
 
 When friends fall out, you're often the one carrying messages between them and finding a way for both to back down. If an argument breaks out in the group chat, you're the first to change the subject.
 
@@ -40,9 +40,9 @@ Your Partnership Palace is shaped by Ju Men (the Great Gate).
 
 This means few buried misunderstandings, and also more everyday friction — because not everything needs spelling out.
 
-Also pulling on this side of you: your work, your inner life and the way you engage with the wider world. In your inner life, Tai Yang (the Sun) lets you find calm in having something to do and someone to look after. At work it is Tian Ji (the Strategist) and out in the world it is Tian Tong (the Blessed) — see the Career Palace chapter and the Travel Palace chapter.
-
 Di Jie (Loss) also sits here, making gains harder to hold on to: what you put into a relationship isn't easily seen; you can say what you've given.
+
+Other parts of the chart pull on this side of you as well. In your inner life, Tai Yang (the Sun) lets you find calm in having something to do and someone to look after. At work it is Tian Ji (the Strategist) and out in the world it is Tian Tong (the Blessed), each covered in its own chapter.
 
 When your partner says something vague, you keep asking until it's clear. You want to understand, but to them it sounds like an interrogation; saying "this matters to me" before you ask will go much better.
 
@@ -54,7 +54,7 @@ Your Children Palace is shaped by Lian Zhen (the Upright) and Tan Lang (the Wolf
 
 When you bring others up, Lian Zhen has you invest deeply and hand over your whole set of principles with it. With juniors or your own work, you expect things done properly and seriously, and won't accept half-measures. Lowering expectations is harder than lowering standards. Tan Lang adds curiosity and play to the way you guide others — new fields, new ways of doing things, trying without limits. This is very inspiring, and can also lack staying power: once your own interest moves on, what you were leading stalls halfway.
 
-Your home, your ties with elders and your circle shape this side of you too. With elders and seniors, Wu Qu (the General) has you hold to what you think is right and say so plainly when something is wrong. At home it is Lian Zhen and in your circle it is Zi Wei (the Emperor) — see the Property Palace chapter and the Friends Palace chapter. When you're nurturing a project or a person, you have more to work with, and you don't have to do everything yourself.
+When you're nurturing a project or a person, you have more to work with, and you don't have to do everything yourself. Elsewhere in the chart, this side of you shows up like this. With elders and seniors, Wu Qu (the General) has you hold to what you think is right and say so plainly when something is wrong. At home it is Lian Zhen and in your circle it is Zi Wei (the Emperor), each covered in its own chapter.
 
 Your bond with children and younger people runs deep; even after a disagreement or a spell of distance, you come to understand each other in the end. Just don't let your expectations turn into pressure on them.
 
@@ -66,9 +66,9 @@ Your Wealth Palace is shaped by Tai Yin (the Moon).
 
 The *Complete Book* says "full granaries when strong; when weak, gains and losses that don't add up" — the heart of it is whether money gathers or not. You're sensitive to spending, and especially uneasy about sudden expenses. When it's strong, the savings hold; when it's weak, the same effort turns into going back and forth. What you fear isn't too little; it's the sudden.
 
-This side of you also connects with your inner life, your character and your work. In your character, Tian Tong (the Blessed) gives you a gentle keynote. In your inner life it is Tai Yang (the Sun) and at work it is Tian Ji (the Strategist) — see the Wellbeing Palace chapter and the Career Palace chapter. Your money rarely moves in a straight line: what comes in and what goes out tend to follow different paths.
-
 Di Kong (Void) also sits here, adding a streak of the ideal over the practical: there's often a gap between planned and actual spending, so check the accounts twice.
+
+Your money rarely moves in a straight line: what comes in and what goes out tend to follow different paths. The same pattern carries into other parts of the chart. In your character, Tian Tong (the Blessed) gives you a gentle keynote. In your inner life it is Tai Yang (the Sun) and at work it is Tian Ji (the Strategist), each covered in its own chapter.
 
 You tend to save small amounts over a long time: fixed deposits, monthly standing orders, an account opened for a particular goal. A sudden large expense is what unsettles you most, so an emergency fund matters.
 
@@ -80,7 +80,7 @@ Your Health Palace is shaped by Tian Fu (the Treasury).
 
 The *Complete Book* says Tian Fu brings "few troubles, and help when trouble comes": your foundations are steady, and you can usually bear what wears you down. What wears you down is vigilance: you're in the habit of planning for the worst, so even in calm weather you stay on guard. This long, low-level tension isn't intense, but it rarely lets up. For you, real rest isn't stopping; it's a stretch of time when you know there's nothing to prepare for. Having something in reserve relaxes you more than having free time. Tian Fu turns to Recognition: holding steady is shaped into a system, and stability gets a name. This is Tian Fu's only transformation, so when it appears it carries real weight.
 
-Seen across the whole chart, this side of you can't be separated from your ties with elders, your peers and your home. Among your peers, Tian Xiang (the Minister) makes you the coordinator, joining up different views and keeping things from turning awkward. With elders and seniors it is Wu Qu (the General) and at home it is Lian Zhen (the Upright) — see the Parents Palace chapter and the Property Palace chapter. You can usually keep a little strength in reserve, so everything doesn't press down at once.
+You can usually keep a little strength in reserve, so everything doesn't press down at once. Seen across the whole chart, the picture fills out. Among your peers, Tian Xiang (the Minister) makes you the coordinator, joining up different views and keeping things from turning awkward. With elders and seniors it is Wu Qu (the General) and at home it is Lian Zhen (the Upright), each covered in its own chapter.
 
 Even when things are going well, part of you is preparing for the worst. With insurance, savings and a backup plan in place, you can actually relax.
 
@@ -96,7 +96,7 @@ Tian Tong makes people warm to you quickly in unfamiliar places: you're soft in 
 
 You meet little resistance when you change surroundings, and you fit in quickly. The difficulty comes after fitting in — once a new comfort zone forms, you don't want to move again. Fitting in easily and leaving with difficulty are really the same quality. Tian Liang often brings you people willing to help you along in unfamiliar places, and it's easy to see why: you're reliable, principled and never make trouble for anyone. You adapt away from home not by being smooth but by being trustworthy.
 
-Also pulling on this side of you: your character, your love life and your inner life. In love, Ju Men (the Great Gate) has you need things said clearly, with nothing glossed over. In your character it is Tian Tong and in your inner life it is Tai Yang (the Sun) — see the Life Palace chapter and the Wellbeing Palace chapter. There's more to handle in unfamiliar surroundings, and after leaving familiar ground it usually takes time to find your rhythm again.
+There's more to handle in unfamiliar surroundings, and after leaving familiar ground it usually takes time to find your rhythm again. Other parts of the chart pull on this side of you as well. In love, Ju Men (the Great Gate) has you need things said clearly, with nothing glossed over. In your character it is Tian Tong and in your inner life it is Tai Yang (the Sun), each covered in its own chapter.
 
 Wherever you go, you tend to meet people willing to help you, so travel and postings abroad usually go smoothly. Once you've settled somewhere new, ask yourself now and then whether you want to move on.
 
@@ -108,7 +108,7 @@ Your Friends Palace is shaped by Zi Wei (the Emperor) and Po Jun (the Vanguard).
 
 Your network is usually substantial, but deep friendships are few. A group gives you a position but not necessarily closeness, and that gap is a drain in itself. Po Jun makes you the one who leads change in a group: you can propose new ways of doing things and bear the opposition. So you have your followers, and also people you've run up against.
 
-Your peers, the next generation and your ties with elders shape this side of you too. With those you bring up, Lian Zhen (the Upright) has you invest deeply and hand over your whole set of principles with it. Among your peers it is Tian Xiang (the Minister) and with elders and seniors it is Wu Qu (the General) — see the Siblings Palace chapter and the Parents Palace chapter. Dealings within a group flow relatively freely; making a connection or finding someone takes fewer steps.
+Dealings within a group flow relatively freely; making a connection or finding someone takes fewer steps. Elsewhere in the chart, this side of you shows up like this. With those you bring up, Lian Zhen (the Upright) has you invest deeply and hand over your whole set of principles with it. Among your peers it is Tian Xiang (the Minister) and with elders and seniors it is Wu Qu (the General), each covered in its own chapter.
 
 At work and among friends, people often come to you for a decision. Many respect you, but few can tell you what's on their minds; now and then, invite one or two of them for a meal on their own.
 
@@ -118,7 +118,7 @@ At work you're good at taking things apart and adapting, and finding room inside
 
 Your Career Palace is shaped by Tian Ji (the Strategist).
 
-This side of you also connects with your love life, your finances and your character. In love it is Ju Men (the Great Gate), with money it is Tai Yin (the Moon) and in your character it is Tian Tong (the Blessed) — see the Partnership Palace chapter, the Wealth Palace chapter and the Life Palace chapter. Your work rarely stands on its own: to get one thing done, you often have to settle unrelated matters first.
+Your work rarely stands on its own: to get one thing done, you often have to settle unrelated matters first. In love it is Ju Men (the Great Gate), with money it is Tai Yin (the Moon) and in your character it is Tian Tong (the Blessed), each covered in its own chapter.
 
 You're suited to varied work: project-based roles, consultancy, planning, jobs that keep you adapting. A post where every day is the same and the process is fixed will make you restless fastest.
 
@@ -132,7 +132,7 @@ Lian Zhen: Remodelling costs a lot, but to you the money is well spent.
 
 Tan Lang has you see a home as something you can swap: no place is a final stop, and you'll readily move for a new opportunity. To you, a space means possibility — whether something can be done there matters more than whether it's comfortable to live in.
 
-Seen across the whole chart, this side of you can't be separated from the next generation, the load on your body and mind and your peers. With those you bring up it is Lian Zhen, in body and mind it is Tian Fu (the Treasury) and among your peers it is Tian Xiang (the Minister) — see the Children Palace chapter, the Health Palace chapter and the Siblings Palace chapter. Settling in meets less resistance: matters of home and household mostly go smoothly.
+Settling in meets less resistance: matters of home and household mostly go smoothly. With those you bring up it is Lian Zhen, in body and mind it is Tian Fu (the Treasury) and among your peers it is Tian Xiang (the Minister), each covered in its own chapter.
 
 You're particular about the layout and feel of a home, and before moving in you often want to change the floor plan, the lighting and the furnishings. Set a ceiling on the renovation budget in advance.
 
@@ -144,9 +144,9 @@ Your Wellbeing Palace is shaped by Tai Yang (the Sun).
 
 With nothing at all to do, Tai Yang leaves you uneasy rather than rested. With Tai Yang here, the link between busyness and peace of mind runs the opposite way from most people's: a reasonable load is what keeps you grounded. What really wears you down isn't having a lot to do; it's doing things no one sees, or for people who don't need them. Being needed is your most solid source of calm. Tai Yang turns to Abundance: what you give gets a response, and where you shine really lights up. This stops your giving from spinning its wheels.
 
-Also pulling on this side of you: your finances, the way you engage with the wider world and your love life. With money it is Tai Yin (the Moon), out in the world it is Tian Tong (the Blessed) and in love it is Ju Men (the Great Gate) — see the Wealth Palace chapter, the Travel Palace chapter and the Partnership Palace chapter. You don't find inner rest easily; to quieten down, you often have to put a few things in order first.
-
 Ling Xing (Bell) also sits here, adding a slow, hidden heat: worries don't show, and quiet doesn't mean you've let go.
+
+You don't find inner rest easily; to quieten down, you often have to put a few things in order first. With money it is Tai Yin (the Moon), out in the world it is Tian Tong (the Blessed) and in love it is Ju Men (the Great Gate), each covered in its own chapter.
 
 You have a lot of pride and want what you do to be seen and recognised. In your free time you'd rather help people, volunteer or organise something than sit idle on your own.
 
@@ -158,8 +158,8 @@ Your Parents Palace is shaped by Wu Qu (the General) and Qi Sha (the Warrior).
 
 Being straightforward keeps positions clear, and makes conflict arrive quickly. You're just as direct with rules — you follow the sensible ones and go around the rest, spending little time working the system with people. Qi Sha makes you unwilling to soften your position once you believe something is wrong — you won't cooperate, and you won't spend time explaining. Not backing down makes relationships with elders tense, though clear. Wu Qu turns to Authority: your decisiveness is sanctioned, and you dare to act and can. The other side of this is that firmness plus authority can easily go too far. In the right direction you push far; in the wrong one you hit hard.
 
-The load on your body and mind, your circle and the next generation shape this side of you too. In body and mind it is Tian Fu (the Treasury), in your circle it is Zi Wei (the Emperor) and with those you bring up it is Lian Zhen (the Upright) — see the Health Palace chapter, the Friends Palace chapter and the Children Palace chapter. Things are relatively easy to talk through with elders and authority, and the route for explaining something is more direct.
-
 Qing Yang (the Blade) also sits here, adding a blunt, cutting edge: a direct approach to elders and rules, with little diplomacy. Disagreement gets said on the spot.
+
+Things are relatively easy to talk through with elders and authority, and the route for explaining something is more direct. In body and mind it is Tian Fu (the Treasury), in your circle it is Zi Wei (the Emperor) and with those you bring up it is Lian Zhen (the Upright), each covered in its own chapter.
 
 You're straightforward with managers and elders, and you say when you think something is wrong. Spending a little more time on procedure when you submit reports and paperwork will save you a lot of trouble.

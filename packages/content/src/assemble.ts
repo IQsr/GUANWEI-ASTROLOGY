@@ -88,7 +88,8 @@ export const SLOT_SPEC = [
   { slot: '結構' as const, min: 0, max: 200, required: false },
   /* 生活裡的樣子（2026-09-30）：結論講成一個現代場景，每格一段（`life.ts`） */
   { slot: '生活' as const, min: 25, max: 110, required: true },
-  { slot: '牽動' as const, min: 40, max: 140, required: true },
+  /* 2026-10-05：開頭唔再列範疇，後面幾章（三宮都講過）淨係得指返句，二三十字 */
+  { slot: '牽動' as const, min: 20, max: 140, required: true },
   { slot: '擾動' as const, min: 0, max: 60, required: false },
   /* 2026-10-02：宮位章唔再以反思問題收（改由「生活」格收），留白只剩疾厄嘅免責句 */
   { slot: '留白' as const, min: 0, max: 45, required: false },
@@ -495,27 +496,11 @@ export function assemble(
     }
   }
 
-  /* ── 牽動（L3 結構層）────────────────────────────────── */
-  /*
-   * ⚠ 2026-09：牽動格頭一句唔再用固定嘅關係塊（「命宮與遷移宮正對…四件事要一起讀。
-   * 單看一宮會得出沒有條件的結論」—— 每本書一樣）。改為講**呢張盤**嘅對宮同三合宮坐咗乜，
-   * 每截由嗰粒星喺嗰個宮嘅基塊撮出嚟（見 link.ts）。關係塊留喺資料度，唔再出街。
-   */
-  const l3 = l3For(palace, p, chart, matchedRuleIds, opts.used).filter((b) => b.kind !== 'relation');
-  const link = linkLine(chart, p, opts.used);
-  if (!link && l3.length === 0) {
-    missing.push({ slot: '牽動', reason: `${palace} 三方四正搵唔齊，亦冇 L3 結構塊命中` });
-  } else {
-    push({
-      slot: '牽動',
-      /* 「X宮的三方四正見多顆煞曜。」係術語、而且一本書出十次 —— 留後面嗰句白話（2026-10-02） */
-      text: [link?.text ?? '', ...l3.map((b) => b.body.replace(/^\S{1,3}宮的三方四正見多顆[煞吉]曜。/, ''))].join(''),
-      source_id: [...(link ? ['frame.link', ...link.sources] : []), ...l3.map((b) => b.id)].join('+'),
-      rule_ids: l3.flatMap((b) => b.rule_ids),
-    });
-  }
-
   /* ── 擾動（L2 六煞，有先出）──────────────────────────── */
+  /*
+   * ⚠ 2026-10-05 睇稿指南第 2 節：煞星擺喺牽動**前面**。佢講緊呢一宮本身（逐宮寫），
+   * 應該同開場、結構讀埋一齊；牽動先至轉去講其他宮。舊書（R-008）照舊次序。
+   */
   const shaHere = p.stars.filter((s) => (MALEFICS as readonly string[]).includes(s.name));
   if (shaHere.length > 0) {
     const mods = shaHere.map((s) => maleficModifier(s.name, palace)).filter(Boolean);
@@ -548,6 +533,30 @@ export function assemble(
       text: shaText,
       source_id: mods.map((m) => m!.id).join('+'),
       rule_ids: shaHere.map((s) => `sha.${s.name}.${palace}`).filter((id) => matchedRuleIds.has(id)),
+    });
+  }
+
+  /* ── 牽動（L3 結構層）────────────────────────────────── */
+  /*
+   * ⚠ 2026-09：牽動格頭一句唔再用固定嘅關係塊（「命宮與遷移宮正對…四件事要一起讀。
+   * 單看一宮會得出沒有條件的結論」—— 每本書一樣）。改為講**呢張盤**嘅對宮同三合宮坐咗乜，
+   * 每截由嗰粒星喺嗰個宮嘅基塊撮出嚟（見 link.ts）。關係塊留喺資料度，唔再出街。
+   */
+  const l3 = l3For(palace, p, chart, matchedRuleIds, opts.used).filter((b) => b.kind !== 'relation');
+  const link = linkLine(chart, p, opts.used);
+  if (!link && l3.length === 0) {
+    missing.push({ slot: '牽動', reason: `${palace} 三方四正搵唔齊，亦冇 L3 結構塊命中` });
+  } else {
+    push({
+      slot: '牽動',
+      /* 「X宮的三方四正見多顆煞曜。」係術語、而且一本書出十次 —— 留後面嗰句白話（2026-10-02） */
+      /*
+       * 2026-10-05 睇稿指南第 9 節：先講「因為連住其他宮，呢一面變咗乜」（L3：三方煞吉、格局、身宮），
+       * 再講其他宮坐咗乜星做依據。以前倒轉，讀者要讀完一張清單先知重點。
+       */
+      text: [...l3.map((b) => b.body.replace(/^\S{1,3}宮的三方四正見多顆[煞吉]曜。/, '')), link?.text ?? ''].join(''),
+      source_id: [...(link ? ['frame.link', ...link.sources] : []), ...l3.map((b) => b.id)].join('+'),
+      rule_ids: l3.flatMap((b) => b.rule_ids),
     });
   }
 

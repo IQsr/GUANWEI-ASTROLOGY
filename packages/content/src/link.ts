@@ -159,25 +159,30 @@ export function linkLine(
     sources.push(`base.${star}.${q.name}`);
   }
   if (!names.length) return null;
-  const join = (xs: string[]) => (xs.length > 1 ? `${xs.slice(0, -1).join('、')}和${xs.at(-1)}` : xs[0]!);
-  const COUNT = ['', '一', '兩', '三'];
-  /* 「家裡是天梁、朋輩之間是太陽，分別見〈田宅〉〈兄弟〉兩章」—— 星名照講，呢張盤嘅嘢唔好收埋 */
-  const chs = seen.map((x) => `〈${x[1]}〉`).join('');
+  /*
+   * 「家裡是天梁、朋輩之間是太陽，各自那一章另有細講」—— 星名照講，呢張盤嘅嘢唔好收埋。
+   * 2026-10-05 睇稿指南第 10 節：以前寫「分別見〈田宅〉〈兄弟〉兩章」，似技術文件；
+   * 得一個先點名邊章，兩個以上就唔逐章列。
+   */
   const ref = seen.length
-    ? `${seen.map((x) => x[0]).join('、')}，${seen.length === 1 ? `見${chs}那一章` : `分別見${chs}${COUNT[seen.length]}章`}`
+    ? `${seen.map((x) => x[0]).join('、')}，${seen.length === 1 ? `見〈${seen[0]![1]}〉那一章` : '各自那一章另有細講'}`
     : '';
   /*
    * 開頭四款輪流用（2026-10-02）：以前十二章都係「這一面也和你的⋯連在一起」，一本書出十二次。
    * 跟宮位次序輪，所以同一本書每款大約出三次，而且同一張盤永遠一樣。
+   *
+   * 2026-10-05 睇稿指南第 9 節：開頭唔再先列一次「性格、工作和錢」，因為後面每截
+   * 本身就以「工作上，⋯」起頭 —— 同一張清單講兩次。開頭淨係交代「接住講其他宮」。
    */
-  const list = join(names);
   const HEADS = [
-    `這一面也和你的${list}連在一起`,
-    `放在整張盤看，這一面和你的${list}分不開`,
-    `牽動這一面的，還有你的${list}`,
-    `你的${list}，也會影響這一面`,
+    '同一種底色，延伸到盤上別處',
+    '放在整張盤看',
+    '這一面也受其他幾宮牽動',
+    '在別的地方，這一面是這樣出現的',
   ];
   const ORDER = ['命宮', '兄弟', '夫妻', '子女', '財帛', '疾厄', '遷移', '僕役', '官祿', '田宅', '福德', '父母'];
   const head = HEADS[Math.max(0, ORDER.indexOf(p.name)) % HEADS.length]!;
+  /* 三個宮前面都講過，就淨係得指返句 —— 唔好用開頭預告「這樣出現的」然後乜都冇（2026-10-05） */
+  if (!parts.length) return { text: `${ref}。`, sources };
   return { text: `${head}：${[...parts, ref].filter(Boolean).join('；')}。`, sources };
 }

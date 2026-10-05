@@ -38,7 +38,6 @@ function starsList(zh: string, missing: string[]): string {
   );
 }
 
-/* 牽動格開頭四款（link.ts 嘅 HEADS），英文各自一款 */
 /** 六煞各自改咗啲乜（一本書每粒煞只出現一次，所以唔會重複讀到）。 */
 const SHA_ADDS: Record<string, string> = {
   火星: 'adding heat and speed',
@@ -49,18 +48,19 @@ const SHA_ADDS: Record<string, string> = {
   地劫: 'making gains harder to hold on to',
 };
 
-const LINK_HEADS: [RegExp, (list: string) => string][] = [
-  [/^這一面也和你的(.+)連在一起$/, (l) => `This side of you also connects with ${l}.`],
-  [/^放在整張盤看，這一面和你的(.+)分不開$/, (l) => `Seen across the whole chart, this side of you can't be separated from ${l}.`],
-  [/^牽動這一面的，還有你的(.+)$/, (l) => `Also pulling on this side of you: ${l}.`],
-  [/^你的(.+)，也會影響這一面$/, (l) => `${cap(l)} shape this side of you too.`],
+/* 牽動格開頭四款（link.ts 嘅 HEADS），英文各自一款。2026-10-05 起開頭唔再列一次範疇 */
+const LINK_HEADS: [string, string][] = [
+  ['同一種底色，延伸到盤上別處', 'The same pattern carries into other parts of the chart.'],
+  ['放在整張盤看', 'Seen across the whole chart, the picture fills out.'],
+  ['這一面也受其他幾宮牽動', 'Other parts of the chart pull on this side of you as well.'],
+  ['在別的地方，這一面是這樣出現的', 'Elsewhere in the chart, this side of you shows up like this.'],
 ];
 
-/** 牽動格最後一截：「家裡是天梁、朋輩之間是太陽，分別見〈田宅〉〈兄弟〉兩章」 */
+/** 牽動格最後一截：「家裡是天梁，見〈田宅〉那一章」／「家裡是天梁、朋輩之間是太陽，各自那一章另有細講」 */
 function refPart(part: string, missing: string[]): string | null {
-  const m = /^(.+)，(?:見|分別見)((?:〈[^〉]+〉)+)(?:那一章|[兩三]章)$/.exec(part);
+  const m = /^(.+)，(?:見〈([^〉]+)〉那一章|各自那一章另有細講)$/.exec(part);
   if (!m) return null;
-  const pairs = m[1]!.split('、').map((x) => {
+  const pairs = m[1]!.split('、').map((x, i) => {
     const mm = /^(.+)是(\S{2})$/.exec(x);
     const on = mm ? AREA_ON_EN[mm[1]!] : undefined;
     const st = mm ? star(mm[2]!) : null;
@@ -68,14 +68,12 @@ function refPart(part: string, missing: string[]): string | null {
       missing.push(x);
       return `〔${x}〕`;
     }
-    return `${lowerFirst(on)} it is ${st}`;
+    return `${i === 0 ? on : lowerFirst(on)} it is ${st}`;
   });
-  const chs = [...m[2]!.matchAll(/〈([^〉]+)〉/g)].map((x) => {
-    const p = PALACE_EN[x[1]!];
-    if (!p) missing.push(x[1]!);
-    return `the ${p ?? x[1]} chapter`;
-  });
-  return `${cap(listEn(pairs))} — see ${listEn(chs)}.`;
+  if (!m[2]) return `${listEn(pairs)}, each covered in its own chapter.`;
+  const p = PALACE_EN[m[2]];
+  if (!p) missing.push(m[2]);
+  return `${listEn(pairs)} (see the ${p ?? m[2]} chapter).`;
 }
 
 /**
@@ -125,18 +123,18 @@ function template(s: string, missing: string[]): string | null {
     return m[1] === '同宮還有' ? `${name} also sits here, ${adds}: ${body}.` : `${name} is here too, ${adds}: ${body}.`;
   }
 
+  /* 牽動：三個宮都講過，淨係得指返句（冇開頭） */
+  if (s.endsWith('。') && !s.includes('：')) {
+    const ref = refPart(s.slice(0, -1), missing);
+    if (ref) return cap(ref);
+  }
+
   /* 牽動：開頭：在外時，⋯；工作上，⋯；錢方面，⋯。 */
   const colon = s.indexOf('：');
   if (colon > 0 && s.endsWith('。')) {
     const head = s.slice(0, colon);
-    const h = LINK_HEADS.find(([re]) => re.test(head));
+    const h = LINK_HEADS.find(([zh]) => zh === head);
     if (h) {
-      const listZh = h[0].exec(head)![1]!;
-      const items = listZh.split(/、|和/).map((a) => {
-        const en = AREA_EN[a]?.[0];
-        if (!en) missing.push(a);
-        return en ?? `〔${a}〕`;
-      });
       const parts = s
         .slice(colon + 1, -1)
         .split('；')
@@ -151,7 +149,7 @@ function template(s: string, missing: string[]): string | null {
           }
           return `${on}, ${lowerFirst(clause(part.slice(c + 1), missing))}.`;
         });
-      return [h[1](listEn(items)), ...parts].join(' ');
+      return [h[1], ...parts].join(' ');
     }
   }
   return null;

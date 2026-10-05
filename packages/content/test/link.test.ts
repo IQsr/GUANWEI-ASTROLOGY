@@ -34,8 +34,9 @@ describe('牽動格頭一句', () => {
   it('對宮行先，三個宮都講到，而且係呢張盤嘅星', () => {
     const ming = chart.palaces.find((p) => p.name === '命宮')!;
     const line = linkLine(chart, ming)!;
-    /* 直白（2026-09-29）：講生活嘅邊一面，唔講宮名；對宮（遷移＝在外）行先 */
-    expect(line.text.startsWith('這一面也和你的在外表現、')).toBe(true);
+    /* 直白（2026-09-29）：講生活嘅邊一面，唔講宮名；對宮（遷移＝在外）行先。
+       2026-10-05：開頭唔再先列一次範疇（後面每截已經以範疇起頭） */
+    expect(line.text.startsWith('同一種底色，延伸到盤上別處：在外時，')).toBe(true);
     expect(line.sources).toHaveLength(3);
     expect(line.text).toMatch(/：在外時，.+；.+，.+；.+，.+。$/);
     expect(line.text).not.toMatch(/正對|連成一組|宮，/);
@@ -61,12 +62,12 @@ describe('全書每宮嗰截只詳講一次（2026-09-30）', () => {
   it('跟閱讀次序行一次：每一截只出一次，之後指返嗰章', () => {
     const used = new Set<string>();
     const lines = ORDER.map((n) => linkLine(chart, chart.palaces.find((p) => p.name === n)!, used)!.text);
-    const clauses = lines.flatMap((t) => t.split(/[：；。]/).slice(1)).filter((c) => /，/.test(c) && !/見〈/.test(c));
+    const clauses = lines.flatMap((t) => (t.includes('：') ? t.split(/[：；。]/).slice(1) : [])).filter((c) => /，/.test(c) && !/見〈|另有細講/.test(c));
     expect(clauses.length).toBe(new Set(clauses).size);
     /* 十二宮每宮詳講一次，唔多唔少 */
     expect(clauses).toHaveLength(12);
     /* 最後一章嘅三個宮前面實講過 */
-    expect(lines.at(-1)).toMatch(/：.+是.+、.+是.+、.+是.+，分別見〈.+〉〈.+〉〈.+〉三章。$/);
+    expect(lines.at(-1)).toMatch(/^[^：]+是.+、.+是.+、.+是.+，各自那一章另有細講。$/);
   });
 
   it('唔畀 used 就三截都講（單獨砌一章）', () => {
