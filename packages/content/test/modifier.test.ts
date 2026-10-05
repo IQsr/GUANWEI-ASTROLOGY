@@ -8,6 +8,7 @@
 import { describe, expect, it } from 'vitest';
 import { cast, annual, SCHOOL_PROFILE, type BirthInput } from '@guanwei/ziwei';
 import {
+  BASE_BLOCKS,
   MALEFICS,
   MODIFIERS,
   Modifier,
@@ -104,6 +105,15 @@ describe('⚠ 同一句入面唔准有重複片段', () => {
     const bad = Modifier.safeParse({ ...base, text: dupText });
     expect(bad.success).toBe(false);
     if (!bad.success) expect(JSON.stringify(bad.error.issues)).toContain('重複咗');
+  });
+});
+
+describe('冇寫作筆記漏咗入正文（2026-10-05，譯英文時發現）', () => {
+  /* 「這一點要指出」「分量要按實際情況寫」係寫畀作者睇嘅，唔係寫畀讀者 */
+  it('修飾句同基塊冇「要寫出來／值得寫／要指出」', () => {
+    const NOTE = /(一併寫出來|按實際情況寫|這一點(要|值得)(寫|指出)|值得寫清楚)/;
+    const bad = [...MODIFIERS.map((m) => [m.id, m.text]), ...BASE_BLOCKS.map((b) => [b.id, b.body])].filter(([, t]) => NOTE.test(t!));
+    expect(bad).toEqual([]);
   });
 });
 

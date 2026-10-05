@@ -46,6 +46,49 @@ const LINK_HEADS: [RegExp, (list: string) => string][] = [
   [/^你的(.+)，也會影響這一面$/, (l) => `${cap(l)} shape this side of you too.`],
 ];
 
+/** 牽動格最後一截：「家裡是天梁、朋輩之間是太陽，分別見〈田宅〉〈兄弟〉兩章」 */
+function refPart(part: string, missing: string[]): string | null {
+  const m = /^(.+)，(?:見|分別見)((?:〈[^〉]+〉)+)(?:那一章|[兩三]章)$/.exec(part);
+  if (!m) return null;
+  const pairs = m[1]!.split('、').map((x) => {
+    const mm = /^(.+)是(\S{2})$/.exec(x);
+    const on = mm ? AREA_ON_EN[mm[1]!] : undefined;
+    const st = mm ? star(mm[2]!) : null;
+    if (!on || !st) {
+      missing.push(x);
+      return `〔${x}〕`;
+    }
+    return `${lowerFirst(on)} it is ${st}`;
+  });
+  const chs = [...m[2]!.matchAll(/〈([^〉]+)〉/g)].map((x) => {
+    const p = PALACE_EN[x[1]!];
+    if (!p) missing.push(x[1]!);
+    return `the ${p ?? x[1]} chapter`;
+  });
+  return `${cap(listEn(pairs))} — see ${listEn(chs)}.`;
+}
+
+/**
+ * 資料句，連組裝時改過頭嘅版本（assemble.ts `withSubject`）：
+ *   「天同：不搶、不計較⋯。」→「Tian Tong: 」＋ 原句
+ *   「天同改造的成本高⋯。」（原句「它改造的成本高⋯。」）→ 原句譯文，開頭 It 換星名
+ */
+function lookupSentence(s: string): string | null {
+  const direct = TM.sentences[s];
+  if (direct) return direct;
+  const pre = /^(\S{2})：(.+)$/.exec(s);
+  if (pre && star(pre[1]!)) {
+    const rest = TM.sentences[pre[2]!];
+    if (rest) return `${star(pre[1]!)}: ${rest}`;
+  }
+  const head = s.slice(0, 2);
+  if (star(head)) {
+    const asIt = TM.sentences[`它${s.slice(2)}`];
+    if (asIt) return asIt.replace(/^Its\b/, `${star(head)}'s`).replace(/^It\b/, star(head)!);
+  }
+  return null;
+}
+
 /** 程式砌出嚟嘅句。認唔到回 null。 */
 function template(s: string, missing: string[]): string | null {
   /* 開場事實：你的命宮坐天同、天梁。 */
@@ -54,6 +97,11 @@ function template(s: string, missing: string[]): string | null {
     return `Your ${PALACE_EN[m[1]!.replace(/宮$/, '')]} is shaped by ${starsList(m[2]!, missing)}.`;
   }
   if (m && PALACE_EN[m[1]!]) return `Your ${PALACE_EN[m[1]!]} is shaped by ${starsList(m[2]!, missing)}.`;
+
+  /* 空宮（frame.ts emptyPalaceLine） */
+  if (s === '此宮無主星，對宮亦無主星，兩宮同看。') return 'Neither this palace nor the one opposite holds a major star, so the two are read together.';
+  m = /^此宮無主星，借對宮(.+)參看。$/.exec(s);
+  if (m) return `This palace holds no major star of its own, so it is read through ${starsList(m[1]!, missing)} in the opposite palace.`;
 
   /* 擾動：同宮還有火星：⋯。／還有鈴星：⋯。 */
   m = /^(同宮還有|還有)(\S{2})：(.+)。$/.exec(s);
@@ -80,6 +128,8 @@ function template(s: string, missing: string[]): string | null {
         .slice(colon + 1, -1)
         .split('；')
         .map((part) => {
+          const ref = refPart(part, missing);
+          if (ref) return ref;
           const c = part.indexOf('，');
           const on = AREA_ON_EN[part.slice(0, c)];
           if (c < 0 || !on) {
@@ -100,7 +150,7 @@ const lowerFirst = (s: string) => (/^(Tian|Tai|Zi|Wu|Lian|Tan|Ju|Qi|Po|Huo|Ling|
 /** 一段（可以幾句）。 */
 export function renderParagraph(zh: string): Rendered {
   const missing: string[] = [];
-  const out = sentencesOf(zh).map((s) => TM.sentences[s] ?? template(s, missing) ?? (missing.push(s), `〔${s}〕`));
+  const out = sentencesOf(zh).map((s) => lookupSentence(s) ?? template(s, missing) ?? (missing.push(s), `〔${s}〕`));
   return { text: out.join(' '), missing };
 }
 
