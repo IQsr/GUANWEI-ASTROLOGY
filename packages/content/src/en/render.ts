@@ -147,11 +147,62 @@ function template(s: string, missing: string[]): string | null {
 /* 句中嘅星名、專有名詞唔好細楷 */
 const lowerFirst = (s: string) => (/^(Tian|Tai|Zi|Wu|Lian|Tan|Ju|Qi|Po|Huo|Ling|Di|Qing|Tuo|Lu|Zuo|You|Wen)\b/.test(s) ? s : s.charAt(0).toLowerCase() + s.slice(1));
 
-/** 一段（可以幾句）。 */
+/*
+ * 轉接語成本書輪流用（2026-10-05，睇稿指南第 5 節）
+ *
+ * 「要留意的是」譯做 The catch／Watch that／Keep in mind that⋯，每句固定一款，
+ * 一本書十幾句就會見到同一個開頭出好多次。翻譯表照存一款；呢度喺砌書嗰陣
+ * 剝走原本嗰款，換做成本書用得最少、而且唔同上一次嘅一款。後面嗰截句唔郁。
+ */
+const OPENER = /^(The catch: |The cost: |The risk is that |Watch that |Keep in mind that |Keep in mind: )(.+)$/;
+const VARIANTS = [
+  'The catch is that ',
+  'The trade-off is that ',
+  'The other side of this is that ',
+  'What complicates this is that ',
+  'Keep in mind that ',
+  'Watch that ',
+  'The risk is that ',
+] as const;
+/* 唔用「But」：翻譯表本身好多句已經用 But 開頭（生活場景等），再輪多一個就會連續兩句 But。
+   唔用「The difficulty is that」：留畀翻譯表嗰八句「難處是⋯」，輪換用咗會同下一章撞款 */
+
+/** 一本書嘅英文狀態：轉接語用咗幾多次、上一次用咗邊款。 */
+export type BookState = { used: Map<string, number>; last: string | null };
+export const newBookState = (): BookState => ({ used: new Map(), last: null });
+
+/**
+ * 輪換一句嘅轉接語。`avoid` = 呢章翻譯表本身已經用咗嘅開頭（例如基塊句「The difficulty is that⋯」）——
+ * 輪換唔揀佢哋，唔係前後兩句會撞款。
+ */
+function rotateOpener(sentence: string, st: BookState, avoid: ReadonlySet<string>): string {
+  const m = OPENER.exec(sentence);
+  if (!m) {
+    /* 翻譯表本身已經用咗某一款開頭：照計數 */
+    const natural = VARIANTS.find((v) => sentence.startsWith(v));
+    if (natural) {
+      st.used.set(natural, (st.used.get(natural) ?? 0) + 1);
+      st.last = natural;
+    }
+    return sentence;
+  }
+  const clause = m[2]!;
+  const pool = VARIANTS.filter((v) => v !== st.last && !avoid.has(v));
+  const pick = [...pool].sort((a, b) => (st.used.get(a) ?? 0) - (st.used.get(b) ?? 0))[0]!;
+  st.used.set(pick, (st.used.get(pick) ?? 0) + 1);
+  st.last = pick;
+  const body = clause.startsWith(',') ? clause : lowerFirst(clause);
+  return clause.startsWith(',') ? `${pick.trimEnd()}${body}` : `${pick}${body}`;
+}
+
+/** 一段譯成英文句（未輪換轉接語）。 */
+function paragraphSentences(zh: string, missing: string[]): string[] {
+  return sentencesOf(zh).map((s) => lookupSentence(s) ?? template(s, missing) ?? (missing.push(s), `〔${s}〕`));
+}
+
+/** 一段（可以幾句）。單獨用嗰陣當呢段自己一本書。 */
 export function renderParagraph(zh: string): Rendered {
-  const missing: string[] = [];
-  const out = sentencesOf(zh).map((s) => lookupSentence(s) ?? template(s, missing) ?? (missing.push(s), `〔${s}〕`));
-  return { text: out.join(' '), missing };
+  return renderChapter(zh);
 }
 
 /*
@@ -169,10 +220,16 @@ function glossFirst(text: string): string {
   return out;
 }
 
-/** 成章（段落用空行分）。 */
-export function renderChapter(zh: string): Rendered {
-  const paras = zh.split('\n\n').map(renderParagraph);
-  return { text: glossFirst(paras.map((p) => p.text).join('\n\n')), missing: paras.flatMap((p) => p.missing) };
+/**
+ * 成章（段落用空行分）。砌成本書就由頭到尾傳同一個 `st`，轉接語先會輪得開。
+ * 兩步：先譯晒成章，搵出呢章本身用咗嘅開頭；再輪換，避開佢哋。
+ */
+export function renderChapter(zh: string, st: BookState = newBookState()): Rendered {
+  const missing: string[] = [];
+  const paras = zh.split('\n\n').map((p) => paragraphSentences(p, missing));
+  const avoid = new Set(paras.flat().flatMap((en) => (OPENER.test(en) ? [] : VARIANTS.filter((v) => en.startsWith(v)))));
+  const text = paras.map((ss) => ss.map((en) => rotateOpener(en, st, avoid)).join(' ')).join('\n\n');
+  return { text: glossFirst(text), missing };
 }
 
 /** 翻譯表入面所有英文（畀英文 lint 掃） */

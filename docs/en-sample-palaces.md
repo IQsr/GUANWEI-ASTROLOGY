@@ -34,7 +34,7 @@ When friends fall out, you're often the one carrying messages between them and f
 
 ## III · The Partnership Palace
 
-In love you need things said clearly; you don't like vagueness. The catch: your caring often comes out as questioning, and questioning is all your partner hears.
+In love you need things said clearly; you don't like vagueness. The catch is that your caring often comes out as questioning, and questioning is all your partner hears.
 
 Your Partnership Palace is shaped by Ju Men (the Great Gate).
 
@@ -48,7 +48,7 @@ When your partner says something vague, you keep asking until it's clear. You wa
 
 ## IV · The Children Palace
 
-You invest deeply in those you bring up, expect things done properly, and won't accept half-measures. Watch that your caring has weight of its own, and they may feel pressed by it.
+You invest deeply in those you bring up, expect things done properly, and won't accept half-measures. The trade-off is that your caring has weight of its own, and they may feel pressed by it.
 
 Your Children Palace is shaped by Lian Zhen (the Upright) and Tan Lang (the Wolf).
 
@@ -60,7 +60,7 @@ Your bond with children and younger people runs deep; even after a disagreement 
 
 ## V · The Wealth Palace
 
-With money you build up slowly: small amounts, over a long time, without fuss. The catch: what you fear most isn't having little money but a sudden expense.
+With money you build up slowly: small amounts, over a long time, without fuss. The other side of this is that what you fear most isn't having little money but a sudden expense.
 
 Your Wealth Palace is shaped by Tai Yin (the Moon).
 
@@ -88,7 +88,7 @@ This chapter makes no medical judgements.
 
 ## VII · The Travel Palace
 
-In new surroundings you're easy to like, you settle in quickly, and people want to help you. Keep in mind that once you go somewhere you tend to stay, more out of habit than judgement.
+In new surroundings you're easy to like, you settle in quickly, and people want to help you. What complicates this is that once you go somewhere you tend to stay, more out of habit than judgement.
 
 This palace holds no major star of its own, so it is read through Tian Tong (the Blessed) and Tian Liang (the Sage) in the opposite palace.
 
@@ -114,7 +114,7 @@ At work and among friends, people often come to you for a decision. Many respect
 
 ## IX · The Career Palace
 
-At work you're good at taking things apart and adapting, and finding room inside limits. Keep in mind that long, repetitive work that can't be changed is where you lose patience fastest.
+At work you're good at taking things apart and adapting, and finding room inside limits. Watch that long, repetitive work that can't be changed is where you lose patience fastest.
 
 Your Career Palace is shaped by Tian Ji (the Strategist).
 
@@ -124,7 +124,7 @@ You're suited to varied work: project-based roles, consultancy, planning, jobs t
 
 ## X · The Property Palace
 
-Your home has to meet your own specification; you'd rather start again than make do. The catch: every remodel costs you a good deal.
+Your home has to meet your own specification; you'd rather start again than make do. The risk is that every remodel costs you a good deal.
 
 This palace holds no major star of its own, so it is read through Lian Zhen (the Upright) and Tan Lang (the Wolf) in the opposite palace.
 
@@ -138,7 +138,7 @@ You're particular about the layout and feel of a home, and before moving in you 
 
 ## XI · The Wellbeing Palace
 
-You feel at ease with something to do and someone to look after; complete emptiness unsettles you. The catch: you wear down fastest when you've done a great deal and no one has noticed.
+You feel at ease with something to do and someone to look after; complete emptiness unsettles you. The catch is that you wear down fastest when you've done a great deal and no one has noticed.
 
 Your Wellbeing Palace is shaped by Tai Yang (the Sun).
 
@@ -152,11 +152,11 @@ You have a lot of pride and want what you do to be seen and recognised. In your 
 
 ## XII · The Parents Palace
 
-With elders and managers you're straightforward; if you think something is wrong, you say so. The catch: your position is clear, so conflict arrives quickly.
+With elders and managers you're straightforward; if you think something is wrong, you say so. The trade-off is that your position is clear, so conflict arrives quickly.
 
 Your Parents Palace is shaped by Wu Qu (the General) and Qi Sha (the Warrior).
 
-Being straightforward keeps positions clear, and makes conflict arrive quickly. It's just as direct with rules — it follows the sensible ones and goes around the rest, spending little time working the system with people. Qi Sha doesn't back down, and isn't good at going the long way round — if it thinks something is wrong it won't cooperate, and it won't spend time explaining. Not backing down makes relationships with elders tense, though clear. Wu Qu turns to Authority: its decisiveness is sanctioned, and it dares to act and can. Keep in mind that firmness plus authority can easily go too far. In the right direction it pushes far; in the wrong one it hits hard.
+Being straightforward keeps positions clear, and makes conflict arrive quickly. It's just as direct with rules — it follows the sensible ones and goes around the rest, spending little time working the system with people. Qi Sha doesn't back down, and isn't good at going the long way round — if it thinks something is wrong it won't cooperate, and it won't spend time explaining. Not backing down makes relationships with elders tense, though clear. Wu Qu turns to Authority: its decisiveness is sanctioned, and it dares to act and can. The other side of this is that firmness plus authority can easily go too far. In the right direction it pushes far; in the wrong one it hits hard.
 
 The load on your body and mind, your circle and the next generation shape this side of you too. In body and mind it is Tian Fu (the Treasury), in your circle it is Zi Wei (the Emperor) and with those you bring up it is Lian Zhen (the Upright) — see the Health Palace chapter, the Friends Palace chapter and the Children Palace chapter. Things are relatively easy to talk through with elders and authority, and the route for explaining something is more direct.
 
