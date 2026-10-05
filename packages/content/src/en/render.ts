@@ -1,6 +1,7 @@
 import tmRaw from './tm.json';
 import { AREA_EN, AREA_ON_EN, PALACE_EN, STAR_EN, cap, listEn, star, starFirst } from './terms';
 import { factTemplate } from './facts';
+import { timeTemplate } from './time';
 
 /* ───────────────────────────────────────────────────────────
  * 英文版：由砌好嘅中文章逐句譯（2026-10-05 · 試做命宮）
@@ -102,6 +103,8 @@ function lookupSentence(s: string): string | null {
 function template(s: string, missing: string[]): string | null {
   const fact = factTemplate(s, missing);
   if (fact) return fact;
+  const time = timeTemplate(s, missing, { tm: (zh) => TM.sentences[zh] ?? null, lower: lowerFirst, strip: stripOpener });
+  if (time) return time;
 
   /* 這十年／這一年嘅建議段（daxian.ts adviceSegment；亦出現喺給你的話）：化祿嗰方面、化忌嗰方面、同一方面 */
   const adv = /^這(一年|十年)最值得做的事：(.+)。$/.exec(s);
@@ -222,7 +225,7 @@ function listItem(zh: string, missing: string[]): string | null {
 function stripOpener(en: string): string {
   const notTo = /^Keep in mind not to (.+)$/.exec(en);
   if (notTo) return `don't ${notTo[1]}`;
-  const m = /^(?:The catch: |The cost: |The risk is that |Keep in mind that,? |Keep in mind: |The catch is that |The trade-off is that |But )(.+)$/.exec(en);
+  const m = /^(?:The catch: |The cost: |The risk is that |Keep in mind that,? |Keep in mind: |The catch is that |The trade-off is that |But |Watch that )(.+)$/.exec(en);
   return m ? m[1]! : en;
 }
 
@@ -278,8 +281,21 @@ function rotateOpener(sentence: string, st: BookState, avoid: ReadonlySet<string
 }
 
 /** 一段譯成英文句（未輪換轉接語）。 */
+/* 時間章嘅「（依據：⋯。）」：句號喺括號入面，切句會將「）」切咗去下一句 —— 黐返上一句 */
+function joinBrackets(ss: string[]): string[] {
+  const out: string[] = [];
+  for (const s of ss) {
+    if (s.startsWith('）') && out.length) {
+      out[out.length - 1] += '）';
+      const rest = s.slice(1).trim();
+      if (rest) out.push(rest);
+    } else out.push(s);
+  }
+  return out;
+}
+
 function paragraphSentences(zh: string, missing: string[]): string[] {
-  return sentencesOf(zh).map((s) => lookupSentence(s) ?? template(s, missing) ?? (missing.push(s), `〔${s}〕`));
+  return joinBrackets(sentencesOf(zh)).map((s) => lookupSentence(s) ?? template(s, missing) ?? (missing.push(s), `〔${s}〕`));
 }
 
 /** 一段（可以幾句）。單獨用嗰陣當呢段自己一本書。 */
