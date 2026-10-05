@@ -37,3 +37,4 @@ export * from './life';
 export * from './epilogue';
 export * from './plain';
 export * from './rectify';
+export * as En from './en/index';

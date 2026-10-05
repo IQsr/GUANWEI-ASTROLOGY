@@ -1,0 +1,22 @@
+{
+  "$note": "英文翻譯表（2026-10-05 起 · 試做命宮）。key = 內容庫砌出嚟嘅中文句（或者句入面嘅一截），value = 英文。中文改咗 key 就對唔上，en-pilot 測試會列出缺邊句。術語跟 terms.ts、語氣跟 docs/en-voice.md。",
+  "sentences": {
+    "你性格和緩：不爭先、不記仇，很懂得把日子過得舒服。": "You are easy-going by nature: you don't push to be first, you don't hold grudges, and you know how to make life comfortable.",
+    "要留意的是：舒服會削弱你前進的動力，有時你需要一點外來的推力。": "The catch: comfort can sap your drive, and sometimes you need a push from outside.",
+    "天同的課題不在苦，在動力——舒服本身會削弱移動的理由。": "For Tian Tong, the challenge isn't hardship but drive — comfort itself weakens the reasons to move.",
+    "有一點壓力，對你反而是好事。": "A little pressure is actually good for you.",
+    "福氣厚，日子過得舒服，人緣寬，不必用力也有人願意幫。": "You are well blessed: life is comfortable, you get on with people, and help arrives without your having to work for it.",
+    "它的舒服是真的，不必替它擔心。": "That comfort is real; there's no need to worry about it.",
+    "天梁在命的基調是出面：遇到不公會說話，遇到有難的人會接。": "With Tian Liang in the Life Palace, the keynote is stepping forward: you speak up when something is unfair, and you take in people who are in trouble.",
+    "它有一套自己認定的標準，而且相當堅持。": "Tian Liang keeps its own standards, and holds to them firmly.",
+    "天同化忌，想安頓而安頓不下，舒服的條件恰好最缺。": "Tian Tong turns to Obstruction: you want to settle but can't, and the very conditions for comfort are the ones in shortest supply.",
+    "它的形狀是拖而不是痛。": "This shows up as drag rather than pain.",
+    "放假時你最懂得享受，一頓好飯、一個午覺就很滿足；只是舒服的位置坐久了，換工作、學新東西，往往要別人推你一把。": "On holiday you know exactly how to enjoy yourself — a good meal and an afternoon nap are enough. But stay in a comfortable spot too long, and changing jobs or learning something new usually takes someone else's nudge."
+  },
+  "clauses": {
+    "天同在陌生環境裡討人喜歡": "Tian Tong wins people over in unfamiliar settings",
+    "天機的做事方式是拆解與變通": "Tian Ji's way of working is to take things apart and adapt",
+    "太陰處理資源的方式是慢慢積": "Tai Yin's way with resources is to build up slowly",
+    "性急，起手快；熱度來得猛，退得也快": "quick-tempered and quick to start; enthusiasm comes on strong and fades just as fast"
+  }
+}
