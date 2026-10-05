@@ -3,7 +3,9 @@
 示範盤：1990-03-21 14:20 香港，女（`/sample` 同一個盤）。程式出嘅英文，冇人手改過。
 **畀睇稿嘅朋友：** 請睇右邊英文讀落自唔自然、似唔似人寫，唔使理術語（術語見 `docs/en-glossary.md`）。
 
-## I · The Life Palace
+## 第一版
+
+### I · The Life Palace
 
 | 格 | 中文 | English |
 |---|---|---|
@@ -13,6 +15,35 @@
 | 牽動 | 這一面也和你的在外表現、工作和錢連在一起：在外時，天同在陌生環境裡討人喜歡；工作上，天機的做事方式是拆解與變通；錢方面，太陰處理資源的方式是慢慢積。 | This side of you is also tied to your life out in the world, your work and your money. Out in the world, Tian Tong wins people over in unfamiliar settings. At work, Tian Ji's way of working is to take things apart and adapt. With money, Tai Yin's way with resources is to build up slowly. |
 | 擾動 | 同宮還有火星：性急，起手快；熱度來得猛，退得也快。 | Also in this palace is Huo Xing (Fire): quick-tempered and quick to start; enthusiasm comes on strong and fades just as fast. |
 | 生活 | 放假時你最懂得享受，一頓好飯、一個午覺就很滿足；只是舒服的位置坐久了，換工作、學新東西，往往要別人推你一把。 | On holiday you know exactly how to enjoy yourself — a good meal and an afternoon nap are enough. But stay in a comfortable spot too long, and changing jobs or learning something new usually takes someone else's nudge. |
+
+## 第二版（2026-10-05 · 跟睇稿意見改）
+
+睇稿嘅朋友將成章重寫咗一次。好處搬咗入嚟，但係逐句搬 —— 因為每個人嗰章由唔同嘅句砌成，冇得成章重寫。
+
+| 睇稿意見 | 點處理 |
+|---|---|
+| 句子完整、唔好一截截 | ✅ 每句重寫得順啲 |
+| 「comfort」重複太多 | ✅ 換做 ease、comfortable、content |
+| 解釋星係乜 | ✅ 主星第一次出現自動加意思：*Tian Tong (the Contented)*（`render.ts` `glossFirst`），全書通用 |
+| *is shaped by*、*connects with the way you engage with the wider world*、*finances* | ✅ 跟咗 |
+| 工作方面寫成天同「難以主動改變」 | ❌ 呢張盤工作方面係天機（拆解與變通），照盤講 |
+| 刪咗天梁（為不公出聲、有自己標準）同太陰（錢慢慢積） | ❌ 盤上有就要講 |
+| 好多 may／often／sometimes／can | ❌ 一句最多一個；先講結論 |
+| *This creates an interesting contradiction*、*That ease is one of your strengths* | ❌ 盤冇講嘅評論唔加 |
+
+### I · The Life Palace（第二版）
+
+You are easy-going by nature. You don't compete for attention, you don't hold on to resentment, and you have a real instinct for making life comfortable. But that ease has a cost: when life is too comfortable your drive softens, and change comes more easily when something outside pushes you.
+
+Your Life Palace is shaped by Tian Tong (the Contented) and Tian Liang (the Sage).
+
+For Tian Tong, the challenge is not hardship but drive — when nothing forces you to move, comfort itself weakens your reasons to. A certain amount of pressure actually works in your favour. You are well blessed: life is comfortable, you get on easily with people, and help comes without your having to push for it. That ease is genuine; there's no need to distrust it. Tian Liang in the Life Palace sets a keynote of stepping forward: you speak up when something is unfair, and you take in people who are struggling. You hold to a set of standards of your own, and you don't bend them easily. Here Tian Tong is touched by Obstruction: you want to settle, yet the very conditions for ease are the ones hardest to come by. What you feel is less pain than a recurring drag.
+
+This side of you also connects with the way you engage with the wider world, your work and your finances. Out in the world, Tian Tong makes you easy to warm to in unfamiliar places. At work, Tian Ji (the Strategist) has you take a problem apart and find another way through. With money, Tai Yin (the Moon) has you build up slowly and steadily.
+
+Also in this palace is Huo Xing (Fire): quick-tempered and quick to start; your enthusiasm flares fast and fades just as fast.
+
+You know how to enjoy rest — a good meal and an afternoon nap are enough to make you content. But stay somewhere comfortable for too long, and big changes, like a new job or learning something new, usually need someone else's push first.
 
 ## 做法
 

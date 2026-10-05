@@ -1,5 +1,5 @@
 import tmRaw from './tm.json';
-import { AREA_EN, AREA_ON_EN, PALACE_EN, cap, listEn, star, starFirst } from './terms';
+import { AREA_EN, AREA_ON_EN, PALACE_EN, STAR_EN, cap, listEn, star, starFirst } from './terms';
 
 /* ───────────────────────────────────────────────────────────
  * 英文版：由砌好嘅中文章逐句譯（2026-10-05 · 試做命宮）
@@ -40,7 +40,7 @@ function starsList(zh: string, missing: string[]): string {
 
 /* 牽動格開頭四款（link.ts 嘅 HEADS），英文各自一款 */
 const LINK_HEADS: [RegExp, (list: string) => string][] = [
-  [/^這一面也和你的(.+)連在一起$/, (l) => `This side of you is also tied to ${l}.`],
+  [/^這一面也和你的(.+)連在一起$/, (l) => `This side of you also connects with ${l}.`],
   [/^放在整張盤看，這一面和你的(.+)分不開$/, (l) => `Seen across the whole chart, this side of you can't be separated from ${l}.`],
   [/^牽動這一面的，還有你的(.+)$/, (l) => `Also pulling on this side of you: ${l}.`],
   [/^你的(.+)，也會影響這一面$/, (l) => `${cap(l)} shape this side of you too.`],
@@ -51,9 +51,9 @@ function template(s: string, missing: string[]): string | null {
   /* 開場事實：你的命宮坐天同、天梁。 */
   let m = /^你的(\S+?)坐(.+)。$/.exec(s);
   if (m && PALACE_EN[m[1]!.replace(/宮$/, '')] !== undefined) {
-    return `Your ${PALACE_EN[m[1]!.replace(/宮$/, '')]} holds ${starsList(m[2]!, missing)}.`;
+    return `Your ${PALACE_EN[m[1]!.replace(/宮$/, '')]} is shaped by ${starsList(m[2]!, missing)}.`;
   }
-  if (m && PALACE_EN[m[1]!]) return `Your ${PALACE_EN[m[1]!]} holds ${starsList(m[2]!, missing)}.`;
+  if (m && PALACE_EN[m[1]!]) return `Your ${PALACE_EN[m[1]!]} is shaped by ${starsList(m[2]!, missing)}.`;
 
   /* 擾動：同宮還有火星：⋯。／還有鈴星：⋯。 */
   m = /^(同宮還有|還有)(\S{2})：(.+)。$/.exec(s);
@@ -104,10 +104,25 @@ export function renderParagraph(zh: string): Rendered {
   return { text: out.join(' '), missing };
 }
 
+/*
+ * 主星第一次出現加意思（2026-10-05，睇稿回饋：英文讀者唔知 Tian Tong 係乜）：
+ * 「Tian Tong」→「Tian Tong (the Contented)」，一章一次。輔星煞星喺模板度已經加咗。
+ */
+const MAJORS = Object.values(STAR_EN).slice(0, 14);
+function glossFirst(text: string): string {
+  let out = text;
+  for (const { pinyin, gloss } of MAJORS) {
+    /* 唔加喺「Tian Ji's」嗰種所有格度：「Tian Ji (the Strategist)'s」好難讀，留畀下一次出現 */
+    const re = new RegExp(`\\b${pinyin}\\b(?! \\()(?!'s)`);
+    if (re.test(out)) out = out.replace(re, `${pinyin} (${gloss})`);
+  }
+  return out;
+}
+
 /** 成章（段落用空行分）。 */
 export function renderChapter(zh: string): Rendered {
   const paras = zh.split('\n\n').map(renderParagraph);
-  return { text: paras.map((p) => p.text).join('\n\n'), missing: paras.flatMap((p) => p.missing) };
+  return { text: glossFirst(paras.map((p) => p.text).join('\n\n')), missing: paras.flatMap((p) => p.missing) };
 }
 
 /** 翻譯表入面所有英文（畀英文 lint 掃） */
