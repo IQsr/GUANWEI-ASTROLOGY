@@ -17,7 +17,7 @@
 | ❓ 宮名 | **意譯**：Life Palace、Wealth Palace… | 拼音（Ming Gong） | 宮名讀者要明，而且 ✅ 介面已經用 Life Palace、Body Palace |
 | ❓ 四化 | **意譯**：Abundance、Authority、Recognition、Obstruction | 拼音（Hua Lu）；或者 Lu / Quan / Ke / Ji | 讀者一眼明好壞方向；依據括號用 *Tan Lang turns to Obstruction (化忌)* |
 | ❓ 漢字 | 依據括號同命盤圖**附漢字**；正文唔附 | 全書唔出漢字 | 有漢字可以同中文盤對照；正文附會好亂 |
-| ❓ 年齡（虛歲） | **寫實歲範圍，括號註虛歲**：*in 2014, when you were 24 or 25* | 照寫虛歲並喺序解釋 | 英文讀者唔識虛歲；直寫「25」會令人以為係實歲而對唔上 |
+| ✅ 年齡（虛歲） | **寫實歲範圍，括號註虛歲**：*in 2014, when you were 24 or 25*。實作（`en/facts.ts`）：一個時間點 *35 or 36 (37 by Chinese reckoning)*；起運 *around age 41 (42 by Chinese reckoning)*；大限範圍 *roughly ages 31 to 40; 32–41 by Chinese reckoning* | 照寫虛歲並喺序解釋 | 英文讀者唔識虛歲；直寫「25」會令人以為係實歲而對唔上 |
 | ❓ 拼寫 | **英式**（colour、favourable、recognise） | 美式 | 公司喺英國；英文介面已經用英式（例如私隱政策嘅 recognising） |
 
 ---
@@ -161,7 +161,7 @@
 | 格局 | pattern | |
 | 時辰 | birth hour（雙小時） | 子時 → *the Zi hour (11 pm – 1 am)* |
 | 天干地支 | stems and branches | 只喺序、依據 |
-| 虛歲 | 見第一節 ❓ | |
+| 虛歲 | 見第一節 ✅ | *by Chinese reckoning* |
 
 ---
 

@@ -94,8 +94,21 @@ export const AREA_ON_EN: Record<string, string> = {
 const ROMAN = ['', 'I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI', 'XII'];
 const CN_NUM = ['', '一', '二', '三', '四', '五', '六', '七', '八', '九', '十', '十一', '十二'];
 
+/** 宮位章以外嘅章名（詞彙表第三節） */
+const OTHER_TITLES: Record<string, string> = {
+  '序 · 你的命盤': 'Preface · Your Chart',
+  性格的骨架: 'The Shape of Your Character',
+  三方四正: 'The Four Directions',
+  身宮與五行局: 'The Body Palace and the Five-Element Bureau',
+  一生十二步: 'Twelve Steps of a Life',
+  這十年: 'These Ten Years',
+  這一年: 'This Year',
+  給你的話: 'For You',
+};
+
 /** 章名：「一 · 命宮」→「I · The Life Palace」 */
 export function chapterTitleEn(title: string): string | null {
+  if (OTHER_TITLES[title]) return OTHER_TITLES[title];
   const m = /^(\S+) · (\S+)$/.exec(title);
   if (m) {
     const n = CN_NUM.indexOf(m[1]!);
@@ -108,3 +121,55 @@ export function chapterTitleEn(title: string): string | null {
 /** 英文清單：a、b、c → 「a, b and c」（英式，冇 Oxford comma） */
 export const listEn = (xs: readonly string[]) => (xs.length > 1 ? `${xs.slice(0, -1).join(', ')} and ${xs.at(-1)}` : (xs[0] ?? ''));
 export const cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
+
+/* ── 干支、時辰、五行、數字（序同時間章用）────────────────── */
+export const BRANCH_EN: Record<string, string> = {
+  子: 'Zi', 丑: 'Chou', 寅: 'Yin', 卯: 'Mao', 辰: 'Chen', 巳: 'Si', 午: 'Wu', 未: 'Wei', 申: 'Shen', 酉: 'You', 戌: 'Xu', 亥: 'Hai',
+};
+export const STEM_EN: Record<string, string> = {
+  甲: 'Jia', 乙: 'Yi', 丙: 'Bing', 丁: 'Ding', 戊: 'Wu', 己: 'Ji', 庚: 'Geng', 辛: 'Xin', 壬: 'Ren', 癸: 'Gui',
+};
+/** 時辰對應鐘面（詞彙表：子時 → the Zi hour (11 pm – 1 am)） */
+export const HOUR_RANGE: Record<string, string> = {
+  子: '11 pm – 1 am', 丑: '1 – 3 am', 寅: '3 – 5 am', 卯: '5 – 7 am', 辰: '7 – 9 am', 巳: '9 – 11 am',
+  午: '11 am – 1 pm', 未: '1 – 3 pm', 申: '3 – 5 pm', 酉: '5 – 7 pm', 戌: '7 – 9 pm', 亥: '9 – 11 pm',
+};
+export const ELEMENT_EN: Record<string, string> = { 金: 'Metal', 木: 'Wood', 水: 'Water', 火: 'Fire', 土: 'Earth' };
+export const MONTH_EN = ['', 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+const NUM_WORD = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve'];
+export const numWord = (n: number) => NUM_WORD[n] ?? String(n);
+const ORD_WORD = ['', 'first', 'second', 'third', 'fourth', 'fifth', 'sixth', 'seventh', 'eighth', 'ninth', 'tenth', 'eleventh', 'twelfth'];
+export const ordinalWord = (n: number) => ORD_WORD[n] ?? `${n}th`;
+export const ordinal = (n: number) => {
+  const t = n % 100;
+  const suf = t >= 11 && t <= 13 ? 'th' : (['th', 'st', 'nd', 'rd'][n % 10] ?? 'th');
+  return `${n}${n % 10 > 3 ? 'th' : suf}`;
+};
+
+/** 中文數字 → 數：「一九九九」逐位、「二十二」「廿六」「初三」「十四」「三十」 */
+export function cnNum(s: string): number | null {
+  const D = '〇一二三四五六七八九';
+  const h = /^一百(零)?(.*)$/.exec(s);
+  if (h) return h[2] ? (cnNum(h[2]) ?? NaN) + 100 : 100;
+  const t = s.replace(/^初/, '').replace(/^廿/, '二十').replace(/零/g, '〇');
+  if (/^[〇一二三四五六七八九]{3,}$/.test(t)) return Number([...t].map((c) => D.indexOf(c)).join(''));
+  const m = /^([一二三四五六七八九])?(十)?([一二三四五六七八九])?$/.exec(t);
+  if (!m || (!m[1] && !m[2] && !m[3])) return null;
+  if (!m[2]) return D.indexOf(m[1] ?? m[3]!);
+  return (m[1] ? D.indexOf(m[1]) : 1) * 10 + (m[3] ? D.indexOf(m[3]) : 0);
+}
+
+/**
+ * 出生地：落款入面係用戶揀嘅中文地名。冇中文字就照用；常見嘅有對照；
+ * 對照唔到就回 null（測試會列出嚟，唔會漏中文出街）。
+ */
+const PLACE_EN: Record<string, string> = {
+  香港: 'Hong Kong', 九龍: 'Kowloon', 澳門: 'Macau', 台北: 'Taipei', 臺北: 'Taipei', 高雄: 'Kaohsiung', 台中: 'Taichung', 臺中: 'Taichung',
+  廣州: 'Guangzhou', 深圳: 'Shenzhen', 上海: 'Shanghai', 北京: 'Beijing', 新加坡: 'Singapore', 吉隆坡: 'Kuala Lumpur',
+  倫敦: 'London', 曼徹斯特: 'Manchester', 紐約: 'New York', 三藩市: 'San Francisco', 舊金山: 'San Francisco', 洛杉磯: 'Los Angeles',
+  溫哥華: 'Vancouver', 多倫多: 'Toronto', 悉尼: 'Sydney', 雪梨: 'Sydney', 墨爾本: 'Melbourne', 東京: 'Tokyo', 首爾: 'Seoul',
+};
+export function placeEn(zh: string): string | null {
+  if (!/[㐀-鿿]/.test(zh)) return zh;
+  return PLACE_EN[zh] ?? null;
+}

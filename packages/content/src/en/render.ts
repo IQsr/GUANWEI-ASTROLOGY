@@ -1,5 +1,6 @@
 import tmRaw from './tm.json';
 import { AREA_EN, AREA_ON_EN, PALACE_EN, STAR_EN, cap, listEn, star, starFirst } from './terms';
+import { factTemplate } from './facts';
 
 /* ───────────────────────────────────────────────────────────
  * 英文版：由砌好嘅中文章逐句譯（2026-10-05 · 試做命宮）
@@ -99,6 +100,44 @@ function lookupSentence(s: string): string | null {
 
 /** 程式砌出嚟嘅句。認唔到回 null。 */
 function template(s: string, missing: string[]): string | null {
+  const fact = factTemplate(s, missing);
+  if (fact) return fact;
+
+  /* 這十年／這一年嘅建議段（daxian.ts adviceSegment；亦出現喺給你的話）：化祿嗰方面、化忌嗰方面、同一方面 */
+  const adv = /^這(一年|十年)最值得做的事：(.+)。$/.exec(s);
+  if (adv) {
+    const year = adv[1] === '一年';
+    const span = year ? 'this year' : 'these ten years';
+    const areaEn = (zh: string) => {
+      const en = AREA_EN[zh]?.[0];
+      if (!en) missing.push(zh);
+      return en ?? `〔${zh}〕`;
+    };
+    const parts = adv[2]!.split('；').map((part) => {
+      let pm = /^(\S+?)方面是這(?:一年|十年)最順的地方，值得多花心思$/.exec(part);
+      if (pm) return `when it comes to ${areaEn(pm[1]!)}, ${span} run${year ? 's' : ''} most smoothly, so it's worth giving it extra thought`;
+      pm = /^(\S+?)方面的決定，多花一點時間再定，(急著要答覆的事，先放一晚|簽字、承諾之前多問一句)$/.exec(part);
+      if (pm) {
+        const tail = pm[2]!.startsWith('急') ? 'and let anything that needs an urgent answer wait a night' : 'and ask one more question before you sign or commit to anything';
+        return `with decisions about ${areaEn(pm[1]!)}, take a little more time, ${tail}`;
+      }
+      if (part === '這方面有得著也有牽掛，進一步之前，先想好退路') return 'it brings gains and worries alike, so before you go further, work out your way back';
+      missing.push(part);
+      return `〔${part}〕`;
+    });
+    return `The most worthwhile thing to do ${year ? 'this year' : 'in these ten years'}: ${parts.join('; ')}.`;
+  }
+
+  /* 給你的話：「你可以倚仗的：一、⋯。」「二、⋯。」「你要記住的：一、⋯。」（epilogue.ts） */
+  const li = /^(?:(你可以倚仗的|你要記住的)：)?([一二三])、(.+)$/.exec(s);
+  if (li) {
+    const item = listItem(li[3]!, missing);
+    if (item === null) return null;
+    const nth = { 一: 'first', 二: 'second', 三: 'third' }[li[2]!]!;
+    const head = li[1] === '你可以倚仗的' ? 'What you can rely on: ' : li[1] === '你要記住的' ? 'What to keep in mind: ' : '';
+    return head ? `${head}${nth}, ${item}` : `${cap(nth)}, ${item}`;
+  }
+
   /* 開場事實：你的命宮坐天同、天梁。 */
   let m = /^你的(\S+?)坐(.+)。$/.exec(s);
   if (m && PALACE_EN[m[1]!.replace(/宮$/, '')] !== undefined) {
@@ -155,8 +194,40 @@ function template(s: string, missing: string[]): string | null {
   return null;
 }
 
+/**
+ * 給你的話嘅一項：書入面講過嘅一句（結論、長處、或者剝走「要留意的是：」嘅提醒），
+ * 前面可能加咗方面（「工作上，」）。英文用返原句譯文，剝走轉接語，細楷開頭接喺「first, 」後面。
+ */
+function listItem(zh: string, missing: string[]): string | null {
+  let area = '';
+  let body = zh;
+  const c = zh.indexOf('，');
+  if (c > 0 && AREA_ON_EN[zh.slice(0, c)]) {
+    area = `${lowerFirst(AREA_ON_EN[zh.slice(0, c)]!)}, `;
+    body = zh.slice(c + 1);
+  }
+  const direct = TM.sentences[body];
+  const watched = TM.sentences[`要留意的是：${body}`];
+  const en = direct ?? (watched ? stripOpener(watched) : null);
+  if (!en) {
+    missing.push(zh);
+    return null;
+  }
+  /* 原句本身已經以方面開頭（「At work you're⋯」）就唔再加 */
+  if (area && en.toLowerCase().startsWith(area.slice(0, -2).toLowerCase())) return lowerFirst(en);
+  return `${area}${lowerFirst(en)}`;
+}
+
+/** 「Keep in mind that X」→「X」；「Keep in mind not to X」→「don't X」；其他（Keep in mind which⋯）照留 */
+function stripOpener(en: string): string {
+  const notTo = /^Keep in mind not to (.+)$/.exec(en);
+  if (notTo) return `don't ${notTo[1]}`;
+  const m = /^(?:The catch: |The cost: |The risk is that |Keep in mind that,? |Keep in mind: |The catch is that |The trade-off is that |But )(.+)$/.exec(en);
+  return m ? m[1]! : en;
+}
+
 /* 句中嘅星名、專有名詞唔好細楷 */
-const lowerFirst = (s: string) => (/^(Tian|Tai|Zi|Wu|Lian|Tan|Ju|Qi|Po|Huo|Ling|Di|Qing|Tuo|Lu|Zuo|You|Wen)\b/.test(s) ? s : s.charAt(0).toLowerCase() + s.slice(1));
+const lowerFirst = (s: string) => (/^(Tian|Tai|Zi|Wu|Lian|Tan|Ju|Qi|Po|Huo|Ling|Di|Qing|Tuo|Lu|Zuo|You Bi|Wen)\b/.test(s) ? s : s.charAt(0).toLowerCase() + s.slice(1));
 
 /*
  * 轉接語成本書輪流用（2026-10-05，睇稿指南第 5 節）
