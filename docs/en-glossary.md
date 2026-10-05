@@ -3,7 +3,8 @@
 英文版命書同介面用嘅術語。**一本書入面同一個概念只得一個講法**，改要改晒。
 
 - ✅ = 英文介面已經用緊，照跟
-- ❓ = 要 Issac 決定；第一個係我嘅建議
+- ❓ = 原本待定；**2026-10-05 Issac：全部跟建議**（下面寫住嘅建議就係定案）
+- 參考：iztro（我哋對照排盤用嘅開源庫）有一套英文，見每表嘅「iztro」欄。佢係畀程式用嘅標籤（例如四化叫 A／B／C／D、亮度叫 [+3]），唔係寫畀讀者睇嘅文字，所以只作參考。
 - 中文書嘅正文唔出星名、唔講「化祿」「廟旺」（直白規範）；英文一樣 —— 下面好多詞只會出現喺**依據括號**、命盤圖、藏經閣註，唔會出喺正文。
 
 ---
@@ -63,21 +64,21 @@
 
 ## 四、十二宮
 
-| 中文 | 英文 | 正文用嘅「方面」講法（對應中文 `AREA`） |
-|---|---|---|
-| 命宮 | Life Palace ✅ | character（性格上 → in your character） |
-| 兄弟 | Siblings Palace | peers（朋輩之間 → among your peers） |
-| 夫妻 | Partnership Palace ❓（或 Spouse） | love（感情上 → in love） |
-| 子女 | Children Palace | the next generation（帶後輩時 → with those you bring up） |
-| 財帛 | Wealth Palace | money（錢方面 → with money） |
-| 疾厄 | Health Palace | body and mind（身心上 → in body and mind） |
-| 遷移 | Travel Palace | out in the world（在外時 → out in the world） |
-| 僕役 | Friends Palace | your circle（朋友圈裡 → in your circle） |
-| 官祿 | Career Palace | work（工作上 → at work） |
-| 田宅 | Property Palace ❓（或 Home） | home（家裡 → at home） |
-| 福德 | Wellbeing Palace ❓（或 Fortune） | your inner life（心境上 → in your inner life） |
-| 父母 | Parents Palace | elders（對長輩時 → with elders and seniors） |
-| 身宮 | Body Palace ✅ | |
+| 中文 | 英文 | iztro | 正文用嘅「方面」講法（對應中文 `AREA`） |
+|---|---|---|---|
+| 命宮 | Life Palace ✅ | soul | character（性格上 → in your character） |
+| 兄弟 | Siblings Palace | siblings | peers（朋輩之間 → among your peers） |
+| 夫妻 | Partnership Palace ❓（或 Spouse） | spouse | love（感情上 → in love） |
+| 子女 | Children Palace | children | the next generation（帶後輩時 → with those you bring up） |
+| 財帛 | Wealth Palace | wealth | money（錢方面 → with money） |
+| 疾厄 | Health Palace | health | body and mind（身心上 → in body and mind） |
+| 遷移 | Travel Palace | surface | out in the world（在外時 → out in the world） |
+| 僕役 | Friends Palace | friends | your circle（朋友圈裡 → in your circle） |
+| 官祿 | Career Palace | career | work（工作上 → at work） |
+| 田宅 | Property Palace ❓（或 Home） | property | home（家裡 → at home） |
+| 福德 | Wellbeing Palace ❓（或 Fortune） | spirit | your inner life（心境上 → in your inner life） |
+| 父母 | Parents Palace | parents | elders（對長輩時 → with elders and seniors） |
+| 身宮 | Body Palace ✅ | body | |
 
 「Spouse」聽落太似已婚；我哋講嘅係「感情、親密關係」，所以建議 Partnership。
 「Fortune」喺英文會被讀成「運氣、財富」，同福德（心境、精神享受）唔符，所以建議 Wellbeing。
@@ -86,24 +87,26 @@
 
 ## 五、十四主星（拼音＋註層意思）
 
-| 中文 | 拼音 | 註層英文意思 |
-|---|---|---|
-| 紫微 | Zi Wei | the Emperor |
-| 天機 | Tian Ji | the Strategist |
-| 太陽 | Tai Yang | the Sun |
-| 武曲 | Wu Qu | the General |
-| 天同 | Tian Tong | the Contented |
-| 廉貞 | Lian Zhen | the Upright |
-| 天府 | Tian Fu | the Treasury |
-| 太陰 | Tai Yin | the Moon |
-| 貪狼 | Tan Lang | the Wolf |
-| 巨門 | Ju Men | the Great Gate |
-| 天相 | Tian Xiang | the Minister |
-| 天梁 | Tian Liang | the Elder |
-| 七殺 | Qi Sha | the Warrior |
-| 破軍 | Po Jun | the Vanguard |
+| 中文 | 拼音 | 註層英文意思 | iztro |
+|---|---|---|---|
+| 紫微 | Zi Wei | the Emperor | emperor |
+| 天機 | Tian Ji | the Strategist | advisor |
+| 太陽 | Tai Yang | the Sun | sun |
+| 武曲 | Wu Qu | the General | warrior |
+| 天同 | Tian Tong | the Contented | fortunate |
+| 廉貞 | Lian Zhen | the Upright | judge |
+| 天府 | Tian Fu | the Treasury | empress |
+| 太陰 | Tai Yin | the Moon | moon |
+| 貪狼 | Tan Lang | the Wolf | wolf |
+| 巨門 | Ju Men | the Great Gate | advocator |
+| 天相 | Tian Xiang | the Minister | minister |
+| 天梁 | Tian Liang | the Sage | sage |
+| 七殺 | Qi Sha | the Warrior | marshal |
+| 破軍 | Po Jun | the Vanguard | rebel |
 
 註層意思係我按書入面嘅性質揀（例如破軍「先破後立」→ Vanguard，唔用常見嘅 "Army Breaker"）。
+
+同 iztro 唔同嘅地方：佢將廉貞叫 judge，我哋留咗 *the Judge* 畀天刑（刑曜）；佢將天府叫 empress，但書入面天府係「財帛田宅主」，Treasury 貼啲。天梁跟 iztro 用 *the Sage*（書：「清高、蔭庇」）—— 2026-10-05 定。
 
 ---
 
@@ -133,7 +136,7 @@
 | 化祿 | Abundance | *turns to Abundance* |
 | 化權 | Authority | |
 | 化科 | Recognition | |
-| 化忌 | Obstruction | 唔用 "Taboo"（太重） |
+| 化忌 | Obstruction | 唔用 "Taboo"（太重）；iztro 用 A／B／C／D 代表祿權科忌，冇意思，唔跟 |
 | 生年四化／大限四化／流年四化 | natal／decade／yearly transformations | |
 | 廟、旺、得、利、平、不、陷 | exalted, strong, favourable, fair, neutral, weak, fallen | 正文唔用，只喺依據、註 |
 
@@ -151,7 +154,7 @@
 | 三方四正 | the four directions（本宮、對宮、兩個三合宮） | the palace, its opposite and its two trines |
 | 對宮 | the opposite palace | |
 | 空宮、借對宮 | an empty palace, borrowing from the opposite palace | |
-| 五行局 | Five-Element Bureau ✅ | 水二局 → Water Two Bureau |
+| 五行局 | Five-Element Bureau ✅ | 水二局 → Water Two Bureau（iztro：water 2nd） |
 | 羊陀夾 | flanked by the Blade and the Weight | |
 | 羊陀迭并 | the Blade and Weight doubled | |
 | 星系 | star pairing／star system | 六十星系 → the sixty star systems |
