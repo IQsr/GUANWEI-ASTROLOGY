@@ -12,10 +12,7 @@
  */
 import { CORPUS, LEXICON, LEXICON_EN, type LexiconEntry } from '@guanwei/content';
 
-export const LEXICON_LOCALE = 'zh-Hant';
-/** 有詞條嘅語言 */
-export const LEXICON_LOCALES = ['zh-Hant', 'en'] as const;
-export const isLexiconLocale = (l: string) => (LEXICON_LOCALES as readonly string[]).includes(l);
+export { LEXICON_LOCALE, LEXICON_LOCALES, isLexiconLocale } from '@/lib/lexicon-locale';
 
 export const KINDS = ['star', 'palace', 'sihua', 'ju'] as const;
 export type LexiconKind = (typeof KINDS)[number];

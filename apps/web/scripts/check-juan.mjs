@@ -232,9 +232,21 @@ try {
    * ⚠ 捲得到呢一格，本身就係一條驗收：冇章尾嗰段留白嘅話，
    * 一章嘅最後三分二永遠捲唔到讀線度。
    */
-  const liu = await atSlot('留白');
-  check('捲到留白', liu.at === '留白', `跟緊「${liu.at}」`);
-  check('留白乜都唔亮', liu.self === 0 && liu.san === 0, JSON.stringify(liu));
+  /*
+   * ⚠ 2026-10-02 起宮位章唔再以留白收（留白淨係疾厄嘅免責句），收尾嗰段係「生活」場景 ——
+   *   佢講緊呢一宮（SLOT_FOCUS 生活 → palace），所以亮本宮、唔亮三方四正。
+   *   樣板頁讀命宮，冇留白：有留白就驗「乜都唔亮」，冇就驗章尾嗰段生活「只亮本宮」。
+   */
+  const hasLiu = await wide.evaluate(() => [...document.querySelectorAll('.suidu [data-slot]')].some((e) => e.dataset.slot === '留白'));
+  if (hasLiu) {
+    const liu = await atSlot('留白');
+    check('捲到留白', liu.at === '留白', `跟緊「${liu.at}」`);
+    check('留白乜都唔亮', liu.self === 0 && liu.san === 0, JSON.stringify(liu));
+  } else {
+    const end = await atSlot('生活');
+    check('捲到章尾生活', end.at === '生活', `跟緊「${end.at}」`);
+    check('章尾生活只亮本宮', end.self === 1 && end.san === 0, JSON.stringify(end));
+  }
 
   /* 手機唔出個盤 —— 400px 唔可以橫向滾（E2 同一條規矩）。 */
   const narrow = await browser.newPage({ viewport: { width: 400, height: 900 } });

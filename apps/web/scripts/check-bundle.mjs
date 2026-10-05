@@ -85,7 +85,12 @@ if (leaked.length) {
 const MARKS = ['破軍', '廉貞', '擎羊', '陀羅', '節氣', '立春'];
 const engine = [];
 for (const file of files) {
-  const text = readFileSync(file, 'utf8');
+  /*
+   * ⚠ 命盤英文標籤（2026-10-05，`lib/chart-labels.ts`）係一張「星名 → 拼音」表，會落 client：
+   *   `破軍:"Po Jun"`。佢唔係引擎，但會中晒四個記號。只剝走呢個樣式（中文名做 key、拼音做值），
+   *   其他地方出現星名照樣要數 —— 唔好為咗佢放寬成條規則。
+   */
+  const text = readFileSync(file, 'utf8').replace(/[\u4e00-\u9fff]{2}:"[A-Z][a-z]+ [A-Z][a-z]+"/g, '');
   /*
    * 三個或以上先算 —— 一兩個字有可能係文案（例如詞條、樣章）。
    * 三個同時出現喺一個 chunk 度，就係星表或者曆表。

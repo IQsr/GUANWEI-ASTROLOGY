@@ -9,7 +9,7 @@
  *   打字期間唔准重畫粒掣　　　→ 要真係打字，再比較個 DOM 節點
  *   冇確認頁，五步完直入題名　→ 要由頭行到尾
  */
-import { launchBrowser, startServer, stopServer } from './_server.mjs';
+import { acceptConsent, launchBrowser, startServer, stopServer } from './_server.mjs';
 import { setTimeout as sleep } from 'node:timers/promises';
 
 const PORT = Number(process.env.CHECK_CAST_PORT ?? 3996);
@@ -78,6 +78,7 @@ try {
    * 所以量嘅唔係「粒掣有冇 disabled」，係**佢係咪同一個節點**。
    */
   await page.goto(`${BASE}/cast`, { waitUntil: 'domcontentloaded' });
+  await acceptConsent(page);
   await page.waitForTimeout(700);
 
   const handle = await page.$('button.btn-mo');
@@ -169,6 +170,7 @@ try {
   for (const step of ['sex', 'place', 'time', 'naming']) {
     const deep = await browser.newPage({ viewport: { width: 1280, height: 900 } });
     await deep.goto(`${BASE}/cast?step=${step}`, { waitUntil: 'domcontentloaded' });
+    await acceptConsent(deep);
     await deep.waitForTimeout(600);
     const label = await deep.evaluate(() => document.body.innerText);
     check(`?step=${step}`, label.includes('這本書要寫上誰的名字'), '冇落返第一步');
@@ -185,6 +187,7 @@ try {
    */
   const flow = await browser.newPage({ viewport: { width: 1280, height: 1000 } });
   await flow.goto(`${BASE}/cast`, { waitUntil: 'domcontentloaded' });
+  await acceptConsent(flow);
   await flow.waitForTimeout(600);
   await fill(flow, 4);
   await flow.getByRole('button', { name: '男', exact: true }).click();
@@ -219,6 +222,7 @@ try {
   /* ── 七、400px 唔橫向滾 ─────────────────────────── */
   const phone = await browser.newPage({ viewport: { width: 400, height: 900 } });
   await phone.goto(`${BASE}/cast`, { waitUntil: 'domcontentloaded' });
+  await acceptConsent(phone);
   await phone.waitForTimeout(700);
   for (let i = 0; i <= 3; i++) {
     const over = await phone.evaluate(

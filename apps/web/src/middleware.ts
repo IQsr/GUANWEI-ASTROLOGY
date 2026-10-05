@@ -2,7 +2,7 @@ import { NextResponse, type NextRequest } from 'next/server';
 import createMiddleware from 'next-intl/middleware';
 import { createServerClient } from '@supabase/ssr';
 import { routing } from './i18n/routing';
-import { LEXICON_LOCALE, isLexiconLocale } from './lib/lexicon';
+import { LEXICON_LOCALE, isLexiconLocale } from './lib/lexicon-locale';
 import { parsePublicEnv } from './lib/env';
 
 const intl = createMiddleware(routing);

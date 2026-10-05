@@ -117,13 +117,21 @@ try {
   });
   check('/lexicon (en 瀏覽器)', en.status === 200, `HTTP ${en.status}`);
 
+  /*
+   * 2026-10-05 英文藏經閣開咗：`/en/lexicon` 係一版真嘅英文頁（200），唔再 301 返繁中；
+   * 冇前綴嘅 `/lexicon` 照舊唔偵測語言（上面嗰條）。詞條頁都要英文、而且冇漏中文名。
+   */
   const enPrefixed = await fetch(`${BASE}/en/lexicon`, { redirect: 'manual' });
-  check('/en/lexicon', enPrefixed.status === 301, `HTTP ${enPrefixed.status}，應該 301`);
+  check('/en/lexicon', enPrefixed.status === 200, `HTTP ${enPrefixed.status}，應該 200`);
+  const enEntry = await fetch(`${BASE}/en/lexicon/star/${encodeURIComponent('天同')}`, { redirect: 'manual' });
+  const enHtml = await enEntry.text();
+  check('/en/lexicon/star/天同', enEntry.status === 200 && enHtml.includes('Tian Tong'), `HTTP ${enEntry.status}`);
+  check('/en 詞條 hreflang', enHtml.includes('hrefLang="zh-Hant"') || enHtml.includes('hreflang="zh-Hant"'), '冇指返繁中版');
 
   /* ── 三、sitemap 內容 ─────────────────────────────── */
   const xml = await fetch(`${BASE}/sitemap.xml`).then((r) => r.text());
   const locs = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
-  check('sitemap 條數', locs.length === 37, `${locs.length} 條，應該 37（首頁 ＋ 目錄 ＋ 35 詞條）`);
+  check('sitemap 條數', locs.length === 73, `${locs.length} 條，應該 73（首頁 ＋ 繁中目錄 ＋ 35 詞條 ＋ 英文目錄 ＋ 35 詞條）`);
   check('sitemap 中文 encode', locs.some((l) => l.includes('%E7%B4%AB%E5%BE%AE')), '搵唔到 encode 咗嘅紫微');
   for (const leak of ['/cast', '/shelf', '/book', '/claim', '/account', '/pay']) {
     check('sitemap 白名單', !locs.some((l) => l.includes(leak)), `私密層 ${leak} 漏咗入 sitemap`);
@@ -271,4 +279,4 @@ if (fail.length) {
   for (const f of fail) console.error('  ' + f);
   process.exit(1);
 }
-console.log('✓ 路由：公開層全 200、英文瀏覽器入得到、sitemap 37 條、私密層擋晒、CTA 一行細字');
+console.log('✓ 路由：公開層全 200、英文瀏覽器入得到、英文藏經閣開咗、sitemap 73 條、私密層擋晒、CTA 一行細字');

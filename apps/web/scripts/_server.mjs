@@ -140,3 +140,18 @@ export async function launchBrowser() {
     process.exit(1);
   }
 }
+
+/**
+ * 起盤前嘅同意彈窗（2026-09-29 · ConsentGate）：驗收入落款頁之前先撳「同意並開始」。
+ * 冇彈窗（例如同一個瀏覽器 context 已經同意過）就乜都唔做。
+ */
+export async function acceptConsent(page) {
+  const agree = page.locator('[role="dialog"] button.btn-mo, button.btn-mo[data-consent], button.btn-mo:has-text("同意並開始")').first();
+  try {
+    await agree.waitFor({ state: 'visible', timeout: 3000 });
+    await agree.click();
+    await agree.waitFor({ state: 'detached', timeout: 3000 }).catch(() => {});
+  } catch {
+    /* 冇彈窗 */
+  }
+}

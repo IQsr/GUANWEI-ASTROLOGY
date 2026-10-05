@@ -9,7 +9,7 @@
  *   呢一幕之前冇出現過任何價錢　　　　→ 掃成條流程嘅字
  */
 import { readFileSync } from 'node:fs';
-import { launchBrowser, startServer, stopServer } from './_server.mjs';
+import { acceptConsent, launchBrowser, startServer, stopServer } from './_server.mjs';
 import { setTimeout as sleep } from 'node:timers/promises';
 
 
@@ -85,6 +85,7 @@ try {
   browser = await launchBrowser();
   const page = await browser.newPage({ viewport: { width: 1280, height: 1000 } });
   await page.goto(`${BASE}/cast`, { waitUntil: 'domcontentloaded' });
+  await acceptConsent(page);
   await page.waitForTimeout(700);
 
   /*
@@ -392,6 +393,7 @@ try {
     reducedMotion: 'reduce',
   });
   await still.goto(`${BASE}/cast`, { waitUntil: 'domcontentloaded' });
+  await acceptConsent(still);
   await still.waitForTimeout(600);
   await toNaming(still);
   await still.waitForTimeout(400);
