@@ -15,6 +15,9 @@ const RULES: [code: string, re: RegExp][] = [
   ['EN-X 感嘆號', /!/],
   ['EN-X 美式拼寫', /\b(color|favor|favorable|organiz\w*|realiz\w*|recogniz\w*|center|behavior|honor)\b/i],
   ['EN-X 漏中文', /[一-鿿]/],
+  /* 術語統一（2026-10-05 定）：四化一律「turns to X」；天同叫 the Blessed */
+  ['EN-T 四化句式', /\b(touched|affected) by (Abundance|Authority|Recognition|Obstruction)\b|\bcarries the (Abundance|Authority|Recognition|Obstruction) transformation\b|\btransforms into (Abundance|Authority|Recognition|Obstruction)\b/i],
+  ['EN-T 舊譯名', /\bthe Contented\b/],
 ];
 
 export function scanEnglish(text: string): string[] {

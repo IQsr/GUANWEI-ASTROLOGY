@@ -24,7 +24,7 @@ export const STAR_EN: Record<string, { pinyin: string; gloss: string }> = {
   天機: { pinyin: 'Tian Ji', gloss: 'the Strategist' },
   太陽: { pinyin: 'Tai Yang', gloss: 'the Sun' },
   武曲: { pinyin: 'Wu Qu', gloss: 'the General' },
-  天同: { pinyin: 'Tian Tong', gloss: 'the Contented' },
+  天同: { pinyin: 'Tian Tong', gloss: 'the Blessed' },
   廉貞: { pinyin: 'Lian Zhen', gloss: 'the Upright' },
   天府: { pinyin: 'Tian Fu', gloss: 'the Treasury' },
   太陰: { pinyin: 'Tai Yin', gloss: 'the Moon' },

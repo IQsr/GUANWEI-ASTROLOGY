@@ -8,9 +8,9 @@ For the reviewer: please read for naturalness and tone. Terminology follows `doc
 
 You are easy-going by nature. You don't compete for attention, you don't hold on to resentment, and you have a real instinct for making life comfortable. But that ease has a cost: when life is too comfortable your drive softens, and change comes more easily when something outside pushes you.
 
-Your Life Palace is shaped by Tian Tong (the Contented) and Tian Liang (the Sage).
+Your Life Palace is shaped by Tian Tong (the Blessed) and Tian Liang (the Sage).
 
-For Tian Tong, the challenge is not hardship but drive — when nothing forces you to move, comfort itself weakens your reasons to. A certain amount of pressure actually works in your favour. You are well blessed: life is comfortable, you get on easily with people, and help comes without your having to push for it. That ease is genuine; there's no need to distrust it. Tian Liang in the Life Palace sets a keynote of stepping forward: you speak up when something is unfair, and you take in people who are struggling. You hold to a set of standards of your own, and you don't bend them easily. Here Tian Tong is touched by Obstruction: you want to settle, yet the very conditions for ease are the ones hardest to come by. What you feel is less pain than a recurring drag.
+For Tian Tong, the challenge is not hardship but drive — when nothing forces you to move, comfort itself weakens your reasons to. A certain amount of pressure actually works in your favour. You are well blessed: life is comfortable, you get on easily with people, and help comes without your having to push for it. That ease is genuine; there's no need to distrust it. Tian Liang in the Life Palace sets a keynote of stepping forward: you speak up when something is unfair, and you take in people who are struggling. You hold to a set of standards of your own, and you don't bend them easily. Here Tian Tong turns to Obstruction: you want to settle, yet the very conditions for ease are the ones hardest to come by. What you feel is less pain than a recurring drag.
 
 This side of you also connects with the way you engage with the wider world, your work and your finances. Out in the world, Tian Tong makes you easy to warm to in unfamiliar places. At work, Tian Ji (the Strategist) has you take a problem apart and find another way through. With money, Tai Yin (the Moon) has you build up slowly and steadily.
 
@@ -40,7 +40,7 @@ Your Partnership Palace is shaped by Ju Men (the Great Gate).
 
 This means few buried misunderstandings, and also more everyday friction — because not everything needs spelling out.
 
-Also pulling on this side of you: your work, your inner life and the way you engage with the wider world. In your inner life, Tai Yang (the Sun) finds calm in having something to do and someone to look after. At work it is Tian Ji (the Strategist) and out in the world it is Tian Tong (the Contented) — see the Career Palace chapter and the Travel Palace chapter.
+Also pulling on this side of you: your work, your inner life and the way you engage with the wider world. In your inner life, Tai Yang (the Sun) finds calm in having something to do and someone to look after. At work it is Tian Ji (the Strategist) and out in the world it is Tian Tong (the Blessed) — see the Career Palace chapter and the Travel Palace chapter.
 
 Also in this palace is Di Jie (Loss): what you put into a relationship isn't easily seen; you can say what you've given.
 
@@ -90,7 +90,7 @@ This chapter makes no medical judgements.
 
 In new surroundings you're easy to like, you settle in quickly, and people want to help you. Keep in mind that once you go somewhere you tend to stay, more out of habit than judgement.
 
-This palace holds no major star of its own, so it is read through Tian Tong (the Contented) and Tian Liang (the Sage) in the opposite palace.
+This palace holds no major star of its own, so it is read through Tian Tong (the Blessed) and Tian Liang (the Sage) in the opposite palace.
 
 Tian Tong is easy to like in unfamiliar places: soft in manner, never aggressive, so people want to give it a hand.
 
@@ -118,7 +118,7 @@ At work you're good at taking things apart and adapting, and finding room inside
 
 Your Career Palace is shaped by Tian Ji (the Strategist).
 
-This side of you also connects with your love life, your finances and your character. In love it is Ju Men (the Great Gate), with money it is Tai Yin (the Moon) and in your character it is Tian Tong (the Contented) — see the Partnership Palace chapter, the Wealth Palace chapter and the Life Palace chapter. Work comes with more conditions for you: to get one thing done, you often have to settle unrelated matters first.
+This side of you also connects with your love life, your finances and your character. In love it is Ju Men (the Great Gate), with money it is Tai Yin (the Moon) and in your character it is Tian Tong (the Blessed) — see the Partnership Palace chapter, the Wealth Palace chapter and the Life Palace chapter. Work comes with more conditions for you: to get one thing done, you often have to settle unrelated matters first.
 
 You're suited to varied work: project-based roles, consultancy, planning, jobs that keep you adapting. A post where every day is the same and the process is fixed will make you restless fastest.
 
@@ -144,7 +144,7 @@ Your Wellbeing Palace is shaped by Tai Yang (the Sun).
 
 With nothing at all to do, Tai Yang grows uneasy. For Tai Yang, the link between busyness and peace of mind runs the opposite way from most people's: a reasonable load is what keeps it grounded. What really wears it down isn't having a lot to do; it's doing things no one sees, or for people who don't need them. Being needed is your most solid source of calm. Tai Yang turns to Abundance: what it gives gets a response, and where it shines really lights up. It stops Tai Yang's giving from spinning its wheels.
 
-Also pulling on this side of you: your finances, the way you engage with the wider world and your love life. With money it is Tai Yin (the Moon), out in the world it is Tian Tong (the Contented) and in love it is Ju Men (the Great Gate) — see the Wealth Palace chapter, the Travel Palace chapter and the Partnership Palace chapter. Finding inner rest comes with more conditions; to quieten down, you often have to put a few things in order first.
+Also pulling on this side of you: your finances, the way you engage with the wider world and your love life. With money it is Tai Yin (the Moon), out in the world it is Tian Tong (the Blessed) and in love it is Ju Men (the Great Gate) — see the Wealth Palace chapter, the Travel Palace chapter and the Partnership Palace chapter. Finding inner rest comes with more conditions; to quieten down, you often have to put a few things in order first.
 
 Also in this palace is Ling Xing (Bell): worries don't show, and quiet doesn't mean you've let go.
 

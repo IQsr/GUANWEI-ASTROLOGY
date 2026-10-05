@@ -93,7 +93,7 @@
 | 天機 | Tian Ji | the Strategist | advisor |
 | 太陽 | Tai Yang | the Sun | sun |
 | 武曲 | Wu Qu | the General | warrior |
-| 天同 | Tian Tong | the Contented | fortunate |
+| 天同 | Tian Tong | the Blessed | fortunate |
 | 廉貞 | Lian Zhen | the Upright | judge |
 | 天府 | Tian Fu | the Treasury | empress |
 | 太陰 | Tai Yin | the Moon | moon |
@@ -106,7 +106,7 @@
 
 註層意思係我按書入面嘅性質揀（例如破軍「先破後立」→ Vanguard，唔用常見嘅 "Army Breaker"）。
 
-同 iztro 唔同嘅地方：佢將廉貞叫 judge，我哋留咗 *the Judge* 畀天刑（刑曜）；佢將天府叫 empress，但書入面天府係「財帛田宅主」，Treasury 貼啲。天梁跟 iztro 用 *the Sage*（書：「清高、蔭庇」）—— 2026-10-05 定。
+同 iztro 唔同嘅地方：佢將廉貞叫 judge，我哋留咗 *the Judge* 畀天刑（刑曜）；佢將天府叫 empress，但書入面天府係「財帛田宅主」，Treasury 貼啲。天梁跟 iztro 用 *the Sage*（書：「清高、蔭庇」）—— 2026-10-05 定。天同由 *the Contented* 改做 *the Blessed*（天同係福星；睇稿指南話 the Contented 讀落唔自然）—— 2026-10-05 定。
 
 ---
 
@@ -133,7 +133,7 @@
 | 中文 | 英文 | 備註 |
 |---|---|---|
 | 四化 | the Four Transformations ✅ | |
-| 化祿 | Abundance | *turns to Abundance* |
+| 化祿 | Abundance | *turns to Abundance* —— **句式統一（2026-10-05 定）：一律「X turns to Abundance／Authority／Recognition／Obstruction」**，唔用 touched by、carries the … transformation；英文檢查 EN-T 攔住 |
 | 化權 | Authority | |
 | 化科 | Recognition | |
 | 化忌 | Obstruction | 唔用 "Taboo"（太重）；iztro 用 A／B／C／D 代表祿權科忌，冇意思，唔跟 |
