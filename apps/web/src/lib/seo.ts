@@ -37,6 +37,13 @@ export function sitemapEntries(): SitemapEntry[] {
       changefreq: 'monthly',
       priority: '0.6',
     })),
+    /* 英文藏經閣（2026-10-05） */
+    { loc: `${SITE_URL}/en/lexicon`, changefreq: 'weekly', priority: '0.7' },
+    ...LEXICON.map((e) => ({
+      loc: `${SITE_URL}/en${canonicalOf(e)}`,
+      changefreq: 'monthly',
+      priority: '0.5',
+    })),
   ];
 }
 

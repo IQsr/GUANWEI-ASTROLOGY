@@ -2,7 +2,7 @@ import { NextResponse, type NextRequest } from 'next/server';
 import createMiddleware from 'next-intl/middleware';
 import { createServerClient } from '@supabase/ssr';
 import { routing } from './i18n/routing';
-import { LEXICON_LOCALE } from './lib/lexicon';
+import { LEXICON_LOCALE, isLexiconLocale } from './lib/lexicon';
 import { parsePublicEnv } from './lib/env';
 
 const intl = createMiddleware(routing);
@@ -26,6 +26,10 @@ const intl = createMiddleware(routing);
  *
  * 用 301 唔用 307：呢個唔係一時嘅轉向，係「呢條路由永遠只有一個語言」。
  * 搜尋器應該收檔，唔應該每次返嚟再試。
+ *
+ * 2026-10-05：英文藏經閣開咗（詞條有英文），`/en/lexicon…` 唔再轉走，照常行 intl。
+ * 冇前綴嘅 `/lexicon…` 照舊唔偵測語言、直落繁中 —— 英文係另一條 URL，唔係同一條搬來搬去。
+ * 將來加第三種語言而詞條未有，佢嘅 `/xx/lexicon` 照舊 301 返繁中。
  */
 const LEXICON = '/lexicon';
 
@@ -80,7 +84,7 @@ export default async function middleware(req: NextRequest) {
   const { pathname } = req.nextUrl;
 
   for (const locale of routing.locales) {
-    if (locale === LEXICON_LOCALE) continue;
+    if (isLexiconLocale(locale)) continue;
     const prefixed = `/${locale}${LEXICON}`;
     if (pathname === prefixed || pathname.startsWith(`${prefixed}/`)) {
       const url = req.nextUrl.clone();

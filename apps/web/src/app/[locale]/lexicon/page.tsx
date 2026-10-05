@@ -6,30 +6,28 @@ import { Link } from '@/i18n/navigation';
 import { Juanshou } from '@/components/Juanshou';
 import { ReturnToReading } from '@/components/ReturnToReading';
 import { OG_LEXICON } from '@/lib/site';
-import { KINDS, LEXICON_LOCALE, entriesOf, hrefOf, teaser } from '@/lib/lexicon';
+import { KINDS, LEXICON_LOCALES, entriesOf, hrefOf, isLexiconLocale, localePath, teaserFor, textOf } from '@/lib/lexicon';
 import { LexiconCta } from '@/components/LexiconCta';
 
 export function generateStaticParams() {
-  return [{ locale: LEXICON_LOCALE }];
+  return LEXICON_LOCALES.map((locale) => ({ locale }));
 }
 
 /* 類別名（主星、宮位⋯）喺 messages：`lexicon.kind.*`。 */
 
-/*
- * ⚠ 藏經閣鎖死中文（LEXICON_LOCALE）：引文逐字抄自原書。所以字一律攞中文嗰份，
- * 英文已經喺 messages 寫好，等將來開放英文藏經閣嗰陣用。
- */
-export async function generateMetadata(): Promise<Metadata> {
-  const t = await getTranslations({ locale: LEXICON_LOCALE, namespace: 'lexicon' });
+/* 英文藏經閣（2026-10-05 開）：詞條有英文，介面字跟 locale；原文照附 */
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'lexicon' });
   return {
     title: t('title'),
     description: t('description'),
-    alternates: { canonical: '/lexicon' },
+    alternates: { canonical: localePath('/lexicon', locale), languages: { 'zh-Hant': '/lexicon', en: '/en/lexicon' } },
     openGraph: {
       title: t('ogTitle'),
       description: t('description'),
       type: 'website',
-      url: '/lexicon',
+      url: localePath('/lexicon', locale),
       images: [{ url: OG_LEXICON, width: 1200, height: 630, alt: t('ogAlt') }],
     },
     /**
@@ -48,10 +46,10 @@ export default async function LexiconIndex({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-  if (locale !== LEXICON_LOCALE) notFound();
+  if (!isLexiconLocale(locale)) notFound();
   setRequestLocale(locale);
 
-  const t = await getTranslations({ locale: LEXICON_LOCALE, namespace: 'lexicon' });
+  const t = await getTranslations({ locale, namespace: 'lexicon' });
   const cov = lexiconCoverage();
   const single = singleBookEntries().length;
 
@@ -115,9 +113,9 @@ export default async function LexiconIndex({
                       href={hrefOf(e)}
                       className="flex items-baseline gap-6 py-3 transition-colors duration-[240ms] hover:text-indigo"
                     >
-                      <span className="w-[6.5em] shrink-0 text-h3">{e.label}</span>
+                      <span className={`${locale === 'en' ? 'w-[11em]' : 'w-[6.5em]'} shrink-0 text-h3`}>{textOf(e, locale).label}</span>
                       <span className="min-w-0 flex-1 truncate font-sans text-sm text-ink-3">
-                        {teaser(e.summary)}
+                        {teaserFor(textOf(e, locale).summary, locale)}
                       </span>
                     </Link>
                   </li>

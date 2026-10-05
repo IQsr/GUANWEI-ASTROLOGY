@@ -135,7 +135,7 @@ export default async function ChapterPage({
    * 所以前面幾章照樣攞返嚟標，段落結構就只有呢一章要（F2）。
    */
   const marked = en
-    ? englishChapters(upto.map((c, i) => ({ text: fetched[i]?.text ?? '', slots: fetched[i]?.slots ?? [] }))).map((segments, i) => ({ palace: upto[i]!.title, segments }))
+    ? markBook(englishChapters(upto.map((c, i) => ({ text: fetched[i]?.text ?? '', slots: fetched[i]?.slots ?? [] }))).map((segments, i) => ({ palace: upto[i]!.title, segments })), 'en')
     : markBook(
     upto.map((c, i) => ({
       palace: c.title,
@@ -203,7 +203,7 @@ export default async function ChapterPage({
                * `cut_page()` 照舊記低（第一次讀嘅時間），只係唔播。
                */
               <Caikai play={justCut && here.tier === 'deep'}>
-                <Juan segments={mine!.segments} notes={en ? {} : notesFor(marked)} />
+                <Juan segments={mine!.segments} notes={notesFor(marked, locale)} />
               </Caikai>
             )}
           </div>

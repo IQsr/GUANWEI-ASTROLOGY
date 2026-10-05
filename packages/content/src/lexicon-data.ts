@@ -8,6 +8,7 @@ import stars from './lexicon/stars.json';
 import palaces from './lexicon/palaces.json';
 import sihua from './lexicon/sihua.json';
 import ju from './lexicon/ju.json';
+import en from './lexicon/en.json';
 import { buildLexicon, distinctBooks, type LexiconEntry } from './lexicon';
 
 export const LEXICON: LexiconEntry[] = buildLexicon([
@@ -23,6 +24,14 @@ export const LEXICON_TARGET = {
   sihua: 4,
   ju: 5,
 } as const;
+
+/**
+ * 詞條英文（2026-10-05 · 英文閱讀模式）：名、摘要、全文。
+ * 引文同出處照用中文嗰份（`sources`）—— 原文係公有領域嘅《全書》，英文頁列英文出處、附原文。
+ * 書入面嘅「規範第幾節」英文唔寫節數（讀者睇唔到嗰份文件），改講「本書的原則」。
+ */
+export type LexiconEn = { label: string; summary: string; full: string };
+export const LEXICON_EN = en as Record<string, LexiconEn>;
 
 export function lexiconOf(id: string): LexiconEntry | null {
   return LEXICON.find((e) => e.id === id) ?? null;

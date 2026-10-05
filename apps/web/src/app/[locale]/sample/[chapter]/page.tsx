@@ -69,7 +69,7 @@ export default async function SampleChapter({ params }: { params: Promise<{ loca
   /* 註層：成本書標到呢章為止（同真書一樣，一個術語全書只標一次） */
   const upto = book.drafts.filter((d) => d.ord <= here.ord);
   const marked = en
-    ? englishChapters(upto.map((d) => ({ text: d.body, slots: d.slots }))).map((segments, i) => ({ palace: upto[i]!.title, segments }))
+    ? markBook(englishChapters(upto.map((d) => ({ text: d.body, slots: d.slots }))).map((segments, i) => ({ palace: upto[i]!.title, segments })), 'en')
     : markBook(
     upto.map((d) => ({
       palace: d.title,
@@ -102,7 +102,7 @@ export default async function SampleChapter({ params }: { params: Promise<{ loca
       >
         <ChapterTitle title={en ? englishTitle(here.title) : here.title} />
         <div className="mt-10">
-          <Juan segments={mine.segments} notes={en ? {} : notesFor(marked)} />
+          <Juan segments={mine.segments} notes={notesFor(marked, locale)} />
         </div>
         {dial ? <StarDial {...dial} en={en} /> : null}
         <ChapterNav bookId={SAMPLE_BOOK} prev={prev} next={next} />

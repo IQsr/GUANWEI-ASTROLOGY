@@ -1,4 +1,4 @@
-import { LEXICON, type LexiconEntry } from '@guanwei/content';
+import { LEXICON, LEXICON_EN, type LexiconEntry } from '@guanwei/content';
 import { slugOf } from '@/lib/lexicon';
 
 /**
@@ -24,6 +24,11 @@ export type Term = {
   slug: string;
   /** 喺正文入面真正要搵嘅字。 */
   match: string;
+  /**
+   * 英文四化：前面要係「turns to／turning to」先算（唔認「Keeper of Abundance」）。
+   * ⚠ 用 boolean 唔用 RegExp：Term 會傳去 client component（Juan），RegExp 過唔到 server/client 界。
+   */
+  turnsTo?: boolean;
 };
 
 /**
@@ -65,6 +70,30 @@ export function sentences(text: string): string[] {
   return text.match(/[^。！？]*[。！？]|[^。！？]+/g) ?? [];
 }
 
+/**
+ * 英文切句：喺「句號／問號（＋收括號、引號）＋空白」之後切。用 split 唔用 match ——
+ * 一個字都唔會跌（「(the Warrior).)」呢類收尾 match 會漏）。
+ */
+export function sentencesEn(text: string): string[] {
+  return text.split(/(?<=[.?][)"'”’]*\s+)/).filter((x) => x !== '');
+}
+
+/**
+ * 英文術語（2026-10-05 · 英文閱讀模式）：星名拼音、宮名、五行局用詞條嘅英文名；
+ * 四化好似中文只認「化祿」一樣，只認「turns to／turning to Abundance」。
+ */
+export function termIndexEn(): Term[] {
+  return LEXICON.map((e) => ({
+    id: e.id,
+    kind: e.kind as TermKind,
+    slug: slugOf(e),
+    match: LEXICON_EN[e.id]?.label ?? e.label,
+    turnsTo: e.kind === 'sihua' ? true : undefined,
+  })).sort((a, b) => b.match.length - a.match.length);
+}
+
+const isLetter = (c: string | undefined) => Boolean(c && /[A-Za-z]/.test(c));
+
 /** 喺一句入面，由左到右搵第一個未用過嘅術語。長嘅行先。 */
 function firstTerm(
   sentence: string,
@@ -74,7 +103,11 @@ function firstTerm(
   for (let i = 0; i < sentence.length; i++) {
     for (const term of terms) {
       if (used.has(term.id)) continue;
-      if (sentence.startsWith(term.match, i)) return { at: i, term };
+      if (!sentence.startsWith(term.match, i)) continue;
+      /* 英文要整個字對：「Tian Ji」唔好配咗「Tian Jie」入面 */
+      if (isLetter(term.match[0]) && (isLetter(sentence[i - 1]) || isLetter(sentence[i + term.match.length]))) continue;
+      if (term.turnsTo && !/\b(turns|turning) to $/.test(sentence.slice(0, i))) continue;
+      return { at: i, term };
     }
   }
   return null;
@@ -93,15 +126,16 @@ function firstTerm(
  *
  * 二、**一句最多標一個**。兩點喺同一句，讀者要停兩次。
  */
-export function markBook(chapters: ChapterInput[]): MarkedChapter[] {
-  const terms = termIndex();
+export function markBook(chapters: ChapterInput[], lang: 'zh' | 'en' = 'zh'): MarkedChapter[] {
+  const terms = lang === 'en' ? termIndexEn() : termIndex();
+  const split = lang === 'en' ? sentencesEn : sentences;
   const used = new Set<string>();
 
   return chapters.map((ch) => ({
     palace: ch.palace,
     segments: ch.segments.map((seg) => {
       const runs: Run[] = [];
-      for (const sentence of sentences(seg.text)) {
+      for (const sentence of split(seg.text)) {
         const hit = firstTerm(sentence, terms, used);
         if (!hit) {
           runs.push({ text: sentence });

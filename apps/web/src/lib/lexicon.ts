@@ -3,21 +3,19 @@
  *
  * 出處：架構 §7 藏經閣、§9 索引與分享、視覺系統 §5 版
  *
- * ── 一個決定：藏經閣只有繁中版 ──
+ * ── 英文藏經閣（2026-10-05 開）──
  *
- * 全站 routing 係 `localePrefix: 'as-needed'`，所以理論上會有
- * `/lexicon/star/紫微` 同 `/en/lexicon/star/紫微` 兩條路由。
- *
- * 但詞條**只有繁中**。出一個 `/en/…` 路由包住一模一樣嘅中文內容：
- * 對搜尋器係重複內容（而藏經閣係全站唯一嘅流量入口，唔可以自己踩自己），
- * 對讀者係一版打開嚟乜都睇唔明嘅嘢。
- *
- * 所以 `generateStaticParams` 只出繁中，其餘 locale 一律 404。
- * 有英文詞條嗰日先開 —— 唔係而家開定個空殼。
+ * 以前只出繁中，理由係「冇英文詞條就唔好開個空殼」。而家三十五條都有英文
+ * （`@guanwei/content` 嘅 LEXICON_EN），所以 `/en/lexicon/…` 開咗：
+ * 名、摘要、全文用英文；出處寫英文書名、卷、篇，原文（公有領域嘅《全書》）照附。
+ * slug 照用中文（同中文版同一條 URL 結構，hreflang 互指）。
  */
-import { LEXICON, type LexiconEntry } from '@guanwei/content';
+import { CORPUS, LEXICON, LEXICON_EN, type LexiconEntry } from '@guanwei/content';
 
 export const LEXICON_LOCALE = 'zh-Hant';
+/** 有詞條嘅語言 */
+export const LEXICON_LOCALES = ['zh-Hant', 'en'] as const;
+export const isLexiconLocale = (l: string) => (LEXICON_LOCALES as readonly string[]).includes(l);
 
 export const KINDS = ['star', 'palace', 'sihua', 'ju'] as const;
 export type LexiconKind = (typeof KINDS)[number];
@@ -126,4 +124,70 @@ export function teaser(summary: string, max = 34): string {
   const head = summary.slice(0, max);
   const cut = Math.max(...['，', '；', '、', '」', '：'].map((p) => head.lastIndexOf(p)));
   return cut > 0 ? `${head.slice(0, cut + 1)}…` : `${head}…`;
+}
+
+/* ── 英文（2026-10-05）───────────────────────────────── */
+
+/** 詞條嘅名、摘要、全文：英文版用 LEXICON_EN，冇就退返中文。 */
+export function textOf(entry: LexiconEntry, locale: string): { label: string; summary: string; full: string } {
+  const en = locale === 'en' ? LEXICON_EN[entry.id] : undefined;
+  if (!en) return { label: entry.label, summary: entry.summary, full: entry.full };
+  /* 書名嘅 Markdown 斜體（*Complete Book*）網站顯示唔到，拎走星號 */
+  const plain = (s: string) => s.replace(/\*([^*\n]+)\*/g, (_m: string, t: string) => t);
+  return { label: en.label, summary: plain(en.summary), full: plain(en.full) };
+}
+
+/** 英文摘要：整句整句噉攞，攞到夠為止（同中文 `teaser()` 一樣嘅道理）。 */
+export function teaserEn(summary: string, max = 200): string {
+  const sentences = summary.match(/[^.?]+[.?]+(?:\s+|$)/g) ?? [summary];
+  let out = '';
+  for (const s of sentences) {
+    if (out && out.length + s.length > max) break;
+    out += s;
+  }
+  return out.trim();
+}
+
+export const teaserFor = (summary: string, locale: string, max?: number) =>
+  locale === 'en' ? teaserEn(summary, max ? max * 4 : undefined) : teaser(summary, max);
+
+/** 「/lexicon/star/紫微」→ 英文版前面加「/en」 */
+export const localePath = (path: string, locale: string) => (locale === 'en' ? `/en${path}` : path);
+
+const BOOK_EN: Record<string, string> = {
+  quanshu: 'Complete Book of Zi Wei Dou Shu',
+  zhongzhou: 'Wang Tingzhi, Advanced Lectures on Zi Wei Dou Shu (Zhongzhou School)',
+};
+export const bookEn = (corpus: string) => BOOK_EN[corpus] ?? corpus;
+
+const CHAPTER_EN: Record<string, string> = {
+  '卷一 · 諸星問答論': 'Book One · Questions and Answers on the Stars',
+  '卷二 · 論諸星分屬南北斗化吉凶並分屬五行': 'Book Two · The Stars of the Two Dippers, Their Transformations and Elements',
+  '卷二 · 十二宮諸星': 'Book Two · The Stars in the Twelve Palaces',
+  '卷三 · 談星要論': 'Book Three · Essentials of Reading the Stars',
+  '卷二 · 安祿權科忌四星變化訣': 'Book Two · Verse on the Four Transforming Stars',
+  '卷二 · 六十花甲子納音歌': 'Book Two · Verse on the Sound Elements of the Sixty Pairs',
+  '卷二 · 安身命例': 'Book Two · Placing the Life and Body Palaces',
+};
+const REF_EN: Record<string, string> = { 全表: 'full table', 全文: 'full text', 訣文: 'verse', 歌文: 'verse' };
+const HUA_REF: Record<string, string> = { 禄: 'Abundance', 祿: 'Abundance', 权: 'Authority', 權: 'Authority', 科: 'Recognition', 忌: 'Obstruction' };
+
+/** 出處（英文）：*Complete Book of Zi Wei Dou Shu*, Book One · …, What Zi Wei governs */
+export function citationRefEn(src: LexiconEntry['sources'][number]): string {
+  const c = CORPUS[src.corpus];
+  const p = c?.passages[src.passage_id];
+  if (!c || !p) return bookEn(src.corpus);
+  let ref = REF_EN[p.ref] ?? p.ref;
+  const asks = /^問(.+?)(?:星)?所主$/.exec(p.ref);
+  if (asks) {
+    const what = asks[1]!.startsWith('化') ? HUA_REF[asks[1]!.slice(1)] : LEXICON_EN[`star.${asks[1]}`]?.label;
+    if (what) ref = `What ${what} governs`;
+  }
+  const palace = /^[一二三四五六七八九十]+\s*(.+)$/.exec(p.ref);
+  if (palace) {
+    const zh = palace[1]!.replace('宫', '宮').replace('财', '財').replace('迁', '遷').replace('奴仆', '僕役').replace('禄', '祿').replace('妻妾', '夫妻');
+    const key = zh === '命宮' ? 'palace.命宮' : `palace.${zh}`;
+    if (LEXICON_EN[key]) ref = LEXICON_EN[key]!.label;
+  }
+  return `${bookEn(src.corpus)}, ${CHAPTER_EN[p.chapter] ?? p.chapter}, ${ref}`;
 }

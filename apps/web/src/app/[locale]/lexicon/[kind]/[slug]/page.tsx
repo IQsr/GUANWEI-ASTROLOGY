@@ -5,7 +5,7 @@ import { CORPUS, citationRef, distinctBooks } from '@guanwei/content';
 import { Link } from '@/i18n/navigation';
 import { Juanshou } from '@/components/Juanshou';
 import { ReturnToReading } from '@/components/ReturnToReading';
-import { LEXICON_LOCALE, allEntryParams, canonicalOf, entryOf, hrefOf, isKind, relatedOf, teaser } from '@/lib/lexicon';
+import { LEXICON_LOCALES, allEntryParams, bookEn, canonicalOf, citationRefEn, entryOf, hrefOf, isKind, isLexiconLocale, localePath, relatedOf, teaserFor, textOf } from '@/lib/lexicon';
 import { LexiconCta } from '@/components/LexiconCta';
 import { OG_LEXICON } from '@/lib/site';
 
@@ -26,7 +26,7 @@ import { OG_LEXICON } from '@/lib/site';
 /* 類別名喺 messages：`lexicon.kind.*`。 */
 
 export function generateStaticParams() {
-  return allEntryParams().map((p) => ({ ...p, locale: LEXICON_LOCALE }));
+  return LEXICON_LOCALES.flatMap((locale) => allEntryParams().map((p) => ({ ...p, locale })));
 }
 
 export async function generateMetadata({
@@ -35,7 +35,7 @@ export async function generateMetadata({
   params: Promise<{ locale: string; kind: string; slug: string }>;
 }): Promise<Metadata> {
   const { locale, kind, slug } = await params;
-  if (locale !== LEXICON_LOCALE || !isKind(kind)) return {};
+  if (!isLexiconLocale(locale) || !isKind(kind)) return {};
   const e = entryOf(kind, slug);
   if (!e) return {};
   /*
@@ -45,7 +45,8 @@ export async function generateMetadata({
    * 同一個錯），二嚟一百一十個中文字喺搜尋結果度一定被截。
    * 七十八字左右先係一句完整而且顯示得晒嘅話。
    */
-  const description = teaser(e.summary, 78);
+  const text = textOf(e, locale);
+  const description = teaserFor(text.summary, locale, 78);
   /*
    * ⚠ canonical 由**詞條本身**砌，唔用 route param。
    *
@@ -55,19 +56,20 @@ export async function generateMetadata({
    * 一條指去 404 嘅 canonical，比冇 canonical 更差：
    * 佢主動話畀搜尋器聽「呢版嘅正本喺嗰度」，而嗰度唔存在。
    */
-  const path = canonicalOf(e);
-  const t = await getTranslations({ locale: LEXICON_LOCALE, namespace: 'lexicon' });
+  const zhPath = canonicalOf(e);
+  const path = localePath(zhPath, locale);
+  const t = await getTranslations({ locale, namespace: 'lexicon' });
   return {
-    title: e.label,
+    title: text.label,
     description,
     robots: { index: true, follow: true },
-    alternates: { canonical: path },
+    alternates: { canonical: path, languages: { 'zh-Hant': zhPath, en: localePath(zhPath, 'en') } },
     openGraph: {
       /*
        * 卡片入面真正有資訊嗰兩行係呢度出 ——
        * 張圖係共用嘅，所以標題同摘要要逐條唔同，否則分享出去三十五條一個樣。
        */
-      title: t('entryTitle', { label: e.label }),
+      title: t('entryTitle', { label: text.label }),
       description,
       type: 'article',
       url: path,
@@ -82,14 +84,16 @@ export default async function LexiconEntryPage({
   params: Promise<{ locale: string; kind: string; slug: string }>;
 }) {
   const { locale, kind, slug } = await params;
-  if (locale !== LEXICON_LOCALE || !isKind(kind)) notFound();
+  if (!isLexiconLocale(locale) || !isKind(kind)) notFound();
   setRequestLocale(locale);
 
   const e = entryOf(kind, slug);
   if (!e) notFound();
 
-  const t = await getTranslations({ locale: LEXICON_LOCALE, namespace: 'lexicon' });
-  const books = distinctBooks(e);
+  const t = await getTranslations({ locale, namespace: 'lexicon' });
+  const en = locale === 'en';
+  const text = textOf(e, locale);
+  const books = en ? [...new Set(e.sources.map((s) => bookEn(s.corpus)))] : distinctBooks(e);
   const oneWitness = books.length < 2;
   const related = relatedOf(e);
 
@@ -102,13 +106,13 @@ export default async function LexiconEntryPage({
         <p className="font-sans text-cap tracking-[0.24em] text-ink-3">
           {t(`kind.${kind}`)}
         </p>
-        <h1 className="mt-3 text-h1 font-semibold tracking-[0.16em]">{e.label}</h1>
+        <h1 className="mt-3 text-h1 font-semibold tracking-[0.16em]">{text.label}</h1>
 
         {/* 摘要：註層用嘅同一份資產，寫一次用兩次（內容系統 §4）。 */}
-        <p className="mt-8 text-lead leading-[1.95] text-ink-2">{e.summary}</p>
+        <p className="mt-8 text-lead leading-[1.95] text-ink-2">{text.summary}</p>
 
         <div className="mt-12 border-t border-rule pt-10">
-          {e.full.split('\n').map((para, i) => (
+          {text.full.split('\n').filter((x) => x.trim()).map((para, i) => (
             <p key={i} className="mb-6 text-body last:mb-0">
               {para}
             </p>
@@ -121,12 +125,14 @@ export default async function LexiconEntryPage({
           <ol className="mt-4 border-t border-rule">
             {e.sources.map((src, i) => (
               <li key={i} className="border-b border-rule-2 py-4">
-                <p className="font-sans text-sm text-ink-2">{citationRef(src)}</p>
+                <p className="font-sans text-sm text-ink-2">{en ? citationRefEn(src) : citationRef(src)}</p>
                 {/*
                   引文逐字抄自原書，而且 build 嗰陣由 zod 落去語料庫核過
                   （抄錯一個字就 parse 唔到）。所以佢擺得出嚟畀人對。
                 */}
-                <blockquote className="mt-2 border-s border-rule ps-4 text-body text-ink">
+                {/* 英文版：原文照附（公有領域），標明係原文，唔假扮係英文 */}
+                {en ? <p className="mt-2 font-sans text-cap tracking-[0.14em] text-ink-3">{t('originalText')}</p> : null}
+                <blockquote lang="zh-Hant" className="mt-2 border-s border-rule ps-4 text-body text-ink">
                   「{src.quote}」
                 </blockquote>
               </li>
@@ -140,7 +146,7 @@ export default async function LexiconEntryPage({
                 {t('oneWitness', { book: books[0] ?? '' })}
               </>
             ) : (
-              <>{t('manyBooks', { count: books.length, books: books.join('、') })}</>
+              <>{t('manyBooks', { count: books.length, books: books.join(en ? '; ' : '、') })}</>
             )}
           </p>
         </section>
@@ -155,7 +161,7 @@ export default async function LexiconEntryPage({
                     href={hrefOf(r)}
                     className="text-body transition-colors duration-[240ms] hover:text-indigo"
                   >
-                    {r.label}
+                    {textOf(r, locale).label}
                   </Link>
                 </li>
               ))}
@@ -166,7 +172,7 @@ export default async function LexiconEntryPage({
         <footer className="mt-tiantou border-t border-rule pt-4">
           <LexiconCta />
           <p className="mt-6 font-sans text-cap leading-[2] text-ink-3">
-            {t('corpus', { book: CORPUS.quanshu?.book ?? '', edition: CORPUS.quanshu?.edition ?? '' })}
+            {t('corpus', { book: en ? bookEn('quanshu') : (CORPUS.quanshu?.book ?? ''), edition: en ? 'Wikisource, public domain' : (CORPUS.quanshu?.edition ?? '') })}
             <br />
             {t('noPersonalEntry')}
           </p>

@@ -12,9 +12,10 @@ import { hrefOf, relatedOf, slugOf } from '@/lib/lexicon';
 import { SITE_URL } from '@/lib/site';
 
 describe('sitemap 涵蓋全部詞條頁', () => {
-  it('首頁 ＋ 目錄 ＋ 35 條', () => {
+  /* 2026-10-05 起英文藏經閣都入：繁中 1 ＋ 1 ＋ 35，英文 1 ＋ 35 */
+  it('首頁 ＋ 目錄 ＋ 35 條（繁中、英文各一套）', () => {
     const e = sitemapEntries();
-    expect(e).toHaveLength(37);
+    expect(e).toHaveLength(73);
     expect(e[0]!.loc).toBe(`${SITE_URL}/`);
     expect(e[1]!.loc).toBe(`${SITE_URL}/lexicon`);
   });
@@ -24,6 +25,7 @@ describe('sitemap 涵蓋全部詞條頁', () => {
     for (const entry of LEXICON) {
       const url = `${SITE_URL}/lexicon/${entry.kind}/${encodeURIComponent(slugOf(entry))}`;
       expect(locs.has(url), entry.id).toBe(true);
+      expect(locs.has(`${SITE_URL}/en/lexicon/${entry.kind}/${encodeURIComponent(slugOf(entry))}`), entry.id).toBe(true);
     }
   });
 

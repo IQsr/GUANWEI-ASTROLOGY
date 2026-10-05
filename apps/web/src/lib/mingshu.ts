@@ -17,7 +17,7 @@ import {
 } from '@guanwei/content';
 import { SCHOOL_PROFILE, annual, cast } from '@guanwei/ziwei';
 import type { Chart as ZChart } from '@guanwei/ziwei/contract';
-import { hrefOf, slugOf } from '@/lib/lexicon';
+import { hrefOf, slugOf, textOf } from '@/lib/lexicon';
 import { markBook, type MarkedChapter } from '@/lib/zhu';
 import type { Note } from '@/components/Juan';
 
@@ -80,17 +80,19 @@ export function contents(chapters: Chapter[]): { palace: string; slug: string }[
 }
 
 /** 呢幾章用到嘅註 —— 唔係成個詞條庫。 */
-export function notesFor(marked: MarkedChapter[]): Record<string, Note> {
+/** `locale`：英文閱讀模式用英文名同摘要（詞條 LEXICON_EN） */
+export function notesFor(marked: MarkedChapter[], locale = 'zh-Hant'): Record<string, Note> {
   const ids = new Set(
     marked.flatMap((c) => c.segments.flatMap((s) => s.runs.map((r) => r.term?.id))).filter(Boolean),
   );
   const out: Record<string, Note> = {};
   for (const entry of LEXICON) {
     if (!ids.has(entry.id)) continue;
+    const text = textOf(entry, locale);
     out[entry.id] = {
       id: entry.id,
-      term: slugOf(entry),
-      summary: entry.summary,
+      term: locale === 'en' ? text.label : slugOf(entry),
+      summary: text.summary,
       href: hrefOf(entry),
     };
   }
