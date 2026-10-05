@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState, useTransition } from 'react';
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import type { Answer, Question } from '@guanwei/content';
 import { Link } from '@/i18n/navigation';
 import { readLocal, writeLocal } from '@/lib/local';
@@ -24,6 +24,7 @@ type Stage =
 
 export function ShiyanTrial({ bookId }: { bookId: string }) {
   const t = useTranslations('shiyan');
+  const locale = useLocale();
   const bands = t.raw('bands') as string[];
   const names = t.raw('shichen') as string[];
   const [band, setBand] = useState<number | null>(null);
@@ -41,7 +42,7 @@ export function ShiyanTrial({ bookId }: { bookId: string }) {
 
   const advance = (list: Asked[]) =>
     start(async () => {
-      const r = await shiyanStep(bookId, band, list);
+      const r = await shiyanStep(bookId, band, list, locale);
       if (!r.ok) {
         setError(true);
         return;

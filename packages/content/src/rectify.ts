@@ -154,7 +154,20 @@ const ASK: Record<Area, string> = {
   turn: '生活的重心有沒有轉方向，例如升學、出來工作、轉行或成家？',
 };
 
+/* 英文（2026-10-05 · 英文閱讀模式）：同中文一樣嘅例子；歲數跟詞彙表寫實歲 */
+const ASK_EN: Record<Area, string> = {
+  工作: 'Was there a big change or an especially hard stretch at work, such as changing jobs, getting a new boss, or a project being scrapped and started again?',
+  錢: 'Was money especially tight, such as a big expense, unsteady income, or money you lent that never came back?',
+  感情: 'Were there ups and downs in love, such as more arguments, long spells apart, or a relationship reaching the point of a decision?',
+  遷移: 'Did you move somewhere new, travel a lot for work, or run into setbacks while travelling?',
+  家: 'Was there a big change at home, such as moving house, renovating, or family matters that needed your attention?',
+  身體: 'Was it a physically demanding time, when you had to stop and rest for a while?',
+  turn: 'Did the centre of your life shift, such as going on to further study, starting work, changing career or starting a family?',
+};
+
 /** 一條問題嘅字：「二〇一四年前後（你虛歲二十五）：工作上有沒有⋯？」年份用阿拉伯數字，方便試用者對。 */
-export function questionText(q: Question, lunarBirthYear: number): string {
-  return `${q.year} 年前後（你虛歲 ${q.year - lunarBirthYear + 1}）：${ASK[q.area]}`;
+export function questionText(q: Question, lunarBirthYear: number, lang: 'zh' | 'en' = 'zh'): string {
+  const nominal = q.year - lunarBirthYear + 1;
+  if (lang === 'en') return `Around ${q.year} (when you were ${nominal - 2} or ${nominal - 1}): ${ASK_EN[q.area]}`;
+  return `${q.year} 年前後（你虛歲 ${nominal}）：${ASK[q.area]}`;
 }

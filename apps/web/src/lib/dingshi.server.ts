@@ -39,12 +39,12 @@ export function prepare(input: Omit<BirthInput, 'time'>, band: number | null) {
   return { band: only ? band : null, cs, born, preds };
 }
 
-export function step(p: NonNullable<Prepared>, asked: Asked[]): Step {
+export function step(p: NonNullable<Prepared>, asked: Asked[], lang: 'zh' | 'en' = 'zh'): Step {
   if (asked.length >= MAX_QUESTIONS) return { done: true };
   const post = posterior(p.preds, asked, RECTIFY_MODEL);
   const q = nextQuestion(p.preds, post, new Set(asked.map((x) => qid(x.q))), RECTIFY_MODEL, questionPool(p.preds));
   if (!q) return { done: true };
-  return { done: false, q, text: questionText(q, p.born), n: asked.length + 1, total: MAX_QUESTIONS };
+  return { done: false, q, text: questionText(q, p.born, lang), n: asked.length + 1, total: MAX_QUESTIONS };
 }
 
 /**

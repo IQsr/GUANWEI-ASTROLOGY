@@ -16,9 +16,10 @@ async function setup(bookId: string, band: number | null) {
   return p ? { p, truth: b.truth } : null;
 }
 
-export async function shiyanStep(bookId: string, band: number | null, asked: Asked[]): Promise<({ ok: true } & Step) | { ok: false }> {
+/** `locale`：英文閱讀模式下題目用英文（2026-10-05） */
+export async function shiyanStep(bookId: string, band: number | null, asked: Asked[], locale = 'zh-Hant'): Promise<({ ok: true } & Step) | { ok: false }> {
   const s = await setup(bookId, band);
-  return s ? { ok: true, ...step(s.p, asked) } : { ok: false };
+  return s ? { ok: true, ...step(s.p, asked, locale === 'en' ? 'en' : 'zh') } : { ok: false };
 }
 
 export async function shiyanFinish(bookId: string, band: number | null, asked: Asked[], consent: boolean): Promise<Verdict | null> {
