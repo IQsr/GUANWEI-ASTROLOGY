@@ -14,7 +14,7 @@ For Tian Tong, the challenge is not hardship but drive — when nothing forces y
 
 This side of you also connects with the way you engage with the wider world, your work and your finances. Out in the world, Tian Tong makes you easy to warm to in unfamiliar places. At work, Tian Ji (the Strategist) has you take a problem apart and find another way through. With money, Tai Yin (the Moon) has you build up slowly and steadily.
 
-Also in this palace is Huo Xing (Fire): quick-tempered and quick to start; your enthusiasm flares fast and fades just as fast.
+Huo Xing (Fire) also sits here, adding heat and speed: quick-tempered and quick to start; your enthusiasm flares fast and fades just as fast.
 
 You know how to enjoy rest — a good meal and an afternoon nap are enough to make you content. But stay somewhere comfortable for too long, and big changes, like a new job or learning something new, usually need someone else's push first.
 
@@ -28,7 +28,7 @@ Coordinating from the middle makes you comfortable in a group, and leaves you wi
 
 Seen across the whole chart, this side of you can't be separated from your circle, your home and the load on your body and mind. In your circle, Zi Wei (the Emperor) naturally puts you at the centre of a group. At home, Lian Zhen (the Upright) has you want a space built to your own specification, and you'd rather start again than make do. In body and mind, Tian Fu (the Treasury) wears you down through long-term vigilance. Dealings with peers go relatively smoothly; finding someone to talk things over with or to work alongside is easy to start.
 
-Also in this palace is Tuo Luo (the Weight): grudges with peers don't easily clear, and the past gets carried along. Old matters can be dug up again, details and all.
+Tuo Luo (the Weight) also sits here, slowing things down so they linger: grudges with peers don't easily clear, and the past gets carried along. Old matters can be dug up again, details and all.
 
 When friends fall out, you're often the one carrying messages between them and finding a way for both to back down. If an argument breaks out in the group chat, you're the first to change the subject.
 
@@ -42,7 +42,7 @@ This means few buried misunderstandings, and also more everyday friction — bec
 
 Also pulling on this side of you: your work, your inner life and the way you engage with the wider world. In your inner life, Tai Yang (the Sun) lets you find calm in having something to do and someone to look after. At work it is Tian Ji (the Strategist) and out in the world it is Tian Tong (the Blessed) — see the Career Palace chapter and the Travel Palace chapter.
 
-Also in this palace is Di Jie (Loss): what you put into a relationship isn't easily seen; you can say what you've given.
+Di Jie (Loss) also sits here, making gains harder to hold on to: what you put into a relationship isn't easily seen; you can say what you've given.
 
 When your partner says something vague, you keep asking until it's clear. You want to understand, but to them it sounds like an interrogation; saying "this matters to me" before you ask will go much better.
 
@@ -68,7 +68,7 @@ The *Complete Book* says "full granaries when strong; when weak, gains and losse
 
 This side of you also connects with your inner life, your character and your work. In your character, Tian Tong (the Blessed) gives you a gentle keynote. In your inner life it is Tai Yang (the Sun) and at work it is Tian Ji (the Strategist) — see the Wellbeing Palace chapter and the Career Palace chapter. Your money rarely moves in a straight line: what comes in and what goes out tend to follow different paths.
 
-Also in this palace is Di Kong (Void): there's often a gap between planned and actual spending, so check the accounts twice.
+Di Kong (Void) also sits here, adding a streak of the ideal over the practical: there's often a gap between planned and actual spending, so check the accounts twice.
 
 You tend to save small amounts over a long time: fixed deposits, monthly standing orders, an account opened for a particular goal. A sudden large expense is what unsettles you most, so an emergency fund matters.
 
@@ -146,7 +146,7 @@ With nothing at all to do, Tai Yang leaves you uneasy rather than rested. With T
 
 Also pulling on this side of you: your finances, the way you engage with the wider world and your love life. With money it is Tai Yin (the Moon), out in the world it is Tian Tong (the Blessed) and in love it is Ju Men (the Great Gate) — see the Wealth Palace chapter, the Travel Palace chapter and the Partnership Palace chapter. You don't find inner rest easily; to quieten down, you often have to put a few things in order first.
 
-Also in this palace is Ling Xing (Bell): worries don't show, and quiet doesn't mean you've let go.
+Ling Xing (Bell) also sits here, adding a slow, hidden heat: worries don't show, and quiet doesn't mean you've let go.
 
 You have a lot of pride and want what you do to be seen and recognised. In your free time you'd rather help people, volunteer or organise something than sit idle on your own.
 
@@ -160,6 +160,6 @@ Being straightforward keeps positions clear, and makes conflict arrive quickly. 
 
 The load on your body and mind, your circle and the next generation shape this side of you too. In body and mind it is Tian Fu (the Treasury), in your circle it is Zi Wei (the Emperor) and with those you bring up it is Lian Zhen (the Upright) — see the Health Palace chapter, the Friends Palace chapter and the Children Palace chapter. Things are relatively easy to talk through with elders and authority, and the route for explaining something is more direct.
 
-Also in this palace is Qing Yang (the Blade): a direct approach to elders and rules, with little diplomacy. Disagreement gets said on the spot.
+Qing Yang (the Blade) also sits here, adding a blunt, cutting edge: a direct approach to elders and rules, with little diplomacy. Disagreement gets said on the spot.
 
 You're straightforward with managers and elders, and you say when you think something is wrong. Spending a little more time on procedure when you submit reports and paperwork will save you a lot of trouble.

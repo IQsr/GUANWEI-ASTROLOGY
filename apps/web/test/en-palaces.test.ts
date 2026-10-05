@@ -27,6 +27,8 @@ describe('英文：十二宮章', () => {
         for (const m of out.text.matchAll(OPENERS)) openers.push(m[1]!);
         /* 舊式（翻譯表入面嗰款）唔應該出街 —— 全部經輪換 */
         expect(out.text, d.slug).not.toMatch(/(^|[.] )(The catch: |The cost: |Keep in mind: )/);
+        /* 煞星唔好得一個標籤（睇稿指南第 13 節）：六煞都有自己嘅開頭 */
+        expect(out.text, d.slug).not.toMatch(/Also in this palace is |(^|[.] )And (Huo Xing|Ling Xing|Qing Yang|Tuo Luo|Di Kong|Di Jie)\b/m);
         out.missing.forEach((m) => missing.add(m));
         En.scanEnglish(out.text).forEach((c) => lint.add(`${c}：${d.slug}`));
         expect(En.chapterTitleEn(d.title), d.title).toBeTruthy();

@@ -39,6 +39,16 @@ function starsList(zh: string, missing: string[]): string {
 }
 
 /* 牽動格開頭四款（link.ts 嘅 HEADS），英文各自一款 */
+/** 六煞各自改咗啲乜（一本書每粒煞只出現一次，所以唔會重複讀到）。 */
+const SHA_ADDS: Record<string, string> = {
+  火星: 'adding heat and speed',
+  鈴星: 'adding a slow, hidden heat',
+  擎羊: 'adding a blunt, cutting edge',
+  陀羅: 'slowing things down so they linger',
+  地空: 'adding a streak of the ideal over the practical',
+  地劫: 'making gains harder to hold on to',
+};
+
 const LINK_HEADS: [RegExp, (list: string) => string][] = [
   [/^這一面也和你的(.+)連在一起$/, (l) => `This side of you also connects with ${l}.`],
   [/^放在整張盤看，這一面和你的(.+)分不開$/, (l) => `Seen across the whole chart, this side of you can't be separated from ${l}.`],
@@ -103,13 +113,16 @@ function template(s: string, missing: string[]): string | null {
   m = /^此宮無主星，借對宮(.+)參看。$/.exec(s);
   if (m) return `This palace holds no major star of its own, so it is read through ${starsList(m[1]!, missing)} in the opposite palace.`;
 
-  /* 擾動：同宮還有火星：⋯。／還有鈴星：⋯。 */
+  /* 擾動：同宮還有火星：⋯。／還有鈴星：⋯。
+   * 睇稿指南第 13 節：煞星唔好得一個標籤 —— 先講佢改咗啲乜，後面嗰截（逐宮寫）講落地點樣。 */
   m = /^(同宮還有|還有)(\S{2})：(.+)。$/.exec(s);
   if (m) {
     const name = starFirst(m[2]!);
     if (!name) missing.push(m[2]!);
     const body = clause(m[3]!, missing);
-    return m[1] === '同宮還有' ? `Also in this palace is ${name}: ${body}.` : `And ${name}: ${body}.`;
+    const adds = SHA_ADDS[m[2]!];
+    if (!adds) return m[1] === '同宮還有' ? `Also in this palace is ${name}: ${body}.` : `And ${name}: ${body}.`;
+    return m[1] === '同宮還有' ? `${name} also sits here, ${adds}: ${body}.` : `${name} is here too, ${adds}: ${body}.`;
   }
 
   /* 牽動：開頭：在外時，⋯；工作上，⋯；錢方面，⋯。 */
