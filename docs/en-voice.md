@@ -54,6 +54,8 @@
 - **句子要完整。** 中文一句好多個頓號，英文唔好照住一截截咁譯；寧願拆兩句，每句讀落順。
 - **同一個字唔好一段用幾次。** 中文「舒服」用五次仲得，英文 *comfort* 五次就好刺眼：ease、comfortable、content 輪住用。
 - **星第一次出現要講係乜。** 程式自動加：*Tian Tong (the Contented)*，一章一次。所有格位置（*Tian Ji's*）唔加，避免「(the Strategist)'s」。
+- **讀者做主語，星做原因。** 中文「它不爭，但它記得」嘅「它」係星；英文唔好寫 *It doesn't fight*，要寫 *You don't fight, but you remember*。星名出現時用「Tian Ji has you…」「Ju Men makes you…」，四化同廟陷句亦一樣（*Wu Qu turns to Authority: your decisiveness…*）。火星、鈴星咁講星本身性質嘅句可以保留 *it*。
+- **抽象句要落地。** 「條件較多」「這是結構」唔直譯做 *comes with more conditions*、*This is a structure*；講返對讀者實際係點（*Your work rarely stands on its own…*、*This is how your chart is built…*）。
 - **譯得順，但唔加料。** 睇稿版加咗好多「may」同評論（*an interesting contradiction*），亦改咗盤上講嘅嘢。英文可以寫得好睇，但每句仍然要對返中文嗰句同張盤。
 
 ## 四、真句試譯（定語氣用）
