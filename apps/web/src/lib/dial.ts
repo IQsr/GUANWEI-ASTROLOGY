@@ -1,5 +1,6 @@
 import type { Branch, Chart, Palace } from '@guanwei/ziwei/contract';
 import type { ChartLayers } from '@/lib/layers';
+import { branchPy, palaceShort, starPy } from '@/lib/chart-labels';
 
 /**
  * 章尾圓形星盤點出邊一格（2026-10-04）。
@@ -10,7 +11,7 @@ import type { ChartLayers } from '@/lib/layers';
  *   這十年                                     大限命宮（左頁嘅大限層）
  *   這一年                                     流年命宮（左頁嘅流年層）
  *
- * 說明文字係書嘅內容（同章名一樣寫中文），唔跟介面語言轉。
+ * 說明文字係書嘅內容：中文書寫中文；英文閱讀模式（`en`）用拼音同英文宮名（2026-10-05）。
  */
 const MING_CHAPTERS = ['序', '性格的骨架', '三方四正', '一生十二步', '給你的話'];
 
@@ -27,6 +28,7 @@ export function dialFor(
   chart: Chart,
   slug: string,
   layers: ChartLayers | null,
+  en = false,
 ): { branch: Branch; stars: string[]; caption: string } | null {
   let p: Palace | undefined;
   let who: string;
@@ -49,6 +51,18 @@ export function dialFor(
   if (!p) return null;
   const stars = majors(chart, p);
   const own = p.stars.some((s) => s.kind === 'major');
+  if (en) {
+    const WHO: Record<string, string> = {
+      這十年的大限命宮: "This decade's Life Palace",
+      這一年的流年命宮: "This year's Life Palace",
+      身宮: 'Body Palace',
+      命宮: 'Life Palace',
+    };
+    const whoEn = WHO[who] ?? `${palaceShort(p.name)} Palace`;
+    const names = stars.map(starPy).join(' & ');
+    const tailEn = stars.length ? `${own ? '' : 'borrowing '}${names}` : 'no major star';
+    return { branch: p.branch, stars, caption: `${whoEn} in ${branchPy(p.branch)} · ${tailEn}` };
+  }
   const tail = stars.length ? `${own ? '' : '借對宮 '}${stars.join('、')}` : '沒有主星';
   return { branch: p.branch, stars, caption: `${who}在${p.branch} · ${tail}` };
 }

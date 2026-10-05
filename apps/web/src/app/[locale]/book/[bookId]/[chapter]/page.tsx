@@ -153,7 +153,7 @@ export default async function ChapterPage({
    */
   const justCut = here && body !== null ? await cutPage(here.id) : false;
   /* 章尾金線星盤（2026-10-04）：點出呢章講緊嗰一格 */
-  const dial = chart && here ? dialFor(chart, here.slug, layers) : null;
+  const dial = chart && here ? dialFor(chart, here.slug, layers, en) : null;
 
   return (
     /* 書桌閱讀：左頁命盤跟住右頁讀緊嘅段落亮，右頁喺頁入面捲 */
@@ -207,7 +207,7 @@ export default async function ChapterPage({
               </Caikai>
             )}
           </div>
-          {dial && body !== null ? <StarDial {...dial} /> : null}
+          {dial && body !== null ? <StarDial {...dial} en={en} /> : null}
           {/* 時辰小實驗（2026-10-05）：讀完回看過去，最想知「準唔準」嗰陣 */}
           {here.slug === '一生十二步' && chart && body !== null ? <ShiyanCard bookId={bookId} /> : null}
           <ChapterNav bookId={bookId} prev={prev} next={next} />

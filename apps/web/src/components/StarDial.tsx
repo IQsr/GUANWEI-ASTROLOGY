@@ -1,4 +1,5 @@
 import { BRANCHES, type Branch } from '@guanwei/ziwei/contract';
+import { branchPy } from '@/lib/chart-labels';
 
 /**
  * 圓形星盤（2026-10-04 · 參考實體書效果圖嘅金線星盤）
@@ -9,7 +10,18 @@ import { BRANCHES, type Branch } from '@guanwei/ziwei/contract';
  * 排法同方格命盤一致：子喺下面，順時針轉（子 → 丑 → 寅 ⋯，即係方格盤由下行向左再向上）。
  * 佢係裝飾，唔係讀資料嘅地方 —— 資料喺左頁個方格盤。所以 aria-hidden，文字說明喺下面嗰行。
  */
-export function StarDial({ branch, stars, caption }: { branch: Branch; stars: readonly string[]; caption: string }) {
+export function StarDial({
+  branch,
+  stars,
+  caption,
+  en = false,
+}: {
+  branch: Branch;
+  stars: readonly string[];
+  caption: string;
+  /** 英文閱讀模式：圈上嘅地支寫拼音 */
+  en?: boolean;
+}) {
   const R_OUT = 92;
   const R_IN = 46;
   const idx = BRANCHES.indexOf(branch);
@@ -55,14 +67,14 @@ export function StarDial({ branch, stars, caption }: { branch: Branch; stars: re
               key={b}
               x={x}
               y={y}
-              fontSize="9"
+              fontSize={en ? 7.5 : 9}
               textAnchor="middle"
               dominantBaseline="central"
               fill="currentColor"
               stroke="none"
               opacity={i === idx ? 1 : 0.6}
             >
-              {b}
+              {en ? branchPy(b) : b}
             </text>
           );
         })}

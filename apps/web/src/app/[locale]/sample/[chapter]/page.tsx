@@ -77,7 +77,7 @@ export default async function SampleChapter({ params }: { params: Promise<{ loca
     })),
   );
   const mine = marked.at(-1)!;
-  const dial = dialFor(book.chart, here.slug, book.layers);
+  const dial = dialFor(book.chart, here.slug, book.layers, en);
 
   return (
     <main className="juan tai shuzhuo-tai ye-ink">
@@ -104,7 +104,7 @@ export default async function SampleChapter({ params }: { params: Promise<{ loca
         <div className="mt-10">
           <Juan segments={mine.segments} notes={en ? {} : notesFor(marked)} />
         </div>
-        {dial ? <StarDial {...dial} /> : null}
+        {dial ? <StarDial {...dial} en={en} /> : null}
         <ChapterNav bookId={SAMPLE_BOOK} prev={prev} next={next} />
         <aside className="banxin ka mt-10 p-6">
           <h2 className="font-serif text-lead tracking-[0.14em]">{t('endTitle')}</h2>

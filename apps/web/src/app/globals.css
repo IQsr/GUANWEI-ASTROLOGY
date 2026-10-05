@@ -653,6 +653,16 @@
     color: var(--ink);
   }
 
+  /* 英文命盤：拼音逐個音節直排（Tian／Tong），字母比漢字闊，收細少少 */
+  .pan-wrap[data-lang="en"] .xing > .zi {
+    font-size: clamp(8.5px, 1.6cqi, 12.5px);
+    line-height: 1.12;
+  }
+
+  .pan-wrap[data-lang="en"] .xing[data-kind="aux"] > .zi {
+    font-size: clamp(7.5px, 1.4cqi, 11px);
+  }
+
   .xing[data-kind="aux"] > .zi {
     font-size: clamp(8.5px, 1.58cqi, 12.5px);
     font-weight: 300;

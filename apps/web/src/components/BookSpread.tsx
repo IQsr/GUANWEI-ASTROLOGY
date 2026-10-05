@@ -1,7 +1,8 @@
 'use client';
 
 import { useEffect, useLayoutEffect, useRef, useState, type ReactNode } from 'react';
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
+import { ganzhiPy, slugEn } from '@/lib/chart-labels';
 import { Chart } from '@/components/Chart';
 import { Zhanjuan } from '@/components/Zhanjuan';
 import { GROW_MS } from '@/lib/timing';
@@ -76,6 +77,7 @@ export function BookSpread({
   children: ReactNode;
 }) {
   const t = useTranslations('reading');
+  const en = useLocale() === 'en';
   const page = useRef<HTMLDivElement>(null);
   const book = useRef<HTMLElement>(null);
   const [slot, setSlot] = useState<string | null>(null);
@@ -236,9 +238,9 @@ export function BookSpread({
   const shown = layerOf(layers, layer);
   const caption =
     layer === 'decadal' && layers?.decadal
-      ? t('layerDecadalCap', { from: layers.decadal.fromAge, to: layers.decadal.toAge })
+      ? t('layerDecadalCap', { from: en ? layers.decadal.fromAge - 1 : layers.decadal.fromAge, to: en ? layers.decadal.toAge - 1 : layers.decadal.toAge })
       : layer === 'annual' && layers
-        ? t('layerAnnualCap', { year: layers.year, ganzhi: layers.ganzhi, age: layers.nominalAge })
+        ? t('layerAnnualCap', { year: layers.year, ganzhi: en ? ganzhiPy(layers.ganzhi) : layers.ganzhi, age: en ? `${layers.nominalAge - 2}–${layers.nominalAge - 1}` : layers.nominalAge })
         : null;
 
   const plate =
@@ -253,7 +255,7 @@ export function BookSpread({
         maxWidth={520}
         center={
           <>
-            <p className="text-center font-sans text-cap tracking-[0.16em] text-ink-3">{palace}</p>
+            <p className="text-center font-sans text-cap tracking-[0.16em] text-ink-3">{en ? slugEn(palace) : palace}</p>
             {caption ? <p className="text-center font-sans text-cap tracking-[0.08em] text-cinnabar">{caption}</p> : null}
           </>
         }
