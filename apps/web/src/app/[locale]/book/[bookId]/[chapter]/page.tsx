@@ -25,6 +25,7 @@ import { markBook } from '@/lib/zhu';
 import { ChapterNav } from '@/components/ChapterNav';
 import { ShiyanCard } from '@/components/ShiyanCard';
 import { chapterHref, chapterParam, contentsHref, neighbours } from '@/lib/journey';
+import { englishChapters, englishTitle, isEnglish } from '@/lib/english';
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -92,8 +93,11 @@ export default async function ChapterPage({
     );
   }
 
-  const here = view.chapters.find((c) => c.slug === chapter);
-  const { prev, next } = neighbours(view.chapters, chapter);
+  /* 英文閱讀模式：章名同正文由中文譯（lib/english.ts）；slug 照用中文 */
+  const en = isEnglish(locale);
+  const chapters = en ? view.chapters.map((c) => ({ ...c, title: englishTitle(c.title) })) : view.chapters;
+  const here = chapters.find((c) => c.slug === chapter);
+  const { prev, next } = neighbours(chapters, chapter);
   /*
    * 撳左邊／右邊（或者 ← →）翻去邊：上一章、下一章。
    * 第一章嘅上一頁係目次；最後一章冇下一頁。
@@ -130,7 +134,9 @@ export default async function ChapterPage({
    * ⚠ 標註要**成本書**一齊標，但跟捲動高亮只關呢一章事。
    * 所以前面幾章照樣攞返嚟標，段落結構就只有呢一章要（F2）。
    */
-  const marked = markBook(
+  const marked = en
+    ? englishChapters(upto.map((c, i) => ({ text: fetched[i]?.text ?? '', slots: fetched[i]?.slots ?? [] }))).map((segments, i) => ({ palace: upto[i]!.title, segments }))
+    : markBook(
     upto.map((c, i) => ({
       palace: c.title,
       segments: paragraphs(fetched[i]?.text ?? '', fetched[i]?.slots ?? []).map((para) => ({
@@ -197,7 +203,7 @@ export default async function ChapterPage({
                * `cut_page()` 照舊記低（第一次讀嘅時間），只係唔播。
                */
               <Caikai play={justCut && here.tier === 'deep'}>
-                <Juan segments={mine!.segments} notes={notesFor(marked)} />
+                <Juan segments={mine!.segments} notes={en ? {} : notesFor(marked)} />
               </Caikai>
             )}
           </div>

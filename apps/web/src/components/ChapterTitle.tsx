@@ -13,6 +13,10 @@ import { MARK } from '@/lib/site';
  * 章名格式：「三 · 夫妻」「序 · 你的命盤」→ 章序 ＋ 名；「這十年」冇章序。
  */
 export function ChapterTitle({ title }: { title: string }) {
+  /* 英文章名（英文閱讀模式）：逐個字母直排冇意思，桌面同手機一樣橫排 */
+  if (!/[㐀-鿿]/.test(title)) {
+    return <h1 className="zhang-ti-latin font-serif text-h1 font-semibold tracking-[0.02em]">{title}</h1>;
+  }
   const [head, name] = title.includes(' · ') ? (title.split(' · ') as [string, string]) : [null, title];
   return (
     <h1 className="zhang-ti text-h1 font-semibold tracking-[0.16em]">

@@ -322,12 +322,24 @@ function glossFirst(text: string): string {
  * 成章（段落用空行分）。砌成本書就由頭到尾傳同一個 `st`，轉接語先會輪得開。
  * 兩步：先譯晒成章，搵出呢章本身用咗嘅開頭；再輪換，避開佢哋。
  */
+const PARA = String.fromCharCode(10, 10);
+
 export function renderChapter(zh: string, st: BookState = newBookState()): Rendered {
+  const r = renderParagraphs(zh.split(PARA), st);
+  return { text: r.paras.join(PARA), missing: r.missing };
+}
+
+/**
+ * 逐段譯，段數同輸入一樣（網站要靠段數對返每段嘅格名，見 apps/web `lib/suidu.ts` paragraphs()）。
+ * 主星第一次出現加意思係成章計，所以先合埋做一次，再切返開。
+ */
+export function renderParagraphs(zhParas: readonly string[], st: BookState = newBookState()): { paras: string[]; missing: string[] } {
   const missing: string[] = [];
-  const paras = zh.split('\n\n').map((p) => paragraphSentences(p, missing));
+  const paras = zhParas.map((p) => paragraphSentences(p, missing));
   const avoid = new Set(paras.flat().flatMap((en) => (OPENER.test(en) ? [] : VARIANTS.filter((v) => en.startsWith(v)))));
-  const text = paras.map((ss) => ss.map((en) => rotateOpener(en, st, avoid)).join(' ')).join('\n\n');
-  return { text: glossFirst(text), missing };
+  const SEP = String.fromCharCode(0);
+  const joined = glossFirst(paras.map((ss) => ss.map((en) => rotateOpener(en, st, avoid)).join(' ')).join(SEP));
+  return { paras: joined.split(SEP), missing };
 }
 
 /** 翻譯表入面所有英文（畀英文 lint 掃） */

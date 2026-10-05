@@ -12,6 +12,7 @@ import { contentsView } from '@/lib/juan-view';
 import { serverJuan } from '@/lib/juan.server';
 import { FontWarm } from '@/components/FontWarm';
 import { distinctChars } from '@/lib/fontwarm';
+import { englishTitle, isEnglish } from '@/lib/english';
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -76,7 +77,7 @@ export default async function BookPage({
   /* 撳右邊（或者 →）：由第一章讀起。目次係第一頁，冇上一頁 */
   const tr = await getTranslations('reading');
   const first = view.kind === 'ok' ? view.chapters[0] : undefined;
-  const next = first ? { href: chapterHref(bookId, first.slug), label: tr('turnTo', { title: first.title }) } : null;
+  const next = first ? { href: chapterHref(bookId, first.slug), label: tr('turnTo', { title: isEnglish(locale) ? englishTitle(first.title) : first.title }) } : null;
   /* 由目次翻去第一章：先載定嗰章用到嘅字（見 FontWarm） */
   const ahead = first ? await port.body(bookId, first.slug).catch(() => null) : null;
   const warm = distinctChars(`${first?.title ?? ''}${ahead?.text ?? ''}`);
@@ -103,7 +104,7 @@ export default async function BookPage({
             </h1>
           }
         >
-          <BookContents bookId={bookId} chapters={view.chapters} lastRead={view.lastRead} cut={view.cut} experiment={chart !== null} />
+          <BookContents bookId={bookId} chapters={isEnglish(locale) ? view.chapters.map((c) => ({ ...c, title: englishTitle(c.title) })) : view.chapters} lastRead={view.lastRead} cut={view.cut} experiment={chart !== null} />
         </BookSpread>
       ) : (
         <p className="banxin text-body leading-[1.95] text-ink-2">

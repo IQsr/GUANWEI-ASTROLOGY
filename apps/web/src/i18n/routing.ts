@@ -7,8 +7,8 @@ import { defineRouting } from 'next-intl/routing';
  * 所以 /book/x 就係繁中版，第二語言先會出現 /en/book/x。
  * 而家做係零成本，之後做係重寫（見架構 plan §9）。
  *
- * 'en' 暫時只係用嚟證明 routing 同文案分離行得通，
- * 未打算出英文版。
+ * 'en'（2026-10-05 起）：介面文案用 messages/en.json；命書正文由中文逐句譯
+ * （`lib/english.ts`，讀嗰陣譯，唔另外存）。命盤、溯時題目仲係中文。
  */
 export const routing = defineRouting({
   locales: ['zh-Hant', 'en'],

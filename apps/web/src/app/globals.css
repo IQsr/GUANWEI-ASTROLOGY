@@ -2724,6 +2724,11 @@
 /*
  * 二、章名：桌面直排，浮喺右頁右上角，正文喺左邊繞住排；手機照舊橫排。
  */
+.zhang-ti-latin {
+  margin-bottom: 0.5rem;
+  line-height: 1.3;
+}
+
 .zhang-ti-zhi {
   display: none;
 }

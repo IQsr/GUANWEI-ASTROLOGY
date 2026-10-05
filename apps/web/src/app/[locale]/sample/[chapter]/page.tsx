@@ -15,6 +15,7 @@ import { notesFor } from '@/lib/mingshu';
 import { sampleBook } from '@/lib/sample-book';
 import { paragraphs } from '@/lib/suidu';
 import { markBook } from '@/lib/zhu';
+import { englishChapters, englishTitle, isEnglish } from '@/lib/english';
 
 /** 示範書每一章都喺 build 嗰陣出好（章名係固定嗰廿章）。 */
 export function generateStaticParams() {
@@ -57,7 +58,8 @@ export default async function SampleChapter({ params }: { params: Promise<{ loca
   }
 
   /* 示範書全開：導覽唔好標「未裁」 */
-  const open = book.chapters.map((c) => ({ ...c, tier: 'free' as const }));
+  const en = isEnglish(locale);
+  const open = book.chapters.map((c) => ({ ...c, title: en ? englishTitle(c.title) : c.title, tier: 'free' as const }));
   const { prev, next } = neighbours(open, here.slug);
   const turnPrev = prev
     ? { href: chapterHref(SAMPLE_BOOK, prev.slug), label: tr('turnTo', { title: prev.title }) }
@@ -66,7 +68,9 @@ export default async function SampleChapter({ params }: { params: Promise<{ loca
 
   /* 註層：成本書標到呢章為止（同真書一樣，一個術語全書只標一次） */
   const upto = book.drafts.filter((d) => d.ord <= here.ord);
-  const marked = markBook(
+  const marked = en
+    ? englishChapters(upto.map((d) => ({ text: d.body, slots: d.slots }))).map((segments, i) => ({ palace: upto[i]!.title, segments }))
+    : markBook(
     upto.map((d) => ({
       palace: d.title,
       segments: paragraphs(d.body, d.slots).map((p) => ({ slot: p.slot ?? '正文', text: p.text })),
@@ -96,9 +100,9 @@ export default async function SampleChapter({ params }: { params: Promise<{ loca
         next={turnNext}
         top={<p className="font-serif text-lead tracking-[0.16em] text-ink-2">{t('title')}</p>}
       >
-        <ChapterTitle title={here.title} />
+        <ChapterTitle title={en ? englishTitle(here.title) : here.title} />
         <div className="mt-10">
-          <Juan segments={mine.segments} notes={notesFor(marked)} />
+          <Juan segments={mine.segments} notes={en ? {} : notesFor(marked)} />
         </div>
         {dial ? <StarDial {...dial} /> : null}
         <ChapterNav bookId={SAMPLE_BOOK} prev={prev} next={next} />
