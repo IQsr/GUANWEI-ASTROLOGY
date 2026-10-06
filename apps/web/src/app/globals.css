@@ -3355,12 +3355,15 @@
   }
 
   /* 閱讀頁個台放闊，本書先擺得滿 */
-  .tai.shuzhuo-tai {
+  /* ⚠ 題名幕揭開之後嗰本（`.tai:has(.shuzhuo)`）要同閱讀頁一模一樣 —— 「讀下去」之後本書唔准郁（check-naming） */
+  .tai.shuzhuo-tai,
+  .tai:has(.shuzhuo) {
     max-width: 1480px;
   }
 
   /* 卷首同本書之間收到 16px（天頭 64 唔郁，check-juanshou 守住） */
-  .shuzhuo-tai > .banxin.border-b {
+  .shuzhuo-tai > .banxin.border-b,
+  .tai:has(.shuzhuo) > .jian-xian > .banxin.border-b {
     margin-bottom: 16px;
   }
 
