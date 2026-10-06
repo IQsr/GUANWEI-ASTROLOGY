@@ -1,4 +1,5 @@
 import rulesRaw from '../daxian/rules.json';
+import { LIUYUE, LIUYUE_FLAT, LIUYUE_LEAD, LIUYUE_REST, MONTH_CN } from '../liuyue';
 import { ageRange, ageStart, agePoint, palaceEn } from './facts';
 import { AREA_EN, AREA_ON_EN, BRANCH_EN, STEM_EN, cnNum, listEn, ordinalWord, star } from './terms';
 
@@ -192,7 +193,52 @@ function lookPart(zh: string, missing: string[]): string {
   return `〔${zh}〕`;
 }
 
+/* ── 這一年 · 逐月（liuyue.ts，2026-10-06）：每宮兩句，一句對一句 ── */
+export const LIUYUE_EN: Record<string, string> = {
+  '整體順手，想做的事可以推進': 'things go smoothly on the whole, and plans can move forward',
+  '整體多些阻滯，凡事穩一點': 'there are more hold-ups than usual, so take things steadily',
+  '和兄弟姊妹、朋友相處融洽': 'you get on well with siblings and friends',
+  '和兄弟姊妹、朋友說話多留餘地': 'leave some room when talking with siblings and friends',
+  '感情上相處融洽': 'things are harmonious in love',
+  '感情上多些體諒，少些計較': 'be more understanding in love, and keep score less',
+  '和晚輩相處愉快': 'time with younger people goes well',
+  '對晚輩的事多些耐心': 'be patient with matters involving younger people',
+  '錢財上有進帳的機會': 'money may come in',
+  '錢財上看緊一點，別為錢起口角': "keep a closer eye on money, and don't let it cause arguments",
+  '身心安穩，作息容易上軌道': 'you feel settled, and your routine falls into place easily',
+  '步調放慢一點，給自己留些餘裕': 'slow your pace a little and leave yourself some slack',
+  '出外走動有收穫': 'getting out and about pays off',
+  '出外辦事多一分耐心，少和人爭執': 'be a little more patient with things away from home, and avoid arguments',
+  '同事、朋友幫得上手': 'colleagues and friends can lend a hand',
+  '人際上少捲入是非': "stay out of other people's quarrels",
+  '工作上順手，付出看得見回報': 'work goes smoothly, and your effort shows results',
+  '工作上奔波多，按部就班較好': 'work keeps you busy and on the move, so take it step by step',
+  '家居、置業的事進展順利': 'matters of home and property move forward smoothly',
+  '家裡的開支先做好預算': 'budget ahead for household spending',
+  '心境平和，做事也定': 'your mind is calm, and you work steadily',
+  '心情容易浮動，留點時間給自己': 'your mood may swing, so keep some time for yourself',
+  '和長輩相處愉快': 'time with older relatives goes well',
+  '和長輩多溝通，少些硬碰': 'talk things through with older relatives rather than clashing',
+};
+for (const e of LIUYUE) for (const t of [e.good, e.bad]) if (!LIUYUE_EN[t]) throw new Error(`逐月未有英文：${t}`);
+
+const monthNo = (zh: string) => MONTH_CN.indexOf(zh as (typeof MONTH_CN)[number]);
+
+function liuyueEn(s: string): string | null {
+  if (s === LIUYUE_LEAD) return 'Month by month (by the Chinese calendar), these are the months that run more smoothly this year, and the ones to watch.';
+  if (s === LIUYUE_REST) return 'The other months are broadly steady.';
+  if (s === LIUYUE_FLAT) return 'Month by month (by the Chinese calendar), no month stands out this year; it is broadly steady.';
+  let m = /^(正月|十一月|十二月|[二三四五六七八九十]月)：(.+)。$/.exec(s);
+  if (m && monthNo(m[1]!) > 0 && LIUYUE_EN[m[2]!]) return `In the ${ordinalWord(monthNo(m[1]!))} month, ${LIUYUE_EN[m[2]!]}.`;
+  m = /^今年有閏(\S+?)：上半月照(\S+?)看，下半月照(\S+?)看。$/.exec(s);
+  if (m && monthNo(m[1]!) > 0 && monthNo(m[3]!) > 0)
+    return `This year has a leap ${ordinalWord(monthNo(m[1]!))} month: read its first half as the ${ordinalWord(monthNo(m[2]!))} month and its second half as the ${ordinalWord(monthNo(m[3]!))} month.`;
+  return null;
+}
+
 export function timeTemplate(s: string, missing: string[], h: TimeHelpers): string | null {
+  const month = liuyueEn(s);
+  if (month) return month;
   /* ── 一生十二步 ── */
   let m = /^你的大限由虛歲(\S+?)歲起，每十年換一步；寫這本書時（(\S+?)年），你(走到第(\S+?)步|還未起步)。$/.exec(s);
   if (m && n(m[1]!) && n(m[2]!)) {

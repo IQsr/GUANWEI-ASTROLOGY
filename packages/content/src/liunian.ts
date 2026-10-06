@@ -2,6 +2,7 @@ import { annual, type AnnualChart, type Chart, type Sihua } from '@guanwei/ziwei
 import { FORBIDDEN_TERMS } from './frame';
 import { palaceLabel } from './link';
 import { leanOf, xingxiOf } from './xingxi';
+import { monthSegment } from './liuyue';
 import { DAXIAN_HUA, DAXIAN_RULES, adviceSegment, area, areaSegments, decadeView, num, pivotRule, starsOf, yearCN, type DaxianSegment } from './daxian';
 
 /* ───────────────────────────────────────────────────────────
@@ -14,6 +15,7 @@ import { DAXIAN_HUA, DAXIAN_RULES, adviceSegment, area, areaSegments, decadeView
  *   流年     流年命宮（太歲宮）落本命邊宮、大限邊宮、坐乜星；當命宮讀（六十星系，用流年四化）
  *   四化     流年四化逐粒講（同大限一樣嘅講法，p.238–313）
  *   互動     流年四化碰大限四化；冇碰大限先睇本命（規則同大限，p.235–237）
+ *   逐月     流月（斗君，《全書》卷二〈安斗君訣〉）：偏吉、偏凶嘅月份（`liuyue.ts`，2026-10-06）
  *   明年     下一年嘅流年命宮同祿忌
  *   樞紐     下篇「以某某宮垣為流年／年限樞紐」：今年流年命宮落正樞紐就講明
  *
@@ -108,6 +110,9 @@ export function yearChapter(input: { chart: Chart; year: number }): { slug: stri
   );
   const interSeg = inter.text ? { text: inter.text, id: inter.ids.join('+') } : touched ? null : { text: NONE_TEXT, id: DAXIAN_RULES.none.id };
 
+  /* 逐月 */
+  const months = monthSegment(chart, A);
+
   /* 明年 */
   let nextLine = '';
   const nb = annual(chart, year + 1);
@@ -132,6 +137,7 @@ export function yearChapter(input: { chart: Chart; year: number }): { slug: stri
     seg('四化', huaLines.length && areas.segments.length ? `四化各自的意思：${huaLines.map((l) => l.text).join('')}` : huaLines.map((l) => l.text).join(''), huaLines.map((l) => l.id).filter(Boolean).join('+') || null),
     ...(interSeg ? [seg('互動', interSeg.text, interSeg.id)] : []),
     ...(advice ? [advice] : []),
+    seg('逐月', months.text, months.source_id),
     ...(nextLine ? [seg('明年', nextLine)] : []),
     seg('留白', LIUNIAN_CLOSE),
   ].filter((s) => s.text.trim() !== '');
