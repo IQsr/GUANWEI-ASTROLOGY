@@ -166,11 +166,13 @@ describe('⚠ 生辰唔准入網址', () => {
    * 網址會入 server log、入 referrer、入書籤、入分享。
    * 一個 `?date=1996-06-16` 就係將生辰貼咗落所有嗰啲地方。
    */
-  it('落款頁只寫得入 step 一個 query 欄', () => {
+  /*
+   * 2026-10-06 落款改做一幅卷軸：冇步，連 `?step=` 都唔寫（舊連結帶住嚟就清走）。
+   */
+  it('落款頁一個 query 欄都唔寫', () => {
     const luokuan = bare(join(SRC, 'components', 'Luokuan.tsx'));
     const sets = [...luokuan.matchAll(/searchParams\.set\(\s*["']([^"']+)["']/g)].map((m) => m[1]);
-    expect(sets.length).toBeGreaterThan(0);
-    expect([...new Set(sets)]).toEqual(['step']);
+    expect(sets).toEqual([]);
   });
 
   it('全 src 冇人將生辰塞入 searchParams', () => {

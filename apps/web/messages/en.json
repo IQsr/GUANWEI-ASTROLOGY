@@ -169,7 +169,7 @@
     "awaitBody1": "The year, month and day are in place; the Life Palace is still waiting for the hour. The book will stay on your shelf with a dotted spine.",
     "awaitBody2": "Add the hour and the book is complete.",
     "errors": {
-      "BAD_REQUEST": "Something in these birth details looks off. Please go back a step and check.",
+      "BAD_REQUEST": "Something in these birth details looks off. Please check them again.",
       "OUT_OF_RANGE": "Our calendar covers 1900 to 2100. This birth date is outside it for now.",
       "BAD_PLACE": "This place's coordinates look wrong. Please choose it again.",
       "BAD_TIMEZONE": "We couldn't recognise this time zone. Please choose the place of birth again.",

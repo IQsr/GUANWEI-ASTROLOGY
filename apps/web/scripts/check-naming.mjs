@@ -51,28 +51,26 @@ async function waitUp(tries = 40) {
   return false;
 }
 
-/** 由第一步行到題名幕。 */
+/**
+ * 由落款卷軸行到題名幕（2026-10-06 落款改做一幅卷軸，一版過寫晒）。
+ * 時辰特登揀一個時辰（唔填準確時間）：揀一個 → 排盤 → 題名，成條行得通先算。
+ */
 async function toNaming(page) {
-  const btn = page.locator('button.btn-mo');
   await page.getByLabel('姓名').fill('李文卿');
-  await btn.click();
-  await page.getByLabel('出生日期').fill('1998-03-12');
-  await btn.click();
-  /*
-   * ⚠ 出生地喺時辰前面（2026-09），而且時辰係揀一格，唔係填時間。
-   * 呢度特登行「揀時辰」嗰條路：揀一格 → 排盤 → 題名，成條行得通先算。
-   */
-  await page.getByLabel('出生地').selectOption('0');
-  await btn.click();
+  await page.getByLabel('出生年份').fill('1998');
+  await page.getByLabel('出生月份').selectOption('3');
+  await page.getByLabel('出生日子').selectOption('12');
+  await page.getByLabel('生地', { exact: true }).selectOption('0');
   await page
-    .locator('[aria-label="選一個時辰"] button', { hasText: '辰時' })
-    .first()
-    .click({ timeout: 10_000 });
-  await btn.click();
+    .waitForFunction(() => document.querySelectorAll('.zhou-shi select option').length >= 15, null, { timeout: 10_000 })
+    .catch(() => null);
+  const time = page.getByLabel('時辰', { exact: true });
+  const options = await time.locator('option').allInnerTexts();
+  await time.selectOption({ label: options.find((o) => o.startsWith('辰時')) ?? '' });
   await page.getByRole('button', { name: '男', exact: true }).click();
   await page.waitForTimeout(150);
-  await btn.click();
-  /* 等排盤返嚟，但**唔好等成幕行完** —— 下面要量行緊嗰陣。 */
+  await page.locator('button.zhou-yin-an').click();
+  /* 等排盤返嚟、卷軸捲埋，但**唔好等成幕行完** —— 下面要量行緊嗰陣。 */
   await page.waitForSelector('.mu-ti', { timeout: 15_000 });
 }
 
@@ -113,15 +111,16 @@ try {
    * `.fan` 個舞台永遠係兩版闊、書脊喺正中 —— 合埋嗰陣本書企喺中線右邊，
    * 揭開之後封面落喺左邊，書脊由頭到尾企喺版心中線。
    */
-  const bookCentre = async () =>
-    page.evaluate(() => {
-      const el = document.querySelector('.fan');
+  /* 落款嗰陣量卷軸（`.juanzhou`，2026-10-06 起），題名幕量本書（`.fan`） */
+  const bookCentre = async (sel = '.fan') =>
+    page.evaluate((sel) => {
+      const el = document.querySelector(sel);
       const stage = document.querySelector('.mu-wei');
       if (!el || !stage) return null;
       const b = el.getBoundingClientRect();
       const s = stage.getBoundingClientRect();
       return Math.round(b.left + b.width / 2 - (s.left + s.width / 2));
-    });
+    }, sel);
 
   /*
    * ⚠ 先確認 CSS 真係落咗。
@@ -136,7 +135,7 @@ try {
    */
   const laid = await page.evaluate(() => {
     const stage = document.querySelector('.mu-wei');
-    const book = document.querySelector('.fan');
+    const book = document.querySelector('.juanzhou');
     if (!stage || !book) return null;
     return {
       display: getComputedStyle(stage).display,
@@ -148,11 +147,11 @@ try {
   check(
     '本書唔係成版闊（即係 CSS 落咗）',
     laid !== null && laid.bookW > 0 && laid.bookW < laid.stageW - 40,
-    `本書 ${laid?.bookW}px／版心 ${laid?.stageW}px`,
+    `卷軸 ${laid?.bookW}px／版心 ${laid?.stageW}px`,
   );
 
-  const offLuokuan = await bookCentre();
-  check('落款嗰陣本書企中間', offLuokuan !== null && Math.abs(offLuokuan) <= 2, `偏咗 ${offLuokuan}px`);
+  const offLuokuan = await bookCentre('.juanzhou');
+  check('落款嗰陣卷軸企中間', offLuokuan !== null && Math.abs(offLuokuan) <= 2, `偏咗 ${offLuokuan}px`);
 
   await toNaming(page);
   const offNaming = await bookCentre();

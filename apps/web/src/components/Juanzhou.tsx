@@ -2,10 +2,9 @@
 
 import { useEffect, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
-import { clearSlot, useShichenWords } from "@/components/LuokuanFields";
 import { Seal } from "@/components/Seal";
 import { MARK } from "@/lib/site";
-import { slotName, slotSummary, type Slot } from "@/lib/slots";
+import { slotName, slotSummary, type ShichenWords, type Slot } from "@/lib/slots";
 import { PLACES, isAnswered, type Draft, type Step } from "@/lib/luokuan";
 
 /**
@@ -323,4 +322,24 @@ function TimeLine({ draft, setDraft }: { draft: Draft; setDraft: (d: Draft) => v
       <p className="zhou-zhu">{draft.noHour ? tc("noHourComfort") : tc("timeHint")}</p>
     </div>
   );
+}
+
+/** 時辰嘅字（messages `shichen.*`） */
+function useShichenWords(): ShichenWords {
+  const t = useTranslations("shichen");
+  return {
+    branch: t.raw("branch") as string[],
+    hour: (branch) => t("hour", { branch }),
+    earlyZi: t("earlyZi"),
+    lateZi: t("lateZi"),
+    prevZi: t("prevZi"),
+  };
+}
+
+/**
+ * 日期或者出生地一改，揀咗嘅時辰就唔再啱：同一個時辰喺另一日、另一個地方
+ * 對應唔同嘅鐘面時間。填準確時間就唔使清 —— 鐘面時間本身冇變。
+ */
+function clearSlot(draft: Draft): Partial<Draft> {
+  return draft.slot ? { slot: null, time: "" } : {};
 }

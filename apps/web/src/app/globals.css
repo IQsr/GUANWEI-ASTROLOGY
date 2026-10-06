@@ -3402,27 +3402,6 @@
     url("/img/book/paper.webp");
 }
 
-/*
- * 落款嗰本攤開嘅書（2026-10-06 · 同題名幕封面統一材質）：兩頁墊住一塊灰綠布面 ——
- * 同封面相同一塊布（cloth.webp 係由 cover.webp 裁出嚟、鏡射成無縫嘅紋），四邊露少少。
- * 大小唔變（每頁照舊 380 × 540，同合埋嗰本封面一樣大）。
- * 只喺落款（`.mu-wei` 但唔係 `.mu-ti`）：題名幕合埋嗰陣左邊冇書，布面唔可以仲喺度。
- * 手機唔加：本書已經貼住螢幕兩邊，布邊會凸出畫面。
- */
-@media (min-width: 768px) {
-  .mu-wei:not(.mu-ti) .fan::before {
-    content: "";
-    position: absolute;
-    inset: -10px -14px -10px -10px;
-    border-radius: 4px;
-    background: #85907a url("/img/book/cloth.webp") 0 0 / 336px 294px repeat;
-    box-shadow:
-      inset 0 0 0 1px rgb(0 0 0 / 0.14),
-      0 2px 0 rgb(0 0 0 / 0.25),
-      0 40px 90px -30px rgb(0 0 0 / 0.85);
-  }
-}
-
 /* ⚠ 直排字用 cqw 唔用 cqi：cqi 跟元素自己嘅書寫方向，直排會變咗量高度 */
 
 /* 印落喺題簽下面嘅布面，對住題簽中線 */
