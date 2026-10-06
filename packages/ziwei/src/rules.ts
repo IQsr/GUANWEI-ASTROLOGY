@@ -13,8 +13,11 @@ export const DEFAULT_RULES: RuleOptions = {
   trueSolarTime: true,
   // 斗數傳統以農曆正月初一換年干支（八字先用立春）。
   yearBoundary: 'lunar-new-year',
-  // 23:00 之後算翌日早子時。影響日干支同時辰宮位，約 4% 用戶。
-  lateZiHour: 'next-day',
+  // 23:00–24:00 仍算當日（夜子時），零時先換日 —— 王亭之《初級講義》甲、安星法（一）：
+  // 「交入十二時(零時)，才是一天新的開始」。2026-10-06 由 next-day 改過嚟，約 4% 用戶。
+  lateZiHour: 'same-day',
+  // 時間基準：出生地真太陽時（預設）；中州派講義嘅洛陽時間係用戶可揀嘅選項（R-004）。
+  timeBasis: 'birthplace',
   // 庚干四化各家不一。中州派（王亭之）傳授為「陽武府同」：
   // 太陽化祿、武曲化權、天府化科、天同化忌。詳見 docs/rules.md R-003。
   sihuaSet: 'zhongzhou',

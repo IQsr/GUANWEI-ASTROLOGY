@@ -4,7 +4,7 @@
  * 以前係五步，一步一步寫落書；而家五樣嘢一版過寫喺一幅卷軸上（`Juanzhou`）。
  * 要開瀏覽器先量得到嘅：
  *
- *   五樣一版過見晒，未寫齊講明仲欠乜　→ 數行、睇印旁邊嗰句
+ *   六行一版過見晒，未寫齊講明仲欠乜　→ 數行、睇印旁邊嗰句（2026-10-06 加咗「計時」：出生地／洛陽）
  *   打字期間唔准重畫個印（掣）　　　　→ 要真係打字，再比較個 DOM 節點
  *   時辰要等生辰同生地　　　　　　　　→ 未填之前選單 disabled；填咗出十三個時辰
  *   時間欄嗰句夏令時（R-007）　　　　　→ 要喺畫面上
@@ -70,7 +70,7 @@ try {
 
   /* ── 一、五樣一版過見晒；未寫齊，印旁邊講明仲欠乜 ────────── */
   const lines = await page.locator('.juanzhou .zhou-hang').count();
-  check('一版過見晒', lines === 5, `${lines} 行，應該 5（姓名、生辰、生地、時辰、性別）`);
+  check('一版過見晒', lines === 6, `${lines} 行，應該 6（姓名、生辰、生地、計時、時辰、性別）`);
   check('未寫齊印唔撳得', await page.locator(SEAL).isDisabled(), '乜都未寫，個印已經撳得');
   const owe = await page.locator('.zhou-qian').innerText();
   check('講明仲欠乜', ['生辰', '生地', '時辰', '性別'].every((w) => owe.includes(w)), `「${owe}」`);
@@ -106,10 +106,16 @@ try {
   check('寫咗生辰生地，時辰開', await timeSel.isEnabled(), '時辰選單仲係 disabled');
   const options = await timeSel.locator('option').allInnerTexts();
   const slots = options.filter((o) => /時\s+\d{2}:\d{2}–\d{2}:\d{2}/.test(o));
-  check('十三個時辰', slots.length === 13, `${slots.length} 個，應該 13（子時頭尾各一）`);
+  /* 2026-10-06 起晚子時屬當日（R-002）：香港一日十四格（前夜子時、早子時…亥時、夜子時）；前夜嗰格冇「X時 hh:mm」格式，所以呢度數到 13 */
+  check('十三個時辰（連早晚子時）', slots.length === 13, `${slots.length} 個，應該 13（早子時、丑…亥、夜子時）`);
   check('時辰寫鐘面時間', slots.some((o) => /^未時\s+\d{2}:\d{2}–\d{2}:\d{2}$/.test(o.trim())), `「${slots[7] ?? ''}」`);
   check('有記得準確時間', options.includes('記得準確時間'), options.join('／'));
+  check('有前夜子時（晚子時屬當日，R-002）', options.some((o) => o.startsWith('子時（前夜）')), options.join('／'));
   check('有不知道時辰', options.includes('不知道時辰'), options.join('／'));
+
+  /* ── 三之二、計時（R-004）：預設出生地；揀洛陽，時辰選單跟住變 ─────── */
+  const basisOn = await page.locator('.zhou-ji button[aria-pressed="true"]').innerText();
+  check('計時預設出生地', basisOn.includes('出生地'), `揀咗「${basisOn}」`);
 
   /* ── 四、時間欄嗰句夏令時（rules.md R-007）───────────── */
   const text = await page.evaluate(() => document.body.innerText);
@@ -137,7 +143,7 @@ try {
     await deep.goto(`${BASE}/cast?step=${step}`, { waitUntil: 'domcontentloaded' });
     await acceptConsent(deep);
     await deep.waitForTimeout(600);
-    check(`?step=${step}`, (await deep.locator('.juanzhou .zhou-hang').count()) === 5, '冇落返成幅卷軸');
+    check(`?step=${step}`, (await deep.locator('.juanzhou .zhou-hang').count()) === 6, '冇落返成幅卷軸');
     check(`?step=${step} 清走 query`, !deep.url().includes('step='), deep.url());
     check(`?step=${step} 冇入題名`, (await deep.locator('.mu-ti').count()) === 0, '入咗題名幕');
     await deep.close();
@@ -197,4 +203,4 @@ if (fail.length) {
   for (const f of fail) console.error('  ' + f);
   process.exit(1);
 }
-console.log('✓ 落款：五樣一版過見晒、欠乜講明、個印冇重畫、時辰等生辰生地、舊 ?step= 唔係入口、落印直入題名');
+console.log('✓ 落款：六行一版過見晒（連計時）、欠乜講明、個印冇重畫、時辰等生辰生地、舊 ?step= 唔係入口、落印直入題名');

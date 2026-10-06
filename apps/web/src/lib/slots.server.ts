@@ -15,12 +15,15 @@ import { slotsOfDay, type Slot } from '@/lib/slots';
  * ⚠ 呢個係公開 endpoint 後面嘅嘢：收到乜都驗過先用，唔啱就回 null
  * （畫面照樣可以填準確時間）。
  */
-export function slotsFor(date: unknown, placeIndex: unknown): Slot[] | null {
+export function slotsFor(date: unknown, placeIndex: unknown, timeBasis: unknown = 'birthplace'): Slot[] | null {
   if (typeof date !== 'string') return null;
   const m = date.match(/^(\d{4})-(\d{2})-(\d{2})$/);
   if (!m || typeof placeIndex !== 'number' || !Number.isInteger(placeIndex)) return null;
   const place = PLACES[placeIndex];
   if (!place) return null;
+  /* 洛陽時間（R-004）：時辰分界跟洛陽時間計，同排盤一樣 */
+  if (timeBasis !== 'birthplace' && timeBasis !== 'luoyang') return null;
+  const basis: 'birthplace' | 'luoyang' = timeBasis;
 
   const solar = { y: Number(m[1]), m: Number(m[2]), d: Number(m[3]) };
   const base = {
@@ -29,6 +32,7 @@ export function slotsFor(date: unknown, placeIndex: unknown): Slot[] | null {
     place: { lng: place.lng, lat: place.lat, label: place.label },
     /* 性別唔影響時辰；型別要一個值 */
     sex: 'male' as const,
+    options: { timeBasis: basis },
   };
 
   return slotsOfDay((minute) => {

@@ -190,6 +190,8 @@ const SCHOOL_LINE: Record<string, string> = {
 
 const TRUE_SOLAR = '出生時間已按出生地經度，校正為真太陽時。';
 const ZONE_TIME = '出生時間按當地時區時間換算。';
+/* 2026-10-06：用戶揀咗中州派講義嘅洛陽時間（R-004，`timeBasis: 'luoyang'`） */
+const LUOYANG_TIME = '出生時間依中州派講義的做法，以洛陽時間為準換算。';
 
 /**
  * ⚠ 體系嗰一段用另一把尺，唔係豁免。
@@ -213,6 +215,7 @@ const SETTINGS_VOCAB = [
   ...Object.values(SCHOOL_LINE),
   TRUE_SOLAR,
   ZONE_TIME,
+  LUOYANG_TIME,
 ].join('');
 
 export function assertSettingsOnly(text: string, declaration = ''): void {
@@ -269,7 +272,8 @@ export function xuChapter(input: XuInput): { slug: string; title: string; segmen
   const school = SCHOOL_LINE[chart.meta.schoolProfile.split('@')[0]!.replace(/-v\d+$/, '')];
   const lines = [
     ...(school ? [school] : []),
-    r.trueSolarTime ? TRUE_SOLAR : ZONE_TIME,
+    /* 舊盤（0.4.0 之前）冇 timeBasis —— 嗰陣只有出生地一種 */
+    r.timeBasis === 'luoyang' ? LUOYANG_TIME : r.trueSolarTime ? TRUE_SOLAR : ZONE_TIME,
   ];
 
   const segments = [

@@ -96,7 +96,8 @@ export async function castChart(raw: unknown): Promise<CastOutcome> {
   const base = { solar: req.solar, tz: req.tz, place: req.place, sex: req.sex };
 
   if (req.time) {
-    const result = cast({ ...base, time: req.time });
+    /* 時間基準由用戶揀（R-004）；寫入 chart.meta.rules，序章「體系」段照住講 */
+    const result = cast({ ...base, time: req.time, options: { timeBasis: req.timeBasis } });
     if (!result.ok) {
       return { ok: false, code: result.code, message: result.code };
     }

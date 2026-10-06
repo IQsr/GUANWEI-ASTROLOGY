@@ -76,6 +76,12 @@ export type RuleOptions = {
   yearBoundary: 'lunar-new-year' | 'lichun';
   /** 23:00–00:00 出生：算翌日早子時，定今日晚子時。 */
   lateZiHour: 'next-day' | 'same-day';
+  /**
+   * 時辰同日子以邊度嘅時間定（2026-10-06，docs/rules.md R-004）：
+   *   birthplace —— 出生地真太陽時（經度 ＋ 均時差），日子用出生地當地日
+   *   luoyang    —— 中州派《初級講義》：一律換算成洛陽（東經 112.45°）地方時，「以洛陽地區作為絕對標準」
+   */
+  timeBasis: 'birthplace' | 'luoyang';
   /** 四化表。庚干化科各家不一，見 docs/rules.md。 */
   sihuaSet: 'zhongzhou' | 'quanshu';
 };

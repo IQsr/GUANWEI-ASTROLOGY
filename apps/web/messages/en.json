@@ -142,7 +142,8 @@
       "date": "Born",
       "place": "Birthplace",
       "time": "Hour",
-      "sex": "Sex"
+      "sex": "Sex",
+      "basis": "Clock"
     },
     "namePh": "Optional; the book will say “Nameless”",
     "year": "",
@@ -167,7 +168,12 @@
     "sep": ", ",
     "yearPh": "Year",
     "monthPh": "Month",
-    "dayPh": "Day"
+    "dayPh": "Day",
+    "basis": {
+      "birthplace": "Solar time at your birthplace",
+      "luoyang": "Luoyang time"
+    },
+    "basisNote": "The Zhongzhou school's original method: wherever you were born, the hour is set by Luoyang time. If you were born far from China, the hour can differ a great deal from your birthplace."
   },
   "shichen": {
     "branch": [

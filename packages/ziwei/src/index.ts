@@ -45,8 +45,13 @@ import { buildSchoolProfile } from './school-profile';
  *   新增流年層 annual() —— 流年宮位、流年四化、大限四化、三層疊宮
  *   cast() 本身嘅輸出冇變，但 schoolProfile 變咗（流年由 not-implemented 轉 enabled），
  *   而 schoolProfile 喺每個 chart 嘅 meta 度 —— 所以呢個係會改變輸出嘅改動
+ *
+ * 0.4.0 —— 2026-10-06，王亭之《初級講義》甲、安星法（一）：
+ *   晚子時（23:00–24:00）改做當日子時、零時先換日（R-002：next-day → same-day）。
+ *   約 4% 人嘅農曆日差一日 → 紫微位置、成個盤都可能唔同。舊書唔重排（R-008）。
+ *   新增選項 timeBasis（birthplace ／ luoyang，R-004）；預設 birthplace，冇改到預設輸出。
  */
-export const ENGINE_VERSION = '0.3.0';
+export const ENGINE_VERSION = '0.4.0';
 
 export * from './school-profile';
 
@@ -89,10 +94,21 @@ export function resolveBirthMoment(
     return { ok: false, code: 'BAD_TIMEZONE', message: `認唔到時區 ${input.tz}。` };
   }
 
+  /*
+   * 夏令時有幾多分鐘（洛陽時間要先還原做標準時）：同一年一月同七月嘅偏移，細嗰個係標準時。
+   * 南北半球都啱（夏令時一定係撥快）。
+   */
+  const jan = tzOffsetMinutes(input.tz, input.solar.y, 1, 15, 12, 0);
+  const jul = tzOffsetMinutes(input.tz, input.solar.y, 7, 15, 12, 0);
+  const dstMinutes = jan !== null && jul !== null ? off - Math.min(jan, jul) : 0;
+
   const moment = resolveMoment(input.solar, clock, input.place.lng, off, {
     // 只知時辰、唔知準確時間嘅話，真太陽時校正冇意義（本身已經係 2 小時一格）
     trueSolarTime: rules.trueSolarTime && !('shichen' in input.time),
     lateZiHour: rules.lateZiHour,
+    /* 直接揀時辰（唔係鐘面時間）就唔使換算：用戶已經知道係邊個時辰 */
+    timeBasis: 'shichen' in input.time ? 'birthplace' : rules.timeBasis,
+    dstMinutes: Math.max(0, dstMinutes),
   });
   if (!moment.ok) return moment;
 

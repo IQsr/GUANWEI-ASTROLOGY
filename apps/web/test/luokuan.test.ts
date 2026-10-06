@@ -142,6 +142,16 @@ describe('⚠ server action 係一個公開 endpoint', () => {
    */
   const good = toCastRequest(full)!;
 
+  /* 2026-10-06（R-004）：計時欄 —— 冇帶當出生地；帶咗一定要係兩個之一 */
+  it('計時：預設出生地，揀得洛陽，其他值唔收', () => {
+    expect(good.timeBasis).toBe('birthplace');
+    expect(toCastRequest({ ...full, timeBasis: 'luoyang' })!.timeBasis).toBe('luoyang');
+    const { timeBasis: _t, ...noBasis } = good;
+    expect(parseCastRequest(noBasis)!.timeBasis).toBe('birthplace');
+    expect(parseCastRequest({ ...good, timeBasis: 'luoyang' })!.timeBasis).toBe('luoyang');
+    expect(parseCastRequest({ ...good, timeBasis: 'beijing' })).toBeNull();
+  });
+
   it('正常嘅收', () => {
     expect(parseCastRequest(JSON.parse(JSON.stringify(good)))).toEqual(good);
   });

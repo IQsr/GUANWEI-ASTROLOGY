@@ -57,6 +57,10 @@ const MINE = new Set<string>([...MAJOR, ...AUX]);
 const WENMO_TZ = 'Etc/GMT-8';
 const WENMO_LNG = 120;
 
+/**
+ * ⚠ 晚子時（D-006，2026-10-06）：文墨天機 23:00 之後換日；我哋跟中州派《初級講義》零時先換日。
+ * 所以 23 點出世嗰幾張（B01）對照嗰陣用文墨嘅做法，另外一條測試鎖住分歧本身。
+ */
 function input(c: WenmoChart, tz = WENMO_TZ): BirthInput {
   return {
     solar: { y: c.birth.y, m: c.birth.m, d: c.birth.d },
@@ -64,6 +68,7 @@ function input(c: WenmoChart, tz = WENMO_TZ): BirthInput {
     tz,
     place: { lng: WENMO_LNG, lat: 30, label: '東八區標準經線' },
     sex: c.yinyang.endsWith('男') ? 'male' : 'female',
+    ...(c.birth.h === 23 ? { options: { lateZiHour: 'next-day' as const } } : {}),
   };
 }
 
@@ -241,5 +246,21 @@ describe('夏令時（D-002）', () => {
       .split(' ')
       .pop();
     expect(off).toBe('GMT+09:00');
+  });
+});
+
+describe('D-006 晚子時：文墨 23:00 換日，我哋零時先換日（中州派《初級講義》）', () => {
+  it('23 點出世嗰張盤，預設之下命宮或五行局同文墨唔同；用文墨做法就一樣', () => {
+    const late = CHARTS.filter((c) => c.birth.h === 23);
+    expect(late.length).toBeGreaterThan(0);
+    for (const c of late) {
+      const { options: _o, ...ours } = input(c);
+      const mine = cast(ours as BirthInput);
+      const theirs = cast(input(c));
+      expect(mine.ok && theirs.ok).toBe(true);
+      if (!mine.ok || !theirs.ok) continue;
+      /* 農曆日差一日 → 紫微位置變 */
+      expect(mine.value.lunar.d, c.file).not.toBe(theirs.value.lunar.d);
+    }
   });
 });

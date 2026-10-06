@@ -135,6 +135,24 @@ describe('體系段：講讀者用得著嘅，版本號留喺幕後（2026-09）
     expect(text).toContain('按當地時區時間換算');
     expect(text).not.toContain('真太陽時');
   });
+
+  /* 2026-10-06（R-004）：用戶揀咗中州派講義嘅洛陽時間，就講明係洛陽時間，唔講真太陽時 */
+  it('揀咗洛陽時間就話洛陽時間', () => {
+    const r = cast({
+      solar: { y: 1996, m: 6, d: 16 },
+      time: { h: 8, min: 30 },
+      tz: 'Asia/Hong_Kong',
+      place: { lng: 114.17, lat: 22.32, label: '香港' },
+      sex: 'male',
+      options: { timeBasis: 'luoyang' },
+    });
+    if (!r.ok) throw new Error(r.code);
+    const text = xuChapter({ chart: r.value, solar: { y: 1996, m: 6, d: 16 }, place: '香港' }).segments.find(
+      (s) => s.slot === '體系',
+    )!.text;
+    expect(text).toContain('以洛陽時間為準換算');
+    expect(text).not.toContain('真太陽時');
+  });
 });
 
 describe('生辰：國曆同農曆分得清', () => {

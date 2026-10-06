@@ -13,7 +13,10 @@ import {
   type BirthInput,
 } from '../src/index';
 
-/** Oracle 嘅前提：唔做真太陽時（cnlunar 用鐘面時間）。 */
+/**
+ * Oracle 嘅前提：唔做真太陽時（cnlunar 用鐘面時間）；晚子時日柱進位（cnlunar 嘅做法）。
+ * ⚠ 2026-10-06 引擎預設改咗 same-day（中州派《初級講義》），所以呢度明確指定 next-day 先對得返 oracle。
+ */
 function inputFor(c: { solar: number[]; clock: number[] }): BirthInput {
   const [y, m, d] = c.solar as [number, number, number];
   const [h, min] = c.clock as [number, number];
@@ -23,7 +26,7 @@ function inputFor(c: { solar: number[]; clock: number[] }): BirthInput {
     tz: 'Asia/Shanghai',
     place: { lng: 120, lat: 30, label: '東經 120 度' },
     sex: 'male',
-    options: { trueSolarTime: false },
+    options: { trueSolarTime: false, lateZiHour: 'next-day' },
   };
 }
 
@@ -134,7 +137,27 @@ describe(`四柱對照 cnlunar（${oracle.cases.length} 個）`, () => {
     expect(bad).toEqual([]);
   });
 
-  it('晚子時：農曆日同日柱一齊進位，唔會各指一日', () => {
+  it('晚子時（next-day 選項）：農曆日同日柱一齊進位，唔會各指一日', () => {
+    const late = resolveFourPillars({
+      solar: { y: 2025, m: 6, d: 1 },
+      time: { h: 23, min: 30 },
+      tz: 'Asia/Shanghai',
+      place: { lng: 120, lat: 30, label: '東經 120 度' },
+      sex: 'male',
+      options: { trueSolarTime: false, lateZiHour: 'next-day' },
+    });
+    expect(late.ok).toBe(true);
+    if (!late.ok) return;
+    expect(late.value.moment.dayShift).toBe(1);
+    expect(late.value.moment.solarDate).toEqual({ y: 2025, m: 6, d: 2 });
+    // 日柱同農曆日都係 6月2日嗰一日
+    expect(pillarText(late.value.pillars.day)).toBe('壬寅');
+    expect(late.value.lunar.d).toBe(7);
+  });
+});
+
+describe('晚子時預設 same-day（中州派《初級講義》：「交入十二時(零時)，才是一天新的開始」）', () => {
+  it('23:30 仍係當日子時，唔換日', () => {
     const late = resolveFourPillars({
       solar: { y: 2025, m: 6, d: 1 },
       time: { h: 23, min: 30 },
@@ -145,11 +168,10 @@ describe(`四柱對照 cnlunar（${oracle.cases.length} 個）`, () => {
     });
     expect(late.ok).toBe(true);
     if (!late.ok) return;
-    expect(late.value.moment.dayShift).toBe(1);
-    expect(late.value.moment.solarDate).toEqual({ y: 2025, m: 6, d: 2 });
-    // 日柱同農曆日都係 6月2日嗰一日
-    expect(pillarText(late.value.pillars.day)).toBe('壬寅');
-    expect(late.value.lunar.d).toBe(7);
+    expect(late.value.moment.dayShift).toBe(0);
+    expect(late.value.moment.solarDate).toEqual({ y: 2025, m: 6, d: 1 });
+    expect(late.value.moment.shichen).toBe(0);
+    expect(late.value.lunar.d).toBe(6);
   });
 });
 

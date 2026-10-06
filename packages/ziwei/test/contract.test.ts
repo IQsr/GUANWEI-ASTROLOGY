@@ -44,8 +44,9 @@ describe('預設流派選項（docs/rules.md）', () => {
     expect(DEFAULT_RULES).toEqual({
       trueSolarTime: true,
       yearBoundary: 'lunar-new-year',
-      lateZiHour: 'next-day',
+      lateZiHour: 'same-day',
       sihuaSet: 'zhongzhou',
+      timeBasis: 'birthplace',
     });
   });
 

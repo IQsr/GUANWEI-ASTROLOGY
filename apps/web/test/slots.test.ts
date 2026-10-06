@@ -87,14 +87,21 @@ describe('香港：真太陽時慢過鐘面', () => {
     expect(toMin(wei.from)).toBeLessThan(13 * 60 + 45);
   });
 
-  /** 子時頭尾各一格：凌晨屬今日，夜晚按「晚子時歸翌日」屬聽日。 */
-  it('十三格：子時頭尾各一', () => {
-    expect(slots).toHaveLength(13);
+  /**
+   * 2026-10-06 起晚子時屬當日（中州派《初級講義》「交入十二時(零時)，才是一天新的開始」，R-002）。
+   * 香港真太陽時慢過鐘面，所以凌晨頭二十幾分鐘仲係前一晚嘅子時 —— 一日十四格：
+   *   子時（前夜）、早子時、丑…亥、夜子時（屬當日）
+   */
+  it('十四格：前夜子時、早子時、夜子時（屬當日）', () => {
+    expect(slots).toHaveLength(14);
     expect(slots[0]!.shichen).toBe(0);
-    expect(slots[0]!.dayOffset).toBe(0);
+    expect(slots[0]!.dayOffset).toBe(-1);
+    expect(slotName(slots[0]!)).toBe('子時（前夜）');
+    expect(slots[1]!.shichen).toBe(0);
+    expect(slots[1]!.dayOffset).toBe(0);
+    expect(slotName(slots[1]!)).toBe('早子時');
     expect(slots.at(-1)!.shichen).toBe(0);
-    expect(slots.at(-1)!.dayOffset).toBe(1);
-    expect(slotName(slots[0]!)).toBe('早子時');
+    expect(slots.at(-1)!.dayOffset).toBe(0);
     expect(slotName(slots.at(-1)!)).toBe('夜子時');
   });
 });

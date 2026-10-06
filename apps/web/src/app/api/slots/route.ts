@@ -17,7 +17,7 @@ export async function POST(req: Request) {
   } catch {
     return Response.json({ slots: null }, { status: 400 });
   }
-  const { date, placeIndex } = (body ?? {}) as Record<string, unknown>;
-  const slots = slotsFor(date, placeIndex);
+  const { date, placeIndex, timeBasis } = (body ?? {}) as Record<string, unknown>;
+  const slots = slotsFor(date, placeIndex, timeBasis ?? 'birthplace');
   return Response.json({ slots }, { status: slots ? 200 : 400, headers: { 'cache-control': 'no-store' } });
 }

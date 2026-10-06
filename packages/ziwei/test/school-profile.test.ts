@@ -189,7 +189,7 @@ describe('fingerprint 係變更偵測器', () => {
    *   3. docs/rules.md 同 engine-divergence.md 更新咗未？
    */
   it('fingerprint 冇無端變過', () => {
-    expect(SCHOOL_PROFILE.fingerprint).toBe('4fbd787e5e59e51a');
+    expect(SCHOOL_PROFILE.fingerprint).toBe('a66bb0b376cc914f');
   });
 
   /**
@@ -236,6 +236,15 @@ describe('fingerprint 係變更偵測器', () => {
    *   1. bump id 去 v2？ 唔使 —— 規則同表原封不動，本命、大限、流年、流祿羊陀位置一格都冇變。
    *   2. 舊盤點算？ 唔使動（R-008）。
    *   3. docs 更新咗未？ rules.md 流派設定段。
+   *
+   * 4fbd787e5e59e51a → a66bb0b376cc914f　（2026-10-06，初級講義）
+   *   改咗乜：DEFAULT_RULES.lateZiHour next-day → same-day（R-002，《初級講義》「交入十二時(零時)，才是一天新的開始」）；
+   *          新增 DEFAULT_RULES.timeBasis = 'birthplace'（R-004 選項，可揀 luoyang）。ENGINE_VERSION 0.3.0 → 0.4.0。
+   *   1. bump id 去 v2？ 唔使 —— 呢次係**值**改咗（約 4% 盤唔同），但流派冇變：仍然係中州派，
+   *      只係我哋終於搵到中州派明文、將佢做啱。id 認流派；新舊盤靠 ENGINE_VERSION 同 fingerprint 分。
+   *      （改 id 會令內容層所有 schools: ['zhongzhou-v1'] 嘅規則失效。）
+   *   2. 舊盤點算？ 唔重排（R-008）。舊書 meta 帶住 0.3.0 嘅 ref，即係「嗰陣 23 點後當翌日」。
+   *   3. docs 更新咗未？ rules.md R-002、R-004、流派設定段；engine-divergence.md D-006（文墨 23 點換日）。
    */
 });
 
@@ -247,7 +256,7 @@ describe('每個盤帶住流派設定', () => {
     expect(r.value.meta.schoolProfile).toBe(SCHOOL_PROFILE.ref);
   });
 
-  it('引擎版本 bump 咗 0.3.0（B15 加咗流年層）', () => {
-    expect(ENGINE_VERSION).toBe('0.3.0');
+  it('引擎版本 bump 咗 0.4.0（2026-10-06：晚子時改當日，初級講義）', () => {
+    expect(ENGINE_VERSION).toBe('0.4.0');
   });
 });

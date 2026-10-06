@@ -116,6 +116,29 @@ export function Juanzhou({
             </select>
           </div>
 
+          {/* 計時（2026-10-06，R-004）：出生地真太陽時（預設）或者中州派講義嘅洛陽時間 */}
+          <div className="zhou-hang">
+            <span className="zhou-ming" id="zhou-basis">{t("label.basis")}</span>
+            <div>
+              <div className="zhou-ji" role="group" aria-labelledby="zhou-basis">
+                {(["birthplace", "luoyang"] as const).map((b) => (
+                  <button
+                    key={b}
+                    type="button"
+                    aria-pressed={(draft.timeBasis ?? "birthplace") === b}
+                    onClick={() => {
+                      if ((draft.timeBasis ?? "birthplace") === b) return;
+                      setDraft({ ...draft, timeBasis: b, ...clearSlot(draft) });
+                    }}
+                  >
+                    {t(`basis.${b}`)}
+                  </button>
+                ))}
+              </div>
+              {draft.timeBasis === "luoyang" ? <p className="zhou-zhu">{t("basisNote")}</p> : null}
+            </div>
+          </div>
+
           <div className="zhou-hang">
             <span className="zhou-ming" id="zhou-time">{t("label.time")}</span>
             <TimeLine draft={draft} setDraft={setDraft} />
@@ -260,7 +283,7 @@ function TimeLine({ draft, setDraft }: { draft: Draft; setDraft: (d: Draft) => v
     fetch("/api/slots", {
       method: "POST",
       headers: { "content-type": "application/json" },
-      body: JSON.stringify({ date: draft.date, placeIndex: draft.placeIndex }),
+      body: JSON.stringify({ date: draft.date, placeIndex: draft.placeIndex, timeBasis: draft.timeBasis ?? "birthplace" }),
     })
       .then((r) => (r.ok ? r.json() : { slots: null }))
       .then(
@@ -270,7 +293,7 @@ function TimeLine({ draft, setDraft }: { draft: Draft; setDraft: (d: Draft) => v
     return () => {
       live = false;
     };
-  }, [open, draft.date, draft.placeIndex]);
+  }, [open, draft.date, draft.placeIndex, draft.timeBasis]);
 
   const list = Array.isArray(slots) ? slots : [];
   const value = draft.noHour ? "none" : exact ? "exact" : (draft.slot ?? "");

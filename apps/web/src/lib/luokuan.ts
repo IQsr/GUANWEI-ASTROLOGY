@@ -43,7 +43,14 @@ export type Draft = {
   noHour: boolean;
   placeIndex: number | null;
   sex: Sex | null;
+  /**
+   * 時辰以邊度嘅時間定（2026-10-06，R-004，Issac：兩樣都做，畀用戶揀）：
+   * birthplace = 出生地真太陽時（預設）；luoyang = 中州派講義嘅洛陽時間。
+   */
+  timeBasis?: TimeBasis;
 };
+
+export type TimeBasis = 'birthplace' | 'luoyang';
 
 export const EMPTY_DRAFT: Draft = {
   name: '',
@@ -53,6 +60,7 @@ export const EMPTY_DRAFT: Draft = {
   noHour: false,
   placeIndex: null,
   sex: null,
+  timeBasis: 'birthplace',
 };
 
 /** 出生地：時區同經度。經度用嚟做真太陽時校正（R-007）。 */
@@ -101,6 +109,7 @@ export type CastRequest = {
   tz: string;
   place: { lng: number; lat: number; label: string };
   sex: Sex;
+  timeBasis: TimeBasis;
 };
 
 /**
@@ -120,6 +129,7 @@ export function toCastRequest(draft: Draft): CastRequest | null {
     tz: place.tz,
     place: { lng: place.lng, lat: place.lat, label: place.label },
     sex: draft.sex!,
+    timeBasis: draft.timeBasis ?? 'birthplace',
   };
 }
 
@@ -176,5 +186,9 @@ export function parseCastRequest(raw: unknown): CastRequest | null {
 
   if (r.sex !== 'male' && r.sex !== 'female') return null;
 
-  return { solar: { y, m, d }, time, tz: r.tz, place: { lng, lat, label: place.label }, sex: r.sex };
+  /* 冇帶就係預設（出生地）；帶咗就一定要係兩個之一 */
+  const timeBasis = r.timeBasis === undefined ? 'birthplace' : r.timeBasis;
+  if (timeBasis !== 'birthplace' && timeBasis !== 'luoyang') return null;
+
+  return { solar: { y, m, d }, time, tz: r.tz, place: { lng, lat, label: place.label }, sex: r.sex, timeBasis };
 }

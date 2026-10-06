@@ -3913,6 +3913,39 @@ select.zhou-xian {
   outline-offset: 6px;
 }
 
+/* 計時：兩個選擇，揀咗嗰個墨色加底線（唔用圈 —— 字長，圈住唔好睇） */
+.zhou-ji {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 22px;
+}
+
+.zhou-ji > button {
+  padding: 4px 0 3px;
+  border-bottom: 1px solid transparent;
+  font-family: var(--font-serif-stack);
+  font-size: 1rem;
+  letter-spacing: 0.04em;
+  color: var(--ink-3);
+  transition:
+    color var(--dur-1) var(--motion-ease-ink),
+    border-color var(--dur-1) var(--motion-ease-ink);
+}
+
+.zhou-ji > button:hover {
+  color: var(--ink-2);
+}
+
+.zhou-ji > button[aria-pressed="true"] {
+  border-bottom-color: var(--ink);
+  color: var(--ink);
+}
+
+.zhou-ji > button:focus-visible {
+  outline: 1px dotted var(--ink-3);
+  outline-offset: 4px;
+}
+
 /* 卷尾：左邊講仲欠乜，右邊一枚印 */
 .zhou-wei {
   position: relative;

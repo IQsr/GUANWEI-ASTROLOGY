@@ -25,7 +25,27 @@ export type ResolvedMoment = {
 export type ResolveOptions = {
   trueSolarTime: boolean;
   lateZiHour: 'next-day' | 'same-day';
+  /** 預設 birthplace；luoyang 見下面 */
+  timeBasis?: 'birthplace' | 'luoyang';
+  /** 鐘面時間入面有幾多分鐘係夏令時（luoyang 要先還原做標準時，講義：夏令時「應改為」早一小時） */
+  dstMinutes?: number;
 };
+
+/**
+ * 洛陽經度（2026-10-06，R-004）。王亭之《初級講義》甲、安星法（一）：
+ *   「本派起出生時是以『洛陽』地區作為絕對標準，每與洛陽相差十五度經線便有一個小時之時差。」
+ *   「上海……在推算紫微斗數時，便有三十五分鐘的時差」（121.47 − 112.45 = 9.02° ≈ 36 分鐘，對得上）
+ * 只做經度，冇均時差 —— 講義冇講均時差。
+ *
+ * ⚠ 點加減（2026-10-06 對過講義兩個數字）：講義係用「出生地經度同洛陽相差幾度」直接加減落
+ *   **當地標準時間**，唔係換算做洛陽真正嘅地方時：
+ *     上海　(121.47 − 112.45) × 4 ≈ 36 分鐘　講義「三十五分鐘」
+ *     香港　(114.17 − 112.45) × 4 ≈  7 分鐘　講義「七分半鐘」
+ *   如果換算做洛陽真地方時（UTC ＋ 7:30），香港會差 30 分鐘，對唔上講義。所以照講義：
+ *     洛陽時間 ＝ 當地標準時間（夏令時先減走）−（出生地經度 − 112.45）× 4 分鐘
+ *   倫敦（標準時≈UTC、經度≈0）兩種算法差唔多：朝早八點 → 下晝三點半。
+ */
+export const LUOYANG_LNG = 112.45;
 
 /**
  * 由鐘面時間解出「排盤用嘅日 + 時辰」。
@@ -36,6 +56,9 @@ export type ResolveOptions = {
  *
  * 日期基準用**出生地當地日期**，唔係中國時間。一個喺倫敦朝早出生嘅人，
  * 佢嘅生日係倫敦嗰日；用中國時間會將佢推去第二日。
+ *
+ * `timeBasis: 'luoyang'`（中州派講義，用戶揀）：唔用出生地太陽，按講義將時間換算成
+ * 洛陽時間（見 `LUOYANG_LNG`），時辰同日子都由洛陽時間定。
  */
 export function resolveMoment(
   solar: { y: number; m: number; d: number },
@@ -69,9 +92,12 @@ export function resolveMoment(
   );
 
   const clockMinutes = clock.h * 60 + clock.min;
-  const shifted = options.trueSolarTime
-    ? clockMinutes + correction.totalMinutes
-    : clockMinutes;
+  const shifted =
+    options.timeBasis === 'luoyang'
+      ? clockMinutes - (options.dstMinutes ?? 0) - (longitude - LUOYANG_LNG) * 4
+      : options.trueSolarTime
+        ? clockMinutes + correction.totalMinutes
+        : clockMinutes;
 
   // 校正可能推過午夜（兩邊都有可能）
   let dayIndex = daysFromEpoch(solar.y, solar.m, solar.d);
