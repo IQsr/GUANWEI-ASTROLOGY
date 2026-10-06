@@ -1,24 +1,20 @@
 /**
- * 落款五步（工單 E4 · 架構 §3 · rules.md R-007）
+ * 落款（工單 E4 · 架構 §3 · rules.md R-007）
  *
- * ── 五步嘅次序有講究（架構 §3）──
+ * 2026-10-06 起落款係一幅卷軸（`components/Juanzhou.tsx`），五樣一版過寫晒：
  *
- *   1 姓名　　最易答；呢個名之後會出現喺書上
- *   2 出生年月日（國曆）　引擎內部轉農曆，唔好要用戶自己轉
- *   3 出生地　真太陽時校正（經度）＋ 時區
- *   4 時辰　　揀一個時辰（旁邊寫明鐘面幾點到幾點），或者填準確時間，
- *            或者揀「唔知」→ 入分支，要有安撫文案
- *   5 性別　　大限順逆靠陰陽男女；最易卻步，所以擺喺已投入之後
+ *   姓名　　可以留空；書上寫「無名」
+ *   生辰　　國曆年月日；引擎內部轉農曆，唔好要用戶自己轉
+ *   生地　　真太陽時校正（經度）＋ 時區
+ *   時辰　　揀一個時辰（寫明鐘面幾點到幾點）、或者填準確時間、或者「唔知」→ 入分支
+ *   性別　　大限順逆靠陰陽男女
  *
- * ⚠ 出生地同時辰掉咗位（2026-09，Issac 要「揀時辰唔使填時間」）。
- * 時辰選項要知出生地先計得出：同一個未時，香港係鐘面 13:36–15:35，
- * 倫敦夏天係 14:00 幾 —— 真太陽時校正跟經度同時區行（見 `lib/slots.ts`）。
+ * ⚠ 時辰一定喺生地之後：時辰選項要知出生地先計得出（見 `lib/slots.ts`）。
  *
- * ⚠ 呢個檔淨係管**次序同答咗未**，唔管畫面，亦都唔識排盤 ——
+ * ⚠ 呢個檔淨係管**答咗未**同砌／核排盤請求，唔管畫面，亦都唔識排盤 ——
  * 排盤喺 server action（架構 §9：引擎唔准落 client bundle）。
  */
 
-import { nameOf } from '@/lib/chengshu';
 
 export const STEPS = ['name', 'date', 'place', 'time', 'sex'] as const;
 export type Step = (typeof STEPS)[number];
@@ -94,100 +90,9 @@ export function isAnswered(step: Step, draft: Draft): boolean {
   }
 }
 
-/** 呢一步撳唔撳得「下一步」。姓名留空都得；其他步同 `isAnswered` 一樣。 */
-export function canLeave(step: Step, draft: Draft): boolean {
-  return step === 'name' ? draft.name.trim().length <= 40 : isAnswered(step, draft);
-}
-
-/** 答晒未。五步齊就直入題名 —— 冇確認頁（架構 §3）。 */
+/** 寫齊未（姓名留空要撳過落印先算答咗：`nameless`）。唔齊就唔排盤。 */
 export function isComplete(draft: Draft): boolean {
   return STEPS.every((s) => isAnswered(s, draft));
-}
-
-export function firstUnanswered(draft: Draft): Step {
-  return STEPS.find((s) => !isAnswered(s, draft)) ?? STEPS[STEPS.length - 1]!;
-}
-
-/**
- * ⚠ 深連結守衛（架構 §3）。
- *
- * 「唔可以 deep link 去『題名』—— 冇前面三幕鋪排，
- * 見到自己個名嗰下冇感覺。」
- *
- * 所以規矩唔係「`?step=naming` 擋住」，係**一步都唔可以跳**：
- * 你只可以去一個「前面全部答咗」嘅步。跳咗就落返第一個未答嘅。
- */
-export function stepFromQuery(raw: string | null | undefined, draft: Draft): Step {
-  const wanted = STEPS.find((s) => s === raw);
-  if (!wanted) return firstUnanswered(draft);
-
-  const index = STEPS.indexOf(wanted);
-  const blocked = STEPS.slice(0, index).some((s) => !isAnswered(s, draft));
-  return blocked ? firstUnanswered(draft) : wanted;
-}
-
-/** 已答嘅留喺上面（淡到 20%）—— 即係呢個步之前嗰啲。 */
-export function answeredBefore(step: Step, draft: Draft): Step[] {
-  return STEPS.slice(0, STEPS.indexOf(step)).filter((s) => isAnswered(s, draft));
-}
-
-const SHICHEN = ['子', '丑', '寅', '卯', '辰', '巳', '午', '未', '申', '酉', '戌', '亥'] as const;
-
-/** 由 hh:mm 講返係邊個時辰。子時跨日，所以 23:00 之後係子。 */
-export function shichenOf(time: string): string | null {
-  const m = time.match(/^(\d{2}):(\d{2})$/);
-  if (!m) return null;
-  const h = Number(m[1]);
-  if (h < 0 || h > 23) return null;
-  return `${SHICHEN[Math.floor(((h + 1) % 24) / 2)]}時`;
-}
-
-const CHINESE_DIGITS = ['〇', '一', '二', '三', '四', '五', '六', '七', '八', '九'] as const;
-
-/** 日期用中文數字顯示（視覺系統 §8：落款欄嘅日期顯示中文數字）。 */
-export function chineseDate(date: string): string | null {
-  const m = date.match(/^(\d{4})-(\d{2})-(\d{2})$/);
-  if (!m) return null;
-  const digits = (s: string) => [...s].map((d) => CHINESE_DIGITS[Number(d)]).join('');
-  /* ⚠ 十係一個字，唔係一個位。第一版寫 `n < 11` → 十月變咗「undefined 月」。 */
-  const small = (n: number) =>
-    n < 10
-      ? CHINESE_DIGITS[n]
-      : n < 20
-        ? `十${n % 10 ? CHINESE_DIGITS[n % 10] : ''}`
-        : `${CHINESE_DIGITS[Math.floor(n / 10)]}十${n % 10 ? CHINESE_DIGITS[n % 10] : ''}`;
-  return `${digits(m[1]!)}年${small(Number(m[2]))}月${small(Number(m[3]))}日`;
-}
-
-/** 已答嗰行要用嘅字（由 messages 嚟）。 */
-export type SummaryWords = {
-  noHour: string;
-  male: string;
-  female: string;
-  place: (key: (typeof PLACES)[number]['key']) => string;
-  /** 國曆日期點寫：中文用中文數字（`chineseDate`），英文用當地格式。 */
-  date: (iso: string) => string;
-};
-
-/** 每一步答完之後，喺上面留低嗰一行。 */
-export function summaryOf(step: Step, draft: Draft, w: SummaryWords): string {
-  switch (step) {
-    case 'name':
-      return nameOf(draft.name);
-    case 'date':
-      return w.date(draft.date);
-    case 'time':
-      /*
-       * ⚠ 填準確時間嗰陣唔再用 `shichenOf()` 講係邊個時辰：
-       * 佢按鐘面計，但引擎按真太陽時計 —— 香港 07:40 鐘面係辰時，
-       * 真太陽時可能已經係卯時。寫返用戶填嗰個時間，唔好估。
-       */
-      return draft.noHour ? w.noHour : (draft.slot ?? draft.time);
-    case 'place':
-      return draft.placeIndex === null ? '' : w.place(PLACES[draft.placeIndex]!.key);
-    case 'sex':
-      return draft.sex === 'male' ? w.male : draft.sex === 'female' ? w.female : '';
-  }
 }
 
 export type CastRequest = {

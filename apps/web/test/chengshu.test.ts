@@ -1,4 +1,3 @@
-import zhMessages from '../messages/zh-Hant.json';
 import { describe, expect, it, vi } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { XU_TITLE } from '@guanwei/content';
@@ -203,43 +202,13 @@ describe('⚠ 寫唔到唔可以擋住題名', () => {
   });
 });
 
-describe('⚠ 落款嗰張目次唔准承諾生成唔到嘅章', () => {
-  /**
-   * 第一版照抄架構 §6 個免費五章名單，但入面三章生成唔到 ——
-   * 即係話落款嗰陣本書答應咗五章，成書之後得兩章有字。
-   *
-   * 呢條測試掃返落款嗰張表（文案搬咗去 messages：`cast.mulu`）：
-   * 入面每一個章名，都要係我哋而家真係出得到嗰啲。
-   */
-  const MULU: string[] = zhMessages.cast.mulu;
-
-  it('搵到張表', () => {
-    expect(MULU.length).toBeGreaterThan(0);
-  });
-
-  it('列出嘅章名，全部生成得到', () => {
-    const named = MULU.map((line) => line.split('·').at(-1)!.trim())
-      .filter((name) => /^[一-鿿]+$/.test(name));
-
-    /* 由真名單砌，唔好手抄 —— 手抄就會再走音一次。 */
-    /* 〈這十年〉係收費章但生成得到（大限，2026-09-30） */
-    const buildable = new Set(['你的命盤', ...FREE_SLUGS, ...PALACES, '這十年', '這一年']);
-    expect(named.filter((n) => !buildable.has(n))).toEqual([]);
-  });
-});
-
 describe('⚠ 序只准寫一次', () => {
   /**
    * 之前同一章嘅文字散喺三個地方：`free.ts` 嗰個真序、題名幕左頁
-   * 手寫嘅兩句 stand-in、落款嗰張目次。三份各寫各 ——
+   * 手寫嘅兩句 stand-in、落款嗰張目次（2026-10-06 落款改做卷軸，目次冇咗）。三份各寫各 ——
    * 讀者喺封面見到一句，揭開之後讀到另一句。
    */
   const SRC = (f: string) => readFileSync(new URL(`../src/${f}`, import.meta.url), 'utf8');
-
-  it('落款目次第一行，同內容包嗰個章名一個字都唔爭', () => {
-    /* 文案搬咗去 messages（`cast.mulu`）；中文版嗰行一定要同內容包一字不差 */
-    expect(zhMessages.cast.mulu[0]).toBe(XU_TITLE);
-  });
 
   it('題名幕唔准自己寫一段序', () => {
     const naming = SRC('components/Naming.tsx');

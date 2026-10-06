@@ -116,54 +116,11 @@
   },
   "cast": {
     "metaTitle": "Your birth details",
-    "bookLabel": "Inscription",
-    "label": {
-      "name": "Name",
-      "date": "Born",
-      "place": "Place",
-      "time": "Hour",
-      "sex": "Sex"
-    },
-    "ask": {
-      "name": "Whose name should this book carry? You may leave it blank; the book will then read 無名, “nameless”.",
-      "date": "Your date of birth on the Gregorian calendar. We convert it to the lunar calendar for you.",
-      "place": "Where were you born?",
-      "time": "What time were you born?",
-      "sex": "The chart needs this: whether your ten-year periods run forward or backward depends on the year's yin or yang and your sex."
-    },
     "aria": {
-      "name": "Name",
-      "date": "Date of birth",
-      "place": "Place of birth",
-      "time": "Time of birth",
-      "slots": "Choose an hour"
+      "time": "Time of birth"
     },
-    "contents": "Contents",
-    "mulu": [
-      "Preface · Your chart",
-      "I · The Life Palace",
-      "The Skeleton of Character",
-      "The Three Directions and Four Squares",
-      "The Body Palace and the Five-Element Bureau",
-      "Twelve Steps of a Life",
-      "These Ten Years",
-      "This Year",
-      "… then one chapter for each palace, eleven in all"
-    ],
-    "muluNote1": "The chapters are fixed before you enter your birth details.",
-    "muluNote2": "Once you do, they fill with your text.",
-    "next": "Next",
-    "finish": "Make the book",
-    "casting": "Casting your chart…",
-    "choose": "Choose one",
-    "male": "Male",
-    "female": "Female",
     "timeHint": "Use the clock time on your birth certificate. We handle daylight saving ourselves.",
     "slotsLoading": "Working out the hours of that day…",
-    "exactToggle": "I know the exact time",
-    "backToSlots": "Choose an hour instead",
-    "noHour": "Hour unknown",
-    "noHourSummary": "Hour unknown",
     "noHourComfort": "Without the hour we can't place the Life Palace, so this book will stay on your shelf with a dotted spine, waiting for its hour. It is usually on the birth certificate, and family can often remember. Add the hour and the book is complete.",
     "awaitTitle": "Waiting for the hour",
     "awaitBody1": "The year, month and day are in place; the Life Palace is still waiting for the hour. The book will stay on your shelf with a dotted spine.",

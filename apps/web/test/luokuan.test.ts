@@ -1,30 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import zh from '../messages/zh-Hant.json';
-import {
-  EMPTY_DRAFT,
-  PLACES,
-  STEPS,
-  answeredBefore,
-  canLeave,
-  chineseDate,
-  firstUnanswered,
-  isAnswered,
-  isComplete,
-  shichenOf,
-  stepFromQuery,
-  summaryOf,
-  toCastRequest,
-  type Draft,
-} from '@/lib/luokuan';
-
-/** 已答嗰行嘅中文字，由 messages 嚟 —— 測嘅就係讀者見到嘅字。 */
-const words = {
-  noHour: zh.cast.noHourSummary,
-  male: zh.cast.male,
-  female: zh.cast.female,
-  place: (key: string) => (zh.places as Record<string, string>)[key]!,
-  date: (iso: string) => chineseDate(iso) ?? iso,
-};
+import { EMPTY_DRAFT, PLACES, STEPS, isAnswered, isComplete, toCastRequest, type Draft } from '@/lib/luokuan';
 
 const TIME_HINT = zh.cast.timeHint;
 
@@ -38,13 +14,13 @@ const full: Draft = {
   sex: 'male',
 };
 
-describe('五步', () => {
+describe('落款五樣（2026-10-06 起一版過寫晒）', () => {
   /** 出生地同時辰掉咗位（2026-09）：時辰選項要知出生地先計得出。 */
   it('次序：出生地喺時辰前面', () => {
     expect([...STEPS]).toEqual(['name', 'date', 'place', 'time', 'sex']);
   });
 
-  it('答齊就完，唔使確認頁', () => {
+  it('寫齊就落得印，唔使確認頁', () => {
     expect(isComplete(full)).toBe(true);
     expect(isComplete(EMPTY_DRAFT)).toBe(false);
   });
@@ -67,93 +43,6 @@ describe('⚠ 「唔知時辰」係一個答案，唔係跳過', () => {
   it('唔知時辰嘅請求，time 係 null，唔係一個填咗嘅值', () => {
     const req = toCastRequest({ ...full, noHour: true, time: '' });
     expect(req?.time).toBeNull();
-  });
-});
-
-describe('⚠ 一步都唔可以跳（架構 §3）', () => {
-  /**
-   * 「唔可以 deep link 去『題名』—— 冇前面三幕鋪排，
-   * 見到自己個名嗰下冇感覺。」
-   *
-   * 所以規矩唔係擋一個特定嘅 step，係**前面未答就去唔到**。
-   */
-  it('空草稿之下，所有 step 都落返第一步', () => {
-    for (const s of STEPS) expect(stepFromQuery(s, EMPTY_DRAFT), s).toBe('name');
-  });
-
-  it('答咗名，就去得到日期，但去唔到時辰之後', () => {
-    const draft = { ...EMPTY_DRAFT, name: '李文卿' };
-    expect(stepFromQuery('date', draft)).toBe('date');
-    expect(stepFromQuery('place', draft)).toBe('date');
-    expect(stepFromQuery('sex', draft)).toBe('date');
-  });
-
-  it('答晒就去得返任何一步（改答案）', () => {
-    for (const s of STEPS) expect(stepFromQuery(s, full), s).toBe(s);
-  });
-
-  it.each([null, undefined, '', 'naming', 'casting', 'NAME', '../'])(
-    '唔識嘅 step「%s」→ 落第一個未答嘅',
-    (raw) => {
-      expect(stepFromQuery(raw, { ...EMPTY_DRAFT, name: '李' })).toBe('date');
-    },
-  );
-
-  it('全部答晒之後，firstUnanswered 回最後一步 —— 唔會爆', () => {
-    expect(firstUnanswered(full)).toBe('sex');
-  });
-});
-
-describe('已答嘅留喺上面', () => {
-  it('時辰嗰步（第四步），上面有頭三步', () => {
-    expect(answeredBefore('time', full)).toEqual(['name', 'date', 'place']);
-  });
-
-  it('第一步嗰陣，上面乜都冇', () => {
-    expect(answeredBefore('name', full)).toEqual([]);
-  });
-
-  it('跳過未答嘅（唔應該出現，但唔可以爆）', () => {
-    const draft = { ...EMPTY_DRAFT, name: '李文卿', placeIndex: 0 };
-    expect(answeredBefore('sex', draft)).toEqual(['name', 'place']);
-  });
-});
-
-describe('答完之後留喺上面嗰一行', () => {
-  it('日期用中文數字（視覺系統 §8）', () => {
-    expect(chineseDate('1998-03-12')).toBe('一九九八年三月十二日');
-    expect(chineseDate('2026-11-30')).toBe('二〇二六年十一月三十日');
-    expect(chineseDate('2000-01-01')).toBe('二〇〇〇年一月一日');
-    expect(chineseDate('2026-10-20')).toBe('二〇二六年十月二十日');
-  });
-
-  it('壞日期回 null，唔會出半截嘢', () => {
-    expect(chineseDate('98-3-12')).toBeNull();
-    expect(chineseDate('')).toBeNull();
-  });
-
-  it('時間顯示時辰，唔顯示鐘數', () => {
-    expect(shichenOf('07:40')).toBe('辰時');
-    expect(shichenOf('00:10')).toBe('子時');
-    expect(shichenOf('23:30')).toBe('子時');
-    expect(shichenOf('12:00')).toBe('午時');
-  });
-
-  it('唔知時辰就明寫出嚟', () => {
-    expect(summaryOf('time', { ...full, noHour: true }, words)).toBe('不知時辰');
-  });
-
-  it('揀咗時辰就留返嗰個時辰同鐘面時間', () => {
-    expect(summaryOf('time', { ...full, time: '14:35', slot: '未時 · 13:36–15:35' }, words)).toBe('未時 · 13:36–15:35');
-  });
-
-  /** 填準確時間唔再估時辰：鐘面同真太陽時唔同，估就會錯。 */
-  it('填準確時間就寫返個時間', () => {
-    expect(summaryOf('time', full, words)).toBe('07:40');
-  });
-
-  it('五步每一步都有一行可以留低', () => {
-    for (const s of STEPS) expect(summaryOf(s, full, words), s).not.toBe('');
   });
 });
 
@@ -292,22 +181,15 @@ describe('⚠ server action 係一個公開 endpoint', () => {
 });
 
 describe('姓名可以留空（2026-09）', () => {
-  it('留空都撳得落一步', () => {
-    expect(canLeave('name', EMPTY_DRAFT)).toBe(true);
-    expect(canLeave('name', { ...EMPTY_DRAFT, name: '字'.repeat(41) })).toBe(false);
-    expect(canLeave('date', EMPTY_DRAFT)).toBe(false);
-  });
-
-  it('未撳過落一步，空名唔算答咗 —— 一開頁唔會跳過姓名', () => {
+  it('落印之前，空名唔算答咗（落印嗰下先當「無名」）', () => {
     expect(isAnswered('name', EMPTY_DRAFT)).toBe(false);
-    expect(stepFromQuery(null, EMPTY_DRAFT)).toBe('name');
-    expect(stepFromQuery('date', EMPTY_DRAFT)).toBe('name');
+    expect(isAnswered('name', { ...EMPTY_DRAFT, name: '字'.repeat(41) })).toBe(false);
   });
 
-  it('留空撳咗落一步：算答咗，上面寫「無名」', () => {
+  it('留空落印：算答咗，砌得出請求', () => {
     const blank = { ...full, name: '  ', nameless: true };
     expect(isAnswered('name', blank)).toBe(true);
     expect(isComplete(blank)).toBe(true);
-    expect(summaryOf('name', blank, words)).toBe('無名');
+    expect(toCastRequest(blank)).not.toBeNull();
   });
 });
