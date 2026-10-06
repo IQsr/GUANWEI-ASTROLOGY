@@ -40,7 +40,7 @@ export default async function SamplePage({ params }: { params: Promise<{ locale:
 
   return (
     <main className="juan tai shuzhuo-tai ye-ink">
-      <NightScene variant="desk" />
+      <NightScene variant="table" />
       <Juanshou
         back={{ href: '/', label: t('back') }}
         aside={

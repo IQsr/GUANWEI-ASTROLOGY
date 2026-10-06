@@ -21,7 +21,6 @@ import { chartLayers } from '@/lib/layers.server';
 export const metadata: Metadata = { title: '樣板 · 書桌閱讀', robots: { index: false, follow: false } };
 export const dynamic = 'force-dynamic';
 
-const JADE_CHAPTERS = ['這十年', '這一年', '給你的話'];
 
 export default async function ShuzhuoDemo({
   params,
@@ -55,7 +54,6 @@ export default async function ShuzhuoDemo({
         chart={r.value}
         layers={layers}
         palace={here.slug}
-        tone={JADE_CHAPTERS.includes(here.slug) ? 'jade' : undefined}
         follow
         top={<p className="font-serif text-lead tracking-[0.16em] text-ink-2">樣板命書</p>}
       >

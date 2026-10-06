@@ -33,8 +33,6 @@ export function generateStaticParams() {
 
 export const dynamicParams = true;
 
-/** 墨綠頁（2026-10-04）：講時間嘅兩章同書尾總結 —— 同效果圖嘅「流年」頁一樣做重點頁。 */
-const JADE_CHAPTERS = ['這十年', '這一年', '給你的話'];
 
 export async function generateMetadata({
   params,
@@ -158,7 +156,7 @@ export default async function ChapterPage({
   return (
     /* 書桌閱讀：左頁命盤跟住右頁讀緊嘅段落亮，右頁喺頁入面捲 */
     <main className="juan tai shuzhuo-tai ye-ink">
-      <NightScene variant="desk" />
+      <NightScene variant="table" />
       <Juanshou back={backToContents(bookId)} step={3} />
 
       {/* 冇畫面。記低讀到邊、幾時讀 —— 書架靠佢排序（E3）。 */}
@@ -172,7 +170,6 @@ export default async function ChapterPage({
           chart={chart}
           layers={layers}
           palace={here.slug}
-          tone={JADE_CHAPTERS.includes(here.slug) ? 'jade' : undefined}
           follow={body !== null}
           prev={turnPrev}
           next={turnNext}

@@ -37,6 +37,15 @@ export const TURNING_ATTR = 'data-turning';
 
 function clonePage(page: Element): HTMLElement {
   const copy = page.cloneNode(true) as HTMLElement;
+  /*
+   * ⚠ 照抄原頁實際嘅留白（2026-10-06）：實物書嘅頁留白係按本書闊度計嘅百分比，
+   * 複製品離開本書之後百分比會對住另一個闊度計，字會一翻就跳位。
+   */
+  const cs = getComputedStyle(page);
+  copy.style.padding = cs.padding;
+  /* 原頁有捲動條、複製品冇（overflow hidden）：補返條捲動條嘅闊度，每行先斷喺同一個字 */
+  const bar = (page as HTMLElement).offsetWidth - (page as HTMLElement).clientWidth;
+  if (bar > 0) copy.style.paddingRight = `calc(${cs.paddingRight} + ${bar}px)`;
   copy.removeAttribute('id');
   copy.setAttribute('aria-hidden', 'true');
   copy.setAttribute('inert', '');
@@ -55,7 +64,21 @@ function turnLeaf(book: HTMLElement, direction: 'next' | 'prev') {
   const right = book.querySelector<HTMLElement>('.shuzhuo-you');
   if (!right) return;
   const single = !left || getComputedStyle(left).display === 'none';
-  const box = book.getBoundingClientRect();
+  /*
+   * 2026-10-06 實物書：兩頁唔再係本書嘅左右各一半 —— 頁係相入面嗰兩張紙（左右有布面、中間有書脊）。
+   * 所以個框用兩頁嘅真實位置，張紙用被揭起嗰頁嘅真實位置同闊度，軸心擺喺兩頁中間嘅書脊，
+   * 向前翻差唔多啱啱跌落左頁度（兩頁闊度差少少，相差幾 px）。手機得一頁，照舊用成本書。
+   */
+  const rightBox = right.getBoundingClientRect();
+  const leftBox = !single && left ? left.getBoundingClientRect() : null;
+  const box = leftBox
+    ? {
+        left: leftBox.left,
+        top: Math.min(leftBox.top, rightBox.top),
+        width: rightBox.right - leftBox.left,
+        height: Math.max(leftBox.bottom, rightBox.bottom) - Math.min(leftBox.top, rightBox.top),
+      }
+    : book.getBoundingClientRect();
 
   const stage = document.createElement('div');
   stage.className = 'fanye-tai';
@@ -69,6 +92,15 @@ function turnLeaf(book: HTMLElement, direction: 'next' | 'prev') {
   const leaf = document.createElement('div');
   leaf.className = 'fanye-ye';
   leaf.dataset.dir = single ? 'single' : direction;
+  if (leftBox) {
+    const src = direction === 'next' ? rightBox : leftBox;
+    const gap = rightBox.left - leftBox.right;
+    Object.assign(leaf.style, {
+      left: `${src.left - box.left}px`,
+      width: `${src.width}px`,
+      transformOrigin: direction === 'next' ? `${-gap / 2}px 50%` : `${src.width + gap / 2}px 50%`,
+    });
+  }
 
   const face = (cls: string, page: HTMLElement | null) => {
     const f = document.createElement('div');

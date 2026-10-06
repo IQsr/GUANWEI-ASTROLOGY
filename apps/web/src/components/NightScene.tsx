@@ -16,7 +16,11 @@ import { StarWindow } from '@/components/StarWindow';
  *
  * `StarWindow` 由佢嘅 parent 讀 `--ye-pos`，所以張相同星一定要喺同一個 `.ye` 入面。
  */
-export function NightScene({ variant }: { variant: 'home' | 'desk' }) {
+/*
+ * `table`（2026-10-06）：讀書嗰幾版（目次、章、示範書）—— 俯視一張木枱，本書攤喺上面（真相，globals.css `.ye-table`）。
+ */
+export function NightScene({ variant }: { variant: 'home' | 'desk' | 'table' }) {
+  if (variant === 'table') return <div className="ye-table" aria-hidden="true" />;
   if (variant === 'home') {
     return (
       <>

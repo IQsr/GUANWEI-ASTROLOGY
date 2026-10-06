@@ -2927,7 +2927,9 @@
   inset: 0;
   overflow: hidden;
   backface-visibility: hidden;
-  background: var(--paper);
+  /* 翻緊嗰張紙都有紙紋（2026-10-06 實物書），唔好係一塊平色 */
+  background: var(--paper) url("/img/book/paper.webp") 0 0 / 320px 320px repeat;
+  background-blend-mode: multiply;
 }
 
 /* 面上嘅複製頁要填滿成面（佢本身係一個會捲嘅頁）。唔郁 display：左頁係置中嘅 flex，改咗個盤會移位 */
@@ -3082,7 +3084,7 @@
   min-height: 100%;
   flex-direction: column;
   align-items: center;
-  padding-top: clamp(1.5rem, 6vh, 4rem);
+  padding-top: clamp(0.5rem, 3vh, 2.5rem);
   text-align: center;
 }
 
@@ -3110,7 +3112,11 @@
 }
 
 .feiye-pan .xing-pan {
-  margin: 1.75rem auto 0.25rem;
+  margin: 1.25rem auto 0.25rem;
+}
+
+.feiye-pan .xing-pan svg {
+  width: min(170px, 46vw);
 }
 
 .feiye-pan .xing-pan figcaption:empty {
@@ -3124,13 +3130,13 @@
 }
 
 .feiye-yin {
-  margin-top: 1.75rem;
+  margin-top: 1.25rem;
 }
 
 .feiye-qie {
   align-self: center;
   margin-top: auto;
-  padding-top: 2rem;
+  padding-top: 1.25rem;
   font-size: var(--text-cap);
   letter-spacing: 0.18em;
   color: var(--ink-3);
@@ -3269,4 +3275,241 @@
 :lang(en) .mulu-zu-ming,
 :lang(en) .shu-kai-du {
   letter-spacing: 0.02em;
+}
+
+/*
+ * ── 實物書（2026-10-06 · 試讀回饋：本書「似 PDF、冇書本感」）──────────────
+ *
+ * 用真相（public/img/book/）做本書同張枱，字照舊係網頁：
+ *   桌面（≥900px）：一本攤開嘅線裝書（open-book.webp，灰綠布面、書脊穿繩，已裁到書本身，1456 × 862）。
+ *     兩頁嘅 HTML 絕對定位喺相入面張紙上（量過：左頁 4.74% 起闊 44.3%，右頁 51.44% 起闊 44.85%，
+ *     上 2.09% 高 93.97%）。書脊、頁邊一疊疊嘅紙全部係相，唔再用 CSS 畫。
+ *     2026-10-06：本書放大 —— 預留高度收到「頁頂導覽 ＋ 170px」，最闊 1440px。
+ *     陰影擺喺 ::before（連相一齊），唔加喺本書上 —— filter 會令字變矇。
+ *   手機：冇攤開嘅書，單頁照舊，紙面加紙紋（paper.webp，640 tile）。
+ *   張枱：俯視木枱（desk.webp），只係讀書嗰幾版用（`NightScene variant="table"`）；
+ *     落款、題名照舊係書房同窗。
+ */
+.ye-table {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: #1a120b url("/img/book/desk.webp") center / cover no-repeat;
+}
+
+/* 四邊壓暗：光由左上盞燈嚟，本書企喺光入面 */
+.ye-table::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 70% 65% at 50% 52%, rgb(12 8 4 / 0.05), rgb(12 8 4 / 0.6) 100%);
+}
+
+@media (min-width: 900px) {
+  .shuzhuo-shu {
+    display: block;
+    width: min(100%, 1440px, calc((100svh - var(--header) - 146px) * 1.689));
+    max-width: none;
+    height: auto;
+    aspect-ratio: 1456 / 862;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .shuzhuo-shu::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background: url("/img/book/open-book.webp") center / 100% 100% no-repeat;
+    filter: drop-shadow(0 28px 34px rgb(0 0 0 / 0.55)) drop-shadow(0 4px 6px rgb(0 0 0 / 0.35));
+  }
+
+  .shuzhuo-shu > .shuzhuo-zuo,
+  .shuzhuo-shu > .shuzhuo-you {
+    position: absolute;
+    z-index: 1;
+    top: 2.09%;
+    height: 93.97%;
+    /* 2026-10-06：留白收窄（百分比係對本書闊度計），內容跟紙張大小 —— 命盤大啲、右頁一行多幾個字 */
+    padding: 3.6% 3.2% 3%;
+    border-radius: 0;
+    box-shadow: none;
+    background-color: transparent;
+    background-image: var(--shan);
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    background-size: 100% 18%;
+  }
+
+  .shuzhuo-shu > .shuzhuo-zuo {
+    left: 4.74%;
+    width: 44.3%;
+  }
+
+  .shuzhuo-shu > .shuzhuo-you {
+    left: 51.44%;
+    width: 44.85%;
+  }
+
+  /* 閱讀頁個台放闊，本書先擺得滿 */
+  .tai.shuzhuo-tai {
+    max-width: 1480px;
+  }
+
+  /* 卷首同本書之間收到 16px（天頭 64 唔郁，check-juanshou 守住） */
+  .shuzhuo-tai > .banxin.border-b {
+    margin-bottom: 16px;
+  }
+
+  /* 墨綠頁：右頁張紙換墨綠（落喺相上面），其餘照相 */
+  .shuzhuo-shu[data-tone="jade"] > .shuzhuo-you {
+    background-color: var(--jade);
+    /* 書脊一邊入暗，好似張墨綠紙都跟住書縫彎落去 */
+    background-image: var(--shan), linear-gradient(to right, rgb(0 0 0 / 0.38), rgb(0 0 0 / 0.08) 7%, transparent 16%);
+    background-repeat: no-repeat, no-repeat;
+    background-position: bottom center, 0 0;
+    background-size: 100% 18%, 100% 100%;
+  }
+}
+
+/* 手機：單頁，紙面加紙紋 */
+@media (max-width: 899px) {
+  .shuzhuo-ye {
+    background-color: var(--paper);
+  }
+
+  .shuzhuo-shu:not([data-tone="jade"]) .shuzhuo-you:not([data-zhe]),
+  .shuzhuo-zuo {
+    background-image: var(--shan), url("/img/book/paper.webp");
+    background-repeat: no-repeat, repeat;
+    background-position: bottom center, 0 0;
+    background-size: 100% 12%, 320px 320px;
+    background-blend-mode: normal, multiply;
+  }
+
+  /* 經摺（讀章）：保留摺痕同單雙摺深淺，紙紋做最底一層、跟內容捲 */
+  .shuzhuo-shu:not([data-tone="jade"]) .shuzhuo-you[data-zhe] {
+    background-image:
+      var(--shan),
+      repeating-linear-gradient(to right, rgb(40 30 15 / 0.12) 0, transparent 16px, transparent calc(100cqi - 22px), rgb(40 30 15 / 0.16) 100cqi),
+      repeating-linear-gradient(to right, transparent 0 100cqi, rgb(40 30 15 / 0.04) 100cqi 200cqi),
+      url("/img/book/paper.webp");
+    background-repeat: no-repeat, repeat, repeat, repeat;
+    background-position: bottom center, 0 0, 0 0, 0 0;
+    background-size: 100% 12%, auto, auto, 320px 320px;
+    background-attachment: scroll, local, local, local;
+    background-blend-mode: normal, normal, normal, multiply;
+  }
+}
+
+/*
+ * 左頁命盤跟紙張大小、跟本書嘅顏色（2026-10-06 · 試讀回饋）
+ *
+ * 大小：盤改正方形用埋直度；格入面主星 11px，其他細字按比例。
+ * 顏色：唔再係一塊米色板加靛藍高亮 —— 盤底透明，相入面張紙透出嚟；
+ *   界線同高亮用本書布面嘅灰綠（由相抽出：布 #929987、紙 #eae3d8、繩 #d8c6ac），
+ *   本宮照舊一條朱砂細框（印嘅顏色，全書一致）。只係桌面左頁，手機嗰格盤唔郁。
+ */
+@media (min-width: 900px) {
+  .shuzhuo-zuo .pan-wrap {
+    --sage: 146 153 135;
+    --sage-ink: #5f6855;
+  }
+
+  .shuzhuo-zuo .pan {
+    aspect-ratio: 1 / 1;
+    background: rgb(var(--sage) / 0.42);
+    border-color: rgb(var(--sage) / 0.95);
+  }
+
+  .shuzhuo-zuo .gong,
+  .shuzhuo-zuo .zhong-gong {
+    background: #eae3d8;
+  }
+
+  .shuzhuo-zuo .gong[data-ming="1"] {
+    background: color-mix(in srgb, rgb(var(--sage)) 14%, #eae3d8);
+  }
+
+  .shuzhuo-zuo .gong[data-lit="san"],
+  .shuzhuo-zuo .gong[data-ming="1"][data-lit="san"] {
+    background: color-mix(in srgb, rgb(var(--sage)) 22%, #eae3d8);
+  }
+
+  .shuzhuo-zuo .gong[data-lit="self"] {
+    background: color-mix(in srgb, rgb(var(--sage)) 30%, #eae3d8);
+    box-shadow: inset 0 0 0 1px var(--cinnabar);
+  }
+
+  .shuzhuo-zuo .gong-ming,
+  .shuzhuo-zuo .gong-zhi,
+  .shuzhuo-zuo .gong-daxian,
+  .shuzhuo-zuo .miaowang {
+    color: var(--sage-ink);
+  }
+
+  .shuzhuo-zuo .gong[data-ming="1"] .gong-ming {
+    color: var(--cinnabar);
+  }
+
+  /* 四化框：祿權科用布面深灰綠，忌照舊朱砂 */
+  .shuzhuo-zuo .sihua {
+    color: var(--sage-ink);
+  }
+
+  .shuzhuo-zuo .sihua[data-hua="忌"] {
+    color: var(--cinnabar);
+  }
+
+  .shuzhuo-zuo .xing > .zi {
+    font-size: 11px;
+  }
+
+  .shuzhuo-zuo .xing[data-kind="aux"] > .zi {
+    font-size: 10px;
+  }
+
+  .shuzhuo-zuo .miaowang,
+  .shuzhuo-zuo .sihua {
+    font-size: 9px;
+  }
+
+  .shuzhuo-zuo .gong-ming {
+    font-size: 10.5px;
+  }
+
+  .shuzhuo-zuo .gong-zhi {
+    font-size: 10px;
+  }
+
+  .shuzhuo-zuo .gong-daxian {
+    font-size: 9px;
+  }
+
+  /* 英文：拼音比漢字闊，細一個碼；一格四粒星准摺第二行 */
+  .shuzhuo-zuo .pan-wrap[data-lang="en"] .xing > .zi {
+    font-size: 10px;
+  }
+
+  .shuzhuo-zuo .pan-wrap[data-lang="en"] .xing[data-kind="aux"] > .zi {
+    font-size: 9px;
+  }
+
+  .shuzhuo-zuo .pan-wrap[data-lang="en"] .xing-lie {
+    flex-wrap: wrap;
+    align-content: flex-start;
+    gap: 3px 3px;
+  }
+
+  .shuzhuo-zuo .pan-wrap[data-lang="en"] .gong-ming {
+    font-size: 9.5px;
+  }
+
+  .shuzhuo-zuo .pan-wrap[data-lang="en"] .gong-zhi,
+  .shuzhuo-zuo .pan-wrap[data-lang="en"] .gong-daxian {
+    font-size: 9px;
+  }
 }

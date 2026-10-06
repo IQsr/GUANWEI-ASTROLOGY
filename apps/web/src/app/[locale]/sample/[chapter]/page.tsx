@@ -23,8 +23,6 @@ export function generateStaticParams() {
   return routing.locales.flatMap((locale) => (book?.chapters ?? []).map((c) => ({ locale, chapter: c.slug })));
 }
 
-/** 同真書一樣嘅重點頁 */
-const JADE_CHAPTERS = ['這十年', '這一年', '給你的話'];
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -81,7 +79,7 @@ export default async function SampleChapter({ params }: { params: Promise<{ loca
 
   return (
     <main className="juan tai shuzhuo-tai ye-ink">
-      <NightScene variant="desk" />
+      <NightScene variant="table" />
       <Juanshou
         back={{ href: contentsHref(SAMPLE_BOOK), label: t('title') }}
         aside={
@@ -94,7 +92,6 @@ export default async function SampleChapter({ params }: { params: Promise<{ loca
         chart={book.chart}
         layers={book.layers}
         palace={here.slug}
-        tone={JADE_CHAPTERS.includes(here.slug) ? 'jade' : undefined}
         follow
         prev={turnPrev}
         next={turnNext}
