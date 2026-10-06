@@ -1,6 +1,6 @@
 import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
-import { annual, BRANCHES, cast, flowStars, STEMS, tianxingBranch, type Branch } from '../src/index';
+import { annual, BRANCHES, cast, flowStars, peachStars, STEMS, tianxingBranch, type Branch } from '../src/index';
 
 /**
  * 流曜同天刑（2026-10-04）。天刑對照文墨天機（獨立證人，見 conformance-wenmo）。
@@ -71,5 +71,39 @@ describe('天刑', () => {
       n++;
     }
     expect(n).toBeGreaterThanOrEqual(20);
+  });
+});
+
+describe('桃花諸曜（紅鸞、天喜、天姚、咸池）', () => {
+  it('二十一張盤四粒都同文墨天機一樣', () => {
+    let n = 0;
+    for (const c of CHARTS) {
+      const r = cast({
+        solar: { y: c.birth.y, m: c.birth.m, d: c.birth.d },
+        time: { h: c.birth.h, min: c.birth.min },
+        tz: 'Etc/GMT-8',
+        place: { lng: 120, lat: 30, label: 'x' },
+        sex: c.yinyang.endsWith('男') ? 'male' : 'female',
+      });
+      if (!r.ok) throw new Error(c.file);
+      const ours = peachStars(r.value);
+      for (const star of ['紅鸞', '天喜', '天姚', '咸池'] as const) {
+        const theirs = Object.entries(c.palaces).find(([, p]) => p.stars.some(([s]) => s === star))?.[0];
+        if (!theirs) continue;
+        expect(ours[star], `${c.file} ${star}`).toBe(theirs);
+        n++;
+      }
+    }
+    /* 21 張 × 4 粒；文墨冇印嘅唔計，但起碼要對到八成 */
+    expect(n).toBeGreaterThanOrEqual(70);
+  });
+
+  it('天喜永遠喺紅鸞對宮', () => {
+    for (const y of [1984, 1990, 1997, 2003]) {
+      const r = cast({ solar: { y, m: 6, d: 15 }, time: { h: 12, min: 0 }, tz: 'Asia/Hong_Kong', place: { lng: 114.17, lat: 22.32, label: '香港' }, sex: 'male' });
+      if (!r.ok) throw new Error('cast');
+      const p = peachStars(r.value);
+      expect((BRANCHES.indexOf(p.紅鸞) + 6) % 12).toBe(BRANCHES.indexOf(p.天喜));
+    }
   });
 });
