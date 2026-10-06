@@ -8,3 +8,4 @@ export * from './sanfang';
 export * from './annual';
 export * from './liuyao';
 export * from './monthly';
+export * from './xiaoxian';
