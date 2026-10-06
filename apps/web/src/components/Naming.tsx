@@ -9,7 +9,7 @@ import { BookSpread, type Box } from "@/components/BookSpread";
 import { Seal } from "@/components/Seal";
 import { INK_MS, NAMING_MS, SEAL_DELAY_MS } from "@/lib/timing";
 import { MARK, LATIN } from "@/lib/site";
-import { BrandMark } from "@/components/BrandMark";
+import { NightScene } from "@/components/NightScene";
 import { LIFE_PALACE } from "@/lib/suidu";
 import { bookTitle } from "@/lib/chengshu";
 import { setQuiet } from "@/lib/quiet";
@@ -99,6 +99,10 @@ export function Naming({
   if (desk) {
     return (
       <>
+        {/* 本書拎起放上張枱：書房夜景淡走，換做目次同每一章嗰張木枱（`.mu-zhuo` 淡入） */}
+        <div className="mu-zhuo">
+          <NightScene variant="table" />
+        </div>
         <div className="jian-xian">
           <Juanshou back="shelf" step={2} />
         </div>
@@ -172,12 +176,13 @@ export function Naming({
         }}
         label={t("book", { name })}
         cover={
-          <div className="flex h-full flex-col justify-between p-7 ps-10">
-            <span className="flex items-center gap-3 font-latin text-cap uppercase tracking-[0.42em] text-ink-3">
-              <BrandMark size={28} />
-              {LATIN}
-            </span>
-            <div>
+          /*
+           * 2026-10-06 實物書：封面係線裝書嘅相（cover.webp），名直寫喺題簽上面，
+           * 印落喺題簽下面嘅布面。書脊喺左（本書向左揭），所以張相左右反轉 —— 題簽同書脊相對。
+           */
+          <div className="mu-feng">
+            <span className="sr-only">{LATIN}</span>
+            <div className="mu-qian">
               {/*
                * 墨滲寫名：1600ms。同入齋「觀微」兩個字一樣嘅時間。
                *
@@ -186,20 +191,20 @@ export function Naming({
                * 改咗 `--dur-4` 唔應該連呢一幕嘅節奏都跟住變。
                */}
               <p
-                className="moshen text-h2 font-semibold tracking-[0.18em]"
+                className="moshen mu-qian-ming"
                 style={{ animationDuration: `${INK_MS}ms` }}
               >
                 {name}
               </p>
-              <p className="mt-2 text-sm tracking-[0.1em] text-ink-2">{t("suffix")}</p>
-              {/* 停 1.2 秒 —— 然後落印。 */}
-              <Seal
-                text={MARK}
-                label={t("seal")}
-                className="yin-luo mt-6"
-                style={{ animationDelay: `${SEAL_DELAY_MS}ms` }}
-              />
+              <p className="mu-qian-hou">{t("suffix")}</p>
             </div>
+            {/* 停 1.2 秒 —— 然後落印。 */}
+            <Seal
+              text={MARK}
+              label={t("seal")}
+              className="yin-luo mu-feng-yin"
+              style={{ animationDelay: `${SEAL_DELAY_MS}ms` }}
+            />
           </div>
         }
         /*

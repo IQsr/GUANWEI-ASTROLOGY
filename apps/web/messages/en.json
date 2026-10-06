@@ -177,6 +177,41 @@
       "NOT_IMPLEMENTED": "This part isn't ready yet."
     }
   },
+  "juanzhou": {
+    "title": "Inscription",
+    "lead": "Write your birth details. Once sealed, the book is written from them.",
+    "label": {
+      "name": "Name",
+      "date": "Born",
+      "place": "Birthplace",
+      "time": "Hour",
+      "sex": "Sex"
+    },
+    "namePh": "Optional; the book will say “Nameless”",
+    "year": "",
+    "month": "",
+    "day": "",
+    "calendar": "Western calendar",
+    "yearAria": "Birth year",
+    "monthAria": "Birth month",
+    "dayAria": "Birth day",
+    "choose": "Choose",
+    "timeWait": "Fill in the date and place first",
+    "timeChoose": "Choose an hour",
+    "exact": "I know the exact time",
+    "noHour": "I don’t know the hour",
+    "male": "Male",
+    "female": "Female",
+    "seal": "Seal",
+    "sealing": "Casting",
+    "sealed": "Sealed",
+    "readyHint": "All written. Seal it to make the book.",
+    "missing": "Still needed: {list}",
+    "sep": ", ",
+    "yearPh": "Year",
+    "monthPh": "Month",
+    "dayPh": "Day"
+  },
   "shichen": {
     "branch": [
       "Zi",

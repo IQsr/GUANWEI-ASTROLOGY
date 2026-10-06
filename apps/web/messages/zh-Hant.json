@@ -180,6 +180,41 @@
       "NOT_IMPLEMENTED": "這一部分還未做好。"
     }
   },
+  "juanzhou": {
+    "title": "落　款",
+    "lead": "寫下生辰。落了印，書就照它來寫。",
+    "label": {
+      "name": "姓名",
+      "date": "生辰",
+      "place": "生地",
+      "time": "時辰",
+      "sex": "性別"
+    },
+    "namePh": "可以留空，書上會寫「無名」",
+    "year": "年",
+    "month": "月",
+    "day": "日",
+    "calendar": "國曆",
+    "yearAria": "出生年份",
+    "monthAria": "出生月份",
+    "dayAria": "出生日子",
+    "choose": "請選擇",
+    "timeWait": "先寫好生辰與生地",
+    "timeChoose": "選一個時辰",
+    "exact": "記得準確時間",
+    "noHour": "不知道時辰",
+    "male": "男",
+    "female": "女",
+    "seal": "落印",
+    "sealing": "排盤",
+    "sealed": "已落印",
+    "readyHint": "都寫好了。落印，就成書。",
+    "missing": "尚欠：{list}",
+    "sep": "、",
+    "yearPh": "1990",
+    "monthPh": "",
+    "dayPh": ""
+  },
   "shichen": {
     "branch": [
       "子",
