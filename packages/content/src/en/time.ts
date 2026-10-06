@@ -1,5 +1,6 @@
 import rulesRaw from '../daxian/rules.json';
 import { LIUYUE, LIUYUE_FLAT, LIUYUE_LEAD, LIUYUE_REST, MONTH_CN } from '../liuyue';
+import { KUIYUE_TEXT } from '../kuiyue';
 import { ageRange, ageStart, agePoint, palaceEn } from './facts';
 import { AREA_EN, AREA_ON_EN, BRANCH_EN, STEM_EN, cnNum, listEn, ordinalWord, star } from './terms';
 
@@ -236,7 +237,16 @@ function liuyueEn(s: string): string | null {
   return null;
 }
 
+/* ── 流魁流鉞冲起本命魁鉞（kuiyue.ts，2026-10-06） ── */
+const KUIYUE_EN: Record<string, string> = {
+  [KUIYUE_TEXT.decade]:
+    "Over these ten years, you have help from benefactors and openings: the decade's Tian Kui and Tian Yue land right on your birth chart's own, so your abilities find room to show, and change often follows.",
+  [KUIYUE_TEXT.year]:
+    "This year, you have help from benefactors and openings: this year's Tian Kui and Tian Yue land right on your birth chart's own, so your abilities find room to show, and change often follows.",
+};
+
 export function timeTemplate(s: string, missing: string[], h: TimeHelpers): string | null {
+  if (KUIYUE_EN[s]) return KUIYUE_EN[s]!;
   const month = liuyueEn(s);
   if (month) return month;
   /* ── 一生十二步 ── */

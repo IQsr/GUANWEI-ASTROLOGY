@@ -3,6 +3,7 @@ import { FORBIDDEN_TERMS } from './frame';
 import { palaceLabel } from './link';
 import { leanOf, xingxiOf } from './xingxi';
 import { monthSegment } from './liuyue';
+import { KUIYUE_SOURCE, KUIYUE_TEXT, kuiyueRises } from './kuiyue';
 import { DAXIAN_HUA, DAXIAN_RULES, adviceSegment, area, areaSegments, decadeView, num, pivotRule, starsOf, yearCN, type DaxianSegment } from './daxian';
 
 /* ───────────────────────────────────────────────────────────
@@ -13,6 +14,7 @@ import { DAXIAN_HUA, DAXIAN_RULES, adviceSegment, area, areaSegments, decadeView
  *
  *   結論     流年祿、忌落喺今年邊一宮
  *   流年     流年命宮（太歲宮）落本命邊宮、大限邊宮、坐乜星；當命宮讀（六十星系，用流年四化）
+ *   魁鉞     流魁流鉞冲起本命魁鉞（p.8、9，`kuiyue.ts`，2026-10-06）
  *   四化     流年四化逐粒講（同大限一樣嘅講法，p.238–313）
  *   互動     流年四化碰大限四化；冇碰大限先睇本命（規則同大限，p.235–237）
  *   逐月     流月（斗君，《全書》卷二〈安斗君訣〉）：偏吉、偏凶嘅月份（`liuyue.ts`，2026-10-06）
@@ -20,7 +22,7 @@ import { DAXIAN_HUA, DAXIAN_RULES, adviceSegment, area, areaSegments, decadeView
  *   樞紐     下篇「以某某宮垣為流年／年限樞紐」：今年流年命宮落正樞紐就講明
  *
  * ⚠ 本書寫咗唔變（R-008），寫「寫這本書的這一年」；唔預測事件、唔講病、唔講金額。
- * ⚠ 書入面大量用流羊、流陀（流年祿存、羊陀），引擎未排，唔講。
+ * ⚠ 書入面大量用流羊、流陀講凶；引擎有（2026-10-04），但呢章講將來，唔用嚟講凶（只用喺回看過去）。
  * ─────────────────────────────────────────────────────────── */
 
 export const YEAR_SLUG = '這一年';
@@ -133,6 +135,8 @@ export function yearChapter(input: { chart: Chart; year: number }): { slug: stri
   const segments = [
     seg('結論', lead, isKey ? pivot!.source : null),
     seg('流年', fact + leanLine, x ? `xingxi.${x.system.n}` : null),
+    /* 流魁流鉞冲起本命魁鉞（深造講義 p.8、9，`kuiyue.ts`） */
+    ...(kuiyueRises(chart, A.mingGong, A.liuyao.annual) ? [seg('魁鉞', KUIYUE_TEXT.year, KUIYUE_SOURCE)] : []),
     ...areas.segments,
     seg('四化', huaLines.length && areas.segments.length ? `四化各自的意思：${huaLines.map((l) => l.text).join('')}` : huaLines.map((l) => l.text).join(''), huaLines.map((l) => l.id).filter(Boolean).join('+') || null),
     ...(interSeg ? [seg('互動', interSeg.text, interSeg.id)] : []),

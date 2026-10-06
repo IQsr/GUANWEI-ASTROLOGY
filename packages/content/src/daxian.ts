@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { annual, sanFangPalaces, sihuaOfStem, tianxingBranch, type AnnualChart, type Branch, type Chart, type Palace, type Sihua } from '@guanwei/ziwei';
+import { annual, flowStars, sanFangPalaces, sihuaOfStem, tianxingBranch, type AnnualChart, type Branch, type Chart, type Palace, type Sihua } from '@guanwei/ziwei';
 import huaRaw from './daxian/hua.json';
 import rulesRaw from './daxian/rules.json';
 import pivotsRaw from './daxian/pivots.json';
@@ -11,6 +11,7 @@ import { AREA, palaceLabel } from './link';
 import { FORBIDDEN_TERMS } from './frame';
 import { leanOf, xingxiOf } from './xingxi';
 import { palacePlain } from './palace-plain';
+import { KUIYUE_SOURCE, KUIYUE_TEXT, kuiyueRises } from './kuiyue';
 
 /* ───────────────────────────────────────────────────────────
  * 大限兩章（2026-09-30 · Issac：先做大限，參考書）
@@ -699,6 +700,8 @@ export function decadeChapter(input: { chart: Chart; year: number }): Out {
   const segments = [
     seg('結論', when + gist + young + (pivotSteps(chart).steps.includes(d.index) ? '這十年是你命盤裡的關鍵大限之一，這段時期的得失，對你一生影響特別大。' : '')),
     seg('大限', fact + leanLine, x ? `xingxi.${x.system.n}` : null),
+    /* 流魁流鉞冲起本命魁鉞（深造講義 p.8、9，`kuiyue.ts`） */
+    ...(kuiyueRises(chart, d.branch, flowStars(d.stem, d.branch)) ? [seg('魁鉞', KUIYUE_TEXT.decade, KUIYUE_SOURCE)] : []),
     ...areas.segments,
     seg('四化', huaLines.length && areas.segments.length ? `四化各自的意思：${huaLines.map((l) => l.text).join('')}` : huaLines.map((l) => l.text).join(''), huaLines.map((l) => l.id).filter(Boolean).join('+') || null),
     ...(interSeg ? [seg('互動', interSeg.text, interSeg.id)] : []),
