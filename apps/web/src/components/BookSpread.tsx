@@ -52,6 +52,7 @@ export function BookSpread({
   next = null,
   from = null,
   tone,
+  left,
   children,
 }: {
   chart: ZChart | null;
@@ -74,9 +75,15 @@ export function BookSpread({
   from?: Box | null;
   /** 右頁用墨綠底燙金字（2026-10-04：這十年、這一年、給你的話 —— 參考效果圖嘅「流年」頁）。 */
   tone?: 'jade';
+  /**
+   * 左頁唔放命盤，放呢樣（2026-10-06 · 開卷嘅扉頁）。命盤照留：扉頁底「看命盤」切換；
+   * 手機冇左頁，扉頁擺喺右頁頂。
+   */
+  left?: ReactNode;
   children: ReactNode;
 }) {
   const t = useTranslations('reading');
+  const [showPlate, setShowPlate] = useState(false);
   const en = useLocale() === 'en';
   const page = useRef<HTMLDivElement>(null);
   const book = useRef<HTMLElement>(null);
@@ -305,6 +312,22 @@ export function BookSpread({
         <TurnEdges prev={edgePrev} next={edgeNext} fold={turnFold} />
         {/* 左頁：命盤。個盤 aria-hidden —— 盤面嘅資訊正文已經講晒，讀屏唔使讀兩次；揀層嗰排掣唔收 */}
         <div className="shuzhuo-ye shuzhuo-zuo">
+          {left && !showPlate ? (
+            <>
+              {left}
+              {plate ? (
+                <button type="button" className="feiye-qie" onClick={() => setShowPlate(true)}>
+                  {t('showChart')} →
+                </button>
+              ) : null}
+            </>
+          ) : (
+          <>
+          {left ? (
+            <button type="button" className="feiye-qie mb-6" onClick={() => setShowPlate(false)}>
+              ← {t('backToTitle')}
+            </button>
+          ) : null}
           {top ? <div className="mb-6">{top}</div> : null}
           {tabs}
           <div aria-hidden="true" className="shuzhuo-pan" data-at={live ? (slot ?? '') : OPENING_SLOT}>
@@ -321,6 +344,8 @@ export function BookSpread({
               </div>
             ) : null}
           </div>
+          </>
+          )}
         </div>
 
         {/* 右頁：目次或者正文，喺頁入面捲 */}
@@ -331,6 +356,7 @@ export function BookSpread({
           </div>
         ) : null}
         <div ref={page} className="shuzhuo-ye shuzhuo-you" data-zhe={follow ? '' : undefined}>
+          {left ? <div className="shuzhuo-shouji mb-10">{left}</div> : null}
           {plate ? (
             <details className="shuzhuo-shouji mb-8">
               <summary className="cursor-pointer text-cap tracking-[0.16em] text-ink-3">{t('showChart')}</summary>

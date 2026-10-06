@@ -1,27 +1,22 @@
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import { PageTurnLink } from '@/components/PageTurnLink';
-import { ThemeIcon } from '@/components/ThemeIcon';
 import { ShiyanCard } from '@/components/ShiyanCard';
 import { chapterHref, payHref } from '@/lib/journey';
 import { groupChapters, tally } from '@/lib/themes';
 import type { ChapterMeta } from '@/lib/juan-view';
 
 /**
- * 呢本書（重新設計第三期 · 取代 F1 嗰張淨係章名嘅清單）
+ * 呢本書（重新設計第三期；2026-10-06 改做書嘅樣）
  *
- * 之前嘅目次係一張章名清單：睇唔到呢本書係點、讀到邊、「未裁」係乜。
- * 而家一版講四樣嘢，由上而下：
+ * 試讀回饋：開卷「似 PDF、好硬淨、冇 design 嘅感覺」。以前右頁係 app 嘅寫法 ——
+ * 圓角卡片、圖示、陰影、一粒大黑掣。而家改返實體書嘅開卷：
  *
- *   一、呢本書有幾多章、幾多免費、幾多未裁（一行）
- *   二、下一步：續讀上次嗰章，未讀過就由序讀起（一粒掣）
- *   三、序（開卷，自己一格）
- *   四、三個主題卡，入面列返宮位章（參考稿「我的命書」）
+ *   一、「這本書」：三段短文（係乜、點讀、唔講乜）
+ *   二、一行細字：幾多章、幾多免費、幾多未裁；一行「由《序》讀起 →」
+ *   三、目錄：傳統書目，主題做小標，章名 ＋ 虛點 ＋ 右邊狀態（讀到這裡／未裁）
  *
- * ⚠ 「未裁」喺呢度解釋**一次**，喺版尾，唔係逐章講 ——
- * 同架構 §4「老實講一次就唔好再嘈」同一個態度。
- * 價錢唔喺呢度出（架構 §6：全站得 `/pay` 准出價錢）。
- *
+ * ⚠ 「未裁」喺呢度解釋**一次**，喺版尾（架構 §4）。價錢唔喺呢度出（架構 §6）。
  * 純 props，冇撈資料 —— 真頁同 `/tokens/mulu` 樣板用同一個。
  */
 export function BookContents({
@@ -48,21 +43,17 @@ export function BookContents({
 
   const row = (c: ChapterMeta) => (
     <li key={c.slug}>
-      <PageTurnLink
-        href={chapterHref(bookId, c.slug)}
-        className="group flex items-baseline justify-between gap-4 border-b jielan py-3 transition-colors duration-200 ease-ink"
-      >
-        <span className="font-serif tracking-[0.08em] text-ink-2 group-hover:text-ink">{c.title}</span>
-        <span className="flex-none text-cap tracking-[0.14em]">
+      <PageTurnLink href={chapterHref(bookId, c.slug)} className="mulu-hang group">
+        <span className="mulu-ming">{c.title}</span>
+        <span className="mulu-dian" aria-hidden="true" />
+        <span className="mulu-zhuang">
           {c.slug === lastRead ? (
             <span className="text-gold-ink">{t('readHere')}</span>
           ) : isUncut(c) ? (
             /* 未裁章照樣列出，唔收埋（架構 §6） */
-            <span className="text-ink-3">{t('uncutTag')}</span>
+            <span>{t('uncutTag')}</span>
           ) : (
-            <span aria-hidden="true" className="text-ink-3 opacity-0 transition-opacity group-hover:opacity-100">
-              →
-            </span>
+            <span aria-hidden="true" className="mulu-jian">→</span>
           )}
         </span>
       </PageTurnLink>
@@ -70,95 +61,54 @@ export function BookContents({
   );
 
   return (
-    <div className="banxin flex flex-col gap-10">
-      {/* 一、二：幾多章 ＋ 下一步 */}
-      <div className="flex flex-col gap-6">
-        <p className="text-lead leading-[1.9] text-ink-2">{t('intro')}</p>
+    <div className="banxin shu-kai">
+      {/* 一、這本書 */}
+      <section aria-labelledby="zhe-ben-shu" className="shu-jie">
+        <h2 id="zhe-ben-shu" className="shu-xiao-biao">{t('aboutTitle')}</h2>
+        <p>{t('about1')}</p>
+        <p>{t('about2', { n: count.total })}</p>
+        <p>{t('about3')}</p>
+      </section>
+
+      {/* 二、一行狀態 ＋ 一行開始 */}
+      <div className="shu-qi">
         <p className="text-cap tracking-[0.16em] text-ink-3" data-nums>
           {t('total', { n: count.total })}
           <span className="mx-3 text-rule">·</span>
           {t('free', { n: count.free })}
-          {count.uncut > 0 ? (
-            <>
-              <span className="mx-3 text-rule">·</span>{t('uncut', { n: count.uncut })}
-            </>
-          ) : (
-            <>
-              <span className="mx-3 text-rule">·</span>{t('allCut')}
-            </>
-          )}
+          <span className="mx-3 text-rule">·</span>
+          {count.uncut > 0 ? t('uncut', { n: count.uncut }) : t('allCut')}
         </p>
         {start ? (
-          <div>
-            <PageTurnLink href={chapterHref(bookId, start.slug)} className="btn-mo">
-              {resume ? t('resume', { title: resume.title }) : t('start', { title: start.title })}
-              <span className="btn-jiantou" aria-hidden="true">→</span>
-            </PageTurnLink>
-          </div>
-        ) : null}
-      </div>
-
-      {/* 三：序 */}
-      {preface ? (
-        <PageTurnLink href={chapterHref(bookId, preface.slug)} className="ka flex items-center gap-4 p-5 sm:gap-5">
-          <ThemeIcon kind="xu" />
-          <span className="flex-1">
-            <span className="block font-serif text-lead tracking-[0.12em] sm:text-h3">{preface.title}</span>
-            <span className="mt-1 block text-sm tracking-[0.06em] text-ink-3">{t('prefaceLead')}</span>
-          </span>
-          {preface.slug === lastRead ? (
-            <span className="text-cap tracking-[0.14em] text-gold-ink">{t('readHere')}</span>
-          ) : (
-            <span aria-hidden="true" className="text-ink-3">›</span>
-          )}
-        </PageTurnLink>
-      ) : null}
-
-      {/* 四：三個主題 */}
-      <div className="flex flex-col gap-6">
-        {groups.map(({ theme, chapters: list }) => (
-          <section key={theme.key} aria-labelledby={`zhuti-${theme.key}`} className="ka p-5 sm:p-6">
-            <header className="flex items-center gap-5">
-              <ThemeIcon kind={theme.key} />
-              <div>
-                <h2 id={`zhuti-${theme.key}`} className="text-h3 font-medium tracking-[0.14em]">
-                  {t(`themes.${theme.key}.title`)}
-                </h2>
-                <p className="mt-1 text-sm tracking-[0.06em] text-ink-3">{t(`themes.${theme.key}.lead`)}</p>
-              </div>
-            </header>
-            <ul className="mt-4">{list.map(row)}</ul>
-          </section>
-        ))}
-
-        {/* 五：給你的話（書尾總結，同序一樣自己一格） */}
-        {epilogue ? (
-          <PageTurnLink href={chapterHref(bookId, epilogue.slug)} className="ka flex items-center gap-4 p-5 sm:gap-5">
-            <ThemeIcon kind="xu" />
-            <span className="flex-1">
-              <span className="block font-serif text-lead tracking-[0.12em] sm:text-h3">{epilogue.title}</span>
-              <span className="mt-1 block text-sm tracking-[0.06em] text-ink-3">{t('epilogueLead')}</span>
-            </span>
-            {epilogue.slug === lastRead ? (
-              <span className="text-cap tracking-[0.14em] text-gold-ink">{t('readHere')}</span>
-            ) : isUncut(epilogue) ? (
-              <span className="text-cap tracking-[0.14em] text-ink-3">{t('uncutTag')}</span>
-            ) : (
-              <span aria-hidden="true" className="text-ink-3">›</span>
-            )}
+          <PageTurnLink href={chapterHref(bookId, start.slug)} className="shu-kai-du">
+            {resume ? t('resume', { title: resume.title }) : t('start', { title: start.title })}
+            <span aria-hidden="true"> →</span>
           </PageTurnLink>
         ) : null}
+      </div>
 
-        {/* 安全網：認唔到嘅章唔會唔見（`groupChapters` 嘅 rest） */}
+      {/* 三、目錄 */}
+      <nav aria-labelledby="mu-lu" className="mulu">
+        <h2 id="mu-lu" className="shu-xiao-biao">{t('contentsTitle')}</h2>
+        {preface ? <ul>{row(preface)}</ul> : null}
+        {groups.map(({ theme, chapters: list }) => (
+          <section key={theme.key} aria-labelledby={`zhuti-${theme.key}`} className="mulu-zu">
+            <h3 id={`zhuti-${theme.key}`} className="mulu-zu-ming">
+              {t(`themes.${theme.key}.title`)}
+            </h3>
+            <ul>{list.map(row)}</ul>
+          </section>
+        ))}
         {rest.length > 0 ? (
-          <section aria-labelledby="zhuti-rest" className="ka p-5 sm:p-6">
-            <h2 id="zhuti-rest" className="text-h3 font-medium tracking-[0.14em]">
+          <section aria-labelledby="zhuti-rest" className="mulu-zu">
+            <h3 id="zhuti-rest" className="mulu-zu-ming">
               {t('rest')}
-            </h2>
-            <ul className="mt-4">{rest.map(row)}</ul>
+            </h3>
+            <ul>{rest.map(row)}</ul>
           </section>
         ) : null}
-      </div>
+        {epilogue ? <ul className="mulu-zu">{row(epilogue)}</ul> : null}
+      </nav>
 
       {experiment ? <ShiyanCard bookId={bookId} /> : null}
 

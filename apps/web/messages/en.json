@@ -222,6 +222,11 @@
     "missing": "This book isn't on your shelf.",
     "unavailable": "We can't reach this book right now. It is safe — please try again in a moment.",
     "noChapter": "This book doesn't have that chapter.",
+    "aboutTitle": "This book",
+    "about1": "This book was written chapter by chapter from the chart cast for the moment you were born. Every line in it can be traced back to a position on the chart and a passage in the classic texts.",
+    "about2": "{n} chapters: after the preface comes your character, then time, work and relationships, and a last chapter that gathers the main points. There's no need to read in order; open whichever chapter matters to you.",
+    "about3": "It won't tell you what must happen in a given year, and it never infers lifespan, ill health or anyone else's fortunes. It speaks of tendencies and conditions, and leaves the judgement to you.",
+    "contentsTitle": "Contents",
     "intro": "Come to know yourself, slowly, through your chart.",
     "total": "{n} chapters",
     "free": "{n} free",
@@ -438,6 +443,7 @@
     "ctaButton": "Begin"
   },
   "reading": {
+    "backToTitle": "Title page",
     "showChart": "Show the chart",
     "turnTo": "Turn to “{title}”",
     "layers": "Chart layer",

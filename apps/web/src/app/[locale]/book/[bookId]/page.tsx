@@ -13,6 +13,7 @@ import { serverJuan } from '@/lib/juan.server';
 import { FontWarm } from '@/components/FontWarm';
 import { distinctChars } from '@/lib/fontwarm';
 import { englishTitle, isEnglish } from '@/lib/english';
+import { Feiye } from '@/components/Feiye';
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -97,6 +98,7 @@ export default async function BookPage({
         <BookSpread
           chart={chart}
           palace={LIFE_PALACE}
+          left={<Feiye title={view.title ?? tShelf('untitled')} chart={chart} locale={locale} />}
           next={next}
           top={
             <h1 className="font-serif text-h2 font-semibold tracking-[0.16em]">

@@ -10,6 +10,7 @@ import { LIFE_PALACE } from '@/lib/suidu';
 import { chapterHref, SAMPLE_BOOK } from '@/lib/journey';
 import { sampleBook } from '@/lib/sample-book';
 import { englishTitle, isEnglish } from '@/lib/english';
+import { Feiye } from '@/components/Feiye';
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -52,6 +53,7 @@ export default async function SamplePage({ params }: { params: Promise<{ locale:
         <BookSpread
           chart={book.chart}
           palace={LIFE_PALACE}
+          left={<Feiye title={t('title')} chart={book.chart} locale={locale} />}
           next={first ? { href: chapterHref(SAMPLE_BOOK, first.slug), label: tr('turnTo', { title: isEnglish(locale) ? englishTitle(first.title) : first.title }) } : null}
           top={
             <div>
