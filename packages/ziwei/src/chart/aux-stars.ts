@@ -77,6 +77,17 @@ const TIANMA_BY_GROUP: Array<{ group: number[]; ma: number }> = [
 
 export type AuxStarPlacement = { name: AuxStarName; branch: Branch; branchIndex: number };
 
+/** 天魁、天鉞嘅地支索引（由干定；流魁流鉞用大限干或流年干查同一張表）。 */
+export function kuiyueBranchIndex(stem: Stem): [number, number] {
+  return KUIYUE_BY_STEM[stem];
+}
+
+/** 天馬嘅地支索引（由支三合定；流馬用流年地支或大限宮支）。 */
+export function tianmaBranchIndex(branch: Branch): number {
+  const yb = BRANCHES.indexOf(branch);
+  return TIANMA_BY_GROUP.find((g) => g.group.includes(yb))!.ma;
+}
+
 export function lucunBranchIndex(yearStem: Stem): number {
   return LUCUN_BY_STEM[yearStem];
 }

@@ -8,6 +8,12 @@
  * ── 規則 ──
  *   流祿存：由大限／流年天干定，表同本命祿存一樣（`lucunBranchIndex`）
  *   流羊：流祿存前一宮；流陀：流祿存後一宮（同本命一樣夾住祿存）
+ *   流魁、流鉞（2026-10-06）：由大限／流年天干查本命魁鉞嗰張表（「甲戊庚牛羊……」）
+ *   流昌（2026-10-06）：流祿存順數三宮（甲巳、乙午、丙戊申、丁己酉、庚亥、辛子、壬寅、癸卯）
+ *   流曲（2026-10-06）：甲酉、乙申、丙戊午、丁己巳、庚卯、辛寅、壬子、癸亥
+ *   流馬（2026-10-06）：由流年地支／大限宮支查本命天馬嗰張表（寅午戌申、申子辰寅、巳酉丑亥、亥卯未巳）
+ *   《深造講義》p.323：流魁鉞、流昌曲、流祿馬、流羊陀係「推斷大運或流年之十二宮」嗰套流曜；
+ *   書冇寫安法，表跟通行做法，對照 iztro（liuyao.test.ts）。
  *   天刑：酉宮起正月，順數至生月（生月用同安命宮一樣嘅閏月處理，R-006）
  *
  * 天刑對照文墨天機 21 張盤（conformance-wenmo）。
@@ -23,17 +29,42 @@
  *   要用就由 `tianxingBranch()`、`peachStars()` 攞。
  */
 import { BRANCHES, type Branch, type Chart, type Stem } from '../types';
-import { lucunBranchIndex } from './aux-stars';
+import { kuiyueBranchIndex, lucunBranchIndex, tianmaBranchIndex } from './aux-stars';
 import { monthForPalace } from './palaces';
 
-export type FlowStars = { 祿存: Branch; 擎羊: Branch; 陀羅: Branch };
+export type FlowStars = {
+  祿存: Branch;
+  擎羊: Branch;
+  陀羅: Branch;
+  文昌: Branch;
+  文曲: Branch;
+  天魁: Branch;
+  天鉞: Branch;
+  天馬: Branch;
+};
+
+/** 流曲（流昌係流祿存順數三宮，唔使表） */
+const LIUQU: Record<Stem, number> = { 甲: 9, 乙: 8, 丙: 6, 丁: 5, 戊: 6, 己: 5, 庚: 3, 辛: 2, 壬: 0, 癸: 11 };
 
 const at = (i: number) => BRANCHES[((i % 12) + 12) % 12]!;
 
-/** 某個天干起嘅一套流祿存、流羊、流陀。 */
-export function flowStars(stem: Stem): FlowStars {
+/**
+ * 一套流曜：流祿存、流羊、流陀、流昌、流曲、流魁、流鉞由干定；流馬由支定。
+ * 流年用太歲干支；大限用大限宮干同宮支。
+ */
+export function flowStars(stem: Stem, branch: Branch): FlowStars {
   const lu = lucunBranchIndex(stem);
-  return { 祿存: at(lu), 擎羊: at(lu + 1), 陀羅: at(lu - 1) };
+  const [kui, yue] = kuiyueBranchIndex(stem);
+  return {
+    祿存: at(lu),
+    擎羊: at(lu + 1),
+    陀羅: at(lu - 1),
+    文昌: at(lu + 3),
+    文曲: at(LIUQU[stem]),
+    天魁: at(kui),
+    天鉞: at(yue),
+    天馬: at(tianmaBranchIndex(branch)),
+  };
 }
 
 /** 本命天刑所在地支。 */

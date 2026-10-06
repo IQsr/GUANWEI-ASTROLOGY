@@ -25,14 +25,15 @@ describe('流祿存、流羊、流陀', () => {
       });
       if (!r.ok) throw new Error(c.file);
       const where = (name: string) => r.value.palaces.find((p) => p.stars.some((s) => s.name === name))!.branch;
-      const f = flowStars(r.value.ganzhi.year[0]);
-      expect(f, c.file).toEqual({ 祿存: where('祿存'), 擎羊: where('擎羊'), 陀羅: where('陀羅') });
+      /* 用生年干支起嘅一套，祿羊陀、魁鉞、天馬要同本命一樣（同一張表）；昌曲本命由時定，唔比 */
+      const f = flowStars(r.value.ganzhi.year[0], r.value.ganzhi.year[1]);
+      expect(f, c.file).toMatchObject({ 祿存: where('祿存'), 擎羊: where('擎羊'), 陀羅: where('陀羅'), 天魁: where('天魁'), 天鉞: where('天鉞'), 天馬: where('天馬') });
     }
   });
 
   it('羊陀永遠夾住祿存；祿存唔落四墓', () => {
     for (const s of STEMS) {
-      const f = flowStars(s);
+      const f = flowStars(s, '子');
       const i = BRANCHES.indexOf(f.祿存);
       expect(f.擎羊).toBe(BRANCHES[(i + 1) % 12]);
       expect(f.陀羅).toBe(BRANCHES[(i + 11) % 12]);
@@ -45,8 +46,8 @@ describe('流祿存、流羊、流陀', () => {
     if (!r.ok) throw new Error('cast');
     const a = annual(r.value, 2026);
     if (!a.ok) throw new Error('annual');
-    expect(a.value.liuyao.annual).toEqual(flowStars(a.value.ganzhi[0]));
-    expect(a.value.liuyao.decadal).toEqual(flowStars(a.value.decadal!.stem));
+    expect(a.value.liuyao.annual).toEqual(flowStars(a.value.ganzhi[0], a.value.ganzhi[1]));
+    expect(a.value.liuyao.decadal).toEqual(flowStars(a.value.decadal!.stem, a.value.decadal!.branch));
     const first = annual(r.value, r.value.lunar.y);
     if (!first.ok) throw new Error('annual');
     if (first.value.decadal === null) expect(first.value.liuyao.decadal).toBeNull();

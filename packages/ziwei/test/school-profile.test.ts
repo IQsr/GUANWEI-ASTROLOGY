@@ -107,10 +107,11 @@ describe('功能狀態：「唔用」同「未做」要分得開', () => {
     }
   });
 
-  it('流曜、流日 = not-implemented（仲係缺口）；流月、小限 2026-10-06 做咗', () => {
+  it('流日 = not-implemented（決定唔做）；流月、小限、流曜 2026-10-06 做咗', () => {
     expect(SCHOOL_PROFILE.features.流月).toBe('enabled');
     expect(SCHOOL_PROFILE.features.小限).toBe('enabled');
-    for (const f of ['流曜', '流日']) {
+    expect(SCHOOL_PROFILE.features.流曜).toBe('enabled');
+    for (const f of ['流日']) {
       expect(SCHOOL_PROFILE.features[f], f).toBe('not-implemented');
     }
   });
@@ -122,7 +123,7 @@ describe('功能狀態：「唔用」同「未做」要分得開', () => {
 
   it('missingFeatures() 淨係列 not-implemented，唔列 disabled', () => {
     const missing = missingFeatures(SCHOOL_PROFILE);
-    expect(missing).toContain('流曜');
+    expect(missing).toEqual(['流日']);
     expect(missing).not.toContain('自化');
     expect(missing).not.toContain('流年');
   });
@@ -188,7 +189,7 @@ describe('fingerprint 係變更偵測器', () => {
    *   3. docs/rules.md 同 engine-divergence.md 更新咗未？
    */
   it('fingerprint 冇無端變過', () => {
-    expect(SCHOOL_PROFILE.fingerprint).toBe('6876e94581b79411');
+    expect(SCHOOL_PROFILE.fingerprint).toBe('4fbd787e5e59e51a');
   });
 
   /**
@@ -226,6 +227,13 @@ describe('fingerprint 係變更偵測器', () => {
    *   改咗乜：小限 not-implemented → enabled（《全書》卷二〈安小限訣〉，chart/xiaoxian.ts；對照 iztro 全對）。
    *          ENGINE_VERSION 唔郁。
    *   1. bump id 去 v2？ 唔使 —— 規則同表原封不動，多咗一層小限。
+   *   2. 舊盤點算？ 唔使動（R-008）。
+   *   3. docs 更新咗未？ rules.md 流派設定段。
+   *
+   * 6876e94581b79411 → 4fbd787e5e59e51a　（2026-10-06，流曜）
+   *   改咗乜：流曜 not-implemented → enabled（流昌、流曲、流魁、流鉞、流馬加入 flowStars；對照 iztro 全對）。
+   *          流日保留 not-implemented，但係決定唔做（Issac：受地運影響，難準）。ENGINE_VERSION 唔郁。
+   *   1. bump id 去 v2？ 唔使 —— 規則同表原封不動，本命、大限、流年、流祿羊陀位置一格都冇變。
    *   2. 舊盤點算？ 唔使動（R-008）。
    *   3. docs 更新咗未？ rules.md 流派設定段。
    */

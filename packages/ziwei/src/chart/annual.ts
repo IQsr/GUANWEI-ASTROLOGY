@@ -11,9 +11,9 @@
  * 點解讀係規則庫（C2）同推理器（C8）嘅事。
  *
  * ── 唔喺呢層嘅嘢（講出嚟好過扮冇）──
- *   流曜：流祿存、流羊、流陀做咗（`liuyao`，2026-10-04）；流昌流曲、流魁流鉞 —— 未做
- *   小限                                  —— 未做
- *   流月、流日                            —— 未做
+ *   流曜：流祿羊陀（2026-10-04）、流昌曲魁鉞馬（2026-10-06）全部喺 `liuyao`
+ *   小限 —— `chart/xiaoxian.ts`；流月 —— `chart/monthly.ts`（2026-10-06）
+ *   流日                                  —— 決定唔做（受地運影響，難準）
  *   流年宮干 / 流年自化                    —— 三合派唔用，而且我哋唔安流年宮干
  */
 import {
@@ -192,7 +192,7 @@ export function annual(chart: Chart, lunarYear: number): Result<AnnualChart> {
         decadal: decadalStem ? hits(chart, decadalStem, nameAt) : null,
         annual: hits(chart, pillar.stem, nameAt),
       },
-      liuyao: { decadal: decadalStem ? flowStars(decadalStem) : null, annual: flowStars(pillar.stem) },
+      liuyao: { decadal: decadalStem && d ? flowStars(decadalStem, d.branch) : null, annual: flowStars(pillar.stem, pillar.branch) },
     },
   };
 }
