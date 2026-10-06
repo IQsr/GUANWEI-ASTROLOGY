@@ -7,3 +7,4 @@ export * from './decadal';
 export * from './sanfang';
 export * from './annual';
 export * from './liuyao';
+export * from './monthly';

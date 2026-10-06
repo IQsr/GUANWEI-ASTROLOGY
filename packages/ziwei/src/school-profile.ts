@@ -12,7 +12,7 @@
  *   disabled          —— 三合派**唔用**。係選擇，唔係缺陷。
  *                        （自化、飛化、向心／離心係四化派／飛星派嘅核心）
  *   not-implemented   —— 我哋**未做**。係缺陷，記住要補。
- *                        （B15 做完之後淨返流曜、小限、流月流日）
+ *                        （B15 做完之後淨返流曜、小限、流月流日；2026-10-06 流月做咗）
  *
  * 唔分開兩者，個規則庫就會永遠帶住一堆意思含糊嘅「冇」。
  */
@@ -106,6 +106,8 @@ const FEATURES: Record<string, FeatureState> = {
   流年四化: 'enabled',
   大限四化: 'enabled',
   限流疊宮: 'enabled',
+  /* 2026-10-06：斗君、流月命宮（《全書》卷二〈安斗君訣〉，`chart/monthly.ts`） */
+  流月: 'enabled',
 
   /* ── 三合派唔用。係選擇，唔係缺陷。 ── */
   自化: 'disabled',
@@ -115,7 +117,7 @@ const FEATURES: Record<string, FeatureState> = {
   /* ── 三合派用，但引擎未做。⚠ 缺口。 ── */
   流曜: 'not-implemented',
   小限: 'not-implemented',
-  流月流日: 'not-implemented',
+  流日: 'not-implemented',
 };
 
 /**

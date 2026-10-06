@@ -107,8 +107,9 @@ describe('功能狀態：「唔用」同「未做」要分得開', () => {
     }
   });
 
-  it('流曜、小限、流月流日 = not-implemented（仲係缺口）', () => {
-    for (const f of ['流曜', '小限', '流月流日']) {
+  it('流曜、小限、流日 = not-implemented（仲係缺口）；流月 2026-10-06 做咗', () => {
+    expect(SCHOOL_PROFILE.features.流月).toBe('enabled');
+    for (const f of ['流曜', '小限', '流日']) {
       expect(SCHOOL_PROFILE.features[f], f).toBe('not-implemented');
     }
   });
@@ -186,7 +187,7 @@ describe('fingerprint 係變更偵測器', () => {
    *   3. docs/rules.md 同 engine-divergence.md 更新咗未？
    */
   it('fingerprint 冇無端變過', () => {
-    expect(SCHOOL_PROFILE.fingerprint).toBe('4f66c68baf4b17cf');
+    expect(SCHOOL_PROFILE.fingerprint).toBe('5134340496bb2110');
   });
 
   /**
@@ -212,6 +213,13 @@ describe('fingerprint 係變更偵測器', () => {
    *   2. 舊盤點算？ 唔使重算 —— 盤嘅內容冇變。但舊盤嘅 meta 會帶住舊 ref，
    *      即係「嗰本書排出嚟嗰陣，引擎仲未識流年」。呢個正正係 R-008 想保住嘅資訊。
    *   3. docs 更新咗未？ voice.md 缺口二劃咗走，rules.md 流派設定段更新咗。
+   *
+   * 4f66c68baf4b17cf → 5134340496bb2110　（2026-10-06，流月）
+   *   改咗乜：「流月流日」拆開 —— 流月 enabled（斗君，《全書》卷二〈安斗君訣〉，chart/monthly.ts），
+   *          流日 not-implemented。ENGINE_VERSION 唔郁。
+   *   1. bump id 去 v2？ 唔使 —— 規則同表原封不動，本命、大限、流年逐格一樣；多咗一層流月。
+   *   2. 舊盤點算？ 唔使動。舊書嘅 ref 記住「嗰陣引擎未識流月」（R-008）。
+   *   3. docs 更新咗未？ rules.md 流派設定段、engine-divergence.md D-005（iztro 流月唔計生時）。
    */
 });
 
