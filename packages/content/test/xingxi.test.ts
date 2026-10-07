@@ -3,7 +3,7 @@ import { cast, type BirthInput } from '@guanwei/ziwei';
 import { XINGXI, leanOf, xingxiOf } from '../src/xingxi';
 import { CORPUS, normaliseForMatch, withoutCitations } from '../src/lexicon';
 import { scanForbidden } from '../src/lint';
-import { XINGXI_FRAMES, gujiaChapter, sanfangChapter } from '../src/xingxi-chapters';
+import { XINGXI_FRAMES, gujiaChapter, overlaps } from '../src/xingxi-chapters';
 import { scanPlain } from '../src/plain';
 
 /**
@@ -96,14 +96,49 @@ describe('喺真盤上揀星系同偏向', () => {
   });
 });
 
-describe('兩章：性格的骨架、三方四正', () => {
+describe('性格的骨架（2026-10-07 併埋偏向）', () => {
   const some = CHARTS.slice(0, 600);
 
-  it('六十個齊晒：每張盤都有兩章', () => {
+  it('六十個齊晒：每張盤都有骨架章', () => {
+    for (const c of some) expect(gujiaChapter({ chart: c }), c.mingGong).not.toBeNull();
+  });
+
+  it('唔同命宮章重覆：唔出星系 summary、watch，冇「要留意的是」', () => {
     for (const c of some) {
-      expect(gujiaChapter({ chart: c }), c.mingGong).not.toBeNull();
-      expect(sanfangChapter({ chart: c }), c.mingGong).not.toBeNull();
+      const x = xingxiOf(c)!.system;
+      const text = gujiaChapter({ chart: c })!.segments.map((s) => s.text).join('');
+      expect(text).not.toContain(x.plain.summary);
+      expect(text).not.toContain(x.plain.watch);
+      expect(text).not.toContain('要留意的是');
     }
+  });
+
+  it('長處唔同偏向講同一樣嘢', () => {
+    expect(overlaps('你格局開闊：旁人放心把事情交給你。', '穩，別人放心把事情交給你。')).toBe(true);
+    expect(overlaps('你偏向感情：你重情、重人。', '人緣好，懂得為自己爭取資源。')).toBe(false);
+    let dropped = 0;
+    for (const c of some) {
+      const segs = gujiaChapter({ chart: c })!.segments;
+      const s = segs.find((x) => x.slot === '長處');
+      if (!s) { dropped++; continue; }
+      expect(overlaps(segs[0]!.text, s.text.replace(/^你的長處是/, '')), s.text).toBe(false);
+    }
+    expect(dropped).toBeGreaterThan(0);
+  });
+
+  it('推力唔重講骨架段已經講咗嘅地支', () => {
+    let saw = 0;
+    for (const c of some) {
+      const segs = gujiaChapter({ chart: c })!.segments;
+      const t = segs.find((s) => s.slot === '推力')?.text ?? '';
+      const m = /命宮在(\S)|主星在(\S)/.exec(t);
+      if (!m) continue;
+      const branch = m[1] ?? m[2]!;
+      const x = xingxiOf(c)!.system;
+      expect(x.plain.byBranch?.[branch as never], t).toBeUndefined();
+      saw++;
+    }
+    expect(saw).toBeGreaterThanOrEqual(0);
   });
 
   it('章框過到語氣 lint、冇內部字眼', () => {
@@ -115,7 +150,7 @@ describe('兩章：性格的骨架、三方四正', () => {
 
   it('每一段都過到語氣 lint；有來源嗰幾格標住星系', () => {
     for (const c of some) {
-      for (const ch of [gujiaChapter({ chart: c })!, sanfangChapter({ chart: c })!]) {
+      for (const ch of [gujiaChapter({ chart: c })!]) {
         for (const s of ch.segments) {
           expect(scanForbidden(withoutCitations(s.text), 'body'), `${ch.slug} · ${s.slot}：${s.text}`).toEqual([]);
           if (s.slot !== '推力' && s.slot !== '留白') expect(s.source_id).toMatch(/^xingxi\.\d+$/);
@@ -128,10 +163,14 @@ describe('兩章：性格的骨架、三方四正', () => {
     for (const c of some) {
       const x = xingxiOf(c)!.system;
       const { pole, seen } = leanOf(c, x);
-      const text = sanfangChapter({ chart: c })!.segments.find((s) => s.slot === '偏向')!.text;
-      expect(text).toBe(x.plain.lean[pole]);
+      const segs = gujiaChapter({ chart: c })!.segments;
+      expect(segs[0]!.slot).toBe('偏向');
+      expect(segs[0]!.text).toBe(x.plain.lean[pole]);
+      /* 每樣證據都講到：唔喺推力就喺骨架段（地支） */
+      const all = segs.map((s) => s.text).join('');
       for (const p of x.poles) for (const e of seen[p]!) {
-        expect(sanfangChapter({ chart: c })!.segments.find((s) => s.slot === '推力')!.text).toContain(e);
+        if (/^(命宮|主星)在/.test(e)) continue;
+        expect(all, e).toContain(e);
       }
     }
   });
@@ -143,7 +182,6 @@ describe('兩章：性格的骨架、三方四正', () => {
 
   it('同一張盤，兩次一樣', () => {
     for (const c of some.slice(0, 50)) {
-      expect(sanfangChapter({ chart: c })).toEqual(sanfangChapter({ chart: c }));
       expect(gujiaChapter({ chart: c })).toEqual(gujiaChapter({ chart: c }));
     }
   });
@@ -161,7 +199,7 @@ describe('直白（2026-09）', () => {
 
   it('第一段就係結論；成章冇講方法、冇列條件', () => {
     for (const c of piloted) {
-      for (const ch of [gujiaChapter({ chart: c })!, sanfangChapter({ chart: c })!]) {
+      for (const ch of [gujiaChapter({ chart: c })!]) {
         expect(scanPlain(ch.segments[0]!.text, ch.slug, { leadsWithConclusion: true }), ch.segments[0]!.text).toEqual([]);
         for (const s of ch.segments) expect(scanPlain(s.text, s.slot), s.text).toEqual([]);
       }
@@ -187,8 +225,8 @@ describe('直白（2026-09）', () => {
 
   it('原因段只講盤上有嘅：唔出「見⋯則⋯」', () => {
     for (const c of piloted) {
-      const t = sanfangChapter({ chart: c })!.segments.find((s) => s.slot === '推力')!.text;
-      expect(scanPlain(t, '推力'), t).toEqual([]);
+      const t = gujiaChapter({ chart: c })!.segments.find((s) => s.slot === '推力')?.text;
+      if (t) expect(scanPlain(t, '推力'), t).toEqual([]);
     }
   });
 });

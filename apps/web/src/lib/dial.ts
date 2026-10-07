@@ -13,6 +13,7 @@ import { branchPy, palaceShort, starPy } from '@/lib/chart-labels';
  *
  * 說明文字係書嘅內容：中文書寫中文；英文閱讀模式（`en`）用拼音同英文宮名（2026-10-05）。
  */
+/* 三方四正：舊書先有（2026-10-07 併入骨架） */
 const MING_CHAPTERS = ['序', '性格的骨架', '三方四正', '一生十二步', '給你的話'];
 
 function majors(chart: Chart, p: Palace): string[] {

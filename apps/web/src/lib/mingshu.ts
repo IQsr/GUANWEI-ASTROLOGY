@@ -10,7 +10,6 @@ import {
   decadeChapter,
   yearChapter,
   epilogueChapter,
-  sanfangChapter,
   xuChapter,
   LEXICON,
   type Chapter,
@@ -174,7 +173,6 @@ export function bookChapters(
   const xu = xuChapter({ chart, solar: opts.solar, place: opts.place });
   const shen = shenChapter({ chart, year: opts.year });
   const gujia = gujiaChapter({ chart });
-  const sanfang = sanfangChapter({ chart });
   /* 大限（2026-09-30）：一生十二步免費，這十年收費；跟成書年份講 */
   const steps = lifeStepsChapter({ chart, year: opts.year });
   const decade = decadeChapter({ chart, year: opts.year });
@@ -184,11 +182,11 @@ export function bookChapters(
   const epilogue = epilogueChapter({ chart, year: opts.year });
 
   /*
-   * ⚠ 次序：序 → 命宮 → 性格的骨架 → 三方四正 → 身宮與五行局 → 其餘十一宮。
+   * ⚠ 次序：序 → 命宮 → 性格的骨架 → 身宮與五行局 → 其餘十一宮。
    *
-   * 免費章行先（架構 §6）。骨架同三方四正緊跟命宮：三章都係讀命宮，
-   * 由「命宮坐乜」→「呢個星系嘅本質」→「三方四正推你向邊頭」。
-   * 骨架要行先 —— 佢先講出條軸，三方四正先講得到推向邊頭（見 content `xingxi-chapters.ts`）。
+   * 免費章行先（架構 §6）。骨架緊跟命宮：兩章都係讀命宮，
+   * 由「命宮坐乜」→「呢個星系嘅本質、條軸偏向邊頭」。
+   * 「三方四正」章 2026-10-07 併入骨架（見 content `xingxi-chapters.ts`）；舊書照讀。
    * 身宮嗰章擺喺後面：佢講嘅係「後天著力喺邊」，讀完「先天基調」先至讀得通。
    */
   const [ming, ...rest] = palaces;
@@ -197,7 +195,6 @@ export function bookChapters(
     { slug: xu.slug, title: xu.title, ...body(xu.segments) },
     ...(ming ? [{ slug: ming.palace, ...body(ming.segments) }] : []),
     ...(gujia ? [{ slug: gujia.slug, title: gujia.title, ...body(gujia.segments) }] : []),
-    ...(sanfang ? [{ slug: sanfang.slug, title: sanfang.title, ...body(sanfang.segments) }] : []),
     ...(shen ? [{ slug: shen.slug, title: shen.title, ...body(shen.segments) }] : []),
     ...(steps ? [{ slug: steps.slug, title: steps.title, ...body(steps.segments) }] : []),
     ...(decade ? [{ slug: decade.slug, title: decade.title, ...body(decade.segments) }] : []),

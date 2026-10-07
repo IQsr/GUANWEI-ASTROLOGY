@@ -140,7 +140,7 @@ export function factTemplate(s: string, missing: string[]): string | null {
     return `Your Life Palace sits in ${BRANCH_EN[m[1]!]} and holds no major star, so it is read through ${starsEn(m[2]!, missing)} in the opposite palace.`;
   }
 
-  /* 三方四正 · 推力（xingxi-chapters.ts reason()） */
+  /* 推力（xingxi-chapters.ts reason()；以前喺「三方四正」章，舊書照用） */
   m = /^這樣看，是因為你的盤上兩邊都有：(.+?)，推你偏向(\S+?)；(.+?)，推你偏向(\S+?)。$/.exec(s);
   if (m) {
     return `This is because your chart has both: ${evEn(m[1]!, missing)}, pushing you towards ${poleEn(m[2]!, missing)}; and ${evEn(m[3]!, missing)}, pushing you towards ${poleEn(m[4]!, missing)}.`;
@@ -149,6 +149,11 @@ export function factTemplate(s: string, missing: string[]): string | null {
   if (m) {
     return `This is because your chart has ${evEn(m[1]!, missing)}, pushing you towards ${poleEn(m[2]!, missing)}; there is also ${evEn(m[3]!, missing)}, pushing you towards ${poleEn(m[4]!, missing)}, but with less force.`;
   }
+  /* 性格的骨架 · 推力（2026-10-07）：另一頭骨架段已經講咗，只講一頭 */
+  m = /^這樣看，是因為你的盤上也有([^；]+?)，推你偏向([^；\s]+?)。$/.exec(s);
+  if (m) return `This is because your chart also has ${evEn(m[1]!, missing)}, pushing you towards ${poleEn(m[2]!, missing)}.`;
+  m = /^這樣看，是因為你的盤上有([^；]+?)，推你偏向([^；\s]+?)。$/.exec(s);
+  if (m) return `This is because your chart has ${evEn(m[1]!, missing)}, pushing you towards ${poleEn(m[2]!, missing)}.`;
   m = /^這樣看，是因為你的盤上有(.+?)，推你偏向(\S+?)；推你偏向(\S+?)的，一樣也沒有。$/.exec(s);
   if (m) {
     return `This is because your chart has ${evEn(m[1]!, missing)}, pushing you towards ${poleEn(m[2]!, missing)}; nothing in it pushes you towards ${poleEn(m[3]!, missing)}.`;

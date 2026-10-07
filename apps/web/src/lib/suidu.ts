@@ -46,7 +46,7 @@ export const SLOT_FOCUS: Record<string, Focus> = {
   體系: 'none',
   五行局: 'none',
   身宮: 'none',
-  /* 性格的骨架、三方四正（2026-09）：兩章都係讀命宮嗰個星系 */
+  /* 性格的骨架（2026-09；2026-10-07 併埋三方四正章嘅偏向、推力）：讀命宮嗰個星系 */
   命宮: 'palace',
   結論: 'palace',
   長處: 'palace',
@@ -68,7 +68,7 @@ export const SLOT_FOCUS: Record<string, Focus> = {
  */
 export const CHAPTER_PALACE: Record<string, string> = {
   性格的骨架: '命宮',
-  三方四正: '命宮',
+  三方四正: '命宮' /* 舊書 */,
 };
 
 export function focusOf(slot: string): Focus {

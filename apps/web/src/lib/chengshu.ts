@@ -82,6 +82,7 @@ export type BookDraft = {
  *
  * ⚠ 呢張表係**名單**，唔係章序。章序喺 `mingshu.ts` `bookChapters()`。
  */
+/* 「三方四正」2026-10-07 併入性格的骨架，新書唔再出；舊書嗰章照舊免費 */
 export const FREE_SLUGS: readonly string[] = ['序', '命宮', '身宮與五行局', '三方四正', '性格的骨架', '一生十二步'];
 
 export function tierOf(slug: string): Tier {
