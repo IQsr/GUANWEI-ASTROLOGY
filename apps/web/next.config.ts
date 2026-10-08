@@ -10,7 +10,7 @@ const nextConfig: NextConfig = {
   /* 唔講用乜框架（少畀攻擊者一條線索） */
   poweredByHeader: false,
   async headers() {
-    return [{ source: '/:path*', headers: securityHeaders(process.env.NODE_ENV !== 'production') }];
+    return [{ source: '/:path*', headers: securityHeaders(process.env.NODE_ENV !== 'production', process.env.GUANWEI_INDEXABLE === '1') }];
   },
 };
 

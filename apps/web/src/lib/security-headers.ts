@@ -41,8 +41,14 @@ export function contentSecurityPolicy(dev: boolean): string {
     .join('; ');
 }
 
-export function securityHeaders(dev: boolean): { key: string; value: string }[] {
+/**
+ * `indexable`：搜尋器收唔收錄。只有正式域名上線先設 `GUANWEI_INDEXABLE=1`（2026-10-08）——
+ * 試部署（`*.vercel.app`）同 preview 一律 noindex，唔好俾 Google 收錄咗一個臨時網址。
+ * 用標頭唔用 robots.txt：robots.txt 擋咗爬蟲就睇唔到 noindex，已收錄嘅反而刪唔走。
+ */
+export function securityHeaders(dev: boolean, indexable = false): { key: string; value: string }[] {
   return [
+    ...(indexable ? [] : [{ key: 'X-Robots-Tag', value: 'noindex, nofollow' }]),
     { key: 'Content-Security-Policy', value: contentSecurityPolicy(dev) },
     /* 舊瀏覽器唔識 frame-ancestors */
     { key: 'X-Frame-Options', value: 'DENY' },

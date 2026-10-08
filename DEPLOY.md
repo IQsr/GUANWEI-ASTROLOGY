@@ -111,14 +111,39 @@ stripe listen --forward-to localhost:3000/api/stripe/webhook
 已經接咗 Supabase（線上嗰個 2026-09-30 已經係 baseline 嘅狀態）：**唔好再跑 baseline**。
 之後加嘅 `0002_…` 起，順住跑未跑過嗰幾隻。
 
-## 二、Vercel
+## 二、Vercel（2026-10-08 更新：試部署 `*.vercel.app`）
 
-1. `vercel.com` → Add New Project → Import 你個 GitHub repo
-2. **Root Directory** 揀 `apps/web`（唔係 repo 根目錄）
-3. Framework 佢會自己認到 Next.js
-4. Build Command 留返預設（即係 `pnpm build`）
-5. Environment Variables 加上面**五條**（三條 Supabase／站點 ＋ 兩條 Stripe），三個環境（Production / Preview / Development）都加
-6. Deploy
+1. `vercel.com` → Add New → Project → Import 你個 GitHub repo
+2. **Root Directory** 揀 `apps/web`（唔係 repo 根目錄）。Vercel 會自己認到 pnpm workspace，
+   `packages/ziwei`、`packages/content` 會跟住裝
+3. Framework 佢會自己認到 Next.js；Build Command、Install Command 留預設
+4. **Environment Variables**（Production 同 Preview 都加；**自己喺 Vercel 度貼，唔好貼畀我**）：
+
+   | 變數 | 值 | 而家要唔要 |
+   |---|---|---|
+   | `NEXT_PUBLIC_SUPABASE_URL` | Supabase Project URL | ✅ |
+   | `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Supabase anon key | ✅ |
+   | `NEXT_PUBLIC_SITE_URL` | `https://<你個項目>.vercel.app`（第一次 deploy 完先知，填完再 Redeploy 一次） | ✅ |
+   | `STRIPE_SECRET_KEY`、`STRIPE_WEBHOOK_SECRET`、`PAY_WEBHOOK_TOKEN` | 見一之二 | 開咗 Stripe 先加 |
+   | `GUANWEI_TOKENS` | — | ❌ **唔好設**（設咗 `/tokens` 樣板頁會公開） |
+   | `GUANWEI_INDEXABLE` | `1` | ❌ 試部署唔好設；正式域名上線先設（冇佢全站 `X-Robots-Tag: noindex`） |
+
+   ⚠ **service role key 唔使**（2026-09-29 起網站唔再用）。
+
+5. Deploy
+6. Deploy 完之後：
+   - 抄個 `*.vercel.app` 網址，填返 `NEXT_PUBLIC_SITE_URL`，再撳 **Redeploy**
+   - **Supabase** → Authentication → URL Configuration → **Redirect URLs** 加
+     `https://<你個項目>.vercel.app/api/auth/callback`（漏咗認領信條連結會失效）
+   - Supabase → Authentication → Rate Limits：匿名登入每個 IP 每個鐘 **20**
+
+`apps/web/vercel.json` 將 function 擺喺倫敦（`lhr1`）。如果你個 Supabase project 唔係喺
+`eu-west-2`（London），改成最近嗰個區（Supabase → Project Settings → General 睇到）。
+
+Migration：線上 Supabase 已經跑到 `0006`。新 project 就由 `0001_baseline.sql` 順住跑到最新。
+
+Stripe webhook（開咗戶先做）：URL `https://<domain>/api/stripe/webhook`，
+事件揀 **`checkout.session.completed`** 同 **`charge.refunded`**。
 
 ⚠ **Build Command 一定要係 `pnpm build`，唔係 `pnpm build && pnpm verify`。**
 

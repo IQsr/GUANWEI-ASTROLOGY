@@ -27,6 +27,11 @@ describe('安全標頭', () => {
     expect(directive(prod, 'script-src').filter((s) => s.startsWith('http'))).toEqual([]);
   });
 
+  it('冇講明可以收錄就 noindex（試部署唔好俾 Google 收錄）', () => {
+    expect(securityHeaders(false).find((h) => h.key === 'X-Robots-Tag')?.value).toBe('noindex, nofollow');
+    expect(securityHeaders(false, true).some((h) => h.key === 'X-Robots-Tag')).toBe(false);
+  });
+
   it('HSTS 只喺 production', () => {
     expect(securityHeaders(false).some((h) => h.key === 'Strict-Transport-Security')).toBe(true);
     expect(securityHeaders(true).some((h) => h.key === 'Strict-Transport-Security')).toBe(false);
