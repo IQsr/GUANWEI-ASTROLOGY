@@ -20,11 +20,13 @@ const opencc = Converter({ from: 'tw', to: 'cn' });
  * OpenCC 之後再修幾個位（2026-10-08 掃晒內容庫見到）：
  *   「藉」做動詞（藉交際應酬、藉酬酢）簡體寫「借」；「慰藉」「狼藉」「枕藉」「蘊藉」照留。
  *   「萬鍾」OpenCC 轉「锺」，通行寫「钟」。
+ * 品牌名「星敘」全站一律用繁體寫法（Issac 2026-10-08）—— 係個名，唔係一句字。
  */
 const toCn = (s: string): string =>
   opencc(s)
     .replace(/(?<![慰狼枕蕴])藉/g, '借')
-    .replace(/锺/g, '钟');
+    .replace(/锺/g, '钟')
+    .replace(/星叙/g, '星敘');
 
 /** 一句繁體轉簡體。 */
 export function hans(s: string): string {
