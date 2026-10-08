@@ -78,7 +78,9 @@ describe('⚠ 一個讀者只見到自己嗰份', () => {
 
   it('改唔到第二個人本書', async () => {
     await db.asReader(me);
-    await db.sql(`update books set cover_seal = 'x' where id = $1`, [otherBook]);
+    /* 0004 起連自己本書都改唔到封面（淨係改得「讀到邊」），第二個人本書更加唔得 */
+    await expect(db.sql(`update books set cover_seal = 'x' where id = $1`, [otherBook])).rejects.toThrow(/permission denied/);
+    await db.sql(`update books set last_read_chapter = 'x' where id = $1`, [otherBook]);
     await db.asOwner();
     const [row] = await db.sql('select cover_seal from books where id = $1', [otherBook]);
     expect(row!.cover_seal).toBeNull();
@@ -116,6 +118,24 @@ describe('⚠ 未裁之頁係一條權限規則，唔係一個 CSS 效果', () =
     await db.asReader(me);
     await expect(db.sql('select body from chapters')).rejects.toThrow(/permission denied/);
     await expect(db.sql('select * from chapters')).rejects.toThrow(/permission denied/);
+  });
+
+  /* 0004（2026-10-08）：線上 Supabase 預設畀咗 UPDATE，以下兩條係真窿 */
+  it('⚠ 改唔到自己啲章嘅 tier（改做 free 就繞過 paywall）', async () => {
+    await db.asReader(me);
+    await expect(db.sql(`update chapters set tier = 'free' where id = $1`, [myDeep])).rejects.toThrow(/permission denied/);
+  });
+
+  it('⚠ 搬唔到章去另一本書（搬去買咗嘅書就繞過 paywall）', async () => {
+    await db.asReader(me);
+    await expect(db.sql(`update chapters set book_id = $1 where id = $2`, [myBook, myDeep])).rejects.toThrow(/permission denied/);
+  });
+
+  it('⚠ 已發出嘅書改唔到：盤、題名、subject 都唔准 update', async () => {
+    await db.asReader(me);
+    await expect(db.sql(`update books set title = 'x' where id = $1`, [myBook])).rejects.toThrow(/permission denied/);
+    await expect(db.sql(`update charts set payload = '{}'::jsonb`)).rejects.toThrow(/permission denied/);
+    await expect(db.sql(`update subjects set name = 'x'`)).rejects.toThrow(/permission denied/);
   });
 
   it('免費章行 chapter_body() 攞得到', async () => {

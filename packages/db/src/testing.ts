@@ -58,6 +58,14 @@ const AUTH_SHIM = `
   -- 就會撞到「permission denied for schema auth」—— G1 嗰陣全部 policy
   -- 同 definer function 都行得，所以呢個窿一路匿到 G5 先浮返出嚟。
   grant usage on schema auth to anon, authenticated, service_role;
+
+  -- ⚠ Supabase 嘅預設權限（2026-10-08 線上 \`role_table_grants\` 證實）：
+  -- postgres 喺 public 開嘅表、function、sequence，自動 grant all 畀 anon、authenticated。
+  -- 以前個 shim 冇呢幾句，所以「body 唔 grant」喺測試度守得住、喺線上守唔住 ——
+  -- 付費章用 REST API 直接 select 得到。0004 收返；呢度要照抄線上，測試先有意思。
+  alter default privileges in schema public grant all on tables to anon, authenticated, service_role;
+  alter default privileges in schema public grant all on functions to anon, authenticated, service_role;
+  alter default privileges in schema public grant all on sequences to anon, authenticated, service_role;
 `;
 
 export type TestDb = {

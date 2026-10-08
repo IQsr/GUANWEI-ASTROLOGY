@@ -16,10 +16,22 @@ import type { ChapterMeta, JuanPort } from '@/lib/juan-view';
  * 所以呢條路而家一定行到 `unavailable` —— 呢個係一個已知狀態，
  * 唔係一個壞咗嘅頁。
  */
+/**
+ * 未登入（連匿名 session 都冇）就當搵唔到。
+ *
+ * 0004（2026-10-08）收咗 anon 對表嘅權限：以前未登入讀表係 RLS 回空，
+ * 依家係 permission denied —— 唔先問一句，打開人哋分享嘅書連結會變成「一時讀唔到」。
+ */
+async function signedIn(sb: ReturnType<typeof supabaseServer>): Promise<boolean> {
+  const { data } = await sb.auth.getUser();
+  return Boolean(data.user);
+}
+
 export function serverJuan(): JuanPort {
   return {
     async contents(bookId) {
       const sb = supabaseServer();
+      if (!(await signedIn(sb))) return null;
 
       const { data: book, error } = await sb
         .from('books')
@@ -55,6 +67,7 @@ export function serverJuan(): JuanPort {
 
     async body(bookId, slug) {
       const sb = supabaseServer();
+      if (!(await signedIn(sb))) return null;
       const { data: row, error } = await sb
         .from('chapters')
         .select('id, slots')
@@ -72,6 +85,7 @@ export function serverJuan(): JuanPort {
 
     async chart(bookId) {
       const sb = supabaseServer();
+      if (!(await signedIn(sb))) return null;
       const { data, error } = await sb
         .from('books')
         .select('created_at, charts(payload)')

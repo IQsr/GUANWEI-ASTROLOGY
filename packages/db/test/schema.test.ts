@@ -297,3 +297,33 @@ describe('⚠ 書架排得到序（E3）', () => {
     expect(row!.last_read_at).not.toBeNull();
   });
 });
+
+describe('0004：Supabase 預設權限收返', () => {
+  it('之後開嘅表唔會自動畀 anon／authenticated', async () => {
+    const db = await createTestDb();
+    try {
+      await db.exec('create table public.zz_new (id int)');
+      const rows = await db.sql(
+        `select grantee from information_schema.role_table_grants
+          where table_name = 'zz_new' and grantee in ('anon', 'authenticated')`,
+      );
+      expect(rows).toEqual([]);
+    } finally {
+      await db.close();
+    }
+  });
+
+  it('anon 對七張表一個權限都冇', async () => {
+    const db = await createTestDb();
+    try {
+      const rows = await db.sql(
+        `select table_name, privilege_type from information_schema.role_table_grants
+          where table_schema = 'public' and grantee = 'anon'
+            and table_name in ('readers','subjects','charts','books','chapters','entitlements','payment_records')`,
+      );
+      expect(rows).toEqual([]);
+    } finally {
+      await db.close();
+    }
+  });
+});

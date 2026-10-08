@@ -100,7 +100,11 @@ export async function verdict(
  * 冇盤（待時辰）、冇時間 → null：唔知真時辰就冇得對答案，唔做。
  */
 export async function bookBirth(bookId: string): Promise<{ input: Omit<BirthInput, 'time'>; truth: ShichenIndex } | null> {
-  const { data, error } = await supabaseServer()
+  const sb = supabaseServer();
+  /* 未登入：0004 起讀表係 permission denied，唔係空 —— 先問 */
+  const { data: auth } = await sb.auth.getUser();
+  if (!auth.user) return null;
+  const { data, error } = await sb
     .from('books')
     .select('subjects(birth_date, birth_time, birth_tz, birth_place, lng, lat, sex), charts(payload)')
     .eq('id', bookId)
