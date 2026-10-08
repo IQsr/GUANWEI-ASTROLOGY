@@ -22,3 +22,8 @@ coverage/
 
 # 執手尾嗰陣影低嘅截圖，唔係資產
 shot-*.png
+
+# 本機嘢：Claude 設定、臨時輸出
+.claude/
+output/
+tmp/
