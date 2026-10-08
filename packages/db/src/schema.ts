@@ -81,6 +81,8 @@ export const BookRow = z.object({
   /** 同意咗邊個版本嘅條款及私隱政策、幾時（0011）。0011 之前成嘅書兩欄都係 null。 */
   terms_version: z.string().nullable(),
   terms_accepted_at: ts.nullable(),
+  /** 溯時紀錄記過未（0005）：每本書只記第一次。紀錄本身唔連書。 */
+  rectify_recorded_at: ts.nullable(),
 });
 
 export const ChapterRow = z.object({

@@ -28,6 +28,31 @@ export const MAX_QUESTIONS = 12;
 
 export type Prepared = ReturnType<typeof prepare>;
 
+const AREAS = new Set(['工作', '錢', '感情', '遷移', '家', '身體', 'turn']);
+const ANSWERS = new Set(['yes', 'no', 'unsure']);
+
+/**
+ * 瀏覽器交返嚟嘅答案（server action 係公開 endpoint，收到乜都得）：
+ * 形狀唔啱嘅剷走、重複嘅題剷走、最多 MAX_QUESTIONS 題 —— 唔畀人塞一大堆嘢入嚟拖慢計分或者寫入。
+ */
+export function cleanAsked(raw: unknown): Asked[] {
+  if (!Array.isArray(raw)) return [];
+  const seen = new Set<string>();
+  const out: Asked[] = [];
+  for (const x of raw.slice(0, MAX_QUESTIONS * 2)) {
+    const q = (x as { q?: { year?: unknown; area?: unknown } })?.q;
+    const a = (x as { a?: unknown })?.a;
+    if (!q || !Number.isInteger(q.year) || (q.year as number) < 1900 || (q.year as number) > 2100) continue;
+    if (typeof q.area !== 'string' || !AREAS.has(q.area) || typeof a !== 'string' || !ANSWERS.has(a)) continue;
+    const item = { q: { year: q.year as number, area: q.area }, a } as Asked;
+    if (seen.has(qid(item.q))) continue;
+    seen.add(qid(item.q));
+    out.push(item);
+    if (out.length >= MAX_QUESTIONS) break;
+  }
+  return out;
+}
+
 /** 排候選盤、計每個盤由十八歲到上年嘅預測。`band` = 0–3 大概時段，null = 唔知。 */
 export function prepare(input: Omit<BirthInput, 'time'>, band: number | null) {
   const only = band !== null && band >= 0 && band <= 3 ? BANDS[band] : undefined;
@@ -55,13 +80,14 @@ export async function verdict(
   p: NonNullable<Prepared>,
   asked: Asked[],
   truth: ShichenIndex | null,
-  opts: { record: boolean; source: 'tokens' | 'book' },
+  /* 0005：要有一本自己嘅書先記得（真時辰由 DB 讀盤，每本書只記第一次）；冇書（/tokens）唔記 */
+  opts: { record: boolean; source: 'tokens' | 'book'; bookId?: string },
 ): Promise<Verdict> {
   const post = posterior(p.preds, asked, RECTIFY_MODEL);
   const ranking = p.cs.map((c, i) => ({ shichen: c.shichen, p: post[i]! })).sort((x, y) => y.p - x.p);
   const top = ranking[0]!;
   let saved = false;
-  if (opts.record) {
+  if (opts.record && opts.bookId) {
     const answers = asked.map(({ q, a }) => ({
       year: q.year,
       area: q.area,
@@ -69,17 +95,18 @@ export async function verdict(
       yes: p.cs.filter((_, i) => p.preds[i]!.has(qid(q))).map((c) => c.shichen),
     }));
     try {
-      const { error } = await supabaseServer().rpc('rectify_record', {
+      const { data, error } = await supabaseServer().rpc('rectify_record', {
+        p_book: opts.bookId,
         p_band: p.band,
         p_candidates: p.cs.map((c) => c.shichen),
-        p_true: truth,
         p_picked: top.shichen,
         p_confidence: top.p,
         p_answers: answers,
         p_posterior: Object.fromEntries(ranking.map((r) => [String(r.shichen), Number(r.p.toFixed(4))])),
         p_meta: { model: RECTIFY_MODEL, engine: ENGINE_VERSION, source: opts.source },
       });
-      saved = !error;
+      /* null = 呢本書記過喇（或者唔係你本書）：唔當失敗，只係冇新紀錄 */
+      saved = !error && data !== null;
       if (error) console.error('[dingshi] 記錄唔到', error.message);
     } catch (e) {
       console.error('[dingshi] 記錄唔到', e);

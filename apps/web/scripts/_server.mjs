@@ -67,6 +67,8 @@ export async function startServer(port) {
 
   const child = spawn('npx', ['next', 'start', '-p', String(port)], {
     stdio: 'ignore',
+    /* /tokens 樣板頁正式站係 404（src/lib/tokens-gate.ts）；驗收要用佢哋 */
+    env: { ...process.env, GUANWEI_TOKENS: '1' },
     /* POSIX：自成一個 group，收工嗰陣一次過殺埋啲仔。 */
     detached: !WIN,
     /* Windows：要行過 shell 先搵得到 npx.cmd。 */

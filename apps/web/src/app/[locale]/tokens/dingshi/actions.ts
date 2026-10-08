@@ -2,8 +2,9 @@
 
 import type { ShichenIndex } from '@guanwei/ziwei';
 import { PLACES } from '@/lib/luokuan';
-import { prepare, step, verdict } from '@/lib/dingshi.server';
+import { cleanAsked, prepare, step, verdict } from '@/lib/dingshi.server';
 import type { Asked, Step, Verdict } from '@/lib/dingshi-types';
+import { tokensEnabled } from '@/lib/tokens-gate';
 
 /**
  * 定時辰驗證頁（內部）嘅 server action。計法喺 `lib/dingshi.server.ts`，同書入面嘅小實驗共用。
@@ -13,6 +14,8 @@ import type { Asked, Step, Verdict } from '@/lib/dingshi-types';
 export type Birth = { date: string; placeIndex: number; sex: 'male' | 'female'; band: number | null };
 
 function setup(b: Birth) {
+  /* 頁面 404 都 call 得到個 action：呢度自己再擋 */
+  if (!tokensEnabled()) return null;
   const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(b.date);
   const place = PLACES[b.placeIndex];
   if (!m || !place) return null;
@@ -29,12 +32,13 @@ function setup(b: Birth) {
 
 export async function nextStep(b: Birth, asked: Asked[]): Promise<({ ok: true } & Step) | { ok: false }> {
   const p = setup(b);
-  return p ? { ok: true, ...step(p, asked) } : { ok: false };
+  return p ? { ok: true, ...step(p, cleanAsked(asked)) } : { ok: false };
 }
 
 export async function finish(b: Birth, asked: Asked[], trueShichen: number | null): Promise<Verdict | null> {
   const p = setup(b);
   if (!p) return null;
   const truth = trueShichen !== null && trueShichen >= 0 && trueShichen <= 11 ? (trueShichen as ShichenIndex) : null;
-  return verdict(p, asked, truth, { record: true, source: 'tokens' });
+  /* 0005：冇書唔記（真時辰係自己講，信唔過） */
+  return verdict(p, cleanAsked(asked), truth, { record: false, source: 'tokens' });
 }
