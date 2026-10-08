@@ -5,7 +5,7 @@ import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { routing } from '@/i18n/routing';
 import { SITE_URL } from '@/lib/site';
 import { themeInitScript } from '@/lib/theme';
-import { FONT_STYLESHEET_HREF } from '../fonts';
+import '../fonts';
 import { SiteHeader } from '@/components/SiteHeader';
 import '../globals.css';
 
@@ -68,9 +68,6 @@ export default async function LocaleLayout({
   return (
     <html lang={locale} suppressHydrationWarning>
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
-        <link rel="stylesheet" href={FONT_STYLESHEET_HREF} />
         {/* 喺第一次 paint 之前 stamp 主題，避免夜讀用戶見到一閃嘅紙白。 */}
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
       </head>

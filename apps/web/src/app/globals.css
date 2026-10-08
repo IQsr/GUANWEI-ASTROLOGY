@@ -130,11 +130,14 @@
 
   /* ── 字體 stack ── */
   /* 宋體做標題同命書正文；黑體做內文同工具字；Playfair 做英文（參考稿字體規範） */
-  --font-serif-stack: "Playfair Display", "Noto Serif TC", "Songti TC",
+  /* 「… Variable」係自己 host 嗰隻（app/fonts.ts）；後面照留舊名同系統字做後備 */
+  --font-serif-stack: "Playfair Display Variable", "Noto Serif TC Variable", "Noto Serif TC", "Songti TC",
     "Source Han Serif TC", "PMingLiU", serif;
-  --font-latin-stack: "Playfair Display", "Noto Serif TC", Georgia, serif;
-  --font-sans-stack: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei",
+  --font-latin-stack: "Playfair Display Variable", "Noto Serif TC Variable", Georgia, serif;
+  --font-sans-stack: "Noto Sans TC Variable", "Noto Sans TC", "PingFang TC", "Microsoft JhengHei",
     system-ui, sans-serif;
+  /* 命書正文（`.wen`）：宋體排第一，見下面 */
+  --font-body-stack: "Noto Serif TC Variable", "Noto Serif TC", "Songti TC", "Source Han Serif TC", "PMingLiU", serif;
 }
 
 /* 跟系統 = 冇 data-theme stamp，只有 prefers-color-scheme 分得出。
@@ -453,7 +456,7 @@
    *   二、字重 400 —— 300 喺紙色上面對比偏弱，Windows 尤其睇到發灰。
    */
   .wen {
-    font-family: "Noto Serif TC", "Songti TC", "Source Han Serif TC", "PMingLiU", serif;
+    font-family: var(--font-body-stack);
     font-weight: 400;
   }
 

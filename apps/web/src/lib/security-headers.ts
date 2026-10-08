@@ -3,7 +3,7 @@
  *
  * ── CSP 點解咁寫 ──
  *
- * 全站對外只連兩個 host：Google Fonts 嘅 CSS（fonts.googleapis.com）同字型檔（fonts.gstatic.com）。
+ * 全站唔連任何第三方（2026-10-08 起字型都自己 host，見 app/fonts.ts）。
  * 瀏覽器唔直接連 Supabase、Stripe —— 兩樣都經我哋 server；付款係 server 轉去 checkout.stripe.com。
  * 所以 connect-src 淨係 'self'，有人塞到 script 入嚟都送唔到資料出去。
  *
@@ -16,8 +16,6 @@
  */
 
 export const CSP_HOSTS = {
-  fontCss: 'https://fonts.googleapis.com',
-  fontFiles: 'https://fonts.gstatic.com',
   /* 付款頁：冇 JS 嘅 form POST 收到 303 轉去 Stripe，Chrome 會用 form-action 檢查 */
   checkout: 'https://checkout.stripe.com',
 } as const;
@@ -26,8 +24,8 @@ export function contentSecurityPolicy(dev: boolean): string {
   const d: Record<string, string[]> = {
     'default-src': ["'self'"],
     'script-src': ["'self'", "'unsafe-inline'", ...(dev ? ["'unsafe-eval'"] : [])],
-    'style-src': ["'self'", "'unsafe-inline'", CSP_HOSTS.fontCss],
-    'font-src': ["'self'", CSP_HOSTS.fontFiles],
+    'style-src': ["'self'", "'unsafe-inline'"],
+    'font-src': ["'self'"],
     'img-src': ["'self'", 'data:', 'blob:'],
     'connect-src': ["'self'", ...(dev ? ['ws:'] : [])],
     'frame-src': ["'none'"],

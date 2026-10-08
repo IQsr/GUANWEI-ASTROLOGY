@@ -147,12 +147,9 @@ PECR 之下唔使 consent，所以**「唔要 cookie banner」呢個立場仲成
 
 ## 四、第三方（用戶部機會直接同邊個講嘢）
 
-| Host | 做乜 | 收到乜 | Cookie？ |
-|---|---|---|---|
-| `fonts.googleapis.com` | 字體 stylesheet | IP · User-Agent · Referer | 冇 |
-| `fonts.gstatic.com` | 字體檔本身 | 同上 | 冇 |
+**冇。**（2026-10-08 起字型自己 host，見 `src/app/fonts.ts`；之前係 `fonts.googleapis.com`、`fonts.gstatic.com`。）
 
-**得呢兩個。** Supabase 唔喺呢張表度，因為 `src/lib` 入面冇 `createBrowserClient` ——
+Supabase 唔喺度，因為 `src/lib` 入面冇 `createBrowserClient` ——
 瀏覽器由頭到尾冇直接同 Supabase 講過嘢，生辰行嘅路係
 `瀏覽器 → 我哋部 server（server action）→ Supabase`。
 
@@ -178,17 +175,11 @@ Stripe 收到付款資料，所以佢一定要喺呢份文件出現。
 呢個係必要嘅（冇佢 webhook 唔知發邊本書），但要講出嚟 ——
 而且正正係點解 analytics 嗰邊連呢兩個 id 都唔准入 event。
 
-### ⚠ Google Fonts 係一個要講出嚟嘅取捨
+### ~~Google Fonts~~（2026-10-08 收咗）
 
-冇 cookie，但**用戶部機會將 IP 送去 Google**，而呢件事喺歐盟／英國
-係有人告過嘅（LG München I，2022年1月，Google Fonts 熱連結判 GDPR 違規）。
-
-`src/app/fonts.ts` 已經寫低咗點解而家噉做（CJK 用 `next/font` 會令 build 爆炸），
-同埋條升級路線（`cn-font-split` 自己切片自 host）。
-
-**H1 唔改佢** —— 改咗係一個字體交付決定，唔係一個私隱決定，
-而且要重新量 build 時間同首屏。但由今日起佢喺呢度有名有姓，
-而且 `/privacy`（H2）一定要提佢。
+以前熱連結 Google Fonts，讀者部機會將 IP 送去 Google（LG München I，2022年1月判 GDPR 違規）。
+2026-10-08 改為 Fontsource 可變字型自己 host（同樣按 unicode-range 切片），順手解決咗簡體版喺大陸載唔到字型嘅問題。
+私隱政策「第三方」嗰段同步刪咗，`LEGAL_VERSION` 改做 2026-10-08。
 
 ---
 
@@ -256,7 +247,7 @@ Stripe 收到付款資料，所以佢一定要喺呢份文件出現。
 | `/privacy`、`/terms` 三版頁 | H2 |
 | 版權頁列實際時區偏移（R-007） | H2（引擎未 export） |
 | 一個真 provider，同埋接線之後再量一次 | 未開 |
-| Google Fonts 自 host | 未開（`fonts.ts` 有路線） |
+| Google Fonts 自 host | ✅ 2026-10-08 |
 | `NEXT_LOCALE` 關唔關 | H3 |
 | 付款紀錄保留期嘅實際年期（要問會計） | ⚠ 收第一蚊之前 |
 | 退款之後張票要點（`charge.refunded` 而家唔處理） | 見 `docs/pay.md` |

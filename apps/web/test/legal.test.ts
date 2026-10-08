@@ -30,6 +30,8 @@ describe('條款及私隱政策（2026-09-29）', () => {
 
   it('私隱政策講齊規格入面嘅第三方同 cookie', () => {
     const text = legalDoc('privacy', 'zh-Hant').sections.flatMap((s) => s.p).join('');
-    for (const w of ['Supabase', 'Google Fonts', 'Stripe', 'NEXT_LOCALE', '匯出', '刪除']) expect(text).toContain(w);
+    for (const w of ['Supabase', 'Stripe', 'NEXT_LOCALE', '匯出', '刪除']) expect(text).toContain(w);
+    /* 2026-10-08 起字型自己 host：唔再有 Google Fonts，政策唔好仲講佢 */
+    expect(text).not.toContain('Google');
   });
 });

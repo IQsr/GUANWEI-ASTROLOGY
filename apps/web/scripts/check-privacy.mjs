@@ -57,7 +57,8 @@ const ALLOWED_COOKIES = [
  * ⚠ 一個第三方 host 就係一個「用戶部機直接同佢講嘢」嘅對象 ——
  * 冇 cookie 都好，佢一樣收到 IP 同 User-Agent。
  */
-const ALLOWED_HOSTS = ['fonts.googleapis.com', 'fonts.gstatic.com'];
+/* 2026-10-08 起字型自己 host（app/fonts.ts）：一個第三方都冇 */
+const ALLOWED_HOSTS = [];
 
 const ROUTES = [
   '/',
@@ -252,4 +253,4 @@ if (fail.length) {
   process.exit(1);
 }
 
-console.log('✓ 私隱：cookie 逐個宣告過、第三方得 Google Fonts、生辰冇入任何網址、文件同量度對得返');
+console.log('✓ 私隱：cookie 逐個宣告過、冇任何第三方、生辰冇入任何網址、文件同量度對得返');

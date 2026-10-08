@@ -1,30 +1,28 @@
 /**
- * 字體（重新設計第一期 · 參考稿「字體」）
+ * 字體（重新設計第一期 · 參考稿「字體」；2026-10-08 改為自己 host）
  *
- * 三個角色：
- *   宋體  Noto Serif TC     —— 標題同命書正文
- *   黑體  Noto Sans TC      —— 內文、工具字、數字
- *   西文  Playfair Display  —— GUAN WEI 同英文標語（取代 Spectral）
+ * 角色：
+ *   宋體  Noto Serif TC／SC  —— 標題同命書正文
+ *   黑體  Noto Sans TC／SC   —— 內文、工具字、數字
+ *   西文  Playfair Display   —— STELLOGUE 同英文標語
  *
- * 三個都由同一條 Google Fonts stylesheet 載，唔用 next/font。兩個原因：
+ * ── 點解唔再用 Google Fonts ──
  *
- * 1. CJK 唔適合 next/font。next/font 會喺 build 時將成個 subset 下載落嚟自
- *    host，而 'chinese-traditional' subset 係幾百個切片乘以每個字重 ——
- *    build 會變得好慢好重。用 stylesheet 就保留到 Google 嘅 unicode-range
- *    動態切片，一版嘢淨係 download 佢真係用到嗰幾十 KB。
+ * 一、私隱：熱連結 Google Fonts 會將讀者 IP 送去 Google（LG München I，2022 判 GDPR 違規）。
+ * 二、大陸：fonts.googleapis.com 經常載唔到，簡體版（東南亞、大陸讀者）會成版走樣。
+ * 三、CSP 少兩個外部 host —— 全站唔再連任何第三方。
  *
- * 2. 既然中文行緊 stylesheet，西文再用 next/font 自 host 就慳唔到第三方
- *    請求 —— 反而變成兩個來源。三個 family 併埋一條 URL，一個 request 搞掂。
+ * ── 點解用 Fontsource 嘅可變字型 ──
  *
- * 升級路線（品牌字體定稿之後）：用 cn-font-split 自己切片再自 host 三個
- * family，咁就連最後一個第三方請求都冇埋 —— 同「只得兩個 essential cookie、
- * 唔要 cookie banner」嘅立場一致（架構 §10）。到時只需要改呢個檔案，
- * 同埋 layout 入面嗰兩行 <link>。
+ * 同 Google 一樣按 unicode-range 切片（每隻約一百片），瀏覽器淨係下載嗰版用到嘅字；
+ * 可變字型一套片包晒所有字重（200–900），唔使每個字重各一套 —— 五隻加埋約 22MB 喺 server，
+ * 讀者一版通常只下載幾十 KB。只有 woff2。
+ *
+ * ⚠ family 名多咗「Variable」（例：'Noto Serif TC Variable'），globals.css 嘅 stack 用呢個名。
+ *   SC 嗰兩隻宣告咗但只有簡體頁嘅 stack 用到 —— 冇用到嘅 @font-face 唔會下載。
  */
-
-export const FONT_STYLESHEET_HREF =
-  'https://fonts.googleapis.com/css2' +
-  '?family=Noto+Serif+TC:wght@300;400;500;600;900' +
-  '&family=Noto+Sans+TC:wght@300;400;500' +
-  '&family=Playfair+Display:wght@400;500;600' +
-  '&display=swap';
+import '@fontsource-variable/noto-serif-tc';
+import '@fontsource-variable/noto-sans-tc';
+import '@fontsource-variable/noto-serif-sc';
+import '@fontsource-variable/noto-sans-sc';
+import '@fontsource-variable/playfair-display';

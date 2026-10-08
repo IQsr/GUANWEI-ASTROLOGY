@@ -52,7 +52,6 @@ const ZH_PRIVACY: LegalDoc = {
     ] },
     { h: '五、第三方', p: [
       `Supabase：存放資料庫和處理登入，資料存放於${'〔資料庫所在地區〕'}。`,
-      'Google Fonts：載入字體時，你的瀏覽器會把 IP 位址傳給 Google。',
       'Stripe：處理付款。Stripe 會收到你的付款資料和電郵，並可能把資料傳送到你所在地區以外。',
       '除此之外，你的瀏覽器不會直接與其他第三方交換資料。',
     ] },
@@ -104,7 +103,6 @@ const EN_PRIVACY: LegalDoc = {
     { h: '4. Cookies and local storage', p: ['We use only two strictly necessary cookies: NEXT_LOCALE (your language) and the Supabase sign-in cookie (recognising your books). No advertising or tracking cookies.', 'Your browser also stores a few conveniences locally: light/dark reading, where you last read, whether you have agreed to these terms, and which books have done Trace the Hour. These stay on your device.'] },
     { h: '5. Third parties', p: [
       'Supabase: hosts our database and sign-in; data is stored in 〔database region〕.',
-      'Google Fonts: when fonts load, your browser sends your IP address to Google.',
       'Stripe: processes payments. Stripe receives your payment details and email and may transfer data outside your region.',
       'Otherwise your browser does not exchange data directly with any other third party.',
     ] },

@@ -15,7 +15,7 @@
  *
  * ⚠ 唔係法律意見。上線收錢之前要搵人睇（docs/privacy.md、docs/pay.md）。
  */
-export const LEGAL_VERSION = '2026-10-05';
+export const LEGAL_VERSION = '2026-10-08';
 
 export const LEGAL = {
   operator: '〔營運者名稱〕',
