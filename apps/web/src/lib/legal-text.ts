@@ -1,4 +1,5 @@
 import { LEGAL, LEGAL_VERSION } from '@/lib/legal';
+import { deepHans, isHans } from '@/lib/hans';
 
 /**
  * 條款同私隱政策嘅正文（2026-09-29 初稿）
@@ -115,6 +116,7 @@ const EN_PRIVACY: LegalDoc = {
 
 export function legalDoc(kind: 'terms' | 'privacy', locale: string): LegalDoc {
   const en = locale === 'en';
-  if (kind === 'terms') return en ? EN_TERMS : ZH_TERMS;
-  return en ? EN_PRIVACY : ZH_PRIVACY;
+  const doc = kind === 'terms' ? (en ? EN_TERMS : ZH_TERMS) : en ? EN_PRIVACY : ZH_PRIVACY;
+  /* 簡體（2026-10-08）：由繁體轉；同一份條款，唔係另一個版本 */
+  return isHans(locale) ? deepHans(doc) : doc;
 }

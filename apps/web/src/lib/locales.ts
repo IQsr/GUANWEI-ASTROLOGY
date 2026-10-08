@@ -16,6 +16,8 @@ import type { Locale } from '@/i18n/routing';
  *   四、`app/fonts.ts` 加 Noto Serif KR / Noto Sans KR（TC 冇諺文）
  */
 export const LOCALE_LABEL: Record<Locale, { short: string; name: string }> = {
-  'zh-Hant': { short: '中', name: '繁體中文' },
+  'zh-Hant': { short: '繁', name: '繁體中文' },
+  /* 簡體（2026-10-08）：成站由繁體喺 server 轉（lib/hans.ts），唔另外寫 */
+  'zh-Hans': { short: '简', name: '简体中文' },
   en: { short: 'EN', name: 'English' },
 };

@@ -131,7 +131,7 @@ try {
   /* ── 三、sitemap 內容 ─────────────────────────────── */
   const xml = await fetch(`${BASE}/sitemap.xml`).then((r) => r.text());
   const locs = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
-  check('sitemap 條數', locs.length === 73, `${locs.length} 條，應該 73（首頁 ＋ 繁中目錄 ＋ 35 詞條 ＋ 英文目錄 ＋ 35 詞條）`);
+  check('sitemap 條數', locs.length === 110, `${locs.length} 條，應該 110（繁中、簡體各：首頁 ＋ 目錄 ＋ 35 詞條；英文：目錄 ＋ 35 詞條）`);
   check('sitemap 中文 encode', locs.some((l) => l.includes('%E7%B4%AB%E5%BE%AE')), '搵唔到 encode 咗嘅紫微');
   for (const leak of ['/cast', '/shelf', '/book', '/claim', '/account', '/pay']) {
     check('sitemap 白名單', !locs.some((l) => l.includes(leak)), `私密層 ${leak} 漏咗入 sitemap`);
@@ -279,4 +279,4 @@ if (fail.length) {
   for (const f of fail) console.error('  ' + f);
   process.exit(1);
 }
-console.log('✓ 路由：公開層全 200、英文瀏覽器入得到、英文藏經閣開咗、sitemap 73 條、私密層擋晒、CTA 一行細字');
+console.log('✓ 路由：公開層全 200、英文瀏覽器入得到、英文藏經閣開咗、sitemap 110 條、私密層擋晒、CTA 一行細字');

@@ -60,6 +60,8 @@ const ALLOWED = {
   'app/[locale]/book/[bookId]/[chapter]/page.tsx': '段落格名預設「正文」（資料鍵）',
   'app/[locale]/sample/[chapter]/page.tsx': '同真書一章一樣：段落格名預設「正文」、墨綠頁章 slug（資料鍵）',
 
+  'lib/hans-zi.ts': '簡體（2026-10-08）：命盤詞彙繁 → 簡逐字對照表（資料，test/hans.test.ts 對住 OpenCC 核）',
+
   /* ── 品牌同語言名：任何語言都一樣 ── */
   'lib/site.ts': '品牌「星敘」',
   'lib/locales.ts': '語言名用嗰種語言自己嘅寫法（「繁體中文」）',

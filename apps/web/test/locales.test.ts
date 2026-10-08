@@ -21,10 +21,13 @@ function keys(o: Record<string, unknown>, prefix = ''): string[] {
   );
 }
 
+/** 冇自己 messages 檔、由另一種語言轉出嚟嘅（簡體由繁體轉，`src/i18n/request.ts`） */
+const DERIVED: Record<string, string> = { 'zh-Hans': 'zh-Hant' };
+
 describe('每種語言', () => {
   const base = new Set(keys(load(routing.defaultLocale)));
 
-  for (const locale of routing.locales) {
+  for (const locale of routing.locales.filter((l) => !DERIVED[l])) {
     it(`${locale}：有 messages 檔`, () => {
       expect(existsSync(`${MESSAGES}${locale}.json`)).toBe(true);
     });
@@ -36,11 +39,21 @@ describe('每種語言', () => {
       expect([...mine].filter((k) => !base.has(k))).toEqual([]);
     });
 
+  }
+
+  for (const locale of routing.locales) {
     it(`${locale}：切換掣有名，而且係自己嗰種語言嘅寫法`, () => {
       expect(LOCALE_LABEL[locale].name.length).toBeGreaterThan(0);
       expect(LOCALE_LABEL[locale].short.length).toBeGreaterThan(0);
     });
   }
+
+  it('轉出嚟嘅語言冇自己嘅 messages 檔（唔准兩份各自改）', () => {
+    for (const [l, from] of Object.entries(DERIVED)) {
+      expect(existsSync(`${MESSAGES}${l}.json`)).toBe(false);
+      expect(existsSync(`${MESSAGES}${from}.json`)).toBe(true);
+    }
+  });
 
   it('切換掣唔會有一種唔存在嘅語言', () => {
     expect(Object.keys(LOCALE_LABEL).sort()).toEqual([...routing.locales].sort());

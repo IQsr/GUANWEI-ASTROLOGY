@@ -2,6 +2,7 @@
 
 import { bookBirth, cleanAsked, prepare, step, verdict } from '@/lib/dingshi.server';
 import type { Asked, Step, Verdict } from '@/lib/dingshi-types';
+import { zhFor } from '@/lib/hans';
 
 /**
  * 書入面嘅時辰小實驗（2026-10-05）。
@@ -19,7 +20,10 @@ async function setup(bookId: string, band: number | null) {
 /** `locale`：英文閱讀模式下題目用英文（2026-10-05） */
 export async function shiyanStep(bookId: string, band: number | null, asked: Asked[], locale = 'zh-Hant'): Promise<({ ok: true } & Step) | { ok: false }> {
   const s = await setup(bookId, band);
-  return s ? { ok: true, ...step(s.p, cleanAsked(asked), locale === 'en' ? 'en' : 'zh') } : { ok: false };
+  if (!s) return { ok: false };
+  const r = step(s.p, cleanAsked(asked), locale === 'en' ? 'en' : 'zh');
+  /* 簡體：題目由繁體轉（2026-10-08） */
+  return { ok: true, ...(r.done ? r : { ...r, text: zhFor(locale, r.text) }) };
 }
 
 export async function shiyanFinish(bookId: string, band: number | null, asked: Asked[], consent: boolean): Promise<Verdict | null> {

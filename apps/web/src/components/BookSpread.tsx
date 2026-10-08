@@ -3,6 +3,7 @@
 import { useEffect, useLayoutEffect, useRef, useState, type ReactNode } from 'react';
 import { useLocale, useTranslations } from 'next-intl';
 import { ganzhiPy, slugEn } from '@/lib/chart-labels';
+import { zi } from '@/lib/hans-zi';
 import { Chart } from '@/components/Chart';
 import { Zhanjuan } from '@/components/Zhanjuan';
 import { GROW_MS } from '@/lib/timing';
@@ -46,6 +47,7 @@ export function BookSpread({
   chart,
   layers = null,
   palace,
+  palaceLabel,
   follow = false,
   top,
   prev = null,
@@ -60,6 +62,8 @@ export function BookSpread({
   layers?: ChartLayers | null;
   /** 呢一章講邊一宮（亮邊格）。目次嗰陣畀「命宮」。 */
   palace: string;
+  /** 盤中間點寫 `palace`（server 轉好嘅簡體章名）。冇就用回 `palace`（宮名逐字轉）。 */
+  palaceLabel?: string;
   /** 跟住右頁讀緊嘅段落亮（讀章用）。 */
   follow?: boolean;
   /** 左頁頂嗰行（例如書名）。 */
@@ -86,7 +90,8 @@ export function BookSpread({
 }) {
   const t = useTranslations('reading');
   const [showPlate, setShowPlate] = useState(false);
-  const en = useLocale() === 'en';
+  const locale = useLocale();
+  const en = locale === 'en';
   const page = useRef<HTMLDivElement>(null);
   const book = useRef<HTMLElement>(null);
   const [slot, setSlot] = useState<string | null>(null);
@@ -264,7 +269,7 @@ export function BookSpread({
         maxWidth={520}
         center={
           <>
-            <p className="text-center font-sans text-cap tracking-[0.16em] text-ink-3">{en ? slugEn(palace) : palace}</p>
+            <p className="text-center font-sans text-cap tracking-[0.16em] text-ink-3">{en ? slugEn(palace) : (palaceLabel ?? zi(palace, locale === 'zh-Hans'))}</p>
             {caption ? <p className="text-center font-sans text-cap tracking-[0.08em] text-cinnabar">{caption}</p> : null}
           </>
         }

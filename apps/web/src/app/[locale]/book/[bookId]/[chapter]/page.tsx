@@ -18,14 +18,15 @@ import { chartLayers } from '@/lib/layers.server';
 import { MarkRead } from '@/components/MarkRead';
 import { contentsView } from '@/lib/juan-view';
 import { serverJuan } from '@/lib/juan.server';
-import { notesFor } from '@/lib/mingshu';
+import { localizeMarked, notesFor } from '@/lib/mingshu';
 import { FontWarm } from '@/components/FontWarm';
 import { distinctChars } from '@/lib/fontwarm';
 import { markBook } from '@/lib/zhu';
 import { ChapterNav } from '@/components/ChapterNav';
 import { ShiyanCard } from '@/components/ShiyanCard';
 import { chapterHref, chapterParam, contentsHref, neighbours } from '@/lib/journey';
-import { englishChapters, englishTitle, isEnglish } from '@/lib/english';
+import { displayTitle, englishChapters, isEnglish } from '@/lib/english';
+import { zhFor } from '@/lib/hans';
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -93,7 +94,8 @@ export default async function ChapterPage({
 
   /* 英文閱讀模式：章名同正文由中文譯（lib/english.ts）；slug 照用中文 */
   const en = isEnglish(locale);
-  const chapters = en ? view.chapters.map((c) => ({ ...c, title: englishTitle(c.title) })) : view.chapters;
+  /* 英文譯、簡體轉（2026-10-08）；slug 照用繁體 */
+  const chapters = locale === 'zh-Hant' ? view.chapters : view.chapters.map((c) => ({ ...c, title: displayTitle(c.title, locale) }));
   const here = chapters.find((c) => c.slug === chapter);
   const { prev, next } = neighbours(chapters, chapter);
   /*
@@ -132,7 +134,7 @@ export default async function ChapterPage({
    * ⚠ 標註要**成本書**一齊標，但跟捲動高亮只關呢一章事。
    * 所以前面幾章照樣攞返嚟標，段落結構就只有呢一章要（F2）。
    */
-  const marked = en
+  const marked = localizeMarked(en
     ? markBook(englishChapters(upto.map((c, i) => ({ text: fetched[i]?.text ?? '', slots: fetched[i]?.slots ?? [] }))).map((segments, i) => ({ palace: upto[i]!.title, segments })), 'en')
     : markBook(
     upto.map((c, i) => ({
@@ -142,7 +144,7 @@ export default async function ChapterPage({
         text: para.text,
       })),
     })),
-  );
+  ), locale);
   const mine = marked.at(-1);
   const body = fetched.at(-1)?.text ?? null;
   /*
@@ -151,7 +153,8 @@ export default async function ChapterPage({
    */
   const justCut = here && body !== null ? await cutPage(here.id) : false;
   /* 章尾金線星盤（2026-10-04）：點出呢章講緊嗰一格 */
-  const dial = chart && here ? dialFor(chart, here.slug, layers, en) : null;
+  const dialRaw = chart && here ? dialFor(chart, here.slug, layers, en) : null;
+  const dial = dialRaw ? { ...dialRaw, caption: zhFor(locale, dialRaw.caption) } : null;
 
   return (
     /* 書桌閱讀：左頁命盤跟住右頁讀緊嘅段落亮，右頁喺頁入面捲 */
@@ -170,10 +173,11 @@ export default async function ChapterPage({
           chart={chart}
           layers={layers}
           palace={here.slug}
+          palaceLabel={zhFor(locale, here.slug)}
           follow={body !== null}
           prev={turnPrev}
           next={turnNext}
-          top={<p className="font-serif text-lead tracking-[0.16em] text-ink-2">{view.title ?? tShelf('untitled')}</p>}
+          top={<p className="font-serif text-lead tracking-[0.16em] text-ink-2">{view.title ? zhFor(locale, view.title) : tShelf('untitled')}</p>}
         >
           {/* ⚠ 章名係內容嘅一部分，唔係頁頭：擺喺右頁頂 */}
           <ChapterTitle title={here.title} />

@@ -140,6 +140,24 @@
   --font-body-stack: "Noto Serif TC Variable", "Noto Serif TC", "Songti TC", "Source Han Serif TC", "PMingLiU", serif;
 }
 
+/*
+ * 簡體頁（2026-10-08）：同一套角色，換簡體字形（SC）。字型喺 app/fonts.ts 已經宣告，冇用到唔會下載。
+ * ⚠ 選擇器要同上面 `:root, .ye-ink .shu-wrap, …` 嗰組一樣 —— 書頁入面會再宣告一次字型變數，
+ *   淨係改 `:root` 嘅話，書入面照舊用 TC，簡體字（缓、记、过）會由系統字型補，字形撈埋一齊。
+ */
+:root:lang(zh-Hans),
+.ye-ink .shu-wrap:lang(zh-Hans),
+.ye-ink .fan-wrap:lang(zh-Hans),
+.ye-ink .shuzhuo:lang(zh-Hans),
+.fanye-tai:lang(zh-Hans) {
+  --font-serif-stack: "Playfair Display Variable", "Noto Serif SC Variable", "Noto Serif SC", "Songti SC",
+    "Source Han Serif SC", serif;
+  --font-latin-stack: "Playfair Display Variable", "Noto Serif SC Variable", Georgia, serif;
+  --font-sans-stack: "Noto Sans SC Variable", "Noto Sans SC", "PingFang SC", "Microsoft YaHei",
+    system-ui, sans-serif;
+  --font-body-stack: "Noto Serif SC Variable", "Noto Serif SC", "Songti SC", "Source Han Serif SC", serif;
+}
+
 /* 跟系統 = 冇 data-theme stamp，只有 prefers-color-scheme 分得出。
    :not([data-theme="light"]) 令明示揀咗日讀嘅人唔會被系統覆蓋。 */
 @media (prefers-color-scheme: dark) {

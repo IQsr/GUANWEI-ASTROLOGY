@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { BookFlip } from "@/components/BookFlip";
 import { PageTurnLink } from "@/components/PageTurnLink";
 import { Juanshou } from "@/components/Juanshou";
@@ -54,10 +54,11 @@ export function Naming({
   /** 序嘅章名同章首，由 server 帶過嚟（見 cast/actions.ts）。 */
   preface: Preface | null;
 }) {
-  /* 成幕行完之前，本書撳唔郁。 */
+  const locale = useLocale();
   const t = useTranslations("naming");
   const tr = useTranslations("reading");
   const tn = useTranslations("nav");
+  /* 成幕行完之前，本書撳唔郁。 */
   const [ready, setReady] = useState(false);
   const [open, setOpen] = useState(false);
   /*
@@ -117,7 +118,7 @@ export function Naming({
            */
           next={bookId ? { href: `/book/${bookId}`, label: tr("turnTo", { title: tn("contents") }) } : null}
           /* 同目次左頁頂一樣：翻去目次嗰陣左頁一個字都唔郁 */
-          top={<p className="font-serif text-h2 font-semibold tracking-[0.16em]">{bookTitle(name)}</p>}
+          top={<p className="font-serif text-h2 font-semibold tracking-[0.16em]">{bookTitle(name, locale)}</p>}
         >
           {/*
            * ⚠ 呢兩行唔喺呢度寫：佢哋係**真嗰章嘅頭兩樣嘢**（章名同章首），由 server 帶過嚟。

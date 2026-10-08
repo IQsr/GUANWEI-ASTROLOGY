@@ -4,6 +4,7 @@ import type { Chart as ZChart } from '@guanwei/ziwei/contract';
 import { Seal } from '@/components/Seal';
 import { StarDial } from '@/components/StarDial';
 import { branchPy, ganzhiPy } from '@/lib/chart-labels';
+import { zhFor } from '@/lib/hans';
 import { MARK } from '@/lib/site';
 
 /**
@@ -41,14 +42,14 @@ export async function Feiye({ title, chart, locale }: { title: string; chart: ZC
   return (
     <div className="feiye">
       <p className="feiye-mu" aria-hidden="true">✦</p>
-      <h1 className="feiye-ming">{title}</h1>
+      <h1 className="feiye-ming">{zhFor(locale, title)}</h1>
       <p className="feiye-ci">{t('essence')}</p>
       {chart ? (
         <>
           <div className="feiye-pan" aria-hidden="true">
             <StarDial branch={chart.mingGong} stars={lifeStars(chart)} caption="" en={en} />
           </div>
-          <p className="feiye-sheng">{birthLine(chart, en)}</p>
+          <p className="feiye-sheng">{zhFor(locale, birthLine(chart, en))}</p>
         </>
       ) : null}
       <Seal text={MARK} label="" className="feiye-yin" />

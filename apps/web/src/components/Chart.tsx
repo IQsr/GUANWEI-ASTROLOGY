@@ -4,6 +4,7 @@
 import { BRANCHES, type Branch, type Chart as ZChart, type Sihua } from '@guanwei/ziwei/contract';
 import { useLocale } from 'next-intl';
 import { HUA_EN, branchPy, palaceShort, starPy } from '@/lib/chart-labels';
+import { zi } from '@/lib/hans-zi';
 
 /**
  * 命盤元件（視覺系統 §8 · 工單 F2 底子）
@@ -84,7 +85,10 @@ export function Chart({
    * 英文（2026-10-05）：星名拼音逐個音節直排，同中文逐個字直排一樣嘅位（天／同 → Tian／Tong），
    * 漢字放 title；宮名短英文；四化兩個字母；廟旺唔出（正文都唔講，縮寫只會亂）；角落淨係地支。
    */
-  const en = useLocale() === 'en';
+  const locale = useLocale();
+  const en = locale === 'en';
+  /* 簡體頁：星名、宮名、廟旺、四化、干支逐字換（lib/hans-zi.ts）；資料本身唔郁 */
+  const h = (s: string) => zi(s, locale === 'zh-Hans');
   return (
     <div className="pan-wrap" style={{ maxWidth }} data-lang={en ? 'en' : undefined}>
       <div className="pan">
@@ -113,24 +117,24 @@ export function Chart({
               <span className="xing-lie">
                 {palace?.stars.map((star) => (
                   <span key={star.name} className="xing" data-kind={star.kind} title={en ? `${star.name} ${starPy(star.name)}` : undefined}>
-                    {(en ? starPy(star.name).split(' ') : [...star.name]).map((zi, i) => (
-                      <span key={`${zi}-${i}`} className="zi">
-                        {zi}
+                    {(en ? starPy(star.name).split(' ') : [...h(star.name)]).map((c, i) => (
+                      <span key={`${c}-${i}`} className="zi">
+                        {c}
                       </span>
                     ))}
                     {en ? null : (
                       <span className="miaowang" data-empty={star.brightness ? undefined : '1'}>
-                        {star.brightness ?? '　'}
+                        {star.brightness ? h(star.brightness) : '　'}
                       </span>
                     )}
                     {star.sihua ? (
                       <span className="sihua" data-hua={star.sihua} title={en ? HUA_EN[star.sihua]?.full : undefined}>
-                        {en ? (HUA_EN[star.sihua]?.short ?? star.sihua) : star.sihua}
+                        {en ? (HUA_EN[star.sihua]?.short ?? star.sihua) : h(star.sihua)}
                       </span>
                     ) : null}
                     {layer?.sihua[star.name] ? (
                       <span className="sihua" data-hua={layer.sihua[star.name]} data-layer="1" title={en ? HUA_EN[layer.sihua[star.name]!]?.full : undefined}>
-                        {en ? (HUA_EN[layer.sihua[star.name]!]?.short ?? layer.sihua[star.name]) : layer.sihua[star.name]}
+                        {en ? (HUA_EN[layer.sihua[star.name]!]?.short ?? layer.sihua[star.name]) : h(layer.sihua[star.name]!)}
                       </span>
                     ) : null}
                   </span>
@@ -139,7 +143,7 @@ export function Chart({
 
               <span className="gong-jiao">
                 <span className="gong-ming">
-                  {en && name ? palaceShort(name) : name}
+                  {en && name ? palaceShort(name) : name ? h(name) : name}
                   {!layer && palace?.isShen ? <span className="gong-shen">{en ? 'Body' : '身'}</span> : null}
                 </span>
                 <span className="gong-daxian" data-nums>
@@ -147,7 +151,7 @@ export function Chart({
                   {decadal ? (en ? `${decadal.fromAge - 1}–${decadal.toAge - 1}` : `${decadal.fromAge}–${decadal.toAge}`) : ''}
                 </span>
                 <span className="gong-zhi">
-                  {en ? branchPy(branch) : `${palace?.stem ?? ''}${branch}`}
+                  {en ? branchPy(branch) : h(`${palace?.stem ?? ''}${branch}`)}
                 </span>
               </span>
             </button>

@@ -18,6 +18,7 @@ import { SCHOOL_PROFILE, annual, cast } from '@guanwei/ziwei';
 import type { Chart as ZChart } from '@guanwei/ziwei/contract';
 import { hrefOf, slugOf, textOf } from '@/lib/lexicon';
 import { markBook, type MarkedChapter } from '@/lib/zhu';
+import { hans, isHans, zhFor } from '@/lib/hans';
 import type { Note } from '@/components/Juan';
 
 /**
@@ -90,12 +91,24 @@ export function notesFor(marked: MarkedChapter[], locale = 'zh-Hant'): Record<st
     const text = textOf(entry, locale);
     out[entry.id] = {
       id: entry.id,
-      term: locale === 'en' ? text.label : slugOf(entry),
+      term: locale === 'en' ? text.label : zhFor(locale, slugOf(entry)),
       summary: text.summary,
       href: hrefOf(entry),
     };
   }
   return out;
+}
+
+/**
+ * 簡體（2026-10-08）：術語要用繁體標（詞條係繁體），標完先將每段字轉做簡體。
+ * `term`（連去邊個詞條）照留 —— 佢係資料，唔係畀人睇嘅字。
+ */
+export function localizeMarked(marked: MarkedChapter[], locale: string): MarkedChapter[] {
+  if (!isHans(locale)) return marked;
+  return marked.map((c) => ({
+    ...c,
+    segments: c.segments.map((s) => ({ ...s, runs: s.runs.map((r) => ({ ...r, text: hans(r.text) })) })),
+  }));
 }
 
 export function buildJuan(raw: Chapter[], chart: ZChart): Juan {

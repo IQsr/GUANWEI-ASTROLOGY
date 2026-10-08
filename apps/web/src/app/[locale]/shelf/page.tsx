@@ -6,6 +6,7 @@ import { Juanshou } from '@/components/Juanshou';
 import { Shelf } from '@/components/Shelf';
 import { shelfView } from '@/lib/shelf';
 import { serverShelf } from '@/lib/shelf.server';
+import { zhFor } from '@/lib/hans';
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -97,7 +98,8 @@ export default async function ShelfPage({ params }: { params: Promise<{ locale: 
           </p>
 
           <div className="banxin">
-            <Shelf spines={view.spines} />
+            {/* 簡體：書脊上嘅名（包括留空時嘅「無名」）由繁體轉 */}
+            <Shelf spines={view.spines.map((s) => ({ ...s, label: zhFor(locale, s.label) }))} />
           </div>
         </>
       )}

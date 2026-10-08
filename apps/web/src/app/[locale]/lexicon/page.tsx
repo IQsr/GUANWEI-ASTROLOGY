@@ -6,7 +6,7 @@ import { Link } from '@/i18n/navigation';
 import { Juanshou } from '@/components/Juanshou';
 import { ReturnToReading } from '@/components/ReturnToReading';
 import { OG_LEXICON } from '@/lib/site';
-import { KINDS, LEXICON_LOCALES, entriesOf, hrefOf, isLexiconLocale, localePath, teaserFor, textOf } from '@/lib/lexicon';
+import { KINDS, LEXICON_LOCALES, entriesOf, hrefOf, isLexiconLocale, lexiconAlternates, localePath, teaserFor, textOf } from '@/lib/lexicon';
 import { LexiconCta } from '@/components/LexiconCta';
 
 export function generateStaticParams() {
@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   return {
     title: t('title'),
     description: t('description'),
-    alternates: { canonical: localePath('/lexicon', locale), languages: { 'zh-Hant': '/lexicon', en: '/en/lexicon' } },
+    alternates: { canonical: localePath('/lexicon', locale), languages: lexiconAlternates('/lexicon') },
     openGraph: {
       title: t('ogTitle'),
       description: t('description'),

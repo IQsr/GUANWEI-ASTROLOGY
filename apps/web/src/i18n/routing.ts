@@ -11,7 +11,7 @@ import { defineRouting } from 'next-intl/routing';
  * （`lib/english.ts`，讀嗰陣譯，唔另外存）。命盤、溯時題目仲係中文。
  */
 export const routing = defineRouting({
-  locales: ['zh-Hant', 'en'],
+  locales: ['zh-Hant', 'zh-Hans', 'en'],
   defaultLocale: 'zh-Hant',
   localePrefix: 'as-needed',
 });

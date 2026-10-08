@@ -11,6 +11,7 @@
  * slug 照用中文（同中文版同一條 URL 結構，hreflang 互指）。
  */
 import { CORPUS, LEXICON, LEXICON_EN, type LexiconEntry } from '@guanwei/content';
+import { hans, isHans } from '@/lib/hans';
 
 export { LEXICON_LOCALE, LEXICON_LOCALES, isLexiconLocale } from '@/lib/lexicon-locale';
 
@@ -127,6 +128,8 @@ export function teaser(summary: string, max = 34): string {
 
 /** 詞條嘅名、摘要、全文：英文版用 LEXICON_EN，冇就退返中文。 */
 export function textOf(entry: LexiconEntry, locale: string): { label: string; summary: string; full: string } {
+  /* 簡體（2026-10-08）：由繁體轉 */
+  if (isHans(locale)) return { label: hans(entry.label), summary: hans(entry.summary), full: hans(entry.full) };
   const en = locale === 'en' ? LEXICON_EN[entry.id] : undefined;
   if (!en) return { label: entry.label, summary: entry.summary, full: entry.full };
   /* 書名嘅 Markdown 斜體（*Complete Book*）網站顯示唔到，拎走星號 */
@@ -149,7 +152,14 @@ export const teaserFor = (summary: string, locale: string, max?: number) =>
   locale === 'en' ? teaserEn(summary, max ? max * 4 : undefined) : teaser(summary, max);
 
 /** 「/lexicon/star/紫微」→ 英文版前面加「/en」 */
-export const localePath = (path: string, locale: string) => (locale === 'en' ? `/en${path}` : path);
+export const localePath = (path: string, locale: string) => (locale === 'zh-Hant' ? path : `/${locale}${path}`);
+
+/** hreflang：同一條路三種語言（繁體冇前綴） */
+export const lexiconAlternates = (path: string) => ({
+  'zh-Hant': path,
+  'zh-Hans': localePath(path, 'zh-Hans'),
+  en: localePath(path, 'en'),
+});
 
 const BOOK_EN: Record<string, string> = {
   quanshu: 'Complete Book of Zi Wei Dou Shu',

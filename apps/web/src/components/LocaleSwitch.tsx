@@ -26,6 +26,8 @@ import { LOCALE_LABEL } from '@/lib/locales';
  */
 export function LocaleSwitch({ layout = 'inline' }: { layout?: 'inline' | 'list' }) {
   const current = useLocale() as Locale;
+  /* 掣嘅名兩種文字都寫，等睇唔明而家呢種語言嘅人都認得出；簡體頁用简体字 */
+  const groupLabel = current === 'zh-Hans' ? '语言 · Language' : '語言 · Language';
   const pathname = usePathname();
   const router = useRouter();
   const [open, setOpen] = useState(false);
@@ -57,7 +59,7 @@ export function LocaleSwitch({ layout = 'inline' }: { layout?: 'inline' | 'list'
   /* 手機選單入面：每種語言一行，用全名 */
   if (layout === 'list') {
     return (
-      <div role="group" aria-label="語言 · Language" className="flex flex-wrap gap-3">
+      <div role="group" aria-label={groupLabel} className="flex flex-wrap gap-3">
         {locales.map((l) => (
           <button
             key={l}
@@ -77,7 +79,7 @@ export function LocaleSwitch({ layout = 'inline' }: { layout?: 'inline' | 'list'
   /* 兩種語言：中 / EN */
   if (locales.length <= 2) {
     return (
-      <div role="group" aria-label="語言 · Language" className="flex items-center gap-1.5 font-sans text-cap tracking-[0.12em]">
+      <div role="group" aria-label={groupLabel} className="flex items-center gap-1.5 font-sans text-cap tracking-[0.12em]">
         {locales.map((l, i) => (
           <span key={l} className="flex items-center gap-1.5">
             {i > 0 ? (
@@ -110,7 +112,7 @@ export function LocaleSwitch({ layout = 'inline' }: { layout?: 'inline' | 'list'
         type="button"
         aria-haspopup="listbox"
         aria-expanded={open}
-        aria-label={`語言 · Language：${LOCALE_LABEL[current].name}`}
+        aria-label={`${groupLabel}：${LOCALE_LABEL[current].name}`}
         onClick={() => setOpen((v) => !v)}
         className="flex items-center gap-1.5 px-1 py-1 font-sans text-cap tracking-[0.12em] opacity-80 hover:opacity-100"
       >
@@ -122,7 +124,7 @@ export function LocaleSwitch({ layout = 'inline' }: { layout?: 'inline' | 'list'
       {open ? (
         <ul
           role="listbox"
-          aria-label="語言 · Language"
+          aria-label={groupLabel}
           className="ka absolute end-0 top-full z-30 mt-2 min-w-40 py-2 text-ink"
         >
           {locales.map((l) => (

@@ -9,7 +9,7 @@ import { NightScene } from '@/components/NightScene';
 import { LIFE_PALACE } from '@/lib/suidu';
 import { chapterHref, SAMPLE_BOOK } from '@/lib/journey';
 import { sampleBook } from '@/lib/sample-book';
-import { englishTitle, isEnglish } from '@/lib/english';
+import { displayTitle } from '@/lib/english';
 import { Feiye } from '@/components/Feiye';
 
 export function generateStaticParams() {
@@ -54,7 +54,7 @@ export default async function SamplePage({ params }: { params: Promise<{ locale:
           chart={book.chart}
           palace={LIFE_PALACE}
           left={<Feiye title={t('title')} chart={book.chart} locale={locale} />}
-          next={first ? { href: chapterHref(SAMPLE_BOOK, first.slug), label: tr('turnTo', { title: isEnglish(locale) ? englishTitle(first.title) : first.title }) } : null}
+          next={first ? { href: chapterHref(SAMPLE_BOOK, first.slug), label: tr('turnTo', { title: displayTitle(first.title, locale) }) } : null}
           top={
             <div>
               <h1 className="font-serif text-h2 font-semibold tracking-[0.16em]">{t('title')}</h1>
@@ -63,7 +63,7 @@ export default async function SamplePage({ params }: { params: Promise<{ locale:
           }
         >
           <p className="banxin mb-8 border-b jielan pb-6 text-sm leading-[1.9] text-ink-2">{t('note')}</p>
-          <BookContents bookId={SAMPLE_BOOK} chapters={isEnglish(locale) ? book.chapters.map((c) => ({ ...c, title: englishTitle(c.title) })) : book.chapters} lastRead={null} cut />
+          <BookContents bookId={SAMPLE_BOOK} chapters={book.chapters.map((c) => ({ ...c, title: displayTitle(c.title, locale) }))} lastRead={null} cut />
         </BookSpread>
       ) : (
         <p className="banxin text-body leading-[1.95] text-ink-2">{t('missing')}</p>

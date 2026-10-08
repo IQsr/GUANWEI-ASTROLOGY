@@ -6,6 +6,8 @@ import { parseCastRequest, type CastRequest } from '@/lib/luokuan';
 import { bookDraft, keepBook, parseBookFields } from '@/lib/chengshu';
 import { castQuotaLeft, serverChengshu } from '@/lib/chengshu.server';
 import { bookChapters } from '@/lib/mingshu';
+import { getLocale } from 'next-intl/server';
+import { hans, isHans } from '@/lib/hans';
 
 /**
  * 排盤（工單 E4 · 架構 §9）
@@ -143,6 +145,11 @@ export async function castChart(raw: unknown): Promise<CastOutcome> {
       xu && xu.slug === '序'
         ? { title: xu.title ?? '序', lead: xu.text.split('\n\n')[0] ?? '' }
         : null;
+    /* 簡體頁（2026-10-08）：顯示嗰陣轉；寫入 DB 嘅照舊係繁體 */
+    if (preface && isHans(await getLocale())) {
+      preface.title = hans(preface.title);
+      preface.lead = hans(preface.lead);
+    }
 
     return { ok: true, kind: 'full', chart, bookId, preface };
   }

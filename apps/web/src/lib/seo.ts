@@ -37,6 +37,14 @@ export function sitemapEntries(): SitemapEntry[] {
       changefreq: 'monthly',
       priority: '0.6',
     })),
+    /* 簡體（2026-10-08）：首頁同藏經閣 */
+    { loc: `${SITE_URL}/zh-Hans`, changefreq: 'monthly', priority: '0.9' },
+    { loc: `${SITE_URL}/zh-Hans/lexicon`, changefreq: 'weekly', priority: '0.7' },
+    ...LEXICON.map((e) => ({
+      loc: `${SITE_URL}/zh-Hans${canonicalOf(e)}`,
+      changefreq: 'monthly',
+      priority: '0.5',
+    })),
     /* 英文藏經閣（2026-10-05） */
     { loc: `${SITE_URL}/en/lexicon`, changefreq: 'weekly', priority: '0.7' },
     ...LEXICON.map((e) => ({
