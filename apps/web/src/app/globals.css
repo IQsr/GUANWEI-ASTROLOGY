@@ -3407,6 +3407,29 @@
   color: #5b5246;
 }
 
+/*
+ * 英文題簽（2026-10-08）：`upright` 會將字母逐個疊起（N／a／m／e…），讀唔落。
+ * 英文改做打側（同西書書脊一樣由上讀落），字距收返；名同副題並排兩行。
+ */
+.mu-qian:lang(en) {
+  flex-direction: row-reverse;
+  justify-content: center;
+  gap: 0.5em;
+}
+
+.mu-qian:lang(en) > p {
+  text-orientation: mixed;
+}
+
+.mu-qian:lang(en) .mu-qian-ming {
+  letter-spacing: 0.06em;
+}
+
+.mu-qian:lang(en) .mu-qian-hou {
+  margin-top: 0;
+  letter-spacing: 0.12em;
+}
+
 /* 落款同題名幕本書入面兩頁：同實物書一樣有紙紋，唔好係平色 */
 .mu-wei .fan-recto,
 .mu-wei .fan-bei {

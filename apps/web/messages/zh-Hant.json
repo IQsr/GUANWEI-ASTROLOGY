@@ -200,9 +200,10 @@
     "prevZi": "子時（前夜）"
   },
   "naming": {
+    "nameless": "無名",
+    "namelessBook": "無名命書",
     "suffix": "命書",
     "book": "{name}命書",
-    "openAria": "揭開{name}命書",
     "open": "揭開",
     "readOn": "讀下去",
     "seal": "星敘印",

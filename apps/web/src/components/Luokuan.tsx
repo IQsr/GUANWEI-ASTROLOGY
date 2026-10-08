@@ -5,7 +5,7 @@ import { useTranslations } from "next-intl";
 import { Naming } from "@/components/Naming";
 import { FlowChrome } from "@/components/FlowChrome";
 import { Juanzhou } from "@/components/Juanzhou";
-import { nameOf } from "@/lib/chengshu";
+import { NAMELESS, nameOf } from "@/lib/chengshu";
 import { castChart, type CastOutcome } from "@/app/[locale]/cast/actions";
 import { ConsentGate } from "@/components/ConsentGate";
 import { LEGAL_VERSION } from "@/lib/legal";
@@ -134,12 +134,13 @@ export function Luokuan() {
  */
 function DaiShiChen({ name }: { name: string }) {
   const t = useTranslations("cast");
+  const tn = useTranslations("naming");
   return (
     <div className="max-w-banxin">
       <p className="font-sans text-cap tracking-[0.2em] text-ink-3">
         {t("awaitTitle")}
       </p>
-      <p className="mt-6 text-h2 font-semibold tracking-[0.18em]">{name}</p>
+      <p className="mt-6 text-h2 font-semibold tracking-[0.18em]">{name === NAMELESS ? tn("nameless") : name}</p>
       <p className="mt-6 text-body leading-[1.95] text-ink-2">
         {t("awaitBody1")}
         <br />

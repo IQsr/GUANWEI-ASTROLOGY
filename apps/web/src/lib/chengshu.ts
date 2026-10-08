@@ -111,9 +111,8 @@ export function nameOf(raw: string): string {
 }
 
 /** 本書叫乜。同封面上面嗰兩行一樣（E5）—— 唔好兩個地方各有各叫法。 */
-export function bookTitle(name: string, locale = 'zh-Hant'): string {
-  /* 簡體頁（2026-10-08）：淨係「命書」兩個字跟簡體；名係讀者自己打嘅，照舊。寫入 DB 嘅永遠係繁體 */
-  return `${name}${locale === 'zh-Hans' ? '命书' : '命書'}`;
+export function bookTitle(name: string): string {
+  return `${name}命書`;
 }
 
 /** 一章嘅來源：逐宮章唔自己起名（要數序），序自己帶名。 */

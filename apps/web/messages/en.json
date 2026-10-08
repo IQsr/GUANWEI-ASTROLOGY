@@ -197,9 +197,10 @@
     "prevZi": "Zi hour (previous night)"
   },
   "naming": {
+    "nameless": "Nameless",
+    "namelessBook": "A nameless book",
     "suffix": "A book of the self",
     "book": "{name}'s book",
-    "openAria": "Open {name}'s book",
     "open": "Open",
     "readOn": "Read on",
     "seal": "Stellogue seal",

@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { useLocale, useTranslations } from "next-intl";
+import { useTranslations } from "next-intl";
 import { BookFlip } from "@/components/BookFlip";
 import { PageTurnLink } from "@/components/PageTurnLink";
 import { Juanshou } from "@/components/Juanshou";
@@ -11,7 +11,7 @@ import { INK_MS, NAMING_MS, SEAL_DELAY_MS } from "@/lib/timing";
 import { MARK, LATIN } from "@/lib/site";
 import { NightScene } from "@/components/NightScene";
 import { LIFE_PALACE } from "@/lib/suidu";
-import { bookTitle } from "@/lib/chengshu";
+import { NAMELESS } from "@/lib/chengshu";
 import { setQuiet } from "@/lib/quiet";
 import type { Preface } from "@/app/[locale]/cast/actions";
 import type { Chart as ZChart } from "@guanwei/ziwei/contract";
@@ -54,8 +54,13 @@ export function Naming({
   /** 序嘅章名同章首，由 server 帶過嚟（見 cast/actions.ts）。 */
   preface: Preface | null;
 }) {
-  const locale = useLocale();
   const t = useTranslations("naming");
+  /*
+   * 冇填名（`NAMELESS`「無名」係寫落 DB 嘅值）：畫面跟讀者語言寫（2026-10-08，英文封面出咗「無名」）。
+   * 書名都係：「{name}命書」/「{name}'s book」，無名就用一句完整嘅（英文唔好出 "Nameless's book"）。
+   */
+  const shown = name === NAMELESS ? t("nameless") : name;
+  const title = name === NAMELESS ? t("namelessBook") : t("book", { name });
   const tr = useTranslations("reading");
   const tn = useTranslations("nav");
   /* 成幕行完之前，本書撳唔郁。 */
@@ -118,7 +123,7 @@ export function Naming({
            */
           next={bookId ? { href: `/book/${bookId}`, label: tr("turnTo", { title: tn("contents") }) } : null}
           /* 同目次左頁頂一樣：翻去目次嗰陣左頁一個字都唔郁 */
-          top={<p className="font-serif text-h2 font-semibold tracking-[0.16em]">{bookTitle(name, locale)}</p>}
+          top={<p className="font-serif text-h2 font-semibold tracking-[0.16em]">{title}</p>}
         >
           {/*
            * ⚠ 呢兩行唔喺呢度寫：佢哋係**真嗰章嘅頭兩樣嘢**（章名同章首），由 server 帶過嚟。
@@ -175,7 +180,7 @@ export function Naming({
           setFrom(r ? { left: r.left, top: r.top, width: r.width, height: r.height } : null);
           setDesk(true);
         }}
-        label={t("book", { name })}
+        label={title}
         cover={
           /*
            * 2026-10-06 實物書：封面係線裝書嘅相（cover.webp），名直寫喺題簽上面，
@@ -195,7 +200,7 @@ export function Naming({
                 className="moshen mu-qian-ming"
                 style={{ animationDuration: `${INK_MS}ms` }}
               >
-                {name}
+                {shown}
               </p>
               <p className="mu-qian-hou">{t("suffix")}</p>
             </div>
@@ -220,7 +225,7 @@ export function Naming({
             <button
               type="button"
               className="mu-ti-kai"
-              aria-label={t("openAria", { name })}
+              aria-label={t("openLabel", { label: title })}
               onClick={() => setOpen(true)}
             />
           ) : null

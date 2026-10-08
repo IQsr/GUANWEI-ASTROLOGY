@@ -8,6 +8,7 @@ import { castQuotaLeft, serverChengshu } from '@/lib/chengshu.server';
 import { bookChapters } from '@/lib/mingshu';
 import { getLocale } from 'next-intl/server';
 import { hans, isHans } from '@/lib/hans';
+import { englishChapters, englishTitle, isEnglish } from '@/lib/english';
 
 /**
  * 排盤（工單 E4 · 架構 §9）
@@ -145,10 +146,17 @@ export async function castChart(raw: unknown): Promise<CastOutcome> {
       xu && xu.slug === '序'
         ? { title: xu.title ?? '序', lead: xu.text.split('\n\n')[0] ?? '' }
         : null;
-    /* 簡體頁（2026-10-08）：顯示嗰陣轉；寫入 DB 嘅照舊係繁體 */
-    if (preface && isHans(await getLocale())) {
+    /*
+     * 顯示嗰陣跟讀者語言（寫入 DB 嘅照舊係繁體）：
+     * 簡體由繁體轉；英文同閱讀頁一樣逐句譯（2026-10-08，英文題名頁以前出咗中文序）。
+     */
+    const locale = await getLocale();
+    if (preface && isHans(locale)) {
       preface.title = hans(preface.title);
       preface.lead = hans(preface.lead);
+    } else if (preface && isEnglish(locale) && xu) {
+      preface.title = englishTitle(preface.title);
+      preface.lead = englishChapters([{ text: xu.text, slots: xu.slots }])[0]?.[0]?.text ?? preface.lead;
     }
 
     return { ok: true, kind: 'full', chart, bookId, preface };

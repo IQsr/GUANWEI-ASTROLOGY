@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import { createPortal } from 'react-dom';
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import { hasConsented, LEGAL_VERSION } from '@/lib/legal';
@@ -46,8 +47,15 @@ export function ConsentGate({ onConsent }: { onConsent: () => void }) {
     onConsent();
   };
 
-  return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-[rgb(0_0_0/0.55)] px-4">
+  /*
+   * ⚠ 掛喺 body（portal），唔喺落款頁入面（2026-10-08，iPhone 日讀撞到）：
+   *   一、落款頁係 `.ye-ink` 夜景，將 `--ink` 改咗做淺色 —— 張卡跟住佢就淺字淺底，一片空白。
+   *   二、落款頁自己係一層 z-index，張卡困喺入面，幾高 z 都蓋唔過頁頭。
+   * 卡太高（英文、細手機）就成個遮罩捲，唔好俾頂同底切走。
+   */
+  return createPortal(
+    <div className="fixed inset-0 z-50 overflow-y-auto bg-[rgb(0_0_0/0.55)]">
+      <div className="flex min-h-full items-center justify-center px-4 py-8">
       <div
         role="dialog"
         aria-modal="true"
@@ -85,6 +93,8 @@ export function ConsentGate({ onConsent }: { onConsent: () => void }) {
           </Link>
         </div>
       </div>
-    </div>
+      </div>
+    </div>,
+    document.body,
   );
 }
