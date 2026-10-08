@@ -62,3 +62,21 @@ export function serverChengshu(): ChengshuPort {
     },
   };
 }
+
+/**
+ * 仲可以成幾多本書（0006：每個讀者每個鐘 10 本）。排盤之前問 —— 冇額就唔排，唔使白食 CPU。
+ *
+ * 未有 session（第一次嚟）回 null：未成過書，一定有額；匿名登入嗰下由 Supabase 嘅每 IP 上限守。
+ * 問唔到（DB 有事）都回 null：唔好因為限額查唔到就擋晒所有人 —— `create_book()` 入面仲有一道閘。
+ */
+export async function castQuotaLeft(): Promise<number | null> {
+  const sb = supabaseServer();
+  const { data: auth } = await sb.auth.getUser();
+  if (!auth.user) return null;
+  const { data, error } = await sb.rpc('cast_quota');
+  if (error) {
+    console.error('[chengshu] 查唔到成書限額', error.message);
+    return null;
+  }
+  return typeof data === 'number' ? data : null;
+}

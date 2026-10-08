@@ -134,7 +134,8 @@
       "BAD_PLACE": "這個出生地的經緯度不對，請再選一次。",
       "BAD_TIMEZONE": "這個時區認不出來，請再選一次出生地。",
       "UNKNOWN_HOUR": "沒有時辰就定不到命宮。請選「不知道時辰」那一項。",
-      "NOT_IMPLEMENTED": "這一部分還未做好。"
+      "NOT_IMPLEMENTED": "這一部分還未做好。",
+      "RATE_LIMITED": "這一個小時內已經排了很多本，請稍後再來。"
     }
   },
   "juanzhou": {

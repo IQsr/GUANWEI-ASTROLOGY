@@ -4,7 +4,7 @@ import { ENGINE_VERSION, SCHOOL_PROFILE, cast, castPartial, type Chart, type Par
 import { RULE_REGISTRY } from '@guanwei/content';
 import { parseCastRequest, type CastRequest } from '@/lib/luokuan';
 import { bookDraft, keepBook, parseBookFields } from '@/lib/chengshu';
-import { serverChengshu } from '@/lib/chengshu.server';
+import { castQuotaLeft, serverChengshu } from '@/lib/chengshu.server';
 import { bookChapters } from '@/lib/mingshu';
 
 /**
@@ -92,6 +92,9 @@ export async function castChart(raw: unknown): Promise<CastOutcome> {
   const req = parseCastRequest(raw);
   const fields = parseBookFields(raw);
   if (!req || !fields) return { ok: false, code: 'BAD_REQUEST', message: 'BAD_REQUEST' };
+
+  /* 成書次數上限（0006）：排盤之前先問，冇額就唔排 */
+  if ((await castQuotaLeft()) === 0) return { ok: false, code: 'RATE_LIMITED', message: 'RATE_LIMITED' };
 
   const base = { solar: req.solar, tz: req.tz, place: req.place, sex: req.sex };
 

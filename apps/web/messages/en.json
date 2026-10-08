@@ -131,7 +131,8 @@
       "BAD_PLACE": "This place's coordinates look wrong. Please choose it again.",
       "BAD_TIMEZONE": "We couldn't recognise this time zone. Please choose the place of birth again.",
       "UNKNOWN_HOUR": "Without the hour we cannot place the Life Palace. Please choose \"Hour unknown\".",
-      "NOT_IMPLEMENTED": "This part isn't ready yet."
+      "NOT_IMPLEMENTED": "This part isn't ready yet.",
+      "RATE_LIMITED": "You've cast a lot of books in the past hour. Please come back a little later."
     }
   },
   "juanzhou": {
