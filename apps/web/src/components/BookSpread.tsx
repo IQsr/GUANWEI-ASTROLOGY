@@ -362,7 +362,8 @@ export function BookSpread({
             {zhe.i} / {zhe.n}
           </div>
         ) : null}
-        <div ref={page} className="shuzhuo-ye shuzhuo-you" data-zhe={follow ? '' : undefined}>
+        {/* 經摺（data-zhe）2026-10-09 停用：手機改返向下捲（globals.css 尾） */}
+        <div ref={page} className="shuzhuo-ye shuzhuo-you">
           {left ? <div className="shuzhuo-shouji mb-10">{left}</div> : null}
           {plate ? (
             <details className="shuzhuo-shouji mb-8">

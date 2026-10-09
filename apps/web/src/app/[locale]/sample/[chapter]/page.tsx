@@ -106,7 +106,7 @@ export default async function SampleChapter({ params }: { params: Promise<{ loca
         </div>
         {dial ? <StarDial {...dial} en={en} /> : null}
         <ChapterNav bookId={SAMPLE_BOOK} prev={prev} next={next} />
-        <aside className="banxin ka mt-10 p-6">
+        <aside className="ka mt-10 p-6">
           <h2 className="font-serif text-lead tracking-[0.14em]">{t('endTitle')}</h2>
           <p className="mt-3 text-sm leading-[1.9] text-ink-2">{t('endBody')}</p>
           <Link href="/cast" className="btn-mo mt-5">

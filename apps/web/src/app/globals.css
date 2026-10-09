@@ -4215,3 +4215,36 @@ select.zhou-xian {
     margin: 0;
   }
 }
+
+/*
+ * ── 手機：向下捲（2026-10-09 · demo）────────────────────
+ *
+ * 讀者 feedback：經摺左右翻，一段字切開幾摺，「好似有斷層」；向下捲又冇反應。
+ * 手機改返同一般網頁一樣：成頁向下捲，本書冇固定高度、冇內層捲動（順手解決雙重捲動）。
+ * 兩邊翻頁條照留（Issac 要）：條本身同本書一樣高（撳邊位都得），箭咀 sticky 喺屏中間，捲到邊都見到。
+ * ⚠ 唔用 fixed：`.shuzhuo-shu` 有 perspective（翻頁 3D），fixed 會變咗跟本書定位。
+ */
+@media (max-width: 899px) {
+  .shuzhuo-shu {
+    height: auto;
+  }
+
+  .shuzhuo-ye {
+    overflow: visible;
+  }
+
+  .shuzhuo-bian {
+    align-items: flex-start;
+  }
+
+  .shuzhuo-bian > span {
+    position: sticky;
+    top: 50svh;
+  }
+
+  /* 章尾留白係內層捲先要（最尾一行唔好壓住水墨山）；成頁捲淨係留少少 */
+  .shuzhuo-wei {
+    height: 72px;
+  }
+}
+
