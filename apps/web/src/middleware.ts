@@ -60,24 +60,36 @@ function isPrivate(pathname: string): boolean {
  * 唔係為咗遮掩：私密層冇咗 Supabase 本來就行唔到，
  * 而嗰件事**應該喺頁嗰度講**（`/shelf` 會出「一時搵不到你的書架」），
  * 唔應該喺 middleware 度變成全站 500 —— 咁樣會連公開層都拖冧。
+ *
+ * 換 token（Supabase 官方做法，2026-10-09 補全）：喺 next-intl 之前做。
+ *
+ * ⚠ 新 token 要寫兩個地方：
+ *   一、`req.cookies` —— next-intl 會複製 request 嘅 header 傳落頁面（rewrite/next 嘅 `request.headers`），
+ *       咁同一個 request 入面嘅 server component 讀到嘅係新 token，唔會再拎舊 refresh token 換多次。
+ *   二、response —— 寫返落瀏覽器。
+ * 以前淨係寫二，頁面照讀舊 cookie：refresh token 只用得一次，第二次換唔到就變 anon（書架 401）。
  */
-async function refreshSession(req: NextRequest, res: NextResponse): Promise<NextResponse> {
+async function refreshSession(req: NextRequest): Promise<{ name: string; value: string; options: object }[]> {
   const env = parsePublicEnv({
     url: process.env.NEXT_PUBLIC_SUPABASE_URL,
     anonKey: process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
   });
-  if (!env.ok) return res;
+  if (!env.ok) return [];
 
+  const changed: { name: string; value: string; options: object }[] = [];
   const supabase = createServerClient(env.value.url, env.value.anonKey, {
     cookies: {
       getAll: () => req.cookies.getAll(),
       setAll: (list) => {
-        for (const { name, value, options } of list) res.cookies.set(name, value, options);
+        for (const { name, value, options } of list) {
+          req.cookies.set(name, value);
+          changed.push({ name, value, options: options ?? {} });
+        }
       },
     },
   });
   await supabase.auth.getUser();
-  return res;
+  return changed;
 }
 
 export default async function middleware(req: NextRequest) {
@@ -100,8 +112,10 @@ export default async function middleware(req: NextRequest) {
     );
   }
 
+  const changed = isPrivate(pathname) ? await refreshSession(req) : [];
   const res = intl(req);
-  return isPrivate(pathname) ? refreshSession(req, res) : res;
+  for (const { name, value, options } of changed) res.cookies.set(name, value, options);
+  return res;
 }
 
 export const config = {

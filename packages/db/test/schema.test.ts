@@ -327,3 +327,42 @@ describe('0004：Supabase 預設權限收返', () => {
     }
   });
 });
+
+describe('0007：Advisors 清理', () => {
+  it('anon 行唔到淨係畀登入用嘅 function；trigger function 冇人直接行得到', async () => {
+    const db = await createTestDb();
+    try {
+      const rows = await db.sql(
+        `select p.proname, has_function_privilege('anon', p.oid, 'execute') as anon, has_function_privilege('authenticated', p.oid, 'execute') as auth
+           from pg_proc p join pg_namespace n on n.oid = p.pronamespace
+          where n.nspname = 'public'
+            and p.proname in ('chapter_body','cut_page','dismiss_claim_prompt','touch_visit','handle_new_auth_user','sync_reader_identity','entitlement_needs_claimed_reader','pay_grant')`,
+      );
+      const by = Object.fromEntries(rows.map((r) => [String(r.proname), r]));
+      for (const f of ['chapter_body', 'cut_page', 'dismiss_claim_prompt', 'touch_visit']) {
+        expect(by[f]!.anon, f).toBe(false);
+        expect(by[f]!.auth, f).toBe(true);
+      }
+      for (const f of ['handle_new_auth_user', 'sync_reader_identity', 'entitlement_needs_claimed_reader']) {
+        expect(by[f]!.anon, f).toBe(false);
+        expect(by[f]!.auth, f).toBe(false);
+      }
+      /* webhook 冇 session，靠 token */
+      expect(by.pay_grant!.anon).toBe(true);
+    } finally {
+      await db.close();
+    }
+  });
+
+  it('收咗 trigger function 嘅權限，開新讀者（auth.users insert）照樣自動生 readers 行', async () => {
+    const db = await createTestDb();
+    try {
+      const id = await seedReader(db);
+      await db.asOwner();
+      const [r] = await db.sql('select count(*)::int as n from readers where id = $1', [id]);
+      expect(r!.n).toBe(1);
+    } finally {
+      await db.close();
+    }
+  });
+});

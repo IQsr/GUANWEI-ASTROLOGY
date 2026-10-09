@@ -137,10 +137,10 @@ stripe listen --forward-to localhost:3000/api/stripe/webhook
      `https://<你個項目>.vercel.app/api/auth/callback`（漏咗認領信條連結會失效）
    - Supabase → Authentication → Rate Limits：匿名登入每個 IP 每個鐘 **20**
 
-`apps/web/vercel.json` 將 function 擺喺倫敦（`lhr1`）。如果你個 Supabase project 唔係喺
-`eu-west-2`（London），改成最近嗰個區（Supabase → Project Settings → General 睇到）。
+`apps/web/vercel.json` 將 function 擺喺都柏林（`dub1`）：線上 Supabase 喺 `eu-west-1`（Ireland），
+2026-10-09 經 Supabase connector 確認。換 project 就跟返佢嘅區。
 
-Migration：線上 Supabase 已經跑到 `0006`。新 project 就由 `0001_baseline.sql` 順住跑到最新。
+Migration：線上 Supabase 已經跑到 `0006`（`0007` 見 git log）。新 project 就由 `0001_baseline.sql` 順住跑到最新。
 
 Stripe webhook（開咗戶先做）：URL `https://<domain>/api/stripe/webhook`，
 事件揀 **`checkout.session.completed`** 同 **`charge.refunded`**。
