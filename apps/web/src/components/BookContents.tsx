@@ -2,6 +2,7 @@ import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import { PageTurnLink } from '@/components/PageTurnLink';
 import { ShiyanCard } from '@/components/ShiyanCard';
+import { DingshiCard } from '@/components/DingshiCard';
 import { chapterHref, payHref } from '@/lib/journey';
 import { groupChapters, tally } from '@/lib/themes';
 import type { ChapterMeta } from '@/lib/juan-view';
@@ -25,6 +26,7 @@ export function BookContents({
   lastRead,
   cut,
   experiment = false,
+  awaiting = false,
 }: {
   bookId: string;
   chapters: readonly ChapterMeta[];
@@ -32,6 +34,8 @@ export function BookContents({
   cut: boolean;
   /** 時辰小實驗嘅入口（有出生時間嘅書先出，2026-10-05） */
   experiment?: boolean;
+  /** 待時辰（冇時辰、冇盤）：目次頂出「推算時辰（測試中）」（2026-10-09） */
+  awaiting?: boolean;
 }) {
   const t = useTranslations('book');
   const { preface, epilogue, groups, rest } = groupChapters(chapters);
@@ -62,6 +66,7 @@ export function BookContents({
 
   return (
     <div className="banxin shu-kai">
+      {awaiting ? <DingshiCard bookId={bookId} /> : null}
       {/* 一、這本書 */}
       <section aria-labelledby="zhe-ben-shu" className="shu-jie">
         <h2 id="zhe-ben-shu" className="shu-xiao-biao">{t('aboutTitle')}</h2>

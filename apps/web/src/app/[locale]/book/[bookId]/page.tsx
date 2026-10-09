@@ -106,7 +106,7 @@ export default async function BookPage({
             </h1>
           }
         >
-          <BookContents bookId={bookId} chapters={view.chapters.map((c) => ({ ...c, title: displayTitle(c.title, locale) }))} lastRead={view.lastRead} cut={view.cut} experiment={chart !== null} />
+          <BookContents bookId={bookId} chapters={view.chapters.map((c) => ({ ...c, title: displayTitle(c.title, locale) }))} lastRead={view.lastRead} cut={view.cut} experiment={chart !== null} awaiting={chart === null && view.chapters.length === 0} />
         </BookSpread>
       ) : (
         <p className="banxin text-body leading-[1.95] text-ink-2">

@@ -527,5 +527,26 @@
     ],
     "outside": "The time band you chose does not include your birth time, so this run could not get it right.",
     "cardSub": "Trace the road you have walked to work back to your birth hour."
+  },
+  "dingshi": {
+    "badge": "Testing",
+    "cardTitle": "Estimate your hour",
+    "cardBody": "Don't know your birth hour? Answer twelve questions about your past and we'll try to work back to the hour you were most likely born. About three minutes.",
+    "cardCta": "Try it",
+    "metaTitle": "Estimate your hour",
+    "title": "Estimate your hour",
+    "intro": "You don't know your birth hour. We'll ask whether certain kinds of things happened to you in particular years, then see which hour's chart fits best.",
+    "testing": "This feature is still being tested and its accuracy hasn't been verified. Treat the result as a hint only, not as your birth hour. Checking with family or your birth certificate is always more reliable.",
+    "bandQ": "Do you roughly know when in the day you were born?",
+    "bandUnknown": "No idea at all",
+    "bandHint": "Knowing even a rough time of day makes the estimate far more accurate.",
+    "start": "Start",
+    "guess": "Best fit: {name} hour ({from}:00–{to}:00)",
+    "lowConfidence": "The scores for each hour are close, so this result isn't reliable.",
+    "use": "If you want to use this hour, go back to the inscription page, choose the {name} hour and make a new book. This book, still waiting for its hour, stays on your shelf.",
+    "recast": "Back to the inscription",
+    "back": "Back to the book",
+    "unavailable": "This book already has a birth hour, or its birth details can't be read, so it can't be estimated.",
+    "awaitCta": "Don't know your hour? Try an estimate (testing)"
   }
 }

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { Link } from "@/i18n/navigation";
 import { useTranslations } from "next-intl";
 import { Naming } from "@/components/Naming";
 import { FlowChrome } from "@/components/FlowChrome";
@@ -95,7 +96,7 @@ export function Luokuan() {
       />
     ) : (
       <FlowChrome>
-        <DaiShiChen name={nameOf(draft.name)} />
+        <DaiShiChen name={nameOf(draft.name)} bookId={outcome.bookId} />
       </FlowChrome>
     );
   }
@@ -132,9 +133,10 @@ export function Luokuan() {
  * 冇時辰定唔到命宮 = 冇書，而「唔好扮有」嘅意思就係
  * 唔可以畀佢行一次同成書一模一樣嘅儀式。
  */
-function DaiShiChen({ name }: { name: string }) {
+function DaiShiChen({ name, bookId }: { name: string; bookId: string | null }) {
   const t = useTranslations("cast");
   const tn = useTranslations("naming");
+  const td = useTranslations("dingshi");
   return (
     <div className="max-w-banxin">
       <p className="font-sans text-cap tracking-[0.2em] text-ink-3">
@@ -146,6 +148,13 @@ function DaiShiChen({ name }: { name: string }) {
         <br />
         {t("awaitBody2")}
       </p>
+      {/* 推算時辰（2026-10-09 · 測試中）：本書寫唔入 DB（冇 bookId）就冇得推 —— 生辰係由本書讀 */}
+      {bookId ? (
+        <Link href={`/book/${bookId}/dingshi`} className="btn-mo mt-8">
+          {td("awaitCta")}
+          <span className="btn-jiantou" aria-hidden="true">→</span>
+        </Link>
+      ) : null}
     </div>
   );
 }

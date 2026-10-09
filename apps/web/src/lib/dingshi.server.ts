@@ -153,3 +153,29 @@ export async function bookBirth(bookId: string): Promise<{ input: Omit<BirthInpu
     truth: shichen as ShichenIndex,
   };
 }
+
+/**
+ * 推算時辰（2026-10-09 · 測試中）：待時辰嘅書（冇出生時間、冇盤）由本書讀年月日、出生地、性別。
+ * 冇真時辰對答案，所以唔記錄（`rectify_record` 本身都要有盤先收）。
+ */
+export async function pendingBirth(bookId: string): Promise<Omit<BirthInput, 'time'> | null> {
+  const sb = supabaseServer();
+  const { data: auth } = await sb.auth.getUser();
+  if (!auth.user) return null;
+  const { data, error } = await sb
+    .from('books')
+    .select('chart_id, subjects(birth_date, birth_time, birth_tz, birth_place, lng, lat, sex)')
+    .eq('id', bookId)
+    .maybeSingle();
+  if (error) throw error;
+  const s = (Array.isArray(data?.subjects) ? data?.subjects[0] : data?.subjects) as Record<string, unknown> | null | undefined;
+  /* 已經有時辰（有盤）嘅書唔使推：嗰本書行「溯時」 */
+  if (!data || data.chart_id || !s || s.birth_time) return null;
+  const [y, m, d] = String(s.birth_date).split('-').map(Number);
+  return {
+    solar: { y: y!, m: m!, d: d! },
+    tz: String(s.birth_tz),
+    place: { lng: Number(s.lng), lat: Number(s.lat), label: String(s.birth_place) },
+    sex: s.sex === 'male' ? 'male' : 'female',
+  };
+}
