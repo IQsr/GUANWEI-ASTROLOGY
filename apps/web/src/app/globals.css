@@ -4248,3 +4248,14 @@ select.zhou-xian {
   }
 }
 
+/*
+ * 書頁入面嘅卡（上一章／下一章、示範書章尾卡，2026-10-09 Issac 揀 A）：
+ * 白卡面加陰影喺紙上面太跳；全透明又睇唔出係掣。改做深一級紙色 ＋ 淡金框 ——
+ * 好似貼喺書頁上嘅一張紙箋。hover 金框照舊。
+ */
+.shuzhuo-you .ka {
+  background: var(--paper-2);
+  border-color: color-mix(in srgb, var(--gold) 55%, transparent);
+  box-shadow: 0 1px 0 rgb(40 30 15 / 0.08);
+}
+
