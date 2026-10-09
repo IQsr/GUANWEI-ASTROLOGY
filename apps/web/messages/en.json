@@ -146,7 +146,7 @@
       "sex": "Sex",
       "basis": "Clock"
     },
-    "namePh": "Optional; the book will say “Nameless”",
+    "namePh": "Optional",
     "year": "",
     "month": "",
     "day": "",
@@ -155,7 +155,7 @@
     "monthAria": "Birth month",
     "dayAria": "Birth day",
     "choose": "Choose",
-    "timeWait": "Fill in the date and place first",
+    "timeWait": "Date and place first",
     "timeChoose": "Choose an hour",
     "exact": "I know the exact time",
     "noHour": "I don’t know the hour",

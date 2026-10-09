@@ -187,11 +187,12 @@ const daysIn = (y: number, m: number) => new Date(Date.UTC(y, m, 0)).getUTCDate(
  */
 function DateLine({ draft, setDraft }: { draft: Draft; setDraft: (d: Draft) => void }) {
   const t = useTranslations("juanzhou");
-  /* 英文冇「年月日」字跟住：月份寫月名（March），唔係淨係一個 3，先分得出月同日 */
+  /* 英文冇「年月日」字跟住：月份寫月名，唔係淨係一個 3，先分得出月同日。
+     用縮寫（Mar、Sep）：全寫「September」喺手機逼斷成行（2026-10-09） */
   const locale = useLocale();
   const monthName = (i: number) =>
     locale === "en"
-      ? new Intl.DateTimeFormat("en-GB", { month: "long", timeZone: "UTC" }).format(Date.UTC(2000, i, 1))
+      ? new Intl.DateTimeFormat("en-GB", { month: "short", timeZone: "UTC" }).format(Date.UTC(2000, i, 1))
       : String(i + 1);
   const [y0, m0, d0] = draft.date ? draft.date.split("-") : ["", "", ""];
   const [y, setY] = useState(y0 ?? "");

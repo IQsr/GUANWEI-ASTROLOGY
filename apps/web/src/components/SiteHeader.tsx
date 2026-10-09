@@ -85,8 +85,8 @@ export function SiteHeader() {
             {/* 星敘標誌（2026-10-04）：夜景上面燙金，紙上面跟墨色 */}
             <BrandMark size={34} className={overNight ? 'text-gilt' : 'text-gold-ink'} />
             <span className="flex flex-col">
-              <span className="font-serif text-[1.375rem] font-medium md:text-[1.625rem] tracking-[0.32em]">{MARK}</span>
-              <span className="mt-1.5 font-latin text-[0.625rem] tracking-[0.5em] opacity-80">{LATIN}</span>
+              <span className="pin-tracking font-serif text-[1.375rem] font-medium md:text-[1.625rem] tracking-[0.32em]">{MARK}</span>
+              <span className="pin-tracking mt-1.5 font-latin text-[0.625rem] tracking-[0.5em] opacity-80">{LATIN}</span>
             </span>
           </Link>
 

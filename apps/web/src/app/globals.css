@@ -1134,6 +1134,18 @@
     border-color var(--dur-1) var(--motion-ease-ink);
 }
 
+/* 英文書名打側（見 Shelf.tsx）。拉丁字母冇直排疊字嘅問題，所以可以用 writing-mode */
+.ji-xi {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  max-height: 160px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 13px;
+  letter-spacing: 0.06em;
+}
+
 .ji:hover {
   transform: translateY(-10px);
   border-color: var(--gilt-2);
@@ -4139,7 +4151,7 @@ select.zhou-xian {
 }
 
 .juanzhou[data-lang="en"] .zhou-ri > .zhou-yue {
-  width: 6.6em;
+  width: 4.6em;
 }
 
 .juanzhou[data-lang="en"] .zhou-ri > .zhou-xian:not(.zhou-yue, .zhou-nian) {
@@ -4257,5 +4269,32 @@ select.zhou-xian {
   background: var(--paper-2);
   border-color: color-mix(in srgb, var(--gold) 55%, transparent);
   box-shadow: 0 1px 0 rgb(40 30 15 / 0.08);
+}
+
+/*
+ * ── 英文字距（2026-10-09 · 讀者 feedback：英文版手機啲掣好臃腫）──────────
+ *
+ * 中文排版特登用好闊嘅字距（0.12–0.3em），一個字一個格；套落英文就變咗
+ * 「B e g i n  y o u r  o w n」，掣斷兩行、卡逐個字一行。英文版一律收窄。
+ * `.pin-tracking`（頁頭標誌）係圖形，唔郁。
+ */
+:lang(en) :is([class*="tracking-[0.1"], [class*="tracking-[0.2"], [class*="tracking-[0.3"], [class*="tracking-[0.4"], [class*="tracking-[0.5"]):not(.pin-tracking) {
+  letter-spacing: 0.04em;
+}
+
+/* 0.06–0.08em 喺中文係「微微鬆」，英文都偏闊（章尾卡章名逐個字一行） */
+:lang(en) :is([class*="tracking-[0.06"], [class*="tracking-[0.08"]) {
+  letter-spacing: 0.01em;
+}
+
+:lang(en) :is(.btn-mo, .btn-jin, .btn-ye) {
+  letter-spacing: 0.04em;
+  text-indent: 0;
+}
+
+@media (max-width: 639px) {
+  :lang(en) :is(.btn-mo, .btn-jin, .btn-ye) {
+    padding-inline: 22px;
+  }
 }
 

@@ -58,7 +58,14 @@ export function Shelf({
 
 function SpineEl({ spine, onTake }: { spine: Spine; onTake?: (key: string) => void }) {
   const t = useTranslations('shelf');
-  const inner = (
+  /*
+   * 英文書名（「+ New book」、英文名）唔好逐個字母疊起：成句打側，同西書書脊一樣由上讀落
+   * （2026-10-09 英文手機 feedback）。中文名照舊逐個字直排。
+   */
+  const latin = /[A-Za-z]/.test(spine.label) && !/\p{Script=Han}/u.test(spine.label);
+  const inner = latin ? (
+    <span className="ji-xi">{spine.label}</span>
+  ) : (
     <>
       {[...spine.label].map((zi, i) => (
         <span key={`${zi}-${i}`}>{zi}</span>

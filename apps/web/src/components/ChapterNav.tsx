@@ -22,9 +22,10 @@ export function ChapterNav({
   const t = useTranslations('chapter');
   const tb = useTranslations('book');
   return (
-    <nav aria-label={t('nav')} className="banxin mt-16 grid grid-cols-[1fr_auto_1fr] items-stretch gap-4 border-t jielan pt-8">
+    /* 手機（2026-10-09）：兩張卡並排，「目次」落第二行置中 —— 英文章名長，夾喺三欄入面會逐個字一行 */
+    <nav aria-label={t('nav')} className="banxin mt-16 grid grid-cols-2 items-stretch gap-3 border-t jielan pt-8 sm:grid-cols-[1fr_auto_1fr] sm:gap-4">
       {prev ? (
-        <PageTurnLink direction="prev" href={chapterHref(bookId, prev.slug)} className="ka group flex flex-col gap-1 px-5 py-4">
+        <PageTurnLink direction="prev" href={chapterHref(bookId, prev.slug)} className="ka group flex flex-col gap-1 px-4 py-4 sm:px-5">
           <span className="text-cap tracking-[0.16em] text-ink-3">{t('prev')}</span>
           <span className="font-serif tracking-[0.08em] text-ink">{prev.title}</span>
         </PageTurnLink>
@@ -35,13 +36,13 @@ export function ChapterNav({
       <PageTurnLink
         direction="prev"
         href={contentsHref(bookId)}
-        className="self-center px-2 text-cap tracking-[0.2em] text-ink-3 transition-colors duration-200 hover:text-ink"
+        className="order-last col-span-2 self-center justify-self-center px-2 py-2 text-cap tracking-[0.2em] text-ink-3 transition-colors duration-200 hover:text-ink sm:order-none sm:col-span-1 sm:py-0"
       >
         {t('contents')}
       </PageTurnLink>
 
       {next ? (
-        <PageTurnLink direction="next" href={chapterHref(bookId, next.slug)} className="ka group flex flex-col items-end gap-1 px-5 py-4 text-end">
+        <PageTurnLink direction="next" href={chapterHref(bookId, next.slug)} className="ka group flex flex-col items-end gap-1 px-4 py-4 text-end sm:px-5">
           <span className="text-cap tracking-[0.16em] text-ink-3">{t('next')}</span>
           <span className="font-serif tracking-[0.08em] text-ink">
             {next.title}
