@@ -10,7 +10,7 @@ import { scanPlain } from './plain';
 import { AREA, palaceLabel } from './link';
 import { FORBIDDEN_TERMS } from './frame';
 import { leanOf, xingxiOf } from './xingxi';
-import { palacePlain } from './palace-plain';
+import { conclusionFor } from './palace-plain';
 import { KUIYUE_SOURCE, KUIYUE_TEXT, kuiyueRises } from './kuiyue';
 
 /* ───────────────────────────────────────────────────────────
@@ -284,8 +284,9 @@ export function areaSegments(
     if (!p) continue;
     const own = majors(p);
     const opp = own.length === 0 && p.borrowsFrom ? chart.palaces.find((x) => x.branch === p.borrowsFrom) : undefined;
-    const lead = (own[0] ?? (opp ? majors(opp)[0] : undefined)) as string | undefined;
-    const pp = lead ? palacePlain(lead, a.palace) : undefined;
+    const names = (own.length ? own : opp ? majors(opp) : []) as string[];
+    const ji = p.stars.find((s) => s.kind === 'major' && s.sihua === '忌')?.name ?? null;
+    const pp = names.length ? conclusionFor(names, a.palace, ji) : undefined;
     if (!pp) continue;
     const here = hits.filter((h) => h.palace === a.palace);
     const label = AREA[a.palace]![1];

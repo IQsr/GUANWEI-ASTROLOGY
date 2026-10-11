@@ -1,7 +1,7 @@
 import type { Chart, Palace } from '@guanwei/ziwei';
 import { BASE_BLOCKS } from './baseblock-data';
 import { FORBIDDEN_TERMS } from './frame';
-import { palacePlain } from './palace-plain';
+import { conclusionFor } from './palace-plain';
 import { xingxiOf } from './xingxi';
 import { decadeChapter } from './daxian';
 import { AREA } from './link';
@@ -32,12 +32,12 @@ export const EPILOGUE_CLOSE = '命書寫的是一張底圖。往後的路怎樣�
 
 const MAJOR = new Set(BASE_BLOCKS.map((b) => b.star));
 
-/** 一個宮嘅領銜主星；空宮借對宮。 */
-function leadOf(chart: Chart, p: Palace): string | null {
-  const own = p.stars.find((s) => MAJOR.has(s.name));
-  if (own) return own.name;
+/** 一個宮嘅主星（領銜行先）；空宮借對宮。 */
+function majorsOf(chart: Chart, p: Palace): string[] {
+  const own = p.stars.filter((s) => MAJOR.has(s.name)).map((s) => s.name);
+  if (own.length) return own;
   const opp = p.borrowsFrom ? chart.palaces.find((x) => x.branch === p.borrowsFrom) : undefined;
-  return opp?.stars.find((s) => MAJOR.has(s.name))?.name ?? null;
+  return opp ? opp.stars.filter((s) => MAJOR.has(s.name)).map((s) => s.name) : [];
 }
 
 /** 本命某化（祿／忌）落喺邊個宮。 */
@@ -56,8 +56,10 @@ export function epilogueChapter(input: { chart: Chart; year: number }): { slug: 
 
   const lineOf = (name: string) => {
     const p = chart.palaces.find((q) => q.name === name);
-    const lead = p ? leadOf(chart, p) : null;
-    return lead ? palacePlain(lead, name) : undefined;
+    /* 雙星整合版優先（2026-10-11）：同宮章結論一致 */
+    const names = p ? majorsOf(chart, p) : [];
+    const ji = p?.stars.find((s) => MAJOR.has(s.name) && s.sihua === '忌')?.name ?? null;
+    return names.length ? conclusionFor(names, name, ji) : undefined;
   };
   const strip = (watch: string) => watch.replace(/^要留意的是：/, '');
   /* 由宮位抽嘅句加返係邊方面（「心境上，」）—— 抽出嚟之後冇咗章名，讀者唔知講緊邊樣 */

@@ -1,6 +1,7 @@
 import tmRaw from './tm.json';
 import { WATCH_LEADS } from '../watch-lead';
 import { LINK_REFS } from '../link';
+import { JI_WATCH, PAIR_PLAIN } from '../palace-plain';
 import { AREA_EN, AREA_ON_EN, PALACE_EN, STAR_EN, cap, listEn, star, starFirst } from './terms';
 import { factTemplate } from './facts';
 import { timeTemplate } from './time';
@@ -18,6 +19,14 @@ import { timeTemplate } from './time';
  * ─────────────────────────────────────────────────────────── */
 
 const TM = tmRaw as { sentences: Record<string, string>; clauses: Record<string, string> };
+
+/* 雙星整合版（palace-plain.ts，2026-10-11）：英文跟條目一齊存，喺度併入翻譯表 */
+for (const x of PAIR_PLAIN) {
+  TM.sentences[x.summary] = x.en.summary;
+  TM.sentences[x.watch] = x.en.watch;
+  TM.sentences[x.life] = x.en.life;
+}
+for (const w of Object.values(JI_WATCH)) TM.sentences[w.zh] = w.en;
 
 export type Rendered = { text: string; missing: string[] };
 

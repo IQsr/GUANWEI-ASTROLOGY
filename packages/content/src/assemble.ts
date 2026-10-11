@@ -36,7 +36,7 @@ import { brightnessModifier, maleficModifier, sihuaModifier } from './modifier-d
 import { MALEFICS } from './modifier';
 import { chapterFooter, emptyPalaceLine, type Slot } from './frame';
 import { closeFor } from './frame-data';
-import { palacePlain } from './palace-plain';
+import { conclusionFor, pairPlain, palacePlain } from './palace-plain';
 import { lifeLine } from './life';
 import { cjkCount } from './lexicon';
 import { similarity } from './baseblock';
@@ -302,14 +302,23 @@ export function assemble(
     const own = majorsIn(p);
     const opp = own.length === 0 && p.borrowsFrom ? chart.palaces.find((x) => x.branch === p.borrowsFrom) : undefined;
     const lead = (own[0] ?? (opp ? majorsIn(opp)[0] : undefined))?.name;
-    const pp = lead ? palacePlain(lead, palace) : undefined;
+    /* 同宮兩粒主星講相反嘢：用整合版（palace-plain.ts `pairPlain`，2026-10-11） */
+    const leadNames = (own.length ? own : opp ? majorsIn(opp) : []).map((s) => s.name);
+    /* 生年化忌落喺呢宮主星（借對宮就唔計，化忌屬對宮嗰章）：留意句講化忌 */
+    const ji = own.find((s) => s.sihua === '忌')?.name ?? null;
+    const pp = lead ? conclusionFor(leadNames, palace, ji) : undefined;
     if (pp) {
-      conclusion = `${pp.summary}${pp.watch}`;
+      /*
+       * `conclusion` 係用嚟喺基塊度剷走同結論重複嗰句。整合版係改寫，唔係基塊撮句，
+       * 所以照用領銜星嘅單星結論去剷 —— 否則剷錯句，下一句「相對地⋯」就冇咗前文。
+       */
+      const single = palacePlain(lead!, palace) ?? pp;
+      conclusion = `${single.summary}${single.watch}`;
       push({
         slot: '結論',
         text: `${pp.summary}${varyWatch(pp.watch, opts.watchLead)}`,
         source_id: pp.id,
-        rule_ids: [`base.${lead}.${palace}`].filter((id) => matchedRuleIds.has(id)),
+        rule_ids: leadNames.map((n) => `base.${n}.${palace}`).filter((id) => matchedRuleIds.has(id)),
       });
     } else {
       missing.push({ slot: '結論', reason: `${palace} 揀唔到領銜主星嘅結論句` });
@@ -495,12 +504,13 @@ export function assemble(
      * 生活裡的樣子（2026-09-30）：同結論跟同一粒領銜星。有王亭之出處就記出處，
      * 冇就記返嗰格基塊 —— 句子只講基塊講過嘅嘢（見 life.ts）。
      */
-    const life = lifeLine(lead.star.name, palace);
+    const pair = pairPlain(names, palace);
+    const life = pair ? { text: pair.life, source: null } : lifeLine(lead.star.name, palace);
     if (life) {
       lifeSeg = {
         slot: '生活',
         text: life.text,
-        source_id: life.source?.passage_id ?? lead.block.id,
+        source_id: pair ? pair.id : (life.source?.passage_id ?? lead.block.id),
         rule_ids: [`base.${lead.star.name}.${palace}`].filter((id) => matchedRuleIds.has(id)),
       };
     } else {
