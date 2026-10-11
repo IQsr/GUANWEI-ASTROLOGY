@@ -33,7 +33,11 @@ export const LIUNIAN_CLOSE = '一年很快過去。把力氣放在順的地方�
   if (bad.length) throw new Error(`流年章框唔准講命理：${bad.join('、')}`);
 }
 
-const NONE_TEXT = '這一年的四化，沒有碰到你大限或本命的四化：不沖起，作用就小，今年的起落多半只在表面。';
+/*
+ * ⚠ 2026-10-11 改：舊句「不沖起，作用就小，今年的起落多半只在表面」誤讀 p.235 ——
+ * 書講「作用甚小」嘅係**生年**四化（冇被沖起嗰陣），唔係流年四化本身。
+ */
+const NONE_TEXT = '這一年的四化，沒有碰到你大限或本命的四化，不會再疊加額外的起落；今年就看上面流年四化本身落在哪裡。';
 
 type Hit = { star: string; hua: Sihua; annualPalace: string | null };
 
@@ -76,10 +80,22 @@ export function yearChapter(input: { chart: Chart; year: number }): { slug: stri
 
   /* 結論 */
   const young = A.nominalAge <= 16 ? '你還年少，下面講的是這一年身邊的環境。' : '';
+  /*
+   * 跨層反證（2026-10-11 內容審查）：開頭唔可以淨係睇流年祿忌落邊宮就定方向。
+   * 流年祿落嘅地支，大限或本命有化忌喺度 —— 順得唔乾淨，改講「順中有阻」；
+   * 流年忌落嘅地支，大限或本命有化祿喺度 —— 有轉圜，唔好淨講要留神。
+   * （書 p.235：推流年睇大限、流年兩組；生年四化被沖起先要注意 —— 兩層都計。）
+   */
+  const lower = [...(A.sihua.decadal ?? []), ...A.sihua.natal];
+  const at = (star: string) => A.sihua.annual.find((h) => h.star === star)?.branch ?? null;
+  const luB = at(lu.star);
+  const jiB = at(ji.star);
+  const luBlocked = Boolean(luB && lower.some((h) => h.hua === '忌' && h.branch === luB));
+  const jiEased = Boolean(jiB && lower.some((h) => h.hua === '祿' && h.branch === jiB));
   const gist =
     lu.annualPalace && lu.annualPalace === ji.annualPalace
       ? `這一年，你的${area(lu.annualPalace)}起伏較大，有得著，也有牽掛。`
-      : `這一年，你的${area(lu.annualPalace)}比較順，${area(ji.annualPalace)}要多留神。`;
+      : `這一年，你的${area(lu.annualPalace)}${luBlocked ? '順中有阻' : '比較順'}，${area(ji.annualPalace)}${jiEased ? '雖有牽掛，也有轉圜的餘地' : '要多留神'}。`;
   const lead =
     `寫這本書的${yearCN(year)}年是${gan}${zhi}年，你虛歲${num(A.nominalAge)}。` +
     gist +

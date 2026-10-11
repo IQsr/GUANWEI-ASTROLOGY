@@ -29,6 +29,7 @@
  * 而我哋真係有嘢講 —— 只係唔係一個方向。
  */
 import type { Brightness, Chart, Palace, PalaceName } from '@guanwei/ziwei';
+import { WATCH_LEADS, varyWatch } from './watch-lead';
 import { BASE_BLOCKS } from './baseblock-data';
 import { PALACE_TOPIC } from './baseblock';
 import { brightnessModifier, maleficModifier, sihuaModifier } from './modifier-data';
@@ -248,6 +249,11 @@ export type AssembleOptions = {
    * 同一句唔准喺一本書出兩次（2026-09）。單獨砌一章就唔使畀。
    */
   used?: Set<string>;
+  /**
+   * 結論段「要留意的是：」換成邊個轉接語（2026-10-11 內容審查：一本書十二次同一個開頭，讀落似模板）。
+   * `assembleAll()` 按讀者次序輪；單獨砌一章就照原句。英文嗰邊 `lookupSentence` 會認返原句。
+   */
+  watchLead?: string;
 };
 
 /**
@@ -301,7 +307,7 @@ export function assemble(
       conclusion = `${pp.summary}${pp.watch}`;
       push({
         slot: '結論',
-        text: `${pp.summary}${pp.watch}`,
+        text: `${pp.summary}${varyWatch(pp.watch, opts.watchLead)}`,
         source_id: pp.id,
         rule_ids: [`base.${lead}.${palace}`].filter((id) => matchedRuleIds.has(id)),
       });
@@ -408,7 +414,13 @@ export function assemble(
      */
     if (leadStar.brightness && borrowed === null && palace === '命宮') {
       const m = brightnessModifier(leadStar.name, leadStar.brightness);
-      if (m && fresh(m.id)) {
+      /*
+       * 領銜星本身生年化忌，就唔貼廟旺嗰句好話（2026-10-11 內容審查）：
+       * 示範命宮天同旺又化忌，以前先講「福氣厚，日子過得舒服」，跟住四化又講「舒服的條件恰好最缺」，
+       * 讀者唔知信邊句。化忌嗰句同一粒星、而且講得更具體，佢行；廟旺好話讓位。
+       */
+      const overruled = leadStar.sihua === '忌' && m?.id.endsWith('.廟旺');
+      if (m && !overruled && fresh(m.id)) {
         structure.push(m.text);
         ids.push(m.id);
       }
@@ -660,9 +672,12 @@ export function assembleAll(
     return i === -1 ? READING_ORDER.length : i;
   };
   const built = new Map<string, Chapter>();
-  for (const n of [...names].sort((a, b) => rank(a) - rank(b))) {
-    built.set(n, assemble(chart, n, byTopic[PALACE_TOPIC[n]!]!, { ...opts, used }));
-  }
+  [...names]
+    .sort((a, b) => rank(a) - rank(b))
+    .forEach((n, i) => {
+      const watchLead = WATCH_LEADS[i % WATCH_LEADS.length];
+      built.set(n, assemble(chart, n, byTopic[PALACE_TOPIC[n]!]!, { ...opts, used, watchLead }));
+    });
   return names.map((n) => built.get(n)!);
 }
 

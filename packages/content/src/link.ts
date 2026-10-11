@@ -119,6 +119,9 @@ export const AREA: Record<string, [string, string]> = {
   父母: ['長輩關係', '對長輩時'],
 };
 
+/** 牽動格指返幾章嗰截嘅講法（en/render.ts `refPart` 認呢幾款） */
+export const LINK_REFS = ['各自那一章另有細講', '前面各自那一章已經細談', '各有一章細講過'] as const;
+
 /**
  * 牽動格嘅頭一段。回 null = 呢個宮嘅三方四正搵唔齊（唔應該發生）。
  *
@@ -164,8 +167,11 @@ export function linkLine(
    * 2026-10-05 睇稿指南第 10 節：以前寫「分別見〈田宅〉〈兄弟〉兩章」，似技術文件；
    * 得一個先點名邊章，兩個以上就唔逐章列。
    */
+  /* 2026-10-11 內容審查：「各自那一章另有細講」一本書出十次，跟宮位次序輪三款 */
+  const ORDER_REF = ['命宮', '兄弟', '夫妻', '子女', '財帛', '疾厄', '遷移', '僕役', '官祿', '田宅', '福德', '父母'];
+  const many = LINK_REFS[Math.max(0, ORDER_REF.indexOf(p.name)) % LINK_REFS.length]!;
   const ref = seen.length
-    ? `${seen.map((x) => x[0]).join('、')}，${seen.length === 1 ? `見〈${seen[0]![1]}〉那一章` : '各自那一章另有細講'}`
+    ? `${seen.map((x) => x[0]).join('、')}，${seen.length === 1 ? `見〈${seen[0]![1]}〉那一章` : many}`
     : '';
   /*
    * 開頭四款輪流用（2026-10-02）：以前十二章都係「這一面也和你的⋯連在一起」，一本書出十二次。

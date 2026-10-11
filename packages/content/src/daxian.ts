@@ -540,7 +540,7 @@ export function lookBack(chart: Chart, year: number): DaxianSegment | null {
   });
   return {
     slot: '回看',
-    text: `回看你走過的路：${lines.join('')}這幾年，對你來說是不是有過轉折？`,
+    text: `回看你走過的路：${lines.join('')}這幾年，對你來說是不是有過轉折？對不上的，就當那一年的訊號沒有落在你身上。`,
     source_id: [...new Set(picked.flatMap((c) => c.sources))].join('+') || null,
     rule_ids: [],
   };

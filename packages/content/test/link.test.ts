@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { cast } from '@guanwei/ziwei';
 import { BASE_BLOCKS } from '../src/baseblock-data';
-import { gistOf, linkLine } from '../src/link';
+import { LINK_REFS, gistOf, linkLine } from '../src/link';
 
 /**
  * 牽動格頭一句（2026-09）：講呢張盤嘅對宮同三合宮坐咗乜，唔再係每本書一樣嘅關係塊。
@@ -62,12 +62,14 @@ describe('全書每宮嗰截只詳講一次（2026-09-30）', () => {
   it('跟閱讀次序行一次：每一截只出一次，之後指返嗰章', () => {
     const used = new Set<string>();
     const lines = ORDER.map((n) => linkLine(chart, chart.palaces.find((p) => p.name === n)!, used)!.text);
-    const clauses = lines.flatMap((t) => (t.includes('：') ? t.split(/[：；。]/).slice(1) : [])).filter((c) => /，/.test(c) && !/見〈|另有細講/.test(c));
+    const clauses = lines.flatMap((t) => (t.includes('：') ? t.split(/[：；。]/).slice(1) : [])).filter((c) => /，/.test(c) && !/見〈|另有細講|前面各自|各有一章/.test(c));
     expect(clauses.length).toBe(new Set(clauses).size);
     /* 十二宮每宮詳講一次，唔多唔少 */
     expect(clauses).toHaveLength(12);
     /* 最後一章嘅三個宮前面實講過 */
-    expect(lines.at(-1)).toMatch(/^[^：]+是.+、.+是.+、.+是.+，各自那一章另有細講。$/);
+    expect(lines.at(-1)).toMatch(new RegExp(`^[^：]+是.+、.+是.+、.+是.+，(${LINK_REFS.join('|')})。$`));
+    /* 2026-10-11：三款講法輪流用，唔係十次都同一句 */
+    expect(new Set(lines.map((t) => LINK_REFS.find((x) => t.includes(x))).filter(Boolean)).size).toBeGreaterThan(1);
   });
 
   it('唔畀 used 就三截都講（單獨砌一章）', () => {

@@ -1,4 +1,6 @@
 import tmRaw from './tm.json';
+import { WATCH_LEADS } from '../watch-lead';
+import { LINK_REFS } from '../link';
 import { AREA_EN, AREA_ON_EN, PALACE_EN, STAR_EN, cap, listEn, star, starFirst } from './terms';
 import { factTemplate } from './facts';
 import { timeTemplate } from './time';
@@ -60,7 +62,7 @@ const LINK_HEADS: [string, string][] = [
 
 /** 牽動格最後一截：「家裡是天梁，見〈田宅〉那一章」／「家裡是天梁、朋輩之間是太陽，各自那一章另有細講」 */
 function refPart(part: string, missing: string[]): string | null {
-  const m = /^(.+)，(?:見〈([^〉]+)〉那一章|各自那一章另有細講)$/.exec(part);
+  const m = new RegExp(`^(.+)，(?:見〈([^〉]+)〉那一章|${LINK_REFS.join('|')})$`).exec(part);
   if (!m) return null;
   const pairs = m[1]!.split('、').map((x, i) => {
     const mm = /^(.+)是(\S{2})$/.exec(x);
@@ -86,6 +88,12 @@ function refPart(part: string, missing: string[]): string | null {
 function lookupSentence(s: string): string | null {
   const direct = TM.sentences[s];
   if (direct) return direct;
+  /* 結論段輪換過嘅轉接語（assemble.ts `WATCH_LEADS`）：翻譯表只存「要留意的是：」嗰款 */
+  const lead = WATCH_LEADS.slice(1).find((l) => s.startsWith(l));
+  if (lead) {
+    const watched = TM.sentences[WATCH_LEADS[0] + s.slice(lead.length)];
+    if (watched) return watched;
+  }
   const pre = /^(\S{2})：(.+)$/.exec(s);
   if (pre && star(pre[1]!)) {
     const rest = TM.sentences[pre[2]!];

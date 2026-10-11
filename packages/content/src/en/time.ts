@@ -1,5 +1,5 @@
 import rulesRaw from '../daxian/rules.json';
-import { LIUYUE, LIUYUE_FLAT, LIUYUE_LEAD, LIUYUE_REST, MONTH_CN } from '../liuyue';
+import { LIUYUE, LIUYUE_FLAT, LIUYUE_LEAD, LIUYUE_REST, MONTH_CN, mixedText } from '../liuyue';
 import { KUIYUE_TEXT } from '../kuiyue';
 import { ageRange, ageStart, agePoint, palaceEn } from './facts';
 import { AREA_EN, AREA_ON_EN, BRANCH_EN, STEM_EN, cnNum, listEn, ordinalWord, star } from './terms';
@@ -121,11 +121,11 @@ const TURN_EG: Record<string, string> = {
   '像是工作崗位、住處或家庭角色有了變化': 'such as a change in your role at work, where you lived or your place in the family',
 };
 const EVENT_EN: Record<string, string> = {
-  '身體上要付出的比平時多，不少人在這樣的年份要停下來休養一段時間': 'your body asked more of you than usual; in years like this, many people have to stop and rest for a while',
-  '出入、出行要格外小心，容易有磕碰，或者行程上的波折': 'getting about and travelling called for extra care, with knocks or setbacks along the way more likely',
-  '容易捲入是非爭拗，有些事要靠白紙黑字、找人評理才解決': 'you were more easily drawn into disputes, and some could only be settled in writing or by bringing in someone to judge',
-  '有一筆錢走得比預期多，事後回想，當時可以多留一手': 'a sum of money went out faster than you expected, and looking back, you could have held more in reserve',
-  '感情上經歷過一段考驗，可能是聚少離多，或者一段關係走到要做決定的時候': 'love went through a test, perhaps time apart, or a relationship reaching the point of a decision',
+  '身體是這一年盤上的主題，要付出的可能比平時多，或者曾經需要放慢步調': 'your body was a theme of that year on the chart; it may have asked more of you than usual, or made you slow down for a while',
+  '出入、出行是這一年盤上要小心的一環，行程上可能有過波折': 'getting about and travelling were points of care on the chart that year, and your plans may have hit setbacks',
+  '這一年較容易捲入是非爭拗，可能有些事要靠白紙黑字、找人評理才解決': 'you were more easily drawn into disputes that year, and some may have needed settling in writing or by bringing in someone to judge',
+  '可能有一筆錢走得比預期多，事後回想，當時可以多留一手': 'a sum of money may have gone out faster than you expected, and looking back, you could have held more in reserve',
+  '感情上可能經歷過一段考驗，例如聚少離多，或者一段關係走到要做決定的時候': 'love may have gone through a test, such as time apart, or a relationship reaching the point of a decision',
 };
 const GIST_EN: Record<string, string> = {
   /* 化忌嗰方面 */
@@ -206,7 +206,7 @@ export const LIUYUE_EN: Record<string, string> = {
   '對晚輩的事多些耐心': 'be patient with matters involving younger people',
   '錢財上有進帳的機會': 'money may come in',
   '錢財上看緊一點，別為錢起口角': "keep a closer eye on money, and don't let it cause arguments",
-  '身心安穩，作息容易上軌道': 'you feel settled, and your routine falls into place easily',
+  '作息容易上軌道': 'your routine falls into place more easily',
   '步調放慢一點，給自己留些餘裕': 'slow your pace a little and leave yourself some slack',
   '出外走動有收穫': 'getting out and about pays off',
   '出外辦事多一分耐心，少和人爭執': 'be a little more patient with things away from home, and avoid arguments',
@@ -221,14 +221,33 @@ export const LIUYUE_EN: Record<string, string> = {
   '和長輩相處愉快': 'time with older relatives goes well',
   '和長輩多溝通，少些硬碰': 'talk things through with older relatives rather than clashing',
 };
+/* 順逆並見（2026-10-11）：方面嘅英文 */
+const MONTH_AREA_EN: Record<string, string> = {
+  整體: 'life in general',
+  兄弟朋友之間: 'things with siblings and friends',
+  感情: 'love',
+  和晚輩之間: 'things with younger people',
+  錢財: 'money',
+  作息: 'your routine',
+  出外: 'time away from home',
+  人際: 'dealings with people',
+  工作: 'work',
+  家居: 'home',
+  心境: 'your state of mind',
+  和長輩之間: 'things with older relatives',
+};
+for (const e of LIUYUE) {
+  if (!MONTH_AREA_EN[e.area]) throw new Error(`逐月方面未有英文：${e.area}`);
+  LIUYUE_EN[mixedText(e.area)] = `${MONTH_AREA_EN[e.area]} brings both openings and snags; make the most of what flows, and don't force what sticks`;
+}
 for (const e of LIUYUE) for (const t of [e.good, e.bad]) if (!LIUYUE_EN[t]) throw new Error(`逐月未有英文：${t}`);
 
 const monthNo = (zh: string) => MONTH_CN.indexOf(zh as (typeof MONTH_CN)[number]);
 
 function liuyueEn(s: string): string | null {
-  if (s === LIUYUE_LEAD) return 'Month by month (by the Chinese calendar), these are the months that run more smoothly this year, and the ones to watch.';
-  if (s === LIUYUE_REST) return 'The other months are broadly steady.';
-  if (s === LIUYUE_FLAT) return 'Month by month (by the Chinese calendar), no month stands out this year; it is broadly steady.';
+  if (s === LIUYUE_LEAD) return 'Month by month (by the Chinese calendar), these are the months where the ups and downs show most clearly this year.';
+  if (s === LIUYUE_REST) return 'The other months show no clear rise or dip on the chart; keep to your usual pace.';
+  if (s === LIUYUE_FLAT) return 'Month by month (by the Chinese calendar), no month gives a particularly strong signal this year; keep to your usual pace.';
   let m = /^(正月|十一月|十二月|[二三四五六七八九十]月)：(.+)。$/.exec(s);
   if (m && monthNo(m[1]!) > 0 && LIUYUE_EN[m[2]!]) return `In the ${ordinalWord(monthNo(m[1]!))} month, ${LIUYUE_EN[m[2]!]}.`;
   m = /^今年有閏(\S+?)：上半月照(\S+?)看，下半月照(\S+?)看。$/.exec(s);
@@ -297,10 +316,12 @@ export function timeTemplate(s: string, missing: string[], h: TimeHelpers): stri
   if (m && n(m[1]!) && n(m[2]!) && n(m[3]!)) {
     return `When this book was written (${n(m[1]!)}), you were ${agePoint(n(m[2]!)!)} (${n(m[2]!)} by Chinese reckoning); your first ten-year stage begins at ${ageStart(n(m[3]!)!)}.`;
   }
-  m = /^這(十年|一年)，你的(\S+?)比較順，(\S+?)要多留神。$/.exec(s);
+  m = /^這(十年|一年)，你的(\S+?)(比較順|順中有阻)，(\S+?)(要多留神|雖有牽掛，也有轉圜的餘地)。$/.exec(s);
   if (m) {
     const span = m[1] === '十年' ? 'Over these ten years' : 'This year';
-    return `${span}, it's smoother going for ${areaEn(m[2]!, missing)}, and more care is needed with ${areaEn(m[3]!, missing)}.`;
+    const good = m[3] === '比較順' ? `it's smoother going for ${areaEn(m[2]!, missing)}` : `${areaEn(m[2]!, missing)} go${['錢', '朋輩'].includes(m[2]!) ? '' : 'es'} smoothly, though not without snags`;
+    const care = m[5] === '要多留神' ? `more care is needed with ${areaEn(m[4]!, missing)}` : `${areaEn(m[4]!, missing)} bring${['錢', '朋輩'].includes(m[4]!) ? '' : 's'} some worry, but with room to turn things round`;
+    return `${span}, ${good}, and ${care}.`;
   }
   m = /^這(十年|一年)，你的(\S+?)起伏較大，有得著，也有牽掛。$/.exec(s);
   if (m) {
