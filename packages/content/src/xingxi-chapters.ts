@@ -157,7 +157,7 @@ export function gujiaChapter(input: {
   /* 盤面事實：同序嘅「命宮在寅」同一類。借對宮嗰陣要講明。 */
   const stars = x.stars.join('、');
   const where = borrowed
-    ? `你的命宮在${m.branch}，宮內沒有主星，借對宮的${stars}來讀。`
+    ? `你的命宮在${m.branch}，宮內沒有主星，借對面遷移宮的${stars}來讀。`
     : `你的命宮在${m.branch}，坐${stars}。`;
   /* 星系按主星所在嘅地支分（借對宮就用對宮），讀者只讀到自己嗰邊 */
   const starBranch = borrowed ? m.borrowsFrom! : m.branch;

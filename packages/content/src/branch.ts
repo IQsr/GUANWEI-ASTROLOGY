@@ -283,6 +283,26 @@ export function fillSlots(text: string, ev: string[]): string {
   });
 }
 
+/*
+ * 骨架章「會照的X」（2026-10-12 術語）：「會照」即係命宮三方四正其中一宮，讀者唔知係邊。
+ * 換成盤上嗰粒星真正坐嘅宮：「會照的天機化忌」→「財帛宮的天機化忌」。揾唔到（借星等）就照舊。
+ */
+const ABBR: Record<string, string[]> = { 魁鉞: ['天魁', '天鉞'], 火鈴: ['火星', '鈴星'], 羊陀: ['擎羊', '陀羅'], 昌曲: ['文昌', '文曲'], 空劫: ['地空', '地劫'] };
+const NAMED = [...MAJOR, ...AIDE_STARS, ...SHA_STARS, '祿存', '天馬'];
+
+export function placeHui(chart: Chart, text: string): string {
+  if (!text.includes('會照的')) return text;
+  const ming = chart.palaces.find((q) => q.name === '命宮');
+  if (!ming) return text;
+  const [, a, dui, b] = sanFangPalaces(chart.palaces, ming.branch) as [Palace, Palace, Palace, Palace];
+  return text.replace(/會照的([^，。；：]{1,14})/g, (all, rest: string) => {
+    const names = [...Object.entries(ABBR).filter(([k]) => rest.includes(k)).flatMap(([, v]) => v), ...NAMED.filter((x) => rest.includes(x))];
+    const at = [a, dui, b].filter((q) => q.stars.some((x) => names.includes(x.name)));
+    if (!at.length) return all;
+    return `${[...new Set(at.map((q) => (q.name.endsWith('宮') ? q.name : `${q.name}宮`)))].join('和')}的${rest}`;
+  });
+}
+
 /** 有〔〕嘅模板句嘅比對式（翻譯、出處用）：〔〕連前面動詞換成任意字 */
 export function slotPattern(template: string, anchored = true): RegExp {
   const esc = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
@@ -426,7 +446,9 @@ export function xingxiReading(
 ): { text: string; ids: string[]; sources: string[] } | null {
   for (const t of BRANCH_TOPICS) {
     if (t.topic.xingxi === undefined) continue;
-    const rules = branchRules(chart, t).filter((r) => !r.gujia && !(avoid && restates(r.text, avoid)));
+    /* 「對面遷移宮」係固定講法（2026-10-12 術語），唔當重複 */
+    const bare = (x: string) => x.replaceAll('對面遷移宮', '');
+    const rules = branchRules(chart, t).filter((r) => !r.gujia && !(avoid && restates(bare(r.text), bare(avoid))));
     if (!rules.length) continue;
     return {
       text: (() => {
@@ -439,7 +461,7 @@ export function xingxiReading(
               if (told) note = note.replace(PAST_FULL, PAST_AGAIN);
               told = true;
             }
-            return r.text + note;
+            return placeHui(chart, r.text) + note;
           })
           .join('');
       })(),

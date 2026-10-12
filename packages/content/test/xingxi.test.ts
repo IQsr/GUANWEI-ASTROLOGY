@@ -7,6 +7,7 @@ import { XINGXI_FRAMES, gujiaChapter,
   undecidedLean, overlaps } from '../src/xingxi-chapters';
 import { scanPlain } from '../src/plain';
 import { renderParagraph } from '../src/en/render';
+import { BRANCH_TOPICS } from '../src/branch';
 
 /**
  * 六十星系（B5 · 2026-09）。逐批寫（每批十個），寫到邊測到邊。
@@ -207,7 +208,7 @@ describe('性格的骨架（2026-10-07 併埋偏向）', () => {
 
   it('借對宮嗰陣講明', () => {
     const c = some.find((c) => xingxiOf(c)!.borrowed)!;
-    expect(gujiaChapter({ chart: c })!.segments.find((s) => s.slot === '骨架')!.text).toContain('借對宮');
+    expect(gujiaChapter({ chart: c })!.segments.find((s) => s.slot === '骨架')!.text).toContain('借對面遷移宮');
   });
 
   it('同一張盤，兩次一樣', () => {
@@ -258,5 +259,19 @@ describe('直白（2026-09）', () => {
       const t = gujiaChapter({ chart: c })!.segments.find((s) => s.slot === '推力')?.text;
       if (t) expect(scanPlain(t, '推力'), t).toEqual([]);
     }
+  });
+});
+
+describe('骨架章唔用抽象宮位術語（2026-10-12）', () => {
+  it('星系講法同細讀規則：唔寫「對宮」「三合」「會合」「夾宮」，寫真宮名（對面遷移宮、財帛宮、官祿宮）', () => {
+    const bad: string[] = [];
+    const TERMS = /對宮|三合|會合的|夾宮|三方的/;
+    for (const x of XINGXI) {
+      const p = x.plain;
+      for (const v of [p.basis, p.note ?? '', ...Object.values(p.lean), ...Object.values(p.byBranch ?? {}), ...Object.values(p.strengthBy ?? {})])
+        if (TERMS.test(v)) bad.push(`${x.n}：${v}`);
+    }
+    for (const t of BRANCH_TOPICS) if (t.topic.xingxi !== undefined) for (const r of t.rules) if (/對宮/.test(r.text)) bad.push(`${r.id}：${r.text}`);
+    expect(bad).toEqual([]);
   });
 });

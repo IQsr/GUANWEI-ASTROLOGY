@@ -78,6 +78,21 @@ function slotEn(seg: string, phrase: string, owner: string | undefined): string 
   return listEn(out);
 }
 
+/*
+ * 骨架章「會照的X」換成真宮名（branch.ts `placeHui`）：英文「in your trine／four directions／meeting your chart」
+ * 換成「in your Wealth Palace」。宮名對唔到就照原句。
+ */
+type Hui = { re: RegExp; en: string };
+const HUI: Hui[] = [];
+const escRe = (x: string) => x.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+
+function huiEn(h: Hui, m: RegExpExecArray): string {
+  if (m[1] === '會照') return h.en;
+  const names = m[1]!.split('和').map((x) => PALACE_EN[x.replace(/宮$/, '')]);
+  if (names.some((x) => !x)) return h.en;
+  return h.en.replace(/in your (?:trine|four directions)|meeting your chart/, `in your ${listEn(names as string[])}`);
+}
+
 function fillEn(slot: Slot, m: RegExpExecArray): string {
   let i = 0;
   const out = slot.en.replace(/〔([^〕]+)〕/g, (_all, generic: string) => {
@@ -103,6 +118,8 @@ for (const t of BRANCH_TOPICS)
     if (zh.length === en.length) zh.forEach((z, i) => (TM.sentences[z] = en[i]!));
     /* 泛稱填實（branch.ts `fillSlots`）：中文填咗盤上嘅星，英文照模板句 */
     if (zh.length === en.length) zh.forEach((z, i) => z.includes('〔') && SLOTS.push(slotOf(z, en[i]!)));
+    if (zh.length === en.length)
+      zh.forEach((z, i) => z.includes('會照的') && HUI.push({ re: new RegExp(`^${escRe(z).replace('會照的', '(會照|[^，。]+?宮)的')}$`), en: en[i]! }));
     else TM.sentences[r.text] = r.en;
     if (r.tail && r.tailEn) TM.sentences[r.tail] = r.tailEn;
   }
@@ -175,6 +192,10 @@ function lookupSentence(s: string): string | null {
   for (const slot of SLOTS) {
     const m = slot.re.exec(s);
     if (m) return fillEn(slot, m);
+  }
+  for (const h of HUI) {
+    const m = h.re.exec(s);
+    if (m) return huiEn(h, m);
   }
   /* 結論段輪換過嘅轉接語（assemble.ts `WATCH_LEADS`）：翻譯表只存「要留意的是：」嗰款 */
   const lead = WATCH_LEADS.slice(1).find((l) => s.startsWith(l));

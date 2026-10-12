@@ -68,6 +68,16 @@ function enSlotPattern(t: string): RegExp {
   return new RegExp(body);
 }
 
+/** 骨架章「會照的X」填咗宮名（branch.ts `placeHui`） */
+const escCite = (x: string) => x.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+function huiPattern(t: string): RegExp {
+  return new RegExp(escCite(t.replace(/。$/, '')).replace('會照的', '(?:會照|[^，。]+?宮)的'));
+}
+function enHuiPattern(t: string): RegExp {
+  const body = escCite(t.toLowerCase().replace(/[.;:,]$/, ''));
+  return new RegExp(body.replace(/in your trine|in your four directions|meeting your chart/, '(?:in your trine|in your four directions|meeting your chart|in your .+?)'));
+}
+
 export type CiteKey = { key: string; ids: string[]; re?: RegExp };
 
 function build(): { zh: CiteKey[]; en: CiteKey[] } {
@@ -76,8 +86,9 @@ function build(): { zh: CiteKey[]; en: CiteKey[] } {
   for (const t of BRANCH_TOPICS)
     for (const r of t.rules) {
       const ids = [r.source.passage, ...(r.also ?? []).map((a) => a.passage)];
-      for (const s of sentencesZh(r.text)) zh.push(s.includes('〔') ? { key: s, ids, re: slotPattern(s.replace(/。$/, ''), false) } : { key: s, ids });
-      for (const s of sentencesEn(r.en)) en.push(s.includes('〔') ? { key: s, ids, re: enSlotPattern(s) } : { key: s, ids });
+      for (const s of sentencesZh(r.text)) zh.push(s.includes('〔') ? { key: s, ids, re: slotPattern(s.replace(/。$/, ''), false) } : s.includes('會照的') ? { key: s, ids, re: huiPattern(s) } : { key: s, ids });
+      for (const s of sentencesEn(r.en))
+        en.push(s.includes('〔') ? { key: s, ids, re: enSlotPattern(s) } : s.includes('會照的') || /in your (?:trine|four directions)|meeting your chart/.test(s) ? { key: s, ids, re: enHuiPattern(s) } : { key: s, ids });
       if (r.tail) zh.push({ key: r.tail, ids });
       if (r.tailEn) en.push({ key: r.tailEn, ids });
     }

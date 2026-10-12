@@ -163,10 +163,11 @@ describe('骨架章細讀（六十星系）', () => {
           if (x.pole && state && !['平衡', '未定', x.pole].includes(state) && deep.text.includes(x.text)) clash.push(`${x.id}／${state}`);
         }
       }
-      const skel = g.segments.find((s) => s.slot === '骨架')!.text.replace(/[^\p{Script=Han}]/gu, '');
+      /* 「對面遷移宮」係固定講法（2026-10-12 術語），唔當重複 */
+      const skel = g.segments.find((s) => s.slot === '骨架')!.text.replaceAll('對面遷移宮', '').replace(/[^\p{Script=Han}]/gu, '');
       /* 逐句比：兩條規則接埋嗰度唔算 */
       for (const sen of deep.text.match(/[^。]+。/g) ?? []) {
-        const d = sen.replace(/[^\p{Script=Han}]/gu, '');
+        const d = sen.replaceAll('對面遷移宮', '').replace(/[^\p{Script=Han}]/gu, '');
         for (let k = 0; k + 8 <= d.length; k++) if (skel.includes(d.slice(k, k + 8))) { dup.push(sen); break; }
       }
     }

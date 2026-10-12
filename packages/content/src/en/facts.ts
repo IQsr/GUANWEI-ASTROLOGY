@@ -135,7 +135,8 @@ export function factTemplate(s: string, missing: string[]): string | null {
   /* 性格的骨架 · 你的命宮在子，坐巨門。／宮內沒有主星，借對宮的太陰、太陽來讀。 */
   m = /^你的命宮在(\S)，坐(.+)。$/.exec(s);
   if (m && BRANCH_EN[m[1]!]) return `Your Life Palace sits in ${BRANCH_EN[m[1]!]}, shaped by ${starsEn(m[2]!, missing)}.`;
-  m = /^你的命宮在(\S)，宮內沒有主星，借對宮的(.+)來讀。$/.exec(s);
+  /* 2026-10-12 起寫「借對面遷移宮的」；舊書照係「借對宮的」 */
+  m = /^你的命宮在(\S)，宮內沒有主星，借(?:對宮|對面遷移宮)的(.+)來讀。$/.exec(s);
   if (m && BRANCH_EN[m[1]!]) {
     return `Your Life Palace sits in ${BRANCH_EN[m[1]!]} and holds no major star, so it is read through ${starsEn(m[2]!, missing)} in the opposite palace.`;
   }

@@ -82,6 +82,11 @@ ingest 停喺邊條，就改返嗰條嘅摘錄。
     （`en/render.ts` `fillEn()`）：「Zi Wei meets Qing Yang and Zi Wei in Hindrance」；主星自己嘅四化寫「its own Abundance」。
     〔〕前後嘅英文要填咗星名都讀得通（「well transformed」緊跟星名就唔得，改「with 〔good transformations〕」）。
     填唔到就照出〔〕入面嘅泛稱。
+- **命宮星系（骨架章）用真宮名**：命宮嘅對宮一定係遷移宮，三合一定係財帛宮、官祿宮。寫「對面遷移宮的太陽」，
+  唔寫「對宮的太陽」；寫「財帛宮、官祿宮的⋯」，唔寫「三合的⋯」「會合的⋯」（`xingxi.test.ts` 會查）。
+  「會照的X」照寫：引擎（`branch.ts` `placeHui()`）會換成X真正坐嘅宮（「財帛宮的天機化忌」），英文嘅
+  「in your trine」跟住換。「對面遷移宮」唔計重複（`restates()` 前拎走）。改 `systems.json` 嘅句要喺 `en/tm.json`
+  加新句嘅英文，**舊句唔好刪**（舊書照用舊句，R-008）。
 - **題目次序 = 輸出次序**：組合／地支題目擺前，單星通則其次，`stars: []` 嘅唔限主星通則擺最尾，主星規則少過兩條先補上。
 - **index 前綴**：`src/branch/index.ts` 用變數名前綴分辨來源（`x` 星系、`f c g q d t m b j z` 各宮）。加新宮要揀未用過嘅字母，
   `x` 已經用咗。
