@@ -31,6 +31,11 @@ for (const w of Object.values(JI_WATCH)) TM.sentences[w.zh] = w.en;
 
 export type Rendered = { text: string; missing: string[] };
 
+/** 一句中文喺翻譯表嘅英文（冇就 null）。出處註（citation.ts）用嚟配英文句。 */
+export function tmSentence(zh: string): string | null {
+  return TM.sentences[zh] ?? null;
+}
+
 const sentencesOf = (t: string) => (t.match(/[^。！？]*[。！？]|[^。！？]+/g) ?? []).map((s) => s.trim()).filter(Boolean);
 
 /* 原文分支（branch.ts）：一條規則可以有兩句，逐句對返英文 */

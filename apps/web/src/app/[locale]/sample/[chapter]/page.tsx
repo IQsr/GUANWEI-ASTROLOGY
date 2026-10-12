@@ -11,7 +11,7 @@ import { NightScene } from '@/components/NightScene';
 import { StarDial } from '@/components/StarDial';
 import { dialFor } from '@/lib/dial';
 import { chapterHref, chapterParam, contentsHref, neighbours, SAMPLE_BOOK } from '@/lib/journey';
-import { localizeMarked, notesFor } from '@/lib/mingshu';
+import { citesFor, localizeMarked, notesFor } from '@/lib/mingshu';
 import { sampleBook } from '@/lib/sample-book';
 import { paragraphs } from '@/lib/suidu';
 import { markBook } from '@/lib/zhu';
@@ -102,7 +102,7 @@ export default async function SampleChapter({ params }: { params: Promise<{ loca
       >
         <ChapterTitle title={displayTitle(here.title, locale)} />
         <div className="mt-10">
-          <Juan segments={mine.segments} notes={notesFor(marked, locale)} />
+          <Juan segments={mine.segments} notes={notesFor(marked, locale)} cites={citesFor(marked, locale)} />
         </div>
         {dial ? <StarDial {...dial} en={en} /> : null}
         <ChapterNav bookId={SAMPLE_BOOK} prev={prev} next={next} />

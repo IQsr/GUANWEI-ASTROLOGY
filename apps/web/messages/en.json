@@ -266,7 +266,11 @@
     "next": "Next →",
     "contents": "Contents",
     "returnTo": "Back to “{title}”",
-    "lexiconNote": "Library · {term}"
+    "lexiconNote": "Library · {term}",
+    "citeMark": "src",
+    "citeAria": "Show where this sentence comes from",
+    "citeWhere": "Source: {book}, p. {page} · {section}",
+    "citeQuote": "Original text (Chinese): 「{text}」"
   },
   "weicai": {
     "notYet": "This page has not been cut open yet.",

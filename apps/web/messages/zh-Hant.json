@@ -269,7 +269,11 @@
     "next": "下一章 →",
     "contents": "目次",
     "returnTo": "回到《{title}》",
-    "lexiconNote": "藏經閣 · {term}"
+    "lexiconNote": "藏經閣 · {term}",
+    "citeMark": "據",
+    "citeAria": "看這句的出處",
+    "citeWhere": "出處：{book}，第 {page} 頁 · {section}",
+    "citeQuote": "原文：「{text}」"
   },
   "weicai": {
     "notYet": "這一頁還沒有裁開。",

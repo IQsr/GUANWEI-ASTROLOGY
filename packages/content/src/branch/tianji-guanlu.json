@@ -1,98 +1,237 @@
 {
   "$note": "第 3 層試點（2026-10-11）：官祿宮天機。條件逐條跟《深造講義》下篇宮垣論・事業宮 p.522–524。⚠ 引擎冇天才、龍池鳳閣、天刑、大耗：「天才同度」「技藝」「刑耗」嘅分支判斷唔到，只用昌曲、煞忌。巳亥天機嗰幾段未讀，冇寫。",
-  "topic": { "id": "天機.官祿", "palace": "官祿", "stars": ["天機"] },
+  "topic": {
+    "id": "天機.官祿",
+    "palace": "官祿",
+    "stars": [
+      "天機"
+    ]
+  },
   "rules": [
     {
       "id": "天機官祿.本",
       "role": "base",
       "text": "你的工作較常變動，形式不容易長期固定。",
       "en": "Your work changes more often than most, and its form rarely stays fixed for long.",
-      "source": { "passage": "deep.事業.天機", "quote": "主一生事业多变，而且不稳定" },
+      "source": {
+        "passage": "deep.事業.天機",
+        "quote": "主一生事业多变，而且不稳定"
+      },
       "edit": "不加「厭倦重複」之類心理原因；原書在此沒有說。"
     },
     {
       "id": "天機官祿.火鈴",
       "role": "limit",
-      "when": { "star": ["火星", "鈴星"], "at": "same" },
+      "when": {
+        "star": [
+          "火星",
+          "鈴星"
+        ],
+        "at": "same"
+      },
       "text": "同宮有火星或鈴星，變動的幅度會更大。",
       "en": "With Huo Xing or Ling Xing in the palace, the swings are bigger.",
-      "source": { "passage": "deep.事業.天機", "quote": "倘火铃同度，则更增加其波动" }
+      "source": {
+        "passage": "deep.事業.天機",
+        "quote": "倘火铃同度，则更增加其波动"
+      }
     },
     {
       "id": "天機官祿.祿",
       "role": "refine",
-      "when": { "hua": "祿", "star": "天機", "at": "same" },
+      "when": {
+        "hua": "祿",
+        "star": "天機",
+        "at": "same"
+      },
       "text": "天機化祿並不改變多變的性質。",
       "en": "Tian Ji transformed by Lu doesn't change this changeable nature.",
-      "source": { "passage": "deep.事業.天機祿", "quote": "天机化禄，不能改变其不稳定的性质" }
+      "source": {
+        "passage": "deep.事業.天機祿",
+        "quote": "天机化禄，不能改变其不稳定的性质"
+      }
     },
     {
       "id": "天機官祿.祿吉",
       "role": "refine",
-      "when": { "all": [{ "hua": "祿", "star": "天機", "at": "same" }, { "star": ["左輔", "右弼", "文昌", "文曲", "天魁", "天鉞"], "at": "sifang" }] },
+      "when": {
+        "all": [
+          {
+            "hua": "祿",
+            "star": "天機",
+            "at": "same"
+          },
+          {
+            "star": [
+              "左輔",
+              "右弼",
+              "文昌",
+              "文曲",
+              "天魁",
+              "天鉞"
+            ],
+            "at": "sifang"
+          }
+        ]
+      },
       "text": "加上吉星會合，變動較可能把你帶向更有前途的工作，或者同時兼兩三份事。",
       "en": "With favourable stars joining in, the changes are more likely to lead you to work with better prospects, or to holding two or three roles at once.",
-      "source": { "passage": "deep.事業.天機祿", "quote": "则可能转变到从事有前途的工作" }
+      "source": {
+        "passage": "deep.事業.天機祿",
+        "quote": "则可能转变到从事有前途的工作"
+      }
     },
     {
       "id": "天機官祿.權",
       "role": "exception",
-      "overrides": ["天機官祿.本"],
-      "when": { "hua": "權", "star": "天機", "at": "same" },
+      "overrides": [
+        "天機官祿.本"
+      ],
+      "when": {
+        "hua": "權",
+        "star": "天機",
+        "at": "same"
+      },
       "text": "你的天機化權，工作反而會轉趨穩定；不過通常要先經歷一次轉變，才進入較穩定的事業。",
       "en": "Your Tian Ji is transformed by Quan, so your work actually tends to settle; usually, though, there's one change first before you move into steadier work.",
-      "source": { "passage": "deep.事業.天機權", "quote": "天机化权，性质变为稳定。但亦必先发生一次改变" },
+      "source": {
+        "passage": "deep.事業.天機權",
+        "quote": "天机化权，性质变为稳定。但亦必先发生一次改变"
+      },
       "edit": "化權改變「多變」的基本性質，所以取代本條。"
     },
     {
       "id": "天機官祿.權左右",
       "role": "refine",
-      "when": { "all": [{ "hua": "權", "star": "天機", "at": "same" }, { "star": ["左輔", "右弼"], "at": "same" }] },
+      "when": {
+        "all": [
+          {
+            "hua": "權",
+            "star": "天機",
+            "at": "same"
+          },
+          {
+            "star": [
+              "左輔",
+              "右弼"
+            ],
+            "at": "same"
+          }
+        ]
+      },
       "text": "同宮又有左輔或右弼，可能身兼數職，而且多是較長期的工作。",
       "en": "With Zuo Fu or You Bi in the palace too, you may hold several roles at once, mostly longer-term ones.",
-      "source": { "passage": "deep.事業.天機權", "quote": "唯所兼职务均为较长期工作" }
+      "source": {
+        "passage": "deep.事業.天機權",
+        "quote": "唯所兼职务均为较长期工作"
+      }
     },
     {
       "id": "天機官祿.科",
       "role": "refine",
-      "when": { "hua": "科", "star": "天機", "at": "same" },
+      "when": {
+        "hua": "科",
+        "star": "天機",
+        "at": "same"
+      },
       "text": "天機化科，適合計劃、管理、設計一類的工作，也容易在行內建立名聲。",
       "en": "Tian Ji transformed by Ke suits planning, management and design, and you can build a name in your field.",
-      "source": { "passage": "deep.事業.天機科", "quote": "天机化科，则宜计划、管理、设计等工作" }
+      "source": {
+        "passage": "deep.事業.天機科",
+        "quote": "天机化科，则宜计划、管理、设计等工作"
+      }
     },
     {
       "id": "天機官祿.忌",
       "role": "limit",
-      "when": { "hua": "忌", "star": "天機", "at": "same" },
-      "text": "天機化忌，工作容易剛安定又要改變，而改變多半源自計劃出錯；遇到看似有利的機會，保守一點反而穩。",
-      "en": "Tian Ji transformed by Ji means work tends to change just as it settles, and the changes mostly come from plans that went wrong; when an opportunity looks good, staying cautious is the safer course.",
-      "source": { "passage": "deep.事業.天機忌", "quote": "甫安定便告更张。所更张皆源于计划错误" },
+      "when": {
+        "hua": "忌",
+        "star": "天機",
+        "at": "same"
+      },
+      "text": "天機化忌，工作剛安定又要改變，而改變源自計劃出錯；遇到看似有利的機會，保守一點反而穩。",
+      "en": "Tian Ji transformed by Ji means work changes just as it settles, and the changes come from plans that went wrong; when an opportunity looks good, staying cautious is the safer course.",
+      "source": {
+        "passage": "deep.事業.天機忌",
+        "quote": "甫安定便告更张。所更张皆源于计划错误"
+      },
       "edit": "「不守一業」不寫成必定轉工。"
     },
     {
       "id": "天機官祿.忌煞",
       "role": "limit",
-      "when": { "all": [{ "hua": "忌", "star": "天機", "at": "same" }, { "star": ["擎羊", "陀羅", "火星", "鈴星", "地空", "地劫"], "at": "sifang" }] },
-      "text": "再見空劫或煞星，更容易做多錯多。",
-      "en": "With Kong, Jie or other malefics also in view, the more you do, the more easily things go wrong.",
-      "source": { "passage": "deep.事業.天機忌", "quote": "更属动辄得咎" }
+      "when": {
+        "all": [
+          {
+            "hua": "忌",
+            "star": "天機",
+            "at": "same"
+          },
+          {
+            "star": [
+              "擎羊",
+              "陀羅",
+              "火星",
+              "鈴星",
+              "地空",
+              "地劫"
+            ],
+            "at": "sifang"
+          }
+        ]
+      },
+      "text": "再見空劫或煞星，更是做多錯多。",
+      "en": "With Kong, Jie or other malefics also in view, the more you do, the more goes wrong.",
+      "source": {
+        "passage": "deep.事業.天機忌",
+        "quote": "更属动辄得咎"
+      }
     },
     {
       "id": "天機官祿.昌曲",
       "role": "refine",
-      "when": { "star": ["文昌", "文曲"], "at": "same" },
+      "when": {
+        "star": [
+          "文昌",
+          "文曲"
+        ],
+        "at": "same"
+      },
       "text": "同宮有文昌或文曲，適合計劃、設計一類的工作。",
       "en": "With Wen Chang or Wen Qu in the palace, planning and design work suits you.",
-      "source": { "passage": "deep.事業.天機昌曲", "quote": "天机与昌曲、天才同度，宜计划" }
+      "source": {
+        "passage": "deep.事業.天機昌曲",
+        "quote": "天机与昌曲、天才同度，宜计划"
+      }
     },
     {
       "id": "天機官祿.子午",
       "role": "refine",
-      "when": { "all": [{ "branch": ["子", "午"] }, { "alone": true }] },
+      "when": {
+        "all": [
+          {
+            "branch": [
+              "子",
+              "午"
+            ]
+          },
+          {
+            "alone": true
+          }
+        ]
+      },
       "text": "你的天機獨坐子午，對宮是巨門：就算條件好，工作也要花不少心思經營；比起從零開創，你較適合在已有的架構裡發揮。",
       "en": "Your Tian Ji sits alone in Zi or Wu, facing Ju Men: even when conditions are good, work takes a lot of careful managing, and you're better suited to working within an existing structure than starting from scratch.",
-      "source": { "passage": "deep.事業.天機子午", "quote": "即使会吉星祥曜，其事业亦必费心机" },
-      "also": [{ "passage": "deep.事業.天機子午創業", "quote": "亦主创业之力薄弱" }],
+      "source": {
+        "passage": "deep.事業.天機子午",
+        "quote": "即使会吉星祥曜，其事业亦必费心机"
+      },
+      "also": [
+        {
+          "passage": "deep.事業.天機子午創業",
+          "quote": "亦主创业之力薄弱"
+        }
+      ],
       "edit": "原書另有「惰性」之說，屬人格評判，不用；「創業力薄弱」轉寫為較適合既有架構。"
     },
     {
@@ -100,128 +239,390 @@
       "role": "limit",
       "when": {
         "all": [
-          { "branch": ["子", "午"] },
-          { "alone": true },
-          { "any": [{ "star": ["擎羊", "陀羅", "火星", "鈴星", "地空", "地劫"], "at": "sifang" }, { "hua": "忌", "at": "sifang" }] }
+          {
+            "branch": [
+              "子",
+              "午"
+            ]
+          },
+          {
+            "alone": true
+          },
+          {
+            "any": [
+              {
+                "star": [
+                  "擎羊",
+                  "陀羅",
+                  "火星",
+                  "鈴星",
+                  "地空",
+                  "地劫"
+                ],
+                "at": "sifang"
+              },
+              {
+                "hua": "忌",
+                "at": "sifang"
+              }
+            ]
+          }
         ]
       },
       "text": "官祿宮的三方四正見煞忌，工作容易受外在環境牽動，常要奔波勞累。",
       "en": "With malefics or Ji in the four directions of your career palace, work is easily pushed around by outside circumstances, with a lot of running about.",
-      "source": { "passage": "deep.事業.天機子午", "quote": "则往往受客观环境影响，为事业奔波劳累" },
+      "source": {
+        "passage": "deep.事業.天機子午",
+        "quote": "则往往受客观环境影响，为事业奔波劳累"
+      },
       "edit": "只講環境牽動的方向，不斷事件或程度；會照不等於同宮。"
     },
     {
       "id": "天機官祿.午",
       "role": "refine",
-      "when": { "all": [{ "branch": ["午"] }, { "alone": true }] },
+      "when": {
+        "all": [
+          {
+            "branch": [
+              "午"
+            ]
+          },
+          {
+            "alone": true
+          }
+        ]
+      },
       "text": "在午宮，較適合在現成的局面裡發展，例如進入大機構，或者接手家裡原有的事業。",
       "en": "In Wu, you're better suited to growing within something already established, such as joining a large organisation or taking over a family business.",
-      "source": { "passage": "deep.事業.天機子午宮", "quote": "宜承继父业发展，亦宜入大机构" }
+      "source": {
+        "passage": "deep.事業.天機子午宮",
+        "quote": "宜承继父业发展，亦宜入大机构"
+      }
     },
     {
       "id": "天機官祿.子",
       "role": "limit",
-      "when": { "all": [{ "branch": ["子"] }, { "alone": true }] },
+      "when": {
+        "all": [
+          {
+            "branch": [
+              "子"
+            ]
+          },
+          {
+            "alone": true
+          }
+        ]
+      },
       "text": "在子宮，這份經營的辛苦往往更重，也容易招惹是非。",
       "en": "In Zi, the effort of managing it all tends to be heavier, and it more easily draws gossip and friction.",
-      "source": { "passage": "deep.事業.天機子午宮", "quote": "其辛苦劳累往往倍之。且易招是非" }
+      "source": {
+        "passage": "deep.事業.天機子午宮",
+        "quote": "其辛苦劳累往往倍之。且易招是非"
+      }
     },
     {
       "id": "天機官祿.丑未",
       "role": "refine",
-      "when": { "all": [{ "branch": ["丑", "未"] }, { "alone": true }] },
+      "when": {
+        "all": [
+          {
+            "branch": [
+              "丑",
+              "未"
+            ]
+          },
+          {
+            "alone": true
+          }
+        ]
+      },
       "text": "你的天機在丑未，較適合在機構裡任職；對宮天梁帶計劃、監察、管理的意味，財經、會計、計劃一類的部門都合適。",
       "en": "Your Tian Ji is in Chou or Wei, which suits working within an organisation; facing Tian Liang adds a flavour of planning, oversight and management, so finance, accounting or planning departments fit well.",
-      "source": { "passage": "deep.事業.天機丑未", "quote": "故宜在公司机构任职" },
-      "also": [{ "passage": "deep.事業.天機丑未天梁", "quote": "有计划、监察、管理的意味" }]
+      "source": {
+        "passage": "deep.事業.天機丑未",
+        "quote": "故宜在公司机构任职"
+      },
+      "also": [
+        {
+          "passage": "deep.事業.天機丑未天梁",
+          "quote": "有计划、监察、管理的意味"
+        }
+      ]
     },
     {
       "id": "天機官祿.丑未煞忌",
       "role": "limit",
       "when": {
         "all": [
-          { "branch": ["丑", "未"] },
-          { "alone": true },
-          { "any": [{ "star": ["擎羊", "陀羅", "火星", "鈴星", "地空", "地劫"], "at": "sifang" }, { "hua": "忌", "at": "sifang" }] }
+          {
+            "branch": [
+              "丑",
+              "未"
+            ]
+          },
+          {
+            "alone": true
+          },
+          {
+            "any": [
+              {
+                "star": [
+                  "擎羊",
+                  "陀羅",
+                  "火星",
+                  "鈴星",
+                  "地空",
+                  "地劫"
+                ],
+                "at": "sifang"
+              },
+              {
+                "hua": "忌",
+                "at": "sifang"
+              }
+            ]
+          }
         ]
       },
-      "text": "三方四正見煞忌，工作或任職的機構會較常轉換。",
-      "en": "With malefics or Ji in the four directions, you're likely to change jobs or employers more often.",
-      "source": { "passage": "deep.事業.天機丑未", "quote": "则常转换事业，或转换服务机构" }
+      "text": "三方四正見煞忌，工作或任職的機構常會轉換。",
+      "en": "With malefics or Ji in the four directions, you change jobs or employers often.",
+      "source": {
+        "passage": "deep.事業.天機丑未",
+        "quote": "则常转换事业，或转换服务机构"
+      }
     },
     {
       "id": "天機官祿.機陰",
       "role": "refine",
-      "when": { "with": "太陰" },
+      "when": {
+        "with": "太陰"
+      },
       "text": "天機太陰同守，事業多半由現成的基礎發展。",
       "en": "With Tian Ji and Tai Yin together, your career mostly grows from a foundation that's already there.",
-      "source": { "passage": "deep.事業.機陰", "quote": "亦主由现成事业发展" }
+      "source": {
+        "passage": "deep.事業.機陰",
+        "quote": "亦主由现成事业发展"
+      }
     },
     {
       "id": "天機官祿.機陰無祿",
       "role": "limit",
-      "when": { "all": [{ "with": "太陰" }, { "not": { "hua": ["祿", "權", "科"], "at": "sifang" } }] },
+      "when": {
+        "all": [
+          {
+            "with": "太陰"
+          },
+          {
+            "not": {
+              "hua": [
+                "祿",
+                "權",
+                "科"
+              ],
+              "at": "sifang"
+            }
+          }
+        ]
+      },
       "text": "三方四正沒有祿權科會合，較適合在政府或大機構任職，不宜經商。",
       "en": "With no Lu, Quan or Ke in the four directions, a post in government or a large organisation suits you better than running a business.",
-      "source": { "passage": "deep.事業.機陰無祿", "quote": "一般宜任职而不宜经商" }
+      "source": {
+        "passage": "deep.事業.機陰無祿",
+        "quote": "一般宜任职而不宜经商"
+      }
     },
     {
       "id": "天機官祿.機陰煞",
       "role": "limit",
-      "when": { "all": [{ "with": "太陰" }, { "any": [{ "star": ["擎羊", "陀羅", "火星", "鈴星", "地空", "地劫"], "at": "sifang" }, { "hua": "忌", "at": "sifang" }] }] },
+      "when": {
+        "all": [
+          {
+            "with": "太陰"
+          },
+          {
+            "any": [
+              {
+                "star": [
+                  "擎羊",
+                  "陀羅",
+                  "火星",
+                  "鈴星",
+                  "地空",
+                  "地劫"
+                ],
+                "at": "sifang"
+              },
+              {
+                "hua": "忌",
+                "at": "sifang"
+              }
+            ]
+          }
+        ]
+      },
       "text": "見煞忌或空劫，更不宜自己經商。",
       "en": "With malefics, Ji, Kong or Jie in view, running your own business is even less advisable.",
-      "source": { "passage": "deep.事業.機陰無祿", "quote": "有煞忌、空劫，则绝不宜经商" },
+      "source": {
+        "passage": "deep.事業.機陰無祿",
+        "quote": "有煞忌、空劫，则绝不宜经商"
+      },
       "edit": "原句續講「必有一次重大破敗」及應期，屬事件預言，不用。"
     },
     {
       "id": "天機官祿.機巨有祿",
       "role": "refine",
-      "when": { "all": [{ "with": "巨門" }, { "any": [{ "hua": "祿", "at": "same" }, { "star": "祿存", "at": "same" }] }] },
+      "when": {
+        "all": [
+          {
+            "with": "巨門"
+          },
+          {
+            "any": [
+              {
+                "hua": "祿",
+                "at": "same"
+              },
+              {
+                "star": "祿存",
+                "at": "same"
+              }
+            ]
+          }
+        ]
+      },
       "text": "天機巨門要有化祿或祿存同宮，事業才有發展的空間；你的盤正有這個條件。",
       "en": "Tian Ji with Ju Men needs Lu, as a transformation or as Lu Cun in the palace, for a career to have room to grow, and your chart has it.",
-      "source": { "passage": "deep.事業.機巨", "quote": "必须有化禄或禄存同度，始有事业发展" }
+      "source": {
+        "passage": "deep.事業.機巨",
+        "quote": "必须有化禄或禄存同度，始有事业发展"
+      }
     },
     {
       "id": "天機官祿.機巨無祿",
       "role": "limit",
-      "when": { "all": [{ "with": "巨門" }, { "not": { "any": [{ "hua": "祿", "at": "same" }, { "star": "祿存", "at": "same" }] } }] },
+      "when": {
+        "all": [
+          {
+            "with": "巨門"
+          },
+          {
+            "not": {
+              "any": [
+                {
+                  "hua": "祿",
+                  "at": "same"
+                },
+                {
+                  "star": "祿存",
+                  "at": "same"
+                }
+              ]
+            }
+          }
+        ]
+      },
       "text": "天機巨門要有化祿或祿存同宮，事業才較有發展空間；你的盤未見這個配合，發展上要多花力氣。",
       "en": "Tian Ji with Ju Men needs Lu, as a transformation or as Lu Cun in the palace, for a career to have room to grow; your chart doesn't show it, so progress takes more effort.",
-      "source": { "passage": "deep.事業.機巨", "quote": "必须有化禄或禄存同度，始有事业发展" },
+      "source": {
+        "passage": "deep.事業.機巨",
+        "quote": "必须有化禄或禄存同度，始有事业发展"
+      },
       "edit": "原書只講有祿的條件；「要多花力氣」是編輯推論，不寫成沒有發展。"
     },
     {
       "id": "天機官祿.機巨火鈴",
       "role": "limit",
-      "when": { "all": [{ "with": "巨門" }, { "star": ["火星", "鈴星"], "at": "same" }] },
+      "when": {
+        "all": [
+          {
+            "with": "巨門"
+          },
+          {
+            "star": [
+              "火星",
+              "鈴星"
+            ],
+            "at": "same"
+          }
+        ]
+      },
       "text": "同宮有火星或鈴星，會令變動和是非都加重。",
       "en": "Huo Xing or Ling Xing in the palace makes both the changes and the friction heavier.",
-      "source": { "passage": "deep.事業.機巨火鈴", "quote": "增加天机之浮荡，巨门之是非" }
+      "source": {
+        "passage": "deep.事業.機巨火鈴",
+        "quote": "增加天机之浮荡，巨门之是非"
+      }
     },
     {
       "id": "天機官祿.機梁",
       "role": "refine",
-      "when": { "with": "天梁" },
+      "when": {
+        "with": "天梁"
+      },
       "text": "天機天梁同守，最容易身兼幾份工作。",
       "en": "With Tian Ji and Tian Liang together, you're most likely to hold several jobs at once.",
-      "source": { "passage": "deep.事業.機梁", "quote": "最易兼行兼职" }
+      "source": {
+        "passage": "deep.事業.機梁",
+        "quote": "最易兼行兼职"
+      }
     },
     {
       "id": "天機官祿.機梁吉",
       "role": "refine",
-      "when": { "all": [{ "with": "天梁" }, { "any": [{ "hua": ["祿", "權", "科"], "at": "sifang" }, { "star": ["左輔", "右弼", "文昌", "文曲", "天魁", "天鉞"], "at": "sifang" }] }] },
+      "when": {
+        "all": [
+          {
+            "with": "天梁"
+          },
+          {
+            "any": [
+              {
+                "hua": [
+                  "祿",
+                  "權",
+                  "科"
+                ],
+                "at": "sifang"
+              },
+              {
+                "star": [
+                  "左輔",
+                  "右弼",
+                  "文昌",
+                  "文曲",
+                  "天魁",
+                  "天鉞"
+                ],
+                "at": "sifang"
+              }
+            ]
+          }
+        ]
+      },
       "text": "加上吉化或吉星，顧問一類的工作最合適。",
       "en": "With favourable transformations or stars in view, advisory work suits you best.",
-      "source": { "passage": "deep.事業.機梁", "quote": "以从事顾问工作为适宜" }
+      "source": {
+        "passage": "deep.事業.機梁",
+        "quote": "以从事顾问工作为适宜"
+      }
     },
     {
       "id": "天機官祿.行業",
       "role": "refine",
-      "when": { "not": { "hua": "權", "star": "天機", "at": "same" } },
+      "when": {
+        "not": {
+          "hua": "權",
+          "star": "天機",
+          "at": "same"
+        }
+      },
       "text": "適合帶流動性質的工作，例如零售、運輸、旅遊、傳播；重點是工作本身有變化，不必拘泥行業名稱。",
       "en": "Work with built-in movement suits you, such as retail, transport, travel or media; what matters is that the work itself varies, not the name of the industry.",
-      "source": { "passage": "deep.事業.天機行業", "quote": "从事行业以带不稳定性质" },
+      "source": {
+        "passage": "deep.事業.天機行業",
+        "quote": "从事行业以带不稳定性质"
+      },
       "edit": "行業是原書用來說明性質的例子，不是職業清單。"
     }
   ]

@@ -1,4 +1,4 @@
-import { LEXICON, LEXICON_EN, type LexiconEntry } from '@guanwei/content';
+import { LEXICON, LEXICON_EN, citeOf, type LexiconEntry } from '@guanwei/content';
 import { slugOf } from '@/lib/lexicon';
 
 /**
@@ -57,7 +57,11 @@ export function termIndex(): Term[] {
   })).sort((a, b) => b.match.length - a.match.length);
 }
 
-export type Run = { text: string; term?: Term };
+/**
+ * `cite`：句尾出處（2026-10-12）。一個空 run 跟喺句尾，Juan 畫成一個「據」字號，撳開展開原文。
+ * 同術語唔同：出處每次都標 —— 讀者質疑嘅係嗰一句，唔係嗰個詞。
+ */
+export type Run = { text: string; term?: Term; cite?: string[] };
 
 export type MarkedSegment = { slot: string; runs: Run[] };
 
@@ -136,16 +140,25 @@ export function markBook(chapters: ChapterInput[], lang: 'zh' | 'en' = 'zh'): Ma
     segments: ch.segments.map((seg) => {
       const runs: Run[] = [];
       for (const sentence of split(seg.text)) {
+        const cite = citeOf(sentence, lang);
         const hit = firstTerm(sentence, terms, used);
         if (!hit) {
           runs.push({ text: sentence });
-          continue;
+        } else {
+          used.add(hit.term.id);
+          const end = hit.at + hit.term.match.length;
+          if (hit.at > 0) runs.push({ text: sentence.slice(0, hit.at) });
+          runs.push({ text: sentence.slice(hit.at, end), term: hit.term });
+          if (end < sentence.length) runs.push({ text: sentence.slice(end) });
         }
-        used.add(hit.term.id);
-        const end = hit.at + hit.term.match.length;
-        if (hit.at > 0) runs.push({ text: sentence.slice(0, hit.at) });
-        runs.push({ text: sentence.slice(hit.at, end), term: hit.term });
-        if (end < sentence.length) runs.push({ text: sentence.slice(end) });
+        if (cite) {
+          /* 字號貼住句號：英文句尾嘅空格移去字號後面 */
+          const last = runs[runs.length - 1]!;
+          const gap = /\s+$/.exec(last.text)?.[0] ?? '';
+          if (gap) last.text = last.text.slice(0, -gap.length);
+          runs.push({ text: '', cite });
+          if (gap) runs.push({ text: gap });
+        }
       }
       return { slot: seg.slot, runs };
     }),

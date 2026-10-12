@@ -18,7 +18,7 @@ import { chartLayers } from '@/lib/layers.server';
 import { MarkRead } from '@/components/MarkRead';
 import { contentsView } from '@/lib/juan-view';
 import { serverJuan } from '@/lib/juan.server';
-import { localizeMarked, notesFor } from '@/lib/mingshu';
+import { citesFor, localizeMarked, notesFor } from '@/lib/mingshu';
 import { FontWarm } from '@/components/FontWarm';
 import { distinctChars } from '@/lib/fontwarm';
 import { markBook } from '@/lib/zhu';
@@ -204,7 +204,7 @@ export default async function ChapterPage({
                * `cut_page()` 照舊記低（第一次讀嘅時間），只係唔播。
                */
               <Caikai play={justCut && here.tier === 'deep'}>
-                <Juan segments={mine!.segments} notes={notesFor(marked, locale)} />
+                <Juan segments={mine!.segments} notes={notesFor(marked, locale)} cites={citesFor(marked, locale)} />
               </Caikai>
             )}
           </div>

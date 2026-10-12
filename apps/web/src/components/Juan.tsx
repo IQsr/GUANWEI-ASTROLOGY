@@ -33,12 +33,20 @@ export type Note = {
   href: string;
 };
 
+/**
+ * 出處（2026-10-12）：句尾「據」字號撳開。同術語註一樣係展開、唔係浮窗。
+ * 書名、頁、節、原文照錄 —— 讀者質疑一句，撳開就見到嗰句由邊度嚟。
+ */
+export type CiteNote = { id: string; book: string; page: number; section: string; text: string };
+
 export function Juan({
   segments,
   notes,
+  cites = {},
 }: {
   segments: MarkedSegment[];
   notes: Record<string, Note>;
+  cites?: Record<string, CiteNote>;
 }) {
   const t = useTranslations('chapter');
   const [open, setOpen] = useState<string | null>(null);
@@ -52,6 +60,9 @@ export function Juan({
       {segments.map((seg, i) => {
         const shown = seg.runs.find((r) => r.term && open === r.term.id)?.term;
         const note = shown ? notes[shown.id] : undefined;
+        /* 出處嘅 key 帶住段號同 run 號：同一個出處喺兩段都撳得開，唔會兩段一齊開 */
+        const citeOpen = seg.runs.findIndex((r, j) => r.cite && open === `cite:${i}:${j}`);
+        const citeList = citeOpen >= 0 ? seg.runs[citeOpen]!.cite!.map((id) => cites[id]).filter(Boolean) : [];
 
         return (
           /*
@@ -63,7 +74,18 @@ export function Juan({
             {breaks[i] ? <div className="fen-jie" aria-hidden="true" /> : null}
             <p className="text-body leading-[1.95]">
               {seg.runs.map((run, j) =>
-                run.term ? (
+                run.cite ? (
+                  <button
+                    key={j}
+                    type="button"
+                    className="ju"
+                    aria-expanded={open === `cite:${i}:${j}`}
+                    aria-label={t('citeAria')}
+                    onClick={() => setOpen((cur) => (cur === `cite:${i}:${j}` ? null : `cite:${i}:${j}`))}
+                  >
+                    {t('citeMark')}
+                  </button>
+                ) : run.term ? (
                   <button
                     key={j}
                     type="button"
@@ -83,6 +105,21 @@ export function Juan({
                 ),
               )}
             </p>
+
+            {citeList.length ? (
+              <div className="zhu-ceng flex flex-col gap-5">
+                {citeList.map((c) => (
+                  <div key={c!.id} className="flex flex-col gap-2">
+                    <p className="font-sans text-cap tracking-[0.08em] text-ink-3">
+                      {t('citeWhere', { book: c!.book, page: c!.page, section: c!.section })}
+                    </p>
+                    <blockquote lang="zh-Hans" className="text-sm leading-[1.9] text-ink-2">
+                      {t('citeQuote', { text: c!.text })}
+                    </blockquote>
+                  </div>
+                ))}
+              </div>
+            ) : null}
 
             {note ? (
               <div className="zhu-ceng">

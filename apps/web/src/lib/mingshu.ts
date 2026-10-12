@@ -1,5 +1,6 @@
 import 'server-only';
 import {
+  citation,
   RULE_REGISTRY,
   SPEC_VERSION,
   assembleAll,
@@ -19,7 +20,7 @@ import type { Chart as ZChart } from '@guanwei/ziwei/contract';
 import { hrefOf, slugOf, textOf } from '@/lib/lexicon';
 import { markBook, type MarkedChapter } from '@/lib/zhu';
 import { hans, isHans, zhFor } from '@/lib/hans';
-import type { Note } from '@/components/Juan';
+import type { CiteNote, Note } from '@/components/Juan';
 
 /**
  * 由一張盤砌一本命書（工單 F1）
@@ -94,6 +95,27 @@ export function notesFor(marked: MarkedChapter[], locale = 'zh-Hant'): Record<st
       term: locale === 'en' ? text.label : zhFor(locale, slugOf(entry)),
       summary: text.summary,
       href: hrefOf(entry),
+    };
+  }
+  return out;
+}
+
+/**
+ * 呢幾章用到嘅出處（2026-10-12）：書名、頁、節、原文。
+ * 原文照錄（PDF 本係簡體）；節名跟讀者語言（簡體版轉簡體）。英文讀者見英文書名，原文照中文。
+ */
+export function citesFor(marked: MarkedChapter[], locale = 'zh-Hant'): Record<string, CiteNote> {
+  const ids = new Set(marked.flatMap((c) => c.segments.flatMap((s) => s.runs.flatMap((r) => r.cite ?? []))));
+  const out: Record<string, CiteNote> = {};
+  for (const id of ids) {
+    const c = citation(id);
+    if (!c) continue;
+    out[id] = {
+      id,
+      book: locale === 'en' ? `${c.authorEn}, ${c.bookEn} (${c.book})` : zhFor(locale, `${c.author}《${c.book}》`),
+      page: c.page,
+      section: zhFor(locale, c.section),
+      text: c.text,
     };
   }
   return out;

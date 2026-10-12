@@ -4298,3 +4298,36 @@ select.zhou-xian {
   }
 }
 
+
+/*
+ * 出處字號（2026-10-12）：句尾一個「據」，上標細字、靛色 —— 同術語墨點分得開。
+ * 字細但撳得中：用 ::before 向外擴大撳嘅範圍，唔推開行距。
+ */
+.ju {
+  position: relative;
+  margin-left: 0.1em;
+  padding: 0 0.12em;
+  border: 0;
+  background: none;
+  color: var(--indigo);
+  font-family: inherit;
+  font-size: 0.62em;
+  line-height: 1;
+  letter-spacing: 0;
+  vertical-align: super;
+  cursor: pointer;
+  transition: color 240ms;
+}
+.ju::before {
+  content: '';
+  position: absolute;
+  inset: -10px -8px;
+}
+.ju:hover,
+.ju[aria-expanded='true'] {
+  color: var(--ink);
+}
+.ju:focus-visible {
+  outline: 1px solid var(--indigo);
+  outline-offset: 2px;
+}
