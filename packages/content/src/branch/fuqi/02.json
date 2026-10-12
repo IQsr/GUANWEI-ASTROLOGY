@@ -1,0 +1,33 @@
+{
+  "$note": "夫妻宮（2026-10-12）：紫微破軍.夫妻。《深造講義》下篇 宮垣論 夫妻宮 p.377–。生離死別、再婚、外遇、配偶災病一類斷語不用；只按男女分嘅條文不用（引擎冇性別）。",
+  "topic": {
+    "id": "紫微破軍.夫妻",
+    "palace": "夫妻",
+    "stars": [
+      "紫微",
+      "破軍"
+    ]
+  },
+  "rules": [
+    {
+      "id": "夫妻.紫破.波折",
+      "role": "base",
+      "text": "紫微破軍在夫妻宮，婚前多有波折。",
+      "en": "With Zi Wei and Po Jun in your Partnership Palace, the road to marriage tends to have its twists.",
+      "source": {
+        "passage": "deep.夫妻.紫微.2",
+        "quote": "亦主婚前有波折"
+      }
+    },
+    {
+      "id": "夫妻.紫破.年齡",
+      "role": "refine",
+      "text": "與年齡差距較大的伴侶，比較合得來。",
+      "en": "A partner with a wider age gap tends to suit you better.",
+      "source": {
+        "passage": "deep.夫妻.紫微.3",
+        "quote": "皆宜配偶年龄有大差距"
+      }
+    }
+  ]
+}

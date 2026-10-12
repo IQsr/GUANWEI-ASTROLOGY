@@ -1,0 +1,33 @@
+{
+  "$note": "夫妻宮（2026-10-12）：武曲七殺.夫妻。《深造講義》下篇 宮垣論 夫妻宮 p.377–。生離死別、再婚、外遇、配偶災病一類斷語不用；只按男女分嘅條文不用（引擎冇性別）。",
+  "topic": {
+    "id": "武曲七殺.夫妻",
+    "palace": "夫妻",
+    "stars": [
+      "武曲",
+      "七殺"
+    ]
+  },
+  "rules": [
+    {
+      "id": "夫妻.武殺.遲婚",
+      "role": "base",
+      "text": "以遲婚為宜；坐卯比坐酉好。",
+      "en": "Marrying later suits you; Mao is the better seat than You.",
+      "source": {
+        "passage": "deep.夫妻.武曲.7",
+        "quote": "每宜迟婚"
+      }
+    },
+    {
+      "id": "夫妻.武殺.性剛",
+      "role": "refine",
+      "text": "伴侶性格剛強，兩人要學會互相調和。",
+      "en": "Your partner has a forceful character, and the two of you need to learn to meet halfway.",
+      "source": {
+        "passage": "deep.夫妻.武曲.8",
+        "quote": "亦主配偶性刚"
+      }
+    }
+  ]
+}

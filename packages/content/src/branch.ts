@@ -213,12 +213,13 @@ function applies(chart: Chart, t: BranchTopic): { p: Palace; seat: Palace['branc
   if (t.topic.xingxi !== undefined) {
     const found = xingxiOf(chart);
     if (!found || found.system.n !== t.topic.xingxi) return null;
-    if (found.borrowed) {
-      const opp = chart.palaces.find((x) => x.branch === p!.borrowsFrom);
-      if (!opp) return null;
-      p = { ...p, stars: [...p.stars, ...opp.stars.filter((s) => MAJOR.includes(s.name))] };
-      seat = opp.branch;
-    }
+  }
+  /* 宮位題目同樣：宮內冇主星就借對宮（原書「借入對宮」，例如夫妻宮〔機梁〕「借入對宮」） */
+  if (!majorsOf(p).length && p.borrowsFrom) {
+    const opp = chart.palaces.find((x) => x.branch === p!.borrowsFrom);
+    if (!opp) return null;
+    p = { ...p, stars: [...p.stars, ...opp.stars.filter((s) => MAJOR.includes(s.name))] };
+    seat = opp.branch;
   }
   const majors = majorsOf(p);
   if (!t.topic.stars.every((s) => majors.includes(s))) return null;
@@ -240,19 +241,30 @@ export function branchRules(chart: Chart, t: BranchTopic): BranchRule[] {
   return hit.filter((r) => !gone.has(r.id));
 }
 
-/** 一個宮嘅「細讀」段：成立嘅規則砌成一段。冇題目或者冇規則成立就 null。 */
+/** 一段細讀最多幾條規則：雙星宮會同時中組合題目同兩粒星嘅通則，唔封頂就太長 */
+const READING_MAX = 4;
+
+/**
+ * 一個宮嘅「細讀」段：成立嘅規則砌成一段。冇題目或者冇規則成立就 null。
+ * 一個宮可以有幾個題目（夫妻宮：地支／組合題目、每粒星嘅通則），照檔案次序合併，
+ * 同一句意思（6 字相同）只講一次，最多 READING_MAX 條。
+ */
 export function branchReading(chart: Chart, palace: string): { text: string; ids: string[]; sources: string[] } | null {
+  const rules: BranchRule[] = [];
   for (const t of BRANCH_TOPICS) {
     if (t.topic.palace !== palace || t.topic.xingxi !== undefined) continue;
-    const rules = branchRules(chart, t).filter((r) => !r.gujia);
-    if (!rules.length) continue;
-    return {
-      text: rules.map((r) => r.text).join(''),
-      ids: rules.map((r) => r.id),
-      sources: [...new Set(rules.flatMap((r) => [r.source.passage, ...(r.also ?? []).map((a) => a.passage)]))],
-    };
+    for (const r of branchRules(chart, t)) {
+      if (r.gujia || rules.length >= READING_MAX) continue;
+      if (rules.some((x) => x.id === r.id || restates(r.text, x.text))) continue;
+      rules.push(r);
+    }
   }
-  return null;
+  if (!rules.length) return null;
+  return {
+    text: rules.map((r) => r.text).join(''),
+    ids: rules.map((r) => r.id),
+    sources: [...new Set(rules.flatMap((r) => [r.source.passage, ...(r.also ?? []).map((a) => a.passage)]))],
+  };
 }
 
 /** 「性格的骨架」章嘅星系細讀（星系題目成立嘅規則，例外句除外） */

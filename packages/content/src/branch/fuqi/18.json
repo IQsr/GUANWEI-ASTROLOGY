@@ -1,0 +1,29 @@
+{
+  "$note": "夫妻宮（2026-10-12）：太陽.夫妻。《深造講義》下篇 宮垣論 夫妻宮 p.377–。生離死別、再婚、外遇、配偶災病一類斷語不用；只按男女分嘅條文不用（引擎冇性別）。",
+  "topic": {
+    "id": "太陽.夫妻",
+    "palace": "夫妻",
+    "stars": [
+      "太陽"
+    ]
+  },
+  "rules": [
+    {
+      "id": "夫妻.太陽.火鈴",
+      "role": "limit",
+      "when": {
+        "star": [
+          "火星",
+          "鈴星"
+        ],
+        "at": "same"
+      },
+      "text": "同宮有火星或鈴星：起初感情深厚，日子久了容易針鋒相對。",
+      "en": "With Huo Xing or Ling Xing in the palace, the feeling runs deep at first, but over time it can turn into friction.",
+      "source": {
+        "passage": "deep.夫妻.太陽.8",
+        "quote": "初时感情深厚，久后即如水火"
+      }
+    }
+  ]
+}

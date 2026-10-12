@@ -1,0 +1,49 @@
+{
+  "$note": "夫妻宮（2026-10-12）：紫微貪狼.夫妻。《深造講義》下篇 宮垣論 夫妻宮 p.377–。生離死別、再婚、外遇、配偶災病一類斷語不用；只按男女分嘅條文不用（引擎冇性別）。",
+  "topic": {
+    "id": "紫微貪狼.夫妻",
+    "palace": "夫妻",
+    "stars": [
+      "紫微",
+      "貪狼"
+    ]
+  },
+  "rules": [
+    {
+      "id": "夫妻.紫貪.合作",
+      "role": "refine",
+      "when": {
+        "any": [
+          {
+            "hua": [
+              "祿",
+              "權",
+              "科"
+            ],
+            "at": "same"
+          },
+          {
+            "star": [
+              "左輔",
+              "右弼"
+            ],
+            "at": "sifang"
+          },
+          {
+            "star": [
+              "天魁",
+              "天鉞"
+            ],
+            "at": "sifang"
+          }
+        ]
+      },
+      "text": "你的紫微貪狼見吉，夫妻可以合作創業，但要以伴侶做事業的主體。",
+      "en": "Your Zi Wei–Tan Lang meets good signs: you and your partner can build a business together, with your partner at its centre.",
+      "source": {
+        "passage": "deep.夫妻.紫微.6",
+        "quote": "唯必须以配偶为事业主体"
+      }
+    }
+  ]
+}

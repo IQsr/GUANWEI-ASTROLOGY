@@ -1,0 +1,79 @@
+{
+  "$note": "夫妻宮（2026-10-12）：貪狼辰戌.夫妻。《深造講義》下篇 宮垣論 夫妻宮 p.377–。生離死別、再婚、外遇、配偶災病一類斷語不用；只按男女分嘅條文不用（引擎冇性別）。",
+  "topic": {
+    "id": "貪狼辰戌.夫妻",
+    "palace": "夫妻",
+    "stars": [
+      "貪狼"
+    ],
+    "branch": [
+      "辰",
+      "戌"
+    ]
+  },
+  "rules": [
+    {
+      "id": "夫妻.貪狼辰戌.和美",
+      "role": "refine",
+      "when": {
+        "any": [
+          {
+            "hua": [
+              "祿",
+              "權",
+              "科"
+            ],
+            "at": "same"
+          },
+          {
+            "star": [
+              "左輔",
+              "右弼"
+            ],
+            "at": "sifang"
+          },
+          {
+            "star": [
+              "天魁",
+              "天鉞"
+            ],
+            "at": "sifang"
+          }
+        ]
+      },
+      "text": "辰戌的貪狼桃花意味較輕，見吉化吉星，夫妻和美。",
+      "en": "Tan Lang in Chen or Xu carries less of its romantic restlessness; with good signs, the marriage is harmonious.",
+      "source": {
+        "passage": "deep.夫妻.貪狼.1",
+        "quote": "则夫妻和美"
+      }
+    },
+    {
+      "id": "夫妻.貪狼辰戌.火鈴",
+      "role": "refine",
+      "when": {
+        "star": [
+          "火星",
+          "鈴星"
+        ],
+        "at": "same"
+      },
+      "text": "同宮有火星或鈴星，夫妻的感情反而較為長久。",
+      "en": "With Huo Xing or Ling Xing in the palace, the love between you actually lasts longer.",
+      "source": {
+        "passage": "deep.夫妻.貪狼.2",
+        "quote": "夫妻爱情较为久永"
+      }
+    },
+    {
+      "id": "夫妻.貪狼辰戌.遲婚",
+      "role": "base",
+      "text": "宜遲婚。",
+      "en": "Marrying later suits you.",
+      "source": {
+        "passage": "deep.夫妻.貪狼.3",
+        "quote": "辰戌贪狼，亦主迟婚"
+      }
+    }
+  ]
+}

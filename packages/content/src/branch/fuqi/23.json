@@ -1,0 +1,79 @@
+{
+  "$note": "夫妻宮（2026-10-12）：武曲辰戌.夫妻。《深造講義》下篇 宮垣論 夫妻宮 p.377–。生離死別、再婚、外遇、配偶災病一類斷語不用；只按男女分嘅條文不用（引擎冇性別）。",
+  "topic": {
+    "id": "武曲辰戌.夫妻",
+    "palace": "夫妻",
+    "stars": [
+      "武曲"
+    ],
+    "branch": [
+      "辰",
+      "戌"
+    ]
+  },
+  "rules": [
+    {
+      "id": "夫妻.武曲辰戌.遲婚",
+      "role": "base",
+      "text": "以遲婚為宜。",
+      "en": "Marrying later suits you.",
+      "source": {
+        "passage": "deep.夫妻.武曲.9",
+        "quote": "武曲独坐，宜迟婚"
+      }
+    },
+    {
+      "id": "夫妻.武曲辰戌.火鈴",
+      "role": "refine",
+      "when": {
+        "star": [
+          "火星",
+          "鈴星"
+        ],
+        "at": "same"
+      },
+      "text": "同宮有火星或鈴星，婚事容易來得倉卒。",
+      "en": "With Huo Xing or Ling Xing in the palace, marriage may come about in a hurry.",
+      "source": {
+        "passage": "deep.夫妻.武曲.10",
+        "quote": "主仓卒成婚"
+      }
+    },
+    {
+      "id": "夫妻.武曲辰戌.吉",
+      "role": "refine",
+      "when": {
+        "any": [
+          {
+            "hua": [
+              "祿",
+              "權",
+              "科"
+            ],
+            "at": "same"
+          },
+          {
+            "star": [
+              "左輔",
+              "右弼"
+            ],
+            "at": "sifang"
+          },
+          {
+            "star": [
+              "天魁",
+              "天鉞"
+            ],
+            "at": "sifang"
+          }
+        ]
+      },
+      "text": "見吉化吉星，伴侶精明能幹。",
+      "en": "With good transformations or helper stars, your partner is sharp and capable.",
+      "source": {
+        "passage": "deep.夫妻.武曲.11",
+        "quote": "则配偶精明能干"
+      }
+    }
+  ]
+}

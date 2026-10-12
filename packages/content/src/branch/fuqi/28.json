@@ -1,0 +1,55 @@
+{
+  "$note": "夫妻宮（2026-10-12）：天同巳亥.夫妻。《深造講義》下篇 宮垣論 夫妻宮 p.377–。生離死別、再婚、外遇、配偶災病一類斷語不用；只按男女分嘅條文不用（引擎冇性別）。",
+  "topic": {
+    "id": "天同巳亥.夫妻",
+    "palace": "夫妻",
+    "stars": [
+      "天同"
+    ],
+    "branch": [
+      "巳",
+      "亥"
+    ]
+  },
+  "rules": [
+    {
+      "id": "夫妻.天同巳亥.祿馬",
+      "role": "limit",
+      "when": {
+        "all": [
+          {
+            "star": "天馬",
+            "at": [
+              "same",
+              "opp"
+            ]
+          },
+          {
+            "any": [
+              {
+                "star": "祿存",
+                "at": [
+                  "same",
+                  "opp"
+                ]
+              },
+              {
+                "hua": "祿",
+                "at": [
+                  "same",
+                  "opp"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "text": "祿星與天馬相會，夫妻容易聚少離多，或各住一方。",
+      "en": "With Lu and Tian Ma meeting, you and your partner may spend much time apart, or live in different places.",
+      "source": {
+        "passage": "deep.夫妻.天同.5",
+        "quote": "均主夫妻会少离多"
+      }
+    }
+  ]
+}

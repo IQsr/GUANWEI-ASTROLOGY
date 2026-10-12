@@ -171,3 +171,43 @@ describe('骨架章細讀（六十星系）', () => {
     expect(dup).toEqual([]);
   }, 300_000);
 });
+
+describe('夫妻宮細讀（2026-10-12）', () => {
+  const sample = (i: number) => cast({
+    solar: { y: 1950 + (i % 60), m: 1 + (Math.floor(i / 60) % 12), d: 1 + ((i * 7) % 28) }, time: { h: (Math.floor(i / 720) * 4 + 1) % 24, min: 30 },
+    tz: 'Asia/Hong_Kong', place: { lng: 114.17, lat: 22.32, label: '香港' }, sex: i % 2 ? 'male' : 'female',
+  });
+
+  it('大部份盤都有；最多四條、唔重複講同一句；英文譯得到；每句追到原文', () => {
+    let n = 0;
+    let hit = 0;
+    for (let i = 0; i < 4320; i += 3) {
+      const r = sample(i);
+      if (!r.ok) continue;
+      n++;
+      const d = branchReading(r.value, '夫妻');
+      if (!d) continue;
+      hit++;
+      expect(d.ids.length).toBeLessThanOrEqual(4);
+      expect(d.sources.every((s) => s.startsWith('deep.夫妻.'))).toBe(true);
+      expect(renderParagraph(d.text).missing).toEqual([]);
+      const sens = d.text.match(/[^。]+。/g) ?? [];
+      expect(new Set(sens).size).toBe(sens.length);
+    }
+    expect(hit / n).toBeGreaterThan(0.7);
+  }, 300_000);
+
+  it('條件一改，結論跟住改：夫妻宮拎走陀羅，就唔講「婚期較遲、錯過好緣份」', () => {
+    for (let i = 0; i < 4320; i++) {
+      const r = sample(i);
+      if (!r.ok) continue;
+      const p = palace(r.value, '夫妻');
+      if (!p.stars.some((s) => s.name === '天機') || !['丑', '未'].includes(p.branch) || !p.stars.some((s) => s.name === '陀羅')) continue;
+      expect(branchReading(r.value, '夫妻')!.ids).toContain('夫妻.天機丑未.陀羅');
+      const c = edit(r.value, (x) => { const q = palace(x, '夫妻'); q.stars = q.stars.filter((s) => s.name !== '陀羅'); });
+      expect(branchReading(c, '夫妻')?.ids ?? []).not.toContain('夫妻.天機丑未.陀羅');
+      return;
+    }
+    throw new Error('樣本入面搵唔到天機丑未見陀羅嘅夫妻宮');
+  });
+});

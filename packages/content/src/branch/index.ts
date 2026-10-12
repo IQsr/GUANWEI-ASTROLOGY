@@ -1,10 +1,62 @@
 /*
  * 原文分支嘅資料檔（branch.ts 載入）。加檔就喺度加一行。
  *   xingxi/NN.json —— 六十星系（命宮），細讀擺喺「性格的骨架」章（由 scratch ingest.py 生成）
+ *   fuqi/NN.json   —— 夫妻宮題目（由 scratch ingest_fuqi.py 生成），細讀擺喺夫妻宮章
  *   其他           —— 宮位題目，細讀擺喺嗰宮嘅章
  */
 import tianji from './tianji-guanlu.json';
 import tongliang from './tongliang-ming.json';
+import f01 from './fuqi/01.json';
+import f02 from './fuqi/02.json';
+import f03 from './fuqi/03.json';
+import f04 from './fuqi/04.json';
+import f05 from './fuqi/05.json';
+import f06 from './fuqi/06.json';
+import f07 from './fuqi/07.json';
+import f08 from './fuqi/08.json';
+import f09 from './fuqi/09.json';
+import f10 from './fuqi/10.json';
+import f11 from './fuqi/11.json';
+import f12 from './fuqi/12.json';
+import f13 from './fuqi/13.json';
+import f14 from './fuqi/14.json';
+import f15 from './fuqi/15.json';
+import f16 from './fuqi/16.json';
+import f17 from './fuqi/17.json';
+import f18 from './fuqi/18.json';
+import f19 from './fuqi/19.json';
+import f20 from './fuqi/20.json';
+import f21 from './fuqi/21.json';
+import f22 from './fuqi/22.json';
+import f23 from './fuqi/23.json';
+import f24 from './fuqi/24.json';
+import f25 from './fuqi/25.json';
+import f26 from './fuqi/26.json';
+import f27 from './fuqi/27.json';
+import f28 from './fuqi/28.json';
+import f29 from './fuqi/29.json';
+import f30 from './fuqi/30.json';
+import f31 from './fuqi/31.json';
+import f32 from './fuqi/32.json';
+import f33 from './fuqi/33.json';
+import f34 from './fuqi/34.json';
+import f35 from './fuqi/35.json';
+import f36 from './fuqi/36.json';
+import f37 from './fuqi/37.json';
+import f38 from './fuqi/38.json';
+import f39 from './fuqi/39.json';
+import f40 from './fuqi/40.json';
+import f41 from './fuqi/41.json';
+import f42 from './fuqi/42.json';
+import f43 from './fuqi/43.json';
+import f44 from './fuqi/44.json';
+import f45 from './fuqi/45.json';
+import f46 from './fuqi/46.json';
+import f47 from './fuqi/47.json';
+import f48 from './fuqi/48.json';
+import f49 from './fuqi/49.json';
+import f50 from './fuqi/50.json';
+import f51 from './fuqi/51.json';
 import x01 from './xingxi/01.json';
 import x02 from './xingxi/02.json';
 import x03 from './xingxi/03.json';
@@ -65,4 +117,4 @@ import x58 from './xingxi/58.json';
 import x59 from './xingxi/59.json';
 import x60 from './xingxi/60.json';
 
-export const BRANCH_RAW: unknown[] = [tianji, tongliang, x01, x02, x03, x04, x05, x06, x07, x08, x09, x10, x11, x12, x13, x14, x15, x16, x18, x19, x20, x21, x22, x23, x24, x25, x26, x27, x28, x29, x30, x31, x32, x33, x34, x35, x36, x37, x38, x39, x40, x41, x42, x43, x44, x45, x46, x47, x48, x49, x50, x51, x52, x53, x54, x55, x56, x57, x58, x59, x60];
+export const BRANCH_RAW: unknown[] = [tianji, tongliang, x01, x02, x03, x04, x05, x06, x07, x08, x09, x10, x11, x12, x13, x14, x15, x16, x18, x19, x20, x21, x22, x23, x24, x25, x26, x27, x28, x29, x30, x31, x32, x33, x34, x35, x36, x37, x38, x39, x40, x41, x42, x43, x44, x45, x46, x47, x48, x49, x50, x51, x52, x53, x54, x55, x56, x57, x58, x59, x60, f01, f02, f03, f04, f05, f06, f07, f08, f09, f10, f11, f12, f13, f14, f15, f16, f17, f18, f19, f20, f21, f22, f23, f24, f25, f26, f27, f28, f29, f30, f31, f32, f33, f34, f35, f36, f37, f38, f39, f40, f41, f42, f43, f44, f45, f46, f47, f48, f49, f50, f51];

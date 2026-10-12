@@ -507,8 +507,8 @@ export function assemble(
      * 生活裡的樣子（2026-09-30）：同結論跟同一粒領銜星。有王亭之出處就記出處，
      * 冇就記返嗰格基塊 —— 句子只講基塊講過嘅嘢（見 life.ts）。
      */
-    /* 細讀：原文分支收斂出嚟嘅主張（試點：命宮同梁寅申、官祿天機）。借對宮唔用 —— 分支講嘅係星喺本宮。 */
-    const deep = borrowed ? null : branchReading(chart, palace);
+    /* 細讀：原文分支收斂出嚟嘅主張（官祿天機、夫妻宮）。借對宮照讀 —— branch.ts 將對宮主星借入本宮。 */
+    const deep = branchReading(chart, palace);
     if (deep) {
       push({ slot: '細讀', text: deep.text, source_id: deep.sources.join('+'), rule_ids: [] });
     }

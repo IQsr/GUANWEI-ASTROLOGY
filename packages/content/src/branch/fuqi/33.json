@@ -1,0 +1,26 @@
+{
+  "$note": "夫妻宮（2026-10-12）：廉貞.夫妻。《深造講義》下篇 宮垣論 夫妻宮 p.377–。生離死別、再婚、外遇、配偶災病一類斷語不用；只按男女分嘅條文不用（引擎冇性別）。",
+  "topic": {
+    "id": "廉貞.夫妻",
+    "palace": "夫妻",
+    "stars": [
+      "廉貞"
+    ]
+  },
+  "rules": [
+    {
+      "id": "夫妻.廉貞.火",
+      "role": "limit",
+      "when": {
+        "star": "火星",
+        "at": "same"
+      },
+      "text": "同宮有火星，即使盤面吉，也容易因環境而兩地分隔。",
+      "en": "With Huo Xing in the palace, even with good signs, circumstances may keep you and your partner in different places.",
+      "source": {
+        "passage": "deep.夫妻.廉貞.6",
+        "quote": "亦主因客观环境以致夫妇分居二地"
+      }
+    }
+  ]
+}

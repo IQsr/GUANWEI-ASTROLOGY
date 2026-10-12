@@ -1,0 +1,51 @@
+{
+  "$note": "夫妻宮（2026-10-12）：巨門辰戌.夫妻。《深造講義》下篇 宮垣論 夫妻宮 p.377–。生離死別、再婚、外遇、配偶災病一類斷語不用；只按男女分嘅條文不用（引擎冇性別）。",
+  "topic": {
+    "id": "巨門辰戌.夫妻",
+    "palace": "夫妻",
+    "stars": [
+      "巨門"
+    ],
+    "branch": [
+      "辰",
+      "戌"
+    ]
+  },
+  "rules": [
+    {
+      "id": "夫妻.巨門辰戌.任勞",
+      "role": "refine",
+      "when": {
+        "all": [
+          {
+            "hua": [
+              "祿",
+              "權",
+              "科"
+            ],
+            "at": "sifang"
+          },
+          {
+            "not": {
+              "star": [
+                "擎羊",
+                "陀羅",
+                "火星",
+                "鈴星",
+                "地空",
+                "地劫"
+              ],
+              "at": "same"
+            }
+          }
+        ]
+      },
+      "text": "會祿權科而少煞，伴侶任勞任怨。",
+      "en": "Meeting Abundance, Authority or Merit with few harsh stars, your partner works hard without complaint.",
+      "source": {
+        "passage": "deep.夫妻.巨門.2",
+        "quote": "主配偶可以任劳任怨"
+      }
+    }
+  ]
+}

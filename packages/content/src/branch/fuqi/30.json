@@ -1,0 +1,50 @@
+{
+  "$note": "夫妻宮（2026-10-12）：廉貞寅申.夫妻。《深造講義》下篇 宮垣論 夫妻宮 p.377–。生離死別、再婚、外遇、配偶災病一類斷語不用；只按男女分嘅條文不用（引擎冇性別）。",
+  "topic": {
+    "id": "廉貞寅申.夫妻",
+    "palace": "夫妻",
+    "stars": [
+      "廉貞"
+    ],
+    "branch": [
+      "寅",
+      "申"
+    ]
+  },
+  "rules": [
+    {
+      "id": "夫妻.廉貞寅申.昌曲",
+      "role": "refine",
+      "when": {
+        "star": [
+          "文昌",
+          "文曲"
+        ],
+        "at": "sifang"
+      },
+      "text": "見文昌文曲，夫妻能守禮，不越界。",
+      "en": "With Wen Chang or Wen Qu, you and your partner keep to proper bounds.",
+      "source": {
+        "passage": "deep.夫妻.廉貞.2",
+        "quote": "则夫妻能守礼，不致逾越"
+      }
+    },
+    {
+      "id": "夫妻.廉貞寅申.火鈴",
+      "role": "refine",
+      "when": {
+        "star": [
+          "火星",
+          "鈴星"
+        ],
+        "at": "same"
+      },
+      "text": "廉貞與火星或鈴星同宮，婚事往往來得倉卒。",
+      "en": "With Lian Zhen beside Huo Xing or Ling Xing, marriage tends to come about in a rush.",
+      "source": {
+        "passage": "deep.夫妻.廉貞.3",
+        "quote": "主仓卒成婚"
+      }
+    }
+  ]
+}

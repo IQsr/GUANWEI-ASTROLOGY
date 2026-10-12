@@ -1,0 +1,54 @@
+{
+  "$note": "夫妻宮（2026-10-12）：破軍.夫妻。《深造講義》下篇 宮垣論 夫妻宮 p.377–。生離死別、再婚、外遇、配偶災病一類斷語不用；只按男女分嘅條文不用（引擎冇性別）。",
+  "topic": {
+    "id": "破軍.夫妻",
+    "palace": "夫妻",
+    "stars": [
+      "破軍"
+    ]
+  },
+  "rules": [
+    {
+      "id": "夫妻.破軍.波折",
+      "role": "base",
+      "when": {
+        "not": {
+          "with": "紫微"
+        }
+      },
+      "text": "婚前多波折；就算破軍化祿也一樣。",
+      "en": "The road to marriage has its twists, even with Po Jun in Abundance.",
+      "source": {
+        "passage": "deep.夫妻.破軍.1",
+        "quote": "即使破军化禄，亦主婚前多波折"
+      }
+    },
+    {
+      "id": "夫妻.破軍.駕御",
+      "role": "refine",
+      "text": "你在感情裡有想駕馭伴侶的傾向。",
+      "en": "In love, you have a tendency to want to steer your partner.",
+      "source": {
+        "passage": "deep.夫妻.破軍.2",
+        "quote": "男女皆有驾御配偶的倾向"
+      }
+    },
+    {
+      "id": "夫妻.破軍.羊陀",
+      "role": "limit",
+      "when": {
+        "star": [
+          "擎羊",
+          "陀羅"
+        ],
+        "at": "sifang"
+      },
+      "text": "見擎羊陀羅，婚前或婚後，兩人容易有一段時間分開。",
+      "en": "With Qing Yang or Tuo Luo, the two of you are likely to spend a stretch apart, before or after marriage.",
+      "source": {
+        "passage": "deep.夫妻.破軍.3",
+        "quote": "主婚前或婚后，双方曾一度分离"
+      }
+    }
+  ]
+}

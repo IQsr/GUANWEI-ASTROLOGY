@@ -1,0 +1,42 @@
+{
+  "$note": "夫妻宮（2026-10-12）：太陽午.夫妻。《深造講義》下篇 宮垣論 夫妻宮 p.377–。生離死別、再婚、外遇、配偶災病一類斷語不用；只按男女分嘅條文不用（引擎冇性別）。",
+  "topic": {
+    "id": "太陽午.夫妻",
+    "palace": "夫妻",
+    "stars": [
+      "太陽"
+    ],
+    "branch": [
+      "午"
+    ]
+  },
+  "rules": [
+    {
+      "id": "夫妻.太陽午.賢明",
+      "role": "base",
+      "text": "伴侶明白事理，有責任感。",
+      "en": "Your partner is sensible and has a strong sense of responsibility.",
+      "source": {
+        "passage": "deep.夫妻.太陽.2",
+        "quote": "主配偶贤明，有责任感"
+      }
+    },
+    {
+      "id": "夫妻.太陽午.輔佐",
+      "role": "refine",
+      "when": {
+        "star": [
+          "左輔",
+          "右弼"
+        ],
+        "at": "sifang"
+      },
+      "text": "見左輔右弼，伴侶在事業上有良好的成就。",
+      "en": "With Zuo Fu or You Bi present, your partner does well in their career.",
+      "source": {
+        "passage": "deep.夫妻.太陽.3",
+        "quote": "亦主妻子有良好事业"
+      }
+    }
+  ]
+}

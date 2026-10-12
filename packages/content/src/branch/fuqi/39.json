@@ -1,0 +1,46 @@
+{
+  "$note": "夫妻宮（2026-10-12）：太陰巳亥.夫妻。《深造講義》下篇 宮垣論 夫妻宮 p.377–。生離死別、再婚、外遇、配偶災病一類斷語不用；只按男女分嘅條文不用（引擎冇性別）。",
+  "topic": {
+    "id": "太陰巳亥.夫妻",
+    "palace": "夫妻",
+    "stars": [
+      "太陰"
+    ],
+    "branch": [
+      "巳",
+      "亥"
+    ]
+  },
+  "rules": [
+    {
+      "id": "夫妻.太陰巳.助人",
+      "role": "refine",
+      "when": {
+        "branch": [
+          "巳"
+        ]
+      },
+      "text": "伴侶熱心幫人，有時顧外多於顧家。",
+      "en": "Your partner is generous with help to others, and sometimes puts the outside world before home.",
+      "source": {
+        "passage": "deep.夫妻.太陰.3",
+        "quote": "但却乐于帮助别人"
+      }
+    },
+    {
+      "id": "夫妻.太陰亥.富裕",
+      "role": "refine",
+      "when": {
+        "branch": [
+          "亥"
+        ]
+      },
+      "text": "伴侶一般經濟寬裕。",
+      "en": "Your partner is generally well off.",
+      "source": {
+        "passage": "deep.夫妻.太陰.4",
+        "quote": "亥宫太阴一般主配偶富裕"
+      }
+    }
+  ]
+}

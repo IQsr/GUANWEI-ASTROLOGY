@@ -1,0 +1,23 @@
+{
+  "$note": "夫妻宮（2026-10-12）：太陽天梁.夫妻。《深造講義》下篇 宮垣論 夫妻宮 p.377–。生離死別、再婚、外遇、配偶災病一類斷語不用；只按男女分嘅條文不用（引擎冇性別）。",
+  "topic": {
+    "id": "太陽天梁.夫妻",
+    "palace": "夫妻",
+    "stars": [
+      "太陽",
+      "天梁"
+    ]
+  },
+  "rules": [
+    {
+      "id": "夫妻.陽梁.波折",
+      "role": "base",
+      "text": "婚前多有波折，也可能是舊人重逢，再走在一起。",
+      "en": "The road to marriage has its twists; it may even be an old flame you meet again.",
+      "source": {
+        "passage": "deep.夫妻.太陽.6",
+        "quote": "主婚前有波折，或旧侣重逢而后结合"
+      }
+    }
+  ]
+}

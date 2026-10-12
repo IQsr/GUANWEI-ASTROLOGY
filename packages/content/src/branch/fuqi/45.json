@@ -1,0 +1,36 @@
+{
+  "$note": "夫妻宮（2026-10-12）：巨門.夫妻。《深造講義》下篇 宮垣論 夫妻宮 p.377–。生離死別、再婚、外遇、配偶災病一類斷語不用；只按男女分嘅條文不用（引擎冇性別）。",
+  "topic": {
+    "id": "巨門.夫妻",
+    "palace": "夫妻",
+    "stars": [
+      "巨門"
+    ]
+  },
+  "rules": [
+    {
+      "id": "夫妻.巨門.陀羅",
+      "role": "limit",
+      "when": {
+        "star": "陀羅",
+        "at": "same"
+      },
+      "text": "同宮有陀羅，兩人容易自找麻煩，小事變大事。",
+      "en": "With Tuo Luo in the palace, you can make trouble for yourselves, turning small things into big ones.",
+      "source": {
+        "passage": "deep.夫妻.巨門.4",
+        "quote": "往往小事化为大事"
+      }
+    },
+    {
+      "id": "夫妻.巨門.爭吵",
+      "role": "base",
+      "text": "即使盤面吉，兩人也多無謂的爭吵。",
+      "en": "Even with good signs, there is a fair amount of needless bickering.",
+      "source": {
+        "passage": "deep.夫妻.巨門.5",
+        "quote": "虽吉，亦多无谓争吵"
+      }
+    }
+  ]
+}

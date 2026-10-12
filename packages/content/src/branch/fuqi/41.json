@@ -1,0 +1,94 @@
+{
+  "$note": "夫妻宮（2026-10-12）：貪狼.夫妻。《深造講義》下篇 宮垣論 夫妻宮 p.377–。生離死別、再婚、外遇、配偶災病一類斷語不用；只按男女分嘅條文不用（引擎冇性別）。",
+  "topic": {
+    "id": "貪狼.夫妻",
+    "palace": "夫妻",
+    "stars": [
+      "貪狼"
+    ]
+  },
+  "rules": [
+    {
+      "id": "夫妻.貪狼.忌",
+      "role": "refine",
+      "when": {
+        "hua": "忌",
+        "star": "貪狼",
+        "at": "same"
+      },
+      "text": "貪狼化忌：婚前容易有人競爭，經過波折，婚後反而好。",
+      "en": "Tan Lang in Hindrance: there may be rivals before marriage, but after those twists, married life is better.",
+      "source": {
+        "passage": "deep.夫妻.貪狼.4",
+        "quote": "所以婚前多波折，则婚后反佳"
+      }
+    },
+    {
+      "id": "夫妻.貪狼.火鈴",
+      "role": "limit",
+      "when": {
+        "all": [
+          {
+            "star": [
+              "火星",
+              "鈴星"
+            ],
+            "at": "same"
+          },
+          {
+            "not": {
+              "branch": [
+                "辰",
+                "戌"
+              ]
+            }
+          },
+          {
+            "not": {
+              "with": "武曲"
+            }
+          }
+        ]
+      },
+      "text": "同宮有火星或鈴星：起初熱戀，婚後不久就容易冷下來。",
+      "en": "With Huo Xing or Ling Xing in the palace, it starts as a passionate romance but can cool soon after marriage.",
+      "source": {
+        "passage": "deep.夫妻.貪狼.5",
+        "quote": "主初时热恋"
+      }
+    },
+    {
+      "id": "夫妻.貪狼.煞",
+      "role": "refine",
+      "when": {
+        "all": [
+          {
+            "star": [
+              "擎羊",
+              "陀羅",
+              "火星",
+              "鈴星",
+              "地空",
+              "地劫"
+            ],
+            "at": "same"
+          },
+          {
+            "not": {
+              "branch": [
+                "辰",
+                "戌"
+              ]
+            }
+          }
+        ]
+      },
+      "text": "同宮見煞，以遲婚為宜；婚前經過波折，反而好。",
+      "en": "With harsh stars in the palace, marrying later suits you; twists beforehand actually help.",
+      "source": {
+        "passage": "deep.夫妻.貪狼.6",
+        "quote": "必须迟婚，且婚前曾经波折"
+      }
+    }
+  ]
+}

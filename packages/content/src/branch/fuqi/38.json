@@ -1,0 +1,51 @@
+{
+  "$note": "夫妻宮（2026-10-12）：太陰酉.夫妻。《深造講義》下篇 宮垣論 夫妻宮 p.377–。生離死別、再婚、外遇、配偶災病一類斷語不用；只按男女分嘅條文不用（引擎冇性別）。",
+  "topic": {
+    "id": "太陰酉.夫妻",
+    "palace": "夫妻",
+    "stars": [
+      "太陰"
+    ],
+    "branch": [
+      "酉"
+    ]
+  },
+  "rules": [
+    {
+      "id": "夫妻.太陰酉.事業",
+      "role": "refine",
+      "when": {
+        "any": [
+          {
+            "hua": [
+              "祿",
+              "權",
+              "科"
+            ],
+            "at": "same"
+          },
+          {
+            "star": [
+              "左輔",
+              "右弼"
+            ],
+            "at": "sifang"
+          },
+          {
+            "star": [
+              "天魁",
+              "天鉞"
+            ],
+            "at": "sifang"
+          }
+        ]
+      },
+      "text": "太陰坐酉，伴侶的事業較好；見吉，更可以自己開創事業。",
+      "en": "With Tai Yin in You, your partner does well at work, and with good signs can found their own business.",
+      "source": {
+        "passage": "deep.夫妻.太陰.2",
+        "quote": "亦可以兴创事业"
+      }
+    }
+  ]
+}

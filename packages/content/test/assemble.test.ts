@@ -9,6 +9,7 @@
  *   每句追得返去邊一塊 ＋ 邊條規則      → 每段帶 source_id 同 rule_ids
  */
 import { describe, expect, it } from 'vitest';
+import { CORPUS } from '../src/lexicon';
 import { annual, cast, SCHOOL_PROFILE, type BirthInput } from '@guanwei/ziwei';
 import { LIFE_LINES,
   BASE_BLOCKS,
@@ -214,6 +215,8 @@ describe('AC ④ 每句追得返去邊一塊 ＋ 邊條規則', () => {
       ...LIFE_LINES.flatMap((x) => (x.source ? [x.source.passage_id] : [])),
       /* frame.link：牽動格頭一句，由盤面生成（宮名），每截接住嗰條基塊嘅 id（見 link.ts） */
       'frame.empty', 'frame.footer', 'frame.link',
+      /* 細讀（原文分支，branch.ts）：出處係語料庫嘅 deep.* 段 */
+      ...Object.keys(CORPUS.zhongzhou?.passages ?? {}).filter((k) => k.startsWith('deep.')),
     ]);
     for (const c of CH) {
       for (const seg of c.segments) {

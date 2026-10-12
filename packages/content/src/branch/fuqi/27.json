@@ -1,0 +1,62 @@
+{
+  "$note": "夫妻宮（2026-10-12）：天同卯酉.夫妻。《深造講義》下篇 宮垣論 夫妻宮 p.377–。生離死別、再婚、外遇、配偶災病一類斷語不用；只按男女分嘅條文不用（引擎冇性別）。",
+  "topic": {
+    "id": "天同卯酉.夫妻",
+    "palace": "夫妻",
+    "stars": [
+      "天同"
+    ],
+    "branch": [
+      "卯",
+      "酉"
+    ]
+  },
+  "rules": [
+    {
+      "id": "夫妻.天同卯酉.俊美",
+      "role": "base",
+      "text": "伴侶外貌俊美。",
+      "en": "Your partner is handsome or beautiful.",
+      "source": {
+        "passage": "deep.夫妻.天同.3",
+        "quote": "亦主配偶俊美"
+      }
+    },
+    {
+      "id": "夫妻.天同卯酉.吉",
+      "role": "refine",
+      "when": {
+        "any": [
+          {
+            "hua": [
+              "祿",
+              "權",
+              "科"
+            ],
+            "at": "same"
+          },
+          {
+            "star": [
+              "左輔",
+              "右弼"
+            ],
+            "at": "sifang"
+          },
+          {
+            "star": [
+              "天魁",
+              "天鉞"
+            ],
+            "at": "sifang"
+          }
+        ]
+      },
+      "text": "見吉化吉星，婚姻和美。",
+      "en": "With good transformations or helper stars, the marriage is harmonious.",
+      "source": {
+        "passage": "deep.夫妻.天同.4",
+        "quote": "可卜婚姻和美"
+      }
+    }
+  ]
+}

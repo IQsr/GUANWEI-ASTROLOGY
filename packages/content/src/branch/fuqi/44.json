@@ -1,0 +1,26 @@
+{
+  "$note": "夫妻宮（2026-10-12）：巨門巳亥.夫妻。《深造講義》下篇 宮垣論 夫妻宮 p.377–。生離死別、再婚、外遇、配偶災病一類斷語不用；只按男女分嘅條文不用（引擎冇性別）。",
+  "topic": {
+    "id": "巨門巳亥.夫妻",
+    "palace": "夫妻",
+    "stars": [
+      "巨門"
+    ],
+    "branch": [
+      "巳",
+      "亥"
+    ]
+  },
+  "rules": [
+    {
+      "id": "夫妻.巨門巳亥.親眷",
+      "role": "base",
+      "text": "與伴侶的家人較難相處，坐巳更明顯。",
+      "en": "Getting along with your partner’s family is harder, more so in Si.",
+      "source": {
+        "passage": "deep.夫妻.巨門.3",
+        "quote": "巳宫者尤甚"
+      }
+    }
+  ]
+}
