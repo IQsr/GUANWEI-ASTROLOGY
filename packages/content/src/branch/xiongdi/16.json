@@ -1,0 +1,46 @@
+{
+  "$note": "兄弟宮（2026-10-12）：太陽辰戌.兄弟。《深造講義》下篇 宮垣論 兄弟宮 p.366–377。刑剋、死亡、流產、殘疾、弱智、亂倫、血光、異母各胞、兄弟排行一類斷語不用；「某星守兄弟宮之年應驗」嘅流年條文不用；天姚、天刑、桃花等引擎冇嘅星不用。原書兄弟宮兼論朋友、同事、合作夥伴，呢部份照用。",
+  "topic": {
+    "id": "太陽辰戌.兄弟",
+    "palace": "兄弟",
+    "stars": [
+      "太陽"
+    ],
+    "branch": [
+      "辰",
+      "戌"
+    ]
+  },
+  "rules": [
+    {
+      "id": "兄弟.太陽辰.和",
+      "role": "refine",
+      "when": {
+        "branch": [
+          "辰"
+        ]
+      },
+      "text": "太陽坐辰，兄弟多和睦。",
+      "en": "With Tai Yang in Chen, siblings get on.",
+      "source": {
+        "passage": "deep.兄弟.太陽.6",
+        "quote": "辰宫者，兄弟多和"
+      }
+    },
+    {
+      "id": "兄弟.太陽戌.不和",
+      "role": "limit",
+      "when": {
+        "branch": [
+          "戌"
+        ]
+      },
+      "text": "太陽坐戌，兄弟之間多不和。",
+      "en": "With Tai Yang in Xu, siblings often do not get on.",
+      "source": {
+        "passage": "deep.兄弟.太陽.6",
+        "quote": "戌宫多不和"
+      }
+    }
+  ]
+}

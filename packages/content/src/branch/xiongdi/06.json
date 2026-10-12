@@ -1,0 +1,49 @@
+{
+  "$note": "兄弟宮（2026-10-12）：紫微七殺.兄弟。《深造講義》下篇 宮垣論 兄弟宮 p.366–377。刑剋、死亡、流產、殘疾、弱智、亂倫、血光、異母各胞、兄弟排行一類斷語不用；「某星守兄弟宮之年應驗」嘅流年條文不用；天姚、天刑、桃花等引擎冇嘅星不用。原書兄弟宮兼論朋友、同事、合作夥伴，呢部份照用。",
+  "topic": {
+    "id": "紫微七殺.兄弟",
+    "palace": "兄弟",
+    "stars": [
+      "紫微",
+      "七殺"
+    ]
+  },
+  "rules": [
+    {
+      "id": "兄弟.紫殺.吉",
+      "role": "refine",
+      "when": {
+        "any": [
+          {
+            "hua": [
+              "祿",
+              "權",
+              "科"
+            ],
+            "at": "same"
+          },
+          {
+            "star": [
+              "左輔",
+              "右弼"
+            ],
+            "at": "sifang"
+          },
+          {
+            "star": [
+              "天魁",
+              "天鉞"
+            ],
+            "at": "sifang"
+          }
+        ]
+      },
+      "text": "紫微七殺見吉，兄弟有權貴，也可以依附有權勢的朋友。",
+      "en": "Zi Wei with Qi Sha and good signs: your siblings are influential, and you can lean on powerful friends.",
+      "source": {
+        "passage": "deep.兄弟.紫微.6",
+        "quote": "亦主可依附权贵之友人"
+      }
+    }
+  ]
+}

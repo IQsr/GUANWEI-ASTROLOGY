@@ -1,0 +1,23 @@
+{
+  "$note": "兄弟宮（2026-10-12）：武曲破軍.兄弟。《深造講義》下篇 宮垣論 兄弟宮 p.366–377。刑剋、死亡、流產、殘疾、弱智、亂倫、血光、異母各胞、兄弟排行一類斷語不用；「某星守兄弟宮之年應驗」嘅流年條文不用；天姚、天刑、桃花等引擎冇嘅星不用。原書兄弟宮兼論朋友、同事、合作夥伴，呢部份照用。",
+  "topic": {
+    "id": "武曲破軍.兄弟",
+    "palace": "兄弟",
+    "stars": [
+      "武曲",
+      "破軍"
+    ]
+  },
+  "rules": [
+    {
+      "id": "兄弟.武破.本",
+      "role": "base",
+      "text": "武曲破軍在兄弟宮，兄弟朋友不主得力，合作也不耐久；結交外地或外國朋友情況較好。",
+      "en": "With Wu Qu and Po Jun in your Siblings Palace, siblings and friends are not much help and partnerships do not last; friends from other places or countries work out better.",
+      "source": {
+        "passage": "deep.兄弟.武曲.5",
+        "quote": "唯交异族、异乡友人，情形则较佳"
+      }
+    }
+  ]
+}

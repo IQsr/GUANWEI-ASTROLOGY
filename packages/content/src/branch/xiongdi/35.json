@@ -1,0 +1,70 @@
+{
+  "$note": "兄弟宮（2026-10-12）：天府.兄弟。《深造講義》下篇 宮垣論 兄弟宮 p.366–377。刑剋、死亡、流產、殘疾、弱智、亂倫、血光、異母各胞、兄弟排行一類斷語不用；「某星守兄弟宮之年應驗」嘅流年條文不用；天姚、天刑、桃花等引擎冇嘅星不用。原書兄弟宮兼論朋友、同事、合作夥伴，呢部份照用。",
+  "topic": {
+    "id": "天府.兄弟",
+    "palace": "兄弟",
+    "stars": [
+      "天府"
+    ]
+  },
+  "rules": [
+    {
+      "id": "兄弟.天府.輔佐",
+      "role": "refine",
+      "when": {
+        "any": [
+          {
+            "star": [
+              "左輔",
+              "右弼"
+            ],
+            "at": "sifang"
+          },
+          {
+            "star": [
+              "天魁",
+              "天鉞"
+            ],
+            "at": "sifang"
+          }
+        ]
+      },
+      "text": "天府見輔佐吉星，兄弟眾多。",
+      "en": "Tian Fu with helper stars: many siblings.",
+      "source": {
+        "passage": "deep.兄弟.天府.1",
+        "quote": "见辅佐诸曜始主兄弟众多"
+      }
+    },
+    {
+      "id": "兄弟.天府.廉忌",
+      "role": "limit",
+      "when": {
+        "hua": "忌",
+        "star": "廉貞",
+        "at": "sifang"
+      },
+      "text": "會廉貞化忌，兄弟或知己容易反目。",
+      "en": "Meeting Lian Zhen in Hindrance, siblings or close friends can turn against you.",
+      "source": {
+        "passage": "deep.兄弟.天府.2",
+        "quote": "主兄弟或知交反目"
+      }
+    },
+    {
+      "id": "兄弟.天府.武忌",
+      "role": "limit",
+      "when": {
+        "hua": "忌",
+        "star": "武曲",
+        "at": "sifang"
+      },
+      "text": "會武曲化忌，容易為兄弟或朋友破財。",
+      "en": "Meeting Wu Qu in Hindrance, you can lose money over siblings or friends.",
+      "source": {
+        "passage": "deep.兄弟.天府.3",
+        "quote": "主为兄弟或友人破财"
+      }
+    }
+  ]
+}

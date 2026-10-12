@@ -1,0 +1,23 @@
+{
+  "$note": "兄弟宮（2026-10-12）：武曲七殺.兄弟。《深造講義》下篇 宮垣論 兄弟宮 p.366–377。刑剋、死亡、流產、殘疾、弱智、亂倫、血光、異母各胞、兄弟排行一類斷語不用；「某星守兄弟宮之年應驗」嘅流年條文不用；天姚、天刑、桃花等引擎冇嘅星不用。原書兄弟宮兼論朋友、同事、合作夥伴，呢部份照用。",
+  "topic": {
+    "id": "武曲七殺.兄弟",
+    "palace": "兄弟",
+    "stars": [
+      "武曲",
+      "七殺"
+    ]
+  },
+  "rules": [
+    {
+      "id": "兄弟.武殺.本",
+      "role": "base",
+      "text": "武曲七殺在兄弟宮，以不與人合作為宜，要防對方弄權。",
+      "en": "With Wu Qu and Qi Sha in your Siblings Palace, it is better not to go into partnership; watch for others grabbing control.",
+      "source": {
+        "passage": "deep.兄弟.武曲.4",
+        "quote": "故以不与人合作为宜"
+      }
+    }
+  ]
+}

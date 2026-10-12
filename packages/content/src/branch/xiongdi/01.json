@@ -1,0 +1,44 @@
+{
+  "$note": "兄弟宮（2026-10-12）：紫微子午.兄弟。《深造講義》下篇 宮垣論 兄弟宮 p.366–377。刑剋、死亡、流產、殘疾、弱智、亂倫、血光、異母各胞、兄弟排行一類斷語不用；「某星守兄弟宮之年應驗」嘅流年條文不用；天姚、天刑、桃花等引擎冇嘅星不用。原書兄弟宮兼論朋友、同事、合作夥伴，呢部份照用。",
+  "topic": {
+    "id": "紫微子午.兄弟",
+    "palace": "兄弟",
+    "stars": [
+      "紫微"
+    ],
+    "branch": [
+      "子",
+      "午"
+    ]
+  },
+  "rules": [
+    {
+      "id": "兄弟.紫微子午.朝拱",
+      "role": "refine",
+      "when": {
+        "all": [
+          {
+            "star": [
+              "左輔",
+              "右弼"
+            ],
+            "at": "sifang"
+          },
+          {
+            "star": [
+              "天魁",
+              "天鉞"
+            ],
+            "at": "sifang"
+          }
+        ]
+      },
+      "text": "紫微得眾星拱照，兄姊得力；與人合作共事，要甘心做副手。",
+      "en": "Zi Wei surrounded by helpers: your older siblings are a real support; in partnerships, be content to play second fiddle.",
+      "source": {
+        "passage": "deep.兄弟.紫微.1",
+        "quote": "唯必须甘心处于[佐贰]之副手地位"
+      }
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "$note": "兄弟宮（2026-10-12）：天同辰戌.兄弟。《深造講義》下篇 宮垣論 兄弟宮 p.366–377。刑剋、死亡、流產、殘疾、弱智、亂倫、血光、異母各胞、兄弟排行一類斷語不用；「某星守兄弟宮之年應驗」嘅流年條文不用；天姚、天刑、桃花等引擎冇嘅星不用。原書兄弟宮兼論朋友、同事、合作夥伴，呢部份照用。",
+  "topic": {
+    "id": "天同辰戌.兄弟",
+    "palace": "兄弟",
+    "stars": [
+      "天同"
+    ],
+    "branch": [
+      "辰",
+      "戌"
+    ]
+  },
+  "rules": [
+    {
+      "id": "兄弟.天同辰戌.爭",
+      "role": "base",
+      "text": "兄弟朋友之間常有無謂的爭執。",
+      "en": "There are often pointless arguments among siblings and friends.",
+      "source": {
+        "passage": "deep.兄弟.天同.5",
+        "quote": "兄弟或友人间常多无谓争执"
+      }
+    },
+    {
+      "id": "兄弟.天同辰戌.輔佐",
+      "role": "refine",
+      "when": {
+        "any": [
+          {
+            "star": [
+              "左輔",
+              "右弼"
+            ],
+            "at": "sifang"
+          },
+          {
+            "star": [
+              "天魁",
+              "天鉞"
+            ],
+            "at": "sifang"
+          }
+        ]
+      },
+      "text": "見輔佐吉星，交友廣，也多合作機會，但仍要事事親力親為。",
+      "en": "With helper stars, you have a wide circle and many chances to partner, though you still have to see to everything yourself.",
+      "source": {
+        "passage": "deep.兄弟.天同.6",
+        "quote": "但仍必须事事亲力亲为"
+      }
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "$note": "兄弟宮（2026-10-12）：天梁.兄弟。《深造講義》下篇 宮垣論 兄弟宮 p.366–377。刑剋、死亡、流產、殘疾、弱智、亂倫、血光、異母各胞、兄弟排行一類斷語不用；「某星守兄弟宮之年應驗」嘅流年條文不用；天姚、天刑、桃花等引擎冇嘅星不用。原書兄弟宮兼論朋友、同事、合作夥伴，呢部份照用。",
+  "topic": {
+    "id": "天梁.兄弟",
+    "palace": "兄弟",
+    "stars": [
+      "天梁"
+    ]
+  },
+  "rules": [
+    {
+      "id": "兄弟.天梁.輔佐",
+      "role": "refine",
+      "when": {
+        "any": [
+          {
+            "star": [
+              "左輔",
+              "右弼"
+            ],
+            "at": "sifang"
+          },
+          {
+            "star": [
+              "天魁",
+              "天鉞"
+            ],
+            "at": "sifang"
+          }
+        ]
+      },
+      "text": "天梁見輔佐吉星，兄弟和美；吉凶都在暗處，朋友多是暗中相助。",
+      "en": "Tian Liang with helper stars: siblings are close; everything happens behind the scenes, so friends help you quietly.",
+      "source": {
+        "passage": "deep.兄弟.天梁.1",
+        "quote": "则主兄弟或友人暗生助力"
+      }
+    },
+    {
+      "id": "兄弟.天梁.合作",
+      "role": "refine",
+      "text": "天梁帶孤剋之性，即使見吉也不主可與人合作；除非合作者完全退居幕後，做你的後台。",
+      "en": "Tian Liang is a loner: even with good signs, partnership does not suit you, unless your partner stays entirely behind the scenes as your backer.",
+      "source": {
+        "passage": "deep.兄弟.天梁.2",
+        "quote": "除非合作者完全退居幕后"
+      }
+    }
+  ]
+}

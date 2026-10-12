@@ -1,0 +1,58 @@
+{
+  "$note": "兄弟宮（2026-10-12）：巨門.兄弟。《深造講義》下篇 宮垣論 兄弟宮 p.366–377。刑剋、死亡、流產、殘疾、弱智、亂倫、血光、異母各胞、兄弟排行一類斷語不用；「某星守兄弟宮之年應驗」嘅流年條文不用；天姚、天刑、桃花等引擎冇嘅星不用。原書兄弟宮兼論朋友、同事、合作夥伴，呢部份照用。",
+  "topic": {
+    "id": "巨門.兄弟",
+    "palace": "兄弟",
+    "stars": [
+      "巨門"
+    ]
+  },
+  "rules": [
+    {
+      "id": "兄弟.巨門.陽",
+      "role": "refine",
+      "when": {
+        "star": "太陽",
+        "at": [
+          "same",
+          "opp"
+        ]
+      },
+      "text": "巨門與太陽同宮或相對，可以與外國人合作。",
+      "en": "With Ju Men beside or facing Tai Yang, partnering with people from abroad works for you.",
+      "source": {
+        "passage": "deep.兄弟.巨門.1",
+        "quote": "可与异族人合作"
+      }
+    },
+    {
+      "id": "兄弟.巨門.淡",
+      "role": "base",
+      "text": "巨門交人始善終惡：兄弟朋友之間，不宜酒肉深交，以君子之交為宜。",
+      "en": "Ju Men’s friendships start well and end badly: keep relations with siblings and friends light rather than close.",
+      "source": {
+        "passage": "deep.兄弟.巨門.2",
+        "quote": "不宜酒肉深交，以君子之交为宜"
+      }
+    },
+    {
+      "id": "兄弟.巨門.合作",
+      "role": "limit",
+      "when": {
+        "not": {
+          "star": "太陽",
+          "at": [
+            "same",
+            "opp"
+          ]
+        }
+      },
+      "text": "巨門在兄弟宮，絕不宜與人合作事業。",
+      "en": "With Ju Men in your Siblings Palace, never go into business partnership.",
+      "source": {
+        "passage": "deep.兄弟.巨門.3",
+        "quote": "故巨门守兄弟宫者，绝不宜与人合作事业"
+      }
+    }
+  ]
+}

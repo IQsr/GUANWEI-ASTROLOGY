@@ -1,0 +1,110 @@
+{
+  "$note": "兄弟宮（2026-10-12）：貪狼.兄弟。《深造講義》下篇 宮垣論 兄弟宮 p.366–377。刑剋、死亡、流產、殘疾、弱智、亂倫、血光、異母各胞、兄弟排行一類斷語不用；「某星守兄弟宮之年應驗」嘅流年條文不用；天姚、天刑、桃花等引擎冇嘅星不用。原書兄弟宮兼論朋友、同事、合作夥伴，呢部份照用。",
+  "topic": {
+    "id": "貪狼.兄弟",
+    "palace": "兄弟",
+    "stars": [
+      "貪狼"
+    ]
+  },
+  "rules": [
+    {
+      "id": "兄弟.貪狼.和",
+      "role": "refine",
+      "when": {
+        "all": [
+          {
+            "not": {
+              "branch": [
+                "巳",
+                "亥"
+              ]
+            }
+          },
+          {
+            "any": [
+              {
+                "hua": [
+                  "祿",
+                  "權",
+                  "科"
+                ],
+                "at": "same"
+              },
+              {
+                "star": [
+                  "左輔",
+                  "右弼"
+                ],
+                "at": "sifang"
+              },
+              {
+                "star": [
+                  "天魁",
+                  "天鉞"
+                ],
+                "at": "sifang"
+              }
+            ]
+          }
+        ]
+      },
+      "text": "貪狼在兄弟宮見吉，兄弟和睦，交友也廣闊。",
+      "en": "Tan Lang in your Siblings Palace with good signs: siblings get on, and your circle is wide.",
+      "source": {
+        "passage": "deep.兄弟.貪狼.1",
+        "quote": "一般情形下均主兄弟和睦"
+      }
+    },
+    {
+      "id": "兄弟.貪狼.酒肉",
+      "role": "refine",
+      "when": {
+        "all": [
+          {
+            "not": {
+              "branch": [
+                "巳",
+                "亥"
+              ]
+            }
+          },
+          {
+            "not": {
+              "any": [
+                {
+                  "hua": [
+                    "祿",
+                    "權",
+                    "科"
+                  ],
+                  "at": "same"
+                },
+                {
+                  "star": [
+                    "左輔",
+                    "右弼"
+                  ],
+                  "at": "sifang"
+                },
+                {
+                  "star": [
+                    "天魁",
+                    "天鉞"
+                  ],
+                  "at": "sifang"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "text": "貪狼在兄弟宮，兄弟和睦、交友廣闊，只是不見吉星，多是酒肉朋友。",
+      "en": "Tan Lang in your Siblings Palace: siblings get on and your circle is wide, but without helpful stars, many are fair-weather friends.",
+      "source": {
+        "passage": "deep.兄弟.貪狼.2",
+        "quote": "则多酒肉之交"
+      }
+    }
+  ]
+}

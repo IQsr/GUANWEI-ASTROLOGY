@@ -1,0 +1,87 @@
+{
+  "$note": "兄弟宮（2026-10-12）：天同天梁.兄弟。《深造講義》下篇 宮垣論 兄弟宮 p.366–377。刑剋、死亡、流產、殘疾、弱智、亂倫、血光、異母各胞、兄弟排行一類斷語不用；「某星守兄弟宮之年應驗」嘅流年條文不用；天姚、天刑、桃花等引擎冇嘅星不用。原書兄弟宮兼論朋友、同事、合作夥伴，呢部份照用。",
+  "topic": {
+    "id": "天同天梁.兄弟",
+    "palace": "兄弟",
+    "stars": [
+      "天同",
+      "天梁"
+    ]
+  },
+  "rules": [
+    {
+      "id": "兄弟.同梁.吉",
+      "role": "refine",
+      "when": {
+        "all": [
+          {
+            "any": [
+              {
+                "hua": [
+                  "祿",
+                  "權",
+                  "科"
+                ],
+                "at": "same"
+              },
+              {
+                "star": [
+                  "左輔",
+                  "右弼"
+                ],
+                "at": "sifang"
+              },
+              {
+                "star": [
+                  "天魁",
+                  "天鉞"
+                ],
+                "at": "sifang"
+              }
+            ]
+          },
+          {
+            "not": {
+              "star": [
+                "擎羊",
+                "陀羅",
+                "火星",
+                "鈴星",
+                "地空",
+                "地劫"
+              ],
+              "at": "same"
+            }
+          }
+        ]
+      },
+      "text": "天同天梁見吉，兄弟朋友和好，只是容易離散。",
+      "en": "Tian Tong with Tian Liang and good signs: siblings and friends get on, though they drift apart easily.",
+      "source": {
+        "passage": "deep.兄弟.天同.2",
+        "quote": "见吉，则和好而易离散"
+      }
+    },
+    {
+      "id": "兄弟.同梁.煞",
+      "role": "limit",
+      "when": {
+        "star": [
+          "擎羊",
+          "陀羅",
+          "火星",
+          "鈴星",
+          "地空",
+          "地劫"
+        ],
+        "at": "same"
+      },
+      "text": "天同天梁見煞，兄弟朋友表面和好，內心各有打算。",
+      "en": "Tian Tong with Tian Liang and harsh stars: siblings and friends look friendly but each has their own agenda.",
+      "source": {
+        "passage": "deep.兄弟.天同.3",
+        "quote": "即主兄弟或友人表面和好"
+      }
+    }
+  ]
+}
