@@ -27,7 +27,7 @@ import { STEPS_UNTIL_AGE, num } from './steps';
  * 試點只做兩個題目：命宮天同天梁坐寅申、官祿宮天機。其餘六十星系未做。
  * ─────────────────────────────────────────────────────────── */
 
-const MAJOR = ['紫微', '天機', '太陽', '武曲', '天同', '廉貞', '天府', '太陰', '貪狼', '巨門', '天相', '天梁', '七殺', '破軍'];
+export const MAJOR = ['紫微', '天機', '太陽', '武曲', '天同', '廉貞', '天府', '太陰', '貪狼', '巨門', '天相', '天梁', '七殺', '破軍'];
 const BRANCHES = ['子', '丑', '寅', '卯', '辰', '巳', '午', '未', '申', '酉', '戌', '亥'];
 const HUA = z.enum(['祿', '權', '科', '忌']);
 const one = <T extends z.ZodTypeAny>(t: T) => z.union([t, z.array(t).min(1)]);
@@ -246,7 +246,7 @@ function evidence(chart: Chart, p: Palace, focus: string, c: Cond, seat: Palace[
  * 揀邊類星睇〔〕入面嘅字；乜都揾唔到（或者句子已經講咗）就照原本泛稱。
  * 英文暫時照原本泛稱譯（en/render.ts 用 `slotPattern` 對返模板句）。
  */
-const FILL_VERB = '又見|見齊|見|又有|有|會到|加上|得|被|與|多';
+export const FILL_VERB = '又見|見齊|見|又有|有|會到|加上|得|被|與|多';
 const FILL = new RegExp(`(${FILL_VERB})?〔([^〕]+)〕`, 'g');
 
 function pick(phrase: string, ev: string[]): string[] {
@@ -270,7 +270,8 @@ export function fillSlots(text: string, ev: string[]): string {
     if (!items.length) return `${verb ?? ''}${phrase}`;
     /* 「天同見〔吉化〕」而化祿正係天同嘅：寫「天同化祿，又見左輔」，唔寫「天同見天同化祿」 */
     const before = text.slice(0, off);
-    const own = MAJOR.find((m) => before.endsWith(m));
+    /* 只限單星做主語：「太陽天梁見〔吉〕」唔可以寫成「太陽天梁化科」（似成對化科） */
+    const own = MAJOR.find((m) => before.endsWith(m) && !MAJOR.some((n) => before.slice(0, -m.length).endsWith(n)));
     const mine = own ? items.filter((e) => e.startsWith(`${own}化`)) : [];
     if (mine.length) {
       const rest = items.filter((e) => !mine.includes(e));
@@ -286,7 +287,8 @@ export function fillSlots(text: string, ev: string[]): string {
 export function slotPattern(template: string, anchored = true): RegExp {
   const esc = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
   const parts = template.split(new RegExp(`(?:${FILL_VERB})?〔[^〕]+〕`)).map(esc);
-  const body = parts.join('[^。！？]+?');
+  /* 每個〔〕一個捕捉組：英文（en/render.ts）靠佢知道中文填咗乜 */
+  const body = parts.join('([^。！？]+?)');
   return new RegExp(anchored ? `^${body}$` : body);
 }
 

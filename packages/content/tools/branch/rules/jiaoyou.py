@@ -31,11 +31,11 @@ T.append({'id': '僕役連動', 'stars': [], 'link': True, 'rules': [
 T.append({'id': '紫微破軍.僕役', 'stars': ['紫微', '破軍'], 'rules': [
  R('僕役.紫破.輔佐', {'any': [FUZUO, KUIYUE]},
    '紫微破軍見〔輔佐吉星〕，得力的下屬容易另謀發展，所以你常覺得助力不足。',
-   'Zi Wei with Po Jun and helper stars: capable staff tend to move on, so you often feel short of help.',
+   'Zi Wei with Po Jun and 〔helper stars〕: capable staff tend to move on, so you often feel short of help.',
    '『紫微破军』见辅佐诸吉，主得力下属易另谋发展，故自己反而时时感到助力不足。', '主得力下属易另谋发展'),
  R('僕役.紫破.煞', SHA,
    '紫微破軍見〔煞〕，你容易受朋友或下屬拖累。',
-   'Zi Wei with Po Jun and harsh stars: friends or staff can drag you down.',
+   'Zi Wei with Po Jun and 〔harsh stars〕: friends or staff can drag you down.',
    '『紫微破军』有煞，主受友人或下属拖累。', '主受友人或下属拖累', 'limit'),
 ]})
 T.append({'id': '紫微天府.僕役', 'stars': ['紫微', '天府'], 'rules': [
@@ -59,19 +59,19 @@ T.append({'id': '紫微天相.僕役', 'stars': ['紫微', '天相'], 'rules': [
 T.append({'id': '紫微七殺.僕役', 'stars': ['紫微', '七殺'], 'rules': [
  R('僕役.紫殺.吉', GOOD,
    '紫微七殺見〔吉〕，可以結交令你敬畏、肯直言的朋友。',
-   'Zi Wei with Qi Sha and good signs: you make friends you respect and who speak frankly.',
+   'Zi Wei with Qi Sha and 〔good signs〕: you make friends you respect and who speak frankly.',
    '[紫杀]在交友宫，权力太重。见吉，主可结交畏友、诤友。', '主可结交畏友、诤友'),
 ]})
 T.append({'id': '紫微子午.僕役', 'stars': ['紫微'], 'branch': ['子', '午'], 'rules': [
  R('僕役.紫微子午.輔佐', {'any': [FUZUO, KUIYUE]},
    '紫微見〔輔佐吉星〕，下屬忠誠可靠，但要防權力轉移。',
-   'Zi Wei with helper stars: your staff are loyal and reliable, but watch that power does not slip to them.',
+   'Zi Wei with 〔helper stars〕: your staff are loyal and reliable, but watch that power does not slip to them.',
    '紫微独坐子午，有辅佐吉曜同会，下属虽忠诚可靠，唯亦防权力转移。', '下属虽忠诚可靠，唯亦防权力转移'),
 ]})
 T.append({'id': '紫微.僕役', 'stars': ['紫微'], 'rules': [
  R('僕役.紫微.煞', {'any': [SHA, {'hua': '忌', 'at': 'same'}]},
    '紫微見〔煞忌〕，你的下屬強硬而不得力，不服指揮。',
-   'Zi Wei meets harsh stars or Hindrance: the people under you are stubborn and unhelpful, and resist direction.',
+   'Zi Wei meets 〔harsh stars or Hindrance〕: the people under you are stubborn and unhelpful, and resist direction.',
    '紫微守交友宫，不喜见煞忌刑耗，主下属强顽而且不得力，甚至以怨报德；', '主下属强顽而且不得力', 'limit'),
  R('僕役.紫微.朝拱', {'all': [{'all': [FUZUO, KUIYUE]}, {'not': {'star': '破軍', 'at': 'same'}}]},
    '紫微得眾星拱照，下屬權威太大，容易把你架空。',
@@ -89,7 +89,7 @@ T.append({'id': '天機巨門.僕役', 'stars': ['天機', '巨門'], 'rules': [
 T.append({'id': '天機天梁.僕役', 'stars': ['天機', '天梁'], 'rules': [
  R('僕役.機梁.吉', GOOD,
    '天機天梁見〔吉〕，可得年長可靠的朋友，或年長得力的親信。',
-   'Tian Ji with Tian Liang and good signs: you gain older, dependable friends, or a capable senior right hand.',
+   'Tian Ji with Tian Liang and 〔good signs〕: you gain older, dependable friends, or a capable senior right hand.',
    '天机天梁见吉曜，亦主得年长可靠之友，或年长得力的亲信。', '亦主得年长可靠之友'),
 ]})
 T.append({'id': '天機太陰.僕役', 'stars': ['天機', '太陰'], 'rules': [
@@ -99,7 +99,7 @@ T.append({'id': '天機太陰.僕役', 'stars': ['天機', '太陰'], 'rules': [
    '寅申[天机太阴]及巳亥天机为太阴对拱，均主关系不稳定。', '均主关系不稳定', 'base'),
  R('僕役.機陰.陰祿', {'all': [H('祿', '太陰'), GOOD]},
    '太陰化祿又見〔吉〕，你會因朋友或下屬得財。',
-   'Tai Yin in Abundance with good signs: friends or staff bring you money.',
+   'Tai Yin in Abundance with 〔good signs〕: friends or staff bring you money.',
    '天机太阴而太阴入庙，化禄者，更见吉曜，主因友或下属得财。', '主因友或下属得财'),
 ]})
 T.append({'id': '天機.僕役', 'stars': ['天機'], 'rules': [
@@ -175,7 +175,7 @@ T.append({'id': '太陽.僕役', 'stars': ['太陽'], 'rules': [
 T.append({'id': '武曲天府.僕役', 'stars': ['武曲', '天府'], 'rules': [
  R('僕役.武府.本', {'all': [{'hua': '祿', 'at': 'sifang'}, {'not': {'star': '祿存', 'at': 'same'}}, GOOD]},
    '武曲天府見祿又見〔吉星〕，交遊廣闊，朋友多有助力。',
-   'Wu Qu with Tian Fu, Lu and helpful stars: a wide circle, with friends who really help.',
+   'Wu Qu with Tian Fu, Lu and 〔helpful stars〕: a wide circle, with friends who really help.',
    '仅于[武曲天府]同度，见禄(亦不宜禄存同度)，又见吉曜的情形下，始主交游广阔，且多助力。', '始主交游广阔，且多助力'),
 ]})
 T.append({'id': '武曲貪狼.僕役', 'stars': ['武曲', '貪狼'], 'rules': [
@@ -251,7 +251,7 @@ T.append({'id': '廉貞破軍.僕役', 'stars': ['廉貞', '破軍'], 'rules': [
 T.append({'id': '廉貞.僕役', 'stars': ['廉貞'], 'rules': [
  R('僕役.廉貞.吉', GOOD,
    '廉貞見〔吉〕，你交遊廣闊，下屬眾多而且有助力。',
-   'Lian Zhen with good signs: a wide circle, and plenty of capable staff.',
+   'Lian Zhen with 〔good signs〕: a wide circle, and plenty of capable staff.',
    '廉贞与吉曜同会，则交游广阔，下属众多，且有助力。若廉贞化禄，更主得益。', '则交游广阔，下属众多，且有助力'),
  R('僕役.廉貞.空劫', KONG,
    '同宮有地空地劫，你的友情容易決裂，下屬也會背離。',
@@ -275,7 +275,7 @@ T.append({'id': '天府.僕役', 'stars': ['天府'], 'rules': [
 T.append({'id': '貪狼.僕役', 'stars': ['貪狼'], 'rules': [
  R('僕役.貪狼.對星', {'any': [{'all': [{'star': '左輔', 'at': 'sifang'}, {'star': '右弼', 'at': 'sifang'}]}, {'all': [{'star': '天魁', 'at': 'sifang'}, {'star': '天鉞', 'at': 'sifang'}]}]},
    '貪狼見〔成對的輔佐星〕，你的朋友和下屬眾多。',
-   'Tan Lang with helper stars in matched pairs: many friends and staff.',
+   'Tan Lang with 〔helper stars in matched pairs〕: many friends and staff.',
    '见辅佐诸曜皆为对星者，主友人及下属众多。', '主友人及下属众多'),
  R('僕役.貪狼.本', None,
    '貪狼主應酬，在僕役宮，你多場面上的朋友。',
@@ -287,7 +287,7 @@ T.append({'id': '貪狼.僕役', 'stars': ['貪狼'], 'rules': [
 T.append({'id': '巨門.僕役', 'stars': ['巨門'], 'rules': [
  R('僕役.巨門.吉', {'all': [{'any': [H('祿', '巨門'), H('權', '巨門'), {'star': '祿存', 'at': 'same'}]}, {'any': [FUZUO, KUIYUE]}]},
    '巨門化祿化權或有祿存，又見〔輔佐吉星〕，可得能言善辯的朋友或下屬，助你創業；彼此多討論辯論，事業由此而興。',
-   'Ju Men in Abundance or Authority, or with Lu Cun, plus helper stars: articulate friends or staff help you build a business, and your discussions together drive it forward.',
+   'Ju Men in Abundance or Authority, or with Lu Cun, plus 〔helper stars〕: articulate friends or staff help you build a business, and your discussions together drive it forward.',
    '故巨门化禄，或禄存同度，或化权星，又会辅佐吉曜，则主得能言善辩之友，可助自己创业；或得下属亦如是。又或与友人下属多辩论、讨论，由是创兴事业。', '可助自己创业'),
  R('僕役.巨門.本', None,
    '巨門在僕役宮，吉則口才好、能言善辯，凶則多口舌爭吵。',
@@ -341,7 +341,7 @@ T.append({'id': '破軍辰戌.僕役', 'stars': ['破軍'], 'branch': ['辰', '�
 T.append({'id': '破軍.僕役', 'stars': ['破軍'], 'rules': [
  R('僕役.破軍.輔佐', {'all': [{'all': [{'star': ['左輔', '右弼', '天魁', '天鉞'], 'at': 'same'}, {'not': SHA}]}, {'not': {'star': '紫微', 'at': 'same'}}]},
    '同宮有〔輔佐吉星〕，你才得到朋友或下屬的助力。',
-   'With helper stars in the palace, friends or staff do help you.',
+   'With 〔helper stars〕 in the palace, friends or staff do help you.',
    '破军独坐交友宫者，主孤立。见辅佐吉曜同度，然后始得友人或下属之助力。', '然后始得友人或下属之助力'),
  R('僕役.破軍.本', {'alone': True},
    '破軍獨坐僕役宮，你在朋友和下屬之中較為孤立。',

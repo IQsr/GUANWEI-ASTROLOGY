@@ -10,6 +10,7 @@ import { BRANCH_TOPICS, RULE_REGISTRY, SPEC_VERSION, assembleAll, branchReading,
 import { STEPS_UNTIL_AGE, num } from '../src/steps';
 import { palaceState } from '../src/branch';
 import { renderParagraph } from '../src/en/render';
+import { citeOf } from '../src/citation';
 
 const DEMO = cast({
   solar: { y: 1990, m: 3, d: 21 }, time: { h: 14, min: 20 }, tz: 'Asia/Hong_Kong',
@@ -375,6 +376,11 @@ describe('泛稱填實：「見吉」「見煞」換成盤上真係有嘅星（2
         if (!tpl.includes('〔')) continue;
         slots++;
         if (x.text !== tpl.replace(/[〔〕]/g, '')) filled++;
+        /* 英文跟住填（2026-10-12）：譯得到、冇〔〕、每句追到出處 */
+        const en = renderParagraph(x.text);
+        expect(en.missing, x.text).toEqual([]);
+        expect(en.text, x.id).not.toMatch(/[〔〕]/);
+        for (const s of en.text.split(/(?<=[.!?])\s/)) expect(citeOf(s, 'en'), s).not.toBeNull();
       }
     }
     expect(filled / slots).toBeGreaterThan(0.85);

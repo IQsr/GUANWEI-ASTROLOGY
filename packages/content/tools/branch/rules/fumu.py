@@ -89,7 +89,7 @@ T.append({'id': '太陽太陰.父母', 'stars': ['太陽', '太陰'], 'rules': [
 T.append({'id': '太陽巨門.父母', 'stars': ['太陽', '巨門'], 'rules': [
  R('父母.陽巨.吉', {'hua': ['祿', '權', '科'], 'star': ['太陽', '巨門'], 'at': 'same'},
    '太陽巨門見〔吉化〕，宜在外資機構服務，容易得外國上司提拔。',
-   'Tai Yang with Ju Men well transformed: working for a foreign organisation suits you, and foreign bosses tend to promote you.',
+   'Tai Yang with Ju Men, with 〔good transformations〕: working for a foreign organisation suits you, and foreign bosses tend to promote you.',
    '[太阳巨门]见吉化者，、以服务异族为佳，主得异族上司提拔。', '主得异族上司提拔'),
  R('父母.陽巨.忌', {'hua': '忌', 'star': ['太陽', '巨門'], 'at': 'same'},
    '太陽巨門化忌，容易與上司不和，所以以自由職業為佳。',
@@ -143,7 +143,7 @@ T.append({'id': '天同.父母', 'stars': ['天同'], 'rules': [
    '天同化禄，唯与天梁同度或对拱者，始主受父母荫庇，', '始主受父母荫庇'),
  R('父母.天同.對星', PAIR,
    '見齊〔成對的輔佐星〕，你和父母兩代關係吉利。',
-   'With helper stars in matched pairs, relations between the generations go well.',
+   'With 〔helper stars in matched pairs〕, relations between the generations go well.',
    '天同与左辅右弼，或天魁天钺同会，以见齐对星始吉，', '以见齐对星始吉'),
 ]})
 
@@ -225,7 +225,7 @@ T.append({'id': '天相.父母', 'stars': ['天相'], 'rules': [
 T.append({'id': '天梁.父母', 'stars': ['天梁'], 'rules': [
  R('父母.天梁.吉', {'all': [GOOD, {'not': SHA}]},
    '天梁見〔吉〕而無煞，你必定得到父母的福蔭。',
-   'Tian Liang meets good signs and no harsh stars: your parents’ blessings are sure to reach you.',
+   'Tian Liang meets 〔good signs〕 and no harsh stars: your parents’ blessings are sure to reach you.',
    '倘入庙无煞，而有吉曜吉化会合，则主必得父母福荫。', '则主必得父母福荫'),
  R('父母.天梁.同', {'all': [{'star': '天同', 'at': ['same', 'opp']}, {'not': H('忌', '天同', ['same', 'opp'])}]},
    '天梁與天同同宮或相對，是天梁喜歡的配搭，對你和父母的關係有利。',
@@ -249,7 +249,7 @@ T.append({'id': '七殺.父母', 'stars': ['七殺'], 'rules': [
    '七杀会紫微化权，父母成见极深。', '七杀会紫微化权，父母成见极深', 'limit'),
  R('父母.七殺.紫科', {'all': [H('科', '紫微', ['same', 'opp']), GOOD]},
    '會紫微化科又見〔吉〕，父母有聲譽，只是兩代關係未必相諧。',
-   'Meeting Zi Wei in Merit with helpful stars, your parents are well regarded, though the generations do not always see eye to eye.',
+   'Meeting Zi Wei in Merit with 〔helpful stars〕, your parents are well regarded, though the generations do not always see eye to eye.',
    '七杀会紫微化科，又见吉曜，父母有声誉。但两代关系未必相谐。', '父母有声誉'),
  R('父母.七殺.吉', {'hua': ['祿', '權', '科'], 'at': 'sifang'},
    '七殺會到祿權科，你得到父母蔭庇之力。',
@@ -289,7 +289,7 @@ T.append({'id': '父母通則', 'stars': [], 'rules': [
    '父母宫见禄、权、科，许多时候仅主上司的特质。一般情形下，可视为宜在大机构企业服务。或主上司任要职，有权势名誉。', '可视为宜在大机构企业服务'),
  R('父母.通則.煞', SHA4,
    '父母宮見〔煞〕，有時只主人際關係欠佳，包括與父母、與上司。',
-   'Harsh stars in the Parents Palace can simply mean strained relationships, with your parents and with your bosses.',
+   '〔Harsh stars〕 in the Parents Palace can simply mean strained relationships, with your parents and with your bosses.',
    '父母宫见四煞，亦不一定主刑克，有时仅主人际关系不佳(包括与本身父母宫及上司主管的关系)。', '有时仅主人际关系不佳'),
  R('父母.通則.祿馬', {'any': [{'star': '祿存', 'at': 'same'}, {'star': '天馬', 'at': 'same'}]},
    '父母宮見祿存或天馬，父母多遷動；有時也主自己常換上司。',

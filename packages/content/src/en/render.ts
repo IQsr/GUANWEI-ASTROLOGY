@@ -2,7 +2,7 @@ import tmRaw from './tm.json';
 import { WATCH_LEADS } from '../watch-lead';
 import { LINK_REFS } from '../link';
 import { JI_WATCH, PAIR_PLAIN } from '../palace-plain';
-import { BRANCH_TOPICS, slotPattern } from '../branch';
+import { BRANCH_TOPICS, FILL_VERB, MAJOR, slotPattern } from '../branch';
 import { AREA_EN, AREA_ON_EN, PALACE_EN, STAR_EN, cap, listEn, star, starFirst } from './terms';
 import { factTemplate } from './facts';
 import { timeTemplate } from './time';
@@ -31,7 +31,62 @@ for (const w of Object.values(JI_WATCH)) TM.sentences[w.zh] = w.en;
 
 export type Rendered = { text: string; missing: string[] };
 
-const SLOTS: { re: RegExp; en: string }[] = [];
+/*
+ * 泛稱填實（branch.ts `fillSlots`，2026-10-12）：中文〔〕填咗盤上嘅星，英文〔〕跟住填同一批星。
+ * 每句模板記低：比對式、英文模板、每個〔〕嘅原本泛稱（填唔到就照出）、前面嘅主星（「天同化祿」寫成「化祿」嗰陣用）。
+ */
+type Slot = { re: RegExp; en: string; phrases: string[]; owners: (string | undefined)[] };
+const SLOTS: Slot[] = [];
+const SLOT_HUA: Record<string, string> = { 祿: 'Abundance', 權: 'Authority', 科: 'Merit', 忌: 'Hindrance' };
+const SLOT_STARS = Object.keys(STAR_EN).sort((a, b) => b.length - a.length).join('|');
+const SLOT_ITEM = `(?:(?:${SLOT_STARS})?化[祿權科忌]|${SLOT_STARS})`;
+const SLOT_ITEMS = `${SLOT_ITEM}(?:(?:、|，又見)${SLOT_ITEM})*`;
+
+function slotOf(zh: string, en: string): Slot {
+  const phrases: string[] = [];
+  const owners: (string | undefined)[] = [];
+  const re = new RegExp(`(${FILL_VERB})?〔([^〕]+)〕`, 'g');
+  for (let m = re.exec(zh); m; m = re.exec(zh)) {
+    phrases.push(`${m[1] ?? ''}${m[2]}`);
+    const before = zh.slice(0, m.index);
+    owners.push(MAJOR.find((x) => before.endsWith(x) && !MAJOR.some((y) => before.slice(0, -x.length).endsWith(y))));
+  }
+  /*
+   * 兩個〔〕貼住（「會到〔吉化〕又見〔輔佐吉星〕」）用任意字比對會切錯位，所以每格只准係
+   * 原本泛稱，或者真星名／四化組成嘅清單。
+   */
+  const esc = (x: string) => x.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const parts = zh.split(re).filter((_x, i) => i % 3 === 0).map(esc);
+  const body = parts.map((p, i) => (i < phrases.length ? `${p}(${esc(phrases[i]!)}|(?:${FILL_VERB})?${SLOT_ITEMS})` : p)).join('');
+  return { re: new RegExp(`^${body}$`), en, phrases, owners };
+}
+
+/** 中文填咗嘅一截（「見左輔、天鉞」「化祿，又見左輔」）→ 英文星名清單；冇填（照泛稱）就 null */
+function slotEn(seg: string, phrase: string, owner: string | undefined): string | null {
+  if (seg === phrase) return null;
+  const body = seg.replace(new RegExp(`^(${FILL_VERB})`), '');
+  const items = body.split(/，又見|、/).filter(Boolean);
+  const out: string[] = [];
+  for (const it of items) {
+    let m = /^化(\S)$/.exec(it);
+    if (m && owner && SLOT_HUA[m[1]!]) { out.push(`its own ${SLOT_HUA[m[1]!]}`); continue; }
+    m = /^(\S{2})化(\S)$/.exec(it);
+    if (m && star(m[1]!) && SLOT_HUA[m[2]!]) { out.push(`${star(m[1]!)} in ${SLOT_HUA[m[2]!]}`); continue; }
+    if (star(it)) { out.push(star(it)!); continue; }
+    return null;
+  }
+  return listEn(out);
+}
+
+function fillEn(slot: Slot, m: RegExpExecArray): string {
+  let i = 0;
+  const out = slot.en.replace(/〔([^〕]+)〕/g, (_all, generic: string) => {
+    const k = i++;
+    return slotEn(m[k + 1]!, slot.phrases[k]!, slot.owners[k]) ?? generic;
+  });
+  /* 「meets Lu and 〔helper stars〕」填完係「Lu and Zuo Fu and You Bi」：頭一個 and 改逗號 */
+  return out.replace(/ and ([A-Z][a-z]+ [A-Z][a-z]+) and /, ', $1 and ');
+}
 
 /** 一句中文喺翻譯表嘅英文（冇就 null）。出處註（citation.ts）用嚟配英文句。 */
 export function tmSentence(zh: string): string | null {
@@ -47,7 +102,7 @@ for (const t of BRANCH_TOPICS)
     const en = r.en.match(/[^.!?]+[.!?]+/g)?.map((x) => x.trim()) ?? [r.en];
     if (zh.length === en.length) zh.forEach((z, i) => (TM.sentences[z] = en[i]!));
     /* 泛稱填實（branch.ts `fillSlots`）：中文填咗盤上嘅星，英文照模板句 */
-    if (zh.length === en.length) zh.forEach((z, i) => z.includes('〔') && SLOTS.push({ re: slotPattern(z), en: en[i]! }));
+    if (zh.length === en.length) zh.forEach((z, i) => z.includes('〔') && SLOTS.push(slotOf(z, en[i]!)));
     else TM.sentences[r.text] = r.en;
     if (r.tail && r.tailEn) TM.sentences[r.tail] = r.tailEn;
   }
@@ -117,8 +172,10 @@ function refPart(part: string, missing: string[]): string | null {
 function lookupSentence(s: string): string | null {
   const direct = TM.sentences[s];
   if (direct) return direct;
-  const slot = SLOTS.find((x) => x.re.test(s));
-  if (slot) return slot.en;
+  for (const slot of SLOTS) {
+    const m = slot.re.exec(s);
+    if (m) return fillEn(slot, m);
+  }
   /* 結論段輪換過嘅轉接語（assemble.ts `WATCH_LEADS`）：翻譯表只存「要留意的是：」嗰款 */
   const lead = WATCH_LEADS.slice(1).find((l) => s.startsWith(l));
   if (lead) {

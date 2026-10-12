@@ -122,7 +122,7 @@ T.append({'id': '天機天梁.財帛', 'stars': ['天機', '天梁'], 'rules': [
    '『机梁』不宜化禄，天梁化禄尤主多暗争，每易受人排挤，故必须劳心费神以求财。', '天梁化禄尤主多暗争', 'limit'),
  R('財帛.機梁.兼職', {'any': [FUZUO, KUIYUE]},
    '見〔輔佐吉星〕，你的財源不只一端，往往兼職兼業。',
-   'With helper stars, your income has more than one source, often from side jobs alongside the main one.',
+   'With 〔helper stars〕, your income has more than one source, often from side jobs alongside the main one.',
    '『机梁』多变动，故见辅弼、魁钺者，指财源不只一端，往往兼职兼业。', '往往兼职兼业'),
 ]})
 T.append({'id': '天機子午.財帛', 'stars': ['天機'], 'branch': ['子', '午'], 'rules': [
@@ -251,7 +251,7 @@ T.append({'id': '武曲七殺.財帛', 'stars': ['武曲', '七殺'], 'rules': [
    '卯酉宫『武风七杀』，主白手兴家。', '主白手兴家', 'base'),
  R('財帛.武殺.投資', {'any': [FUZUO, KUIYUE, {'hua': ['祿', '權', '科'], 'at': 'same'}]},
    '見〔吉〕，投資規模大，資財多在企業資產上，不主積蓄。',
-   'With good signs, you invest on a large scale; your wealth sits in business assets rather than savings.',
+   'With 〔good signs〕, you invest on a large scale; your wealth sits in business assets rather than savings.',
    '[武杀]见吉曜，投资额巨大，其资财往往在企业资产上。不主积蓄。', '其资财往往在企业资产上'),
 ]})
 T.append({'id': '武曲破軍.財帛', 'stars': ['武曲', '破軍'], 'rules': [
@@ -307,7 +307,7 @@ T.append({'id': '天同巨門.財帛', 'stars': ['天同', '巨門'], 'rules': [
    '丑未宫『天同巨门』，基本性质主因财而生是非口舌，故最宜费唇舌以求财。', '故最宜费唇舌以求财', 'base'),
  R('財帛.同巨.吉', {'any': [{'hua': ['祿', '權', '科'], 'at': 'same'}, FUZUO, KUIYUE]},
    '見〔吉化吉星〕，你也適合從事傳播或專業工作。',
-   'With good transformations or helper stars, media or professional work also suits you.',
+   'With 〔good transformations or helper stars〕, media or professional work also suits you.',
    '『天同巨门』见吉化、吉曜，亦宜传播工作，或专业工作以求财。', '亦宜传播工作'),
 ]})
 T.append({'id': '天同辰戌.財帛', 'stars': ['天同'], 'branch': ['辰', '戌'], 'rules': [
@@ -477,7 +477,7 @@ T.append({'id': '巨門辰戌.財帛', 'stars': ['巨門'], 'branch': ['辰', '�
 T.append({'id': '巨門.財帛', 'stars': ['巨門'], 'rules': [
  R('財帛.巨門.太陽', {'all': [{'star': '太陽', 'at': ['same', 'opp']}, {'hua': ['祿', '權', '科'], 'star': ['巨門', '太陽'], 'at': ['same', 'opp']}]},
    '巨門與太陽同宮或相對而有〔吉化〕，一生受外地或外國人信賴而成富，也有語言天份。',
-   'With Ju Men facing or sharing with Tai Yang under good transformations, people from abroad trust you and that is how you prosper; you also have a gift for languages.',
+   'With Ju Men facing or sharing with Tai Yang under 〔good transformations〕, people from abroad trust you and that is how you prosper; you also have a gift for languages.',
    '巨门与太阳同度或对照，有吉化者，或命宫见禄马交驰者，主一生受异族信赖而成富。且主其人有语言天才，', '主一生受异族信赖而成富'),
 ]})
 
@@ -495,7 +495,7 @@ T.append({'id': '天相巳亥.財帛', 'stars': ['天相'], 'branch': ['巳', '�
    '巳亥天相见禄马交驰，主常得外地提供之生财机会。', '主常得外地提供之生财机会'),
  R('財帛.天相巳亥.武吉', {'all': [{'hua': ['權', '科'], 'star': '武曲', 'at': 'opp'}, {'any': [FUZUO, KUIYUE]}]},
    '對宮武曲化權或化科，又有〔吉星〕，財源較穩定，終有積蓄。',
-   'With Wu Qu in Authority or Merit opposite and helper stars present, income is steadier and you end up with savings.',
+   'With Wu Qu in Authority or Merit opposite and 〔helper stars〕 present, income is steadier and you end up with savings.',
    '巳亥天相见武曲化权、化科，又有吉曜同拱，则财源较为稳定，且主终有积蓄。', '且主终有积蓄'),
 ]})
 T.append({'id': '天相.財帛', 'stars': ['天相'], 'rules': [
@@ -549,7 +549,7 @@ T.append({'id': '天梁.財帛', 'stars': ['天梁'], 'rules': [
 T.append({'id': '七殺子午.財帛', 'stars': ['七殺'], 'branch': ['子', '午'], 'rules': [
  R('財帛.七殺子午.意外', {'any': [{'hua': ['祿', '權', '科'], 'at': 'sifang'}, {'star': '祿存', 'at': 'sifang'}]},
    '見〔吉化〕或祿存，你常得意外之財，而且來路正當。',
-   'With good transformations or Lu Cun, unexpected money often comes your way, and from honest sources.',
+   'With 〔good transformations〕 or Lu Cun, unexpected money often comes your way, and from honest sources.',
    '子午宫七杀独坐，对宫『武曲天府』，见吉化或禄存者，常得意外财。唯此意外财并非由非法途径得来。', '常得意外财'),
 ]})
 T.append({'id': '七殺寅申.財帛', 'stars': ['七殺'], 'branch': ['寅', '申'], 'rules': [
@@ -565,7 +565,7 @@ T.append({'id': '七殺寅申.財帛', 'stars': ['七殺'], 'branch': ['寅', '�
 T.append({'id': '七殺辰戌.財帛', 'stars': ['七殺'], 'branch': ['辰', '戌'], 'rules': [
  R('財帛.七殺辰戌.吉', {'any': [{'hua': ['祿', '權', '科'], 'at': 'sifang'}, FUZUO, KUIYUE]},
    '見〔吉化吉星〕，你會富裕，但不宜投機賭博。',
-   'With good transformations or helper stars, you prosper, but gambling and speculation are not for you.',
+   'With 〔good transformations or helper stars〕, you prosper, but gambling and speculation are not for you.',
    '辰戌七杀独坐，对宫为[廉贞天府]，若见吉化吉曜，亦主富裕。', '若见吉化吉曜，亦主富裕'),
 ]})
 T.append({'id': '七殺.財帛', 'stars': ['七殺'], 'rules': [

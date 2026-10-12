@@ -59,6 +59,15 @@ const sentencesZh = (t: string) => (t.match(/[^。！？]*[。！？]|[^。！�
 const sentencesEn = (t: string) => (t.match(/[^.!?]+[.!?]+/g) ?? [t]).map((s) => s.trim()).filter(Boolean);
 
 /** `re`：模板句（有〔〕泛稱，branch.ts `fillSlots` 填咗盤上嘅星）用比對式對 */
+/** 英文模板句（〔〕填咗星名）：〔〕換成任意字；比對前已經細楷、去句尾標點 */
+function enSlotPattern(t: string): RegExp {
+  const esc = (x: string) => x.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  /* 填完「Lu and Zuo Fu and You Bi」會改成「Lu, Zuo Fu and You Bi」（en/render.ts fillEn）：〔〕前面嘅 and 兩款都收 */
+  const parts = t.toLowerCase().replace(/[.;:,]$/, '').split(/〔[^〕]+〕/);
+  const body = parts.map((p, i) => (i < parts.length - 1 && p.endsWith(' and ') ? `${esc(p.slice(0, -5))}(?: and |, )` : esc(p))).join('.+?');
+  return new RegExp(body);
+}
+
 export type CiteKey = { key: string; ids: string[]; re?: RegExp };
 
 function build(): { zh: CiteKey[]; en: CiteKey[] } {
@@ -68,7 +77,7 @@ function build(): { zh: CiteKey[]; en: CiteKey[] } {
     for (const r of t.rules) {
       const ids = [r.source.passage, ...(r.also ?? []).map((a) => a.passage)];
       for (const s of sentencesZh(r.text)) zh.push(s.includes('〔') ? { key: s, ids, re: slotPattern(s.replace(/。$/, ''), false) } : { key: s, ids });
-      for (const s of sentencesEn(r.en)) en.push({ key: s, ids });
+      for (const s of sentencesEn(r.en)) en.push(s.includes('〔') ? { key: s, ids, re: enSlotPattern(s) } : { key: s, ids });
       if (r.tail) zh.push({ key: r.tail, ids });
       if (r.tailEn) en.push({ key: r.tailEn, ids });
     }

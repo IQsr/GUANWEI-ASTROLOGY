@@ -78,7 +78,10 @@ ingest 停喺邊條，就改返嗰條嘅摘錄。
   - 只係標條件（`when`）真係有檢查嗰類星嘅泛稱 —— 條件冇查嗰類星就永遠填唔到，照出泛稱。冇 `when` 嘅規則唔准標。
   - 唔好標否定、讓步、假設同講將來行運嘅（「無煞」「即使見吉」「只要見吉化」「行到⋯又見吉化的那幾步」）：
     嗰啲星唔係而家盤上成立嘅條件。
-  - 英文照寫泛稱（"with good signs"），翻譯同出處由 `slotPattern()` 對返模板句。
+  - 英文都要標，數目同中文一樣、次序一樣：「Zi Wei meets 〔harsh stars or Hindrance〕」。英文會填同一批星
+    （`en/render.ts` `fillEn()`）：「Zi Wei meets Qing Yang and Zi Wei in Hindrance」；主星自己嘅四化寫「its own Abundance」。
+    〔〕前後嘅英文要填咗星名都讀得通（「well transformed」緊跟星名就唔得，改「with 〔good transformations〕」）。
+    填唔到就照出〔〕入面嘅泛稱。
 - **題目次序 = 輸出次序**：組合／地支題目擺前，單星通則其次，`stars: []` 嘅唔限主星通則擺最尾，主星規則少過兩條先補上。
 - **index 前綴**：`src/branch/index.ts` 用變數名前綴分辨來源（`x` 星系、`f c g q d t m b j z` 各宮）。加新宮要揀未用過嘅字母，
   `x` 已經用咗。
