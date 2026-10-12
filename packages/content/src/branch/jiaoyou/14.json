@@ -1,0 +1,75 @@
+{
+  "$note": "僕役宮（2026-10-12）：太陽太陰.僕役。《深造講義》下篇 宮垣論 僕役宮 p.516–530。官非、盜竊、色禍、受出賣、乘人之危一類斷語不用；天姚、陰煞、天巫、天刑等引擎冇嘅星不用；要分廟陷嘅條文暫不用。原書交友宮主下屬、晚輩，兼論朋友。",
+  "topic": {
+    "id": "太陽太陰.僕役",
+    "palace": "僕役",
+    "stars": [
+      "太陽",
+      "太陰"
+    ]
+  },
+  "rules": [
+    {
+      "id": "僕役.陰陽.輔佐",
+      "role": "refine",
+      "when": {
+        "all": [
+          {
+            "any": [
+              {
+                "star": [
+                  "左輔",
+                  "右弼",
+                  "文昌",
+                  "文曲"
+                ],
+                "at": "same"
+              },
+              {
+                "jia": [
+                  "左輔",
+                  "右弼"
+                ]
+              },
+              {
+                "jia": [
+                  "文昌",
+                  "文曲"
+                ]
+              }
+            ]
+          },
+          {
+            "not": {
+              "star": [
+                "擎羊",
+                "陀羅",
+                "火星",
+                "鈴星",
+                "地空",
+                "地劫"
+              ],
+              "at": "same"
+            }
+          }
+        ]
+      },
+      "text": "太陽太陰見左輔右弼或文昌文曲，不但交遊廣闊，下屬也眾多。",
+      "en": "Tai Yang with Tai Yin and Zuo Fu, You Bi, Wen Chang or Wen Qu: a wide circle and plenty of staff.",
+      "source": {
+        "passage": "deep.僕役.太陽.5",
+        "quote": "不特交游广阔，且主下属众多"
+      }
+    },
+    {
+      "id": "僕役.陰陽.本",
+      "role": "base",
+      "text": "太陽太陰同在僕役宮，交遊廣闊。",
+      "en": "With Tai Yang and Tai Yin together in your Friends Palace, your circle is wide.",
+      "source": {
+        "passage": "deep.僕役.太陽.6",
+        "quote": "仍主交游广阔"
+      }
+    }
+  ]
+}

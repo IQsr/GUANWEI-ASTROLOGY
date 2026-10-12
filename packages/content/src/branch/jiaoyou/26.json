@@ -1,0 +1,60 @@
+{
+  "$note": "僕役宮（2026-10-12）：貪狼.僕役。《深造講義》下篇 宮垣論 僕役宮 p.516–530。官非、盜竊、色禍、受出賣、乘人之危一類斷語不用；天姚、陰煞、天巫、天刑等引擎冇嘅星不用；要分廟陷嘅條文暫不用。原書交友宮主下屬、晚輩，兼論朋友。",
+  "topic": {
+    "id": "貪狼.僕役",
+    "palace": "僕役",
+    "stars": [
+      "貪狼"
+    ]
+  },
+  "rules": [
+    {
+      "id": "僕役.貪狼.對星",
+      "role": "refine",
+      "when": {
+        "any": [
+          {
+            "all": [
+              {
+                "star": "左輔",
+                "at": "sifang"
+              },
+              {
+                "star": "右弼",
+                "at": "sifang"
+              }
+            ]
+          },
+          {
+            "all": [
+              {
+                "star": "天魁",
+                "at": "sifang"
+              },
+              {
+                "star": "天鉞",
+                "at": "sifang"
+              }
+            ]
+          }
+        ]
+      },
+      "text": "貪狼見成對的輔佐星，朋友和下屬眾多。",
+      "en": "Tan Lang with helper stars in matched pairs: many friends and staff.",
+      "source": {
+        "passage": "deep.僕役.貪狼.1",
+        "quote": "主友人及下属众多"
+      }
+    },
+    {
+      "id": "僕役.貪狼.本",
+      "role": "base",
+      "text": "貪狼主應酬，在僕役宮多場面上的朋友。",
+      "en": "Tan Lang is about socialising: in your Friends Palace it brings many acquaintances for show.",
+      "source": {
+        "passage": "deep.僕役.貪狼.2",
+        "quote": "基本性质已多场面上的朋友"
+      }
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "$note": "僕役宮（2026-10-12）：天機太陰.僕役。《深造講義》下篇 宮垣論 僕役宮 p.516–530。官非、盜竊、色禍、受出賣、乘人之危一類斷語不用；天姚、陰煞、天巫、天刑等引擎冇嘅星不用；要分廟陷嘅條文暫不用。原書交友宮主下屬、晚輩，兼論朋友。",
+  "topic": {
+    "id": "天機太陰.僕役",
+    "palace": "僕役",
+    "stars": [
+      "天機",
+      "太陰"
+    ]
+  },
+  "rules": [
+    {
+      "id": "僕役.機陰.本",
+      "role": "base",
+      "text": "天機太陰在僕役宮，朋友和下屬的關係不穩定。",
+      "en": "With Tian Ji and Tai Yin in your Friends Palace, relations with friends and staff are unsettled.",
+      "source": {
+        "passage": "deep.僕役.天機.3",
+        "quote": "均主关系不稳定"
+      }
+    },
+    {
+      "id": "僕役.機陰.陰祿",
+      "role": "refine",
+      "when": {
+        "all": [
+          {
+            "hua": "祿",
+            "star": "太陰",
+            "at": "same"
+          },
+          {
+            "any": [
+              {
+                "hua": [
+                  "祿",
+                  "權",
+                  "科"
+                ],
+                "at": "same"
+              },
+              {
+                "star": [
+                  "左輔",
+                  "右弼"
+                ],
+                "at": "sifang"
+              },
+              {
+                "star": [
+                  "天魁",
+                  "天鉞"
+                ],
+                "at": "sifang"
+              }
+            ]
+          }
+        ]
+      },
+      "text": "太陰化祿又見吉，會因朋友或下屬得財。",
+      "en": "Tai Yin in Abundance with good signs: friends or staff bring you money.",
+      "source": {
+        "passage": "deep.僕役.天機.4",
+        "quote": "主因友或下属得财"
+      }
+    }
+  ]
+}

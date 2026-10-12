@@ -1,0 +1,30 @@
+{
+  "$note": "僕役宮（2026-10-12）：紫微貪狼.僕役。《深造講義》下篇 宮垣論 僕役宮 p.516–530。官非、盜竊、色禍、受出賣、乘人之危一類斷語不用；天姚、陰煞、天巫、天刑等引擎冇嘅星不用；要分廟陷嘅條文暫不用。原書交友宮主下屬、晚輩，兼論朋友。",
+  "topic": {
+    "id": "紫微貪狼.僕役",
+    "palace": "僕役",
+    "stars": [
+      "紫微",
+      "貪狼"
+    ]
+  },
+  "rules": [
+    {
+      "id": "僕役.紫貪.火鈴",
+      "role": "limit",
+      "when": {
+        "star": [
+          "火星",
+          "鈴星"
+        ],
+        "at": "same"
+      },
+      "text": "同宮有火星或鈴星，僱傭或合作關係不能持久。",
+      "en": "With Huo Xing or Ling Xing in the palace, working or partnership arrangements do not last.",
+      "source": {
+        "passage": "deep.僕役.紫微.4",
+        "quote": "雇佣关系或合作关系不能持久"
+      }
+    }
+  ]
+}

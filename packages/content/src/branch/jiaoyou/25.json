@@ -1,0 +1,27 @@
+{
+  "$note": "僕役宮（2026-10-12）：天府.僕役。《深造講義》下篇 宮垣論 僕役宮 p.516–530。官非、盜竊、色禍、受出賣、乘人之危一類斷語不用；天姚、陰煞、天巫、天刑等引擎冇嘅星不用；要分廟陷嘅條文暫不用。原書交友宮主下屬、晚輩，兼論朋友。",
+  "topic": {
+    "id": "天府.僕役",
+    "palace": "僕役",
+    "stars": [
+      "天府"
+    ]
+  },
+  "rules": [
+    {
+      "id": "僕役.天府.科",
+      "role": "refine",
+      "when": {
+        "hua": "科",
+        "star": "天府",
+        "at": "same"
+      },
+      "text": "天府化科，朋友和下屬都忠厚誠信。",
+      "en": "Tian Fu in Merit: friends and staff alike are honest and trustworthy.",
+      "source": {
+        "passage": "deep.僕役.天府.1",
+        "quote": "则友人及下属皆忠厚诚信"
+      }
+    }
+  ]
+}

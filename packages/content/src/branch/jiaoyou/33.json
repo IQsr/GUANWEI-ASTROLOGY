@@ -1,0 +1,24 @@
+{
+  "$note": "僕役宮（2026-10-12）：僕役通則。《深造講義》下篇 宮垣論 僕役宮 p.516–530。官非、盜竊、色禍、受出賣、乘人之危一類斷語不用；天姚、陰煞、天巫、天刑等引擎冇嘅星不用；要分廟陷嘅條文暫不用。原書交友宮主下屬、晚輩，兼論朋友。",
+  "topic": {
+    "id": "僕役通則",
+    "palace": "僕役",
+    "stars": []
+  },
+  "rules": [
+    {
+      "id": "僕役.通則.祿存",
+      "role": "refine",
+      "when": {
+        "star": "祿存",
+        "at": "same"
+      },
+      "text": "僕役宮有祿存，羊陀必照命宮，一般主你為人奔波。",
+      "en": "Lu Cun in the Friends Palace means Qing Yang and Tuo Luo fall on your Life Palace: you generally run about for others.",
+      "source": {
+        "passage": "deep.僕役.通則.1",
+        "quote": "故一般而言，主人奔波"
+      }
+    }
+  ]
+}

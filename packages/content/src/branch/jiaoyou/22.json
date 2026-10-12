@@ -1,0 +1,60 @@
+{
+  "$note": "僕役宮（2026-10-12）：天同.僕役。《深造講義》下篇 宮垣論 僕役宮 p.516–530。官非、盜竊、色禍、受出賣、乘人之危一類斷語不用；天姚、陰煞、天巫、天刑等引擎冇嘅星不用；要分廟陷嘅條文暫不用。原書交友宮主下屬、晚輩，兼論朋友。",
+  "topic": {
+    "id": "天同.僕役",
+    "palace": "僕役",
+    "stars": [
+      "天同"
+    ]
+  },
+  "rules": [
+    {
+      "id": "僕役.天同.祿",
+      "role": "refine",
+      "when": {
+        "hua": "祿",
+        "star": "天同",
+        "at": "same"
+      },
+      "text": "天同化祿，交到有益的朋友。",
+      "en": "Tian Tong in Abundance: you make good friends.",
+      "source": {
+        "passage": "deep.僕役.天同.3",
+        "quote": "天同化禄，交游得益友"
+      }
+    },
+    {
+      "id": "僕役.天同.羊陀",
+      "role": "refine",
+      "when": {
+        "star": [
+          "擎羊",
+          "陀羅"
+        ],
+        "at": "same"
+      },
+      "text": "同宮有擎羊或陀羅，中年以後得益友，助力不少。",
+      "en": "With Qing Yang or Tuo Luo in the palace, good friends come after midlife, and help a lot.",
+      "source": {
+        "passage": "deep.僕役.天同.4",
+        "quote": "中年以后得益友，助力不少"
+      }
+    },
+    {
+      "id": "僕役.天同.本",
+      "role": "base",
+      "when": {
+        "not": {
+          "star": "巨門",
+          "at": "same"
+        }
+      },
+      "text": "天同在僕役宮，隨和重情，容易結交朋友，與下屬的關係也好。",
+      "en": "With Tian Tong in your Friends Palace, you are easy-going and warm, make friends readily, and get on well with staff.",
+      "source": {
+        "passage": "deep.僕役.天同.5",
+        "quote": "故易结交朋友，与下属关系亦佳"
+      }
+    }
+  ]
+}

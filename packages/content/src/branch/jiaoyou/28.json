@@ -1,0 +1,55 @@
+{
+  "$note": "僕役宮（2026-10-12）：天相.僕役。《深造講義》下篇 宮垣論 僕役宮 p.516–530。官非、盜竊、色禍、受出賣、乘人之危一類斷語不用；天姚、陰煞、天巫、天刑等引擎冇嘅星不用；要分廟陷嘅條文暫不用。原書交友宮主下屬、晚輩，兼論朋友。",
+  "topic": {
+    "id": "天相.僕役",
+    "palace": "僕役",
+    "stars": [
+      "天相"
+    ]
+  },
+  "rules": [
+    {
+      "id": "僕役.天相.調和",
+      "role": "refine",
+      "when": {
+        "any": [
+          {
+            "star": [
+              "左輔",
+              "右弼"
+            ],
+            "at": "sifang"
+          },
+          {
+            "any": [
+              {
+                "hua": "祿",
+                "at": "sifang"
+              },
+              {
+                "star": "祿存",
+                "at": "sifang"
+              }
+            ]
+          }
+        ]
+      },
+      "text": "天相見左輔右弼或見祿，關係得以調和。",
+      "en": "Tian Xiang with Zuo Fu, You Bi or Lu: these relationships find their balance.",
+      "source": {
+        "passage": "deep.僕役.天相.1",
+        "quote": "必须见左辅、右弼，或见禄"
+      }
+    },
+    {
+      "id": "僕役.天相.本",
+      "role": "base",
+      "text": "天相在僕役宮必對破軍，關係本質上有反覆。",
+      "en": "Tian Xiang in your Friends Palace always faces Po Jun, so relationships tend to swing back and forth.",
+      "source": {
+        "passage": "deep.僕役.天相.2",
+        "quote": "故本质上已有反复的性质"
+      }
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "$note": "僕役宮（2026-10-12）：巨門.僕役。《深造講義》下篇 宮垣論 僕役宮 p.516–530。官非、盜竊、色禍、受出賣、乘人之危一類斷語不用；天姚、陰煞、天巫、天刑等引擎冇嘅星不用；要分廟陷嘅條文暫不用。原書交友宮主下屬、晚輩，兼論朋友。",
+  "topic": {
+    "id": "巨門.僕役",
+    "palace": "僕役",
+    "stars": [
+      "巨門"
+    ]
+  },
+  "rules": [
+    {
+      "id": "僕役.巨門.吉",
+      "role": "refine",
+      "when": {
+        "all": [
+          {
+            "any": [
+              {
+                "hua": "祿",
+                "star": "巨門",
+                "at": "same"
+              },
+              {
+                "hua": "權",
+                "star": "巨門",
+                "at": "same"
+              },
+              {
+                "star": "祿存",
+                "at": "same"
+              }
+            ]
+          },
+          {
+            "any": [
+              {
+                "star": [
+                  "左輔",
+                  "右弼"
+                ],
+                "at": "sifang"
+              },
+              {
+                "star": [
+                  "天魁",
+                  "天鉞"
+                ],
+                "at": "sifang"
+              }
+            ]
+          }
+        ]
+      },
+      "text": "巨門化祿化權或有祿存，又見輔佐吉星，可得能言善辯的朋友或下屬，助你創業；彼此多討論辯論，事業由此而興。",
+      "en": "Ju Men in Abundance or Authority, or with Lu Cun, plus helper stars: articulate friends or staff help you build a business, and your discussions together drive it forward.",
+      "source": {
+        "passage": "deep.僕役.巨門.1",
+        "quote": "可助自己创业"
+      }
+    },
+    {
+      "id": "僕役.巨門.本",
+      "role": "base",
+      "text": "巨門在僕役宮，吉則口才好、能言善辯，凶則多口舌爭吵。",
+      "en": "With Ju Men in your Friends Palace, at best it means eloquence, at worst, quarrels.",
+      "source": {
+        "passage": "deep.僕役.巨門.2",
+        "quote": "吉则主舌辩、口才"
+      }
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "$note": "僕役宮（2026-10-12）：紫微天府.僕役。《深造講義》下篇 宮垣論 僕役宮 p.516–530。官非、盜竊、色禍、受出賣、乘人之危一類斷語不用；天姚、陰煞、天巫、天刑等引擎冇嘅星不用；要分廟陷嘅條文暫不用。原書交友宮主下屬、晚輩，兼論朋友。",
+  "topic": {
+    "id": "紫微天府.僕役",
+    "palace": "僕役",
+    "stars": [
+      "紫微",
+      "天府"
+    ]
+  },
+  "rules": [
+    {
+      "id": "僕役.紫府.本",
+      "role": "base",
+      "text": "紫微天府在僕役宮，朋友誠樸，也肯直言規勸。",
+      "en": "With Zi Wei and Tian Fu in your Friends Palace, your friends are honest and plain-spoken, and will tell you hard truths.",
+      "source": {
+        "passage": "deep.僕役.紫微.3",
+        "quote": "得友诚朴，亦能直谏"
+      }
+    }
+  ]
+}

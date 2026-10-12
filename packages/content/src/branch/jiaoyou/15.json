@@ -1,0 +1,87 @@
+{
+  "$note": "僕役宮（2026-10-12）：太陽.僕役。《深造講義》下篇 宮垣論 僕役宮 p.516–530。官非、盜竊、色禍、受出賣、乘人之危一類斷語不用；天姚、陰煞、天巫、天刑等引擎冇嘅星不用；要分廟陷嘅條文暫不用。原書交友宮主下屬、晚輩，兼論朋友。",
+  "topic": {
+    "id": "太陽.僕役",
+    "palace": "僕役",
+    "stars": [
+      "太陽"
+    ]
+  },
+  "rules": [
+    {
+      "id": "僕役.太陽.朝拱",
+      "role": "refine",
+      "when": {
+        "all": [
+          {
+            "star": [
+              "左輔",
+              "右弼"
+            ],
+            "at": "sifang"
+          },
+          {
+            "star": [
+              "天魁",
+              "天鉞"
+            ],
+            "at": "sifang"
+          }
+        ]
+      },
+      "text": "太陽得眾星拱照，可以結交貴友。",
+      "en": "Tai Yang surrounded by helpers: you make influential friends.",
+      "source": {
+        "passage": "deep.僕役.太陽.7",
+        "quote": "主得交贵友"
+      }
+    },
+    {
+      "id": "僕役.太陽.祿",
+      "role": "refine",
+      "when": {
+        "hua": "祿",
+        "star": "太陽",
+        "at": "same"
+      },
+      "text": "太陽化祿，交遊廣闊。",
+      "en": "Tai Yang in Abundance: your circle is wide.",
+      "source": {
+        "passage": "deep.僕役.太陽.8",
+        "quote": "化禄，主交游广"
+      }
+    },
+    {
+      "id": "僕役.太陽.權",
+      "role": "refine",
+      "when": {
+        "hua": "權",
+        "star": "太陽",
+        "at": "same"
+      },
+      "text": "太陽化權，關係容易穩定。",
+      "en": "Tai Yang in Authority: relationships settle easily.",
+      "source": {
+        "passage": "deep.僕役.太陽.8",
+        "quote": "化权，主关系易稳定"
+      }
+    },
+    {
+      "id": "僕役.太陽.羊陀",
+      "role": "limit",
+      "when": {
+        "star": [
+          "擎羊",
+          "陀羅"
+        ],
+        "at": "same"
+      },
+      "text": "同宮有擎羊或陀羅，朋友之間多是非，或受牽累。",
+      "en": "With Qing Yang or Tuo Luo in the palace, friends bring talk or trouble.",
+      "source": {
+        "passage": "deep.僕役.太陽.9",
+        "quote": "太阳与擎羊同度，增加是非"
+      }
+    }
+  ]
+}

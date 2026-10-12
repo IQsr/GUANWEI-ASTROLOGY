@@ -1,0 +1,64 @@
+{
+  "$note": "僕役宮（2026-10-12）：太陽天梁.僕役。《深造講義》下篇 宮垣論 僕役宮 p.516–530。官非、盜竊、色禍、受出賣、乘人之危一類斷語不用；天姚、陰煞、天巫、天刑等引擎冇嘅星不用；要分廟陷嘅條文暫不用。原書交友宮主下屬、晚輩，兼論朋友。",
+  "topic": {
+    "id": "太陽天梁.僕役",
+    "palace": "僕役",
+    "stars": [
+      "太陽",
+      "天梁"
+    ]
+  },
+  "rules": [
+    {
+      "id": "僕役.陽梁.吉",
+      "role": "refine",
+      "when": {
+        "all": [
+          {
+            "any": [
+              {
+                "hua": "權",
+                "star": "天梁",
+                "at": "same"
+              },
+              {
+                "hua": "科",
+                "star": "天梁",
+                "at": "same"
+              }
+            ]
+          },
+          {
+            "not": {
+              "star": [
+                "擎羊",
+                "陀羅",
+                "火星",
+                "鈴星",
+                "地空",
+                "地劫"
+              ],
+              "at": "same"
+            }
+          }
+        ]
+      },
+      "text": "天梁化權化科而無煞，可以結交令你敬畏的諍友，或有正直敢言的下屬。",
+      "en": "Tian Liang in Authority or Merit with no harsh stars: you make friends who keep you honest, or have upright, outspoken staff.",
+      "source": {
+        "passage": "deep.僕役.太陽.1",
+        "quote": "或正直敢言下属"
+      }
+    },
+    {
+      "id": "僕役.陽梁.孤",
+      "role": "base",
+      "text": "太陽天梁較孤立，要多花心思經營人際關係。",
+      "en": "Tai Yang with Tian Liang tends to stand alone, so put real effort into your relationships.",
+      "source": {
+        "passage": "deep.僕役.太陽.2",
+        "quote": "唯太阳天梁较孤立"
+      }
+    }
+  ]
+}

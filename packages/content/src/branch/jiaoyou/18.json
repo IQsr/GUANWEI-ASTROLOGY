@@ -1,0 +1,28 @@
+{
+  "$note": "僕役宮（2026-10-12）：武曲七殺.僕役。《深造講義》下篇 宮垣論 僕役宮 p.516–530。官非、盜竊、色禍、受出賣、乘人之危一類斷語不用；天姚、陰煞、天巫、天刑等引擎冇嘅星不用；要分廟陷嘅條文暫不用。原書交友宮主下屬、晚輩，兼論朋友。",
+  "topic": {
+    "id": "武曲七殺.僕役",
+    "palace": "僕役",
+    "stars": [
+      "武曲",
+      "七殺"
+    ]
+  },
+  "rules": [
+    {
+      "id": "僕役.武殺.廉祿",
+      "role": "refine",
+      "when": {
+        "hua": "祿",
+        "star": "廉貞",
+        "at": "sifang"
+      },
+      "text": "會廉貞化祿，得到助力，只是不持久。",
+      "en": "Meeting Lian Zhen in Abundance: you get help, though it does not last.",
+      "source": {
+        "passage": "deep.僕役.武曲.4",
+        "quote": "主得助力，唯不持久"
+      }
+    }
+  ]
+}

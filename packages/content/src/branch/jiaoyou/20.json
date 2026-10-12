@@ -1,0 +1,23 @@
+{
+  "$note": "僕役宮（2026-10-12）：天同巨門.僕役。《深造講義》下篇 宮垣論 僕役宮 p.516–530。官非、盜竊、色禍、受出賣、乘人之危一類斷語不用；天姚、陰煞、天巫、天刑等引擎冇嘅星不用；要分廟陷嘅條文暫不用。原書交友宮主下屬、晚輩，兼論朋友。",
+  "topic": {
+    "id": "天同巨門.僕役",
+    "palace": "僕役",
+    "stars": [
+      "天同",
+      "巨門"
+    ]
+  },
+  "rules": [
+    {
+      "id": "僕役.同巨.本",
+      "role": "base",
+      "text": "天同巨門在僕役宮，即使不見煞，也容易生誤會。",
+      "en": "With Tian Tong and Ju Men in your Friends Palace, misunderstandings arise even without harsh stars.",
+      "source": {
+        "passage": "deep.僕役.天同.1",
+        "quote": "即不见煞，亦主易生误会"
+      }
+    }
+  ]
+}
