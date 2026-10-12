@@ -16,8 +16,8 @@
         "star": "天府",
         "at": "same"
       },
-      "text": "天府化科，重信守諾。",
-      "en": "Tian Fu in Merit: you keep your word.",
+      "text": "天府化科，你重信用，答應了的事會做到。",
+      "en": "Tian Fu in Merit: you value trust, and what you promise you deliver.",
       "source": {
         "passage": "deep.福德.天府.1",
         "quote": "天府化科，则重信诺"
@@ -33,7 +33,7 @@
         ],
         "at": "sifang"
       },
-      "text": "見左輔右弼，內心安靜，也有決斷力。",
+      "text": "見左輔右弼，你內心安靜，也有決斷力。",
       "en": "With Zuo Fu or You Bi, your mind is calm and you are decisive.",
       "source": {
         "passage": "deep.福德.天府.2",
@@ -50,8 +50,8 @@
         ],
         "at": "sifang"
       },
-      "text": "見天魁天鉞，泱泱大度。",
-      "en": "With Tian Kui or Tian Yue, you are magnanimous.",
+      "text": "天府會天魁天鉞，你心胸寬大，有泱泱大度。",
+      "en": "Tian Fu meets Tian Kui or Tian Yue: you are broad-minded and magnanimous.",
       "source": {
         "passage": "deep.福德.天府.3",
         "quote": "天府与魁钺同会，泱泱大度"
@@ -64,8 +64,8 @@
         "star": "火星",
         "at": "same"
       },
-      "text": "同宮有火星，常有不必要的思慮。",
-      "en": "With Huo Xing in the palace, you worry about things that do not need it.",
+      "text": "天府與火星同宮，你常有不必要的思慮，為小事費神。",
+      "en": "Tian Fu shares the palace with Huo Xing: you often worry needlessly and spend your mind on small things.",
       "source": {
         "passage": "deep.福德.天府.4",
         "quote": "常多不必要的思虑"
@@ -74,8 +74,8 @@
     {
       "id": "福德.天府.本",
       "role": "base",
-      "text": "天府在福德宮，為人謹慎。",
-      "en": "With Tian Fu in your Wellbeing Palace, you are careful by nature.",
+      "text": "天府在福德宮，你為人謹慎，做事先想清楚。",
+      "en": "With Tian Fu in your Wellbeing Palace, you are careful by nature and think before you act.",
       "source": {
         "passage": "deep.福德.天府.5",
         "quote": "天府在福德宫，主为人谨慎"

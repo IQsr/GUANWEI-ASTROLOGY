@@ -12,8 +12,8 @@
     {
       "id": "福德.武殺.奔忙",
       "role": "base",
-      "text": "武曲七殺在福德宮，主奔忙。",
-      "en": "With Wu Qu and Qi Sha in your Wellbeing Palace, you are always on the go.",
+      "text": "武曲七殺在福德宮，你一生奔忙，閒不下來。",
+      "en": "With Wu Qu and Qi Sha in your Wellbeing Palace, you are always on the go and find it hard to sit still.",
       "source": {
         "passage": "deep.福德.武曲.2",
         "quote": "[武曲七杀]同度者，主奔忙"
@@ -26,7 +26,7 @@
         "star": "天馬",
         "at": "same"
       },
-      "text": "同宮有天馬，宗旨不定，做事反覆進退。",
+      "text": "同宮有天馬，你宗旨不定，做事反覆進退。",
       "en": "With Tian Ma in the palace, your aims shift, and you go back and forth.",
       "source": {
         "passage": "deep.福德.武曲.3",

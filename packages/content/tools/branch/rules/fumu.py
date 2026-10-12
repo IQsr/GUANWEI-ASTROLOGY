@@ -38,8 +38,8 @@ T.append({'id': '紫微.父母', 'stars': ['紫微'], 'rules': [
    'Without helpers around Zi Wei, your parents are opinionated and used to giving orders; the same applies to your bosses, who like to command, so learn to work with that.',
    '然如无百官朝拱，则仅主父母主观，在家庭有暴君倾向，其权威性质在此。故若见煞忌刑曜，则主自己童年不为父母爱护，或父母常主观命令，左右自己的意志。这点性质，亦可以用来推断跟上司的关系。上司习惯命令，须注意如何调和。', '上司习惯命令，须注意如何调和'),
  R('父母.紫微.本', None,
-   '紫微在父母宮，父母有權威。',
-   'With Zi Wei in your Parents Palace, your parents carry authority.',
+   '紫微在父母宮，你的父母有權威，在家說了算。',
+   'With Zi Wei in your Parents Palace, your parents carry authority and have the final say at home.',
    '紫微守父母宫，主父母有权威。', '紫微守父母宫，主父母有权威', 'base'),
 ]})
 
@@ -58,16 +58,16 @@ T.append({'id': '天機巨門.父母', 'stars': ['天機', '巨門'], 'rules': [
 ]})
 T.append({'id': '天機.父母', 'stars': ['天機'], 'rules': [
  R('父母.天機.吉', {'all': [{'hua': ['祿', '權', '科'], 'at': 'sifang'}, {'not': {'star': '太陰', 'at': 'same'}}]},
-   '天機見祿權科會照，與父母的關係穩定。',
+   '天機見祿權科會照，你與父母的關係穩定。',
    'Tian Ji meeting Abundance, Authority or Merit: your bond with your parents is steady.',
    '天机守父母富，基本性质不利父子间的人际关系。见禄权科会，然后始主稳定，否则主两代远离。', '见禄权科会，然后始主稳定'),
  R('父母.天機.忌', H('忌', '天機'),
-   '天機化忌，兩代的關係較差。',
-   'Tian Ji in Hindrance: relations between the generations are strained.',
+   '天機化忌，你和父母之間的關係較差，容易隔膜。',
+   'Tian Ji in Hindrance: relations between you and your parents are strained, and distance creeps in easily.',
    '天机化忌，基本性质为两代人际关系不佳。', '基本性质为两代人际关系不佳', 'limit'),
  R('父母.天機.本', {'all': [{'not': {'hua': ['祿', '權', '科'], 'at': 'sifang'}}, {'not': {'star': '太陰', 'at': 'same'}}]},
-   '天機在父母宮，與父母容易遠離。',
-   'With Tian Ji in your Parents Palace, you tend to live at a distance from your parents.',
+   '天機在父母宮，你和父母容易分隔兩地，聚少離多。',
+   'With Tian Ji in your Parents Palace, you and your parents tend to live apart and see each other little.',
    '天机守父母富，基本性质不利父子间的人际关系。见禄权科会，然后始主稳定，否则主两代远离。', '否则主两代远离', 'base'),
 ]})
 
@@ -78,11 +78,11 @@ T.append({'id': '太陽太陰.父母', 'stars': ['太陽', '太陰'], 'rules': [
    'With Tai Yang and Tai Yin together in your Parents Palace, your parents usually get on well, and so do you with them.',
    '[太阳太阴]同度者，一般情形下主父母和美，与自身关系亦良好。', '一般情形下主父母和美，与自身关系亦良好', 'base'),
  R('父母.陰陽.陰祿', H('祿', '太陰'),
-   '太陰化祿，幼年受父母寵愛。',
-   'Tai Yin in Abundance: your parents dote on you as a child.',
+   '太陰化祿，你小時候很得父母寵愛，被照顧得周到。',
+   'Tai Yin in Abundance: your parents doted on you as a child, and you were well looked after.',
    '若太阴化禄，则主幼年受父母溺爱；', '则主幼年受父母溺爱'),
  R('父母.陰陽.陽祿', H('祿', '太陽'),
-   '太陽化祿，得父母助力，或得父母的親友提攜。',
+   '太陽化祿，你得父母助力，或得父母的親友提攜。',
    'Tai Yang in Abundance: your parents help you, or their friends and relatives give you a leg up.',
    '太阳化禄，则受父母助力，或得父母之戚友提携；', '则受父母助力，或得父母之戚友提携'),
 ]})
@@ -96,18 +96,18 @@ T.append({'id': '太陽巨門.父母', 'stars': ['太陽', '巨門'], 'rules': [
    'Tai Yang with Ju Men in Hindrance: you clash with bosses easily, so freelance work suits you better.',
    '[太阳巨门]化忌，则主与上司不和，因此以自由职业为佳。', '因此以自由职业为佳', 'limit'),
  R('父母.陽巨.離鄉', None,
-   '太陽巨門在父母宮，父親曾經離鄉安家。',
+   '太陽巨門在父母宮，你的父親曾經離鄉安家。',
    'With Tai Yang and Ju Men in your Parents Palace, your father once left home to settle elsewhere.',
    '太阳巨门在父母宫，主父亲曾离乡安家。', '主父亲曾离乡安家', 'base'),
 ]})
 T.append({'id': '太陽天梁.父母', 'stars': ['太陽', '天梁'], 'rules': [
  R('父母.陽梁.權', H('權', '太陽'),
-   '太陽化權最吉：受父母蔭庇，也多助力。',
+   '太陽化權最吉：你受父母蔭庇，也多助力。',
    'Tai Yang in Authority is best: your parents shelter you and help you a great deal.',
    '[太阳天梁]以太阳化权为最吉，不但可受父母荫庇，且多助力：', '[太阳天梁]以太阳化权为最吉'),
  R('父母.陽梁.吉', {'hua': ['祿', '科'], 'star': '太陽', 'at': 'same'},
-   '太陽吉化，得父母蔭庇之力很大。',
-   'Tai Yang well transformed: your parents’ protection counts for a great deal.',
+   '太陽吉化，你得到父母的庇蔭很大，受益良多。',
+   'Tai Yang has a favourable transformation: your parents’ protection does a great deal for you.',
    '太阳天梁守父母宫，若太阳吉化，则得父母荫庇之力甚大。', '则得父母荫庇之力甚大'),
  R('父母.陽梁.主觀', {'not': GOOD},
    '太陽天梁不見吉星，父母較主觀；與上司也容易有成見。',
@@ -130,19 +130,19 @@ T.append({'id': '天同辰戌.父母', 'stars': ['天同'], 'branch': ['辰', '�
 ]})
 T.append({'id': '天同.父母', 'stars': ['天同'], 'rules': [
  R('父母.天同.羊', {'star': '擎羊', 'at': 'same'},
-   '同宮有擎羊，容易受上司壓力，以致不和。',
+   '同宮有擎羊，你容易受上司壓力，以致不和。',
    'With Qing Yang in the palace, bosses put pressure on you and friction follows.',
    '天同与擎羊同度，则主受上司压力，以致不和。', '则主受上司压力，以致不和', 'limit'),
  R('父母.天同.火鈴', FIRE,
-   '同宮有火星或鈴星，常常換上司。',
-   'With Huo Xing or Ling Xing in the palace, your bosses change often.',
+   '天同與火星或鈴星同宮，你工作上常常換上司。',
+   'Tian Tong shares the palace with Huo Xing or Ling Xing: your bosses change often.',
    '火铃同度，时时变换上司。', '火铃同度，时时变换上司', 'limit'),
  R('父母.天同.祿梁', {'all': [H('祿', '天同'), {'star': '天梁', 'at': ['same', 'opp']}]},
-   '天同化祿，又與天梁同宮或相對，受父母蔭庇。',
+   '天同化祿，又與天梁同宮或相對，你受父母蔭庇。',
    'Tian Tong in Abundance, beside or facing Tian Liang: your parents shelter you.',
    '天同化禄，唯与天梁同度或对拱者，始主受父母荫庇，', '始主受父母荫庇'),
  R('父母.天同.對星', PAIR,
-   '見齊成對的輔佐星，兩代關係吉利。',
+   '見齊成對的輔佐星，你和父母兩代關係吉利。',
    'With helper stars in matched pairs, relations between the generations go well.',
    '天同与左辅右弼，或天魁天钺同会，以见齐对星始吉，', '以见齐对星始吉'),
 ]})
@@ -156,11 +156,11 @@ T.append({'id': '廉貞天府.父母', 'stars': ['廉貞', '天府'], 'rules': [
 ]})
 T.append({'id': '廉貞.父母', 'stars': ['廉貞'], 'rules': [
  R('父母.廉貞.祿', H('祿', '廉貞'),
-   '廉貞化祿，一般與父母感情融洽。',
+   '廉貞化祿，你和父母一般感情融洽，相處和睦。',
    'Lian Zhen in Abundance: you generally get on warmly with your parents.',
    '廉贞化禄，一般主不刑克，或感情融洽。', '或感情融洽'),
  R('父母.廉貞.忌', H('忌', '廉貞'),
-   '廉貞化忌，與父母的感情較難融洽。',
+   '廉貞化忌，你與父母的感情較難融洽。',
    'Lian Zhen in Hindrance: warmth with your parents does not come easily.',
    '廉贞化忌，一般主不利父母，或刑克、或生离、或感情不融洽。', '或感情不融洽', 'limit'),
 ]})
@@ -168,27 +168,27 @@ T.append({'id': '廉貞.父母', 'stars': ['廉貞'], 'rules': [
 # ── 天府 ──
 T.append({'id': '天府.父母', 'stars': ['天府'], 'rules': [
  R('父母.天府.武祿', H('祿', '武曲', ['same', 'opp']),
-   '會武曲化祿，父母的財蔭頗厚。',
-   'Meeting Wu Qu in Abundance, your parents’ financial support is generous.',
+   '天府會武曲化祿，你從父母那裡得到的財力支持頗厚。',
+   'Tian Fu meets Wu Qu in Abundance: the financial support you get from your parents is generous.',
    '天府与化禄同度或对拱，以武曲化禄最宜，则父母财荫颇厚。', '则父母财荫颇厚'),
  R('父母.天府.羊', {'star': '擎羊', 'at': 'same'},
-   '同宮有擎羊，兩代不和。',
-   'With Qing Yang in the palace, the generations do not get on.',
+   '天府與擎羊同宮，你和父母兩代不和，常有摩擦。',
+   'Tian Fu shares the palace with Qing Yang: you and your parents do not get on, and friction is common.',
    '天府与擎羊同度，主两代不和。', '主两代不和', 'limit'),
  R('父母.天府.祿存', {'star': '祿存', 'at': 'same'},
-   '同宮有祿存，父母喜歡獨掌財權。',
-   'With Lu Cun in the palace, your parents like to keep the purse strings to themselves.',
+   '天府與祿存同宮，你的父母喜歡獨自掌管家中財權。',
+   'Tian Fu shares the palace with Lu Cun: your parents like to keep control of the household money to themselves.',
    '天府禄存同度，见煞，主父子参商。又主父母喜独掌财权。', '又主父母喜独掌财权'),
 ]})
 
 # ── 太陰 ──
 T.append({'id': '太陰.父母', 'stars': ['太陰'], 'rules': [
  R('父母.太陰.羊', {'star': '擎羊', 'at': 'same'},
-   '太陰與擎羊同宮，和母親的緣份較淺。',
+   '太陰與擎羊同宮，你和母親的緣份較淺。',
    'Tai Yin with Qing Yang: your bond with your mother is thinner.',
    '太阴擎羊同度，主与母亲缘份浅，', '主与母亲缘份浅', 'limit'),
  R('父母.太陰.陀', {'star': '陀羅', 'at': 'same'},
-   '太陰與陀羅同宮，與母親各有成見，不易融洽。',
+   '太陰與陀羅同宮，你與母親各有成見，不易融洽。',
    'Tai Yin with Tuo Luo: you and your mother each hold your own views, and harmony is hard.',
    '太阴陀罗同度，主与母亲不和，各怀成见，', '各怀成见', 'limit'),
 ]})
@@ -196,15 +196,15 @@ T.append({'id': '太陰.父母', 'stars': ['太陰'], 'rules': [
 # ── 貪狼 ──
 T.append({'id': '貪狼.父母', 'stars': ['貪狼'], 'rules': [
  R('父母.貪狼.忌', H('忌', '貪狼'),
-   '貪狼化忌，早年就離開父母。',
-   'Tan Lang in Hindrance: you leave your parents early.',
+   '貪狼化忌，你早年就離開父母，自己生活。',
+   'Tan Lang in Hindrance: you leave your parents early and live on your own.',
    '贪狼化忌，主早年离开父母，', '主早年离开父母', 'limit'),
 ]})
 
 # ── 巨門 ──
 T.append({'id': '巨門.父母', 'stars': ['巨門'], 'rules': [
  R('父母.巨門.陽', {'all': [{'star': '太陽', 'at': ['same', 'opp']}, {'not': {'hua': ['祿', '權', '科'], 'star': ['太陽', '巨門'], 'at': ['same', 'opp']}}]},
-   '巨門與太陽同宮或相對，一般主兩代不和。',
+   '巨門與太陽同宮或相對，你和父母一般兩代不和。',
    'With Ju Men beside or facing Tai Yang, the generations generally do not get on.',
    '巨门太阳的结构，一般情形下主父子不和。若见吉化，则主父母离乡别井。', '一般情形下主父子不和', 'limit'),
  R('父母.巨門.機', {'all': [{'star': '天機', 'at': ['same', 'opp']}, {'not': SHA}]},
@@ -216,51 +216,51 @@ T.append({'id': '巨門.父母', 'stars': ['巨門'], 'rules': [
 # ── 天相 ──
 T.append({'id': '天相.父母', 'stars': ['天相'], 'rules': [
  R('父母.天相.火鈴夾', {'jia': ['火星', '鈴星']},
-   '火星鈴星相夾，與父母遠離。',
-   'Flanked by Huo Xing and Ling Xing, you live far from your parents.',
+   '天相被火星鈴星相夾，你和父母住得遠，見面少。',
+   'Tian Xiang is flanked by Huo Xing and Ling Xing: you live far from your parents and see them little.',
    '天相为火铃夹，主远离父母，见天马尤确。', '主远离父母'),
 ]})
 
 # ── 天梁 ──
 T.append({'id': '天梁.父母', 'stars': ['天梁'], 'rules': [
  R('父母.天梁.吉', {'all': [GOOD, {'not': SHA}]},
-   '天梁見吉而無煞，必得父母福蔭。',
-   'Tian Liang with good signs and no harsh stars: your parents’ blessings are sure to reach you.',
+   '天梁見吉而無煞，你必定得到父母的福蔭。',
+   'Tian Liang meets good signs and no harsh stars: your parents’ blessings are sure to reach you.',
    '倘入庙无煞，而有吉曜吉化会合，则主必得父母福荫。', '则主必得父母福荫'),
  R('父母.天梁.同', {'all': [{'star': '天同', 'at': ['same', 'opp']}, {'not': H('忌', '天同', ['same', 'opp'])}]},
-   '天梁與天同同宮或相對，是天梁喜歡的配搭。',
-   'Tian Liang beside or facing Tian Tong is a pairing it welcomes.',
+   '天梁與天同同宮或相對，是天梁喜歡的配搭，對你和父母的關係有利。',
+   'Tian Liang beside or facing Tian Tong is a pairing it welcomes, and it favours your bond with your parents.',
    '天梁喜见天同同度或对拱，唯天同化忌或与四煞空劫刑伤同会者，则主两代意见参商。', '天梁喜见天同同度或对拱'),
  R('父母.天梁.同忌', H('忌', '天同', ['same', 'opp']),
-   '天同化忌，兩代意見不合。',
-   'With Tian Tong in Hindrance, the generations disagree.',
+   '天同化忌，你和父母兩代之間意見不合，各有堅持。',
+   'Tian Tong in Hindrance: you and your parents disagree, each holding to their own view.',
    '天梁喜见天同同度或对拱，唯天同化忌或与四煞空劫刑伤同会者，则主两代意见参商。', '则主两代意见参商', 'limit'),
  R('父母.天梁.馬羊', {'all': [{'star': '天馬', 'at': 'same'}, {'star': '擎羊', 'at': 'same'}]},
-   '同宮有天馬和擎羊，主離家。',
-   'With Tian Ma and Qing Yang in the palace, you leave home.',
+   '天梁與天馬、擎羊同宮，你會離家生活。',
+   'Tian Liang shares the palace with Tian Ma and Qing Yang: you leave home to live elsewhere.',
    '天梁与天马、擎羊同度，主离家。', '天梁与天马、擎羊同度，主离家', 'limit'),
 ]})
 
 # ── 七殺 ──
 T.append({'id': '七殺.父母', 'stars': ['七殺'], 'rules': [
  R('父母.七殺.紫權', H('權', '紫微', ['same', 'opp']),
-   '會紫微化權，父母成見很深。',
-   'Meeting Zi Wei in Authority, your parents hold very fixed views.',
+   '七殺會紫微化權，你的父母成見很深，不易被說服。',
+   'Qi Sha meets Zi Wei in Authority: your parents hold very fixed views and are hard to persuade.',
    '七杀会紫微化权，父母成见极深。', '七杀会紫微化权，父母成见极深', 'limit'),
  R('父母.七殺.紫科', {'all': [H('科', '紫微', ['same', 'opp']), GOOD]},
    '會紫微化科又見吉，父母有聲譽，只是兩代關係未必相諧。',
    'Meeting Zi Wei in Merit with helpful stars, your parents are well regarded, though the generations do not always see eye to eye.',
    '七杀会紫微化科，又见吉曜，父母有声誉。但两代关系未必相谐。', '父母有声誉'),
  R('父母.七殺.吉', {'hua': ['祿', '權', '科'], 'at': 'sifang'},
-   '七殺會到祿權科，得父母蔭庇之力。',
+   '七殺會到祿權科，你得到父母蔭庇之力。',
    'Qi Sha meeting Abundance, Authority or Merit: you benefit from your parents’ shelter.',
    '七杀得禄、权、科会，主得父母荫庇之力。', '主得父母荫庇之力'),
  R('父母.七殺.遠', {'any': [FIRE, {'star': '天馬', 'at': ['same', 'opp']}]},
-   '同宮有火鈴，或會天馬，與父母遠離。',
+   '同宮有火鈴，或會天馬，你與父母遠離。',
    'With Huo Xing or Ling Xing in the palace, or meeting Tian Ma, you live far from your parents.',
    '七杀与火铃同度，或会天马，主远离父母，且远离之性质不良。', '主远离父母', 'limit'),
  R('父母.七殺.本', None,
-   '七殺在父母宮，與父母的關係較疏遠。',
+   '七殺在父母宮，你與父母的關係較疏遠。',
    'With Qi Sha in your Parents Palace, your relationship with your parents is more distant.',
    '七杀于父母宫并非善曜，’即使入庙，亦与父母关系疏远。', '亦与父母关系疏远', 'base'),
 ]})
@@ -268,12 +268,12 @@ T.append({'id': '七殺.父母', 'stars': ['七殺'], 'rules': [
 # ── 破軍 ──
 T.append({'id': '破軍.父母', 'stars': ['破軍'], 'rules': [
  R('父母.破軍.祿', H('祿', '破軍'),
-   '破軍化祿，父母和美。',
-   'Po Jun in Abundance: your parents get on well.',
+   '破軍化祿，你的父母之間感情和美，家裡氣氛好。',
+   'Po Jun in Abundance: your parents get on well together, and home feels good.',
    '破军化禄，则父母和美，更见辅佐吉曜者尤佳。', '破军化禄，则父母和美'),
  R('父母.破軍.火鈴', FIRE,
-   '同宮有火星或鈴星，與父母遠離。',
-   'With Huo Xing or Ling Xing in the palace, you live far from your parents.',
+   '破軍與火星或鈴星同宮，你和父母分隔兩地。',
+   'Po Jun shares the palace with Huo Xing or Ling Xing: you and your parents live far apart.',
    '破军与火星、铃星同度，决主远离。', '破军与火星、铃星同度，决主远离', 'limit'),
  R('父母.破軍.獨', {'alone': True},
    '破軍獨坐父母宮，本質孤獨，跟上司關係也疏遠，所以有時會常換工作。',

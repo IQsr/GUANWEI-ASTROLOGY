@@ -16,11 +16,11 @@ def R(id, when, text, en, src, quote, role='refine'):
 # ── 紫微 ──
 T.append({'id': '紫微破軍.田宅', 'stars': ['紫微', '破軍'], 'rules': [
  R('田宅.紫破.意外', {'all': [LUSAME, {'not': SHA}]},
-   '紫微破軍見祿而無煞，會有意外得來的資產。',
+   '紫微破軍見祿而無煞，你會有意外得來的資產。',
    'Zi Wei with Po Jun meeting Lu and no harsh stars: property or assets come to you unexpectedly.',
    '[紫微破军]同度，见禄存或化禄，而无煞忌刑耗诸曜，则主有意外资产可得，', '则主有意外资产可得'),
  R('田宅.紫破.新', GOOD,
-   '紫微破軍見吉，任職的多是新興機構。',
+   '紫微破軍見吉，你任職的多是新興機構。',
    'Zi Wei with Po Jun and good signs: you tend to work for young, growing organisations.',
    '若为[紫破]见吉，则为新兴机构，', '若为[紫破]见吉，则为新兴机构'),
 ]})
@@ -32,8 +32,8 @@ T.append({'id': '紫微天相.田宅', 'stars': ['紫微', '天相'], 'rules': [
 ]})
 T.append({'id': '紫微貪狼.田宅', 'stars': ['紫微', '貪狼'], 'rules': [
  R('田宅.紫貪.祿', LU,
-   '紫微貪狼見祿，主遷入華宅。',
-   'Zi Wei with Tan Lang meeting Lu: a move to a fine home.',
+   '紫微貪狼見祿，你有機會搬進更好的住所。',
+   'Zi Wei–Tan Lang meets Lu: you have the chance to move into a finer home.',
    '[紫贪]见禄主动建，或迁华宅。', '或迁华宅'),
 ]})
 T.append({'id': '紫微.田宅', 'stars': ['紫微'], 'rules': [
@@ -42,12 +42,12 @@ T.append({'id': '紫微.田宅', 'stars': ['紫微'], 'rules': [
    'With Wen Chang or Wen Qu in Hindrance, property deals can go wrong over contracts and paperwork.',
    '紫微守田宅宫虽见辅佐吉曜，亦不宜昌曲化忌，主买卖物业因文书契约而受损失。', '主买卖物业因文书契约而受损失', 'limit'),
  R('田宅.紫微.輔佐', {'any': [FUZUO, KUIYUE]},
-   '見輔佐吉星，主聚族而居；任職的機構也人多。',
+   '見輔佐吉星，你的家族聚居；你任職的機構也人多。',
    'With helper stars, your family lives close together, and the organisation you work for is large.',
    '紫微星系在田宅宫，若辅佐吉曜同会者，主聚族而居，又主所服务机构员工众多。', '主聚族而居'),
  R('田宅.紫微.置業', GOOD,
-   '紫微見吉，主置業。',
-   'Zi Wei with good signs: you buy property.',
+   '紫微見吉，你有能力置業，擁有自己的物業。',
+   'Zi Wei meets good signs: you are able to buy property of your own.',
    '凡紫微星系守田宅宫而见吉，均主置业，', '均主置业'),
 ]})
 
@@ -60,11 +60,11 @@ T.append({'id': '天機巨門.田宅', 'stars': ['天機', '巨門'], 'rules': [
 ]})
 T.append({'id': '天機太陰.田宅', 'stars': ['天機', '太陰'], 'rules': [
  R('田宅.機陰.陰祿', H('祿', '太陰'),
-   '太陰化祿，容易自置產業，居住環境也較安靜。',
+   '太陰化祿，你容易自置產業，居住環境也較安靜。',
    'Tai Yin in Abundance: buying your own property comes easily, and your home is quieter.',
    '若太阴化禄，然后主易自置产业，居住环境亦较安静。', '然后主易自置产业，居住环境亦较安静'),
  R('田宅.機陰.吉', {'all': [{'hua': ['祿', '權', '科'], 'star': ['天機', '太陰'], 'at': 'same'}, {'any': [FUZUO, KUIYUE]}]},
-   '天機太陰見吉化又見吉星，買賣田宅可以獲利。',
+   '天機太陰見吉化又見吉星，你買賣田宅可以獲利。',
    'Tian Ji with Tai Yin well transformed and with helper stars: buying and selling property can turn a profit.',
    '天机太阴见吉化(最喜天机化禄)，又见吉曜，则买卖田宅可以获利。', '则买卖田宅可以获利'),
  R('田宅.機陰.遷', None,
@@ -98,7 +98,7 @@ T.append({'id': '太陽太陰.田宅', 'stars': ['太陽', '太陰'], 'rules': [
 ]})
 T.append({'id': '太陽天梁.田宅', 'stars': ['太陽', '天梁'], 'rules': [
  R('田宅.陽梁.吉', GOOD,
-   '太陽天梁見吉，可以置業，而且以舊宅為宜。',
+   '太陽天梁見吉，你可以置業，而且以舊宅為宜。',
    'Tai Yang with Tian Liang and good signs: you can buy property, and older houses suit you best.',
    '太阳天梁有吉星始可置业，且以旧宅为宜。', '且以旧宅为宜'),
 ]})
@@ -110,11 +110,11 @@ T.append({'id': '太陽巨門.田宅', 'stars': ['太陽', '巨門'], 'rules': [
 ]})
 T.append({'id': '太陽.田宅', 'stars': ['太陽'], 'rules': [
  R('田宅.太陽.巨對', {'all': [{'star': '巨門', 'at': 'opp'}, {'not': {'star': '巨門', 'at': 'same'}}]},
-   '太陽與巨門相對，即使見吉，產業上也主爭奪。',
+   '太陽與巨門相對，即使見吉，你在產業上也多爭奪。',
    'With Tai Yang facing Ju Men, property brings contention even with good signs.',
    '太阳与巨门相对，即使见吉曜，亦主争夺。', '亦主争夺', 'limit'),
  R('田宅.太陽.忌', H('忌', '太陽'),
-   '太陽化忌，祖業難守，事業根基也較難建立。',
+   '太陽化忌，你的祖業難守，事業根基也較難建立。',
    'Tai Yang in Hindrance: inherited property is hard to keep, and a solid base for your career is hard to build.',
    '太阳化忌在田宅，不主不利父亲，主祖业倾败，或平生事业难有根基。', '或平生事业难有根基', 'limit'),
 ]})
@@ -122,17 +122,17 @@ T.append({'id': '太陽.田宅', 'stars': ['太陽'], 'rules': [
 # ── 武曲 ──
 T.append({'id': '武曲天府.田宅', 'stars': ['武曲', '天府'], 'rules': [
  R('田宅.武府.祿', LU,
-   '武曲天府見祿，能守住祖業、父業，還能發揚光大。',
+   '武曲天府見祿，你能守住祖業、父業，還能發揚光大。',
    'Wu Qu with Tian Fu meeting Lu: you hold on to the family property and make more of it.',
    '若得禄者，能守祖、父之业，且能将之发扬光大。', '且能将之发扬光大'),
 ]})
 T.append({'id': '武曲貪狼.田宅', 'stars': ['武曲', '貪狼'], 'rules': [
  R('田宅.武貪.火鈴', FIRE,
-   '同宮有火星或鈴星，祖業父業會突然增值。',
+   '同宮有火星或鈴星，你家的祖業父業會突然增值。',
    'With Huo Xing or Ling Xing in the palace, family property suddenly rises in value.',
    '[武曲贪狼]同度，为[火贪]、[铃贪]格者，祖、父遗业突然增值。', '祖、父遗业突然增值'),
  R('田宅.武貪.忌', {'all': [H('忌', '武曲'), SHA]},
-   '武曲化忌又見煞，容易因產業引起糾紛。',
+   '武曲化忌又見煞，你容易因產業引起糾紛。',
    'Wu Qu in Hindrance with harsh stars: property tends to lead to disputes.',
    '武曲贪狼星系，若武曲化为忌星，|_又见煞，主因产业引致纠纷。', '主因产业引致纠纷', 'limit'),
 ]})
@@ -144,21 +144,21 @@ T.append({'id': '武曲破軍.田宅', 'stars': ['武曲', '破軍'], 'rules': [
 ]})
 T.append({'id': '武曲七殺.田宅', 'stars': ['武曲', '七殺'], 'rules': [
  R('田宅.武殺.祿', H('祿', '武曲'),
-   '武曲化祿，自置產業豐盈。',
-   'Wu Qu in Abundance: the property you buy yourself is plentiful.',
+   '武曲化祿，你靠自己置下的產業豐盈。',
+   'Wu Qu in Abundance: the property you acquire by your own efforts is plentiful.',
    '必须武曲化禄，然后始主自置产业丰盈。', '然后始主自置产业丰盈'),
  R('田宅.武殺.本', {'not': H('祿', '武曲')},
-   '武曲七殺在田宅宮，一般不利田宅。',
+   '武曲七殺在田宅宮，一般對你的田宅不利。',
    'Wu Qu with Qi Sha in your Property Palace generally does not favour property.',
    '[武曲七杀]的宫度，因七杀落陷，一般不利田宅，稍见煞，或对宫天府不吉。即易产业破败。', '一般不利田宅', 'limit'),
 ]})
 T.append({'id': '武曲.田宅', 'stars': ['武曲'], 'rules': [
  R('田宅.武曲.祿', {'all': [{'all': [LU, {'not': SHA}, {'not': {'star': ['破軍', '七殺'], 'at': 'same'}}]}, {'not': {'star': '天府', 'at': 'same'}}]},
-   '武曲見祿而無煞，祖業豐厚，容易守成。',
+   '武曲見祿而無煞，你家祖業豐厚，容易守成。',
    'Wu Qu meeting Lu with no harsh stars: the family property is ample and easy to keep.',
    '武曲化禄或与禄存同拱，不见煞曜，祖业丰厚易守成，见辅佐吉曜更主陆续添置。', '祖业丰厚易守成'),
  R('田宅.武曲.財經', None,
-   '武曲在田宅宮，宜在財經機構服務。',
+   '武曲在田宅宮，你宜在財經機構服務。',
    'With Wu Qu in your Property Palace, financial institutions are good places to work.',
    '凡武曲守田宅宫，吉者，常主能在业务兴旺的机构服务。凶者，则主时生变动。', '常主能在业务兴旺的机构服务', 'base'),
 ]})
@@ -166,7 +166,7 @@ T.append({'id': '武曲.田宅', 'stars': ['武曲'], 'rules': [
 # ── 天同 ──
 T.append({'id': '天同太陰.田宅', 'stars': ['天同', '太陰'], 'rules': [
  R('田宅.同陰.吉', GOOD,
-   '天同太陰見吉，宜購入農場或寧靜的地段。',
+   '天同太陰見吉，你宜購入農場或寧靜的地段。',
    'Tian Tong with Tai Yin and good signs: farmland or a quiet neighbourhood suits you.',
    '[天同太阴]同度见吉化吉曜，古人认为可藉鱼桑花果而成巨富，在现代，亦宜购入农场，或宁静之地段。', '亦宜购入农场，或宁静之地段'),
 ]})
@@ -184,16 +184,16 @@ T.append({'id': '天同天梁.田宅', 'stars': ['天同', '天梁'], 'rules': [
 ]})
 T.append({'id': '天同.田宅', 'stars': ['天同'], 'rules': [
  R('田宅.天同.祿', LU,
-   '天同見祿，置業豐厚。',
-   'Tian Tong meeting Lu: you acquire plenty of property.',
+   '天同見祿，你白手起家，置下的產業豐厚。',
+   'Tian Tong meets Lu: starting from nothing, you acquire plenty of property.',
    '天同守田宅宫，一般主白手兴家，可以嚣为业。若见禄者，置业丰厚。', '若见禄者，置业丰厚'),
  R('田宅.天同.忌', H('忌', '天同'),
    '天同化忌，雖能自置產業，卻要為產業花不少精神。',
    'Tian Tong in Hindrance: you can buy your own property, but it takes a lot of your energy.',
    '唯若天同化忌，则虽能自置产业，却为鼍业招致烦恼，或一生为产业而花费精神。', '或一生为产业而花费精神', 'limit'),
  R('田宅.天同.梁對', {'all': [{'star': '天梁', 'at': 'opp'}, {'not': {'star': '天梁', 'at': 'same'}}]},
-   '天同與天梁相對，置業較為順利。',
-   'With Tian Tong facing Tian Liang, buying property goes more smoothly.',
+   '天同與天梁相對，你置業的過程比較順利，少有波折。',
+   'Tian Tong faces Tian Liang: buying property goes fairly smoothly for you, with few setbacks.',
    '天同守田宅宫与天梁对拱，其性质较[天同天梁]同度为佳，主置业较为顺利。', '主置业较为顺利'),
  R('田宅.天同.本', None,
    '天同在田宅宮，一般主白手興家；重的是居住環境的享受，不主物業豐厚。',
@@ -204,13 +204,13 @@ T.append({'id': '天同.田宅', 'stars': ['天同'], 'rules': [
 # ── 廉貞 ──
 T.append({'id': '廉貞天相.田宅', 'stars': ['廉貞', '天相'], 'rules': [
  R('田宅.廉相.煞', SHA,
-   '廉貞天相見煞，祖業容易凋零。',
-   'Lian Zhen with Tian Xiang and harsh stars: family property easily withers.',
+   '廉貞天相見煞，你家裡傳下來的產業容易流失。',
+   'Lian Zhen–Tian Xiang meets harsh stars: property handed down in your family easily slips away.',
    '[廉贞天相]与破对拱，稍见煞即主祖业调零。', '稍见煞即主祖业调零', 'limit'),
 ]})
 T.append({'id': '廉貞破軍.田宅', 'stars': ['廉貞', '破軍'], 'rules': [
  R('田宅.廉破.本', None,
-   '廉貞破軍在田宅宮，祖業根基容易動搖。',
+   '廉貞破軍在田宅宮，你家祖業的根基容易動搖。',
    'Lian Zhen with Po Jun in your Property Palace shakes the family foundations.',
    '[廉贞破军]对天相，则天相之性质固须注意，但祖基动摇之性质则更甚。若见火铃、空劫、刑耗等曜，则破后亦能自置。', '但祖基动摇之性质则更甚', 'base'),
  R('田宅.廉破.自置', {'any': [FIRE, KONG]},
@@ -220,7 +220,7 @@ T.append({'id': '廉貞破軍.田宅', 'stars': ['廉貞', '破軍'], 'rules': [
 ]})
 T.append({'id': '廉貞貪狼.田宅', 'stars': ['廉貞', '貪狼'], 'rules': [
  R('田宅.廉貪.本', GOOD,
-   '廉貞貪狼見吉，有祖業，只是不易守。',
+   '廉貞貪狼見吉，你有祖業，只是不易守。',
    'Lian Zhen with Tan Lang and good signs brings family property, though it is hard to keep.',
    '廉贞贪狼的星曜组合，见吉亦有祖业，唯不易守。', '见吉亦有祖业，唯不易守', 'base'),
 ]})
@@ -234,11 +234,11 @@ T.append({'id': '廉貞.田宅', 'stars': ['廉貞'], 'rules': [
 # ── 天府 ──
 T.append({'id': '天府.田宅', 'stars': ['天府'], 'rules': [
  R('田宅.天府.紫', {'all': [{'star': '紫微', 'at': 'same'}, FUZUO, KUIYUE]},
-   '天府與紫微同宮，又得眾星拱照，田園豐茂。',
+   '天府與紫微同宮，又得眾星拱照，你的田園豐茂。',
    'Tian Fu with Zi Wei and surrounded by helpers: your property flourishes.',
    '天府最喜紫微同度，百官朝拱，则田园丰茂，', '则田园丰茂'),
  R('田宅.天府.文', {'all': [CHANGQU, LU]},
-   '同宮有文昌文曲，又見祿，置產得利。',
+   '同宮有文昌文曲，又見祿，你置產得利。',
    'With Wen Chang or Wen Qu in the palace and Lu present, buying property pays off.',
    '天府最喜与科文诸曜同度，即昌曲、龙凤、天才、化科诸曜同度或会合，是为文星入宅，前人以为主发科名，家有读书之子，若更遇禄，则主置产得利。', '若更遇禄，则主置产得利'),
  R('田宅.天府.增益', {'all': [{'any': [FUZUO, KUIYUE]}, LU]},
@@ -254,11 +254,11 @@ T.append({'id': '天府.田宅', 'stars': ['天府'], 'rules': [
 # ── 太陰 ──
 T.append({'id': '太陰.田宅', 'stars': ['太陰'], 'rules': [
  R('田宅.太陰.輔佐', {'all': [{'any': [{'star': ['左輔', '右弼'], 'at': 'same'}, {'star': '祿存', 'at': 'same'}]}, {'not': {'hua': '忌', 'star': '太陽', 'at': 'same'}}]},
-   '太陰與左輔右弼或祿存同宮，承接祖業而興盛。',
+   '太陰與左輔右弼或祿存同宮，你承接祖業而興盛。',
    'Tai Yin with Zuo Fu, You Bi or Lu Cun in the palace: you inherit family property and it prospers.',
    '又日：[与左右禄主阴福同居，则承祖业而盛。故知太阴遇吉，有祖业且可自置。', '则承祖业而盛'),
  R('田宅.太陰.忌', {'all': [H('忌', '太陰'), {'not': SHA}]},
-   '太陰化忌而無煞，家中或任職的機構多是非。',
+   '太陰化忌而無煞，你家中或任職的機構多是非。',
    'Tai Yin in Hindrance without harsh stars: there is friction at home or at work.',
    '太阴化忌见煞防有孝服。无煞则主家宅或服务机构有是非。', '无煞则主家宅或服务机构有是非', 'limit'),
 ]})
@@ -270,11 +270,11 @@ T.append({'id': '貪狼.田宅', 'stars': ['貪狼'], 'rules': [
    'With Huo Xing or Ling Xing in the palace, you acquire plenty, though the house always has some wear; the old saying is that this suits a grand old home.',
    '若入庙与火铃同度，则自置丰厚，但所住之房宅必有破损。即所谓[火贪宜住旧宅华厦]。', '则自置丰厚'),
  R('田宅.貪狼.吉', {'all': [{'any': [GOODHUA, {'star': '祿存', 'at': 'same'}, CHANGQU]}, {'not': FIRE}]},
-   '見吉化、祿存或文昌文曲，產業耐久而豐盛。',
+   '見吉化、祿存或文昌文曲，你的產業耐久而豐盛。',
    'With good transformations, Lu Cun, Wen Chang or Wen Qu, your property lasts and grows.',
    '贪狼入庙，无火铃，但有吉星同度会照，如吉化、禄存、昌曲、则产业耐久且丰盛。', '则产业耐久且丰盛'),
  R('田宅.貪狼.本', None,
-   '貪狼主散不主聚，稍見刑忌，產業就容易生事端。',
+   '貪狼主散不主聚，稍見刑忌，你的產業就容易生事端。',
    'Tan Lang scatters rather than gathers: the slightest harsh influence stirs up trouble over property.',
    '贪狼主散不主聚，故稍见刑忌即生事端。', '贪狼主散不主聚', 'base'),
 ]})
@@ -282,13 +282,13 @@ T.append({'id': '貪狼.田宅', 'stars': ['貪狼'], 'rules': [
 # ── 巨門 ──
 T.append({'id': '巨門辰戌.田宅', 'stars': ['巨門'], 'branch': ['辰', '戌'], 'rules': [
  R('田宅.巨門辰戌.艱', None,
-   '巨門坐辰戌，置業要經歷艱苦。',
-   'With Ju Men in Chen or Xu, buying property takes hard work.',
+   '巨門坐辰戌，你置業要經歷一番艱苦。',
+   'With Ju Men in Chen or Xu, buying property takes you real hardship.',
    '巨门在辰戌两宫者，主艰苦置业。', '主艰苦置业', 'base'),
 ]})
 T.append({'id': '巨門.田宅', 'stars': ['巨門'], 'rules': [
  R('田宅.巨門.忌', H('忌', '巨門'),
-   '巨門化忌，家宅不安，或自己要遠離家室。',
+   '巨門化忌，你的家宅不安，或自己要遠離家室。',
    'Ju Men in Hindrance: home is unsettled, or you live far from your family.',
    '巨门化忌于田宅，主家宅不安，或主自身远离家室。', '主家宅不安，或主自身远离家室', 'limit'),
  R('田宅.巨門.本', {'not': {'star': '太陽', 'at': 'same'}},
@@ -300,19 +300,19 @@ T.append({'id': '巨門.田宅', 'stars': ['巨門'], 'rules': [
 # ── 天相 ──
 T.append({'id': '天相.田宅', 'stars': ['天相'], 'rules': [
  R('田宅.天相.祿', LU,
-   '天相見祿，可以自置產業。',
-   'Tian Xiang meeting Lu: you can buy your own place.',
+   '天相見祿，你有能力靠自己置下產業。',
+   'Tian Xiang meets Lu: you are able to buy property by your own means.',
    '天相与须见禄，然后始主可以自置。更见辅佐诸曜者，则产业丰盈。', '然后始主可以自置'),
  R('田宅.天相.豐盈', {'all': [LU, {'any': [FUZUO, KUIYUE]}]},
-   '見祿又見輔佐吉星，產業豐盈。',
-   'With Lu and helper stars, your property is ample.',
+   '天相見祿又見左輔右弼等吉星，你的產業豐盈。',
+   'Tian Xiang meets Lu and helper stars: your property is ample.',
    '天相与须见禄，然后始主可以自置。更见辅佐诸曜者，则产业丰盈。', '则产业丰盈'),
  R('田宅.天相.火鈴夾', {'jia': ['火星', '鈴星']},
-   '火星鈴星相夾，家宅不安，住處喧鬧。',
+   '火星鈴星相夾，你的家宅不安，住處喧鬧。',
    'Flanked by Huo Xing and Ling Xing, home is unsettled and noisy.',
    '天相为火铃夹者，主家宅不安，住宅喧闹，或有缺陷。', '主家宅不安，住宅喧闹', 'limit'),
  R('田宅.天相.吉夾', {'any': [{'jia': ['文昌', '文曲']}, {'jia': ['左輔', '右弼']}]},
-   '文昌文曲或左輔右弼相夾，住宅華麗。',
+   '文昌文曲或左輔右弼相夾，你的住宅華麗。',
    'Flanked by Wen Chang and Wen Qu, or Zuo Fu and You Bi, your home is handsome.',
    '天相喜昌曲夹，龙凤夹，辅弼夹，则住宅华丽。', '则住宅华丽'),
 ]})
@@ -320,19 +320,19 @@ T.append({'id': '天相.田宅', 'stars': ['天相'], 'rules': [
 # ── 天梁 ──
 T.append({'id': '天梁.田宅', 'stars': ['天梁'], 'rules': [
  R('田宅.天梁.祿', H('祿', '天梁'),
-   '天梁化祿，在機構內人緣容易不佳。',
+   '天梁化祿，你在機構內人緣容易不佳。',
    'Tian Liang in Abundance: you can find yourself less popular at work.',
    '天梁在田宅宫化禄，易致人缘不佳。', '易致人缘不佳', 'limit'),
  R('田宅.天梁.機', {'star': '天機', 'at': ['same', 'opp']},
-   '天梁與天機同宮或相對，多遷動。',
-   'With Tian Liang beside or facing Tian Ji, you move often.',
+   '天梁與天機同宮或相對，你多搬遷，住處常變動。',
+   'Tian Liang is beside or facing Tian Ji: you move house often.',
    '天梁天机，主多迂动，', '天梁天机，主多迂动'),
  R('田宅.天梁.馬', {'any': [{'star': '天馬', 'at': 'same'}, FIRE]},
-   '同宮有天馬或火鈴，主漂盪；就算有祖業也難享。',
+   '同宮有天馬或火鈴，你容易漂盪；就算有祖業也難享。',
    'With Tian Ma, Huo Xing or Ling Xing in the palace, you drift, and even family property is hard to enjoy.',
    '天梁与天马同躔，或火铃同度，则主飘荡，纵有祖、父遗业亦不能享。', '则主飘荡', 'limit'),
  R('田宅.天梁.本', {'all': [{'all': [{'not': {'star': ['天機', '天同'], 'at': ['same', 'opp']}}, {'not': {'hua': '忌', 'star': '太陽', 'at': ['same', 'opp']}}]}, {'not': {'any': [{'star': '天馬', 'at': 'same'}, FIRE]}}]},
-   '天梁是蔭星，在田宅宮主有祖業父業。',
+   '天梁是蔭星，在田宅宮，你有祖業父業。',
    'Tian Liang is the sheltering star: in your Property Palace it points to family property.',
    '天梁为阴星，故居田宅宫，主必有祖业父业，', '主必有祖业父业', 'base'),
 ]})
@@ -340,11 +340,11 @@ T.append({'id': '天梁.田宅', 'stars': ['天梁'], 'rules': [
 # ── 七殺 ──
 T.append({'id': '七殺.田宅', 'stars': ['七殺'], 'rules': [
  R('田宅.七殺.祿', LU,
-   '七殺得祿，雖無祖產父業，卻能自置。',
+   '七殺得祿，你雖無祖產父業，卻能自置。',
    'Qi Sha meeting Lu: no family property, but you buy your own.',
    '七杀最喜得禄，虽无祖产父业，却能自置。', '虽无祖产父业，却能自置'),
  R('田宅.七殺.獨', {'all': [{'alone': True}, {'not': {'branch': ['寅', '申']}}, {'not': LU}]},
-   '七殺獨坐田宅宮，不利置業，更不宜做物業買賣。',
+   '七殺獨坐田宅宮，你不利置業，更不宜做物業買賣。',
    'Qi Sha alone in your Property Palace does not favour buying, and property trading even less.',
    '七杀入田宅宫，若为独坐者，除寅申两宫外，均不利于置业，更不利从事物业买卖。', '更不利从事物业买卖', 'limit'),
 ]})
@@ -356,7 +356,7 @@ T.append({'id': '破軍.田宅', 'stars': ['破軍'], 'rules': [
    'Po Jun in Abundance or Authority with helper stars: an old house is rebuilt, and you move to a better workplace.',
    '破军化禄权者，更见吉曜，主旧宅拆建翻新。亦主转换良好之工作环境。', '主旧宅拆建翻新'),
  R('田宅.破軍.火鈴', {'any': [FIRE, KONG]},
-   '同宮有火鈴或空劫，產業上會有損失。',
+   '同宮有火鈴或空劫，你在產業上會有損失。',
    'With Huo Xing, Ling Xing, Di Kong or Di Jie in the palace, property brings losses.',
    '破军与火铃，空劫同度会照，主产、也损失。', '破军与火铃，空劫同度会照', 'limit'),
 ]})

@@ -29,7 +29,7 @@
         ],
         "at": "same"
       },
-      "text": "同宮有火星或鈴星，變動的幅度會更大。",
+      "text": "同宮有火星或鈴星，你工作變動的幅度會更大。",
       "en": "With Huo Xing or Ling Xing in the palace, the swings are bigger.",
       "source": {
         "passage": "deep.事業.天機",
@@ -44,8 +44,8 @@
         "star": "天機",
         "at": "same"
       },
-      "text": "天機化祿並不改變多變的性質。",
-      "en": "Tian Ji transformed by Lu doesn't change this changeable nature.",
+      "text": "天機化祿，你的工作仍然多變，化祿並不改變這一點。",
+      "en": "Tian Ji is transformed by Lu, yet your work stays changeable; Lu does not alter that.",
       "source": {
         "passage": "deep.事業.天機祿",
         "quote": "天机化禄，不能改变其不稳定的性质"
@@ -180,8 +180,8 @@
           }
         ]
       },
-      "text": "再見空劫或煞星，更是做多錯多。",
-      "en": "With Kong, Jie or other malefics also in view, the more you do, the more goes wrong.",
+      "text": "天機又見空劫或煞星，你在工作上更容易做多錯多。",
+      "en": "Tian Ji also meets Kong, Jie or harsh stars, so at work, the more you do, the more easily things go wrong.",
       "source": {
         "passage": "deep.事業.天機忌",
         "quote": "更属动辄得咎"
@@ -197,7 +197,7 @@
         ],
         "at": "same"
       },
-      "text": "同宮有文昌或文曲，適合計劃、設計一類的工作。",
+      "text": "同宮有文昌或文曲，你適合計劃、設計一類的工作。",
       "en": "With Wen Chang or Wen Qu in the palace, planning and design work suits you.",
       "source": {
         "passage": "deep.事業.天機昌曲",
@@ -385,7 +385,7 @@
           }
         ]
       },
-      "text": "三方四正見煞忌，工作或任職的機構常會轉換。",
+      "text": "三方四正見煞忌，你的工作或任職的機構常會轉換。",
       "en": "With malefics or Ji in the four directions, you change jobs or employers often.",
       "source": {
         "passage": "deep.事業.天機丑未",
@@ -398,7 +398,7 @@
       "when": {
         "with": "太陰"
       },
-      "text": "天機太陰同守，事業多半由現成的基礎發展。",
+      "text": "天機太陰同守，你的事業多半由現成的基礎發展。",
       "en": "With Tian Ji and Tai Yin together, your career mostly grows from a foundation that's already there.",
       "source": {
         "passage": "deep.事業.機陰",
@@ -461,8 +461,8 @@
           }
         ]
       },
-      "text": "見煞忌或空劫，更不宜自己經商。",
-      "en": "With malefics, Ji, Kong or Jie in view, running your own business is even less advisable.",
+      "text": "天機太陰見煞忌或空劫，你更不宜自己出來經商。",
+      "en": "Tian Ji–Tai Yin meets harsh stars, Hindrance, Kong or Jie, so running your own business suits you even less.",
       "source": {
         "passage": "deep.事業.機陰無祿",
         "quote": "有煞忌、空劫，则绝不宜经商"
@@ -547,7 +547,7 @@
           }
         ]
       },
-      "text": "同宮有火星或鈴星，會令變動和是非都加重。",
+      "text": "同宮有火星或鈴星，會令你工作上的變動和是非都加重。",
       "en": "Huo Xing or Ling Xing in the palace makes both the changes and the friction heavier.",
       "source": {
         "passage": "deep.事業.機巨火鈴",
@@ -560,7 +560,7 @@
       "when": {
         "with": "天梁"
       },
-      "text": "天機天梁同守，最容易身兼幾份工作。",
+      "text": "天機天梁同守，你最容易身兼幾份工作。",
       "en": "With Tian Ji and Tian Liang together, you're most likely to hold several jobs at once.",
       "source": {
         "passage": "deep.事業.機梁",
@@ -600,7 +600,7 @@
           }
         ]
       },
-      "text": "加上吉化或吉星，顧問一類的工作最合適。",
+      "text": "加上吉化或吉星，顧問一類的工作對你最合適。",
       "en": "With favourable transformations or stars in view, advisory work suits you best.",
       "source": {
         "passage": "deep.事業.機梁",

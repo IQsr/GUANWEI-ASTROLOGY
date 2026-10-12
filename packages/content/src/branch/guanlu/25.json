@@ -12,7 +12,7 @@
     {
       "id": "官祿.廉府.財經",
       "role": "base",
-      "text": "廉貞天府在官祿宮，事業傾向財經。",
+      "text": "廉貞天府在官祿宮，你的事業傾向財經。",
       "en": "With Lian Zhen and Tian Fu in your Career Palace, your career leans towards finance.",
       "source": {
         "passage": "deep.官祿.廉貞.5",
@@ -27,8 +27,8 @@
         "star": "天府",
         "at": "same"
       },
-      "text": "天府化科，事業與聲譽關係密切。",
-      "en": "Tian Fu in Merit: your career and your reputation are closely bound together.",
+      "text": "天府化科，你的事業和名聲緊扣在一起，口碑直接影響發展。",
+      "en": "Tian Fu in Merit: your career and reputation are tightly bound, and your standing shapes how far you go.",
       "source": {
         "passage": "deep.官祿.廉貞.6",
         "quote": "则事业与声誉有密切关系"

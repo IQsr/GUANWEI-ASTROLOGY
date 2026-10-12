@@ -19,8 +19,8 @@
           "opp"
         ]
       },
-      "text": "會紫微化權，父母成見很深。",
-      "en": "Meeting Zi Wei in Authority, your parents hold very fixed views.",
+      "text": "七殺會紫微化權，你的父母成見很深，不易被說服。",
+      "en": "Qi Sha meets Zi Wei in Authority: your parents hold very fixed views and are hard to persuade.",
       "source": {
         "passage": "deep.父母.七殺.1",
         "quote": "七杀会紫微化权，父母成见极深"
@@ -85,7 +85,7 @@
         ],
         "at": "sifang"
       },
-      "text": "七殺會到祿權科，得父母蔭庇之力。",
+      "text": "七殺會到祿權科，你得到父母蔭庇之力。",
       "en": "Qi Sha meeting Abundance, Authority or Merit: you benefit from your parents’ shelter.",
       "source": {
         "passage": "deep.父母.七殺.3",
@@ -113,7 +113,7 @@
           }
         ]
       },
-      "text": "同宮有火鈴，或會天馬，與父母遠離。",
+      "text": "同宮有火鈴，或會天馬，你與父母遠離。",
       "en": "With Huo Xing or Ling Xing in the palace, or meeting Tian Ma, you live far from your parents.",
       "source": {
         "passage": "deep.父母.七殺.4",
@@ -123,7 +123,7 @@
     {
       "id": "父母.七殺.本",
       "role": "base",
-      "text": "七殺在父母宮，與父母的關係較疏遠。",
+      "text": "七殺在父母宮，你與父母的關係較疏遠。",
       "en": "With Qi Sha in your Parents Palace, your relationship with your parents is more distant.",
       "source": {
         "passage": "deep.父母.七殺.5",

@@ -21,11 +21,11 @@ T.append({'id': '紫微子午.夫妻', 'stars': ['紫微'], 'branch': ['子', '�
 ]})
 T.append({'id': '紫微破軍.夫妻', 'stars': ['紫微', '破軍'], 'rules': [
  R('夫妻.紫破.波折', None,
-   '紫微破軍在夫妻宮，婚前多有波折。',
+   '紫微破軍在夫妻宮，你婚前多有波折。',
    'With Zi Wei and Po Jun in your Partnership Palace, the road to marriage tends to have its twists.',
    '丑未[紫破]，一般不利居夫妻宫。虽本持安定，亦主婚前有波折；', '亦主婚前有波折', 'base'),
  R('夫妻.紫破.年齡', None,
-   '與年齡差距較大的伴侶，比較合得來。',
+   '與年齡差距較大的伴侶，你比較合得來。',
    'A partner with a wider age gap tends to suit you better.',
    '[紫破]、[紫相]皆宜配偶年龄有大差距。', '皆宜配偶年龄有大差距'),
 ]})
@@ -35,7 +35,7 @@ T.append({'id': '紫微天府.夫妻', 'stars': ['紫微', '天府'], 'rules': [
    'Your Zi Wei–Tian Fu meets helper stars in matched pairs, so the relationship can last.',
    '寅申宫『紫府]，必须见辅佐对星者，然后主白头偕老。', '必须见辅佐对星者，然后主白头偕老'),
  R('夫妻.紫府.祿存', {'star': '祿存', 'at': 'same'},
-   '同宮有祿存：伴侶較顧自己，也想掌主導。',
+   '同宮有祿存：你的伴侶較顧自己，也想掌主導。',
    'With Lu Cun in the palace, your partner looks after their own interests and likes to be in charge.',
    '唯若禄存同度，仍主配偶自私，有支配欲。', '有支配欲', 'limit'),
 ]})
@@ -51,14 +51,14 @@ T.append({'id': '紫微天相.夫妻', 'stars': ['紫微', '天相'], 'rules': [
    'Your Zi Wei–Tian Xiang meets Zuo Fu or You Bi: working together as a couple pays off, and you can build the household side by side.',
    '辰戌『紫相』有情，见辅弼吉曜，利夫妻合作创业，谓之夫唱妇随，可以发达兴家，', '利夫妻合作创业'),
  R('夫妻.紫相.年齡', None,
-   '與年齡差距較大的伴侶，比較合得來。',
+   '與年齡差距較大的伴侶，你比較合得來。',
    'A partner with a wider age gap tends to suit you better.',
    '[紫破]、[紫相]皆宜配偶年龄有大差距。', '皆宜配偶年龄有大差距'),
 ]})
 T.append({'id': '紫微七殺.夫妻', 'stars': ['紫微', '七殺'], 'rules': [
  R('夫妻.紫殺.遲婚', None,
-   '紫微七殺在夫妻宮，以遲婚為宜。',
-   'With Zi Wei and Qi Sha in your Partnership Palace, marrying later suits you.',
+   '紫微七殺在你的夫妻宮，晚一點結婚對你比較好，不必急著定下來。',
+   'With Zi Wei and Qi Sha in your Partnership Palace, marrying later suits you better; there is no need to rush to settle down.',
    '『紫杀』在夫妻宫以迟婚为宜。', '在夫妻宫以迟婚为宜', 'base'),
  R('夫妻.紫殺.輔佐', {'any': [FUZUO, KUIYUE]},
    '見輔佐吉星，伴侶的事業做得大，只是兩人容易聚少離多。',
@@ -75,7 +75,7 @@ T.append({'id': '天機子午.夫妻', 'stars': ['天機'], 'branch': ['子', '�
 ]})
 T.append({'id': '天機丑未.夫妻', 'stars': ['天機'], 'branch': ['丑', '未'], 'rules': [
  R('夫妻.天機丑未.陀羅', {'star': '陀羅', 'at': 'same'},
-   '同宮有陀羅，婚期較遲，也容易錯過好的緣份。',
+   '同宮有陀羅，你的婚期較遲，也容易錯過好的緣份。',
    'With Tuo Luo in the palace, marriage comes later, and good matches are easily missed.',
    '丑未天机最怕陀罗同度，不但婚迟，而且多误良缘，', '不但婚迟，而且多误良缘', 'limit'),
  R('夫妻.天機丑未.波折', None,
@@ -95,7 +95,7 @@ T.append({'id': '天機巨門.夫妻', 'stars': ['天機', '巨門'], 'rules': [
 ]})
 T.append({'id': '天機天梁.夫妻', 'stars': ['天機', '天梁'], 'rules': [
  R('夫妻.機梁.遲婚', None,
-   '婚期較遲，或婚前有一段感情風波。',
+   '你的婚期較遲，或婚前有一段感情風波。',
    'Marriage tends to come late, or after a stormy spell in love.',
    '辰戌宫[天机天梁]同度，主迟婚，或婚前有恋爱风波，', '主迟婚，或婚前有恋爱风波', 'base'),
 ]})
@@ -109,42 +109,42 @@ T.append({'id': '天機巳亥.夫妻', 'stars': ['天機'], 'branch': ['巳', '�
 # ── 太陽 ──
 T.append({'id': '太陽子.夫妻', 'stars': ['太陽'], 'branch': ['子'], 'rules': [
  R('夫妻.太陽子.挑剔', None,
-   '伴侶性情較挑剔。',
-   'Your partner tends to be particular.',
+   '你的伴侶性情比較挑剔，對人對事都有自己的要求。',
+   'Your partner tends to be particular, with their own standards for people and things.',
    '太阳在子，主配偶性情多挑剔，见火铃者尤甚。', '主配偶性情多挑剔', 'base'),
 ]})
 T.append({'id': '太陽午.夫妻', 'stars': ['太陽'], 'branch': ['午'], 'rules': [
  R('夫妻.太陽午.賢明', None,
-   '伴侶明白事理，有責任感。',
-   'Your partner is sensible and has a strong sense of responsibility.',
+   '你的伴侶明白事理，有責任感，遇事靠得住。',
+   'Your partner is sensible and responsible, someone you can rely on when things come up.',
    '太阳在午，主配偶贤明，有责任感。', '主配偶贤明，有责任感', 'base'),
  R('夫妻.太陽午.輔佐', FUZUO,
-   '見左輔右弼，伴侶在事業上有良好的成就。',
+   '見左輔右弼，你的伴侶在事業上有良好的成就。',
    'With Zuo Fu or You Bi present, your partner does well in their career.',
    '女命太阳在午，会辅佐诸曜，主夫婿贵显。男命，古代主因妻得贵，在现代，妇女有自己事业，亦主妻子有良好事业。', '亦主妻子有良好事业'),
 ]})
 T.append({'id': '太陽太陰.夫妻', 'stars': ['太陽', '太陰'], 'rules': [
  R('夫妻.陰陽.火鈴', FIRE,
-   '同宮有火星或鈴星，兩家的關係較難融洽。',
+   '同宮有火星或鈴星，你和伴侶兩家的關係較難融洽。',
    'With Huo Xing or Ling Xing in the palace, the two families find it harder to get along.',
    '[太阳太阴]在丑，见火铃，主亲家不和。', '主亲家不和', 'limit'),
 ]})
 T.append({'id': '太陽巨門.夫妻', 'stars': ['太陽', '巨門'], 'branch': ['寅'], 'rules': [
  R('夫妻.陽巨寅.異族', {'all': [{'hua': ['祿', '權'], 'star': '太陽', 'at': 'same'}, {'not': FIRE}]},
-   '伴侶容易來自不同的文化或地方。',
+   '你的伴侶容易來自不同的文化或地方。',
    'Your partner may well come from a different culture or place.',
    '太阳在寅，[太阳巨门]同度，见太阳化禄、化权、或太阳化忌而无火铃，均主异族通婚。', '均主异族通婚'),
 ]})
 T.append({'id': '太陽天梁.夫妻', 'stars': ['太陽', '天梁'], 'rules': [
  R('夫妻.陽梁.波折', None,
-   '婚前多有波折，也可能是舊人重逢，再走在一起。',
+   '你婚前多有波折，也可能是舊人重逢，再走在一起。',
    'The road to marriage has its twists; it may even be an old flame you meet again.',
    '[太阳天梁]在夫妻宫，主婚前有波折，或旧侣重逢而后结合。', '主婚前有波折，或旧侣重逢而后结合', 'base'),
 ]})
 T.append({'id': '太陽巳亥.夫妻', 'stars': ['太陽'], 'branch': ['巳', '亥'], 'rules': [
  R('夫妻.太陽巳亥.波折', None,
-   '即使盤面吉，婚前感情也多波折。',
-   'Even with good signs, love before marriage has its ups and downs.',
+   '即使盤面吉，你婚前的感情路也多波折，不會一帆風順。',
+   'Even with good signs, your love life before marriage has its ups and downs; it will not be plain sailing.',
    '太阳在巳亥二垣，纵见吉，亦主婚前恋爱波折。', '纵见吉，亦主婚前恋爱波折', 'base'),
 ]})
 T.append({'id': '太陽.夫妻', 'stars': ['太陽'], 'rules': [
@@ -157,13 +157,13 @@ T.append({'id': '太陽.夫妻', 'stars': ['太陽'], 'rules': [
 # ── 武曲 ──
 T.append({'id': '武曲天府.夫妻', 'stars': ['武曲', '天府'], 'rules': [
  R('夫妻.武府.祿', LU,
-   '你的武曲天府見祿，婚姻和美。',
-   'Your Wu Qu–Tian Fu meets Lu, so the marriage is harmonious.',
+   '你的夫妻宮武曲天府見祿，這是婚姻和美的條件，兩人和睦。',
+   'Your Wu Qu–Tian Fu meets Lu, which is what this pairing needs for a harmonious marriage: the two of you live in peace.',
    '子午宫[武曲天府]，必须见禄始主婚姻谐美。', '必须见禄始主婚姻谐美'),
 ]})
 T.append({'id': '武曲貪狼.夫妻', 'stars': ['武曲', '貪狼'], 'rules': [
  R('夫妻.武貪.火鈴', FIRE,
-   '同宮有火星或鈴星，感情先熱後冷。',
+   '同宮有火星或鈴星，你們的感情先熱後冷。',
    'With Huo Xing or Ling Xing in the palace, the feeling starts hot and cools.',
    '丑未宫[武曲贪狼]，与火铃同度，主感情始热终冷。', '主感情始热终冷', 'limit'),
  R('夫妻.武貪.財', {'not': LU},
@@ -171,42 +171,42 @@ T.append({'id': '武曲貪狼.夫妻', 'stars': ['武曲', '貪狼'], 'rules': [
    'Your partner sets great store by money, and may want a say over yours.',
    '丑未宫[武曲贪狼]，一般主配偶吝啬，以钱财为重，时思左右配偶的财权。', '以钱财为重'),
  R('夫妻.武貪.祿', LU,
-   '見祿存或化祿，伴侶經濟寬裕，或能靠自己經營。',
+   '見祿存或化祿，你的伴侶經濟寬裕，或能靠自己經營。',
    'With Lu Cun or an Abundance transformation, your partner is well off, or can make their own way.',
    '禄存或化禄照会则不是，主夫婿富足，或妻子能凭自力经营。', '或妻子能凭自力经营'),
 ]})
 T.append({'id': '武曲天相.夫妻', 'stars': ['武曲', '天相'], 'rules': [
  R('夫妻.武相.剛柔', None,
-   '兩人要剛柔互濟，婚姻才圓滿。',
-   'The two of you need to balance firmness with give for the marriage to be whole.',
+   '你和伴侶要剛柔互補，一方強硬時另一方肯讓，婚姻就圓滿。',
+   'You and your partner need to balance firm with soft, one giving way when the other stands firm, and then the marriage is whole.',
    '寅申宫[武曲天相]，须刚柔互济然后始主婚姻完美。', '须刚柔互济然后始主婚姻完美', 'base'),
  R('夫妻.武相.左右', FUZUO,
-   '見左輔右弼，夫妻之間更能互相幫助。',
+   '見左輔右弼，你和伴侶之間更能互相幫助。',
    'With Zuo Fu or You Bi, you and your partner help each other all the more.',
    '若见左辅右弼，则更主夫妻间有助力。', '则更主夫妻间有助力'),
 ]})
 T.append({'id': '武曲七殺.夫妻', 'stars': ['武曲', '七殺'], 'rules': [
  R('夫妻.武殺.遲婚', None,
-   '以遲婚為宜；坐卯比坐酉好。',
-   'Marrying later suits you; Mao is the better seat than You.',
+   '晚一點結婚對你比較好，早婚容易後悔；這組星坐卯比坐酉好。',
+   'Marrying later suits you better, since an early marriage is easily regretted; this pair sits better in Mao than in You.',
    '卯酉宫[武曲七杀]，每宜迟婚，否则婚姻多悔吝。坐酉宫者尤甚。', '每宜迟婚', 'base'),
  R('夫妻.武殺.性剛', None,
-   '伴侶性格剛強，兩人要學會互相調和。',
+   '你的伴侶性格剛強，兩人要學會互相調和。',
    'Your partner has a forceful character, and the two of you need to learn to meet halfway.',
    '卯酉[武杀]，亦主配偶性刚。', '亦主配偶性刚'),
 ]})
 T.append({'id': '武曲辰戌.夫妻', 'stars': ['武曲'], 'branch': ['辰', '戌'], 'rules': [
  R('夫妻.武曲辰戌.遲婚', None,
-   '以遲婚為宜。',
-   'Marrying later suits you.',
+   '武曲獨坐你的夫妻宮，晚一點結婚對你比較好。',
+   'With Wu Qu alone in your Partnership Palace, marrying later suits you better.',
    '辰戌宫武曲独坐，宜迟婚。', '武曲独坐，宜迟婚', 'base'),
  R('夫妻.武曲辰戌.火鈴', FIRE,
-   '同宮有火星或鈴星，婚事容易來得倉卒。',
+   '同宮有火星或鈴星，你的婚事容易來得倉卒。',
    'With Huo Xing or Ling Xing in the palace, marriage may come about in a hurry.',
    '火铃同度，主仓卒成婚。', '主仓卒成婚'),
  R('夫妻.武曲辰戌.吉', {'any': [GOODHUA, FUZUO, KUIYUE]},
-   '見吉化吉星，伴侶精明能幹。',
-   'With good transformations or helper stars, your partner is sharp and capable.',
+   '夫妻宮見吉，你的伴侶精明能幹，處事俐落。',
+   'With good signs in the palace, your partner is sharp and capable, and handles things deftly.',
    '见吉化吉曜，则配偶精明能干。', '则配偶精明能干'),
 ]})
 T.append({'id': '武曲破軍.夫妻', 'stars': ['武曲', '破軍'], 'rules': [
@@ -215,7 +215,7 @@ T.append({'id': '武曲破軍.夫妻', 'stars': ['武曲', '破軍'], 'rules': [
    'With good transformations or helper stars, your partner is shrewd, and tends to take the lead in the relationship.',
    '巳亥宫[武破]见吉化、吉曜，则主配偶精明，但自身仍受配偶控制。', '则主配偶精明'),
  R('夫妻.武破.祿馬', LUMA,
-   '祿星與天馬相會，兩人容易各在一方，聚少離多。',
+   '祿星與天馬相會，你和伴侶容易各在一方，聚少離多。',
    'With Lu and Tian Ma meeting, the two of you may often be in different places, together less than apart.',
    '若[武破]与禄马同躔，或与禄马拱照，则主夫妻各处一方，会少离多。', '则主夫妻各处一方，会少离多', 'limit'),
 ]})
@@ -223,8 +223,8 @@ T.append({'id': '武曲破軍.夫妻', 'stars': ['武曲', '破軍'], 'rules': [
 # ── 天同 ──
 T.append({'id': '天同太陰.夫妻', 'stars': ['天同', '太陰'], 'rules': [
  R('夫妻.同陰.貌', None,
-   '伴侶外貌出眾、有風度。',
-   'Your partner is good-looking, with a certain grace.',
+   '你的伴侶外貌出眾，舉止大方，有風度。',
+   'Your partner is good-looking, with an easy, graceful manner.',
    '子午宫[天同太阴]，男命主娶美妻；女命配夫亦风度翩翩。', '女命配夫亦风度翩翩', 'base'),
 ]})
 T.append({'id': '天同巨門.夫妻', 'stars': ['天同', '巨門'], 'rules': [
@@ -235,12 +235,12 @@ T.append({'id': '天同巨門.夫妻', 'stars': ['天同', '巨門'], 'rules': [
 ]})
 T.append({'id': '天同卯酉.夫妻', 'stars': ['天同'], 'branch': ['卯', '酉'], 'rules': [
  R('夫妻.天同卯酉.俊美', None,
-   '伴侶外貌俊美。',
-   'Your partner is handsome or beautiful.',
+   '天同在卯酉，對著太陰，你的伴侶外貌俊美。',
+   'With Tian Tong in Mao or You facing Tai Yin, your partner is good-looking.',
    '卯酉天同独坐，对太阴，亦主配偶俊美。', '亦主配偶俊美', 'base'),
  R('夫妻.天同卯酉.吉', {'any': [GOODHUA, FUZUO, KUIYUE]},
-   '見吉化吉星，婚姻和美。',
-   'With good transformations or helper stars, the marriage is harmonious.',
+   '天同見吉化和吉星，你的婚姻和美，兩人相處融洽。',
+   'Tian Tong meets good transformations and helper stars: your marriage is harmonious and the two of you get on well.',
    '见吉化、吉曜，可卜婚姻和美。', '可卜婚姻和美'),
 ]})
 T.append({'id': '天同巳亥.夫妻', 'stars': ['天同'], 'branch': ['巳', '亥'], 'rules': [
@@ -253,17 +253,17 @@ T.append({'id': '天同巳亥.夫妻', 'stars': ['天同'], 'branch': ['巳', '�
 # ── 廉貞 ──
 T.append({'id': '廉貞天相.夫妻', 'stars': ['廉貞', '天相'], 'rules': [
  R('夫妻.廉相.己見', None,
-   '兩人各有主見，容易各顧各的，要多為對方著想。',
+   '你和伴侶各有主見，容易各顧各的，要多為對方著想。',
    'You each have strong views and can each go your own way; think of the other more.',
    '子午[廉贞天相]，与破军相对，性质不佳。即使有吉化、吉曜，亦主夫妻备怀己见，为己谋而不为配偶谋，以致彼此参商。', '以致彼此参商', 'base'),
 ]})
 T.append({'id': '廉貞寅申.夫妻', 'stars': ['廉貞'], 'branch': ['寅', '申'], 'rules': [
  R('夫妻.廉貞寅申.昌曲', {'star': ['文昌', '文曲'], 'at': 'sifang'},
-   '見文昌文曲，夫妻能守禮，不越界。',
-   'With Wen Chang or Wen Qu, you and your partner keep to proper bounds.',
+   '廉貞會文昌文曲，你和伴侶都守禮，彼此不會越界。',
+   'Lian Zhen meets Wen Chang or Wen Qu: you and your partner both keep to proper bounds and do not overstep.',
    '若廉贞与昌曲同会，则夫妻能守礼，不致逾越。', '则夫妻能守礼，不致逾越'),
  R('夫妻.廉貞寅申.火鈴', FIRE,
-   '廉貞與火星或鈴星同宮，婚事往往來得倉卒。',
+   '廉貞與火星或鈴星同宮，你的婚事往往來得倉卒。',
    'With Lian Zhen beside Huo Xing or Ling Xing, marriage tends to come about in a rush.',
    '寅申宫廉贞与火铃同度，主仓卒成婚。', '主仓卒成婚'),
 ]})
@@ -289,13 +289,13 @@ T.append({'id': '廉貞.夫妻', 'stars': ['廉貞'], 'rules': [
 # ── 天府 ──
 T.append({'id': '天府巳亥.夫妻', 'stars': ['天府'], 'branch': ['巳', '亥'], 'rules': [
  R('夫妻.天府巳亥.賢能', None,
-   '伴侶精明能幹。',
-   'Your partner is sharp and capable.',
+   '天府在巳亥，對宮是紫微七殺，你的伴侶精明能幹。',
+   'With Tian Fu in Si or Hai, facing Zi Wei–Qi Sha, your partner is sharp and capable.',
    '巳亥宫天府，性质较卯西尤佳。由于对宫为[紫杀]，主配偶精明贤能。', '主配偶精明贤能', 'base'),
 ]})
 T.append({'id': '天府卯酉.夫妻', 'stars': ['天府'], 'branch': ['卯', '酉'], 'rules': [
  R('夫妻.天府卯酉.吉', {'all': [{'hua': ['祿', '權', '科'], 'at': 'sifang'}, {'any': [FUZUO, KUIYUE]}]},
-   '會吉又見吉化：感情好，兩人也能互相扶持。',
+   '會吉又見吉化：你們感情好，兩人也能互相扶持。',
    'With helper stars and good transformations, the bond is warm and you support each other.',
    '卯酉宫天府会吉，见吉化，男女皆主美配，感情既佳，又能互相扶助。', '感情既佳，又能互相扶助'),
 ]})
@@ -309,7 +309,7 @@ T.append({'id': '天府.夫妻', 'stars': ['天府'], 'rules': [
 # ── 太陰 ──
 T.append({'id': '太陰辰戌.夫妻', 'stars': ['太陰'], 'branch': ['辰', '戌'], 'rules': [
  R('夫妻.太陰辰戌.長久', None,
-   '太陰對著太陽，一般主夫妻長久；坐戌比坐辰好。',
+   '太陰對著太陽，你和伴侶一般能長久；坐戌比坐辰好。',
    'Tai Yin facing Tai Yang generally points to a lasting marriage; Xu is the better seat than Chen.',
    '辰戌太阴与太阳相对，一般情况下均主白发齐眉，唯戌宫优于辰宫。', '一般情况下均主白发齐眉', 'base'),
 ]})
@@ -321,12 +321,12 @@ T.append({'id': '太陰酉.夫妻', 'stars': ['太陰'], 'branch': ['酉'], 'rul
 ]})
 T.append({'id': '太陰巳亥.夫妻', 'stars': ['太陰'], 'branch': ['巳', '亥'], 'rules': [
  R('夫妻.太陰巳.助人', {'branch': ['巳']},
-   '伴侶熱心幫人，有時顧外多於顧家。',
+   '你的伴侶熱心幫人，有時顧外多於顧家。',
    'Your partner is generous with help to others, and sometimes puts the outside world before home.',
    '巳亥太阴与天机相对，巳宫不如亥宫远甚。在巳宫者，常主配偶不顾家庭，但却乐于帮助别人。', '但却乐于帮助别人'),
  R('夫妻.太陰亥.富裕', {'branch': ['亥']},
-   '伴侶一般經濟寬裕。',
-   'Your partner is generally well off.',
+   '太陰坐亥，你的伴侶一般手頭寬裕，經濟條件不錯。',
+   'With Tai Yin in Hai, your partner is generally comfortably off.',
    '亥宫太阴一般主配偶富裕。', '亥宫太阴一般主配偶富裕'),
 ]})
 
@@ -337,12 +337,12 @@ T.append({'id': '貪狼辰戌.夫妻', 'stars': ['貪狼'], 'branch': ['辰', '�
    'Tan Lang in Chen or Xu carries less of its romantic restlessness; with good signs, the marriage is harmonious.',
    '辰戌贪狼为天罗地网，桃花的意味减轻，故性质较佳。若见吉化、吉曜，则夫妻和美。', '则夫妻和美'),
  R('夫妻.貪狼辰戌.火鈴', FIRE,
-   '同宮有火星或鈴星，夫妻的感情反而較為長久。',
+   '同宮有火星或鈴星，你們夫妻的感情反而較為長久。',
    'With Huo Xing or Ling Xing in the palace, the love between you actually lasts longer.',
    '辰戌[火贪]、『铃贪』，夫妻爱情较为久永。', '夫妻爱情较为久永'),
  R('夫妻.貪狼辰戌.遲婚', None,
-   '宜遲婚。',
-   'Marrying later suits you.',
+   '貪狼在辰戌，晚一點結婚對你比較好。',
+   'With Tan Lang in Chen or Xu, marrying later suits you better.',
    '辰戌贪狼，亦主迟婚。', '辰戌贪狼，亦主迟婚', 'base'),
 ]})
 T.append({'id': '貪狼.夫妻', 'stars': ['貪狼'], 'rules': [
@@ -355,7 +355,7 @@ T.append({'id': '貪狼.夫妻', 'stars': ['貪狼'], 'rules': [
    'With Huo Xing or Ling Xing in the palace, it starts as a passionate romance but can cool soon after marriage.',
    '『火贪』、『铃贪』守夫妻宫，主初时热恋，婚后不久即同冰炭。', '主初时热恋', 'limit'),
  R('夫妻.貪狼.煞', {'all': [SHA, {'not': {'branch': ['辰', '戌']}}]},
-   '同宮見煞，以遲婚為宜；婚前經過波折，反而好。',
+   '同宮見煞，你以遲婚為宜；婚前經過波折，反而好。',
    'With harsh stars in the palace, marrying later suits you; twists beforehand actually help.',
    '必须迟婚，且婚前曾经波折，然后可免。', '必须迟婚，且婚前曾经波折'),
 ]})
@@ -369,23 +369,23 @@ T.append({'id': '巨門子午.夫妻', 'stars': ['巨門'], 'branch': ['子', '�
 ]})
 T.append({'id': '巨門辰戌.夫妻', 'stars': ['巨門'], 'branch': ['辰', '戌'], 'rules': [
  R('夫妻.巨門辰戌.任勞', {'all': [{'hua': ['祿', '權', '科'], 'at': 'sifang'}, {'not': SHA}]},
-   '會祿權科而少煞，伴侶任勞任怨。',
-   'Meeting Abundance, Authority or Merit with few harsh stars, your partner works hard without complaint.',
+   '巨門會祿權科而煞星少，你的伴侶任勞任怨，肯為家裡付出。',
+   'Ju Men meets Abundance, Authority or Merit with few harsh stars: your partner works hard without complaint and gives a lot to the home.',
    '辰戌巨门，见昌曲、辅弼皆不佳。会禄权科而少煞曜者，主配偶可以任劳任怨。', '主配偶可以任劳任怨'),
 ]})
 T.append({'id': '巨門巳亥.夫妻', 'stars': ['巨門'], 'branch': ['巳', '亥'], 'rules': [
  R('夫妻.巨門巳亥.親眷', None,
-   '與伴侶的家人較難相處，坐巳更明顯。',
+   '你與伴侶的家人較難相處，坐巳更明顯。',
    'Getting along with your partner’s family is harder, more so in Si.',
    '巳亥巨门，女命主与夫家亲眷不和；男命主与岳家亲眷不和。巳宫者尤甚。', '巳宫者尤甚', 'base'),
 ]})
 T.append({'id': '巨門.夫妻', 'stars': ['巨門'], 'rules': [
  R('夫妻.巨門.陀羅', {'star': '陀羅', 'at': 'same'},
-   '同宮有陀羅，兩人容易自找麻煩，小事變大事。',
+   '同宮有陀羅，你們容易自找麻煩，小事變大事。',
    'With Tuo Luo in the palace, you can make trouble for yourselves, turning small things into big ones.',
    '巨门最不喜与陀罗同躔，主夫妻自找麻烦，往往小事化为大事。', '往往小事化为大事', 'limit'),
  R('夫妻.巨門.爭吵', None,
-   '即使盤面吉，兩人也多無謂的爭吵。',
+   '即使盤面吉，你和伴侶之間也多無謂的爭吵。',
    'Even with good signs, there is a fair amount of needless bickering.',
    '巨门守夫妻宫，虽吉，亦多无谓争吵。', '虽吉，亦多无谓争吵', 'base'),
 ]})
@@ -397,21 +397,21 @@ T.append({'id': '天相.夫妻', 'stars': ['天相'], 'rules': [
    'Your partner is often someone you already knew, a classmate, colleague or neighbour, or an old acquaintance met again.',
    '天相坐夫妻宫，古人有『亲上加亲』的说法。在现代，则为由同学、同事、街坊关系变成夫妇。又或为旧相识，未有感情，经一段时期疏远，重逢后再发生感情。', '则为由同学、同事、街坊关系变成夫妇', 'base'),
  R('夫妻.天相.共事', {'not': {'palace': '夫妻', 'is': 'bad'}},
-   '夫妻宜合作共事。',
-   'You and your partner do well working together.',
+   '天相坐夫妻宮，你和伴侶適合一起做事，分工合作最順。',
+   'With Tian Xiang in your Partnership Palace, you and your partner do well working together, each taking a share.',
    '天相坐夫妻宫，又为[夫唱妇随]，宜夫妻合作共事。', '宜夫妻合作共事'),
 ]})
 
 # ── 天梁 ──
 T.append({'id': '天梁巳亥.夫妻', 'stars': ['天梁'], 'branch': ['巳', '亥'], 'rules': [
  R('夫妻.天梁巳亥.同祿', {'hua': '祿', 'star': '天同', 'at': 'opp'},
-   '對宮天同化祿，夫妻可以白手興家。',
+   '對宮天同化祿，你和伴侶可以白手興家。',
    'With Tian Tong in Abundance opposite, you and your partner can build a household from nothing.',
    '巳亥天梁，对宫天同化禄，又有吉会，则主夫妻白手兴家。', '则主夫妻白手兴家'),
 ]})
 T.append({'id': '天梁.夫妻', 'stars': ['天梁'], 'rules': [
  R('夫妻.天梁.情深', None,
-   '婚前多經波折，所以婚後感情往往更深。',
+   '你婚前多經波折，所以婚後感情往往更深。',
    'Because the road to marriage has its twists, the bond afterwards is often all the deeper.',
    '由于婚姻曾经波折。所以天梁坐夫妻宫的人，往往婚后情缘更高笃。', '往往婚后情缘更高笃', 'base'),
  R('夫妻.天梁.羊陀', {'star': ['擎羊', '陀羅'], 'at': 'same'},
@@ -429,8 +429,8 @@ T.append({'id': '七殺辰戌.夫妻', 'stars': ['七殺'], 'branch': ['辰', '�
 ]})
 T.append({'id': '七殺.夫妻', 'stars': ['七殺'], 'rules': [
  R('夫妻.七殺.遲婚', {'not': {'any': [{'with': '紫微'}, {'with': '武曲'}]}},
-   '七殺在夫妻宮，一般以遲婚為宜。',
-   'With Qi Sha in your Partnership Palace, marrying later generally suits you.',
+   '七殺在夫妻宮，一般晚一點結婚對你比較好。',
+   'With Qi Sha in your Partnership Palace, marrying later generally suits you better.',
    '七杀临夫妻宫，一般以迟婚为宜。', '一般以迟婚为宜', 'base'),
  R('夫妻.七殺.獨立', {'all': [{'hua': ['祿', '權', '科'], 'at': 'sifang'}, {'any': [FUZUO, KUIYUE]}]},
    '會到吉化又見輔佐吉星，兩人宜各有獨立的事業。',
@@ -441,7 +441,7 @@ T.append({'id': '七殺.夫妻', 'stars': ['七殺'], 'rules': [
 # ── 破軍 ──
 T.append({'id': '破軍.夫妻', 'stars': ['破軍'], 'rules': [
  R('夫妻.破軍.波折', {'not': {'with': '紫微'}},
-   '婚前多波折；就算破軍化祿也一樣。',
+   '你婚前多波折；就算破軍化祿也一樣。',
    'The road to marriage has its twists, even with Po Jun in Abundance.',
    '破军在夫妻宫并非善曜，即使破军化禄，亦主婚前多波折，引起争夺。', '即使破军化禄，亦主婚前多波折', 'base'),
  R('夫妻.破軍.駕御', None,

@@ -12,7 +12,7 @@
     {
       "id": "遷移.廉殺.聲譽",
       "role": "base",
-      "text": "廉貞七殺在遷移宮，遷移異地能建立聲譽。",
+      "text": "廉貞七殺在遷移宮，你遷移異地能建立聲譽。",
       "en": "Lian Zhen with Qi Sha in your Travel Palace: moving away lets you build a reputation.",
       "source": {
         "passage": "deep.遷移.廉貞.2",
@@ -27,7 +27,7 @@
         "star": "廉貞",
         "at": "same"
       },
-      "text": "廉貞化祿，在外順利得財，而且多助力。",
+      "text": "廉貞化祿，你在外順利得財，而且多助力。",
       "en": "Lian Zhen in Abundance: money comes smoothly away from home, with plenty of help.",
       "source": {
         "passage": "deep.遷移.廉貞.3",
