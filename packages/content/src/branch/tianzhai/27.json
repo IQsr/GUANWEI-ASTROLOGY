@@ -12,8 +12,19 @@
       "id": "田宅.太陰.廟",
       "role": "refine",
       "when": {
-        "bright": "high",
-        "star": "太陰"
+        "all": [
+          {
+            "bright": "high",
+            "star": "太陰"
+          },
+          {
+            "not": {
+              "hua": "忌",
+              "star": "太陰",
+              "at": "same"
+            }
+          }
+        ]
       },
       "text": "太陰光亮，太陰主富，對你的家宅有利。",
       "en": "Tai Yin shines brightly, and Tai Yin stands for wealth: it favours your home and property.",

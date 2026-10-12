@@ -57,9 +57,9 @@ T.append({'id': '天機巨門.父母', 'stars': ['天機', '巨門'], 'rules': [
    '卯酉宫[天机巨门]，不见煞亦主远离，或两代人际关系不佳，或不利父母。见煞者主刑克，或父业破败。然酉宫者优于卯宫。所谓[不利父母]，乃指出生后父母境遇欠佳。持此以验上司，亦主上司在工作上境况不利。', '不见煞亦主远离，或两代人际关系不佳', 'base'),
 ]})
 T.append({'id': '天機.父母', 'stars': ['天機'], 'rules': [
- R('父母.天機.吉', {'all': [{'hua': ['祿', '權', '科'], 'at': 'sifang'}, {'not': {'star': '太陰', 'at': 'same'}}]},
-   '天機見祿權科會照，你與父母的關係穩定。',
-   'Tian Ji meeting Abundance, Authority or Merit: your bond with your parents is steady.',
+ R('父母.天機.吉', {'all': [{'hua': ['祿', '權', '科'], 'at': 'sifang'}, {'not': {'star': ['太陰', '巨門'], 'at': 'same'}}, {'not': H('忌', '天機')}]},
+   '天機見〔吉化〕，你與父母的關係穩定。',
+   'Tian Ji meets 〔good transformations〕: your bond with your parents is steady.',
    '天机守父母富，基本性质不利父子间的人际关系。见禄权科会，然后始主稳定，否则主两代远离。', '见禄权科会，然后始主稳定'),
  R('父母.天機.忌', H('忌', '天機'),
    '天機化忌，你和父母之間的關係較差，容易隔膜。',

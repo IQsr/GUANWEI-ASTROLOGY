@@ -13,13 +13,33 @@
   },
   "rules": [
     {
-      "id": "兄弟.太陽巳亥.廣",
+      "id": "兄弟.太陽巳亥.巳",
       "role": "refine",
-      "text": "你交友廣闊；坐巳主動結交，坐亥較被動。",
-      "en": "You have a wide circle; in Si you reach out, in Hai you let others come to you.",
+      "when": {
+        "branch": [
+          "巳"
+        ]
+      },
+      "text": "太陽在巳，你交友廣闊，而且會主動去結交朋友。",
+      "en": "With Tai Yang in Si, your circle is wide, and you reach out to make friends.",
       "source": {
         "passage": "deep.兄弟.太陽.5",
-        "quote": "巳亥太阳皆主交友广阔"
+        "quote": "巳宫者主动"
+      }
+    },
+    {
+      "id": "兄弟.太陽巳亥.亥",
+      "role": "refine",
+      "when": {
+        "branch": [
+          "亥"
+        ]
+      },
+      "text": "太陽在亥，你交友廣闊，只是多由別人來結交你，自己較被動。",
+      "en": "With Tai Yang in Hai, your circle is wide, though friends tend to come to you rather than you reaching out.",
+      "source": {
+        "passage": "deep.兄弟.太陽.5",
+        "quote": "亥宫者被动"
       }
     }
   ]

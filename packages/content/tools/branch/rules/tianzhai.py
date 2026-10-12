@@ -203,7 +203,7 @@ T.append({'id': '天同.田宅', 'stars': ['天同'], 'rules': [
    '天同與天梁相對，你置業的過程比較順利，少有波折。',
    'Tian Tong faces Tian Liang: buying property goes fairly smoothly for you, with few setbacks.',
    '天同守田宅宫与天梁对拱，其性质较[天同天梁]同度为佳，主置业较为顺利。', '主置业较为顺利'),
- R('田宅.天同.本', None,
+ R('田宅.天同.本', {'not': LU},
    '天同在田宅宮，一般主白手興家；重的是居住環境的享受，不主物業豐厚。',
    'With Tian Tong in your Property Palace, you generally build from nothing; you value a comfortable home more than a large portfolio.',
    '天同守田宅宫，由于天同的精神受比物质享受为重，所以一般情况下，仅主居住环境的享受，故不主牧业丰厚。', '仅主居住环境的享受', 'base'),
@@ -261,7 +261,7 @@ T.append({'id': '天府.田宅', 'stars': ['天府'], 'rules': [
 
 # ── 太陰 ──
 T.append({'id': '太陰.田宅', 'stars': ['太陰'], 'rules': [
- R('田宅.太陰.廟', {'bright': 'high', 'star': '太陰'},
+ R('田宅.太陰.廟', {'all': [{'bright': 'high', 'star': '太陰'}, {'not': H('忌', '太陰')}]},
    '太陰光亮，太陰主富，對你的家宅有利。',
    'Tai Yin shines brightly, and Tai Yin stands for wealth: it favours your home and property.',
    '太阴主富，故入庙则利宅，', '故入庙则利宅'),

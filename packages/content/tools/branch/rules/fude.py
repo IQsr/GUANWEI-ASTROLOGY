@@ -301,7 +301,7 @@ T.append({'id': '天府.福德', 'stars': ['天府'], 'rules': [
    '見左輔右弼，你內心安靜，也有決斷力。',
    'With Zuo Fu or You Bi, your mind is calm and you are decisive.',
    '天府喜同会辅佐诸曜。主内心安静，且有决断力。', '主内心安静，且有决断力'),
- R('福德.天府.魁鉞', KUIYUE,
+ R('福德.天府.魁鉞', {'all': [KUIYUE, {'not': {'star': '紫微', 'at': 'same'}}]},
    '天府會天魁天鉞，你心胸寬大，有泱泱大度。',
    'Tian Fu meets Tian Kui or Tian Yue: you are broad-minded and magnanimous.',
    '天府与魁钺同会，泱泱大度。', '天府与魁钺同会，泱泱大度'),

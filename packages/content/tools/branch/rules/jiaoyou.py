@@ -144,10 +144,10 @@ T.append({'id': '太陽巨門.僕役', 'stars': ['太陽', '巨門'], 'rules': [
 ]})
 T.append({'id': '太陽太陰.僕役', 'stars': ['太陽', '太陰'], 'rules': [
  R('僕役.陰陽.輔佐', {'all': [{'any': [{'star': ['左輔', '右弼', '文昌', '文曲'], 'at': 'same'}, {'jia': ['左輔', '右弼']}, {'jia': ['文昌', '文曲']}]}, {'not': SHA}]},
-   '太陽太陰見左輔右弼或文昌文曲，不但交遊廣闊，下屬也眾多。',
-   'Tai Yang with Tai Yin and Zuo Fu, You Bi, Wen Chang or Wen Qu: a wide circle and plenty of staff.',
+   '太陽太陰見〔輔佐吉星〕，你不但交遊廣闊，下屬也眾多。',
+   'Tai Yang–Tai Yin meets 〔helper stars〕: a wide circle, and plenty of staff.',
    '太阴太阳居交友宫、，见左辅右弼、文昌文曲同度，或相夹，不特交游广阔，且主下属众多。', '不特交游广阔，且主下属众多'),
- R('僕役.陰陽.本', None,
+ R('僕役.陰陽.本', {'not': {'any': [{'star': ['左輔', '右弼', '文昌', '文曲'], 'at': 'same'}, {'jia': ['左輔', '右弼']}, {'jia': ['文昌', '文曲']}]}},
    '太陽太陰同在僕役宮，你交遊廣闊，認識的人多。',
    'With Tai Yang and Tai Yin together in your Friends Palace, your circle is wide and you know many people.',
    '(唯在丑宫，[太阴太阳]同度，仍主交游广阔。这是由于太阴的缘故。)', '仍主交游广阔', 'base'),

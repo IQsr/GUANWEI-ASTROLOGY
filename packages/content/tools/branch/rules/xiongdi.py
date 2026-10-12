@@ -102,8 +102,8 @@ T.append({'id': '天機巳亥.兄弟', 'stars': ['天機'], 'branch': ['巳', '�
 ]})
 T.append({'id': '天機子午.兄弟', 'stars': ['天機'], 'branch': ['子', '午'], 'rules': [
  R('兄弟.天機子午.合作', {'not': {'all': [FUZUO, KUIYUE]}},
-   '你喜歡與人合作，但除非吉星重重，否則各懷機心，難有好結果。',
-   'You like to team up, but unless helper stars abound, everyone has their own agenda and it ends badly.',
+   '天機在子午，你喜歡與人合作，只是盤上吉星不夠多，彼此容易各懷機心，難有好結果。',
+   'With Tian Ji in Zi or Wu, you like to team up, but without enough helper stars everyone keeps their own agenda, and it rarely ends well.',
    '子午天机，自身常喜与人合作，除非辅佐吉曜重重，否则必各怀机心，凶终隙末。', '否则必各怀机心', 'limit'),
  R('兄弟.天機子午.交友', None,
    '天機在子午，你一生交友雖多，卻難得遇上知己。',
@@ -135,10 +135,14 @@ T.append({'id': '太陽天梁.兄弟', 'stars': ['太陽', '天梁'], 'rules': [
    '见辅佐吉曜，则有可依靠之兄姊，或主得友人提携。', '则有可依靠之兄姊'),
 ]})
 T.append({'id': '太陽巳亥.兄弟', 'stars': ['太陽'], 'branch': ['巳', '亥'], 'rules': [
- R('兄弟.太陽巳亥.廣', None,
-   '你交友廣闊；坐巳主動結交，坐亥較被動。',
-   'You have a wide circle; in Si you reach out, in Hai you let others come to you.',
-   '巳亥太阳皆主交友广阔。巳宫者主动；亥宫者被动。', '巳亥太阳皆主交友广阔'),
+ R('兄弟.太陽巳亥.巳', {'branch': ['巳']},
+   '太陽在巳，你交友廣闊，而且會主動去結交朋友。',
+   'With Tai Yang in Si, your circle is wide, and you reach out to make friends.',
+   '巳亥太阳皆主交友广阔。巳宫者主动；亥宫者被动。', '巳宫者主动'),
+ R('兄弟.太陽巳亥.亥', {'branch': ['亥']},
+   '太陽在亥，你交友廣闊，只是多由別人來結交你，自己較被動。',
+   'With Tai Yang in Hai, your circle is wide, though friends tend to come to you rather than you reaching out.',
+   '巳亥太阳皆主交友广阔。巳宫者主动；亥宫者被动。', '亥宫者被动'),
 ]})
 T.append({'id': '太陽辰戌.兄弟', 'stars': ['太陽'], 'branch': ['辰', '戌'], 'rules': [
  R('兄弟.太陽辰.和', {'branch': ['辰']},

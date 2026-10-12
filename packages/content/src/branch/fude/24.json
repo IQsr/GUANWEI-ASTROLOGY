@@ -44,11 +44,21 @@
       "id": "福德.天府.魁鉞",
       "role": "refine",
       "when": {
-        "star": [
-          "天魁",
-          "天鉞"
-        ],
-        "at": "sifang"
+        "all": [
+          {
+            "star": [
+              "天魁",
+              "天鉞"
+            ],
+            "at": "sifang"
+          },
+          {
+            "not": {
+              "star": "紫微",
+              "at": "same"
+            }
+          }
+        ]
       },
       "text": "天府會天魁天鉞，你心胸寬大，有泱泱大度。",
       "en": "Tian Fu meets Tian Kui or Tian Yue: you are broad-minded and magnanimous.",
