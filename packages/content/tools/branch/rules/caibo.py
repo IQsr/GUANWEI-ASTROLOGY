@@ -11,6 +11,23 @@ def H(hua, star, at='same'): return {'hua': hua, 'star': star, 'at': at}
 def R(id, when, text, en, src, quote, role='refine'):
     return {'id': id, 'when': when, 'text': text, 'en': en, 'src': src, 'quote': quote, 'role': role}
 
+# ── 宮位連動（2026-10-12）：排最前，見 branch.ts palaceState() ──
+def PS(name, st): return {'palace': name, 'is': st}
+T.append({'id': '財帛連動', 'stars': [], 'link': True, 'rules': [
+ R('財帛.連動.財吉官凶', {'all': [PS('財帛', 'good'), PS('官祿', 'bad')]},
+   '你的財帛宮星曜吉利，官祿宮卻不吉利：事業未必顯赫，卻能得財、儲財，所以宜不出鋒頭。',
+   'Your Wealth Palace is favourable but your Career Palace is not: your career may not shine, yet you can earn and save, so keep a low profile.',
+   '财帛宫星曜吉，而事业宫疆曜不吉，基本性质为事业并不峥嵘，但却可以得财或储财，因此往往就以不出锋头为宜。', '但却可以得财或储财'),
+ R('財帛.連動.官吉財凶', {'all': [PS('官祿', 'good'), PS('財帛', 'bad')]},
+   '你的官祿宮星曜吉利，財帛宮卻不吉利：事業可以做大，但錢財不易聚，宜受雇或與人合夥，不宜獨立經營。',
+   'Your Career Palace is favourable but your Wealth Palace is not: the career can grow large, but money is hard to keep, so salaried work or partnership suits you better than going it alone.',
+   '反之，则事业虽大，或所从事者为受人注意的行业，但却以任职或合伙为宜，不宜独立经营，因财不易聚之故也。', '但却以任职或合伙为宜，不宜独立经营'),
+ R('財帛.連動.田宅', {'all': [PS('財帛', 'bad'), PS('田宅', 'good')]},
+   '你的財帛宮不吉利，田宅宮卻吉利：可以靠置業保存、累積財富，或者做小本經營。',
+   'Your Wealth Palace is unfavourable but your Property Palace is favourable: property is how you hold on to and build wealth, or a small business of your own.',
+   '推断财帛有时亦须参考田宅宫，因为若财帛宫不吉而田宅宫吉利时，常可藉置业以保存及积累财雷，或小本经营以维持生计，', '常可藉置业以保存及积累'),
+]})
+
 # ── 紫微 ──
 T.append({'id': '紫微破軍.財帛', 'stars': ['紫微', '破軍'], 'rules': [
  R('財帛.紫破.意外', None,
@@ -614,7 +631,7 @@ T.append({'id': '財帛通則', 'stars': [], 'rules': [
    '火星或鈴星在財帛宮，進財較困難，要勞心勞力。',
    'With Huo Xing or Ling Xing in the Wealth Palace, money is harder to come by and takes effort of mind and body.',
    '火铃在财帛宫的毖本性质，为增加进财的困难，日主劳心劳力。', '为增加进财的困难'),
- R('財帛.通則.輔弼', FUZUO,
+ R('財帛.通則.輔弼', {'all': [FUZUO, {'not': {'palace': '財帛', 'is': 'bad'}}]},
    '見左輔右弼，可以憑別人的助力生財，也可以考慮自己經營。',
    'With Zuo Fu or You Bi, others help you earn, and running your own business is worth considering.',
    '财帛宫见辅弼，则可凭别人助力以生财，所以可考虑独立经营；', '则可凭别人助力以生财'),

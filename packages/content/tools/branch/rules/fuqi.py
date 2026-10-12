@@ -40,13 +40,13 @@ T.append({'id': '紫微天府.夫妻', 'stars': ['紫微', '天府'], 'rules': [
    '唯若禄存同度，仍主配偶自私，有支配欲。', '有支配欲', 'limit'),
 ]})
 T.append({'id': '紫微貪狼.夫妻', 'stars': ['紫微', '貪狼'], 'rules': [
- R('夫妻.紫貪.合作', {'any': [GOODHUA, FUZUO, KUIYUE]},
+ R('夫妻.紫貪.合作', {'all': [{'any': [GOODHUA, FUZUO, KUIYUE]}, {'not': {'palace': '夫妻', 'is': 'bad'}}]},
    '你的紫微貪狼見吉，夫妻可以合作創業，但要以伴侶做事業的主體。',
    'Your Zi Wei–Tan Lang meets good signs: you and your partner can build a business together, with your partner at its centre.',
    '『紫贪』见吉，不可作『桃花犯主』看。亦主夫妻可以合作创业，唯必须以配偶为事业主体。', '唯必须以配偶为事业主体'),
 ]})
 T.append({'id': '紫微天相.夫妻', 'stars': ['紫微', '天相'], 'rules': [
- R('夫妻.紫相.合作', FUZUO,
+ R('夫妻.紫相.合作', {'all': [FUZUO, {'not': {'palace': '夫妻', 'is': 'bad'}}]},
    '你的紫微天相見左輔右弼，利夫妻合作創業，可以一起興家。',
    'Your Zi Wei–Tian Xiang meets Zuo Fu or You Bi: working together as a couple pays off, and you can build the household side by side.',
    '辰戌『紫相』有情，见辅弼吉曜，利夫妻合作创业，谓之夫唱妇随，可以发达兴家，', '利夫妻合作创业'),
@@ -396,7 +396,7 @@ T.append({'id': '天相.夫妻', 'stars': ['天相'], 'rules': [
    '伴侶多由同學、同事、鄰居一類熟人變成，或是久別重逢的舊相識。',
    'Your partner is often someone you already knew, a classmate, colleague or neighbour, or an old acquaintance met again.',
    '天相坐夫妻宫，古人有『亲上加亲』的说法。在现代，则为由同学、同事、街坊关系变成夫妇。又或为旧相识，未有感情，经一段时期疏远，重逢后再发生感情。', '则为由同学、同事、街坊关系变成夫妇', 'base'),
- R('夫妻.天相.共事', None,
+ R('夫妻.天相.共事', {'not': {'palace': '夫妻', 'is': 'bad'}},
    '夫妻宜合作共事。',
    'You and your partner do well working together.',
    '天相坐夫妻宫，又为[夫唱妇随]，宜夫妻合作共事。', '宜夫妻合作共事'),

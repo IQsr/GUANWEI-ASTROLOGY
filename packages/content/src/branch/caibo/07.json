@@ -1,40 +1,36 @@
 {
-  "$note": "財帛宮（2026-10-12）：天機太陰.財帛。《深造講義》下篇 宮垣論 財帛宮 p.436–462。倒閉、破產、官非、盜賊、火災、疾病一類斷語不用；金額、「巨富」一類保證不用；天刑、天月、龍池鳳閣等引擎冇嘅星不用。",
+  "$note": "財帛宮（2026-10-12）：紫微.財帛。《深造講義》下篇 宮垣論 財帛宮 p.436–462。倒閉、破產、官非、盜賊、火災、疾病一類斷語不用；金額、「巨富」一類保證不用；天刑、天月、龍池鳳閣等引擎冇嘅星不用。",
   "topic": {
-    "id": "天機太陰.財帛",
+    "id": "紫微.財帛",
     "palace": "財帛",
     "stars": [
-      "天機",
-      "太陰"
+      "紫微"
     ]
   },
   "rules": [
     {
-      "id": "財帛.機陰.祿馬",
+      "id": "財帛.紫微.科",
       "role": "refine",
       "when": {
-        "all": [
-          {
-            "star": "天馬",
-            "at": [
-              "same",
-              "opp"
-            ]
-          },
-          {
-            "star": "祿存",
-            "at": [
-              "same",
-              "opp"
-            ]
-          }
-        ]
+        "hua": "科",
+        "star": "紫微",
+        "at": "same"
       },
-      "text": "你的天機太陰見祿馬交馳，財發於遠方，宜離開出生地。",
-      "en": "Your Tian Ji–Tai Yin meets Lu Cun and Tian Ma: your money is made far away, so leaving your birthplace suits you.",
+      "text": "紫微化科，宜憑名譽、商譽求財。",
+      "en": "Zi Wei in Merit: earn on the strength of your name and reputation.",
       "source": {
-        "passage": "deep.財帛.天機.1",
-        "quote": "则主发财于远方"
+        "passage": "deep.財帛.紫微.11",
+        "quote": "则宜凭名誉、商誉以求财"
+      }
+    },
+    {
+      "id": "財帛.紫微.本",
+      "role": "base",
+      "text": "紫微不是財星：財源可以充裕，卻不主積聚。",
+      "en": "Zi Wei is not a wealth star: income can be ample, but it does not tend to accumulate.",
+      "source": {
+        "passage": "deep.財帛.紫微.12",
+        "quote": "亦仅主财源充裕，并不主能积聚"
       }
     }
   ]

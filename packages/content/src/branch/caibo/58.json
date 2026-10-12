@@ -1,35 +1,51 @@
 {
-  "$note": "財帛宮（2026-10-12）：七殺.財帛。《深造講義》下篇 宮垣論 財帛宮 p.436–462。倒閉、破產、官非、盜賊、火災、疾病一類斷語不用；金額、「巨富」一類保證不用；天刑、天月、龍池鳳閣等引擎冇嘅星不用。",
+  "$note": "財帛宮（2026-10-12）：七殺辰戌.財帛。《深造講義》下篇 宮垣論 財帛宮 p.436–462。倒閉、破產、官非、盜賊、火災、疾病一類斷語不用；金額、「巨富」一類保證不用；天刑、天月、龍池鳳閣等引擎冇嘅星不用。",
   "topic": {
-    "id": "七殺.財帛",
+    "id": "七殺辰戌.財帛",
     "palace": "財帛",
     "stars": [
       "七殺"
+    ],
+    "branch": [
+      "辰",
+      "戌"
     ]
   },
   "rules": [
     {
-      "id": "財帛.七殺.羊",
-      "role": "limit",
+      "id": "財帛.七殺辰戌.吉",
+      "role": "refine",
       "when": {
-        "star": "擎羊",
-        "at": "same"
+        "any": [
+          {
+            "hua": [
+              "祿",
+              "權",
+              "科"
+            ],
+            "at": "sifang"
+          },
+          {
+            "star": [
+              "左輔",
+              "右弼"
+            ],
+            "at": "sifang"
+          },
+          {
+            "star": [
+              "天魁",
+              "天鉞"
+            ],
+            "at": "sifang"
+          }
+        ]
       },
-      "text": "同宮有擎羊，求財多爭奪。",
-      "en": "With Qing Yang in the palace, money comes with a fight.",
+      "text": "見吉化吉星，主富裕，但不宜投機賭博。",
+      "en": "With good transformations or helper stars, you prosper, but gambling and speculation are not for you.",
       "source": {
-        "passage": "deep.財帛.七殺.5",
-        "quote": "七杀躔擎羊主争夺"
-      }
-    },
-    {
-      "id": "財帛.七殺.本",
-      "role": "base",
-      "text": "七殺在財帛宮，主掌財權；與天府主守不同，七殺主攻，主創出新局面。",
-      "en": "With Qi Sha in your Wealth Palace, you control the purse; unlike Tian Fu’s holding, Qi Sha attacks and opens new ground.",
-      "source": {
-        "passage": "deep.財帛.七殺.6",
-        "quote": "七杀守财帛宫，主掌财权"
+        "passage": "deep.財帛.七殺.4",
+        "quote": "若见吉化吉曜，亦主富裕"
       }
     }
   ]

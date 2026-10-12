@@ -1,22 +1,46 @@
 {
-  "$note": "官祿宮（2026-10-12）：天同太陰.官祿。《深造講義》下篇 宮垣論 官祿宮 p.530–560。殉職、牢獄、官非、血光、貪墨、意外一類斷語不用；天刑、天月、天巫、龍池鳳閣、三台八座等引擎冇嘅星不用；天機見 tianji-guanlu.json（試點）。",
+  "$note": "官祿宮（2026-10-12）：武曲.官祿。《深造講義》下篇 宮垣論 官祿宮 p.530–560。殉職、牢獄、官非、血光、貪墨、意外一類斷語不用；天刑、天月、天巫、龍池鳳閣、三台八座等引擎冇嘅星不用；天機見 tianji-guanlu.json（試點）。",
   "topic": {
-    "id": "天同太陰.官祿",
+    "id": "武曲.官祿",
     "palace": "官祿",
     "stars": [
-      "天同",
-      "太陰"
+      "武曲"
     ]
   },
   "rules": [
     {
-      "id": "官祿.同陰.多方",
-      "role": "base",
-      "text": "天同太陰在官祿宮，事業多變，而且往往同時有幾方面；是內外兼顧、有責任感的人才。",
-      "en": "With Tian Tong and Tai Yin in your Career Palace, work changes often and runs on several fronts; you handle inside and outside alike, with a strong sense of duty.",
+      "id": "官祿.武曲.財經",
+      "role": "refine",
+      "when": {
+        "hua": [
+          "祿",
+          "權",
+          "科"
+        ],
+        "at": "same"
+      },
+      "text": "武曲是財星，又有吉化，利於從事財經工作。",
+      "en": "Wu Qu is the wealth star, and well transformed it favours work in finance.",
       "source": {
-        "passage": "deep.官祿.天同.1",
-        "quote": "且主有多方面的事业"
+        "passage": "deep.官祿.武曲.11",
+        "quote": "利于从事财经工作"
+      }
+    },
+    {
+      "id": "官祿.武曲.左右",
+      "role": "refine",
+      "when": {
+        "star": [
+          "左輔",
+          "右弼"
+        ],
+        "at": "sifang"
+      },
+      "text": "武曲主行動，見左輔右弼，行動有人相助。",
+      "en": "Wu Qu is about action, and with Zuo Fu or You Bi your actions have backing.",
+      "source": {
+        "passage": "deep.官祿.武曲.12",
+        "quote": "主行动有助力"
       }
     }
   ]

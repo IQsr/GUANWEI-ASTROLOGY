@@ -1,45 +1,84 @@
 {
-  "$note": "官祿宮（2026-10-12）：太陰卯酉.官祿。《深造講義》下篇 宮垣論 官祿宮 p.530–560。殉職、牢獄、官非、血光、貪墨、意外一類斷語不用；天刑、天月、天巫、龍池鳳閣、三台八座等引擎冇嘅星不用；天機見 tianji-guanlu.json（試點）。",
+  "$note": "官祿宮（2026-10-12）：天府.官祿。《深造講義》下篇 宮垣論 官祿宮 p.530–560。殉職、牢獄、官非、血光、貪墨、意外一類斷語不用；天刑、天月、天巫、龍池鳳閣、三台八座等引擎冇嘅星不用；天機見 tianji-guanlu.json（試點）。",
   "topic": {
-    "id": "太陰卯酉.官祿",
+    "id": "天府.官祿",
     "palace": "官祿",
     "stars": [
-      "太陰"
-    ],
-    "branch": [
-      "卯",
-      "酉"
+      "天府"
     ]
   },
   "rules": [
     {
-      "id": "官祿.太陰酉.外國",
-      "role": "base",
+      "id": "官祿.天府.祿",
+      "role": "refine",
       "when": {
-        "branch": [
-          "酉"
+        "any": [
+          {
+            "hua": "祿",
+            "at": "sifang"
+          },
+          {
+            "star": "祿存",
+            "at": "sifang"
+          }
         ]
       },
-      "text": "太陰坐酉，事業廣大，可以擴展到外國，或一生事業與外國有關。",
-      "en": "With Tai Yin in You, your career is broad and can reach abroad, or be tied to other countries all your life.",
+      "text": "天府得祿，事業亨通。",
+      "en": "Tian Fu meeting Lu: your career goes smoothly.",
       "source": {
-        "passage": "deep.官祿.太陰.1",
-        "quote": "在酉事业广大，可以扩展至外国"
+        "passage": "deep.官祿.天府.1",
+        "quote": "天府必须得禄，然后事业始主亨通"
       }
     },
     {
-      "id": "官祿.太陰卯.任職",
-      "role": "base",
+      "id": "官祿.天府.無祿",
+      "role": "limit",
       "when": {
-        "branch": [
-          "卯"
-        ]
+        "not": {
+          "any": [
+            {
+              "hua": "祿",
+              "at": "sifang"
+            },
+            {
+              "star": "祿存",
+              "at": "sifang"
+            }
+          ]
+        }
       },
-      "text": "太陰坐卯，以受雇任職為宜。",
-      "en": "With Tai Yin in Mao, salaried employment suits you best.",
+      "text": "天府不見祿，事業就算好，也容易外強中乾。",
+      "en": "Without Lu, even a good career can be stronger on the outside than within.",
       "source": {
-        "passage": "deep.官祿.太陰.1",
-        "quote": "在卯者，以任职为宜"
+        "passage": "deep.官祿.天府.2",
+        "quote": "亦不过外强中干而已"
+      }
+    },
+    {
+      "id": "官祿.天府.空劫",
+      "role": "refine",
+      "when": {
+        "star": [
+          "地空",
+          "地劫"
+        ],
+        "at": "same"
+      },
+      "text": "同宮有地空地劫，既想改革又保守，宜做實業，切忌投機。",
+      "en": "With Di Kong or Di Jie in the palace, you want change but cling to caution; stick to real business and avoid speculation.",
+      "source": {
+        "passage": "deep.官祿.天府.3",
+        "quote": "故以从事实业为宜。切忌投机"
+      }
+    },
+    {
+      "id": "官祿.天府.踏實",
+      "role": "base",
+      "text": "天府不主浮華，做任何事業都以腳踏實地為佳。",
+      "en": "Tian Fu is not for show: whatever you do, keep your feet on the ground.",
+      "source": {
+        "passage": "deep.官祿.天府.4",
+        "quote": "凡有经营，皆以脚踏实地为佳"
       }
     }
   ]

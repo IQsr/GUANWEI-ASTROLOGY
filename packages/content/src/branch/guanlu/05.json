@@ -1,76 +1,32 @@
 {
-  "$note": "官祿宮（2026-10-12）：紫微七殺.官祿。《深造講義》下篇 宮垣論 官祿宮 p.530–560。殉職、牢獄、官非、血光、貪墨、意外一類斷語不用；天刑、天月、天巫、龍池鳳閣、三台八座等引擎冇嘅星不用；天機見 tianji-guanlu.json（試點）。",
+  "$note": "官祿宮（2026-10-12）：紫微天相.官祿。《深造講義》下篇 宮垣論 官祿宮 p.530–560。殉職、牢獄、官非、血光、貪墨、意外一類斷語不用；天刑、天月、天巫、龍池鳳閣、三台八座等引擎冇嘅星不用；天機見 tianji-guanlu.json（試點）。",
   "topic": {
-    "id": "紫微七殺.官祿",
+    "id": "紫微天相.官祿",
     "palace": "官祿",
     "stars": [
       "紫微",
-      "七殺"
+      "天相"
     ]
   },
   "rules": [
     {
-      "id": "官祿.紫殺.管理",
+      "id": "官祿.紫相.副貳",
       "role": "base",
-      "text": "紫微七殺在官祿宮，長處在管理，最宜管人、帶團隊。",
-      "en": "With Zi Wei and Qi Sha in your Career Palace, your strength is management; leading people suits you best.",
+      "text": "紫微天相在官祿宮，常做副手：實際上獨當一面，名義卻不及實際。",
+      "en": "With Zi Wei and Tian Xiang in your Career Palace, you often serve as deputy: you run things in practice, but your title falls short of what you do.",
       "source": {
-        "passage": "deep.官祿.紫微.12",
-        "quote": "其特长在于管理"
+        "passage": "deep.官祿.紫微.10",
+        "quote": "而名义则不如实际"
       }
     },
     {
-      "id": "官祿.紫殺.科",
+      "id": "官祿.紫相.合作",
       "role": "refine",
-      "when": {
-        "hua": "科",
-        "star": "紫微",
-        "at": "same"
-      },
-      "text": "紫微化科，加強管理和領導的力量。",
-      "en": "Zi Wei in Merit strengthens your management and leadership.",
+      "text": "宜與人合作，但一定要真正參與領導核心。",
+      "en": "Working with partners suits you, as long as you are genuinely part of the leadership.",
       "source": {
-        "passage": "deep.官祿.紫微.13",
-        "quote": "可加强管理领导之力"
-      }
-    },
-    {
-      "id": "官祿.紫殺.祿馬",
-      "role": "refine",
-      "when": {
-        "all": [
-          {
-            "star": "天馬",
-            "at": [
-              "same",
-              "opp"
-            ]
-          },
-          {
-            "any": [
-              {
-                "star": "祿存",
-                "at": [
-                  "same",
-                  "opp"
-                ]
-              },
-              {
-                "hua": "祿",
-                "at": [
-                  "same",
-                  "opp"
-                ]
-              }
-            ]
-          }
-        ]
-      },
-      "text": "見祿馬交馳，一生要轉幾次行業，然後才安定。",
-      "en": "With Lu and Tian Ma meeting, you change line of work a few times before you settle.",
-      "source": {
-        "passage": "deep.官祿.紫微.14",
-        "quote": "一生三度转业然后始安定"
+        "passage": "deep.官祿.紫微.11",
+        "quote": "唯必须实际参加领导核心工作"
       }
     }
   ]

@@ -1,34 +1,20 @@
 {
-  "$note": "財帛宮（2026-10-12）：天梁巳亥.財帛。《深造講義》下篇 宮垣論 財帛宮 p.436–462。倒閉、破產、官非、盜賊、火災、疾病一類斷語不用；金額、「巨富」一類保證不用；天刑、天月、龍池鳳閣等引擎冇嘅星不用。",
+  "$note": "財帛宮（2026-10-12）：天相.財帛。《深造講義》下篇 宮垣論 財帛宮 p.436–462。倒閉、破產、官非、盜賊、火災、疾病一類斷語不用；金額、「巨富」一類保證不用；天刑、天月、龍池鳳閣等引擎冇嘅星不用。",
   "topic": {
-    "id": "天梁巳亥.財帛",
+    "id": "天相.財帛",
     "palace": "財帛",
     "stars": [
-      "天梁"
-    ],
-    "branch": [
-      "巳",
-      "亥"
+      "天相"
     ]
   },
   "rules": [
     {
-      "id": "財帛.天梁巳亥.白手",
-      "role": "base",
-      "text": "主白手興家。",
-      "en": "You build your fortune from nothing.",
-      "source": {
-        "passage": "deep.財帛.天梁.1",
-        "quote": "巳亥天梁与天同相对，主白手兴家"
-      }
-    },
-    {
-      "id": "財帛.天梁巳亥.祿馬",
+      "id": "財帛.天相.財印",
       "role": "refine",
       "when": {
-        "all": [
+        "any": [
           {
-            "star": "天馬",
+            "hua": "祿",
             "at": [
               "same",
               "opp"
@@ -43,11 +29,21 @@
           }
         ]
       },
-      "text": "見祿馬交馳，一生財源在外地。",
-      "en": "With Lu Cun and Tian Ma meeting, your income comes from far away all your life.",
+      "text": "天相見祿存或化祿，成「財印」，主富足。",
+      "en": "Tian Xiang meeting Lu Cun or Abundance becomes a seal of wealth, and points to comfort.",
       "source": {
-        "passage": "deep.財帛.天梁.2",
-        "quote": "决主一生财源在于异域"
+        "passage": "deep.財帛.天相.4",
+        "quote": "此主富厚发达"
+      }
+    },
+    {
+      "id": "財帛.天相.慷慨",
+      "role": "refine",
+      "text": "對錢財謹慎，但常能慷慨解囊，幫人渡過難關。",
+      "en": "Careful with money, you can still be generous when someone is in need.",
+      "source": {
+        "passage": "deep.財帛.天相.5",
+        "quote": "常能慷慨解囊以济人之危"
       }
     }
   ]

@@ -1,94 +1,54 @@
 {
-  "$note": "官祿宮（2026-10-12）：紫微天府.官祿。《深造講義》下篇 宮垣論 官祿宮 p.530–560。殉職、牢獄、官非、血光、貪墨、意外一類斷語不用；天刑、天月、天巫、龍池鳳閣、三台八座等引擎冇嘅星不用；天機見 tianji-guanlu.json（試點）。",
+  "$note": "官祿宮（2026-10-12）：紫微破軍.官祿。《深造講義》下篇 宮垣論 官祿宮 p.530–560。殉職、牢獄、官非、血光、貪墨、意外一類斷語不用；天刑、天月、天巫、龍池鳳閣、三台八座等引擎冇嘅星不用；天機見 tianji-guanlu.json（試點）。",
   "topic": {
-    "id": "紫微天府.官祿",
+    "id": "紫微破軍.官祿",
     "palace": "官祿",
     "stars": [
       "紫微",
-      "天府"
+      "破軍"
     ]
   },
   "rules": [
     {
-      "id": "官祿.紫府.朝拱",
-      "role": "refine",
-      "when": {
-        "all": [
-          {
-            "star": [
-              "左輔",
-              "右弼"
-            ],
-            "at": "sifang"
-          },
-          {
-            "star": [
-              "天魁",
-              "天鉞"
-            ],
-            "at": "sifang"
-          }
-        ]
-      },
-      "text": "你的紫微天府得輔佐吉星拱照，事業可以有成。",
-      "en": "Your Zi Wei–Tian Fu is surrounded by helper stars, so your career can come to something.",
+      "id": "官祿.紫破.開創",
+      "role": "base",
+      "text": "紫微破軍在官祿宮，以發揮開創力為佳：無論從商從政，都主開創而不主守成，所以常有勞累之感。",
+      "en": "With Zi Wei and Po Jun in your Career Palace, you do best when you break new ground: in business or public life you build rather than hold, which is why it so often feels tiring.",
       "source": {
-        "passage": "deep.官祿.紫微.4",
-        "quote": "必须见百官司朝拱然后施主有成"
+        "passage": "deep.官祿.紫微.1",
+        "quote": "皆主开创而不主守成"
       }
     },
     {
-      "id": "官祿.紫府.無吉",
-      "role": "limit",
+      "id": "官祿.紫破.祿",
+      "role": "refine",
       "when": {
-        "not": {
-          "any": [
-            {
-              "star": [
-                "左輔",
-                "右弼"
-              ],
-              "at": "sifang"
-            },
-            {
-              "star": [
-                "天魁",
-                "天鉞"
-              ],
-              "at": "sifang"
-            }
-          ]
-        }
+        "hua": "祿",
+        "star": "破軍",
+        "at": "same"
       },
-      "text": "你的紫微天府不見輔佐吉星，事業上容易進退失據；目標要配合實力。",
-      "en": "Your Zi Wei–Tian Fu lacks helper stars, so you can lose your footing at work; match your aims to your means.",
+      "text": "破軍化祿，一生事業多變，也常要負擔額外的工作。",
+      "en": "Po Jun in Abundance: your career changes often, and you frequently carry extra work.",
       "source": {
-        "passage": "deep.官祿.紫微.5",
-        "quote": "则往往进退失据"
+        "passage": "deep.官祿.紫微.2",
+        "quote": "则一生事业多变，且常负担额外工作"
       }
     },
     {
-      "id": "官祿.紫府.科",
+      "id": "官祿.紫破.左右",
       "role": "refine",
       "when": {
-        "any": [
-          {
-            "hua": "科",
-            "star": "紫微",
-            "at": "same"
-          },
-          {
-            "hua": "科",
-            "star": "天府",
-            "at": "same"
-          }
-        ]
+        "star": [
+          "左輔",
+          "右弼"
+        ],
+        "at": "sifang"
       },
-      "text": "紫微化科主白手開創事業；天府化科則在現成的局面下發展。",
-      "en": "Zi Wei in Merit means building a career from scratch; Tian Fu in Merit means growing within something already in place.",
+      "text": "見左輔右弼，開創時多助力。",
+      "en": "With Zuo Fu or You Bi, you have plenty of help when you break new ground.",
       "source": {
-        "passage": "deep.官祿.紫微.6",
-        "quote": "则主在现成局面下兴创"
+        "passage": "deep.官祿.紫微.3",
+        "quote": "则自多助力"
       }
     }
   ]

@@ -1,20 +1,24 @@
 {
-  "$note": "財帛宮（2026-10-12）：天相.財帛。《深造講義》下篇 宮垣論 財帛宮 p.436–462。倒閉、破產、官非、盜賊、火災、疾病一類斷語不用；金額、「巨富」一類保證不用；天刑、天月、龍池鳳閣等引擎冇嘅星不用。",
+  "$note": "財帛宮（2026-10-12）：天相巳亥.財帛。《深造講義》下篇 宮垣論 財帛宮 p.436–462。倒閉、破產、官非、盜賊、火災、疾病一類斷語不用；金額、「巨富」一類保證不用；天刑、天月、龍池鳳閣等引擎冇嘅星不用。",
   "topic": {
-    "id": "天相.財帛",
+    "id": "天相巳亥.財帛",
     "palace": "財帛",
     "stars": [
       "天相"
+    ],
+    "branch": [
+      "巳",
+      "亥"
     ]
   },
   "rules": [
     {
-      "id": "財帛.天相.財印",
+      "id": "財帛.天相巳亥.祿馬",
       "role": "refine",
       "when": {
-        "any": [
+        "all": [
           {
-            "hua": "祿",
+            "star": "天馬",
             "at": [
               "same",
               "opp"
@@ -29,21 +33,51 @@
           }
         ]
       },
-      "text": "天相見祿存或化祿，成「財印」，主富足。",
-      "en": "Tian Xiang meeting Lu Cun or Abundance becomes a seal of wealth, and points to comfort.",
+      "text": "見祿馬交馳，常有外地來的生財機會。",
+      "en": "With Lu Cun and Tian Ma meeting, money-making chances often come from elsewhere.",
       "source": {
-        "passage": "deep.財帛.天相.4",
-        "quote": "此主富厚发达"
+        "passage": "deep.財帛.天相.2",
+        "quote": "主常得外地提供之生财机会"
       }
     },
     {
-      "id": "財帛.天相.慷慨",
+      "id": "財帛.天相巳亥.武吉",
       "role": "refine",
-      "text": "對錢財謹慎，但常能慷慨解囊，幫人渡過難關。",
-      "en": "Careful with money, you can still be generous when someone is in need.",
+      "when": {
+        "all": [
+          {
+            "hua": [
+              "權",
+              "科"
+            ],
+            "star": "武曲",
+            "at": "opp"
+          },
+          {
+            "any": [
+              {
+                "star": [
+                  "左輔",
+                  "右弼"
+                ],
+                "at": "sifang"
+              },
+              {
+                "star": [
+                  "天魁",
+                  "天鉞"
+                ],
+                "at": "sifang"
+              }
+            ]
+          }
+        ]
+      },
+      "text": "對宮武曲化權或化科，又有吉星，財源較穩定，終有積蓄。",
+      "en": "With Wu Qu in Authority or Merit opposite and helper stars present, income is steadier and you end up with savings.",
       "source": {
-        "passage": "deep.財帛.天相.5",
-        "quote": "常能慷慨解囊以济人之危"
+        "passage": "deep.財帛.天相.3",
+        "quote": "且主终有积蓄"
       }
     }
   ]

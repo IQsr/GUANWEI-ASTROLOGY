@@ -1,66 +1,25 @@
 {
-  "$note": "官祿宮（2026-10-12）：天梁.官祿。《深造講義》下篇 宮垣論 官祿宮 p.530–560。殉職、牢獄、官非、血光、貪墨、意外一類斷語不用；天刑、天月、天巫、龍池鳳閣、三台八座等引擎冇嘅星不用；天機見 tianji-guanlu.json（試點）。",
+  "$note": "官祿宮（2026-10-12）：天梁巳亥.官祿。《深造講義》下篇 宮垣論 官祿宮 p.530–560。殉職、牢獄、官非、血光、貪墨、意外一類斷語不用；天刑、天月、天巫、龍池鳳閣、三台八座等引擎冇嘅星不用；天機見 tianji-guanlu.json（試點）。",
   "topic": {
-    "id": "天梁.官祿",
+    "id": "天梁巳亥.官祿",
     "palace": "官祿",
     "stars": [
       "天梁"
+    ],
+    "branch": [
+      "巳",
+      "亥"
     ]
   },
   "rules": [
     {
-      "id": "官祿.天梁.祿",
-      "role": "refine",
-      "when": {
-        "hua": "祿",
-        "star": "天梁",
-        "at": "same"
-      },
-      "text": "天梁化祿，最適合財務稽核一類工作；工作與財務無關的話，反因財受困擾。",
-      "en": "Tian Liang in Abundance suits financial audit work best; if your work has nothing to do with money, money brings you trouble instead.",
-      "source": {
-        "passage": "deep.官祿.天梁.2",
-        "quote": "若从事财务稽核之职者，最为适宜"
-      }
-    },
-    {
-      "id": "官祿.天梁.權",
-      "role": "refine",
-      "when": {
-        "hua": "權",
-        "star": "天梁",
-        "at": "same"
-      },
-      "text": "天梁化權，利於權威性的工作，例如法律、監察。",
-      "en": "Tian Liang in Authority favours work that carries authority, such as law or oversight.",
-      "source": {
-        "passage": "deep.官祿.天梁.3",
-        "quote": "利于权威性工作"
-      }
-    },
-    {
-      "id": "官祿.天梁.科",
-      "role": "refine",
-      "when": {
-        "hua": "科",
-        "star": "天梁",
-        "at": "same"
-      },
-      "text": "天梁化科，以清貴為宜：先爭取社會地位，財富隨之而來。",
-      "en": "Tian Liang in Merit: aim for respected rather than lucrative roles; win your standing first and the money follows.",
-      "source": {
-        "passage": "deep.官祿.天梁.4",
-        "quote": "然后财富始随之而来"
-      }
-    },
-    {
-      "id": "官祿.天梁.本",
+      "id": "官祿.天梁巳亥.幕後",
       "role": "base",
-      "text": "天梁是清貴之星：即使吉星齊會，也較少負行政之責，適合監察、審核、司法一類工作。",
-      "en": "Tian Liang is a star of respected integrity: even with every helper star, you rarely carry executive duties; oversight, audit or judicial work suits you.",
+      "text": "不宜出鋒頭；即使獨當一面，也以退居幕後為佳。",
+      "en": "Stay out of the limelight; even when you run things, it is better to work from behind the scenes.",
       "source": {
-        "passage": "deep.官祿.天梁.5",
-        "quote": "天梁为清贵之星"
+        "passage": "deep.官祿.天梁.1",
+        "quote": "亦以退居幕后为佳"
       }
     }
   ]

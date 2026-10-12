@@ -1,25 +1,47 @@
 {
-  "$note": "財帛宮（2026-10-12）：巨門辰戌.財帛。《深造講義》下篇 宮垣論 財帛宮 p.436–462。倒閉、破產、官非、盜賊、火災、疾病一類斷語不用；金額、「巨富」一類保證不用；天刑、天月、龍池鳳閣等引擎冇嘅星不用。",
+  "$note": "財帛宮（2026-10-12）：巨門子午.財帛。《深造講義》下篇 宮垣論 財帛宮 p.436–462。倒閉、破產、官非、盜賊、火災、疾病一類斷語不用；金額、「巨富」一類保證不用；天刑、天月、龍池鳳閣等引擎冇嘅星不用。",
   "topic": {
-    "id": "巨門辰戌.財帛",
+    "id": "巨門子午.財帛",
     "palace": "財帛",
     "stars": [
       "巨門"
     ],
     "branch": [
-      "辰",
-      "戌"
+      "子",
+      "午"
     ]
   },
   "rules": [
     {
-      "id": "財帛.巨門辰戌.專業",
-      "role": "base",
-      "text": "主白手創業，以專業為宜，因此可以成富；但工作多奔波。",
-      "en": "You start from nothing, best in a profession, and can prosper that way, though the work keeps you on the move.",
+      "id": "財帛.巨門子午.隱玉",
+      "role": "refine",
+      "when": {
+        "any": [
+          {
+            "hua": "祿",
+            "at": "sifang"
+          },
+          {
+            "star": "祿存",
+            "at": "sifang"
+          }
+        ]
+      },
+      "text": "巨門見祿，成「石中隱玉」：早年辛苦，中年後脫穎而出；發達之後不宜鋒芒太露。",
+      "en": "Ju Men meeting Lu forms the hidden-jade pattern: hard early years, then you stand out after midlife; once you rise, keep a low profile.",
       "source": {
-        "passage": "deep.財帛.巨門.3",
-        "quote": "且以专业为宜"
+        "passage": "deep.財帛.巨門.1",
+        "quote": "主中年后脱颖而出"
+      }
+    },
+    {
+      "id": "財帛.巨門子午.異族",
+      "role": "refine",
+      "text": "也適合在外資機構服務，先得信譽，再發展事業。",
+      "en": "Working for a foreign-owned organisation also suits you: reputation first, then the career grows.",
+      "source": {
+        "passage": "deep.財帛.巨門.2",
+        "quote": "亦宜在异族经营之机构服务"
       }
     }
   ]

@@ -1,99 +1,27 @@
 {
-  "$note": "僕役宮（2026-10-12）：武曲.僕役。《深造講義》下篇 宮垣論 僕役宮 p.516–530。官非、盜竊、色禍、受出賣、乘人之危一類斷語不用；天姚、陰煞、天巫、天刑等引擎冇嘅星不用；要分廟陷嘅條文暫不用。原書交友宮主下屬、晚輩，兼論朋友。",
+  "$note": "僕役宮（2026-10-12）：武曲七殺.僕役。《深造講義》下篇 宮垣論 僕役宮 p.516–530。官非、盜竊、色禍、受出賣、乘人之危一類斷語不用；天姚、陰煞、天巫、天刑等引擎冇嘅星不用；要分廟陷嘅條文暫不用。原書交友宮主下屬、晚輩，兼論朋友。",
   "topic": {
-    "id": "武曲.僕役",
+    "id": "武曲七殺.僕役",
     "palace": "僕役",
     "stars": [
-      "武曲"
+      "武曲",
+      "七殺"
     ]
   },
   "rules": [
     {
-      "id": "僕役.武曲.祿輔",
+      "id": "僕役.武殺.廉祿",
       "role": "refine",
       "when": {
-        "all": [
-          {
-            "hua": "祿",
-            "star": "武曲",
-            "at": "same"
-          },
-          {
-            "star": [
-              "左輔",
-              "右弼"
-            ],
-            "at": "sifang"
-          }
-        ]
+        "hua": "祿",
+        "star": "廉貞",
+        "at": "sifang"
       },
-      "text": "武曲化祿又見左輔右弼，下屬得力。",
-      "en": "Wu Qu in Abundance with Zuo Fu or You Bi: your staff are capable.",
+      "text": "會廉貞化祿，得到助力，只是不持久。",
+      "en": "Meeting Lian Zhen in Abundance: you get help, though it does not last.",
       "source": {
-        "passage": "deep.僕役.武曲.5",
-        "quote": "然后始主下属得力"
-      }
-    },
-    {
-      "id": "僕役.武曲.祿無輔",
-      "role": "limit",
-      "when": {
-        "all": [
-          {
-            "hua": "祿",
-            "star": "武曲",
-            "at": "same"
-          },
-          {
-            "not": {
-              "star": [
-                "左輔",
-                "右弼"
-              ],
-              "at": "sifang"
-            }
-          }
-        ]
-      },
-      "text": "武曲化祿而不見左輔右弼，要為朋友或下屬奔波傷神。",
-      "en": "Wu Qu in Abundance without Zuo Fu or You Bi: you wear yourself out running around for friends and staff.",
-      "source": {
-        "passage": "deep.僕役.武曲.5",
-        "quote": "则主为友人或下属奔波伤神"
-      }
-    },
-    {
-      "id": "僕役.武曲.忌",
-      "role": "limit",
-      "when": {
-        "hua": "忌",
-        "star": "武曲",
-        "at": "same"
-      },
-      "text": "武曲化忌，容易受下屬或朋友拖累而有損失。",
-      "en": "Wu Qu in Hindrance: staff or friends can cost you.",
-      "source": {
-        "passage": "deep.僕役.武曲.6",
-        "quote": "或因友人下属拖累而招致损失"
-      }
-    },
-    {
-      "id": "僕役.武曲.本",
-      "role": "base",
-      "when": {
-        "not": {
-          "star": "天府",
-          "at": [
-            "same",
-            "opp"
-          ]
-        }
-      },
-      "text": "武曲在僕役宮，基本上交遊不廣，下屬也無力。",
-      "en": "With Wu Qu in your Friends Palace, your circle is small and staff are not much help.",
-      "source": {
-        "passage": "deep.僕役.武曲.7",
-        "quote": "主交游不广，下属无力"
+        "passage": "deep.僕役.武曲.4",
+        "quote": "主得助力，唯不持久"
       }
     }
   ]

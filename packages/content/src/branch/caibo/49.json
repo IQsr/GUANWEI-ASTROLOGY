@@ -1,25 +1,47 @@
 {
-  "$note": "財帛宮（2026-10-12）：天相丑未.財帛。《深造講義》下篇 宮垣論 財帛宮 p.436–462。倒閉、破產、官非、盜賊、火災、疾病一類斷語不用；金額、「巨富」一類保證不用；天刑、天月、龍池鳳閣等引擎冇嘅星不用。",
+  "$note": "財帛宮（2026-10-12）：巨門.財帛。《深造講義》下篇 宮垣論 財帛宮 p.436–462。倒閉、破產、官非、盜賊、火災、疾病一類斷語不用；金額、「巨富」一類保證不用；天刑、天月、龍池鳳閣等引擎冇嘅星不用。",
   "topic": {
-    "id": "天相丑未.財帛",
+    "id": "巨門.財帛",
     "palace": "財帛",
     "stars": [
-      "天相"
-    ],
-    "branch": [
-      "丑",
-      "未"
+      "巨門"
     ]
   },
   "rules": [
     {
-      "id": "財帛.天相丑未.突發",
-      "role": "base",
-      "text": "可以突然發起來，但之前會有一段經濟較緊的日子。",
-      "en": "Money can arrive suddenly, but only after a tight stretch.",
+      "id": "財帛.巨門.太陽",
+      "role": "refine",
+      "when": {
+        "all": [
+          {
+            "star": "太陽",
+            "at": [
+              "same",
+              "opp"
+            ]
+          },
+          {
+            "hua": [
+              "祿",
+              "權",
+              "科"
+            ],
+            "star": [
+              "巨門",
+              "太陽"
+            ],
+            "at": [
+              "same",
+              "opp"
+            ]
+          }
+        ]
+      },
+      "text": "巨門與太陽同宮或相對而有吉化，一生受外地或外國人信賴而成富，也有語言天份。",
+      "en": "With Ju Men facing or sharing with Tai Yang under good transformations, people from abroad trust you and that is how you prosper; you also have a gift for languages.",
       "source": {
-        "passage": "deep.財帛.天相.1",
-        "quote": "但突发前必有一段时期经济困难"
+        "passage": "deep.財帛.巨門.4",
+        "quote": "主一生受异族信赖而成富"
       }
     }
   ]

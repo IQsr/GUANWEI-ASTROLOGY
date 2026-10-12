@@ -1,46 +1,22 @@
 {
-  "$note": "官祿宮（2026-10-12）：天同.官祿。《深造講義》下篇 宮垣論 官祿宮 p.530–560。殉職、牢獄、官非、血光、貪墨、意外一類斷語不用；天刑、天月、天巫、龍池鳳閣、三台八座等引擎冇嘅星不用；天機見 tianji-guanlu.json（試點）。",
+  "$note": "官祿宮（2026-10-12）：天同天梁.官祿。《深造講義》下篇 宮垣論 官祿宮 p.530–560。殉職、牢獄、官非、血光、貪墨、意外一類斷語不用；天刑、天月、天巫、龍池鳳閣、三台八座等引擎冇嘅星不用；天機見 tianji-guanlu.json（試點）。",
   "topic": {
-    "id": "天同.官祿",
+    "id": "天同天梁.官祿",
     "palace": "官祿",
     "stars": [
-      "天同"
+      "天同",
+      "天梁"
     ]
   },
   "rules": [
     {
-      "id": "官祿.天同.忌",
-      "role": "refine",
-      "when": {
-        "hua": "忌",
-        "star": "天同",
-        "at": "same"
-      },
-      "text": "天同化忌，往往很早就要出來工作，但事業的起步也可能更早。",
-      "en": "Tian Tong in Hindrance: you often start working young, but your career may also take off earlier.",
-      "source": {
-        "passage": "deep.官祿.天同.5",
-        "quote": "但事业之创兴却可能比化禄者为早"
-      }
-    },
-    {
-      "id": "官祿.天同.享受",
-      "role": "refine",
-      "text": "天同主享受，適合經營講究美觀或帶享受色彩的行業。",
-      "en": "Tian Tong loves comfort, so businesses built around beauty or enjoyment suit you.",
-      "source": {
-        "passage": "deep.官祿.天同.6",
-        "quote": "每主适宜经营美观或带享受色彩之行业"
-      }
-    },
-    {
-      "id": "官祿.天同.白手",
+      "id": "官祿.同梁.內務",
       "role": "base",
-      "text": "天同在官祿宮，事業由白手創起；往往宜離鄉發展。",
-      "en": "With Tian Tong in your Career Palace, you build your career from nothing, often away from home.",
+      "text": "天同天梁在官祿宮，宜擔任公職，工作以計劃、管理一類內務為宜。",
+      "en": "With Tian Tong and Tian Liang in your Career Palace, public-sector work suits you, in internal roles such as planning and management.",
       "source": {
-        "passage": "deep.官祿.天同.7",
-        "quote": "主事业必由白手创兴"
+        "passage": "deep.官祿.天同.4",
+        "quote": "如计划、管理之类"
       }
     }
   ]

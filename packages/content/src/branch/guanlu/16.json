@@ -1,48 +1,69 @@
 {
-  "$note": "官祿宮（2026-10-12）：武曲破軍.官祿。《深造講義》下篇 宮垣論 官祿宮 p.530–560。殉職、牢獄、官非、血光、貪墨、意外一類斷語不用；天刑、天月、天巫、龍池鳳閣、三台八座等引擎冇嘅星不用；天機見 tianji-guanlu.json（試點）。",
+  "$note": "官祿宮（2026-10-12）：武曲七殺.官祿。《深造講義》下篇 宮垣論 官祿宮 p.530–560。殉職、牢獄、官非、血光、貪墨、意外一類斷語不用；天刑、天月、天巫、龍池鳳閣、三台八座等引擎冇嘅星不用；天機見 tianji-guanlu.json（試點）。",
   "topic": {
-    "id": "武曲破軍.官祿",
+    "id": "武曲七殺.官祿",
     "palace": "官祿",
     "stars": [
       "武曲",
-      "破軍"
+      "七殺"
     ]
   },
   "rules": [
     {
-      "id": "官祿.武破.工程",
-      "role": "base",
+      "id": "官祿.武殺.本煞",
+      "role": "refine",
       "when": {
-        "not": {
-          "star": [
-            "擎羊",
-            "陀羅",
-            "火星",
-            "鈴星"
-          ],
-          "at": "same"
-        }
+        "star": [
+          "擎羊",
+          "陀羅",
+          "火星",
+          "鈴星",
+          "地空",
+          "地劫"
+        ],
+        "at": "same"
       },
-      "text": "煞輕，宜由工程技術起家。",
-      "en": "With harsh stars light, engineering and technical work is the way to start.",
+      "text": "同宮有煞，宜從事工程技藝，以帶金屬性質的為佳。",
+      "en": "With harsh stars in the palace, engineering and technical work suits you, especially with metal.",
       "source": {
-        "passage": "deep.官祿.武曲.9",
-        "quote": "亦宜工程技术起家"
+        "passage": "deep.官祿.武曲.7",
+        "quote": "则仅主工程技艺"
       }
     },
     {
-      "id": "官祿.武破.破祿",
+      "id": "官祿.武殺.紀律",
       "role": "refine",
       "when": {
-        "hua": "祿",
-        "star": "破軍",
-        "at": "same"
+        "all": [
+          {
+            "star": [
+              "擎羊",
+              "陀羅",
+              "火星",
+              "鈴星"
+            ],
+            "at": "trine"
+          },
+          {
+            "not": {
+              "star": [
+                "擎羊",
+                "陀羅",
+                "火星",
+                "鈴星",
+                "地空",
+                "地劫"
+              ],
+              "at": "same"
+            }
+          }
+        ]
       },
-      "text": "破軍化祿，點子多而不愛務實：見天魁天鉞才多機會，見左輔右弼才多助力。",
-      "en": "Po Jun in Abundance: full of ideas but impatient with the practical; Tian Kui and Tian Yue bring chances, Zuo Fu and You Bi bring help.",
+      "text": "三方有煞而本宮無煞，適合紀律部隊或制度嚴謹的機構出身。",
+      "en": "With harsh stars in the trines but not in the palace itself, a disciplined service or tightly run organisation is a good start for you.",
       "source": {
-        "passage": "deep.官祿.武曲.10",
-        "quote": "主意多而不喜务实"
+        "passage": "deep.官祿.武曲.8",
+        "quote": "宜军旅出身"
       }
     }
   ]

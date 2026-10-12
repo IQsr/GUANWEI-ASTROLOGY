@@ -1,32 +1,37 @@
 {
-  "$note": "財帛宮（2026-10-12）：廉貞七殺.財帛。《深造講義》下篇 宮垣論 財帛宮 p.436–462。倒閉、破產、官非、盜賊、火災、疾病一類斷語不用；金額、「巨富」一類保證不用；天刑、天月、龍池鳳閣等引擎冇嘅星不用。",
+  "$note": "財帛宮（2026-10-12）：廉貞天相.財帛。《深造講義》下篇 宮垣論 財帛宮 p.436–462。倒閉、破產、官非、盜賊、火災、疾病一類斷語不用；金額、「巨富」一類保證不用；天刑、天月、龍池鳳閣等引擎冇嘅星不用。",
   "topic": {
-    "id": "廉貞七殺.財帛",
+    "id": "廉貞天相.財帛",
     "palace": "財帛",
     "stars": [
       "廉貞",
-      "七殺"
+      "天相"
     ]
   },
   "rules": [
     {
-      "id": "財帛.廉殺.實",
+      "id": "財帛.廉相.應酬",
       "role": "base",
-      "text": "廉貞七殺在財帛宮，浮華最少，財帛較為實在。",
-      "en": "Lian Zhen with Qi Sha is the least showy pairing in the Wealth Palace: your money is real.",
+      "text": "廉貞天相加強交際應酬的色彩，是長袖善舞的生意人。",
+      "en": "Lian Zhen with Tian Xiang strengthens the social touch: you are a deft dealmaker.",
       "source": {
-        "passage": "deep.財帛.廉貞.3",
-        "quote": "为浮华性质至少之星系"
+        "passage": "deep.財帛.廉貞.1",
+        "quote": "为长袖善舞的商人"
       }
     },
     {
-      "id": "財帛.廉殺.理財",
+      "id": "財帛.廉相.祿",
       "role": "refine",
-      "text": "擅長積財，不擅理財；見輔佐吉星，理財能力較好。",
-      "en": "You are good at saving and less good at managing; helper stars improve your handling of money.",
+      "when": {
+        "hua": "祿",
+        "star": "廉貞",
+        "at": "same"
+      },
+      "text": "廉貞化祿，在交際中得財。",
+      "en": "Lian Zhen in Abundance: money comes through your social dealings.",
       "source": {
-        "passage": "deep.財帛.廉貞.4",
-        "quote": "擅积财而不擅理财"
+        "passage": "deep.財帛.廉貞.2",
+        "quote": "则于交际中得财"
       }
     }
   ]

@@ -1,47 +1,39 @@
 {
-  "$note": "財帛宮（2026-10-12）：太陽辰戌.財帛。《深造講義》下篇 宮垣論 財帛宮 p.436–462。倒閉、破產、官非、盜賊、火災、疾病一類斷語不用；金額、「巨富」一類保證不用；天刑、天月、龍池鳳閣等引擎冇嘅星不用。",
+  "$note": "財帛宮（2026-10-12）：太陽天梁.財帛。《深造講義》下篇 宮垣論 財帛宮 p.436–462。倒閉、破產、官非、盜賊、火災、疾病一類斷語不用；金額、「巨富」一類保證不用；天刑、天月、龍池鳳閣等引擎冇嘅星不用。",
   "topic": {
-    "id": "太陽辰戌.財帛",
+    "id": "太陽天梁.財帛",
     "palace": "財帛",
     "stars": [
-      "太陽"
-    ],
-    "branch": [
-      "辰",
-      "戌"
+      "太陽",
+      "天梁"
     ]
   },
   "rules": [
     {
-      "id": "財帛.太陽辰戌.魁鉞夾",
-      "role": "refine",
+      "id": "財帛.陽梁.空劫",
+      "role": "limit",
       "when": {
-        "jia": [
-          "天魁",
-          "天鉞"
-        ]
+        "star": [
+          "地空",
+          "地劫"
+        ],
+        "at": "same"
       },
-      "text": "天魁天鉞相夾，有人提拔。",
-      "en": "Flanked by Tian Kui and Tian Yue, you have people who lift you up.",
+      "text": "地空地劫同宮，財帛虛而不實：表面浮華，內裡困乏。",
+      "en": "With Di Kong or Di Jie in the palace, money is more show than substance: a bright surface over thin reserves.",
       "source": {
-        "passage": "deep.財帛.太陽.6",
-        "quote": "主有人提拔"
+        "passage": "deep.財帛.太陽.4",
+        "quote": "表面浮华而内在困乏"
       }
     },
     {
-      "id": "財帛.太陽辰戌.火鈴夾",
-      "role": "limit",
-      "when": {
-        "jia": [
-          "火星",
-          "鈴星"
-        ]
-      },
-      "text": "火星鈴星相夾，財易散難聚。",
-      "en": "Flanked by Huo Xing and Ling Xing, money is easy to spend and hard to keep.",
+      "id": "財帛.陽梁.地位",
+      "role": "base",
+      "text": "太陽天梁在財帛宮，財富多寡由社會地位決定。",
+      "en": "With Tai Yang and Tian Liang in your Wealth Palace, how much you earn depends on your standing in society.",
       "source": {
-        "passage": "deep.財帛.太陽.7",
-        "quote": "则主财易散难聚"
+        "passage": "deep.財帛.太陽.5",
+        "quote": "由社会地位决定其财富之多寡"
       }
     }
   ]

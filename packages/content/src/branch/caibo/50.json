@@ -1,83 +1,25 @@
 {
-  "$note": "財帛宮（2026-10-12）：天相巳亥.財帛。《深造講義》下篇 宮垣論 財帛宮 p.436–462。倒閉、破產、官非、盜賊、火災、疾病一類斷語不用；金額、「巨富」一類保證不用；天刑、天月、龍池鳳閣等引擎冇嘅星不用。",
+  "$note": "財帛宮（2026-10-12）：天相丑未.財帛。《深造講義》下篇 宮垣論 財帛宮 p.436–462。倒閉、破產、官非、盜賊、火災、疾病一類斷語不用；金額、「巨富」一類保證不用；天刑、天月、龍池鳳閣等引擎冇嘅星不用。",
   "topic": {
-    "id": "天相巳亥.財帛",
+    "id": "天相丑未.財帛",
     "palace": "財帛",
     "stars": [
       "天相"
     ],
     "branch": [
-      "巳",
-      "亥"
+      "丑",
+      "未"
     ]
   },
   "rules": [
     {
-      "id": "財帛.天相巳亥.祿馬",
-      "role": "refine",
-      "when": {
-        "all": [
-          {
-            "star": "天馬",
-            "at": [
-              "same",
-              "opp"
-            ]
-          },
-          {
-            "star": "祿存",
-            "at": [
-              "same",
-              "opp"
-            ]
-          }
-        ]
-      },
-      "text": "見祿馬交馳，常有外地來的生財機會。",
-      "en": "With Lu Cun and Tian Ma meeting, money-making chances often come from elsewhere.",
+      "id": "財帛.天相丑未.突發",
+      "role": "base",
+      "text": "可以突然發起來，但之前會有一段經濟較緊的日子。",
+      "en": "Money can arrive suddenly, but only after a tight stretch.",
       "source": {
-        "passage": "deep.財帛.天相.2",
-        "quote": "主常得外地提供之生财机会"
-      }
-    },
-    {
-      "id": "財帛.天相巳亥.武吉",
-      "role": "refine",
-      "when": {
-        "all": [
-          {
-            "hua": [
-              "權",
-              "科"
-            ],
-            "star": "武曲",
-            "at": "opp"
-          },
-          {
-            "any": [
-              {
-                "star": [
-                  "左輔",
-                  "右弼"
-                ],
-                "at": "sifang"
-              },
-              {
-                "star": [
-                  "天魁",
-                  "天鉞"
-                ],
-                "at": "sifang"
-              }
-            ]
-          }
-        ]
-      },
-      "text": "對宮武曲化權或化科，又有吉星，財源較穩定，終有積蓄。",
-      "en": "With Wu Qu in Authority or Merit opposite and helper stars present, income is steadier and you end up with savings.",
-      "source": {
-        "passage": "deep.財帛.天相.3",
-        "quote": "且主终有积蓄"
+        "passage": "deep.財帛.天相.1",
+        "quote": "但突发前必有一段时期经济困难"
       }
     }
   ]

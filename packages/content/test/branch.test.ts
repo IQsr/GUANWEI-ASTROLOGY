@@ -8,6 +8,7 @@ import { describe, expect, it } from 'vitest';
 import { annual, cast, SCHOOL_PROFILE, type Chart } from '@guanwei/ziwei';
 import { BRANCH_TOPICS, RULE_REGISTRY, SPEC_VERSION, assembleAll, branchReading, branchRules, gujiaChapter, gujiaException, inferAll, leanState } from '../src/index';
 import { STEPS_UNTIL_AGE, num } from '../src/steps';
+import { palaceState } from '../src/branch';
 import { renderParagraph } from '../src/en/render';
 
 const DEMO = cast({
@@ -268,4 +269,45 @@ describe('細讀講嘅大限：講明幾多歲、行過未（2026-10-12）', () 
     expect(past).toBeGreaterThan(50);
     expect(now).toBeGreaterThan(10);
   }, 300_000);
+});
+
+describe('宮位連動（2026-10-12）', () => {
+  const sample = (i: number) => cast({
+    solar: { y: 1950 + (i % 60), m: 1 + (Math.floor(i / 60) % 12), d: 1 + ((i * 7) % 28) }, time: { h: (Math.floor(i / 720) * 4 + 1) % 24, min: 30 },
+    tz: 'Asia/Hong_Kong', place: { lng: 114.17, lat: 22.32, label: '香港' }, sex: i % 2 ? 'male' : 'female',
+  });
+
+  it('連動句排喺細讀最前；條件同 palaceState 一致；夫妻宜合作／不宜合作唔會兩章各講一樣', () => {
+    let links = 0;
+    for (let i = 0; i < 4320; i += 3) {
+      const r = sample(i);
+      if (!r.ok) continue;
+      const c = r.value;
+      for (const pal of ['財帛', '官祿', '僕役']) {
+        const d = branchReading(c, pal);
+        const k = d?.ids.findIndex((x) => x.includes('.連動.')) ?? -1;
+        if (k < 0) continue;
+        links++;
+        expect(k).toBe(0);
+      }
+      const g = branchReading(c, '官祿')?.ids ?? [];
+      if (g.includes('官祿.連動.官夫皆吉')) expect([palaceState(c, '官祿'), palaceState(c, '夫妻')]).toEqual(['good', 'good']);
+      const f = branchReading(c, '夫妻')?.ids ?? [];
+      if (g.some((x) => /官吉夫凶|官夫皆凶/.test(x))) expect(f.filter((x) => /合作|共事/.test(x))).toEqual([]);
+      const cb = branchReading(c, '財帛')?.ids ?? [];
+      if (cb.includes('財帛.連動.官吉財凶')) expect(cb).not.toContain('財帛.通則.輔弼');
+    }
+    expect(links).toBeGreaterThan(300);
+  }, 300_000);
+
+  it('palaceState：化忌就係不吉；拎走化忌、加祿存就變吉', () => {
+    const c = edit(demo, (x) => {
+      const p = palace(x, '財帛');
+      p.stars = p.stars.filter((s) => !['擎羊', '陀羅', '火星', '鈴星', '地空', '地劫', '祿存'].includes(s.name)).map((s) => ({ ...s, sihua: undefined }));
+      p.stars.push({ ...p.stars[0]!, name: '祿存', sihua: undefined });
+    });
+    expect(palaceState(c, '財帛')).toBe('good');
+    const d = edit(c, (x) => { const s = palace(x, '財帛').stars[0]!; s.sihua = '忌'; });
+    expect(palaceState(d, '財帛')).toBe('bad');
+  });
 });

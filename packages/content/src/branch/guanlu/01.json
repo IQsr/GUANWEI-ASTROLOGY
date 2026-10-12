@@ -1,54 +1,114 @@
 {
-  "$note": "官祿宮（2026-10-12）：紫微破軍.官祿。《深造講義》下篇 宮垣論 官祿宮 p.530–560。殉職、牢獄、官非、血光、貪墨、意外一類斷語不用；天刑、天月、天巫、龍池鳳閣、三台八座等引擎冇嘅星不用；天機見 tianji-guanlu.json（試點）。",
+  "$note": "官祿宮（2026-10-12）：官祿連動。《深造講義》下篇 宮垣論 官祿宮 p.530–560。殉職、牢獄、官非、血光、貪墨、意外一類斷語不用；天刑、天月、天巫、龍池鳳閣、三台八座等引擎冇嘅星不用；天機見 tianji-guanlu.json（試點）。",
   "topic": {
-    "id": "紫微破軍.官祿",
+    "id": "官祿連動",
     "palace": "官祿",
-    "stars": [
-      "紫微",
-      "破軍"
-    ]
+    "stars": [],
+    "link": true
   },
   "rules": [
     {
-      "id": "官祿.紫破.開創",
-      "role": "base",
-      "text": "紫微破軍在官祿宮，以發揮開創力為佳：無論從商從政，都主開創而不主守成，所以常有勞累之感。",
-      "en": "With Zi Wei and Po Jun in your Career Palace, you do best when you break new ground: in business or public life you build rather than hold, which is why it so often feels tiring.",
+      "id": "官祿.連動.官夫皆吉",
+      "role": "refine",
+      "when": {
+        "all": [
+          {
+            "palace": "官祿",
+            "is": "good"
+          },
+          {
+            "palace": "夫妻",
+            "is": "good"
+          }
+        ]
+      },
+      "text": "你的官祿宮和夫妻宮星曜都吉利：夫妻可以合作事業，或者各自發展都成功，夫妻關係也和美。",
+      "en": "Your Career and Partnership Palaces are both favourable: you and your partner can work together, or both succeed separately, and the relationship stays warm.",
       "source": {
-        "passage": "deep.官祿.紫微.1",
-        "quote": "皆主开创而不主守成"
+        "passage": "deep.官祿.通則.1",
+        "quote": "则主夫妻可合作事业"
       }
     },
     {
-      "id": "官祿.紫破.祿",
-      "role": "refine",
+      "id": "官祿.連動.官吉夫凶",
+      "role": "limit",
       "when": {
-        "hua": "祿",
-        "star": "破軍",
-        "at": "same"
+        "all": [
+          {
+            "palace": "官祿",
+            "is": "good"
+          },
+          {
+            "palace": "夫妻",
+            "is": "bad"
+          }
+        ]
       },
-      "text": "破軍化祿，一生事業多變，也常要負擔額外的工作。",
-      "en": "Po Jun in Abundance: your career changes often, and you frequently carry extra work.",
+      "text": "你的官祿宮吉利，夫妻宮卻不吉利：夫妻只宜各自發展事業。",
+      "en": "Your Career Palace is favourable but your Partnership Palace is not: you and your partner should each pursue your own careers.",
       "source": {
-        "passage": "deep.官祿.紫微.2",
-        "quote": "则一生事业多变，且常负担额外工作"
+        "passage": "deep.官祿.通則.2",
+        "quote": "则只宜夫妻各自发展事业"
       }
     },
     {
-      "id": "官祿.紫破.左右",
-      "role": "refine",
+      "id": "官祿.連動.官夫皆凶",
+      "role": "limit",
       "when": {
-        "star": [
-          "左輔",
-          "右弼"
-        ],
-        "at": "sifang"
+        "all": [
+          {
+            "palace": "官祿",
+            "is": "bad"
+          },
+          {
+            "palace": "夫妻",
+            "is": "bad"
+          }
+        ]
       },
-      "text": "見左輔右弼，開創時多助力。",
-      "en": "With Zuo Fu or You Bi, you have plenty of help when you break new ground.",
+      "text": "你的官祿宮和夫妻宮星曜都不吉利：夫妻在事業上互相幫不上忙，不宜合作。",
+      "en": "Your Career and Partnership Palaces are both unfavourable: you and your partner cannot help each other’s careers, so do not work together.",
       "source": {
-        "passage": "deep.官祿.紫微.3",
-        "quote": "则自多助力"
+        "passage": "deep.官祿.通則.3",
+        "quote": "绝对不宜合作"
+      }
+    },
+    {
+      "id": "官祿.連動.空劫分",
+      "role": "limit",
+      "when": {
+        "any": [
+          {
+            "all": [
+              {
+                "palace": "官祿",
+                "star": "地空"
+              },
+              {
+                "palace": "夫妻",
+                "star": "地劫"
+              }
+            ]
+          },
+          {
+            "all": [
+              {
+                "palace": "官祿",
+                "star": "地劫"
+              },
+              {
+                "palace": "夫妻",
+                "star": "地空"
+              }
+            ]
+          }
+        ]
+      },
+      "text": "你的官祿宮和夫妻宮，一宮有地空、一宮有地劫：事業容易因遷就伴侶而受影響，例如為伴侶放棄較好的職位；彼此又未必遷就得到底，也會影響感情。",
+      "en": "Your Career and Partnership Palaces hold Di Kong and Di Jie between them: your career can suffer from accommodating your partner, such as giving up a better post; yet neither of you can accommodate forever, and the relationship feels it too.",
+      "source": {
+        "passage": "deep.官祿.通則.4",
+        "quote": "例如因迁就配偶，自己牺牲一份较优厚的职位等"
       }
     }
   ]

@@ -21,6 +21,12 @@
     {
       "id": "夫妻.天相.共事",
       "role": "refine",
+      "when": {
+        "not": {
+          "palace": "夫妻",
+          "is": "bad"
+        }
+      },
       "text": "夫妻宜合作共事。",
       "en": "You and your partner do well working together.",
       "source": {

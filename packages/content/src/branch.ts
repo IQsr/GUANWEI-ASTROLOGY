@@ -41,6 +41,8 @@ type Cond =
   | { alone: true }
   | { with: string }
   | { lean: string }
+  | { palace: string; is: 'good' | 'bad' }
+  | { palace: string; star: string | string[] }
   | { all: Cond[] }
   | { any: Cond[] }
   | { not: Cond };
@@ -55,6 +57,9 @@ const Cond: z.ZodType<Cond> = z.lazy(() =>
     z.object({ with: z.string() }).strict(),
     /* 骨架章點票嘅偏向（xingxi.ts `leanOf`）；「未定」= 兩邊都冇訊號 */
     z.object({ lean: z.string() }).strict(),
+    /* 宮位連動（2026-10-12）：另一個宮（本命宮名）吉／不吉，或者有某粒星 —— 見 `palaceState()` */
+    z.object({ palace: z.string(), is: z.enum(['good', 'bad']) }).strict(),
+    z.object({ palace: z.string(), star: one(z.string()) }).strict(),
     z.object({ all: z.array(Cond).min(1) }).strict(),
     z.object({ any: z.array(Cond).min(1) }).strict(),
     z.object({ not: Cond }).strict(),
@@ -99,6 +104,8 @@ const Topic = z
       /** 空 = 通則題目：唔限主星（例：財帛宮見祿馬交馳、擎羊坐財帛），宮內乜星都套 */
       stars: z.array(z.string()),
       branch: z.array(z.string()).optional(),
+      /** 宮位連動題目（2026-10-12）：條件睇第二個宮，細讀入面排最前（唔被主星規則擠出四條上限） */
+      link: z.boolean().optional(),
       /** 六十星系編號：有就係星系題目，細讀擺喺「性格的骨架」章，唔擺命宮章 */
       xingxi: z.number().optional(),
     }),
@@ -167,12 +174,45 @@ function majorsOf(p: Palace): string[] {
   return p.stars.filter((s) => MAJOR.includes(s.name)).map((s) => s.name);
 }
 
+const SHA_STARS = ['擎羊', '陀羅', '火星', '鈴星', '地空', '地劫'];
+const AIDE_STARS = ['左輔', '右弼', '文昌', '文曲', '天魁', '天鉞'];
+
+/** 某宮連借入嘅對宮主星（宮內冇主星先借），同 `applies()` 一樣讀法 */
+function palaceView(chart: Chart, name: string): Palace | null {
+  const p = chart.palaces.find((x) => x.name === name);
+  if (!p) return null;
+  if (majorsOf(p).length || !p.borrowsFrom) return p;
+  const opp = chart.palaces.find((x) => x.branch === p.borrowsFrom);
+  return opp ? { ...p, stars: [...p.stars, ...opp.stars.filter((s) => MAJOR.includes(s.name))] } : p;
+}
+
+/**
+ * 原書講宮位連動，用「某宮星曜吉／不吉」（例：「财帛宫星曜吉，而事业宫星曜不吉」p.436）。
+ * 呢度定得簡單、核對得到（2026-10-12）：
+ *   不吉：宮內有化忌，或者煞星（羊陀火鈴空劫）兩粒或以上
+ *   吉　：唔係不吉，而且有化祿／化權／化科或者祿存，或者輔佐星（左右昌曲魁鉞）兩粒或以上
+ *   其餘係中性，連動規則唔出。
+ */
+export function palaceState(chart: Chart, name: string): 'good' | 'bad' | null {
+  const p = palaceView(chart, name);
+  if (!p) return null;
+  const has = (names: string[]) => p.stars.filter((s) => names.includes(s.name)).length;
+  if (p.stars.some((s) => s.sihua === '忌') || has(SHA_STARS) >= 2) return 'bad';
+  if (p.stars.some((s) => s.sihua && s.sihua !== '忌') || has(['祿存']) || has(AIDE_STARS) >= 2) return 'good';
+  return null;
+}
+
 /** `seat`：主星坐嘅地支（借星命宮係對宮；其餘就係本宮） */
 function holds(chart: Chart, p: Palace, focus: string, c: Cond, seat: Palace['branch'] = p.branch): boolean {
   if ('all' in c) return c.all.every((x) => holds(chart, p, focus, x, seat));
   if ('any' in c) return c.any.some((x) => holds(chart, p, focus, x, seat));
   if ('not' in c) return !holds(chart, p, focus, c.not, seat);
   if ('lean' in c) return leanState(chart) === c.lean;
+  if ('palace' in c && 'is' in c) return palaceState(chart, c.palace) === c.is;
+  if ('palace' in c) {
+    const q = palaceView(chart, c.palace);
+    return Boolean(q?.stars.some((s) => list(c.star).includes(s.name)));
+  }
   if ('branch' in c) return c.branch.includes(seat);
   if ('alone' in c) return majorsOf(p).length === 1;
   if ('with' in c) return majorsOf(p).includes(c.with) && majorsOf(p).includes(focus);
@@ -265,8 +305,8 @@ const READING_MAX = 4;
  */
 export function branchReading(chart: Chart, palace: string): { text: string; ids: string[]; sources: string[] } | null {
   const rules: BranchRule[] = [];
-  for (const t of BRANCH_TOPICS) {
-    if (t.topic.palace !== palace || t.topic.xingxi !== undefined) continue;
+  const topics = BRANCH_TOPICS.filter((t) => t.topic.palace === palace && t.topic.xingxi === undefined);
+  for (const t of [...topics.filter((x) => x.topic.link), ...topics.filter((x) => !x.topic.link)]) {
     /* 唔限主星嘅通則（財帛宮見祿馬、擎羊⋯）係後備：主星規則已經有兩條就唔出 */
     if (!t.topic.stars.length && rules.length >= 2) continue;
     for (const r of branchRules(chart, t)) {

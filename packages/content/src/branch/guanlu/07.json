@@ -1,22 +1,51 @@
 {
-  "$note": "官祿宮（2026-10-12）：太陽太陰.官祿。《深造講義》下篇 宮垣論 官祿宮 p.530–560。殉職、牢獄、官非、血光、貪墨、意外一類斷語不用；天刑、天月、天巫、龍池鳳閣、三台八座等引擎冇嘅星不用；天機見 tianji-guanlu.json（試點）。",
+  "$note": "官祿宮（2026-10-12）：紫微.官祿。《深造講義》下篇 宮垣論 官祿宮 p.530–560。殉職、牢獄、官非、血光、貪墨、意外一類斷語不用；天刑、天月、天巫、龍池鳳閣、三台八座等引擎冇嘅星不用；天機見 tianji-guanlu.json（試點）。",
   "topic": {
-    "id": "太陽太陰.官祿",
+    "id": "紫微.官祿",
     "palace": "官祿",
     "stars": [
-      "太陽",
-      "太陰"
+      "紫微"
     ]
   },
   "rules": [
     {
-      "id": "官祿.陰陽.內務",
-      "role": "base",
-      "text": "太陽太陰在官祿宮，較傾向內務：行政、管理、財務、計劃一類工作較合適。",
-      "en": "With Tai Yang and Tai Yin in your Career Palace, you lean to internal roles: administration, management, finance and planning suit you.",
+      "id": "官祿.紫微.科",
+      "role": "refine",
+      "when": {
+        "hua": "科",
+        "star": "紫微",
+        "at": "same"
+      },
+      "text": "紫微化科，名大於利，以自由職業或專業為宜。",
+      "en": "Zi Wei in Merit: reputation outweighs money, so freelance or professional work suits you.",
       "source": {
-        "passage": "deep.官祿.太陽.1",
-        "quote": "故以行政管理财务计划等为宜"
+        "passage": "deep.官祿.紫微.15",
+        "quote": "故以自由职业，或专业人士为宜"
+      }
+    },
+    {
+      "id": "官祿.紫微.權",
+      "role": "refine",
+      "when": {
+        "hua": "權",
+        "star": "紫微",
+        "at": "same"
+      },
+      "text": "紫微化權，工作的獨立性強。",
+      "en": "Zi Wei in Authority: your work is highly independent.",
+      "source": {
+        "passage": "deep.官祿.紫微.16",
+        "quote": "或所从事工作独立性强"
+      }
+    },
+    {
+      "id": "官祿.紫微.本",
+      "role": "base",
+      "text": "紫微在官祿宮，主獨當一面：多是獨立工作或負責一個部門，不一定是自己經營或做領袖。",
+      "en": "With Zi Wei in your Career Palace, you work on your own terms: usually independently or in charge of a department, not necessarily as owner or leader.",
+      "source": {
+        "passage": "deep.官祿.紫微.17",
+        "quote": "一般情况下仅主独立工作，或负责部门工作"
       }
     }
   ]

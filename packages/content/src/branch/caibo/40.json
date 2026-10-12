@@ -1,76 +1,43 @@
 {
-  "$note": "財帛宮（2026-10-12）：天府.財帛。《深造講義》下篇 宮垣論 財帛宮 p.436–462。倒閉、破產、官非、盜賊、火災、疾病一類斷語不用；金額、「巨富」一類保證不用；天刑、天月、龍池鳳閣等引擎冇嘅星不用。",
+  "$note": "財帛宮（2026-10-12）：天府丑未.財帛。《深造講義》下篇 宮垣論 財帛宮 p.436–462。倒閉、破產、官非、盜賊、火災、疾病一類斷語不用；金額、「巨富」一類保證不用；天刑、天月、龍池鳳閣等引擎冇嘅星不用。",
   "topic": {
-    "id": "天府.財帛",
+    "id": "天府丑未.財帛",
     "palace": "財帛",
     "stars": [
       "天府"
+    ],
+    "branch": [
+      "丑",
+      "未"
     ]
   },
   "rules": [
     {
-      "id": "財帛.天府.祿",
+      "id": "財帛.天府丑未.掌權",
       "role": "refine",
       "when": {
         "any": [
           {
-            "hua": "祿",
-            "at": "sifang"
+            "star": [
+              "文昌",
+              "文曲"
+            ],
+            "at": "same"
           },
           {
-            "star": "祿存",
-            "at": "sifang"
-          }
-        ]
-      },
-      "text": "天府見祿，可以成富。",
-      "en": "Tian Fu meeting Lu can become real wealth.",
-      "source": {
-        "passage": "deep.財帛.天府.5",
-        "quote": "必须见禄，然后始可成富局"
-      }
-    },
-    {
-      "id": "財帛.天府.科",
-      "role": "refine",
-      "when": {
-        "all": [
-          {
-            "not": {
-              "any": [
-                {
-                  "hua": "祿",
-                  "at": "sifang"
-                },
-                {
-                  "star": "祿存",
-                  "at": "sifang"
-                }
-              ]
-            }
-          },
-          {
-            "hua": "科",
-            "star": "天府",
+            "star": [
+              "左輔",
+              "右弼"
+            ],
             "at": "same"
           }
         ]
       },
-      "text": "不見祿而天府化科，在理財投資上有信譽，別人信得過你。",
-      "en": "Without Lu, Tian Fu in Merit gives you a reputation in managing and investing money; people trust you.",
+      "text": "同宮有文昌文曲或左輔右弼，主掌財權。",
+      "en": "With Wen Chang, Wen Qu, Zuo Fu or You Bi in the palace, you take charge of the money.",
       "source": {
-        "passage": "deep.財帛.天府.6",
-        "quote": "此主有信誉"
-      }
-    },
-    {
-      "id": "財帛.天府.本",
-      "role": "base",
-      "text": "天府在財帛宮不主富厚，主的是儲財和理財的能力。",
-      "en": "Tian Fu in the Wealth Palace does not mean riches as such; it means the ability to save and manage money.",
-      "source": {
-        "passage": "deep.財帛.天府.7",
-        "quote": "仅主其人有储财及理财能力"
+        "passage": "deep.財帛.天府.4",
+        "quote": "则亦主掌财权"
       }
     }
   ]

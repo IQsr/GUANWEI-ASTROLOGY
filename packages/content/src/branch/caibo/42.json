@@ -1,24 +1,30 @@
 {
-  "$note": "財帛宮（2026-10-12）：太陰亥.財帛。《深造講義》下篇 宮垣論 財帛宮 p.436–462。倒閉、破產、官非、盜賊、火災、疾病一類斷語不用；金額、「巨富」一類保證不用；天刑、天月、龍池鳳閣等引擎冇嘅星不用。",
+  "$note": "財帛宮（2026-10-12）：太陰辰戌.財帛。《深造講義》下篇 宮垣論 財帛宮 p.436–462。倒閉、破產、官非、盜賊、火災、疾病一類斷語不用；金額、「巨富」一類保證不用；天刑、天月、龍池鳳閣等引擎冇嘅星不用。",
   "topic": {
-    "id": "太陰亥.財帛",
+    "id": "太陰辰戌.財帛",
     "palace": "財帛",
     "stars": [
       "太陰"
     ],
     "branch": [
-      "亥"
+      "辰",
+      "戌"
     ]
   },
   "rules": [
     {
-      "id": "財帛.太陰亥.名譽",
+      "id": "財帛.太陰辰戌.祿",
       "role": "refine",
-      "text": "太陰坐亥，先有地位名譽，然後有財富；不是靠經商致富。",
-      "en": "With Tai Yin in Hai, standing and reputation come first and wealth follows; trade is not how you get rich.",
+      "when": {
+        "hua": "祿",
+        "star": "太陰",
+        "at": "same"
+      },
+      "text": "太陰化祿最好，先富後貴。",
+      "en": "Tai Yin in Abundance is best: wealth first, then standing.",
       "source": {
-        "passage": "deep.財帛.太陰.2",
-        "quote": "却主先有地位名誉然后有财富"
+        "passage": "deep.財帛.太陰.1",
+        "quote": "辰戌太阴最喜太阴化禄"
       }
     }
   ]

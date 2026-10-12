@@ -1,44 +1,22 @@
 {
-  "$note": "官祿宮（2026-10-12）：太陽巨門.官祿。《深造講義》下篇 宮垣論 官祿宮 p.530–560。殉職、牢獄、官非、血光、貪墨、意外一類斷語不用；天刑、天月、天巫、龍池鳳閣、三台八座等引擎冇嘅星不用；天機見 tianji-guanlu.json（試點）。",
+  "$note": "官祿宮（2026-10-12）：太陽太陰.官祿。《深造講義》下篇 宮垣論 官祿宮 p.530–560。殉職、牢獄、官非、血光、貪墨、意外一類斷語不用；天刑、天月、天巫、龍池鳳閣、三台八座等引擎冇嘅星不用；天機見 tianji-guanlu.json（試點）。",
   "topic": {
-    "id": "太陽巨門.官祿",
+    "id": "太陽太陰.官祿",
     "palace": "官祿",
     "stars": [
       "太陽",
-      "巨門"
+      "太陰"
     ]
   },
   "rules": [
     {
-      "id": "官祿.陽巨.外務",
+      "id": "官祿.陰陽.內務",
       "role": "base",
-      "text": "太陽巨門在官祿宮，工作的性質離不開口才、外地或外國，以及對外的事務。",
-      "en": "With Tai Yang and Ju Men in your Career Palace, your work revolves around speaking, people from other places, and outward-facing affairs.",
+      "text": "太陽太陰在官祿宮，較傾向內務：行政、管理、財務、計劃一類工作較合適。",
+      "en": "With Tai Yang and Tai Yin in your Career Palace, you lean to internal roles: administration, management, finance and planning suit you.",
       "source": {
-        "passage": "deep.官祿.太陽.2",
-        "quote": "基本性质为口舌、为异族、为外务"
-      }
-    },
-    {
-      "id": "官祿.陽巨.吉",
-      "role": "refine",
-      "when": {
-        "hua": [
-          "祿",
-          "權",
-          "科"
-        ],
-        "star": [
-          "太陽",
-          "巨門"
-        ],
-        "at": "same"
-      },
-      "text": "太陽或巨門吉化，容易在傳播、廣告一類行業成名。",
-      "en": "With Tai Yang or Ju Men well transformed, you can make your name in media or advertising.",
-      "source": {
-        "passage": "deep.官祿.太陽.3",
-        "quote": "均主传播、广告等业成名"
+        "passage": "deep.官祿.太陽.1",
+        "quote": "故以行政管理财务计划等为宜"
       }
     }
   ]

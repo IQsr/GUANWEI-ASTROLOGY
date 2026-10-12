@@ -14,6 +14,19 @@ def H(hua, star, at='same'): return {'hua': hua, 'star': star, 'at': at}
 def R(id, when, text, en, src, quote, role='refine'):
     return {'id': id, 'when': when, 'text': text, 'en': en, 'src': src, 'quote': quote, 'role': role}
 
+# ── 宮位連動（2026-10-12）：排最前，見 branch.ts palaceState() ──
+def PS(name, st): return {'palace': name, 'is': st}
+T.append({'id': '僕役連動', 'stars': [], 'link': True, 'rules': [
+ R('僕役.連動.僕強命弱', {'all': [PS('僕役', 'good'), PS('命宮', 'bad')]},
+   '你的僕役宮星曜強，命宮卻弱：容易反被下屬或晚輩壓過。',
+   'Your Friends Palace is strong while your Life Palace is weak: staff or juniors can end up getting the better of you.',
+   '交友宫星曜性质，固可显示相交关系，但星曜组合太强，而命宫星曜则弱，却又主受卑辈欺负。', '而命宫星曜则弱，却又主受卑辈欺负', 'limit'),
+ R('僕役.連動.命強僕弱', {'all': [PS('命宮', 'good'), PS('僕役', 'bad')]},
+   '你的命宮星曜強，僕役宮卻弱：下屬晚輩幫不上忙，凡事仍要親力親為。',
+   'Your Life Palace is strong while your Friends Palace is weak: staff and juniors are little help, so you still have to do things yourself.',
+   '若命宫星曜太强，交友宫星曜过弱，却主卑辈无助力，凡事仍需亲力亲为。', '凡事仍需亲力亲为', 'limit'),
+]})
+
 # ── 紫微 ──
 T.append({'id': '紫微破軍.僕役', 'stars': ['紫微', '破軍'], 'rules': [
  R('僕役.紫破.輔佐', {'any': [FUZUO, KUIYUE]},

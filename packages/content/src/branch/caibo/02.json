@@ -1,58 +1,47 @@
 {
-  "$note": "財帛宮（2026-10-12）：紫微天府.財帛。《深造講義》下篇 宮垣論 財帛宮 p.436–462。倒閉、破產、官非、盜賊、火災、疾病一類斷語不用；金額、「巨富」一類保證不用；天刑、天月、龍池鳳閣等引擎冇嘅星不用。",
+  "$note": "財帛宮（2026-10-12）：紫微破軍.財帛。《深造講義》下篇 宮垣論 財帛宮 p.436–462。倒閉、破產、官非、盜賊、火災、疾病一類斷語不用；金額、「巨富」一類保證不用；天刑、天月、龍池鳳閣等引擎冇嘅星不用。",
   "topic": {
-    "id": "紫微天府.財帛",
+    "id": "紫微破軍.財帛",
     "palace": "財帛",
     "stars": [
       "紫微",
-      "天府"
+      "破軍"
     ]
   },
   "rules": [
     {
-      "id": "財帛.紫府.祿",
-      "role": "refine",
-      "when": {
-        "any": [
-          {
-            "hua": "祿",
-            "at": "sifang"
-          },
-          {
-            "star": "祿存",
-            "at": "sifang"
-          }
-        ]
-      },
-      "text": "你的紫微天府見祿，可以積聚成富。",
-      "en": "Your Zi Wei–Tian Fu meets Lu, so you can build up savings into real wealth.",
+      "id": "財帛.紫破.意外",
+      "role": "base",
+      "text": "紫微破軍在財帛宮，一生會有一次意外之財；坐未比坐丑好。",
+      "en": "With Zi Wei and Po Jun in your Wealth Palace, a windfall comes once in your life; Wei is the better seat than Chou.",
       "source": {
-        "passage": "deep.財帛.紫微.4",
-        "quote": "可积聚而成富"
+        "passage": "deep.財帛.紫微.1",
+        "quote": "主一生必可得一次意外财"
       }
     },
     {
-      "id": "財帛.紫府.無祿",
+      "id": "財帛.紫破.權",
       "role": "refine",
       "when": {
-        "not": {
-          "any": [
-            {
-              "hua": "祿",
-              "at": "sifang"
-            },
-            {
-              "star": "祿存",
-              "at": "sifang"
-            }
-          ]
-        }
+        "hua": "權",
+        "star": "破軍",
+        "at": "same"
       },
-      "text": "你的紫微天府不見祿，財帛充足，但談不上積聚成富。",
-      "en": "Your Zi Wei–Tian Fu does not meet Lu: you have enough, though not the kind that builds into wealth.",
+      "text": "破軍化權，運用金錢的能力強，經過波折而成富。",
+      "en": "Po Jun in Authority: you handle money with real skill, and grow well off after some ups and downs.",
       "source": {
-        "passage": "deep.財帛.紫微.5",
-        "quote": "无禄，则不外充足而已"
+        "passage": "deep.財帛.紫微.2",
+        "quote": "运用金钱的能力强，经波折而成富"
+      }
+    },
+    {
+      "id": "財帛.紫破.守",
+      "role": "limit",
+      "text": "發了之後最要緊的是守，不要再妄圖開創。",
+      "en": "Once the gain comes, what matters most is holding on to it, not reaching for the next venture.",
+      "source": {
+        "passage": "deep.財帛.紫微.3",
+        "quote": "必因发后又妄图开创所致"
       }
     }
   ]

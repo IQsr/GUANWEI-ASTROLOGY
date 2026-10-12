@@ -1,54 +1,71 @@
 {
-  "$note": "僕役宮（2026-10-12）：天相.僕役。《深造講義》下篇 宮垣論 僕役宮 p.516–530。官非、盜竊、色禍、受出賣、乘人之危一類斷語不用；天姚、陰煞、天巫、天刑等引擎冇嘅星不用；要分廟陷嘅條文暫不用。原書交友宮主下屬、晚輩，兼論朋友。",
+  "$note": "僕役宮（2026-10-12）：巨門.僕役。《深造講義》下篇 宮垣論 僕役宮 p.516–530。官非、盜竊、色禍、受出賣、乘人之危一類斷語不用；天姚、陰煞、天巫、天刑等引擎冇嘅星不用；要分廟陷嘅條文暫不用。原書交友宮主下屬、晚輩，兼論朋友。",
   "topic": {
-    "id": "天相.僕役",
+    "id": "巨門.僕役",
     "palace": "僕役",
     "stars": [
-      "天相"
+      "巨門"
     ]
   },
   "rules": [
     {
-      "id": "僕役.天相.調和",
+      "id": "僕役.巨門.吉",
       "role": "refine",
       "when": {
-        "any": [
-          {
-            "star": [
-              "左輔",
-              "右弼"
-            ],
-            "at": "sifang"
-          },
+        "all": [
           {
             "any": [
               {
                 "hua": "祿",
-                "at": "sifang"
+                "star": "巨門",
+                "at": "same"
+              },
+              {
+                "hua": "權",
+                "star": "巨門",
+                "at": "same"
               },
               {
                 "star": "祿存",
+                "at": "same"
+              }
+            ]
+          },
+          {
+            "any": [
+              {
+                "star": [
+                  "左輔",
+                  "右弼"
+                ],
+                "at": "sifang"
+              },
+              {
+                "star": [
+                  "天魁",
+                  "天鉞"
+                ],
                 "at": "sifang"
               }
             ]
           }
         ]
       },
-      "text": "天相見左輔右弼或見祿，關係得以調和。",
-      "en": "Tian Xiang with Zuo Fu, You Bi or Lu: these relationships find their balance.",
+      "text": "巨門化祿化權或有祿存，又見輔佐吉星，可得能言善辯的朋友或下屬，助你創業；彼此多討論辯論，事業由此而興。",
+      "en": "Ju Men in Abundance or Authority, or with Lu Cun, plus helper stars: articulate friends or staff help you build a business, and your discussions together drive it forward.",
       "source": {
-        "passage": "deep.僕役.天相.1",
-        "quote": "必须见左辅、右弼，或见禄"
+        "passage": "deep.僕役.巨門.1",
+        "quote": "可助自己创业"
       }
     },
     {
-      "id": "僕役.天相.本",
+      "id": "僕役.巨門.本",
       "role": "base",
-      "text": "天相在僕役宮必對破軍，關係本質上有反覆。",
-      "en": "Tian Xiang in your Friends Palace always faces Po Jun, so relationships tend to swing back and forth.",
+      "text": "巨門在僕役宮，吉則口才好、能言善辯，凶則多口舌爭吵。",
+      "en": "With Ju Men in your Friends Palace, at best it means eloquence, at worst, quarrels.",
       "source": {
-        "passage": "deep.僕役.天相.2",
-        "quote": "故本质上已有反复的性质"
+        "passage": "deep.僕役.巨門.2",
+        "quote": "吉则主舌辩、口才"
       }
     }
   ]

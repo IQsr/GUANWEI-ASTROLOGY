@@ -79,6 +79,7 @@ for n, t in enumerate(T, 1):
         return {'passage': seen[s], 'quote': quote}
     topic = {'id': t['id'], 'palace': pal, 'stars': t['stars']}
     if t.get('branch'): topic['branch'] = t['branch']
+    if t.get('link'): topic['link'] = True
     rules = []
     for r in t['rules']:
         if r['id'] in ids: raise SystemExit(f'規則 id 重複：{r["id"]}')

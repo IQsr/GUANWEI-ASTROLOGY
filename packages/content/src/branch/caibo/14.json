@@ -1,22 +1,56 @@
 {
-  "$note": "財帛宮（2026-10-12）：太陽太陰.財帛。《深造講義》下篇 宮垣論 財帛宮 p.436–462。倒閉、破產、官非、盜賊、火災、疾病一類斷語不用；金額、「巨富」一類保證不用；天刑、天月、龍池鳳閣等引擎冇嘅星不用。",
+  "$note": "財帛宮（2026-10-12）：天機.財帛。《深造講義》下篇 宮垣論 財帛宮 p.436–462。倒閉、破產、官非、盜賊、火災、疾病一類斷語不用；金額、「巨富」一類保證不用；天刑、天月、龍池鳳閣等引擎冇嘅星不用。",
   "topic": {
-    "id": "太陽太陰.財帛",
+    "id": "天機.財帛",
     "palace": "財帛",
     "stars": [
-      "太陽",
-      "太陰"
+      "天機"
     ]
   },
   "rules": [
     {
-      "id": "財帛.陰陽.先散後聚",
-      "role": "base",
-      "text": "太陽太陰同在財帛宮，先散後聚；坐丑後聚的力量比坐未大。",
-      "en": "With Tai Yang and Tai Yin together in your Wealth Palace, money first scatters, then gathers; the gathering is stronger in Chou than in Wei.",
+      "id": "財帛.天機.權",
+      "role": "refine",
+      "when": {
+        "hua": "權",
+        "star": "天機",
+        "at": "same"
+      },
+      "text": "天機化權，財帛較穩定，但仍要轉換財源；以自由職業或專業較合適。",
+      "en": "Tian Ji in Authority: money is steadier, but the sources still change; freelance or professional work suits you best.",
       "source": {
-        "passage": "deep.財帛.太陽.1",
-        "quote": "基本性质主先散后聚"
+        "passage": "deep.財帛.天機.12",
+        "quote": "故以自由职业为佳"
+      }
+    },
+    {
+      "id": "財帛.天機.祿",
+      "role": "refine",
+      "when": {
+        "hua": "祿",
+        "star": "天機",
+        "at": "same"
+      },
+      "text": "天機化祿，財源不只一端；見吉星，有多方面的財路。",
+      "en": "Tian Ji in Abundance: income comes from more than one place, and with helpful stars, from many.",
+      "source": {
+        "passage": "deep.財帛.天機.13",
+        "quote": "主有多方面的财路"
+      }
+    },
+    {
+      "id": "財帛.天機.忌",
+      "role": "limit",
+      "when": {
+        "hua": "忌",
+        "star": "天機",
+        "at": "same"
+      },
+      "text": "天機化忌，財運稍順就容易受打擊或排擠；逆境時處之泰然，才守得住。",
+      "en": "Tian Ji in Hindrance: as soon as money starts flowing, setbacks or pushback follow; stay calm through the hard spells to keep what you have.",
+      "source": {
+        "passage": "deep.財帛.天機.14",
+        "quote": "必须于逆境时处之泰然"
       }
     }
   ]

@@ -1,70 +1,25 @@
 {
-  "$note": "官祿宮（2026-10-12）：破軍.官祿。《深造講義》下篇 宮垣論 官祿宮 p.530–560。殉職、牢獄、官非、血光、貪墨、意外一類斷語不用；天刑、天月、天巫、龍池鳳閣、三台八座等引擎冇嘅星不用；天機見 tianji-guanlu.json（試點）。",
+  "$note": "官祿宮（2026-10-12）：破軍辰戌.官祿。《深造講義》下篇 宮垣論 官祿宮 p.530–560。殉職、牢獄、官非、血光、貪墨、意外一類斷語不用；天刑、天月、天巫、龍池鳳閣、三台八座等引擎冇嘅星不用；天機見 tianji-guanlu.json（試點）。",
   "topic": {
-    "id": "破軍.官祿",
+    "id": "破軍辰戌.官祿",
     "palace": "官祿",
     "stars": [
       "破軍"
+    ],
+    "branch": [
+      "辰",
+      "戌"
     ]
   },
   "rules": [
     {
-      "id": "官祿.破軍.祿",
+      "id": "官祿.破軍辰戌.副貳",
       "role": "refine",
-      "when": {
-        "hua": "祿",
-        "star": "破軍",
-        "at": "same"
-      },
-      "text": "破軍化祿，兼職兼差，往往從不起眼的行業或職位起家。",
-      "en": "Po Jun in Abundance: you hold side jobs, and often rise from a line or post no one took seriously.",
+      "text": "要借別人的財力或勢力興家，最喜見天魁天鉞。",
+      "en": "You build on other people’s money or influence, and Tian Kui or Tian Yue help most.",
       "source": {
-        "passage": "deep.官祿.破軍.3",
-        "quote": "兼职兼差"
-      }
-    },
-    {
-      "id": "官祿.破軍.輔弼",
-      "role": "refine",
-      "when": {
-        "star": [
-          "左輔",
-          "右弼"
-        ],
-        "at": "sifang"
-      },
-      "text": "見左輔右弼，能減少辛勞。",
-      "en": "With Zuo Fu or You Bi, the work is less gruelling.",
-      "source": {
-        "passage": "deep.官祿.破軍.4",
-        "quote": "破军喜见辅弼，则能减少辛劳"
-      }
-    },
-    {
-      "id": "官祿.破軍.羊陀",
-      "role": "limit",
-      "when": {
-        "star": [
-          "擎羊",
-          "陀羅"
-        ],
-        "at": "same"
-      },
-      "text": "同宮有擎羊陀羅，一定要有一技傍身，才能有所作為。",
-      "en": "With Qing Yang or Tuo Luo in the palace, you need a specialist skill to get anywhere.",
-      "source": {
-        "passage": "deep.官祿.破軍.5",
-        "quote": "若无一技防身"
-      }
-    },
-    {
-      "id": "官祿.破軍.創新",
-      "role": "base",
-      "text": "破軍在官祿宮，長處在創新：新產品、新技術最合適。",
-      "en": "With Po Jun in your Career Palace, your gift is innovation: new products and new technology suit you.",
-      "source": {
-        "passage": "deep.官祿.破軍.6",
-        "quote": "而破军之特长却在创新"
+        "passage": "deep.官祿.破軍.2",
+        "quote": "必须藉别人财力或势力兴家"
       }
     }
   ]

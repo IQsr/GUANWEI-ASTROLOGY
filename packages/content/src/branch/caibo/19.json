@@ -1,36 +1,30 @@
 {
-  "$note": "財帛宮（2026-10-12）：太陽.財帛。《深造講義》下篇 宮垣論 財帛宮 p.436–462。倒閉、破產、官非、盜賊、火災、疾病一類斷語不用；金額、「巨富」一類保證不用；天刑、天月、龍池鳳閣等引擎冇嘅星不用。",
+  "$note": "財帛宮（2026-10-12）：太陽巳亥.財帛。《深造講義》下篇 宮垣論 財帛宮 p.436–462。倒閉、破產、官非、盜賊、火災、疾病一類斷語不用；金額、「巨富」一類保證不用；天刑、天月、龍池鳳閣等引擎冇嘅星不用。",
   "topic": {
-    "id": "太陽.財帛",
+    "id": "太陽巳亥.財帛",
     "palace": "財帛",
     "stars": [
       "太陽"
+    ],
+    "branch": [
+      "巳",
+      "亥"
     ]
   },
   "rules": [
     {
-      "id": "財帛.太陽.本",
-      "role": "base",
-      "text": "太陽主貴不主富：你的財憑社會地位而來，所以要先爭取地位。",
-      "en": "Tai Yang brings standing rather than riches: your money follows your position, so win the position first.",
-      "source": {
-        "passage": "deep.財帛.太陽.9",
-        "quote": "其财皆凭社会地位而来"
-      }
-    },
-    {
-      "id": "財帛.太陽.權",
+      "id": "財帛.太陽巳亥.巨祿",
       "role": "refine",
       "when": {
-        "hua": "權",
-        "star": "太陽",
-        "at": "same"
+        "hua": "祿",
+        "star": "巨門",
+        "at": "opp"
       },
-      "text": "太陽化權較穩定，可以靠人事安排作補救。",
-      "en": "Tai Yang in Authority is steadier, and planning can make up for the rest.",
+      "text": "對宮巨門化祿，受外地或外國人賞識，地位提高，財源也因此暢順。",
+      "en": "With Ju Men in Abundance opposite, people from abroad value you, your standing rises, and money flows more freely.",
       "source": {
-        "passage": "deep.財帛.太陽.10",
-        "quote": "唯太阳化权较为稳定"
+        "passage": "deep.財帛.太陽.8",
+        "quote": "则受异邦人赏识"
       }
     }
   ]

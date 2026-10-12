@@ -1,22 +1,68 @@
 {
-  "$note": "僕役宮（2026-10-12）：天機巨門.僕役。《深造講義》下篇 宮垣論 僕役宮 p.516–530。官非、盜竊、色禍、受出賣、乘人之危一類斷語不用；天姚、陰煞、天巫、天刑等引擎冇嘅星不用；要分廟陷嘅條文暫不用。原書交友宮主下屬、晚輩，兼論朋友。",
+  "$note": "僕役宮（2026-10-12）：紫微.僕役。《深造講義》下篇 宮垣論 僕役宮 p.516–530。官非、盜竊、色禍、受出賣、乘人之危一類斷語不用；天姚、陰煞、天巫、天刑等引擎冇嘅星不用；要分廟陷嘅條文暫不用。原書交友宮主下屬、晚輩，兼論朋友。",
   "topic": {
-    "id": "天機巨門.僕役",
+    "id": "紫微.僕役",
     "palace": "僕役",
     "stars": [
-      "天機",
-      "巨門"
+      "紫微"
     ]
   },
   "rules": [
     {
-      "id": "僕役.機巨.本",
-      "role": "base",
-      "text": "天機巨門在僕役宮，即使不見煞，也容易與朋友下屬發生誤會；宜保持君子之交，也不宜太親近下屬。",
-      "en": "With Tian Ji and Ju Men in your Friends Palace, misunderstandings with friends and staff come easily even without harsh stars; keep things gentlemanly, and do not get too close to staff.",
+      "id": "僕役.紫微.煞",
+      "role": "limit",
+      "when": {
+        "any": [
+          {
+            "star": [
+              "擎羊",
+              "陀羅",
+              "火星",
+              "鈴星",
+              "地空",
+              "地劫"
+            ],
+            "at": "same"
+          },
+          {
+            "hua": "忌",
+            "at": "same"
+          }
+        ]
+      },
+      "text": "紫微見煞忌，下屬強硬而不得力。",
+      "en": "Zi Wei with harsh stars or Hindrance: your staff are stubborn and unhelpful.",
       "source": {
-        "passage": "deep.僕役.天機.1",
-        "quote": "亦主易跟下属或友人发生误会"
+        "passage": "deep.僕役.紫微.8",
+        "quote": "主下属强顽而且不得力"
+      }
+    },
+    {
+      "id": "僕役.紫微.朝拱",
+      "role": "limit",
+      "when": {
+        "all": [
+          {
+            "star": [
+              "左輔",
+              "右弼"
+            ],
+            "at": "sifang"
+          },
+          {
+            "star": [
+              "天魁",
+              "天鉞"
+            ],
+            "at": "sifang"
+          }
+        ]
+      },
+      "text": "紫微得眾星拱照，下屬權威太大，容易把你架空。",
+      "en": "Zi Wei surrounded by helpers: your staff gain too much authority and can sideline you.",
+      "source": {
+        "passage": "deep.僕役.紫微.9",
+        "quote": "容易将自己架空"
       }
     }
   ]

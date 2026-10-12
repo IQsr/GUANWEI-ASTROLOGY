@@ -1,42 +1,58 @@
 {
-  "$note": "財帛宮（2026-10-12）：紫微貪狼.財帛。《深造講義》下篇 宮垣論 財帛宮 p.436–462。倒閉、破產、官非、盜賊、火災、疾病一類斷語不用；金額、「巨富」一類保證不用；天刑、天月、龍池鳳閣等引擎冇嘅星不用。",
+  "$note": "財帛宮（2026-10-12）：紫微天府.財帛。《深造講義》下篇 宮垣論 財帛宮 p.436–462。倒閉、破產、官非、盜賊、火災、疾病一類斷語不用；金額、「巨富」一類保證不用；天刑、天月、龍池鳳閣等引擎冇嘅星不用。",
   "topic": {
-    "id": "紫微貪狼.財帛",
+    "id": "紫微天府.財帛",
     "palace": "財帛",
     "stars": [
       "紫微",
-      "貪狼"
+      "天府"
     ]
   },
   "rules": [
     {
-      "id": "財帛.紫貪.科",
+      "id": "財帛.紫府.祿",
       "role": "refine",
       "when": {
-        "hua": "科",
-        "star": "紫微",
-        "at": "same"
+        "any": [
+          {
+            "hua": "祿",
+            "at": "sifang"
+          },
+          {
+            "star": "祿存",
+            "at": "sifang"
+          }
+        ]
       },
-      "text": "紫微化科，財來得較長久。",
-      "en": "Zi Wei in Merit: money comes in more steadily over time.",
+      "text": "你的紫微天府見祿，可以積聚成富。",
+      "en": "Your Zi Wei–Tian Fu meets Lu, so you can build up savings into real wealth.",
       "source": {
-        "passage": "deep.財帛.紫微.6",
-        "quote": "则财来较悠久"
+        "passage": "deep.財帛.紫微.4",
+        "quote": "可积聚而成富"
       }
     },
     {
-      "id": "財帛.紫貪.祿",
+      "id": "財帛.紫府.無祿",
       "role": "refine",
       "when": {
-        "hua": "祿",
-        "star": "貪狼",
-        "at": "same"
+        "not": {
+          "any": [
+            {
+              "hua": "祿",
+              "at": "sifang"
+            },
+            {
+              "star": "祿存",
+              "at": "sifang"
+            }
+          ]
+        }
       },
-      "text": "貪狼化祿，財來得較急，但也藏著破耗。",
-      "en": "Tan Lang in Abundance: money comes fast, but with losses hidden in it.",
+      "text": "你的紫微天府不見祿，財帛充足，但談不上積聚成富。",
+      "en": "Your Zi Wei–Tian Fu does not meet Lu: you have enough, though not the kind that builds into wealth.",
       "source": {
-        "passage": "deep.財帛.紫微.7",
-        "quote": "然而亦隐藏破耗之机"
+        "passage": "deep.財帛.紫微.5",
+        "quote": "无禄，则不外充足而已"
       }
     }
   ]

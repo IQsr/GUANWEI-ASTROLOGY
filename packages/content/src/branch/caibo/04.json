@@ -1,67 +1,42 @@
 {
-  "$note": "財帛宮（2026-10-12）：紫微七殺.財帛。《深造講義》下篇 宮垣論 財帛宮 p.436–462。倒閉、破產、官非、盜賊、火災、疾病一類斷語不用；金額、「巨富」一類保證不用；天刑、天月、龍池鳳閣等引擎冇嘅星不用。",
+  "$note": "財帛宮（2026-10-12）：紫微貪狼.財帛。《深造講義》下篇 宮垣論 財帛宮 p.436–462。倒閉、破產、官非、盜賊、火災、疾病一類斷語不用；金額、「巨富」一類保證不用；天刑、天月、龍池鳳閣等引擎冇嘅星不用。",
   "topic": {
-    "id": "紫微七殺.財帛",
+    "id": "紫微貪狼.財帛",
     "palace": "財帛",
     "stars": [
       "紫微",
-      "七殺"
+      "貪狼"
     ]
   },
   "rules": [
     {
-      "id": "財帛.紫殺.驟發",
-      "role": "base",
-      "text": "紫微七殺在財帛宮，財帛能驟然發起來，只是較難持久。",
-      "en": "With Zi Wei and Qi Sha in your Wealth Palace, money can rise suddenly, though it is hard to sustain.",
+      "id": "財帛.紫貪.科",
+      "role": "refine",
+      "when": {
+        "hua": "科",
+        "star": "紫微",
+        "at": "same"
+      },
+      "text": "紫微化科，財來得較長久。",
+      "en": "Zi Wei in Merit: money comes in more steadily over time.",
       "source": {
-        "passage": "deep.財帛.紫微.8",
-        "quote": "唯较难持久"
+        "passage": "deep.財帛.紫微.6",
+        "quote": "则财来较悠久"
       }
     },
     {
-      "id": "財帛.紫殺.祿馬",
+      "id": "財帛.紫貪.祿",
       "role": "refine",
       "when": {
-        "all": [
-          {
-            "all": [
-              {
-                "star": "天馬",
-                "at": [
-                  "same",
-                  "opp"
-                ]
-              },
-              {
-                "star": "祿存",
-                "at": [
-                  "same",
-                  "opp"
-                ]
-              }
-            ]
-          },
-          {
-            "not": {
-              "star": [
-                "擎羊",
-                "陀羅",
-                "火星",
-                "鈴星",
-                "地空",
-                "地劫"
-              ],
-              "at": "same"
-            }
-          }
-        ]
+        "hua": "祿",
+        "star": "貪狼",
+        "at": "same"
       },
-      "text": "見祿馬交馳而無煞，在外地能發，在出生地反多波折。",
-      "en": "With Lu Cun and Tian Ma meeting and no harsh stars, you prosper away from home, while your birthplace brings more setbacks.",
+      "text": "貪狼化祿，財來得較急，但也藏著破耗。",
+      "en": "Tan Lang in Abundance: money comes fast, but with losses hidden in it.",
       "source": {
-        "passage": "deep.財帛.紫微.9",
-        "quote": "在外埠外国能发，在出生地反多波折"
+        "passage": "deep.財帛.紫微.7",
+        "quote": "然而亦隐藏破耗之机"
       }
     }
   ]

@@ -1,0 +1,189 @@
+{
+  "$note": "財帛宮（2026-10-12）：財帛通則。《深造講義》下篇 宮垣論 財帛宮 p.436–462。倒閉、破產、官非、盜賊、火災、疾病一類斷語不用；金額、「巨富」一類保證不用；天刑、天月、龍池鳳閣等引擎冇嘅星不用。",
+  "topic": {
+    "id": "財帛通則",
+    "palace": "財帛",
+    "stars": []
+  },
+  "rules": [
+    {
+      "id": "財帛.通則.祿馬",
+      "role": "refine",
+      "when": {
+        "all": [
+          {
+            "star": "天馬",
+            "at": [
+              "same",
+              "opp"
+            ]
+          },
+          {
+            "star": "祿存",
+            "at": [
+              "same",
+              "opp"
+            ]
+          }
+        ]
+      },
+      "text": "財帛宮見祿存與天馬相會，成「祿馬交馳」，是求財最喜歡的配搭。",
+      "en": "Lu Cun and Tian Ma meeting in the Wealth Palace form the galloping-fortune pattern, the most welcome combination for earning.",
+      "source": {
+        "passage": "deep.財帛.通則.4",
+        "quote": "财帛宫最喜『禄马交驰』"
+      }
+    },
+    {
+      "id": "財帛.通則.文書",
+      "role": "limit",
+      "when": {
+        "hua": "忌",
+        "star": [
+          "文昌",
+          "文曲"
+        ],
+        "at": "sifang"
+      },
+      "text": "文昌或文曲化忌，帶文書失誤的性質：簽約、支票一類事要格外小心。",
+      "en": "Wen Chang or Wen Qu in Hindrance carries a risk of paperwork errors: take extra care with contracts and cheques.",
+      "source": {
+        "passage": "deep.財帛.通則.5",
+        "quote": "此二星化忌皆有文书失误的性质"
+      }
+    },
+    {
+      "id": "財帛.通則.空劫",
+      "role": "limit",
+      "when": {
+        "star": [
+          "地空",
+          "地劫"
+        ],
+        "at": "same"
+      },
+      "text": "地空或地劫在財帛宮，財帛容易突然有挫折性的變化。",
+      "en": "With Di Kong or Di Jie in the Wealth Palace, money is prone to sudden setbacks.",
+      "source": {
+        "passage": "deep.財帛.通則.6",
+        "quote": "主突然产生挫折性的变化"
+      }
+    },
+    {
+      "id": "財帛.通則.擎羊",
+      "role": "refine",
+      "when": {
+        "star": "擎羊",
+        "at": "same"
+      },
+      "text": "擎羊在財帛宮，求財多競爭。",
+      "en": "With Qing Yang in the Wealth Palace, earning comes with competition.",
+      "source": {
+        "passage": "deep.財帛.通則.7",
+        "quote": "擎羊坐财帛宫，基本主竞争"
+      }
+    },
+    {
+      "id": "財帛.通則.陀羅",
+      "role": "refine",
+      "when": {
+        "star": "陀羅",
+        "at": "same"
+      },
+      "text": "陀羅在財帛宮，進財多拖延。",
+      "en": "With Tuo Luo in the Wealth Palace, money tends to arrive late.",
+      "source": {
+        "passage": "deep.財帛.通則.8",
+        "quote": "陀罗坐财帛宫，主拖延"
+      }
+    },
+    {
+      "id": "財帛.通則.火鈴",
+      "role": "refine",
+      "when": {
+        "all": [
+          {
+            "star": [
+              "火星",
+              "鈴星"
+            ],
+            "at": "same"
+          },
+          {
+            "not": {
+              "star": "貪狼",
+              "at": "same"
+            }
+          }
+        ]
+      },
+      "text": "火星或鈴星在財帛宮，進財較困難，要勞心勞力。",
+      "en": "With Huo Xing or Ling Xing in the Wealth Palace, money is harder to come by and takes effort of mind and body.",
+      "source": {
+        "passage": "deep.財帛.通則.9",
+        "quote": "为增加进财的困难"
+      }
+    },
+    {
+      "id": "財帛.通則.輔弼",
+      "role": "refine",
+      "when": {
+        "all": [
+          {
+            "star": [
+              "左輔",
+              "右弼"
+            ],
+            "at": "sifang"
+          },
+          {
+            "not": {
+              "palace": "財帛",
+              "is": "bad"
+            }
+          }
+        ]
+      },
+      "text": "見左輔右弼，可以憑別人的助力生財，也可以考慮自己經營。",
+      "en": "With Zuo Fu or You Bi, others help you earn, and running your own business is worth considering.",
+      "source": {
+        "passage": "deep.財帛.通則.10",
+        "quote": "则可凭别人助力以生财"
+      }
+    },
+    {
+      "id": "財帛.通則.魁鉞",
+      "role": "refine",
+      "when": {
+        "star": [
+          "天魁",
+          "天鉞"
+        ],
+        "at": "sifang"
+      },
+      "text": "見天魁天鉞，有生財的機會，往往隨制度改變而來。",
+      "en": "With Tian Kui or Tian Yue, chances to earn come your way, often when rules or systems change.",
+      "source": {
+        "passage": "deep.財帛.通則.11",
+        "quote": "则有生财的机会"
+      }
+    },
+    {
+      "id": "財帛.通則.昌曲",
+      "role": "refine",
+      "when": {
+        "star": [
+          "文昌",
+          "文曲"
+        ],
+        "at": "sifang"
+      },
+      "text": "見文昌文曲，主要是增加聲譽；也可能憑文藝或學術生財。",
+      "en": "With Wen Chang or Wen Qu, the main gain is reputation; money may also come through writing, the arts or scholarship.",
+      "source": {
+        "passage": "deep.財帛.通則.12",
+        "quote": "则不过增加声誉"
+      }
+    }
+  ]
+}

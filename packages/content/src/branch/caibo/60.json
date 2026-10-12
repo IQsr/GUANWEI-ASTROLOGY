@@ -1,46 +1,45 @@
 {
-  "$note": "財帛宮（2026-10-12）：破軍.財帛。《深造講義》下篇 宮垣論 財帛宮 p.436–462。倒閉、破產、官非、盜賊、火災、疾病一類斷語不用；金額、「巨富」一類保證不用；天刑、天月、龍池鳳閣等引擎冇嘅星不用。",
+  "$note": "財帛宮（2026-10-12）：破軍辰戌.財帛。《深造講義》下篇 宮垣論 財帛宮 p.436–462。倒閉、破產、官非、盜賊、火災、疾病一類斷語不用；金額、「巨富」一類保證不用；天刑、天月、龍池鳳閣等引擎冇嘅星不用。",
   "topic": {
-    "id": "破軍.財帛",
+    "id": "破軍辰戌.財帛",
     "palace": "財帛",
     "stars": [
       "破軍"
+    ],
+    "branch": [
+      "辰",
+      "戌"
     ]
   },
   "rules": [
     {
-      "id": "財帛.破軍.祿",
+      "id": "財帛.破軍辰戌.魁鉞",
       "role": "refine",
       "when": {
-        "hua": "祿",
-        "star": "破軍",
+        "jia": [
+          "天魁",
+          "天鉞"
+        ]
+      },
+      "text": "天魁天鉞相夾，一生多發展、創新的機會。",
+      "en": "Flanked by Tian Kui and Tian Yue, you have many chances to grow and innovate.",
+      "source": {
+        "passage": "deep.財帛.破軍.1",
+        "quote": "则一生多发展或创新的机会"
+      }
+    },
+    {
+      "id": "財帛.破軍辰戌.陀羅",
+      "role": "limit",
+      "when": {
+        "star": "陀羅",
         "at": "same"
       },
-      "text": "破軍化祿，要兼行兼職來生財。",
-      "en": "Po Jun in Abundance: you make money by holding several roles at once.",
+      "text": "同宮有陀羅，有突破的機會也容易失去。",
+      "en": "With Tuo Luo in the palace, chances to break through are easily lost.",
       "source": {
-        "passage": "deep.財帛.破軍.3",
-        "quote": "则必兼行兼职以生财"
-      }
-    },
-    {
-      "id": "財帛.破軍.本",
-      "role": "base",
-      "text": "破軍在財帛宮不擅理財，擅長開創財源；財源也來自多方面。",
-      "en": "With Po Jun in your Wealth Palace, managing money is not your strength; your nature is to open new sources, and income comes from several directions.",
-      "source": {
-        "passage": "deep.財帛.破軍.4",
-        "quote": "其本质为开创财源"
-      }
-    },
-    {
-      "id": "財帛.破軍.轉行",
-      "role": "refine",
-      "text": "多數要轉換行業，然後才能致富。",
-      "en": "You usually need to change line of work before you prosper.",
-      "source": {
-        "passage": "deep.財帛.破軍.5",
-        "quote": "多主转变行业然后始能致富"
+        "passage": "deep.財帛.破軍.2",
+        "quote": "则主有突破机会亦易失却"
       }
     }
   ]

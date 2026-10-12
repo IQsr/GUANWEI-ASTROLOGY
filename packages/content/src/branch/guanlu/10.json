@@ -1,25 +1,22 @@
 {
-  "$note": "官祿宮（2026-10-12）：太陽子午.官祿。《深造講義》下篇 宮垣論 官祿宮 p.530–560。殉職、牢獄、官非、血光、貪墨、意外一類斷語不用；天刑、天月、天巫、龍池鳳閣、三台八座等引擎冇嘅星不用；天機見 tianji-guanlu.json（試點）。",
+  "$note": "官祿宮（2026-10-12）：太陽天梁.官祿。《深造講義》下篇 宮垣論 官祿宮 p.530–560。殉職、牢獄、官非、血光、貪墨、意外一類斷語不用；天刑、天月、天巫、龍池鳳閣、三台八座等引擎冇嘅星不用；天機見 tianji-guanlu.json（試點）。",
   "topic": {
-    "id": "太陽子午.官祿",
+    "id": "太陽天梁.官祿",
     "palace": "官祿",
     "stars": [
-      "太陽"
-    ],
-    "branch": [
-      "子",
-      "午"
+      "太陽",
+      "天梁"
     ]
   },
   "rules": [
     {
-      "id": "官祿.太陽子午.專業",
+      "id": "官祿.陽梁.服務",
       "role": "base",
-      "text": "名重於利，最宜專業工作，或建立自己的品牌商譽。",
-      "en": "Reputation counts for more than money; professional work suits you best, or building a brand of your own.",
+      "text": "太陽天梁在官祿宮，名重於利，宜專業工作；最適合醫藥、保險一類服務性行業。",
+      "en": "With Tai Yang and Tian Liang in your Career Palace, reputation counts for more than money; professional work suits you, above all service fields such as medicine or insurance.",
       "source": {
-        "passage": "deep.官祿.太陽.5",
-        "quote": "最宜专业工作，或建立商标商誉"
+        "passage": "deep.官祿.太陽.4",
+        "quote": "最宜从事医药、保险等服务性行业"
       }
     }
   ]

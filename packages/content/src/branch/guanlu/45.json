@@ -1,85 +1,70 @@
 {
-  "$note": "官祿宮（2026-10-12）：官祿通則。《深造講義》下篇 宮垣論 官祿宮 p.530–560。殉職、牢獄、官非、血光、貪墨、意外一類斷語不用；天刑、天月、天巫、龍池鳳閣、三台八座等引擎冇嘅星不用；天機見 tianji-guanlu.json（試點）。",
+  "$note": "官祿宮（2026-10-12）：破軍.官祿。《深造講義》下篇 宮垣論 官祿宮 p.530–560。殉職、牢獄、官非、血光、貪墨、意外一類斷語不用；天刑、天月、天巫、龍池鳳閣、三台八座等引擎冇嘅星不用；天機見 tianji-guanlu.json（試點）。",
   "topic": {
-    "id": "官祿通則",
+    "id": "破軍.官祿",
     "palace": "官祿",
-    "stars": []
+    "stars": [
+      "破軍"
+    ]
   },
   "rules": [
     {
-      "id": "官祿.通則.陀羅",
+      "id": "官祿.破軍.祿",
+      "role": "refine",
+      "when": {
+        "hua": "祿",
+        "star": "破軍",
+        "at": "same"
+      },
+      "text": "破軍化祿，兼職兼差，往往從不起眼的行業或職位起家。",
+      "en": "Po Jun in Abundance: you hold side jobs, and often rise from a line or post no one took seriously.",
+      "source": {
+        "passage": "deep.官祿.破軍.3",
+        "quote": "兼职兼差"
+      }
+    },
+    {
+      "id": "官祿.破軍.輔弼",
+      "role": "refine",
+      "when": {
+        "star": [
+          "左輔",
+          "右弼"
+        ],
+        "at": "sifang"
+      },
+      "text": "見左輔右弼，能減少辛勞。",
+      "en": "With Zuo Fu or You Bi, the work is less gruelling.",
+      "source": {
+        "passage": "deep.官祿.破軍.4",
+        "quote": "破军喜见辅弼，则能减少辛劳"
+      }
+    },
+    {
+      "id": "官祿.破軍.羊陀",
       "role": "limit",
       "when": {
-        "star": "陀羅",
-        "at": "same"
-      },
-      "text": "陀羅在官祿宮，事業發展較慢，往往有名無實、權力被架空。",
-      "en": "With Tuo Luo in the Career Palace, progress is slow, and you often hold the title without the power.",
-      "source": {
-        "passage": "deep.官祿.通則.1",
-        "quote": "而且往往有名无实，权力被挂空"
-      }
-    },
-    {
-      "id": "官祿.通則.擎羊",
-      "role": "refine",
-      "when": {
-        "star": "擎羊",
-        "at": "same"
-      },
-      "text": "擎羊在官祿宮，現代往往是工程科技一類的人才。",
-      "en": "With Qing Yang in the Career Palace, today you are often an engineer or technologist.",
-      "source": {
-        "passage": "deep.官祿.通則.2",
-        "quote": "在现代则往往为工程科技人员"
-      }
-    },
-    {
-      "id": "官祿.通則.火鈴",
-      "role": "refine",
-      "when": {
         "star": [
-          "火星",
-          "鈴星"
+          "擎羊",
+          "陀羅"
         ],
         "at": "same"
       },
-      "text": "火星或鈴星在官祿宮，事業多波折，往往經過艱苦才站穩。",
-      "en": "With Huo Xing or Ling Xing in the Career Palace, your career has its upheavals, and you find your footing only after hard times.",
+      "text": "同宮有擎羊陀羅，一定要有一技傍身，才能有所作為。",
+      "en": "With Qing Yang or Tuo Luo in the palace, you need a specialist skill to get anywhere.",
       "source": {
-        "passage": "deep.官祿.通則.3",
-        "quote": "故往往经艰苦而始能底定事业"
+        "passage": "deep.官祿.破軍.5",
+        "quote": "若无一技防身"
       }
     },
     {
-      "id": "官祿.通則.空劫",
-      "role": "refine",
-      "when": {
-        "star": [
-          "地空",
-          "地劫"
-        ],
-        "at": "same"
-      },
-      "text": "地空或地劫在官祿宮，宜做較冷門的行業，或以出人意料的手法經營。",
-      "en": "With Di Kong or Di Jie in the Career Palace, offbeat fields suit you, or running things in ways no one expects.",
+      "id": "官祿.破軍.創新",
+      "role": "base",
+      "text": "破軍在官祿宮，長處在創新：新產品、新技術最合適。",
+      "en": "With Po Jun in your Career Palace, your gift is innovation: new products and new technology suit you.",
       "source": {
-        "passage": "deep.官祿.通則.4",
-        "quote": "一般情况下宜从事较冷僻的行业"
-      }
-    },
-    {
-      "id": "官祿.通則.祿存",
-      "role": "refine",
-      "when": {
-        "star": "祿存",
-        "at": "same"
-      },
-      "text": "祿存在官祿宮，宜經營現成的事業，或做受薪的工作。",
-      "en": "With Lu Cun in the Career Palace, running an established business or salaried work suits you.",
-      "source": {
-        "passage": "deep.官祿.通則.5",
-        "quote": "一般只宜经营现成事业，或作受薪阶级"
+        "passage": "deep.官祿.破軍.6",
+        "quote": "而破军之特长却在创新"
       }
     }
   ]

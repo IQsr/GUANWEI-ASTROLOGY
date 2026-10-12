@@ -1,47 +1,76 @@
 {
-  "$note": "財帛宮（2026-10-12）：紫微破軍.財帛。《深造講義》下篇 宮垣論 財帛宮 p.436–462。倒閉、破產、官非、盜賊、火災、疾病一類斷語不用；金額、「巨富」一類保證不用；天刑、天月、龍池鳳閣等引擎冇嘅星不用。",
+  "$note": "財帛宮（2026-10-12）：財帛連動。《深造講義》下篇 宮垣論 財帛宮 p.436–462。倒閉、破產、官非、盜賊、火災、疾病一類斷語不用；金額、「巨富」一類保證不用；天刑、天月、龍池鳳閣等引擎冇嘅星不用。",
   "topic": {
-    "id": "紫微破軍.財帛",
+    "id": "財帛連動",
     "palace": "財帛",
-    "stars": [
-      "紫微",
-      "破軍"
-    ]
+    "stars": [],
+    "link": true
   },
   "rules": [
     {
-      "id": "財帛.紫破.意外",
-      "role": "base",
-      "text": "紫微破軍在財帛宮，一生會有一次意外之財；坐未比坐丑好。",
-      "en": "With Zi Wei and Po Jun in your Wealth Palace, a windfall comes once in your life; Wei is the better seat than Chou.",
-      "source": {
-        "passage": "deep.財帛.紫微.1",
-        "quote": "主一生必可得一次意外财"
-      }
-    },
-    {
-      "id": "財帛.紫破.權",
+      "id": "財帛.連動.財吉官凶",
       "role": "refine",
       "when": {
-        "hua": "權",
-        "star": "破軍",
-        "at": "same"
+        "all": [
+          {
+            "palace": "財帛",
+            "is": "good"
+          },
+          {
+            "palace": "官祿",
+            "is": "bad"
+          }
+        ]
       },
-      "text": "破軍化權，運用金錢的能力強，經過波折而成富。",
-      "en": "Po Jun in Authority: you handle money with real skill, and grow well off after some ups and downs.",
+      "text": "你的財帛宮星曜吉利，官祿宮卻不吉利：事業未必顯赫，卻能得財、儲財，所以宜不出鋒頭。",
+      "en": "Your Wealth Palace is favourable but your Career Palace is not: your career may not shine, yet you can earn and save, so keep a low profile.",
       "source": {
-        "passage": "deep.財帛.紫微.2",
-        "quote": "运用金钱的能力强，经波折而成富"
+        "passage": "deep.財帛.通則.1",
+        "quote": "但却可以得财或储财"
       }
     },
     {
-      "id": "財帛.紫破.守",
-      "role": "limit",
-      "text": "發了之後最要緊的是守，不要再妄圖開創。",
-      "en": "Once the gain comes, what matters most is holding on to it, not reaching for the next venture.",
+      "id": "財帛.連動.官吉財凶",
+      "role": "refine",
+      "when": {
+        "all": [
+          {
+            "palace": "官祿",
+            "is": "good"
+          },
+          {
+            "palace": "財帛",
+            "is": "bad"
+          }
+        ]
+      },
+      "text": "你的官祿宮星曜吉利，財帛宮卻不吉利：事業可以做大，但錢財不易聚，宜受雇或與人合夥，不宜獨立經營。",
+      "en": "Your Career Palace is favourable but your Wealth Palace is not: the career can grow large, but money is hard to keep, so salaried work or partnership suits you better than going it alone.",
       "source": {
-        "passage": "deep.財帛.紫微.3",
-        "quote": "必因发后又妄图开创所致"
+        "passage": "deep.財帛.通則.2",
+        "quote": "但却以任职或合伙为宜，不宜独立经营"
+      }
+    },
+    {
+      "id": "財帛.連動.田宅",
+      "role": "refine",
+      "when": {
+        "all": [
+          {
+            "palace": "財帛",
+            "is": "bad"
+          },
+          {
+            "palace": "田宅",
+            "is": "good"
+          }
+        ]
+      },
+      "text": "你的財帛宮不吉利，田宅宮卻吉利：可以靠置業保存、累積財富，或者做小本經營。",
+      "en": "Your Wealth Palace is unfavourable but your Property Palace is favourable: property is how you hold on to and build wealth, or a small business of your own.",
+      "source": {
+        "passage": "deep.財帛.通則.3",
+        "quote": "常可藉置业以保存及积累"
       }
     }
   ]

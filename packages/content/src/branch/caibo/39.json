@@ -1,43 +1,49 @@
 {
-  "$note": "財帛宮（2026-10-12）：天府丑未.財帛。《深造講義》下篇 宮垣論 財帛宮 p.436–462。倒閉、破產、官非、盜賊、火災、疾病一類斷語不用；金額、「巨富」一類保證不用；天刑、天月、龍池鳳閣等引擎冇嘅星不用。",
+  "$note": "財帛宮（2026-10-12）：天府巳亥.財帛。《深造講義》下篇 宮垣論 財帛宮 p.436–462。倒閉、破產、官非、盜賊、火災、疾病一類斷語不用；金額、「巨富」一類保證不用；天刑、天月、龍池鳳閣等引擎冇嘅星不用。",
   "topic": {
-    "id": "天府丑未.財帛",
+    "id": "天府巳亥.財帛",
     "palace": "財帛",
     "stars": [
       "天府"
     ],
     "branch": [
-      "丑",
-      "未"
+      "巳",
+      "亥"
     ]
   },
   "rules": [
     {
-      "id": "財帛.天府丑未.掌權",
+      "id": "財帛.天府巳亥.掌財",
       "role": "refine",
       "when": {
-        "any": [
+        "all": [
           {
-            "star": [
-              "文昌",
-              "文曲"
-            ],
-            "at": "same"
+            "hua": "權",
+            "star": "紫微",
+            "at": "opp"
           },
           {
-            "star": [
-              "左輔",
-              "右弼"
-            ],
+            "hua": "科",
+            "star": "天府",
             "at": "same"
           }
         ]
       },
-      "text": "同宮有文昌文曲或左輔右弼，主掌財權。",
-      "en": "With Wen Chang, Wen Qu, Zuo Fu or You Bi in the palace, you take charge of the money.",
+      "text": "對宮紫微化權、天府化科，一生掌財權，適合基金、財務一類機構。",
+      "en": "With Zi Wei in Authority opposite and Tian Fu in Merit, you hold the purse strings all your life; fund or finance houses suit you.",
       "source": {
-        "passage": "deep.財帛.天府.4",
-        "quote": "则亦主掌财权"
+        "passage": "deep.財帛.天府.2",
+        "quote": "则一生职掌财权"
+      }
+    },
+    {
+      "id": "財帛.天府巳亥.惜財",
+      "role": "base",
+      "text": "很惜財，手上沒有現金就沒有安全感。",
+      "en": "You treasure money, and feel insecure without cash in hand.",
+      "source": {
+        "passage": "deep.財帛.天府.3",
+        "quote": "非见现金则无安全感"
       }
     }
   ]

@@ -1,47 +1,50 @@
 {
-  "$note": "財帛宮（2026-10-12）：巨門子午.財帛。《深造講義》下篇 宮垣論 財帛宮 p.436–462。倒閉、破產、官非、盜賊、火災、疾病一類斷語不用；金額、「巨富」一類保證不用；天刑、天月、龍池鳳閣等引擎冇嘅星不用。",
+  "$note": "財帛宮（2026-10-12）：貪狼.財帛。《深造講義》下篇 宮垣論 財帛宮 p.436–462。倒閉、破產、官非、盜賊、火災、疾病一類斷語不用；金額、「巨富」一類保證不用；天刑、天月、龍池鳳閣等引擎冇嘅星不用。",
   "topic": {
-    "id": "巨門子午.財帛",
+    "id": "貪狼.財帛",
     "palace": "財帛",
     "stars": [
-      "巨門"
-    ],
-    "branch": [
-      "子",
-      "午"
+      "貪狼"
     ]
   },
   "rules": [
     {
-      "id": "財帛.巨門子午.隱玉",
-      "role": "refine",
+      "id": "財帛.貪狼.煞",
+      "role": "limit",
       "when": {
-        "any": [
-          {
-            "hua": "祿",
-            "at": "sifang"
-          },
-          {
-            "star": "祿存",
-            "at": "sifang"
-          }
-        ]
+        "star": [
+          "擎羊",
+          "陀羅",
+          "地空",
+          "地劫"
+        ],
+        "at": "sifang"
       },
-      "text": "巨門見祿，成「石中隱玉」：早年辛苦，中年後脫穎而出；發達之後不宜鋒芒太露。",
-      "en": "Ju Men meeting Lu forms the hidden-jade pattern: hard early years, then you stand out after midlife; once you rise, keep a low profile.",
+      "text": "會到羊陀空劫，以不投機為宜。",
+      "en": "Meeting Qing Yang, Tuo Luo, Di Kong or Di Jie, it is best not to speculate.",
       "source": {
-        "passage": "deep.財帛.巨門.1",
-        "quote": "主中年后脱颖而出"
+        "passage": "deep.財帛.貪狼.2",
+        "quote": "则以不投机为宜"
       }
     },
     {
-      "id": "財帛.巨門子午.異族",
-      "role": "refine",
-      "text": "也適合在外資機構服務，先得信譽，再發展事業。",
-      "en": "Working for a foreign-owned organisation also suits you: reputation first, then the career grows.",
+      "id": "財帛.貪狼.本",
+      "role": "base",
+      "text": "貪狼在財帛宮，擅長運用金錢，卻不擅守財，常常以攻為守。",
+      "en": "With Tan Lang in your Wealth Palace, you are good at putting money to work but not at keeping it, and often treat attack as the best defence.",
       "source": {
-        "passage": "deep.財帛.巨門.2",
-        "quote": "亦宜在异族经营之机构服务"
+        "passage": "deep.財帛.貪狼.3",
+        "quote": "但却不擅长守财"
+      }
+    },
+    {
+      "id": "財帛.貪狼.闊綽",
+      "role": "refine",
+      "text": "出手闊綽大方，心裡卻精於盤算計較。",
+      "en": "Open-handed on the outside, you keep careful accounts on the inside.",
+      "source": {
+        "passage": "deep.財帛.貪狼.4",
+        "quote": "手段阔绰大方"
       }
     }
   ]

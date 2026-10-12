@@ -1,26 +1,74 @@
 {
-  "$note": "僕役宮（2026-10-12）：天府.僕役。《深造講義》下篇 宮垣論 僕役宮 p.516–530。官非、盜竊、色禍、受出賣、乘人之危一類斷語不用；天姚、陰煞、天巫、天刑等引擎冇嘅星不用；要分廟陷嘅條文暫不用。原書交友宮主下屬、晚輩，兼論朋友。",
+  "$note": "僕役宮（2026-10-12）：廉貞.僕役。《深造講義》下篇 宮垣論 僕役宮 p.516–530。官非、盜竊、色禍、受出賣、乘人之危一類斷語不用；天姚、陰煞、天巫、天刑等引擎冇嘅星不用；要分廟陷嘅條文暫不用。原書交友宮主下屬、晚輩，兼論朋友。",
   "topic": {
-    "id": "天府.僕役",
+    "id": "廉貞.僕役",
     "palace": "僕役",
     "stars": [
-      "天府"
+      "廉貞"
     ]
   },
   "rules": [
     {
-      "id": "僕役.天府.科",
+      "id": "僕役.廉貞.吉",
       "role": "refine",
       "when": {
-        "hua": "科",
-        "star": "天府",
+        "any": [
+          {
+            "hua": [
+              "祿",
+              "權",
+              "科"
+            ],
+            "at": "same"
+          },
+          {
+            "star": [
+              "左輔",
+              "右弼"
+            ],
+            "at": "sifang"
+          },
+          {
+            "star": [
+              "天魁",
+              "天鉞"
+            ],
+            "at": "sifang"
+          }
+        ]
+      },
+      "text": "廉貞見吉，交遊廣闊，下屬眾多而且有助力。",
+      "en": "Lian Zhen with good signs: a wide circle, and plenty of capable staff.",
+      "source": {
+        "passage": "deep.僕役.廉貞.2",
+        "quote": "则交游广阔，下属众多，且有助力"
+      }
+    },
+    {
+      "id": "僕役.廉貞.空劫",
+      "role": "limit",
+      "when": {
+        "star": [
+          "地空",
+          "地劫"
+        ],
         "at": "same"
       },
-      "text": "天府化科，朋友和下屬都忠厚誠信。",
-      "en": "Tian Fu in Merit: friends and staff alike are honest and trustworthy.",
+      "text": "同宮有地空地劫，感情容易決裂，下屬也會背離。",
+      "en": "With Di Kong or Di Jie in the palace, friendships can break suddenly, and staff may walk away.",
       "source": {
-        "passage": "deep.僕役.天府.1",
-        "quote": "则友人及下属皆忠厚诚信"
+        "passage": "deep.僕役.廉貞.3",
+        "quote": "主感情易决裂"
+      }
+    },
+    {
+      "id": "僕役.廉貞.本",
+      "role": "base",
+      "text": "廉貞在僕役宮，交遊廣闊；只是帶的感情較表面，深交不多。",
+      "en": "With Lian Zhen in your Friends Palace, your circle is wide, though the feeling is often surface-deep and close bonds are few.",
+      "source": {
+        "passage": "deep.僕役.廉貞.4",
+        "quote": "故不多深交"
       }
     }
   ]

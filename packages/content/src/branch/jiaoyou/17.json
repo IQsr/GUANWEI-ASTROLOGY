@@ -1,39 +1,62 @@
 {
-  "$note": "僕役宮（2026-10-12）：武曲貪狼.僕役。《深造講義》下篇 宮垣論 僕役宮 p.516–530。官非、盜竊、色禍、受出賣、乘人之危一類斷語不用；天姚、陰煞、天巫、天刑等引擎冇嘅星不用；要分廟陷嘅條文暫不用。原書交友宮主下屬、晚輩，兼論朋友。",
+  "$note": "僕役宮（2026-10-12）：武曲天府.僕役。《深造講義》下篇 宮垣論 僕役宮 p.516–530。官非、盜竊、色禍、受出賣、乘人之危一類斷語不用；天姚、陰煞、天巫、天刑等引擎冇嘅星不用；要分廟陷嘅條文暫不用。原書交友宮主下屬、晚輩，兼論朋友。",
   "topic": {
-    "id": "武曲貪狼.僕役",
+    "id": "武曲天府.僕役",
     "palace": "僕役",
     "stars": [
       "武曲",
-      "貪狼"
+      "天府"
     ]
   },
   "rules": [
     {
-      "id": "僕役.武貪.火鈴",
-      "role": "limit",
+      "id": "僕役.武府.本",
+      "role": "refine",
       "when": {
-        "star": [
-          "火星",
-          "鈴星"
-        ],
-        "at": "same"
+        "all": [
+          {
+            "hua": "祿",
+            "at": "sifang"
+          },
+          {
+            "not": {
+              "star": "祿存",
+              "at": "same"
+            }
+          },
+          {
+            "any": [
+              {
+                "hua": [
+                  "祿",
+                  "權",
+                  "科"
+                ],
+                "at": "same"
+              },
+              {
+                "star": [
+                  "左輔",
+                  "右弼"
+                ],
+                "at": "sifang"
+              },
+              {
+                "star": [
+                  "天魁",
+                  "天鉞"
+                ],
+                "at": "sifang"
+              }
+            ]
+          }
+        ]
       },
-      "text": "同宮有火星或鈴星，交遊先熱後冷。",
-      "en": "With Huo Xing or Ling Xing in the palace, friendships start hot and cool off.",
+      "text": "武曲天府見祿又見吉星，交遊廣闊，朋友多有助力。",
+      "en": "Wu Qu with Tian Fu, Lu and helpful stars: a wide circle, with friends who really help.",
       "source": {
-        "passage": "deep.僕役.武曲.2",
-        "quote": "主交游始热终冷"
-      }
-    },
-    {
-      "id": "僕役.武貪.本",
-      "role": "base",
-      "text": "武曲貪狼在僕役宮，多是飲食應酬的朋友。",
-      "en": "With Wu Qu and Tan Lang in your Friends Palace, many of your friends are dining-and-socialising companions.",
-      "source": {
-        "passage": "deep.僕役.武曲.3",
-        "quote": "[武曲贪狼]，多饮食征逐之友"
+        "passage": "deep.僕役.武曲.1",
+        "quote": "始主交游广阔，且多助力"
       }
     }
   ]

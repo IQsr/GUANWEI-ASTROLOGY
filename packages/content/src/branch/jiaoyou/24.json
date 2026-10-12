@@ -1,74 +1,27 @@
 {
-  "$note": "僕役宮（2026-10-12）：廉貞.僕役。《深造講義》下篇 宮垣論 僕役宮 p.516–530。官非、盜竊、色禍、受出賣、乘人之危一類斷語不用；天姚、陰煞、天巫、天刑等引擎冇嘅星不用；要分廟陷嘅條文暫不用。原書交友宮主下屬、晚輩，兼論朋友。",
+  "$note": "僕役宮（2026-10-12）：廉貞破軍.僕役。《深造講義》下篇 宮垣論 僕役宮 p.516–530。官非、盜竊、色禍、受出賣、乘人之危一類斷語不用；天姚、陰煞、天巫、天刑等引擎冇嘅星不用；要分廟陷嘅條文暫不用。原書交友宮主下屬、晚輩，兼論朋友。",
   "topic": {
-    "id": "廉貞.僕役",
+    "id": "廉貞破軍.僕役",
     "palace": "僕役",
     "stars": [
-      "廉貞"
+      "廉貞",
+      "破軍"
     ]
   },
   "rules": [
     {
-      "id": "僕役.廉貞.吉",
+      "id": "僕役.廉破.破祿",
       "role": "refine",
       "when": {
-        "any": [
-          {
-            "hua": [
-              "祿",
-              "權",
-              "科"
-            ],
-            "at": "same"
-          },
-          {
-            "star": [
-              "左輔",
-              "右弼"
-            ],
-            "at": "sifang"
-          },
-          {
-            "star": [
-              "天魁",
-              "天鉞"
-            ],
-            "at": "sifang"
-          }
-        ]
-      },
-      "text": "廉貞見吉，交遊廣闊，下屬眾多而且有助力。",
-      "en": "Lian Zhen with good signs: a wide circle, and plenty of capable staff.",
-      "source": {
-        "passage": "deep.僕役.廉貞.2",
-        "quote": "则交游广阔，下属众多，且有助力"
-      }
-    },
-    {
-      "id": "僕役.廉貞.空劫",
-      "role": "limit",
-      "when": {
-        "star": [
-          "地空",
-          "地劫"
-        ],
+        "hua": "祿",
+        "star": "破軍",
         "at": "same"
       },
-      "text": "同宮有地空地劫，感情容易決裂，下屬也會背離。",
-      "en": "With Di Kong or Di Jie in the palace, friendships can break suddenly, and staff may walk away.",
+      "text": "破軍化祿，透過朋友結識有助力的人；下屬也能替你解決重大困難。",
+      "en": "Po Jun in Abundance: friends introduce you to useful people, and staff can solve big problems for you.",
       "source": {
-        "passage": "deep.僕役.廉貞.3",
-        "quote": "主感情易决裂"
-      }
-    },
-    {
-      "id": "僕役.廉貞.本",
-      "role": "base",
-      "text": "廉貞在僕役宮，交遊廣闊；只是帶的感情較表面，深交不多。",
-      "en": "With Lian Zhen in your Friends Palace, your circle is wide, though the feeling is often surface-deep and close bonds are few.",
-      "source": {
-        "passage": "deep.僕役.廉貞.4",
-        "quote": "故不多深交"
+        "passage": "deep.僕役.廉貞.1",
+        "quote": "亦主下属能为自己解决重大困难"
       }
     }
   ]

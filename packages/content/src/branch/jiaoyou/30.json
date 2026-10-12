@@ -1,21 +1,79 @@
 {
-  "$note": "僕役宮（2026-10-12）：七殺.僕役。《深造講義》下篇 宮垣論 僕役宮 p.516–530。官非、盜竊、色禍、受出賣、乘人之危一類斷語不用；天姚、陰煞、天巫、天刑等引擎冇嘅星不用；要分廟陷嘅條文暫不用。原書交友宮主下屬、晚輩，兼論朋友。",
+  "$note": "僕役宮（2026-10-12）：天梁.僕役。《深造講義》下篇 宮垣論 僕役宮 p.516–530。官非、盜竊、色禍、受出賣、乘人之危一類斷語不用；天姚、陰煞、天巫、天刑等引擎冇嘅星不用；要分廟陷嘅條文暫不用。原書交友宮主下屬、晚輩，兼論朋友。",
   "topic": {
-    "id": "七殺.僕役",
+    "id": "天梁.僕役",
     "palace": "僕役",
     "stars": [
-      "七殺"
+      "天梁"
     ]
   },
   "rules": [
     {
-      "id": "僕役.七殺.本",
-      "role": "base",
-      "text": "七殺在僕役宮，多落落寡合，不宜與人合作事業，也不宜聽信讒言。",
-      "en": "With Qi Sha in your Friends Palace, you tend to keep apart; avoid business partnerships, and do not listen to gossip.",
+      "id": "僕役.天梁.吉",
+      "role": "refine",
+      "when": {
+        "any": [
+          {
+            "hua": "權",
+            "star": "天梁",
+            "at": "same"
+          },
+          {
+            "hua": "科",
+            "star": "天梁",
+            "at": "same"
+          }
+        ]
+      },
+      "text": "天梁化權化科，結交到正直無私、有義氣的朋友和下屬。",
+      "en": "Tian Liang in Authority or Merit: you attract upright, selfless and loyal friends and staff.",
       "source": {
-        "passage": "deep.僕役.七殺.1",
-        "quote": "故不宜与人合作事业"
+        "passage": "deep.僕役.天梁.1",
+        "quote": "及招正直无私有义的友人及下属"
+      }
+    },
+    {
+      "id": "僕役.天梁.馬",
+      "role": "limit",
+      "when": {
+        "star": "天馬",
+        "at": "same"
+      },
+      "text": "同宮有天馬，知交容易離散，也常換手下。",
+      "en": "With Tian Ma in the palace, close friends drift away and staff keep changing.",
+      "source": {
+        "passage": "deep.僕役.天梁.2",
+        "quote": "知交易散，亦主时时更换手下"
+      }
+    },
+    {
+      "id": "僕役.天梁.本",
+      "role": "base",
+      "when": {
+        "not": {
+          "any": [
+            {
+              "star": [
+                "左輔",
+                "右弼"
+              ],
+              "at": "sifang"
+            },
+            {
+              "star": [
+                "天魁",
+                "天鉞"
+              ],
+              "at": "sifang"
+            }
+          ]
+        }
+      },
+      "text": "天梁是孤剋之星，不見輔佐吉星，交遊不廣，下屬也不多。",
+      "en": "Tian Liang is a loner star: without helper stars your circle is small and you have few staff.",
+      "source": {
+        "passage": "deep.僕役.天梁.3",
+        "quote": "天梁为孤克之星"
       }
     }
   ]

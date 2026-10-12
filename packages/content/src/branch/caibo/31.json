@@ -1,37 +1,25 @@
 {
-  "$note": "財帛宮（2026-10-12）：廉貞天相.財帛。《深造講義》下篇 宮垣論 財帛宮 p.436–462。倒閉、破產、官非、盜賊、火災、疾病一類斷語不用；金額、「巨富」一類保證不用；天刑、天月、龍池鳳閣等引擎冇嘅星不用。",
+  "$note": "財帛宮（2026-10-12）：天同巳亥.財帛。《深造講義》下篇 宮垣論 財帛宮 p.436–462。倒閉、破產、官非、盜賊、火災、疾病一類斷語不用；金額、「巨富」一類保證不用；天刑、天月、龍池鳳閣等引擎冇嘅星不用。",
   "topic": {
-    "id": "廉貞天相.財帛",
+    "id": "天同巳亥.財帛",
     "palace": "財帛",
     "stars": [
-      "廉貞",
-      "天相"
+      "天同"
+    ],
+    "branch": [
+      "巳",
+      "亥"
     ]
   },
   "rules": [
     {
-      "id": "財帛.廉相.應酬",
+      "id": "財帛.天同巳亥.弱",
       "role": "base",
-      "text": "廉貞天相加強交際應酬的色彩，是長袖善舞的生意人。",
-      "en": "Lian Zhen with Tian Xiang strengthens the social touch: you are a deft dealmaker.",
+      "text": "巳亥的天同在財帛宮是弱宮，稍見煞就要勞心費力；晚年才能富裕。",
+      "en": "Tian Tong in Si or Hai is weak in the Wealth Palace: the slightest harsh star means hard work, and comfort comes later in life.",
       "source": {
-        "passage": "deep.財帛.廉貞.1",
-        "quote": "为长袖善舞的商人"
-      }
-    },
-    {
-      "id": "財帛.廉相.祿",
-      "role": "refine",
-      "when": {
-        "hua": "祿",
-        "star": "廉貞",
-        "at": "same"
-      },
-      "text": "廉貞化祿，在交際中得財。",
-      "en": "Lian Zhen in Abundance: money comes through your social dealings.",
-      "source": {
-        "passage": "deep.財帛.廉貞.2",
-        "quote": "则于交际中得财"
+        "passage": "deep.財帛.天同.7",
+        "quote": "稍见煞即主劳心费力"
       }
     }
   ]

@@ -1,48 +1,22 @@
 {
-  "$note": "僕役宮（2026-10-12）：天機天梁.僕役。《深造講義》下篇 宮垣論 僕役宮 p.516–530。官非、盜竊、色禍、受出賣、乘人之危一類斷語不用；天姚、陰煞、天巫、天刑等引擎冇嘅星不用；要分廟陷嘅條文暫不用。原書交友宮主下屬、晚輩，兼論朋友。",
+  "$note": "僕役宮（2026-10-12）：天機巨門.僕役。《深造講義》下篇 宮垣論 僕役宮 p.516–530。官非、盜竊、色禍、受出賣、乘人之危一類斷語不用；天姚、陰煞、天巫、天刑等引擎冇嘅星不用；要分廟陷嘅條文暫不用。原書交友宮主下屬、晚輩，兼論朋友。",
   "topic": {
-    "id": "天機天梁.僕役",
+    "id": "天機巨門.僕役",
     "palace": "僕役",
     "stars": [
       "天機",
-      "天梁"
+      "巨門"
     ]
   },
   "rules": [
     {
-      "id": "僕役.機梁.吉",
-      "role": "refine",
-      "when": {
-        "any": [
-          {
-            "hua": [
-              "祿",
-              "權",
-              "科"
-            ],
-            "at": "same"
-          },
-          {
-            "star": [
-              "左輔",
-              "右弼"
-            ],
-            "at": "sifang"
-          },
-          {
-            "star": [
-              "天魁",
-              "天鉞"
-            ],
-            "at": "sifang"
-          }
-        ]
-      },
-      "text": "天機天梁見吉，可得年長可靠的朋友，或年長得力的親信。",
-      "en": "Tian Ji with Tian Liang and good signs: you gain older, dependable friends, or a capable senior right hand.",
+      "id": "僕役.機巨.本",
+      "role": "base",
+      "text": "天機巨門在僕役宮，即使不見煞，也容易與朋友下屬發生誤會；宜保持君子之交，也不宜太親近下屬。",
+      "en": "With Tian Ji and Ju Men in your Friends Palace, misunderstandings with friends and staff come easily even without harsh stars; keep things gentlemanly, and do not get too close to staff.",
       "source": {
-        "passage": "deep.僕役.天機.2",
-        "quote": "亦主得年长可靠之友"
+        "passage": "deep.僕役.天機.1",
+        "quote": "亦主易跟下属或友人发生误会"
       }
     }
   ]

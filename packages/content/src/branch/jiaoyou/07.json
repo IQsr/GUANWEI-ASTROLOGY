@@ -1,47 +1,22 @@
 {
-  "$note": "僕役宮（2026-10-12）：紫微.僕役。《深造講義》下篇 宮垣論 僕役宮 p.516–530。官非、盜竊、色禍、受出賣、乘人之危一類斷語不用；天姚、陰煞、天巫、天刑等引擎冇嘅星不用；要分廟陷嘅條文暫不用。原書交友宮主下屬、晚輩，兼論朋友。",
+  "$note": "僕役宮（2026-10-12）：紫微子午.僕役。《深造講義》下篇 宮垣論 僕役宮 p.516–530。官非、盜竊、色禍、受出賣、乘人之危一類斷語不用；天姚、陰煞、天巫、天刑等引擎冇嘅星不用；要分廟陷嘅條文暫不用。原書交友宮主下屬、晚輩，兼論朋友。",
   "topic": {
-    "id": "紫微.僕役",
+    "id": "紫微子午.僕役",
     "palace": "僕役",
     "stars": [
       "紫微"
+    ],
+    "branch": [
+      "子",
+      "午"
     ]
   },
   "rules": [
     {
-      "id": "僕役.紫微.煞",
-      "role": "limit",
+      "id": "僕役.紫微子午.輔佐",
+      "role": "refine",
       "when": {
         "any": [
-          {
-            "star": [
-              "擎羊",
-              "陀羅",
-              "火星",
-              "鈴星",
-              "地空",
-              "地劫"
-            ],
-            "at": "same"
-          },
-          {
-            "hua": "忌",
-            "at": "same"
-          }
-        ]
-      },
-      "text": "紫微見煞忌，下屬強硬而不得力。",
-      "en": "Zi Wei with harsh stars or Hindrance: your staff are stubborn and unhelpful.",
-      "source": {
-        "passage": "deep.僕役.紫微.8",
-        "quote": "主下属强顽而且不得力"
-      }
-    },
-    {
-      "id": "僕役.紫微.朝拱",
-      "role": "limit",
-      "when": {
-        "all": [
           {
             "star": [
               "左輔",
@@ -58,11 +33,11 @@
           }
         ]
       },
-      "text": "紫微得眾星拱照，下屬權威太大，容易把你架空。",
-      "en": "Zi Wei surrounded by helpers: your staff gain too much authority and can sideline you.",
+      "text": "紫微見輔佐吉星，下屬忠誠可靠，但要防權力轉移。",
+      "en": "Zi Wei with helper stars: your staff are loyal and reliable, but watch that power does not slip to them.",
       "source": {
-        "passage": "deep.僕役.紫微.9",
-        "quote": "容易将自己架空"
+        "passage": "deep.僕役.紫微.7",
+        "quote": "下属虽忠诚可靠，唯亦防权力转移"
       }
     }
   ]

@@ -1,98 +1,25 @@
 {
-  "$note": "官祿宮（2026-10-12）：太陽.官祿。《深造講義》下篇 宮垣論 官祿宮 p.530–560。殉職、牢獄、官非、血光、貪墨、意外一類斷語不用；天刑、天月、天巫、龍池鳳閣、三台八座等引擎冇嘅星不用；天機見 tianji-guanlu.json（試點）。",
+  "$note": "官祿宮（2026-10-12）：太陽子午.官祿。《深造講義》下篇 宮垣論 官祿宮 p.530–560。殉職、牢獄、官非、血光、貪墨、意外一類斷語不用；天刑、天月、天巫、龍池鳳閣、三台八座等引擎冇嘅星不用；天機見 tianji-guanlu.json（試點）。",
   "topic": {
-    "id": "太陽.官祿",
+    "id": "太陽子午.官祿",
     "palace": "官祿",
     "stars": [
       "太陽"
+    ],
+    "branch": [
+      "子",
+      "午"
     ]
   },
   "rules": [
     {
-      "id": "官祿.太陽.祿",
-      "role": "refine",
-      "when": {
-        "hua": "祿",
-        "star": "太陽",
-        "at": "same"
-      },
-      "text": "太陽化祿，事業以名聲為主；經商的話，尤其要重視品牌商譽。",
-      "en": "Tai Yang in Abundance: your career runs on reputation; in business, look after your brand above all.",
-      "source": {
-        "passage": "deep.官祿.太陽.6",
-        "quote": "尤须注意商标、商誉"
-      }
-    },
-    {
-      "id": "官祿.太陽.權",
-      "role": "refine",
-      "when": {
-        "hua": "權",
-        "star": "太陽",
-        "at": "same"
-      },
-      "text": "太陽化權，事業容易受外地或外國人提拔賞識；多學外語，對事業有幫助。",
-      "en": "Tai Yang in Authority: people from other places or countries tend to lift you up; learning their languages helps your career.",
-      "source": {
-        "passage": "deep.官祿.太陽.7",
-        "quote": "此为受异族提拔、赏识之星系"
-      }
-    },
-    {
-      "id": "官祿.太陽.科",
-      "role": "refine",
-      "when": {
-        "hua": "科",
-        "star": "太陽",
-        "at": "same"
-      },
-      "text": "太陽化科，宜做有榮譽感的專業工作。",
-      "en": "Tai Yang in Merit: work that carries honour, in a profession, suits you.",
-      "source": {
-        "passage": "deep.官祿.太陽.8",
-        "quote": "宜事业有荣誉感"
-      }
-    },
-    {
-      "id": "官祿.太陽.忌",
-      "role": "refine",
-      "when": {
-        "hua": "忌",
-        "star": "太陽",
-        "at": "same"
-      },
-      "text": "太陽化忌，宜做帶排難解紛或靠口才的工作，例如教學、演唱。",
-      "en": "Tai Yang in Hindrance: work that resolves disputes or relies on speaking suits you, such as teaching or performing.",
-      "source": {
-        "passage": "deep.官祿.太陽.9",
-        "quote": "所从事行业必须有排难解纷"
-      }
-    },
-    {
-      "id": "官祿.太陽.左右",
-      "role": "refine",
-      "when": {
-        "star": [
-          "左輔",
-          "右弼"
-        ],
-        "at": "sifang"
-      },
-      "text": "見左輔右弼，奔勞較少。",
-      "en": "With Zuo Fu or You Bi, you have less running around to do.",
-      "source": {
-        "passage": "deep.官祿.太陽.10",
-        "quote": "亦即较少奔劳"
-      }
-    },
-    {
-      "id": "官祿.太陽.本",
+      "id": "官祿.太陽子午.專業",
       "role": "base",
-      "text": "太陽主貴，在官祿宮很合適：順的話在行內有名聲，不順也有號召力。",
-      "en": "Tai Yang brings standing and sits well in the Career Palace: in good times you are known in your field, and even in bad times people follow you.",
+      "text": "名重於利，最宜專業工作，或建立自己的品牌商譽。",
+      "en": "Reputation counts for more than money; professional work suits you best, or building a brand of your own.",
       "source": {
-        "passage": "deep.官祿.太陽.11",
-        "quote": "纵凶亦主有号召力"
+        "passage": "deep.官祿.太陽.5",
+        "quote": "最宜专业工作，或建立商标商誉"
       }
     }
   ]

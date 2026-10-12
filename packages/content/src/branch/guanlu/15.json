@@ -1,69 +1,40 @@
 {
-  "$note": "官祿宮（2026-10-12）：武曲七殺.官祿。《深造講義》下篇 宮垣論 官祿宮 p.530–560。殉職、牢獄、官非、血光、貪墨、意外一類斷語不用；天刑、天月、天巫、龍池鳳閣、三台八座等引擎冇嘅星不用；天機見 tianji-guanlu.json（試點）。",
+  "$note": "官祿宮（2026-10-12）：武曲天相.官祿。《深造講義》下篇 宮垣論 官祿宮 p.530–560。殉職、牢獄、官非、血光、貪墨、意外一類斷語不用；天刑、天月、天巫、龍池鳳閣、三台八座等引擎冇嘅星不用；天機見 tianji-guanlu.json（試點）。",
   "topic": {
-    "id": "武曲七殺.官祿",
+    "id": "武曲天相.官祿",
     "palace": "官祿",
     "stars": [
       "武曲",
-      "七殺"
+      "天相"
     ]
   },
   "rules": [
     {
-      "id": "官祿.武殺.本煞",
-      "role": "refine",
-      "when": {
-        "star": [
-          "擎羊",
-          "陀羅",
-          "火星",
-          "鈴星",
-          "地空",
-          "地劫"
-        ],
-        "at": "same"
-      },
-      "text": "同宮有煞，宜從事工程技藝，以帶金屬性質的為佳。",
-      "en": "With harsh stars in the palace, engineering and technical work suits you, especially with metal.",
+      "id": "官祿.武相.文武",
+      "role": "base",
+      "text": "武曲天相在官祿宮，主文職武做，或武職文做：內外兼顧的工作最合適。",
+      "en": "With Wu Qu and Tian Xiang in your Career Palace, you bring a hands-on edge to desk work, or a careful hand to field work; roles that span both suit you.",
       "source": {
-        "passage": "deep.官祿.武曲.7",
-        "quote": "则仅主工程技艺"
+        "passage": "deep.官祿.武曲.5",
+        "quote": "主文职武做，或武职文做"
       }
     },
     {
-      "id": "官祿.武殺.紀律",
+      "id": "官祿.武相.吉",
       "role": "refine",
       "when": {
-        "all": [
-          {
-            "star": [
-              "擎羊",
-              "陀羅",
-              "火星",
-              "鈴星"
-            ],
-            "at": "trine"
-          },
-          {
-            "not": {
-              "star": [
-                "擎羊",
-                "陀羅",
-                "火星",
-                "鈴星",
-                "地空",
-                "地劫"
-              ],
-              "at": "same"
-            }
-          }
-        ]
+        "hua": [
+          "祿",
+          "權",
+          "科"
+        ],
+        "at": "same"
       },
-      "text": "三方有煞而本宮無煞，適合紀律部隊或制度嚴謹的機構出身。",
-      "en": "With harsh stars in the trines but not in the palace itself, a disciplined service or tightly run organisation is a good start for you.",
+      "text": "見吉化，宜與人合作，而且要負實際責任。",
+      "en": "With good transformations, partnership suits you, with real responsibility in your hands.",
       "source": {
-        "passage": "deep.官祿.武曲.8",
-        "quote": "宜军旅出身"
+        "passage": "deep.官祿.武曲.6",
+        "quote": "且须负实际责任"
       }
     }
   ]

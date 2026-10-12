@@ -1,40 +1,25 @@
 {
-  "$note": "官祿宮（2026-10-12）：天相.官祿。《深造講義》下篇 宮垣論 官祿宮 p.530–560。殉職、牢獄、官非、血光、貪墨、意外一類斷語不用；天刑、天月、天巫、龍池鳳閣、三台八座等引擎冇嘅星不用；天機見 tianji-guanlu.json（試點）。",
+  "$note": "官祿宮（2026-10-12）：天相巳亥.官祿。《深造講義》下篇 宮垣論 官祿宮 p.530–560。殉職、牢獄、官非、血光、貪墨、意外一類斷語不用；天刑、天月、天巫、龍池鳳閣、三台八座等引擎冇嘅星不用；天機見 tianji-guanlu.json（試點）。",
   "topic": {
-    "id": "天相.官祿",
+    "id": "天相巳亥.官祿",
     "palace": "官祿",
     "stars": [
       "天相"
+    ],
+    "branch": [
+      "巳",
+      "亥"
     ]
   },
   "rules": [
     {
-      "id": "官祿.天相.煞",
-      "role": "limit",
-      "when": {
-        "star": [
-          "擎羊",
-          "陀羅",
-          "火星",
-          "鈴星"
-        ],
-        "at": "same"
-      },
-      "text": "同宮見羊陀火鈴，事業多糾紛，也容易受人掣肘。",
-      "en": "With Qing Yang, Tuo Luo, Huo Xing or Ling Xing in the palace, work brings disputes, and others tie your hands.",
-      "source": {
-        "passage": "deep.官祿.天相.3",
-        "quote": "事业多纠纷，且易受人掣肘"
-      }
-    },
-    {
-      "id": "官祿.天相.副貳",
+      "id": "官祿.天相巳亥.親力",
       "role": "base",
-      "text": "天相在官祿宮，無論處甚麼位置，名義上都不宜佔最高的位置，做副手最好。",
-      "en": "With Tian Xiang in your Career Palace, whatever your position, avoid holding the top title; the deputy’s role suits you best.",
+      "text": "一生事業多勞，往往要親力親為。",
+      "en": "Your working life is busy, and you often have to do things yourself.",
       "source": {
-        "passage": "deep.官祿.天相.4",
-        "quote": "以副贰为宜"
+        "passage": "deep.官祿.天相.2",
+        "quote": "往往须亲力亲为"
       }
     }
   ]

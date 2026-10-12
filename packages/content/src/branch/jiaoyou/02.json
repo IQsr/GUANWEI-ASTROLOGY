@@ -1,22 +1,61 @@
 {
-  "$note": "僕役宮（2026-10-12）：紫微天府.僕役。《深造講義》下篇 宮垣論 僕役宮 p.516–530。官非、盜竊、色禍、受出賣、乘人之危一類斷語不用；天姚、陰煞、天巫、天刑等引擎冇嘅星不用；要分廟陷嘅條文暫不用。原書交友宮主下屬、晚輩，兼論朋友。",
+  "$note": "僕役宮（2026-10-12）：紫微破軍.僕役。《深造講義》下篇 宮垣論 僕役宮 p.516–530。官非、盜竊、色禍、受出賣、乘人之危一類斷語不用；天姚、陰煞、天巫、天刑等引擎冇嘅星不用；要分廟陷嘅條文暫不用。原書交友宮主下屬、晚輩，兼論朋友。",
   "topic": {
-    "id": "紫微天府.僕役",
+    "id": "紫微破軍.僕役",
     "palace": "僕役",
     "stars": [
       "紫微",
-      "天府"
+      "破軍"
     ]
   },
   "rules": [
     {
-      "id": "僕役.紫府.本",
-      "role": "base",
-      "text": "紫微天府在僕役宮，朋友誠樸，也肯直言規勸。",
-      "en": "With Zi Wei and Tian Fu in your Friends Palace, your friends are honest and plain-spoken, and will tell you hard truths.",
+      "id": "僕役.紫破.輔佐",
+      "role": "refine",
+      "when": {
+        "any": [
+          {
+            "star": [
+              "左輔",
+              "右弼"
+            ],
+            "at": "sifang"
+          },
+          {
+            "star": [
+              "天魁",
+              "天鉞"
+            ],
+            "at": "sifang"
+          }
+        ]
+      },
+      "text": "紫微破軍見輔佐吉星，得力的下屬容易另謀發展，所以你常覺得助力不足。",
+      "en": "Zi Wei with Po Jun and helper stars: capable staff tend to move on, so you often feel short of help.",
       "source": {
-        "passage": "deep.僕役.紫微.3",
-        "quote": "得友诚朴，亦能直谏"
+        "passage": "deep.僕役.紫微.1",
+        "quote": "主得力下属易另谋发展"
+      }
+    },
+    {
+      "id": "僕役.紫破.煞",
+      "role": "limit",
+      "when": {
+        "star": [
+          "擎羊",
+          "陀羅",
+          "火星",
+          "鈴星",
+          "地空",
+          "地劫"
+        ],
+        "at": "same"
+      },
+      "text": "紫微破軍見煞，容易受朋友或下屬拖累。",
+      "en": "Zi Wei with Po Jun and harsh stars: friends or staff can drag you down.",
+      "source": {
+        "passage": "deep.僕役.紫微.2",
+        "quote": "主受友人或下属拖累"
       }
     }
   ]

@@ -13,11 +13,21 @@
       "id": "夫妻.紫相.合作",
       "role": "refine",
       "when": {
-        "star": [
-          "左輔",
-          "右弼"
-        ],
-        "at": "sifang"
+        "all": [
+          {
+            "star": [
+              "左輔",
+              "右弼"
+            ],
+            "at": "sifang"
+          },
+          {
+            "not": {
+              "palace": "夫妻",
+              "is": "bad"
+            }
+          }
+        ]
       },
       "text": "你的紫微天相見左輔右弼，利夫妻合作創業，可以一起興家。",
       "en": "Your Zi Wei–Tian Xiang meets Zuo Fu or You Bi: working together as a couple pays off, and you can build the household side by side.",

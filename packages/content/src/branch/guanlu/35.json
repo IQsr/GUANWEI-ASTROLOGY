@@ -1,25 +1,59 @@
 {
-  "$note": "官祿宮（2026-10-12）：天相卯酉.官祿。《深造講義》下篇 宮垣論 官祿宮 p.530–560。殉職、牢獄、官非、血光、貪墨、意外一類斷語不用；天刑、天月、天巫、龍池鳳閣、三台八座等引擎冇嘅星不用；天機見 tianji-guanlu.json（試點）。",
+  "$note": "官祿宮（2026-10-12）：巨門.官祿。《深造講義》下篇 宮垣論 官祿宮 p.530–560。殉職、牢獄、官非、血光、貪墨、意外一類斷語不用；天刑、天月、天巫、龍池鳳閣、三台八座等引擎冇嘅星不用；天機見 tianji-guanlu.json（試點）。",
   "topic": {
-    "id": "天相卯酉.官祿",
+    "id": "巨門.官祿",
     "palace": "官祿",
     "stars": [
-      "天相"
-    ],
-    "branch": [
-      "卯",
-      "酉"
+      "巨門"
     ]
   },
   "rules": [
     {
-      "id": "官祿.天相卯酉.代理",
-      "role": "refine",
-      "text": "從商最宜做商品代理；任職則適合做跨國機構的地區主管。",
-      "en": "In business, acting as an agent for a product line suits you best; as an employee, heading a multinational’s local office.",
+      "id": "官祿.巨門.忌",
+      "role": "limit",
+      "when": {
+        "hua": "忌",
+        "star": "巨門",
+        "at": "same"
+      },
+      "text": "巨門化忌，要從事靠口才或費唇舌的行業，否則反招是非。",
+      "en": "Ju Men in Hindrance: choose work that relies on speaking, or the talk turns against you.",
       "source": {
-        "passage": "deep.官祿.天相.1",
-        "quote": "最宜为商品代理"
+        "passage": "deep.官祿.巨門.2",
+        "quote": "则反招是非口舌"
+      }
+    },
+    {
+      "id": "官祿.巨門.祿",
+      "role": "refine",
+      "when": {
+        "any": [
+          {
+            "hua": "祿",
+            "star": "巨門",
+            "at": "same"
+          },
+          {
+            "star": "祿存",
+            "at": "same"
+          }
+        ]
+      },
+      "text": "巨門化祿或有祿存，口才可以轉化為名聲；但以不主動出鋒頭為宜。",
+      "en": "With Ju Men in Abundance or Lu Cun present, your way with words becomes a reputation, so long as you do not push yourself forward.",
+      "source": {
+        "passage": "deep.官祿.巨門.3",
+        "quote": "则有时可将口舌的性质转化为声名"
+      }
+    },
+    {
+      "id": "官祿.巨門.本",
+      "role": "base",
+      "text": "巨門在官祿宮，靠口才謀生：律師、教師、推銷、外交、傳播一類工作都屬此類。",
+      "en": "With Ju Men in your Career Palace, you earn by speaking: law, teaching, sales, diplomacy and media all fit.",
+      "source": {
+        "passage": "deep.官祿.巨門.4",
+        "quote": "故以口才为主"
       }
     }
   ]

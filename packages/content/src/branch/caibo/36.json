@@ -1,44 +1,53 @@
 {
-  "$note": "財帛宮（2026-10-12）：廉貞.財帛。《深造講義》下篇 宮垣論 財帛宮 p.436–462。倒閉、破產、官非、盜賊、火災、疾病一類斷語不用；金額、「巨富」一類保證不用；天刑、天月、龍池鳳閣等引擎冇嘅星不用。",
+  "$note": "財帛宮（2026-10-12）：廉貞寅申.財帛。《深造講義》下篇 宮垣論 財帛宮 p.436–462。倒閉、破產、官非、盜賊、火災、疾病一類斷語不用；金額、「巨富」一類保證不用；天刑、天月、龍池鳳閣等引擎冇嘅星不用。",
   "topic": {
-    "id": "廉貞.財帛",
+    "id": "廉貞寅申.財帛",
     "palace": "財帛",
     "stars": [
       "廉貞"
+    ],
+    "branch": [
+      "寅",
+      "申"
     ]
   },
   "rules": [
     {
-      "id": "財帛.廉貞.祿",
-      "role": "refine",
-      "when": {
-        "any": [
-          {
-            "hua": "祿",
-            "star": "廉貞",
-            "at": "same"
-          },
-          {
-            "star": "祿存",
-            "at": "same"
-          }
-        ]
-      },
-      "text": "廉貞化祿或有祿存，容易成富，錢財多由交際應酬而來。",
-      "en": "With Lian Zhen in Abundance or Lu Cun present, wealth comes readily, mostly through your social dealings.",
+      "id": "財帛.廉貞寅申.理財",
+      "role": "base",
+      "text": "理財能力很強，最宜從事財經事業。",
+      "en": "You handle money very well, and finance is your natural field.",
       "source": {
-        "passage": "deep.財帛.廉貞.9",
-        "quote": "其财每由交际应酬而来"
+        "passage": "deep.財帛.廉貞.7",
+        "quote": "最宜从事财经事业"
       }
     },
     {
-      "id": "財帛.廉貞.本",
-      "role": "base",
-      "text": "廉貞在財帛宮，靠競爭求財。",
-      "en": "With Lian Zhen in your Wealth Palace, you earn through competition.",
+      "id": "財帛.廉貞寅申.祿馬",
+      "role": "refine",
+      "when": {
+        "all": [
+          {
+            "star": "天馬",
+            "at": [
+              "same",
+              "opp"
+            ]
+          },
+          {
+            "star": "祿存",
+            "at": [
+              "same",
+              "opp"
+            ]
+          }
+        ]
+      },
+      "text": "見祿馬交馳，不但善於理財，做貿易也得利。",
+      "en": "With Lu Cun and Tian Ma meeting, you not only manage money well but profit from trade.",
       "source": {
-        "passage": "deep.財帛.廉貞.10",
-        "quote": "此为其基本性质"
+        "passage": "deep.財帛.廉貞.8",
+        "quote": "不但善于理财"
       }
     }
   ]

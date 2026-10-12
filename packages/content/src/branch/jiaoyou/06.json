@@ -1,22 +1,27 @@
 {
-  "$note": "僕役宮（2026-10-12）：紫微子午.僕役。《深造講義》下篇 宮垣論 僕役宮 p.516–530。官非、盜竊、色禍、受出賣、乘人之危一類斷語不用；天姚、陰煞、天巫、天刑等引擎冇嘅星不用；要分廟陷嘅條文暫不用。原書交友宮主下屬、晚輩，兼論朋友。",
+  "$note": "僕役宮（2026-10-12）：紫微七殺.僕役。《深造講義》下篇 宮垣論 僕役宮 p.516–530。官非、盜竊、色禍、受出賣、乘人之危一類斷語不用；天姚、陰煞、天巫、天刑等引擎冇嘅星不用；要分廟陷嘅條文暫不用。原書交友宮主下屬、晚輩，兼論朋友。",
   "topic": {
-    "id": "紫微子午.僕役",
+    "id": "紫微七殺.僕役",
     "palace": "僕役",
     "stars": [
-      "紫微"
-    ],
-    "branch": [
-      "子",
-      "午"
+      "紫微",
+      "七殺"
     ]
   },
   "rules": [
     {
-      "id": "僕役.紫微子午.輔佐",
+      "id": "僕役.紫殺.吉",
       "role": "refine",
       "when": {
         "any": [
+          {
+            "hua": [
+              "祿",
+              "權",
+              "科"
+            ],
+            "at": "same"
+          },
           {
             "star": [
               "左輔",
@@ -33,11 +38,11 @@
           }
         ]
       },
-      "text": "紫微見輔佐吉星，下屬忠誠可靠，但要防權力轉移。",
-      "en": "Zi Wei with helper stars: your staff are loyal and reliable, but watch that power does not slip to them.",
+      "text": "紫微七殺見吉，可以結交令你敬畏、肯直言的朋友。",
+      "en": "Zi Wei with Qi Sha and good signs: you make friends you respect and who speak frankly.",
       "source": {
-        "passage": "deep.僕役.紫微.7",
-        "quote": "下属虽忠诚可靠，唯亦防权力转移"
+        "passage": "deep.僕役.紫微.6",
+        "quote": "主可结交畏友、诤友"
       }
     }
   ]

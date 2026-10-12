@@ -1,46 +1,22 @@
 {
-  "$note": "財帛宮（2026-10-12）：太陽巨門.財帛。《深造講義》下篇 宮垣論 財帛宮 p.436–462。倒閉、破產、官非、盜賊、火災、疾病一類斷語不用；金額、「巨富」一類保證不用；天刑、天月、龍池鳳閣等引擎冇嘅星不用。",
+  "$note": "財帛宮（2026-10-12）：太陽太陰.財帛。《深造講義》下篇 宮垣論 財帛宮 p.436–462。倒閉、破產、官非、盜賊、火災、疾病一類斷語不用；金額、「巨富」一類保證不用；天刑、天月、龍池鳳閣等引擎冇嘅星不用。",
   "topic": {
-    "id": "太陽巨門.財帛",
+    "id": "太陽太陰.財帛",
     "palace": "財帛",
     "stars": [
       "太陽",
-      "巨門"
+      "太陰"
     ]
   },
   "rules": [
     {
-      "id": "財帛.陽巨.異族",
-      "role": "refine",
-      "when": {
-        "all": [
-          {
-            "hua": "權",
-            "star": "太陽",
-            "at": "same"
-          },
-          {
-            "hua": "祿",
-            "star": "巨門",
-            "at": "same"
-          }
-        ]
-      },
-      "text": "太陽化權、巨門化祿，容易受外地或外國人提拔而得財，也可以憑口才得財。",
-      "en": "Tai Yang in Authority and Ju Men in Abundance: you are likely to be lifted by people from elsewhere, and can also earn through your way with words.",
-      "source": {
-        "passage": "deep.財帛.太陽.2",
-        "quote": "主受异族提拔得财"
-      }
-    },
-    {
-      "id": "財帛.陽巨.自創",
+      "id": "財帛.陰陽.先散後聚",
       "role": "base",
-      "text": "財由自己創立，不主承接現成產業，而且要經過競爭才得到。",
-      "en": "Your money is built by your own hand rather than inherited, and it comes only through competition.",
+      "text": "太陽太陰同在財帛宮，先散後聚；坐丑後聚的力量比坐未大。",
+      "en": "With Tai Yang and Tai Yin together in your Wealth Palace, money first scatters, then gathers; the gathering is stronger in Chou than in Wei.",
       "source": {
-        "passage": "deep.財帛.太陽.3",
-        "quote": "亦主财由自身创立"
+        "passage": "deep.財帛.太陽.1",
+        "quote": "基本性质主先散后聚"
       }
     }
   ]

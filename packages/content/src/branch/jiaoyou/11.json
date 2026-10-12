@@ -1,76 +1,67 @@
 {
-  "$note": "僕役宮（2026-10-12）：天機.僕役。《深造講義》下篇 宮垣論 僕役宮 p.516–530。官非、盜竊、色禍、受出賣、乘人之危一類斷語不用；天姚、陰煞、天巫、天刑等引擎冇嘅星不用；要分廟陷嘅條文暫不用。原書交友宮主下屬、晚輩，兼論朋友。",
+  "$note": "僕役宮（2026-10-12）：天機太陰.僕役。《深造講義》下篇 宮垣論 僕役宮 p.516–530。官非、盜竊、色禍、受出賣、乘人之危一類斷語不用；天姚、陰煞、天巫、天刑等引擎冇嘅星不用；要分廟陷嘅條文暫不用。原書交友宮主下屬、晚輩，兼論朋友。",
   "topic": {
-    "id": "天機.僕役",
+    "id": "天機太陰.僕役",
     "palace": "僕役",
     "stars": [
-      "天機"
+      "天機",
+      "太陰"
     ]
   },
   "rules": [
     {
-      "id": "僕役.天機.忌",
-      "role": "limit",
-      "when": {
-        "hua": "忌",
-        "star": "天機",
-        "at": "same"
-      },
-      "text": "天機化忌，彼此各懷機心。",
-      "en": "Tian Ji in Hindrance: everyone has their own agenda.",
+      "id": "僕役.機陰.本",
+      "role": "base",
+      "text": "天機太陰在僕役宮，朋友和下屬的關係不穩定。",
+      "en": "With Tian Ji and Tai Yin in your Friends Palace, relations with friends and staff are unsettled.",
       "source": {
-        "passage": "deep.僕役.天機.5",
-        "quote": "主彼此各怀机一己"
+        "passage": "deep.僕役.天機.3",
+        "quote": "均主关系不稳定"
       }
     },
     {
-      "id": "僕役.天機.祿",
+      "id": "僕役.機陰.陰祿",
       "role": "refine",
       "when": {
         "all": [
           {
             "hua": "祿",
-            "star": "天機",
+            "star": "太陰",
             "at": "same"
           },
           {
-            "not": {
-              "hua": "忌",
-              "at": "sifang"
-            }
+            "any": [
+              {
+                "hua": [
+                  "祿",
+                  "權",
+                  "科"
+                ],
+                "at": "same"
+              },
+              {
+                "star": [
+                  "左輔",
+                  "右弼"
+                ],
+                "at": "sifang"
+              },
+              {
+                "star": [
+                  "天魁",
+                  "天鉞"
+                ],
+                "at": "sifang"
+              }
+            ]
           }
         ]
       },
-      "text": "天機化祿，交友雖不固定，卻時時得到助力。",
-      "en": "Tian Ji in Abundance: friends come and go, but there is always help.",
+      "text": "太陰化祿又見吉，會因朋友或下屬得財。",
+      "en": "Tai Yin in Abundance with good signs: friends or staff bring you money.",
       "source": {
-        "passage": "deep.僕役.天機.6",
-        "quote": "但却时时能得助力"
-      }
-    },
-    {
-      "id": "僕役.天機.權",
-      "role": "refine",
-      "when": {
-        "hua": "權",
-        "star": "天機",
-        "at": "same"
-      },
-      "text": "天機化權，與朋友、下屬的關係較穩定。",
-      "en": "Tian Ji in Authority: relations with friends and staff are steadier.",
-      "source": {
-        "passage": "deep.僕役.天機.7",
-        "quote": "天机化权者，关系较稳定"
-      }
-    },
-    {
-      "id": "僕役.天機.本",
-      "role": "base",
-      "text": "天機在僕役宮，結識各方面的朋友，但也時時更換。",
-      "en": "With Tian Ji in your Friends Palace, you meet people from every walk of life, but they keep changing.",
-      "source": {
-        "passage": "deep.僕役.天機.8",
-        "quote": "主结识各方面的朋友，但亦时时更换"
+        "passage": "deep.僕役.天機.4",
+        "quote": "主因友或下属得财"
       }
     }
   ]

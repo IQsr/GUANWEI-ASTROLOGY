@@ -14,6 +14,27 @@ def H(hua, star, at='same'): return {'hua': hua, 'star': star, 'at': at}
 def R(id, when, text, en, src, quote, role='refine'):
     return {'id': id, 'when': when, 'text': text, 'en': en, 'src': src, 'quote': quote, 'role': role}
 
+# ── 宮位連動（2026-10-12）：排最前，見 branch.ts palaceState() ──
+def PS(name, st): return {'palace': name, 'is': st}
+T.append({'id': '官祿連動', 'stars': [], 'link': True, 'rules': [
+ R('官祿.連動.官夫皆吉', {'all': [PS('官祿', 'good'), PS('夫妻', 'good')]},
+   '你的官祿宮和夫妻宮星曜都吉利：夫妻可以合作事業，或者各自發展都成功，夫妻關係也和美。',
+   'Your Career and Partnership Palaces are both favourable: you and your partner can work together, or both succeed separately, and the relationship stays warm.',
+   '若事业宫星曜吉，夫妻宫星曜变吉，则主夫妻可合作事业，或彼此发展成功，而夫妻关系亦和美；', '则主夫妻可合作事业'),
+ R('官祿.連動.官吉夫凶', {'all': [PS('官祿', 'good'), PS('夫妻', 'bad')]},
+   '你的官祿宮吉利，夫妻宮卻不吉利：夫妻只宜各自發展事業。',
+   'Your Career Palace is favourable but your Partnership Palace is not: you and your partner should each pursue your own careers.',
+   '倘事业宫星曜吉，夫妻宫星曜不吉，则只宜夫妻各自发展事业；', '则只宜夫妻各自发展事业', 'limit'),
+ R('官祿.連動.官夫皆凶', {'all': [PS('官祿', 'bad'), PS('夫妻', 'bad')]},
+   '你的官祿宮和夫妻宮星曜都不吉利：夫妻在事業上互相幫不上忙，不宜合作。',
+   'Your Career and Partnership Palaces are both unfavourable: you and your partner cannot help each other’s careers, so do not work together.',
+   '若事业宫星曜不吉，而夫妻宫星曜亦不吉，则夫妻彼此事业无助，绝对不宜合作。', '绝对不宜合作', 'limit'),
+ R('官祿.連動.空劫分', {'any': [{'all': [{'palace': '官祿', 'star': '地空'}, {'palace': '夫妻', 'star': '地劫'}]}, {'all': [{'palace': '官祿', 'star': '地劫'}, {'palace': '夫妻', 'star': '地空'}]}]},
+   '你的官祿宮和夫妻宮，一宮有地空、一宮有地劫：事業容易因遷就伴侶而受影響，例如為伴侶放棄較好的職位；彼此又未必遷就得到底，也會影響感情。',
+   'Your Career and Partnership Palaces hold Di Kong and Di Jie between them: your career can suffer from accommodating your partner, such as giving up a better post; yet neither of you can accommodate forever, and the relationship feels it too.',
+   '事业夫妻两宫，最不喜一麓地空，一隧地劫(此唯寅申两富有之则主因受配偶影响而致事业不利(例如因迁就配偶，自己牺牲一份较优厚的职位等)但彼此又不能迁就到底，故亦常影响婚姻。', '例如因迁就配偶，自己牺牲一份较优厚的职位等', 'limit'),
+]})
+
 # ── 紫微 ──
 T.append({'id': '紫微破軍.官祿', 'stars': ['紫微', '破軍'], 'rules': [
  R('官祿.紫破.開創', None,

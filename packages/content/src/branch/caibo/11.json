@@ -1,25 +1,48 @@
 {
-  "$note": "財帛宮（2026-10-12）：天機丑未.財帛。《深造講義》下篇 宮垣論 財帛宮 p.436–462。倒閉、破產、官非、盜賊、火災、疾病一類斷語不用；金額、「巨富」一類保證不用；天刑、天月、龍池鳳閣等引擎冇嘅星不用。",
+  "$note": "財帛宮（2026-10-12）：天機子午.財帛。《深造講義》下篇 宮垣論 財帛宮 p.436–462。倒閉、破產、官非、盜賊、火災、疾病一類斷語不用；金額、「巨富」一類保證不用；天刑、天月、龍池鳳閣等引擎冇嘅星不用。",
   "topic": {
-    "id": "天機丑未.財帛",
+    "id": "天機子午.財帛",
     "palace": "財帛",
     "stars": [
       "天機"
     ],
     "branch": [
-      "丑",
-      "未"
+      "子",
+      "午"
     ]
   },
   "rules": [
     {
-      "id": "財帛.天機丑未.策劃",
+      "id": "財帛.天機子午.唇舌",
       "role": "base",
-      "text": "最適合費心思計劃的行業，例如電腦程式、市場策劃。",
-      "en": "You are best suited to work that runs on planning and clever design, such as programming or marketing strategy.",
+      "text": "要費心思、費唇舌求財。",
+      "en": "You earn through thought and talk.",
       "source": {
-        "passage": "deep.財帛.天機.10",
-        "quote": "如计算机程序、市场策划之类"
+        "passage": "deep.財帛.天機.8",
+        "quote": "破唇费舌以求财"
+      }
+    },
+    {
+      "id": "財帛.天機子午.經紀",
+      "role": "refine",
+      "when": {
+        "any": [
+          {
+            "hua": "祿",
+            "star": "天機",
+            "at": "same"
+          },
+          {
+            "star": "祿存",
+            "at": "same"
+          }
+        ]
+      },
+      "text": "天機化祿或有祿存，錢財流通，適合經紀一類行業。",
+      "en": "With Tian Ji in Abundance or Lu Cun present, money flows through your hands, which suits brokerage-type work.",
+      "source": {
+        "passage": "deep.財帛.天機.9",
+        "quote": "故可从事经纪行业"
       }
     }
   ]

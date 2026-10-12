@@ -1,41 +1,61 @@
 {
-  "$note": "財帛宮（2026-10-12）：七殺子午.財帛。《深造講義》下篇 宮垣論 財帛宮 p.436–462。倒閉、破產、官非、盜賊、火災、疾病一類斷語不用；金額、「巨富」一類保證不用；天刑、天月、龍池鳳閣等引擎冇嘅星不用。",
+  "$note": "財帛宮（2026-10-12）：天梁.財帛。《深造講義》下篇 宮垣論 財帛宮 p.436–462。倒閉、破產、官非、盜賊、火災、疾病一類斷語不用；金額、「巨富」一類保證不用；天刑、天月、龍池鳳閣等引擎冇嘅星不用。",
   "topic": {
-    "id": "七殺子午.財帛",
+    "id": "天梁.財帛",
     "palace": "財帛",
     "stars": [
-      "七殺"
-    ],
-    "branch": [
-      "子",
-      "午"
+      "天梁"
     ]
   },
   "rules": [
     {
-      "id": "財帛.七殺子午.意外",
-      "role": "refine",
+      "id": "財帛.天梁.祿",
+      "role": "limit",
       "when": {
-        "any": [
+        "all": [
           {
-            "hua": [
-              "祿",
-              "權",
-              "科"
-            ],
-            "at": "sifang"
+            "hua": "祿",
+            "star": "天梁",
+            "at": "same"
           },
           {
-            "star": "祿存",
-            "at": "sifang"
+            "not": {
+              "star": "天機",
+              "at": "same"
+            }
           }
         ]
       },
-      "text": "見吉化或祿存，常得意外之財，而且來路正當。",
-      "en": "With good transformations or Lu Cun, unexpected money often comes your way, and from honest sources.",
+      "text": "天梁化祿反而帶來糾紛困擾；求財宜以不損害別人為前提。",
+      "en": "Tian Liang in Abundance actually brings disputes; make sure your earning never comes at others’ expense.",
       "source": {
-        "passage": "deep.財帛.七殺.1",
-        "quote": "常得意外财"
+        "passage": "deep.財帛.天梁.5",
+        "quote": "反主有纠纷、困扰"
+      }
+    },
+    {
+      "id": "財帛.天梁.科",
+      "role": "refine",
+      "when": {
+        "hua": "科",
+        "star": "天梁",
+        "at": "same"
+      },
+      "text": "天梁化科，先名後利。",
+      "en": "Tian Liang in Merit: reputation first, then money.",
+      "source": {
+        "passage": "deep.財帛.天梁.6",
+        "quote": "故天梁化科，优于天梁化禄"
+      }
+    },
+    {
+      "id": "財帛.天梁.服務",
+      "role": "base",
+      "text": "天梁在財帛宮宜以服務為目的，不宜以求財為目的；從商也以受雇為宜。",
+      "en": "With Tian Liang in your Wealth Palace, aim to serve rather than to earn; even in business, being employed suits you better.",
+      "source": {
+        "passage": "deep.財帛.天梁.7",
+        "quote": "宜以服务为目的，不宜以求财为目的"
       }
     }
   ]

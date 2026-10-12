@@ -1,61 +1,54 @@
 {
-  "$note": "僕役宮（2026-10-12）：紫微破軍.僕役。《深造講義》下篇 宮垣論 僕役宮 p.516–530。官非、盜竊、色禍、受出賣、乘人之危一類斷語不用；天姚、陰煞、天巫、天刑等引擎冇嘅星不用；要分廟陷嘅條文暫不用。原書交友宮主下屬、晚輩，兼論朋友。",
+  "$note": "僕役宮（2026-10-12）：僕役連動。《深造講義》下篇 宮垣論 僕役宮 p.516–530。官非、盜竊、色禍、受出賣、乘人之危一類斷語不用；天姚、陰煞、天巫、天刑等引擎冇嘅星不用；要分廟陷嘅條文暫不用。原書交友宮主下屬、晚輩，兼論朋友。",
   "topic": {
-    "id": "紫微破軍.僕役",
+    "id": "僕役連動",
     "palace": "僕役",
-    "stars": [
-      "紫微",
-      "破軍"
-    ]
+    "stars": [],
+    "link": true
   },
   "rules": [
     {
-      "id": "僕役.紫破.輔佐",
-      "role": "refine",
+      "id": "僕役.連動.僕強命弱",
+      "role": "limit",
       "when": {
-        "any": [
+        "all": [
           {
-            "star": [
-              "左輔",
-              "右弼"
-            ],
-            "at": "sifang"
+            "palace": "僕役",
+            "is": "good"
           },
           {
-            "star": [
-              "天魁",
-              "天鉞"
-            ],
-            "at": "sifang"
+            "palace": "命宮",
+            "is": "bad"
           }
         ]
       },
-      "text": "紫微破軍見輔佐吉星，得力的下屬容易另謀發展，所以你常覺得助力不足。",
-      "en": "Zi Wei with Po Jun and helper stars: capable staff tend to move on, so you often feel short of help.",
+      "text": "你的僕役宮星曜強，命宮卻弱：容易反被下屬或晚輩壓過。",
+      "en": "Your Friends Palace is strong while your Life Palace is weak: staff or juniors can end up getting the better of you.",
       "source": {
-        "passage": "deep.僕役.紫微.1",
-        "quote": "主得力下属易另谋发展"
+        "passage": "deep.僕役.通則.1",
+        "quote": "而命宫星曜则弱，却又主受卑辈欺负"
       }
     },
     {
-      "id": "僕役.紫破.煞",
+      "id": "僕役.連動.命強僕弱",
       "role": "limit",
       "when": {
-        "star": [
-          "擎羊",
-          "陀羅",
-          "火星",
-          "鈴星",
-          "地空",
-          "地劫"
-        ],
-        "at": "same"
+        "all": [
+          {
+            "palace": "命宮",
+            "is": "good"
+          },
+          {
+            "palace": "僕役",
+            "is": "bad"
+          }
+        ]
       },
-      "text": "紫微破軍見煞，容易受朋友或下屬拖累。",
-      "en": "Zi Wei with Po Jun and harsh stars: friends or staff can drag you down.",
+      "text": "你的命宮星曜強，僕役宮卻弱：下屬晚輩幫不上忙，凡事仍要親力親為。",
+      "en": "Your Life Palace is strong while your Friends Palace is weak: staff and juniors are little help, so you still have to do things yourself.",
       "source": {
-        "passage": "deep.僕役.紫微.2",
-        "quote": "主受友人或下属拖累"
+        "passage": "deep.僕役.通則.2",
+        "quote": "凡事仍需亲力亲为"
       }
     }
   ]

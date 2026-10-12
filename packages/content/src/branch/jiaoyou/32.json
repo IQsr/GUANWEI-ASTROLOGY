@@ -1,60 +1,25 @@
 {
-  "$note": "僕役宮（2026-10-12）：破軍.僕役。《深造講義》下篇 宮垣論 僕役宮 p.516–530。官非、盜竊、色禍、受出賣、乘人之危一類斷語不用；天姚、陰煞、天巫、天刑等引擎冇嘅星不用；要分廟陷嘅條文暫不用。原書交友宮主下屬、晚輩，兼論朋友。",
+  "$note": "僕役宮（2026-10-12）：破軍辰戌.僕役。《深造講義》下篇 宮垣論 僕役宮 p.516–530。官非、盜竊、色禍、受出賣、乘人之危一類斷語不用；天姚、陰煞、天巫、天刑等引擎冇嘅星不用；要分廟陷嘅條文暫不用。原書交友宮主下屬、晚輩，兼論朋友。",
   "topic": {
-    "id": "破軍.僕役",
+    "id": "破軍辰戌.僕役",
     "palace": "僕役",
     "stars": [
       "破軍"
+    ],
+    "branch": [
+      "辰",
+      "戌"
     ]
   },
   "rules": [
     {
-      "id": "僕役.破軍.輔佐",
+      "id": "僕役.破軍辰戌.益友",
       "role": "refine",
-      "when": {
-        "all": [
-          {
-            "star": [
-              "左輔",
-              "右弼",
-              "天魁",
-              "天鉞"
-            ],
-            "at": "same"
-          },
-          {
-            "not": {
-              "star": [
-                "擎羊",
-                "陀羅",
-                "火星",
-                "鈴星",
-                "地空",
-                "地劫"
-              ],
-              "at": "same"
-            }
-          }
-        ]
-      },
-      "text": "同宮有輔佐吉星，才得到朋友或下屬的助力。",
-      "en": "With helper stars in the palace, friends or staff do help you.",
+      "text": "對宮紫微天相，可以結交令你敬畏的益友，也有老成持重的下屬。",
+      "en": "With Zi Wei and Tian Xiang opposite, you make friends you respect and learn from, and have steady, mature staff.",
       "source": {
-        "passage": "deep.僕役.破軍.2",
-        "quote": "然后始得友人或下属之助力"
-      }
-    },
-    {
-      "id": "僕役.破軍.本",
-      "role": "base",
-      "when": {
-        "alone": true
-      },
-      "text": "破軍獨坐僕役宮，主孤立。",
-      "en": "With Po Jun alone in your Friends Palace, you stand somewhat apart.",
-      "source": {
-        "passage": "deep.僕役.破軍.3",
-        "quote": "破军独坐交友宫者，主孤立"
+        "passage": "deep.僕役.破軍.1",
+        "quote": "主得交畏友及益友"
       }
     }
   ]

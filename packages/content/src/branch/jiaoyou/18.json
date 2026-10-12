@@ -1,27 +1,39 @@
 {
-  "$note": "僕役宮（2026-10-12）：武曲七殺.僕役。《深造講義》下篇 宮垣論 僕役宮 p.516–530。官非、盜竊、色禍、受出賣、乘人之危一類斷語不用；天姚、陰煞、天巫、天刑等引擎冇嘅星不用；要分廟陷嘅條文暫不用。原書交友宮主下屬、晚輩，兼論朋友。",
+  "$note": "僕役宮（2026-10-12）：武曲貪狼.僕役。《深造講義》下篇 宮垣論 僕役宮 p.516–530。官非、盜竊、色禍、受出賣、乘人之危一類斷語不用；天姚、陰煞、天巫、天刑等引擎冇嘅星不用；要分廟陷嘅條文暫不用。原書交友宮主下屬、晚輩，兼論朋友。",
   "topic": {
-    "id": "武曲七殺.僕役",
+    "id": "武曲貪狼.僕役",
     "palace": "僕役",
     "stars": [
       "武曲",
-      "七殺"
+      "貪狼"
     ]
   },
   "rules": [
     {
-      "id": "僕役.武殺.廉祿",
-      "role": "refine",
+      "id": "僕役.武貪.火鈴",
+      "role": "limit",
       "when": {
-        "hua": "祿",
-        "star": "廉貞",
-        "at": "sifang"
+        "star": [
+          "火星",
+          "鈴星"
+        ],
+        "at": "same"
       },
-      "text": "會廉貞化祿，得到助力，只是不持久。",
-      "en": "Meeting Lian Zhen in Abundance: you get help, though it does not last.",
+      "text": "同宮有火星或鈴星，交遊先熱後冷。",
+      "en": "With Huo Xing or Ling Xing in the palace, friendships start hot and cool off.",
       "source": {
-        "passage": "deep.僕役.武曲.4",
-        "quote": "主得助力，唯不持久"
+        "passage": "deep.僕役.武曲.2",
+        "quote": "主交游始热终冷"
+      }
+    },
+    {
+      "id": "僕役.武貪.本",
+      "role": "base",
+      "text": "武曲貪狼在僕役宮，多是飲食應酬的朋友。",
+      "en": "With Wu Qu and Tan Lang in your Friends Palace, many of your friends are dining-and-socialising companions.",
+      "source": {
+        "passage": "deep.僕役.武曲.3",
+        "quote": "[武曲贪狼]，多饮食征逐之友"
       }
     }
   ]

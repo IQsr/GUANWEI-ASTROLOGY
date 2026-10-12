@@ -1,25 +1,25 @@
 {
-  "$note": "官祿宮（2026-10-12）：破軍辰戌.官祿。《深造講義》下篇 宮垣論 官祿宮 p.530–560。殉職、牢獄、官非、血光、貪墨、意外一類斷語不用；天刑、天月、天巫、龍池鳳閣、三台八座等引擎冇嘅星不用；天機見 tianji-guanlu.json（試點）。",
+  "$note": "官祿宮（2026-10-12）：破軍子午.官祿。《深造講義》下篇 宮垣論 官祿宮 p.530–560。殉職、牢獄、官非、血光、貪墨、意外一類斷語不用；天刑、天月、天巫、龍池鳳閣、三台八座等引擎冇嘅星不用；天機見 tianji-guanlu.json（試點）。",
   "topic": {
-    "id": "破軍辰戌.官祿",
+    "id": "破軍子午.官祿",
     "palace": "官祿",
     "stars": [
       "破軍"
     ],
     "branch": [
-      "辰",
-      "戌"
+      "子",
+      "午"
     ]
   },
   "rules": [
     {
-      "id": "官祿.破軍辰戌.副貳",
+      "id": "官祿.破軍子午.合作",
       "role": "refine",
-      "text": "要借別人的財力或勢力興家，最喜見天魁天鉞。",
-      "en": "You build on other people’s money or influence, and Tian Kui or Tian Yue help most.",
+      "text": "傾向與人合作創業，而且合作的事業不只一門；行業雖多，不專就只是表面風光。",
+      "en": "You lean towards starting ventures with partners, more than one at a time; but many lines without focus are only for show.",
       "source": {
-        "passage": "deep.官祿.破軍.2",
-        "quote": "必须藉别人财力或势力兴家"
+        "passage": "deep.官祿.破軍.1",
+        "quote": "则倾向于与人合作创业"
       }
     }
   ]
