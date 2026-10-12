@@ -1,0 +1,46 @@
+{
+  "$note": "官祿宮（2026-10-12）：太陰卯酉.官祿。《深造講義》下篇 宮垣論 官祿宮 p.530–560。殉職、牢獄、官非、血光、貪墨、意外一類斷語不用；天刑、天月、天巫、龍池鳳閣、三台八座等引擎冇嘅星不用；天機見 tianji-guanlu.json（試點）。",
+  "topic": {
+    "id": "太陰卯酉.官祿",
+    "palace": "官祿",
+    "stars": [
+      "太陰"
+    ],
+    "branch": [
+      "卯",
+      "酉"
+    ]
+  },
+  "rules": [
+    {
+      "id": "官祿.太陰酉.外國",
+      "role": "base",
+      "when": {
+        "branch": [
+          "酉"
+        ]
+      },
+      "text": "太陰坐酉，事業廣大，可以擴展到外國，或一生事業與外國有關。",
+      "en": "With Tai Yin in You, your career is broad and can reach abroad, or be tied to other countries all your life.",
+      "source": {
+        "passage": "deep.官祿.太陰.1",
+        "quote": "在酉事业广大，可以扩展至外国"
+      }
+    },
+    {
+      "id": "官祿.太陰卯.任職",
+      "role": "base",
+      "when": {
+        "branch": [
+          "卯"
+        ]
+      },
+      "text": "太陰坐卯，以受雇任職為宜。",
+      "en": "With Tai Yin in Mao, salaried employment suits you best.",
+      "source": {
+        "passage": "deep.官祿.太陰.1",
+        "quote": "在卯者，以任职为宜"
+      }
+    }
+  ]
+}

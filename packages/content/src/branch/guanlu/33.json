@@ -1,0 +1,26 @@
+{
+  "$note": "官祿宮（2026-10-12）：巨門巳亥.官祿。《深造講義》下篇 宮垣論 官祿宮 p.530–560。殉職、牢獄、官非、血光、貪墨、意外一類斷語不用；天刑、天月、天巫、龍池鳳閣、三台八座等引擎冇嘅星不用；天機見 tianji-guanlu.json（試點）。",
+  "topic": {
+    "id": "巨門巳亥.官祿",
+    "palace": "官祿",
+    "stars": [
+      "巨門"
+    ],
+    "branch": [
+      "巳",
+      "亥"
+    ]
+  },
+  "rules": [
+    {
+      "id": "官祿.巨門巳亥.名",
+      "role": "refine",
+      "text": "先有社會地位，財富才隨名譽而來；見文昌文曲為貴。",
+      "en": "Standing comes first and money follows reputation; Wen Chang and Wen Qu are a real asset here.",
+      "source": {
+        "passage": "deep.官祿.巨門.1",
+        "quote": "然后财富始随名誉而来"
+      }
+    }
+  ]
+}

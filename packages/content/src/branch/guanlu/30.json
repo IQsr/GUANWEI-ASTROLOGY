@@ -1,0 +1,26 @@
+{
+  "$note": "官祿宮（2026-10-12）：貪狼子午.官祿。《深造講義》下篇 宮垣論 官祿宮 p.530–560。殉職、牢獄、官非、血光、貪墨、意外一類斷語不用；天刑、天月、天巫、龍池鳳閣、三台八座等引擎冇嘅星不用；天機見 tianji-guanlu.json（試點）。",
+  "topic": {
+    "id": "貪狼子午.官祿",
+    "palace": "官祿",
+    "stars": [
+      "貪狼"
+    ],
+    "branch": [
+      "子",
+      "午"
+    ]
+  },
+  "rules": [
+    {
+      "id": "官祿.貪狼子午.自由",
+      "role": "base",
+      "text": "主獨當一面，或從事自由職業；以帶藝術、美觀、享受色彩的工作為宜。",
+      "en": "You work on your own, or freelance; work with an artistic, aesthetic or pleasurable side suits you.",
+      "source": {
+        "passage": "deep.官祿.貪狼.1",
+        "quote": "以带艺术、美观、享受色彩者为宜"
+      }
+    }
+  ]
+}

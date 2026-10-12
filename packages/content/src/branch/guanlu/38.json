@@ -1,0 +1,26 @@
+{
+  "$note": "官祿宮（2026-10-12）：天梁巳亥.官祿。《深造講義》下篇 宮垣論 官祿宮 p.530–560。殉職、牢獄、官非、血光、貪墨、意外一類斷語不用；天刑、天月、天巫、龍池鳳閣、三台八座等引擎冇嘅星不用；天機見 tianji-guanlu.json（試點）。",
+  "topic": {
+    "id": "天梁巳亥.官祿",
+    "palace": "官祿",
+    "stars": [
+      "天梁"
+    ],
+    "branch": [
+      "巳",
+      "亥"
+    ]
+  },
+  "rules": [
+    {
+      "id": "官祿.天梁巳亥.幕後",
+      "role": "base",
+      "text": "不宜出鋒頭；即使獨當一面，也以退居幕後為佳。",
+      "en": "Stay out of the limelight; even when you run things, it is better to work from behind the scenes.",
+      "source": {
+        "passage": "deep.官祿.天梁.1",
+        "quote": "亦以退居幕后为佳"
+      }
+    }
+  ]
+}

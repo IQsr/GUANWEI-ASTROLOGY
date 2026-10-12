@@ -1,0 +1,52 @@
+{
+  "$note": "官祿宮（2026-10-12）：天同巨門.官祿。《深造講義》下篇 宮垣論 官祿宮 p.530–560。殉職、牢獄、官非、血光、貪墨、意外一類斷語不用；天刑、天月、天巫、龍池鳳閣、三台八座等引擎冇嘅星不用；天機見 tianji-guanlu.json（試點）。",
+  "topic": {
+    "id": "天同巨門.官祿",
+    "palace": "官祿",
+    "stars": [
+      "天同",
+      "巨門"
+    ]
+  },
+  "rules": [
+    {
+      "id": "官祿.同巨.煞忌",
+      "role": "refine",
+      "when": {
+        "any": [
+          {
+            "star": [
+              "擎羊",
+              "陀羅",
+              "火星",
+              "鈴星",
+              "地空",
+              "地劫"
+            ],
+            "at": "same"
+          },
+          {
+            "hua": "忌",
+            "at": "same"
+          }
+        ]
+      },
+      "text": "見煞忌，反而經歷艱危而成大業。",
+      "en": "Harsh stars or Hindrance here actually mean achieving something great through hardship.",
+      "source": {
+        "passage": "deep.官祿.天同.2",
+        "quote": "反主历艰危而成大业"
+      }
+    },
+    {
+      "id": "官祿.同巨.半途",
+      "role": "base",
+      "text": "天同巨門在官祿宮，事業容易半途而廢；要選本質就要勞心的工作，才有成就。",
+      "en": "With Tian Tong and Ju Men in your Career Palace, ventures are easily dropped halfway; choose work that demands mental effort by its very nature, and you will get somewhere.",
+      "source": {
+        "passage": "deep.官祿.天同.3",
+        "quote": "亦主事业每半途而废"
+      }
+    }
+  ]
+}

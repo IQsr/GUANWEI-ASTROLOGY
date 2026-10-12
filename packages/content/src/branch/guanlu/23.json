@@ -1,0 +1,71 @@
+{
+  "$note": "官祿宮（2026-10-12）：廉貞破軍.官祿。《深造講義》下篇 宮垣論 官祿宮 p.530–560。殉職、牢獄、官非、血光、貪墨、意外一類斷語不用；天刑、天月、天巫、龍池鳳閣、三台八座等引擎冇嘅星不用；天機見 tianji-guanlu.json（試點）。",
+  "topic": {
+    "id": "廉貞破軍.官祿",
+    "palace": "官祿",
+    "stars": [
+      "廉貞",
+      "破軍"
+    ]
+  },
+  "rules": [
+    {
+      "id": "官祿.廉破.祿",
+      "role": "refine",
+      "when": {
+        "any": [
+          {
+            "hua": "祿",
+            "at": "sifang"
+          },
+          {
+            "star": "祿存",
+            "at": "sifang"
+          }
+        ]
+      },
+      "text": "你的廉貞破軍見祿，事業才有成。",
+      "en": "Your Lian Zhen–Po Jun meets Lu, which is what makes the career work.",
+      "source": {
+        "passage": "deep.官祿.廉貞.3",
+        "quote": "必须见禄然后始主事业有成"
+      }
+    },
+    {
+      "id": "官祿.廉破.應酬",
+      "role": "refine",
+      "when": {
+        "any": [
+          {
+            "hua": [
+              "祿",
+              "權",
+              "科"
+            ],
+            "at": "same"
+          },
+          {
+            "star": [
+              "左輔",
+              "右弼"
+            ],
+            "at": "sifang"
+          },
+          {
+            "star": [
+              "天魁",
+              "天鉞"
+            ],
+            "at": "sifang"
+          }
+        ]
+      },
+      "text": "見吉，多因事業而應酬，又由應酬發展事業，所做的不只一門。",
+      "en": "With good signs, work brings socialising and socialising brings work, so you run more than one line.",
+      "source": {
+        "passage": "deep.官祿.廉貞.4",
+        "quote": "又由应酬发展事业"
+      }
+    }
+  ]
+}

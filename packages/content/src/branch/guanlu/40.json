@@ -1,0 +1,26 @@
+{
+  "$note": "官祿宮（2026-10-12）：七殺辰戌.官祿。《深造講義》下篇 宮垣論 官祿宮 p.530–560。殉職、牢獄、官非、血光、貪墨、意外一類斷語不用；天刑、天月、天巫、龍池鳳閣、三台八座等引擎冇嘅星不用；天機見 tianji-guanlu.json（試點）。",
+  "topic": {
+    "id": "七殺辰戌.官祿",
+    "palace": "官祿",
+    "stars": [
+      "七殺"
+    ],
+    "branch": [
+      "辰",
+      "戌"
+    ]
+  },
+  "rules": [
+    {
+      "id": "官祿.七殺辰戌.工商",
+      "role": "refine",
+      "text": "經商以資金周轉大的生意為宜；無論工商，都不宜投機。",
+      "en": "In business, large-turnover trades suit you; in industry or commerce alike, avoid speculation.",
+      "source": {
+        "passage": "deep.官祿.七殺.1",
+        "quote": "无论工商，皆不宜投机"
+      }
+    }
+  ]
+}

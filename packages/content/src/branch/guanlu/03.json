@@ -1,0 +1,58 @@
+{
+  "$note": "官祿宮（2026-10-12）：紫微貪狼.官祿。《深造講義》下篇 宮垣論 官祿宮 p.530–560。殉職、牢獄、官非、血光、貪墨、意外一類斷語不用；天刑、天月、天巫、龍池鳳閣、三台八座等引擎冇嘅星不用；天機見 tianji-guanlu.json（試點）。",
+  "topic": {
+    "id": "紫微貪狼.官祿",
+    "palace": "官祿",
+    "stars": [
+      "紫微",
+      "貪狼"
+    ]
+  },
+  "rules": [
+    {
+      "id": "官祿.紫貪.消費",
+      "role": "base",
+      "text": "紫微貪狼在官祿宮，以從事消費性行業為宜。",
+      "en": "With Zi Wei and Tan Lang in your Career Palace, consumer-facing industries suit you.",
+      "source": {
+        "passage": "deep.官祿.紫微.7",
+        "quote": "以从事消费性待业为宜"
+      }
+    },
+    {
+      "id": "官祿.紫貪.左右",
+      "role": "refine",
+      "when": {
+        "star": [
+          "左輔",
+          "右弼"
+        ],
+        "at": [
+          "same",
+          "opp"
+        ]
+      },
+      "text": "見左輔右弼，手下人多；記得與下屬分享成果，事業才能長久。",
+      "en": "With Zuo Fu or You Bi, you lead many people; share the rewards with them and the business will last.",
+      "source": {
+        "passage": "deep.官祿.紫微.8",
+        "quote": "唯必须分润下属"
+      }
+    },
+    {
+      "id": "官祿.紫貪.忌",
+      "role": "limit",
+      "when": {
+        "hua": "忌",
+        "star": "貪狼",
+        "at": "same"
+      },
+      "text": "貪狼化忌，與人合作往往不能長久。",
+      "en": "Tan Lang in Hindrance: partnerships tend not to last.",
+      "source": {
+        "passage": "deep.官祿.紫微.9",
+        "quote": "常主与人合作不能长久"
+      }
+    }
+  ]
+}

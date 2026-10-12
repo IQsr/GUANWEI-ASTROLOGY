@@ -1,0 +1,71 @@
+{
+  "$note": "官祿宮（2026-10-12）：七殺.官祿。《深造講義》下篇 宮垣論 官祿宮 p.530–560。殉職、牢獄、官非、血光、貪墨、意外一類斷語不用；天刑、天月、天巫、龍池鳳閣、三台八座等引擎冇嘅星不用；天機見 tianji-guanlu.json（試點）。",
+  "topic": {
+    "id": "七殺.官祿",
+    "palace": "官祿",
+    "stars": [
+      "七殺"
+    ]
+  },
+  "rules": [
+    {
+      "id": "官祿.七殺.剛柔",
+      "role": "refine",
+      "when": {
+        "any": [
+          {
+            "star": [
+              "左輔",
+              "右弼"
+            ],
+            "at": "sifang"
+          },
+          {
+            "star": [
+              "天魁",
+              "天鉞"
+            ],
+            "at": "sifang"
+          }
+        ]
+      },
+      "text": "見輔佐吉星，管理上能剛柔相濟，號令得動很多人。",
+      "en": "With helper stars, you manage with both firmness and warmth, and can command many people.",
+      "source": {
+        "passage": "deep.官祿.七殺.2",
+        "quote": "虽千万人皆能号令"
+      }
+    },
+    {
+      "id": "官祿.七殺.技",
+      "role": "refine",
+      "when": {
+        "star": [
+          "擎羊",
+          "陀羅",
+          "火星",
+          "鈴星",
+          "地空",
+          "地劫"
+        ],
+        "at": "same"
+      },
+      "text": "同宮有煞，最好有一技傍身，不宜做管理。",
+      "en": "With harsh stars in the palace, a specialist skill serves you better than management.",
+      "source": {
+        "passage": "deep.官祿.七殺.3",
+        "quote": "最宜一技傍身"
+      }
+    },
+    {
+      "id": "官祿.七殺.本",
+      "role": "base",
+      "text": "七殺在官祿宮，管理能力強；現代適合工廠管理或大企業的人事部門。",
+      "en": "With Qi Sha in your Career Palace, you are a strong manager; today that means running operations or a large firm’s HR.",
+      "source": {
+        "passage": "deep.官祿.七殺.4",
+        "quote": "主管理能力强"
+      }
+    }
+  ]
+}

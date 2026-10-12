@@ -1,0 +1,40 @@
+{
+  "$note": "官祿宮（2026-10-12）：廉貞天相.官祿。《深造講義》下篇 宮垣論 官祿宮 p.530–560。殉職、牢獄、官非、血光、貪墨、意外一類斷語不用；天刑、天月、天巫、龍池鳳閣、三台八座等引擎冇嘅星不用；天機見 tianji-guanlu.json（試點）。",
+  "topic": {
+    "id": "廉貞天相.官祿",
+    "palace": "官祿",
+    "stars": [
+      "廉貞",
+      "天相"
+    ]
+  },
+  "rules": [
+    {
+      "id": "官祿.廉相.合作",
+      "role": "base",
+      "text": "廉貞天相在官祿宮，常與人合作事業，所以夥伴的好壞很重要。",
+      "en": "With Lian Zhen and Tian Xiang in your Career Palace, you often work in partnership, so the quality of your partners matters a great deal.",
+      "source": {
+        "passage": "deep.官祿.廉貞.1",
+        "quote": "常主与人合作事业"
+      }
+    },
+    {
+      "id": "官祿.廉相.魁鉞",
+      "role": "refine",
+      "when": {
+        "star": [
+          "天魁",
+          "天鉞"
+        ],
+        "at": "sifang"
+      },
+      "text": "見天魁天鉞，從政或在公營機構的路會較順。",
+      "en": "With Tian Kui or Tian Yue, a path in public office or public bodies runs more smoothly.",
+      "source": {
+        "passage": "deep.官祿.廉貞.2",
+        "quote": "仕途始觉亨通"
+      }
+    }
+  ]
+}

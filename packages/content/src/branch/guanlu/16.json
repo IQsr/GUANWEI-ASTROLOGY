@@ -1,0 +1,49 @@
+{
+  "$note": "官祿宮（2026-10-12）：武曲破軍.官祿。《深造講義》下篇 宮垣論 官祿宮 p.530–560。殉職、牢獄、官非、血光、貪墨、意外一類斷語不用；天刑、天月、天巫、龍池鳳閣、三台八座等引擎冇嘅星不用；天機見 tianji-guanlu.json（試點）。",
+  "topic": {
+    "id": "武曲破軍.官祿",
+    "palace": "官祿",
+    "stars": [
+      "武曲",
+      "破軍"
+    ]
+  },
+  "rules": [
+    {
+      "id": "官祿.武破.工程",
+      "role": "base",
+      "when": {
+        "not": {
+          "star": [
+            "擎羊",
+            "陀羅",
+            "火星",
+            "鈴星"
+          ],
+          "at": "same"
+        }
+      },
+      "text": "煞輕，宜由工程技術起家。",
+      "en": "With harsh stars light, engineering and technical work is the way to start.",
+      "source": {
+        "passage": "deep.官祿.武曲.9",
+        "quote": "亦宜工程技术起家"
+      }
+    },
+    {
+      "id": "官祿.武破.破祿",
+      "role": "refine",
+      "when": {
+        "hua": "祿",
+        "star": "破軍",
+        "at": "same"
+      },
+      "text": "破軍化祿，點子多而不愛務實：見天魁天鉞才多機會，見左輔右弼才多助力。",
+      "en": "Po Jun in Abundance: full of ideas but impatient with the practical; Tian Kui and Tian Yue bring chances, Zuo Fu and You Bi bring help.",
+      "source": {
+        "passage": "deep.官祿.武曲.10",
+        "quote": "主意多而不喜务实"
+      }
+    }
+  ]
+}

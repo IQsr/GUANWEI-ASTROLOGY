@@ -1,0 +1,23 @@
+{
+  "$note": "官祿宮（2026-10-12）：天同天梁.官祿。《深造講義》下篇 宮垣論 官祿宮 p.530–560。殉職、牢獄、官非、血光、貪墨、意外一類斷語不用；天刑、天月、天巫、龍池鳳閣、三台八座等引擎冇嘅星不用；天機見 tianji-guanlu.json（試點）。",
+  "topic": {
+    "id": "天同天梁.官祿",
+    "palace": "官祿",
+    "stars": [
+      "天同",
+      "天梁"
+    ]
+  },
+  "rules": [
+    {
+      "id": "官祿.同梁.內務",
+      "role": "base",
+      "text": "天同天梁在官祿宮，宜擔任公職，工作以計劃、管理一類內務為宜。",
+      "en": "With Tian Tong and Tian Liang in your Career Palace, public-sector work suits you, in internal roles such as planning and management.",
+      "source": {
+        "passage": "deep.官祿.天同.4",
+        "quote": "如计划、管理之类"
+      }
+    }
+  ]
+}

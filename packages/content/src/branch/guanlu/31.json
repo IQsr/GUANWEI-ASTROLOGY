@@ -1,0 +1,36 @@
+{
+  "$note": "官祿宮（2026-10-12）：貪狼寅申.官祿。《深造講義》下篇 宮垣論 官祿宮 p.530–560。殉職、牢獄、官非、血光、貪墨、意外一類斷語不用；天刑、天月、天巫、龍池鳳閣、三台八座等引擎冇嘅星不用；天機見 tianji-guanlu.json（試點）。",
+  "topic": {
+    "id": "貪狼寅申.官祿",
+    "palace": "官祿",
+    "stars": [
+      "貪狼"
+    ],
+    "branch": [
+      "寅",
+      "申"
+    ]
+  },
+  "rules": [
+    {
+      "id": "官祿.貪狼寅申.開創",
+      "role": "base",
+      "text": "以開創性的行業為宜，或在原有行業中別開生面、以特殊作風經營。",
+      "en": "Pioneering work suits you, or bringing a fresh, distinctive approach to an established field.",
+      "source": {
+        "passage": "deep.官祿.貪狼.2",
+        "quote": "以开创性行业为宜"
+      }
+    },
+    {
+      "id": "官祿.貪狼寅申.合作",
+      "role": "refine",
+      "text": "傾向與人合作，但多中途改變。",
+      "en": "You lean towards partnerships, though they often change course midway.",
+      "source": {
+        "passage": "deep.官祿.貪狼.3",
+        "quote": "唯多中道更张"
+      }
+    }
+  ]
+}

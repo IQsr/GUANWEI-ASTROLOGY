@@ -1,0 +1,86 @@
+{
+  "$note": "官祿宮（2026-10-12）：官祿通則。《深造講義》下篇 宮垣論 官祿宮 p.530–560。殉職、牢獄、官非、血光、貪墨、意外一類斷語不用；天刑、天月、天巫、龍池鳳閣、三台八座等引擎冇嘅星不用；天機見 tianji-guanlu.json（試點）。",
+  "topic": {
+    "id": "官祿通則",
+    "palace": "官祿",
+    "stars": []
+  },
+  "rules": [
+    {
+      "id": "官祿.通則.陀羅",
+      "role": "limit",
+      "when": {
+        "star": "陀羅",
+        "at": "same"
+      },
+      "text": "陀羅在官祿宮，事業發展較慢，往往有名無實、權力被架空。",
+      "en": "With Tuo Luo in the Career Palace, progress is slow, and you often hold the title without the power.",
+      "source": {
+        "passage": "deep.官祿.通則.1",
+        "quote": "而且往往有名无实，权力被挂空"
+      }
+    },
+    {
+      "id": "官祿.通則.擎羊",
+      "role": "refine",
+      "when": {
+        "star": "擎羊",
+        "at": "same"
+      },
+      "text": "擎羊在官祿宮，現代往往是工程科技一類的人才。",
+      "en": "With Qing Yang in the Career Palace, today you are often an engineer or technologist.",
+      "source": {
+        "passage": "deep.官祿.通則.2",
+        "quote": "在现代则往往为工程科技人员"
+      }
+    },
+    {
+      "id": "官祿.通則.火鈴",
+      "role": "refine",
+      "when": {
+        "star": [
+          "火星",
+          "鈴星"
+        ],
+        "at": "same"
+      },
+      "text": "火星或鈴星在官祿宮，事業多波折，往往經過艱苦才站穩。",
+      "en": "With Huo Xing or Ling Xing in the Career Palace, your career has its upheavals, and you find your footing only after hard times.",
+      "source": {
+        "passage": "deep.官祿.通則.3",
+        "quote": "故往往经艰苦而始能底定事业"
+      }
+    },
+    {
+      "id": "官祿.通則.空劫",
+      "role": "refine",
+      "when": {
+        "star": [
+          "地空",
+          "地劫"
+        ],
+        "at": "same"
+      },
+      "text": "地空或地劫在官祿宮，宜做較冷門的行業，或以出人意料的手法經營。",
+      "en": "With Di Kong or Di Jie in the Career Palace, offbeat fields suit you, or running things in ways no one expects.",
+      "source": {
+        "passage": "deep.官祿.通則.4",
+        "quote": "一般情况下宜从事较冷僻的行业"
+      }
+    },
+    {
+      "id": "官祿.通則.祿存",
+      "role": "refine",
+      "when": {
+        "star": "祿存",
+        "at": "same"
+      },
+      "text": "祿存在官祿宮，宜經營現成的事業，或做受薪的工作。",
+      "en": "With Lu Cun in the Career Palace, running an established business or salaried work suits you.",
+      "source": {
+        "passage": "deep.官祿.通則.5",
+        "quote": "一般只宜经营现成事业，或作受薪阶级"
+      }
+    }
+  ]
+}

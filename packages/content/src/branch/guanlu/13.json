@@ -1,0 +1,38 @@
+{
+  "$note": "官祿宮（2026-10-12）：武曲貪狼.官祿。《深造講義》下篇 宮垣論 官祿宮 p.530–560。殉職、牢獄、官非、血光、貪墨、意外一類斷語不用；天刑、天月、天巫、龍池鳳閣、三台八座等引擎冇嘅星不用；天機見 tianji-guanlu.json（試點）。",
+  "topic": {
+    "id": "武曲貪狼.官祿",
+    "palace": "官祿",
+    "stars": [
+      "武曲",
+      "貪狼"
+    ]
+  },
+  "rules": [
+    {
+      "id": "官祿.武貪.合作",
+      "role": "base",
+      "text": "武曲貪狼在官祿宮，喜與人合作，所做的事業也不只一門。",
+      "en": "With Wu Qu and Tan Lang in your Career Palace, you like working with partners, and run more than one line of business.",
+      "source": {
+        "passage": "deep.官祿.武曲.3",
+        "quote": "故所业亦不只一端"
+      }
+    },
+    {
+      "id": "官祿.武貪.忌",
+      "role": "limit",
+      "when": {
+        "hua": "忌",
+        "star": "貪狼",
+        "at": "same"
+      },
+      "text": "貪狼化忌，一生奔波勞碌，事業多頭並進。",
+      "en": "Tan Lang in Hindrance: a life of rushing about, with many ventures at once.",
+      "source": {
+        "passage": "deep.官祿.武曲.4",
+        "quote": "终生不得闲暇，奔波劳碌，事业多端"
+      }
+    }
+  ]
+}

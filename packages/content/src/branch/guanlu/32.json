@@ -1,0 +1,61 @@
+{
+  "$note": "官祿宮（2026-10-12）：貪狼.官祿。《深造講義》下篇 宮垣論 官祿宮 p.530–560。殉職、牢獄、官非、血光、貪墨、意外一類斷語不用；天刑、天月、天巫、龍池鳳閣、三台八座等引擎冇嘅星不用；天機見 tianji-guanlu.json（試點）。",
+  "topic": {
+    "id": "貪狼.官祿",
+    "palace": "官祿",
+    "stars": [
+      "貪狼"
+    ]
+  },
+  "rules": [
+    {
+      "id": "官祿.貪狼.忌",
+      "role": "limit",
+      "when": {
+        "hua": "忌",
+        "star": "貪狼",
+        "at": "same"
+      },
+      "text": "貪狼化忌，插手的事業必引起競爭。",
+      "en": "Tan Lang in Hindrance: whatever you take on draws competition.",
+      "source": {
+        "passage": "deep.官祿.貪狼.4",
+        "quote": "主凡插手事业必引起竞争"
+      }
+    },
+    {
+      "id": "官祿.貪狼.左右",
+      "role": "refine",
+      "when": {
+        "star": [
+          "左輔",
+          "右弼"
+        ],
+        "at": "same"
+      },
+      "text": "同宮有左輔右弼，下屬眾多，事業有相當氣派。",
+      "en": "With Zuo Fu or You Bi in the palace, you lead many people, and your business has real presence.",
+      "source": {
+        "passage": "deep.官祿.貪狼.5",
+        "quote": "则主下属众多"
+      }
+    },
+    {
+      "id": "官祿.貪狼.羊陀",
+      "role": "refine",
+      "when": {
+        "star": [
+          "擎羊",
+          "陀羅"
+        ],
+        "at": "same"
+      },
+      "text": "同宮有擎羊陀羅，以從商為宜，尤其消費、娛樂、裝飾一類行業。",
+      "en": "With Qing Yang or Tuo Luo in the palace, business suits you, especially consumer goods, entertainment or decoration.",
+      "source": {
+        "passage": "deep.官祿.貪狼.6",
+        "quote": "则以从商为宜"
+      }
+    }
+  ]
+}

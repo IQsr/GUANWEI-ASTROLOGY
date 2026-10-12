@@ -1,0 +1,73 @@
+{
+  "$note": "官祿宮（2026-10-12）：武曲天府.官祿。《深造講義》下篇 宮垣論 官祿宮 p.530–560。殉職、牢獄、官非、血光、貪墨、意外一類斷語不用；天刑、天月、天巫、龍池鳳閣、三台八座等引擎冇嘅星不用；天機見 tianji-guanlu.json（試點）。",
+  "topic": {
+    "id": "武曲天府.官祿",
+    "palace": "官祿",
+    "stars": [
+      "武曲",
+      "天府"
+    ]
+  },
+  "rules": [
+    {
+      "id": "官祿.武府.祿",
+      "role": "refine",
+      "when": {
+        "all": [
+          {
+            "any": [
+              {
+                "hua": "祿",
+                "at": "sifang"
+              },
+              {
+                "star": "祿存",
+                "at": "sifang"
+              }
+            ]
+          },
+          {
+            "not": {
+              "star": [
+                "擎羊",
+                "陀羅",
+                "火星",
+                "鈴星",
+                "地空",
+                "地劫"
+              ],
+              "at": "same"
+            }
+          }
+        ]
+      },
+      "text": "你的武曲天府見祿而無煞，適合財經、稅務一類的工作。",
+      "en": "Your Wu Qu–Tian Fu meets Lu without harsh stars, which suits finance or tax work.",
+      "source": {
+        "passage": "deep.官祿.武曲.1",
+        "quote": "则主为财赋之官"
+      }
+    },
+    {
+      "id": "官祿.武府.煞",
+      "role": "refine",
+      "when": {
+        "star": [
+          "擎羊",
+          "陀羅",
+          "火星",
+          "鈴星",
+          "地空",
+          "地劫"
+        ],
+        "at": "same"
+      },
+      "text": "同宮有煞，宜從工程技藝發展。",
+      "en": "With harsh stars in the palace, engineering and technical skills are your route.",
+      "source": {
+        "passage": "deep.官祿.武曲.2",
+        "quote": "则宜工程技艺"
+      }
+    }
+  ]
+}

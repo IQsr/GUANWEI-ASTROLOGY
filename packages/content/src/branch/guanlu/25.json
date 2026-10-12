@@ -1,0 +1,23 @@
+{
+  "$note": "官祿宮（2026-10-12）：廉貞貪狼.官祿。《深造講義》下篇 宮垣論 官祿宮 p.530–560。殉職、牢獄、官非、血光、貪墨、意外一類斷語不用；天刑、天月、天巫、龍池鳳閣、三台八座等引擎冇嘅星不用；天機見 tianji-guanlu.json（試點）。",
+  "topic": {
+    "id": "廉貞貪狼.官祿",
+    "palace": "官祿",
+    "stars": [
+      "廉貞",
+      "貪狼"
+    ]
+  },
+  "rules": [
+    {
+      "id": "官祿.廉貪.場面",
+      "role": "base",
+      "text": "廉貞貪狼在官祿宮，從商場面必大；有祿才實在，無祿容易外表豪華、內裡空虛。",
+      "en": "With Lian Zhen and Tan Lang in your Career Palace, any business you run is on a grand scale; with Lu it has substance, without Lu it can be all show.",
+      "source": {
+        "passage": "deep.官祿.廉貞.7",
+        "quote": "若从商，场面必大"
+      }
+    }
+  ]
+}

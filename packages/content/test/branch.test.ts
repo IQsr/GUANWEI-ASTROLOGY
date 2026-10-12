@@ -172,13 +172,13 @@ describe('骨架章細讀（六十星系）', () => {
   }, 300_000);
 });
 
-describe('宮位細讀：夫妻、財帛（2026-10-12）', () => {
+describe('宮位細讀：夫妻、財帛、官祿（2026-10-12）', () => {
   const sample = (i: number) => cast({
     solar: { y: 1950 + (i % 60), m: 1 + (Math.floor(i / 60) % 12), d: 1 + ((i * 7) % 28) }, time: { h: (Math.floor(i / 720) * 4 + 1) % 24, min: 30 },
     tz: 'Asia/Hong_Kong', place: { lng: 114.17, lat: 22.32, label: '香港' }, sex: i % 2 ? 'male' : 'female',
   });
 
-  it.each([['夫妻', 0.7], ['財帛', 0.9]] as const)('%s宮：大部份盤都有；最多四條、唔重複講同一句；英文譯得到；每句追到原文', (pal, min) => {
+  it.each([['夫妻', 0.7], ['財帛', 0.9], ['官祿', 0.85]] as const)('%s宮：大部份盤都有；最多四條、唔重複講同一句；英文譯得到；每句追到原文', (pal, min) => {
     let n = 0;
     let hit = 0;
     for (let i = 0; i < 4320; i += 3) {
@@ -189,7 +189,8 @@ describe('宮位細讀：夫妻、財帛（2026-10-12）', () => {
       if (!d) continue;
       hit++;
       expect(d.ids.length).toBeLessThanOrEqual(4);
-      expect(d.sources.every((s) => s.startsWith(`deep.${pal}.`))).toBe(true);
+      /* 官祿天機係試點檔，出處叫 deep.事業.* */
+      expect(d.sources.every((s) => s.startsWith(`deep.${pal}.`) || (pal === '官祿' && s.startsWith('deep.事業.')))).toBe(true);
       expect(renderParagraph(d.text).missing).toEqual([]);
       const sens = d.text.match(/[^。]+。/g) ?? [];
       expect(new Set(sens).size).toBe(sens.length);
