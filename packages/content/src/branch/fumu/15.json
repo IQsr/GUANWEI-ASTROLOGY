@@ -1,0 +1,58 @@
+{
+  "$note": "父母宮（2026-10-12）：天府.父母。《深造講義》下篇 宮垣論 父母宮 p.575–595。父母存亡、刑剋、孝服、灾病、偏房繼室所生、父有外遇、重拜父母一類斷語不用；天巫、天刑、天壽、白虎丧门等引擎冇嘅星不用；要分日夜生、廟陷嘅條文暫不用。原書父母宮兼論上司，呢部份照用。",
+  "topic": {
+    "id": "天府.父母",
+    "palace": "父母",
+    "stars": [
+      "天府"
+    ]
+  },
+  "rules": [
+    {
+      "id": "父母.天府.武祿",
+      "role": "refine",
+      "when": {
+        "hua": "祿",
+        "star": "武曲",
+        "at": [
+          "same",
+          "opp"
+        ]
+      },
+      "text": "會武曲化祿，父母的財蔭頗厚。",
+      "en": "Meeting Wu Qu in Abundance, your parents’ financial support is generous.",
+      "source": {
+        "passage": "deep.父母.天府.1",
+        "quote": "则父母财荫颇厚"
+      }
+    },
+    {
+      "id": "父母.天府.羊",
+      "role": "limit",
+      "when": {
+        "star": "擎羊",
+        "at": "same"
+      },
+      "text": "同宮有擎羊，兩代不和。",
+      "en": "With Qing Yang in the palace, the generations do not get on.",
+      "source": {
+        "passage": "deep.父母.天府.2",
+        "quote": "主两代不和"
+      }
+    },
+    {
+      "id": "父母.天府.祿存",
+      "role": "refine",
+      "when": {
+        "star": "祿存",
+        "at": "same"
+      },
+      "text": "同宮有祿存，父母喜歡獨掌財權。",
+      "en": "With Lu Cun in the palace, your parents like to keep the purse strings to themselves.",
+      "source": {
+        "passage": "deep.父母.天府.3",
+        "quote": "又主父母喜独掌财权"
+      }
+    }
+  ]
+}

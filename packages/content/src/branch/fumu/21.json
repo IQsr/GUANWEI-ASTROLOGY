@@ -1,0 +1,134 @@
+{
+  "$note": "父母宮（2026-10-12）：七殺.父母。《深造講義》下篇 宮垣論 父母宮 p.575–595。父母存亡、刑剋、孝服、灾病、偏房繼室所生、父有外遇、重拜父母一類斷語不用；天巫、天刑、天壽、白虎丧门等引擎冇嘅星不用；要分日夜生、廟陷嘅條文暫不用。原書父母宮兼論上司，呢部份照用。",
+  "topic": {
+    "id": "七殺.父母",
+    "palace": "父母",
+    "stars": [
+      "七殺"
+    ]
+  },
+  "rules": [
+    {
+      "id": "父母.七殺.紫權",
+      "role": "limit",
+      "when": {
+        "hua": "權",
+        "star": "紫微",
+        "at": [
+          "same",
+          "opp"
+        ]
+      },
+      "text": "會紫微化權，父母成見很深。",
+      "en": "Meeting Zi Wei in Authority, your parents hold very fixed views.",
+      "source": {
+        "passage": "deep.父母.七殺.1",
+        "quote": "七杀会紫微化权，父母成见极深"
+      }
+    },
+    {
+      "id": "父母.七殺.紫科",
+      "role": "refine",
+      "when": {
+        "all": [
+          {
+            "hua": "科",
+            "star": "紫微",
+            "at": [
+              "same",
+              "opp"
+            ]
+          },
+          {
+            "any": [
+              {
+                "hua": [
+                  "祿",
+                  "權",
+                  "科"
+                ],
+                "at": "same"
+              },
+              {
+                "star": [
+                  "左輔",
+                  "右弼"
+                ],
+                "at": "sifang"
+              },
+              {
+                "star": [
+                  "天魁",
+                  "天鉞"
+                ],
+                "at": "sifang"
+              }
+            ]
+          }
+        ]
+      },
+      "text": "會紫微化科又見吉，父母有聲譽，只是兩代關係未必相諧。",
+      "en": "Meeting Zi Wei in Merit with helpful stars, your parents are well regarded, though the generations do not always see eye to eye.",
+      "source": {
+        "passage": "deep.父母.七殺.2",
+        "quote": "父母有声誉"
+      }
+    },
+    {
+      "id": "父母.七殺.吉",
+      "role": "refine",
+      "when": {
+        "hua": [
+          "祿",
+          "權",
+          "科"
+        ],
+        "at": "sifang"
+      },
+      "text": "七殺會到祿權科，得父母蔭庇之力。",
+      "en": "Qi Sha meeting Abundance, Authority or Merit: you benefit from your parents’ shelter.",
+      "source": {
+        "passage": "deep.父母.七殺.3",
+        "quote": "主得父母荫庇之力"
+      }
+    },
+    {
+      "id": "父母.七殺.遠",
+      "role": "limit",
+      "when": {
+        "any": [
+          {
+            "star": [
+              "火星",
+              "鈴星"
+            ],
+            "at": "same"
+          },
+          {
+            "star": "天馬",
+            "at": [
+              "same",
+              "opp"
+            ]
+          }
+        ]
+      },
+      "text": "同宮有火鈴，或會天馬，與父母遠離。",
+      "en": "With Huo Xing or Ling Xing in the palace, or meeting Tian Ma, you live far from your parents.",
+      "source": {
+        "passage": "deep.父母.七殺.4",
+        "quote": "主远离父母"
+      }
+    },
+    {
+      "id": "父母.七殺.本",
+      "role": "base",
+      "text": "七殺在父母宮，與父母的關係較疏遠。",
+      "en": "With Qi Sha in your Parents Palace, your relationship with your parents is more distant.",
+      "source": {
+        "passage": "deep.父母.七殺.5",
+        "quote": "亦与父母关系疏远"
+      }
+    }
+  ]
+}

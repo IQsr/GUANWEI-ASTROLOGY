@@ -1,0 +1,42 @@
+{
+  "$note": "父母宮（2026-10-12）：廉貞.父母。《深造講義》下篇 宮垣論 父母宮 p.575–595。父母存亡、刑剋、孝服、灾病、偏房繼室所生、父有外遇、重拜父母一類斷語不用；天巫、天刑、天壽、白虎丧门等引擎冇嘅星不用；要分日夜生、廟陷嘅條文暫不用。原書父母宮兼論上司，呢部份照用。",
+  "topic": {
+    "id": "廉貞.父母",
+    "palace": "父母",
+    "stars": [
+      "廉貞"
+    ]
+  },
+  "rules": [
+    {
+      "id": "父母.廉貞.祿",
+      "role": "refine",
+      "when": {
+        "hua": "祿",
+        "star": "廉貞",
+        "at": "same"
+      },
+      "text": "廉貞化祿，一般與父母感情融洽。",
+      "en": "Lian Zhen in Abundance: you generally get on warmly with your parents.",
+      "source": {
+        "passage": "deep.父母.廉貞.2",
+        "quote": "或感情融洽"
+      }
+    },
+    {
+      "id": "父母.廉貞.忌",
+      "role": "limit",
+      "when": {
+        "hua": "忌",
+        "star": "廉貞",
+        "at": "same"
+      },
+      "text": "廉貞化忌，與父母的感情較難融洽。",
+      "en": "Lian Zhen in Hindrance: warmth with your parents does not come easily.",
+      "source": {
+        "passage": "deep.父母.廉貞.3",
+        "quote": "或感情不融洽"
+      }
+    }
+  ]
+}

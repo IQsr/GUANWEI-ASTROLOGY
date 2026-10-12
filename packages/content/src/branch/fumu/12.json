@@ -1,0 +1,107 @@
+{
+  "$note": "父母宮（2026-10-12）：天同.父母。《深造講義》下篇 宮垣論 父母宮 p.575–595。父母存亡、刑剋、孝服、灾病、偏房繼室所生、父有外遇、重拜父母一類斷語不用；天巫、天刑、天壽、白虎丧门等引擎冇嘅星不用；要分日夜生、廟陷嘅條文暫不用。原書父母宮兼論上司，呢部份照用。",
+  "topic": {
+    "id": "天同.父母",
+    "palace": "父母",
+    "stars": [
+      "天同"
+    ]
+  },
+  "rules": [
+    {
+      "id": "父母.天同.羊",
+      "role": "limit",
+      "when": {
+        "star": "擎羊",
+        "at": "same"
+      },
+      "text": "同宮有擎羊，容易受上司壓力，以致不和。",
+      "en": "With Qing Yang in the palace, bosses put pressure on you and friction follows.",
+      "source": {
+        "passage": "deep.父母.天同.3",
+        "quote": "则主受上司压力，以致不和"
+      }
+    },
+    {
+      "id": "父母.天同.火鈴",
+      "role": "limit",
+      "when": {
+        "star": [
+          "火星",
+          "鈴星"
+        ],
+        "at": "same"
+      },
+      "text": "同宮有火星或鈴星，常常換上司。",
+      "en": "With Huo Xing or Ling Xing in the palace, your bosses change often.",
+      "source": {
+        "passage": "deep.父母.天同.4",
+        "quote": "火铃同度，时时变换上司"
+      }
+    },
+    {
+      "id": "父母.天同.祿梁",
+      "role": "refine",
+      "when": {
+        "all": [
+          {
+            "hua": "祿",
+            "star": "天同",
+            "at": "same"
+          },
+          {
+            "star": "天梁",
+            "at": [
+              "same",
+              "opp"
+            ]
+          }
+        ]
+      },
+      "text": "天同化祿，又與天梁同宮或相對，受父母蔭庇。",
+      "en": "Tian Tong in Abundance, beside or facing Tian Liang: your parents shelter you.",
+      "source": {
+        "passage": "deep.父母.天同.5",
+        "quote": "始主受父母荫庇"
+      }
+    },
+    {
+      "id": "父母.天同.對星",
+      "role": "refine",
+      "when": {
+        "any": [
+          {
+            "all": [
+              {
+                "star": "左輔",
+                "at": "sifang"
+              },
+              {
+                "star": "右弼",
+                "at": "sifang"
+              }
+            ]
+          },
+          {
+            "all": [
+              {
+                "star": "天魁",
+                "at": "sifang"
+              },
+              {
+                "star": "天鉞",
+                "at": "sifang"
+              }
+            ]
+          }
+        ]
+      },
+      "text": "見齊成對的輔佐星，兩代關係吉利。",
+      "en": "With helper stars in matched pairs, relations between the generations go well.",
+      "source": {
+        "passage": "deep.父母.天同.6",
+        "quote": "以见齐对星始吉"
+      }
+    }
+  ]
+}

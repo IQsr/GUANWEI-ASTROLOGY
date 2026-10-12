@@ -1,0 +1,53 @@
+{
+  "$note": "父母宮（2026-10-12）：太陽太陰.父母。《深造講義》下篇 宮垣論 父母宮 p.575–595。父母存亡、刑剋、孝服、灾病、偏房繼室所生、父有外遇、重拜父母一類斷語不用；天巫、天刑、天壽、白虎丧门等引擎冇嘅星不用；要分日夜生、廟陷嘅條文暫不用。原書父母宮兼論上司，呢部份照用。",
+  "topic": {
+    "id": "太陽太陰.父母",
+    "palace": "父母",
+    "stars": [
+      "太陽",
+      "太陰"
+    ]
+  },
+  "rules": [
+    {
+      "id": "父母.陰陽.本",
+      "role": "base",
+      "text": "太陽太陰同在父母宮，一般父母和美，與你的關係也好。",
+      "en": "With Tai Yang and Tai Yin together in your Parents Palace, your parents usually get on well, and so do you with them.",
+      "source": {
+        "passage": "deep.父母.太陽.1",
+        "quote": "一般情形下主父母和美，与自身关系亦良好"
+      }
+    },
+    {
+      "id": "父母.陰陽.陰祿",
+      "role": "refine",
+      "when": {
+        "hua": "祿",
+        "star": "太陰",
+        "at": "same"
+      },
+      "text": "太陰化祿，幼年受父母寵愛。",
+      "en": "Tai Yin in Abundance: your parents dote on you as a child.",
+      "source": {
+        "passage": "deep.父母.太陽.2",
+        "quote": "则主幼年受父母溺爱"
+      }
+    },
+    {
+      "id": "父母.陰陽.陽祿",
+      "role": "refine",
+      "when": {
+        "hua": "祿",
+        "star": "太陽",
+        "at": "same"
+      },
+      "text": "太陽化祿，得父母助力，或得父母的親友提攜。",
+      "en": "Tai Yang in Abundance: your parents help you, or their friends and relatives give you a leg up.",
+      "source": {
+        "passage": "deep.父母.太陽.3",
+        "quote": "则受父母助力，或得父母之戚友提携"
+      }
+    }
+  ]
+}

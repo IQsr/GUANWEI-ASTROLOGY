@@ -1,0 +1,23 @@
+{
+  "$note": "父母宮（2026-10-12）：天機巨門.父母。《深造講義》下篇 宮垣論 父母宮 p.575–595。父母存亡、刑剋、孝服、灾病、偏房繼室所生、父有外遇、重拜父母一類斷語不用；天巫、天刑、天壽、白虎丧门等引擎冇嘅星不用；要分日夜生、廟陷嘅條文暫不用。原書父母宮兼論上司，呢部份照用。",
+  "topic": {
+    "id": "天機巨門.父母",
+    "palace": "父母",
+    "stars": [
+      "天機",
+      "巨門"
+    ]
+  },
+  "rules": [
+    {
+      "id": "父母.機巨.本",
+      "role": "base",
+      "text": "天機巨門在父母宮，不見煞也主與父母遠離，或兩代關係欠佳；坐酉比坐卯好。用來看上司，也主上司工作上境況不利。",
+      "en": "With Tian Ji and Ju Men in your Parents Palace, you live apart from your parents even without harsh stars, or the generations do not get on; You is better than Mao. Applied to your bosses, it means they have a hard time at work.",
+      "source": {
+        "passage": "deep.父母.天機.2",
+        "quote": "不见煞亦主远离，或两代人际关系不佳"
+      }
+    }
+  ]
+}

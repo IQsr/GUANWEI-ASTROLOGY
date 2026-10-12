@@ -1,0 +1,52 @@
+{
+  "$note": "父母宮（2026-10-12）：紫微.父母。《深造講義》下篇 宮垣論 父母宮 p.575–595。父母存亡、刑剋、孝服、灾病、偏房繼室所生、父有外遇、重拜父母一類斷語不用；天巫、天刑、天壽、白虎丧门等引擎冇嘅星不用；要分日夜生、廟陷嘅條文暫不用。原書父母宮兼論上司，呢部份照用。",
+  "topic": {
+    "id": "紫微.父母",
+    "palace": "父母",
+    "stars": [
+      "紫微"
+    ]
+  },
+  "rules": [
+    {
+      "id": "父母.紫微.主觀",
+      "role": "refine",
+      "when": {
+        "not": {
+          "all": [
+            {
+              "star": [
+                "左輔",
+                "右弼"
+              ],
+              "at": "sifang"
+            },
+            {
+              "star": [
+                "天魁",
+                "天鉞"
+              ],
+              "at": "sifang"
+            }
+          ]
+        }
+      },
+      "text": "紫微不得眾星拱照，父母較主觀，習慣下命令；同樣可以看你和上司的關係：上司慣於發號施令，要懂得調和。",
+      "en": "Without helpers around Zi Wei, your parents are opinionated and used to giving orders; the same applies to your bosses, who like to command, so learn to work with that.",
+      "source": {
+        "passage": "deep.父母.紫微.4",
+        "quote": "上司习惯命令，须注意如何调和"
+      }
+    },
+    {
+      "id": "父母.紫微.本",
+      "role": "base",
+      "text": "紫微在父母宮，父母有權威。",
+      "en": "With Zi Wei in your Parents Palace, your parents carry authority.",
+      "source": {
+        "passage": "deep.父母.紫微.5",
+        "quote": "紫微守父母宫，主父母有权威"
+      }
+    }
+  ]
+}

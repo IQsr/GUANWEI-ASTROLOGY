@@ -1,0 +1,65 @@
+{
+  "$note": "父母宮（2026-10-12）：天機.父母。《深造講義》下篇 宮垣論 父母宮 p.575–595。父母存亡、刑剋、孝服、灾病、偏房繼室所生、父有外遇、重拜父母一類斷語不用；天巫、天刑、天壽、白虎丧门等引擎冇嘅星不用；要分日夜生、廟陷嘅條文暫不用。原書父母宮兼論上司，呢部份照用。",
+  "topic": {
+    "id": "天機.父母",
+    "palace": "父母",
+    "stars": [
+      "天機"
+    ]
+  },
+  "rules": [
+    {
+      "id": "父母.天機.吉",
+      "role": "refine",
+      "when": {
+        "hua": [
+          "祿",
+          "權",
+          "科"
+        ],
+        "at": "sifang"
+      },
+      "text": "天機見祿權科會照，與父母的關係才穩定。",
+      "en": "Tian Ji meeting Abundance, Authority or Merit: that is what keeps your bond with your parents steady.",
+      "source": {
+        "passage": "deep.父母.天機.3",
+        "quote": "见禄权科会，然后始主稳定"
+      }
+    },
+    {
+      "id": "父母.天機.忌",
+      "role": "limit",
+      "when": {
+        "hua": "忌",
+        "star": "天機",
+        "at": "same"
+      },
+      "text": "天機化忌，兩代的關係較差。",
+      "en": "Tian Ji in Hindrance: relations between the generations are strained.",
+      "source": {
+        "passage": "deep.父母.天機.4",
+        "quote": "基本性质为两代人际关系不佳"
+      }
+    },
+    {
+      "id": "父母.天機.本",
+      "role": "base",
+      "when": {
+        "not": {
+          "hua": [
+            "祿",
+            "權",
+            "科"
+          ],
+          "at": "sifang"
+        }
+      },
+      "text": "天機在父母宮，與父母容易遠離。",
+      "en": "With Tian Ji in your Parents Palace, you tend to live at a distance from your parents.",
+      "source": {
+        "passage": "deep.父母.天機.3",
+        "quote": "否则主两代远离"
+      }
+    }
+  ]
+}

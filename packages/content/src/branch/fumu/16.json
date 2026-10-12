@@ -1,0 +1,40 @@
+{
+  "$note": "父母宮（2026-10-12）：太陰.父母。《深造講義》下篇 宮垣論 父母宮 p.575–595。父母存亡、刑剋、孝服、灾病、偏房繼室所生、父有外遇、重拜父母一類斷語不用；天巫、天刑、天壽、白虎丧门等引擎冇嘅星不用；要分日夜生、廟陷嘅條文暫不用。原書父母宮兼論上司，呢部份照用。",
+  "topic": {
+    "id": "太陰.父母",
+    "palace": "父母",
+    "stars": [
+      "太陰"
+    ]
+  },
+  "rules": [
+    {
+      "id": "父母.太陰.羊",
+      "role": "limit",
+      "when": {
+        "star": "擎羊",
+        "at": "same"
+      },
+      "text": "太陰與擎羊同宮，和母親的緣份較淺。",
+      "en": "Tai Yin with Qing Yang: your bond with your mother is thinner.",
+      "source": {
+        "passage": "deep.父母.太陰.1",
+        "quote": "主与母亲缘份浅"
+      }
+    },
+    {
+      "id": "父母.太陰.陀",
+      "role": "limit",
+      "when": {
+        "star": "陀羅",
+        "at": "same"
+      },
+      "text": "太陰與陀羅同宮，與母親各有成見，不易融洽。",
+      "en": "Tai Yin with Tuo Luo: you and your mother each hold your own views, and harmony is hard.",
+      "source": {
+        "passage": "deep.父母.太陰.2",
+        "quote": "各怀成见"
+      }
+    }
+  ]
+}

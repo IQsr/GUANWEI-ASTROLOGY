@@ -1,0 +1,31 @@
+{
+  "$note": "父母宮（2026-10-12）：天同辰戌.父母。《深造講義》下篇 宮垣論 父母宮 p.575–595。父母存亡、刑剋、孝服、灾病、偏房繼室所生、父有外遇、重拜父母一類斷語不用；天巫、天刑、天壽、白虎丧门等引擎冇嘅星不用；要分日夜生、廟陷嘅條文暫不用。原書父母宮兼論上司，呢部份照用。",
+  "topic": {
+    "id": "天同辰戌.父母",
+    "palace": "父母",
+    "stars": [
+      "天同"
+    ],
+    "branch": [
+      "辰",
+      "戌"
+    ]
+  },
+  "rules": [
+    {
+      "id": "父母.天同辰戌.巨忌",
+      "role": "limit",
+      "when": {
+        "hua": "忌",
+        "star": "巨門",
+        "at": "opp"
+      },
+      "text": "對宮巨門化忌，兩代意見不合，與上司也容易不和。",
+      "en": "With Ju Men in Hindrance opposite, the generations disagree, and you clash with bosses too.",
+      "source": {
+        "passage": "deep.父母.天同.2",
+        "quote": "亦主与上司不和"
+      }
+    }
+  ]
+}

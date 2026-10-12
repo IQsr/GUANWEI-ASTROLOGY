@@ -1,0 +1,27 @@
+{
+  "$note": "父母宮（2026-10-12）：天同天梁.父母。《深造講義》下篇 宮垣論 父母宮 p.575–595。父母存亡、刑剋、孝服、灾病、偏房繼室所生、父有外遇、重拜父母一類斷語不用；天巫、天刑、天壽、白虎丧门等引擎冇嘅星不用；要分日夜生、廟陷嘅條文暫不用。原書父母宮兼論上司，呢部份照用。",
+  "topic": {
+    "id": "天同天梁.父母",
+    "palace": "父母",
+    "stars": [
+      "天同",
+      "天梁"
+    ]
+  },
+  "rules": [
+    {
+      "id": "父母.同梁.馬",
+      "role": "refine",
+      "when": {
+        "star": "天馬",
+        "at": "same"
+      },
+      "text": "同宮有天馬，父母要離鄉別井；有時也主父親的工作帶流動性質。",
+      "en": "With Tian Ma in the palace, your parents leave their home town; sometimes it means your father’s work involves travel.",
+      "source": {
+        "passage": "deep.父母.天同.1",
+        "quote": "有时又主父亲所业者带流动色彩"
+      }
+    }
+  ]
+}

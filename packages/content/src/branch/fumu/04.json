@@ -1,0 +1,36 @@
+{
+  "$note": "父母宮（2026-10-12）：天機太陰.父母。《深造講義》下篇 宮垣論 父母宮 p.575–595。父母存亡、刑剋、孝服、灾病、偏房繼室所生、父有外遇、重拜父母一類斷語不用；天巫、天刑、天壽、白虎丧门等引擎冇嘅星不用；要分日夜生、廟陷嘅條文暫不用。原書父母宮兼論上司，呢部份照用。",
+  "topic": {
+    "id": "天機太陰.父母",
+    "palace": "父母",
+    "stars": [
+      "天機",
+      "太陰"
+    ]
+  },
+  "rules": [
+    {
+      "id": "父母.機陰.本",
+      "role": "base",
+      "when": {
+        "not": {
+          "star": [
+            "擎羊",
+            "陀羅",
+            "火星",
+            "鈴星",
+            "地空",
+            "地劫"
+          ],
+          "at": "same"
+        }
+      },
+      "text": "天機太陰是較好的組合：無煞，與父母關係穩定，不主分離。",
+      "en": "Tian Ji with Tai Yin is a good pairing: with no harsh stars, your bond with your parents is steady and does not point to separation.",
+      "source": {
+        "passage": "deep.父母.天機.1",
+        "quote": "[天机太阴]为较佳组合"
+      }
+    }
+  ]
+}

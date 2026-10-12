@@ -1,0 +1,63 @@
+{
+  "$note": "父母宮（2026-10-12）：太陽巨門.父母。《深造講義》下篇 宮垣論 父母宮 p.575–595。父母存亡、刑剋、孝服、灾病、偏房繼室所生、父有外遇、重拜父母一類斷語不用；天巫、天刑、天壽、白虎丧门等引擎冇嘅星不用；要分日夜生、廟陷嘅條文暫不用。原書父母宮兼論上司，呢部份照用。",
+  "topic": {
+    "id": "太陽巨門.父母",
+    "palace": "父母",
+    "stars": [
+      "太陽",
+      "巨門"
+    ]
+  },
+  "rules": [
+    {
+      "id": "父母.陽巨.吉",
+      "role": "refine",
+      "when": {
+        "hua": [
+          "祿",
+          "權",
+          "科"
+        ],
+        "star": [
+          "太陽",
+          "巨門"
+        ],
+        "at": "same"
+      },
+      "text": "太陽巨門見吉化，宜在外資機構服務，容易得外國上司提拔。",
+      "en": "Tai Yang with Ju Men well transformed: working for a foreign organisation suits you, and foreign bosses tend to promote you.",
+      "source": {
+        "passage": "deep.父母.太陽.4",
+        "quote": "主得异族上司提拔"
+      }
+    },
+    {
+      "id": "父母.陽巨.忌",
+      "role": "limit",
+      "when": {
+        "hua": "忌",
+        "star": [
+          "太陽",
+          "巨門"
+        ],
+        "at": "same"
+      },
+      "text": "太陽巨門化忌，容易與上司不和，所以以自由職業為佳。",
+      "en": "Tai Yang with Ju Men in Hindrance: you clash with bosses easily, so freelance work suits you better.",
+      "source": {
+        "passage": "deep.父母.太陽.5",
+        "quote": "因此以自由职业为佳"
+      }
+    },
+    {
+      "id": "父母.陽巨.離鄉",
+      "role": "base",
+      "text": "太陽巨門在父母宮，父親曾經離鄉安家。",
+      "en": "With Tai Yang and Ju Men in your Parents Palace, your father once left home to settle elsewhere.",
+      "source": {
+        "passage": "deep.父母.太陽.6",
+        "quote": "主父亲曾离乡安家"
+      }
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "$note": "父母宮（2026-10-12）：紫微七殺.父母。《深造講義》下篇 宮垣論 父母宮 p.575–595。父母存亡、刑剋、孝服、灾病、偏房繼室所生、父有外遇、重拜父母一類斷語不用；天巫、天刑、天壽、白虎丧门等引擎冇嘅星不用；要分日夜生、廟陷嘅條文暫不用。原書父母宮兼論上司，呢部份照用。",
+  "topic": {
+    "id": "紫微七殺.父母",
+    "palace": "父母",
+    "stars": [
+      "紫微",
+      "七殺"
+    ]
+  },
+  "rules": [
+    {
+      "id": "父母.紫殺.本",
+      "role": "base",
+      "text": "紫微七殺在父母宮，父母有責任心，無論甚麼情形都會呵護你。",
+      "en": "With Zi Wei and Qi Sha in your Parents Palace, your parents are responsible and protect you whatever happens.",
+      "source": {
+        "passage": "deep.父母.紫微.1",
+        "quote": "对自己均能呵护"
+      }
+    },
+    {
+      "id": "父母.紫殺.三吉",
+      "role": "refine",
+      "when": {
+        "all": [
+          {
+            "hua": "祿",
+            "star": "廉貞",
+            "at": "sifang"
+          },
+          {
+            "hua": "權",
+            "star": "破軍",
+            "at": "sifang"
+          }
+        ]
+      },
+      "text": "會廉貞化祿、破軍化權，兩代感情融洽，也得父母提攜。",
+      "en": "Meeting Lian Zhen in Abundance and Po Jun in Authority: warm ties between the generations, and your parents help you along.",
+      "source": {
+        "passage": "deep.父母.紫微.2",
+        "quote": "且主受父母提携"
+      }
+    }
+  ]
+}

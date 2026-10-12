@@ -1,0 +1,136 @@
+{
+  "$note": "父母宮（2026-10-12）：天梁.父母。《深造講義》下篇 宮垣論 父母宮 p.575–595。父母存亡、刑剋、孝服、灾病、偏房繼室所生、父有外遇、重拜父母一類斷語不用；天巫、天刑、天壽、白虎丧门等引擎冇嘅星不用；要分日夜生、廟陷嘅條文暫不用。原書父母宮兼論上司，呢部份照用。",
+  "topic": {
+    "id": "天梁.父母",
+    "palace": "父母",
+    "stars": [
+      "天梁"
+    ]
+  },
+  "rules": [
+    {
+      "id": "父母.天梁.吉",
+      "role": "refine",
+      "when": {
+        "all": [
+          {
+            "any": [
+              {
+                "hua": [
+                  "祿",
+                  "權",
+                  "科"
+                ],
+                "at": "same"
+              },
+              {
+                "star": [
+                  "左輔",
+                  "右弼"
+                ],
+                "at": "sifang"
+              },
+              {
+                "star": [
+                  "天魁",
+                  "天鉞"
+                ],
+                "at": "sifang"
+              }
+            ]
+          },
+          {
+            "not": {
+              "star": [
+                "擎羊",
+                "陀羅",
+                "火星",
+                "鈴星",
+                "地空",
+                "地劫"
+              ],
+              "at": "same"
+            }
+          }
+        ]
+      },
+      "text": "天梁見吉而無煞，必得父母福蔭。",
+      "en": "Tian Liang with good signs and no harsh stars: your parents’ blessings are sure to reach you.",
+      "source": {
+        "passage": "deep.父母.天梁.1",
+        "quote": "则主必得父母福荫"
+      }
+    },
+    {
+      "id": "父母.天梁.同",
+      "role": "refine",
+      "when": {
+        "all": [
+          {
+            "star": "天同",
+            "at": [
+              "same",
+              "opp"
+            ]
+          },
+          {
+            "not": {
+              "hua": "忌",
+              "star": "天同",
+              "at": [
+                "same",
+                "opp"
+              ]
+            }
+          }
+        ]
+      },
+      "text": "天梁與天同同宮或相對，是天梁喜歡的配搭。",
+      "en": "Tian Liang beside or facing Tian Tong is a pairing it welcomes.",
+      "source": {
+        "passage": "deep.父母.天梁.2",
+        "quote": "天梁喜见天同同度或对拱"
+      }
+    },
+    {
+      "id": "父母.天梁.同忌",
+      "role": "limit",
+      "when": {
+        "hua": "忌",
+        "star": "天同",
+        "at": [
+          "same",
+          "opp"
+        ]
+      },
+      "text": "天同化忌，兩代意見不合。",
+      "en": "With Tian Tong in Hindrance, the generations disagree.",
+      "source": {
+        "passage": "deep.父母.天梁.2",
+        "quote": "则主两代意见参商"
+      }
+    },
+    {
+      "id": "父母.天梁.馬羊",
+      "role": "limit",
+      "when": {
+        "all": [
+          {
+            "star": "天馬",
+            "at": "same"
+          },
+          {
+            "star": "擎羊",
+            "at": "same"
+          }
+        ]
+      },
+      "text": "同宮有天馬和擎羊，主離家。",
+      "en": "With Tian Ma and Qing Yang in the palace, you leave home.",
+      "source": {
+        "passage": "deep.父母.天梁.3",
+        "quote": "天梁与天马、擎羊同度，主离家"
+      }
+    }
+  ]
+}

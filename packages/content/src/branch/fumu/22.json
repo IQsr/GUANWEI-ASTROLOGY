@@ -1,0 +1,57 @@
+{
+  "$note": "父母宮（2026-10-12）：破軍.父母。《深造講義》下篇 宮垣論 父母宮 p.575–595。父母存亡、刑剋、孝服、灾病、偏房繼室所生、父有外遇、重拜父母一類斷語不用；天巫、天刑、天壽、白虎丧门等引擎冇嘅星不用；要分日夜生、廟陷嘅條文暫不用。原書父母宮兼論上司，呢部份照用。",
+  "topic": {
+    "id": "破軍.父母",
+    "palace": "父母",
+    "stars": [
+      "破軍"
+    ]
+  },
+  "rules": [
+    {
+      "id": "父母.破軍.祿",
+      "role": "refine",
+      "when": {
+        "hua": "祿",
+        "star": "破軍",
+        "at": "same"
+      },
+      "text": "破軍化祿，父母和美。",
+      "en": "Po Jun in Abundance: your parents get on well.",
+      "source": {
+        "passage": "deep.父母.破軍.1",
+        "quote": "破军化禄，则父母和美"
+      }
+    },
+    {
+      "id": "父母.破軍.火鈴",
+      "role": "limit",
+      "when": {
+        "star": [
+          "火星",
+          "鈴星"
+        ],
+        "at": "same"
+      },
+      "text": "同宮有火星或鈴星，與父母遠離。",
+      "en": "With Huo Xing or Ling Xing in the palace, you live far from your parents.",
+      "source": {
+        "passage": "deep.父母.破軍.2",
+        "quote": "破军与火星、铃星同度，决主远离"
+      }
+    },
+    {
+      "id": "父母.破軍.獨",
+      "role": "refine",
+      "when": {
+        "alone": true
+      },
+      "text": "破軍獨坐父母宮，本質孤獨，跟上司關係也疏遠，所以有時會常換工作。",
+      "en": "With Po Jun alone in your Parents Palace, things are solitary by nature: you are distant from bosses too, so you may change jobs often.",
+      "source": {
+        "passage": "deep.父母.破軍.3",
+        "quote": "亦主跟上司关系疏远"
+      }
+    }
+  ]
+}

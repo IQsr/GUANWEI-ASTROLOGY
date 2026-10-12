@@ -1,0 +1,84 @@
+{
+  "$note": "父母宮（2026-10-12）：太陽天梁.父母。《深造講義》下篇 宮垣論 父母宮 p.575–595。父母存亡、刑剋、孝服、灾病、偏房繼室所生、父有外遇、重拜父母一類斷語不用；天巫、天刑、天壽、白虎丧门等引擎冇嘅星不用；要分日夜生、廟陷嘅條文暫不用。原書父母宮兼論上司，呢部份照用。",
+  "topic": {
+    "id": "太陽天梁.父母",
+    "palace": "父母",
+    "stars": [
+      "太陽",
+      "天梁"
+    ]
+  },
+  "rules": [
+    {
+      "id": "父母.陽梁.權",
+      "role": "refine",
+      "when": {
+        "hua": "權",
+        "star": "太陽",
+        "at": "same"
+      },
+      "text": "太陽化權最吉：受父母蔭庇，也多助力。",
+      "en": "Tai Yang in Authority is best: your parents shelter you and help you a great deal.",
+      "source": {
+        "passage": "deep.父母.太陽.7",
+        "quote": "[太阳天梁]以太阳化权为最吉"
+      }
+    },
+    {
+      "id": "父母.陽梁.吉",
+      "role": "refine",
+      "when": {
+        "hua": [
+          "祿",
+          "科"
+        ],
+        "star": "太陽",
+        "at": "same"
+      },
+      "text": "太陽吉化，得父母蔭庇之力很大。",
+      "en": "Tai Yang well transformed: your parents’ protection counts for a great deal.",
+      "source": {
+        "passage": "deep.父母.太陽.8",
+        "quote": "则得父母荫庇之力甚大"
+      }
+    },
+    {
+      "id": "父母.陽梁.主觀",
+      "role": "limit",
+      "when": {
+        "not": {
+          "any": [
+            {
+              "hua": [
+                "祿",
+                "權",
+                "科"
+              ],
+              "at": "same"
+            },
+            {
+              "star": [
+                "左輔",
+                "右弼"
+              ],
+              "at": "sifang"
+            },
+            {
+              "star": [
+                "天魁",
+                "天鉞"
+              ],
+              "at": "sifang"
+            }
+          ]
+        }
+      },
+      "text": "太陽天梁不見吉星，父母較主觀；與上司也容易有成見。",
+      "en": "Tai Yang with Tian Liang and no helpful stars: your parents are opinionated, and bosses easily form fixed views of you.",
+      "source": {
+        "passage": "deep.父母.太陽.9",
+        "quote": "同时亦主与上司易有成见"
+      }
+    }
+  ]
+}
