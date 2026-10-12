@@ -157,6 +157,9 @@
       "text": "你屬穩重的一型，天同所在的那一步運或那一年，往往就是你興家立業的時候，要把握。",
       "en": "You are the steady kind: the phase or year that runs through Tian Tong is often when you build your household and career, so seize it.",
       "pole": "穩重",
+      "decade": [
+        "天同"
+      ],
       "source": {
         "passage": "deep.星系52.7",
         "quote": "往往在天同躔度的流年或大运兴家立业"
@@ -171,6 +174,9 @@
       "text": "貪狼所在的那一步運，往往是你人生大改變的時期；浮動的一型動盪幅度更大，要有貪狼化祿或化權，變化才不會帶來壞影響。",
       "en": "The phase that runs through Tan Lang is often a time of major change for you, and the restless kind swings wider; only with Tan Lang in Abundance or Authority does the change pass without harm.",
       "pole": "浮動",
+      "decade": [
+        "貪狼"
+      ],
       "source": {
         "passage": "deep.星系52.8",
         "quote": "其动荡幅度亦往往更大"
@@ -186,6 +192,9 @@
       },
       "text": "你的天機巨門坐卯，最忌行到酉宮那一步運。",
       "en": "Your Tian Ji–Ju Men sits in Mao, and the phase that runs through You is the one it fears most.",
+      "decade": [
+        "#酉"
+      ],
       "source": {
         "passage": "deep.星系52.9",
         "quote": "原坐卯宫者不宜行酉限"
@@ -201,6 +210,9 @@
       },
       "text": "你的天機巨門坐酉，最忌行到卯宮那一步運。",
       "en": "Your Tian Ji–Ju Men sits in You, and the phase that runs through Mao is the one it fears most.",
+      "decade": [
+        "#卯"
+      ],
       "source": {
         "passage": "deep.星系52.9",
         "quote": "机巨忌迁移"

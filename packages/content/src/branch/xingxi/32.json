@@ -108,6 +108,10 @@
       "role": "refine",
       "text": "紫微天府所在的那一步運或那一年，對你都不錯；紫微或天府化科時更好。",
       "en": "The phase or year through Zi Wei–Tian Fu goes well for you, and better still when Zi Wei or Tian Fu is in Merit.",
+      "decade": [
+        "紫微",
+        "天府"
+      ],
       "source": {
         "passage": "deep.星系32.6",
         "quote": "即使下游的天机经行亦不俗"
@@ -122,6 +126,9 @@
       "text": "上進的你，行到巨門所在的運，若對宮太陽入廟、又見吉化，就是得人提拔、平步青雲的時候。",
       "en": "Being the striving kind, the phase through Ju Men, with a bright Tai Yang opposite and helpful transformations, is when you are lifted up and climb fast.",
       "pole": "上進",
+      "decade": [
+        "巨門"
+      ],
       "source": {
         "passage": "deep.星系32.7",
         "quote": "上进的天机为得人提拔，平步青云的运势"
@@ -136,6 +143,9 @@
       "text": "容易停滯的你，行到太陰入廟的運，宜慢慢發展、不急於名利，就能扭轉後運。",
       "en": "Prone to stalling, in a phase where Tai Yin is bright you should build slowly, without hurrying after name or gain; that is how you turn the later years around.",
       "pole": "停滯",
+      "decade": [
+        "太陰"
+      ],
       "source": {
         "passage": "deep.星系32.8",
         "quote": "不急于名利，则可扭转后运"

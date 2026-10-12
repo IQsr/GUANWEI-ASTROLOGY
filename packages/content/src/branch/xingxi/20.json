@@ -103,6 +103,16 @@
       "text": "陽剛的你，宜行開創性的運，不宜守成：例如紫微破軍、廉貞貪狼、巨門、武曲七殺見吉化，或太陽入廟見吉化的那幾步。",
       "en": "Being the bold kind, you suit phases of building rather than holding: Zi Wei–Po Jun, Lian Zhen–Tan Lang, Ju Men or Wu Qu–Qi Sha well transformed, or a bright Tai Yang well transformed.",
       "pole": "陽剛",
+      "decade": [
+        "紫微",
+        "破軍",
+        "廉貞",
+        "貪狼",
+        "巨門",
+        "武曲",
+        "七殺",
+        "太陽"
+      ],
       "source": {
         "passage": "deep.星系20.7",
         "quote": "阳刚的天机宜行开创性的运限或流年"
@@ -127,6 +137,9 @@
       "role": "refine",
       "text": "天相所在的那一步運，你基本上都喜歡。",
       "en": "The phase through Tian Xiang is, on the whole, one you welcome.",
+      "decade": [
+        "天相"
+      ],
       "source": {
         "passage": "deep.星系20.9",
         "quote": "天机基本上喜行天相守垣的宫度"

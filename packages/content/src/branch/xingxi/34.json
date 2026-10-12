@@ -125,6 +125,10 @@
       "role": "refine",
       "text": "武曲破軍所在的運，只要見吉化，對你都是好運；只怕武曲化忌。",
       "en": "The phase through Wu Qu–Po Jun is good for you whenever it meets helpful transformations; only Wu Qu in Hindrance spoils it.",
+      "decade": [
+        "武曲",
+        "破軍"
+      ],
       "source": {
         "passage": "deep.星系34.5",
         "quote": "无论何种性质的巨门均喜经行"
@@ -135,6 +139,9 @@
       "role": "refine",
       "text": "天府所在的運，只要見祿或吉化，就是你的好運。",
       "en": "The phase through Tian Fu is a good one for you whenever it meets Lu Cun or a helpful transformation.",
+      "decade": [
+        "天府"
+      ],
       "source": {
         "passage": "deep.星系34.6",
         "quote": "即为巨门的佳运"
@@ -149,6 +156,9 @@
       "text": "受激發的你，行到天梁所在的運，那十年必先吃盡苦頭，然後發越。",
       "en": "Driven by pressure, the decade through Tian Liang first puts you through real hardship, and then you rise.",
       "pole": "受激發",
+      "decade": [
+        "天梁"
+      ],
       "source": {
         "passage": "deep.星系34.7",
         "quote": "天梁宫垣即为激发性的运限"
@@ -163,6 +173,10 @@
       "text": "阻力偏多的你，行到廉貞七殺所在的運，若吉化吉星齊集，就是改變處境的機會，一定要把握。",
       "en": "With obstacles running high, the phase through Lian Zhen–Qi Sha, when helpful stars gather, is your chance to change your circumstances; seize it.",
       "pole": "多阻",
+      "decade": [
+        "廉貞",
+        "七殺"
+      ],
       "source": {
         "passage": "deep.星系34.8",
         "quote": "即为遭忌的巨门改变客观环境的机遇"

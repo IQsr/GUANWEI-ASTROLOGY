@@ -84,6 +84,10 @@
       "text": "積極的你，行到紫微天府所在的運，是人生的大關口。",
       "en": "Being the active kind, the phase that runs through Zi Wei–Tian Fu is the great turning point of your life.",
       "pole": "積極",
+      "decade": [
+        "紫微",
+        "天府"
+      ],
       "source": {
         "passage": "deep.星系30.5",
         "quote": "积极的太阳最宜经行，为人生大结穴"
@@ -98,6 +102,9 @@
       "text": "天同所在的那一步運，是你創立事業的時候。",
       "en": "The phase that runs through Tian Tong is your time to found your own enterprise.",
       "pole": "積極",
+      "decade": [
+        "天同"
+      ],
       "source": {
         "passage": "deep.星系30.6",
         "quote": "积极者却为创立事业的运限"
@@ -112,6 +119,9 @@
       "text": "天同所在的那一步運，你最容易失了志氣；那段時間要給自己定目標。",
       "en": "The phase that runs through Tian Tong is when you most easily lose heart; in that time, set yourself a goal.",
       "pole": "消極",
+      "decade": [
+        "天同"
+      ],
       "source": {
         "passage": "deep.星系30.6",
         "quote": "消极的太阳最易因之丧志"
@@ -122,6 +132,9 @@
       "role": "refine",
       "text": "巨門所在的那一步運，甚至只是那一年，對你都是重要的運程。",
       "en": "The phase, or even just the year, that runs through Ju Men is an important one for you.",
+      "decade": [
+        "巨門"
+      ],
       "source": {
         "passage": "deep.星系30.7",
         "quote": "亦为太阳坐命者的重要运程"

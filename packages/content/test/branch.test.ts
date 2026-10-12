@@ -7,6 +7,7 @@
 import { describe, expect, it } from 'vitest';
 import { annual, cast, SCHOOL_PROFILE, type Chart } from '@guanwei/ziwei';
 import { BRANCH_TOPICS, RULE_REGISTRY, SPEC_VERSION, assembleAll, branchReading, branchRules, gujiaChapter, gujiaException, inferAll, leanState } from '../src/index';
+import { STEPS_UNTIL_AGE } from '../src/steps';
 import { renderParagraph } from '../src/en/render';
 
 const DEMO = cast({
@@ -211,4 +212,32 @@ describe('宮位細讀：夫妻、財帛、官祿、遷移、福德、田宅、�
     }
     throw new Error('樣本入面搵唔到天機丑未見陀羅嘅夫妻宮');
   });
+});
+
+describe('細讀講嘅大限（2026-10-12 重疊檢查）', () => {
+  it('講「某星嗰步運」嘅規則，最少有一步喺大限章列得到（九十歲前起步）；冇細讀講到大限章冇列嘅運', () => {
+    const late: string[] = [];
+    let withDecade = 0;
+    for (let i = 0; i < 4320; i += 2) {
+      const r = cast({
+        solar: { y: 1950 + (i % 60), m: 1 + (Math.floor(i / 60) % 12), d: 1 + ((i * 7) % 28) }, time: { h: (Math.floor(i / 720) * 4 + 1) % 24, min: 30 },
+        tz: 'Asia/Hong_Kong', place: { lng: 114.17, lat: 22.32, label: '香港' }, sex: i % 2 ? 'male' : 'female',
+      });
+      if (!r.ok) continue;
+      const c = r.value;
+      const deep = gujiaChapter({ chart: c })?.segments.find((s) => s.slot === '細讀');
+      for (const id of deep?.rule_ids ?? []) {
+        const rule = BRANCH_TOPICS.flatMap((t) => t.rules).find((x) => x.id === id)!;
+        if (!rule.decade?.length) continue;
+        withDecade++;
+        const ages = rule.decade.map((k) => {
+          const b = k.startsWith('#') ? k.slice(1) : c.palaces.find((p) => p.stars.some((s) => s.name === k))!.branch;
+          return c.decadals.find((d) => d.branch === b)!.fromAge;
+        });
+        if (ages.every((a) => a >= STEPS_UNTIL_AGE)) late.push(`${id} ${ages.join('/')}`);
+      }
+    }
+    expect(withDecade).toBeGreaterThan(500);
+    expect(late).toEqual([]);
+  }, 300_000);
 });

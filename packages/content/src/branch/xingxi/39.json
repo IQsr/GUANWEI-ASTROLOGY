@@ -127,6 +127,10 @@
       "role": "refine",
       "text": "紫微貪狼所在的那一步運，若紫微化科，就是你名利雙收的時候。",
       "en": "The phase through Zi Wei–Tan Lang, with Zi Wei in Merit, is when you gain both name and fortune.",
+      "decade": [
+        "紫微",
+        "貪狼"
+      ],
       "source": {
         "passage": "deep.星系39.7",
         "quote": "皆为名利双收的运程"
@@ -137,6 +141,9 @@
       "role": "limit",
       "text": "巨門所在的那一步運，你一般不喜：容易受下屬、尤其是自己提拔的人困擾。",
       "en": "The phase through Ju Men is not to your liking: subordinates, especially those you promoted yourself, tend to cause you trouble.",
+      "decade": [
+        "巨門"
+      ],
       "source": {
         "passage": "deep.星系39.8",
         "quote": "均为[武破]所不喜行"
@@ -151,6 +158,9 @@
       "text": "善於適應的你，行到天府所在的運，一般就是創業的時候。",
       "en": "Being the adaptable kind, the phase through Tian Fu is usually your time to start something of your own.",
       "pole": "善於適應",
+      "decade": [
+        "天府"
+      ],
       "source": {
         "passage": "deep.星系39.9",
         "quote": "一般即为创业的运程"
@@ -165,6 +175,9 @@
       "text": "反其道的你，原來的環境往往不差，卻偏要強行改變，因此受挫；行到天府所在的運尤其要記住這一點。",
       "en": "Going against the grain, you often force a change on circumstances that were fine, and suffer for it; remember this above all in the phase through Tian Fu.",
       "pole": "反其道",
+      "decade": [
+        "天府"
+      ],
       "source": {
         "passage": "deep.星系39.10",
         "quote": "往往原来的环境不差，但却强行改变"

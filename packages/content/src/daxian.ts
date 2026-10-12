@@ -8,6 +8,7 @@ import { CORPUS, cjkCount, normaliseForMatch } from './lexicon';
 import { scanForbidden } from './lint';
 import { scanPlain } from './plain';
 import { AREA, palaceLabel } from './link';
+import { STEPS_UNTIL_AGE } from './steps';
 import { FORBIDDEN_TERMS } from './frame';
 import { leanOf, xingxiOf } from './xingxi';
 import { conclusionFor } from './palace-plain';
@@ -551,8 +552,9 @@ export function lookBack(chart: Chart, year: number): DaxianSegment | null {
  * 一生十二步只列到虛歲九十歲左右起步嗰幾步（2026-10-02）。
  * 以前列晒十二步，水二局會去到「第十二步 一百十二至一百二十一歲 關鍵大限」——
  * 讀者見到百幾歲，第一個感覺係「機器排出嚟」。之後嘅一句帶過。
+ * 常數喺 steps.ts，細讀（branch.ts）共用。
  */
-export const STEPS_UNTIL_AGE = 90;
+export { STEPS_UNTIL_AGE } from './steps';
 
 export function lifeStepsChapter(input: { chart: Chart; year: number }): Out {
   const { chart, year } = input;

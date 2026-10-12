@@ -5,6 +5,7 @@ import { BRANCH_RAW } from './branch/index';
 import { CORPUS, normaliseForMatch } from './lexicon';
 import { scanForbidden } from './lint';
 import { scanPlain } from './plain';
+import { STEPS_UNTIL_AGE } from './steps';
 
 /* ───────────────────────────────────────────────────────────
  * 原文分支（2026-10-11 內容審查第 3 層 · 試點）
@@ -72,6 +73,11 @@ const Rule = z.object({
   pole: z.string().optional(),
   /** 成立就改寫「性格的骨架」嘅偏向句（只限命宮題目） */
   gujia: z.boolean().optional(),
+  /**
+   * 呢條講「行到某星嗰步運」：列出講緊嘅星（或者「#地支」，直接講某宮嗰步運）。
+   * 講到嘅運全部喺 STEPS_UNTIL_AGE（九十歲）之後先起步，大限章冇列，就唔出（2026-10-12 重疊檢查）。
+   */
+  decade: z.array(z.string()).optional(),
   /** gujia 例外：推力段（點票得出嘅偏向）後面補一句，講明偏向唔再成立 */
   tail: z.string().optional(),
   tailEn: z.string().optional(),
@@ -129,6 +135,7 @@ const Topic = z
       for (const t of [r.text, r.tail ?? '']) for (const f of [...scanForbidden(t, 'body'), ...scanPlain(t, 'body')]) issue(`${r.id} ${f.code} ${f.message}`);
       if (Boolean(r.tail) !== Boolean(r.tailEn)) issue(`${r.id}：tail 同 tailEn 要一齊有`);
       if (r.gujia && t.topic.palace !== '命宮') issue(`${r.id}：gujia 只限命宮題目`);
+      for (const k of r.decade ?? []) if (!MAJOR.includes(k) && !(k.startsWith('#') && BRANCHES.includes(k.slice(1)))) issue(`${r.id}：decade「${k}」唔係主星或者「#地支」`);
     }
   });
 export type BranchTopic = z.infer<typeof Topic>;
@@ -237,7 +244,13 @@ export function branchRules(chart: Chart, t: BranchTopic): BranchRule[] {
   const state = t.topic.xingxi !== undefined ? leanState(chart) : null;
   /* 未定（兩頭都冇訊號）：斷定咗某一頭嘅規則都唔出，否則同偏向句「兩頭都不明顯」打架 */
   const against = (r: BranchRule) => Boolean(r.pole && state && state !== '平衡' && state !== r.pole);
-  const hit = t.rules.filter((r) => (!r.when || holds(chart, p, focus, r.when, seat)) && !against(r));
+  /* 講到嘅大限全部九十歲後先起步：讀者喺大限章搵唔到嗰步，唔講 */
+  const fromAge = (k: string) => {
+    const b = k.startsWith('#') ? k.slice(1) : chart.palaces.find((q) => q.stars.some((s) => s.name === k))?.branch;
+    return chart.decadals.find((d) => d.branch === b)?.fromAge ?? 0;
+  };
+  const tooLate = (r: BranchRule) => Boolean(r.decade?.length && r.decade.every((k) => fromAge(k) >= STEPS_UNTIL_AGE));
+  const hit = t.rules.filter((r) => (!r.when || holds(chart, p, focus, r.when, seat)) && !against(r) && !tooLate(r));
   const gone = new Set(hit.flatMap((r) => r.overrides ?? []));
   return hit.filter((r) => !gone.has(r.id));
 }

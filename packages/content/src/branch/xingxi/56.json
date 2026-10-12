@@ -162,6 +162,10 @@
       "text": "武曲貪狼所在的那一步運最適合你：先經過一些周折，然後打好事業的基礎。",
       "en": "The phase that runs through Wu Qu–Tan Lang suits you best: some twists first, then a solid footing for your career.",
       "pole": "積極",
+      "decade": [
+        "武曲",
+        "貪狼"
+      ],
       "source": {
         "passage": "deep.星系56.6",
         "quote": "主先经周折而能奠立事业基础"
@@ -176,6 +180,10 @@
       "text": "武曲貪狼所在的那一步運，你容易只顧享受而失了志氣；那幾年要把理想提高一點。",
       "en": "In the phase that runs through Wu Qu–Tan Lang you can slip into comfort and lose your drive; in those years, raise your sights.",
       "pole": "消極",
+      "decade": [
+        "武曲",
+        "貪狼"
+      ],
       "source": {
         "passage": "deep.星系56.6",
         "quote": "但却易于丧志"
@@ -186,6 +194,9 @@
       "role": "limit",
       "text": "天相所在的那一步運或那一年，是你的弱運：宜沉潛，不宜奮進。",
       "en": "The phase or year that runs through Tian Xiang is a weak one for you: lie low, rather than push forward.",
+      "decade": [
+        "天相"
+      ],
       "source": {
         "passage": "deep.星系56.7",
         "quote": "仅利沈潜，不宜奋进"
