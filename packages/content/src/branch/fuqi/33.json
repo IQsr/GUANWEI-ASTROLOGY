@@ -9,6 +9,16 @@
   },
   "rules": [
     {
+      "id": "夫妻.廉貞.年齡",
+      "role": "base",
+      "text": "廉貞在夫妻宮，與年齡相差較大的伴侶，你比較合得來。",
+      "en": "With Lian Zhen in your Partnership Palace, a partner with a wider age gap tends to suit you better.",
+      "source": {
+        "passage": "deep.夫妻.廉貞.6",
+        "quote": "年龄差距由六年至十二年不等"
+      }
+    },
+    {
       "id": "夫妻.廉貞.火",
       "role": "limit",
       "when": {
@@ -18,7 +28,7 @@
       "text": "同宮有火星，即使盤面吉，也容易因環境而兩地分隔。",
       "en": "With Huo Xing in the palace, even with good signs, circumstances may keep you and your partner in different places.",
       "source": {
-        "passage": "deep.夫妻.廉貞.6",
+        "passage": "deep.夫妻.廉貞.7",
         "quote": "亦主因客观环境以致夫妇分居二地"
       }
     }

@@ -9,6 +9,76 @@
   },
   "rules": [
     {
+      "id": "僕役.天梁.輔佐",
+      "role": "refine",
+      "when": {
+        "any": [
+          {
+            "star": [
+              "左輔",
+              "右弼"
+            ],
+            "at": "sifang"
+          },
+          {
+            "star": [
+              "天魁",
+              "天鉞"
+            ],
+            "at": "sifang"
+          }
+        ]
+      },
+      "text": "天梁見〔輔佐吉星〕，你交遊廣闊，下屬眾多。",
+      "en": "Tian Liang meets 〔helper stars〕: your circle is wide and your staff are many.",
+      "source": {
+        "passage": "deep.僕役.天梁.1",
+        "quote": "除非见辅佐吉曜"
+      }
+    },
+    {
+      "id": "僕役.天梁.祿",
+      "role": "refine",
+      "when": {
+        "any": [
+          {
+            "hua": "祿",
+            "star": "天梁",
+            "at": "same"
+          },
+          {
+            "star": "祿存",
+            "at": "same"
+          }
+        ]
+      },
+      "text": "天梁化祿或與祿存同宮，你的朋友、下屬容易有私心。",
+      "en": "Tian Liang in Abundance or with Lu Cun: your friends and staff tend to look after themselves.",
+      "source": {
+        "passage": "deep.僕役.天梁.2",
+        "quote": "则主友人、下属有利私之心"
+      }
+    },
+    {
+      "id": "僕役.天梁.煞",
+      "role": "refine",
+      "when": {
+        "star": [
+          "擎羊",
+          "陀羅",
+          "火星",
+          "鈴星"
+        ],
+        "at": "sifang"
+      },
+      "text": "天梁會到〔煞星〕，你容易因朋友或下屬生出是非糾紛。",
+      "en": "Tian Liang meets 〔harsh stars〕: friends or staff bring arguments and disputes.",
+      "source": {
+        "passage": "deep.僕役.天梁.3",
+        "quote": "因友人或下属而起是非纠纷"
+      }
+    },
+    {
       "id": "僕役.天梁.吉",
       "role": "refine",
       "when": {
@@ -28,7 +98,7 @@
       "text": "天梁化權化科，結交到正直無私、有義氣的朋友和下屬。",
       "en": "Tian Liang in Authority or Merit: you attract upright, selfless and loyal friends and staff.",
       "source": {
-        "passage": "deep.僕役.天梁.1",
+        "passage": "deep.僕役.天梁.4",
         "quote": "及招正直无私有义的友人及下属"
       }
     },
@@ -42,7 +112,7 @@
       "text": "同宮有天馬，你的知交容易離散，也常換手下。",
       "en": "With Tian Ma in the palace, close friends drift away and staff keep changing.",
       "source": {
-        "passage": "deep.僕役.天梁.2",
+        "passage": "deep.僕役.天梁.5",
         "quote": "知交易散，亦主时时更换手下"
       }
     },
@@ -72,7 +142,7 @@
       "text": "天梁是孤剋之星，不見輔佐吉星，交遊不廣，下屬也不多。",
       "en": "Tian Liang is a loner star: without helper stars your circle is small and you have few staff.",
       "source": {
-        "passage": "deep.僕役.天梁.3",
+        "passage": "deep.僕役.天梁.1",
         "quote": "天梁为孤克之星"
       }
     }

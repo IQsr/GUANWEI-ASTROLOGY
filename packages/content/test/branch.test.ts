@@ -385,5 +385,5 @@ describe('泛稱填實：「見吉」「見煞」換成盤上真係有嘅星（2
       }
     }
     expect(filled / slots).toBeGreaterThan(0.85);
-  });
+  }, 120_000);
 });

@@ -9,6 +9,64 @@
   },
   "rules": [
     {
+      "id": "遷移.破軍.本",
+      "role": "base",
+      "text": "破軍在遷移宮，你在外要靠專門技能起家。",
+      "en": "With Po Jun in your Travel Palace, you make your way away from home through a specialist skill.",
+      "source": {
+        "passage": "deep.遷移.破軍.2",
+        "quote": "必须靠专门技能起家"
+      }
+    },
+    {
+      "id": "遷移.破軍.魁鉞",
+      "role": "refine",
+      "when": {
+        "star": [
+          "天魁",
+          "天鉞"
+        ],
+        "at": "sifang"
+      },
+      "text": "破軍見天魁天鉞最吉，你的技能有發揮的機會，而且受人賞識。",
+      "en": "Po Jun with Tian Kui or Tian Yue is the best case: your skills get their chance, and people value them.",
+      "source": {
+        "passage": "deep.遷移.破軍.3",
+        "quote": "主自己的技能有发挥的机会"
+      }
+    },
+    {
+      "id": "遷移.破軍.祿",
+      "role": "refine",
+      "when": {
+        "hua": "祿",
+        "star": "破軍",
+        "at": "same"
+      },
+      "text": "破軍化祿，你可以憑專門技能在異鄉立足。",
+      "en": "Po Jun in Abundance: your specialist skill lets you put down roots far from home.",
+      "source": {
+        "passage": "deep.遷移.破軍.4",
+        "quote": "则可藉专门技能在异乡立足"
+      }
+    },
+    {
+      "id": "遷移.破軍.無祿",
+      "role": "refine",
+      "when": {
+        "not": {
+          "hua": "祿",
+          "at": "sifang"
+        }
+      },
+      "text": "破軍沒有化祿，你不利在異地落地生根，卻利於在各地流動生財。",
+      "en": "Po Jun without Abundance: putting down roots elsewhere is not for you, but moving between places to earn is.",
+      "source": {
+        "passage": "deep.遷移.破軍.5",
+        "quote": "但却利流动各地以生财"
+      }
+    },
+    {
       "id": "遷移.破軍.權",
       "role": "refine",
       "when": {
@@ -19,7 +77,7 @@
       "text": "破軍化權，你宜在外地憑技藝為人服務。",
       "en": "Po Jun in Authority: away from home, serve others through a skill.",
       "source": {
-        "passage": "deep.遷移.破軍.2",
+        "passage": "deep.遷移.破軍.6",
         "quote": "宜在异乡凭技艺为人服务"
       }
     },
@@ -36,7 +94,7 @@
       "text": "同宮有火星或鈴星，你在外容易漂泊。",
       "en": "With Huo Xing or Ling Xing in the palace, you tend to drift when away from home.",
       "source": {
-        "passage": "deep.遷移.破軍.3",
+        "passage": "deep.遷移.破軍.7",
         "quote": "火铃主流离"
       }
     },
@@ -53,7 +111,7 @@
       "text": "同宮有擎羊或陀羅，你在外容易破耗。",
       "en": "With Qing Yang or Tuo Luo in the palace, you tend to lose money when away from home.",
       "source": {
-        "passage": "deep.遷移.破軍.3",
+        "passage": "deep.遷移.破軍.7",
         "quote": "羊陀主破败"
       }
     }

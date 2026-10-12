@@ -1,0 +1,61 @@
+{
+  "$note": "子女宮（2026-10-12）：天同.子女。《深造講義》下篇 宮垣論 子女宮 p.400–435。子女數目、生男生女、遲得子、流產、刑剋、夭折、傷殘、偏房外室所生、入贅、吸毒、弱智、生產手術一類斷語不用；天月、天刑、龍池鳳閣、華蓋、蜚廉等引擎冇嘅星不用；要分日夜生、廟陷嘅條文暫不用。原書子女宮兼論後輩、門生、親信下屬，呢部份照用。",
+  "topic": {
+    "id": "天同.子女",
+    "palace": "子女",
+    "stars": [
+      "天同"
+    ]
+  },
+  "rules": [
+    {
+      "id": "子女.天同.本",
+      "role": "base",
+      "when": {
+        "not": {
+          "hua": "忌",
+          "star": "巨門",
+          "at": [
+            "same",
+            "opp"
+          ]
+        }
+      },
+      "text": "天同在子女宮，你和子女感情容易溝通，和晚輩也一樣，只是對方稍嫌怕事。",
+      "en": "With Tian Tong in your Children Palace, feelings flow easily between you and your children, and with juniors too, though they can be a little timid.",
+      "source": {
+        "passage": "deep.子女.天同.9",
+        "quote": "主与子女感情易沟通"
+      }
+    },
+    {
+      "id": "子女.天同.祿",
+      "role": "refine",
+      "when": {
+        "all": [
+          {
+            "hua": "祿",
+            "star": "天同",
+            "at": "same"
+          },
+          {
+            "not": {
+              "branch": [
+                "辰",
+                "戌",
+                "巳",
+                "亥"
+              ]
+            }
+          }
+        ]
+      },
+      "text": "天同化祿，你的子女可以白手興家；追隨你的晚輩也容易自立門戶。",
+      "en": "Tian Tong in Abundance: your children can build their lives from nothing, and the juniors who follow you tend to strike out on their own.",
+      "source": {
+        "passage": "deep.子女.天同.10",
+        "quote": "主子女白手可以兴家"
+      }
+    }
+  ]
+}

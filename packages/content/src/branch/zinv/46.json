@@ -1,0 +1,47 @@
+{
+  "$note": "子女宮（2026-10-12）：天同太陰.子女。《深造講義》下篇 宮垣論 子女宮 p.400–435。子女數目、生男生女、遲得子、流產、刑剋、夭折、傷殘、偏房外室所生、入贅、吸毒、弱智、生產手術一類斷語不用；天月、天刑、龍池鳳閣、華蓋、蜚廉等引擎冇嘅星不用；要分日夜生、廟陷嘅條文暫不用。原書子女宮兼論後輩、門生、親信下屬，呢部份照用。",
+  "topic": {
+    "id": "天同太陰.子女",
+    "palace": "子女",
+    "stars": [
+      "天同",
+      "太陰"
+    ]
+  },
+  "rules": [
+    {
+      "id": "子女.同陰.昌曲",
+      "role": "refine",
+      "when": {
+        "star": [
+          "文昌",
+          "文曲"
+        ],
+        "at": "sifang"
+      },
+      "text": "天同太陰見文昌文曲，你的子女極聰明。",
+      "en": "Tian Tong–Tai Yin meets Wen Chang or Wen Qu: your children are very bright.",
+      "source": {
+        "passage": "deep.子女.天同.11",
+        "quote": "主子女极聪明"
+      }
+    },
+    {
+      "id": "子女.同陰.火鈴",
+      "role": "refine",
+      "when": {
+        "star": [
+          "火星",
+          "鈴星"
+        ],
+        "at": "same"
+      },
+      "text": "天同太陰與火星或鈴星同宮，你的子女要防聰明太露。",
+      "en": "Tian Tong–Tai Yin beside Huo Xing or Ling Xing: your children should take care not to show off their cleverness.",
+      "source": {
+        "passage": "deep.子女.天同.12",
+        "quote": "则防聪明太露"
+      }
+    }
+  ]
+}

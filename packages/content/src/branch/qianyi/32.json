@@ -9,6 +9,115 @@
   },
   "rules": [
     {
+      "id": "遷移.天相.本",
+      "role": "base",
+      "when": {
+        "not": {
+          "any": [
+            {
+              "star": "廉貞",
+              "at": [
+                "same",
+                "opp"
+              ]
+            },
+            {
+              "star": "武曲",
+              "at": "opp"
+            },
+            {
+              "jia": [
+                "擎羊",
+                "陀羅"
+              ]
+            },
+            {
+              "jia": [
+                "火星",
+                "鈴星"
+              ]
+            }
+          ]
+        }
+      },
+      "text": "天相在遷移宮，一般吉利，你在外容易接近有地位的人而得利。",
+      "en": "With Tian Xiang in your Travel Palace, things generally go well: away from home you come close to people of standing, and gain by it.",
+      "source": {
+        "passage": "deep.遷移.天相.1",
+        "quote": "主近贵得利"
+      }
+    },
+    {
+      "id": "遷移.天相.魁鉞",
+      "role": "refine",
+      "when": {
+        "any": [
+          {
+            "jia": [
+              "天魁",
+              "天鉞"
+            ]
+          },
+          {
+            "star": [
+              "天魁",
+              "天鉞"
+            ],
+            "at": "same"
+          }
+        ]
+      },
+      "text": "天相見天魁天鉞，你在外受人提拔；只是宜與人合作或做副手，不宜出鋒頭。",
+      "en": "Tian Xiang with Tian Kui or Tian Yue: people away from home lift you up, though partnering or playing second fiddle suits you better than the limelight.",
+      "source": {
+        "passage": "deep.遷移.天相.2",
+        "quote": "更主受人提拔"
+      }
+    },
+    {
+      "id": "遷移.天相.武破",
+      "role": "refine",
+      "when": {
+        "star": "武曲",
+        "at": "opp"
+      },
+      "text": "天相對著武曲破軍，遷移對你較為不利。",
+      "en": "Tian Xiang facing Wu Qu–Po Jun makes moving away less favourable for you.",
+      "source": {
+        "passage": "deep.遷移.天相.3",
+        "quote": "迁移较为不利"
+      }
+    },
+    {
+      "id": "遷移.天相.廉破",
+      "role": "refine",
+      "when": {
+        "star": "廉貞",
+        "at": "opp"
+      },
+      "text": "天相對著廉貞破軍，你在外地一般較孤立，遷移不算有利。",
+      "en": "Tian Xiang facing Lian Zhen–Po Jun: you tend to stand alone away from home, so moving is not really in your favour.",
+      "source": {
+        "passage": "deep.遷移.天相.4",
+        "quote": "故一般主在外地孤立"
+      }
+    },
+    {
+      "id": "遷移.天相.紫權",
+      "role": "refine",
+      "when": {
+        "hua": "權",
+        "star": "紫微",
+        "at": "opp"
+      },
+      "text": "命宮的紫微化權，你以離開出生地發展為宜。",
+      "en": "Zi Wei in Authority in your Life Palace: developing away from your birthplace suits you.",
+      "source": {
+        "passage": "deep.遷移.天相.5",
+        "quote": "则以离开出生地发展为宜"
+      }
+    },
+    {
       "id": "遷移.天相.吉夾",
       "role": "refine",
       "when": {
@@ -36,7 +145,7 @@
       "text": "天相被〔吉星〕相夾，你在外人緣好，容易得人好感。",
       "en": "Tian Xiang is flanked by 〔helper stars〕: you are well liked away from home and win people over easily.",
       "source": {
-        "passage": "deep.遷移.天相.1",
+        "passage": "deep.遷移.天相.6",
         "quote": "天相遇吉夹则多人缘"
       }
     },
@@ -62,7 +171,7 @@
       "text": "天相被〔煞星〕相夾，你在外容易孤立，少人照應。",
       "en": "Tian Xiang is flanked by 〔harsh stars〕: away from home you can end up isolated, with few to look out for you.",
       "source": {
-        "passage": "deep.遷移.天相.1",
+        "passage": "deep.遷移.天相.6",
         "quote": "遇凶夹则主孤立"
       }
     }

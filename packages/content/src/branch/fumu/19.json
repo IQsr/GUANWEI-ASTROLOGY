@@ -9,6 +9,34 @@
   },
   "rules": [
     {
+      "id": "父母.天相.吉",
+      "role": "refine",
+      "when": {
+        "any": [
+          {
+            "star": [
+              "左輔",
+              "右弼"
+            ],
+            "at": "sifang"
+          },
+          {
+            "star": [
+              "天魁",
+              "天鉞"
+            ],
+            "at": "sifang"
+          }
+        ]
+      },
+      "text": "天相見〔輔佐吉星〕，你和父母和美，也容易受上司提拔。",
+      "en": "Tian Xiang meets 〔helper stars〕: you get on well with your parents, and bosses tend to promote you.",
+      "source": {
+        "passage": "deep.父母.天相.1",
+        "quote": "亦主易受主管提拔"
+      }
+    },
+    {
       "id": "父母.天相.火鈴夾",
       "role": "refine",
       "when": {
@@ -20,7 +48,7 @@
       "text": "天相被火星鈴星相夾，你和父母住得遠，見面少。",
       "en": "Tian Xiang is flanked by Huo Xing and Ling Xing: you live far from your parents and see them little.",
       "source": {
-        "passage": "deep.父母.天相.1",
+        "passage": "deep.父母.天相.2",
         "quote": "主远离父母"
       }
     }

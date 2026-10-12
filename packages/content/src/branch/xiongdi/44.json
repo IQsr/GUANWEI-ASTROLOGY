@@ -1,0 +1,62 @@
+{
+  "$note": "兄弟宮（2026-10-12）：天機丑未.兄弟。《深造講義》下篇 宮垣論 兄弟宮 p.366–377。刑剋、死亡、流產、殘疾、弱智、亂倫、血光、異母各胞、兄弟排行一類斷語不用；「某星守兄弟宮之年應驗」嘅流年條文不用；天姚、天刑、桃花等引擎冇嘅星不用。原書兄弟宮兼論朋友、同事、合作夥伴，呢部份照用。",
+  "topic": {
+    "id": "天機丑未.兄弟",
+    "palace": "兄弟",
+    "stars": [
+      "天機"
+    ],
+    "branch": [
+      "丑",
+      "未"
+    ]
+  },
+  "rules": [
+    {
+      "id": "兄弟.天機丑未.合作",
+      "role": "base",
+      "text": "天機在丑未，你和不太熟的朋友合作，容易蒙受損失。",
+      "en": "With Tian Ji in Chou or Wei, partnering with people you do not know well tends to cost you.",
+      "source": {
+        "passage": "deep.兄弟.天機.10",
+        "quote": "亦主与不甚相熟的友人合作"
+      }
+    },
+    {
+      "id": "兄弟.天機丑未.吉",
+      "role": "refine",
+      "when": {
+        "any": [
+          {
+            "hua": [
+              "祿",
+              "權",
+              "科"
+            ],
+            "at": "same"
+          },
+          {
+            "star": [
+              "左輔",
+              "右弼"
+            ],
+            "at": "sifang"
+          },
+          {
+            "star": [
+              "天魁",
+              "天鉞"
+            ],
+            "at": "sifang"
+          }
+        ]
+      },
+      "text": "天機見〔吉〕，有兄弟朋友為你奔波出力。",
+      "en": "Tian Ji meets 〔good signs〕: siblings and friends go out of their way for you.",
+      "source": {
+        "passage": "deep.兄弟.天機.11",
+        "quote": "则主有兄弟友人为自己奔波"
+      }
+    }
+  ]
+}

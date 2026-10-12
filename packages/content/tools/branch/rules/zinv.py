@@ -153,6 +153,14 @@ T.append({'id': '武曲.子女', 'stars': ['武曲'], 'rules': [
 
 # ── 天同 ──
 T.append({'id': '天同巨門.子女', 'stars': ['天同', '巨門'], 'rules': [
+ R('子女.同巨.無煞', {'not': SHA},
+   '天同巨門沒有煞星激發，你的子女意志較弱。',
+   'Tian Tong–Ju Men without harsh stars to spur them: your children’s will is on the soft side.',
+   '喜煞曜激发，否则主子女意志薄弱，', '否则主子女意志薄弱'),
+ R('子女.同巨.祿', {'hua': '祿', 'at': 'same'},
+   '天同巨門化祿最好，只是你的子女剛毅不足。',
+   'Tian Tong–Ju Men in Abundance is the best case, though your children lack some grit.',
+   '丑未[天同巨门]，以化禄为宜，但却又主子女刚毅不足。', '但却又主子女刚毅不足'),
  R('子女.同巨.巨忌', H('忌', '巨門'),
    '巨門化忌，兩代之間不和，也容易與自己提拔的人反目。',
    'Ju Men in Hindrance: the generations clash, and you may fall out with people you promoted.',
@@ -364,6 +372,148 @@ T.append({'id': '破軍.子女', 'stars': ['破軍'], 'rules': [
 ]})
 
 # ── 唔限主星（通則，排最後） ──
+T.append({'id': '天機.子女', 'stars': ['天機'], 'rules': [
+ R('子女.天機.本', None,
+   '天機在子女宮，追隨你的下屬和晚輩不多，或者常常更換，關係不長久。',
+   'With Tian Ji in your Children Palace, the juniors who follow you are few, or keep changing, and the ties do not last.',
+   '在社会人际关系而言，亦主随自己的下属及晚辈稀少，或时时更换，关系不常。', '或时时更换，关系不常', 'base'),
+]})
+T.append({'id': '天機子午.子女', 'stars': ['天機'], 'branch': ['子', '午'], 'rules': [
+ R('子女.天機子午.吉', {'all': [{'hua': ['祿', '權', '科'], 'at': 'same'}, {'any': [FUZUO, KUIYUE]}, {'not': FIRE}]},
+   '天機見〔吉化〕又有吉星，你的子女宜培養成專業人才，例如計劃、管理、財務。',
+   'Tian Ji meets 〔good transformations〕 and helper stars: raise your children towards a profession, such as planning, management or finance.',
+   '天机在子午宫见吉化，又得吉曜扶持，而无火铃同躔毒：宜培养子女为专业人材，不宜从商。尤以计划、管理、财务等业为宜。', '宜培养子女为专业人材'),
+ R('子女.天機子午.忌', {'any': [H('忌', '天機'), H('忌', '巨門', 'opp')]},
+   '天機或巨門化忌，你要留意子女理想過高、不肯腳踏實地的毛病。',
+   'Tian Ji or Ju Men in Hindrance: watch for your children aiming too high and not keeping their feet on the ground.',
+   '天机在子午宫，巨门化忌，或天机化忌者，宜注意子女性格，须改善其过高理想，不肯脚踏实地的缺点，否则易自误。', '不肯脚踏实地的缺点'),
+]})
+T.append({'id': '天機太陰.子女', 'stars': ['天機', '太陰'], 'rules': [
+ R('子女.機陰.本', None,
+   '天機太陰在子女宮，你的子女心思較浮動不定。',
+   'With Tian Ji and Tai Yin in your Children Palace, your children’s minds tend to wander and shift.',
+   '一般主心思浮荡不定，化忌则内向，且精神紧张。古则主聪敏。', '一般主心思浮荡不定', 'base'),
+ R('子女.機陰.忌', {'any': [H('忌', '天機'), H('忌', '太陰')]},
+   '天機或太陰化忌，你的子女性格內向，精神容易緊張。',
+   'Tian Ji or Tai Yin in Hindrance: your children are inward-looking and prone to nervous tension.',
+   '一般主心思浮荡不定，化忌则内向，且精神紧张。古则主聪敏。', '化忌则内向'),
+ R('子女.機陰.吉', {'all': [{'any': [GOODHUA, FUZUO, KUIYUE]}, {'not': {'hua': '忌', 'at': 'same'}}]},
+   '天機太陰見〔吉〕，你的子女聰敏機靈，領悟力強。',
+   'Tian Ji–Tai Yin meets 〔good signs〕: your children are quick and bright.',
+   '一般主心思浮荡不定，化忌则内向，且精神紧张。古则主聪敏。', '古则主聪敏'),
+]})
+T.append({'id': '天機巨門.子女', 'stars': ['天機', '巨門'], 'rules': [
+ R('子女.機巨.本', None,
+   '天機巨門在子女宮，即使盤面吉，兩代之間也容易意見不合，和晚輩也有隔膜。',
+   'With Tian Ji and Ju Men in your Children Palace, even with good signs the generations tend to disagree, and there is distance with juniors too.',
+   '卯酉『天机巨门』纵使吉化，亦主两代参商。见煞忌则更甚。用来推算跟晚辈的关系，则主隔膜，', '纵使吉化，亦主两代参商', 'base'),
+ R('子女.機巨.祿', {'hua': '祿', 'at': 'same'},
+   '天機巨門見化祿，你和子女表面融和，內心仍有顧忌。',
+   'Tian Ji–Ju Men with Abundance: on the surface the generations get along, though reservations remain underneath.',
+   '必须见禄然后能改良性质，但只主彼此表面融和，内心仍多顾忌。', '但只主彼此表面融和'),
+]})
+T.append({'id': '太陽子午.子女', 'stars': ['太陽'], 'branch': ['子', '午'], 'rules': [
+ R('子女.太陽子午.輔佐', {'any': [FUZUO, KUIYUE]},
+   '太陽見〔輔佐吉星〕，你的子女有社會地位。',
+   'Tai Yang meets 〔helper stars〕: your children have standing in society.',
+   '子午太阳亦喜辅佐诸曜同会，子女数目可增加，且主子女有社会地位。', '且主子女有社会地位'),
+ R('子女.太陽子午.子忌', {'all': [{'branch': ['子']}, H('忌', '太陽')]},
+   '太陽在子化忌，你和子女之間有代溝，和晚輩、親信也一樣。',
+   'Tai Yang in Zi in Hindrance: there is a generation gap with your children, and with your juniors too.',
+   '子育太阳，化忌，主父子有代沟；午宫太阳，化禄，则须防子玄虚浮。与晚辈亲信关系亦可同断。', '主父子有代沟'),
+ R('子女.太陽子午.午祿', {'all': [{'branch': ['午']}, H('祿', '太陽')]},
+   '太陽在午化祿，你要留意子女流於虛浮。',
+   'Tai Yang in Wu in Abundance: watch that your children do not become showy and shallow.',
+   '子育太阳，化忌，主父子有代沟；午宫太阳，化禄，则须防子玄虚浮。与晚辈亲信关系亦可同断。', '则须防子玄虚浮'),
+]})
+T.append({'id': '太陽太陰.子女', 'stars': ['太陽', '太陰'], 'rules': [
+ R('子女.陰陽.昌曲', {'star': ['文昌', '文曲'], 'at': 'same'},
+   '太陽太陰與文昌或文曲同宮，你的子女聰明。',
+   'Tai Yang–Tai Yin beside Wen Chang or Wen Qu: your children are bright.',
+   '丑未[阴阳]与昌曲、龙池凤阁、天才等曜同度，主子女聪明。见魁钺则主受贵人提拔。', '主子女聪明。见魁钺'),
+ R('子女.陰陽.魁鉞', KUIYUE,
+   '太陽太陰見天魁天鉞，你的子女受貴人提拔。',
+   'Tai Yang–Tai Yin with Tian Kui or Tian Yue: your children are lifted up by influential people.',
+   '丑未[阴阳]与昌曲、龙池凤阁、天才等曜同度，主子女聪明。见魁钺则主受贵人提拔。', '见魁钺则主受贵人提拔'),
+ R('子女.陰陽.忌', {'any': [H('忌', '太陽'), H('忌', '太陰')]},
+   '太陽或太陰化忌，你的子女主觀強，人生也較多挫折。',
+   'Tai Yang or Tai Yin in Hindrance: your children are strong-minded, and meet more setbacks in life.',
+   '有一化忌，主子女主观横蛮，人生亦较多挫折。', '人生亦较多挫折'),
+]})
+T.append({'id': '太陽辰戌.子女', 'stars': ['太陽'], 'branch': ['辰', '戌'], 'rules': [
+ R('子女.太陽辰戌.巨吉', {'hua': ['祿', '權'], 'star': '巨門', 'at': 'opp'},
+   '對宮巨門化祿或化權，你的子女是開創事業的人才。',
+   'Ju Men opposite in Abundance or Authority: your children are made for founding ventures.',
+   '茂门化禄权，则子女为兴创事业人材。', '则子女为兴创事业人材'),
+]})
+T.append({'id': '天同.子女', 'stars': ['天同'], 'rules': [
+ R('子女.天同.本', {'not': H('忌', '巨門', ['same', 'opp'])},
+   '天同在子女宮，你和子女感情容易溝通，和晚輩也一樣，只是對方稍嫌怕事。',
+   'With Tian Tong in your Children Palace, feelings flow easily between you and your children, and with juniors too, though they can be a little timid.',
+   '天同在子女宫，主与子女感情易沟通。亦可持此论断跟晚辈的关系，唯嫌其怕事。', '主与子女感情易沟通', 'base'),
+ R('子女.天同.祿', {'all': [H('祿', '天同'), {'not': {'branch': ['辰', '戌', '巳', '亥']}}]},
+   '天同化祿，你的子女可以白手興家；追隨你的晚輩也容易自立門戶。',
+   'Tian Tong in Abundance: your children can build their lives from nothing, and the juniors who follow you tend to strike out on their own.',
+   '天同化禄，主子女白手可以兴家。但亦主追随自己的晚辈易脱离自己，另起炉灶。', '主子女白手可以兴家'),
+]})
+T.append({'id': '天同太陰.子女', 'stars': ['天同', '太陰'], 'rules': [
+ R('子女.同陰.昌曲', {'star': ['文昌', '文曲'], 'at': 'sifang'},
+   '天同太陰見文昌文曲，你的子女極聰明。',
+   'Tian Tong–Tai Yin meets Wen Chang or Wen Qu: your children are very bright.',
+   '子午[天同太阴]见昌曲、龙凤、天才，主子女极聪明。', '主子女极聪明'),
+ R('子女.同陰.火鈴', FIRE,
+   '天同太陰與火星或鈴星同宮，你的子女要防聰明太露。',
+   'Tian Tong–Tai Yin beside Huo Xing or Ling Xing: your children should take care not to show off their cleverness.',
+   '若躔火铃，则防聪明太露。', '则防聪明太露'),
+]})
+T.append({'id': '天同卯酉.子女', 'stars': ['天同'], 'branch': ['卯', '酉'], 'rules': [
+ R('子女.天同卯酉.理想', None,
+   '天同在卯酉，你的子女理想高而不夠實際。',
+   'With Tian Tong in Mao or You, your children aim high but can lack realism.',
+   '故性格较为好高鹜远，且理想高而少实际。', '且理想高而少实际', 'base'),
+]})
+T.append({'id': '巨門.子女', 'stars': ['巨門'], 'rules': [
+ R('子女.巨門.機', {'all': [{'star': '天機', 'at': 'opp'}, {'not': {'star': '天機', 'at': 'same'}}]},
+   '巨門對著天機，你和子女各有主見、各有心思。',
+   'Ju Men facing Tian Ji: you and your children each have your own views and your own plans.',
+   '巨门与天机同度或拱照，主两代各怀巳见、各有机心。', '主两代各怀巳见'),
+ R('子女.巨門.祿', LU,
+   '巨門得祿，你和子女之間的疏離會減少。',
+   'Ju Men with Lu: the distance between you and your children narrows.',
+   '巨门在子女宫得禄，即能减少其孤克之性。', '即能减少其孤克之性'),
+ R('子女.巨門辰戌.煞', {'all': [{'branch': ['辰', '戌']}, SHA]},
+   '巨門在辰戌見〔煞〕，兩代不和，和晚輩也容易恩將仇報。',
+   'Ju Men in Chen or Xu meets 〔harsh stars〕: the generations clash, and juniors may repay kindness badly.',
+   '辰戌巨门与煞忌空劫刑耗同会，则刑克甚重，且主两代不和。与晚辈更易恩反成仇。', '且主两代不和'),
+]})
+T.append({'id': '天相.子女', 'stars': ['天相'], 'rules': [
+ R('子女.天相.財蔭夾', {'jia': ['天梁', '祿存']},
+   '天相被祿存和天梁相夾，你和子女感情融洽。',
+   'Tian Xiang flanked by Lu Cun and Tian Liang: you and your children are close.',
+   '则荫夹印，主两代感情融洽；刑忌夹印，主两代感情冰炭。', '主两代感情融洽'),
+ R('子女.天相.卯酉煞', {'all': [{'branch': ['卯', '酉']}, SHA]},
+   '天相在卯酉見〔煞〕，你和子女的感情常常不夠融洽。',
+   'Tian Xiang in Mao or You meets 〔harsh stars〕: feelings between you and your children are often not easy.',
+   '卯酉天相，见煞，常主感情不能融洽。', '常主感情不能融洽'),
+ R('子女.天相.巳亥煞', {'all': [{'branch': ['巳', '亥']}, SHA]},
+   '天相在巳亥見〔煞〕，你的子女性格帶叛逆。',
+   'Tian Xiang in Si or Hai meets 〔harsh stars〕: your children have a rebellious streak.',
+   '巳亥天相，见煞，主子女有叛逆性格。', '主子女有叛逆性格'),
+]})
+T.append({'id': '太陰.子女', 'stars': ['太陰'], 'rules': [
+ R('子女.太陰.巳亥', {'branch': ['巳', '亥']},
+   '太陰在巳亥，你的子女容易為感情所困。',
+   'With Tai Yin in Si or Hai, your children are easily caught up in matters of the heart.',
+   '巳亥太阴主子女易受情困。', '巳亥太阴主子女易受情困'),
+ R('子女.太陰.辰戌昌曲', {'all': [{'branch': ['辰', '戌']}, {'star': ['文昌', '文曲'], 'at': 'same'}, {'star': ['文昌', '文曲'], 'at': 'opp'}]},
+   '太陰和對面的太陽各見文昌或文曲，你的子女聰明，將來顯達。',
+   'Tai Yin and the Tai Yang opposite each have Wen Chang or Wen Qu: your children are bright and rise high.',
+   '辰戌太阴对宫太阳，各躔文昌或文曲，则子女聪明而且贵显。', '则子女聪明而且贵显'),
+ R('子女.太陰.辰戌同忌', {'all': [{'branch': ['辰', '戌']}, H('忌', '天同', 'sifang')]},
+   '太陰在辰戌會天同化忌，你的子女年紀小小就離家。',
+   'Tai Yin in Chen or Xu meets Tian Tong in Hindrance: your children leave home young.',
+   '辰戌太阴亦不喜见天同化忌，主子女少小离家；', '主子女少小离家'),
+]})
 T.append({'id': '子女通則', 'stars': [], 'rules': [
  R('子女.通則.離', {'any': [FIRE, {'all': [{'star': '天馬', 'at': 'same'}, {'star': '祿存', 'at': 'same'}]}]},
    '子女宮見火鈴，或見天馬祿存，你的子女多離家遠行。',

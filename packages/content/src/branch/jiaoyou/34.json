@@ -1,23 +1,157 @@
 {
-  "$note": "僕役宮（2026-10-12）：僕役通則。《深造講義》下篇 宮垣論 僕役宮 p.516–530。官非、盜竊、色禍、受出賣、乘人之危一類斷語不用；天姚、陰煞、天巫、天刑等引擎冇嘅星不用；要分廟陷嘅條文暫不用。原書交友宮主下屬、晚輩，兼論朋友。",
+  "$note": "僕役宮（2026-10-12）：太陰.僕役。《深造講義》下篇 宮垣論 僕役宮 p.516–530。官非、盜竊、色禍、受出賣、乘人之危一類斷語不用；天姚、陰煞、天巫、天刑等引擎冇嘅星不用；要分廟陷嘅條文暫不用。原書交友宮主下屬、晚輩，兼論朋友。",
   "topic": {
-    "id": "僕役通則",
+    "id": "太陰.僕役",
     "palace": "僕役",
-    "stars": []
+    "stars": [
+      "太陰"
+    ]
   },
   "rules": [
     {
-      "id": "僕役.通則.祿存",
+      "id": "僕役.太陰.祿",
       "role": "refine",
       "when": {
-        "star": "祿存",
+        "all": [
+          {
+            "hua": "祿",
+            "star": "太陰",
+            "at": "same"
+          },
+          {
+            "not": {
+              "star": "天機",
+              "at": "same"
+            }
+          }
+        ]
+      },
+      "text": "太陰化祿，你因朋友的助力或下屬的扶持而進財。",
+      "en": "Tai Yin in Abundance: money comes to you through friends’ help or your staff’s support.",
+      "source": {
+        "passage": "deep.僕役.太陰.1",
+        "quote": "主因友人助力"
+      }
+    },
+    {
+      "id": "僕役.太陰.權",
+      "role": "refine",
+      "when": {
+        "hua": "權",
+        "star": "太陰",
         "at": "same"
       },
-      "text": "僕役宮有祿存，羊陀必照命宮，一般主你為人奔波。",
-      "en": "Lu Cun in the Friends Palace means Qing Yang and Tuo Luo fall on your Life Palace: you generally run about for others.",
+      "text": "太陰化權，你在財權方面從朋友、下屬那裡得益。",
+      "en": "Tai Yin in Authority: friends and staff help you where control of money is concerned.",
       "source": {
-        "passage": "deep.僕役.通則.3",
-        "quote": "故一般而言，主人奔波"
+        "passage": "deep.僕役.太陰.2",
+        "quote": "则主在财权方面得益"
+      }
+    },
+    {
+      "id": "僕役.太陰.科",
+      "role": "refine",
+      "when": {
+        "hua": "科",
+        "star": "太陰",
+        "at": "same"
+      },
+      "text": "太陰化科，你得到忠誠可靠的朋友或下屬。",
+      "en": "Tai Yin in Merit: you gain loyal, dependable friends or staff.",
+      "source": {
+        "passage": "deep.僕役.太陰.3",
+        "quote": "主得忠诚可靠之友人"
+      }
+    },
+    {
+      "id": "僕役.太陰.忌",
+      "role": "refine",
+      "when": {
+        "hua": "忌",
+        "star": "太陰",
+        "at": "same"
+      },
+      "text": "太陰化忌，你容易受朋友牽連而破財，或受影響去投資而損失。",
+      "en": "Tai Yin in Hindrance: friends can drag you into losses, or talk you into investments that go wrong.",
+      "source": {
+        "passage": "deep.僕役.太陰.4",
+        "quote": "则主受牵连而破财"
+      }
+    },
+    {
+      "id": "僕役.太陰.奔忙",
+      "role": "refine",
+      "when": {
+        "any": [
+          {
+            "star": [
+              "火星",
+              "鈴星"
+            ],
+            "at": "same"
+          },
+          {
+            "star": "祿存",
+            "at": "same"
+          }
+        ]
+      },
+      "text": "太陰與火星、鈴星或祿存同宮，你常為朋友或下屬的事奔忙。",
+      "en": "Tai Yin with Huo Xing, Ling Xing or Lu Cun: you are often busy running about for friends or staff.",
+      "source": {
+        "passage": "deep.僕役.太陰.5",
+        "quote": "皆主为友人或下属之事而奔忙"
+      }
+    },
+    {
+      "id": "僕役.太陰.吉煞",
+      "role": "refine",
+      "when": {
+        "all": [
+          {
+            "any": [
+              {
+                "hua": [
+                  "祿",
+                  "權",
+                  "科"
+                ],
+                "at": "same"
+              },
+              {
+                "star": [
+                  "左輔",
+                  "右弼"
+                ],
+                "at": "sifang"
+              },
+              {
+                "star": [
+                  "天魁",
+                  "天鉞"
+                ],
+                "at": "sifang"
+              }
+            ]
+          },
+          {
+            "star": [
+              "擎羊",
+              "陀羅",
+              "火星",
+              "鈴星",
+              "地空",
+              "地劫"
+            ],
+            "at": "same"
+          }
+        ]
+      },
+      "text": "太陰見〔吉〕又見〔煞〕，你得力的下屬常常更換，友誼也難長久。",
+      "en": "Tai Yin meets 〔good signs〕 but also 〔harsh stars〕: capable staff come and go, and friendships rarely last.",
+      "source": {
+        "passage": "deep.僕役.太陰.6",
+        "quote": "则主时时更换得力下属"
       }
     }
   ]

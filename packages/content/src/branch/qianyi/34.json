@@ -9,6 +9,79 @@
   },
   "rules": [
     {
+      "id": "遷移.七殺.本",
+      "role": "base",
+      "when": {
+        "not": {
+          "branch": [
+            "卯",
+            "酉"
+          ]
+        }
+      },
+      "text": "七殺在遷移宮，你在外一般有權，令人敬畏。",
+      "en": "With Qi Sha in your Travel Palace, you generally carry authority away from home, and people hold you in awe.",
+      "source": {
+        "passage": "deep.遷移.七殺.1",
+        "quote": "主在外有权，令人敬畏"
+      }
+    },
+    {
+      "id": "遷移.七殺.輔佐",
+      "role": "refine",
+      "when": {
+        "all": [
+          {
+            "any": [
+              {
+                "star": [
+                  "左輔",
+                  "右弼"
+                ],
+                "at": "sifang"
+              },
+              {
+                "star": [
+                  "天魁",
+                  "天鉞"
+                ],
+                "at": "sifang"
+              }
+            ]
+          },
+          {
+            "not": {
+              "star": "紫微",
+              "at": "same"
+            }
+          }
+        ]
+      },
+      "text": "七殺見〔輔佐吉星〕，你在外有地位，也多發展的機會。",
+      "en": "Qi Sha meets 〔helper stars〕: away from home you have standing and plenty of room to grow.",
+      "source": {
+        "passage": "deep.遷移.七殺.2",
+        "quote": "主在外有地位，且多发展的机会"
+      }
+    },
+    {
+      "id": "遷移.七殺.羊陀",
+      "role": "refine",
+      "when": {
+        "star": [
+          "擎羊",
+          "陀羅"
+        ],
+        "at": "same"
+      },
+      "text": "七殺與擎羊或陀羅同宮，你在外人緣較少，現代可從事工藝。",
+      "en": "Qi Sha with Qing Yang or Tuo Luo: you have fewer friends away from home; these days, skilled trades suit you.",
+      "source": {
+        "passage": "deep.遷移.七殺.3",
+        "quote": "否则少人缘"
+      }
+    },
+    {
       "id": "遷移.七殺.火",
       "role": "refine",
       "when": {
@@ -18,7 +91,7 @@
       "text": "同宮有火星，在外會突然發起來；只是易得易失，要見好就收。",
       "en": "With Huo Xing in the palace, sudden success comes away from home; but what comes easily goes easily, so know when to stop.",
       "source": {
-        "passage": "deep.遷移.七殺.1",
+        "passage": "deep.遷移.七殺.4",
         "quote": "唯易得易失"
       }
     },
@@ -32,7 +105,7 @@
       "text": "同宮有鈴星，你在外適合從事工藝、工業。",
       "en": "With Ling Xing in the palace, craft or industrial work suits you away from home.",
       "source": {
-        "passage": "deep.遷移.七殺.2",
+        "passage": "deep.遷移.七殺.5",
         "quote": "现代亦可从事工艺、工业"
       }
     },
@@ -49,7 +122,7 @@
       "text": "同宮有地空地劫，理想常超過現實，不守一業、不守一地；宜做工藝、工業，靠新意念開創。",
       "en": "With Di Kong or Di Jie in the palace, your ideals outrun reality, and you do not stay in one job or place; craft or industry suits you, where new ideas can build something.",
       "source": {
-        "passage": "deep.遷移.七殺.3",
+        "passage": "deep.遷移.七殺.6",
         "quote": "理想常超过现实"
       }
     }

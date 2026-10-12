@@ -1,0 +1,71 @@
+{
+  "$note": "子女宮（2026-10-12）：太陽太陰.子女。《深造講義》下篇 宮垣論 子女宮 p.400–435。子女數目、生男生女、遲得子、流產、刑剋、夭折、傷殘、偏房外室所生、入贅、吸毒、弱智、生產手術一類斷語不用；天月、天刑、龍池鳳閣、華蓋、蜚廉等引擎冇嘅星不用；要分日夜生、廟陷嘅條文暫不用。原書子女宮兼論後輩、門生、親信下屬，呢部份照用。",
+  "topic": {
+    "id": "太陽太陰.子女",
+    "palace": "子女",
+    "stars": [
+      "太陽",
+      "太陰"
+    ]
+  },
+  "rules": [
+    {
+      "id": "子女.陰陽.昌曲",
+      "role": "refine",
+      "when": {
+        "star": [
+          "文昌",
+          "文曲"
+        ],
+        "at": "same"
+      },
+      "text": "太陽太陰與文昌或文曲同宮，你的子女聰明。",
+      "en": "Tai Yang–Tai Yin beside Wen Chang or Wen Qu: your children are bright.",
+      "source": {
+        "passage": "deep.子女.太陽.9",
+        "quote": "主子女聪明。见魁钺"
+      }
+    },
+    {
+      "id": "子女.陰陽.魁鉞",
+      "role": "refine",
+      "when": {
+        "star": [
+          "天魁",
+          "天鉞"
+        ],
+        "at": "sifang"
+      },
+      "text": "太陽太陰見天魁天鉞，你的子女受貴人提拔。",
+      "en": "Tai Yang–Tai Yin with Tian Kui or Tian Yue: your children are lifted up by influential people.",
+      "source": {
+        "passage": "deep.子女.太陽.9",
+        "quote": "见魁钺则主受贵人提拔"
+      }
+    },
+    {
+      "id": "子女.陰陽.忌",
+      "role": "refine",
+      "when": {
+        "any": [
+          {
+            "hua": "忌",
+            "star": "太陽",
+            "at": "same"
+          },
+          {
+            "hua": "忌",
+            "star": "太陰",
+            "at": "same"
+          }
+        ]
+      },
+      "text": "太陽或太陰化忌，你的子女主觀強，人生也較多挫折。",
+      "en": "Tai Yang or Tai Yin in Hindrance: your children are strong-minded, and meet more setbacks in life.",
+      "source": {
+        "passage": "deep.子女.太陽.10",
+        "quote": "人生亦较多挫折"
+      }
+    }
+  ]
+}

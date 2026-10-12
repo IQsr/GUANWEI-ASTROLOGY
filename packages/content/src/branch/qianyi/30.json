@@ -9,6 +9,31 @@
   },
   "rules": [
     {
+      "id": "遷移.貪狼.本",
+      "role": "base",
+      "text": "貪狼在遷移宮，你在外應酬多，人際往來頻繁。",
+      "en": "With Tan Lang in your Travel Palace, there is a lot of socialising when you are away, with people coming and going.",
+      "source": {
+        "passage": "deep.遷移.貪狼.3",
+        "quote": "在外多应酬"
+      }
+    },
+    {
+      "id": "遷移.貪狼.忌",
+      "role": "refine",
+      "when": {
+        "hua": "忌",
+        "star": "貪狼",
+        "at": "same"
+      },
+      "text": "貪狼化忌，你在外常因無謂的應酬惹上麻煩、爭奪。",
+      "en": "Tan Lang in Hindrance: away from home, pointless socialising often drags you into trouble and rivalry.",
+      "source": {
+        "passage": "deep.遷移.貪狼.4",
+        "quote": "每因无谓应酬而招惹麻烦"
+      }
+    },
+    {
       "id": "遷移.貪狼.吉",
       "role": "refine",
       "when": {
@@ -33,7 +58,7 @@
       "text": "貪狼化祿化權，或會廉貞化祿，遷移在外精彩發達。",
       "en": "Tan Lang in Abundance or Authority, or meeting Lian Zhen in Abundance: life away from home flourishes.",
       "source": {
-        "passage": "deep.遷移.貪狼.3",
+        "passage": "deep.遷移.貪狼.5",
         "quote": "亦主迁移在外精彩发达"
       }
     },
@@ -62,7 +87,7 @@
       "text": "同宮有火星或鈴星，在外熱鬧，多是場面應酬，知心朋友難得。",
       "en": "With Huo Xing or Ling Xing in the palace, life away from home is lively but mostly social show; true friends are rare.",
       "source": {
-        "passage": "deep.遷移.貪狼.4",
+        "passage": "deep.遷移.貪狼.6",
         "quote": "知交难得"
       }
     },
@@ -79,7 +104,7 @@
       "text": "同宮有擎羊或陀羅，出門多是非困擾，往往由應酬遊宴而起。",
       "en": "With Qing Yang or Tuo Luo in the palace, trouble follows you away from home, usually out of socialising.",
       "source": {
-        "passage": "deep.遷移.貪狼.5",
+        "passage": "deep.遷移.貪狼.7",
         "quote": "且往往由应酬、游宴而致"
       }
     }

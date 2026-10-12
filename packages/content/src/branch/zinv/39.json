@@ -1,0 +1,89 @@
+{
+  "$note": "子女宮（2026-10-12）：天機子午.子女。《深造講義》下篇 宮垣論 子女宮 p.400–435。子女數目、生男生女、遲得子、流產、刑剋、夭折、傷殘、偏房外室所生、入贅、吸毒、弱智、生產手術一類斷語不用；天月、天刑、龍池鳳閣、華蓋、蜚廉等引擎冇嘅星不用；要分日夜生、廟陷嘅條文暫不用。原書子女宮兼論後輩、門生、親信下屬，呢部份照用。",
+  "topic": {
+    "id": "天機子午.子女",
+    "palace": "子女",
+    "stars": [
+      "天機"
+    ],
+    "branch": [
+      "子",
+      "午"
+    ]
+  },
+  "rules": [
+    {
+      "id": "子女.天機子午.吉",
+      "role": "refine",
+      "when": {
+        "all": [
+          {
+            "hua": [
+              "祿",
+              "權",
+              "科"
+            ],
+            "at": "same"
+          },
+          {
+            "any": [
+              {
+                "star": [
+                  "左輔",
+                  "右弼"
+                ],
+                "at": "sifang"
+              },
+              {
+                "star": [
+                  "天魁",
+                  "天鉞"
+                ],
+                "at": "sifang"
+              }
+            ]
+          },
+          {
+            "not": {
+              "star": [
+                "火星",
+                "鈴星"
+              ],
+              "at": "same"
+            }
+          }
+        ]
+      },
+      "text": "天機見〔吉化〕又有吉星，你的子女宜培養成專業人才，例如計劃、管理、財務。",
+      "en": "Tian Ji meets 〔good transformations〕 and helper stars: raise your children towards a profession, such as planning, management or finance.",
+      "source": {
+        "passage": "deep.子女.天機.5",
+        "quote": "宜培养子女为专业人材"
+      }
+    },
+    {
+      "id": "子女.天機子午.忌",
+      "role": "refine",
+      "when": {
+        "any": [
+          {
+            "hua": "忌",
+            "star": "天機",
+            "at": "same"
+          },
+          {
+            "hua": "忌",
+            "star": "巨門",
+            "at": "opp"
+          }
+        ]
+      },
+      "text": "天機或巨門化忌，你要留意子女理想過高、不肯腳踏實地的毛病。",
+      "en": "Tian Ji or Ju Men in Hindrance: watch for your children aiming too high and not keeping their feet on the ground.",
+      "source": {
+        "passage": "deep.子女.天機.6",
+        "quote": "不肯脚踏实地的缺点"
+      }
+    }
+  ]
+}

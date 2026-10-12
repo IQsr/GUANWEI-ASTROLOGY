@@ -9,6 +9,31 @@
   },
   "rules": [
     {
+      "id": "遷移.天府.本",
+      "role": "base",
+      "text": "天府在遷移宮，你在外一般安定，遷移之後可以穩步發展。",
+      "en": "With Tian Fu in your Travel Palace, life away from home is generally steady, and after a move you can build up step by step.",
+      "source": {
+        "passage": "deep.遷移.天府.2",
+        "quote": "一般安定"
+      }
+    },
+    {
+      "id": "遷移.天府.科",
+      "role": "refine",
+      "when": {
+        "hua": "科",
+        "star": "天府",
+        "at": "same"
+      },
+      "text": "天府化科，你在外特別受當地人尊敬。",
+      "en": "Tian Fu in Merit: people where you go hold you in particular respect.",
+      "source": {
+        "passage": "deep.遷移.天府.3",
+        "quote": "尤主受异乡人尊敬"
+      }
+    },
+    {
       "id": "遷移.天府.廉祿",
       "role": "refine",
       "when": {
@@ -19,7 +44,7 @@
       "text": "會廉貞化祿，你在外談笑用兵，求財順利。",
       "en": "Meeting Lian Zhen in Abundance, you handle things with ease away from home, and money comes smoothly.",
       "source": {
-        "passage": "deep.遷移.天府.2",
+        "passage": "deep.遷移.天府.4",
         "quote": "主谈笑用兵，求财顺利"
       }
     },
@@ -34,7 +59,7 @@
       "text": "天府會武曲化祿，你在外地經商大有利益。",
       "en": "Tian Fu meets Wu Qu in Abundance: doing business away from home is very profitable for you.",
       "source": {
-        "passage": "deep.遷移.天府.3",
+        "passage": "deep.遷移.天府.5",
         "quote": "天府与武曲化禄同会，经商大利"
       }
     },
@@ -48,7 +73,7 @@
       "text": "同宮有陀羅，你出門往往拖延，回鄉也容易受阻。",
       "en": "With Tuo Luo in the palace, trips drag on, and getting home can be held up.",
       "source": {
-        "passage": "deep.遷移.天府.4",
+        "passage": "deep.遷移.天府.6",
         "quote": "出门往往迁延，致回乡受阻"
       }
     },
@@ -92,7 +117,7 @@
       "text": "天府與紫微同宮又見〔吉〕，你出門近貴。",
       "en": "Tian Fu beside Zi Wei with 〔good signs〕 brings you close to influential people when away.",
       "source": {
-        "passage": "deep.遷移.天府.5",
+        "passage": "deep.遷移.天府.7",
         "quote": "主出门近贵"
       }
     },
@@ -136,7 +161,7 @@
       "text": "天府與武曲同宮又見〔吉〕，你在外經商可以致富。",
       "en": "Tian Fu beside Wu Qu with 〔good signs〕: trade away from home can make you rich.",
       "source": {
-        "passage": "deep.遷移.天府.5",
+        "passage": "deep.遷移.天府.7",
         "quote": "主经商可以致富"
       }
     }

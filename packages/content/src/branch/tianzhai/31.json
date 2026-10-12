@@ -9,6 +9,96 @@
   },
   "rules": [
     {
+      "id": "田宅.天相.武祿",
+      "role": "refine",
+      "when": {
+        "hua": "祿",
+        "star": "武曲",
+        "at": "sifang"
+      },
+      "text": "天相會到武曲化祿，你名下的產業豐厚。",
+      "en": "Tian Xiang meets Wu Qu in Abundance: your property is plentiful.",
+      "source": {
+        "passage": "deep.田宅.天相.1",
+        "quote": "主产业丰厚"
+      }
+    },
+    {
+      "id": "田宅.天相.武忌",
+      "role": "refine",
+      "when": {
+        "hua": "忌",
+        "star": "武曲",
+        "at": "sifang"
+      },
+      "text": "天相會武曲化忌，你的產業容易傾敗。",
+      "en": "Tian Xiang meets Wu Qu in Hindrance: your property is prone to collapse.",
+      "source": {
+        "passage": "deep.田宅.天相.2",
+        "quote": "若武曲化忌则主"
+      }
+    },
+    {
+      "id": "田宅.天相.廉祿",
+      "role": "refine",
+      "when": {
+        "hua": "祿",
+        "star": "廉貞",
+        "at": "sifang"
+      },
+      "text": "天相會廉貞化祿，你的家宅有喜慶。",
+      "en": "Tian Xiang meets Lian Zhen in Abundance: there is celebration in your home.",
+      "source": {
+        "passage": "deep.田宅.天相.3",
+        "quote": "或家宅有喜庆"
+      }
+    },
+    {
+      "id": "田宅.天相.煞忌",
+      "role": "refine",
+      "when": {
+        "any": [
+          {
+            "star": [
+              "擎羊",
+              "陀羅",
+              "火星",
+              "鈴星",
+              "地空",
+              "地劫"
+            ],
+            "at": "same"
+          },
+          {
+            "hua": "忌",
+            "at": "same"
+          }
+        ]
+      },
+      "text": "天相見〔煞忌〕，你容易因產業惹上是非糾紛。",
+      "en": "Tian Xiang meets 〔harsh stars or Hindrance〕: property tends to bring arguments and disputes.",
+      "source": {
+        "passage": "deep.田宅.天相.4",
+        "quote": "主因产业惹是非纠纷"
+      }
+    },
+    {
+      "id": "田宅.天相.魁鉞夾",
+      "role": "refine",
+      "when": {
+        "jia": [
+          "天魁",
+          "天鉞"
+        ]
+      },
+      "text": "天魁天鉞夾著天相，你的住所靠近有地位的人家。",
+      "en": "Tian Kui and Tian Yue flank Tian Xiang: you live close to people of standing.",
+      "source": {
+        "passage": "deep.田宅.天相.5",
+        "quote": "皆主住宅近贵"
+      }
+    },
+    {
       "id": "田宅.天相.祿",
       "role": "refine",
       "when": {
@@ -26,7 +116,7 @@
       "text": "天相見祿，你有能力靠自己置下產業。",
       "en": "Tian Xiang meets Lu: you are able to buy property by your own means.",
       "source": {
-        "passage": "deep.田宅.天相.1",
+        "passage": "deep.田宅.天相.6",
         "quote": "然后始主可以自置"
       }
     },
@@ -70,7 +160,7 @@
       "text": "天相見祿又見〔左輔右弼等吉星〕，你的產業豐盈。",
       "en": "Tian Xiang meets Lu and 〔helper stars〕: your property is ample.",
       "source": {
-        "passage": "deep.田宅.天相.1",
+        "passage": "deep.田宅.天相.6",
         "quote": "则产业丰盈"
       }
     },
@@ -86,7 +176,7 @@
       "text": "火星鈴星相夾，你的家宅不安，住處喧鬧。",
       "en": "Flanked by Huo Xing and Ling Xing, home is unsettled and noisy.",
       "source": {
-        "passage": "deep.田宅.天相.2",
+        "passage": "deep.田宅.天相.7",
         "quote": "主家宅不安，住宅喧闹"
       }
     },
@@ -112,7 +202,7 @@
       "text": "文昌文曲或左輔右弼相夾，你的住宅華麗。",
       "en": "Flanked by Wen Chang and Wen Qu, or Zuo Fu and You Bi, your home is handsome.",
       "source": {
-        "passage": "deep.田宅.天相.3",
+        "passage": "deep.田宅.天相.8",
         "quote": "则住宅华丽"
       }
     }

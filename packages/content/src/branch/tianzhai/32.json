@@ -9,6 +9,25 @@
   },
   "rules": [
     {
+      "id": "田宅.天梁.煞",
+      "role": "refine",
+      "when": {
+        "star": [
+          "擎羊",
+          "陀羅",
+          "火星",
+          "鈴星"
+        ],
+        "at": "same"
+      },
+      "text": "天梁見〔煞星〕，你的家宅不安，任職的機構裡也多是非。",
+      "en": "Tian Liang meets 〔harsh stars〕: home is unsettled, and there is friction at work.",
+      "source": {
+        "passage": "deep.田宅.天梁.1",
+        "quote": "在机构内亦多是非"
+      }
+    },
+    {
       "id": "田宅.天梁.祿",
       "role": "limit",
       "when": {
@@ -19,7 +38,7 @@
       "text": "天梁化祿，你在機構內人緣容易不佳。",
       "en": "Tian Liang in Abundance: you can find yourself less popular at work.",
       "source": {
-        "passage": "deep.田宅.天梁.1",
+        "passage": "deep.田宅.天梁.2",
         "quote": "易致人缘不佳"
       }
     },
@@ -36,7 +55,7 @@
       "text": "天梁與天機同宮或相對，你多搬遷，住處常變動。",
       "en": "Tian Liang is beside or facing Tian Ji: you move house often.",
       "source": {
-        "passage": "deep.田宅.天梁.2",
+        "passage": "deep.田宅.天梁.3",
         "quote": "天梁天机，主多迂动"
       }
     },
@@ -61,7 +80,7 @@
       "text": "同宮有天馬或火鈴，你容易漂盪；就算有祖業也難享。",
       "en": "With Tian Ma, Huo Xing or Ling Xing in the palace, you drift, and even family property is hard to enjoy.",
       "source": {
-        "passage": "deep.田宅.天梁.3",
+        "passage": "deep.田宅.天梁.4",
         "quote": "则主飘荡"
       }
     },
@@ -118,7 +137,7 @@
       "text": "天梁是蔭星，在田宅宮，你有祖業父業。",
       "en": "Tian Liang is the sheltering star: in your Property Palace it points to family property.",
       "source": {
-        "passage": "deep.田宅.天梁.4",
+        "passage": "deep.田宅.天梁.5",
         "quote": "主必有祖业父业"
       }
     }

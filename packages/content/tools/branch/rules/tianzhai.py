@@ -253,6 +253,14 @@ T.append({'id': '天府.田宅', 'stars': ['天府'], 'rules': [
 
 # ── 太陰 ──
 T.append({'id': '太陰.田宅', 'stars': ['太陰'], 'rules': [
+ R('田宅.太陰.陽', {'all': [{'star': '太陽', 'at': 'opp'}, {'not': {'star': '太陽', 'at': 'same'}}]},
+   '太陰與太陽相對，也算「日月合璧」：你的家道興隆，任職的機構也興旺。',
+   'Tai Yin facing Tai Yang, what the old books call sun and moon joined: your household prospers, and so does the organisation you work for.',
+   '太阴亦喜与太阳同度或拱照，古人说：[日月合壁]田宅，家道与兴隆。]此意亦可用于服务机构。', '此意亦可用于服务机构'),
+ R('田宅.太陰.機', {'star': '天機', 'at': 'same'},
+   '太陰與天機同宮，你多遷移搬動，住處常有變化。',
+   'Tai Yin beside Tian Ji: you move house often.',
+   '太阴天同主得花木之利，太阴天机则主迁移，', '太阴天机则主迁移'),
  R('田宅.太陰.輔佐', {'all': [{'any': [{'star': ['左輔', '右弼'], 'at': 'same'}, {'star': '祿存', 'at': 'same'}]}, {'not': {'hua': '忌', 'star': '太陽', 'at': 'same'}}]},
    '太陰與左輔右弼或祿存同宮，你承接祖業而興盛。',
    'Tai Yin with Zuo Fu, You Bi or Lu Cun in the palace: you inherit family property and it prospers.',
@@ -299,6 +307,26 @@ T.append({'id': '巨門.田宅', 'stars': ['巨門'], 'rules': [
 
 # ── 天相 ──
 T.append({'id': '天相.田宅', 'stars': ['天相'], 'rules': [
+ R('田宅.天相.武祿', H('祿', '武曲', 'sifang'),
+   '天相會到武曲化祿，你名下的產業豐厚。',
+   'Tian Xiang meets Wu Qu in Abundance: your property is plentiful.',
+   '天相喜会武曲化禄，主产业丰厚。', '主产业丰厚'),
+ R('田宅.天相.武忌', H('忌', '武曲', 'sifang'),
+   '天相會武曲化忌，你的產業容易傾敗。',
+   'Tian Xiang meets Wu Qu in Hindrance: your property is prone to collapse.',
+   '天相喜会武曲化禄，主产业丰厚。若武曲化忌则主倾效。', '若武曲化忌则主'),
+ R('田宅.天相.廉祿', H('祿', '廉貞', 'sifang'),
+   '天相會廉貞化祿，你的家宅有喜慶。',
+   'Tian Xiang meets Lian Zhen in Abundance: there is celebration in your home.',
+   '廉贞化禄者，必因事事而置业，或家宅有喜庆，', '或家宅有喜庆'),
+ R('田宅.天相.煞忌', {'any': [SHA, {'hua': '忌', 'at': 'same'}]},
+   '天相見〔煞忌〕，你容易因產業惹上是非糾紛。',
+   'Tian Xiang meets 〔harsh stars or Hindrance〕: property tends to bring arguments and disputes.',
+   '天相与煞忌刑同会，主因产业惹是非纠纷，煞重则主破荡倾败。', '主因产业惹是非纠纷'),
+ R('田宅.天相.魁鉞夾', {'jia': ['天魁', '天鉞']},
+   '天魁天鉞夾著天相，你的住所靠近有地位的人家。',
+   'Tian Kui and Tian Yue flank Tian Xiang: you live close to people of standing.',
+   '天相为禄权科夹，魁铖夹，皆主住宅近贵。', '皆主住宅近贵'),
  R('田宅.天相.祿', LU,
    '天相見祿，你有能力靠自己置下產業。',
    'Tian Xiang meets Lu: you are able to buy property by your own means.',
@@ -319,6 +347,10 @@ T.append({'id': '天相.田宅', 'stars': ['天相'], 'rules': [
 
 # ── 天梁 ──
 T.append({'id': '天梁.田宅', 'stars': ['天梁'], 'rules': [
+ R('田宅.天梁.煞', {'star': ['擎羊', '陀羅', '火星', '鈴星'], 'at': 'same'},
+   '天梁見〔煞星〕，你的家宅不安，任職的機構裡也多是非。',
+   'Tian Liang meets 〔harsh stars〕: home is unsettled, and there is friction at work.',
+   '天梁见四煞，家宅不安。在机构内亦多是非，', '在机构内亦多是非'),
  R('田宅.天梁.祿', H('祿', '天梁'),
    '天梁化祿，你在機構內人緣容易不佳。',
    'Tian Liang in Abundance: you can find yourself less popular at work.',
@@ -339,6 +371,18 @@ T.append({'id': '天梁.田宅', 'stars': ['天梁'], 'rules': [
 
 # ── 七殺 ──
 T.append({'id': '七殺.田宅', 'stars': ['七殺'], 'rules': [
+ R('田宅.七殺.寅申', {'branch': ['寅', '申']},
+   '七殺在寅申，你在任職的機構裡容易受人提拔，擔任主管。',
+   'With Qi Sha in Yin or Shen, you tend to be promoted at work into a managing role.',
+   '寅申宫t杀，更主受人提拔而致任主管之职。', '更主受人提拔而致任主管之职'),
+ R('田宅.七殺.火羊', {'star': ['火星', '擎羊'], 'at': 'same'},
+   '七殺與火星或擎羊同宮，你要到中晚年才能置產。',
+   'Qi Sha with Huo Xing or Qing Yang: you only come to own property in mid or later life.',
+   '七杀与火羊同度者，主中晚年始能置产，', '主中晚年始能置产'),
+ R('田宅.七殺.陀鈴', {'star': ['陀羅', '鈴星'], 'at': 'same'},
+   '七殺與陀羅或鈴星同宮，你的家宅不安，在任職的機構也容易被人暗中算計。',
+   'Qi Sha with Tuo Luo or Ling Xing: home is unsettled, and at work people may scheme behind your back.',
+   '若与陀罗铃星度，则家宅不安?在服务机构权内亦多阴小暗算。', '则家宅不安'),
  R('田宅.七殺.祿', LU,
    '七殺得祿，你雖無祖產父業，卻能自置。',
    'Qi Sha meeting Lu: no family property, but you buy your own.',
@@ -351,6 +395,14 @@ T.append({'id': '七殺.田宅', 'stars': ['七殺'], 'rules': [
 
 # ── 破軍 ──
 T.append({'id': '破軍.田宅', 'stars': ['破軍'], 'rules': [
+ R('田宅.破軍.廉祿', H('祿', '廉貞', 'sifang'),
+   '破軍會到廉貞化祿，你名下的產業增加。',
+   'Po Jun meets Lian Zhen in Abundance: your property grows.',
+   '破军与廉贞同度及会照，喜廉贞化禄，则产业增加，若化忌，则主耗散。', '则产业增加'),
+ R('田宅.破軍.廉忌', H('忌', '廉貞', 'sifang'),
+   '破軍會廉貞化忌，你的產業容易耗散。',
+   'Po Jun meets Lian Zhen in Hindrance: your property tends to drain away.',
+   '破军与廉贞同度及会照，喜廉贞化禄，则产业增加，若化忌，则主耗散。', '若化忌，则主耗散'),
  R('田宅.破軍.祿權', {'all': [{'hua': ['祿', '權'], 'star': '破軍', 'at': 'same'}, {'any': [FUZUO, KUIYUE]}]},
    '破軍化祿化權又見〔吉星〕，舊宅拆建翻新，也會轉到更好的工作環境。',
    'Po Jun in Abundance or Authority with 〔helper stars〕: an old house is rebuilt, and you move to a better workplace.',

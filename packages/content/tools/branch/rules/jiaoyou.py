@@ -153,6 +153,10 @@ T.append({'id': '太陽太陰.僕役', 'stars': ['太陽', '太陰'], 'rules': [
    '(唯在丑宫，[太阴太阳]同度，仍主交游广阔。这是由于太阴的缘故。)', '仍主交游广阔', 'base'),
 ]})
 T.append({'id': '太陽.僕役', 'stars': ['太陽'], 'rules': [
+ R('僕役.太陽.火鈴', FIRE,
+   '太陽與火星或鈴星同宮，你和朋友之間多爭執。',
+   'Tai Yang with Huo Xing or Ling Xing: there is a good deal of arguing among your friends.',
+   '与火铃同度，主多争。', '与火铃同度，主多争'),
  R('僕役.太陽.朝拱', {'all': [FUZUO, KUIYUE]},
    '太陽得眾星拱照，你可以結交有地位的朋友。',
    'Tai Yang is surrounded by helper stars: you can make friends with people of standing.',
@@ -265,6 +269,18 @@ T.append({'id': '廉貞.僕役', 'stars': ['廉貞'], 'rules': [
 
 # ── 天府 ──
 T.append({'id': '天府.僕役', 'stars': ['天府'], 'rules': [
+ R('僕役.天府.本', {'not': {'any': [SHA, {'hua': '忌', 'at': 'same'}]}},
+   '天府在僕役宮，你擇友謹慎，所以多交益友。',
+   'With Tian Fu in your Friends Palace, you choose friends carefully, so most of them are good for you.',
+   '天府守交友宫，主择交谨慎，。故多交益友。', '主择交谨慎', 'base'),
+ R('僕役.天府.輔佐', {'any': [FUZUO, KUIYUE]},
+   '天府見〔輔佐吉星〕，你可以得到知交，下屬也得力。',
+   'Tian Fu meets 〔helper stars〕: you find true friends, and your staff are capable.',
+   '辅弼，然后邕主可得知交，且主下属得力。', '且主下属得力'),
+ R('僕役.天府.空劫', KONG,
+   '天府與地空地劫同宮，你容易交上損友而破耗。',
+   'Tian Fu with Di Kong or Di Jie: you can fall in with friends who cost you.',
+   '天府与空劫刑耗同会，则主交损友以致破耗，及主手下人偷盗侵吞。', '则主交损友以致破耗'),
  R('僕役.天府.科', H('科', '天府'),
    '天府化科，你的朋友和下屬都忠厚誠信。',
    'Tian Fu in Merit: friends and staff alike are honest and trustworthy.',
@@ -309,6 +325,18 @@ T.append({'id': '天相.僕役', 'stars': ['天相'], 'rules': [
 
 # ── 天梁 ──
 T.append({'id': '天梁.僕役', 'stars': ['天梁'], 'rules': [
+ R('僕役.天梁.輔佐', {'any': [FUZUO, KUIYUE]},
+   '天梁見〔輔佐吉星〕，你交遊廣闊，下屬眾多。',
+   'Tian Liang meets 〔helper stars〕: your circle is wide and your staff are many.',
+   '天梁为孤克之星，除非见辅佐吉曜，否则不主交游广阔，下属众多。', '除非见辅佐吉曜'),
+ R('僕役.天梁.祿', {'any': [H('祿', '天梁'), {'star': '祿存', 'at': 'same'}]},
+   '天梁化祿或與祿存同宮，你的朋友、下屬容易有私心。',
+   'Tian Liang in Abundance or with Lu Cun: your friends and staff tend to look after themselves.',
+   '天梁化禄，或禄存同度，则主友人、下属有利私之心。', '则主友人、下属有利私之心'),
+ R('僕役.天梁.煞', {'star': ['擎羊', '陀羅', '火星', '鈴星'], 'at': 'sifang'},
+   '天梁會到〔煞星〕，你容易因朋友或下屬生出是非糾紛。',
+   'Tian Liang meets 〔harsh stars〕: friends or staff bring arguments and disputes.',
+   '天梁与四煞会照，因友人或下属而起是非纠纷；', '因友人或下属而起是非纠纷'),
  R('僕役.天梁.吉', {'any': [H('權', '天梁'), H('科', '天梁')]},
    '天梁化權化科，結交到正直無私、有義氣的朋友和下屬。',
    'Tian Liang in Authority or Merit: you attract upright, selfless and loyal friends and staff.',
@@ -350,6 +378,32 @@ T.append({'id': '破軍.僕役', 'stars': ['破軍'], 'rules': [
 ]})
 
 # ── 唔限主星（通則，排最後） ──
+T.append({'id': '太陰.僕役', 'stars': ['太陰'], 'rules': [
+ R('僕役.太陰.祿', {'all': [H('祿', '太陰'), {'not': {'star': '天機', 'at': 'same'}}]},
+   '太陰化祿，你因朋友的助力或下屬的扶持而進財。',
+   'Tai Yin in Abundance: money comes to you through friends’ help or your staff’s support.',
+   '太阴化禄，主因友人助力，或下属匡扶而进财；', '主因友人助力'),
+ R('僕役.太陰.權', H('權', '太陰'),
+   '太陰化權，你在財權方面從朋友、下屬那裡得益。',
+   'Tai Yin in Authority: friends and staff help you where control of money is concerned.',
+   '化权，则主在财权方面得益；', '则主在财权方面得益'),
+ R('僕役.太陰.科', H('科', '太陰'),
+   '太陰化科，你得到忠誠可靠的朋友或下屬。',
+   'Tai Yin in Merit: you gain loyal, dependable friends or staff.',
+   '化科，主得忠诚可靠之友人贫下属。', '主得忠诚可靠之友人'),
+ R('僕役.太陰.忌', H('忌', '太陰'),
+   '太陰化忌，你容易受朋友牽連而破財，或受影響去投資而損失。',
+   'Tai Yin in Hindrance: friends can drag you into losses, or talk you into investments that go wrong.',
+   '若化忌星，则主受牵连而破财，亦主受友人影响而投资损失，或主下属破耗。', '则主受牵连而破财'),
+ R('僕役.太陰.奔忙', {'any': [FIRE, {'star': '祿存', 'at': 'same'}]},
+   '太陰與火星、鈴星或祿存同宮，你常為朋友或下屬的事奔忙。',
+   'Tai Yin with Huo Xing, Ling Xing or Lu Cun: you are often busy running about for friends or staff.',
+   '太阴与火铃同度，或与禄存同度，皆主为友人或下属之事而奔忙。', '皆主为友人或下属之事而奔忙'),
+ R('僕役.太陰.吉煞', {'all': [GOOD, SHA]},
+   '太陰見〔吉〕又見〔煞〕，你得力的下屬常常更換，友誼也難長久。',
+   'Tai Yin meets 〔good signs〕 but also 〔harsh stars〕: capable staff come and go, and friendships rarely last.',
+   '太阴见吉化、吉曜，但又同时见煞，则主时时更换得力下属，与友人之友谊亦难耐久。', '则主时时更换得力下属'),
+]})
 T.append({'id': '僕役通則', 'stars': [], 'rules': [
  R('僕役.通則.祿存', {'star': '祿存', 'at': 'same'},
    '僕役宮有祿存，羊陀必照命宮，一般主你為人奔波。',

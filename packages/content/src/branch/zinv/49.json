@@ -1,0 +1,90 @@
+{
+  "$note": "子女宮（2026-10-12）：天相.子女。《深造講義》下篇 宮垣論 子女宮 p.400–435。子女數目、生男生女、遲得子、流產、刑剋、夭折、傷殘、偏房外室所生、入贅、吸毒、弱智、生產手術一類斷語不用；天月、天刑、龍池鳳閣、華蓋、蜚廉等引擎冇嘅星不用；要分日夜生、廟陷嘅條文暫不用。原書子女宮兼論後輩、門生、親信下屬，呢部份照用。",
+  "topic": {
+    "id": "天相.子女",
+    "palace": "子女",
+    "stars": [
+      "天相"
+    ]
+  },
+  "rules": [
+    {
+      "id": "子女.天相.財蔭夾",
+      "role": "refine",
+      "when": {
+        "jia": [
+          "天梁",
+          "祿存"
+        ]
+      },
+      "text": "天相被祿存和天梁相夾，你和子女感情融洽。",
+      "en": "Tian Xiang flanked by Lu Cun and Tian Liang: you and your children are close.",
+      "source": {
+        "passage": "deep.子女.天相.1",
+        "quote": "主两代感情融洽"
+      }
+    },
+    {
+      "id": "子女.天相.卯酉煞",
+      "role": "refine",
+      "when": {
+        "all": [
+          {
+            "branch": [
+              "卯",
+              "酉"
+            ]
+          },
+          {
+            "star": [
+              "擎羊",
+              "陀羅",
+              "火星",
+              "鈴星",
+              "地空",
+              "地劫"
+            ],
+            "at": "same"
+          }
+        ]
+      },
+      "text": "天相在卯酉見〔煞〕，你和子女的感情常常不夠融洽。",
+      "en": "Tian Xiang in Mao or You meets 〔harsh stars〕: feelings between you and your children are often not easy.",
+      "source": {
+        "passage": "deep.子女.天相.2",
+        "quote": "常主感情不能融洽"
+      }
+    },
+    {
+      "id": "子女.天相.巳亥煞",
+      "role": "refine",
+      "when": {
+        "all": [
+          {
+            "branch": [
+              "巳",
+              "亥"
+            ]
+          },
+          {
+            "star": [
+              "擎羊",
+              "陀羅",
+              "火星",
+              "鈴星",
+              "地空",
+              "地劫"
+            ],
+            "at": "same"
+          }
+        ]
+      },
+      "text": "天相在巳亥見〔煞〕，你的子女性格帶叛逆。",
+      "en": "Tian Xiang in Si or Hai meets 〔harsh stars〕: your children have a rebellious streak.",
+      "source": {
+        "passage": "deep.子女.天相.3",
+        "quote": "主子女有叛逆性格"
+      }
+    }
+  ]
+}

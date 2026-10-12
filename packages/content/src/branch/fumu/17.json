@@ -9,6 +9,24 @@
   },
   "rules": [
     {
+      "id": "父母.貪狼.武祿",
+      "role": "refine",
+      "when": {
+        "hua": "祿",
+        "star": "武曲",
+        "at": [
+          "same",
+          "opp"
+        ]
+      },
+      "text": "貪狼會武曲化祿，你父親的事業出色。",
+      "en": "Tan Lang meets Wu Qu in Abundance: your father does well in his work.",
+      "source": {
+        "passage": "deep.父母.貪狼.1",
+        "quote": "则父业峥嵘"
+      }
+    },
+    {
       "id": "父母.貪狼.忌",
       "role": "limit",
       "when": {
@@ -19,7 +37,7 @@
       "text": "貪狼化忌，你早年就離開父母，自己生活。",
       "en": "Tan Lang in Hindrance: you leave your parents early and live on your own.",
       "source": {
-        "passage": "deep.父母.貪狼.1",
+        "passage": "deep.父母.貪狼.2",
         "quote": "主早年离开父母"
       }
     }

@@ -9,6 +9,82 @@
   },
   "rules": [
     {
+      "id": "僕役.天府.本",
+      "role": "base",
+      "when": {
+        "not": {
+          "any": [
+            {
+              "star": [
+                "擎羊",
+                "陀羅",
+                "火星",
+                "鈴星",
+                "地空",
+                "地劫"
+              ],
+              "at": "same"
+            },
+            {
+              "hua": "忌",
+              "at": "same"
+            }
+          ]
+        }
+      },
+      "text": "天府在僕役宮，你擇友謹慎，所以多交益友。",
+      "en": "With Tian Fu in your Friends Palace, you choose friends carefully, so most of them are good for you.",
+      "source": {
+        "passage": "deep.僕役.天府.1",
+        "quote": "主择交谨慎"
+      }
+    },
+    {
+      "id": "僕役.天府.輔佐",
+      "role": "refine",
+      "when": {
+        "any": [
+          {
+            "star": [
+              "左輔",
+              "右弼"
+            ],
+            "at": "sifang"
+          },
+          {
+            "star": [
+              "天魁",
+              "天鉞"
+            ],
+            "at": "sifang"
+          }
+        ]
+      },
+      "text": "天府見〔輔佐吉星〕，你可以得到知交，下屬也得力。",
+      "en": "Tian Fu meets 〔helper stars〕: you find true friends, and your staff are capable.",
+      "source": {
+        "passage": "deep.僕役.天府.2",
+        "quote": "且主下属得力"
+      }
+    },
+    {
+      "id": "僕役.天府.空劫",
+      "role": "refine",
+      "when": {
+        "star": [
+          "地空",
+          "地劫"
+        ],
+        "at": "same"
+      },
+      "text": "天府與地空地劫同宮，你容易交上損友而破耗。",
+      "en": "Tian Fu with Di Kong or Di Jie: you can fall in with friends who cost you.",
+      "source": {
+        "passage": "deep.僕役.天府.3",
+        "quote": "则主交损友以致破耗"
+      }
+    },
+    {
       "id": "僕役.天府.科",
       "role": "refine",
       "when": {
@@ -19,7 +95,7 @@
       "text": "天府化科，你的朋友和下屬都忠厚誠信。",
       "en": "Tian Fu in Merit: friends and staff alike are honest and trustworthy.",
       "source": {
-        "passage": "deep.僕役.天府.1",
+        "passage": "deep.僕役.天府.4",
         "quote": "则友人及下属皆忠厚诚信"
       }
     }

@@ -9,6 +9,37 @@
   },
   "rules": [
     {
+      "id": "父母.天府.祿",
+      "role": "refine",
+      "when": {
+        "all": [
+          {
+            "hua": "祿",
+            "at": [
+              "same",
+              "opp"
+            ]
+          },
+          {
+            "not": {
+              "hua": "祿",
+              "star": "武曲",
+              "at": [
+                "same",
+                "opp"
+              ]
+            }
+          }
+        ]
+      },
+      "text": "天府見化祿，你父母的財力對你有幫助。",
+      "en": "Tian Fu with Abundance: your parents’ means are a help to you.",
+      "source": {
+        "passage": "deep.父母.天府.1",
+        "quote": "天府与化禄同度或对拱"
+      }
+    },
+    {
       "id": "父母.天府.武祿",
       "role": "refine",
       "when": {

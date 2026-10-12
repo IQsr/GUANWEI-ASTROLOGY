@@ -1,0 +1,87 @@
+{
+  "$note": "子女宮（2026-10-12）：太陰.子女。《深造講義》下篇 宮垣論 子女宮 p.400–435。子女數目、生男生女、遲得子、流產、刑剋、夭折、傷殘、偏房外室所生、入贅、吸毒、弱智、生產手術一類斷語不用；天月、天刑、龍池鳳閣、華蓋、蜚廉等引擎冇嘅星不用；要分日夜生、廟陷嘅條文暫不用。原書子女宮兼論後輩、門生、親信下屬，呢部份照用。",
+  "topic": {
+    "id": "太陰.子女",
+    "palace": "子女",
+    "stars": [
+      "太陰"
+    ]
+  },
+  "rules": [
+    {
+      "id": "子女.太陰.巳亥",
+      "role": "refine",
+      "when": {
+        "branch": [
+          "巳",
+          "亥"
+        ]
+      },
+      "text": "太陰在巳亥，你的子女容易為感情所困。",
+      "en": "With Tai Yin in Si or Hai, your children are easily caught up in matters of the heart.",
+      "source": {
+        "passage": "deep.子女.太陰.1",
+        "quote": "巳亥太阴主子女易受情困"
+      }
+    },
+    {
+      "id": "子女.太陰.辰戌昌曲",
+      "role": "refine",
+      "when": {
+        "all": [
+          {
+            "branch": [
+              "辰",
+              "戌"
+            ]
+          },
+          {
+            "star": [
+              "文昌",
+              "文曲"
+            ],
+            "at": "same"
+          },
+          {
+            "star": [
+              "文昌",
+              "文曲"
+            ],
+            "at": "opp"
+          }
+        ]
+      },
+      "text": "太陰和對面的太陽各見文昌或文曲，你的子女聰明，將來顯達。",
+      "en": "Tai Yin and the Tai Yang opposite each have Wen Chang or Wen Qu: your children are bright and rise high.",
+      "source": {
+        "passage": "deep.子女.太陰.2",
+        "quote": "则子女聪明而且贵显"
+      }
+    },
+    {
+      "id": "子女.太陰.辰戌同忌",
+      "role": "refine",
+      "when": {
+        "all": [
+          {
+            "branch": [
+              "辰",
+              "戌"
+            ]
+          },
+          {
+            "hua": "忌",
+            "star": "天同",
+            "at": "sifang"
+          }
+        ]
+      },
+      "text": "太陰在辰戌會天同化忌，你的子女年紀小小就離家。",
+      "en": "Tai Yin in Chen or Xu meets Tian Tong in Hindrance: your children leave home young.",
+      "source": {
+        "passage": "deep.子女.太陰.3",
+        "quote": "主子女少小离家"
+      }
+    }
+  ]
+}

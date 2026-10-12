@@ -1,0 +1,89 @@
+{
+  "$note": "子女宮（2026-10-12）：巨門.子女。《深造講義》下篇 宮垣論 子女宮 p.400–435。子女數目、生男生女、遲得子、流產、刑剋、夭折、傷殘、偏房外室所生、入贅、吸毒、弱智、生產手術一類斷語不用；天月、天刑、龍池鳳閣、華蓋、蜚廉等引擎冇嘅星不用；要分日夜生、廟陷嘅條文暫不用。原書子女宮兼論後輩、門生、親信下屬，呢部份照用。",
+  "topic": {
+    "id": "巨門.子女",
+    "palace": "子女",
+    "stars": [
+      "巨門"
+    ]
+  },
+  "rules": [
+    {
+      "id": "子女.巨門.機",
+      "role": "refine",
+      "when": {
+        "all": [
+          {
+            "star": "天機",
+            "at": "opp"
+          },
+          {
+            "not": {
+              "star": "天機",
+              "at": "same"
+            }
+          }
+        ]
+      },
+      "text": "巨門對著天機，你和子女各有主見、各有心思。",
+      "en": "Ju Men facing Tian Ji: you and your children each have your own views and your own plans.",
+      "source": {
+        "passage": "deep.子女.巨門.2",
+        "quote": "主两代各怀巳见"
+      }
+    },
+    {
+      "id": "子女.巨門.祿",
+      "role": "refine",
+      "when": {
+        "any": [
+          {
+            "hua": "祿",
+            "at": "sifang"
+          },
+          {
+            "star": "祿存",
+            "at": "sifang"
+          }
+        ]
+      },
+      "text": "巨門得祿，你和子女之間的疏離會減少。",
+      "en": "Ju Men with Lu: the distance between you and your children narrows.",
+      "source": {
+        "passage": "deep.子女.巨門.3",
+        "quote": "即能减少其孤克之性"
+      }
+    },
+    {
+      "id": "子女.巨門辰戌.煞",
+      "role": "refine",
+      "when": {
+        "all": [
+          {
+            "branch": [
+              "辰",
+              "戌"
+            ]
+          },
+          {
+            "star": [
+              "擎羊",
+              "陀羅",
+              "火星",
+              "鈴星",
+              "地空",
+              "地劫"
+            ],
+            "at": "same"
+          }
+        ]
+      },
+      "text": "巨門在辰戌見〔煞〕，兩代不和，和晚輩也容易恩將仇報。",
+      "en": "Ju Men in Chen or Xu meets 〔harsh stars〕: the generations clash, and juniors may repay kindness badly.",
+      "source": {
+        "passage": "deep.子女.巨門.4",
+        "quote": "且主两代不和"
+      }
+    }
+  ]
+}

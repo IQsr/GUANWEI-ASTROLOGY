@@ -9,6 +9,7 @@ PAIR = {'any': [{'all': [{'star': '左輔', 'at': 'sifang'}, {'star': '右弼', 
                 {'all': [{'star': '文昌', 'at': 'sifang'}, {'star': '文曲', 'at': 'sifang'}]},
                 {'all': [{'star': '天魁', 'at': 'sifang'}, {'star': '天鉞', 'at': 'sifang'}]}]}
 LUMA = {'all': [{'star': '天馬', 'at': ['same', 'opp']}, {'any': [{'star': '祿存', 'at': ['same', 'opp']}, {'hua': '祿', 'at': ['same', 'opp']}]}]}
+def H(hua, star, at='same'): return {'hua': hua, 'star': star, 'at': at}
 def R(id, when, text, en, src, quote, role='refine'):
     return {'id': id, 'when': when, 'text': text, 'en': en, 'src': src, 'quote': quote, 'role': role}
 
@@ -68,6 +69,14 @@ T.append({'id': '紫微七殺.夫妻', 'stars': ['紫微', '七殺'], 'rules': [
 
 # ── 天機 ──
 T.append({'id': '天機子午.夫妻', 'stars': ['天機'], 'branch': ['子', '午'], 'rules': [
+ R('夫妻.天機子午.吉', {'all': [{'hua': ['祿', '權', '科'], 'at': 'sifang'}, {'not': SHA}]},
+   '天機會到〔吉化〕，你和伴侶可以白頭偕老。',
+   'Tian Ji meets 〔good transformations〕: you and your partner can grow old together.',
+   '若见禄权科会，则夫妻可以白头。', '则夫妻可以白头'),
+ R('夫妻.天機子午.煞', SHA,
+   '天機在子午見〔煞〕，你和伴侶容易貌合神離。',
+   'Tian Ji in Zi or Wu meets 〔harsh stars〕: you and your partner can look close while drifting apart inside.',
+   '子午天机独坐，对宫巨门，稍带煞曜即己主夫妻貌合神离。', '即己主夫妻貌合神离'),
  R('夫妻.天機子午.同祿', {'hua': '祿', 'star': '天同', 'at': 'sifang'},
    '你的夫妻宮天機會天同化祿，夫妻可以白手興家。',
    'Tian Ji in your Partnership Palace meets Tian Tong in Abundance: together you can build a household from nothing.',
@@ -280,6 +289,10 @@ T.append({'id': '廉貞天府.夫妻', 'stars': ['廉貞', '天府'], 'rules': [
    '辰戌宫[廉贞天府]，结构较为稳定，多主不和，不主克离。', '结构较为稳定', 'base'),
 ]})
 T.append({'id': '廉貞.夫妻', 'stars': ['廉貞'], 'rules': [
+ R('夫妻.廉貞.年齡', None,
+   '廉貞在夫妻宮，與年齡相差較大的伴侶，你比較合得來。',
+   'With Lian Zhen in your Partnership Palace, a partner with a wider age gap tends to suit you better.',
+   '廉贞在夫妻宫，男命宜配年少之妻，女命宜配年长之夫。年龄差距由六年至十二年不等，甚至可在十二年以上。', '年龄差距由六年至十二年不等', 'base'),
  R('夫妻.廉貞.火', {'star': '火星', 'at': 'same'},
    '同宮有火星，即使盤面吉，也容易因環境而兩地分隔。',
    'With Huo Xing in the palace, even with good signs, circumstances may keep you and your partner in different places.',
@@ -452,4 +465,20 @@ T.append({'id': '破軍.夫妻', 'stars': ['破軍'], 'rules': [
    '見擎羊陀羅，婚前或婚後，兩人容易有一段時間分開。',
    'With Qing Yang or Tuo Luo, the two of you are likely to spend a stretch apart, before or after marriage.',
    '破军为羊陀会照，主婚前或婚后，双方曾一度分离。', '主婚前或婚后，双方曾一度分离', 'limit'),
+]})
+T.append({'id': '天機太陰.夫妻', 'stars': ['天機', '太陰'], 'rules': [
+ R('夫妻.機陰.情緒', None,
+   '天機太陰在夫妻宮，你們的關係容易受情緒左右，情緒太重時婚姻就會起波折。',
+   'With Tian Ji and Tai Yin in your Partnership Palace, the relationship is easily swayed by mood, and when feelings run too high the marriage hits rough water.',
+   '寅申宫[机月]，若情绪化过甚，则易旨起婚姻波折，如配偶移情别恋之类。', '若情绪化过甚', 'base'),
+ R('夫妻.機陰.同忌', H('忌', '天同', 'sifang'),
+   '天機太陰會天同化忌，你的伴侶容易過份敏感，婚姻較易起風波。',
+   'Tian Ji–Tai Yin meets Tian Tong in Hindrance: your partner can be oversensitive, and the marriage more easily runs into storms.',
+   '寅申宫[机月]会天同化忌，易空劫、阴煞、天虚、大耗等曜，主配偶心志卑弱，或过份敏感，由是亦易发生婚姻风波。', '或过份敏感'),
+]})
+T.append({'id': '天同.夫妻', 'stars': ['天同'], 'rules': [
+ R('夫妻.天同.年齡', None,
+   '天同在夫妻宮，與年齡相差較大的伴侶，你比較合得來。',
+   'With Tian Tong in your Partnership Palace, a partner with a wider age gap tends to suit you better.',
+   '凡天同在夫妻宫，皆主配年少之妻，或年长之夫，以年龄相差八年为准，然后始可成结发。', '以年龄相差八年为准', 'base'),
 ]})

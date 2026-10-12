@@ -13,6 +13,62 @@
   },
   "rules": [
     {
+      "id": "夫妻.天機子午.吉",
+      "role": "refine",
+      "when": {
+        "all": [
+          {
+            "hua": [
+              "祿",
+              "權",
+              "科"
+            ],
+            "at": "sifang"
+          },
+          {
+            "not": {
+              "star": [
+                "擎羊",
+                "陀羅",
+                "火星",
+                "鈴星",
+                "地空",
+                "地劫"
+              ],
+              "at": "same"
+            }
+          }
+        ]
+      },
+      "text": "天機會到〔吉化〕，你和伴侶可以白頭偕老。",
+      "en": "Tian Ji meets 〔good transformations〕: you and your partner can grow old together.",
+      "source": {
+        "passage": "deep.夫妻.天機.1",
+        "quote": "则夫妻可以白头"
+      }
+    },
+    {
+      "id": "夫妻.天機子午.煞",
+      "role": "refine",
+      "when": {
+        "star": [
+          "擎羊",
+          "陀羅",
+          "火星",
+          "鈴星",
+          "地空",
+          "地劫"
+        ],
+        "at": "same"
+      },
+      "text": "天機在子午見〔煞〕，你和伴侶容易貌合神離。",
+      "en": "Tian Ji in Zi or Wu meets 〔harsh stars〕: you and your partner can look close while drifting apart inside.",
+      "source": {
+        "passage": "deep.夫妻.天機.2",
+        "quote": "即己主夫妻貌合神离"
+      }
+    },
+    {
       "id": "夫妻.天機子午.同祿",
       "role": "refine",
       "when": {
@@ -23,7 +79,7 @@
       "text": "你的夫妻宮天機會天同化祿，夫妻可以白手興家。",
       "en": "Tian Ji in your Partnership Palace meets Tian Tong in Abundance: together you can build a household from nothing.",
       "source": {
-        "passage": "deep.夫妻.天機.1",
+        "passage": "deep.夫妻.天機.3",
         "quote": "主夫妇白手兴家"
       }
     }

@@ -167,6 +167,10 @@ T.append({'id': '廉貞.父母', 'stars': ['廉貞'], 'rules': [
 
 # ── 天府 ──
 T.append({'id': '天府.父母', 'stars': ['天府'], 'rules': [
+ R('父母.天府.祿', {'all': [{'hua': '祿', 'at': ['same', 'opp']}, {'not': H('祿', '武曲', ['same', 'opp'])}]},
+   '天府見化祿，你父母的財力對你有幫助。',
+   'Tian Fu with Abundance: your parents’ means are a help to you.',
+   '天府与化禄同度或对拱，以武曲化禄最宜，则父母财荫颇厚。', '天府与化禄同度或对拱'),
  R('父母.天府.武祿', H('祿', '武曲', ['same', 'opp']),
    '天府會武曲化祿，你從父母那裡得到的財力支持頗厚。',
    'Tian Fu meets Wu Qu in Abundance: the financial support you get from your parents is generous.',
@@ -195,6 +199,10 @@ T.append({'id': '太陰.父母', 'stars': ['太陰'], 'rules': [
 
 # ── 貪狼 ──
 T.append({'id': '貪狼.父母', 'stars': ['貪狼'], 'rules': [
+ R('父母.貪狼.武祿', H('祿', '武曲', ['same', 'opp']),
+   '貪狼會武曲化祿，你父親的事業出色。',
+   'Tan Lang meets Wu Qu in Abundance: your father does well in his work.',
+   '贪狼若与武曲化禄相拱，则父业峥嵘，见辅佐诸曜尤吉。', '则父业峥嵘'),
  R('父母.貪狼.忌', H('忌', '貪狼'),
    '貪狼化忌，你早年就離開父母，自己生活。',
    'Tan Lang in Hindrance: you leave your parents early and live on your own.',
@@ -203,6 +211,10 @@ T.append({'id': '貪狼.父母', 'stars': ['貪狼'], 'rules': [
 
 # ── 巨門 ──
 T.append({'id': '巨門.父母', 'stars': ['巨門'], 'rules': [
+ R('父母.巨門.煞忌', {'any': [{'star': ['擎羊', '陀羅', '火星', '鈴星', '地空', '地劫'], 'at': 'same'}, {'hua': '忌', 'at': 'same'}]},
+   '巨門在父母宮又見〔煞忌〕，你和父母之間難免不和。',
+   'Ju Men in your Parents Palace meets 〔harsh stars or Hindrance〕: some friction with your parents is hard to avoid.',
+   '否则纵使化禄，亦仅主父业丰厚，刑克或不和仍难避免。', '或不和仍难避免'),
  R('父母.巨門.陽', {'all': [{'star': '太陽', 'at': ['same', 'opp']}, {'not': {'hua': ['祿', '權', '科'], 'star': ['太陽', '巨門'], 'at': ['same', 'opp']}}]},
    '巨門與太陽同宮或相對，你和父母一般兩代不和。',
    'With Ju Men beside or facing Tai Yang, the generations generally do not get on.',
@@ -215,6 +227,10 @@ T.append({'id': '巨門.父母', 'stars': ['巨門'], 'rules': [
 
 # ── 天相 ──
 T.append({'id': '天相.父母', 'stars': ['天相'], 'rules': [
+ R('父母.天相.吉', {'any': [FUZUO, KUIYUE]},
+   '天相見〔輔佐吉星〕，你和父母和美，也容易受上司提拔。',
+   'Tian Xiang meets 〔helper stars〕: you get on well with your parents, and bosses tend to promote you.',
+   '天相最喜见魁钺、左右，亦喜见天官、天福、天贵、解神、天德、龙德、天巫、长生诸曜，则与父母和美。亦主易受主管提拔。', '亦主易受主管提拔'),
  R('父母.天相.火鈴夾', {'jia': ['火星', '鈴星']},
    '天相被火星鈴星相夾，你和父母住得遠，見面少。',
    'Tian Xiang is flanked by Huo Xing and Ling Xing: you live far from your parents and see them little.',
