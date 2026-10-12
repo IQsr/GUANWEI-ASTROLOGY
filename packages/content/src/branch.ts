@@ -41,6 +41,7 @@ type Cond =
   | { alone: true }
   | { with: string }
   | { lean: string }
+  | { bright: 'high' | 'low'; star: '太陽' | '太陰' }
   | { palace: string; is: 'good' | 'bad' }
   | { palace: string; star: string | string[] }
   | { all: Cond[] }
@@ -57,6 +58,8 @@ const Cond: z.ZodType<Cond> = z.lazy(() =>
     z.object({ with: z.string() }).strict(),
     /* 骨架章點票嘅偏向（xingxi.ts `leanOf`）；「未定」= 兩邊都冇訊號 */
     z.object({ lean: z.string() }).strict(),
+    /* 太陽太陰光熱（2026-10-12，用家同意）：只用引擎表同原書表都一致嘅兩頭，見 `BRIGHT` */
+    z.object({ bright: z.enum(['high', 'low']), star: z.enum(['太陽', '太陰']) }).strict(),
     /* 宮位連動（2026-10-12）：另一個宮（本命宮名）吉／不吉，或者有某粒星 —— 見 `palaceState()` */
     z.object({ palace: z.string(), is: z.enum(['good', 'bad']) }).strict(),
     z.object({ palace: z.string(), star: one(z.string()) }).strict(),
@@ -225,7 +228,7 @@ function evidence(chart: Chart, p: Palace, focus: string, c: Cond, seat: Palace[
   if ('all' in c) return c.all.flatMap((x) => evidence(chart, p, focus, x, seat));
   if ('any' in c) return c.any.flatMap((x) => evidence(chart, p, focus, x, seat));
   if ('jia' in c) return [...c.jia];
-  if ('palace' in c || !('at' in c)) return [];
+  if ('palace' in c || 'bright' in c || !('at' in c)) return [];
   const qs = looked(chart, p, c.at);
   if ('hua' in c) {
     const stars = c.star ? list(c.star) : null;
@@ -312,12 +315,29 @@ export function slotPattern(template: string, anchored = true): RegExp {
   return new RegExp(anchored ? `^${body}$` : body);
 }
 
+/*
+ * 太陽太陰嘅入廟／落陷（2026-10-12）。廟陷表一直唔用，因為引擎表（packages/ziwei rules/brightness.json）
+ * 同原書 p.327 表有 61 格唔同（docs/b5-zhongzhou.md）。呢度只取兩邊都同意嘅兩頭：
+ *   太陽 high（廟旺）寅卯辰巳午；low（陷／不）子丑戌亥
+ *   太陰 high（廟旺）子丑酉戌亥；low（陷／不）卯辰巳午 —— 辰：書表寫閑，但書內例盤當陷，引擎亦陷
+ * 中間嗰幾檔（得利平閑）同兩表打交嘅格（太陰寅）唔計。要分日生夜生嘅條文仍然唔用。
+ */
+export const BRIGHT: Record<'太陽' | '太陰', Record<'high' | 'low', string[]>> = {
+  太陽: { high: ['寅', '卯', '辰', '巳', '午'], low: ['子', '丑', '戌', '亥'] },
+  太陰: { high: ['子', '丑', '酉', '戌', '亥'], low: ['卯', '辰', '巳', '午'] },
+};
+
 /** `seat`：主星坐嘅地支（借星命宮係對宮；其餘就係本宮） */
 function holds(chart: Chart, p: Palace, focus: string, c: Cond, seat: Palace['branch'] = p.branch): boolean {
   if ('all' in c) return c.all.every((x) => holds(chart, p, focus, x, seat));
   if ('any' in c) return c.any.some((x) => holds(chart, p, focus, x, seat));
   if ('not' in c) return !holds(chart, p, focus, c.not, seat);
   if ('lean' in c) return leanState(chart) === c.lean;
+  if ('bright' in c) {
+    /* 星真正坐嘅宮（唔係借入嘅） */
+    const at = chart.palaces.find((q) => q.stars.some((x) => x.name === c.star));
+    return Boolean(at && BRIGHT[c.star][c.bright].includes(at.branch));
+  }
   if ('palace' in c && 'is' in c) return palaceState(chart, c.palace) === c.is;
   if ('palace' in c) {
     const q = palaceView(chart, c.palace);

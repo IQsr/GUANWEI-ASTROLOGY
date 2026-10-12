@@ -298,6 +298,12 @@ T.append({'id': '破軍.父母', 'stars': ['破軍'], 'rules': [
 ]})
 
 # ── 唔限主星（通則，排最後） ──
+T.append({'id': '太陽.父母', 'stars': ['太陽'], 'rules': [
+ R('父母.太陽.廟吉', {'all': [{'bright': 'high', 'star': '太陽'}, {'any': [GOODHUA, FUZUO, KUIYUE]}]},
+   '太陽光熱充足又見〔吉〕，你童年很受父母愛護。',
+   'Tai Yang shines strongly and meets 〔good signs〕: your parents cherished you as a child.',
+   '太阳在父母宫，入庙者，无克；更见吉，童年受父母爱护。', '童年受父母爱护'),
+]})
 T.append({'id': '父母通則', 'stars': [], 'rules': [
  R('父母.通則.吉化', {'hua': ['祿', '權', '科'], 'at': 'same'},
    '父母宮見祿權科，很多時候講的是上司的特質：一般宜在大機構服務，或者上司身居要職。',

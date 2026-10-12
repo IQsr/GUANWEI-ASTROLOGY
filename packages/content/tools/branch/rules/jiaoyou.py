@@ -153,6 +153,14 @@ T.append({'id': '太陽太陰.僕役', 'stars': ['太陽', '太陰'], 'rules': [
    '(唯在丑宫，[太阴太阳]同度，仍主交游广阔。这是由于太阴的缘故。)', '仍主交游广阔', 'base'),
 ]})
 T.append({'id': '太陽.僕役', 'stars': ['太陽'], 'rules': [
+ R('僕役.太陽.廟', {'all': [{'bright': 'high', 'star': '太陽'}, {'not': {'star': '太陰', 'at': 'same'}}]},
+   '太陽光熱充足，你交遊廣闊，認識的人多。',
+   'Tai Yang shines strongly: your circle is wide and you know many people.',
+   '太阳虽主动，但唯入庙然后始主交游广阔；', '但唯入庙然后始主交游广阔'),
+ R('僕役.太陽.陷', {'all': [{'bright': 'low', 'star': '太陽'}, {'not': {'star': '太陰', 'at': 'same'}}, {'not': {'hua': '祿', 'star': '太陽', 'at': 'same'}}]},
+   '太陽光熱不足，你相識的人不多，也談不上深交；對朋友、下屬施恩，往往得不到回報。',
+   'Tai Yang shines weakly: you know few people well, and kindness to friends or staff often goes unrewarded.',
+   '若落陷地，则相识者固不多，亦谈不上交情(唯在丑宫，[太阴太阳]同度，仍主交游广阔。这是由于太阴的缘故。)太阳居交友宫，落陷，即使不见煞忌，亦主施恩无功，', '亦主施恩无功'),
  R('僕役.太陽.火鈴', FIRE,
    '太陽與火星或鈴星同宮，你和朋友之間多爭執。',
    'Tai Yang with Huo Xing or Ling Xing: there is a good deal of arguing among your friends.',

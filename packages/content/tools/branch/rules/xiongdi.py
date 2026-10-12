@@ -295,6 +295,14 @@ T.append({'id': '天府.兄弟', 'stars': ['天府'], 'rules': [
 
 # ── 太陰 ──
 T.append({'id': '太陰.兄弟', 'stars': ['太陰'], 'rules': [
+ R('兄弟.太陰.吉', {'all': [{'any': [GOODHUA, FUZUO, KUIYUE]}, {'not': SHA}]},
+   '太陰見〔吉〕，你和兄弟姊妹相處和美，彼此融洽。',
+   'Tai Yin meets 〔good signs〕: you and your siblings get on well.',
+   '太阴守兄弟宫，日生人值之，虽入庙亦不和美；见煞主刑克、不和；见吉曜始和美，但亦有缺憾。', '见吉曜始和美'),
+ R('兄弟.太陰.煞', SHA,
+   '太陰見〔煞〕，你和兄弟姊妹之間多不和。',
+   'Tai Yin meets 〔harsh stars〕: there is often friction between you and your siblings.',
+   '太阴守兄弟宫，日生人值之，虽入庙亦不和美；见煞主刑克、不和；见吉曜始和美，但亦有缺憾。', '见煞主刑克、不和'),
  R('兄弟.太陰.忌', {'all': [H('忌', '太陰'), {'not': SHA}]},
    '太陰化忌而無煞，雖然會受兄弟或夥伴所累，但多是無心之失。',
    'Tai Yin in Hindrance without harsh stars: siblings or partners may cause you trouble, but usually without meaning to.',

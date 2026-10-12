@@ -9,6 +9,107 @@
   },
   "rules": [
     {
+      "id": "田宅.太陰.廟",
+      "role": "refine",
+      "when": {
+        "bright": "high",
+        "star": "太陰"
+      },
+      "text": "太陰光亮，太陰主富，對你的家宅有利。",
+      "en": "Tai Yin shines brightly, and Tai Yin stands for wealth: it favours your home and property.",
+      "source": {
+        "passage": "deep.田宅.太陰.1",
+        "quote": "故入庙则利宅"
+      }
+    },
+    {
+      "id": "田宅.太陰.廟吉",
+      "role": "refine",
+      "when": {
+        "all": [
+          {
+            "bright": "high",
+            "star": "太陰"
+          },
+          {
+            "any": [
+              {
+                "hua": [
+                  "祿",
+                  "權",
+                  "科"
+                ],
+                "at": "same"
+              },
+              {
+                "star": [
+                  "左輔",
+                  "右弼"
+                ],
+                "at": "sifang"
+              },
+              {
+                "star": [
+                  "天魁",
+                  "天鉞"
+                ],
+                "at": "sifang"
+              }
+            ]
+          }
+        ]
+      },
+      "text": "太陰光亮又見〔吉〕，你的住宅環境寧靜，住得安穩。",
+      "en": "Tai Yin shines brightly and meets 〔good signs〕: your home is peaceful.",
+      "source": {
+        "passage": "deep.田宅.太陰.2",
+        "quote": "太阴入庙会吉，主住宅宁静"
+      }
+    },
+    {
+      "id": "田宅.太陰.陷",
+      "role": "refine",
+      "when": {
+        "bright": "low",
+        "star": "太陰"
+      },
+      "text": "太陰光弱，即使盤面吉，你的產業也有盈有虧。",
+      "en": "Tai Yin shines weakly: even with good signs, your property has its gains and losses.",
+      "source": {
+        "passage": "deep.田宅.太陰.3",
+        "quote": "虽吉亦有盈亏"
+      }
+    },
+    {
+      "id": "田宅.太陰.陷煞",
+      "role": "refine",
+      "when": {
+        "all": [
+          {
+            "bright": "low",
+            "star": "太陰"
+          },
+          {
+            "star": [
+              "擎羊",
+              "陀羅",
+              "火星",
+              "鈴星",
+              "地空",
+              "地劫"
+            ],
+            "at": "same"
+          }
+        ]
+      },
+      "text": "太陰光弱又見〔煞〕，你的住宅環境喧鬧，難得清靜。",
+      "en": "Tai Yin shines weakly and meets 〔harsh stars〕: your home is noisy.",
+      "source": {
+        "passage": "deep.田宅.太陰.2",
+        "quote": "会煞落陷，则住宅喧闹"
+      }
+    },
+    {
       "id": "田宅.太陰.陽",
       "role": "refine",
       "when": {
@@ -42,7 +143,7 @@
       "text": "太陰與天機同宮，你多遷移搬動，住處常有變化。",
       "en": "Tai Yin beside Tian Ji: you move house often.",
       "source": {
-        "passage": "deep.田宅.太陰.1",
+        "passage": "deep.田宅.太陰.4",
         "quote": "太阴天机则主迁移"
       }
     },
@@ -78,7 +179,7 @@
       "text": "太陰與左輔右弼或祿存同宮，你承接祖業而興盛。",
       "en": "Tai Yin with Zuo Fu, You Bi or Lu Cun in the palace: you inherit family property and it prospers.",
       "source": {
-        "passage": "deep.田宅.太陰.2",
+        "passage": "deep.田宅.太陰.5",
         "quote": "则承祖业而盛"
       }
     },
@@ -110,7 +211,7 @@
       "text": "太陰化忌而無煞，你家中或任職的機構多是非。",
       "en": "Tai Yin in Hindrance without harsh stars: there is friction at home or at work.",
       "source": {
-        "passage": "deep.田宅.太陰.3",
+        "passage": "deep.田宅.太陰.6",
         "quote": "无煞则主家宅或服务机构有是非"
       }
     }

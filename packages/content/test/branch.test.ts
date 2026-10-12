@@ -8,7 +8,7 @@ import { describe, expect, it } from 'vitest';
 import { annual, cast, SCHOOL_PROFILE, type Chart } from '@guanwei/ziwei';
 import { BRANCH_TOPICS, RULE_REGISTRY, SPEC_VERSION, assembleAll, branchReading, branchRules, gujiaChapter, gujiaException, inferAll, leanState } from '../src/index';
 import { STEPS_UNTIL_AGE, num } from '../src/steps';
-import { palaceState } from '../src/branch';
+import { BRIGHT, palaceState } from '../src/branch';
 import { renderParagraph } from '../src/en/render';
 import { citeOf } from '../src/citation';
 
@@ -386,4 +386,26 @@ describe('泛稱填實：「見吉」「見煞」換成盤上真係有嘅星（2
     }
     expect(filled / slots).toBeGreaterThan(0.85);
   }, 120_000);
+});
+
+describe('太陽太陰入廟落陷（2026-10-12）', () => {
+  it('BRIGHT 嘅兩頭同引擎廟旺表一致：high 係廟旺，low 係陷不', () => {
+    const seen = new Set<string>();
+    for (let i = 0; i < 600; i++) {
+      const r = cast({
+        solar: { y: 1950 + (i % 60), m: 1 + (i % 12), d: 1 + ((i * 7) % 28) }, time: { h: (i * 5) % 24, min: 30 },
+        tz: 'Asia/Hong_Kong', place: { lng: 114.17, lat: 22.32, label: '香港' }, sex: i % 2 ? 'male' : 'female',
+      });
+      if (!r.ok) continue;
+      for (const p of r.value.palaces)
+        for (const s of p.stars) {
+          if (s.name !== '太陽' && s.name !== '太陰') continue;
+          const b = BRIGHT[s.name];
+          if (b.high.includes(p.branch)) expect(['廟', '旺'], `${s.name}${p.branch}`).toContain(s.brightness);
+          if (b.low.includes(p.branch)) expect(['陷', '不'], `${s.name}${p.branch}`).toContain(s.brightness);
+          seen.add(`${s.name}${p.branch}`);
+        }
+    }
+    expect(seen.size).toBe(24);
+  });
 });

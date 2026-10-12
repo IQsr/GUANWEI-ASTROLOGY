@@ -109,6 +109,14 @@ T.append({'id': '太陽巨門.田宅', 'stars': ['太陽', '巨門'], 'rules': [
    '[太阳巨门]见吉化，吉曜，不见煞忌刑曜，主产业增置，且宜外国或外地置业，但仍不免有明争暗斗，故不宜从事地产投资。', '且宜外国或外地置业'),
 ]})
 T.append({'id': '太陽.田宅', 'stars': ['太陽'], 'rules': [
+ R('田宅.太陽.廟', {'all': [{'bright': 'high', 'star': '太陽'}, {'not': {'star': ['太陰', '天梁'], 'at': 'same'}}, {'not': H('忌', '太陽')}]},
+   '太陽光熱充足，你有祖業，只是不容易守住，任職的機構也容易變更。',
+   'Tai Yang shines strongly: there is family property, though it is hard to hold on to, and your workplace tends to change.',
+   '太阳入庙守田宅宫，主有祖业，但难守。', '主有祖业，但难守'),
+ R('田宅.太陽.陷', {'all': [{'bright': 'low', 'star': '太陽'}, {'not': {'star': '太陰', 'at': 'same'}}]},
+   '太陽光熱不足，你沒有祖業可靠，住處和工作環境常有變動，心裡也有浮動不安之感。',
+   'Tai Yang shines weakly: there is no family property to lean on, home and workplace change often, and you feel unsettled.',
+   '常易迁动，亦易更换工作环境，且有浮动不安之感。', '且有浮动不安之感'),
  R('田宅.太陽.巨對', {'all': [{'star': '巨門', 'at': 'opp'}, {'not': {'star': '巨門', 'at': 'same'}}]},
    '太陽與巨門相對，即使見吉，你在產業上也多爭奪。',
    'With Tai Yang facing Ju Men, property brings contention even with good signs.',
@@ -253,6 +261,22 @@ T.append({'id': '天府.田宅', 'stars': ['天府'], 'rules': [
 
 # ── 太陰 ──
 T.append({'id': '太陰.田宅', 'stars': ['太陰'], 'rules': [
+ R('田宅.太陰.廟', {'bright': 'high', 'star': '太陰'},
+   '太陰光亮，太陰主富，對你的家宅有利。',
+   'Tai Yin shines brightly, and Tai Yin stands for wealth: it favours your home and property.',
+   '太阴主富，故入庙则利宅，', '故入庙则利宅'),
+ R('田宅.太陰.廟吉', {'all': [{'bright': 'high', 'star': '太陰'}, {'any': [GOODHUA, FUZUO, KUIYUE]}]},
+   '太陰光亮又見〔吉〕，你的住宅環境寧靜，住得安穩。',
+   'Tai Yin shines brightly and meets 〔good signs〕: your home is peaceful.',
+   '太阴入庙会吉，主住宅宁静，会煞落陷，则住宅喧闹。', '太阴入庙会吉，主住宅宁静'),
+ R('田宅.太陰.陷', {'bright': 'low', 'star': '太陰'},
+   '太陰光弱，即使盤面吉，你的產業也有盈有虧。',
+   'Tai Yin shines weakly: even with good signs, your property has its gains and losses.',
+   '若太阴落陷，则[虽吉亦有盈亏。', '虽吉亦有盈亏'),
+ R('田宅.太陰.陷煞', {'all': [{'bright': 'low', 'star': '太陰'}, SHA]},
+   '太陰光弱又見〔煞〕，你的住宅環境喧鬧，難得清靜。',
+   'Tai Yin shines weakly and meets 〔harsh stars〕: your home is noisy.',
+   '太阴入庙会吉，主住宅宁静，会煞落陷，则住宅喧闹。', '会煞落陷，则住宅喧闹'),
  R('田宅.太陰.陽', {'all': [{'star': '太陽', 'at': 'opp'}, {'not': {'star': '太陽', 'at': 'same'}}]},
    '太陰與太陽相對，也算「日月合璧」：你的家道興隆，任職的機構也興旺。',
    'Tai Yin facing Tai Yang, what the old books call sun and moon joined: your household prospers, and so does the organisation you work for.',

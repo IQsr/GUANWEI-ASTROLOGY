@@ -9,6 +9,80 @@
   },
   "rules": [
     {
+      "id": "兄弟.太陰.吉",
+      "role": "refine",
+      "when": {
+        "all": [
+          {
+            "any": [
+              {
+                "hua": [
+                  "祿",
+                  "權",
+                  "科"
+                ],
+                "at": "same"
+              },
+              {
+                "star": [
+                  "左輔",
+                  "右弼"
+                ],
+                "at": "sifang"
+              },
+              {
+                "star": [
+                  "天魁",
+                  "天鉞"
+                ],
+                "at": "sifang"
+              }
+            ]
+          },
+          {
+            "not": {
+              "star": [
+                "擎羊",
+                "陀羅",
+                "火星",
+                "鈴星",
+                "地空",
+                "地劫"
+              ],
+              "at": "same"
+            }
+          }
+        ]
+      },
+      "text": "太陰見〔吉〕，你和兄弟姊妹相處和美，彼此融洽。",
+      "en": "Tai Yin meets 〔good signs〕: you and your siblings get on well.",
+      "source": {
+        "passage": "deep.兄弟.太陰.1",
+        "quote": "见吉曜始和美"
+      }
+    },
+    {
+      "id": "兄弟.太陰.煞",
+      "role": "refine",
+      "when": {
+        "star": [
+          "擎羊",
+          "陀羅",
+          "火星",
+          "鈴星",
+          "地空",
+          "地劫"
+        ],
+        "at": "same"
+      },
+      "text": "太陰見〔煞〕，你和兄弟姊妹之間多不和。",
+      "en": "Tai Yin meets 〔harsh stars〕: there is often friction between you and your siblings.",
+      "source": {
+        "passage": "deep.兄弟.太陰.1",
+        "quote": "见煞主刑克、不和"
+      }
+    },
+    {
       "id": "兄弟.太陰.忌",
       "role": "limit",
       "when": {
@@ -36,7 +110,7 @@
       "text": "太陰化忌而無煞，雖然會受兄弟或夥伴所累，但多是無心之失。",
       "en": "Tai Yin in Hindrance without harsh stars: siblings or partners may cause you trouble, but usually without meaning to.",
       "source": {
-        "passage": "deep.兄弟.太陰.1",
+        "passage": "deep.兄弟.太陰.2",
         "quote": "但多属无心之失"
       }
     }

@@ -9,6 +9,64 @@
   },
   "rules": [
     {
+      "id": "田宅.太陽.廟",
+      "role": "refine",
+      "when": {
+        "all": [
+          {
+            "bright": "high",
+            "star": "太陽"
+          },
+          {
+            "not": {
+              "star": [
+                "太陰",
+                "天梁"
+              ],
+              "at": "same"
+            }
+          },
+          {
+            "not": {
+              "hua": "忌",
+              "star": "太陽",
+              "at": "same"
+            }
+          }
+        ]
+      },
+      "text": "太陽光熱充足，你有祖業，只是不容易守住，任職的機構也容易變更。",
+      "en": "Tai Yang shines strongly: there is family property, though it is hard to hold on to, and your workplace tends to change.",
+      "source": {
+        "passage": "deep.田宅.太陽.4",
+        "quote": "主有祖业，但难守"
+      }
+    },
+    {
+      "id": "田宅.太陽.陷",
+      "role": "refine",
+      "when": {
+        "all": [
+          {
+            "bright": "low",
+            "star": "太陽"
+          },
+          {
+            "not": {
+              "star": "太陰",
+              "at": "same"
+            }
+          }
+        ]
+      },
+      "text": "太陽光熱不足，你沒有祖業可靠，住處和工作環境常有變動，心裡也有浮動不安之感。",
+      "en": "Tai Yang shines weakly: there is no family property to lean on, home and workplace change often, and you feel unsettled.",
+      "source": {
+        "passage": "deep.田宅.太陽.5",
+        "quote": "且有浮动不安之感"
+      }
+    },
+    {
       "id": "田宅.太陽.巨對",
       "role": "limit",
       "when": {
@@ -28,7 +86,7 @@
       "text": "太陽與巨門相對，即使見吉，你在產業上也多爭奪。",
       "en": "With Tai Yang facing Ju Men, property brings contention even with good signs.",
       "source": {
-        "passage": "deep.田宅.太陽.4",
+        "passage": "deep.田宅.太陽.6",
         "quote": "亦主争夺"
       }
     },
@@ -43,7 +101,7 @@
       "text": "太陽化忌，你的祖業難守，事業根基也較難建立。",
       "en": "Tai Yang in Hindrance: inherited property is hard to keep, and a solid base for your career is hard to build.",
       "source": {
-        "passage": "deep.田宅.太陽.5",
+        "passage": "deep.田宅.太陽.7",
         "quote": "或平生事业难有根基"
       }
     }
