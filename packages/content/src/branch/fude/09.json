@@ -1,0 +1,40 @@
+{
+  "$note": "福德宮（2026-10-12）：太陽天梁.福德。《深造講義》下篇 宮垣論 福德宮 p.560–575。弱智、自閉、心理不正常、變態、好色、淫濫、偽善、小器、鄙吝一類標籤不用；疾病、婚姻刑克、嫖賭飲吹不用；天姚、天刑、天月、華蓋、龍池鳳閣等引擎冇嘅星不用；要分日夜生、廟陷嘅條文暫不用。",
+  "topic": {
+    "id": "太陽天梁.福德",
+    "palace": "福德",
+    "stars": [
+      "太陽",
+      "天梁"
+    ]
+  },
+  "rules": [
+    {
+      "id": "福德.陽梁.幕後",
+      "role": "base",
+      "text": "太陽天梁在福德宮，不宜替人強出頭，宜在幕後策劃；正面出頭容易招是非煩惱。",
+      "en": "With Tai Yang and Tian Liang in your Wellbeing Palace, do not stick your neck out for others; plan from behind the scenes, as stepping forward brings trouble.",
+      "source": {
+        "passage": "deep.福德.太陽.3",
+        "quote": "仅宜幕后策划"
+      }
+    },
+    {
+      "id": "福德.陽梁.昌曲",
+      "role": "refine",
+      "when": {
+        "star": [
+          "文昌",
+          "文曲"
+        ],
+        "at": "sifang"
+      },
+      "text": "見文昌文曲，聰明好思考；情緒的不寧，多由思考學問而來。",
+      "en": "With Wen Chang or Wen Qu, you are bright and love to think; what unsettles you usually comes from wrestling with ideas.",
+      "source": {
+        "passage": "deep.福德.太陽.4",
+        "quote": "主聪明且好思考"
+      }
+    }
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "$note": "福德宮（2026-10-12）：紫微七殺.福德。《深造講義》下篇 宮垣論 福德宮 p.560–575。弱智、自閉、心理不正常、變態、好色、淫濫、偽善、小器、鄙吝一類標籤不用；疾病、婚姻刑克、嫖賭飲吹不用；天姚、天刑、天月、華蓋、龍池鳳閣等引擎冇嘅星不用；要分日夜生、廟陷嘅條文暫不用。",
+  "topic": {
+    "id": "紫微七殺.福德",
+    "palace": "福德",
+    "stars": [
+      "紫微",
+      "七殺"
+    ]
+  },
+  "rules": [
+    {
+      "id": "福德.紫殺.祿",
+      "role": "refine",
+      "when": {
+        "any": [
+          {
+            "hua": "祿",
+            "at": "sifang"
+          },
+          {
+            "star": "祿存",
+            "at": "sifang"
+          }
+        ]
+      },
+      "text": "紫微七殺見祿，氣質才調和。",
+      "en": "Zi Wei with Qi Sha meeting Lu: that is what brings your temperament into balance.",
+      "source": {
+        "passage": "deep.福德.紫微.11",
+        "quote": "[紫杀]必须见禄，然后气质始主调和"
+      }
+    },
+    {
+      "id": "福德.紫殺.廉祿",
+      "role": "refine",
+      "when": {
+        "hua": "祿",
+        "star": "廉貞",
+        "at": "sifang"
+      },
+      "text": "會廉貞化祿，行事最為寬厚。",
+      "en": "Meeting Lian Zhen in Abundance, you act with real generosity.",
+      "source": {
+        "passage": "deep.福德.紫微.12",
+        "quote": "唯以见廉贞化禄者行事最为宽厚"
+      }
+    },
+    {
+      "id": "福德.紫殺.火",
+      "role": "refine",
+      "when": {
+        "star": "火星",
+        "at": "same"
+      },
+      "text": "同宮有火星，做事急如星火。",
+      "en": "With Huo Xing in the palace, you do everything in a hurry.",
+      "source": {
+        "passage": "deep.福德.紫微.13",
+        "quote": "若躔火星，做事急如星火"
+      }
+    },
+    {
+      "id": "福德.紫殺.本",
+      "role": "base",
+      "text": "紫微七殺在福德宮，主觀極強。",
+      "en": "With Zi Wei and Qi Sha in your Wellbeing Palace, you hold your own views very firmly.",
+      "source": {
+        "passage": "deep.福德.紫微.14",
+        "quote": "主观极强"
+      }
+    }
+  ]
+}

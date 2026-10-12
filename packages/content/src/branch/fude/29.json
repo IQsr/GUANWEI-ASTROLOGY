@@ -1,0 +1,61 @@
+{
+  "$note": "福德宮（2026-10-12）：巨門.福德。《深造講義》下篇 宮垣論 福德宮 p.560–575。弱智、自閉、心理不正常、變態、好色、淫濫、偽善、小器、鄙吝一類標籤不用；疾病、婚姻刑克、嫖賭飲吹不用；天姚、天刑、天月、華蓋、龍池鳳閣等引擎冇嘅星不用；要分日夜生、廟陷嘅條文暫不用。",
+  "topic": {
+    "id": "巨門.福德",
+    "palace": "福德",
+    "stars": [
+      "巨門"
+    ]
+  },
+  "rules": [
+    {
+      "id": "福德.巨門.祿權",
+      "role": "refine",
+      "when": {
+        "any": [
+          {
+            "hua": "祿",
+            "star": "巨門",
+            "at": "same"
+          },
+          {
+            "hua": "權",
+            "star": "巨門",
+            "at": "same"
+          }
+        ]
+      },
+      "text": "巨門化祿化權，事無大小都要過問，很難接受別人的決定。",
+      "en": "Ju Men in Abundance or Authority: you want a say in everything, big or small, and find it hard to accept others’ decisions.",
+      "source": {
+        "passage": "deep.福德.巨門.1",
+        "quote": "而且很难接受别人的决定"
+      }
+    },
+    {
+      "id": "福德.巨門.忌",
+      "role": "limit",
+      "when": {
+        "hua": "忌",
+        "star": "巨門",
+        "at": "same"
+      },
+      "text": "巨門化忌，常常追悔，也過份追求理想。",
+      "en": "Ju Men in Hindrance: you often have regrets, and chase ideals too hard.",
+      "source": {
+        "passage": "deep.福德.巨門.2",
+        "quote": "巨门化忌则常追悔"
+      }
+    },
+    {
+      "id": "福德.巨門.本",
+      "role": "base",
+      "text": "巨門在福德宮，主費神：往往決定得太快，事後又後悔；或者事事都要親力親為。",
+      "en": "With Ju Men in your Wellbeing Palace, your mind is taxed: you decide too quickly and regret it later, or insist on doing everything yourself.",
+      "source": {
+        "passage": "deep.福德.巨門.3",
+        "quote": "原因在于凡事轻于决定，然后生追悔之心"
+      }
+    }
+  ]
+}

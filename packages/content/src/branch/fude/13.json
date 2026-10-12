@@ -1,0 +1,37 @@
+{
+  "$note": "福德宮（2026-10-12）：武曲七殺.福德。《深造講義》下篇 宮垣論 福德宮 p.560–575。弱智、自閉、心理不正常、變態、好色、淫濫、偽善、小器、鄙吝一類標籤不用；疾病、婚姻刑克、嫖賭飲吹不用；天姚、天刑、天月、華蓋、龍池鳳閣等引擎冇嘅星不用；要分日夜生、廟陷嘅條文暫不用。",
+  "topic": {
+    "id": "武曲七殺.福德",
+    "palace": "福德",
+    "stars": [
+      "武曲",
+      "七殺"
+    ]
+  },
+  "rules": [
+    {
+      "id": "福德.武殺.奔忙",
+      "role": "base",
+      "text": "武曲七殺在福德宮，主奔忙。",
+      "en": "With Wu Qu and Qi Sha in your Wellbeing Palace, you are always on the go.",
+      "source": {
+        "passage": "deep.福德.武曲.2",
+        "quote": "[武曲七杀]同度者，主奔忙"
+      }
+    },
+    {
+      "id": "福德.武殺.馬",
+      "role": "limit",
+      "when": {
+        "star": "天馬",
+        "at": "same"
+      },
+      "text": "同宮有天馬，宗旨不定，做事反覆進退。",
+      "en": "With Tian Ma in the palace, your aims shift, and you go back and forth.",
+      "source": {
+        "passage": "deep.福德.武曲.3",
+        "quote": "主宗旨不定，作事反复进退"
+      }
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "$note": "福德宮（2026-10-12）：廉貞七殺.福德。《深造講義》下篇 宮垣論 福德宮 p.560–575。弱智、自閉、心理不正常、變態、好色、淫濫、偽善、小器、鄙吝一類標籤不用；疾病、婚姻刑克、嫖賭飲吹不用；天姚、天刑、天月、華蓋、龍池鳳閣等引擎冇嘅星不用；要分日夜生、廟陷嘅條文暫不用。",
+  "topic": {
+    "id": "廉貞七殺.福德",
+    "palace": "福德",
+    "stars": [
+      "廉貞",
+      "七殺"
+    ]
+  },
+  "rules": [
+    {
+      "id": "福德.廉殺.平衡",
+      "role": "refine",
+      "when": {
+        "all": [
+          {
+            "not": {
+              "star": [
+                "擎羊",
+                "陀羅",
+                "火星",
+                "鈴星",
+                "地空",
+                "地劫"
+              ],
+              "at": "same"
+            }
+          },
+          {
+            "star": [
+              "文昌",
+              "文曲"
+            ],
+            "at": "sifang"
+          }
+        ]
+      },
+      "text": "無煞又見文昌文曲，精神容易平衡。",
+      "en": "With no harsh stars and Wen Chang or Wen Qu present, your mind finds its balance easily.",
+      "source": {
+        "passage": "deep.福德.廉貞.11",
+        "quote": "精神始易平衡"
+      }
+    },
+    {
+      "id": "福德.廉殺.本",
+      "role": "base",
+      "text": "廉貞七殺在福德宮，思慮不休，凡事容易往壞處想。",
+      "en": "With Lian Zhen and Qi Sha in your Wellbeing Palace, your thoughts never stop, and you tend to expect the worst.",
+      "source": {
+        "passage": "deep.福德.廉貞.12",
+        "quote": "凡事喜从坏方面着想"
+      }
+    }
+  ]
+}

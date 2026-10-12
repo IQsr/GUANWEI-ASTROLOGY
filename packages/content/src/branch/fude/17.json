@@ -1,0 +1,54 @@
+{
+  "$note": "福德宮（2026-10-12）：天同.福德。《深造講義》下篇 宮垣論 福德宮 p.560–575。弱智、自閉、心理不正常、變態、好色、淫濫、偽善、小器、鄙吝一類標籤不用；疾病、婚姻刑克、嫖賭飲吹不用；天姚、天刑、天月、華蓋、龍池鳳閣等引擎冇嘅星不用；要分日夜生、廟陷嘅條文暫不用。",
+  "topic": {
+    "id": "天同.福德",
+    "palace": "福德",
+    "stars": [
+      "天同"
+    ]
+  },
+  "rules": [
+    {
+      "id": "福德.天同.文",
+      "role": "refine",
+      "when": {
+        "star": [
+          "文昌",
+          "文曲"
+        ],
+        "at": "sifang"
+      },
+      "text": "見文昌文曲，精神享受情趣高雅。",
+      "en": "With Wen Chang or Wen Qu, your pleasures are refined.",
+      "source": {
+        "passage": "deep.福德.天同.1",
+        "quote": "则主精神享受情趣高雅"
+      }
+    },
+    {
+      "id": "福德.天同.祿",
+      "role": "refine",
+      "when": {
+        "hua": "祿",
+        "star": "天同",
+        "at": "same"
+      },
+      "text": "天同化祿，有時過份天真。",
+      "en": "Tian Tong in Abundance: at times you can be a little too trusting.",
+      "source": {
+        "passage": "deep.福德.天同.2",
+        "quote": "天同化禄，有时嫌过份天真"
+      }
+    },
+    {
+      "id": "福德.天同.本",
+      "role": "base",
+      "text": "天同在福德宮，精神生活豐足，尤其喜愛音樂；但不一定代表物質生活充裕。",
+      "en": "With Tian Tong in your Wellbeing Palace, your inner life is rich, with a special love of music, though that does not necessarily mean material plenty.",
+      "source": {
+        "passage": "deep.福德.天同.3",
+        "quote": "尤主性喜音乐"
+      }
+    }
+  ]
+}

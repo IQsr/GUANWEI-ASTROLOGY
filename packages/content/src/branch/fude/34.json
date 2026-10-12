@@ -1,0 +1,131 @@
+{
+  "$note": "福德宮（2026-10-12）：福德通則。《深造講義》下篇 宮垣論 福德宮 p.560–575。弱智、自閉、心理不正常、變態、好色、淫濫、偽善、小器、鄙吝一類標籤不用；疾病、婚姻刑克、嫖賭飲吹不用；天姚、天刑、天月、華蓋、龍池鳳閣等引擎冇嘅星不用；要分日夜生、廟陷嘅條文暫不用。",
+  "topic": {
+    "id": "福德通則",
+    "palace": "福德",
+    "stars": []
+  },
+  "rules": [
+    {
+      "id": "福德.通則.火",
+      "role": "limit",
+      "when": {
+        "star": "火星",
+        "at": "same"
+      },
+      "text": "火星在福德宮，精神較浮躁不安。",
+      "en": "With Huo Xing in the Wellbeing Palace, your mind tends to be restless.",
+      "source": {
+        "passage": "deep.福德.通則.1",
+        "quote": "火星及铃星入[福德宫]各主精神浮躁不安"
+      }
+    },
+    {
+      "id": "福德.通則.鈴",
+      "role": "limit",
+      "when": {
+        "star": "鈴星",
+        "at": "same"
+      },
+      "text": "鈴星在福德宮，內心容易焦慮。",
+      "en": "With Ling Xing in the Wellbeing Palace, you are prone to inner anxiety.",
+      "source": {
+        "passage": "deep.福德.通則.1",
+        "quote": "铃星尤主内心的焦虑"
+      }
+    },
+    {
+      "id": "福德.通則.羊",
+      "role": "limit",
+      "when": {
+        "star": "擎羊",
+        "at": "same"
+      },
+      "text": "擎羊在福德宮，主多勞。",
+      "en": "With Qing Yang in the Wellbeing Palace, you take on a great deal.",
+      "source": {
+        "passage": "deep.福德.通則.2",
+        "quote": "擎羊入[福德宫]主多劳"
+      }
+    },
+    {
+      "id": "福德.通則.陀",
+      "role": "limit",
+      "when": {
+        "star": "陀羅",
+        "at": "same"
+      },
+      "text": "陀羅在福德宮，主多憂。",
+      "en": "With Tuo Luo in the Wellbeing Palace, you worry a great deal.",
+      "source": {
+        "passage": "deep.福德.通則.2",
+        "quote": "陀罗则主多优"
+      }
+    },
+    {
+      "id": "福德.通則.空劫",
+      "role": "refine",
+      "when": {
+        "star": [
+          "地空",
+          "地劫"
+        ],
+        "at": "same"
+      },
+      "text": "地空地劫在福德宮，有時主思想獨特，未必不吉。",
+      "en": "Di Kong or Di Jie in the Wellbeing Palace can mean an original mind, which is not necessarily a bad thing.",
+      "source": {
+        "passage": "deep.福德.通則.2",
+        "quote": "却有时主人思想独特"
+      }
+    },
+    {
+      "id": "福德.通則.祿存",
+      "role": "refine",
+      "when": {
+        "star": "祿存",
+        "at": "same"
+      },
+      "text": "祿存在福德宮，雖然欠衝勁，卻安樂。",
+      "en": "Lu Cun in the Wellbeing Palace: not much drive, but contentment.",
+      "source": {
+        "passage": "deep.福德.通則.3",
+        "quote": "虽欠冲劲，但却安乐"
+      }
+    },
+    {
+      "id": "福德.通則.魁鉞",
+      "role": "refine",
+      "when": {
+        "star": [
+          "天魁",
+          "天鉞"
+        ],
+        "at": "same"
+      },
+      "text": "天魁或天鉞在福德宮，有人照顧。",
+      "en": "With Tian Kui or Tian Yue in the Wellbeing Palace, someone looks out for you.",
+      "source": {
+        "passage": "deep.福德.通則.4",
+        "quote": "主有人照拂"
+      }
+    },
+    {
+      "id": "福德.通則.昌曲",
+      "role": "refine",
+      "when": {
+        "star": [
+          "文昌",
+          "文曲"
+        ],
+        "at": "same"
+      },
+      "text": "文昌文曲在福德宮，是福德宮最喜歡的星，主聰明才智。",
+      "en": "Wen Chang or Wen Qu are the stars the Wellbeing Palace welcomes most, pointing to intelligence and talent.",
+      "source": {
+        "passage": "deep.福德.通則.5",
+        "quote": "[福德宫]最喜昌曲"
+      }
+    }
+  ]
+}

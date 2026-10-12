@@ -1,0 +1,82 @@
+{
+  "$note": "福德宮（2026-10-12）：廉貞天相.福德。《深造講義》下篇 宮垣論 福德宮 p.560–575。弱智、自閉、心理不正常、變態、好色、淫濫、偽善、小器、鄙吝一類標籤不用；疾病、婚姻刑克、嫖賭飲吹不用；天姚、天刑、天月、華蓋、龍池鳳閣等引擎冇嘅星不用；要分日夜生、廟陷嘅條文暫不用。",
+  "topic": {
+    "id": "廉貞天相.福德",
+    "palace": "福德",
+    "stars": [
+      "廉貞",
+      "天相"
+    ]
+  },
+  "rules": [
+    {
+      "id": "福德.廉相.昌曲夾",
+      "role": "refine",
+      "when": {
+        "jia": [
+          "文昌",
+          "文曲"
+        ]
+      },
+      "text": "文昌文曲相夾，聰明。",
+      "en": "Flanked by Wen Chang and Wen Qu, you are bright.",
+      "source": {
+        "passage": "deep.福德.廉貞.3",
+        "quote": "[廉贞天相]喜昌曲夹，主聪明"
+      }
+    },
+    {
+      "id": "福德.廉相.文",
+      "role": "refine",
+      "when": {
+        "star": [
+          "文昌",
+          "文曲"
+        ],
+        "at": "same"
+      },
+      "text": "同宮有文昌文曲，氣質優雅，藝術感很強，也喜歡談論政治。",
+      "en": "With Wen Chang or Wen Qu in the palace, you are refined, with a strong artistic sense and a taste for political talk.",
+      "source": {
+        "passage": "deep.福德.廉貞.4",
+        "quote": "则气质优雅，艺术感极强"
+      }
+    },
+    {
+      "id": "福德.廉相.煞夾",
+      "role": "limit",
+      "when": {
+        "any": [
+          {
+            "jia": [
+              "火星",
+              "鈴星"
+            ]
+          },
+          {
+            "jia": [
+              "擎羊",
+              "陀羅"
+            ]
+          }
+        ]
+      },
+      "text": "被煞星相夾，心理上自然有壓迫感。",
+      "en": "Flanked by harsh stars, you naturally feel pressed in.",
+      "source": {
+        "passage": "deep.福德.廉貞.5",
+        "quote": "则心理上自然产生压逼感"
+      }
+    },
+    {
+      "id": "福德.廉相.自得",
+      "role": "base",
+      "text": "廉貞天相在福德宮，主自得其樂。",
+      "en": "With Lian Zhen and Tian Xiang in your Wellbeing Palace, you know how to enjoy yourself.",
+      "source": {
+        "passage": "deep.福德.廉貞.6",
+        "quote": "[廉贞贪狼]皆主自得其乐"
+      }
+    }
+  ]
+}

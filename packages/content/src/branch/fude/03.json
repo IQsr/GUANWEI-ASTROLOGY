@@ -1,0 +1,45 @@
+{
+  "$note": "福德宮（2026-10-12）：紫微貪狼.福德。《深造講義》下篇 宮垣論 福德宮 p.560–575。弱智、自閉、心理不正常、變態、好色、淫濫、偽善、小器、鄙吝一類標籤不用；疾病、婚姻刑克、嫖賭飲吹不用；天姚、天刑、天月、華蓋、龍池鳳閣等引擎冇嘅星不用；要分日夜生、廟陷嘅條文暫不用。",
+  "topic": {
+    "id": "紫微貪狼.福德",
+    "palace": "福德",
+    "stars": [
+      "紫微",
+      "貪狼"
+    ]
+  },
+  "rules": [
+    {
+      "id": "福德.紫貪.忌",
+      "role": "limit",
+      "when": {
+        "hua": "忌",
+        "star": "貪狼",
+        "at": "same"
+      },
+      "text": "貪狼化忌，多奔波勞碌，也常因為不能當機立斷而事後追悔。",
+      "en": "Tan Lang in Hindrance: you rush about, and often regret not deciding sooner.",
+      "source": {
+        "passage": "deep.福德.紫微.7",
+        "quote": "且往往因不能当机立断而常生追悔之心"
+      }
+    },
+    {
+      "id": "福德.紫貪.火鈴",
+      "role": "refine",
+      "when": {
+        "star": [
+          "火星",
+          "鈴星"
+        ],
+        "at": "same"
+      },
+      "text": "同宮有火星或鈴星，思想積極。",
+      "en": "With Huo Xing or Ling Xing in the palace, your outlook is energetic.",
+      "source": {
+        "passage": "deep.福德.紫微.8",
+        "quote": "[紫贪]躔火铃，思想积极"
+      }
+    }
+  ]
+}

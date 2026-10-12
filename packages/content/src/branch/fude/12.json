@@ -1,0 +1,30 @@
+{
+  "$note": "福德宮（2026-10-12）：武曲破軍.福德。《深造講義》下篇 宮垣論 福德宮 p.560–575。弱智、自閉、心理不正常、變態、好色、淫濫、偽善、小器、鄙吝一類標籤不用；疾病、婚姻刑克、嫖賭飲吹不用；天姚、天刑、天月、華蓋、龍池鳳閣等引擎冇嘅星不用；要分日夜生、廟陷嘅條文暫不用。",
+  "topic": {
+    "id": "武曲破軍.福德",
+    "palace": "福德",
+    "stars": [
+      "武曲",
+      "破軍"
+    ]
+  },
+  "rules": [
+    {
+      "id": "福德.武破.昌曲",
+      "role": "refine",
+      "when": {
+        "star": [
+          "文昌",
+          "文曲"
+        ],
+        "at": "sifang"
+      },
+      "text": "見文昌文曲，有獨特見解，尤其擅長打破僵局。",
+      "en": "With Wen Chang or Wen Qu, you have original views, and are especially good at breaking deadlocks.",
+      "source": {
+        "passage": "deep.福德.武曲.1",
+        "quote": "尤擅长于打破僵局"
+      }
+    }
+  ]
+}

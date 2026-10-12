@@ -5,6 +5,7 @@
  *   caibo/NN.json  —— 財帛宮題目（由 scratch ingest_palace.py 生成），細讀擺喺財帛宮章
  *   guanlu/NN.json —— 官祿宮題目（由 scratch ingest_palace.py 生成），細讀擺喺官祿宮章
  *   qianyi/NN.json —— 遷移宮題目（由 scratch ingest_palace.py 生成），細讀擺喺遷移宮章
+ *   fude/NN.json   —— 福德宮題目（由 scratch ingest_palace.py 生成），細讀擺喺福德宮章
  *   其他           —— 宮位題目，細讀擺喺嗰宮嘅章
  */
 import tianji from './tianji-guanlu.json';
@@ -202,6 +203,40 @@ import q33 from './qianyi/33.json';
 import q34 from './qianyi/34.json';
 import q35 from './qianyi/35.json';
 import q36 from './qianyi/36.json';
+import d01 from './fude/01.json';
+import d02 from './fude/02.json';
+import d03 from './fude/03.json';
+import d04 from './fude/04.json';
+import d05 from './fude/05.json';
+import d06 from './fude/06.json';
+import d07 from './fude/07.json';
+import d08 from './fude/08.json';
+import d09 from './fude/09.json';
+import d10 from './fude/10.json';
+import d11 from './fude/11.json';
+import d12 from './fude/12.json';
+import d13 from './fude/13.json';
+import d14 from './fude/14.json';
+import d15 from './fude/15.json';
+import d16 from './fude/16.json';
+import d17 from './fude/17.json';
+import d18 from './fude/18.json';
+import d19 from './fude/19.json';
+import d20 from './fude/20.json';
+import d21 from './fude/21.json';
+import d22 from './fude/22.json';
+import d23 from './fude/23.json';
+import d24 from './fude/24.json';
+import d25 from './fude/25.json';
+import d26 from './fude/26.json';
+import d27 from './fude/27.json';
+import d28 from './fude/28.json';
+import d29 from './fude/29.json';
+import d30 from './fude/30.json';
+import d31 from './fude/31.json';
+import d32 from './fude/32.json';
+import d33 from './fude/33.json';
+import d34 from './fude/34.json';
 import x01 from './xingxi/01.json';
 import x02 from './xingxi/02.json';
 import x03 from './xingxi/03.json';
@@ -262,4 +297,4 @@ import x58 from './xingxi/58.json';
 import x59 from './xingxi/59.json';
 import x60 from './xingxi/60.json';
 
-export const BRANCH_RAW: unknown[] = [tianji, tongliang, f01, f02, f03, f04, f05, f06, f07, f08, f09, f10, f11, f12, f13, f14, f15, f16, f17, f18, f19, f20, f21, f22, f23, f24, f25, f26, f27, f28, f29, f30, f31, f32, f33, f34, f35, f36, f37, f38, f39, f40, f41, f42, f43, f44, f45, f46, f47, f48, f49, f50, f51, x01, x02, x03, x04, x05, x06, x07, x08, x09, x10, x11, x12, x13, x14, x15, x16, x18, x19, x20, x21, x22, x23, x24, x25, x26, x27, x28, x29, x30, x31, x32, x33, x34, x35, x36, x37, x38, x39, x40, x41, x42, x43, x44, x45, x46, x47, x48, x49, x50, x51, x52, x53, x54, x55, x56, x57, x58, x59, x60, c01, c02, c03, c04, c05, c06, c07, c08, c09, c10, c11, c12, c13, c14, c15, c16, c17, c18, c19, c20, c21, c22, c23, c24, c25, c26, c27, c28, c29, c30, c31, c32, c33, c34, c35, c36, c37, c38, c39, c40, c41, c42, c43, c44, c45, c46, c47, c48, c49, c50, c51, c52, c53, c54, c55, c56, c57, c58, c59, c60, c61, g01, g02, g03, g04, g05, g06, g07, g08, g09, g10, g11, g12, g13, g14, g15, g16, g17, g18, g19, g20, g21, g22, g23, g24, g25, g26, g27, g28, g29, g30, g31, g32, g33, g34, g35, g36, g37, g38, g39, g40, g41, g42, g43, g44, g45, q01, q02, q03, q04, q05, q06, q07, q08, q09, q10, q11, q12, q13, q14, q15, q16, q17, q18, q19, q20, q21, q22, q23, q24, q25, q26, q27, q28, q29, q30, q31, q32, q33, q34, q35, q36];
+export const BRANCH_RAW: unknown[] = [tianji, tongliang, f01, f02, f03, f04, f05, f06, f07, f08, f09, f10, f11, f12, f13, f14, f15, f16, f17, f18, f19, f20, f21, f22, f23, f24, f25, f26, f27, f28, f29, f30, f31, f32, f33, f34, f35, f36, f37, f38, f39, f40, f41, f42, f43, f44, f45, f46, f47, f48, f49, f50, f51, x01, x02, x03, x04, x05, x06, x07, x08, x09, x10, x11, x12, x13, x14, x15, x16, x18, x19, x20, x21, x22, x23, x24, x25, x26, x27, x28, x29, x30, x31, x32, x33, x34, x35, x36, x37, x38, x39, x40, x41, x42, x43, x44, x45, x46, x47, x48, x49, x50, x51, x52, x53, x54, x55, x56, x57, x58, x59, x60, c01, c02, c03, c04, c05, c06, c07, c08, c09, c10, c11, c12, c13, c14, c15, c16, c17, c18, c19, c20, c21, c22, c23, c24, c25, c26, c27, c28, c29, c30, c31, c32, c33, c34, c35, c36, c37, c38, c39, c40, c41, c42, c43, c44, c45, c46, c47, c48, c49, c50, c51, c52, c53, c54, c55, c56, c57, c58, c59, c60, c61, g01, g02, g03, g04, g05, g06, g07, g08, g09, g10, g11, g12, g13, g14, g15, g16, g17, g18, g19, g20, g21, g22, g23, g24, g25, g26, g27, g28, g29, g30, g31, g32, g33, g34, g35, g36, g37, g38, g39, g40, g41, g42, g43, g44, g45, q01, q02, q03, q04, q05, q06, q07, q08, q09, q10, q11, q12, q13, q14, q15, q16, q17, q18, q19, q20, q21, q22, q23, q24, q25, q26, q27, q28, q29, q30, q31, q32, q33, q34, q35, q36, d01, d02, d03, d04, d05, d06, d07, d08, d09, d10, d11, d12, d13, d14, d15, d16, d17, d18, d19, d20, d21, d22, d23, d24, d25, d26, d27, d28, d29, d30, d31, d32, d33, d34];

@@ -1,0 +1,38 @@
+{
+  "$note": "福德宮（2026-10-12）：廉貞天府.福德。《深造講義》下篇 宮垣論 福德宮 p.560–575。弱智、自閉、心理不正常、變態、好色、淫濫、偽善、小器、鄙吝一類標籤不用；疾病、婚姻刑克、嫖賭飲吹不用；天姚、天刑、天月、華蓋、龍池鳳閣等引擎冇嘅星不用；要分日夜生、廟陷嘅條文暫不用。",
+  "topic": {
+    "id": "廉貞天府.福德",
+    "palace": "福德",
+    "stars": [
+      "廉貞",
+      "天府"
+    ]
+  },
+  "rules": [
+    {
+      "id": "福德.廉府.自得",
+      "role": "base",
+      "text": "廉貞天府在福德宮，一生自得其樂，能忙裡偷閒，忙碌中也有樂趣。",
+      "en": "With Lian Zhen and Tian Fu in your Wellbeing Palace, you find your own happiness all your life, snatching rest in busy times and enjoying the busyness too.",
+      "source": {
+        "passage": "deep.福德.廉貞.1",
+        "quote": "能忙里偷闲，或虽忙碌而仍多乐趣"
+      }
+    },
+    {
+      "id": "福德.廉府.科",
+      "role": "refine",
+      "when": {
+        "hua": "科",
+        "star": "天府",
+        "at": "same"
+      },
+      "text": "天府化科，外表平易近人，其實自尊心很重。",
+      "en": "Tian Fu in Merit: easy-going on the surface, but proud underneath.",
+      "source": {
+        "passage": "deep.福德.廉貞.2",
+        "quote": "外表平易，其实自尊心甚重"
+      }
+    }
+  ]
+}

@@ -1,0 +1,86 @@
+{
+  "$note": "福德宮（2026-10-12）：天梁.福德。《深造講義》下篇 宮垣論 福德宮 p.560–575。弱智、自閉、心理不正常、變態、好色、淫濫、偽善、小器、鄙吝一類標籤不用；疾病、婚姻刑克、嫖賭飲吹不用；天姚、天刑、天月、華蓋、龍池鳳閣等引擎冇嘅星不用；要分日夜生、廟陷嘅條文暫不用。",
+  "topic": {
+    "id": "天梁.福德",
+    "palace": "福德",
+    "stars": [
+      "天梁"
+    ]
+  },
+  "rules": [
+    {
+      "id": "福德.天梁.科",
+      "role": "refine",
+      "when": {
+        "hua": "科",
+        "star": "天梁",
+        "at": "same"
+      },
+      "text": "天梁化科，聰明敏銳，宜做學術研究。",
+      "en": "Tian Liang in Merit: sharp and quick, suited to scholarship.",
+      "source": {
+        "passage": "deep.福德.天梁.1",
+        "quote": "化科则主聪明敏睿，宜学术研究"
+      }
+    },
+    {
+      "id": "福德.天梁.權",
+      "role": "refine",
+      "when": {
+        "hua": "權",
+        "star": "天梁",
+        "at": "same"
+      },
+      "text": "天梁化權，自尊心很重。",
+      "en": "Tian Liang in Authority: your self-respect runs very deep.",
+      "source": {
+        "passage": "deep.福德.天梁.2",
+        "quote": "化权，则自尊心极重"
+      }
+    },
+    {
+      "id": "福德.天梁.同",
+      "role": "refine",
+      "when": {
+        "star": "天同",
+        "at": [
+          "same",
+          "opp"
+        ]
+      },
+      "text": "天梁與天同同宮或相對，樂天知命。",
+      "en": "With Tian Liang beside or facing Tian Tong, you are content with your lot.",
+      "source": {
+        "passage": "deep.福德.天梁.3",
+        "quote": "主乐天知命"
+      }
+    },
+    {
+      "id": "福德.天梁.空劫",
+      "role": "limit",
+      "when": {
+        "star": [
+          "地空",
+          "地劫"
+        ],
+        "at": "same"
+      },
+      "text": "同宮有地空地劫，理想太高。",
+      "en": "With Di Kong or Di Jie in the palace, your ideals run too high.",
+      "source": {
+        "passage": "deep.福德.天梁.4",
+        "quote": "空劫同度，主理想太高"
+      }
+    },
+    {
+      "id": "福德.天梁.本",
+      "role": "base",
+      "text": "天梁主清貴，在福德宮重視精神享受。",
+      "en": "Tian Liang stands for integrity: in your Wellbeing Palace it puts the life of the mind first.",
+      "source": {
+        "passage": "deep.福德.天梁.5",
+        "quote": "主人重视精神享受"
+      }
+    }
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "$note": "福德宮（2026-10-12）：天機.福德。《深造講義》下篇 宮垣論 福德宮 p.560–575。弱智、自閉、心理不正常、變態、好色、淫濫、偽善、小器、鄙吝一類標籤不用；疾病、婚姻刑克、嫖賭飲吹不用；天姚、天刑、天月、華蓋、龍池鳳閣等引擎冇嘅星不用；要分日夜生、廟陷嘅條文暫不用。",
+  "topic": {
+    "id": "天機.福德",
+    "palace": "福德",
+    "stars": [
+      "天機"
+    ]
+  },
+  "rules": [
+    {
+      "id": "福德.天機.權",
+      "role": "refine",
+      "when": {
+        "hua": "權",
+        "star": "天機",
+        "at": "same"
+      },
+      "text": "天機化權，心較安定，思想也更周密。",
+      "en": "Tian Ji in Authority: your mind settles, and your thinking becomes more thorough.",
+      "source": {
+        "passage": "deep.福德.天機.2",
+        "quote": "化权则能增加安定，减少动荡"
+      }
+    },
+    {
+      "id": "福德.天機.火鈴",
+      "role": "limit",
+      "when": {
+        "star": [
+          "火星",
+          "鈴星"
+        ],
+        "at": "same"
+      },
+      "text": "同宮有火星或鈴星，身勞心勞，不得安寧。",
+      "en": "With Huo Xing or Ling Xing in the palace, body and mind are both kept busy, with little rest.",
+      "source": {
+        "passage": "deep.福德.天機.3",
+        "quote": "主身劳心劳，不得安宁"
+      }
+    },
+    {
+      "id": "福德.天機.巨門",
+      "role": "refine",
+      "when": {
+        "star": "巨門",
+        "at": [
+          "same",
+          "opp"
+        ]
+      },
+      "text": "天機遇上巨門，心思更易動盪；巨門化祿，則敏於思考，勞而有獲。",
+      "en": "Tian Ji meeting Ju Men stirs your mind further; with Ju Men in Abundance you think quickly, and the effort pays.",
+      "source": {
+        "passage": "deep.福德.天機.4",
+        "quote": "皆增加其动荡"
+      }
+    },
+    {
+      "id": "福德.天機.本",
+      "role": "base",
+      "text": "天機在福德宮，思慮多、興趣多，思想不易集中，考慮有時欠周密。",
+      "en": "With Tian Ji in your Wellbeing Palace, you think a lot and have many interests; focus comes hard, and plans are not always thorough.",
+      "source": {
+        "passage": "deep.福德.天機.5",
+        "quote": "兴趣多端，思想不集中"
+      }
+    }
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "$note": "福德宮（2026-10-12）：天相.福德。《深造講義》下篇 宮垣論 福德宮 p.560–575。弱智、自閉、心理不正常、變態、好色、淫濫、偽善、小器、鄙吝一類標籤不用；疾病、婚姻刑克、嫖賭飲吹不用；天姚、天刑、天月、華蓋、龍池鳳閣等引擎冇嘅星不用；要分日夜生、廟陷嘅條文暫不用。",
+  "topic": {
+    "id": "天相.福德",
+    "palace": "福德",
+    "stars": [
+      "天相"
+    ]
+  },
+  "rules": [
+    {
+      "id": "福德.天相.廉破",
+      "role": "refine",
+      "when": {
+        "star": "廉貞",
+        "at": "opp"
+      },
+      "text": "對宮廉貞破軍，你最有正義感和同情心。",
+      "en": "With Lian Zhen and Po Jun opposite, you have a strong sense of justice and compassion.",
+      "source": {
+        "passage": "deep.福德.天相.1",
+        "quote": "最有正义感及同情心"
+      }
+    },
+    {
+      "id": "福德.天相.武破",
+      "role": "refine",
+      "when": {
+        "star": "武曲",
+        "at": "opp"
+      },
+      "text": "對宮武曲破軍，你最有責任心，只是臨事欠主張，容易受人慫恿。",
+      "en": "With Wu Qu and Po Jun opposite, you are deeply responsible, but unsure in the moment and easily talked into things.",
+      "source": {
+        "passage": "deep.福德.天相.2",
+        "quote": "却临事欠主张，因而易受人怂恿"
+      }
+    },
+    {
+      "id": "福德.天相.空劫",
+      "role": "limit",
+      "when": {
+        "star": [
+          "地空",
+          "地劫"
+        ],
+        "at": "same"
+      },
+      "text": "同宮有地空地劫，偏於空想，說得到做不到。",
+      "en": "With Di Kong or Di Jie in the palace, you lean towards daydreams, saying more than you do.",
+      "source": {
+        "passage": "deep.福德.天相.3",
+        "quote": "偏于空想，坐言不能起行"
+      }
+    },
+    {
+      "id": "福德.天相.祿",
+      "role": "refine",
+      "when": {
+        "any": [
+          {
+            "hua": "祿",
+            "at": "sifang"
+          },
+          {
+            "star": "祿存",
+            "at": "sifang"
+          }
+        ]
+      },
+      "text": "天相得祿，精神生活充足。",
+      "en": "Tian Xiang meeting Lu: your inner life is full.",
+      "source": {
+        "passage": "deep.福德.天相.4",
+        "quote": "主精神生活充足"
+      }
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "$note": "福德宮（2026-10-12）：武曲.福德。《深造講義》下篇 宮垣論 福德宮 p.560–575。弱智、自閉、心理不正常、變態、好色、淫濫、偽善、小器、鄙吝一類標籤不用；疾病、婚姻刑克、嫖賭飲吹不用；天姚、天刑、天月、華蓋、龍池鳳閣等引擎冇嘅星不用；要分日夜生、廟陷嘅條文暫不用。",
+  "topic": {
+    "id": "武曲.福德",
+    "palace": "福德",
+    "stars": [
+      "武曲"
+    ]
+  },
+  "rules": [
+    {
+      "id": "福德.武曲.廉祿",
+      "role": "refine",
+      "when": {
+        "hua": "祿",
+        "star": "廉貞",
+        "at": "sifang"
+      },
+      "text": "會廉貞化祿，精神愉快。",
+      "en": "Meeting Lian Zhen in Abundance, your spirits are high.",
+      "source": {
+        "passage": "deep.福德.武曲.7",
+        "quote": "前者主精神愉快"
+      }
+    },
+    {
+      "id": "福德.武曲.貪祿",
+      "role": "refine",
+      "when": {
+        "hua": "祿",
+        "star": "貪狼",
+        "at": "sifang"
+      },
+      "text": "會貪狼化祿，多應酬交際之樂。",
+      "en": "Meeting Tan Lang in Abundance, you enjoy plenty of socialising.",
+      "source": {
+        "passage": "deep.福德.武曲.7",
+        "quote": "后者主多应酬之乐"
+      }
+    },
+    {
+      "id": "福德.武曲.本",
+      "role": "base",
+      "text": "武曲是財星，在福德宮，精神享受要以物質享受為基礎。",
+      "en": "Wu Qu is the wealth star: in your Wellbeing Palace, your peace of mind rests on material comfort.",
+      "source": {
+        "passage": "deep.福德.武曲.8",
+        "quote": "其精神享受亦必以物质享受为基础"
+      }
+    }
+  ]
+}

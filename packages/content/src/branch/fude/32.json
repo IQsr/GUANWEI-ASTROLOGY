@@ -1,0 +1,52 @@
+{
+  "$note": "福德宮（2026-10-12）：七殺.福德。《深造講義》下篇 宮垣論 福德宮 p.560–575。弱智、自閉、心理不正常、變態、好色、淫濫、偽善、小器、鄙吝一類標籤不用；疾病、婚姻刑克、嫖賭飲吹不用；天姚、天刑、天月、華蓋、龍池鳳閣等引擎冇嘅星不用；要分日夜生、廟陷嘅條文暫不用。",
+  "topic": {
+    "id": "七殺.福德",
+    "palace": "福德",
+    "stars": [
+      "七殺"
+    ]
+  },
+  "rules": [
+    {
+      "id": "福德.七殺.府",
+      "role": "refine",
+      "when": {
+        "all": [
+          {
+            "star": "天府",
+            "at": "opp"
+          },
+          {
+            "any": [
+              {
+                "hua": "祿",
+                "at": "sifang"
+              },
+              {
+                "star": "祿存",
+                "at": "sifang"
+              }
+            ]
+          }
+        ]
+      },
+      "text": "對宮天府得祿，福厚。",
+      "en": "With Tian Fu opposite meeting Lu, you are fortunate.",
+      "source": {
+        "passage": "deep.福德.七殺.1",
+        "quote": "倘府库充盈，则主福厚"
+      }
+    },
+    {
+      "id": "福德.七殺.決定",
+      "role": "base",
+      "text": "七殺在福德宮，喜忙碌不得清閒，常常匆忙作決定。",
+      "en": "With Qi Sha in your Wellbeing Palace, you like to keep busy and rarely rest, and often decide in a hurry.",
+      "source": {
+        "passage": "deep.福德.七殺.2",
+        "quote": "每主冒昧作出决定"
+      }
+    }
+  ]
+}

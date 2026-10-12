@@ -1,0 +1,37 @@
+{
+  "$note": "福德宮（2026-10-12）：廉貞貪狼.福德。《深造講義》下篇 宮垣論 福德宮 p.560–575。弱智、自閉、心理不正常、變態、好色、淫濫、偽善、小器、鄙吝一類標籤不用；疾病、婚姻刑克、嫖賭飲吹不用；天姚、天刑、天月、華蓋、龍池鳳閣等引擎冇嘅星不用；要分日夜生、廟陷嘅條文暫不用。",
+  "topic": {
+    "id": "廉貞貪狼.福德",
+    "palace": "福德",
+    "stars": [
+      "廉貞",
+      "貪狼"
+    ]
+  },
+  "rules": [
+    {
+      "id": "福德.廉貪.火",
+      "role": "limit",
+      "when": {
+        "star": "火星",
+        "at": "same"
+      },
+      "text": "同宮有火星，容易無事奔忙，或做無謂的應酬。",
+      "en": "With Huo Xing in the palace, you can rush about for nothing, or socialise for its own sake.",
+      "source": {
+        "passage": "deep.福德.廉貞.7",
+        "quote": "主无事奔忙，或喜无谓应酬"
+      }
+    },
+    {
+      "id": "福德.廉貪.自得",
+      "role": "base",
+      "text": "廉貞貪狼在福德宮，主自得其樂。",
+      "en": "With Lian Zhen and Tan Lang in your Wellbeing Palace, you know how to enjoy yourself.",
+      "source": {
+        "passage": "deep.福德.廉貞.6",
+        "quote": "皆主自得其乐"
+      }
+    }
+  ]
+}

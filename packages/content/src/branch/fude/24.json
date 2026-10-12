@@ -1,0 +1,85 @@
+{
+  "$note": "福德宮（2026-10-12）：天府.福德。《深造講義》下篇 宮垣論 福德宮 p.560–575。弱智、自閉、心理不正常、變態、好色、淫濫、偽善、小器、鄙吝一類標籤不用；疾病、婚姻刑克、嫖賭飲吹不用；天姚、天刑、天月、華蓋、龍池鳳閣等引擎冇嘅星不用；要分日夜生、廟陷嘅條文暫不用。",
+  "topic": {
+    "id": "天府.福德",
+    "palace": "福德",
+    "stars": [
+      "天府"
+    ]
+  },
+  "rules": [
+    {
+      "id": "福德.天府.科",
+      "role": "refine",
+      "when": {
+        "hua": "科",
+        "star": "天府",
+        "at": "same"
+      },
+      "text": "天府化科，重信守諾。",
+      "en": "Tian Fu in Merit: you keep your word.",
+      "source": {
+        "passage": "deep.福德.天府.1",
+        "quote": "天府化科，则重信诺"
+      }
+    },
+    {
+      "id": "福德.天府.輔佐",
+      "role": "refine",
+      "when": {
+        "star": [
+          "左輔",
+          "右弼"
+        ],
+        "at": "sifang"
+      },
+      "text": "見左輔右弼，內心安靜，也有決斷力。",
+      "en": "With Zuo Fu or You Bi, your mind is calm and you are decisive.",
+      "source": {
+        "passage": "deep.福德.天府.2",
+        "quote": "主内心安静，且有决断力"
+      }
+    },
+    {
+      "id": "福德.天府.魁鉞",
+      "role": "refine",
+      "when": {
+        "star": [
+          "天魁",
+          "天鉞"
+        ],
+        "at": "sifang"
+      },
+      "text": "見天魁天鉞，泱泱大度。",
+      "en": "With Tian Kui or Tian Yue, you are magnanimous.",
+      "source": {
+        "passage": "deep.福德.天府.3",
+        "quote": "天府与魁钺同会，泱泱大度"
+      }
+    },
+    {
+      "id": "福德.天府.火",
+      "role": "limit",
+      "when": {
+        "star": "火星",
+        "at": "same"
+      },
+      "text": "同宮有火星，常有不必要的思慮。",
+      "en": "With Huo Xing in the palace, you worry about things that do not need it.",
+      "source": {
+        "passage": "deep.福德.天府.4",
+        "quote": "常多不必要的思虑"
+      }
+    },
+    {
+      "id": "福德.天府.本",
+      "role": "base",
+      "text": "天府在福德宮，為人謹慎。",
+      "en": "With Tian Fu in your Wellbeing Palace, you are careful by nature.",
+      "source": {
+        "passage": "deep.福德.天府.5",
+        "quote": "天府在福德宫，主为人谨慎"
+      }
+    }
+  ]
+}

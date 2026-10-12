@@ -1,0 +1,63 @@
+{
+  "$note": "福德宮（2026-10-12）：廉貞破軍.福德。《深造講義》下篇 宮垣論 福德宮 p.560–575。弱智、自閉、心理不正常、變態、好色、淫濫、偽善、小器、鄙吝一類標籤不用；疾病、婚姻刑克、嫖賭飲吹不用；天姚、天刑、天月、華蓋、龍池鳳閣等引擎冇嘅星不用；要分日夜生、廟陷嘅條文暫不用。",
+  "topic": {
+    "id": "廉貞破軍.福德",
+    "palace": "福德",
+    "stars": [
+      "廉貞",
+      "破軍"
+    ]
+  },
+  "rules": [
+    {
+      "id": "福德.廉破.吉",
+      "role": "refine",
+      "when": {
+        "hua": [
+          "祿",
+          "權",
+          "科"
+        ],
+        "star": "破軍",
+        "at": "same"
+      },
+      "text": "破軍吉化，勞而有成。",
+      "en": "Po Jun well transformed: your hard work pays off.",
+      "source": {
+        "passage": "deep.福德.廉貞.8",
+        "quote": "破军吉化者则劳而有成"
+      }
+    },
+    {
+      "id": "福德.廉破.煞",
+      "role": "limit",
+      "when": {
+        "star": [
+          "擎羊",
+          "陀羅",
+          "火星",
+          "鈴星",
+          "地空",
+          "地劫"
+        ],
+        "at": "same"
+      },
+      "text": "同宮有煞，凡事容易生改變之心；無煞才有決斷力。",
+      "en": "With harsh stars in the palace, you are quick to change your mind; without them, you are decisive.",
+      "source": {
+        "passage": "deep.福德.廉貞.9",
+        "quote": "[廉贞破军]有煞，凡事易生改变之心"
+      }
+    },
+    {
+      "id": "福德.廉破.本",
+      "role": "base",
+      "text": "廉貞破軍在福德宮，主勞碌、多思慮。",
+      "en": "With Lian Zhen and Po Jun in your Wellbeing Palace, you work hard and think a lot.",
+      "source": {
+        "passage": "deep.福德.廉貞.10",
+        "quote": "[廉贞破军]在福德宫主劳碌"
+      }
+    }
+  ]
+}

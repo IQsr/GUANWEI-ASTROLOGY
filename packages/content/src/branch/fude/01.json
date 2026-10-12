@@ -1,0 +1,76 @@
+{
+  "$note": "福德宮（2026-10-12）：紫微破軍.福德。《深造講義》下篇 宮垣論 福德宮 p.560–575。弱智、自閉、心理不正常、變態、好色、淫濫、偽善、小器、鄙吝一類標籤不用；疾病、婚姻刑克、嫖賭飲吹不用；天姚、天刑、天月、華蓋、龍池鳳閣等引擎冇嘅星不用；要分日夜生、廟陷嘅條文暫不用。",
+  "topic": {
+    "id": "紫微破軍.福德",
+    "palace": "福德",
+    "stars": [
+      "紫微",
+      "破軍"
+    ]
+  },
+  "rules": [
+    {
+      "id": "福德.紫破.親力",
+      "role": "base",
+      "text": "紫微破軍在福德宮，你喜歡親力親為；就算有人幫忙，也不容易放心交出去。",
+      "en": "With Zi Wei and Po Jun in your Wellbeing Palace, you like to do things yourself; even with help on hand, you find it hard to let go.",
+      "source": {
+        "passage": "deep.福德.紫微.1",
+        "quote": "主其人好亲力亲为"
+      }
+    },
+    {
+      "id": "福德.紫破.吉",
+      "role": "refine",
+      "when": {
+        "any": [
+          {
+            "hua": [
+              "祿",
+              "權",
+              "科"
+            ],
+            "at": "same"
+          },
+          {
+            "star": [
+              "左輔",
+              "右弼"
+            ],
+            "at": "sifang"
+          },
+          {
+            "star": [
+              "天魁",
+              "天鉞"
+            ],
+            "at": "sifang"
+          }
+        ]
+      },
+      "text": "見吉化吉星，創造力極強，適合需要開創的思考。",
+      "en": "With good transformations or helper stars, your creativity is exceptional, suited to thinking that breaks new ground.",
+      "source": {
+        "passage": "deep.福德.紫微.2",
+        "quote": "则创造力极强"
+      }
+    },
+    {
+      "id": "福德.紫破.火鈴",
+      "role": "limit",
+      "when": {
+        "star": [
+          "火星",
+          "鈴星"
+        ],
+        "at": "same"
+      },
+      "text": "同宮有火星或鈴星，特別勞心勞累。",
+      "en": "With Huo Xing or Ling Xing in the palace, you wear yourself out with effort and worry.",
+      "source": {
+        "passage": "deep.福德.紫微.3",
+        "quote": "见火铃或火铃夹者尤主劳累不堪"
+      }
+    }
+  ]
+}

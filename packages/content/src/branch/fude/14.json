@@ -1,0 +1,66 @@
+{
+  "$note": "福德宮（2026-10-12）：武曲天相.福德。《深造講義》下篇 宮垣論 福德宮 p.560–575。弱智、自閉、心理不正常、變態、好色、淫濫、偽善、小器、鄙吝一類標籤不用；疾病、婚姻刑克、嫖賭飲吹不用；天姚、天刑、天月、華蓋、龍池鳳閣等引擎冇嘅星不用；要分日夜生、廟陷嘅條文暫不用。",
+  "topic": {
+    "id": "武曲天相.福德",
+    "palace": "福德",
+    "stars": [
+      "武曲",
+      "天相"
+    ]
+  },
+  "rules": [
+    {
+      "id": "福德.武相.吉",
+      "role": "refine",
+      "when": {
+        "any": [
+          {
+            "hua": [
+              "祿",
+              "權",
+              "科"
+            ],
+            "at": "same"
+          },
+          {
+            "star": [
+              "左輔",
+              "右弼"
+            ],
+            "at": "sifang"
+          },
+          {
+            "star": [
+              "天魁",
+              "天鉞"
+            ],
+            "at": "sifang"
+          }
+        ]
+      },
+      "text": "武曲天相見吉，善於乘勢、利用機會。",
+      "en": "Wu Qu with Tian Xiang and good signs: you ride the tide and make good use of opportunities.",
+      "source": {
+        "passage": "deep.福德.武曲.4",
+        "quote": "善于利用机会"
+      }
+    },
+    {
+      "id": "福德.武相.空劫",
+      "role": "limit",
+      "when": {
+        "star": [
+          "地空",
+          "地劫"
+        ],
+        "at": "same"
+      },
+      "text": "同宮有地空地劫，想得多、做得少。",
+      "en": "With Di Kong or Di Jie in the palace, you think more than you act.",
+      "source": {
+        "passage": "deep.福德.武曲.5",
+        "quote": "能坐言而不能起行"
+      }
+    }
+  ]
+}

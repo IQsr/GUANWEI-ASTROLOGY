@@ -1,0 +1,94 @@
+{
+  "$note": "福德宮（2026-10-12）：破軍.福德。《深造講義》下篇 宮垣論 福德宮 p.560–575。弱智、自閉、心理不正常、變態、好色、淫濫、偽善、小器、鄙吝一類標籤不用；疾病、婚姻刑克、嫖賭飲吹不用；天姚、天刑、天月、華蓋、龍池鳳閣等引擎冇嘅星不用；要分日夜生、廟陷嘅條文暫不用。",
+  "topic": {
+    "id": "破軍.福德",
+    "palace": "福德",
+    "stars": [
+      "破軍"
+    ]
+  },
+  "rules": [
+    {
+      "id": "福德.破軍.輔佐",
+      "role": "refine",
+      "when": {
+        "all": [
+          {
+            "any": [
+              {
+                "star": [
+                  "左輔",
+                  "右弼"
+                ],
+                "at": "sifang"
+              },
+              {
+                "star": [
+                  "天魁",
+                  "天鉞"
+                ],
+                "at": "sifang"
+              }
+            ]
+          },
+          {
+            "not": {
+              "star": "紫微",
+              "at": "same"
+            }
+          }
+        ]
+      },
+      "text": "見輔佐吉星，多創見。",
+      "en": "With helper stars, you are full of original ideas.",
+      "source": {
+        "passage": "deep.福德.破軍.1",
+        "quote": "破军见辅佐吉曜，则主多创见"
+      }
+    },
+    {
+      "id": "福德.破軍.火鈴",
+      "role": "limit",
+      "when": {
+        "star": [
+          "火星",
+          "鈴星"
+        ],
+        "at": "same"
+      },
+      "text": "同宮有火星或鈴星，內心急躁焦慮。",
+      "en": "With Huo Xing or Ling Xing in the palace, you are inwardly restless and anxious.",
+      "source": {
+        "passage": "deep.福德.破軍.2",
+        "quote": "内心急躁焦虑"
+      }
+    },
+    {
+      "id": "福德.破軍.空劫",
+      "role": "limit",
+      "when": {
+        "star": [
+          "地空",
+          "地劫"
+        ],
+        "at": "same"
+      },
+      "text": "同宮有地空地劫，多空想而少實行。",
+      "en": "With Di Kong or Di Jie in the palace, you dream more than you do.",
+      "source": {
+        "passage": "deep.福德.破軍.3",
+        "quote": "多空想而少实行之心"
+      }
+    },
+    {
+      "id": "福德.破軍.本",
+      "role": "base",
+      "text": "破軍在福德宮，喜親力親為，勞心勞力而不推辭，也容易生改變之心。",
+      "en": "With Po Jun in your Wellbeing Palace, you like to do things yourself, never shirking effort, and are quick to want change.",
+      "source": {
+        "passage": "deep.福德.破軍.4",
+        "quote": "劳心劳力而不辞"
+      }
+    }
+  ]
+}

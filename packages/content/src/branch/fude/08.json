@@ -1,0 +1,53 @@
+{
+  "$note": "福德宮（2026-10-12）：太陽太陰.福德。《深造講義》下篇 宮垣論 福德宮 p.560–575。弱智、自閉、心理不正常、變態、好色、淫濫、偽善、小器、鄙吝一類標籤不用；疾病、婚姻刑克、嫖賭飲吹不用；天姚、天刑、天月、華蓋、龍池鳳閣等引擎冇嘅星不用；要分日夜生、廟陷嘅條文暫不用。",
+  "topic": {
+    "id": "太陽太陰.福德",
+    "palace": "福德",
+    "stars": [
+      "太陽",
+      "太陰"
+    ]
+  },
+  "rules": [
+    {
+      "id": "福德.陰陽.調和",
+      "role": "base",
+      "text": "太陽太陰同在福德宮，陰陽調和：雖然奔忙，也懂得忙裡偷閒，忙中得靜趣。",
+      "en": "Tai Yang with Tai Yin in your Wellbeing Palace balances light and shade: busy as you are, you find quiet moments and enjoy them.",
+      "source": {
+        "passage": "deep.福德.太陽.1",
+        "quote": "最能忙里偷闲，忙中得静趣"
+      }
+    },
+    {
+      "id": "福德.陰陽.陽祿",
+      "role": "refine",
+      "when": {
+        "hua": "祿",
+        "star": "太陽",
+        "at": "same"
+      },
+      "text": "太陽化祿，性格開朗。",
+      "en": "Tai Yang in Abundance: you are open and cheerful.",
+      "source": {
+        "passage": "deep.福德.太陽.2",
+        "quote": "太阳化禄则开朗"
+      }
+    },
+    {
+      "id": "福德.陰陽.陰祿",
+      "role": "refine",
+      "when": {
+        "hua": "祿",
+        "star": "太陰",
+        "at": "same"
+      },
+      "text": "太陰化祿，性格沉潛。",
+      "en": "Tai Yin in Abundance: you are calm and deep.",
+      "source": {
+        "passage": "deep.福德.太陽.2",
+        "quote": "太阴化禄则沉潜"
+      }
+    }
+  ]
+}

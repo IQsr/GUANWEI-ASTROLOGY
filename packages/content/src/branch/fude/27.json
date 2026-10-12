@@ -1,0 +1,46 @@
+{
+  "$note": "福德宮（2026-10-12）：太陰.福德。《深造講義》下篇 宮垣論 福德宮 p.560–575。弱智、自閉、心理不正常、變態、好色、淫濫、偽善、小器、鄙吝一類標籤不用；疾病、婚姻刑克、嫖賭飲吹不用；天姚、天刑、天月、華蓋、龍池鳳閣等引擎冇嘅星不用；要分日夜生、廟陷嘅條文暫不用。",
+  "topic": {
+    "id": "太陰.福德",
+    "palace": "福德",
+    "stars": [
+      "太陰"
+    ]
+  },
+  "rules": [
+    {
+      "id": "福德.太陰.忌",
+      "role": "limit",
+      "when": {
+        "hua": "忌",
+        "star": "太陰",
+        "at": "same"
+      },
+      "text": "太陰化忌，內心不容易安寧。",
+      "en": "Tai Yin in Hindrance: inner peace does not come easily.",
+      "source": {
+        "passage": "deep.福德.太陰.3",
+        "quote": "亦主内心不安宁"
+      }
+    },
+    {
+      "id": "福德.太陰.本",
+      "role": "base",
+      "when": {
+        "not": {
+          "star": [
+            "太陽",
+            "天機"
+          ],
+          "at": "same"
+        }
+      },
+      "text": "太陰主靜，在福德宮喜歡寧靜；就算環境熱鬧，也能鬧中取靜，只是競爭心不強。",
+      "en": "Tai Yin is still, so in your Wellbeing Palace you love quiet; even in a busy setting you find calm, though you are not very competitive.",
+      "source": {
+        "passage": "deep.福德.太陰.4",
+        "quote": "一般主喜宁静"
+      }
+    }
+  ]
+}
