@@ -6,7 +6,7 @@
  */
 import { describe, expect, it } from 'vitest';
 import { annual, cast, SCHOOL_PROFILE, type Chart } from '@guanwei/ziwei';
-import { BRANCH_TOPICS, RULE_REGISTRY, SPEC_VERSION, assembleAll, branchReading, branchRules, gujiaChapter, gujiaException, inferAll } from '../src/index';
+import { BRANCH_TOPICS, RULE_REGISTRY, SPEC_VERSION, assembleAll, branchReading, branchRules, gujiaChapter, gujiaException, inferAll, leanState } from '../src/index';
 import { renderParagraph } from '../src/en/render';
 
 const DEMO = cast({
@@ -34,7 +34,7 @@ describe('示範盤', () => {
   });
 
   it('命宮細讀：化忌有祿存但同宮有火星 —— 取「有煞」分支，唔講平穩', () => {
-    const got = ids(demo, '同梁寅申.命宮');
+    const got = ids(demo, '天同天梁坐寅申.命宮');
     expect(got).toContain('同梁寅申.忌祿有煞');
     expect(got).not.toContain('同梁寅申.忌祿無煞');
     expect(got).not.toContain('同梁寅申.平穩');
@@ -59,7 +59,7 @@ describe('條件一改，結論跟住改', () => {
       delete s.sihua;
     });
     expect(gujiaException(c)).toBeNull();
-    const got = ids(c, '同梁寅申.命宮');
+    const got = ids(c, '天同天梁坐寅申.命宮');
     expect(got).toContain('同梁寅申.平穩');
     expect(got).not.toContain('同梁寅申.忌祿有煞');
   });
@@ -69,7 +69,7 @@ describe('條件一改，結論跟住改', () => {
       const p = palace(x, '命宮');
       p.stars = p.stars.filter((y) => y.name !== '火星');
     });
-    const got = ids(c, '同梁寅申.命宮');
+    const got = ids(c, '天同天梁坐寅申.命宮');
     expect(got).toContain('同梁寅申.忌祿無煞');
     expect(got).not.toContain('同梁寅申.忌祿有煞');
   });
@@ -105,9 +105,13 @@ describe('真書', () => {
     const hit = new Map<string, number>();
     for (const t of BRANCH_TOPICS) for (const r of t.rules) hit.set(r.id, 0);
     let books = 0;
-    for (let i = 0; i < 3000; i++) {
+    /* 有系統咁鋪：六十年（十天干 × 十二地支）× 十二個月 × 六個時辰，日子輪住變 —— 六十星系同年干四化都輪到 */
+    for (let i = 0; i < 4320; i++) {
+      const y = 1950 + (i % 60);
+      const m = 1 + (Math.floor(i / 60) % 12);
+      const h = (Math.floor(i / 720) * 4 + 1) % 24;
       const r = cast({
-        solar: { y: 1940 + (i * 7) % 70, m: 1 + (i * 5) % 12, d: 1 + (i * 11) % 28 }, time: { h: (i * 3 + (i >> 5)) % 24, min: 0 },
+        solar: { y, m, d: 1 + ((i * 7) % 28) }, time: { h, min: 30 },
         tz: 'Asia/Hong_Kong', place: { lng: 114.17, lat: 22.32, label: '香港' }, sex: i % 2 ? 'male' : 'female',
       });
       if (!r.ok) continue;
@@ -127,7 +131,43 @@ describe('真書', () => {
     // eslint-disable-next-line no-console
     console.log(`\n  分支覆蓋：${hit.size - never.length} / ${hit.size}${never.length ? `；未中：${never.join('、')}` : ''}\n`);
     expect(books).toBeGreaterThan(10);
-    /* 化權加左右同度呢類組合本來就少；大部份要中到 */
-    expect(never.length).toBeLessThanOrEqual(4);
+    /*
+     * 化權加左右同度、火鈴夾忌呢類組合本來就少：3000 張盤中唔到唔等於寫錯。
+     * 2026-10-12 用逐年逐月逐時辰搜過，未中嗰幾條（同梁空劫、武相最壞、陽梁極孤⋯）都搵到實際生辰。
+     * 呢度守住比例：未中超過一成二就要查係咪條件寫咗不可能（例如祿存入辰戌）。
+     */
+    expect(never.length / hit.size).toBeLessThanOrEqual(0.12);
+  }, 300_000);
+});
+
+describe('骨架章細讀（六十星系）', () => {
+  it('細讀唔同偏向打架、唔重複骨架段', () => {
+    const clash: string[] = [];
+    const dup: string[] = [];
+    for (let i = 0; i < 2000; i++) {
+      const r = cast({
+        solar: { y: 1950 + (i % 60), m: 1 + (Math.floor(i / 60) % 12), d: 1 + ((i * 7) % 28) }, time: { h: (Math.floor(i / 240) * 3 + 1) % 24, min: 30 },
+        tz: 'Asia/Hong_Kong', place: { lng: 114.17, lat: 22.32, label: '香港' }, sex: i % 2 ? 'male' : 'female',
+      });
+      if (!r.ok) continue;
+      const g = gujiaChapter({ chart: r.value });
+      const deep = g?.segments.find((s) => s.slot === '細讀');
+      if (!g || !deep) continue;
+      const state = leanState(r.value);
+      for (const t of BRANCH_TOPICS) {
+        if (t.topic.xingxi === undefined) continue;
+        for (const x of branchRules(r.value, t)) {
+          if (x.pole && state && !['平衡', '未定', x.pole].includes(state) && deep.text.includes(x.text)) clash.push(`${x.id}／${state}`);
+        }
+      }
+      const skel = g.segments.find((s) => s.slot === '骨架')!.text.replace(/[^\p{Script=Han}]/gu, '');
+      /* 逐句比：兩條規則接埋嗰度唔算 */
+      for (const sen of deep.text.match(/[^。]+。/g) ?? []) {
+        const d = sen.replace(/[^\p{Script=Han}]/gu, '');
+        for (let k = 0; k + 8 <= d.length; k++) if (skel.includes(d.slice(k, k + 8))) { dup.push(sen); break; }
+      }
+    }
+    expect(clash).toEqual([]);
+    expect(dup).toEqual([]);
   }, 300_000);
 });

@@ -1,0 +1,114 @@
+{
+  "$note": "第 3 層 · 六十星系（2026-10-12）：七殺獨坐寅申，《深造講義》p.113。",
+  "topic": {
+    "id": "七殺獨坐寅申.命宮",
+    "palace": "命宮",
+    "stars": [
+      "七殺"
+    ],
+    "branch": [
+      "寅",
+      "申"
+    ],
+    "xingxi": 27
+  },
+  "basis": {
+    "passage": "deep.星系27.1",
+    "quote": "须分别其为孤高，抑为威权"
+  },
+  "rules": [
+    {
+      "id": "七殺寅申.逆境",
+      "role": "base",
+      "text": "七殺坐命，一生總有一段逆境；那段時期抱隨遇而安的心，橫逆自然減少，愈掙扎反而愈不順。",
+      "en": "With Qi Sha in the Life Palace, life always holds a stretch of adversity; meet that time with acceptance and the trouble eases, while struggling against it makes things worse.",
+      "source": {
+        "passage": "deep.星系27.2",
+        "quote": "一生必有一段时期逆境"
+      }
+    },
+    {
+      "id": "七殺寅申.貪祿",
+      "role": "refine",
+      "when": {
+        "hua": "祿",
+        "star": "貪狼",
+        "at": "trine"
+      },
+      "text": "會照的貪狼化祿，令你最隨和，消去七殺的孤高。",
+      "en": "Tan Lang transformed by Lu in your trine makes you most easy-going, dissolving Qi Sha's aloofness.",
+      "source": {
+        "passage": "deep.星系27.3",
+        "quote": "以见贪狼化禄者最为随和"
+      },
+      "pole": "威權"
+    },
+    {
+      "id": "七殺寅申.祿存",
+      "role": "refine",
+      "when": {
+        "star": "祿存",
+        "at": [
+          "same",
+          "opp"
+        ]
+      },
+      "text": "祿存同宮或對照，能消減七殺的孤高。",
+      "en": "Lu Cun in your palace or opposite it dissolves Qi Sha's aloofness.",
+      "source": {
+        "passage": "deep.星系27.3",
+        "quote": "七杀必须见禄，然后始可解孤高之性"
+      },
+      "pole": "威權"
+    },
+    {
+      "id": "七殺寅申.紫府科",
+      "role": "refine",
+      "when": {
+        "hua": "科",
+        "star": [
+          "紫微",
+          "天府"
+        ],
+        "at": "opp"
+      },
+      "text": "對宮的紫府化科，令你帶威權。",
+      "en": "Zi Wei–Tian Fu opposite you is transformed by Ke, which gives you authority.",
+      "source": {
+        "passage": "deep.星系27.4",
+        "quote": "以化科为宜，主威权"
+      },
+      "pole": "威權"
+    },
+    {
+      "id": "七殺寅申.紫權",
+      "role": "limit",
+      "when": {
+        "hua": "權",
+        "star": "紫微",
+        "at": "opp"
+      },
+      "text": "對宮的紫微化權，反而令你孤高。",
+      "en": "Zi Wei opposite you is transformed by Quan, which makes you aloof instead.",
+      "source": {
+        "passage": "deep.星系27.4",
+        "quote": "则反主孤高"
+      },
+      "pole": "孤高"
+    },
+    {
+      "id": "七殺寅申.孤高",
+      "role": "limit",
+      "when": {
+        "lean": "孤高"
+      },
+      "text": "孤高的一面較重：七殺坐命以威權為宜，孤高就多紛擾。",
+      "en": "The aloof side is stronger: Qi Sha in the Life Palace does best with authority, and aloofness brings more trouble.",
+      "edit": "原句續講女命婚姻，性別斷語不用。",
+      "source": {
+        "passage": "deep.星系27.5",
+        "quote": "孤高则多纷扰"
+      }
+    }
+  ]
+}

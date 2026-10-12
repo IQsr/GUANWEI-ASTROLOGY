@@ -1,0 +1,98 @@
+{
+  "$note": "第 3 層 · 六十星系（2026-10-12）：天相獨坐丑未，《深造講義》p.84。",
+  "topic": {
+    "id": "天相獨坐丑未.命宮",
+    "palace": "命宮",
+    "stars": [
+      "天相"
+    ],
+    "branch": [
+      "丑",
+      "未"
+    ],
+    "xingxi": 16
+  },
+  "basis": {
+    "passage": "deep.星系16.1",
+    "quote": "必须注意其气质之优雅或庸俗"
+  },
+  "rules": [
+    {
+      "id": "天相丑未.優雅",
+      "role": "refine",
+      "when": {
+        "lean": "優雅"
+      },
+      "text": "優雅的一面較重：命運未必勝過隨俗的人，社會地位卻較高。",
+      "en": "The refined side is stronger: your fortunes may not outrun those who follow the crowd, but your standing in society is higher.",
+      "source": {
+        "passage": "deep.星系16.2",
+        "quote": "但社会地位则胜之"
+      }
+    },
+    {
+      "id": "天相丑未.隨俗",
+      "role": "refine",
+      "when": {
+        "lean": "隨俗"
+      },
+      "text": "隨俗的一面較重：社會地位或許不及氣質優雅的人，命運卻未必較差。",
+      "en": "The conforming side is stronger: your standing may not match those of refined temperament, but your fortunes aren't necessarily worse.",
+      "source": {
+        "passage": "deep.星系16.2",
+        "quote": "命运未必能及气质庸俗者"
+      }
+    },
+    {
+      "id": "天相丑未.明主",
+      "role": "refine",
+      "when": {
+        "hua": [
+          "祿",
+          "權",
+          "科"
+        ],
+        "star": [
+          "紫微",
+          "破軍"
+        ],
+        "at": "opp"
+      },
+      "text": "對宮的紫微破軍吉化，是天相遇明主之兆：你容易遇到賞識自己的上司。",
+      "en": "Zi Wei–Po Jun opposite you has a favourable transformation, a sign of Tian Xiang meeting a wise master: you tend to find superiors who value you.",
+      "source": {
+        "passage": "deep.星系16.3",
+        "quote": "则为天相见明主之兆"
+      },
+      "pole": "優雅"
+    },
+    {
+      "id": "天相丑未.朝秦暮楚",
+      "role": "limit",
+      "when": {
+        "all": [
+          {
+            "lean": "隨俗"
+          },
+          {
+            "star": [
+              "擎羊",
+              "陀羅",
+              "火星",
+              "鈴星",
+              "地空",
+              "地劫"
+            ],
+            "at": "opp"
+          }
+        ]
+      },
+      "text": "對宮的紫微破軍見煞，你容易反覆，難免朝秦暮楚。",
+      "en": "Zi Wei–Po Jun opposite you meets malefics, so you're prone to changing sides, hard put to stay loyal to one camp.",
+      "source": {
+        "passage": "deep.星系16.4",
+        "quote": "难免朝秦暮楚"
+      }
+    }
+  ]
+}

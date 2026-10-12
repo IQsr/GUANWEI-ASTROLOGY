@@ -1,0 +1,170 @@
+{
+  "$note": "第 3 層 · 六十星系（2026-10-12）：天同巨門坐丑未，《深造講義》p.56。",
+  "topic": {
+    "id": "天同巨門坐丑未.命宮",
+    "palace": "命宮",
+    "stars": [
+      "天同",
+      "巨門"
+    ],
+    "branch": [
+      "丑",
+      "未"
+    ],
+    "xingxi": 6
+  },
+  "basis": {
+    "passage": "deep.星系06.1",
+    "quote": "因为巨门为暗曜，天同为情绪之星"
+  },
+  "rules": [
+    {
+      "id": "同巨丑未.弱格",
+      "role": "base",
+      "text": "天同巨門在丑未屬於較弱的格局：就算有吉化，人生總有些遺憾，對煞忌也特別敏感。",
+      "en": "Tian Tong–Ju Men in Chou or Wei is a weaker structure: even with favourable transformations, life holds some regret, and it's especially sensitive to malefics and Ji.",
+      "edit": "「必有遺憾」寫成「總有些遺憾」；明珠出海格（借星安宮）不屬此條，借星的命宮不套星系細讀。",
+      "source": {
+        "passage": "deep.星系06.2",
+        "quote": "对煞忌刑曜特别敏感"
+      }
+    },
+    {
+      "id": "同巨丑未.丑",
+      "role": "refine",
+      "when": {
+        "branch": [
+          "丑"
+        ]
+      },
+      "text": "你的天同巨門在丑，會照卯宮的太陽，陰暗面較小。",
+      "en": "Your Tian Tong–Ju Men sits in Chou and meets the Sun in Mao, so its shadow is lighter.",
+      "source": {
+        "passage": "deep.星系06.3",
+        "quote": "丑宫的[同巨]，阴暗较小"
+      },
+      "pole": "明朗"
+    },
+    {
+      "id": "同巨丑未.未",
+      "role": "limit",
+      "when": {
+        "branch": [
+          "未"
+        ]
+      },
+      "text": "你的天同巨門在未，會照的是酉宮的太陽，日已西沉，陰暗面較大。",
+      "en": "Your Tian Tong–Ju Men sits in Wei and meets the Sun in You, already setting, so its shadow is heavier.",
+      "source": {
+        "passage": "deep.星系06.4",
+        "quote": "由于酉宫的太阳已属日落西山"
+      },
+      "pole": "陰暗"
+    },
+    {
+      "id": "同巨丑未.同忌",
+      "role": "limit",
+      "when": {
+        "hua": "忌",
+        "star": "天同",
+        "at": "same"
+      },
+      "text": "你的天同化忌，感情的陰暗面加重，是這組星中較下的格局。",
+      "en": "Your Tian Tong is transformed by Ji, deepening the emotional shadow; this is among the lower forms of these stars.",
+      "source": {
+        "passage": "deep.星系06.5",
+        "quote": "都是感情阴暗面的增加"
+      },
+      "pole": "陰暗"
+    },
+    {
+      "id": "同巨丑未.巨忌",
+      "role": "limit",
+      "when": {
+        "hua": "忌",
+        "star": "巨門",
+        "at": "same"
+      },
+      "text": "你的巨門化忌，感情的陰暗面加重，是這組星中較下的格局。",
+      "en": "Your Ju Men is transformed by Ji, deepening the emotional shadow; this is among the lower forms of these stars.",
+      "source": {
+        "passage": "deep.星系06.5",
+        "quote": "都是感情阴暗面的增加"
+      },
+      "pole": "陰暗"
+    },
+    {
+      "id": "同巨丑未.巨吉",
+      "role": "refine",
+      "when": {
+        "hua": [
+          "祿",
+          "權",
+          "科"
+        ],
+        "star": "巨門",
+        "at": "same"
+      },
+      "text": "你的巨門吉化，陰暗面減少；經過波折之後，能白手興家。",
+      "en": "Your Ju Men has a favourable transformation, lightening the shadow; after some setbacks, you build something from nothing.",
+      "source": {
+        "passage": "deep.星系06.6",
+        "quote": "尤其巨门吉化，必经波折而后白手兴家"
+      },
+      "pole": "明朗"
+    },
+    {
+      "id": "同巨丑未.同祿",
+      "role": "refine",
+      "when": {
+        "hua": "祿",
+        "star": "天同",
+        "at": "same"
+      },
+      "text": "你的天同化祿，可以減少這組星的陰暗。",
+      "en": "Your Tian Tong is transformed by Lu, which lightens the shadow of these stars.",
+      "source": {
+        "passage": "deep.星系06.7",
+        "quote": "则可减少[同巨]的阴暗"
+      },
+      "pole": "明朗"
+    },
+    {
+      "id": "同巨丑未.同權",
+      "role": "refine",
+      "when": {
+        "hua": "權",
+        "star": "天同",
+        "at": "same"
+      },
+      "text": "你的天同化權，可以減少這組星的陰暗。",
+      "en": "Your Tian Tong is transformed by Quan, which lightens the shadow of these stars.",
+      "source": {
+        "passage": "deep.星系06.7",
+        "quote": "则可减少[同巨]的阴暗"
+      },
+      "pole": "明朗"
+    },
+    {
+      "id": "同巨丑未.擎羊",
+      "role": "limit",
+      "when": {
+        "star": "擎羊",
+        "at": "sifang"
+      },
+      "text": "這組星最不喜擎羊，你的盤正見擎羊：容易受人暗中壓制，明明談得成的事，也可能被人從旁插手奪去。",
+      "en": "These stars dislike Qing Yang most, and your chart has it: you can be quietly held down, and even a deal you had in hand can be snatched by someone stepping in from the side.",
+      "edit": "原書受人陰損壓制要再見昌曲化忌等，此處只以擎羊同度或會照為條件，故不寫「必」。",
+      "source": {
+        "passage": "deep.星系06.8",
+        "quote": "最不喜与擎羊同度，会照亦不吉"
+      },
+      "also": [
+        {
+          "passage": "deep.星系06.9",
+          "quote": "忽然给人从旁插手压去"
+        }
+      ]
+    }
+  ]
+}

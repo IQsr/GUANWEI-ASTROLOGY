@@ -1,0 +1,188 @@
+{
+  "$note": "第 3 層 · 六十星系（2026-10-12）：武曲獨坐辰戌，《深造講義》p.119。",
+  "topic": {
+    "id": "武曲獨坐辰戌.命宮",
+    "palace": "命宮",
+    "stars": [
+      "武曲"
+    ],
+    "branch": [
+      "辰",
+      "戌"
+    ],
+    "xingxi": 29
+  },
+  "basis": {
+    "passage": "deep.星系29.1",
+    "quote": "系分别其为因循抑或进取"
+  },
+  "rules": [
+    {
+      "id": "武曲辰戌.祿",
+      "role": "limit",
+      "when": {
+        "hua": "祿",
+        "star": "武曲",
+        "at": "same"
+      },
+      "text": "你的武曲化祿，容易變得因循。",
+      "en": "Your Wu Qu is transformed by Lu, which makes it easy to settle into a rut.",
+      "source": {
+        "passage": "deep.星系29.2",
+        "quote": "很容易变成因循"
+      },
+      "pole": "因循"
+    },
+    {
+      "id": "武曲辰戌.科",
+      "role": "limit",
+      "when": {
+        "hua": "科",
+        "star": "武曲",
+        "at": "same"
+      },
+      "text": "你的武曲化科，少年較不順，靠一技之長自立；得到一些聲譽之後，容易因循。",
+      "en": "Your Wu Qu is transformed by Ke: youth is less smooth, you stand on your own through a skill, and once you've earned some reputation it's easy to coast.",
+      "source": {
+        "passage": "deep.星系29.3",
+        "quote": "主少年不利，赖自己一技之长自立"
+      },
+      "pole": "因循"
+    },
+    {
+      "id": "武曲辰戌.權",
+      "role": "refine",
+      "when": {
+        "all": [
+          {
+            "hua": "權",
+            "star": "武曲",
+            "at": "same"
+          },
+          {
+            "not": {
+              "star": [
+                "擎羊",
+                "陀羅",
+                "火星",
+                "鈴星",
+                "地空",
+                "地劫"
+              ],
+              "at": "same"
+            }
+          }
+        ]
+      },
+      "text": "你的武曲化權而不受煞擾，有破網而出的心，本質進取。",
+      "en": "Your Wu Qu is transformed by Quan and free of malefics, with the drive to break out of the net: enterprising at heart.",
+      "source": {
+        "passage": "deep.星系29.4",
+        "quote": "本质变为进取"
+      },
+      "pole": "進取"
+    },
+    {
+      "id": "武曲辰戌.忌無陀",
+      "role": "refine",
+      "when": {
+        "all": [
+          {
+            "hua": "忌",
+            "star": "武曲",
+            "at": "same"
+          },
+          {
+            "not": {
+              "star": "陀羅",
+              "at": "same"
+            }
+          }
+        ]
+      },
+      "text": "你的武曲化忌，人生較艱苦，少年也不順；但沒有陀羅同宮，反而令你進取。",
+      "en": "Your Wu Qu is transformed by Ji: life is harder and youth less smooth; but with no Tuo Luo beside it, this actually makes you enterprising.",
+      "source": {
+        "passage": "deep.星系29.5",
+        "quote": "但如无陀罗同度，则反主进取"
+      },
+      "pole": "進取"
+    },
+    {
+      "id": "武曲辰戌.忌陀",
+      "role": "limit",
+      "when": {
+        "all": [
+          {
+            "hua": "忌",
+            "star": "武曲",
+            "at": "same"
+          },
+          {
+            "star": "陀羅",
+            "at": "same"
+          }
+        ]
+      },
+      "text": "你的武曲化忌，又與陀羅同宮：人生較艱苦，少年也不順。",
+      "en": "Your Wu Qu is transformed by Ji and shares the palace with Tuo Luo: life is harder and youth less smooth.",
+      "source": {
+        "passage": "deep.星系29.6",
+        "quote": "武曲化忌则人生艰苦"
+      }
+    },
+    {
+      "id": "武曲辰戌.貪祿",
+      "role": "refine",
+      "when": {
+        "hua": "祿",
+        "star": "貪狼",
+        "at": "opp"
+      },
+      "text": "對宮的貪狼化祿，令你進取，往往要離鄉別井去改變命運。",
+      "en": "Tan Lang opposite you is transformed by Lu, which makes you enterprising; changing your fortunes often means leaving home.",
+      "source": {
+        "passage": "deep.星系29.7",
+        "quote": "往往为离乡背井改变命运的征兆"
+      },
+      "pole": "進取"
+    },
+    {
+      "id": "武曲辰戌.貪火鈴",
+      "role": "refine",
+      "when": {
+        "all": [
+          {
+            "star": [
+              "火星",
+              "鈴星"
+            ],
+            "at": "opp"
+          },
+          {
+            "not": {
+              "all": [
+                {
+                  "hua": "忌",
+                  "star": "武曲",
+                  "at": "same"
+                },
+                {
+                  "star": "陀羅",
+                  "at": "same"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "text": "對宮的貪狼有火鈴同宮，激發你，令你進取。",
+      "en": "Tan Lang opposite you shares its palace with Huo or Ling, which spurs you on and makes you enterprising.",
+      "source": {
+        "passage": "deep.星系29.8",
+        "quote": "则对武曲生激发力"
+      },
+      "pole": "進取"
+    }
+  ]
+}

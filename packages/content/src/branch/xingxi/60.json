@@ -1,0 +1,160 @@
+{
+  "$note": "第 3 層 · 六十星系（2026-10-12）：天機天梁坐辰戌，《深造講義》p.215。",
+  "topic": {
+    "id": "天機天梁坐辰戌.命宮",
+    "palace": "命宮",
+    "stars": [
+      "天機",
+      "天梁"
+    ],
+    "branch": [
+      "辰",
+      "戌"
+    ],
+    "xingxi": 60
+  },
+  "basis": {
+    "passage": "deep.星系60.1",
+    "quote": "须祥其为尖刻，抑为明断"
+  },
+  "rules": [
+    {
+      "id": "機梁辰戌.機忌",
+      "role": "limit",
+      "when": {
+        "hua": "忌",
+        "star": "天機",
+        "at": "same"
+      },
+      "text": "你的天機化忌，動盪不安，容易反應過度而變得尖刻。",
+      "en": "Your Tian Ji is transformed by Ji: restless and unsettled, prone to overreacting and turning sharp.",
+      "source": {
+        "passage": "deep.星系60.2",
+        "quote": "因而往往变为尖刻"
+      },
+      "pole": "尖銳"
+    },
+    {
+      "id": "機梁辰戌.陰忌",
+      "role": "limit",
+      "when": {
+        "hua": "忌",
+        "star": "太陰",
+        "at": "trine"
+      },
+      "text": "會照的太陰化忌，令你容易反應過度而變得尖刻。",
+      "en": "Tai Yin transformed by Ji in your trine makes you prone to overreacting and turning sharp.",
+      "source": {
+        "passage": "deep.星系60.2",
+        "quote": "便难免有过份的反应"
+      },
+      "pole": "尖銳"
+    },
+    {
+      "id": "機梁辰戌.同忌",
+      "role": "limit",
+      "when": {
+        "hua": "忌",
+        "star": "天同",
+        "at": "trine"
+      },
+      "text": "會照的天同化忌，令你容易反應過度而變得尖刻。",
+      "en": "Tian Tong transformed by Ji in your trine makes you prone to overreacting and turning sharp.",
+      "source": {
+        "passage": "deep.星系60.2",
+        "quote": "便难免有过份的反应"
+      },
+      "pole": "尖銳"
+    },
+    {
+      "id": "機梁辰戌.陽巨忌",
+      "role": "limit",
+      "when": {
+        "hua": "忌",
+        "star": [
+          "太陽",
+          "巨門"
+        ],
+        "at": "trine"
+      },
+      "text": "會照的太陽或巨門化忌，加強天梁的孤剋，容易流於尖刻。",
+      "en": "Tai Yang or Ju Men transformed by Ji in your trine strengthens Tian Liang's isolating edge, which can turn sharp.",
+      "source": {
+        "passage": "deep.星系60.3",
+        "quote": "则加强天梁的孤克本质"
+      },
+      "pole": "尖銳"
+    },
+    {
+      "id": "機梁辰戌.機吉",
+      "role": "refine",
+      "when": {
+        "hua": [
+          "祿",
+          "權",
+          "科"
+        ],
+        "star": "天機",
+        "at": "same"
+      },
+      "text": "你的天機吉化，敏感靈動得以發揮，與天梁配合成為明斷。",
+      "en": "Your Tian Ji has a favourable transformation, so its quick sensitivity comes through and, with Tian Liang, becomes clear judgement.",
+      "source": {
+        "passage": "deep.星系60.4",
+        "quote": "则天机的敏感灵动得以发挥"
+      },
+      "pole": "明斷"
+    },
+    {
+      "id": "機梁辰戌.吉星",
+      "role": "refine",
+      "when": {
+        "star": [
+          "左輔",
+          "右弼",
+          "文昌",
+          "文曲",
+          "天魁",
+          "天鉞"
+        ],
+        "at": "sifang"
+      },
+      "text": "有輔佐吉星會合，機梁的性質得以調和。",
+      "en": "Supporting stars meeting your chart bring Tian Ji and Tian Liang into balance.",
+      "source": {
+        "passage": "deep.星系60.5",
+        "quote": "机梁的性质得以调和"
+      },
+      "pole": "明斷"
+    },
+    {
+      "id": "機梁辰戌.煞",
+      "role": "limit",
+      "when": {
+        "all": [
+          {
+            "star": [
+              "擎羊",
+              "陀羅"
+            ],
+            "at": "sifang"
+          },
+          {
+            "star": [
+              "火星",
+              "鈴星"
+            ],
+            "at": "sifang"
+          }
+        ]
+      },
+      "text": "煞星並湊，機梁的性質互相衝突，容易變得尖刻。",
+      "en": "Malefics gather in your chart, setting Tian Ji and Tian Liang against each other, which can turn sharp.",
+      "source": {
+        "passage": "deep.星系60.5",
+        "quote": "则星系性质化为尖刻"
+      },
+      "pole": "尖銳"
+    }
+  ]
+}

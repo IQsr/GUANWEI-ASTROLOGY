@@ -1,0 +1,89 @@
+{
+  "$note": "第 3 層 · 六十星系（2026-10-12）：貪狼獨坐子午，《深造講義》p.53。",
+  "topic": {
+    "id": "貪狼獨坐子午.命宮",
+    "palace": "命宮",
+    "stars": [
+      "貪狼"
+    ],
+    "branch": [
+      "子",
+      "午"
+    ],
+    "xingxi": 5
+  },
+  "basis": {
+    "passage": "deep.星系05.1",
+    "quote": "须分别它的欲望强弱"
+  },
+  "rules": [
+    {
+      "id": "貪狼子午.忌鈴陀",
+      "role": "limit",
+      "when": {
+        "all": [
+          {
+            "hua": "忌",
+            "star": "貪狼",
+            "at": "same"
+          },
+          {
+            "star": [
+              "鈴星",
+              "陀羅"
+            ],
+            "at": "sifang"
+          }
+        ]
+      },
+      "text": "你的貪狼化忌，又見鈴星或陀羅：欲望偏低，甚至畏懼競爭，一碰到阻力就退縮。",
+      "en": "Your Tan Lang is transformed by Ji and meets Ling Xing or Tuo Luo: desire runs low, you may even shy away from competition, and you back off at the first obstacle.",
+      "source": {
+        "passage": "deep.星系05.2",
+        "quote": "甚至可以变成畏惧竞争，一碰到阻力便退缩"
+      },
+      "pole": "欲望淡"
+    },
+    {
+      "id": "貪狼子午.淡",
+      "role": "refine",
+      "when": {
+        "lean": "欲望淡"
+      },
+      "text": "欲望偏淡不等於不好：只要不沉溺於嗜好，遇到奮發圖強的時機，你一樣有所作為。",
+      "en": "Light desire isn't a bad thing: as long as you don't sink into indulgence, when a time for striving comes, you can still achieve a great deal.",
+      "source": {
+        "passage": "deep.星系05.3",
+        "quote": "倘若不沉溺于不良嗜好，逢奋发图强的大运，仍然有所为"
+      }
+    },
+    {
+      "id": "貪狼子午.權物欲",
+      "role": "limit",
+      "when": {
+        "all": [
+          {
+            "lean": "欲望強"
+          },
+          {
+            "hua": "權",
+            "star": "貪狼",
+            "at": "same"
+          }
+        ]
+      },
+      "text": "你的貪狼化權，欲望偏向物欲：人生觀積極，但過了頭，容易不擇手段，或者沉迷投機。",
+      "en": "Your Tan Lang is transformed by Quan, so desire leans towards the material: your outlook is active, but taken too far it can turn ruthless or drift into speculation.",
+      "source": {
+        "passage": "deep.星系05.4",
+        "quote": "但却可能发展成为不择手段的人"
+      },
+      "also": [
+        {
+          "passage": "deep.星系05.5",
+          "quote": "偏向于物欲"
+        }
+      ]
+    }
+  ]
+}

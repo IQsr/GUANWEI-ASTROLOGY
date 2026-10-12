@@ -1,0 +1,67 @@
+{
+  "$note": "第 3 層 · 六十星系（2026-10-12）：太陰獨坐巳亥，《深造講義》p.50。",
+  "topic": {
+    "id": "太陰獨坐巳亥.命宮",
+    "palace": "命宮",
+    "stars": [
+      "太陰"
+    ],
+    "branch": [
+      "巳",
+      "亥"
+    ],
+    "xingxi": 4
+  },
+  "basis": {
+    "passage": "deep.星系04.1",
+    "quote": "须注意其发射性与收敛性二者"
+  },
+  "rules": [
+    {
+      "id": "太陰巳亥.祿",
+      "role": "refine",
+      "when": {
+        "hua": "祿",
+        "star": "太陰",
+        "at": "same"
+      },
+      "text": "你的太陰化祿：這份內斂是性格上的沉潛，不事浮誇。",
+      "en": "Your Tai Yin is transformed by Lu: this restraint is depth of character, without showiness.",
+      "source": {
+        "passage": "deep.星系04.2",
+        "quote": "前者仅为性格上的沉潜，不事浮夸"
+      },
+      "pole": "收斂"
+    },
+    {
+      "id": "太陰巳亥.忌",
+      "role": "limit",
+      "when": {
+        "hua": "忌",
+        "star": "太陰",
+        "at": "same"
+      },
+      "text": "你的太陰化忌：內斂容易變成工於心計、耍手段；把想法說出來，比放在心裡盤算好。",
+      "en": "Your Tai Yin is transformed by Ji: restraint can turn into scheming and manoeuvring; saying what you think works better than calculating in private.",
+      "edit": "末句建議是編輯加的。",
+      "source": {
+        "passage": "deep.星系04.2",
+        "quote": "后者则工心计，耍手段"
+      },
+      "pole": "收斂"
+    },
+    {
+      "id": "太陰巳亥.發揮",
+      "role": "limit",
+      "when": {
+        "lean": "發揮"
+      },
+      "text": "發揮較重的太陰，就算見吉星，也多是虛名：名聲大過實際，人生容易感到空虛。",
+      "en": "A Tai Yin that leans towards display tends, even with favourable stars, towards an empty name: reputation outruns substance, and life can feel hollow.",
+      "source": {
+        "passage": "deep.星系04.3",
+        "quote": "亦仅主虚名"
+      }
+    }
+  ]
+}

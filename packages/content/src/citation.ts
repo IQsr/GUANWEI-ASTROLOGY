@@ -2,6 +2,7 @@ import { BRANCH_TOPICS } from './branch';
 import { DAXIAN_HUA, LOOKBACK_EVENTS } from './daxian';
 import { CORPUS } from './lexicon';
 import { tmSentence } from './en/render';
+import { XINGXI } from './xingxi';
 
 /* ───────────────────────────────────────────────────────────
  * 出處註（2026-10-12 · Issac：「人哋 challenge 我哋，要講得出喺邊本書、邊一頁、邊一節」）
@@ -13,6 +14,7 @@ import { tmSentence } from './en/render';
  *   一、原文分支（branch.ts）—— 逐條核過條件同引文
  *   二、大限／流年四化句（daxian/hua.json）—— 每句由一段四化原文撮出
  *   三、回看嘅事件句（daxian/events.json）—— 條件跟書，句子婉轉
+ *   四、性格的骨架：星系嘅基本講法、兩頭偏向句（2026-10-12）—— 譯自每個星系開頭嗰段
  * 舊有嘅宮位基塊、結論句、生活句未收：審查指出佢哋掛嘅《全書》古文撐唔起後面嘅描述，
  * 加註只會令讀者對照時發現對唔上。轉做分支規則之後先加。
  *
@@ -69,6 +71,19 @@ function build(): { zh: CiteKey[]; en: CiteKey[] } {
       if (r.tail) zh.push({ key: r.tail, ids });
       if (r.tailEn) en.push({ key: r.tailEn, ids });
     }
+  /* 性格的骨架：星系嘅基本講法同兩頭偏向句，掛星系開頭嗰段原文（branch/xingxi/*.json `basis`） */
+  for (const t of BRANCH_TOPICS) {
+    if (t.topic.xingxi === undefined || !t.basis) continue;
+    const x = XINGXI.find((y) => y.n === t.topic.xingxi);
+    if (!x) continue;
+    const ids = [t.basis.passage];
+    for (const text of [x.plain.basis, ...x.poles.map((p) => x.plain.lean[p] ?? '')])
+      for (const s of sentencesZh(text)) zh.push({ key: s, ids });
+    for (const text of [x.plain.basis, ...x.poles.map((p) => x.plain.lean[p] ?? '')]) {
+      const e = tmSentence(text);
+      if (e) for (const s of sentencesEn(e)) en.push({ key: s, ids });
+    }
+  }
   for (const h of DAXIAN_HUA) {
     zh.push({ key: h.text, ids: [h.source.passage_id] });
     const e = tmSentence(h.text);

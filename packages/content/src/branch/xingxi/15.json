@@ -1,0 +1,122 @@
+{
+  "$note": "第 3 層 · 六十星系（2026-10-12）：巨門獨坐子午，《深造講義》p.81。",
+  "topic": {
+    "id": "巨門獨坐子午.命宮",
+    "palace": "命宮",
+    "stars": [
+      "巨門"
+    ],
+    "branch": [
+      "子",
+      "午"
+    ],
+    "xingxi": 15
+  },
+  "basis": {
+    "passage": "deep.星系15.1",
+    "quote": "亦只需注意它是英华内敛，或是内心疑忌"
+  },
+  "rules": [
+    {
+      "id": "巨門子午.石中隱玉",
+      "role": "exception",
+      "when": {
+        "all": [
+          {
+            "hua": [
+              "祿",
+              "權"
+            ],
+            "star": "巨門",
+            "at": "same"
+          },
+          {
+            "not": {
+              "star": [
+                "擎羊",
+                "陀羅",
+                "火星",
+                "鈴星",
+                "地空",
+                "地劫"
+              ],
+              "at": "same"
+            }
+          }
+        ]
+      },
+      "text": "你的巨門吉化而同宮不見煞，成石中隱玉格：英華內斂，可成大業；只是一生不宜走到最高峰、出鋒頭，否則容易招惹是非。",
+      "en": "Your Ju Men has a favourable transformation and no malefic beside it, forming the 'jade hidden in stone' pattern: brilliance held within, able to build something great; but you shouldn't push for the very top or the limelight, or trouble follows.",
+      "source": {
+        "passage": "deep.星系15.2",
+        "quote": "则称为[石中隐玉]，主其人英华内敛，可成大业"
+      },
+      "also": [
+        {
+          "passage": "deep.星系15.3",
+          "quote": "所以一生不能走最高峰，不能出锋头"
+        }
+      ],
+      "pole": "英華內斂"
+    },
+    {
+      "id": "巨門子午.祿存次格",
+      "role": "refine",
+      "when": {
+        "all": [
+          {
+            "star": "祿存",
+            "at": "same"
+          },
+          {
+            "not": {
+              "hua": [
+                "祿",
+                "權"
+              ],
+              "star": "巨門",
+              "at": "same"
+            }
+          }
+        ]
+      },
+      "text": "你的巨門有祿存同宮，是石中隱玉的次格：青年時的際遇稍遜，人生多了一些阻滯。",
+      "en": "Your Ju Men shares the palace with Lu Cun, a lesser form of 'jade hidden in stone': your young years go a little less well, adding some obstacles.",
+      "source": {
+        "passage": "deep.星系15.4",
+        "quote": "因此人生便多了一些困阻"
+      }
+    },
+    {
+      "id": "巨門子午.擎羊",
+      "role": "limit",
+      "when": {
+        "star": "擎羊",
+        "at": "same"
+      },
+      "text": "你的命宮見擎羊，收斂才華的本質容易轉成對別人的疑忌：表面不動聲色，心裡卻覺得人人都對自己不利，人生因此多了困境。",
+      "en": "Qing Yang in your Life Palace can turn the habit of holding back your talent into suspicion of others: outwardly calm, inwardly sure everyone is against you, which brings more hardship.",
+      "source": {
+        "passage": "deep.星系15.5",
+        "quote": "转为对别人的疑忌"
+      },
+      "pole": "疑慮"
+    },
+    {
+      "id": "巨門子午.機忌",
+      "role": "limit",
+      "when": {
+        "hua": "忌",
+        "star": "天機",
+        "at": "opp"
+      },
+      "text": "對宮的天機化忌，也令你容易生疑忌。",
+      "en": "Tian Ji opposite you is transformed by Ji, which also makes you prone to suspicion.",
+      "source": {
+        "passage": "deep.星系15.6",
+        "quote": "亦足以影响巨门具疑忌之性"
+      },
+      "pole": "疑慮"
+    }
+  ]
+}

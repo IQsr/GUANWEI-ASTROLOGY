@@ -1,0 +1,134 @@
+{
+  "$note": "第 3 層 · 六十星系（2026-10-12）：武曲貪狼坐丑未，《深造講義》p.206。",
+  "topic": {
+    "id": "武曲貪狼坐丑未.命宮",
+    "palace": "命宮",
+    "stars": [
+      "武曲",
+      "貪狼"
+    ],
+    "branch": [
+      "丑",
+      "未"
+    ],
+    "xingxi": 57
+  },
+  "basis": {
+    "passage": "deep.星系57.1",
+    "quote": "须分别其为欲望，抑为野心"
+  },
+  "rules": [
+    {
+      "id": "武貪丑未.火貪",
+      "role": "refine",
+      "when": {
+        "star": "火星",
+        "at": "same"
+      },
+      "text": "你的武曲貪狼與火星同宮，是火貪正格：所得的是意外之財，來源正派，與野心無關。",
+      "en": "Your Wu Qu–Tan Lang shares the palace with Huo Xing, the true Huo–Tan pattern: unexpected gains from honest sources, nothing to do with ruthless ambition.",
+      "source": {
+        "passage": "deep.星系57.2",
+        "quote": "其来源非常之正派"
+      },
+      "pole": "有度"
+    },
+    {
+      "id": "武貪丑未.得祿",
+      "role": "refine",
+      "when": {
+        "hua": "祿",
+        "star": [
+          "武曲",
+          "貪狼"
+        ],
+        "at": "same"
+      },
+      "text": "你的武貪得祿，是良好的結構。",
+      "en": "Your Wu Qu–Tan Lang gains Lu, a sound structure.",
+      "source": {
+        "passage": "deep.星系57.3",
+        "quote": "然后始成良好的结构"
+      },
+      "pole": "有度"
+    },
+    {
+      "id": "武貪丑未.化忌",
+      "role": "limit",
+      "when": {
+        "hua": "忌",
+        "star": [
+          "武曲",
+          "貪狼"
+        ],
+        "at": "same"
+      },
+      "text": "你的武貪化忌，容易構成野心的本質。",
+      "en": "Your Wu Qu–Tan Lang is transformed by Ji, which tends to make ambition run ruthless.",
+      "source": {
+        "passage": "deep.星系57.4",
+        "quote": "皆是成为构成野心本质的主要因素"
+      },
+      "pole": "野心"
+    },
+    {
+      "id": "武貪丑未.廉忌",
+      "role": "limit",
+      "when": {
+        "hua": "忌",
+        "star": "廉貞",
+        "at": "trine"
+      },
+      "text": "會照的廉貞化忌，容易構成野心的本質。",
+      "en": "Lian Zhen transformed by Ji in your trine tends to make ambition run ruthless.",
+      "source": {
+        "passage": "deep.星系57.4",
+        "quote": "皆是成为构成野心本质的主要因素"
+      },
+      "pole": "野心"
+    },
+    {
+      "id": "武貪丑未.武權",
+      "role": "limit",
+      "when": {
+        "hua": "權",
+        "star": "武曲",
+        "at": "same"
+      },
+      "text": "你的武曲化權而不得祿，是野心的基本結構。",
+      "en": "Your Wu Qu is transformed by Quan without Lu, the basic structure of ruthless ambition.",
+      "source": {
+        "passage": "deep.星系57.5",
+        "quote": "若武曲化权则为野心"
+      },
+      "pole": "野心"
+    },
+    {
+      "id": "武貪丑未.有度",
+      "role": "refine",
+      "when": {
+        "lean": "有度"
+      },
+      "text": "你的欲望有節制，不傷害別人，反而成為人生的鞭策。",
+      "en": "Your desires are held in check and hurt no one, so they become what drives you forward.",
+      "source": {
+        "passage": "deep.星系57.6",
+        "quote": "所以反成为人生鞭策的力量"
+      }
+    },
+    {
+      "id": "武貪丑未.野心",
+      "role": "limit",
+      "when": {
+        "lean": "野心"
+      },
+      "text": "野心較重：容易損人利己，做事要時時提醒自己留有分寸。",
+      "en": "Ambition is stronger: it can profit at others' expense, so keep reminding yourself where the line is.",
+      "edit": "末句建議是編輯加的。",
+      "source": {
+        "passage": "deep.星系57.7",
+        "quote": "往往损人利已"
+      }
+    }
+  ]
+}

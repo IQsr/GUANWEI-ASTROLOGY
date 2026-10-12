@@ -1,0 +1,88 @@
+{
+  "$note": "第 3 層 · 六十星系（2026-10-12）：破軍獨坐子午，《深造講義》p.126。",
+  "topic": {
+    "id": "破軍獨坐子午.命宮",
+    "palace": "命宮",
+    "stars": [
+      "破軍"
+    ],
+    "branch": [
+      "子",
+      "午"
+    ],
+    "xingxi": 31
+  },
+  "basis": {
+    "passage": "deep.星系31.1",
+    "quote": "果敢者则不同"
+  },
+  "rules": [
+    {
+      "id": "破軍子午.廉忌",
+      "role": "limit",
+      "when": {
+        "hua": "忌",
+        "star": "廉貞",
+        "at": "opp"
+      },
+      "text": "對宮的廉貞化忌，你的破軍基本上帶頑嚚的性質：破壞力大、創造力弱；有魁鉞、左右或祿存，可以調和。",
+      "en": "Lian Zhen opposite you is transformed by Ji, which gives your Po Jun a basically stubborn streak: much destructive force, little creative force; Kui, Yue, Zuo, You or Lu Cun can temper it.",
+      "source": {
+        "passage": "deep.星系31.2",
+        "quote": "已基本上成顽嚣之格"
+      },
+      "pole": "莽撞"
+    },
+    {
+      "id": "破軍子午.曲忌",
+      "role": "limit",
+      "when": {
+        "hua": "忌",
+        "star": "文曲",
+        "at": [
+          "same",
+          "opp"
+        ]
+      },
+      "text": "文曲化忌同宮或對照，成破軍暗曜，其實也是頑嚚。",
+      "en": "Wen Qu transformed by Ji in your palace or opposite forms the 'darkened Po Jun', which is really just stubbornness.",
+      "source": {
+        "passage": "deep.星系31.3",
+        "quote": "其实亦不过顽嚣而已"
+      },
+      "pole": "莽撞"
+    },
+    {
+      "id": "破軍子午.祿",
+      "role": "refine",
+      "when": {
+        "hua": "祿",
+        "star": "破軍",
+        "at": "same"
+      },
+      "text": "你的破軍化祿，為人果敢。",
+      "en": "Your Po Jun is transformed by Lu, which makes you decisive.",
+      "source": {
+        "passage": "deep.星系31.4",
+        "quote": "则主为人果敢"
+      },
+      "pole": "果敢"
+    },
+    {
+      "id": "破軍子午.權",
+      "role": "refine",
+      "when": {
+        "hua": "權",
+        "star": "破軍",
+        "at": "same"
+      },
+      "text": "你的破軍化權，為人果敢。",
+      "en": "Your Po Jun is transformed by Quan, which makes you decisive.",
+      "source": {
+        "passage": "deep.星系31.4",
+        "quote": "则主为人果敢"
+      },
+      "pole": "果敢"
+    }
+  ]
+}

@@ -1,0 +1,137 @@
+{
+  "$note": "第 3 層 · 六十星系（2026-10-12）：廉貞獨坐寅申，《深造講義》p.172。",
+  "topic": {
+    "id": "廉貞獨坐寅申.命宮",
+    "palace": "命宮",
+    "stars": [
+      "廉貞"
+    ],
+    "branch": [
+      "寅",
+      "申"
+    ],
+    "xingxi": 46
+  },
+  "basis": {
+    "passage": "deep.星系46.1",
+    "quote": "须详其为敏感，抑为踏实"
+  },
+  "rules": [
+    {
+      "id": "廉貞寅申.雄宿",
+      "role": "exception",
+      "when": {
+        "all": [
+          {
+            "branch": [
+              "申"
+            ]
+          },
+          {
+            "not": {
+              "star": [
+                "擎羊",
+                "陀羅",
+                "火星",
+                "鈴星",
+                "地空",
+                "地劫"
+              ],
+              "at": "sifang"
+            }
+          },
+          {
+            "not": {
+              "hua": "忌",
+              "at": "sifang"
+            }
+          },
+          {
+            "hua": [
+              "祿",
+              "權",
+              "科"
+            ],
+            "at": "sifang"
+          },
+          {
+            "star": [
+              "左輔",
+              "右弼",
+              "文昌",
+              "文曲",
+              "天魁",
+              "天鉞"
+            ],
+            "at": "sifang"
+          }
+        ]
+      },
+      "text": "你的廉貞在申獨坐，不見煞忌而有吉化吉星：成雄宿乾元格，行到七殺的大限會發跡。",
+      "en": "Your Lian Zhen sits alone in Shen, free of malefics and Ji, with favourable transformations and stars: the 'heroic star' pattern, rising when you reach the Qi Sha stage.",
+      "source": {
+        "passage": "deep.星系46.2",
+        "quote": "行至七杀独坐的宫垣发迹"
+      }
+    },
+    {
+      "id": "廉貞寅申.敏感",
+      "role": "refine",
+      "when": {
+        "lean": "敏感"
+      },
+      "text": "敏感的廉貞帶藝術氣質，重視精神生活。",
+      "en": "A sensitive Lian Zhen has an artistic temperament and values the inner life.",
+      "source": {
+        "passage": "deep.星系46.3",
+        "quote": "敏感的廉贞一般带艺术气质"
+      }
+    },
+    {
+      "id": "廉貞寅申.踏實",
+      "role": "refine",
+      "when": {
+        "lean": "踏實"
+      },
+      "text": "踏實的廉貞，就算重視精神生活，也以物質享受為基礎。",
+      "en": "A grounded Lian Zhen, even valuing the inner life, builds it on material comfort.",
+      "source": {
+        "passage": "deep.星系46.4",
+        "quote": "亦必以物娇享受为基础"
+      }
+    },
+    {
+      "id": "廉貞寅申.火鈴",
+      "role": "limit",
+      "when": {
+        "star": [
+          "火星",
+          "鈴星"
+        ],
+        "at": "same"
+      },
+      "text": "你的廉貞與火鈴同宮，敏感容易走向不好的一面，例如自作多情。",
+      "en": "Your Lian Zhen shares the palace with Huo or Ling, so sensitivity can take a bad turn, such as reading too much into things.",
+      "edit": "原句續講投機取巧、趨炎附勢，屬人格貶語，不用。",
+      "source": {
+        "passage": "deep.星系46.5",
+        "quote": "而且亦使之具有不良的敏感本质"
+      },
+      "pole": "敏感"
+    },
+    {
+      "id": "廉貞寅申.祿貪",
+      "role": "refine",
+      "when": {
+        "star": "祿存",
+        "at": "opp"
+      },
+      "text": "對宮的貪狼有祿存同宮，你一生多順遂，在困境中也往往突生意外之喜。",
+      "en": "Tan Lang opposite you shares its palace with Lu Cun: life goes smoothly for the most part, and even in difficulty, unexpected good fortune often appears.",
+      "source": {
+        "passage": "deep.星系46.6",
+        "quote": "且往往于困境中突生意外之喜"
+      }
+    }
+  ]
+}

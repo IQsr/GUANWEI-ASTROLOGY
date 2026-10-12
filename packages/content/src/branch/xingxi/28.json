@@ -1,0 +1,128 @@
+{
+  "$note": "第 3 層 · 六十星系（2026-10-12）：天同獨坐卯酉，《深造講義》p.116。",
+  "topic": {
+    "id": "天同獨坐卯酉.命宮",
+    "palace": "命宮",
+    "stars": [
+      "天同"
+    ],
+    "branch": [
+      "卯",
+      "酉"
+    ],
+    "xingxi": 28
+  },
+  "basis": {
+    "passage": "deep.星系28.1",
+    "quote": "能白手成家的天同，必定精神充实"
+  },
+  "rules": [
+    {
+      "id": "天同卯酉.祿",
+      "role": "refine",
+      "when": {
+        "hua": "祿",
+        "star": "天同",
+        "at": "same"
+      },
+      "text": "你的天同化祿，天機化權成為推動力，無論如何都不致精神空虛。",
+      "en": "Your Tian Tong is transformed by Lu, with Tian Ji transformed by Quan as the driving force, so you won't fall into inner emptiness.",
+      "source": {
+        "passage": "deep.星系28.2",
+        "quote": "故无论如何亦不致沦为精神空虚"
+      },
+      "pole": "精神充實"
+    },
+    {
+      "id": "天同卯酉.權",
+      "role": "limit",
+      "when": {
+        "hua": "權",
+        "star": "天同",
+        "at": "same"
+      },
+      "text": "你的天同化權，物質生活容易充足，精神上卻未必充實。",
+      "en": "Your Tian Tong is transformed by Quan: material life is easily full, but the inner life isn't necessarily so.",
+      "source": {
+        "passage": "deep.星系28.3",
+        "quote": "否则为物质生活充足，而精神生活空虚之征兆"
+      }
+    },
+    {
+      "id": "天同卯酉.羊煞",
+      "role": "limit",
+      "when": {
+        "all": [
+          {
+            "star": "擎羊",
+            "at": "same"
+          },
+          {
+            "star": [
+              "火星",
+              "鈴星",
+              "地空",
+              "地劫"
+            ],
+            "at": "sifang"
+          }
+        ]
+      },
+      "text": "你的天同與擎羊同宮，又會火鈴或空劫：人生較為艱苦，容易流於精神空虛。",
+      "en": "Your Tian Tong shares the palace with Qing Yang and also meets Huo, Ling, Kong or Jie: life is harder, and inner emptiness comes more easily.",
+      "source": {
+        "passage": "deep.星系28.4",
+        "quote": "则人生未免过于艰苦"
+      },
+      "pole": "精神空虛"
+    },
+    {
+      "id": "天同卯酉.卯祿存",
+      "role": "refine",
+      "when": {
+        "all": [
+          {
+            "branch": [
+              "卯"
+            ]
+          },
+          {
+            "star": "祿存",
+            "at": "opp"
+          }
+        ]
+      },
+      "text": "你的天同在卯，對宮有祿存：精神和物質生活都充足豐滿。",
+      "en": "Your Tian Tong sits in Mao with Lu Cun opposite: both inner and material life are full and rich.",
+      "source": {
+        "passage": "deep.星系28.5",
+        "quote": "为精神物质生活皆充足丰满之象"
+      },
+      "pole": "精神充實"
+    },
+    {
+      "id": "天同卯酉.酉祿存",
+      "role": "limit",
+      "when": {
+        "all": [
+          {
+            "branch": [
+              "酉"
+            ]
+          },
+          {
+            "star": "祿存",
+            "at": "opp"
+          }
+        ]
+      },
+      "text": "你的天同在酉，對宮有祿存，太陰同時化忌，反而容易精神空虛。",
+      "en": "Your Tian Tong sits in You with Lu Cun opposite, and Tai Yin is then transformed by Ji, which tends towards inner emptiness instead.",
+      "source": {
+        "passage": "deep.星系28.6",
+        "quote": "反而主精神空虚"
+      },
+      "pole": "精神空虛"
+    }
+  ]
+}

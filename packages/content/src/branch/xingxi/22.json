@@ -1,0 +1,101 @@
+{
+  "$note": "第 3 層 · 六十星系（2026-10-12）：太陰獨坐卯酉，《深造講義》p.100。",
+  "topic": {
+    "id": "太陰獨坐卯酉.命宮",
+    "palace": "命宮",
+    "stars": [
+      "太陰"
+    ],
+    "branch": [
+      "卯",
+      "酉"
+    ],
+    "xingxi": 22
+  },
+  "basis": {
+    "passage": "deep.星系22.1",
+    "quote": "须注意其意志为坚强"
+  },
+  "rules": [
+    {
+      "id": "太陰卯酉.祿",
+      "role": "limit",
+      "when": {
+        "hua": "祿",
+        "star": "太陰",
+        "at": "same"
+      },
+      "text": "你的太陰化祿，意志容易在感情上薄弱。",
+      "en": "Your Tai Yin is transformed by Lu, so your will tends to weaken where feelings are involved.",
+      "source": {
+        "passage": "deep.星系22.2",
+        "quote": "化禄者易对感情意志薄弱"
+      },
+      "pole": "意志薄弱"
+    },
+    {
+      "id": "太陰卯酉.忌",
+      "role": "limit",
+      "when": {
+        "hua": "忌",
+        "star": "太陰",
+        "at": "same"
+      },
+      "text": "你的太陰化忌，意志容易在物質上薄弱。",
+      "en": "Your Tai Yin is transformed by Ji, so your will tends to weaken where material things are involved.",
+      "source": {
+        "passage": "deep.星系22.2",
+        "quote": "化忌者对物质意志薄弱"
+      },
+      "pole": "意志薄弱"
+    },
+    {
+      "id": "太陰卯酉.權",
+      "role": "refine",
+      "when": {
+        "hua": "權",
+        "star": "太陰",
+        "at": "same"
+      },
+      "text": "你的太陰化權，意志力增強。",
+      "en": "Your Tai Yin is transformed by Quan, which strengthens your will.",
+      "source": {
+        "passage": "deep.星系22.3",
+        "quote": "则可以增加意志力"
+      },
+      "pole": "意志堅強"
+    },
+    {
+      "id": "太陰卯酉.科",
+      "role": "refine",
+      "when": {
+        "hua": "科",
+        "star": "太陰",
+        "at": "same"
+      },
+      "text": "你的太陰化科，意志力增強。",
+      "en": "Your Tai Yin is transformed by Ke, which strengthens your will.",
+      "source": {
+        "passage": "deep.星系22.3",
+        "quote": "则可以增加意志力"
+      },
+      "pole": "意志堅強"
+    },
+    {
+      "id": "太陰卯酉.同忌",
+      "role": "limit",
+      "when": {
+        "hua": "忌",
+        "star": "天同",
+        "at": "opp"
+      },
+      "text": "對宮的天同化忌，令你的意志容易薄弱，耽於享樂或物欲。",
+      "en": "Tian Tong opposite you is transformed by Ji, so your will can weaken, drifting into pleasure or material wants.",
+      "source": {
+        "passage": "deep.星系22.4",
+        "quote": "容易耽于欲乐或物欲"
+      },
+      "pole": "意志薄弱"
+    }
+  ]
+}

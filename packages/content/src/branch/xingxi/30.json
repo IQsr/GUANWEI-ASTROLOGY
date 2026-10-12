@@ -1,0 +1,79 @@
+{
+  "$note": "第 3 層 · 六十星系（2026-10-12）：太陽獨坐巳亥，《深造講義》p.123。",
+  "topic": {
+    "id": "太陽獨坐巳亥.命宮",
+    "palace": "命宮",
+    "stars": [
+      "太陽"
+    ],
+    "branch": [
+      "巳",
+      "亥"
+    ],
+    "xingxi": 30
+  },
+  "basis": {
+    "passage": "deep.星系30.1",
+    "quote": "除注意其庙、陷之外"
+  },
+  "rules": [
+    {
+      "id": "太陽巳亥.巳",
+      "role": "refine",
+      "when": {
+        "branch": [
+          "巳"
+        ]
+      },
+      "text": "你的太陽在巳，較積極，也不易招惹是非。",
+      "en": "Your Sun sits in Si: more active, and less likely to stir up disputes.",
+      "source": {
+        "passage": "deep.星系30.2",
+        "quote": "巳宫的太阳不易招惹是非"
+      },
+      "pole": "積極"
+    },
+    {
+      "id": "太陽巳亥.亥",
+      "role": "limit",
+      "when": {
+        "branch": [
+          "亥"
+        ]
+      },
+      "text": "你的太陽在亥，較消極，容易招惹是非。",
+      "en": "Your Sun sits in Hai: more passive, and more likely to stir up disputes.",
+      "source": {
+        "passage": "deep.星系30.2",
+        "quote": "亥宫者易招非"
+      },
+      "pole": "消極"
+    },
+    {
+      "id": "太陽巳亥.積極",
+      "role": "refine",
+      "when": {
+        "lean": "積極"
+      },
+      "text": "積極的一面較重：不但利於進取，抵抗逆境的能力也強。",
+      "en": "The active side is stronger: good for pushing ahead, and strong at weathering adversity.",
+      "source": {
+        "passage": "deep.星系30.3",
+        "quote": "抵抗横逆的能力亦强"
+      }
+    },
+    {
+      "id": "太陽巳亥.消極",
+      "role": "limit",
+      "when": {
+        "lean": "消極"
+      },
+      "text": "消極的一面較重：愈退縮，愈招是非怨尤；遇到好的時機，要藉機改變人生觀。",
+      "en": "The passive side is stronger: the more you withdraw, the more disputes and resentment you draw; when a good time comes, use it to change your outlook.",
+      "source": {
+        "passage": "deep.星系30.4",
+        "quote": "而消极者则往往愈冷退愈招是非尤怨"
+      }
+    }
+  ]
+}

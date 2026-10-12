@@ -1,0 +1,76 @@
+{
+  "$note": "第 3 層 · 六十星系（2026-10-12）：太陽獨坐辰戌，《深造講義》p.91。",
+  "topic": {
+    "id": "太陽獨坐辰戌.命宮",
+    "palace": "命宮",
+    "stars": [
+      "太陽"
+    ],
+    "branch": [
+      "辰",
+      "戌"
+    ],
+    "xingxi": 19
+  },
+  "basis": {
+    "passage": "deep.星系19.1",
+    "quote": "须注意其有无受拖累剥削"
+  },
+  "rules": [
+    {
+      "id": "太陽辰戌.辰吉",
+      "role": "refine",
+      "when": {
+        "all": [
+          {
+            "branch": [
+              "辰"
+            ]
+          },
+          {
+            "hua": [
+              "祿",
+              "權",
+              "科"
+            ],
+            "star": "太陽",
+            "at": "same"
+          }
+        ]
+      },
+      "text": "你的太陽在辰，光華燦爛，又有吉化，不怕身邊的人拖累。",
+      "en": "Your Sun sits in Chen, shining brightly, and with a favourable transformation it isn't dragged down by those around it.",
+      "source": {
+        "passage": "deep.星系19.2",
+        "quote": "则不怕太阴、巨门、天梁的剥削拖累"
+      },
+      "pole": "從容"
+    },
+    {
+      "id": "太陽辰戌.從容",
+      "role": "refine",
+      "when": {
+        "lean": "從容"
+      },
+      "text": "你受拖累較少，人生際遇自然順遂。",
+      "en": "You carry little of others' weight, so life tends to go smoothly.",
+      "source": {
+        "passage": "deep.星系19.3",
+        "quote": "若太阳不受拖累剥削，则人生际遇自然顺遂"
+      }
+    },
+    {
+      "id": "太陽辰戌.負擔",
+      "role": "limit",
+      "when": {
+        "lean": "負擔重"
+      },
+      "text": "你受拖累較重：和六親的關係容易冷淡，際遇也多坎坷。",
+      "en": "You carry a heavy share of others' weight: ties with family cool easily, and life has more rough patches.",
+      "source": {
+        "passage": "deep.星系19.3",
+        "quote": "否则便易见门亲冰炭"
+      }
+    }
+  ]
+}

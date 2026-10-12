@@ -1,0 +1,92 @@
+{
+  "$note": "第 3 層 · 六十星系（2026-10-12）：紫微破軍坐丑未，《深造講義》p.70。",
+  "topic": {
+    "id": "紫微破軍坐丑未.命宮",
+    "palace": "命宮",
+    "stars": [
+      "紫微",
+      "破軍"
+    ],
+    "branch": [
+      "丑",
+      "未"
+    ],
+    "xingxi": 11
+  },
+  "basis": {
+    "passage": "deep.星系11.1",
+    "quote": "须注意其动荡与安定的区别"
+  },
+  "rules": [
+    {
+      "id": "紫破丑未.開創",
+      "role": "base",
+      "text": "你的叛逆也是開創力：要先去舊，才能更新。",
+      "en": "Your rebellious streak is also a creative force: the old has to go before the new can begin.",
+      "source": {
+        "passage": "deep.星系11.2",
+        "quote": "叛逆性其实亦是开创力"
+      }
+    },
+    {
+      "id": "紫破丑未.動盪",
+      "role": "limit",
+      "when": {
+        "lean": "動盪"
+      },
+      "text": "動盪的一面較重：每次改變，都會牽動人際關係的大變化。",
+      "en": "The turbulent side is stronger: each change you make brings big shifts in your relationships.",
+      "edit": "原書引古人「為臣不忠，為子不孝」，屬人格貶語，不用。",
+      "source": {
+        "passage": "deep.星系11.3",
+        "quote": "动荡则牵涉人际关系极大的改变"
+      }
+    },
+    {
+      "id": "紫破丑未.安定",
+      "role": "refine",
+      "when": {
+        "lean": "安定"
+      },
+      "text": "安定的一面較重：你的更新在不知不覺中完成，面目一新，表面上依然處變不驚。",
+      "en": "The settled side is stronger: your renewal happens almost unnoticed, so things look fresh while you stay outwardly unruffled.",
+      "source": {
+        "passage": "deep.星系11.4",
+        "quote": "而且去更新于不知不觉之中"
+      }
+    },
+    {
+      "id": "紫破丑未.紫科",
+      "role": "refine",
+      "when": {
+        "hua": "科",
+        "star": "紫微",
+        "at": "same"
+      },
+      "text": "你的紫微化科，這組星才真正安定：推動任何改變，都不費力氣。",
+      "en": "Your Zi Wei is transformed by Ke, which is what truly settles these stars: any change you push through takes little effort.",
+      "edit": "「任何興革皆不費氣力」原書指百官朝拱的紫微化科；引擎判斷唔到百官朝拱，此處以紫微化科為條件。",
+      "source": {
+        "passage": "deep.星系11.5",
+        "quote": "只在当紫微化科之时，然后始觉安定"
+      },
+      "pole": "安定"
+    },
+    {
+      "id": "紫破丑未.紫權",
+      "role": "limit",
+      "when": {
+        "hua": "權",
+        "star": "紫微",
+        "at": "same"
+      },
+      "text": "你的紫微化權，這組星的本質仍屬動盪。",
+      "en": "Your Zi Wei is transformed by Quan, and these stars remain turbulent at heart.",
+      "source": {
+        "passage": "deep.星系11.6",
+        "quote": "基本上仍属动荡"
+      },
+      "pole": "動盪"
+    }
+  ]
+}

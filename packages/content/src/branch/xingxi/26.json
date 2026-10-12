@@ -1,0 +1,145 @@
+{
+  "$note": "第 3 層 · 六十星系（2026-10-12）：天梁獨坐丑未，《深造講義》p.110。",
+  "topic": {
+    "id": "天梁獨坐丑未.命宮",
+    "palace": "命宮",
+    "stars": [
+      "天梁"
+    ],
+    "branch": [
+      "丑",
+      "未"
+    ],
+    "xingxi": 26
+  },
+  "basis": {
+    "passage": "deep.星系26.1",
+    "quote": "须注意分别其为正值，抑为精明"
+  },
+  "rules": [
+    {
+      "id": "天梁丑未.丑",
+      "role": "refine",
+      "when": {
+        "branch": [
+          "丑"
+        ]
+      },
+      "text": "你的天梁在丑，比在未宮的天梁優勝。",
+      "en": "Your Tian Liang sits in Chou, which is better than Tian Liang in Wei.",
+      "source": {
+        "passage": "deep.星系26.2",
+        "quote": "此所以丑宫天梁优于未宫"
+      }
+    },
+    {
+      "id": "天梁丑未.陀羅",
+      "role": "limit",
+      "when": {
+        "star": "陀羅",
+        "at": "same"
+      },
+      "text": "你的天梁與陀羅同宮，這是天梁最不宜的組合：既不算精明，也不算正直，缺點最多。",
+      "en": "Your Tian Liang shares the palace with Tuo Luo, the combination it suits least: neither shrewd nor upright, with the most shortcomings.",
+      "source": {
+        "passage": "deep.星系26.3",
+        "quote": "天梁最不宜陀罗同度"
+      }
+    },
+    {
+      "id": "天梁丑未.天馬精明",
+      "role": "limit",
+      "when": {
+        "all": [
+          {
+            "lean": "精明"
+          },
+          {
+            "star": "天馬",
+            "at": "sifang"
+          }
+        ]
+      },
+      "text": "你的盤會天馬，精明的一面容易令你飄蕩。",
+      "en": "Your chart meets Tian Ma, and the shrewd side can leave you drifting.",
+      "source": {
+        "passage": "deep.星系26.4",
+        "quote": "精明者飘荡"
+      }
+    },
+    {
+      "id": "天梁丑未.天馬正直",
+      "role": "limit",
+      "when": {
+        "all": [
+          {
+            "lean": "正直"
+          },
+          {
+            "star": "天馬",
+            "at": "sifang"
+          }
+        ]
+      },
+      "text": "你的盤會天馬，正直的一面也難以發揮才智。",
+      "en": "Your chart meets Tian Ma, and even the upright side finds it hard to use its talents.",
+      "source": {
+        "passage": "deep.星系26.4",
+        "quote": "正直者亦难发挥才智"
+      }
+    },
+    {
+      "id": "天梁丑未.輔佐",
+      "role": "refine",
+      "when": {
+        "star": [
+          "左輔",
+          "右弼",
+          "文昌",
+          "文曲",
+          "天魁",
+          "天鉞"
+        ],
+        "at": "sifang"
+      },
+      "text": "你的盤有輔佐吉星會合，天梁就不會孤立。",
+      "en": "Supporting stars meet your chart, so Tian Liang isn't left isolated.",
+      "source": {
+        "passage": "deep.星系26.5",
+        "quote": "则不孤立"
+      }
+    },
+    {
+      "id": "天梁丑未.精明煞忌",
+      "role": "limit",
+      "when": {
+        "all": [
+          {
+            "lean": "精明"
+          },
+          {
+            "star": [
+              "擎羊",
+              "陀羅",
+              "火星",
+              "鈴星",
+              "地空",
+              "地劫"
+            ],
+            "at": "sifang"
+          },
+          {
+            "hua": "忌",
+            "at": "sifang"
+          }
+        ]
+      },
+      "text": "你精明的一面較重，盤上又見煞忌：容易招人怨恨、受人指責，人生難免孤寂。",
+      "en": "The shrewd side is stronger and your chart meets malefics and Ji: you can draw resentment and criticism, and life can feel lonely.",
+      "source": {
+        "passage": "deep.星系26.6",
+        "quote": "精明者易招怨恨"
+      }
+    }
+  ]
+}

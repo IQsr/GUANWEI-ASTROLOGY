@@ -1,0 +1,121 @@
+{
+  "$note": "第 3 層 · 六十星系（2026-10-12）：天府獨坐巳亥，《深造講義》p.200。",
+  "topic": {
+    "id": "天府獨坐巳亥.命宮",
+    "palace": "命宮",
+    "stars": [
+      "天府"
+    ],
+    "branch": [
+      "巳",
+      "亥"
+    ],
+    "xingxi": 55
+  },
+  "basis": {
+    "passage": "deep.星系55.1",
+    "quote": "须视其为祥和抑为权术"
+  },
+  "rules": [
+    {
+      "id": "天府巳亥.保守小",
+      "role": "base",
+      "text": "所會的多是權力和欲望之星，你的天府保守性較小。",
+      "en": "The stars you meet are mostly of power and desire, so your Tian Fu is less conservative.",
+      "source": {
+        "passage": "deep.星系55.2",
+        "quote": "因而独坐的天府保守性亦较小"
+      }
+    },
+    {
+      "id": "天府巳亥.祥和",
+      "role": "refine",
+      "when": {
+        "lean": "祥和"
+      },
+      "text": "祥和的天府，表面看不出重大建樹，其實不知不覺間已建立事功，心境安定。",
+      "en": "A peaceable Tian Fu shows no great achievements on the surface, yet quietly builds real results, with a settled mind.",
+      "source": {
+        "passage": "deep.星系55.3",
+        "quote": "其实不知不觉间已建立事功"
+      }
+    },
+    {
+      "id": "天府巳亥.多思",
+      "role": "limit",
+      "when": {
+        "lean": "多思慮"
+      },
+      "text": "多思慮的一面較重：常常騰挪變化，結果卻所得不多，心裡也多憂。",
+      "en": "The overthinking side is stronger: much manoeuvring with little to show for it, and more worry inside.",
+      "edit": "原書「權術」改稱多思慮，與骨架章兩頭名一致。",
+      "source": {
+        "passage": "deep.星系55.3",
+        "quote": "而本质权术者则多忧"
+      }
+    },
+    {
+      "id": "天府巳亥.祿存",
+      "role": "limit",
+      "when": {
+        "star": "祿存",
+        "at": "same"
+      },
+      "text": "你的天府與祿存同宮，雖祥和，氣魄卻不大。",
+      "en": "Your Tian Fu shares the palace with Lu Cun: peaceable, but without much scope.",
+      "source": {
+        "passage": "deep.星系55.4",
+        "quote": "虽祥和而气魄不大"
+      },
+      "pole": "祥和"
+    },
+    {
+      "id": "天府巳亥.武祿",
+      "role": "refine",
+      "when": {
+        "hua": "祿",
+        "star": "武曲",
+        "at": "trine"
+      },
+      "text": "會照的武曲化祿，令你祥和。",
+      "en": "Wu Qu transformed by Lu in your trine makes you peaceable.",
+      "source": {
+        "passage": "deep.星系55.5",
+        "quote": "均利于天府之祥和"
+      },
+      "pole": "祥和"
+    },
+    {
+      "id": "天府巳亥.貪祿",
+      "role": "refine",
+      "when": {
+        "hua": "祿",
+        "star": "貪狼",
+        "at": "trine"
+      },
+      "text": "會照的貪狼化祿，令你祥和。",
+      "en": "Tan Lang transformed by Lu in your trine makes you peaceable.",
+      "source": {
+        "passage": "deep.星系55.5",
+        "quote": "均利于天府之祥和"
+      },
+      "pole": "祥和"
+    },
+    {
+      "id": "天府巳亥.武忌",
+      "role": "limit",
+      "when": {
+        "hua": "忌",
+        "star": "武曲",
+        "at": "trine"
+      },
+      "text": "會照的武曲化忌，是你最不宜的配合。",
+      "en": "Wu Qu transformed by Ji in your trine is the combination you suit least.",
+      "source": {
+        "passage": "deep.星系55.5",
+        "quote": "最不宜武曲化忌"
+      },
+      "pole": "多思慮"
+    }
+  ]
+}

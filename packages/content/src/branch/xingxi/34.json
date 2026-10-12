@@ -1,0 +1,124 @@
+{
+  "$note": "第 3 層 · 六十星系（2026-10-12）：巨門獨坐辰戌，《深造講義》p.136。",
+  "topic": {
+    "id": "巨門獨坐辰戌.命宮",
+    "palace": "命宮",
+    "stars": [
+      "巨門"
+    ],
+    "branch": [
+      "辰",
+      "戌"
+    ],
+    "xingxi": 34
+  },
+  "basis": {
+    "passage": "deep.星系34.1",
+    "quote": "须分别其为激发、抑或为遭忌"
+  },
+  "rules": [
+    {
+      "id": "巨門辰戌.奇格辰",
+      "role": "exception",
+      "when": {
+        "all": [
+          {
+            "branch": [
+              "辰"
+            ]
+          },
+          {
+            "hua": "祿",
+            "star": "巨門",
+            "at": "same"
+          }
+        ]
+      },
+      "text": "你的巨門在辰化祿，是天羅地網中的奇格，不在不利之列。",
+      "en": "Your Ju Men sits in Chen transformed by Lu, a special pattern within the 'heavenly net', not among the unfavourable cases.",
+      "edit": "辛年巨門化祿、癸年巨門化權，以四化代年干。",
+      "source": {
+        "passage": "deep.星系34.2",
+        "quote": "为[奇格]之外，其余的巨门皆为不利"
+      }
+    },
+    {
+      "id": "巨門辰戌.奇格戌",
+      "role": "exception",
+      "when": {
+        "all": [
+          {
+            "branch": [
+              "戌"
+            ]
+          },
+          {
+            "hua": [
+              "祿",
+              "權"
+            ],
+            "star": "巨門",
+            "at": "same"
+          }
+        ]
+      },
+      "text": "你的巨門在戌吉化，是天羅地網中的奇格，不在不利之列。",
+      "en": "Your Ju Men sits in Xu with a favourable transformation, a special pattern within the 'heavenly net', not among the unfavourable cases.",
+      "edit": "辛年巨門化祿、癸年巨門化權，以四化代年干。",
+      "source": {
+        "passage": "deep.星系34.2",
+        "quote": "为[奇格]之外，其余的巨门皆为不利"
+      }
+    },
+    {
+      "id": "巨門辰戌.魁鉞",
+      "role": "refine",
+      "when": {
+        "star": [
+          "天魁",
+          "天鉞"
+        ],
+        "at": "sifang"
+      },
+      "text": "會照的魁鉞，能減輕你遭忌的性質。",
+      "en": "Kui and Yue meeting your chart lighten the tendency to draw envy and suspicion.",
+      "source": {
+        "passage": "deep.星系34.3",
+        "quote": "可以将遭忌的性质减轻"
+      }
+    },
+    {
+      "id": "巨門辰戌.火羊",
+      "role": "refine",
+      "when": {
+        "star": [
+          "擎羊",
+          "火星"
+        ],
+        "at": "same"
+      },
+      "text": "同宮的擎羊或火星，反而為你產生激發力。",
+      "en": "Qing Yang or Huo Xing in your palace actually spurs you on.",
+      "source": {
+        "passage": "deep.星系34.4",
+        "quote": "煞曜唯擎羊、火星可以产生激发力"
+      },
+      "pole": "受激發"
+    },
+    {
+      "id": "巨門辰戌.陀",
+      "role": "limit",
+      "when": {
+        "star": "陀羅",
+        "at": "same"
+      },
+      "text": "你的巨門與陀羅同宮，是非困擾頻繁。",
+      "en": "Your Ju Men shares the palace with Tuo Luo, bringing frequent disputes and vexation.",
+      "source": {
+        "passage": "deep.星系34.4",
+        "quote": "陀罗同度则不宜，主是非困挠频仍"
+      },
+      "pole": "多阻"
+    }
+  ]
+}

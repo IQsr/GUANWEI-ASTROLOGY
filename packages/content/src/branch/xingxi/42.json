@@ -1,0 +1,119 @@
+{
+  "$note": "第 3 層 · 六十星系（2026-10-12）：天機太陰坐寅申，《深造講義》p.159。",
+  "topic": {
+    "id": "天機太陰坐寅申.命宮",
+    "palace": "命宮",
+    "stars": [
+      "天機",
+      "太陰"
+    ],
+    "branch": [
+      "寅",
+      "申"
+    ],
+    "xingxi": 42
+  },
+  "basis": {
+    "passage": "deep.星系42.1",
+    "quote": "为理智抑或情绪"
+  },
+  "rules": [
+    {
+      "id": "機陰寅申.理智",
+      "role": "refine",
+      "when": {
+        "lean": "理智"
+      },
+      "text": "理智型的機月，具幕僚的本質。",
+      "en": "A rational Tian Ji–Tai Yin has the nature of an adviser behind the scenes.",
+      "source": {
+        "passage": "deep.星系42.2",
+        "quote": "理智型的[机月]，具僚幕的本质"
+      }
+    },
+    {
+      "id": "機陰寅申.情緒",
+      "role": "refine",
+      "when": {
+        "lean": "情緒"
+      },
+      "text": "情緒型的機月，具藝術氣質。",
+      "en": "An emotional Tian Ji–Tai Yin has an artistic temperament.",
+      "source": {
+        "passage": "deep.星系42.3",
+        "quote": "情绪型的[机月]，具艺术气质"
+      }
+    },
+    {
+      "id": "機陰寅申.吉化",
+      "role": "refine",
+      "when": {
+        "hua": [
+          "祿",
+          "權"
+        ],
+        "star": [
+          "天機",
+          "太陰"
+        ],
+        "at": "same"
+      },
+      "text": "你的天機太陰吉化，格局高尚。",
+      "en": "Your Tian Ji–Tai Yin has a favourable transformation, which raises the pattern.",
+      "source": {
+        "passage": "deep.星系42.4",
+        "quote": "化禄、化权仅主格局高尚"
+      }
+    },
+    {
+      "id": "機陰寅申.忌理智",
+      "role": "limit",
+      "when": {
+        "all": [
+          {
+            "hua": "忌",
+            "star": [
+              "天機",
+              "太陰"
+            ],
+            "at": "same"
+          },
+          {
+            "lean": "理智"
+          }
+        ]
+      },
+      "text": "你的天機太陰化忌，令理智的一面容易變成自私的行為。",
+      "en": "Your Tian Ji–Tai Yin is transformed by Ji, so the rational side can turn into self-serving behaviour.",
+      "source": {
+        "passage": "deep.星系42.5",
+        "quote": "则影响理智为自私的行为"
+      }
+    },
+    {
+      "id": "機陰寅申.忌情緒",
+      "role": "limit",
+      "when": {
+        "all": [
+          {
+            "hua": "忌",
+            "star": [
+              "天機",
+              "太陰"
+            ],
+            "at": "same"
+          },
+          {
+            "lean": "情緒"
+          }
+        ]
+      },
+      "text": "你的天機太陰化忌，令情緒的一面容易變成權術手段。",
+      "en": "Your Tian Ji–Tai Yin is transformed by Ji, so the emotional side can turn into manipulation.",
+      "source": {
+        "passage": "deep.星系42.5",
+        "quote": "影响情绪为权术手段"
+      }
+    }
+  ]
+}

@@ -1,0 +1,148 @@
+{
+  "$note": "第 3 層 · 六十星系（2026-10-12）：天同獨坐巳亥，《深造講義》p.178。",
+  "topic": {
+    "id": "天同獨坐巳亥.命宮",
+    "palace": "命宮",
+    "stars": [
+      "天同"
+    ],
+    "branch": [
+      "巳",
+      "亥"
+    ],
+    "xingxi": 48
+  },
+  "basis": {
+    "passage": "deep.星系48.1",
+    "quote": "须详其为意志薄弱，抑为意志坚强"
+  },
+  "rules": [
+    {
+      "id": "天同巳亥.祿煞",
+      "role": "refine",
+      "when": {
+        "all": [
+          {
+            "any": [
+              {
+                "hua": "祿",
+                "star": "天同",
+                "at": "same"
+              },
+              {
+                "star": "祿存",
+                "at": "same"
+              }
+            ]
+          },
+          {
+            "star": [
+              "擎羊",
+              "陀羅",
+              "火星",
+              "鈴星",
+              "地空",
+              "地劫"
+            ],
+            "at": "sifang"
+          }
+        ]
+      },
+      "text": "你的天同得祿，又稍見煞星，意志反而堅強。",
+      "en": "Your Tian Tong gains Lu and meets a touch of malefics, which actually strengthens your will.",
+      "source": {
+        "passage": "deep.星系48.2",
+        "quote": "必须稍见一二点煞曜，然后始主意志坚强"
+      },
+      "pole": "意志堅強"
+    },
+    {
+      "id": "天同巳亥.祿無煞",
+      "role": "limit",
+      "when": {
+        "all": [
+          {
+            "any": [
+              {
+                "hua": "祿",
+                "star": "天同",
+                "at": "same"
+              },
+              {
+                "star": "祿存",
+                "at": "same"
+              }
+            ]
+          },
+          {
+            "not": {
+              "star": [
+                "擎羊",
+                "陀羅",
+                "火星",
+                "鈴星",
+                "地空",
+                "地劫"
+              ],
+              "at": "sifang"
+            }
+          }
+        ]
+      },
+      "text": "你的天同得祿而不見煞，容易流於意志薄弱。",
+      "en": "Your Tian Tong gains Lu with no malefics in view, so your will can slide into weakness.",
+      "source": {
+        "passage": "deep.星系48.2",
+        "quote": "否则可能沦为意志薄弱"
+      },
+      "pole": "意志薄弱"
+    },
+    {
+      "id": "天同巳亥.權",
+      "role": "refine",
+      "when": {
+        "hua": "權",
+        "star": "天同",
+        "at": "same"
+      },
+      "text": "你的天同化權，意志堅強：情緒受到管束，天份因此得以發揮。",
+      "en": "Your Tian Tong is transformed by Quan, which makes your will strong: emotions held in check let your talent come through.",
+      "source": {
+        "passage": "deep.星系48.3",
+        "quote": "因而得以发挥其天份的象征"
+      },
+      "pole": "意志堅強"
+    },
+    {
+      "id": "天同巳亥.馬陀",
+      "role": "limit",
+      "when": {
+        "star": [
+          "天馬",
+          "陀羅"
+        ],
+        "at": "same"
+      },
+      "text": "你的天同與天馬或陀羅同宮，至少主毅力不足。",
+      "en": "Your Tian Tong shares the palace with Tian Ma or Tuo Luo, which at the least means staying power falls short.",
+      "source": {
+        "passage": "deep.星系48.4",
+        "quote": "至少亦主毅力不足"
+      },
+      "pole": "意志薄弱"
+    },
+    {
+      "id": "天同巳亥.意志",
+      "role": "refine",
+      "when": {
+        "lean": "意志薄弱"
+      },
+      "text": "這裡說的意志薄弱，不一定是沒有毅力；有時只是創業的魄力不足，或者喜歡四處漂泊。",
+      "en": "Weak will here doesn't necessarily mean no staying power; sometimes it only means less drive to build something, or a love of wandering.",
+      "source": {
+        "passage": "deep.星系48.5",
+        "quote": "便仅指创兴事业的魄力"
+      }
+    }
+  ]
+}

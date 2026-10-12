@@ -1,7 +1,7 @@
 import { z } from 'zod';
 import { sanFangPalaces, type Chart, type Palace } from '@guanwei/ziwei';
-import tongliangRaw from './branch/tongliang-ming.json';
-import tianjiRaw from './branch/tianji-guanlu.json';
+import { XINGXI, leanOf, xingxiOf } from './xingxi';
+import { BRANCH_RAW } from './branch/index';
 import { CORPUS, normaliseForMatch } from './lexicon';
 import { scanForbidden } from './lint';
 import { scanPlain } from './plain';
@@ -39,6 +39,7 @@ type Cond =
   | { branch: string[] }
   | { alone: true }
   | { with: string }
+  | { lean: string }
   | { all: Cond[] }
   | { any: Cond[] }
   | { not: Cond };
@@ -51,6 +52,8 @@ const Cond: z.ZodType<Cond> = z.lazy(() =>
     z.object({ branch: z.array(z.string()).min(1) }).strict(),
     z.object({ alone: z.literal(true) }).strict(),
     z.object({ with: z.string() }).strict(),
+    /* 骨架章點票嘅偏向（xingxi.ts `leanOf`）；「未定」= 兩邊都冇訊號 */
+    z.object({ lean: z.string() }).strict(),
     z.object({ all: z.array(Cond).min(1) }).strict(),
     z.object({ any: z.array(Cond).min(1) }).strict(),
     z.object({ not: Cond }).strict(),
@@ -62,6 +65,11 @@ const Cite = z.object({ passage: z.string(), quote: z.string().min(4).max(40) })
 const Rule = z.object({
   id: z.string(),
   role: z.enum(['base', 'refine', 'limit', 'exception']),
+  /**
+   * 星系題目：呢條規則斷定咗偏向邊一頭（2026-10-12）。骨架章點票出嚟係另一頭，就唔出 ——
+   * 例如點票「虛浮」，就唔講「太陽在子化祿，本質沉穩」；平衡、未定就兩頭都照講。
+   */
+  pole: z.string().optional(),
   /** 成立就改寫「性格的骨架」嘅偏向句（只限命宮題目） */
   gujia: z.boolean().optional(),
   /** gujia 例外：推力段（點票得出嘅偏向）後面補一句，講明偏向唔再成立 */
@@ -79,13 +87,37 @@ export type BranchRule = z.infer<typeof Rule>;
 
 const Topic = z
   .object({
-    topic: z.object({ id: z.string(), palace: z.string(), stars: z.array(z.string()).min(1), branch: z.array(z.string()).optional() }),
-    rules: z.array(Rule).min(1),
+    topic: z.object({
+      id: z.string(),
+      palace: z.string(),
+      stars: z.array(z.string()).min(1),
+      branch: z.array(z.string()).optional(),
+      /** 六十星系編號：有就係星系題目，細讀擺喺「性格的骨架」章，唔擺命宮章 */
+      xingxi: z.number().optional(),
+    }),
+    /** 星系題目：骨架章嘅基本講法（plain.basis、兩頭偏向句）掛嘅出處 */
+    basis: Cite.optional(),
+    rules: z.array(Rule),
   })
   .superRefine((t, ctx) => {
     const issue = (m: string) => ctx.addIssue({ code: 'custom', message: `${t.topic.id}：${m}` });
     const ids = new Set(t.rules.map((r) => r.id));
     if (ids.size !== t.rules.length) issue('規則 id 重複');
+    /* 偏向條件嘅名一定要係嗰個星系嘅兩頭（或者平衡、未定），寫錯名就永遠唔成立而冇人知 */
+    if (t.topic.xingxi !== undefined) {
+      const x = XINGXI.find((y) => y.n === t.topic.xingxi);
+      if (!x) issue(`搵唔到第 ${t.topic.xingxi} 星系`);
+      const ok = new Set([...(x?.poles ?? []), '平衡', '未定']);
+      const leans = (c: Cond): string[] =>
+        'lean' in c ? [c.lean] : 'all' in c ? c.all.flatMap(leans) : 'any' in c ? c.any.flatMap(leans) : 'not' in c ? leans(c.not) : [];
+      for (const r of t.rules) for (const l of r.when ? leans(r.when) : []) if (!ok.has(l)) issue(`${r.id}：偏向「${l}」唔係呢個星系嘅兩頭`);
+      for (const r of t.rules) if (r.pole && !x?.poles.includes(r.pole)) issue(`${r.id}：pole「${r.pole}」唔係呢個星系嘅兩頭`);
+    }
+    if (t.basis) {
+      const p = CORPUS.zhongzhou?.passages[t.basis.passage];
+      if (!p) issue(`basis：語料庫搵唔到 ${t.basis.passage}`);
+      else if (!normaliseForMatch(p.text).includes(normaliseForMatch(t.basis.quote))) issue(`basis：引文「${t.basis.quote}」唔喺原文`);
+    }
     for (const r of t.rules) {
       for (const o of r.overrides ?? []) if (!ids.has(o)) issue(`${r.id} overrides 搵唔到 ${o}`);
       for (const c of [r.source, ...(r.also ?? [])]) {
@@ -100,9 +132,17 @@ const Topic = z
   });
 export type BranchTopic = z.infer<typeof Topic>;
 
-export const BRANCH_TOPICS: BranchTopic[] = [tongliangRaw, tianjiRaw].map((raw) => Topic.parse(raw));
+export const BRANCH_TOPICS: BranchTopic[] = BRANCH_RAW.map((raw) => Topic.parse(raw));
 
 /* ── 條件 ── */
+
+/** 骨架章嘅偏向；兩邊都冇訊號就係「未定」（唔係「平衡」—— 冇訊號唔等於兩面調和） */
+export function leanState(chart: Chart): string | null {
+  const found = xingxiOf(chart);
+  if (!found) return null;
+  const { pole, score } = leanOf(chart, found.system);
+  return Object.values(score).every((n) => n === 0) ? '未定' : pole;
+}
 
 const list = <T>(x: T | T[]): T[] => (Array.isArray(x) ? x : [x]);
 
@@ -122,6 +162,7 @@ function holds(chart: Chart, p: Palace, focus: string, c: Cond): boolean {
   if ('all' in c) return c.all.every((x) => holds(chart, p, focus, x));
   if ('any' in c) return c.any.some((x) => holds(chart, p, focus, x));
   if ('not' in c) return !holds(chart, p, focus, c.not);
+  if ('lean' in c) return leanState(chart) === c.lean;
   if ('branch' in c) return c.branch.includes(p.branch);
   if ('alone' in c) return majorsOf(p).length === 1;
   if ('with' in c) return majorsOf(p).includes(c.with) && majorsOf(p).includes(focus);
@@ -134,13 +175,23 @@ function holds(chart: Chart, p: Palace, focus: string, c: Cond): boolean {
     return (sides[0]!.includes(x) && sides[1]!.includes(y)) || (sides[0]!.includes(y) && sides[1]!.includes(x));
   }
   const places = list(c.at).flatMap((a) => where(chart, p, a));
+  /*
+   * 借星（2026-10-12）：會照或對宮嗰宮冇主星，原書照借對宮主星嚟讀（「借星安宮的天同巨門」）。
+   * 只借主星同主星嘅四化；輔星、煞星唔借。本宮（same）唔借 —— 星系題目本身已經排除借星命宮。
+   */
+  const borrowed = (q: Palace): Palace[] => {
+    if (q === p || majorsOf(q).length || !q.borrowsFrom) return [];
+    const opp = chart.palaces.find((x) => x.branch === q.borrowsFrom);
+    return opp ? [{ ...opp, stars: opp.stars.filter((s) => MAJOR.includes(s.name)) }] : [];
+  };
+  const withBorrowed = [...places, ...places.flatMap(borrowed)];
   if ('hua' in c) {
     const huas = list(c.hua);
     const stars = c.star ? list(c.star) : null;
-    return places.some((q) => q.stars.some((s) => s.sihua && huas.includes(s.sihua as z.infer<typeof HUA>) && (!stars || stars.includes(s.name))));
+    return withBorrowed.some((q) => q.stars.some((s) => s.sihua && huas.includes(s.sihua as z.infer<typeof HUA>) && (!stars || stars.includes(s.name))));
   }
   const names = list(c.star);
-  return places.some((q) => q.stars.some((s) => names.includes(s.name)));
+  return withBorrowed.some((q) => q.stars.some((s) => names.includes(s.name)));
 }
 
 /* ── 收斂 ── */
@@ -149,6 +200,11 @@ function holds(chart: Chart, p: Palace, focus: string, c: Cond): boolean {
 function applies(chart: Chart, t: BranchTopic): Palace | null {
   const p = chart.palaces.find((x) => x.name === t.topic.palace);
   if (!p) return null;
+  if (t.topic.xingxi !== undefined) {
+    /* 借對宮主星嘅命宮唔套：條件講嘅同宮、會照係星喺本宮嗰陣 */
+    const found = xingxiOf(chart);
+    if (!found || found.borrowed || found.system.n !== t.topic.xingxi) return null;
+  }
   const majors = majorsOf(p);
   if (!t.topic.stars.every((s) => majors.includes(s))) return null;
   if (t.topic.branch && !t.topic.branch.includes(p.branch)) return null;
@@ -160,7 +216,9 @@ export function branchRules(chart: Chart, t: BranchTopic): BranchRule[] {
   const p = applies(chart, t);
   if (!p) return [];
   const focus = t.topic.stars[0]!;
-  const hit = t.rules.filter((r) => !r.when || holds(chart, p, focus, r.when));
+  const state = t.topic.xingxi !== undefined ? leanState(chart) : null;
+  const against = (r: BranchRule) => Boolean(r.pole && state && state !== '平衡' && state !== '未定' && state !== r.pole);
+  const hit = t.rules.filter((r) => (!r.when || holds(chart, p, focus, r.when)) && !against(r));
   const gone = new Set(hit.flatMap((r) => r.overrides ?? []));
   return hit.filter((r) => !gone.has(r.id));
 }
@@ -168,7 +226,7 @@ export function branchRules(chart: Chart, t: BranchTopic): BranchRule[] {
 /** 一個宮嘅「細讀」段：成立嘅規則砌成一段。冇題目或者冇規則成立就 null。 */
 export function branchReading(chart: Chart, palace: string): { text: string; ids: string[]; sources: string[] } | null {
   for (const t of BRANCH_TOPICS) {
-    if (t.topic.palace !== palace) continue;
+    if (t.topic.palace !== palace || t.topic.xingxi !== undefined) continue;
     const rules = branchRules(chart, t).filter((r) => !r.gujia);
     if (!rules.length) continue;
     return {
@@ -178,6 +236,38 @@ export function branchReading(chart: Chart, palace: string): { text: string; ids
     };
   }
   return null;
+}
+
+/** 「性格的骨架」章嘅星系細讀（星系題目成立嘅規則，例外句除外） */
+/** 兩段字有冇講同一句：最長共同片段（只計漢字）夠唔夠 n 字 */
+function restates(a: string, b: string, n = 6): boolean {
+  const x = a.replace(/[^\p{Script=Han}]/gu, '');
+  const y = b.replace(/[^\p{Script=Han}]/gu, '');
+  for (let i = 0; i + n <= x.length; i++) if (y.includes(x.slice(i, i + n))) return true;
+  return false;
+}
+
+/**
+ * `avoid`：骨架章已經講咗嘅字（骨架段、偏向句）。細讀唔重複 —— 例如骨架段已講「子午的七殺相對是強格」，
+ * 細讀就唔再講一次。
+ */
+export function xingxiReading(chart: Chart, avoid = ''): { text: string; ids: string[]; sources: string[] } | null {
+  for (const t of BRANCH_TOPICS) {
+    if (t.topic.xingxi === undefined) continue;
+    const rules = branchRules(chart, t).filter((r) => !r.gujia && !(avoid && restates(r.text, avoid)));
+    if (!rules.length) continue;
+    return {
+      text: rules.map((r) => r.text).join(''),
+      ids: rules.map((r) => r.id),
+      sources: [...new Set(rules.flatMap((r) => [r.source.passage, ...(r.also ?? []).map((a) => a.passage)]))],
+    };
+  }
+  return null;
+}
+
+/** 星系題目嘅基本出處（骨架章 basis、偏向句用） */
+export function xingxiBasis(n: number): BranchTopic | undefined {
+  return BRANCH_TOPICS.find((t) => t.topic.xingxi === n);
 }
 
 /** 命宮題目入面會改寫「性格的骨架」偏向句嘅例外（例如天同化忌羊陀夾忌）。 */

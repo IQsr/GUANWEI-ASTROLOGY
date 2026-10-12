@@ -3,7 +3,8 @@ import { cast, type BirthInput } from '@guanwei/ziwei';
 import { XINGXI, leanOf, xingxiOf } from '../src/xingxi';
 import { CORPUS, normaliseForMatch, withoutCitations } from '../src/lexicon';
 import { scanForbidden } from '../src/lint';
-import { XINGXI_FRAMES, gujiaChapter, overlaps } from '../src/xingxi-chapters';
+import { XINGXI_FRAMES, gujiaChapter,
+  undecidedLean, overlaps } from '../src/xingxi-chapters';
 import { scanPlain } from '../src/plain';
 
 /**
@@ -153,7 +154,9 @@ describe('性格的骨架（2026-10-07 併埋偏向）', () => {
       for (const ch of [gujiaChapter({ chart: c })!]) {
         for (const s of ch.segments) {
           expect(scanForbidden(withoutCitations(s.text), 'body'), `${ch.slug} · ${s.slot}：${s.text}`).toEqual([]);
-          if (s.slot !== '推力' && s.slot !== '留白') expect(s.source_id).toMatch(/^xingxi\.\d+$/);
+          /* 細讀（2026-10-12）：原文分支，出處係 deep.* passage，可以幾段 */
+          if (s.slot === '細讀') expect(s.source_id).toMatch(/^deep\./);
+          else if (s.slot !== '推力' && s.slot !== '留白') expect(s.source_id).toMatch(/^(xingxi\.\d+|deep\.\S+)$/);
         }
       }
     }
@@ -165,7 +168,9 @@ describe('性格的骨架（2026-10-07 併埋偏向）', () => {
       const { pole, seen } = leanOf(c, x);
       const segs = gujiaChapter({ chart: c })!.segments;
       expect(segs[0]!.slot).toBe('偏向');
-      expect(segs[0]!.text).toBe(x.plain.lean[pole]);
+      /* 兩邊都冇訊號（2026-10-12）：唔講平衡，講未定 */
+      const none = Object.values(leanOf(c, x).score).every((n) => n === 0);
+      expect(segs[0]!.text).toBe(none ? undecidedLean(x.poles) : x.plain.lean[pole]);
       /* 每樣證據都講到：唔喺推力就喺骨架段（地支） */
       const all = segs.map((s) => s.text).join('');
       for (const p of x.poles) for (const e of seen[p]!) {

@@ -1,0 +1,111 @@
+{
+  "$note": "第 3 層 · 六十星系（2026-10-12）：天相獨坐巳亥，《深造講義》p.138。",
+  "topic": {
+    "id": "天相獨坐巳亥.命宮",
+    "palace": "命宮",
+    "stars": [
+      "天相"
+    ],
+    "branch": [
+      "巳",
+      "亥"
+    ],
+    "xingxi": 35
+  },
+  "basis": {
+    "passage": "deep.星系35.1",
+    "quote": "须分别其为具开创力，或仅因人成事"
+  },
+  "rules": [
+    {
+      "id": "天相巳亥.最穩",
+      "role": "base",
+      "text": "天相在巳亥獨坐，是十二宮中最穩的位置：堅忍不拔，又富開創力；只是天相本身缺乏獨立性，很難獨立作主。",
+      "en": "Tian Xiang alone in Si or Hai is its steadiest placement of all twelve: tenacious and full of initiative; but Tian Xiang itself lacks independence and finds it hard to decide alone.",
+      "source": {
+        "passage": "deep.星系35.2",
+        "quote": "既具坚忍不拔的个性，又富开创力"
+      }
+    },
+    {
+      "id": "天相巳亥.府科",
+      "role": "limit",
+      "when": {
+        "hua": "科",
+        "star": "天府",
+        "at": "trine"
+      },
+      "text": "會照的天府化科，你屬因人成事的本質。",
+      "en": "Tian Fu transformed by Ke in your trine marks you as someone who succeeds through others.",
+      "source": {
+        "passage": "deep.星系35.3",
+        "quote": "天相属于因人成事的本质"
+      },
+      "pole": "因人成事"
+    },
+    {
+      "id": "天相巳亥.紫科",
+      "role": "refine",
+      "when": {
+        "hua": "科",
+        "star": "紫微",
+        "at": "trine"
+      },
+      "text": "會照的紫微化科，你有開創力。",
+      "en": "Zi Wei transformed by Ke in your trine gives you the power to build something new.",
+      "source": {
+        "passage": "deep.星系35.3",
+        "quote": "若紫微化科来会者，则具有开创力"
+      },
+      "pole": "開創"
+    },
+    {
+      "id": "天相巳亥.因人魁鉞",
+      "role": "refine",
+      "when": {
+        "all": [
+          {
+            "lean": "因人成事"
+          },
+          {
+            "star": [
+              "天魁",
+              "天鉞"
+            ],
+            "at": "sifang"
+          }
+        ]
+      },
+      "text": "因人成事的你，有魁鉞會合，最得助力。",
+      "en": "Succeeding through others, you're best helped by Kui and Yue meeting your chart.",
+      "source": {
+        "passage": "deep.星系35.4",
+        "quote": "凡因人成事的天相，喜魁钺同会"
+      }
+    },
+    {
+      "id": "天相巳亥.開創輔弼",
+      "role": "refine",
+      "when": {
+        "all": [
+          {
+            "lean": "開創"
+          },
+          {
+            "star": [
+              "左輔",
+              "右弼"
+            ],
+            "at": "sifang"
+          }
+        ]
+      },
+      "text": "有開創力的你，有左輔右弼會合，最得助力。",
+      "en": "With the power to build, you're best helped by Zuo Fu and You Bi meeting your chart.",
+      "source": {
+        "passage": "deep.星系35.4",
+        "quote": "凡具开创力的天相，喜辅弼同会"
+      }
+    }
+  ]
+}

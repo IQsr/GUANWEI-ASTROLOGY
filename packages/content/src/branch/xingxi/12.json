@@ -1,0 +1,119 @@
+{
+  "$note": "第 3 層 · 六十星系（2026-10-12）：天府獨坐卯酉，《深造講義》p.73。",
+  "topic": {
+    "id": "天府獨坐卯酉.命宮",
+    "palace": "命宮",
+    "stars": [
+      "天府"
+    ],
+    "branch": [
+      "卯",
+      "酉"
+    ],
+    "xingxi": 12
+  },
+  "basis": {
+    "passage": "deep.星系12.1",
+    "quote": "是属于局面广大的老成持重"
+  },
+  "rules": [
+    {
+      "id": "天府卯酉.最安定",
+      "role": "base",
+      "text": "天府以獨坐卯酉最安定、保守：這兩宮不與紫微相會，沒有紫微干擾，保守的性格最完整。",
+      "en": "Tian Fu is at its most settled and conservative alone in Mao or You: these palaces don't meet Zi Wei, so without its interference the conservative character stays whole.",
+      "source": {
+        "passage": "deep.星系12.2",
+        "quote": "以独坐卯酉二宫时最为安定、保守"
+      }
+    },
+    {
+      "id": "天府卯酉.祿存",
+      "role": "limit",
+      "when": {
+        "star": "祿存",
+        "at": "same"
+      },
+      "text": "你的天府與祿存同宮：單是得祿，只是小心謹慎，局面還未算大。",
+      "en": "Your Tian Fu shares the palace with Lu Cun: having Lu alone makes for care and caution, not yet a wide scope.",
+      "source": {
+        "passage": "deep.星系12.3",
+        "quote": "尤其是与禄存同垣的天府，只不过是小心谨慎而巳"
+      },
+      "pole": "謹慎"
+    },
+    {
+      "id": "天府卯酉.露庫",
+      "role": "limit",
+      "when": {
+        "all": [
+          {
+            "star": "祿存",
+            "at": "same"
+          },
+          {
+            "star": [
+              "火星",
+              "鈴星"
+            ],
+            "at": "sifang"
+          }
+        ]
+      },
+      "text": "你的天府與祿存同宮，又會火鈴，成為露庫：就算有吉星，也喜歡在小處佔別人便宜。",
+      "en": "Your Tian Fu shares the palace with Lu Cun and meets Huo and Ling, an 'exposed vault': even with good stars, you tend to take small advantages of others.",
+      "edit": "「主人奸詐」屬人格貶語，不用；保留「喜佔小便宜」。",
+      "source": {
+        "passage": "deep.星系12.4",
+        "quote": "亦主喜占别人的小便宜"
+      }
+    },
+    {
+      "id": "天府卯酉.武祿",
+      "role": "refine",
+      "when": {
+        "hua": "祿",
+        "star": "武曲",
+        "at": "opp"
+      },
+      "text": "對宮的武曲化祿，你的局面廣大，老成持重。",
+      "en": "Wu Qu opposite you is transformed by Lu: your scope is wide, and you carry it with mature steadiness.",
+      "source": {
+        "passage": "deep.星系12.5",
+        "quote": "则天府局面广大而且老成持重"
+      },
+      "pole": "局面大"
+    },
+    {
+      "id": "天府卯酉.武祿存",
+      "role": "refine",
+      "when": {
+        "star": "祿存",
+        "at": "opp"
+      },
+      "text": "對宮武曲七殺與祿存同宮，你的局面廣大，老成持重。",
+      "en": "Wu Qu and Qi Sha opposite you share the palace with Lu Cun: your scope is wide, and you carry it with mature steadiness.",
+      "source": {
+        "passage": "deep.星系12.5",
+        "quote": "最喜与禄存同度"
+      },
+      "pole": "局面大"
+    },
+    {
+      "id": "天府卯酉.武忌",
+      "role": "limit",
+      "when": {
+        "hua": "忌",
+        "star": "武曲",
+        "at": "opp"
+      },
+      "text": "對宮的武曲化忌，你的格局最多只是小局面的謹慎。",
+      "en": "Wu Qu opposite you is transformed by Ji, so at most your character is careful caution on a small scale.",
+      "source": {
+        "passage": "deep.星系12.6",
+        "quote": "充其量亦只是小局面的谨慎而已"
+      },
+      "pole": "謹慎"
+    }
+  ]
+}

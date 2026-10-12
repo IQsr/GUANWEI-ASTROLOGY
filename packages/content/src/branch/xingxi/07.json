@@ -1,0 +1,121 @@
+{
+  "$note": "第 3 層 · 六十星系（2026-10-12）：武曲天相坐寅申，《深造講義》p.58。",
+  "topic": {
+    "id": "武曲天相坐寅申.命宮",
+    "palace": "命宮",
+    "stars": [
+      "武曲",
+      "天相"
+    ],
+    "branch": [
+      "寅",
+      "申"
+    ],
+    "xingxi": 7
+  },
+  "basis": {
+    "passage": "deep.星系07.1",
+    "quote": "武曲性刚，天相性柔"
+  },
+  "rules": [
+    {
+      "id": "武相寅申.最壞",
+      "role": "exception",
+      "when": {
+        "all": [
+          {
+            "hua": "忌",
+            "star": "武曲",
+            "at": "same"
+          },
+          {
+            "jia": [
+              "火星",
+              "鈴星"
+            ]
+          }
+        ]
+      },
+      "text": "你的武曲化忌，兩旁又有火星、鈴星相夾：這是武曲天相最壞的結構，武曲過剛、天相過軟，容易多波折，去留之間進退失據。",
+      "en": "Your Wu Qu is transformed by Ji and flanked by Huo Xing and Ling Xing: the worst structure for Wu Qu–Tian Xiang, too hard on one side and too soft on the other, prone to setbacks and indecision about when to stay and when to go.",
+      "source": {
+        "passage": "deep.星系07.2",
+        "quote": "最坏的结构是武曲化忌、火铃夹[武相]的结构"
+      }
+    },
+    {
+      "id": "武相寅申.祿",
+      "role": "refine",
+      "when": {
+        "hua": "祿",
+        "star": "武曲",
+        "at": "same"
+      },
+      "text": "你的武曲化祿，剛硬的一面得到調和。",
+      "en": "Your Wu Qu is transformed by Lu, which softens its hardness.",
+      "source": {
+        "passage": "deep.星系07.3",
+        "quote": "刚克之性得到调和"
+      },
+      "pole": "剛柔相濟"
+    },
+    {
+      "id": "武相寅申.權",
+      "role": "limit",
+      "when": {
+        "hua": "權",
+        "star": "武曲",
+        "at": "same"
+      },
+      "text": "你的武曲化權，剛烈的一面更重。",
+      "en": "Your Wu Qu is transformed by Quan, which makes it fiercer.",
+      "source": {
+        "passage": "deep.星系07.4",
+        "quote": "欲益增其刚烈之性"
+      },
+      "pole": "偏剛"
+    },
+    {
+      "id": "武相寅申.科",
+      "role": "limit",
+      "when": {
+        "hua": "科",
+        "star": "武曲",
+        "at": "same"
+      },
+      "text": "你的武曲化科，剛烈的一面更重。",
+      "en": "Your Wu Qu is transformed by Ke, which makes it fiercer.",
+      "source": {
+        "passage": "deep.星系07.4",
+        "quote": "欲益增其刚烈之性"
+      },
+      "pole": "偏剛"
+    },
+    {
+      "id": "武相寅申.偏剛",
+      "role": "limit",
+      "when": {
+        "lean": "偏剛"
+      },
+      "text": "你偏剛的一面較重：過剛則折，硬撐到底的時候最容易受挫，人際上也多遺憾。",
+      "en": "You lean towards hardness: what is too hard snaps, so pushing on regardless is when you're most likely to break, and relationships suffer too.",
+      "source": {
+        "passage": "deep.星系07.5",
+        "quote": "过刚则折"
+      }
+    },
+    {
+      "id": "武相寅申.相濟",
+      "role": "refine",
+      "when": {
+        "lean": "剛柔相濟"
+      },
+      "text": "你剛柔相濟：就算遇到過剛過柔的時期，也只是一時的挫折，能靠自己的沉毅扭轉過來。",
+      "en": "You balance hard and soft: even in times that push you too far either way, it's only a passing setback, and your steady resolve can turn it round.",
+      "source": {
+        "passage": "deep.星系07.6",
+        "quote": "亦不过为一时的挫折"
+      }
+    }
+  ]
+}

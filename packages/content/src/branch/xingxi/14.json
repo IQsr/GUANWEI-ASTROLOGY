@@ -1,0 +1,70 @@
+{
+  "$note": "第 3 層 · 六十星系（2026-10-12）：廉貞貪狼坐巳亥，《深造講義》p.78。",
+  "topic": {
+    "id": "廉貞貪狼坐巳亥.命宮",
+    "palace": "命宮",
+    "stars": [
+      "廉貞",
+      "貪狼"
+    ],
+    "branch": [
+      "巳",
+      "亥"
+    ],
+    "xingxi": 14
+  },
+  "basis": {
+    "passage": "deep.星系14.1",
+    "quote": "须注意感情与物欲的区别"
+  },
+  "rules": [
+    {
+      "id": "廉貪巳亥.空感情",
+      "role": "refine",
+      "when": {
+        "all": [
+          {
+            "lean": "感情"
+          },
+          {
+            "star": [
+              "地空",
+              "地劫"
+            ],
+            "at": "same"
+          }
+        ]
+      },
+      "text": "你的命宮有空劫，感情又重於物欲：能把桃花化為藝術，或者投入消費、娛樂一類的事業。",
+      "en": "Your Life Palace holds Kong or Jie, and feeling outweighs material desire: you can turn romance into art, or into work in consumer goods and entertainment.",
+      "source": {
+        "passage": "deep.星系14.2",
+        "quote": "才可以化桃花为艺术"
+      }
+    },
+    {
+      "id": "廉貪巳亥.空物欲",
+      "role": "limit",
+      "when": {
+        "all": [
+          {
+            "lean": "物欲"
+          },
+          {
+            "star": [
+              "地空",
+              "地劫"
+            ],
+            "at": "same"
+          }
+        ]
+      },
+      "text": "你的命宮有空劫，物欲又重於感情：反而容易追求刺激。",
+      "en": "Your Life Palace holds Kong or Jie, and material desire outweighs feeling: it can push you to chase thrills instead.",
+      "source": {
+        "passage": "deep.星系14.3",
+        "quote": "反而可能追求刺激"
+      }
+    }
+  ]
+}

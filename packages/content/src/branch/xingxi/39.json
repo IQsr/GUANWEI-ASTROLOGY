@@ -1,0 +1,126 @@
+{
+  "$note": "第 3 層 · 六十星系（2026-10-12）：武曲破軍坐巳亥，《深造講義》p.150。",
+  "topic": {
+    "id": "武曲破軍坐巳亥.命宮",
+    "palace": "命宮",
+    "stars": [
+      "武曲",
+      "破軍"
+    ],
+    "branch": [
+      "巳",
+      "亥"
+    ],
+    "xingxi": 39
+  },
+  "basis": {
+    "passage": "deep.星系39.1",
+    "quote": "须祥其为善于适应，抑或具反拗的本质而定"
+  },
+  "rules": [
+    {
+      "id": "武破巳亥.適應",
+      "role": "refine",
+      "when": {
+        "lean": "善於適應"
+      },
+      "text": "適應力強：環境順逆，你都能開創；環境不利時，也能利用環境。",
+      "en": "Strongly adaptable: in good times and bad you can build, and even unfavourable conditions you can turn to use.",
+      "source": {
+        "passage": "deep.星系39.2",
+        "quote": "即使环境不利，亦能利用环境"
+      }
+    },
+    {
+      "id": "武破巳亥.反拗",
+      "role": "limit",
+      "when": {
+        "lean": "反其道"
+      },
+      "text": "反拗的一面較重：順境時不安於現狀，容易妄行妄作去追求過高的理想；逆境時又太重眼前利益，人際關係因此變差。",
+      "en": "The contrary side is stronger: in good times you won't settle, acting rashly in pursuit of ideals set too high; in hard times you fix on short-term gain, and relationships suffer.",
+      "source": {
+        "passage": "deep.星系39.3",
+        "quote": "每每喜妄行妄作"
+      }
+    },
+    {
+      "id": "武破巳亥.火鈴",
+      "role": "limit",
+      "when": {
+        "star": [
+          "火星",
+          "鈴星"
+        ],
+        "at": "same"
+      },
+      "text": "你的武曲破軍與火鈴同宮，這是最嫌的組合：不但性格反拗，客觀形勢也往往逼你反其道而行。",
+      "en": "Your Wu Qu–Po Jun shares the palace with Huo or Ling, the combination it dislikes most: not only contrary by nature, but often forced by circumstance to go against the grain.",
+      "source": {
+        "passage": "deep.星系39.4",
+        "quote": "而且客观形势往往逼人反拗"
+      },
+      "pole": "反其道"
+    },
+    {
+      "id": "武破巳亥.權",
+      "role": "limit",
+      "when": {
+        "all": [
+          {
+            "hua": "權",
+            "star": "武曲",
+            "at": "same"
+          },
+          {
+            "not": {
+              "star": [
+                "左輔",
+                "右弼"
+              ],
+              "at": "sifang"
+            }
+          }
+        ]
+      },
+      "text": "你的武曲化權，星曜性質過份強烈：自己雖能適應環境，卻缺少助力。",
+      "en": "Your Wu Qu is transformed by Quan, making the stars overly forceful: you can adapt on your own, but lack support.",
+      "source": {
+        "passage": "deep.星系39.5",
+        "quote": "则星曜性质过份强烈"
+      }
+    },
+    {
+      "id": "武破巳亥.武忌",
+      "role": "limit",
+      "when": {
+        "hua": "忌",
+        "star": "武曲",
+        "at": "same"
+      },
+      "text": "你的武曲化忌，帶反拗之性。",
+      "en": "Your Wu Qu is transformed by Ji, which brings a contrary streak.",
+      "source": {
+        "passage": "deep.星系39.6",
+        "quote": "皆带反拗之性"
+      },
+      "pole": "反其道"
+    },
+    {
+      "id": "武破巳亥.廉忌",
+      "role": "limit",
+      "when": {
+        "hua": "忌",
+        "star": "廉貞",
+        "at": "trine"
+      },
+      "text": "會照的廉貞化忌，令你帶反拗之性，而且影響最重。",
+      "en": "Lian Zhen transformed by Ji in your trine brings a contrary streak, and the strongest effect of all.",
+      "source": {
+        "passage": "deep.星系39.6",
+        "quote": "廉贞化忌者尤甚"
+      },
+      "pole": "反其道"
+    }
+  ]
+}

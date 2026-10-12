@@ -1,0 +1,105 @@
+{
+  "$note": "第 3 層 · 六十星系（2026-10-12）：紫微天府坐寅申，《深造講義》p.97。",
+  "topic": {
+    "id": "紫微天府坐寅申.命宮",
+    "palace": "命宮",
+    "stars": [
+      "紫微",
+      "天府"
+    ],
+    "branch": [
+      "寅",
+      "申"
+    ],
+    "xingxi": 21
+  },
+  "basis": {
+    "passage": "deep.星系21.1",
+    "quote": "须注意其为主动，抑或被动"
+  },
+  "rules": [
+    {
+      "id": "紫府寅申.主動",
+      "role": "refine",
+      "when": {
+        "lean": "主動"
+      },
+      "text": "主動的一面較重：你攻守皆宜，可進可退。",
+      "en": "The active side is stronger: you can attack or defend, advance or hold back.",
+      "source": {
+        "passage": "deep.星系21.2",
+        "quote": "属于主动性质的[紫微天府]则攻守咸宜"
+      }
+    },
+    {
+      "id": "紫府寅申.被動",
+      "role": "limit",
+      "when": {
+        "lean": "被動"
+      },
+      "text": "被動的一面較重：你容易進退失據，想進又不敢進，想退又不肯退，事事只能全力應付環境。",
+      "en": "The passive side is stronger: you're prone to indecision, wanting to advance but not daring, wanting to retreat but not willing, so you end up spending everything just coping with circumstances.",
+      "source": {
+        "passage": "deep.星系21.3",
+        "quote": "这吋就反而事事陷于被动"
+      }
+    },
+    {
+      "id": "紫府寅申.武科",
+      "role": "refine",
+      "when": {
+        "hua": "科",
+        "star": "武曲",
+        "at": "trine"
+      },
+      "text": "會照的武曲化科，與天府配合得好，紫微天府兩面的矛盾不會太深。",
+      "en": "Wu Qu transformed by Ke in your trine works well with Tian Fu, so the tension between Zi Wei and Tian Fu doesn't run deep.",
+      "source": {
+        "passage": "deep.星系21.4",
+        "quote": "易跟天府配合"
+      }
+    },
+    {
+      "id": "紫府寅申.武權",
+      "role": "limit",
+      "when": {
+        "hua": "權",
+        "star": "武曲",
+        "at": "trine"
+      },
+      "text": "會照的武曲化權，令紫微主動的色彩增加，人生的波折比一般大。",
+      "en": "Wu Qu transformed by Quan in your trine strengthens Zi Wei's drive, and life has more setbacks than usual.",
+      "edit": "原句續講「三十前後多數要經過一次挫折」，屬年歲事件預言，不用。",
+      "source": {
+        "passage": "deep.星系21.5",
+        "quote": "可是人生的波折始终比武曲化科时为大"
+      },
+      "pole": "主動"
+    },
+    {
+      "id": "紫府寅申.武祿無祿存",
+      "role": "limit",
+      "when": {
+        "all": [
+          {
+            "hua": "祿",
+            "star": "武曲",
+            "at": "trine"
+          },
+          {
+            "not": {
+              "star": "祿存",
+              "at": "sifang"
+            }
+          }
+        ]
+      },
+      "text": "會照的武曲化祿，卻沒有祿存調和武曲的孤剋之氣，童年較為艱苦。",
+      "en": "Wu Qu transformed by Lu in your trine, without Lu Cun to dissolve its isolating edge, makes for a harder childhood.",
+      "source": {
+        "passage": "deep.星系21.6",
+        "quote": "所以若无禄存，则其人童年较为艰苦"
+      }
+    }
+  ]
+}

@@ -1,0 +1,141 @@
+{
+  "$note": "第 3 層 · 六十星系（2026-10-12）：貪狼獨坐辰戌，《深造講義》p.103。",
+  "topic": {
+    "id": "貪狼獨坐辰戌.命宮",
+    "palace": "命宮",
+    "stars": [
+      "貪狼"
+    ],
+    "branch": [
+      "辰",
+      "戌"
+    ],
+    "xingxi": 23
+  },
+  "basis": {
+    "passage": "deep.星系23.1",
+    "quote": "须注意其为坚忍，抑为躁进"
+  },
+  "rules": [
+    {
+      "id": "貪狼辰戌.火鈴",
+      "role": "refine",
+      "when": {
+        "star": [
+          "火星",
+          "鈴星"
+        ],
+        "at": "same"
+      },
+      "text": "你的貪狼與火鈴同宮成格，一生必有突發的機遇；只是機遇未到之前急躁冒進，容易先敗，突發之後也較易暴敗。",
+      "en": "Your Tan Lang shares the palace with Huo or Ling, forming the pattern: a sudden break will come in your life; but rushing before it arrives tends to bring failure first, and after a sudden rise a sudden fall is more likely.",
+      "source": {
+        "passage": "deep.星系23.2",
+        "quote": "最欢火铃同度成格，则生必有突发的机遇"
+      }
+    },
+    {
+      "id": "貪狼辰戌.祿",
+      "role": "limit",
+      "when": {
+        "hua": "祿",
+        "star": "貪狼",
+        "at": "same"
+      },
+      "text": "你的貪狼化祿，未發跡之前容易被欲望推著走，急躁冒進。",
+      "en": "Your Tan Lang is transformed by Lu, so before you make your mark, desire can push you into rushing.",
+      "source": {
+        "passage": "deep.星系23.3",
+        "quote": "以致躁进"
+      },
+      "pole": "躁進"
+    },
+    {
+      "id": "貪狼辰戌.權",
+      "role": "refine",
+      "when": {
+        "hua": "權",
+        "star": "貪狼",
+        "at": "same"
+      },
+      "text": "你的貪狼化權，較腳踏實地。",
+      "en": "Your Tan Lang is transformed by Quan, which keeps you more grounded.",
+      "source": {
+        "passage": "deep.星系23.3",
+        "quote": "贪狼化权，则较脚踏实地"
+      },
+      "pole": "堅忍"
+    },
+    {
+      "id": "貪狼辰戌.忌",
+      "role": "limit",
+      "when": {
+        "hua": "忌",
+        "star": "貪狼",
+        "at": "same"
+      },
+      "text": "你的貪狼化忌，容易因為失意而急躁冒進。",
+      "en": "Your Tan Lang is transformed by Ji, so disappointment can push you into rushing.",
+      "source": {
+        "passage": "deep.星系23.4",
+        "quote": "易因失意而致躁进"
+      },
+      "pole": "躁進"
+    },
+    {
+      "id": "貪狼辰戌.破吉",
+      "role": "refine",
+      "when": {
+        "hua": [
+          "祿",
+          "權"
+        ],
+        "star": "破軍",
+        "at": "trine"
+      },
+      "text": "會照的破軍吉化，增加你的堅忍。",
+      "en": "Po Jun with a favourable transformation in your trine adds to your endurance.",
+      "source": {
+        "passage": "deep.星系23.5",
+        "quote": "可增加坚忍之性"
+      },
+      "pole": "堅忍"
+    },
+    {
+      "id": "貪狼辰戌.鈴陀",
+      "role": "limit",
+      "when": {
+        "all": [
+          {
+            "star": "鈴星",
+            "at": "sifang"
+          },
+          {
+            "star": "陀羅",
+            "at": "sifang"
+          },
+          {
+            "not": {
+              "hua": [
+                "祿",
+                "權",
+                "科",
+                "忌"
+              ],
+              "star": "貪狼",
+              "at": "same"
+            }
+          }
+        ]
+      },
+      "text": "你的盤鈴星、陀羅同會：外表從容，內心焦躁。",
+      "en": "Ling Xing and Tuo Luo both meet your chart: calm on the outside, restless within.",
+      "edit": "原書此條講貪狼不見四化的情形，條件照錄。",
+      "source": {
+        "passage": "deep.星系23.6",
+        "quote": "而铃陀同会则主外表从容，内心焦躁"
+      },
+      "pole": "躁進"
+    }
+  ]
+}

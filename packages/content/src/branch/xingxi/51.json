@@ -1,0 +1,107 @@
+{
+  "$note": "第 3 層 · 六十星系（2026-10-12）：貪狼獨坐寅申，《深造講義》p.188。",
+  "topic": {
+    "id": "貪狼獨坐寅申.命宮",
+    "palace": "命宮",
+    "stars": [
+      "貪狼"
+    ],
+    "branch": [
+      "寅",
+      "申"
+    ],
+    "xingxi": 51
+  },
+  "basis": {
+    "passage": "deep.星系51.1",
+    "quote": "但在寅宫者则倾向于色欲或情感"
+  },
+  "rules": [
+    {
+      "id": "貪狼寅申.寅",
+      "role": "limit",
+      "when": {
+        "branch": [
+          "寅"
+        ]
+      },
+      "text": "你的貪狼在寅，發得早，中年晚年要防破敗。",
+      "en": "Your Tan Lang sits in Yin: success comes early, but guard against collapse in middle and later life.",
+      "source": {
+        "passage": "deep.星系51.2",
+        "quote": "在寅宫主早发，但中年晚年须防破败"
+      }
+    },
+    {
+      "id": "貪狼寅申.申",
+      "role": "limit",
+      "when": {
+        "branch": [
+          "申"
+        ]
+      },
+      "text": "你的貪狼在申，早年不順，中年發跡；發跡之後，也要防破敗。",
+      "en": "Your Tan Lang sits in Shen: early years are hard, success comes in middle life, and even then guard against collapse.",
+      "source": {
+        "passage": "deep.星系51.2",
+        "quote": "在申宫早年不利，中年发迹"
+      }
+    },
+    {
+      "id": "貪狼寅申.物欲",
+      "role": "refine",
+      "when": {
+        "lean": "物欲"
+      },
+      "text": "物欲較強，人生多奮鬥。",
+      "en": "Material desire is stronger, so life is full of striving.",
+      "source": {
+        "passage": "deep.星系51.3",
+        "quote": "物欲强的贪狼，人生多奋斗"
+      }
+    },
+    {
+      "id": "貪狼寅申.情感",
+      "role": "refine",
+      "when": {
+        "lean": "情感"
+      },
+      "text": "情感較重，可以轉化為事業上的交際應酬，或者從事娛樂一類的事業，並不算差。",
+      "en": "Feeling is stronger, which can be turned into socialising for work, or into entertainment-related work; no bad thing.",
+      "source": {
+        "passage": "deep.星系51.3",
+        "quote": "所以亦不为劣"
+      }
+    },
+    {
+      "id": "貪狼寅申.陀",
+      "role": "refine",
+      "when": {
+        "star": "陀羅",
+        "at": "same"
+      },
+      "text": "你的貪狼與陀羅同宮，增加情感的一面。",
+      "en": "Your Tan Lang shares the palace with Tuo Luo, adding to the feeling side.",
+      "source": {
+        "passage": "deep.星系51.4",
+        "quote": "陀罗同宫，增加情感"
+      },
+      "pole": "情感"
+    },
+    {
+      "id": "貪狼寅申.火",
+      "role": "refine",
+      "when": {
+        "star": "火星",
+        "at": "same"
+      },
+      "text": "你的貪狼與火星同宮成火貪格，增加物欲的一面。",
+      "en": "Your Tan Lang shares the palace with Huo Xing, forming the Huo–Tan pattern and adding to material desire.",
+      "source": {
+        "passage": "deep.星系51.4",
+        "quote": "增加物欲，因此有[火贪]的格局"
+      },
+      "pole": "物欲"
+    }
+  ]
+}

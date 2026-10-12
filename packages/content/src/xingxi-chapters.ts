@@ -4,7 +4,7 @@ import { FORBIDDEN_TERMS } from './frame';
 import { cjkCount } from './lexicon';
 import { assertNoReading } from './free';
 import { leanOf, xingxiOf, type Xingxi } from './xingxi';
-import { gujiaException } from './branch';
+import { gujiaException, leanState, xingxiReading } from './branch';
 
 /* ───────────────────────────────────────────────────────────
  * 免費章之四：性格的骨架（工單 B5 · 架構 §6）
@@ -36,7 +36,7 @@ import { gujiaException } from './branch';
 export const GUJIA_SLUG = '性格的骨架';
 
 export type XingxiSegment = {
-  slot: '偏向' | '骨架' | '推力' | '長處' | '提醒' | '留白';
+  slot: '偏向' | '骨架' | '推力' | '細讀' | '長處' | '提醒' | '留白';
   text: string;
   source_id: string | null;
   rule_ids: string[];
@@ -130,6 +130,11 @@ export function overlaps(a: string, b: string, n = 4): boolean {
 }
 
 /** 性格的骨架。命宮屬邊個星系都揾唔到（資料冇嗰個組合）就回 null，唔出一章空嘅。 */
+/** 兩邊都冇訊號嘅偏向句（所有星系共用，兩頭名照填） */
+export function undecidedLean(poles: readonly string[]): string {
+  return `你的盤上，「${poles[0]}」和「${poles[1]}」兩頭的訊號都不明顯，沒有一邊特別重。`;
+}
+
 export function gujiaChapter(input: {
   chart: Chart;
 }): { slug: string; title: string; segments: XingxiSegment[] } | null {
@@ -150,8 +155,15 @@ export function gujiaChapter(input: {
   const byBranch = x.plain.byBranch?.[starBranch];
   /* 同 `leanOf()` 地支證據嘅寫法一樣 */
   const said = byBranch ? (starBranch === m.branch ? `命宮在${m.branch}` : `主星在${starBranch}`) : null;
-  const why = reason(x, pole, seen, said);
-  const lean = x.plain.lean[pole]!;
+  /*
+   * 兩邊都冇訊號（2026-10-12 內容審查）：以前寫「平衡」句，好幾個星系嘅平衡句講「調和」「最好的結構」——
+   * 原書講調和要睇交參，盤上乜都冇唔等於兩面調和。改講未定，推力句唔再重複。
+   */
+  const undecided = leanState(chart) === '未定';
+  const why = undecided ? null : reason(x, pole, seen, said);
+  const lean = undecided ? undecidedLean(x.poles) : x.plain.lean[pole]!;
+  /* 星系細讀（branch/xingxi/*.json）：偏向嘅後果、原書點名嘅特殊結構，逐句有出處 */
+  const deep = borrowed ? null : xingxiReading(chart, `${lean}${where}${x.plain.basis}${byBranch ?? ''}`);
   /* 長處同偏向講同一樣嘢就唔出（「你的長處是」唔計） */
   const strength = overlaps(lean, x.plain.strength.replace(/^你的長處是/, '')) ? null : x.plain.strength;
 
@@ -164,6 +176,7 @@ export function gujiaChapter(input: {
     exc ? { slot: '偏向' as const, text: exc.text, source_id: exc.source.passage, rule_ids: [exc.id] } : sourced('偏向', lean, x),
     sourced('骨架', `${where}${x.plain.basis}${byBranch ?? ''}`, x),
     ...(why ? [plain('推力', exc?.tail ? `${why}${exc.tail}` : why)] : []),
+    ...(deep ? [{ slot: '細讀' as const, text: deep.text, source_id: deep.sources.join('+'), rule_ids: deep.ids }] : []),
     ...(strength && !exc ? [sourced('長處', strength, x)] : []),
     ...(x.plain.note ? [sourced('提醒', x.plain.note, x)] : []),
     plain('留白', frame('frame.close.性格的骨架')),

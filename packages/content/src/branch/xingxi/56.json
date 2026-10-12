@@ -1,0 +1,157 @@
+{
+  "$note": "第 3 層 · 六十星系（2026-10-12）：天同太陰坐子午，《深造講義》p.203。",
+  "topic": {
+    "id": "天同太陰坐子午.命宮",
+    "palace": "命宮",
+    "stars": [
+      "天同",
+      "太陰"
+    ],
+    "branch": [
+      "子",
+      "午"
+    ],
+    "xingxi": 56
+  },
+  "basis": {
+    "passage": "deep.星系56.1",
+    "quote": "须分别其为积极，抑或消极"
+  },
+  "rules": [
+    {
+      "id": "同陰子午.馬頭帶劍",
+      "role": "exception",
+      "when": {
+        "all": [
+          {
+            "branch": [
+              "午"
+            ]
+          },
+          {
+            "star": "擎羊",
+            "at": "same"
+          },
+          {
+            "not": {
+              "hua": "忌",
+              "star": [
+                "天同",
+                "太陰"
+              ],
+              "at": "same"
+            }
+          }
+        ]
+      },
+      "text": "你的天同太陰在午，與擎羊同宮，成馬頭帶劍格：經過人生的奮鬥而成富貴。",
+      "en": "Your Tian Tong–Tai Yin sits in Wu with Qing Yang, forming the 'sword at the horse's head' pattern: wealth and standing won through life's struggle.",
+      "edit": "原書：天同或太陰化忌則不成馬頭帶劍。",
+      "source": {
+        "passage": "deep.星系56.2",
+        "quote": "主经过人生的奋斗而成富贵"
+      },
+      "pole": "積極"
+    },
+    {
+      "id": "同陰子午.子羊",
+      "role": "limit",
+      "when": {
+        "all": [
+          {
+            "branch": [
+              "子"
+            ]
+          },
+          {
+            "star": "擎羊",
+            "at": "same"
+          }
+        ]
+      },
+      "text": "你的天同太陰在子，不喜擎羊同宮：較經不起人生的磨練。",
+      "en": "Your Tian Tong–Tai Yin sits in Zi, which doesn't welcome Qing Yang beside it: it holds up less well under life's trials.",
+      "source": {
+        "passage": "deep.星系56.3",
+        "quote": "经不起人生的磨练"
+      },
+      "pole": "消極"
+    },
+    {
+      "id": "同陰子午.同吉",
+      "role": "refine",
+      "when": {
+        "hua": [
+          "祿",
+          "權",
+          "科"
+        ],
+        "star": "天同",
+        "at": "same"
+      },
+      "text": "你的天同吉化，本質積極。",
+      "en": "Your Tian Tong has a favourable transformation: active at heart.",
+      "source": {
+        "passage": "deep.星系56.4",
+        "quote": "天同得吉化，即主积极"
+      },
+      "pole": "積極"
+    },
+    {
+      "id": "同陰子午.同忌",
+      "role": "limit",
+      "when": {
+        "hua": "忌",
+        "star": "天同",
+        "at": "same"
+      },
+      "text": "你的天同化忌，本質偏消極。",
+      "en": "Your Tian Tong is transformed by Ji: passive at heart.",
+      "source": {
+        "passage": "deep.星系56.4",
+        "quote": "则本质消极"
+      },
+      "pole": "消極"
+    },
+    {
+      "id": "同陰子午.陰忌",
+      "role": "limit",
+      "when": {
+        "hua": "忌",
+        "star": "太陰",
+        "at": "same"
+      },
+      "text": "你的太陰化忌，本質偏消極。",
+      "en": "Your Tai Yin is transformed by Ji: passive at heart.",
+      "source": {
+        "passage": "deep.星系56.4",
+        "quote": "则本质消极"
+      },
+      "pole": "消極"
+    },
+    {
+      "id": "同陰子午.空",
+      "role": "limit",
+      "when": {
+        "all": [
+          {
+            "lean": "積極"
+          },
+          {
+            "star": [
+              "地空",
+              "地劫"
+            ],
+            "at": "same"
+          }
+        ]
+      },
+      "text": "你的命宮有空劫，積極之中偏多空想。",
+      "en": "Kong or Jie in your Life Palace means that even when active, you lean towards daydreams.",
+      "source": {
+        "passage": "deep.星系56.5",
+        "quote": "否则虽积极而偏多空想"
+      }
+    }
+  ]
+}

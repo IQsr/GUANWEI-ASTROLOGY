@@ -140,6 +140,10 @@ export function factTemplate(s: string, missing: string[]): string | null {
     return `Your Life Palace sits in ${BRANCH_EN[m[1]!]} and holds no major star, so it is read through ${starsEn(m[2]!, missing)} in the opposite palace.`;
   }
 
+  /* 性格的骨架 · 兩邊都冇訊號（xingxi-chapters.ts undecidedLean，2026-10-12） */
+  m = /^你的盤上，「(.+?)」和「(.+?)」兩頭的訊號都不明顯，沒有一邊特別重。$/.exec(s);
+  if (m) return `In your chart, the signals towards ${poleEn(m[1]!, missing)} and towards ${poleEn(m[2]!, missing)} are both faint; neither side weighs more.`;
+
   /* 推力（xingxi-chapters.ts reason()；以前喺「三方四正」章，舊書照用） */
   m = /^這樣看，是因為你的盤上兩邊都有：(.+?)，推你偏向(\S+?)；(.+?)，推你偏向(\S+?)。$/.exec(s);
   if (m) {

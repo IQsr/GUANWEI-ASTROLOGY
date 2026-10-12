@@ -1,0 +1,48 @@
+{
+  "$note": "第 3 層 · 六十星系（2026-10-12）：天機獨坐巳亥，《深造講義》p.66。",
+  "topic": {
+    "id": "天機獨坐巳亥.命宮",
+    "palace": "命宮",
+    "stars": [
+      "天機"
+    ],
+    "branch": [
+      "巳",
+      "亥"
+    ],
+    "xingxi": 10
+  },
+  "basis": {
+    "passage": "deep.星系10.1",
+    "quote": "须注意其机变与机谋"
+  },
+  "rules": [
+    {
+      "id": "天機巳亥.弱宮",
+      "role": "base",
+      "text": "天機獨坐巳亥，是不純粹的機月同梁格，屬於較弱的位置。",
+      "en": "Tian Ji alone in Si or Hai is an impure form of the Ji–Yue–Tong–Liang pattern, a weaker placement.",
+      "source": {
+        "passage": "deep.星系10.2",
+        "quote": "属于弱宫"
+      }
+    },
+    {
+      "id": "天機巳亥.陰忌",
+      "role": "limit",
+      "when": {
+        "hua": "忌",
+        "star": "太陰",
+        "at": "opp"
+      },
+      "text": "對宮的太陰化忌，令你的心思容易轉向機詐權謀；用在正道，才有好結果。",
+      "en": "Tai Yin opposite you is transformed by Ji, which can turn your thinking towards trickery and scheming; used honestly, it pays off.",
+      "edit": "末句「用在正道」取 p.66「必帶學術性、設計性，屬於正道」之義。",
+      "source": {
+        "passage": "deep.星系10.3",
+        "quote": "对宫的太阴最嫌化忌"
+      },
+      "pole": "機謀"
+    }
+  ]
+}

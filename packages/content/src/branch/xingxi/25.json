@@ -1,0 +1,141 @@
+{
+  "$note": "第 3 層 · 六十星系（2026-10-12）：廉貞天相坐子午，p.108–110。原書廉貞化忌、羊陀火鈴一段講到輕生，唔入讀者句；只保留「內心脆弱、無人傾訴」並加一句找人說出來。",
+  "topic": {
+    "id": "廉貞天相坐子午.命宮",
+    "palace": "命宮",
+    "stars": [
+      "廉貞",
+      "天相"
+    ],
+    "branch": [
+      "子",
+      "午"
+    ],
+    "xingxi": 25
+  },
+  "basis": {
+    "passage": "deep.星系25.1",
+    "quote": "须详其为则毅，抑为脆弱"
+  },
+  "rules": [
+    {
+      "id": "廉相子午.外圓內方",
+      "role": "refine",
+      "when": {
+        "all": [
+          {
+            "hua": "祿",
+            "star": "廉貞",
+            "at": "same"
+          },
+          {
+            "star": [
+              "文昌",
+              "文曲"
+            ],
+            "at": "sifang"
+          },
+          {
+            "not": {
+              "star": [
+                "火星",
+                "鈴星"
+              ],
+              "at": "sifang"
+            }
+          }
+        ]
+      },
+      "text": "你的廉貞化祿，會昌曲而不見火鈴：秉性剛毅，外表平和，外圓內方；是非雖多，仍能應付得體。",
+      "en": "Your Lian Zhen is transformed by Lu, meets Chang and Qu, and avoids Huo and Ling: firm by nature, calm in manner, round outside and square within; though disputes come, you handle them well.",
+      "source": {
+        "passage": "deep.星系25.2",
+        "quote": "外圆内方的佳格"
+      },
+      "pole": "剛毅"
+    },
+    {
+      "id": "廉相子午.忌",
+      "role": "limit",
+      "when": {
+        "hua": "忌",
+        "star": "廉貞",
+        "at": "same"
+      },
+      "text": "你的廉貞化忌，內心較脆弱：順境時只是一時苦悶，逆境時卻覺得百般不足，又找不到人傾訴；遇到難處，記得找人說出來。",
+      "en": "Your Lian Zhen is transformed by Ji, which leaves you more fragile inside: in good times it's only passing gloom, but in hard times everything feels lacking and there seems to be no one to talk to; when things get hard, remember to reach out.",
+      "edit": "原句續講火鈴空劫時「自我毀滅」，不用；末句建議係編輯加的。",
+      "source": {
+        "passage": "deep.星系25.3",
+        "quote": "主内心脆弱"
+      },
+      "pole": "柔軟"
+    },
+    {
+      "id": "廉相子午.擎羊",
+      "role": "limit",
+      "when": {
+        "star": "擎羊",
+        "at": [
+          "same",
+          "opp"
+        ]
+      },
+      "text": "擎羊同宮或對照，令你內心較脆弱，也容易因此招惹是非。",
+      "en": "Qing Yang in your palace or opposite it leaves you more fragile inside, and more likely to stir up disputes because of it.",
+      "source": {
+        "passage": "deep.星系25.4",
+        "quote": "均主内心脆弱"
+      },
+      "pole": "柔軟"
+    },
+    {
+      "id": "廉相子午.祿存",
+      "role": "refine",
+      "when": {
+        "star": "祿存",
+        "at": [
+          "same",
+          "opp"
+        ]
+      },
+      "text": "祿存同宮或對照，令你的情緒祥和：雖少突破性的發展，也能應付環境的變化。",
+      "en": "Lu Cun in your palace or opposite it brings a calmer temper: few breakthroughs, but you cope with whatever changes come.",
+      "source": {
+        "passage": "deep.星系25.5",
+        "quote": "化为祥和的情绪"
+      }
+    },
+    {
+      "id": "廉相子午.破祿",
+      "role": "refine",
+      "when": {
+        "all": [
+          {
+            "hua": "祿",
+            "star": "破軍",
+            "at": "opp"
+          },
+          {
+            "star": [
+              "左輔",
+              "右弼",
+              "文昌",
+              "文曲",
+              "天魁",
+              "天鉞"
+            ],
+            "at": "sifang"
+          }
+        ]
+      },
+      "text": "對宮的破軍化祿，又有吉星會合，令你剛毅。",
+      "en": "Po Jun opposite you is transformed by Lu and joined by favourable stars, which makes you firm.",
+      "source": {
+        "passage": "deep.星系25.6",
+        "quote": "则可使[廉相]得刚毅之性"
+      },
+      "pole": "剛毅"
+    }
+  ]
+}
