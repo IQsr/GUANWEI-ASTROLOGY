@@ -12,17 +12,28 @@
       "id": "田宅.太陰.輔佐",
       "role": "refine",
       "when": {
-        "any": [
+        "all": [
           {
-            "star": [
-              "左輔",
-              "右弼"
-            ],
-            "at": "same"
+            "any": [
+              {
+                "star": [
+                  "左輔",
+                  "右弼"
+                ],
+                "at": "same"
+              },
+              {
+                "star": "祿存",
+                "at": "same"
+              }
+            ]
           },
           {
-            "star": "祿存",
-            "at": "same"
+            "not": {
+              "hua": "忌",
+              "star": "太陽",
+              "at": "same"
+            }
           }
         ]
       },

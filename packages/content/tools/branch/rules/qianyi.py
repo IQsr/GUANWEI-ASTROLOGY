@@ -123,7 +123,7 @@ T.append({'id': '太陽.遷移', 'stars': ['太陽'], 'rules': [
    '太陽與巨門同宮或相對，一般較利經商，容易得外地或外國人賞識，只是較勞心。',
    'With Tai Yang beside or facing Ju Men, trade generally suits you, and people from elsewhere appreciate you, though it takes mental effort.',
    '太阳与巨门同度或对拱，一般较利经商，可得异乡或外邦人赏识，唯主劳心。', '可得异乡或外邦人赏识'),
- R('遷移.太陽.求名', None,
+ R('遷移.太陽.求名', {'not': {'star': '巨門', 'at': ['same', 'opp']}},
    '太陽在遷移宮，在外利於求名、求學進修，增加資歷；不主聚財，未必適合在外經商。',
    'With Tai Yang in your Travel Palace, time away is good for reputation, study and credentials; it does not gather money, and trading abroad may not suit you.',
    '太阳主贵，亦即对社会地位的争取相鼍重要，居迁移宫亦有同样意味，故往往表现为适宜任外求学、进修，增加资历，未必适宜在外经商。', '增加资历，未必适宜在外经商'),

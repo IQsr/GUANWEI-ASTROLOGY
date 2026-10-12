@@ -26,6 +26,12 @@
     {
       "id": "財帛.紫微.本",
       "role": "base",
+      "when": {
+        "not": {
+          "star": "天府",
+          "at": "same"
+        }
+      },
       "text": "紫微不是財星：財源可以充裕，卻不主積聚。",
       "en": "Zi Wei is not a wealth star: income can be ample, but it does not tend to accumulate.",
       "source": {

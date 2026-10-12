@@ -311,3 +311,35 @@ describe('宮位連動（2026-10-12）', () => {
     expect(palaceState(d, '財帛')).toBe('bad');
   });
 });
+
+describe('同一段細讀唔可以一句肯定、一句否定同一件事（2026-10-12 抽樣後加）', () => {
+  /* 例：「同宮有煞……不宜做管理」對「管理上能剛柔相濟」；「不主積聚」對「可以積聚成富」 */
+  const KEYS = ['經商', '管理', '合作', '助力', '祖業', '積聚', '聚財', '離鄉', '置業', '和睦', '和好', '和美', '穩定', '安定', '得力', '人緣'];
+  const NEG = /(不宜|不主|不利|難以|難|不足|無|沒有|不擅|不易|未必|不能|幫不上)/;
+  /* 講緊唔同對象：「夫妻之間不宜合作」對「喜與人合作」 */
+  const OK = new Set(['合作｜官祿.連動.官夫皆凶']);
+  it('掃 4320 張盤十個宮', () => {
+    const text = new Map(BRANCH_TOPICS.flatMap((t) => t.rules.map((r) => [r.id, r.text] as const)));
+    const bad = new Set<string>();
+    for (let i = 0; i < 4320; i += 2) {
+      const r = cast({
+        solar: { y: 1950 + (i % 60), m: 1 + (Math.floor(i / 60) % 12), d: 1 + ((i * 7) % 28) }, time: { h: (Math.floor(i / 720) * 4 + 1) % 24, min: 30 },
+        tz: 'Asia/Hong_Kong', place: { lng: 114.17, lat: 22.32, label: '香港' }, sex: i % 2 ? 'male' : 'female',
+      });
+      if (!r.ok) continue;
+      for (const pal of ['兄弟', '夫妻', '子女', '財帛', '遷移', '僕役', '官祿', '田宅', '福德', '父母']) {
+        const d = branchReading(r.value, pal);
+        if (!d || d.ids.length < 2) continue;
+        for (const k of KEYS) {
+          const hits = d.ids.flatMap((id) => {
+            const t = text.get(id)!;
+            const j = t.indexOf(k);
+            return j < 0 ? [] : [{ id, neg: NEG.test(t.slice(Math.max(0, j - 6), j + k.length + 3)) }];
+          });
+          for (const a of hits) for (const b of hits) if (a.neg && !b.neg && a.id !== b.id && !OK.has(`${k}｜${a.id}`)) bad.add(`${k}｜${a.id} ⇄ ${b.id}`);
+        }
+      }
+    }
+    expect([...bad]).toEqual([]);
+  }, 300_000);
+});

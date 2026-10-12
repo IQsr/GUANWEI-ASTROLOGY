@@ -153,7 +153,7 @@ T.append({'id': '武曲七殺.田宅', 'stars': ['武曲', '七殺'], 'rules': [
    '[武曲七杀]的宫度，因七杀落陷，一般不利田宅，稍见煞，或对宫天府不吉。即易产业破败。', '一般不利田宅', 'limit'),
 ]})
 T.append({'id': '武曲.田宅', 'stars': ['武曲'], 'rules': [
- R('田宅.武曲.祿', {'all': [LU, {'not': SHA}, {'not': {'star': ['破軍', '七殺'], 'at': 'same'}}]},
+ R('田宅.武曲.祿', {'all': [{'all': [LU, {'not': SHA}, {'not': {'star': ['破軍', '七殺'], 'at': 'same'}}]}, {'not': {'star': '天府', 'at': 'same'}}]},
    '武曲見祿而無煞，祖業豐厚，容易守成。',
    'Wu Qu meeting Lu with no harsh stars: the family property is ample and easy to keep.',
    '武曲化禄或与禄存同拱，不见煞曜，祖业丰厚易守成，见辅佐吉曜更主陆续添置。', '祖业丰厚易守成'),
@@ -253,7 +253,7 @@ T.append({'id': '天府.田宅', 'stars': ['天府'], 'rules': [
 
 # ── 太陰 ──
 T.append({'id': '太陰.田宅', 'stars': ['太陰'], 'rules': [
- R('田宅.太陰.輔佐', {'any': [{'star': ['左輔', '右弼'], 'at': 'same'}, {'star': '祿存', 'at': 'same'}]},
+ R('田宅.太陰.輔佐', {'all': [{'any': [{'star': ['左輔', '右弼'], 'at': 'same'}, {'star': '祿存', 'at': 'same'}]}, {'not': {'hua': '忌', 'star': '太陽', 'at': 'same'}}]},
    '太陰與左輔右弼或祿存同宮，承接祖業而興盛。',
    'Tai Yin with Zuo Fu, You Bi or Lu Cun in the palace: you inherit family property and it prospers.',
    '又日：[与左右禄主阴福同居，则承祖业而盛。故知太阴遇吉，有祖业且可自置。', '则承祖业而盛'),
@@ -331,7 +331,7 @@ T.append({'id': '天梁.田宅', 'stars': ['天梁'], 'rules': [
    '同宮有天馬或火鈴，主漂盪；就算有祖業也難享。',
    'With Tian Ma, Huo Xing or Ling Xing in the palace, you drift, and even family property is hard to enjoy.',
    '天梁与天马同躔，或火铃同度，则主飘荡，纵有祖、父遗业亦不能享。', '则主飘荡', 'limit'),
- R('田宅.天梁.本', {'not': {'star': ['天機', '天同'], 'at': ['same', 'opp']}},
+ R('田宅.天梁.本', {'all': [{'all': [{'not': {'star': ['天機', '天同'], 'at': ['same', 'opp']}}, {'not': {'hua': '忌', 'star': '太陽', 'at': ['same', 'opp']}}]}, {'not': {'any': [{'star': '天馬', 'at': 'same'}, FIRE]}}]},
    '天梁是蔭星，在田宅宮主有祖業父業。',
    'Tian Liang is the sheltering star: in your Property Palace it points to family property.',
    '天梁为阴星，故居田宅宫，主必有祖业父业，', '主必有祖业父业', 'base'),

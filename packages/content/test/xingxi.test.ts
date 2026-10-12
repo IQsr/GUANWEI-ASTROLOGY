@@ -6,6 +6,7 @@ import { scanForbidden } from '../src/lint';
 import { XINGXI_FRAMES, gujiaChapter,
   undecidedLean, overlaps } from '../src/xingxi-chapters';
 import { scanPlain } from '../src/plain';
+import { renderParagraph } from '../src/en/render';
 
 /**
  * 六十星系（B5 · 2026-09）。逐批寫（每批十個），寫到邊測到邊。
@@ -178,6 +179,30 @@ describe('性格的骨架（2026-10-07 併埋偏向）', () => {
         expect(all, e).toContain(e);
       }
     }
+  });
+
+  it('推力句直接講「說你偏向 X，是因為⋯」，唔講「推力」「推你」；英文譯得到（2026-10-12）', () => {
+    const kinds = new Set<string>();
+    for (const c of CHARTS) {
+      const t = gujiaChapter({ chart: c })!.segments.find((s) => s.slot === '推力')?.text;
+      if (!t) continue;
+      expect(t).not.toMatch(/推力|推你/);
+      kinds.add(t.slice(0, 4));
+      const en = renderParagraph(t);
+      expect(en.missing, t).toEqual([]);
+    }
+    expect(kinds.size).toBeGreaterThanOrEqual(3);
+  });
+
+  it('原文例外（兩頭拉扯）唔出推力：唔可以又話「說你偏向⋯」', () => {
+    let saw = 0;
+    for (const c of CHARTS) {
+      const segs = gujiaChapter({ chart: c })!.segments;
+      if (!segs[0]!.rule_ids.length) continue;
+      saw++;
+      expect(segs.some((s) => s.slot === '推力'), segs[0]!.text).toBe(false);
+    }
+    expect(saw).toBeGreaterThan(0);
   });
 
   it('借對宮嗰陣講明', () => {

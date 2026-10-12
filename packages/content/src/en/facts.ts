@@ -162,7 +162,23 @@ export function factTemplate(s: string, missing: string[]): string | null {
   m = /^你的盤上，「(.+?)」和「(.+?)」兩頭的訊號都不明顯，沒有一邊特別重。$/.exec(s);
   if (m) return `In your chart, the signals towards ${poleEn(m[1]!, missing)} and towards ${poleEn(m[2]!, missing)} are both faint; neither side weighs more.`;
 
-  /* 推力（xingxi-chapters.ts reason()；以前喺「三方四正」章，舊書照用） */
+  /* 推力（2026-10-12 新寫法：說你偏向 X，是因為盤上有 Y） */
+  m = /^說你偏向(\S+?)，是因為你的盤上有([^；]+?)；偏向(\S+?)的也有，是([^；]+?)，但比較少。$/.exec(s);
+  if (m) {
+    return `You lean towards ${poleEn(m[1]!, missing)} because your chart has ${evEn(m[2]!, missing)}; ${evEn(m[4]!, missing)} points towards ${poleEn(m[3]!, missing)}, but there is less of it.`;
+  }
+  m = /^說你偏向(\S+?)，是因為你的盤上有([^；]+?)；偏向(\S+?)的，你的盤上沒有。$/.exec(s);
+  if (m) return `You lean towards ${poleEn(m[1]!, missing)} because your chart has ${evEn(m[2]!, missing)}; nothing in it points towards ${poleEn(m[3]!, missing)}.`;
+  m = /^說你偏向(\S+?)，是因為你的盤上有([^；]+?)。$/.exec(s);
+  if (m) return `You lean towards ${poleEn(m[1]!, missing)} because your chart has ${evEn(m[2]!, missing)}.`;
+  m = /^兩邊在你的盤上都有根據：偏向(\S+?)的是(.+?)，偏向(\S+?)的是(.+?)。$/.exec(s);
+  if (m) {
+    return `Both sides have grounds in your chart: ${evEn(m[2]!, missing)} points towards ${poleEn(m[1]!, missing)}, and ${evEn(m[4]!, missing)} towards ${poleEn(m[3]!, missing)}.`;
+  }
+  m = /^另一邊，你的盤上有(.+?)，偏向(\S+?)；兩邊相抵，所以說你兩面都有。$/.exec(s);
+  if (m) return `On the other side, your chart has ${evEn(m[1]!, missing)}, pointing towards ${poleEn(m[2]!, missing)}; the two offset each other, so you have both.`;
+
+  /* 推力（xingxi-chapters.ts reason() 舊寫法；以前喺「三方四正」章，舊書照用） */
   m = /^這樣看，是因為你的盤上兩邊都有：(.+?)，推你偏向(\S+?)；(.+?)，推你偏向(\S+?)。$/.exec(s);
   if (m) {
     return `This is because your chart has both: ${evEn(m[1]!, missing)}, pushing you towards ${poleEn(m[2]!, missing)}; and ${evEn(m[3]!, missing)}, pushing you towards ${poleEn(m[4]!, missing)}.`;

@@ -69,16 +69,51 @@
       "id": "田宅.天梁.本",
       "role": "base",
       "when": {
-        "not": {
-          "star": [
-            "天機",
-            "天同"
-          ],
-          "at": [
-            "same",
-            "opp"
-          ]
-        }
+        "all": [
+          {
+            "all": [
+              {
+                "not": {
+                  "star": [
+                    "天機",
+                    "天同"
+                  ],
+                  "at": [
+                    "same",
+                    "opp"
+                  ]
+                }
+              },
+              {
+                "not": {
+                  "hua": "忌",
+                  "star": "太陽",
+                  "at": [
+                    "same",
+                    "opp"
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "not": {
+              "any": [
+                {
+                  "star": "天馬",
+                  "at": "same"
+                },
+                {
+                  "star": [
+                    "火星",
+                    "鈴星"
+                  ],
+                  "at": "same"
+                }
+              ]
+            }
+          }
+        ]
       },
       "text": "天梁是蔭星，在田宅宮主有祖業父業。",
       "en": "Tian Liang is the sheltering star: in your Property Palace it points to family property.",

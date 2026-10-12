@@ -91,26 +91,33 @@ function plain(slot: XingxiSegment['slot'], text: string): XingxiSegment {
  * 冇嘢要講就回 null（例如贏嗰頭淨係靠地支，骨架段已經講咗）。
  */
 function reason(x: Xingxi, pole: string, seen: Record<string, string[]>, said: string | null): string | null {
+  /*
+   * 2026-10-12 讀者回饋：「推你偏向原則」太抽象，讀者唔知「推力」係乜、推去邊。
+   * 改成直接答「點解話你係咁」：說你偏向 X，是因為盤上有 Y。另一頭有冇，直講。
+   * 舊書嘅「這樣看，是因為⋯推你偏向⋯」句照讀（R-008），英文 facts.ts 兩套都留。
+   */
   const [a, b] = x.poles;
   const left = (p: string) => seen[p]!.filter((e) => e !== said);
   const ev = (p: string) => left(p).join('、');
-  /* 另一頭淨係得骨架段講過嘅地支：唔可以話「一樣也沒有」 */
+  /* 另一頭淨係得骨架段講過嘅地支：唔可以話「沒有根據」 */
   const onlySaid = (p: string) => !left(p).length && seen[p]!.length > 0;
-  if (!seen[a]!.length && !seen[b]!.length) return '這樣看，是因為你的盤上兩邊都沒有特別的推力。';
+  if (!seen[a]!.length && !seen[b]!.length) return '你的盤上，兩邊都沒有明顯的根據。';
   if (pole === '平衡') {
-    /* 一頭淨係得骨架段講過嘅地支：只補講另一頭，「也有」接返上面 */
+    /* 一頭淨係得骨架段講過嘅地支：補講另一頭，講明兩頭相抵 */
     if (!left(a).length && !left(b).length) return null;
     if (!left(a).length || !left(b).length) {
       const o = left(a).length ? a : b;
-      return `這樣看，是因為你的盤上也有${ev(o)}，推你偏向${o}。`;
+      return `另一邊，你的盤上有${ev(o)}，偏向${o}；兩邊相抵，所以說你兩面都有。`;
     }
-    return `這樣看，是因為你的盤上兩邊都有：${ev(a)}，推你偏向${a}；${ev(b)}，推你偏向${b}。`;
+    return `兩邊在你的盤上都有根據：偏向${a}的是${ev(a)}，偏向${b}的是${ev(b)}。`;
   }
   if (!left(pole).length) return null;
   const other = pole === a ? b : a;
-  if (onlySaid(other)) return `這樣看，是因為你的盤上有${ev(pole)}，推你偏向${pole}。`;
-  const rest = left(other).length ? `；也有${ev(other)}，推你偏向${other}，只是力量較小` : `；推你偏向${other}的，一樣也沒有`;
-  return `這樣看，是因為你的盤上有${ev(pole)}，推你偏向${pole}${rest}。`;
+  const why = `說你偏向${pole}，是因為你的盤上有${ev(pole)}`;
+  if (onlySaid(other)) return `${why}。`;
+  return left(other).length
+    ? `${why}；偏向${other}的也有，是${ev(other)}，但比較少。`
+    : `${why}；偏向${other}的，你的盤上沒有。`;
 }
 
 /**
@@ -178,7 +185,11 @@ export function gujiaChapter(input: {
   const segments = [
     exc ? { slot: '偏向' as const, text: exc.text, source_id: exc.source.passage, rule_ids: [exc.id] } : sourced('偏向', lean, x),
     sourced('骨架', `${where}${x.plain.basis}${byBranch ?? ''}`, x),
-    ...(why ? [plain('推力', exc?.tail ? `${why}${exc.tail}` : why)] : []),
+    /*
+     * 原文例外嘅偏向句已經講咗盤上乜嘢令佢兩頭拉扯；再講「說你偏向原則，是因為⋯」就同佢打架（2026-10-12），
+     * 所以例外唔出推力。`tail` 留喺資料度，舊書照讀。
+     */
+    ...(why && !exc ? [plain('推力', why)] : []),
     ...(deep ? [{ slot: '細讀' as const, text: deep.text, source_id: deep.sources.join('+'), rule_ids: deep.ids }] : []),
     ...(strength && !exc ? [sourced('長處', strength, x)] : []),
     ...(x.plain.note ? [sourced('提醒', x.plain.note, x)] : []),

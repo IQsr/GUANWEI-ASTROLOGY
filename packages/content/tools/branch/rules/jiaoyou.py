@@ -73,7 +73,7 @@ T.append({'id': '紫微.僕役', 'stars': ['紫微'], 'rules': [
    '紫微見煞忌，下屬強硬而不得力。',
    'Zi Wei with harsh stars or Hindrance: your staff are stubborn and unhelpful.',
    '紫微守交友宫，不喜见煞忌刑耗，主下属强顽而且不得力，甚至以怨报德；', '主下属强顽而且不得力', 'limit'),
- R('僕役.紫微.朝拱', {'all': [FUZUO, KUIYUE]},
+ R('僕役.紫微.朝拱', {'all': [{'all': [FUZUO, KUIYUE]}, {'not': {'star': '破軍', 'at': 'same'}}]},
    '紫微得眾星拱照，下屬權威太大，容易把你架空。',
    'Zi Wei surrounded by helpers: your staff gain too much authority and can sideline you.',
    '但若见[百官朝拱]过分完美者，则又主下属权威太甚，容易将自己架空。', '容易将自己架空', 'limit'),
@@ -339,7 +339,7 @@ T.append({'id': '破軍辰戌.僕役', 'stars': ['破軍'], 'branch': ['辰', '�
    '辰戌宫破军，对[紫微天相]，主得交畏友及益友，亦主得老成持重之下属。', '主得交畏友及益友'),
 ]})
 T.append({'id': '破軍.僕役', 'stars': ['破軍'], 'rules': [
- R('僕役.破軍.輔佐', {'all': [{'star': ['左輔', '右弼', '天魁', '天鉞'], 'at': 'same'}, {'not': SHA}]},
+ R('僕役.破軍.輔佐', {'all': [{'all': [{'star': ['左輔', '右弼', '天魁', '天鉞'], 'at': 'same'}, {'not': SHA}]}, {'not': {'star': '紫微', 'at': 'same'}}]},
    '同宮有輔佐吉星，才得到朋友或下屬的助力。',
    'With helper stars in the palace, friends or staff do help you.',
    '破军独坐交友宫者，主孤立。见辅佐吉曜同度，然后始得友人或下属之助力。', '然后始得友人或下属之助力'),

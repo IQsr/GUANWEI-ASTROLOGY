@@ -28,6 +28,15 @@
     {
       "id": "遷移.太陽.求名",
       "role": "refine",
+      "when": {
+        "not": {
+          "star": "巨門",
+          "at": [
+            "same",
+            "opp"
+          ]
+        }
+      },
       "text": "太陽在遷移宮，在外利於求名、求學進修，增加資歷；不主聚財，未必適合在外經商。",
       "en": "With Tai Yang in your Travel Palace, time away is good for reputation, study and credentials; it does not gather money, and trading abroad may not suit you.",
       "source": {

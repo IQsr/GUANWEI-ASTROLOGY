@@ -12,15 +12,25 @@
       "id": "父母.天機.吉",
       "role": "refine",
       "when": {
-        "hua": [
-          "祿",
-          "權",
-          "科"
-        ],
-        "at": "sifang"
+        "all": [
+          {
+            "hua": [
+              "祿",
+              "權",
+              "科"
+            ],
+            "at": "sifang"
+          },
+          {
+            "not": {
+              "star": "太陰",
+              "at": "same"
+            }
+          }
+        ]
       },
-      "text": "天機見祿權科會照，與父母的關係才穩定。",
-      "en": "Tian Ji meeting Abundance, Authority or Merit: that is what keeps your bond with your parents steady.",
+      "text": "天機見祿權科會照，與父母的關係穩定。",
+      "en": "Tian Ji meeting Abundance, Authority or Merit: your bond with your parents is steady.",
       "source": {
         "passage": "deep.父母.天機.3",
         "quote": "见禄权科会，然后始主稳定"
@@ -45,14 +55,24 @@
       "id": "父母.天機.本",
       "role": "base",
       "when": {
-        "not": {
-          "hua": [
-            "祿",
-            "權",
-            "科"
-          ],
-          "at": "sifang"
-        }
+        "all": [
+          {
+            "not": {
+              "hua": [
+                "祿",
+                "權",
+                "科"
+              ],
+              "at": "sifang"
+            }
+          },
+          {
+            "not": {
+              "star": "太陰",
+              "at": "same"
+            }
+          }
+        ]
       },
       "text": "天機在父母宮，與父母容易遠離。",
       "en": "With Tian Ji in your Parents Palace, you tend to live at a distance from your parents.",

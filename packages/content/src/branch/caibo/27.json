@@ -11,6 +11,13 @@
     {
       "id": "財帛.武曲.本",
       "role": "base",
+      "when": {
+        "not": {
+          "hua": "忌",
+          "star": "武曲",
+          "at": "same"
+        }
+      },
       "text": "武曲是財星，主求財的行動：先有事業，才有錢財；一般最利經商。",
       "en": "Wu Qu is the wealth star of action: the business comes first and the money after; trade generally suits you best.",
       "source": {

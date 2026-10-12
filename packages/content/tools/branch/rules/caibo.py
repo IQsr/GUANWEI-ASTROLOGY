@@ -84,7 +84,7 @@ T.append({'id': '紫微.財帛', 'stars': ['紫微'], 'rules': [
    '紫微化科，宜憑名譽、商譽求財。',
    'Zi Wei in Merit: earn on the strength of your name and reputation.',
    '紫微化科，则宜凭名誉、商誉以求财。', '则宜凭名誉、商誉以求财'),
- R('財帛.紫微.本', None,
+ R('財帛.紫微.本', {'not': {'star': '天府', 'at': 'same'}},
    '紫微不是財星：財源可以充裕，卻不主積聚。',
    'Zi Wei is not a wealth star: income can be ample, but it does not tend to accumulate.',
    '紫微守财帛宫，在最好的情形下，亦仅主财源充裕，并不主能积聚。盖紫微偏重于名誉与权力，不是财星。', '亦仅主财源充裕，并不主能积聚', 'base'),
@@ -279,7 +279,7 @@ T.append({'id': '武曲辰戌.財帛', 'stars': ['武曲'], 'branch': ['辰', '�
    '辰戌武曲得禄，可成富局。', '辰戌武曲得禄，可成富局'),
 ]})
 T.append({'id': '武曲.財帛', 'stars': ['武曲'], 'rules': [
- R('財帛.武曲.本', None,
+ R('財帛.武曲.本', {'not': H('忌', '武曲')},
    '武曲是財星，主求財的行動：先有事業，才有錢財；一般最利經商。',
    'Wu Qu is the wealth star of action: the business comes first and the money after; trade generally suits you best.',
    '武曲为财星，主求财的行动，故必先有事业然后有钱财。一般而言一最利经商，', '故必先有事业然后有钱财', 'base'),
