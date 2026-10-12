@@ -30,6 +30,7 @@
  */
 import type { Brightness, Chart, Palace, PalaceName } from '@guanwei/ziwei';
 import { WATCH_LEADS, varyWatch } from './watch-lead';
+import { branchReading } from './branch';
 import { BASE_BLOCKS } from './baseblock-data';
 import { PALACE_TOPIC } from './baseblock';
 import { brightnessModifier, maleficModifier, sihuaModifier } from './modifier-data';
@@ -87,6 +88,8 @@ export const SLOT_SPEC = [
    * 短基塊（例如田宅）可能乜都唔剩 —— 嗰陣由後面嘅「生活」格講具體，唔使硬湊。
    */
   { slot: '結構' as const, min: 0, max: 200, required: false },
+  /* 原文分支（branch.ts，2026-10-11 第 3 層試點）：只有試點題目套到先有 */
+  { slot: '細讀' as const, min: 0, max: 400, required: false },
   /* 生活裡的樣子（2026-09-30）：結論講成一個現代場景，每格一段（`life.ts`） */
   { slot: '生活' as const, min: 25, max: 110, required: true },
   /* 2026-10-05：開頭唔再列範疇，後面幾章（三宮都講過）淨係得指返句，二三十字 */
@@ -504,6 +507,12 @@ export function assemble(
      * 生活裡的樣子（2026-09-30）：同結論跟同一粒領銜星。有王亭之出處就記出處，
      * 冇就記返嗰格基塊 —— 句子只講基塊講過嘅嘢（見 life.ts）。
      */
+    /* 細讀：原文分支收斂出嚟嘅主張（試點：命宮同梁寅申、官祿天機）。借對宮唔用 —— 分支講嘅係星喺本宮。 */
+    const deep = borrowed ? null : branchReading(chart, palace);
+    if (deep) {
+      push({ slot: '細讀', text: deep.text, source_id: deep.sources.join('+'), rule_ids: [] });
+    }
+
     const pair = pairPlain(names, palace);
     const life = pair ? { text: pair.life, source: null } : lifeLine(lead.star.name, palace);
     if (life) {

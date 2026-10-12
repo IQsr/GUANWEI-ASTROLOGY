@@ -4,6 +4,7 @@ import { FORBIDDEN_TERMS } from './frame';
 import { cjkCount } from './lexicon';
 import { assertNoReading } from './free';
 import { leanOf, xingxiOf, type Xingxi } from './xingxi';
+import { gujiaException } from './branch';
 
 /* ───────────────────────────────────────────────────────────
  * 免費章之四：性格的骨架（工單 B5 · 架構 §6）
@@ -154,11 +155,16 @@ export function gujiaChapter(input: {
   /* 長處同偏向講同一樣嘢就唔出（「你的長處是」唔計） */
   const strength = overlaps(lean, x.plain.strength.replace(/^你的長處是/, '')) ? null : x.plain.strength;
 
+  /*
+   * 原文例外（branch.ts，2026-10-11 第 3 層試點）：例如天同化忌、羊陀夾忌 —— 書講係同梁最壞嘅結構，
+   * 兩種取向之間徘徊。點票得出嘅「偏向原則」唔再成立，長處（「穩當可靠」）亦唔講。
+   */
+  const exc = gujiaException(chart);
   const segments = [
-    sourced('偏向', lean, x),
+    exc ? { slot: '偏向' as const, text: exc.text, source_id: exc.source.passage, rule_ids: [exc.id] } : sourced('偏向', lean, x),
     sourced('骨架', `${where}${x.plain.basis}${byBranch ?? ''}`, x),
-    ...(why ? [plain('推力', why)] : []),
-    ...(strength ? [sourced('長處', strength, x)] : []),
+    ...(why ? [plain('推力', exc?.tail ? `${why}${exc.tail}` : why)] : []),
+    ...(strength && !exc ? [sourced('長處', strength, x)] : []),
     ...(x.plain.note ? [sourced('提醒', x.plain.note, x)] : []),
     plain('留白', frame('frame.close.性格的骨架')),
   ];

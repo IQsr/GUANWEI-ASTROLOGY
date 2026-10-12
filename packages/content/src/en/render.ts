@@ -2,6 +2,7 @@ import tmRaw from './tm.json';
 import { WATCH_LEADS } from '../watch-lead';
 import { LINK_REFS } from '../link';
 import { JI_WATCH, PAIR_PLAIN } from '../palace-plain';
+import { BRANCH_TOPICS } from '../branch';
 import { AREA_EN, AREA_ON_EN, PALACE_EN, STAR_EN, cap, listEn, star, starFirst } from './terms';
 import { factTemplate } from './facts';
 import { timeTemplate } from './time';
@@ -31,6 +32,16 @@ for (const w of Object.values(JI_WATCH)) TM.sentences[w.zh] = w.en;
 export type Rendered = { text: string; missing: string[] };
 
 const sentencesOf = (t: string) => (t.match(/[^。！？]*[。！？]|[^。！？]+/g) ?? []).map((s) => s.trim()).filter(Boolean);
+
+/* 原文分支（branch.ts）：一條規則可以有兩句，逐句對返英文 */
+for (const t of BRANCH_TOPICS)
+  for (const r of t.rules) {
+    const zh = sentencesOf(r.text);
+    const en = r.en.match(/[^.!?]+[.!?]+/g)?.map((x) => x.trim()) ?? [r.en];
+    if (zh.length === en.length) zh.forEach((z, i) => (TM.sentences[z] = en[i]!));
+    else TM.sentences[r.text] = r.en;
+    if (r.tail && r.tailEn) TM.sentences[r.tail] = r.tailEn;
+  }
 
 /** 一截（冇句號）：查 clauses */
 function clause(zh: string, missing: string[]): string {

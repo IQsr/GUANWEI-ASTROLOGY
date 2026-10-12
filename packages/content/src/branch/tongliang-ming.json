@@ -1,0 +1,104 @@
+{
+  "$note": "第 3 層試點（2026-10-11）：命宮天同天梁坐寅申。條件逐條跟《深造講義》p.16、87–88、309；本質（浪漫／原則）由「性格的骨架」章講，呢度只放會改變結論嘅分支。⚠ 引擎冇桃花雜曜、天刑、恩光天貴等，浪漫／原則嘅雜曜條件判斷唔到。",
+  "topic": { "id": "同梁寅申.命宮", "palace": "命宮", "stars": ["天同", "天梁"], "branch": ["寅", "申"] },
+  "rules": [
+    {
+      "id": "同梁寅申.夾忌",
+      "role": "exception",
+      "gujia": true,
+      "tail": "不過，天同化忌加上羊陀相夾，令這個偏向站不穩。",
+      "tailEn": "That said, Tian Tong transformed by Ji and flanked by Qing Yang and Tuo Luo leaves this lean on unsteady ground.",
+      "when": { "all": [{ "hua": "忌", "star": "天同", "at": "same" }, { "jia": ["擎羊", "陀羅"] }] },
+      "text": "你在生活情趣和原則紀律之間來回拉扯，兩邊都放不下，也不容易調和。你的天同化忌，兩旁又有擎羊、陀羅相夾，這是這組星最難兩面兼顧的結構。",
+      "en": "You're pulled back and forth between enjoying life and keeping to principle, unable to let go of either, and the two don't reconcile easily. Your Tian Tong is transformed by Ji and flanked by Qing Yang and Tuo Luo, the hardest arrangement of these stars for holding both sides together.",
+      "source": { "passage": "deep.同梁寅申.夾忌", "quote": "最坏的基本结构，是天同化忌，羊陀夹忌" },
+      "edit": "原句後半有人格貶語（慳貪鄙吝、自私自利），不用；保留「徘徊」與「最壞結構」。"
+    },
+    {
+      "id": "同梁寅申.平穩",
+      "role": "base",
+      "when": {
+        "all": [
+          { "not": { "hua": "忌", "star": "天同", "at": "same" } },
+          { "any": [{ "hua": ["祿", "權", "科"], "star": ["天同", "天梁"], "at": "same" }, { "star": "祿存", "at": ["same", "opp"] }] }
+        ]
+      },
+      "text": "天同天梁以寅申最平穩；你的盤有吉化或祿存配合，發展偏向平穩，少大風浪。",
+      "en": "Tian Tong and Tian Liang are steadiest in Yin and Shen; with a favourable transformation or Lu Cun alongside, your path leans towards steady growth with few big storms.",
+      "source": { "passage": "deep.天同.寅申平穩", "quote": "最为平稳，只须见到吉化" },
+      "edit": "原書「一生平穩發展，無大風波險恶」是一生斷語，收窄為「偏向平穩」。"
+    },
+    {
+      "id": "同梁寅申.煞忌",
+      "role": "limit",
+      "when": { "any": [{ "hua": "忌", "star": "天同", "at": "same" }, { "star": ["擎羊", "陀羅", "火星", "鈴星", "地空", "地劫"], "at": "same" }] },
+      "text": "天同見煞忌，好的條件多半要先經過一段艱難才得到，很少坐享其成。",
+      "en": "When Tian Tong meets malefics or Ji, good conditions usually come only after a hard stretch, and rarely without effort.",
+      "source": { "passage": "deep.天同.煞忌", "quote": "亦必主人先历艰危然后发福" },
+      "edit": "「必」收窄為「多半」；福取 p.14「經挫折後的安定」之義，不寫成未來保證。"
+    },
+    {
+      "id": "同梁寅申.忌祿無煞",
+      "role": "refine",
+      "overrides": ["同梁寅申.煞忌"],
+      "when": {
+        "all": [
+          { "hua": "忌", "star": "天同", "at": "same" },
+          { "star": "祿存", "at": ["same", "opp"] },
+          { "not": { "star": ["火星", "鈴星", "地空", "地劫"], "at": "same" } }
+        ]
+      },
+      "text": "你的天同化忌有祿存配合，同宮沒有火鈴空劫：靠自己白手掙得到，只是很費精神。",
+      "en": "Your Tian Tong Ji has Lu Cun alongside and no Huo, Ling, Kong or Jie in the palace: you can build something from nothing on your own, though it takes a lot out of you.",
+      "source": { "passage": "deep.天同忌.無煞", "quote": "则主白手生财，但费精神" }
+    },
+    {
+      "id": "同梁寅申.忌祿有煞",
+      "role": "refine",
+      "overrides": ["同梁寅申.煞忌"],
+      "when": {
+        "all": [
+          { "hua": "忌", "star": "天同", "at": "same" },
+          { "star": "祿存", "at": ["same", "opp"] },
+          { "star": ["火星", "鈴星", "地空", "地劫"], "at": "same" }
+        ]
+      },
+      "text": "你的天同化忌雖有祿存配合，同宮卻有煞星：工作和生活較常變動，不容易安於一處，要安定下來得多花力氣。",
+      "en": "Your Tian Tong Ji has Lu Cun alongside, but there's a malefic in the palace: work and life change more often, it's hard to stay settled in one place, and settling takes extra effort.",
+      "source": { "passage": "deep.天同忌.無煞", "quote": "则表征为不安一业，时生变动" },
+      "edit": "不寫成讀者必定轉工或財務結果。"
+    },
+    {
+      "id": "同梁寅申.空劫",
+      "role": "refine",
+      "when": {
+        "all": [
+          { "hua": "忌", "star": "天同", "at": "same" },
+          { "star": "祿存", "at": ["same", "opp"] },
+          { "star": ["地空", "地劫"], "at": "same" }
+        ]
+      },
+      "text": "同宮再有地空或地劫，你的想法不容易被身邊的人理解，容易覺得落單。",
+      "en": "With Di Kong or Di Jie also in the palace, your ideas aren't easily understood by those around you, and you can feel left on your own.",
+      "source": { "passage": "deep.天同忌.空劫", "quote": "其人的思想必不为人理解" },
+      "edit": "「必」收窄為「不容易」。"
+    },
+    {
+      "id": "同梁寅申.天馬",
+      "role": "limit",
+      "when": { "star": "天馬", "at": ["same", "opp"] },
+      "text": "這組星遇上天馬：你的理想容易走得比實際快，計劃要記得落到具體的一步。",
+      "en": "These stars meet Tian Ma: your ideals can run ahead of what's practical, so remember to bring plans down to a concrete next step.",
+      "source": { "passage": "deep.天同.天馬", "quote": "变成纯理想而欠实际" }
+    },
+    {
+      "id": "同梁寅申.機陰忌",
+      "role": "limit",
+      "when": { "hua": "忌", "star": ["天機", "太陰"], "at": "trine" },
+      "text": "會照的天機或太陰化忌，令你容易凡事自己盤算、多用心計，別人不容易摸清你的想法。",
+      "en": "Tian Ji or Tai Yin transformed by Ji in the trine palaces makes you apt to work everything out on your own and rely on calculation, so others find it hard to read you.",
+      "source": { "passage": "deep.同梁寅申.機陰忌", "quote": "否则必主机心自用" },
+      "edit": "原書「權詐百出」不用；保留「機心自用」之義。"
+    }
+  ]
+}
