@@ -1,0 +1,116 @@
+{
+ "basis": {
+  "page": 166,
+  "text": "要推断此二宫垣的天梁性质，须注意其为浮荡，抑为稳定。一所谓[稳定]，当然乃相对而言，只是此二宫垣天梁本身的比较，并不代表比其它星系稳定，因为此二宫垣的天梁无论如何均带比较浮荡的色彩。",
+  "quote": "须注意其为浮荡，抑为稳定"
+ },
+ "rules": [
+  {
+   "id": "天梁巳亥.浮蕩",
+   "role": "base",
+   "text": "天梁在巳亥落陷，所會的星又多動盪：無論如何，都帶較浮蕩的色彩。",
+   "en": "Tian Liang is weak in Si and Hai, and the stars it meets are restless: whatever else, it carries a drifting quality.",
+   "src": {
+    "page": 166,
+    "text": "所会的星曜皆多动荡，而天梁本身又落陷地，故对此二宫垣的星系星合，须特别留意。",
+    "quote": "所会的星曜皆多动荡，而天梁本身又落陷地"
+   }
+  },
+  {
+   "id": "天梁巳亥.巳",
+   "role": "limit",
+   "when": {
+    "branch": [
+     "巳"
+    ]
+   },
+   "text": "你的天梁在巳，比在亥更浮蕩：人生多離鄉別井，起伏的幅度也大。",
+   "en": "Your Tian Liang in Si drifts more than in Hai: more leaving home, and bigger swings.",
+   "src": {
+    "page": 166,
+    "text": "巳宫的天梁，一般比亥宫者为浮荡。所谓浮荡，不仅指人生的际遇，如离张背井之类，同时亦指其波动程度之大。",
+    "quote": "巳宫的天梁，一般比亥宫者为浮荡"
+   }
+  },
+  {
+   "id": "天梁巳亥.得祿",
+   "role": "refine",
+   "when": {
+    "any": [
+     {
+      "star": "祿存",
+      "at": "sifang"
+     },
+     {
+      "hua": "祿",
+      "at": "sifang"
+     }
+    ]
+   },
+   "text": "你的盤見祿，比不得祿的天梁穩定；只是同時多是非困擾，最終都過得去。",
+   "en": "Your chart meets Lu, steadier than a Tian Liang without it; but disputes and vexation come with it, though you get through them in the end.",
+   "src": {
+    "page": 167,
+    "text": "但无论如何，天梁得禄总比不得禄的天梁稳定。唯凡天梁得禄，亦必同时多是非困扰，不过终能化解而已。",
+    "quote": "但无论如何，天梁得禄总比不得禄的天梁稳定"
+   }
+  },
+  {
+   "id": "天梁巳亥.同祿",
+   "role": "limit",
+   "when": {
+    "hua": "祿",
+    "star": "天同",
+    "at": "opp"
+   },
+   "text": "對宮的天同化祿，並不主穩定：人生最少要經過三次大起落，才能立業興家。",
+   "en": "Tian Tong opposite you is transformed by Lu, which doesn't bring stability: life takes at least three big swings before you build your career and home.",
+   "src": {
+    "page": 167,
+    "text": "一天同化禄拱照，并不主稳定，人生最少经过三次大幅度的波折，然后才能立业兴家。",
+    "quote": "人生最少经过三次大幅度的波折"
+   }
+  },
+  {
+   "id": "天梁巳亥.火鈴陀",
+   "role": "limit",
+   "when": {
+    "star": [
+     "火星",
+     "鈴星",
+     "陀羅"
+    ],
+    "at": "sifang"
+   },
+   "text": "會照的火鈴或陀羅，令你的穩定大為減弱。",
+   "en": "Huo, Ling or Tuo Luo meeting your chart greatly weakens your stability.",
+   "src": {
+    "page": 167,
+    "text": "天梁最不喜欢火铃会照、陀罗会照．稳定程度大为减弱。",
+    "quote": "稳定程度大为减弱"
+   }
+  },
+  {
+   "id": "天梁巳亥.吉星",
+   "role": "refine",
+   "when": {
+    "star": [
+     "左輔",
+     "右弼",
+     "文昌",
+     "文曲",
+     "天魁",
+     "天鉞"
+    ],
+    "at": "sifang"
+   },
+   "text": "有輔佐吉星會合，你的穩定大為增加。",
+   "en": "Supporting stars meeting your chart greatly increase your stability.",
+   "src": {
+    "page": 167,
+    "text": "天梁若得左辅右弼、文昌文曲、天魁天铖同会，则稳定性亦大增加。",
+    "quote": "则稳定性亦大增加"
+   }
+  }
+ ]
+}

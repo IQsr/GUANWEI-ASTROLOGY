@@ -1,0 +1,125 @@
+{
+ "basis": {
+  "page": 123,
+  "text": "要推断此二宫度的太阳本质，除注意其庙、陷之外，尚应注意因星曜会合而生的改变。",
+  "quote": "除注意其庙、陷之外"
+ },
+ "rules": [
+  {
+   "id": "太陽巳亥.巳",
+   "role": "refine",
+   "when": {
+    "branch": [
+     "巳"
+    ]
+   },
+   "text": "你的太陽在巳，較積極，也不易招惹是非。",
+   "en": "Your Sun sits in Si: more active, and less likely to stir up disputes.",
+   "src": {
+    "page": 123,
+    "text": "巳宫的太阳较积极，亥宫的太阳较消极；巳宫的太阳不易招惹是非，亥宫者易招非",
+    "quote": "巳宫的太阳不易招惹是非"
+   }
+  },
+  {
+   "id": "太陽巳亥.亥",
+   "role": "limit",
+   "when": {
+    "branch": [
+     "亥"
+    ]
+   },
+   "text": "你的太陽在亥，較消極，容易招惹是非。",
+   "en": "Your Sun sits in Hai: more passive, and more likely to stir up disputes.",
+   "src": {
+    "page": 123,
+    "text": "巳宫的太阳较积极，亥宫的太阳较消极；巳宫的太阳不易招惹是非，亥宫者易招非",
+    "quote": "亥宫者易招非"
+   }
+  },
+  {
+   "id": "太陽巳亥.積極",
+   "role": "refine",
+   "when": {
+    "lean": "積極"
+   },
+   "text": "積極的一面較重：不但利於進取，抵抗逆境的能力也強。",
+   "en": "The active side is stronger: good for pushing ahead, and strong at weathering adversity.",
+   "src": {
+    "page": 123,
+    "text": "凡本质积极的太阳，不但利进取，抵抗横逆的能力亦强，而消极者则往往愈冷退愈招是非尤怨。",
+    "quote": "抵抗横逆的能力亦强"
+   }
+  },
+  {
+   "id": "太陽巳亥.消極",
+   "role": "limit",
+   "when": {
+    "lean": "消極"
+   },
+   "text": "消極的一面較重：愈退縮，愈招是非怨尤；遇到好的時機，要藉機改變人生觀。",
+   "en": "The passive side is stronger: the more you withdraw, the more disputes and resentment you draw; when a good time comes, use it to change your outlook.",
+   "src": {
+    "page": 123,
+    "text": "凡本质积极的太阳，不但利进取，抵抗横逆的能力亦强，而消极者则往往愈冷退愈招是非尤怨。应注意藉大运或流年的良好运势，改变人生观，则为趋吉避凶的原则。",
+    "quote": "而消极者则往往愈冷退愈招是非尤怨"
+   }
+  },
+  {
+   "id": "太陽巳亥.紫府",
+   "role": "refine",
+   "when": {
+    "lean": "積極"
+   },
+   "text": "積極的你，行到紫微天府所在的運，是人生的大關口。",
+   "en": "Being the active kind, the phase that runs through Zi Wei–Tian Fu is the great turning point of your life.",
+   "src": {
+    "page": 124,
+    "text": "[紫府]同蹦的宫度，积极的太阳最宜经行，为人生大结穴，能舌名成私门建即视在止匕运限闪的努力而定。",
+    "quote": "积极的太阳最宜经行，为人生大结穴"
+   },
+   "pole": "積極"
+  },
+  {
+   "id": "太陽巳亥.天同積極",
+   "role": "refine",
+   "when": {
+    "lean": "積極"
+   },
+   "text": "天同所在的那一步運，是你創立事業的時候。",
+   "en": "The phase that runs through Tian Tong is your time to found your own enterprise.",
+   "src": {
+    "page": 125,
+    "text": "天同独坐的宫垣，消极的太阳最易因之丧志．：积极者却为创立事业的运限。",
+    "quote": "积极者却为创立事业的运限"
+   },
+   "pole": "積極"
+  },
+  {
+   "id": "太陽巳亥.天同消極",
+   "role": "limit",
+   "when": {
+    "lean": "消極"
+   },
+   "text": "天同所在的那一步運，你最容易失了志氣；那段時間要給自己定目標。",
+   "en": "The phase that runs through Tian Tong is when you most easily lose heart; in that time, set yourself a goal.",
+   "src": {
+    "page": 125,
+    "text": "天同独坐的宫垣，消极的太阳最易因之丧志．：积极者却为创立事业的运限。",
+    "quote": "消极的太阳最易因之丧志"
+   },
+   "pole": "消極"
+  },
+  {
+   "id": "太陽巳亥.巨門",
+   "role": "refine",
+   "text": "巨門所在的那一步運，甚至只是那一年，對你都是重要的運程。",
+   "en": "The phase, or even just the year, that runs through Ju Men is an important one for you.",
+   "src": {
+    "page": 125,
+    "text": "巨门踞度的宫垣，即使在流年亦为太阳坐命者的重要运程。",
+    "quote": "亦为太阳坐命者的重要运程"
+   }
+  }
+ ]
+}

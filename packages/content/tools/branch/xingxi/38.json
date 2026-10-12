@@ -1,0 +1,119 @@
+{
+ "basis": {
+  "page": 147,
+  "text": "天同在辰戌宫都有[反背]的格局。除此之外，要推断天同在此二宫垣的本质，须分别其为豁达，抑为短志。",
+  "quote": "须分别其为豁达，抑为短志"
+ },
+ "rules": [
+  {
+   "id": "天同辰戌.豁達",
+   "role": "refine",
+   "when": {
+    "lean": "豁達"
+   },
+   "text": "豁達的天同，韌力很強。",
+   "en": "An open-minded Tian Tong has great staying power.",
+   "src": {
+    "page": 147,
+    "text": "豁达的天同，韧力很强，而短志者则忆往功败垂成，而且稍有寸进即停下脚步，因此发展的结果便有很大的分别。",
+    "quote": "豁达的天同，韧力很强"
+   }
+  },
+  {
+   "id": "天同辰戌.短志",
+   "role": "limit",
+   "when": {
+    "lean": "易半途"
+   },
+   "text": "短志的一面較重：往往功敗垂成，稍有寸進就停下腳步。",
+   "en": "The short-winded side is stronger: things often fail just short of success, and you stop as soon as you've made a little headway.",
+   "src": {
+    "page": 147,
+    "text": "豁达的天同，韧力很强，而短志者则忆往功败垂成，而且稍有寸进即停下脚步，因此发展的结果便有很大的分别。",
+    "quote": "而且稍有寸进即停下脚步"
+   }
+  },
+  {
+   "id": "天同辰戌.擎羊",
+   "role": "refine",
+   "when": {
+    "star": "擎羊",
+    "at": "same"
+   },
+   "text": "你的天同與擎羊同宮，反而主豁達。",
+   "en": "Your Tian Tong shares the palace with Qing Yang, which actually makes you open-minded.",
+   "src": {
+    "page": 148,
+    "text": "天同与擎羊同度，反主豁达。与陀罗同度，易短志。",
+    "quote": "天同与擎羊同度，反主豁达"
+   }
+  },
+  {
+   "id": "天同辰戌.陀羅",
+   "role": "limit",
+   "when": {
+    "star": "陀羅",
+    "at": "same"
+   },
+   "text": "你的天同與陀羅同宮，容易短志。",
+   "en": "Your Tian Tong shares the palace with Tuo Luo, which makes you prone to giving up early.",
+   "src": {
+    "page": 148,
+    "text": "天同与擎羊同度，反主豁达。与陀罗同度，易短志。",
+    "quote": "与陀罗同度，易短志"
+   }
+  },
+  {
+   "id": "天同辰戌.陰忌",
+   "role": "limit",
+   "when": {
+    "hua": "忌",
+    "star": "太陰",
+    "at": "trine"
+   },
+   "text": "會照的太陰化忌，最易令你內心痛苦，影響很大。",
+   "en": "Tai Yin transformed by Ji in your trine most easily brings inner pain, with a large effect.",
+   "src": {
+    "page": 148,
+    "text": "天同不怕天机化忌，一最畏太阴化忌。天机化忌为可以化解的波折，太阴化忌则易生内心痛苦，影响甚大。",
+    "quote": "太阴化忌则易生内心痛苦"
+   }
+  },
+  {
+   "id": "天同辰戌.機忌",
+   "role": "refine",
+   "when": {
+    "hua": "忌",
+    "star": "天機",
+    "at": "trine"
+   },
+   "text": "會照的天機化忌，只是過得去的波折。",
+   "en": "Tian Ji transformed by Ji in your trine brings only setbacks you can get past.",
+   "src": {
+    "page": 148,
+    "text": "天同不怕天机化忌，一最畏太阴化忌。天机化忌为可以化解的波折，太阴化忌则易生内心痛苦，影响甚大。",
+    "quote": "天同不怕天机化忌"
+   }
+  },
+  {
+   "id": "天同辰戌.巨吉",
+   "role": "refine",
+   "when": {
+    "hua": [
+     "祿",
+     "權",
+     "科"
+    ],
+    "star": "巨門",
+    "at": "opp"
+   },
+   "text": "對宮的巨門吉化，你宜離鄉別井發展。",
+   "en": "Ju Men opposite you has a favourable transformation, so you do well to build your life away from home.",
+   "src": {
+    "page": 148,
+    "text": "所以凡巨门得吉化者，皆以离乡背井为宜。",
+    "quote": "皆以离乡背井为宜"
+   }
+  }
+ ]
+}

@@ -28,11 +28,11 @@
       },
       "text": "你的日月在未，太陽得地，比在丑宮優勝。",
       "en": "Your Sun and Moon sit in Wei, where the Sun has ground, which is better than in Chou.",
+      "pole": "開朗",
       "source": {
         "passage": "deep.星系50.2",
         "quote": "未宫的[曰月]又优于丑宫"
-      },
-      "pole": "開朗"
+      }
     },
     {
       "id": "日月丑未.丑",
@@ -44,11 +44,11 @@
       },
       "text": "你的日月在丑，太陽落陷，解不了天梁的孤忌。",
       "en": "Your Sun and Moon sit in Chou, where the Sun is weak and can't lift Tian Liang's isolation.",
+      "pole": "沉鬱",
       "source": {
         "passage": "deep.星系50.2",
         "quote": "而丑宫则不能"
-      },
-      "pole": "沉鬱"
+      }
     },
     {
       "id": "日月丑未.陽吉",
@@ -64,11 +64,11 @@
       },
       "text": "你的太陽吉化，光華增加，形成開朗的性質。",
       "en": "Your Sun has a favourable transformation, adding brightness and an open disposition.",
+      "pole": "開朗",
       "source": {
         "passage": "deep.星系50.3",
         "quote": "然后始可以形成开朗的性质"
-      },
-      "pole": "開朗"
+      }
     },
     {
       "id": "日月丑未.陰吉",
@@ -114,11 +114,11 @@
       },
       "text": "你的太陽化忌，孤忌之性加強：外表難以捉摸，內心的苦也不足為外人道。",
       "en": "Your Sun is transformed by Ji, strengthening the isolation: hard to read on the outside, with private pain you don't share.",
+      "pole": "沉鬱",
       "source": {
         "passage": "deep.星系50.5",
         "quote": "变为外表不可捉摸"
-      },
-      "pole": "沉鬱"
+      }
     },
     {
       "id": "日月丑未.吉星",
@@ -136,11 +136,11 @@
       },
       "text": "有吉星會合，增加你的開朗。",
       "en": "Favourable stars meeting your chart add to your openness.",
+      "pole": "開朗",
       "source": {
         "passage": "deep.星系50.6",
         "quote": "则可以增加它的开朗"
-      },
-      "pole": "開朗"
+      }
     }
   ]
 }

@@ -1,0 +1,171 @@
+{
+ "basis": {
+  "page": 103,
+  "text": "此星曜组合，正曜单纯，纯粹带物色彩，推断其本质，须注意其为坚忍，抑为躁进。",
+  "quote": "须注意其为坚忍，抑为躁进"
+ },
+ "rules": [
+  {
+   "id": "貪狼辰戌.火鈴",
+   "role": "refine",
+   "when": {
+    "star": [
+     "火星",
+     "鈴星"
+    ],
+    "at": "same"
+   },
+   "text": "你的貪狼與火鈴同宮成格，一生必有突發的機遇；只是機遇未到之前急躁冒進，容易先敗，突發之後也較易暴敗。",
+   "en": "Your Tan Lang shares the palace with Huo or Ling, forming the pattern: a sudden break will come in your life; but rushing before it arrives tends to bring failure first, and after a sudden rise a sudden fall is more likely.",
+   "src": {
+    "page": 103,
+    "text": "辰戌二宫的贪狼落于罗唆，最欢火铃同度成格，则生必有突发的机遇。唯于机遇未来之时，躁进则必多倾败，以致影响突发的基础。突发后亦较易暴败。",
+    "quote": "最欢火铃同度成格，则生必有突发的机遇"
+   }
+  },
+  {
+   "id": "貪狼辰戌.祿",
+   "role": "limit",
+   "when": {
+    "hua": "祿",
+    "star": "貪狼",
+    "at": "same"
+   },
+   "text": "你的貪狼化祿，未發跡之前容易被欲望推著走，急躁冒進。",
+   "en": "Your Tan Lang is transformed by Lu, so before you make your mark, desire can push you into rushing.",
+   "src": {
+    "page": 103,
+    "text": "所以贪狼化禄，反易令肝未发迹时受欲望推动，以致躁进，贪狼化权，则较脚踏实地。",
+    "quote": "以致躁进"
+   }
+  },
+  {
+   "id": "貪狼辰戌.權",
+   "role": "refine",
+   "when": {
+    "hua": "權",
+    "star": "貪狼",
+    "at": "same"
+   },
+   "text": "你的貪狼化權，較腳踏實地。",
+   "en": "Your Tan Lang is transformed by Quan, which keeps you more grounded.",
+   "src": {
+    "page": 103,
+    "text": "所以贪狼化禄，反易令肝未发迹时受欲望推动，以致躁进，贪狼化权，则较脚踏实地。",
+    "quote": "贪狼化权，则较脚踏实地"
+   }
+  },
+  {
+   "id": "貪狼辰戌.忌",
+   "role": "limit",
+   "when": {
+    "hua": "忌",
+    "star": "貪狼",
+    "at": "same"
+   },
+   "text": "你的貪狼化忌，容易因為失意而急躁冒進。",
+   "en": "Your Tan Lang is transformed by Ji, so disappointment can push you into rushing.",
+   "src": {
+    "page": 103,
+    "text": "贪狼化忌，易因失意而致躁进",
+    "quote": "易因失意而致躁进"
+   }
+  },
+  {
+   "id": "貪狼辰戌.破吉",
+   "role": "refine",
+   "when": {
+    "hua": [
+     "祿",
+     "權"
+    ],
+    "star": "破軍",
+    "at": "trine"
+   },
+   "text": "會照的破軍吉化，增加你的堅忍。",
+   "en": "Po Jun with a favourable transformation in your trine adds to your endurance.",
+   "src": {
+    "page": 103,
+    "text": "最喜破军化权、禄来会，可增加坚忍之性。",
+    "quote": "可增加坚忍之性"
+   }
+  },
+  {
+   "id": "貪狼辰戌.鈴陀",
+   "role": "limit",
+   "when": {
+    "all": [
+     {
+      "star": "鈴星",
+      "at": "sifang"
+     },
+     {
+      "star": "陀羅",
+      "at": "sifang"
+     },
+     {
+      "not": {
+       "hua": [
+        "祿",
+        "權",
+        "科",
+        "忌"
+       ],
+       "star": "貪狼",
+       "at": "same"
+      }
+     }
+    ]
+   },
+   "text": "你的盤鈴星、陀羅同會：外表從容，內心焦躁。",
+   "en": "Ling Xing and Tuo Luo both meet your chart: calm on the outside, restless within.",
+   "src": {
+    "page": 104,
+    "text": "以见火羊、或铃陀较佳，而铃陀同会则主外表从容，内心焦躁。",
+    "quote": "而铃陀同会则主外表从容，内心焦躁"
+   },
+   "edit": "原書此條講貪狼不見四化的情形，條件照錄。"
+  },
+  {
+   "id": "貪狼辰戌.堅忍巨門",
+   "role": "refine",
+   "when": {
+    "lean": "堅忍"
+   },
+   "text": "堅忍的你，喜行巨門所在的運：經過一段困難之後，就能轉好。",
+   "en": "Being the patient kind, you do well in the phase through Ju Men: after a stretch of difficulty, things turn for the better.",
+   "src": {
+    "page": 104,
+    "text": "坚忍的贪狼喜行巨门运。经一段困难之后即能变泰。",
+    "quote": "经一段困难之后即能变泰"
+   },
+   "pole": "堅忍"
+  },
+  {
+   "id": "貪狼辰戌.躁進巨門",
+   "role": "limit",
+   "when": {
+    "lean": "躁進"
+   },
+   "text": "躁進的你，不宜行巨門所在的運：即使巨門化權化祿，也容易橫生事端。",
+   "en": "Being the hasty kind, the phase through Ju Men does not suit you: even with Ju Men in Authority or Abundance, trouble springs up.",
+   "src": {
+    "page": 104,
+    "text": "躁进的贪狼不宜行巨门运限，即使巨门化为权禄，亦易横生事端。",
+    "quote": "躁进的贪狼不宜行巨门运限"
+   },
+   "pole": "躁進"
+  },
+  {
+   "id": "貪狼辰戌.武曲運",
+   "role": "refine",
+   "text": "武曲所在的那一步運或那一年，即使不見吉化吉星，你也會有所作為。",
+   "en": "In the phase or year that runs through Wu Qu, you get things done even without helpful stars.",
+   "src": {
+    "page": 105,
+    "text": "一般来说，贪狼喜经行武曲独坐的宫垣，流年遇此，即使不见吉化吉曜，亦主有所作为。",
+    "quote": "亦主有所作为"
+   }
+  }
+ ]
+}

@@ -1,0 +1,82 @@
+{
+ "basis": {
+  "page": 70,
+  "text": "要推断此系星曜的本质，须注意其动荡与安定的区别。紫微破军二曜同度，本身已具有很强的叛逆性，不似第一组星系的破军在寅申宫独坐，尚有叛逆与顺从的分别。",
+  "quote": "须注意其动荡与安定的区别"
+ },
+ "rules": [
+  {
+   "id": "紫破丑未.開創",
+   "role": "base",
+   "text": "你的叛逆也是開創力：要先去舊，才能更新。",
+   "en": "Your rebellious streak is also a creative force: the old has to go before the new can begin.",
+   "src": {
+    "page": 70,
+    "text": "但从另一角度说，叛逆性其实亦是开创力，因为必先去旧然后开始更新，所以一一对现实的反叛其实亦等如开创。",
+    "quote": "叛逆性其实亦是开创力"
+   }
+  },
+  {
+   "id": "紫破丑未.動盪",
+   "role": "limit",
+   "when": {
+    "lean": "動盪"
+   },
+   "text": "動盪的一面較重：每次改變，都會牽動人際關係的大變化。",
+   "en": "The turbulent side is stronger: each change you make brings big shifts in your relationships.",
+   "src": {
+    "page": 70,
+    "text": "动荡则牵涉人际关系极大的改变",
+    "quote": "动荡则牵涉人际关系极大的改变"
+   },
+   "edit": "原書引古人「為臣不忠，為子不孝」，屬人格貶語，不用。"
+  },
+  {
+   "id": "紫破丑未.安定",
+   "role": "refine",
+   "when": {
+    "lean": "安定"
+   },
+   "text": "安定的一面較重：你的更新在不知不覺中完成，面目一新，表面上依然處變不驚。",
+   "en": "The settled side is stronger: your renewal happens almost unnoticed, so things look fresh while you stay outwardly unruffled.",
+   "src": {
+    "page": 70,
+    "text": "安定则能避免，而且去更新于不知不觉之中，甚至面目焕然一新，而表面上依然匕乱不惊。",
+    "quote": "而且去更新于不知不觉之中"
+   }
+  },
+  {
+   "id": "紫破丑未.紫科",
+   "role": "refine",
+   "when": {
+    "hua": "科",
+    "star": "紫微",
+    "at": "same"
+   },
+   "text": "你的紫微化科，這組星才真正安定：推動任何改變，都不費力氣。",
+   "en": "Your Zi Wei is transformed by Ke, which is what truly settles these stars: any change you push through takes little effort.",
+   "src": {
+    "page": 71,
+    "text": "只在当紫微化科之时，然后始觉安定。尤其是[百宫朝拱]的紫微，一旦化科，自然领导群伦，任何兴革皆不费气力，因此性质也就觉安定。",
+    "quote": "只在当紫微化科之时，然后始觉安定"
+   },
+   "edit": "「任何興革皆不費氣力」原書指百官朝拱的紫微化科；引擎判斷唔到百官朝拱，此處以紫微化科為條件。"
+  },
+  {
+   "id": "紫破丑未.紫權",
+   "role": "limit",
+   "when": {
+    "hua": "權",
+    "star": "紫微",
+    "at": "same"
+   },
+   "text": "你的紫微化權，這組星的本質仍屬動盪。",
+   "en": "Your Zi Wei is transformed by Quan, and these stars remain turbulent at heart.",
+   "src": {
+    "page": 71,
+    "text": "[紫微破军]二曜，紫微化权、破军化禄、权基本上仍属动荡。",
+    "quote": "基本上仍属动荡"
+   }
+  }
+ ]
+}

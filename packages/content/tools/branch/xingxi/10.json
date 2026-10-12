@@ -1,0 +1,37 @@
+{
+ "basis": {
+  "page": 66,
+  "text": "要推断此宫内天机的性质，须注意其机变与机谋而且有计划的性质，便比机变要踏实得多。",
+  "quote": "须注意其机变与机谋"
+ },
+ "rules": [
+  {
+   "id": "天機巳亥.弱宮",
+   "role": "base",
+   "text": "天機獨坐巳亥，是不純粹的機月同梁格，屬於較弱的位置。",
+   "en": "Tian Ji alone in Si or Hai is an impure form of the Ji–Yue–Tong–Liang pattern, a weaker placement.",
+   "src": {
+    "page": 66,
+    "text": "以天机本身而言，独坐于巳亥二宫时，为不纯粹的[机月同梁]格，属于弱宫。",
+    "quote": "属于弱宫"
+   }
+  },
+  {
+   "id": "天機巳亥.陰忌",
+   "role": "limit",
+   "when": {
+    "hua": "忌",
+    "star": "太陰",
+    "at": "opp"
+   },
+   "text": "對宮的太陰化忌，令你的心思容易轉向機詐權謀；用在正道，才有好結果。",
+   "en": "Tai Yin opposite you is transformed by Ji, which can turn your thinking towards trickery and scheming; used honestly, it pays off.",
+   "src": {
+    "page": 67,
+    "text": "对宫的太阴最嫌化忌，若落陷县城化忌时，亦使天机变成机诈阴谋的性质。",
+    "quote": "对宫的太阴最嫌化忌"
+   },
+   "edit": "末句「用在正道」取 p.66「必帶學術性、設計性，屬於正道」之義。"
+  }
+ ]
+}

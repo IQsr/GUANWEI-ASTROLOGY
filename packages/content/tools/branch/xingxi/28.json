@@ -1,0 +1,169 @@
+{
+ "basis": {
+  "page": 116,
+  "text": "精神空虚为本星系的最大缺点。无论男女星系的最大缺点。无论男女，皆可能因此沈沦，或至生疾病，能白手成家的天同，必定精神充实。",
+  "quote": "能白手成家的天同，必定精神充实"
+ },
+ "rules": [
+  {
+   "id": "天同卯酉.祿",
+   "role": "refine",
+   "when": {
+    "hua": "祿",
+    "star": "天同",
+    "at": "same"
+   },
+   "text": "你的天同化祿，天機化權成為推動力，無論如何都不致精神空虛。",
+   "en": "Your Tian Tong is transformed by Lu, with Tian Ji transformed by Quan as the driving force, so you won't fall into inner emptiness.",
+   "src": {
+    "page": 117,
+    "text": "天同喜化禄，则此时天机化权于事业宫，成为策动力，故无论如何亦不致沦为精神空虚。",
+    "quote": "故无论如何亦不致沦为精神空虚"
+   }
+  },
+  {
+   "id": "天同卯酉.權",
+   "role": "limit",
+   "when": {
+    "hua": "權",
+    "star": "天同",
+    "at": "same"
+   },
+   "text": "你的天同化權，物質生活容易充足，精神上卻未必充實。",
+   "en": "Your Tian Tong is transformed by Quan: material life is easily full, but the inner life isn't necessarily so.",
+   "src": {
+    "page": 117,
+    "text": "天同化权，对宫太阴必化禄，但巨门同时化忌，且会合福德宫两个宫度。所以未必精神充实，须祥视福宫是否积极而定，否则为物质生活充足，而精神生活空虚之征兆。",
+    "quote": "否则为物质生活充足，而精神生活空虚之征兆"
+   }
+  },
+  {
+   "id": "天同卯酉.羊煞",
+   "role": "limit",
+   "when": {
+    "all": [
+     {
+      "star": "擎羊",
+      "at": "same"
+     },
+     {
+      "star": [
+       "火星",
+       "鈴星",
+       "地空",
+       "地劫"
+      ],
+      "at": "sifang"
+     }
+    ]
+   },
+   "text": "你的天同與擎羊同宮，又會火鈴或空劫：人生較為艱苦，容易流於精神空虛。",
+   "en": "Your Tian Tong shares the palace with Qing Yang and also meets Huo, Ling, Kong or Jie: life is harder, and inner emptiness comes more easily.",
+   "src": {
+    "page": 116,
+    "text": "若擎丰闩度，又有火铃、空劫会照，则人生未免过于艰苦。此时则易流为精神空虚。",
+    "quote": "则人生未免过于艰苦"
+   }
+  },
+  {
+   "id": "天同卯酉.卯祿存",
+   "role": "refine",
+   "when": {
+    "all": [
+     {
+      "branch": [
+       "卯"
+      ]
+     },
+     {
+      "star": "祿存",
+      "at": "opp"
+     }
+    ]
+   },
+   "text": "你的天同在卯，對宮有祿存：精神和物質生活都充足豐滿。",
+   "en": "Your Tian Tong sits in Mao with Lu Cun opposite: both inner and material life are full and rich.",
+   "src": {
+    "page": 117,
+    "text": "卯宫的天同，喜对宫有禄存同度，则神德宫太阳化权，其对宫巨门化禄，为精神物质生活皆充足丰满之象。",
+    "quote": "为精神物质生活皆充足丰满之象"
+   }
+  },
+  {
+   "id": "天同卯酉.酉祿存",
+   "role": "limit",
+   "when": {
+    "all": [
+     {
+      "branch": [
+       "酉"
+      ]
+     },
+     {
+      "star": "祿存",
+      "at": "opp"
+     }
+    ]
+   },
+   "text": "你的天同在酉，對宮有祿存，太陰同時化忌，反而容易精神空虛。",
+   "en": "Your Tian Tong sits in You with Lu Cun opposite, and Tai Yin is then transformed by Ji, which tends towards inner emptiness instead.",
+   "src": {
+    "page": 117,
+    "text": "西宫天同却不喜对宫有禄存，因太阴必同时化忌．反而主精神空虚。",
+    "quote": "反而主精神空虚"
+   }
+  },
+  {
+   "id": "天同卯酉.充實破軍",
+   "role": "refine",
+   "when": {
+    "lean": "精神充實"
+   },
+   "text": "精神充實的你，行到破軍化祿的運，就是發跡的根基。",
+   "en": "With your inner life full, a phase in which Po Jun is in Abundance lays the foundation of your rise.",
+   "src": {
+    "page": 117,
+    "text": "充实的天同最喜行破军得禄的年限运限，主为发祥之基。",
+    "quote": "主为发祥之基"
+   },
+   "pole": "精神充實"
+  },
+  {
+   "id": "天同卯酉.空虛破軍",
+   "role": "refine",
+   "when": {
+    "lean": "精神空虛"
+   },
+   "text": "精神面較虛的你，行到破軍化權的運，人生會覺得充實，精神物質都如意；只是那段時間不宜隨便與人合作。",
+   "en": "With your inner life thinner, a phase in which Po Jun is in Authority fills your life, in spirit and in means alike; but in that time, do not team up with others lightly.",
+   "src": {
+    "page": 117,
+    "text": "破军最喜化权，空虚的天同经行此宫垣．人生必感充实，精神物质皆如意。但不宜随便与人合作(天同守命，行破运军运，往往倾向于与人合作)。防受骗，或受拖累。",
+    "quote": "人生必感充实，精神物质皆如意"
+   },
+   "pole": "精神空虛"
+  },
+  {
+   "id": "天同卯酉.機權",
+   "role": "refine",
+   "text": "天機化權的那一步運，對你就像機器得了原動力，是最喜歡的運。",
+   "en": "A phase with Tian Ji in Authority is like an engine getting its drive: it is the phase that suits you best.",
+   "src": {
+    "page": 117,
+    "text": "天同最喜天机化权。无论何种本质的天同经行此宫度，皆如机器得原动力，原局天机化权，运限天机化禄，则为天同坐命者一生之佳运。",
+    "quote": "皆如机器得原动力"
+   }
+  },
+  {
+   "id": "天同卯酉.廉相",
+   "role": "limit",
+   "text": "廉貞天相所在的那一步運，就算吉星齊會，也不宜自己開創事業，與人合作或協助別人較好。",
+   "en": "In the phase that runs through Lian Zhen–Tian Xiang, even with helpful stars all round, do not strike out on your own; partnering or supporting others suits you better.",
+   "src": {
+    "page": 118,
+    "text": "天同欠领导力，[廉相]亦欠领导力，所以即使[廉相]的宫度诸吉并会，亦不宜自力开创事业，仅以与人合作或协助为宜。",
+    "quote": "亦不宜自力开创事业"
+   }
+  }
+ ]
+}

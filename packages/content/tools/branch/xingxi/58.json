@@ -1,0 +1,124 @@
+{
+ "basis": {
+  "page": 209,
+  "text": "所以要推断此二宫垣[太阳巨门]的本质，须分别其为得助，抑为孤立。",
+  "quote": "须分别其为得助，抑为孤立"
+ },
+ "rules": [
+  {
+   "id": "巨陽寅申.孤立",
+   "role": "base",
+   "text": "太陽巨門在寅申，三方都沒有主星，容易孤立無援；古人以此為異鄉人之象。",
+   "en": "Tai Yang–Ju Men in Yin or Shen has no major stars in its trines, so it's prone to standing alone; the ancients read it as the sign of an outsider.",
+   "src": {
+    "page": 209,
+    "text": "此二宫垣的[太阳巨门]，由于三方均无正曜，故主孤立无援，古人界定其为异族(或外乡人)",
+    "quote": "故主孤立无援"
+   }
+  },
+  {
+   "id": "巨陽寅申.寅",
+   "role": "refine",
+   "when": {
+    "branch": [
+     "寅"
+    ]
+   },
+   "text": "你的太陽在寅，旭日東升，人生較順。",
+   "en": "Your Sun sits in Yin, rising at dawn, so life runs more smoothly.",
+   "src": {
+    "page": 209,
+    "text": "寅宫太阳旭日东升，申宫太阳全乌西坠。只表示太阳的光度，用以推断人生的顺逆，并未因此而定其本质如何。",
+    "quote": "寅宫太阳旭日东升"
+   }
+  },
+  {
+   "id": "巨陽寅申.申",
+   "role": "limit",
+   "when": {
+    "branch": [
+     "申"
+    ]
+   },
+   "text": "你的太陽在申，日已西墜，人生多些逆境。",
+   "en": "Your Sun sits in Shen, already setting, so life holds more headwinds.",
+   "src": {
+    "page": 209,
+    "text": "寅宫太阳旭日东升，申宫太阳全乌西坠。只表示太阳的光度，用以推断人生的顺逆，并未因此而定其本质如何。",
+    "quote": "申宫太阳全乌西坠"
+   }
+  },
+  {
+   "id": "巨陽寅申.口舌求財",
+   "role": "refine",
+   "when": {
+    "hua": "忌",
+    "star": "巨門",
+    "at": "same"
+   },
+   "text": "你的巨門化忌，反而不主孤立：這是靠口才求財的特殊性質。",
+   "en": "Your Ju Men is transformed by Ji, which here doesn't mean isolation: it's the special case of earning through speaking.",
+   "src": {
+    "page": 209,
+    "text": "在丁干，[巨阳]之三方四正为太阳化禄，天同化权，天机化科及巨化忌，单独评价此巨门则不主孤立，反而有特殊性质，称为口舌求财。",
+    "quote": "称为口舌求财"
+   }
+  },
+  {
+   "id": "巨陽寅申.陽忌祿存",
+   "role": "refine",
+   "when": {
+    "all": [
+     {
+      "hua": "忌",
+      "star": "太陽",
+      "at": "same"
+     },
+     {
+      "star": "祿存",
+      "at": "same"
+     }
+    ]
+   },
+   "text": "你的太陽化忌，卻有祿存同宮：反而社交廣闊，相交非富則貴。",
+   "en": "Your Sun is transformed by Ji but shares the palace with Lu Cun: instead you move in wide circles, among the wealthy and well-placed.",
+   "src": {
+    "page": 210,
+    "text": "在甲干，兄弟宫得廉贞化禄，破军化权，武曲化科，而命宫太阳化忌，若命宫得禄存同度，则单独评价此太阳变不为孤立，反为社交关系广阔，相交非富则贵之兆。",
+    "quote": "反为社交关系广阔，相交非富则贵之兆"
+   }
+  },
+  {
+   "id": "巨陽寅申.機忌",
+   "role": "limit",
+   "when": {
+    "hua": "忌",
+    "star": "天機",
+    "at": "trine"
+   },
+   "text": "會照的天機化忌，令你更孤立。",
+   "en": "Tian Ji transformed by Ji in your trine makes you more isolated.",
+   "src": {
+    "page": 210,
+    "text": "最嫌天机化忌，太阴化忌：釆会，则为孤．扛的因素。",
+    "quote": "最嫌天机化忌"
+   }
+  },
+  {
+   "id": "巨陽寅申.陰忌",
+   "role": "limit",
+   "when": {
+    "hua": "忌",
+    "star": "太陰",
+    "at": "trine"
+   },
+   "text": "會照的太陰化忌，令你更孤立。",
+   "en": "Tai Yin transformed by Ji in your trine makes you more isolated.",
+   "src": {
+    "page": 210,
+    "text": "最嫌天机化忌，太阴化忌：釆会，则为孤．扛的因素。",
+    "quote": "太阴化忌"
+   }
+  }
+ ]
+}

@@ -1,0 +1,92 @@
+{
+ "basis": {
+  "page": 91,
+  "text": "要推断此宫太阳的特性，须注意其有无受拖累剥削。因为此星第的太阳，既需照料巨门，解其暗蔽；又需照顾天梁，解其孤忌；后需与太阴对照，以光华照射太阴。",
+  "quote": "须注意其有无受拖累剥削"
+ },
+ "rules": [
+  {
+   "id": "太陽辰戌.辰吉",
+   "role": "refine",
+   "when": {
+    "all": [
+     {
+      "branch": [
+       "辰"
+      ]
+     },
+     {
+      "hua": [
+       "祿",
+       "權",
+       "科"
+      ],
+      "star": "太陽",
+      "at": "same"
+     }
+    ]
+   },
+   "text": "你的太陽在辰，光華燦爛，又有吉化，不怕身邊的人拖累。",
+   "en": "Your Sun sits in Chen, shining brightly, and with a favourable transformation it isn't dragged down by those around it.",
+   "src": {
+    "page": 91,
+    "text": "太阳入庙，则光华灿烂，较落陷者为佳。更见化禄、权、科，则不怕太阴、巨门、天梁的剥削拖累。",
+    "quote": "则不怕太阴、巨门、天梁的剥削拖累"
+   }
+  },
+  {
+   "id": "太陽辰戌.從容",
+   "role": "refine",
+   "when": {
+    "lean": "從容"
+   },
+   "text": "你受拖累較少，人生際遇自然順遂。",
+   "en": "You carry little of others' weight, so life tends to go smoothly.",
+   "src": {
+    "page": 92,
+    "text": "若太阳不受拖累剥削，则人生际遇自然顺遂，否则便易见门亲冰炭，而且际遇多坎坷。",
+    "quote": "若太阳不受拖累剥削，则人生际遇自然顺遂"
+   }
+  },
+  {
+   "id": "太陽辰戌.負擔",
+   "role": "limit",
+   "when": {
+    "lean": "負擔重"
+   },
+   "text": "你受拖累較重：和六親的關係容易冷淡，際遇也多坎坷。",
+   "en": "You carry a heavy share of others' weight: ties with family cool easily, and life has more rough patches.",
+   "src": {
+    "page": 92,
+    "text": "若太阳不受拖累剥削，则人生际遇自然顺遂，否则便易见门亲冰炭，而且际遇多坎坷。",
+    "quote": "否则便易见门亲冰炭"
+   }
+  },
+  {
+   "id": "太陽辰戌.紫破",
+   "role": "limit",
+   "text": "紫微破軍所在的那一步運，無論如何都不宜與人合作經營，否則容易生波折。",
+   "en": "In the phase through Zi Wei–Po Jun, do not go into business with partners whatever the circumstances, or trouble follows.",
+   "src": {
+    "page": 92,
+    "text": "[紫微破军]宫度，太阳经行之吋，无论有无拖累，均不宜与人合作经营，否则易生波折。",
+    "quote": "均不宜与人合作经营"
+   }
+  },
+  {
+   "id": "太陽辰戌.負擔天相",
+   "role": "limit",
+   "when": {
+    "lean": "負擔重"
+   },
+   "text": "負擔偏重的你，行到天相所在的運，即使有吉化，也多是為人作嫁。",
+   "en": "Carrying a heavy load, in the phase through Tian Xiang, even helpful stars mostly mean working for someone else’s benefit.",
+   "src": {
+    "page": 93,
+    "text": "天相独坐的运限，只宜不受累的太阳经行，若受拖累的太阳行至此宫度，虽吉化会占，亦不过为人作嫁。",
+    "quote": "亦不过为人作嫁"
+   },
+   "pole": "負擔重"
+  }
+ ]
+}

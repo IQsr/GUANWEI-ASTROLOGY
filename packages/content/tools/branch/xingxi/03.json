@@ -1,0 +1,113 @@
+{
+ "basis": {
+  "page": 47,
+  "text": "要推断[廉府]星系在此宫垣的特性，须注意感情与理智的冲突与调和。廉贞本身，已经是带有感情与理智冲突矛盾的星曜，它是[次桃花]，但是它亦[贞]，而且[廉]，因此便难为[桃花]亦不淫滥",
+  "quote": "须注意感情与理智的冲突与调和"
+ },
+ "rules": [
+  {
+   "id": "廉府辰戌.感情",
+   "role": "refine",
+   "when": {
+    "lean": "感情"
+   },
+   "text": "感情較重的廉府，最大特色是忠於故主：對認定的人和機構，可以一直跟下去。",
+   "en": "A Lian Zhen–Tian Fu that leans towards feeling is above all loyal to those it serves: it can stay with the people and organisations it has chosen for good.",
+   "src": {
+    "page": 49,
+    "text": "太执着于感情的[廉府]，最大特色是忠于故主。历史上的贞妾、义仆，以及政坛派系的不二之臣，以至终身服务于一机构的职员，大部属于此类。",
+    "quote": "最大特色是忠于故主"
+   }
+  },
+  {
+   "id": "廉府辰戌.平衡",
+   "role": "refine",
+   "when": {
+    "lean": "平衡"
+   },
+   "text": "你的感情與理智力量相當：廉府最重兩者調和，原局已經平衡，就是良好的結構。",
+   "en": "Your feeling and reason are evenly matched: what matters most for Lian Zhen–Tian Fu is balancing the two, and a chart already in balance is a good structure.",
+   "src": {
+    "page": 50,
+    "text": "[廉贞天府]星系，最重感情与理智的调和。若原局星系的感情与理智已平衡，便为良好的结构。",
+    "quote": "若原局星系的感情与理智已平衡，便为良好的结构"
+   }
+  },
+  {
+   "id": "廉府辰戌.府祿",
+   "role": "refine",
+   "when": {
+    "hua": "祿",
+    "star": "廉貞",
+    "at": "same"
+   },
+   "text": "你的廉貞化祿，同宮的天府得祿，反而加深廉貞的感情色彩：你人生的遇合，往往沿著一條固定的軌跡發展。",
+   "en": "Your Lian Zhen is transformed by Lu, so Tian Fu beside it gains Lu, which deepens Lian Zhen's emotional colouring: the people and chances in your life tend to follow one fixed track.",
+   "src": {
+    "page": 48,
+    "text": "天府得禄，或者有昌曲会合，反而加深廉贞的感情色彩；以致人生的遇合，往往循着一条固定的轨迹来发展。",
+    "quote": "以致人生的遇合，往往循着一条固定的轨迹来发展"
+   },
+   "edit": "祿存不入辰戌，天府「得祿」取同宮廉貞化祿。"
+  },
+  {
+   "id": "廉府辰戌.昌曲",
+   "role": "refine",
+   "when": {
+    "all": [
+     {
+      "star": [
+       "文昌",
+       "文曲"
+      ],
+      "at": "sifang"
+     },
+     {
+      "not": {
+       "hua": "祿",
+       "star": "廉貞",
+       "at": "same"
+      }
+     }
+    ]
+   },
+   "text": "你的盤會昌曲，反而加深廉貞的感情色彩：你人生的遇合，往往沿著一條固定的軌跡發展。",
+   "en": "Your chart meets Chang and Qu, which deepens Lian Zhen's emotional colouring: the people and chances in your life tend to follow one fixed track.",
+   "src": {
+    "page": 48,
+    "text": "天府得禄，或者有昌曲会合，反而加深廉贞的感情色彩；以致人生的遇合，往往循着一条固定的轨迹来发展。",
+    "quote": "或者有昌曲会合，反而加深廉贞的感情色彩"
+   }
+  },
+  {
+   "id": "廉府辰戌.理智運",
+   "role": "refine",
+   "when": {
+    "lean": "理智"
+   },
+   "text": "理智較重的你，行運只要避開引起感情困擾、或令物質生活匱乏的那幾步，大致都是好運。",
+   "en": "With reason running strong, so long as a phase does not stir emotional trouble or leave you short of means, it is generally a good one.",
+   "src": {
+    "page": 49,
+    "text": "感情薄弱，理智重于正道的[廉府]，在星盘中，必然是紫微、七杀两垣有良好的星曜结构，于经行十二宫时，只要不碰到主感情困挠的星系，或主物质生活困乏的星系，大致都是好运。",
+    "quote": "大致都是好运"
+   },
+   "pole": "理智"
+  },
+  {
+   "id": "廉府辰戌.感情運",
+   "role": "refine",
+   "when": {
+    "lean": "感情"
+   },
+   "text": "感情重的你，不喜行到七殺、破軍的運；遇到太陽天梁吉化、或貪狼化祿化權的運，就可以脫穎而出，提高地位或發財。",
+   "en": "With feeling running strong, you dislike phases through Qi Sha or Po Jun; a phase with Tai Yang–Tian Liang well transformed, or Tan Lang in Abundance or Authority, is where you stand out, raise your standing or prosper.",
+   "src": {
+    "page": 49,
+    "text": "于经行十二宫吋，他们不喜欢波动挫折的星系，所以不喜行经七杀、破军之地，亦不喜行经贪狼化忌的运限流年。最喜欢吉化的[太阳天梁]，化禄、权的贪狼，以及性质平衡中和的紫微则可脱类而出，或提高自己的社会地位，或于运限之中发财致富。",
+    "quote": "所以不喜行经七杀、破军之地"
+   },
+   "pole": "感情"
+  }
+ ]
+}

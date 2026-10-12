@@ -1,0 +1,124 @@
+{
+ "basis": {
+  "page": 53,
+  "text": "要评断此贪狼的本质，须分别它的欲望强弱。当欲望强烈时，又须分别为对物欲的强烈，抑或是对情欲的强烈。",
+  "quote": "须分别它的欲望强弱"
+ },
+ "rules": [
+  {
+   "id": "貪狼子午.忌鈴陀",
+   "role": "limit",
+   "when": {
+    "all": [
+     {
+      "hua": "忌",
+      "star": "貪狼",
+      "at": "same"
+     },
+     {
+      "star": [
+       "鈴星",
+       "陀羅"
+      ],
+      "at": "sifang"
+     }
+    ]
+   },
+   "text": "你的貪狼化忌，又見鈴星或陀羅：欲望偏低，甚至畏懼競爭，一碰到阻力就退縮。",
+   "en": "Your Tan Lang is transformed by Ji and meets Ling Xing or Tuo Luo: desire runs low, you may even shy away from competition, and you back off at the first obstacle.",
+   "src": {
+    "page": 53,
+    "text": "贪狼化忌，减低欲望，更见铃星、陀罗，及杂曜中的空曜；天哭、天虚、孤辰、寡宿、阴煞、华病历、大耗、息神、月煞、贯索等杂曜时，欲望更低，甚至可以变成畏惧竞争，一碰到阻力便退缩。",
+    "quote": "甚至可以变成畏惧竞争，一碰到阻力便退缩"
+   }
+  },
+  {
+   "id": "貪狼子午.淡",
+   "role": "refine",
+   "when": {
+    "lean": "欲望淡"
+   },
+   "text": "欲望偏淡不等於不好：只要不沉溺於嗜好，遇到奮發圖強的時機，你一樣有所作為。",
+   "en": "Light desire isn't a bad thing: as long as you don't sink into indulgence, when a time for striving comes, you can still achieve a great deal.",
+   "src": {
+    "page": 55,
+    "text": "心志插弱的贪狼未必便一定不吉，倘若不沉溺于不良嗜好，逢奋发图强的大运，仍然有所为。",
+    "quote": "倘若不沉溺于不良嗜好，逢奋发图强的大运，仍然有所为"
+   }
+  },
+  {
+   "id": "貪狼子午.權物欲",
+   "role": "limit",
+   "when": {
+    "all": [
+     {
+      "lean": "欲望強"
+     },
+     {
+      "hua": "權",
+      "star": "貪狼",
+      "at": "same"
+     }
+    ]
+   },
+   "text": "你的貪狼化權，欲望偏向物欲：人生觀積極，但過了頭，容易不擇手段，或者沉迷投機。",
+   "en": "Your Tan Lang is transformed by Quan, so desire leans towards the material: your outlook is active, but taken too far it can turn ruthless or drift into speculation.",
+   "src": {
+    "page": 55,
+    "text": "物欲过份深的贪狼，虽然人生观积极，但却可能发展成为不择手段的人，或沉迷于投机赌博。",
+    "quote": "但却可能发展成为不择手段的人"
+   },
+   "also": [
+    {
+     "page": 53,
+     "text": "贪狼化权，增加欲望，偏向于物欲",
+     "quote": "偏向于物欲"
+    }
+   ]
+  },
+  {
+   "id": "貪狼子午.淡奮發",
+   "role": "refine",
+   "when": {
+    "lean": "欲望淡"
+   },
+   "text": "欲望偏淡的你，遇到奮發的大運仍然大有作為：例如七殺或破軍見祿權、太陽天梁化科、廉貞天府見吉化的那幾步。",
+   "en": "With desire running low, you can still achieve a great deal in a phase that spurs you on: Qi Sha or Po Jun with Abundance or Authority, Tai Yang–Tian Liang in Merit, Lian Zhen–Tian Fu well transformed.",
+   "src": {
+    "page": 55,
+    "text": "心志插弱的贪狼未必便一定不吉，倘若不沉溺于不良嗜好，逢奋发图强的大运，仍然有所为。所以喜行[武曲天相]而[财荫夹印]；[太阳天梁]而化科；见禄权的七杀；见禄权的破军；见吉化的[廉贞天府]等运限流通年。",
+    "quote": "逢奋发图强的大运，仍然有所为"
+   },
+   "pole": "欲望淡"
+  },
+  {
+   "id": "貪狼子午.強忌深",
+   "role": "limit",
+   "when": {
+    "lean": "欲望強"
+   },
+   "text": "欲望偏強的你，不宜再行加深物欲的運，例如巨門化祿、太陽化權、天機化祿的那幾步；否則際遇未必如意，精神也容易空虛。",
+   "en": "With desire running high, avoid phases that deepen it further, such as Ju Men in Abundance, Tai Yang in Authority or Tian Ji in Abundance; otherwise things may not go your way, and you can feel empty inside.",
+   "src": {
+    "page": 55,
+    "text": "物欲过份深的贪狼，虽然人生观积极，但却可能发展成为不择手段的人，或沉迷于投机赌博。因此，便不喜再行加深物欲色彩的运限，如[天同巨门]而巨门化禄；[太阳天梁]而太阳化权；天机化禄(不喜此天机有太阴化忌冲会)；否则人生虽积极，但际遇却未必如意，而且容易导致精神生活空虚。",
+    "quote": "便不喜再行加深物欲色彩的运限"
+   },
+   "pole": "欲望強"
+  },
+  {
+   "id": "貪狼子午.適度",
+   "role": "refine",
+   "when": {
+    "lean": "平衡"
+   },
+   "text": "你的欲望強弱適中，這正是貪狼最好的狀態：不過高，也不過低。",
+   "en": "Your desire is neither too strong nor too weak, which is exactly where Tan Lang is at its best.",
+   "src": {
+    "page": 54,
+    "text": "人生不宜欲望过高，亦不宜欲望过低。所以当贪狼守子、午宫时，必须注意，喜得贪狼的性质中各，但仍须注意，是什么性质的[中和]。",
+    "quote": "人生不宜欲望过高，亦不宜欲望过低"
+   }
+  }
+ ]
+}

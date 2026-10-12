@@ -1,0 +1,186 @@
+{
+ "basis": {
+  "page": 203,
+  "text": "要推断此二宫垣的[天同太阴]本质，须分别其为积极，抑或消极(古人称为[志高]与[志卑])。",
+  "quote": "须分别其为积极，抑或消极"
+ },
+ "rules": [
+  {
+   "id": "同陰子午.馬頭帶劍",
+   "role": "exception",
+   "when": {
+    "all": [
+     {
+      "branch": [
+       "午"
+      ]
+     },
+     {
+      "star": "擎羊",
+      "at": "same"
+     },
+     {
+      "not": {
+       "hua": "忌",
+       "star": [
+        "天同",
+        "太陰"
+       ],
+       "at": "same"
+      }
+     }
+    ]
+   },
+   "text": "你的天同太陰在午，與擎羊同宮，成馬頭帶劍格：經過人生的奮鬥而成富貴。",
+   "en": "Your Tian Tong–Tai Yin sits in Wu with Qing Yang, forming the 'sword at the horse's head' pattern: wealth and standing won through life's struggle.",
+   "src": {
+    "page": 203,
+    "text": "[天同太阴]在午，较为积极，所以喜擎羊同度，称为[马头带剑]；主经过人生的奋斗而成富贵。",
+    "quote": "主经过人生的奋斗而成富贵"
+   },
+   "edit": "原書：天同或太陰化忌則不成馬頭帶劍。"
+  },
+  {
+   "id": "同陰子午.子羊",
+   "role": "limit",
+   "when": {
+    "all": [
+     {
+      "branch": [
+       "子"
+      ]
+     },
+     {
+      "star": "擎羊",
+      "at": "same"
+     }
+    ]
+   },
+   "text": "你的天同太陰在子，不喜擎羊同宮：較經不起人生的磨練。",
+   "en": "Your Tian Tong–Tai Yin sits in Zi, which doesn't welcome Qing Yang beside it: it holds up less well under life's trials.",
+   "src": {
+    "page": 203,
+    "text": "在子则不喜擎羊同度，正因子宫的[同月]较为消极，经不起人生的磨练。",
+    "quote": "经不起人生的磨练"
+   }
+  },
+  {
+   "id": "同陰子午.同吉",
+   "role": "refine",
+   "when": {
+    "hua": [
+     "祿",
+     "權",
+     "科"
+    ],
+    "star": "天同",
+    "at": "same"
+   },
+   "text": "你的天同吉化，本質積極。",
+   "en": "Your Tian Tong has a favourable transformation: active at heart.",
+   "src": {
+    "page": 203,
+    "text": "天同得吉化，即主积极，而太阴吉化者次之。倘天同或太阴化忌，则本质消极。",
+    "quote": "天同得吉化，即主积极"
+   }
+  },
+  {
+   "id": "同陰子午.同忌",
+   "role": "limit",
+   "when": {
+    "hua": "忌",
+    "star": "天同",
+    "at": "same"
+   },
+   "text": "你的天同化忌，本質偏消極。",
+   "en": "Your Tian Tong is transformed by Ji: passive at heart.",
+   "src": {
+    "page": 203,
+    "text": "天同得吉化，即主积极，而太阴吉化者次之。倘天同或太阴化忌，则本质消极。",
+    "quote": "则本质消极"
+   }
+  },
+  {
+   "id": "同陰子午.陰忌",
+   "role": "limit",
+   "when": {
+    "hua": "忌",
+    "star": "太陰",
+    "at": "same"
+   },
+   "text": "你的太陰化忌，本質偏消極。",
+   "en": "Your Tai Yin is transformed by Ji: passive at heart.",
+   "src": {
+    "page": 203,
+    "text": "天同得吉化，即主积极，而太阴吉化者次之。倘天同或太阴化忌，则本质消极。",
+    "quote": "则本质消极"
+   }
+  },
+  {
+   "id": "同陰子午.空",
+   "role": "limit",
+   "when": {
+    "all": [
+     {
+      "lean": "積極"
+     },
+     {
+      "star": [
+       "地空",
+       "地劫"
+      ],
+      "at": "same"
+     }
+    ]
+   },
+   "text": "你的命宮有空劫，積極之中偏多空想。",
+   "en": "Kong or Jie in your Life Palace means that even when active, you lean towards daydreams.",
+   "src": {
+    "page": 204,
+    "text": "积极的[同月]，为辅佐诸曜同会，亦有擎羊同会，则主受激发。不宜与空曜同度，否则虽积极而偏多空想。",
+    "quote": "否则虽积极而偏多空想"
+   }
+  },
+  {
+   "id": "同陰子午.武貪積極",
+   "role": "refine",
+   "when": {
+    "lean": "積極"
+   },
+   "text": "武曲貪狼所在的那一步運最適合你：先經過一些周折，然後打好事業的基礎。",
+   "en": "The phase that runs through Wu Qu–Tan Lang suits you best: some twists first, then a solid footing for your career.",
+   "src": {
+    "page": 204,
+    "text": "[武曲贪狼㈠司度的宫垣，一般为积极的[同月]所宜，主先经周折而能奠立事业基础，消极者则从有享受，但却易于丧志。",
+    "quote": "主先经周折而能奠立事业基础"
+   },
+   "pole": "積極"
+  },
+  {
+   "id": "同陰子午.武貪消極",
+   "role": "limit",
+   "when": {
+    "lean": "消極"
+   },
+   "text": "武曲貪狼所在的那一步運，你容易只顧享受而失了志氣；那幾年要把理想提高一點。",
+   "en": "In the phase that runs through Wu Qu–Tan Lang you can slip into comfort and lose your drive; in those years, raise your sights.",
+   "src": {
+    "page": 204,
+    "text": "[武曲贪狼㈠司度的宫垣，一般为积极的[同月]所宜，主先经周折而能奠立事业基础，消极者则从有享受，但却易于丧志。",
+    "quote": "但却易于丧志"
+   },
+   "pole": "消極"
+  },
+  {
+   "id": "同陰子午.天相弱",
+   "role": "limit",
+   "text": "天相所在的那一步運或那一年，是你的弱運：宜沉潛，不宜奮進。",
+   "en": "The phase or year that runs through Tian Xiang is a weak one for you: lie low, rather than push forward.",
+   "src": {
+    "page": 205,
+    "text": "一般而言，[同月丁以天相为弱宫，仅利沈潜，不宜奋进，在流年亦如是。",
+    "quote": "仅利沈潜，不宜奋进"
+   }
+  }
+ ]
+}

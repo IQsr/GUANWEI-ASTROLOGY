@@ -1,0 +1,128 @@
+{
+ "basis": {
+  "page": 78,
+  "text": "要推断[廉贞贪狼]二曜同度的特质，须注意感情与物欲的区别。廉贞主感情，贪狼主的欲。",
+  "quote": "须注意感情与物欲的区别"
+ },
+ "rules": [
+  {
+   "id": "廉貪巳亥.空感情",
+   "role": "refine",
+   "when": {
+    "all": [
+     {
+      "lean": "感情"
+     },
+     {
+      "star": [
+       "地空",
+       "地劫"
+      ],
+      "at": "same"
+     }
+    ]
+   },
+   "text": "你的命宮有空劫，感情又重於物欲：能把桃花化為藝術，或者投入消費、娛樂一類的事業。",
+   "en": "Your Life Palace holds Kong or Jie, and feeling outweighs material desire: you can turn romance into art, or into work in consumer goods and entertainment.",
+   "src": {
+    "page": 79,
+    "text": "[廉贪]与空曜同宫，只在感情重于物欲的情形下，才可以化桃花为艺术，或为消费、娱乐事业。",
+    "quote": "才可以化桃花为艺术"
+   }
+  },
+  {
+   "id": "廉貪巳亥.空物欲",
+   "role": "limit",
+   "when": {
+    "all": [
+     {
+      "lean": "物欲"
+     },
+     {
+      "star": [
+       "地空",
+       "地劫"
+      ],
+      "at": "same"
+     }
+    ]
+   },
+   "text": "你的命宮有空劫，物欲又重於感情：反而容易追求刺激。",
+   "en": "Your Life Palace holds Kong or Jie, and material desire outweighs feeling: it can push you to chase thrills instead.",
+   "src": {
+    "page": 79,
+    "text": "若物欲重于感情，有空曜同宫，反而可能追求刺激，不一定有艺术气质。",
+    "quote": "反而可能追求刺激"
+   }
+  },
+  {
+   "id": "廉貪巳亥.兩重",
+   "role": "refine",
+   "when": {
+    "lean": "平衡"
+   },
+   "text": "你感情和物欲兩面都重，最要緊的是心裡有主張，才不會隨波逐流。",
+   "en": "Both feeling and material desire run strong in you; what matters most is a firm mind of your own, so you are not carried along by the current.",
+   "src": {
+    "page": 79,
+    "text": "[廉贞贪狼]星系会合三方四正，使星系的性质感情重、物欲亦重，便带有强烈追求肉欲的色彩，因此便成为桃花星系。这时候，宜福德宫坚强有力，则可有主张，不致随波逐流。",
+    "quote": "则可有主张，不致随波逐流"
+   }
+  },
+  {
+   "id": "廉貪巳亥.感情誤事",
+   "role": "limit",
+   "when": {
+    "lean": "感情"
+   },
+   "text": "感情重的你，行到需要專注的運時，容易因為專注感情而耽誤事業。",
+   "en": "With feeling running strong, in phases that call for focus you can let devotion to love get in the way of your career.",
+   "src": {
+    "page": 80,
+    "text": "若经行有理想有目标的太阴宫度，则感情过于丰富的[廉贪]，可能因专注于感情而妨碍事业，物欲太强的[廉贪]则可能专注于学业、事业，而致牺牲感情。所以仅对性质平衡的[廉贪]有利。",
+    "quote": "可能因专注于感情而妨碍事业"
+   },
+   "pole": "感情"
+  },
+  {
+   "id": "廉貪巳亥.物欲誤情",
+   "role": "limit",
+   "when": {
+    "lean": "物欲"
+   },
+   "text": "物欲重的你，行到需要專注的運時，反而容易一心撲在學業、事業上，犧牲了感情。",
+   "en": "With material desire running strong, in phases that call for focus you tend to throw yourself into study or work, at the cost of your relationships.",
+   "src": {
+    "page": 80,
+    "text": "若经行有理想有目标的太阴宫度，则感情过于丰富的[廉贪]，可能因专注于感情而妨碍事业，物欲太强的[廉贪]则可能专注于学业、事业，而致牺牲感情。所以仅对性质平衡的[廉贪]有利。",
+    "quote": "而致牺牲感情"
+   },
+   "pole": "物欲"
+  },
+  {
+   "id": "廉貪巳亥.未定",
+   "role": "refine",
+   "when": {
+    "lean": "未定"
+   },
+   "text": "哪一頭重，要看行運：哪一步運加重了感情或物欲，那幾年那一面就會浮上來。",
+   "en": "Which side weighs more depends on the phases of your life: whichever phase adds weight to feeling or to material desire, that side comes to the surface in those years.",
+   "src": {
+    "page": 79,
+    "text": "必须如此推断，抽丝剥茧般比较原来的性质，以及加上流曜之后演变出来的性质，看是否由平衡变成不平衡，或由不平衡变成平衡，再看是感情方面起变化，或物欲方面起变化，变化的倾向是好是坏，始能确定[廉贪]经行[廉贪]、[武杀]、[紫破]三宫垣的运限流年性质。",
+    "quote": "看是否由平衡变成不平衡"
+   }
+  },
+  {
+   "id": "廉貪巳亥.巨門",
+   "role": "limit",
+   "text": "巨門所在那一宮行運的時候，對你不利：即使有吉星，也多奔波勞累，有福難享。",
+   "en": "The phase that runs through the palace holding Ju Men does not favour you: even with helpful stars, it brings rushing about and fatigue, with good fortune hard to enjoy.",
+   "src": {
+    "page": 80,
+    "text": "巨门躔度的宫垣，对[廉贪]不利。即使会吉曜，亦有奔波劳累，有福享不得之戚。",
+    "quote": "巨门躔度的宫垣，对[廉贪]不利"
+   }
+  }
+ ]
+}

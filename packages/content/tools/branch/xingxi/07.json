@@ -1,0 +1,111 @@
+{
+ "basis": {
+  "page": 58,
+  "text": "要推断这个星系的本质，须注意刚柔的配合与调和。武曲性刚，天相性柔，二者同在一个宫度，必须刚柔互济，然后始成佳构，若过刚过柔，都可能出现缺点",
+  "quote": "武曲性刚，天相性柔"
+ },
+ "rules": [
+  {
+   "id": "武相寅申.最壞",
+   "role": "exception",
+   "when": {
+    "all": [
+     {
+      "hua": "忌",
+      "star": "武曲",
+      "at": "same"
+     },
+     {
+      "jia": [
+       "火星",
+       "鈴星"
+      ]
+     }
+    ]
+   },
+   "text": "你的武曲化忌，兩旁又有火星、鈴星相夾：這是武曲天相最壞的結構，武曲過剛、天相過軟，容易多波折，去留之間進退失據。",
+   "en": "Your Wu Qu is transformed by Ji and flanked by Huo Xing and Ling Xing: the worst structure for Wu Qu–Tian Xiang, too hard on one side and too soft on the other, prone to setbacks and indecision about when to stay and when to go.",
+   "src": {
+    "page": 59,
+    "text": "由此可知，最坏的结构是武曲化忌、火铃夹[武相]的结构，虽有辅左吉曜同度，但武曲过刚，天相过柔(其实应该说是软弱)，结果就不但易生波折，且行藏出处亦进退失据。",
+    "quote": "最坏的结构是武曲化忌、火铃夹[武相]的结构"
+   }
+  },
+  {
+   "id": "武相寅申.祿",
+   "role": "refine",
+   "when": {
+    "hua": "祿",
+    "star": "武曲",
+    "at": "same"
+   },
+   "text": "你的武曲化祿，剛硬的一面得到調和。",
+   "en": "Your Wu Qu is transformed by Lu, which softens its hardness.",
+   "src": {
+    "page": 59,
+    "text": "化禄的武曲，刚克之性得到调和",
+    "quote": "刚克之性得到调和"
+   }
+  },
+  {
+   "id": "武相寅申.權",
+   "role": "limit",
+   "when": {
+    "hua": "權",
+    "star": "武曲",
+    "at": "same"
+   },
+   "text": "你的武曲化權，剛烈的一面更重。",
+   "en": "Your Wu Qu is transformed by Quan, which makes it fiercer.",
+   "src": {
+    "page": 59,
+    "text": "但化权化科的武曲，、欲益增其刚烈之性",
+    "quote": "欲益增其刚烈之性"
+   }
+  },
+  {
+   "id": "武相寅申.科",
+   "role": "limit",
+   "when": {
+    "hua": "科",
+    "star": "武曲",
+    "at": "same"
+   },
+   "text": "你的武曲化科，剛烈的一面更重。",
+   "en": "Your Wu Qu is transformed by Ke, which makes it fiercer.",
+   "src": {
+    "page": 59,
+    "text": "但化权化科的武曲，、欲益增其刚烈之性",
+    "quote": "欲益增其刚烈之性"
+   }
+  },
+  {
+   "id": "武相寅申.偏剛",
+   "role": "limit",
+   "when": {
+    "lean": "偏剛"
+   },
+   "text": "你偏剛的一面較重：過剛則折，硬撐到底的時候最容易受挫，人際上也多遺憾。",
+   "en": "You lean towards hardness: what is too hard snaps, so pushing on regardless is when you're most likely to break, and relationships suffer too.",
+   "src": {
+    "page": 60,
+    "text": "过刚则折，所以本性过刚的[武相]再行刚决的宫垣，便主人生多挫折失败，而且人际关系亦多余憾。",
+    "quote": "过刚则折"
+   }
+  },
+  {
+   "id": "武相寅申.相濟",
+   "role": "refine",
+   "when": {
+    "lean": "剛柔相濟"
+   },
+   "text": "你剛柔相濟：就算遇到過剛過柔的時期，也只是一時的挫折，能靠自己的沉毅扭轉過來。",
+   "en": "You balance hard and soft: even in times that push you too far either way, it's only a passing setback, and your steady resolve can turn it round.",
+   "src": {
+    "page": 60,
+    "text": "若刚柔相济的[武曲天相]，行经刚柔相济的宫垣，则为沈刚毅以抵成功之兆。即使经行过刚过柔的宫垣，亦不过为一时的挫折，或者是一时的受制，就在此运限或流年之内，、即叮冯本身的沈洗刚毅来克服环境、扭转命运。",
+    "quote": "亦不过为一时的挫折"
+   }
+  }
+ ]
+}

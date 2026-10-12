@@ -27,11 +27,11 @@
       },
       "text": "你的太陽在午入廟，基本性質比在子宮好，但也容易流於虛浮。",
       "en": "Your Sun is at full strength in Wu, a better base than in Zi, but it can easily turn showy and hollow.",
+      "pole": "虛浮",
       "source": {
         "passage": "deep.星系40.2",
         "quote": "但却可能成为虚浮之性"
-      },
-      "pole": "虛浮"
+      }
     },
     {
       "id": "太陽子午.午權",
@@ -63,11 +63,11 @@
       },
       "text": "你的太陽在午化權，又不見火鈴空劫：本質沉穩。",
       "en": "Your Sun in Wu is transformed by Quan and avoids Huo, Ling, Kong and Jie: steady at heart.",
+      "pole": "沉穩",
       "source": {
         "passage": "deep.星系40.3",
         "quote": "即使吉曜少，甚至亦为沈稳"
-      },
-      "pole": "沉穩"
+      }
     },
     {
       "id": "太陽子午.子權",
@@ -88,11 +88,11 @@
       },
       "text": "你的太陽在子化權，反而容易帶虛浮之性。",
       "en": "Your Sun in Zi is transformed by Quan, which actually tends towards hollowness.",
+      "pole": "虛浮",
       "source": {
         "passage": "deep.星系40.4",
         "quote": "却不宜化权，反易带虚浮之性"
-      },
-      "pole": "虛浮"
+      }
     },
     {
       "id": "太陽子午.子祿",
@@ -113,11 +113,11 @@
       },
       "text": "你的太陽在子化祿，本質沉穩。",
       "en": "Your Sun in Zi is transformed by Lu: steady at heart.",
+      "pole": "沉穩",
       "source": {
         "passage": "deep.星系40.5",
         "quote": "在子宫的太阳化禄化忌亦为沉稳"
-      },
-      "pole": "沉穩"
+      }
     },
     {
       "id": "太陽子午.子忌",
@@ -138,11 +138,11 @@
       },
       "text": "你的太陽在子化忌，本質反而沉穩。",
       "en": "Your Sun in Zi is transformed by Ji, yet it's steady at heart.",
+      "pole": "沉穩",
       "source": {
         "passage": "deep.星系40.5",
         "quote": "在子宫的太阳化禄化忌亦为沉稳"
-      },
-      "pole": "沉穩"
+      }
     },
     {
       "id": "太陽子午.沉穩",

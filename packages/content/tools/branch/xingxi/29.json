@@ -1,0 +1,188 @@
+{
+ "basis": {
+  "page": 119,
+  "text": "要推断此宫度的武曲本质，系分别其为因循抑或进取。武曲落天罗地网，所以刚克之性受到压抑。然而其人生奋斗之心如何，可谓影响其命运甚大。因循苟且者不过藉一艺谋生，而奋发进取却可以发迹变泰。",
+  "quote": "系分别其为因循抑或进取"
+ },
+ "rules": [
+  {
+   "id": "武曲辰戌.祿",
+   "role": "limit",
+   "when": {
+    "hua": "祿",
+    "star": "武曲",
+    "at": "same"
+   },
+   "text": "你的武曲化祿，容易變得因循。",
+   "en": "Your Wu Qu is transformed by Lu, which makes it easy to settle into a rut.",
+   "src": {
+    "page": 119,
+    "text": "武曲化禄守命宫，很容易变成因循",
+    "quote": "很容易变成因循"
+   }
+  },
+  {
+   "id": "武曲辰戌.科",
+   "role": "limit",
+   "when": {
+    "hua": "科",
+    "star": "武曲",
+    "at": "same"
+   },
+   "text": "你的武曲化科，少年較不順，靠一技之長自立；得到一些聲譽之後，容易因循。",
+   "en": "Your Wu Qu is transformed by Ke: youth is less smooth, you stand on your own through a skill, and once you've earned some reputation it's easy to coast.",
+   "src": {
+    "page": 119,
+    "text": "武曲亦不宜化科，主少年不利，赖自己一技之长自立，薄得声誉(如受同行的长辈赏识)好因循苟且。",
+    "quote": "主少年不利，赖自己一技之长自立"
+   }
+  },
+  {
+   "id": "武曲辰戌.權",
+   "role": "refine",
+   "when": {
+    "all": [
+     {
+      "hua": "權",
+      "star": "武曲",
+      "at": "same"
+     },
+     {
+      "not": {
+       "star": [
+        "擎羊",
+        "陀羅",
+        "火星",
+        "鈴星",
+        "地空",
+        "地劫"
+       ],
+       "at": "same"
+      }
+     }
+    ]
+   },
+   "text": "你的武曲化權而不受煞擾，有破網而出的心，本質進取。",
+   "en": "Your Wu Qu is transformed by Quan and free of malefics, with the drive to break out of the net: enterprising at heart.",
+   "src": {
+    "page": 119,
+    "text": "武曲于天罗地网最喜化权，只要不受惠煞侵扰，即可生夺门之心，本质变为进取。",
+    "quote": "本质变为进取"
+   }
+  },
+  {
+   "id": "武曲辰戌.忌無陀",
+   "role": "refine",
+   "when": {
+    "all": [
+     {
+      "hua": "忌",
+      "star": "武曲",
+      "at": "same"
+     },
+     {
+      "not": {
+       "star": "陀羅",
+       "at": "same"
+      }
+     }
+    ]
+   },
+   "text": "你的武曲化忌，人生較艱苦，少年也不順；但沒有陀羅同宮，反而令你進取。",
+   "en": "Your Wu Qu is transformed by Ji: life is harder and youth less smooth; but with no Tuo Luo beside it, this actually makes you enterprising.",
+   "src": {
+    "page": 119,
+    "text": "武曲化忌则人生艰苦，且少年不利，但如无陀罗同度，则反主进取",
+    "quote": "但如无陀罗同度，则反主进取"
+   }
+  },
+  {
+   "id": "武曲辰戌.忌陀",
+   "role": "limit",
+   "when": {
+    "all": [
+     {
+      "hua": "忌",
+      "star": "武曲",
+      "at": "same"
+     },
+     {
+      "star": "陀羅",
+      "at": "same"
+     }
+    ]
+   },
+   "text": "你的武曲化忌，又與陀羅同宮：人生較艱苦，少年也不順。",
+   "en": "Your Wu Qu is transformed by Ji and shares the palace with Tuo Luo: life is harder and youth less smooth.",
+   "src": {
+    "page": 119,
+    "text": "武曲化忌则人生艰苦，且少年不利",
+    "quote": "武曲化忌则人生艰苦"
+   }
+  },
+  {
+   "id": "武曲辰戌.貪祿",
+   "role": "refine",
+   "when": {
+    "hua": "祿",
+    "star": "貪狼",
+    "at": "opp"
+   },
+   "text": "對宮的貪狼化祿，令你進取，往往要離鄉別井去改變命運。",
+   "en": "Tan Lang opposite you is transformed by Lu, which makes you enterprising; changing your fortunes often means leaving home.",
+   "src": {
+    "page": 120,
+    "text": "贪狼化禄对照，使武曲进取，往往为离乡背井改变命运的征兆。",
+    "quote": "往往为离乡背井改变命运的征兆"
+   }
+  },
+  {
+   "id": "武曲辰戌.貪火鈴",
+   "role": "refine",
+   "when": {
+    "all": [
+     {
+      "star": [
+       "火星",
+       "鈴星"
+      ],
+      "at": "opp"
+     },
+     {
+      "not": {
+       "all": [
+        {
+         "hua": "忌",
+         "star": "武曲",
+         "at": "same"
+        },
+        {
+         "star": "陀羅",
+         "at": "same"
+        }
+       ]
+      }
+     }
+    ]
+   },
+   "text": "對宮的貪狼有火鈴同宮，激發你，令你進取。",
+   "en": "Tan Lang opposite you shares its palace with Huo or Ling, which spurs you on and makes you enterprising.",
+   "src": {
+    "page": 120,
+    "text": "对宫贪狼喜与火、铃同度，则对武曲生激发力，本质变为进取。",
+    "quote": "则对武曲生激发力"
+   }
+  },
+  {
+   "id": "武曲辰戌.破軍運",
+   "role": "refine",
+   "text": "破軍所在的那一步運，是你的重要運限；見吉星吉化，就要好好利用。",
+   "en": "The phase through Po Jun is a key one for you; when helpful stars or transformations appear, make full use of it.",
+   "src": {
+    "page": 121,
+    "text": "破军运限，亦为武曲守命于辰戌者之重要运限。如进驭者，喜见破军化禄；因循者，不喜破军对宫见廉贞化忌。一般而言，此运限见诸吉及吉化，则虽因循者亦必生夺发之心，应善为利用。",
+    "quote": "亦为武曲守命于辰戌者之重要运限"
+   }
+  }
+ ]
+}

@@ -63,11 +63,11 @@
       },
       "text": "你的天府與祿存同宮，雖祥和，氣魄卻不大。",
       "en": "Your Tian Fu shares the palace with Lu Cun: peaceable, but without much scope.",
+      "pole": "祥和",
       "source": {
         "passage": "deep.星系55.4",
         "quote": "虽祥和而气魄不大"
-      },
-      "pole": "祥和"
+      }
     },
     {
       "id": "天府巳亥.武祿",
@@ -79,11 +79,11 @@
       },
       "text": "會照的武曲化祿，令你祥和。",
       "en": "Wu Qu transformed by Lu in your trine makes you peaceable.",
+      "pole": "祥和",
       "source": {
         "passage": "deep.星系55.5",
         "quote": "均利于天府之祥和"
-      },
-      "pole": "祥和"
+      }
     },
     {
       "id": "天府巳亥.貪祿",
@@ -95,11 +95,11 @@
       },
       "text": "會照的貪狼化祿，令你祥和。",
       "en": "Tan Lang transformed by Lu in your trine makes you peaceable.",
+      "pole": "祥和",
       "source": {
         "passage": "deep.星系55.5",
         "quote": "均利于天府之祥和"
-      },
-      "pole": "祥和"
+      }
     },
     {
       "id": "天府巳亥.武忌",
@@ -111,11 +111,11 @@
       },
       "text": "會照的武曲化忌，是你最不宜的配合。",
       "en": "Wu Qu transformed by Ji in your trine is the combination you suit least.",
+      "pole": "多思慮",
       "source": {
         "passage": "deep.星系55.5",
         "quote": "最不宜武曲化忌"
-      },
-      "pole": "多思慮"
+      }
     }
   ]
 }

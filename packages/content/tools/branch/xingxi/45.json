@@ -1,0 +1,201 @@
+{
+ "basis": {
+  "page": 169,
+  "text": "要判别此二宫垣的七杀本质，须分别其为权威，抑为克忌。",
+  "quote": "须分别其为权威，抑为克忌"
+ },
+ "rules": [
+  {
+   "id": "七殺子午.強格",
+   "role": "base",
+   "text": "子午的七殺，相對而言是強格。",
+   "en": "Qi Sha in Zi or Wu is, relatively speaking, a strong pattern.",
+   "src": {
+    "page": 169,
+    "text": "子午的七杀，相对而言为强格",
+    "quote": "子午的七杀，相对而言为强格"
+   }
+  },
+  {
+   "id": "七殺子午.雄宿",
+   "role": "exception",
+   "when": {
+    "all": [
+     {
+      "branch": [
+       "午"
+      ]
+     },
+     {
+      "star": [
+       "左輔",
+       "右弼",
+       "文昌",
+       "文曲",
+       "天魁",
+       "天鉞"
+      ],
+      "at": "sifang"
+     }
+    ]
+   },
+   "text": "你的七殺在午見吉，成雄宿乾元格：少年經歷艱辛，而後興發。",
+   "en": "Your Qi Sha in Wu meets favourable stars, forming the 'heroic star' pattern: hardship in youth, then a rise.",
+   "src": {
+    "page": 169,
+    "text": "尤其是午宫的七杀，见吉即为[雄宿干元格]，主人少年经历艰辛而后兴发。",
+    "quote": "主人少年经历艰辛而后兴发"
+   }
+  },
+  {
+   "id": "七殺子午.子煞",
+   "role": "limit",
+   "when": {
+    "all": [
+     {
+      "branch": [
+       "子"
+      ]
+     },
+     {
+      "star": [
+       "擎羊",
+       "陀羅"
+      ],
+      "at": "sifang"
+     },
+     {
+      "star": [
+       "火星",
+       "鈴星"
+      ],
+      "at": "sifang"
+     }
+    ]
+   },
+   "text": "你的七殺在子，又見煞星會聚，中年或晚年較困頓。",
+   "en": "Your Qi Sha in Zi meets a cluster of malefics, which makes middle or later life harder.",
+   "src": {
+    "page": 169,
+    "text": "若子宫的七杀见煞曜会聚，则中年或晚年困顿",
+    "quote": "则中年或晚年困顿"
+   },
+   "edit": "原句引古人「投河溺水」，不用；「煞曜會聚」以羊陀之一加火鈴之一近似。"
+  },
+  {
+   "id": "七殺子午.貪祿",
+   "role": "refine",
+   "when": {
+    "hua": "祿",
+    "star": "貪狼",
+    "at": "trine"
+   },
+   "text": "會照的貪狼化祿，七殺之性得到調和，是最喜的配合。",
+   "en": "Tan Lang transformed by Lu in your trine tempers Qi Sha's nature, the most welcome combination.",
+   "src": {
+    "page": 169,
+    "text": "最喜贪狼化禄，不但七杀之性得其调和",
+    "quote": "最喜贪狼化禄，不但七杀之性得其调和"
+   }
+  },
+  {
+   "id": "七殺子午.武祿",
+   "role": "refine",
+   "when": {
+    "hua": "祿",
+    "star": "武曲",
+    "at": "opp"
+   },
+   "text": "對宮的武曲化祿，天府同時得祿，是威權的高格。",
+   "en": "Wu Qu opposite you is transformed by Lu, so Tian Fu gains Lu too: a high form of authority.",
+   "src": {
+    "page": 169,
+    "text": "武曲化禄亦佳，使天府同时得禄，会照七杀、廉贞此亦为本质威权的高格。",
+    "quote": "此亦为本质威权的高格"
+   }
+  },
+  {
+   "id": "七殺子午.擎羊",
+   "role": "limit",
+   "when": {
+    "star": "擎羊",
+    "at": "same"
+   },
+   "text": "你的七殺與擎羊同宮，剋忌的性質最重。",
+   "en": "Your Qi Sha shares the palace with Qing Yang, making its clashing nature heaviest.",
+   "src": {
+    "page": 170,
+    "text": "七杀最嫌与擎羊同度，克忌的性质最重。",
+    "quote": "克忌的性质最重"
+   }
+  },
+  {
+   "id": "七殺子午.武忌",
+   "role": "limit",
+   "when": {
+    "hua": "忌",
+    "star": "武曲",
+    "at": "opp"
+   },
+   "text": "對宮的武曲化忌，令你帶剋忌之性，內心也多焦慮。",
+   "en": "Wu Qu opposite you is transformed by Ji, giving you a clashing streak and more inner anxiety.",
+   "src": {
+    "page": 170,
+    "text": "最嫌武曲化忌，或福德宫廉贞化忌，则七杀便带克忌之性。若更见煞曜刑星，则内心多焦虑",
+    "quote": "则七杀便带克忌之性"
+   }
+  },
+  {
+   "id": "七殺子午.貪狼運",
+   "role": "refine",
+   "text": "貪狼所在的那一步運，對你一般都好：人生較順，再見吉化吉星，更是財祿之期。",
+   "en": "The phase that runs through Tan Lang generally suits you: life runs smoother, and with helpful stars or transformations it becomes a time of income.",
+   "src": {
+    "page": 171,
+    "text": "贪狼独坐的宫垣，一般为七杀所喜，即使具克忌之性，亦主人生较为顺遂，倘见吉化及吉曜，更为财渌之期。无论流年或大运均是。",
+    "quote": "亦主人生较为顺遂"
+   }
+  },
+  {
+   "id": "七殺子午.焦慮破軍",
+   "role": "limit",
+   "when": {
+    "lean": "多焦慮"
+   },
+   "text": "焦慮偏多的你，行到破軍所在的運，即使有吉星，也要先經挫敗才轉變。",
+   "en": "With anxiety running high, a phase through Po Jun brings change only after a setback, even with helpful stars.",
+   "src": {
+    "page": 170,
+    "text": "破军独坐的宫垣，一般为威权的七杀所喜。加吉化、吉曜者，必主性质良好的转变。克忌的七杀则不喜破军。纵使有吉曜会合，亦先经挫败而后转变。",
+    "quote": "亦先经挫败而后转变"
+   },
+   "pole": "多焦慮"
+  },
+  {
+   "id": "七殺子午.威權破軍",
+   "role": "refine",
+   "when": {
+    "lean": "威權"
+   },
+   "text": "威權的你，行到破軍所在的運，再見吉化吉星，必是好的轉變。",
+   "en": "Being the commanding kind, a phase through Po Jun with helpful stars or transformations brings change for the better.",
+   "src": {
+    "page": 170,
+    "text": "破军独坐的宫垣，一般为威权的七杀所喜。加吉化、吉曜者，必主性质良好的转变。克忌的七杀则不喜破军。纵使有吉曜会合，亦先经挫败而后转变。",
+    "quote": "必主性质良好的转变"
+   },
+   "pole": "威權"
+  },
+  {
+   "id": "七殺子午.天梁運",
+   "role": "refine",
+   "text": "天梁所在的那一步運，往往是你離鄉別井的時候；不離鄉，內心也會動盪不安。",
+   "en": "The phase that runs through Tian Liang is often when you leave home; if you stay, you are restless inside.",
+   "src": {
+    "page": 171,
+    "text": "天梁独坐的宫垣，往往为七杀背井离乡的运程，否则亦主内心动荡不安。",
+    "quote": "往往为七杀背井离乡的运程"
+   }
+  }
+ ]
+}

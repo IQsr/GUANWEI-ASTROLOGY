@@ -1,0 +1,92 @@
+{
+ "basis": {
+  "page": 133,
+  "text": "因此要推断这组星系的本质，须分别其为物欲，抑或情欲。",
+  "quote": "须分别其为物欲，抑或情欲"
+ },
+ "rules": [
+  {
+   "id": "紫貪卯酉.手段",
+   "role": "base",
+   "text": "你的人生觀一般較積極，有領導欲，也有八面玲瓏的手段。",
+   "en": "Your outlook is generally active, with a will to lead and a knack for keeping everyone on side.",
+   "src": {
+    "page": 133,
+    "text": "但[紫贪]却带粉饰的意味，有领导欲，但却依旧有八面玲珑的手段。",
+    "quote": "有领导欲，但却依旧有八面玲珑的手段"
+   }
+  },
+  {
+   "id": "紫貪卯酉.煞",
+   "role": "limit",
+   "when": {
+    "star": [
+     "擎羊",
+     "陀羅",
+     "火星",
+     "鈴星",
+     "地空",
+     "地劫"
+    ],
+    "at": "same"
+   },
+   "text": "你的命宮見煞星：為了目標，你可以不擇手段。",
+   "en": "A malefic in your Life Palace means you can be ruthless in pursuit of a goal.",
+   "src": {
+    "page": 134,
+    "text": "[紫贪]的人生观一般较为积极．有煞曜者，且常常可以为了目标不择手段。",
+    "quote": "且常常可以为了目标不择手段"
+   }
+  },
+  {
+   "id": "紫貪卯酉.火鈴",
+   "role": "refine",
+   "when": {
+    "star": [
+     "火星",
+     "鈴星"
+    ],
+    "at": "same"
+   },
+   "text": "你的紫貪與火鈴同宮成格，會因為決策而得到意外之財。",
+   "en": "Your Zi Wei–Tan Lang shares the palace with Huo or Ling, forming the pattern: unexpected gains come from your decisions.",
+   "src": {
+    "page": 134,
+    "text": "[紫贪]孑火铃同度，亦构成[火贪铃贪]格。唯不如『武曲贪狼』之与火铃同茺，则是由于其实际行动与决断，不如武曲之明快敏锐。一一也可以说，[紫贪]是由于决策而得意外之财。",
+    "quote": "[紫贪]是由于决策而得意外之财"
+   }
+  },
+  {
+   "id": "紫貪卯酉.廉忌",
+   "role": "limit",
+   "when": {
+    "hua": "忌",
+    "star": "廉貞",
+    "at": "trine"
+   },
+   "text": "會照的廉貞化忌，你可能傾向半偏門的事業，而且要以交際應酬為主。",
+   "en": "Lian Zhen transformed by Ji in your trine may draw you towards semi-unconventional work that runs on socialising and entertaining.",
+   "src": {
+    "page": 134,
+    "text": "若廉贞化忌，则其人可能倾向于半偏门性质的事业，而且必须以交际应酬为主。",
+    "quote": "则其人可能倾向于半偏门性质的事业"
+   }
+  },
+  {
+   "id": "紫貪卯酉.廉祿",
+   "role": "refine",
+   "when": {
+    "hua": "祿",
+    "star": "廉貞",
+    "at": "trine"
+   },
+   "text": "會照的廉貞化祿，感情色彩略重：既重男女之情，也重朋友之情。",
+   "en": "Lian Zhen transformed by Lu in your trine adds a little more feeling: you value romance and friendship alike.",
+   "src": {
+    "page": 134,
+    "text": "唯廉贞化禄之时，感情色彩略重。既重男女之情，又重朋友感情。",
+    "quote": "既重男女之情，又重朋友感情"
+   }
+  }
+ ]
+}

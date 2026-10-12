@@ -1,0 +1,148 @@
+{
+ "basis": {
+  "page": 97,
+  "text": "要推断[紫微天府]这组星曜的物性，须注意其为主动，抑或被动。属于主动性质的[紫微天府]则攻守咸宜，若带被动色彩，则反易进退失据。",
+  "quote": "须注意其为主动，抑或被动"
+ },
+ "rules": [
+  {
+   "id": "紫府寅申.主動",
+   "role": "refine",
+   "when": {
+    "lean": "主動"
+   },
+   "text": "主動的一面較重：你攻守皆宜，可進可退。",
+   "en": "The active side is stronger: you can attack or defend, advance or hold back.",
+   "src": {
+    "page": 97,
+    "text": "属于主动性质的[紫微天府]则攻守咸宜，若带被动色彩，则反易进退失据。",
+    "quote": "属于主动性质的[紫微天府]则攻守咸宜"
+   }
+  },
+  {
+   "id": "紫府寅申.被動",
+   "role": "limit",
+   "when": {
+    "lean": "被動"
+   },
+   "text": "被動的一面較重：你容易進退失據，想進又不敢進，想退又不肯退，事事只能全力應付環境。",
+   "en": "The passive side is stronger: you're prone to indecision, wanting to advance but not daring, wanting to retreat but not willing, so you end up spending everything just coping with circumstances.",
+   "src": {
+    "page": 97,
+    "text": "但若带一偏之性，偏于紫微则嫌受天府的拖累，却进而不敢进，偏于天府则嫌受紫微的影响，却退而不肯退，这吋就反而事事陷于被动，只能用全力来应付客观环境。",
+    "quote": "这吋就反而事事陷于被动"
+   }
+  },
+  {
+   "id": "紫府寅申.武科",
+   "role": "refine",
+   "when": {
+    "hua": "科",
+    "star": "武曲",
+    "at": "trine"
+   },
+   "text": "會照的武曲化科，與天府配合得好，紫微天府兩面的矛盾不會太深。",
+   "en": "Wu Qu transformed by Ke in your trine works well with Tian Fu, so the tension between Zi Wei and Tian Fu doesn't run deep.",
+   "src": {
+    "page": 97,
+    "text": "尤其是当武曲化科之时，易跟天府配合，则虽主动而不致使紫、府二曜矛盾太深",
+    "quote": "易跟天府配合"
+   }
+  },
+  {
+   "id": "紫府寅申.武權",
+   "role": "limit",
+   "when": {
+    "hua": "權",
+    "star": "武曲",
+    "at": "trine"
+   },
+   "text": "會照的武曲化權，令紫微主動的色彩增加，人生的波折比一般大。",
+   "en": "Wu Qu transformed by Quan in your trine strengthens Zi Wei's drive, and life has more setbacks than usual.",
+   "src": {
+    "page": 98,
+    "text": "若武曲独坐化为权星，令紫微的主动色彩增加，虽然[紫府]星系未必就失去平衡，可是人生的波折始终比武曲化科时为大。",
+    "quote": "可是人生的波折始终比武曲化科时为大"
+   },
+   "edit": "原句續講「三十前後多數要經過一次挫折」，屬年歲事件預言，不用。"
+  },
+  {
+   "id": "紫府寅申.武祿無祿存",
+   "role": "limit",
+   "when": {
+    "all": [
+     {
+      "hua": "祿",
+      "star": "武曲",
+      "at": "trine"
+     },
+     {
+      "not": {
+       "star": "祿存",
+       "at": "sifang"
+      }
+     }
+    ]
+   },
+   "text": "會照的武曲化祿，卻沒有祿存調和武曲的孤剋之氣，童年較為艱苦。",
+   "en": "Wu Qu transformed by Lu in your trine, without Lu Cun to dissolve its isolating edge, makes for a harder childhood.",
+   "src": {
+    "page": 98,
+    "text": "只是必须胡禄存同时会人[紫府]的宫度，然后才能化解武曲的孤克之气。所以若无禄存，则其人童年较为艰苦。",
+    "quote": "所以若无禄存，则其人童年较为艰苦"
+   }
+  },
+  {
+   "id": "紫府寅申.天機運",
+   "role": "refine",
+   "text": "天機所在的那一步運，帶來的不是實際的變動，而是想法上的轉變。",
+   "en": "The phase through Tian Ji brings not outward change but a change in your thinking.",
+   "src": {
+    "page": 98,
+    "text": "天机独守的宫垣，当[紫府]经行之时，并不主实际变动，而是主思想的变化。",
+    "quote": "而是主思想的变化"
+   }
+  },
+  {
+   "id": "紫府寅申.天梁運",
+   "role": "refine",
+   "text": "天梁所在的那一步運，你一般不喜：那段時間多是退居幕後。",
+   "en": "The phase through Tian Liang is not to your liking: in that time you mostly step behind the scenes.",
+   "src": {
+    "page": 99,
+    "text": "[紫府]一般不喜经行天梁躧度的宫限，因为天梁不带倾导性质。若运限逢此尚无大碍，仅主退居幕后，而其时已为[紫府]的老运。",
+    "quote": "仅主退居幕后"
+   }
+  },
+  {
+   "id": "紫府寅申.主動武曲",
+   "role": "refine",
+   "when": {
+    "lean": "主動"
+   },
+   "text": "主動的你，行到武曲所在的運，一般有利。",
+   "en": "Being the proactive kind, the phase through Wu Qu generally favours you.",
+   "src": {
+    "page": 98,
+    "text": "武曲独守的宫垣，一般利主动的[紫府]。",
+    "quote": "一般利主动的[紫府]"
+   },
+   "pole": "主動"
+  },
+  {
+   "id": "紫府寅申.被動破軍",
+   "role": "refine",
+   "when": {
+    "lean": "被動"
+   },
+   "text": "被動的你，行到破軍見擎羊陀羅的運，反而適合慢慢推進、扭轉劣勢；那段時間要慎選合作創業的夥伴。",
+   "en": "Being the reactive kind, a phase where Po Jun meets Qing Yang or Tuo Luo suits a slow advance that turns things round; in that time, choose business partners with care.",
+   "src": {
+    "page": 98,
+    "text": "若破军有羊陀会照，则反宜于被动的[紫府]，可以徐图缓进，慢慢扭转劣势。受人影响，急于改变则失败。因此经行此宫限时，要慎于选择合作创业的伙伴。",
+    "quote": "要慎于选择合作创业的伙伴"
+   },
+   "pole": "被動"
+  }
+ ]
+}

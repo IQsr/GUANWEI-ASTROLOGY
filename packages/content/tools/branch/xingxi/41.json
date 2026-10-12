@@ -1,0 +1,148 @@
+{
+ "basis": {
+  "page": 156,
+  "text": "但要推断天府在此二宫垣的本质，则须注意其为谦和，抑或怯懦。",
+  "quote": "则须注意其为谦和，抑或怯懦"
+ },
+ "rules": [
+  {
+   "id": "天府丑未.未",
+   "role": "refine",
+   "when": {
+    "branch": [
+     "未"
+    ]
+   },
+   "text": "你的天府在未，被入廟的太陽相夾，能在保守中尋求突破。",
+   "en": "Your Tian Fu sits in Wei, flanked by a strong Sun, and can find breakthroughs within caution.",
+   "src": {
+    "page": 156,
+    "text": "来宫喜太阳庙旺，不喜空陷。因此一般而言，未宫的天府较丑宫为佳，能于保守中寻求突破，丑宫者则多为纯保守型。",
+    "quote": "能于保守中寻求突破"
+   }
+  },
+  {
+   "id": "天府丑未.丑",
+   "role": "limit",
+   "when": {
+    "branch": [
+     "丑"
+    ]
+   },
+   "text": "你的天府在丑，多是純保守型。",
+   "en": "Your Tian Fu sits in Chou, and tends to be purely conservative.",
+   "src": {
+    "page": 156,
+    "text": "来宫喜太阳庙旺，不喜空陷。因此一般而言，未宫的天府较丑宫为佳，能于保守中寻求突破，丑宫者则多为纯保守型。",
+    "quote": "丑宫者则多为纯保守型"
+   }
+  },
+  {
+   "id": "天府丑未.謙和",
+   "role": "refine",
+   "when": {
+    "lean": "謙和"
+   },
+   "text": "謙和的天府不露稜角，卻外圓內方，做事有原則：表面不見轟轟烈烈，實際上能順應環境而發展。",
+   "en": "A modest Tian Fu shows no sharp edges, yet is round outside and square within, with principles: nothing dramatic on the surface, but steady growth with circumstances.",
+   "src": {
+    "page": 156,
+    "text": "谦各的天府，为人虽不露棱角，但外圆内方，做事依然有原则，所以表面不见其轰轰烈烈，但实际上却能因应环境而得发展。",
+    "quote": "但外圆内方，做事依然有原则"
+   }
+  },
+  {
+   "id": "天府丑未.怯",
+   "role": "limit",
+   "when": {
+    "lean": "保守"
+   },
+   "text": "膽怯的一面較重：時時不敢改變環境，表面小心謹慎，做事卻欠缺原則，事業容易在不知不覺間萎縮。",
+   "en": "The timid side is stronger: you rarely dare to change your situation; careful on the surface, but short on principle in practice, so your work can quietly shrink.",
+   "src": {
+    "page": 156,
+    "text": "怯懦的天府，则吋吋不敢改变环境，表面上为小心谨慎，实际上做事缺乏原则．因而事业往往于不知不觉萎缩。",
+    "quote": "因而事业往往于不知不觉萎缩"
+   }
+  },
+  {
+   "id": "天府丑未.廉忌",
+   "role": "limit",
+   "when": {
+    "all": [
+     {
+      "hua": "忌",
+      "star": "廉貞",
+      "at": "opp"
+     },
+     {
+      "not": {
+       "star": [
+        "左輔",
+        "右弼"
+       ],
+       "at": "sifang"
+      }
+     }
+    ]
+   },
+   "text": "對宮的廉貞化忌，令你較膽怯：原因多是自覺學識不足以擔重任。",
+   "en": "Lian Zhen opposite you is transformed by Ji, making you more timid, mostly because you feel your learning falls short of heavy responsibility.",
+   "src": {
+    "page": 157,
+    "text": "对宫『廉贞七杀』，而廉贞化忌，亦影响大府怯懦。但却是由于自身的学食，不足以负担重任而造成，并不由于人生的挫折。",
+    "quote": "但却是由于自身的学食，不足以负担重任而造成"
+   }
+  },
+  {
+   "id": "天府丑未.廉忌輔弼",
+   "role": "refine",
+   "when": {
+    "all": [
+     {
+      "hua": "忌",
+      "star": "廉貞",
+      "at": "opp"
+     },
+     {
+      "star": [
+       "左輔",
+       "右弼"
+      ],
+      "at": "sifang"
+     }
+    ]
+   },
+   "text": "對宮的廉貞化忌本令你膽怯，但有左輔右弼會合，可以抵消。",
+   "en": "Lian Zhen opposite you, transformed by Ji, would make you timid, but Zuo Fu and You Bi in your chart offset it.",
+   "src": {
+    "page": 157,
+    "text": "所以只需天府有辅弼同会（二曜同度更佳)， 则可抵消廉贞化忌的缺点。",
+    "quote": "则可抵消廉贞化忌的缺点"
+   }
+  },
+  {
+   "id": "天府丑未.廉祿",
+   "role": "limit",
+   "when": {
+    "hua": "祿",
+    "star": "廉貞",
+    "at": "opp"
+   },
+   "text": "對宮的廉貞化祿，增加你的謙和；只是這份謙和容易欠缺誠意，人緣反而不足。",
+   "en": "Lian Zhen opposite you is transformed by Lu, adding to your modesty; but that modesty can lack sincerity, leaving you short of goodwill.",
+   "src": {
+    "page": 157,
+    "text": "对宫『廉贞七杀』而廉贞化禄，可以增加天府的谦和，但这种谦和却可能欠缺诚意",
+    "quote": "但这种谦和却可能欠缺诚意"
+   },
+   "also": [
+    {
+     "page": 157,
+     "text": "所以事业难佳，往往缺少人缘。",
+     "quote": "往往缺少人缘"
+    }
+   ]
+  }
+ ]
+}

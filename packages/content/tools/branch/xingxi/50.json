@@ -1,0 +1,134 @@
+{
+ "basis": {
+  "page": 184,
+  "text": "所以要推断[曰月]坐此二宫垣的本质，便须分别其为开朗，抑为沈郁。",
+  "quote": "便须分别其为开朗，抑为沈郁"
+ },
+ "rules": [
+  {
+   "id": "日月丑未.未",
+   "role": "refine",
+   "when": {
+    "branch": [
+     "未"
+    ]
+   },
+   "text": "你的日月在未，太陽得地，比在丑宮優勝。",
+   "en": "Your Sun and Moon sit in Wei, where the Sun has ground, which is better than in Chou.",
+   "src": {
+    "page": 185,
+    "text": "由于会合天梁的关系，未宫的[曰月]又优于丑宫，因为未宫为太阳得地，而丑宫者落陷，因而未宫的太阳便可解天梁的孤忌，而丑宫则不能。",
+    "quote": "未宫的[曰月]又优于丑宫"
+   }
+  },
+  {
+   "id": "日月丑未.丑",
+   "role": "limit",
+   "when": {
+    "branch": [
+     "丑"
+    ]
+   },
+   "text": "你的日月在丑，太陽落陷，解不了天梁的孤忌。",
+   "en": "Your Sun and Moon sit in Chou, where the Sun is weak and can't lift Tian Liang's isolation.",
+   "src": {
+    "page": 185,
+    "text": "由于会合天梁的关系，未宫的[曰月]又优于丑宫，因为未宫为太阳得地，而丑宫者落陷，因而未宫的太阳便可解天梁的孤忌，而丑宫则不能。",
+    "quote": "而丑宫则不能"
+   }
+  },
+  {
+   "id": "日月丑未.陽吉",
+   "role": "refine",
+   "when": {
+    "hua": [
+     "祿",
+     "權",
+     "科"
+    ],
+    "star": "太陽",
+    "at": "same"
+   },
+   "text": "你的太陽吉化，光華增加，形成開朗的性質。",
+   "en": "Your Sun has a favourable transformation, adding brightness and an open disposition.",
+   "src": {
+    "page": 185,
+    "text": "若太阳吉化，增加了光华，然后始可以形成开朗的性质。",
+    "quote": "然后始可以形成开朗的性质"
+   }
+  },
+  {
+   "id": "日月丑未.陰吉",
+   "role": "refine",
+   "when": {
+    "all": [
+     {
+      "hua": [
+       "祿",
+       "權",
+       "科"
+      ],
+      "star": "太陰",
+      "at": "same"
+     },
+     {
+      "not": {
+       "hua": [
+        "祿",
+        "權",
+        "科"
+       ],
+       "star": "太陽",
+       "at": "same"
+      }
+     }
+    ]
+   },
+   "text": "你的太陰吉化，只是減少太陰本身的沉潛收斂。",
+   "en": "Your Moon has a favourable transformation, which only lessens the Moon's own withdrawn reserve.",
+   "src": {
+    "page": 185,
+    "text": "太阴化禄、权、科，不如太阳化禄、权、科，当太阴化之时，仍不足以解天梁的孤忌，只可以说，减少了太阴本身的沈潜收敛之性而已。",
+    "quote": "减少了太阴本身的沈潜收敛之性而已"
+   }
+  },
+  {
+   "id": "日月丑未.陽忌",
+   "role": "limit",
+   "when": {
+    "hua": "忌",
+    "star": "太陽",
+    "at": "same"
+   },
+   "text": "你的太陽化忌，孤忌之性加強：外表難以捉摸，內心的苦也不足為外人道。",
+   "en": "Your Sun is transformed by Ji, strengthening the isolation: hard to read on the outside, with private pain you don't share.",
+   "src": {
+    "page": 185,
+    "text": "当太阳化为忌星之时，与天梁的气质彼此相投，因而就加强了孤忌之性，变为外表不可捉摸，而内心痛苦亦不足为外人道的沈郁。",
+    "quote": "变为外表不可捉摸"
+   }
+  },
+  {
+   "id": "日月丑未.吉星",
+   "role": "refine",
+   "when": {
+    "star": [
+     "左輔",
+     "右弼",
+     "文昌",
+     "文曲",
+     "天魁",
+     "天鉞"
+    ],
+    "at": "sifang"
+   },
+   "text": "有吉星會合，增加你的開朗。",
+   "en": "Favourable stars meeting your chart add to your openness.",
+   "src": {
+    "page": 185,
+    "text": "[曰月]有诸吉拱会，如魁钺对拱；昌曲夹命；辅弼同躔之类，则可以增加它的开朗。",
+    "quote": "则可以增加它的开朗"
+   }
+  }
+ ]
+}

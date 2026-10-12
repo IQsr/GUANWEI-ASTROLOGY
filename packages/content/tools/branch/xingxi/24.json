@@ -1,0 +1,176 @@
+{
+ "basis": {
+  "page": 105,
+  "text": "要推断此宫垣的巨门本质，须分别其为深沉，抑为冲动。然深沉者虽偏向于理智仍有感情色彩，冲动者偏向于感情，仍有理智色彩",
+  "quote": "须分别其为深沉，抑为冲动"
+ },
+ "rules": [
+  {
+   "id": "巨門巳亥.表裡",
+   "role": "base",
+   "text": "你的外表和內心常常不一樣，別人難以從表面看透你。",
+   "en": "Your outside and inside often differ, so people find you hard to read from the surface.",
+   "src": {
+    "page": 105,
+    "text": "巨门坐守命宫的人，外表与内心常不如一，所以难以表面观察。",
+    "quote": "外表与内心常不如一"
+   }
+  },
+  {
+   "id": "巨門巳亥.祿火鈴",
+   "role": "limit",
+   "when": {
+    "all": [
+     {
+      "any": [
+       {
+        "hua": "祿",
+        "star": "巨門",
+        "at": "same"
+       },
+       {
+        "star": "祿存",
+        "at": "same"
+       }
+      ]
+     },
+     {
+      "star": [
+       "火星",
+       "鈴星"
+      ],
+      "at": "same"
+     }
+    ]
+   },
+   "text": "你的巨門得祿，又有火鈴同宮：表面圓滑，內心卻狹隘。",
+   "en": "Your Ju Men gains Lu but shares the palace with Huo or Ling: smooth on the surface, narrow inside.",
+   "src": {
+    "page": 105,
+    "text": "巨门化禄，或见禄存，最嫌火铃闹度、表面圆滑，而内心狭隘。",
+    "quote": "表面圆滑，而内心狭隘"
+   }
+  },
+  {
+   "id": "巨門巳亥.忌",
+   "role": "refine",
+   "when": {
+    "hua": "忌",
+    "star": "巨門",
+    "at": "same"
+   },
+   "text": "你的巨門化忌：外表冷靜，內心其實衝動。",
+   "en": "Your Ju Men is transformed by Ji: cool on the outside, impulsive underneath.",
+   "src": {
+    "page": 105,
+    "text": "巨门化忌，必有天同化权及天机化科来会，虽外表冷静，但其实内心冲动。",
+    "quote": "虽外表冷静，但其实内心冲动"
+   }
+  },
+  {
+   "id": "巨門巳亥.巳",
+   "role": "limit",
+   "when": {
+    "branch": [
+     "巳"
+    ]
+   },
+   "text": "你的巨門在巳，對宮的太陽在亥已落陷，多是非口舌。",
+   "en": "Your Ju Men sits in Si, facing a Sun already fallen in Hai, which brings more gossip and friction.",
+   "src": {
+    "page": 105,
+    "text": "巨门喜入庙的太阳，不喜落陷。落陷则多是非口舌，更化为忌，则多拖累尤怨。",
+    "quote": "落陷则多是非口舌"
+   }
+  },
+  {
+   "id": "巨門巳亥.巳陽忌",
+   "role": "limit",
+   "when": {
+    "all": [
+     {
+      "branch": [
+       "巳"
+      ]
+     },
+     {
+      "hua": "忌",
+      "star": "太陽",
+      "at": "opp"
+     }
+    ]
+   },
+   "text": "對宮的太陽又化忌，更多拖累、招怨。",
+   "en": "The Sun opposite you is also transformed by Ji, bringing more burdens and resentment.",
+   "src": {
+    "page": 105,
+    "text": "巨门喜入庙的太阳，不喜落陷。落陷则多是非口舌，更化为忌，则多拖累尤怨。",
+    "quote": "更化为忌，则多拖累尤怨"
+   }
+  },
+  {
+   "id": "巨門巳亥.亥",
+   "role": "refine",
+   "when": {
+    "branch": [
+     "亥"
+    ]
+   },
+   "text": "你的巨門在亥，對宮的太陽在巳入廟，可以解巨門的暗。",
+   "en": "Your Ju Men sits in Hai, facing a Sun at full strength in Si, which lifts Ju Men's shadow.",
+   "src": {
+    "page": 107,
+    "text": "太阳入庙于巳宫，光华荣耀，可以解深沉的者之暗",
+    "quote": "太阳入庙于巳宫，光华荣耀"
+   }
+  },
+  {
+   "id": "巨門巳亥.同忌",
+   "role": "limit",
+   "when": {
+    "hua": "忌",
+    "star": "天同",
+    "at": "trine"
+   },
+   "text": "會照的天同化忌，增加你的狹隘和衝動。",
+   "en": "Tian Tong transformed by Ji in your trine adds to narrowness and impulsiveness.",
+   "src": {
+    "page": 106,
+    "text": "天同化忌，增加巨门的狭隘与冲动。",
+    "quote": "增加巨门的狭隘与冲动"
+   }
+  },
+  {
+   "id": "巨門巳亥.機祿",
+   "role": "limit",
+   "when": {
+    "hua": "祿",
+    "star": "天機",
+    "at": "trine"
+   },
+   "text": "會照的天機化祿，令你更深沉，甚至顯得冷淡寡情。",
+   "en": "Tian Ji transformed by Lu in your trine makes you deeper still, even cool and distant.",
+   "src": {
+    "page": 106,
+    "text": "天机化禄、化忌，增加巨门的深沉，，且化禄比化忌更深沉，甚至可使巨门泠汉寡情。",
+    "quote": "甚至可使巨门泠汉寡情"
+   }
+  },
+  {
+   "id": "巨門巳亥.機忌",
+   "role": "refine",
+   "when": {
+    "hua": "忌",
+    "star": "天機",
+    "at": "trine"
+   },
+   "text": "會照的天機化忌，增加你的深沉。",
+   "en": "Tian Ji transformed by Ji in your trine makes you deeper.",
+   "src": {
+    "page": 106,
+    "text": "天机化禄、化忌，增加巨门的深沉，，且化禄比化忌更深沉，甚至可使巨门泠汉寡情。",
+    "quote": "增加巨门的深沉"
+   }
+  }
+ ]
+}

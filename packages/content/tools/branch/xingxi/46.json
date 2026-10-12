@@ -1,0 +1,170 @@
+{
+ "basis": {
+  "page": 172,
+  "text": "一般而言，要推断此二宫垣的酸贞本质，须详其为敏感，抑为踏实。",
+  "quote": "须详其为敏感，抑为踏实"
+ },
+ "rules": [
+  {
+   "id": "廉貞寅申.雄宿",
+   "role": "exception",
+   "when": {
+    "all": [
+     {
+      "branch": [
+       "申"
+      ]
+     },
+     {
+      "not": {
+       "star": [
+        "擎羊",
+        "陀羅",
+        "火星",
+        "鈴星",
+        "地空",
+        "地劫"
+       ],
+       "at": "sifang"
+      }
+     },
+     {
+      "not": {
+       "hua": "忌",
+       "at": "sifang"
+      }
+     },
+     {
+      "hua": [
+       "祿",
+       "權",
+       "科"
+      ],
+      "at": "sifang"
+     },
+     {
+      "star": [
+       "左輔",
+       "右弼",
+       "文昌",
+       "文曲",
+       "天魁",
+       "天鉞"
+      ],
+      "at": "sifang"
+     }
+    ]
+   },
+   "text": "你的廉貞在申獨坐，不見煞忌而有吉化吉星：成雄宿乾元格，行到七殺的大限會發跡。",
+   "en": "Your Lian Zhen sits alone in Shen, free of malefics and Ji, with favourable transformations and stars: the 'heroic star' pattern, rising when you reach the Qi Sha stage.",
+   "src": {
+    "page": 172,
+    "text": "廉贪在申宫独坐，无煞忌刑耗诸曜，而有吉化及吉曜者，称为[雄宿干元格j，行至七杀独坐的宫垣发迹",
+    "quote": "行至七杀独坐的宫垣发迹"
+   }
+  },
+  {
+   "id": "廉貞寅申.敏感",
+   "role": "refine",
+   "when": {
+    "lean": "敏感"
+   },
+   "text": "敏感的廉貞帶藝術氣質，重視精神生活。",
+   "en": "A sensitive Lian Zhen has an artistic temperament and values the inner life.",
+   "src": {
+    "page": 172,
+    "text": "敏感的廉贞一般带艺术气质，重视精神生活。",
+    "quote": "敏感的廉贞一般带艺术气质"
+   }
+  },
+  {
+   "id": "廉貞寅申.踏實",
+   "role": "refine",
+   "when": {
+    "lean": "踏實"
+   },
+   "text": "踏實的廉貞，就算重視精神生活，也以物質享受為基礎。",
+   "en": "A grounded Lian Zhen, even valuing the inner life, builds it on material comfort.",
+   "src": {
+    "page": 172,
+    "text": "踏实的廉贞，即使重视精神生活，亦必以物娇享受为基础。",
+    "quote": "亦必以物娇享受为基础"
+   }
+  },
+  {
+   "id": "廉貞寅申.火鈴",
+   "role": "limit",
+   "when": {
+    "star": [
+     "火星",
+     "鈴星"
+    ],
+    "at": "same"
+   },
+   "text": "你的廉貞與火鈴同宮，敏感容易走向不好的一面，例如自作多情。",
+   "en": "Your Lian Zhen shares the palace with Huo or Ling, so sensitivity can take a bad turn, such as reading too much into things.",
+   "src": {
+    "page": 173,
+    "text": "廉贞与火星或铃星同度，不但破坏了[雄宿干元格]，而且亦使之具有不良的敏感本质，如自作多情",
+    "quote": "而且亦使之具有不良的敏感本质"
+   },
+   "edit": "原句續講投機取巧、趨炎附勢，屬人格貶語，不用。"
+  },
+  {
+   "id": "廉貞寅申.祿貪",
+   "role": "refine",
+   "when": {
+    "star": "祿存",
+    "at": "opp"
+   },
+   "text": "對宮的貪狼有祿存同宮，你一生多順遂，在困境中也往往突生意外之喜。",
+   "en": "Tan Lang opposite you shares its palace with Lu Cun: life goes smoothly for the most part, and even in difficulty, unexpected good fortune often appears.",
+   "src": {
+    "page": 173,
+    "text": "廉贞亦喜会禄存，最喜禄存与贪狼同度，则一生多顺遂的境遇，且往往于困境中突生意外之喜。",
+    "quote": "且往往于困境中突生意外之喜"
+   }
+  },
+  {
+   "id": "廉貞寅申.七殺運",
+   "role": "refine",
+   "text": "七殺所在的那一步運，是你的重要運限：見吉化吉星，就是開創的時候。",
+   "en": "The phase through Qi Sha is a key one for you: with helpful stars or transformations, it is your time to break new ground.",
+   "src": {
+    "page": 174,
+    "text": "七杀独坐的宫垣，为廉贞的重要运限。吉化吉曜来会，则为开创性运势，",
+    "quote": "为廉贞的重要运限"
+   }
+  },
+  {
+   "id": "廉貞寅申.敏感天同",
+   "role": "refine",
+   "when": {
+    "lean": "敏感"
+   },
+   "text": "敏感的你，行到天同所在的運，只要煞忌不重，一般就是奠定基業的時候。",
+   "en": "Being the sensitive kind, the phase through Tian Tong, unless harsh stars crowd in, is usually when you lay your foundations.",
+   "src": {
+    "page": 173,
+    "text": "天同独坐的宫垣，为敏感的廉贞所喜，只需不见煞忌刑耗重重来会，一般为奠立基业的运限。",
+    "quote": "一般为奠立基业的运限"
+   },
+   "pole": "敏感"
+  },
+  {
+   "id": "廉貞寅申.踏實貪狼",
+   "role": "refine",
+   "when": {
+    "lean": "踏實"
+   },
+   "text": "踏實的你，行到貪狼化祿的運，財喜接連而來。",
+   "en": "Being the grounded kind, a phase with Tan Lang in Abundance brings one gain after another.",
+   "src": {
+    "page": 174,
+    "text": "贪狼独坐的宫垣，只需见化禄，即为踏实的廉贞所实，财喜迭迭而来。",
+    "quote": "财喜迭迭而来"
+   },
+   "pole": "踏實"
+  }
+ ]
+}

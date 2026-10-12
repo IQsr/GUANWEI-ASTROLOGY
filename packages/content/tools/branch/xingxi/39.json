@@ -1,0 +1,168 @@
+{
+ "basis": {
+  "page": 150,
+  "text": "要推断此二宫垣[武破]的特性，须祥其为善于适应，抑或具反拗的本质而定。",
+  "quote": "须祥其为善于适应，抑或具反拗的本质而定"
+ },
+ "rules": [
+  {
+   "id": "武破巳亥.適應",
+   "role": "refine",
+   "when": {
+    "lean": "善於適應"
+   },
+   "text": "適應力強：環境順逆，你都能開創；環境不利時，也能利用環境。",
+   "en": "Strongly adaptable: in good times and bad you can build, and even unfavourable conditions you can turn to use.",
+   "src": {
+    "page": 150,
+    "text": "具适应力的武曲，不但于客观环境顺逆时能开创，即使环境不利，亦能利用环境。",
+    "quote": "即使环境不利，亦能利用环境"
+   }
+  },
+  {
+   "id": "武破巳亥.反拗",
+   "role": "limit",
+   "when": {
+    "lean": "反其道"
+   },
+   "text": "反拗的一面較重：順境時不安於現狀，容易妄行妄作去追求過高的理想；逆境時又太重眼前利益，人際關係因此變差。",
+   "en": "The contrary side is stronger: in good times you won't settle, acting rashly in pursuit of ideals set too high; in hard times you fix on short-term gain, and relationships suffer.",
+   "src": {
+    "page": 150,
+    "text": "倘具反拗本质的武曲。不但于客观顺遂时往往不安于命运，每每喜妄行妄作，以求达到过高的理想。结果招挫败，于环境不利时，则更注重眼前利益，以致人际关系恶劣，结果反招失败。",
+    "quote": "每每喜妄行妄作"
+   }
+  },
+  {
+   "id": "武破巳亥.火鈴",
+   "role": "limit",
+   "when": {
+    "star": [
+     "火星",
+     "鈴星"
+    ],
+    "at": "same"
+   },
+   "text": "你的武曲破軍與火鈴同宮，這是最嫌的組合：不但性格反拗，客觀形勢也往往逼你反其道而行。",
+   "en": "Your Wu Qu–Po Jun shares the palace with Huo or Ling, the combination it dislikes most: not only contrary by nature, but often forced by circumstance to go against the grain.",
+   "src": {
+    "page": 151,
+    "text": "[武曲破军]最嫌火铃同度。不但有反拗之性，而且客观形势往往逼人反拗",
+    "quote": "而且客观形势往往逼人反拗"
+   }
+  },
+  {
+   "id": "武破巳亥.權",
+   "role": "limit",
+   "when": {
+    "all": [
+     {
+      "hua": "權",
+      "star": "武曲",
+      "at": "same"
+     },
+     {
+      "not": {
+       "star": [
+        "左輔",
+        "右弼"
+       ],
+       "at": "sifang"
+      }
+     }
+    ]
+   },
+   "text": "你的武曲化權，星曜性質過份強烈：自己雖能適應環境，卻缺少助力。",
+   "en": "Your Wu Qu is transformed by Quan, making the stars overly forceful: you can adapt on your own, but lack support.",
+   "src": {
+    "page": 150,
+    "text": "若武曲化权，则星曜性质过份强烈，虽自身可以适应环境，但若于无助力配合，必须与辅、弼同会，然后才能改善",
+    "quote": "则星曜性质过份强烈"
+   }
+  },
+  {
+   "id": "武破巳亥.武忌",
+   "role": "limit",
+   "when": {
+    "hua": "忌",
+    "star": "武曲",
+    "at": "same"
+   },
+   "text": "你的武曲化忌，帶反拗之性。",
+   "en": "Your Wu Qu is transformed by Ji, which brings a contrary streak.",
+   "src": {
+    "page": 151,
+    "text": "无沦为武曲化忌，或廉贞化忌，皆带反拗之性，廉贞化忌者尤甚。",
+    "quote": "皆带反拗之性"
+   }
+  },
+  {
+   "id": "武破巳亥.廉忌",
+   "role": "limit",
+   "when": {
+    "hua": "忌",
+    "star": "廉貞",
+    "at": "trine"
+   },
+   "text": "會照的廉貞化忌，令你帶反拗之性，而且影響最重。",
+   "en": "Lian Zhen transformed by Ji in your trine brings a contrary streak, and the strongest effect of all.",
+   "src": {
+    "page": 151,
+    "text": "无沦为武曲化忌，或廉贞化忌，皆带反拗之性，廉贞化忌者尤甚。",
+    "quote": "廉贞化忌者尤甚"
+   }
+  },
+  {
+   "id": "武破巳亥.紫科",
+   "role": "refine",
+   "text": "紫微貪狼所在的那一步運，若紫微化科，就是你名利雙收的時候。",
+   "en": "The phase through Zi Wei–Tan Lang, with Zi Wei in Merit, is when you gain both name and fortune.",
+   "src": {
+    "page": 151,
+    "text": "最喜紫微于运限或流年化科，则无论何种本质的[武破]，皆为名利双收的运程，仅程度不同而已。",
+    "quote": "皆为名利双收的运程"
+   }
+  },
+  {
+   "id": "武破巳亥.巨門",
+   "role": "limit",
+   "text": "巨門所在的那一步運，你一般不喜：容易受下屬、尤其是自己提拔的人困擾。",
+   "en": "The phase through Ju Men is not to your liking: subordinates, especially those you promoted yourself, tend to cause you trouble.",
+   "src": {
+    "page": 152,
+    "text": "巨门独坐的宫垣，无论为流年或大运。均为[武破]所不喜行。即使具适应本质，亦易受下属(尤其是自己一手提拔者)所困扰。",
+    "quote": "均为[武破]所不喜行"
+   }
+  },
+  {
+   "id": "武破巳亥.適應天府",
+   "role": "refine",
+   "when": {
+    "lean": "善於適應"
+   },
+   "text": "善於適應的你，行到天府所在的運，一般就是創業的時候。",
+   "en": "Being the adaptable kind, the phase through Tian Fu is usually your time to start something of your own.",
+   "src": {
+    "page": 151,
+    "text": "天府独坐的宫垣，为具适应性的[，武破]所喜，一般即为创业的运程。",
+    "quote": "一般即为创业的运程"
+   },
+   "pole": "善於適應"
+  },
+  {
+   "id": "武破巳亥.反其道天府",
+   "role": "limit",
+   "when": {
+    "lean": "反其道"
+   },
+   "text": "反其道的你，原來的環境往往不差，卻偏要強行改變，因此受挫；行到天府所在的運尤其要記住這一點。",
+   "en": "Going against the grain, you often force a change on circumstances that were fine, and suffer for it; remember this above all in the phase through Tian Fu.",
+   "src": {
+    "page": 151,
+    "text": "具反拗性的[武破]，往往原来的环境不差，但却强行改变，于是受到挫折。",
+    "quote": "往往原来的环境不差，但却强行改变"
+   },
+   "pole": "反其道"
+  }
+ ]
+}

@@ -1,0 +1,111 @@
+{
+ "basis": {
+  "page": 84,
+  "text": "要推断天相在这两个宫垣的性质，必须注意其气质之优雅或庸俗。因为凡天相在命宫的人，必带僚幕的气质，若优雅则尚不失其独立性，若庸俗则不过为官场附庸，豪门走卒而已。",
+  "quote": "必须注意其气质之优雅或庸俗"
+ },
+ "rules": [
+  {
+   "id": "天相丑未.優雅",
+   "role": "refine",
+   "when": {
+    "lean": "優雅"
+   },
+   "text": "優雅的一面較重：命運未必勝過隨俗的人，社會地位卻較高。",
+   "en": "The refined side is stronger: your fortunes may not outrun those who follow the crowd, but your standing in society is higher.",
+   "src": {
+    "page": 85,
+    "text": "气质优雅的天相，命运未必能及气质庸俗者，但社会地位则胜之。",
+    "quote": "但社会地位则胜之"
+   }
+  },
+  {
+   "id": "天相丑未.隨俗",
+   "role": "refine",
+   "when": {
+    "lean": "隨俗"
+   },
+   "text": "隨俗的一面較重：社會地位或許不及氣質優雅的人，命運卻未必較差。",
+   "en": "The conforming side is stronger: your standing may not match those of refined temperament, but your fortunes aren't necessarily worse.",
+   "src": {
+    "page": 85,
+    "text": "气质优雅的天相，命运未必能及气质庸俗者，但社会地位则胜之。",
+    "quote": "命运未必能及气质庸俗者"
+   }
+  },
+  {
+   "id": "天相丑未.明主",
+   "role": "refine",
+   "when": {
+    "hua": [
+     "祿",
+     "權",
+     "科"
+    ],
+    "star": [
+     "紫微",
+     "破軍"
+    ],
+    "at": "opp"
+   },
+   "text": "對宮的紫微破軍吉化，是天相遇明主之兆：你容易遇到賞識自己的上司。",
+   "en": "Zi Wei–Po Jun opposite you has a favourable transformation, a sign of Tian Xiang meeting a wise master: you tend to find superiors who value you.",
+   "src": {
+    "page": 85,
+    "text": "从对宫的[紫微破军]来推断，若见禄权科会，则为天相见明主之兆，利于气质优雅者。",
+    "quote": "则为天相见明主之兆"
+   }
+  },
+  {
+   "id": "天相丑未.朝秦暮楚",
+   "role": "limit",
+   "when": {
+    "all": [
+     {
+      "lean": "隨俗"
+     },
+     {
+      "star": [
+       "擎羊",
+       "陀羅",
+       "火星",
+       "鈴星",
+       "地空",
+       "地劫"
+      ],
+      "at": "opp"
+     }
+    ]
+   },
+   "text": "對宮的紫微破軍見煞，你容易反覆，難免朝秦暮楚。",
+   "en": "Zi Wei–Po Jun opposite you meets malefics, so you're prone to changing sides, hard put to stay loyal to one camp.",
+   "src": {
+    "page": 85,
+    "text": "倘[紫破]见煞，气质庸俗者易生反复，难免朝秦暮楚。",
+    "quote": "难免朝秦暮楚"
+   }
+  },
+  {
+   "id": "天相丑未.紫破年",
+   "role": "refine",
+   "text": "紫微破軍所在的那一年，是你的重要年份，往往就在那時改變命運，也常是與人合作創業的時候。",
+   "en": "The year that runs through Zi Wei–Po Jun is a key one for you: fortunes often turn then, and it is often when you go into business with others.",
+   "src": {
+    "page": 86,
+    "text": "[紫微破军]同度，为天相的重要流年，每每于经行此宫垣为流年命宫时改变命运：，吉化见吉曜，主改投明主；化忌见凶曜，则为后台提携者所弃。天相经行[紫破]，往往为与人合作创业的年份。",
+    "quote": "为天相的重要流年"
+   }
+  },
+  {
+   "id": "天相丑未.天府運",
+   "role": "refine",
+   "text": "天府所在的那一步運也很重要：你有沒有收穫，就看那段時間的機遇；天府得祿就吉。",
+   "en": "The phase through Tian Fu matters too: whether you reap a harvest depends on the chances of that time, and it goes well when Tian Fu meets Lu.",
+   "src": {
+    "page": 86,
+    "text": "天府独坐，为原局天相坐命者的重要运程及年限。详其得禄与否而定吉凶。甚至可以说，是否能有收获，即视此年运的机遇而定。",
+    "quote": "是否能有收获，即视此年运的机遇而定"
+   }
+  }
+ ]
+}

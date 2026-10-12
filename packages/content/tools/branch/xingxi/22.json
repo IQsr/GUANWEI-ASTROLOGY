@@ -1,0 +1,130 @@
+{
+ "basis": {
+  "page": 100,
+  "text": "要推断此二宫垣的太阴特性，须注意其意志为坚强，抑为薄弱。",
+  "quote": "须注意其意志为坚强"
+ },
+ "rules": [
+  {
+   "id": "太陰卯酉.祿",
+   "role": "limit",
+   "when": {
+    "hua": "祿",
+    "star": "太陰",
+    "at": "same"
+   },
+   "text": "你的太陰化祿，意志容易在感情上薄弱。",
+   "en": "Your Tai Yin is transformed by Lu, so your will tends to weaken where feelings are involved.",
+   "src": {
+    "page": 100,
+    "text": "太阴化禄或化忌，均影响意志薄弱，但性质不同，化禄者易对感情意志薄弱，化忌者对物质意志薄弱。",
+    "quote": "化禄者易对感情意志薄弱"
+   }
+  },
+  {
+   "id": "太陰卯酉.忌",
+   "role": "limit",
+   "when": {
+    "hua": "忌",
+    "star": "太陰",
+    "at": "same"
+   },
+   "text": "你的太陰化忌，意志容易在物質上薄弱。",
+   "en": "Your Tai Yin is transformed by Ji, so your will tends to weaken where material things are involved.",
+   "src": {
+    "page": 100,
+    "text": "太阴化禄或化忌，均影响意志薄弱，但性质不同，化禄者易对感情意志薄弱，化忌者对物质意志薄弱。",
+    "quote": "化忌者对物质意志薄弱"
+   }
+  },
+  {
+   "id": "太陰卯酉.權",
+   "role": "refine",
+   "when": {
+    "hua": "權",
+    "star": "太陰",
+    "at": "same"
+   },
+   "text": "你的太陰化權，意志力增強。",
+   "en": "Your Tai Yin is transformed by Quan, which strengthens your will.",
+   "src": {
+    "page": 100,
+    "text": "太阴化权、化科，则可以增加意志力。",
+    "quote": "则可以增加意志力"
+   }
+  },
+  {
+   "id": "太陰卯酉.科",
+   "role": "refine",
+   "when": {
+    "hua": "科",
+    "star": "太陰",
+    "at": "same"
+   },
+   "text": "你的太陰化科，意志力增強。",
+   "en": "Your Tai Yin is transformed by Ke, which strengthens your will.",
+   "src": {
+    "page": 100,
+    "text": "太阴化权、化科，则可以增加意志力。",
+    "quote": "则可以增加意志力"
+   }
+  },
+  {
+   "id": "太陰卯酉.同忌",
+   "role": "limit",
+   "when": {
+    "hua": "忌",
+    "star": "天同",
+    "at": "opp"
+   },
+   "text": "對宮的天同化忌，令你的意志容易薄弱，耽於享樂或物欲。",
+   "en": "Tian Tong opposite you is transformed by Ji, so your will can weaken, drifting into pleasure or material wants.",
+   "src": {
+    "page": 100,
+    "text": "天同化忌，影响太阴的意志力，其薄弱的具休表现为容易耽于欲乐或物欲。",
+    "quote": "容易耽于欲乐或物欲"
+   }
+  },
+  {
+   "id": "太陰卯酉.天機運",
+   "role": "refine",
+   "text": "天機所在的那一步運，對你非常重要：天機化科往往是一生事業奠基之時；天機化忌，就要不理是非，我行我素。",
+   "en": "The phase through Tian Ji matters greatly to you: with Tian Ji in Merit it often lays the foundation of your career; with Tian Ji in Hindrance, ignore the gossip and go your own way.",
+   "src": {
+    "page": 102,
+    "text": "天机独坐的宫垣，对原局太阴守命的人来说非常重要，性质亦相当复杂。",
+    "quote": "对原局太阴守命的人来说非常重要"
+   }
+  },
+  {
+   "id": "太陰卯酉.堅強武曲",
+   "role": "refine",
+   "when": {
+    "lean": "意志堅強"
+   },
+   "text": "意志堅強的你，行到武曲所在的運，是積極有利的運程。",
+   "en": "With a firm will, the phase through Wu Qu is an active and favourable one for you.",
+   "src": {
+    "page": 102,
+    "text": "武曲独坐的宫垣，一般为积极性运程，对意志坚强的太阴有利。",
+    "quote": "对意志坚强的太阴有利"
+   },
+   "pole": "意志堅強"
+  },
+  {
+   "id": "太陰卯酉.薄弱殺破狼",
+   "role": "limit",
+   "when": {
+    "lean": "意志薄弱"
+   },
+   "text": "意志較軟的你，行到七殺、破軍、貪狼的運，以守成為佳，也不宜陷入感情困擾。",
+   "en": "With a softer will, in the phases through Qi Sha, Po Jun and Tan Lang, hold what you have, and keep clear of emotional entanglements.",
+   "src": {
+    "page": 101,
+    "text": "若意志力薄弱的太阴，于杀、破、狼运限或流年，一旦同时有煞会合，即为恶性转变的运程，所以一般而言，以守成为佳，亦不宜陷于感情困扰。",
+    "quote": "以守成为佳，亦不宜陷于感情困扰"
+   },
+   "pole": "意志薄弱"
+  }
+ ]
+}

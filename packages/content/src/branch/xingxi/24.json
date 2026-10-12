@@ -56,11 +56,11 @@
       },
       "text": "你的巨門得祿，又有火鈴同宮：表面圓滑，內心卻狹隘。",
       "en": "Your Ju Men gains Lu but shares the palace with Huo or Ling: smooth on the surface, narrow inside.",
+      "pole": "深沉",
       "source": {
         "passage": "deep.星系24.3",
         "quote": "表面圆滑，而内心狭隘"
-      },
-      "pole": "深沉"
+      }
     },
     {
       "id": "巨門巳亥.忌",
@@ -72,11 +72,11 @@
       },
       "text": "你的巨門化忌：外表冷靜，內心其實衝動。",
       "en": "Your Ju Men is transformed by Ji: cool on the outside, impulsive underneath.",
+      "pole": "衝動",
       "source": {
         "passage": "deep.星系24.4",
         "quote": "虽外表冷静，但其实内心冲动"
-      },
-      "pole": "衝動"
+      }
     },
     {
       "id": "巨門巳亥.巳",
@@ -142,11 +142,11 @@
       },
       "text": "會照的天同化忌，增加你的狹隘和衝動。",
       "en": "Tian Tong transformed by Ji in your trine adds to narrowness and impulsiveness.",
+      "pole": "衝動",
       "source": {
         "passage": "deep.星系24.7",
         "quote": "增加巨门的狭隘与冲动"
-      },
-      "pole": "衝動"
+      }
     },
     {
       "id": "巨門巳亥.機祿",
@@ -158,11 +158,11 @@
       },
       "text": "會照的天機化祿，令你更深沉，甚至顯得冷淡寡情。",
       "en": "Tian Ji transformed by Lu in your trine makes you deeper still, even cool and distant.",
+      "pole": "深沉",
       "source": {
         "passage": "deep.星系24.8",
         "quote": "甚至可使巨门泠汉寡情"
-      },
-      "pole": "深沉"
+      }
     },
     {
       "id": "巨門巳亥.機忌",
@@ -174,11 +174,11 @@
       },
       "text": "會照的天機化忌，增加你的深沉。",
       "en": "Tian Ji transformed by Ji in your trine makes you deeper.",
+      "pole": "深沉",
       "source": {
         "passage": "deep.星系24.8",
         "quote": "增加巨门的深沉"
-      },
-      "pole": "深沉"
+      }
     }
   ]
 }

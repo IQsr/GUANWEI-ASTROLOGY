@@ -1,0 +1,104 @@
+{
+ "basis": {
+  "page": 76,
+  "text": "除此之外，要推断此二宫垣太阴的本质，则应该注意到它的支向，属于盲动，抑或具有目标。一一此二宫为[天罗地网]，因此太阴的动向才特殊重要。有目的者，一举即可破罗网而出，有如游鱼脱网；但盲动者则愈挣扎愈受缠缚。",
+  "quote": "属于盲动，抑或具有目标"
+ },
+ "rules": [
+  {
+   "id": "太陰辰戌.辰",
+   "role": "limit",
+   "when": {
+    "branch": [
+     "辰"
+    ]
+   },
+   "text": "你的太陰在辰，對宮的太陽在戌已落陷，比在戌宮的太陰暗晦一些。",
+   "en": "Your Tai Yin sits in Chen, facing a Sun already fallen in Xu, so it's a little dimmer than a Tai Yin in Xu.",
+   "src": {
+    "page": 76,
+    "text": "由于与太阳相对的关系，辰戌二宫独坐的太阴基本有良好性质，古人称为[日月拱照]。但戌宫太阳落陷，因而辰宫的太阴亦较戌宫者为暗晦。",
+    "quote": "因而辰宫的太阴亦较戌宫者为暗晦"
+   }
+  },
+  {
+   "id": "太陰辰戌.戌",
+   "role": "refine",
+   "when": {
+    "branch": [
+     "戌"
+    ]
+   },
+   "text": "你的太陰在戌，與辰宮的太陽相對，古人稱為日月拱照，本質良好。",
+   "en": "Your Tai Yin sits in Xu facing the Sun in Chen, what the ancients called sun and moon shining on each other: a good foundation.",
+   "src": {
+    "page": 76,
+    "text": "由于与太阳相对的关系，辰戌二宫独坐的太阴基本有良好性质，古人称为[日月拱照]。但戌宫太阳落陷，因而辰宫的太阴亦较戌宫者为暗晦。",
+    "quote": "古人称为[日月拱照]"
+   }
+  },
+  {
+   "id": "太陰辰戌.盲動",
+   "role": "limit",
+   "when": {
+    "lean": "盲動"
+   },
+   "text": "盲動的一面較重：在困局裡愈掙扎，愈被纏住；先定好目標再動，比急著衝出去好。",
+   "en": "The aimless side is stronger: the more you struggle in a tight spot, the more tangled you get; set a goal before you move, rather than rushing out.",
+   "src": {
+    "page": 76,
+    "text": "有目的者，一举即可破罗网而出，有如游鱼脱网；但盲动者则愈挣扎愈受缠缚。",
+    "quote": "但盲动者则愈挣扎愈受缠缚"
+   },
+   "edit": "末句建議是編輯加的。"
+  },
+  {
+   "id": "太陰辰戌.有目標",
+   "role": "refine",
+   "when": {
+    "lean": "有目標"
+   },
+   "text": "有目標的一面較重：遇到困局，你能一舉破網而出，像游魚脫網。",
+   "en": "The purposeful side is stronger: in a tight spot you break out in one move, like a fish slipping the net.",
+   "src": {
+    "page": 76,
+    "text": "有目的者，一举即可破罗网而出，有如游鱼脱网；但盲动者则愈挣扎愈受缠缚。",
+    "quote": "一举即可破罗网而出"
+   }
+  },
+  {
+   "id": "太陰辰戌.早歲",
+   "role": "limit",
+   "when": {
+    "star": [
+     "文昌",
+     "擎羊",
+     "陀羅",
+     "天魁",
+     "天鉞",
+     "火星",
+     "鈴星",
+     "天馬",
+     "地空",
+     "地劫"
+    ],
+    "at": "same"
+   },
+   "text": "你的命宮有屬金或屬火的星，早年較不順。",
+   "en": "Your Life Palace holds a star of the metal or fire element, so your early years are less smooth.",
+   "src": {
+    "page": 77,
+    "text": "然宫垣之内．无论有多属金的星曜，或多属火的星曜，早岁必定不利，尤主不利父母。",
+    "quote": "早岁必定不利"
+   },
+   "also": [
+    {
+     "page": 77,
+     "text": "属金的星曜：文昌、擎羊、陀罗、天哭。属火的星曜：魁钺、火铃、天马、空劫、天刑、孤寡、蜚廉、破碎。",
+     "quote": "属金的星曜：文昌、擎羊、陀罗"
+    }
+   ],
+   "edit": "原句另有「尤主不利父母」，六親斷語不入命宮讀者句。"
+  }
+ ]
+}

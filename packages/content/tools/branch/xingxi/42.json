@@ -1,0 +1,152 @@
+{
+ "basis": {
+  "page": 159,
+  "text": "要推断此二宫垣[机月]，的本质，须分别基数为理智抑或情绪。",
+  "quote": "为理智抑或情绪"
+ },
+ "rules": [
+  {
+   "id": "機陰寅申.理智",
+   "role": "refine",
+   "when": {
+    "lean": "理智"
+   },
+   "text": "理智型的機月，具幕僚的本質。",
+   "en": "A rational Tian Ji–Tai Yin has the nature of an adviser behind the scenes.",
+   "src": {
+    "page": 160,
+    "text": "理智型的[机月]，具僚幕的本质",
+    "quote": "理智型的[机月]，具僚幕的本质"
+   }
+  },
+  {
+   "id": "機陰寅申.情緒",
+   "role": "refine",
+   "when": {
+    "lean": "情緒"
+   },
+   "text": "情緒型的機月，具藝術氣質。",
+   "en": "An emotional Tian Ji–Tai Yin has an artistic temperament.",
+   "src": {
+    "page": 160,
+    "text": "情绪型的[机月]，具艺术气质",
+    "quote": "情绪型的[机月]，具艺术气质"
+   }
+  },
+  {
+   "id": "機陰寅申.吉化",
+   "role": "refine",
+   "when": {
+    "hua": [
+     "祿",
+     "權"
+    ],
+    "star": [
+     "天機",
+     "太陰"
+    ],
+    "at": "same"
+   },
+   "text": "你的天機太陰吉化，格局高尚。",
+   "en": "Your Tian Ji–Tai Yin has a favourable transformation, which raises the pattern.",
+   "src": {
+    "page": 160,
+    "text": "天机太阴本身，化禄、化权仅主格局高尚，并不代表为理智或为情绪。",
+    "quote": "化禄、化权仅主格局高尚"
+   }
+  },
+  {
+   "id": "機陰寅申.忌理智",
+   "role": "limit",
+   "when": {
+    "all": [
+     {
+      "hua": "忌",
+      "star": [
+       "天機",
+       "太陰"
+      ],
+      "at": "same"
+     },
+     {
+      "lean": "理智"
+     }
+    ]
+   },
+   "text": "你的天機太陰化忌，令理智的一面容易變成自私的行為。",
+   "en": "Your Tian Ji–Tai Yin is transformed by Ji, so the rational side can turn into self-serving behaviour.",
+   "src": {
+    "page": 160,
+    "text": "唯二者化忌，则影响理智为自私的行为，影响情绪为权术手段，二得皆不良倾向。",
+    "quote": "则影响理智为自私的行为"
+   }
+  },
+  {
+   "id": "機陰寅申.忌情緒",
+   "role": "limit",
+   "when": {
+    "all": [
+     {
+      "hua": "忌",
+      "star": [
+       "天機",
+       "太陰"
+      ],
+      "at": "same"
+     },
+     {
+      "lean": "情緒"
+     }
+    ]
+   },
+   "text": "你的天機太陰化忌，令情緒的一面容易變成權術手段。",
+   "en": "Your Tian Ji–Tai Yin is transformed by Ji, so the emotional side can turn into manipulation.",
+   "src": {
+    "page": 160,
+    "text": "唯二者化忌，则影响理智为自私的行为，影响情绪为权术手段，二得皆不良倾向。",
+    "quote": "影响情绪为权术手段"
+   }
+  },
+  {
+   "id": "機陰寅申.天梁運",
+   "role": "refine",
+   "text": "天梁所在的那一步運，是你的重要年運：那段時間一定要依正道而行。",
+   "en": "The phase that runs through Tian Liang is an important one for you: in that time, keep strictly to the straight path.",
+   "src": {
+    "page": 161,
+    "text": "无论在流年或大运，[机月]经行天梁躔度的宫垣，必须依正道而行，",
+    "quote": "必须依正道而行"
+   }
+  },
+  {
+   "id": "機陰寅申.理智天相",
+   "role": "limit",
+   "when": {
+    "lean": "理智"
+   },
+   "text": "理智型的你，行到天相所在的運，不宜獨當一面。",
+   "en": "Being the reasoning kind, in the phase through Tian Xiang, do not take sole charge.",
+   "src": {
+    "page": 160,
+    "text": "天相独坐的宫垣，一般不利理智型的[机月]，主不宜独当一面。",
+    "quote": "主不宜独当一面"
+   },
+   "pole": "理智"
+  },
+  {
+   "id": "機陰寅申.情緒天相",
+   "role": "refine",
+   "when": {
+    "lean": "情緒"
+   },
+   "text": "情緒型的你，行到天相所在的運，只要見吉星，也容易自得其樂地度過。",
+   "en": "Being the feeling kind, the phase through Tian Xiang passes pleasantly enough for you, so long as helpful stars appear.",
+   "src": {
+    "page": 160,
+    "text": "情绪型的[机月]，即使在天相大运，只需见吉曜，亦容易自得其乐度过。",
+    "quote": "亦容易自得其乐度过"
+   },
+   "pole": "情緒"
+  }
+ ]
+}

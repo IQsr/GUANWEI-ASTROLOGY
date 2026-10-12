@@ -1,0 +1,178 @@
+{
+ "basis": {
+  "page": 178,
+  "text": "要推断在此二宫垣的天同本质，须详其为意志薄弱，抑为意志坚强。",
+  "quote": "须详其为意志薄弱，抑为意志坚强"
+ },
+ "rules": [
+  {
+   "id": "天同巳亥.祿煞",
+   "role": "refine",
+   "when": {
+    "all": [
+     {
+      "any": [
+       {
+        "hua": "祿",
+        "star": "天同",
+        "at": "same"
+       },
+       {
+        "star": "祿存",
+        "at": "same"
+       }
+      ]
+     },
+     {
+      "star": [
+       "擎羊",
+       "陀羅",
+       "火星",
+       "鈴星",
+       "地空",
+       "地劫"
+      ],
+      "at": "sifang"
+     }
+    ]
+   },
+   "text": "你的天同得祿，又稍見煞星，意志反而堅強。",
+   "en": "Your Tian Tong gains Lu and meets a touch of malefics, which actually strengthens your will.",
+   "src": {
+    "page": 178,
+    "text": "天同化禄，会禄，或与禄存同度，必须稍见一二点煞曜，然后始主意志坚强，否则可能沦为意志薄弱。",
+    "quote": "必须稍见一二点煞曜，然后始主意志坚强"
+   }
+  },
+  {
+   "id": "天同巳亥.祿無煞",
+   "role": "limit",
+   "when": {
+    "all": [
+     {
+      "any": [
+       {
+        "hua": "祿",
+        "star": "天同",
+        "at": "same"
+       },
+       {
+        "star": "祿存",
+        "at": "same"
+       }
+      ]
+     },
+     {
+      "not": {
+       "star": [
+        "擎羊",
+        "陀羅",
+        "火星",
+        "鈴星",
+        "地空",
+        "地劫"
+       ],
+       "at": "sifang"
+      }
+     }
+    ]
+   },
+   "text": "你的天同得祿而不見煞，容易流於意志薄弱。",
+   "en": "Your Tian Tong gains Lu with no malefics in view, so your will can slide into weakness.",
+   "src": {
+    "page": 178,
+    "text": "天同化禄，会禄，或与禄存同度，必须稍见一二点煞曜，然后始主意志坚强，否则可能沦为意志薄弱。",
+    "quote": "否则可能沦为意志薄弱"
+   }
+  },
+  {
+   "id": "天同巳亥.權",
+   "role": "refine",
+   "when": {
+    "hua": "權",
+    "star": "天同",
+    "at": "same"
+   },
+   "text": "你的天同化權，意志堅強：情緒受到管束，天份因此得以發揮。",
+   "en": "Your Tian Tong is transformed by Quan, which makes your will strong: emotions held in check let your talent come through.",
+   "src": {
+    "page": 178,
+    "text": "天同化权，则不必见煞亦主意志坚强，此为十青绪受到管束，因而得以发挥其天份的象征。",
+    "quote": "因而得以发挥其天份的象征"
+   }
+  },
+  {
+   "id": "天同巳亥.馬陀",
+   "role": "limit",
+   "when": {
+    "star": [
+     "天馬",
+     "陀羅"
+    ],
+    "at": "same"
+   },
+   "text": "你的天同與天馬或陀羅同宮，至少主毅力不足。",
+   "en": "Your Tian Tong shares the palace with Tian Ma or Tuo Luo, which at the least means staying power falls short.",
+   "src": {
+    "page": 178,
+    "text": "天同不喜天马、陀罗，皆为意志薄弱之兆，即使天同化禄、化权，至少亦主毅力不足。",
+    "quote": "至少亦主毅力不足"
+   }
+  },
+  {
+   "id": "天同巳亥.意志",
+   "role": "refine",
+   "when": {
+    "lean": "意志薄弱"
+   },
+   "text": "這裡說的意志薄弱，不一定是沒有毅力；有時只是創業的魄力不足，或者喜歡四處漂泊。",
+   "en": "Weak will here doesn't necessarily mean no staying power; sometimes it only means less drive to build something, or a love of wandering.",
+   "src": {
+    "page": 179,
+    "text": "有时意志薄弱，亦仅主其人喜流浪天涯，则所谓意志，便仅指创兴事业的魄力。",
+    "quote": "便仅指创兴事业的魄力"
+   }
+  },
+  {
+   "id": "天同巳亥.貪狼運",
+   "role": "refine",
+   "text": "貪狼所在的那一步運，無論見不見吉星，對你都好，往往帶來良好的轉變。",
+   "en": "The phase through Tan Lang suits you, with or without helpful stars, and often brings a change for the better.",
+   "src": {
+    "page": 179,
+    "text": "贪狼独坐的宫垣，无论见吉化，吉曜与否，均为天同所喜，往往主出现良好转变的运势。",
+    "quote": "往往主出现良好转变的运势"
+   }
+  },
+  {
+   "id": "天同巳亥.堅強武府",
+   "role": "refine",
+   "when": {
+    "lean": "意志堅強"
+   },
+   "text": "意志堅強的你，行到武曲天府所在的運，往往就是發展的時候。",
+   "en": "With a firm will, the phase through Wu Qu–Tian Fu is often your time to grow.",
+   "src": {
+    "page": 179,
+    "text": "[武曲天府]同度，坚强者喜行，往往为生发之运，而意志薄弱者，常常易入歧路。",
+    "quote": "坚强者喜行，往往为生发之运"
+   },
+   "pole": "意志堅強"
+  },
+  {
+   "id": "天同巳亥.薄弱破軍",
+   "role": "limit",
+   "when": {
+    "lean": "意志薄弱"
+   },
+   "text": "魄力偏弱的你，不喜行到破軍所在的運：那段時間人生容易有重大的變化。",
+   "en": "With less drive, the phase through Po Jun does not suit you: life is prone to major upheaval then.",
+   "src": {
+    "page": 180,
+    "text": "破军独坐的宫垣，为意志薄弱的天同所不喜，往往发女人生重大的变幻。意志坚强者则因能抗御变化，虽经波折而仍不失堕。",
+    "quote": "为意志薄弱的天同所不喜"
+   },
+   "pole": "意志薄弱"
+  }
+ ]
+}

@@ -1,0 +1,155 @@
+{
+ "basis": {
+  "page": 141,
+  "text": "要分别此二宫垣的天梁本质，须注意其为孤克，抑为融合。最基本的分别是，午宫的天梁必带孤克，因为对宫太阳落陷，子宫的天梁则为融合，因为对宫的太阳入庙。",
+  "quote": "须注意其为孤克，抑为融合"
+ },
+ "rules": [
+  {
+   "id": "天梁子午.孤",
+   "role": "limit",
+   "when": {
+    "lean": "孤獨"
+   },
+   "text": "孤剋的一面較重：除了六親關係較淡，人生也較落落寡合；只宜從事專業或學術研究。",
+   "en": "The solitary side is stronger: besides cooler family ties, life is more aloof; specialist or academic work suits you.",
+   "src": {
+    "page": 142,
+    "text": "孤克的天梁，除六亲关系不吉外，人生亦落落寡保：融和的天梁则人际关系较佳，所以际遇亦较佳。",
+    "quote": "除六亲关系不吉外"
+   },
+   "also": [
+    {
+     "page": 142,
+     "text": "带孤克性质的天梁只宜从事专业，或学术研究；具融和性质的天梁，始宜从政、从商，并以计划、监察、管理为宜；同时因为具有组织力，所以又往往为一行一业的领袖。",
+     "quote": "带孤克性质的天梁只宜从事专业，或学术研究"
+    }
+   ]
+  },
+  {
+   "id": "天梁子午.融和",
+   "role": "refine",
+   "when": {
+    "lean": "融和"
+   },
+   "text": "融和的一面較重：人際關係較好，際遇也較好；宜從政、從商，以計劃、監察、管理為宜，又有組織力，往往成為一行一業的領袖。",
+   "en": "The harmonious side is stronger: better relationships and better fortune; politics or business suit you, especially planning, oversight and management, and with your organising ability you often lead your field.",
+   "src": {
+    "page": 142,
+    "text": "孤克的天梁，除六亲关系不吉外，人生亦落落寡保：融和的天梁则人际关系较佳，所以际遇亦较佳。",
+    "quote": "融和的天梁则人际关系较佳"
+   },
+   "also": [
+    {
+     "page": 142,
+     "text": "带孤克性质的天梁只宜从事专业，或学术研究；具融和性质的天梁，始宜从政、从商，并以计划、监察、管理为宜；同时因为具有组织力，所以又往往为一行一业的领袖。",
+     "quote": "所以又往往为一行一业的领袖"
+    }
+   ]
+  },
+  {
+   "id": "天梁子午.午融和",
+   "role": "refine",
+   "when": {
+    "all": [
+     {
+      "branch": [
+       "午"
+      ]
+     },
+     {
+      "lean": "融和"
+     }
+    ]
+   },
+   "text": "你的天梁在午帶孤剋，盤上又有融和的力量：多是半偏行業或紀律機構的領導人。",
+   "en": "Your Tian Liang in Wu carries a solitary edge, yet your chart also holds a harmonising force: such people often lead in semi-unconventional fields or disciplined organisations.",
+   "src": {
+    "page": 142,
+    "text": "若天梁既带孤克之性，但又具融和力，则多为半偏行业，或纪律要构的领导人。",
+    "quote": "则多为半偏行业，或纪律要构的领导人"
+   }
+  },
+  {
+   "id": "天梁子午.最佳",
+   "role": "exception",
+   "when": {
+    "all": [
+     {
+      "branch": [
+       "子"
+      ]
+     },
+     {
+      "hua": "科",
+      "star": "天梁",
+      "at": "same"
+     },
+     {
+      "star": "祿存",
+      "at": "opp"
+     },
+     {
+      "star": [
+       "左輔",
+       "右弼",
+       "文昌",
+       "文曲",
+       "天魁",
+       "天鉞"
+      ],
+      "at": "sifang"
+     }
+    ]
+   },
+   "text": "你的天梁在子化科，祿存在對宮拱照，又有輔佐吉星：這是融和之力最強的組合。",
+   "en": "Your Tian Liang in Zi is transformed by Ke, with Lu Cun shining from opposite and supporting stars in view: the most harmonious combination of all.",
+   "src": {
+    "page": 142,
+    "text": "最好的星曜组合是一一天梁在子化科，禄存在迁移宫拱照。三方四正有辅佐诸曜同会",
+    "quote": "最好的星曜组合是一一天梁在子化科"
+   },
+   "edit": "原書另列三台八座等雜曜，引擎冇，條件不含。"
+  },
+  {
+   "id": "天梁子午.天同運",
+   "role": "refine",
+   "text": "天同所在的那一步運，是你最喜歡的運，可能就是一生最好的大運。",
+   "en": "The phase that runs through Tian Tong suits you best of all; it may well be the finest decade of your life.",
+   "src": {
+    "page": 142,
+    "text": "天同独坐的宫垣，天梁最喜经行，即使孤克者亦具生发之力，且可能为一生则运最佳大限。见吉化及占曜当然更佳。",
+    "quote": "天梁最喜经行"
+   }
+  },
+  {
+   "id": "天梁子午.融和機陰",
+   "role": "refine",
+   "when": {
+    "lean": "融和"
+   },
+   "text": "融和的你，行到天機太陰所在的運，是得意的時候。",
+   "en": "Being the harmonious kind, the phase through Tian Ji–Tai Yin is a time of success for you.",
+   "src": {
+    "page": 143,
+    "text": "[天机太阴]同度的运限，孤克者只需守成，亦可渐渐进步。而具融和性质者，更为得意的运限。",
+    "quote": "更为得意的运限"
+   },
+   "pole": "融和"
+  },
+  {
+   "id": "天梁子午.兩面",
+   "role": "refine",
+   "when": {
+    "lean": "平衡"
+   },
+   "text": "你孤獨與融和兩面都有：這樣的人，多在比較偏門的專業，或在講紀律的機構做領導。",
+   "en": "You carry both the solitary and the harmonious sides: people like this often lead in a specialist niche, or in a disciplined organisation.",
+   "src": {
+    "page": 142,
+    "text": "若天梁既带孤克之性，但又具融和力，则多为半偏行业，或纪律要构的领导人。",
+    "quote": "则多为半偏行业"
+   }
+  }
+ ]
+}

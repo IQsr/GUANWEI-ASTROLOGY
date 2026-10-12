@@ -1,0 +1,72 @@
+{
+ "basis": {
+  "page": 63,
+  "text": "要推断辰戌二宫的七杀，须注意其本质为理想或幻想者庸陋。",
+  "quote": "其本质为理想或幻想"
+ },
+ "rules": [
+  {
+   "id": "七殺辰戌.消極",
+   "role": "base",
+   "text": "七殺不只有積極的一面：理想不能實現時會流於消極，空想而不滿現實時也會；對你來說，中和比甚麼都重要。",
+   "en": "Qi Sha isn't only the active star: when ideals can't be realised it turns passive, and so it does when it daydreams and resents reality; for you, balance matters more than anything.",
+   "src": {
+    "page": 65,
+    "text": "因为理想来能实现时，会流为消极，当流为空想而不满现时，亦易流为消极。",
+    "quote": "会流为消极"
+   },
+   "also": [
+    {
+     "page": 65,
+     "text": "[中和]对这类人来说，比什么都重要。",
+     "quote": "比什么都重要"
+    }
+   ]
+  },
+  {
+   "id": "七殺辰戌.空想",
+   "role": "refine",
+   "when": {
+    "lean": "空想"
+   },
+   "text": "空想較重不一定際遇差：構想的事未必實現，實際的際遇卻可以不錯。",
+   "en": "Leaning towards daydreams doesn't mean poor fortune: the plans may not come true, yet the way life actually turns out can still be good.",
+   "src": {
+    "page": 63,
+    "text": "而流于幻想的人，虽所构想的事不能实现，但实际上欲可能有良好的际遇",
+    "quote": "但实际上欲可能有良好的际遇"
+   }
+  },
+  {
+   "id": "七殺辰戌.理想",
+   "role": "refine",
+   "when": {
+    "lean": "理想"
+   },
+   "text": "理想較重的七殺，就算勞苦也在所不辭，理想就是你人生追求的目標。",
+   "en": "A Qi Sha that leans towards ideals doesn't mind the toil: the ideal itself is what you pursue in life.",
+   "src": {
+    "page": 64,
+    "text": "影响七杀最重要的星系是[廉贞天府]，这组里曜若性质优雅，这时候便容易产生理想，成为人生追求的目标。虽然劳苦，亦在所不辞。",
+    "quote": "虽然劳苦，亦在所不辞"
+   }
+  },
+  {
+   "id": "七殺辰戌.府祿",
+   "role": "refine",
+   "when": {
+    "hua": "祿",
+    "star": "廉貞",
+    "at": "opp"
+   },
+   "text": "對宮的廉貞化祿，天府得祿，對你有利。",
+   "en": "Lian Zhen opposite you is transformed by Lu, so Tian Fu gains Lu, which works in your favour.",
+   "src": {
+    "page": 65,
+    "text": "天府有禄，对七杀有利。",
+    "quote": "天府有禄，对七杀有利"
+   },
+   "edit": "祿存不入辰戌，天府「有祿」取對宮廉貞化祿。"
+  }
+ ]
+}

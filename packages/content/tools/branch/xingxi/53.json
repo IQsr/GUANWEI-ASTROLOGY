@@ -1,0 +1,236 @@
+{
+ "basis": {
+  "page": 194,
+  "text": "要推断[紫杀]在这两个宫垣的本质，从最极端来分别，可以区分为权威、及横霸。前者多正途发展，后者则往往易误入歧途。不过，[紫杀]在命的人通常无如此强烈的极端性质，所以只是两种性质中的倾向比较而已。",
+  "quote": "可以区分为权威、及横霸"
+ },
+ "rules": [
+  {
+   "id": "紫殺巳亥.權無輔",
+   "role": "limit",
+   "when": {
+    "all": [
+     {
+      "hua": "權",
+      "star": "紫微",
+      "at": "same"
+     },
+     {
+      "not": {
+       "star": [
+        "左輔",
+        "右弼",
+        "文昌",
+        "文曲",
+        "天魁",
+        "天鉞"
+       ],
+       "at": "sifang"
+      }
+     }
+    ]
+   },
+   "text": "你的紫微化權，又沒有輔佐吉星會合，霸氣容易過重。",
+   "en": "Your Zi Wei is transformed by Quan without supporting stars, so the domineering streak can run too strong.",
+   "src": {
+    "page": 194,
+    "text": "[紫微七杀]本身即有权力的性质，所以再不宜加强其权力，否则即易变成横霸。当紫微化权之时，必须与文昌文曲、左辅右弼、天魁天钺等同会，然后始可去其横霸之气。",
+    "quote": "否则即易变成横霸"
+   }
+  },
+  {
+   "id": "紫殺巳亥.權有輔",
+   "role": "refine",
+   "when": {
+    "all": [
+     {
+      "hua": "權",
+      "star": "紫微",
+      "at": "same"
+     },
+     {
+      "star": [
+       "左輔",
+       "右弼",
+       "文昌",
+       "文曲",
+       "天魁",
+       "天鉞"
+      ],
+      "at": "sifang"
+     }
+    ]
+   },
+   "text": "你的紫微化權，有輔佐吉星會合，去其橫霸之氣，成為權威。",
+   "en": "Your Zi Wei is transformed by Quan and joined by supporting stars, which removes the domineering edge and leaves authority.",
+   "src": {
+    "page": 194,
+    "text": "当紫微化权之时，必须与文昌文曲、左辅右弼、天魁天钺等同会，然后始可去其横霸之气。更无刑煞，则为权威。",
+    "quote": "然后始可去其横霸之气"
+   }
+  },
+  {
+   "id": "紫殺巳亥.儒將",
+   "role": "refine",
+   "when": {
+    "all": [
+     {
+      "hua": "科",
+      "star": "紫微",
+      "at": "same"
+     },
+     {
+      "star": [
+       "文昌",
+       "文曲"
+      ],
+      "at": "sifang"
+     }
+    ]
+   },
+   "text": "你的紫微化科，又會昌曲：權威而彬彬儒雅，前人稱為儒將風流。",
+   "en": "Your Zi Wei is transformed by Ke and meets Chang or Qu: authority with refined grace, what earlier writers called 'the scholar-general'.",
+   "src": {
+    "page": 195,
+    "text": "紫微本身化科，只要有一二点辅佐占曜问会，即为权威而非横霸。同会者为文曜，更主彬彬儒雅，前人喻『之为[儒将风流]。",
+    "quote": "更主彬彬儒雅"
+   }
+  },
+  {
+   "id": "紫殺巳亥.府科",
+   "role": "refine",
+   "when": {
+    "all": [
+     {
+      "hua": "科",
+      "star": "天府",
+      "at": "opp"
+     },
+     {
+      "not": {
+       "hua": "忌",
+       "star": "武曲",
+       "at": "sifang"
+      }
+     },
+     {
+      "not": {
+       "star": [
+        "擎羊",
+        "陀羅",
+        "火星",
+        "鈴星",
+        "地空",
+        "地劫"
+       ],
+       "at": "opp"
+      }
+     }
+    ]
+   },
+   "text": "對宮的天府化科，可以消減你的霸氣，人生的際遇也多順境。",
+   "en": "Tian Fu opposite you is transformed by Ke, which tempers the domineering streak, and life brings more smooth stretches.",
+   "src": {
+    "page": 194,
+    "text": "对宫天府最宜庚干化科，倘无煞曜同躔，则可消解[紫杀]的横霸，即使不能转化为权威，亦少了许多凶悍，人生的际遇因此亦多顺境。",
+    "quote": "人生的际遇因此亦多顺境"
+   },
+   "edit": "原書只取庚年天府化科；壬年天府化科時武曲同時化忌，故以「武曲不化忌」排除壬年。"
+  },
+  {
+   "id": "紫殺巳亥.無輔見煞",
+   "role": "limit",
+   "when": {
+    "all": [
+     {
+      "not": {
+       "star": [
+        "左輔",
+        "右弼",
+        "文昌",
+        "文曲",
+        "天魁",
+        "天鉞"
+       ],
+       "at": "sifang"
+      }
+     },
+     {
+      "any": [
+       {
+        "all": [
+         {
+          "star": "火星",
+          "at": "sifang"
+         },
+         {
+          "star": "陀羅",
+          "at": "sifang"
+         }
+        ]
+       },
+       {
+        "all": [
+         {
+          "star": "擎羊",
+          "at": "sifang"
+         },
+         {
+          "star": "鈴星",
+          "at": "sifang"
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   "text": "你的紫殺沒有輔佐吉星，又見煞星，容易流於強橫，人生多挫折。",
+   "en": "Your Zi Wei–Qi Sha lacks supporting stars and meets malefics, so it can turn overbearing, with many setbacks.",
+   "src": {
+    "page": 195,
+    "text": "广若无辅佐诸曜同会，则绝不宜见煞，若见火星陀罗，或擎羊铃星同度会照，则[紫杀]化为横霸。人生亦必多挫折。",
+    "quote": "人生亦必多挫折"
+   }
+  },
+  {
+   "id": "紫殺巳亥.權威",
+   "role": "refine",
+   "when": {
+    "lean": "權威"
+   },
+   "text": "權威的紫殺容易出人頭地，人生較順遂，有挫折而無凶險。",
+   "en": "An authoritative Zi Wei–Qi Sha rises readily, with a smoother life: setbacks, but nothing serious.",
+   "src": {
+    "page": 195,
+    "text": "权威的[紫杀!容易出入头地，人生亦较顺遂．朽挫折而无凶险；若成横霸之性．则易起易跌，灾病亦多，",
+    "quote": "容易出入头地"
+   }
+  },
+  {
+   "id": "紫殺巳亥.強勢",
+   "role": "limit",
+   "when": {
+    "lean": "強勢"
+   },
+   "text": "強勢的一面較重，容易易起易跌。",
+   "en": "The overbearing side is stronger, so rises and falls come quickly.",
+   "src": {
+    "page": 195,
+    "text": "权威的[紫杀!容易出入头地，人生亦较顺遂．朽挫折而无凶险；若成横霸之性．则易起易跌，灾病亦多，",
+    "quote": "则易起易跌"
+   }
+  },
+  {
+   "id": "紫殺巳亥.同陰運",
+   "role": "refine",
+   "text": "天同太陰所在的那一步運，一般是你喜歡的：一向勞碌的你，那段時間可以得到寧靜。",
+   "en": "The phase through Tian Tong–Tai Yin is generally welcome: busy as you always are, it brings you a stretch of calm.",
+   "src": {
+    "page": 196,
+    "text": "[天同太阴]同度的宫垣，一般为[紫杀]所喜。盖[紫杀]主劳，得[同阴]则可得宁静。",
+    "quote": "得[同阴]则可得宁静"
+   }
+  }
+ ]
+}

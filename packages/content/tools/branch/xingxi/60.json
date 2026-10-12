@@ -1,0 +1,158 @@
+{
+ "basis": {
+  "page": 215,
+  "text": "要推断此二宫[天机天梁]的本质，须祥其为尖刻，抑为明断。天机主敏感变动，天梁则主原则纪律，若二者性格调和，则为明断的本质。所以天机天梁二者的力量，必须互平衡，然后始为良好的结构。",
+  "quote": "须祥其为尖刻，抑为明断"
+ },
+ "rules": [
+  {
+   "id": "機梁辰戌.機忌",
+   "role": "limit",
+   "when": {
+    "hua": "忌",
+    "star": "天機",
+    "at": "same"
+   },
+   "text": "你的天機化忌，動盪不安，容易反應過度而變得尖刻。",
+   "en": "Your Tian Ji is transformed by Ji: restless and unsettled, prone to overreacting and turning sharp.",
+   "src": {
+    "page": 215,
+    "text": "若天机化忌，或太阴，天同化忌，则增加天机的动荡不安，由是不能与天梁平衡，便难免有过份的反应，因而往往变为尖刻。",
+    "quote": "因而往往变为尖刻"
+   }
+  },
+  {
+   "id": "機梁辰戌.陰忌",
+   "role": "limit",
+   "when": {
+    "hua": "忌",
+    "star": "太陰",
+    "at": "trine"
+   },
+   "text": "會照的太陰化忌，令你容易反應過度而變得尖刻。",
+   "en": "Tai Yin transformed by Ji in your trine makes you prone to overreacting and turning sharp.",
+   "src": {
+    "page": 215,
+    "text": "若天机化忌，或太阴，天同化忌，则增加天机的动荡不安，由是不能与天梁平衡，便难免有过份的反应，因而往往变为尖刻。",
+    "quote": "便难免有过份的反应"
+   }
+  },
+  {
+   "id": "機梁辰戌.同忌",
+   "role": "limit",
+   "when": {
+    "hua": "忌",
+    "star": "天同",
+    "at": "trine"
+   },
+   "text": "會照的天同化忌，令你容易反應過度而變得尖刻。",
+   "en": "Tian Tong transformed by Ji in your trine makes you prone to overreacting and turning sharp.",
+   "src": {
+    "page": 215,
+    "text": "若天机化忌，或太阴，天同化忌，则增加天机的动荡不安，由是不能与天梁平衡，便难免有过份的反应，因而往往变为尖刻。",
+    "quote": "便难免有过份的反应"
+   }
+  },
+  {
+   "id": "機梁辰戌.陽巨忌",
+   "role": "limit",
+   "when": {
+    "hua": "忌",
+    "star": [
+     "太陽",
+     "巨門"
+    ],
+    "at": "trine"
+   },
+   "text": "會照的太陽或巨門化忌，加強天梁的孤剋，容易流於尖刻。",
+   "en": "Tai Yang or Ju Men transformed by Ji in your trine strengthens Tian Liang's isolating edge, which can turn sharp.",
+   "src": {
+    "page": 215,
+    "text": "若太阳化忌、巨门化忌，则加强天梁的孤克本质，与天机配合，亦易流为尖刻。",
+    "quote": "则加强天梁的孤克本质"
+   }
+  },
+  {
+   "id": "機梁辰戌.機吉",
+   "role": "refine",
+   "when": {
+    "hua": [
+     "祿",
+     "權",
+     "科"
+    ],
+    "star": "天機",
+    "at": "same"
+   },
+   "text": "你的天機吉化，敏感靈動得以發揮，與天梁配合成為明斷。",
+   "en": "Your Tian Ji has a favourable transformation, so its quick sensitivity comes through and, with Tian Liang, becomes clear judgement.",
+   "src": {
+    "page": 215,
+    "text": "若天机、太阴、天同吉化，则天机的敏感灵动得以发挥，与天梁配合，成为明断。",
+    "quote": "则天机的敏感灵动得以发挥"
+   }
+  },
+  {
+   "id": "機梁辰戌.吉星",
+   "role": "refine",
+   "when": {
+    "star": [
+     "左輔",
+     "右弼",
+     "文昌",
+     "文曲",
+     "天魁",
+     "天鉞"
+    ],
+    "at": "sifang"
+   },
+   "text": "有輔佐吉星會合，機梁的性質得以調和。",
+   "en": "Supporting stars meeting your chart bring Tian Ji and Tian Liang into balance.",
+   "src": {
+    "page": 215,
+    "text": "当有文昌文曲，天魁天铖，左辅右弼同会之吋，机梁的性质得以调和，因而亦成为明断，若相反，煞刑诸曜并凑，机梁的性质互相冲突，则星系性质化为尖刻。",
+    "quote": "机梁的性质得以调和"
+   }
+  },
+  {
+   "id": "機梁辰戌.煞",
+   "role": "limit",
+   "when": {
+    "all": [
+     {
+      "star": [
+       "擎羊",
+       "陀羅"
+      ],
+      "at": "sifang"
+     },
+     {
+      "star": [
+       "火星",
+       "鈴星"
+      ],
+      "at": "sifang"
+     }
+    ]
+   },
+   "text": "煞星並湊，機梁的性質互相衝突，容易變得尖刻。",
+   "en": "Malefics gather in your chart, setting Tian Ji and Tian Liang against each other, which can turn sharp.",
+   "src": {
+    "page": 215,
+    "text": "当有文昌文曲，天魁天铖，左辅右弼同会之吋，机梁的性质得以调和，因而亦成为明断，若相反，煞刑诸曜并凑，机梁的性质互相冲突，则星系性质化为尖刻。",
+    "quote": "则星系性质化为尖刻"
+   }
+  },
+  {
+   "id": "機梁辰戌.同陰運",
+   "role": "refine",
+   "text": "天同太陰所在的那一步運，直接影響你的性格：能調和天機天梁兩面的，就是吉運；加深矛盾的，往往就是壞運。",
+   "en": "The phase through Tian Tong–Tai Yin bears directly on your character: if it brings Tian Ji and Tian Liang into harmony it goes well; if it deepens the conflict, it often goes badly.",
+   "src": {
+    "page": 217,
+    "text": "[天同太阴]同度的宫垣，直接影响[机梁]的性质，所以当[机梁]经行时，须视有无流化．流煞加强原局[天同太阴]的性质而定吉凶休咎。倘能调和天机天梁二者的性质，则为吉运，若加强矛盾，则往往为坏运。",
+    "quote": "直接影响[机梁]的性质"
+   }
+  }
+ ]
+}

@@ -39,11 +39,11 @@
       },
       "text": "會照的武曲化祿，令你有情，這是對紫相最有利的。",
       "en": "Wu Qu transformed by Lu in your trine makes you warm-hearted, the most favourable case for Zi Wei–Tian Xiang.",
+      "pole": "重情",
       "source": {
         "passage": "deep.星系43.3",
         "quote": "故对[紫相]最为有利"
-      },
-      "pole": "重情"
+      }
     },
     {
       "id": "紫相辰戌.廉祿",
@@ -55,11 +55,11 @@
       },
       "text": "會照的廉貞化祿，令你感情較豐富。",
       "en": "Lian Zhen transformed by Lu in your trine makes you richer in feeling.",
+      "pole": "重情",
       "source": {
         "passage": "deep.星系43.4",
         "quote": "便使[紫相]亦稍为感情丰富"
-      },
-      "pole": "重情"
+      }
     },
     {
       "id": "紫相辰戌.破祿",
@@ -99,11 +99,11 @@
       },
       "text": "會照的廉貞化忌，令你決絕，根源是自卑。",
       "en": "Lian Zhen transformed by Ji in your trine makes you cut ties more readily, rooted in a sense of inferiority.",
+      "pole": "決絕",
       "source": {
         "passage": "deep.星系43.7",
         "quote": "廉贞化忌者的无情出于自卑戚"
-      },
-      "pole": "決絕"
+      }
     },
     {
       "id": "紫相辰戌.武忌",
@@ -115,11 +115,11 @@
       },
       "text": "會照的武曲化忌，令你決絕，根源是利益衝突。",
       "en": "Wu Qu transformed by Ji in your trine makes you cut ties more readily, rooted in clashes of interest.",
+      "pole": "決絕",
       "source": {
         "passage": "deep.星系43.7",
         "quote": "武曲化忌者的无情则出于利益的冲突"
-      },
-      "pole": "決絕"
+      }
     }
   ]
 }

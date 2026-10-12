@@ -1,0 +1,164 @@
+{
+ "basis": {
+  "page": 153,
+  "text": "要推断这两个宫垣的太阳本质，须分别其为虚浮，抑为沉稳。",
+  "quote": "须分别其为虚浮，抑为沉稳"
+ },
+ "rules": [
+  {
+   "id": "太陽子午.午",
+   "role": "limit",
+   "when": {
+    "branch": [
+     "午"
+    ]
+   },
+   "text": "你的太陽在午入廟，基本性質比在子宮好，但也容易流於虛浮。",
+   "en": "Your Sun is at full strength in Wu, a better base than in Zi, but it can easily turn showy and hollow.",
+   "src": {
+    "page": 153,
+    "text": "太阳在午宫入庙，基本性质虽较在子宫者为佳，但却可能成为虚浮之性。",
+    "quote": "但却可能成为虚浮之性"
+   }
+  },
+  {
+   "id": "太陽子午.午權",
+   "role": "refine",
+   "when": {
+    "all": [
+     {
+      "branch": [
+       "午"
+      ]
+     },
+     {
+      "hua": "權",
+      "star": "太陽",
+      "at": "same"
+     },
+     {
+      "not": {
+       "star": [
+        "火星",
+        "鈴星",
+        "地空",
+        "地劫"
+       ],
+       "at": "sifang"
+      }
+     }
+    ]
+   },
+   "text": "你的太陽在午化權，又不見火鈴空劫：本質沉穩。",
+   "en": "Your Sun in Wu is transformed by Quan and avoids Huo, Ling, Kong and Jie: steady at heart.",
+   "src": {
+    "page": 153,
+    "text": "若太阳化权于午宫，不见火铃、空劫，即使吉曜少，甚至亦为沈稳。",
+    "quote": "即使吉曜少，甚至亦为沈稳"
+   }
+  },
+  {
+   "id": "太陽子午.子權",
+   "role": "limit",
+   "when": {
+    "all": [
+     {
+      "branch": [
+       "子"
+      ]
+     },
+     {
+      "hua": "權",
+      "star": "太陽",
+      "at": "same"
+     }
+    ]
+   },
+   "text": "你的太陽在子化權，反而容易帶虛浮之性。",
+   "en": "Your Sun in Zi is transformed by Quan, which actually tends towards hollowness.",
+   "src": {
+    "page": 153,
+    "text": "在子宫的太阳化禄化忌亦为沉稳。却不宜化权，反易带虚浮之性",
+    "quote": "却不宜化权，反易带虚浮之性"
+   }
+  },
+  {
+   "id": "太陽子午.子祿",
+   "role": "refine",
+   "when": {
+    "all": [
+     {
+      "branch": [
+       "子"
+      ]
+     },
+     {
+      "hua": "祿",
+      "star": "太陽",
+      "at": "same"
+     }
+    ]
+   },
+   "text": "你的太陽在子化祿，本質沉穩。",
+   "en": "Your Sun in Zi is transformed by Lu: steady at heart.",
+   "src": {
+    "page": 153,
+    "text": "在子宫的太阳化禄化忌亦为沉稳。",
+    "quote": "在子宫的太阳化禄化忌亦为沉稳"
+   }
+  },
+  {
+   "id": "太陽子午.子忌",
+   "role": "refine",
+   "when": {
+    "all": [
+     {
+      "branch": [
+       "子"
+      ]
+     },
+     {
+      "hua": "忌",
+      "star": "太陽",
+      "at": "same"
+     }
+    ]
+   },
+   "text": "你的太陽在子化忌，本質反而沉穩。",
+   "en": "Your Sun in Zi is transformed by Ji, yet it's steady at heart.",
+   "src": {
+    "page": 153,
+    "text": "在子宫的太阳化禄化忌亦为沉稳。",
+    "quote": "在子宫的太阳化禄化忌亦为沉稳"
+   }
+  },
+  {
+   "id": "太陽子午.沉穩",
+   "role": "refine",
+   "when": {
+    "lean": "沉穩"
+   },
+   "text": "沉穩的太陽易於致富，有財力支持自己的社會地位。",
+   "en": "A steady Sun builds wealth easily, with the means to support its standing.",
+   "src": {
+    "page": 154,
+    "text": "凡沈稳的太阳，易于致富，因此有财力支持其社会地位。而虚浮的太阳，则往往仅表面风光，内在则空虚，所以易于倾败。",
+    "quote": "凡沈稳的太阳，易于致富"
+   }
+  },
+  {
+   "id": "太陽子午.虛浮",
+   "role": "limit",
+   "when": {
+    "lean": "虛浮"
+   },
+   "text": "虛浮的太陽往往只是表面風光，內在空虛，容易傾敗。",
+   "en": "A hollow Sun often shines only on the surface, empty within, and is prone to collapse.",
+   "src": {
+    "page": 154,
+    "text": "凡沈稳的太阳，易于致富，因此有财力支持其社会地位。而虚浮的太阳，则往往仅表面风光，内在则空虚，所以易于倾败。",
+    "quote": "则往往仅表面风光，内在则空虚"
+   }
+  }
+ ]
+}

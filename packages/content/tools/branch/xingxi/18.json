@@ -1,0 +1,66 @@
+{
+ "basis": {
+  "page": 89,
+  "text": "要推断此组星曜的性质，须注意其为决断，抑或短虑。一一决断与短虑其实只一线之差，因为短虑的[武曲七杀]，表面上仍似英明果断，当内心犹豫不决之时，仍然可作出明快的决定。只是往往决断错误，须要弥缝而已",
+  "quote": "须注意其为决断，抑或短虑"
+ },
+ "rules": [
+  {
+   "id": "武殺卯酉.決斷",
+   "role": "refine",
+   "when": {
+    "lean": "決斷"
+   },
+   "text": "決斷的一面較重：你做決定時多會留有餘地。",
+   "en": "The decisive side is stronger: when you decide, you usually leave yourself room.",
+   "src": {
+    "page": 89,
+    "text": "凡[武曲七杀]属决断者，多留有余地，而短虑者则多薄情，因此人生也就较为孤立。",
+    "quote": "凡[武曲七杀]属决断者，多留有余地"
+   }
+  },
+  {
+   "id": "武殺卯酉.短慮",
+   "role": "limit",
+   "when": {
+    "lean": "短慮"
+   },
+   "text": "短慮的一面較重：表面英明果斷，決定卻常常出錯要補救；待人也較薄情，人生因此較孤立。",
+   "en": "The short-sighted side is stronger: you look decisive, but decisions often go wrong and need patching; you can also be cool towards people, which leaves life more isolated.",
+   "src": {
+    "page": 89,
+    "text": "凡[武曲七杀]属决断者，多留有余地，而短虑者则多薄情，因此人生也就较为孤立。",
+    "quote": "而短虑者则多薄情"
+   }
+  },
+  {
+   "id": "武殺卯酉.府昌曲",
+   "role": "refine",
+   "when": {
+    "star": [
+     "文昌",
+     "文曲"
+    ],
+    "at": "opp"
+   },
+   "text": "對宮的天府有文昌或文曲同宮，能調和短慮的一面。",
+   "en": "Tian Fu opposite you shares its palace with Wen Chang or Wen Qu, which tempers the short-sighted side.",
+   "src": {
+    "page": 90,
+    "text": "文昌文曲亦可以调和[武曲七杀]短虑的性质，唯喜与[武杀]对宫的天府同躔，则性质更佳",
+    "quote": "唯喜与[武杀]对宫的天府同躔"
+   }
+  },
+  {
+   "id": "武殺卯酉.轉變",
+   "role": "base",
+   "text": "武曲七殺、廉貞貪狼、紫微破軍所在的那幾步運，是你人生極大轉變的時候。",
+   "en": "The phases through Wu Qu–Qi Sha, Lian Zhen–Tan Lang and Zi Wei–Po Jun are the times of great change in your life.",
+   "src": {
+    "page": 90,
+    "text": "[武曲七杀]、[廉贞贪狼]、以及[紫微破军]三个宫限，为原局[武曲七杀]坐命者具极大转变性的流年或运限。",
+    "quote": "具极大转变性的流年或运限"
+   }
+  }
+ ]
+}

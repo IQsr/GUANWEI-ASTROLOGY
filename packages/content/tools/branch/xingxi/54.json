@@ -1,0 +1,164 @@
+{
+ "basis": {
+  "page": 197,
+  "text": "凡[廉破]守命，最宜从事公职。以服务为性质，以开创为职责。所以区别此系星曜的本质，宜注意其为奉公，抑或私利。",
+  "quote": "宜注意其为奉公，抑或私利"
+ },
+ "rules": [
+  {
+   "id": "廉破卯酉.公職",
+   "role": "base",
+   "text": "廉貞破軍坐命，最宜從事公職：以服務為性質，以開創為職責。",
+   "en": "With Lian Zhen–Po Jun in the Life Palace, public service suits you best: serving in nature, building new things as your duty.",
+   "src": {
+    "page": 197,
+    "text": "凡[廉破]守命，最宜从事公职。以服务为性质，以开创为职责。",
+    "quote": "最宜从事公职"
+   }
+  },
+  {
+   "id": "廉破卯酉.廉祿",
+   "role": "refine",
+   "when": {
+    "hua": "祿",
+    "star": "廉貞",
+    "at": "same"
+   },
+   "text": "你的廉貞化祿，理想高，有自己的見解。",
+   "en": "Your Lian Zhen is transformed by Lu: high ideals and views of your own.",
+   "src": {
+    "page": 197,
+    "text": "廉贞化禄，则为理想高，有政见；廉贞化忌则纯为私利。",
+    "quote": "则为理想高，有政见"
+   }
+  },
+  {
+   "id": "廉破卯酉.廉忌",
+   "role": "limit",
+   "when": {
+    "hua": "忌",
+    "star": "廉貞",
+    "at": "same"
+   },
+   "text": "你的廉貞化忌，私心較重，容易橫發橫破。",
+   "en": "Your Lian Zhen is transformed by Ji: self-interest runs stronger, and sudden gains can turn into sudden losses.",
+   "src": {
+    "page": 197,
+    "text": "所以『廉破]守命而值廉贞化忌者，多横发横破，即因其私利之性所致。",
+    "quote": "多横发横破"
+   }
+  },
+  {
+   "id": "廉破卯酉.廉忌無煞",
+   "role": "refine",
+   "when": {
+    "all": [
+     {
+      "hua": "忌",
+      "star": "廉貞",
+      "at": "same"
+     },
+     {
+      "not": {
+       "star": [
+        "擎羊",
+        "陀羅",
+        "火星",
+        "鈴星",
+        "地空",
+        "地劫"
+       ],
+       "at": "sifang"
+      }
+     }
+    ]
+   },
+   "overrides": [
+    "廉破卯酉.廉忌"
+   ],
+   "text": "你的廉貞化忌，但不見煞星，私心並不重。",
+   "en": "Your Lian Zhen is transformed by Ji, but with no malefics in view, self-interest isn't strong.",
+   "src": {
+    "page": 197,
+    "text": "廉贞化忌固为私利，然而无煞刑诸曜同会，亦主私心不重",
+    "quote": "亦主私心不重"
+   }
+  },
+  {
+   "id": "廉破卯酉.破祿",
+   "role": "refine",
+   "when": {
+    "hua": "祿",
+    "star": "破軍",
+    "at": "same"
+   },
+   "text": "你的破軍化祿，同樣為公，只是更辛勞。",
+   "en": "Your Po Jun is transformed by Lu: just as public-minded, only with more toil.",
+   "src": {
+    "page": 197,
+    "text": "破军化禄，不如廉贞化禄，因破军化禄往往辛劳",
+    "quote": "因破军化禄往往辛劳"
+   }
+  },
+  {
+   "id": "廉破卯酉.火鈴",
+   "role": "limit",
+   "when": {
+    "star": [
+     "火星",
+     "鈴星"
+    ],
+    "at": "same"
+   },
+   "text": "你的廉貞與火鈴同宮，容易急取快利，也容易傾敗。",
+   "en": "Your Lian Zhen shares the palace with Huo or Ling: quick to grab gains, and quick to fall.",
+   "src": {
+    "page": 198,
+    "text": "廉贞有煞曜同蹭!则为私利；尤不喜见火铃，主巧取豪夺，但亦易倾败",
+    "quote": "但亦易倾败"
+   },
+   "edit": "「巧取豪奪」屬人格貶語，改寫為急取快利。"
+  },
+  {
+   "id": "廉破卯酉.陽巨",
+   "role": "limit",
+   "text": "太陽巨門所在的那一步運帶是非：那段時間以不出鋒頭、不強出頭為宜。",
+   "en": "The phase through Tai Yang–Ju Men carries disputes: in that time, keep out of the limelight and do not force your way forward.",
+   "src": {
+    "page": 199,
+    "text": "一般情况下，对[廉破]而言，[太阳巨门]已有是非的性质，故无论何种性质的．[廉破]，均以不出锋头，不强出头为宜。",
+    "quote": "均以不出锋头，不强出头为宜"
+   }
+  },
+  {
+   "id": "廉破卯酉.為公武貪",
+   "role": "refine",
+   "when": {
+    "lean": "為公"
+   },
+   "text": "為公的你，行到武曲貪狼所在的運，可以有所建樹，財祿與聲譽一起來。",
+   "en": "Serving the common good, the phase through Wu Qu–Tan Lang is when you build something lasting, with income and reputation arriving together.",
+   "src": {
+    "page": 198,
+    "text": "[武曲贪狼]同度的运限，利奉公而不利私利的[廉破]。奉公则可在此运限内建树，则财禄与声誉齐来。",
+    "quote": "则财禄与声誉齐来"
+   },
+   "pole": "為公"
+  },
+  {
+   "id": "廉破卯酉.為己同陰",
+   "role": "refine",
+   "when": {
+    "lean": "為己"
+   },
+   "text": "為己的你，行到天同太陰所在的運，往往突然發起來；有吉化吉星，發了之後才守得長。",
+   "en": "Looking after your own interest, the phase through Tian Tong–Tai Yin often brings a sudden rise; with helpful stars, the gain lasts.",
+   "src": {
+    "page": 198,
+    "text": "[天同太阴]同度的运限，私利的[廉破]往往可因之暴发。若化吉、会吉曜，则暴发后能保泰的时间较长，若化忌，或会刑耗煞曜，则暴败将随暴发而来。",
+    "quote": "私利的[廉破]往往可因之暴发"
+   },
+   "pole": "為己"
+  }
+ ]
+}

@@ -37,11 +37,11 @@
       },
       "text": "你的天梁在巳，比在亥更浮蕩：人生多離鄉別井，起伏的幅度也大。",
       "en": "Your Tian Liang in Si drifts more than in Hai: more leaving home, and bigger swings.",
+      "pole": "浮蕩",
       "source": {
         "passage": "deep.星系44.3",
         "quote": "巳宫的天梁，一般比亥宫者为浮荡"
-      },
-      "pole": "浮蕩"
+      }
     },
     {
       "id": "天梁巳亥.得祿",
@@ -60,11 +60,11 @@
       },
       "text": "你的盤見祿，比不得祿的天梁穩定；只是同時多是非困擾，最終都過得去。",
       "en": "Your chart meets Lu, steadier than a Tian Liang without it; but disputes and vexation come with it, though you get through them in the end.",
+      "pole": "穩定",
       "source": {
         "passage": "deep.星系44.4",
         "quote": "但无论如何，天梁得禄总比不得禄的天梁稳定"
-      },
-      "pole": "穩定"
+      }
     },
     {
       "id": "天梁巳亥.同祿",
@@ -76,11 +76,11 @@
       },
       "text": "對宮的天同化祿，並不主穩定：人生最少要經過三次大起落，才能立業興家。",
       "en": "Tian Tong opposite you is transformed by Lu, which doesn't bring stability: life takes at least three big swings before you build your career and home.",
+      "pole": "浮蕩",
       "source": {
         "passage": "deep.星系44.5",
         "quote": "人生最少经过三次大幅度的波折"
-      },
-      "pole": "浮蕩"
+      }
     },
     {
       "id": "天梁巳亥.火鈴陀",
@@ -95,11 +95,11 @@
       },
       "text": "會照的火鈴或陀羅，令你的穩定大為減弱。",
       "en": "Huo, Ling or Tuo Luo meeting your chart greatly weakens your stability.",
+      "pole": "浮蕩",
       "source": {
         "passage": "deep.星系44.6",
         "quote": "稳定程度大为减弱"
-      },
-      "pole": "浮蕩"
+      }
     },
     {
       "id": "天梁巳亥.吉星",
@@ -117,11 +117,11 @@
       },
       "text": "有輔佐吉星會合，你的穩定大為增加。",
       "en": "Supporting stars meeting your chart greatly increase your stability.",
+      "pole": "穩定",
       "source": {
         "passage": "deep.星系44.7",
         "quote": "则稳定性亦大增加"
-      },
-      "pole": "穩定"
+      }
     }
   ]
 }

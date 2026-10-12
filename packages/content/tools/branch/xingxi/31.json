@@ -1,0 +1,132 @@
+{
+ "basis": {
+  "page": 126,
+  "text": "顽嚣的破军破坏力大，但创造力则弱，因此往往主动破坏，而其破坏又毫无目的；果敢者则不同，并不主动求变，然而因应客观形势非变不可之时，却能果敢行动，而且其变动又有人生的目标。",
+  "quote": "果敢者则不同"
+ },
+ "rules": [
+  {
+   "id": "破軍子午.廉忌",
+   "role": "limit",
+   "when": {
+    "hua": "忌",
+    "star": "廉貞",
+    "at": "opp"
+   },
+   "text": "對宮的廉貞化忌，你的破軍基本上帶頑嚚的性質：破壞力大、創造力弱；有魁鉞、左右或祿存，可以調和。",
+   "en": "Lian Zhen opposite you is transformed by Ji, which gives your Po Jun a basically stubborn streak: much destructive force, little creative force; Kui, Yue, Zuo, You or Lu Cun can temper it.",
+   "src": {
+    "page": 126,
+    "text": "破军与廉贞化忌相对(子宫的破军必同吋为羊陀照射；午宫的破宫则行擎羊同度)，已基本上成顽嚣之格。唯魁钺、辅弼、禄存町化解其性。",
+    "quote": "已基本上成顽嚣之格"
+   }
+  },
+  {
+   "id": "破軍子午.曲忌",
+   "role": "limit",
+   "when": {
+    "hua": "忌",
+    "star": "文曲",
+    "at": [
+     "same",
+     "opp"
+    ]
+   },
+   "text": "文曲化忌同宮或對照，成破軍暗曜，其實也是頑嚚。",
+   "en": "Wen Qu transformed by Ji in your palace or opposite forms the 'darkened Po Jun', which is really just stubbornness.",
+   "src": {
+    "page": 126,
+    "text": "文曲化忌同龌或在对宫拱照，虽称[破军暗曜]，其实亦不过顽嚣而已。",
+    "quote": "其实亦不过顽嚣而已"
+   }
+  },
+  {
+   "id": "破軍子午.祿",
+   "role": "refine",
+   "when": {
+    "hua": "祿",
+    "star": "破軍",
+    "at": "same"
+   },
+   "text": "你的破軍化祿，為人果敢。",
+   "en": "Your Po Jun is transformed by Lu, which makes you decisive.",
+   "src": {
+    "page": 127,
+    "text": "破军化禄 、化权，则主为人果敢。",
+    "quote": "则主为人果敢"
+   }
+  },
+  {
+   "id": "破軍子午.權",
+   "role": "refine",
+   "when": {
+    "hua": "權",
+    "star": "破軍",
+    "at": "same"
+   },
+   "text": "你的破軍化權，為人果敢。",
+   "en": "Your Po Jun is transformed by Quan, which makes you decisive.",
+   "src": {
+    "page": 127,
+    "text": "破军化禄 、化权，则主为人果敢。",
+    "quote": "则主为人果敢"
+   }
+  },
+  {
+   "id": "破軍子午.果敢七殺",
+   "role": "refine",
+   "when": {
+    "lean": "果敢"
+   },
+   "text": "果敢的你，在七殺、破軍、貪狼的運裡，以行到七殺那一步最好。",
+   "en": "Being the decisive kind, among the phases through Qi Sha, Po Jun and Tan Lang, the one through Qi Sha serves you best.",
+   "src": {
+    "page": 127,
+    "text": "对破军坐命的人来说，杀、破、狼运限年限，果敢者以经行七杀宫度为佳，顽嚣者既易失机。而且未必能善于利用运势，往往只限于表面的改变。",
+    "quote": "果敢者以经行七杀宫度为佳"
+   },
+   "pole": "果敢"
+  },
+  {
+   "id": "破軍子午.果敢天同",
+   "role": "refine",
+   "when": {
+    "lean": "果敢"
+   },
+   "text": "天同所在的運，只要天同不化忌、吉星多而煞星少，就是你創立事業的吉運。",
+   "en": "The phase through Tian Tong, so long as Tian Tong is not in Hindrance and helpful stars outweigh harsh ones, is your good time to found an enterprise.",
+   "src": {
+    "page": 128,
+    "text": "一般来说，只要天同不化忌。有吉曜，少煞曜，则为果敢本质的破军，能藉此创立事业的吉运。",
+    "quote": "能藉此创立事业的吉运"
+   },
+   "pole": "果敢"
+  },
+  {
+   "id": "破軍子午.莽撞三思",
+   "role": "limit",
+   "when": {
+    "lean": "莽撞"
+   },
+   "text": "莽撞的你，行到七殺、破軍、貪狼的運，要有吉星（尤其天魁天鉞）才相宜；凡事三思而後行，就能避開困境。",
+   "en": "Being the rash kind, the phases through Qi Sha, Po Jun and Tan Lang suit you only with helpful stars, Tian Kui and Tian Yue above all; think three times before acting, and you can avoid the hard places.",
+   "src": {
+    "page": 127,
+    "text": "破军、七杀、贪狼独坐的运限，必须会诸占，尤其是魁钺，始为顽嚣的破军所宜经行。此时利用古曜祥和之气．化解破军的顽嚣，则其主动及无目的破坏力不生。倘后天更能努力补救，凡事三思而后行，则亦未尝不可避去蹇厄：",
+    "quote": "凡事三思而后行"
+   },
+   "pole": "莽撞"
+  },
+  {
+   "id": "破軍子午.天梁運",
+   "role": "limit",
+   "text": "天梁所在的那一步運，你只宜退居策劃，不宜衝在前面。",
+   "en": "In the phase through Tian Liang, step back and plan rather than lead from the front.",
+   "src": {
+    "page": 128,
+    "text": "天梁独坐的富垣，无论流年或运限逢之，即使果敢的破军亦只宜退居策划；本质顽嚣者则更非退让不可。",
+    "quote": "亦只宜退居策划"
+   }
+  }
+ ]
+}

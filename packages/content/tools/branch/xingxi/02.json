@@ -1,0 +1,140 @@
+{
+ "basis": {
+  "page": 45,
+  "text": "凡破军守命宫的人，运势如马鞍形，即必须经过反复。当其运势上升之时，忽然会遭受挫折，转而向下，然后又再次上升。所以，判断破军的叛逆性与顺从性，即可判断此[马鞍形]运势的升降度。",
+  "quote": "运势如马鞍形"
+ },
+ "rules": [
+  {
+   "id": "破軍寅申.順從",
+   "role": "refine",
+   "when": {
+    "lean": "順從"
+   },
+   "text": "順從性較重的破軍，人生變動的幅度較小，馬鞍形的起落也較平緩。",
+   "en": "When Po Jun leans towards going with the flow, life's changes are smaller and the saddle-shaped rises and falls are gentler.",
+   "src": {
+    "page": 45,
+    "text": "一般情况下，破军的叛逆性愈强，人生的变动幅度愈大：破军的顺从性愈强，人生的变动幅度愈小。",
+    "quote": "破军的顺从性愈强，人生的变动幅度愈小"
+   }
+  },
+  {
+   "id": "破軍寅申.叛逆",
+   "role": "refine",
+   "when": {
+    "lean": "叛逆"
+   },
+   "text": "叛逆性較重的破軍，人生變動的幅度較大，馬鞍形的起落也較明顯。",
+   "en": "When Po Jun leans towards rebellion, life's changes are bigger and the saddle-shaped rises and falls are sharper.",
+   "src": {
+    "page": 45,
+    "text": "一般情况下，破军的叛逆性愈强，人生的变动幅度愈大：破军的顺从性愈强，人生的变动幅度愈小。",
+    "quote": "破军的叛逆性愈强，人生的变动幅度愈大"
+   }
+  },
+  {
+   "id": "破軍寅申.順從鈴陀",
+   "role": "limit",
+   "when": {
+    "all": [
+     {
+      "lean": "順從"
+     },
+     {
+      "star": [
+       "鈴星",
+       "陀羅"
+      ],
+      "at": "sifang"
+     }
+    ]
+   },
+   "text": "順從的破軍稍有成就就容易自滿；你的盤又見鈴星或陀羅，更容易停在原地，難以再上一層。",
+   "en": "A Po Jun that goes with the flow tends to grow complacent after a little success; with Ling Xing or Tuo Luo in your chart, it's even easier to stall and hard to climb further.",
+   "src": {
+    "page": 51,
+    "text": "顺从性的破军见煞、刑诸曜众多者，主其人稍有成就；便踌躇志满，所以最不宜见铃星、陀罗，见则更停滞不前，难以上达。",
+    "quote": "最不宜见铃星、陀罗，见则更停滞不前"
+   }
+  },
+  {
+   "id": "破軍寅申.順從火羊",
+   "role": "refine",
+   "when": {
+    "all": [
+     {
+      "lean": "順從"
+     },
+     {
+      "star": [
+       "火星",
+       "擎羊"
+      ],
+      "at": "sifang"
+     },
+     {
+      "not": {
+       "star": [
+        "鈴星",
+        "陀羅"
+       ],
+       "at": "sifang"
+      }
+     }
+    ]
+   },
+   "text": "順從的破軍略見火星或擎羊，反而能激發你向上。",
+   "en": "For a Po Jun that goes with the flow, a touch of Huo Xing or Qing Yang actually spurs you upwards.",
+   "src": {
+    "page": 51,
+    "text": "最宜略见火星、擎羊，反主可以激发向上。",
+    "quote": "反主可以激发向上"
+   }
+  },
+  {
+   "id": "破軍寅申.叛逆煞重",
+   "role": "limit",
+   "when": {
+    "all": [
+     {
+      "lean": "叛逆"
+     },
+     {
+      "star": [
+       "擎羊",
+       "陀羅"
+      ],
+      "at": "sifang"
+     },
+     {
+      "star": [
+       "火星",
+       "鈴星"
+      ],
+      "at": "sifang"
+     }
+    ]
+   },
+   "text": "叛逆的破軍見煞星多，人生太過坎坷時容易洩氣；這時看福德宮和遷移宮：福德好就靠精神力量求變，遷移好就靠轉換環境改善。",
+   "en": "A rebellious Po Jun with many malefics can lose heart when life gets too rough; then look to the Fortune and Travel palaces: if Fortune is strong, change through inner strength; if Travel is strong, improve things by changing your surroundings.",
+   "src": {
+    "page": 52,
+    "text": "叛逆性的破军见煞、刑诸曜众多者，有时反主其人因人生太过坎坷而丧志。此时即检视其人的福德宫及迁移宫。福德宫佳者，宜发扬蹈厉，寻求改变命运的机遇(所以要留意好的大运或流年)，利用其精神力量，来改变人生的际遇。若迁移宫佳者，宜谋求出外发展的机会(所以要留意得迁移的大运或流年)，利用转变环境，来改善自己的命运。",
+    "quote": "有时反主其人因人生太过坎坷而丧志"
+   },
+   "edit": "「煞刑眾多」以三方四正同時見羊陀之一及火鈴之一近似；引擎冇天刑。"
+  },
+  {
+   "id": "破軍寅申.馬鞍",
+   "role": "base",
+   "text": "你的運勢像馬鞍：上升時會忽然受挫轉下，然後再升上去；起伏的幅度，就看順從與叛逆哪一面重。",
+   "en": "Your fortunes run like a saddle: on the way up a sudden setback turns them down, and then they climb again; how deep the dips go depends on whether the compliant or the rebellious side is stronger.",
+   "src": {
+    "page": 45,
+    "text": "凡破军守命宫的人，运势如马鞍形，即必须经过反复。当其运势上升之时，忽然会遭受挫折，转而向下，然后又再次上升。所以，判断破军的叛逆性与顺从性，即可判断此[马鞍形]运势的升降度。",
+    "quote": "运势如马鞍形"
+   }
+  }
+ ]
+}

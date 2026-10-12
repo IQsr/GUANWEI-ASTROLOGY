@@ -1,0 +1,156 @@
+{
+ "basis": {
+  "page": 144,
+  "text": "要推断[廉杀]在此二宫垣的本质，须分别其为奋发，抑或刚戾。",
+  "quote": "须分别其为奋发，抑或刚戾"
+ },
+ "rules": [
+  {
+   "id": "廉殺丑未.雄宿",
+   "role": "exception",
+   "when": {
+    "all": [
+     {
+      "branch": [
+       "未"
+      ]
+     },
+     {
+      "star": [
+       "文昌",
+       "文曲"
+      ],
+      "at": "sifang"
+     },
+     {
+      "any": [
+       {
+        "star": "祿存",
+        "at": "sifang"
+       },
+       {
+        "hua": "祿",
+        "at": "sifang"
+       }
+      ]
+     },
+     {
+      "not": {
+       "star": [
+        "擎羊",
+        "陀羅",
+        "火星",
+        "鈴星",
+        "地空",
+        "地劫"
+       ],
+       "at": "sifang"
+      }
+     }
+    ]
+   },
+   "text": "你的廉貞七殺在未，會昌曲又見祿，而不見煞星：成雄宿乾元格，歷盡艱辛而成大業。",
+   "en": "Your Lian Zhen–Qi Sha sits in Wei, meets Chang or Qu, gains Lu and avoids malefics: the 'heroic star' pattern, achieving great things after much hardship.",
+   "src": {
+    "page": 144,
+    "text": "[雄宿干元格]的[廉杀]一一即在未宫，见诸吉，特别是文昌、文曲，且同会禄存、化禄，而无四煞空劫会照，可以作为奋发的代表，一般均主历尽艰辛而成大业。",
+    "quote": "一般均主历尽艰辛而成大业"
+   }
+  },
+  {
+   "id": "廉殺丑未.有祿",
+   "role": "refine",
+   "when": {
+    "any": [
+     {
+      "star": "祿存",
+      "at": "sifang"
+     },
+     {
+      "hua": "祿",
+      "at": "sifang"
+     }
+    ]
+   },
+   "text": "你的盤見祿：即使吉凶星並見，也主奮發。",
+   "en": "Your chart meets Lu: even with good and bad stars mixed, it points to striving.",
+   "src": {
+    "page": 145,
+    "text": "[廉杀]最喜见禄、化禄。有禄而吉凶星曜并见，亦主奋发。这是基本条件。",
+    "quote": "有禄而吉凶星曜并见，亦主奋发"
+   }
+  },
+  {
+   "id": "廉殺丑未.無祿",
+   "role": "limit",
+   "when": {
+    "not": {
+     "any": [
+      {
+       "star": "祿存",
+       "at": "sifang"
+      },
+      {
+       "hua": "祿",
+       "at": "sifang"
+      }
+     ]
+    }
+   },
+   "text": "你的盤不見祿：即使有輔佐吉星，奮發也有所不足。",
+   "en": "Your chart doesn't meet Lu: even with supporting stars, the drive to strive falls short.",
+   "src": {
+    "page": 145,
+    "text": "若[廉杀]无禄，即使见辅佐诸曜，亦主奋发而不足，为有缺陷的命造。",
+    "quote": "亦主奋发而不足"
+   }
+  },
+  {
+   "id": "廉殺丑未.剛戾",
+   "role": "limit",
+   "when": {
+    "lean": "多波折"
+   },
+   "text": "剛戾的一面較重：剛戾不是指你的脾氣，而是星曜的性質，多表現為六親關係冷淡、人生多波折、多奔波勞碌。",
+   "en": "The harsh side is stronger: this harshness isn't your temper but the nature of the stars, showing as cool family ties, a life of setbacks and much running about.",
+   "src": {
+    "page": 144,
+    "text": "所谓刚戾，是指星曜的性质而不是指本人的气质，因此多表现为六亲冰炭，自身有灾病，人生多波折，或多奔波劳碌。",
+    "quote": "是指星曜的性质而不是指本人的气质"
+   },
+   "edit": "原句「自身有災病」不入讀者句。"
+  },
+  {
+   "id": "廉殺丑未.武忌",
+   "role": "limit",
+   "when": {
+    "hua": "忌",
+    "star": "武曲",
+    "at": "trine"
+   },
+   "text": "會照的武曲化忌，增加剛戾的性質。",
+   "en": "Wu Qu transformed by Ji in your trine adds to the harshness.",
+   "src": {
+    "page": 145,
+    "text": "[廉杀]最不喜会武曲化忌，主增加其刚戾之性。贪狼化忌则无妨，仍可不失为奋发，仅增加人生波折的频度，而幅度则不增加。",
+    "quote": "主增加其刚戾之性"
+   }
+  },
+  {
+   "id": "廉殺丑未.貪忌",
+   "role": "refine",
+   "when": {
+    "hua": "忌",
+    "star": "貪狼",
+    "at": "trine"
+   },
+   "text": "會照的貪狼化忌無妨：只是人生的波折來得較頻密，幅度不會更大。",
+   "en": "Tan Lang transformed by Ji in your trine does no real harm: setbacks come more often, but not bigger.",
+   "src": {
+    "page": 145,
+    "text": "[廉杀]最不喜会武曲化忌，主增加其刚戾之性。贪狼化忌则无妨，仍可不失为奋发，仅增加人生波折的频度，而幅度则不增加。",
+    "quote": "仅增加人生波折的频度，而幅度则不增加"
+   }
+  }
+ ]
+}

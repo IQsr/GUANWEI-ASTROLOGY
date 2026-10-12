@@ -1,0 +1,160 @@
+{
+ "basis": {
+  "page": 61,
+  "text": "要推断[太阳天梁]的本质，须分别其为祥和抑为孤忌。两种性质的分别很大，因此影响运程亦大。",
+  "quote": "须分别其为祥和抑为孤忌"
+ },
+ "rules": [
+  {
+   "id": "陽梁卯酉.孤工作",
+   "role": "refine",
+   "when": {
+    "lean": "孤獨"
+   },
+   "text": "孤的一面較重，最適合帶點獨立性質的工作，例如醫藥、保險、機械工程、法律。",
+   "en": "With the solitary side stronger, work with an independent edge suits you best, such as medicine, insurance, mechanical engineering or law.",
+   "src": {
+    "page": 63,
+    "text": "是故孤忌的[阳梁]，最宜从事带点孤习性质的工作，如医药、保险、机械工程、法律之类。",
+    "quote": "最宜从事带点孤习性质的工作"
+   }
+  },
+  {
+   "id": "陽梁卯酉.卯無煞",
+   "role": "refine",
+   "when": {
+    "all": [
+     {
+      "branch": [
+       "卯"
+      ]
+     },
+     {
+      "not": {
+       "star": [
+        "擎羊",
+        "陀羅",
+        "火星",
+        "鈴星",
+        "地空",
+        "地劫"
+       ],
+       "at": "sifang"
+      }
+     },
+     {
+      "not": {
+       "hua": "忌",
+       "at": "sifang"
+      }
+     }
+    ]
+   },
+   "text": "你的太陽天梁在卯，三方四正不見煞忌，是極祥和的組合。",
+   "en": "Your Tai Yang–Tian Liang sits in Mao with no malefics or Ji in its four directions: a very peaceful combination.",
+   "src": {
+    "page": 62,
+    "text": "[阳梁]倘在卯宫，不见煞忌，则为极祥和的星系组合。",
+    "quote": "则为极祥和的星系组合"
+   }
+  },
+  {
+   "id": "陽梁卯酉.極孤",
+   "role": "exception",
+   "when": {
+    "all": [
+     {
+      "branch": [
+       "酉"
+      ]
+     },
+     {
+      "hua": "忌",
+      "star": "太陽",
+      "at": "same"
+     },
+     {
+      "star": [
+       "擎羊",
+       "陀羅",
+       "火星",
+       "鈴星",
+       "地空",
+       "地劫"
+      ],
+      "at": "sifang"
+     }
+    ]
+   },
+   "text": "你的太陽化忌，坐在日落的酉宮，又見煞星：這組星孤剋的色彩最重。",
+   "en": "Your Tai Yang is transformed by Ji, sits in the setting-sun palace of You, and meets malefics: these stars at their most solitary.",
+   "src": {
+    "page": 62,
+    "text": "另一个极端是太阳化忌，落陷，又见煞刑虚耗诸曜，则此[阳梁]星系，便呈现极其孤忌的色彩。",
+    "quote": "便呈现极其孤忌的色彩"
+   }
+  },
+  {
+   "id": "陽梁卯酉.同忌",
+   "role": "limit",
+   "when": {
+    "hua": "忌",
+    "star": "天同",
+    "at": "sifang"
+   },
+   "text": "會照的天同化忌，令你和六親的關係較疏離。",
+   "en": "Tian Tong transformed by Ji in your four directions makes ties with family more distant.",
+   "src": {
+    "page": 62,
+    "text": "天同化忌特别令[阳梁]不利六新亲，人际关系疏离",
+    "quote": "人际关系疏离"
+   }
+  },
+  {
+   "id": "陽梁卯酉.巨忌",
+   "role": "limit",
+   "when": {
+    "hua": "忌",
+    "star": "巨門",
+    "at": "sifang"
+   },
+   "text": "會照的巨門化忌，令你一生較易受是非、糾紛困擾。",
+   "en": "Ju Men transformed by Ji in your four directions leaves you more exposed to gossip and disputes through life.",
+   "src": {
+    "page": 62,
+    "text": "巨门化忌则令[阳梁]生事端，一生易受是非、纠纷困扰。",
+    "quote": "一生易受是非、纠纷困扰"
+   }
+  },
+  {
+   "id": "陽梁卯酉.祥和運",
+   "role": "refine",
+   "when": {
+    "lean": "祥和"
+   },
+   "text": "祥和的你，行到七殺、破軍或貪狼所在的運，再見吉星或吉化，就是才華發揮、可以得志的時候；人生雖有變動，也變得合宜。",
+   "en": "Being the gentle kind, when a phase runs through Qi Sha, Po Jun or Tan Lang and meets helpful stars or transformations, your talent shines and you can rise; the changes it brings are well timed.",
+   "src": {
+    "page": 62,
+    "text": "祥和的[太阳天梁]，喜行七杀，破军，贪狼独坐的宫垣。见辅佐吉曜，或见吉化，即主英华发越，可以得志。人生虽有变动，在变动时虽然同时出现人际关系的现象，但性质良好，而且变动得宜。",
+    "quote": "即主英华发越，可以得志"
+   },
+   "pole": "祥和"
+  },
+  {
+   "id": "陽梁卯酉.孤獨運",
+   "role": "limit",
+   "when": {
+    "lean": "孤獨"
+   },
+   "text": "孤獨一面重的你，行到七殺、破軍或貪狼所在的運，即使見吉，也多是不得不變的變動，身邊的人際關係也跟著變。",
+   "en": "With the solitary side strong, when a phase runs through Qi Sha, Po Jun or Tan Lang, even with helpful stars the changes tend to be forced on you, and the people around you change with them.",
+   "src": {
+    "page": 62,
+    "text": "孤忌的[太阳天梁]，逢七杀、破军、贪狼独坐的宫垣，即使见辅佐吉曜，或见吉化，仅主有不得不变的变动。于变动的同时，人际关系亦随而不得不变。",
+    "quote": "仅主有不得不变的变动"
+   },
+   "pole": "孤獨"
+  }
+ ]
+}

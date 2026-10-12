@@ -39,11 +39,11 @@
       },
       "text": "你的天同巨門在丑，會照卯宮的太陽，陰暗面較小。",
       "en": "Your Tian Tong–Ju Men sits in Chou and meets the Sun in Mao, so its shadow is lighter.",
+      "pole": "明朗",
       "source": {
         "passage": "deep.星系06.3",
         "quote": "丑宫的[同巨]，阴暗较小"
-      },
-      "pole": "明朗"
+      }
     },
     {
       "id": "同巨丑未.未",
@@ -55,11 +55,11 @@
       },
       "text": "你的天同巨門在未，會照的是酉宮的太陽，日已西沉，陰暗面較大。",
       "en": "Your Tian Tong–Ju Men sits in Wei and meets the Sun in You, already setting, so its shadow is heavier.",
+      "pole": "陰暗",
       "source": {
         "passage": "deep.星系06.4",
         "quote": "由于酉宫的太阳已属日落西山"
-      },
-      "pole": "陰暗"
+      }
     },
     {
       "id": "同巨丑未.同忌",
@@ -71,11 +71,11 @@
       },
       "text": "你的天同化忌，感情的陰暗面加重，是這組星中較下的格局。",
       "en": "Your Tian Tong is transformed by Ji, deepening the emotional shadow; this is among the lower forms of these stars.",
+      "pole": "陰暗",
       "source": {
         "passage": "deep.星系06.5",
         "quote": "都是感情阴暗面的增加"
-      },
-      "pole": "陰暗"
+      }
     },
     {
       "id": "同巨丑未.巨忌",
@@ -87,11 +87,11 @@
       },
       "text": "你的巨門化忌，感情的陰暗面加重，是這組星中較下的格局。",
       "en": "Your Ju Men is transformed by Ji, deepening the emotional shadow; this is among the lower forms of these stars.",
+      "pole": "陰暗",
       "source": {
         "passage": "deep.星系06.5",
         "quote": "都是感情阴暗面的增加"
-      },
-      "pole": "陰暗"
+      }
     },
     {
       "id": "同巨丑未.巨吉",
@@ -107,11 +107,11 @@
       },
       "text": "你的巨門吉化，陰暗面減少；經過波折之後，能白手興家。",
       "en": "Your Ju Men has a favourable transformation, lightening the shadow; after some setbacks, you build something from nothing.",
+      "pole": "明朗",
       "source": {
         "passage": "deep.星系06.6",
         "quote": "尤其巨门吉化，必经波折而后白手兴家"
-      },
-      "pole": "明朗"
+      }
     },
     {
       "id": "同巨丑未.同祿",
@@ -123,11 +123,11 @@
       },
       "text": "你的天同化祿，可以減少這組星的陰暗。",
       "en": "Your Tian Tong is transformed by Lu, which lightens the shadow of these stars.",
+      "pole": "明朗",
       "source": {
         "passage": "deep.星系06.7",
         "quote": "则可减少[同巨]的阴暗"
-      },
-      "pole": "明朗"
+      }
     },
     {
       "id": "同巨丑未.同權",
@@ -139,11 +139,11 @@
       },
       "text": "你的天同化權，可以減少這組星的陰暗。",
       "en": "Your Tian Tong is transformed by Quan, which lightens the shadow of these stars.",
+      "pole": "明朗",
       "source": {
         "passage": "deep.星系06.7",
         "quote": "则可减少[同巨]的阴暗"
-      },
-      "pole": "明朗"
+      }
     },
     {
       "id": "同巨丑未.擎羊",

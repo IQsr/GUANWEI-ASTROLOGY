@@ -1,0 +1,203 @@
+{
+ "basis": {
+  "page": 191,
+  "text": "在此二宫垣的[机巨]，主要缺点为浮滑及多疑，必须得吉化、吉曜，然后始可减轻其缺点：若有煞曜同躔，则缺点增加。因此要判别此二宫垣[机巨]的特性，须分别其为稳重，抑或为浮薄。",
+  "quote": "须分别其为稳重，抑或为浮薄"
+ },
+ "rules": [
+  {
+   "id": "機巨卯酉.穩重",
+   "role": "refine",
+   "when": {
+    "lean": "穩重"
+   },
+   "text": "穩重的一面較重：古人說「機巨同臨，位至三公」，指的就是這一類。",
+   "en": "The steady side is stronger: when the ancients said 'Ji and Ju together rise to the highest office', this is the kind they meant.",
+   "src": {
+    "page": 191,
+    "text": "古人说的[机巨同临，位至三公]，是指本质稳重的[机巨]而言，所谓[天机巨门为破荡]，则是指浮薄的『机巨』而言。",
+    "quote": "是指本质稳重的[机巨]而言"
+   }
+  },
+  {
+   "id": "機巨卯酉.浮薄",
+   "role": "limit",
+   "when": {
+    "lean": "浮動"
+   },
+   "text": "浮薄的一面較重：古人說「天機巨門為破蕩」，指的就是這一類。",
+   "en": "The flighty side is stronger: when the ancients said 'Tian Ji with Ju Men breaks and scatters', this is the kind they meant.",
+   "src": {
+    "page": 191,
+    "text": "古人说的[机巨同临，位至三公]，是指本质稳重的[机巨]而言，所谓[天机巨门为破荡]，则是指浮薄的『机巨』而言。",
+    "quote": "则是指浮薄的『机巨』而言"
+   }
+  },
+  {
+   "id": "機巨卯酉.巨祿",
+   "role": "refine",
+   "when": {
+    "hua": "祿",
+    "star": "巨門",
+    "at": "same"
+   },
+   "text": "你的巨門化祿，這組星最吉利。",
+   "en": "Your Ju Men is transformed by Lu, the most favourable case for these stars.",
+   "src": {
+    "page": 191,
+    "text": "[机巨]喜得禄、权。本局唯辛年生人，可得巨门化禄、太阳化权，所以最为吉利。",
+    "quote": "所以最为吉利"
+   }
+  },
+  {
+   "id": "機巨卯酉.機忌",
+   "role": "limit",
+   "when": {
+    "hua": "忌",
+    "star": "天機",
+    "at": "same"
+   },
+   "text": "你的天機化忌，增加浮蕩。",
+   "en": "Your Tian Ji is transformed by Ji, adding restlessness.",
+   "src": {
+    "page": 192,
+    "text": "若天机化忌，则增加浮荡；巨门化忌，则变为轻薄，最为此格所不宜。",
+    "quote": "若天机化忌，则增加浮荡"
+   }
+  },
+  {
+   "id": "機巨卯酉.巨忌",
+   "role": "limit",
+   "when": {
+    "hua": "忌",
+    "star": "巨門",
+    "at": "same"
+   },
+   "text": "你的巨門化忌，容易變得輕薄，是這組星最不宜的。",
+   "en": "Your Ju Men is transformed by Ji, which can make you flippant, the least suitable case for these stars.",
+   "src": {
+    "page": 192,
+    "text": "若天机化忌，则增加浮荡；巨门化忌，则变为轻薄，最为此格所不宜。",
+    "quote": "巨门化忌，则变为轻薄"
+   }
+  },
+  {
+   "id": "機巨卯酉.鈴",
+   "role": "limit",
+   "when": {
+    "star": "鈴星",
+    "at": "same"
+   },
+   "text": "你的機巨與鈴星同宮，最易破壞穩重。",
+   "en": "Your Ji–Ju shares the palace with Ling Xing, which most easily undermines steadiness.",
+   "src": {
+    "page": 192,
+    "text": "赊此忌外，不喜火铃同度，铃星同度最坏，火星同度次之。火铃二垣容易破坏[机巨]的稳重。",
+    "quote": "铃星同度最坏"
+   }
+  },
+  {
+   "id": "機巨卯酉.火",
+   "role": "limit",
+   "when": {
+    "all": [
+     {
+      "star": "火星",
+      "at": "same"
+     },
+     {
+      "not": {
+       "star": "鈴星",
+       "at": "same"
+      }
+     }
+    ]
+   },
+   "text": "你的機巨與火星同宮，容易破壞穩重。",
+   "en": "Your Ji–Ju shares the palace with Huo Xing, which can undermine steadiness.",
+   "src": {
+    "page": 192,
+    "text": "赊此忌外，不喜火铃同度，铃星同度最坏，火星同度次之。火铃二垣容易破坏[机巨]的稳重。",
+    "quote": "火铃二垣容易破坏[机巨]的稳重"
+   }
+  },
+  {
+   "id": "機巨卯酉.酉",
+   "role": "refine",
+   "when": {
+    "branch": [
+     "酉"
+    ]
+   },
+   "text": "你的機巨在酉，會照的太陽得地，浮薄之性減少，比在卯宮有利。",
+   "en": "Your Ji–Ju sits in You, where the Sun it meets has ground, lessening flightiness: better than in Mao.",
+   "src": {
+    "page": 192,
+    "text": "三合所会，以太阳得地为佳，则浮薄之性可减，故[机巨]以酉宫数为有利。",
+    "quote": "故[机巨]以酉宫数为有利"
+   }
+  },
+  {
+   "id": "機巨卯酉.天同運",
+   "role": "refine",
+   "when": {
+    "lean": "穩重"
+   },
+   "text": "你屬穩重的一型，天同所在的那一步運或那一年，往往就是你興家立業的時候，要把握。",
+   "en": "You are the steady kind: the phase or year that runs through Tian Tong is often when you build your household and career, so seize it.",
+   "src": {
+    "page": 193,
+    "text": "[机巨]往往在天同躔度的流年或大运兴家立业，稳重者尤佳。故对此运势绝对不可忽视，应注意把握良机。",
+    "quote": "往往在天同躔度的流年或大运兴家立业"
+   },
+   "pole": "穩重"
+  },
+  {
+   "id": "機巨卯酉.貪狼運",
+   "role": "limit",
+   "when": {
+    "lean": "浮動"
+   },
+   "text": "貪狼所在的那一步運，往往是你人生大改變的時期；浮動的一型動盪幅度更大，要有貪狼化祿或化權，變化才不會帶來壞影響。",
+   "en": "The phase that runs through Tan Lang is often a time of major change for you, and the restless kind swings wider; only with Tan Lang in Abundance or Authority does the change pass without harm.",
+   "src": {
+    "page": 194,
+    "text": "贪狼独坐的运限，往往为[机巨]发生人生重大改变之期。浮薄者，其动荡幅度亦往往更大，必须见贪狼化禄、化权，然后始可使变化的过程，不致发生不吉之影响。",
+    "quote": "其动荡幅度亦往往更大"
+   },
+   "pole": "浮動"
+  },
+  {
+   "id": "機巨卯酉.忌卯行酉",
+   "role": "limit",
+   "when": {
+    "branch": [
+     "卯"
+    ]
+   },
+   "text": "你的天機巨門坐卯，最忌行到酉宮那一步運。",
+   "en": "Your Tian Ji–Ju Men sits in Mao, and the phase that runs through You is the one it fears most.",
+   "src": {
+    "page": 194,
+    "text": "一般情形下，[机巨]不宜更行[机巨]借星安宫的运限或流年。所以原坐卯宫者不宜行酉限；原坐酉宫者不易行卯限。此又为[中州派]的秘传。即所谓[机巨忌迁移]。",
+    "quote": "原坐卯宫者不宜行酉限"
+   }
+  },
+  {
+   "id": "機巨卯酉.忌酉行卯",
+   "role": "limit",
+   "when": {
+    "branch": [
+     "酉"
+    ]
+   },
+   "text": "你的天機巨門坐酉，最忌行到卯宮那一步運。",
+   "en": "Your Tian Ji–Ju Men sits in You, and the phase that runs through Mao is the one it fears most.",
+   "src": {
+    "page": 194,
+    "text": "一般情形下，[机巨]不宜更行[机巨]借星安宫的运限或流年。所以原坐卯宫者不宜行酉限；原坐酉宫者不易行卯限。此又为[中州派]的秘传。即所谓[机巨忌迁移]。",
+    "quote": "机巨忌迁移"
+   }
+  }
+ ]
+}

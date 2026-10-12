@@ -1,0 +1,122 @@
+{
+ "basis": {
+  "page": 175,
+  "text": "破军嚷度于天罗地网，一般情形下不主吉利，此已详述于初级讲义。然而却仍可判别其本质偏枯，抑为调和。",
+  "quote": "然而却仍可判别其本质偏枯，抑为调和"
+ },
+ "rules": [
+  {
+   "id": "破軍辰戌.得祿",
+   "role": "refine",
+   "when": {
+    "any": [
+     {
+      "hua": "祿",
+      "star": "破軍",
+      "at": "same"
+     },
+     {
+      "hua": "祿",
+      "star": "貪狼",
+      "at": "trine"
+     },
+     {
+      "star": "祿存",
+      "at": "sifang"
+     }
+    ]
+   },
+   "text": "你的破軍得祿，本質調和：有福澤，只是一波三折仍免不了。",
+   "en": "Your Po Jun gains Lu, so its nature is balanced: good fortune comes, though twists and turns are still unavoidable.",
+   "src": {
+    "page": 175,
+    "text": "破军必须得禄然后始主调和。破军化禄、贪狼化禄均可，其次为会禄存",
+    "quote": "破军必须得禄然后始主调和"
+   },
+   "also": [
+    {
+     "page": 175,
+     "text": "调和者始主有福泽，唯一波三折则仍在所不免。",
+     "quote": "唯一波三折则仍在所不免"
+    }
+   ]
+  },
+  {
+   "id": "破軍辰戌.無祿",
+   "role": "limit",
+   "when": {
+    "not": {
+     "any": [
+      {
+       "hua": "祿",
+       "star": "破軍",
+       "at": "same"
+      },
+      {
+       "hua": "祿",
+       "star": "貪狼",
+       "at": "trine"
+      },
+      {
+       "star": "祿存",
+       "at": "sifang"
+      }
+     ]
+    }
+   },
+   "text": "你的破軍不得祿，偏枯之性已成：就算有吉星，六親關係冷淡和人生的波折仍難避免。",
+   "en": "Your Po Jun gains no Lu, so its lopsided nature is set: even with good stars, cool family ties and life's setbacks are hard to avoid.",
+   "src": {
+    "page": 175,
+    "text": "无禄的破军，偏枯之性已成，虽见辅弼、昌曲，及魁钺夹、变不主全吉，六亲冰炭，以及人生的波折仍难避免",
+    "quote": "无禄的破军，偏枯之性已成"
+   }
+  },
+  {
+   "id": "破軍辰戌.權無祿",
+   "role": "limit",
+   "when": {
+    "all": [
+     {
+      "hua": "權",
+      "star": "破軍",
+      "at": "same"
+     },
+     {
+      "not": {
+       "any": [
+        {
+         "hua": "祿",
+         "star": "貪狼",
+         "at": "trine"
+        },
+        {
+         "star": "祿存",
+         "at": "sifang"
+        }
+       ]
+      }
+     }
+    ]
+   },
+   "text": "你的破軍化權而不得祿，只增加際遇上的聲勢，不主調和。",
+   "en": "Your Po Jun is transformed by Quan without Lu, which adds momentum to your fortunes but doesn't bring balance.",
+   "src": {
+    "page": 175,
+    "text": "若无禄，则破军化权亦不主调和，仅增加人生际遇上的一些声势。",
+    "quote": "仅增加人生际遇上的一些声势"
+   }
+  },
+  {
+   "id": "破軍辰戌.紫相運",
+   "role": "limit",
+   "text": "紫微天相所在的那一步運，是你最不喜歡的運。",
+   "en": "The phase through Zi Wei–Tian Xiang is the one that suits you least.",
+   "src": {
+    "page": 177,
+    "text": "[紫微天相]同度的宫垣，最不为破军所喜。",
+    "quote": "最不为破军所喜"
+   }
+  }
+ ]
+}

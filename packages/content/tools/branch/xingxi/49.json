@@ -1,0 +1,148 @@
+{
+ "basis": {
+  "page": 181,
+  "text": "故要推断此二宫垣[武曲天府的特性，须分别其为仅擅生财，抑或擅长理财(即包括生财及储存的能力)。擅生财者行动力强，擅理财者则行动与领导力皆强、",
+  "quote": "须分别其为仅擅生财，抑或擅长理财"
+ },
+ "rules": [
+  {
+   "id": "武府子午.全材",
+   "role": "exception",
+   "when": {
+    "all": [
+     {
+      "hua": "祿",
+      "star": "武曲",
+      "at": "same"
+     },
+     {
+      "not": {
+       "star": [
+        "擎羊",
+        "陀羅",
+        "火星",
+        "鈴星",
+        "地空",
+        "地劫"
+       ],
+       "at": "same"
+      }
+     }
+    ]
+   },
+   "text": "你的武曲化祿，又不見煞星：生財也能儲財，是理財的全才。",
+   "en": "Your Wu Qu is transformed by Lu and free of malefics: you can make money and keep it, an all-round manager of wealth.",
+   "src": {
+    "page": 181,
+    "text": "[武曲天府]必须见禄，尤喜武曲化禄，则丰其人必有生财的能力。但天府虽与之同度，却仍未必主其人擅长储财，必须不见煞曜，尤其不见地空、地劫，然后始为理财之全材。",
+    "quote": "然后始为理财之全材"
+   }
+  },
+  {
+   "id": "武府子午.祿煞",
+   "role": "limit",
+   "when": {
+    "all": [
+     {
+      "hua": "祿",
+      "star": "武曲",
+      "at": "same"
+     },
+     {
+      "star": [
+       "擎羊",
+       "陀羅",
+       "火星",
+       "鈴星",
+       "地空",
+       "地劫"
+      ],
+      "at": "same"
+     }
+    ]
+   },
+   "text": "你的武曲化祿，有生財的能力；只是同宮見煞，未必擅長儲財。",
+   "en": "Your Wu Qu is transformed by Lu, so you can make money; but with a malefic in the palace, keeping it doesn't come so easily.",
+   "src": {
+    "page": 181,
+    "text": "[武曲天府]必须见禄，尤喜武曲化禄，则丰其人必有生财的能力。但天府虽与之同度，却仍未必主其人擅长储财",
+    "quote": "却仍未必主其人擅长储财"
+   }
+  },
+  {
+   "id": "武府子午.無祿",
+   "role": "limit",
+   "when": {
+    "not": {
+     "any": [
+      {
+       "hua": "祿",
+       "star": "武曲",
+       "at": "same"
+      },
+      {
+       "star": "祿存",
+       "at": "same"
+      }
+     ]
+    }
+   },
+   "text": "你的武曲天府不見祿：有積財的能力，未必有生財之力。",
+   "en": "Your Wu Qu–Tian Fu gains no Lu: you can accumulate, but making money isn't assured.",
+   "src": {
+    "page": 182,
+    "text": "但若『武曲天府』不见禄(无论化禄或禄存)则虽不见煞曜,亦仅主有积财能力，却未必有生财之力",
+    "quote": "亦仅主有积财能力，却未必有生财之力"
+   }
+  },
+  {
+   "id": "武府子午.殺祿存",
+   "role": "refine",
+   "when": {
+    "star": "祿存",
+    "at": "opp"
+   },
+   "text": "對宮的七殺有祿存同宮，更增加你的生財能力。",
+   "en": "Qi Sha opposite you shares its palace with Lu Cun, adding to your ability to make money.",
+   "src": {
+    "page": 182,
+    "text": "会合的廉贞化禄，或禄存与七杀同度，最为[武府]星系所喜。尤其是七杀禄存拱照，更增加武曲的生财能力。",
+    "quote": "更增加武曲的生财能力"
+   }
+  },
+  {
+   "id": "武府子午.廉祿",
+   "role": "refine",
+   "when": {
+    "hua": "祿",
+    "star": "廉貞",
+    "at": "trine"
+   },
+   "text": "會照的廉貞化祿，是武府最喜的配合。",
+   "en": "Lian Zhen transformed by Lu in your trine is the combination Wu Qu–Tian Fu likes best.",
+   "src": {
+    "page": 182,
+    "text": "会合的廉贞化禄，或禄存与七杀同度，最为[武府]星系所喜。",
+    "quote": "最为[武府]星系所喜"
+   }
+  },
+  {
+   "id": "武府子午.羊陀",
+   "role": "limit",
+   "when": {
+    "star": [
+     "擎羊",
+     "陀羅"
+    ],
+    "at": "same"
+   },
+   "text": "你的武府與羊陀同宮，生財、積財之力都減弱，也多爭奪和障礙。",
+   "en": "Your Wu Qu–Tian Fu shares the palace with Qing Yang or Tuo Luo, weakening both making and keeping money, with more competition and obstacles.",
+   "src": {
+    "page": 182,
+    "text": "不宜擎羊、耽罗同会，有争夺及障碍的意味。则生财及积财之力均为之减弱。",
+    "quote": "则生财及积财之力均为之减弱"
+   }
+  }
+ ]
+}

@@ -27,11 +27,11 @@
       },
       "text": "你的天府在未，被入廟的太陽相夾，能在保守中尋求突破。",
       "en": "Your Tian Fu sits in Wei, flanked by a strong Sun, and can find breakthroughs within caution.",
+      "pole": "謙和",
       "source": {
         "passage": "deep.星系41.2",
         "quote": "能于保守中寻求突破"
-      },
-      "pole": "謙和"
+      }
     },
     {
       "id": "天府丑未.丑",
@@ -43,11 +43,11 @@
       },
       "text": "你的天府在丑，多是純保守型。",
       "en": "Your Tian Fu sits in Chou, and tends to be purely conservative.",
+      "pole": "保守",
       "source": {
         "passage": "deep.星系41.2",
         "quote": "丑宫者则多为纯保守型"
-      },
-      "pole": "保守"
+      }
     },
     {
       "id": "天府丑未.謙和",
@@ -98,11 +98,11 @@
       },
       "text": "對宮的廉貞化忌，令你較膽怯：原因多是自覺學識不足以擔重任。",
       "en": "Lian Zhen opposite you is transformed by Ji, making you more timid, mostly because you feel your learning falls short of heavy responsibility.",
+      "pole": "保守",
       "source": {
         "passage": "deep.星系41.5",
         "quote": "但却是由于自身的学食，不足以负担重任而造成"
-      },
-      "pole": "保守"
+      }
     },
     {
       "id": "天府丑未.廉忌輔弼",
@@ -140,6 +140,7 @@
       },
       "text": "對宮的廉貞化祿，增加你的謙和；只是這份謙和容易欠缺誠意，人緣反而不足。",
       "en": "Lian Zhen opposite you is transformed by Lu, adding to your modesty; but that modesty can lack sincerity, leaving you short of goodwill.",
+      "pole": "謙和",
       "source": {
         "passage": "deep.星系41.7",
         "quote": "但这种谦和却可能欠缺诚意"
@@ -149,8 +150,7 @@
           "passage": "deep.星系41.8",
           "quote": "往往缺少人缘"
         }
-      ],
-      "pole": "謙和"
+      ]
     }
   ]
 }

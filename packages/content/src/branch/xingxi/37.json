@@ -86,11 +86,11 @@
       },
       "text": "你的盤見祿：即使吉凶星並見，也主奮發。",
       "en": "Your chart meets Lu: even with good and bad stars mixed, it points to striving.",
+      "pole": "奮發",
       "source": {
         "passage": "deep.星系37.3",
         "quote": "有禄而吉凶星曜并见，亦主奋发"
-      },
-      "pole": "奮發"
+      }
     },
     {
       "id": "廉殺丑未.無祿",
@@ -111,11 +111,11 @@
       },
       "text": "你的盤不見祿：即使有輔佐吉星，奮發也有所不足。",
       "en": "Your chart doesn't meet Lu: even with supporting stars, the drive to strive falls short.",
+      "pole": "多波折",
       "source": {
         "passage": "deep.星系37.4",
         "quote": "亦主奋发而不足"
-      },
-      "pole": "多波折"
+      }
     },
     {
       "id": "廉殺丑未.剛戾",
@@ -141,11 +141,11 @@
       },
       "text": "會照的武曲化忌，增加剛戾的性質。",
       "en": "Wu Qu transformed by Ji in your trine adds to the harshness.",
+      "pole": "多波折",
       "source": {
         "passage": "deep.星系37.6",
         "quote": "主增加其刚戾之性"
-      },
-      "pole": "多波折"
+      }
     },
     {
       "id": "廉殺丑未.貪忌",

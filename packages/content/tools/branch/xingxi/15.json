@@ -1,0 +1,153 @@
+{
+ "basis": {
+  "page": 81,
+  "text": "其实要推断巨门在这个宫垣的特性，亦只需注意它是英华内敛，或是内心疑忌。二者都属于内心世界，而且只有一线之差。",
+  "quote": "亦只需注意它是英华内敛，或是内心疑忌"
+ },
+ "rules": [
+  {
+   "id": "巨門子午.石中隱玉",
+   "role": "exception",
+   "when": {
+    "all": [
+     {
+      "hua": [
+       "祿",
+       "權"
+      ],
+      "star": "巨門",
+      "at": "same"
+     },
+     {
+      "not": {
+       "star": [
+        "擎羊",
+        "陀羅",
+        "火星",
+        "鈴星",
+        "地空",
+        "地劫"
+       ],
+       "at": "same"
+      }
+     }
+    ]
+   },
+   "text": "你的巨門吉化而同宮不見煞，成石中隱玉格：英華內斂，可成大業；只是一生不宜走到最高峰、出鋒頭，否則容易招惹是非。",
+   "en": "Your Ju Men has a favourable transformation and no malefic beside it, forming the 'jade hidden in stone' pattern: brilliance held within, able to build something great; but you shouldn't push for the very top or the limelight, or trouble follows.",
+   "src": {
+    "page": 81,
+    "text": "这两个宫度的巨门，若见禄、权吉化，又不见煞，则称为[石中隐玉]，主其人英华内敛，可成大业。",
+    "quote": "则称为[石中隐玉]，主其人英华内敛，可成大业"
+   },
+   "also": [
+    {
+     "page": 81,
+     "text": "所以一生不能走最高峰，不能出锋头，否则即与收获的本质相远，因而招惹是非横逆。",
+     "quote": "所以一生不能走最高峰，不能出锋头"
+    }
+   ]
+  },
+  {
+   "id": "巨門子午.祿存次格",
+   "role": "refine",
+   "when": {
+    "all": [
+     {
+      "star": "祿存",
+      "at": "same"
+     },
+     {
+      "not": {
+       "hua": [
+        "祿",
+        "權"
+       ],
+       "star": "巨門",
+       "at": "same"
+      }
+     }
+    ]
+   },
+   "text": "你的巨門有祿存同宮，是石中隱玉的次格：青年時的際遇稍遜，人生多了一些阻滯。",
+   "en": "Your Ju Men shares the palace with Lu Cun, a lesser form of 'jade hidden in stone': your young years go a little less well, adding some obstacles.",
+   "src": {
+    "page": 83,
+    "text": "禄存同度的[石中隐王]所以为次格者，因为这吋天相必有擎羊同跶，青年时的运程不如化禄者之传，出身亦有不如，因此人生便多了一些困阻。",
+    "quote": "因此人生便多了一些困阻"
+   }
+  },
+  {
+   "id": "巨門子午.擎羊",
+   "role": "limit",
+   "when": {
+    "star": "擎羊",
+    "at": "same"
+   },
+   "text": "你的命宮見擎羊，收斂才華的本質容易轉成對別人的疑忌：表面不動聲色，心裡卻覺得人人都對自己不利，人生因此多了困境。",
+   "en": "Qing Yang in your Life Palace can turn the habit of holding back your talent into suspicion of others: outwardly calm, inwardly sure everyone is against you, which brings more hardship.",
+   "src": {
+    "page": 82,
+    "text": "若有煞曜同度，特别是擎羊，则将收敛才华的本质，转为对别人的疑忌。表面上不动声色，实际上心目中无一好人，个个都对自己不利，一旦有了这种性格，人生便自多困境。",
+    "quote": "转为对别人的疑忌"
+   }
+  },
+  {
+   "id": "巨門子午.機忌",
+   "role": "limit",
+   "when": {
+    "hua": "忌",
+    "star": "天機",
+    "at": "opp"
+   },
+   "text": "對宮的天機化忌，也令你容易生疑忌。",
+   "en": "Tian Ji opposite you is transformed by Ji, which also makes you prone to suspicion.",
+   "src": {
+    "page": 82,
+    "text": "对宫的天机化忌，亦足以影响巨门具疑忌之性。",
+    "quote": "亦足以影响巨门具疑忌之性"
+   }
+  },
+  {
+   "id": "巨門子午.內斂天府",
+   "role": "refine",
+   "when": {
+    "lean": "英華內斂"
+   },
+   "text": "英華內斂的你，行到天府所在的運，只要天府不空，就是收穫的時候。",
+   "en": "Keeping your gifts within, a phase that runs through Tian Fu, so long as it is not empty, is your time to harvest.",
+   "src": {
+    "page": 83,
+    "text": "天府所躧的宫垣，只要不是[空库][露库]，对巨门皆有利。最利英华内敛的巨门，为收获的运程。若天府空露，则内心疑忌的巨门必生词论纠纷。",
+    "quote": "最利英华内敛的巨门，为收获的运程"
+   },
+   "pole": "英華內斂"
+  },
+  {
+   "id": "巨門子午.疑慮太陽",
+   "role": "refine",
+   "when": {
+    "lean": "疑慮"
+   },
+   "text": "疑慮重的你，行到太陽入廟又有吉化的運，反而可以吐氣揚眉。",
+   "en": "Being the wary kind, a phase where Tai Yang is bright and well transformed is when you can finally hold your head high.",
+   "src": {
+    "page": 83,
+    "text": "英华内敛的巨门，行太阳入庙，且会禄权科诸吉的支严厉的考验，因为若因此而改变性格，攀取高峰，则于流年运热欠佳时必生挫败。趋吉避凶之道，为仍然占取第二席位置，且不公开发表言论。对内心疑忌的巨门而言，至此宫限，反可以吐气扬眉。",
+    "quote": "反可以吐气扬眉"
+   },
+   "pole": "疑慮"
+  },
+  {
+   "id": "巨門子午.天機運",
+   "role": "limit",
+   "text": "天機所在的那一步運，無論多吉，對你都不利；那段時間不宜生改變之心，多忍讓為宜。",
+   "en": "The phase that runs through Tian Ji does not favour you, however good it looks; in that time, do not seek change, and give way where you can.",
+   "src": {
+    "page": 83,
+    "text": "天机独坐的宫限，无论如何吉化，或会诸吉，对任何本质的巨门都不利，因为天机会巨门即带[破荡]的性质，仅于巨门化禄之时，才可以减少破荡之性。",
+    "quote": "对任何本质的巨门都不利"
+   }
+  }
+ ]
+}

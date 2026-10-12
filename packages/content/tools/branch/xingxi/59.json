@@ -1,0 +1,111 @@
+{
+ "basis": {
+  "page": 212,
+  "text": "然而亦正因为[廉破]的影响，同时亦令天相较为情绪彬，原则性不强，因要推断天相在此，宫垣的本质，须分别其为正值，抑为徇私。",
+  "quote": "须分别其为正值，抑为徇私"
+ },
+ "rules": [
+  {
+   "id": "天相卯酉.有原則",
+   "role": "refine",
+   "when": {
+    "lean": "有原則"
+   },
+   "text": "有原則的你，照顧朋友也有自己的分寸，不會變成老好人。",
+   "en": "Principled, you look after friends with your own sense of limits, and don't become a pushover.",
+   "src": {
+    "page": 212,
+    "text": "倘正直的天相，则虽照顾友谊亦有自己的原则，不会变成[老好人]，亦不会因而误人歧途。",
+    "quote": "不会变成[老好人]"
+   }
+  },
+  {
+   "id": "天相卯酉.重情面",
+   "role": "limit",
+   "when": {
+    "lean": "重情面"
+   },
+   "text": "重情面的一面較重：這不是只顧自己的私利，而是無原則地照顧友情，有時只為了義氣。",
+   "en": "The loyalty-first side is stronger: not selfishness, but looking after friends without principle, sometimes purely out of loyalty.",
+   "src": {
+    "page": 212,
+    "text": "徇私与私利不同，私利者只谋求个人的利益，而徇私者则是无原则地照顾友情。甚至有时只是为了[义气]",
+    "quote": "而徇私者则是无原则地照顾友情"
+   }
+  },
+  {
+   "id": "天相卯酉.火鈴",
+   "role": "limit",
+   "when": {
+    "star": [
+     "火星",
+     "鈴星"
+    ],
+    "at": "sifang"
+   },
+   "text": "會照的火鈴，令你帶重情面而失原則的色彩。",
+   "en": "Huo or Ling meeting your chart adds a tendency to put loyalty above principle.",
+   "src": {
+    "page": 213,
+    "text": "天相最不喜欢火铃冲会，冲则有徇私的色彩。",
+    "quote": "冲则有徇私的色彩"
+   }
+  },
+  {
+   "id": "天相卯酉.空劫",
+   "role": "limit",
+   "when": {
+    "star": [
+     "地空",
+     "地劫"
+    ],
+    "at": "same"
+   },
+   "text": "你的命宮有空劫，也容易重情面而失原則。",
+   "en": "Kong or Jie in your Life Palace also leans you towards loyalty over principle.",
+   "src": {
+    "page": 213,
+    "text": "亦不宙坐空劫之乡，亦主徇私。",
+    "quote": "亦主徇私"
+   }
+  },
+  {
+   "id": "天相卯酉.吉星",
+   "role": "refine",
+   "when": {
+    "star": [
+     "左輔",
+     "右弼",
+     "文昌",
+     "文曲",
+     "天魁",
+     "天鉞"
+    ],
+    "at": "sifang"
+   },
+   "text": "有輔佐吉星會合，你正直的本性得以發揮。",
+   "en": "Supporting stars meeting your chart let your upright nature come through.",
+   "src": {
+    "page": 213,
+    "text": "若逢辅弼，魁铖，昌曲交会，则此二宫垣的天相便正直之性。",
+    "quote": "则此二宫垣的天相便正直之性"
+   }
+  },
+  {
+   "id": "天相卯酉.廉忌",
+   "role": "limit",
+   "when": {
+    "hua": "忌",
+    "star": "廉貞",
+    "at": "opp"
+   },
+   "text": "對宮的廉貞化忌，多感情拖累，容易因此重情面而失原則。",
+   "en": "Lian Zhen opposite you is transformed by Ji, bringing emotional entanglements that can push loyalty above principle.",
+   "src": {
+    "page": 213,
+    "text": "对宫的[廉破]亦必须得禄，天相始有正直之性，若壤习贞化忌，则多感情拖累，因而变得徇私。",
+    "quote": "则多感情拖累，因而变得徇私"
+   }
+  }
+ ]
+}

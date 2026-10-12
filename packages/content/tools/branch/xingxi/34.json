@@ -1,0 +1,167 @@
+{
+ "basis": {
+  "page": 136,
+  "text": "要判别在罗网宫的巨门本质，须分别其为激发、抑或为遭忌。",
+  "quote": "须分别其为激发、抑或为遭忌"
+ },
+ "rules": [
+  {
+   "id": "巨門辰戌.奇格辰",
+   "role": "exception",
+   "when": {
+    "all": [
+     {
+      "branch": [
+       "辰"
+      ]
+     },
+     {
+      "hua": "祿",
+      "star": "巨門",
+      "at": "same"
+     }
+    ]
+   },
+   "text": "你的巨門在辰化祿，是天羅地網中的奇格，不在不利之列。",
+   "en": "Your Ju Men sits in Chen transformed by Lu, a special pattern within the 'heavenly net', not among the unfavourable cases.",
+   "src": {
+    "page": 136,
+    "text": "巨门躔度于此两个宫度，为天罗地网，除了辰宫的巨门，辛年生人；戌宫的巨门，癸年、辛年生人为[奇格]之外，其余的巨门皆为不利。",
+    "quote": "为[奇格]之外，其余的巨门皆为不利"
+   },
+   "edit": "辛年巨門化祿、癸年巨門化權，以四化代年干。"
+  },
+  {
+   "id": "巨門辰戌.奇格戌",
+   "role": "exception",
+   "when": {
+    "all": [
+     {
+      "branch": [
+       "戌"
+      ]
+     },
+     {
+      "hua": [
+       "祿",
+       "權"
+      ],
+      "star": "巨門",
+      "at": "same"
+     }
+    ]
+   },
+   "text": "你的巨門在戌吉化，是天羅地網中的奇格，不在不利之列。",
+   "en": "Your Ju Men sits in Xu with a favourable transformation, a special pattern within the 'heavenly net', not among the unfavourable cases.",
+   "src": {
+    "page": 136,
+    "text": "巨门躔度于此两个宫度，为天罗地网，除了辰宫的巨门，辛年生人；戌宫的巨门，癸年、辛年生人为[奇格]之外，其余的巨门皆为不利。",
+    "quote": "为[奇格]之外，其余的巨门皆为不利"
+   },
+   "edit": "辛年巨門化祿、癸年巨門化權，以四化代年干。"
+  },
+  {
+   "id": "巨門辰戌.魁鉞",
+   "role": "refine",
+   "when": {
+    "star": [
+     "天魁",
+     "天鉞"
+    ],
+    "at": "sifang"
+   },
+   "text": "會照的魁鉞，能減輕你遭忌的性質。",
+   "en": "Kui and Yue meeting your chart lighten the tendency to draw envy and suspicion.",
+   "src": {
+    "page": 136,
+    "text": "唯有天魁、天钺，可以将遭忌的性质减轻。",
+    "quote": "可以将遭忌的性质减轻"
+   }
+  },
+  {
+   "id": "巨門辰戌.火羊",
+   "role": "refine",
+   "when": {
+    "star": [
+     "擎羊",
+     "火星"
+    ],
+    "at": "same"
+   },
+   "text": "同宮的擎羊或火星，反而為你產生激發力。",
+   "en": "Qing Yang or Huo Xing in your palace actually spurs you on.",
+   "src": {
+    "page": 136,
+    "text": "煞曜唯擎羊、火星可以产生激发力，陀罗同度则不宜，主是非困挠频仍。铃星亦不利。",
+    "quote": "煞曜唯擎羊、火星可以产生激发力"
+   }
+  },
+  {
+   "id": "巨門辰戌.陀",
+   "role": "limit",
+   "when": {
+    "star": "陀羅",
+    "at": "same"
+   },
+   "text": "你的巨門與陀羅同宮，是非困擾頻繁。",
+   "en": "Your Ju Men shares the palace with Tuo Luo, bringing frequent disputes and vexation.",
+   "src": {
+    "page": 136,
+    "text": "煞曜唯擎羊、火星可以产生激发力，陀罗同度则不宜，主是非困挠频仍。铃星亦不利。",
+    "quote": "陀罗同度则不宜，主是非困挠频仍"
+   }
+  },
+  {
+   "id": "巨門辰戌.武破",
+   "role": "refine",
+   "text": "武曲破軍所在的運，只要見吉化，對你都是好運；只怕武曲化忌。",
+   "en": "The phase through Wu Qu–Po Jun is good for you whenever it meets helpful transformations; only Wu Qu in Hindrance spoils it.",
+   "src": {
+    "page": 137,
+    "text": "[武曲破军]见吉化，无论何种性质的巨门均喜经行。唯武曲化忌则不宜。",
+    "quote": "无论何种性质的巨门均喜经行"
+   }
+  },
+  {
+   "id": "巨門辰戌.天府",
+   "role": "refine",
+   "text": "天府所在的運，只要見祿或吉化，就是你的好運。",
+   "en": "The phase through Tian Fu is a good one for you whenever it meets Lu Cun or a helpful transformation.",
+   "src": {
+    "page": 137,
+    "text": "天府独坐的宫垣，只要见禄或吉化，即为巨门的佳运。受激发的巨门尤宜。",
+    "quote": "即为巨门的佳运"
+   }
+  },
+  {
+   "id": "巨門辰戌.激發天梁",
+   "role": "refine",
+   "when": {
+    "lean": "受激發"
+   },
+   "text": "受激發的你，行到天梁所在的運，那十年必先吃盡苦頭，然後發越。",
+   "en": "Driven by pressure, the decade through Tian Liang first puts you through real hardship, and then you rise.",
+   "src": {
+    "page": 137,
+    "text": "原局受激发的巨门，天梁宫垣即为激发性的运限。十年之内，必先压尽可能艰辛而后发越，其内心痛苦难讨人言。",
+    "quote": "天梁宫垣即为激发性的运限"
+   },
+   "pole": "受激發"
+  },
+  {
+   "id": "巨門辰戌.多阻廉殺",
+   "role": "refine",
+   "when": {
+    "lean": "多阻"
+   },
+   "text": "阻力偏多的你，行到廉貞七殺所在的運，若吉化吉星齊集，就是改變處境的機會，一定要把握。",
+   "en": "With obstacles running high, the phase through Lian Zhen–Qi Sha, when helpful stars gather, is your chance to change your circumstances; seize it.",
+   "src": {
+    "page": 137,
+    "text": "[廉贞七杀]同度的运限，若干吉化、吉曜齐集的确良运限年限，即为遭忌的巨门改变客观环境的机遇，必须把握时机。",
+    "quote": "即为遭忌的巨门改变客观环境的机遇"
+   },
+   "pole": "多阻"
+  }
+ ]
+}
