@@ -1,0 +1,38 @@
+{
+  "$note": "遷移宮（2026-10-12）：廉貞七殺.遷移。《深造講義》下篇 宮垣論 遷移宮 p.496–515。客死異鄉、異鄉染病、官非、冤獄、被盜、意外一類斷語不用；天月、天刑、龍池鳳閣等引擎冇嘅星不用；要睇廟陷嘅條文暫不用。",
+  "topic": {
+    "id": "廉貞七殺.遷移",
+    "palace": "遷移",
+    "stars": [
+      "廉貞",
+      "七殺"
+    ]
+  },
+  "rules": [
+    {
+      "id": "遷移.廉殺.聲譽",
+      "role": "base",
+      "text": "廉貞七殺在遷移宮，遷移異地能建立聲譽。",
+      "en": "Lian Zhen with Qi Sha in your Travel Palace: moving away lets you build a reputation.",
+      "source": {
+        "passage": "deep.遷移.廉貞.2",
+        "quote": "主迁移异地能建立声誉"
+      }
+    },
+    {
+      "id": "遷移.廉殺.祿",
+      "role": "refine",
+      "when": {
+        "hua": "祿",
+        "star": "廉貞",
+        "at": "same"
+      },
+      "text": "廉貞化祿，在外順利得財，而且多助力。",
+      "en": "Lian Zhen in Abundance: money comes smoothly away from home, with plenty of help.",
+      "source": {
+        "passage": "deep.遷移.廉貞.3",
+        "quote": "顺利得财，且多助力"
+      }
+    }
+  ]
+}

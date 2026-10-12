@@ -1,0 +1,23 @@
+{
+  "$note": "遷移宮（2026-10-12）：廉貞貪狼.遷移。《深造講義》下篇 宮垣論 遷移宮 p.496–515。客死異鄉、異鄉染病、官非、冤獄、被盜、意外一類斷語不用；天月、天刑、龍池鳳閣等引擎冇嘅星不用；要睇廟陷嘅條文暫不用。",
+  "topic": {
+    "id": "廉貞貪狼.遷移",
+    "palace": "遷移",
+    "stars": [
+      "廉貞",
+      "貪狼"
+    ]
+  },
+  "rules": [
+    {
+      "id": "遷移.廉貪.艱辛",
+      "role": "base",
+      "text": "廉貞貪狼在遷移宮，出外要經歷艱辛。",
+      "en": "Lian Zhen with Tan Lang in your Travel Palace: life away from home takes hardship.",
+      "source": {
+        "passage": "deep.遷移.廉貞.4",
+        "quote": "主出外须历艰辛"
+      }
+    }
+  ]
+}

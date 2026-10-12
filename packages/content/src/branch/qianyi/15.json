@@ -1,0 +1,49 @@
+{
+  "$note": "遷移宮（2026-10-12）：武曲天相.遷移。《深造講義》下篇 宮垣論 遷移宮 p.496–515。客死異鄉、異鄉染病、官非、冤獄、被盜、意外一類斷語不用；天月、天刑、龍池鳳閣等引擎冇嘅星不用；要睇廟陷嘅條文暫不用。",
+  "topic": {
+    "id": "武曲天相.遷移",
+    "palace": "遷移",
+    "stars": [
+      "武曲",
+      "天相"
+    ]
+  },
+  "rules": [
+    {
+      "id": "遷移.武相.吉",
+      "role": "refine",
+      "when": {
+        "any": [
+          {
+            "hua": [
+              "祿",
+              "權",
+              "科"
+            ],
+            "at": "same"
+          },
+          {
+            "star": [
+              "左輔",
+              "右弼"
+            ],
+            "at": "sifang"
+          },
+          {
+            "star": [
+              "天魁",
+              "天鉞"
+            ],
+            "at": "sifang"
+          }
+        ]
+      },
+      "text": "武曲天相見吉，利遷移外地經商，常有意料不到的機會。",
+      "en": "Wu Qu with Tian Xiang and good signs favours moving away to trade, often bringing chances you never expected.",
+      "source": {
+        "passage": "deep.遷移.武曲.3",
+        "quote": "常主可得意料不及的机会"
+      }
+    }
+  ]
+}

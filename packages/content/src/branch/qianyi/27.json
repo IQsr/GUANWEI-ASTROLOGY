@@ -1,0 +1,144 @@
+{
+  "$note": "遷移宮（2026-10-12）：天府.遷移。《深造講義》下篇 宮垣論 遷移宮 p.496–515。客死異鄉、異鄉染病、官非、冤獄、被盜、意外一類斷語不用；天月、天刑、龍池鳳閣等引擎冇嘅星不用；要睇廟陷嘅條文暫不用。",
+  "topic": {
+    "id": "天府.遷移",
+    "palace": "遷移",
+    "stars": [
+      "天府"
+    ]
+  },
+  "rules": [
+    {
+      "id": "遷移.天府.廉祿",
+      "role": "refine",
+      "when": {
+        "hua": "祿",
+        "star": "廉貞",
+        "at": "sifang"
+      },
+      "text": "會廉貞化祿，在外談笑用兵，求財順利。",
+      "en": "Meeting Lian Zhen in Abundance, you handle things with ease away from home, and money comes smoothly.",
+      "source": {
+        "passage": "deep.遷移.天府.2",
+        "quote": "主谈笑用兵，求财顺利"
+      }
+    },
+    {
+      "id": "遷移.天府.武祿",
+      "role": "refine",
+      "when": {
+        "hua": "祿",
+        "star": "武曲",
+        "at": "sifang"
+      },
+      "text": "會武曲化祿，在外經商大利。",
+      "en": "Meeting Wu Qu in Abundance, trade away from home pays off handsomely.",
+      "source": {
+        "passage": "deep.遷移.天府.3",
+        "quote": "天府与武曲化禄同会，经商大利"
+      }
+    },
+    {
+      "id": "遷移.天府.陀羅",
+      "role": "limit",
+      "when": {
+        "star": "陀羅",
+        "at": "same"
+      },
+      "text": "同宮有陀羅，出門往往拖延，回鄉也容易受阻。",
+      "en": "With Tuo Luo in the palace, trips drag on, and getting home can be held up.",
+      "source": {
+        "passage": "deep.遷移.天府.4",
+        "quote": "出门往往迁延，致回乡受阻"
+      }
+    },
+    {
+      "id": "遷移.天府.紫",
+      "role": "refine",
+      "when": {
+        "all": [
+          {
+            "star": "紫微",
+            "at": "same"
+          },
+          {
+            "any": [
+              {
+                "hua": [
+                  "祿",
+                  "權",
+                  "科"
+                ],
+                "at": "same"
+              },
+              {
+                "star": [
+                  "左輔",
+                  "右弼"
+                ],
+                "at": "sifang"
+              },
+              {
+                "star": [
+                  "天魁",
+                  "天鉞"
+                ],
+                "at": "sifang"
+              }
+            ]
+          }
+        ]
+      },
+      "text": "天府與紫微同宮又見吉，出門近貴。",
+      "en": "Tian Fu beside Zi Wei with good signs brings you close to influential people when away.",
+      "source": {
+        "passage": "deep.遷移.天府.5",
+        "quote": "主出门近贵"
+      }
+    },
+    {
+      "id": "遷移.天府.武",
+      "role": "refine",
+      "when": {
+        "all": [
+          {
+            "star": "武曲",
+            "at": "same"
+          },
+          {
+            "any": [
+              {
+                "hua": [
+                  "祿",
+                  "權",
+                  "科"
+                ],
+                "at": "same"
+              },
+              {
+                "star": [
+                  "左輔",
+                  "右弼"
+                ],
+                "at": "sifang"
+              },
+              {
+                "star": [
+                  "天魁",
+                  "天鉞"
+                ],
+                "at": "sifang"
+              }
+            ]
+          }
+        ]
+      },
+      "text": "天府與武曲同宮又見吉，在外經商可以致富。",
+      "en": "Tian Fu beside Wu Qu with good signs: trade away from home can make you rich.",
+      "source": {
+        "passage": "deep.遷移.天府.5",
+        "quote": "主经商可以致富"
+      }
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "$note": "遷移宮（2026-10-12）：破軍子午.遷移。《深造講義》下篇 宮垣論 遷移宮 p.496–515。客死異鄉、異鄉染病、官非、冤獄、被盜、意外一類斷語不用；天月、天刑、龍池鳳閣等引擎冇嘅星不用；要睇廟陷嘅條文暫不用。",
+  "topic": {
+    "id": "破軍子午.遷移",
+    "palace": "遷移",
+    "stars": [
+      "破軍"
+    ],
+    "branch": [
+      "子",
+      "午"
+    ]
+  },
+  "rules": [
+    {
+      "id": "遷移.破軍子午.經商",
+      "role": "refine",
+      "when": {
+        "any": [
+          {
+            "hua": [
+              "祿",
+              "權",
+              "科"
+            ],
+            "at": "same"
+          },
+          {
+            "star": [
+              "左輔",
+              "右弼"
+            ],
+            "at": "sifang"
+          },
+          {
+            "star": [
+              "天魁",
+              "天鉞"
+            ],
+            "at": "sifang"
+          }
+        ]
+      },
+      "text": "見吉，也可在外經商，但經營的要帶專門性質，例如在外地開家鄉菜館。",
+      "en": "With good signs, you can trade away from home, so long as it is something specialised, like opening a restaurant of your home cuisine abroad.",
+      "source": {
+        "passage": "deep.遷移.破軍.1",
+        "quote": "但所经营者仍须带有专门的性质"
+      }
+    }
+  ]
+}

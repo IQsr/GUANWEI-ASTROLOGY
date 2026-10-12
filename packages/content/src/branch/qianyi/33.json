@@ -1,0 +1,67 @@
+{
+  "$note": "遷移宮（2026-10-12）：天梁.遷移。《深造講義》下篇 宮垣論 遷移宮 p.496–515。客死異鄉、異鄉染病、官非、冤獄、被盜、意外一類斷語不用；天月、天刑、龍池鳳閣等引擎冇嘅星不用；要睇廟陷嘅條文暫不用。",
+  "topic": {
+    "id": "天梁.遷移",
+    "palace": "遷移",
+    "stars": [
+      "天梁"
+    ]
+  },
+  "rules": [
+    {
+      "id": "遷移.天梁.輔佐",
+      "role": "refine",
+      "when": {
+        "any": [
+          {
+            "star": [
+              "左輔",
+              "右弼"
+            ],
+            "at": "sifang"
+          },
+          {
+            "star": [
+              "天魁",
+              "天鉞"
+            ],
+            "at": "sifang"
+          }
+        ]
+      },
+      "text": "見輔佐吉星，在外機會多，受人敬重，也多助力。",
+      "en": "With helper stars, you have many chances away from home, are respected, and get plenty of help.",
+      "source": {
+        "passage": "deep.遷移.天梁.1",
+        "quote": "主在外多机会"
+      }
+    },
+    {
+      "id": "遷移.天梁.火鈴",
+      "role": "limit",
+      "when": {
+        "star": [
+          "火星",
+          "鈴星"
+        ],
+        "at": "same"
+      },
+      "text": "同宮有火星或鈴星，漂泊的意味較大，遷移後仍會一遷再遷。",
+      "en": "With Huo Xing or Ling Xing in the palace, there is more drifting; even after moving, you keep moving.",
+      "source": {
+        "passage": "deep.遷移.天梁.2",
+        "quote": "仍主一迁再迁"
+      }
+    },
+    {
+      "id": "遷移.天梁.本",
+      "role": "base",
+      "text": "天梁在遷移宮，一般主出外得人蔭庇。",
+      "en": "With Tian Liang in your Travel Palace, people generally look after you when you are away.",
+      "source": {
+        "passage": "deep.遷移.天梁.3",
+        "quote": "一般主出外得人荫庇"
+      }
+    }
+  ]
+}

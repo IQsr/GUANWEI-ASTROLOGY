@@ -1,0 +1,80 @@
+{
+  "$note": "遷移宮（2026-10-12）：天同太陰.遷移。《深造講義》下篇 宮垣論 遷移宮 p.496–515。客死異鄉、異鄉染病、官非、冤獄、被盜、意外一類斷語不用；天月、天刑、龍池鳳閣等引擎冇嘅星不用；要睇廟陷嘅條文暫不用。",
+  "topic": {
+    "id": "天同太陰.遷移",
+    "palace": "遷移",
+    "stars": [
+      "天同",
+      "太陰"
+    ]
+  },
+  "rules": [
+    {
+      "id": "遷移.同陰.忌",
+      "role": "limit",
+      "when": {
+        "hua": "忌",
+        "star": "太陰",
+        "at": "same"
+      },
+      "text": "太陰化忌，絕不宜在外投資。",
+      "en": "Tai Yin in Hindrance: never invest away from home.",
+      "source": {
+        "passage": "deep.遷移.天同.1",
+        "quote": "绝不宜在外投资"
+      }
+    },
+    {
+      "id": "遷移.同陰.祿",
+      "role": "refine",
+      "when": {
+        "all": [
+          {
+            "any": [
+              {
+                "hua": "祿",
+                "at": "sifang"
+              },
+              {
+                "star": "祿存",
+                "at": "sifang"
+              }
+            ]
+          },
+          {
+            "any": [
+              {
+                "hua": [
+                  "祿",
+                  "權",
+                  "科"
+                ],
+                "at": "same"
+              },
+              {
+                "star": [
+                  "左輔",
+                  "右弼"
+                ],
+                "at": "sifang"
+              },
+              {
+                "star": [
+                  "天魁",
+                  "天鉞"
+                ],
+                "at": "sifang"
+              }
+            ]
+          }
+        ]
+      },
+      "text": "見祿又見吉星，可以遠走他方，白手興家。",
+      "en": "With Lu and helpful stars, you can go far and build a home from nothing.",
+      "source": {
+        "passage": "deep.遷移.天同.2",
+        "quote": "主因远涉重洋而白手兴家"
+      }
+    }
+  ]
+}

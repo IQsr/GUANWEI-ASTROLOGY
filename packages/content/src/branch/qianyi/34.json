@@ -1,0 +1,57 @@
+{
+  "$note": "遷移宮（2026-10-12）：七殺.遷移。《深造講義》下篇 宮垣論 遷移宮 p.496–515。客死異鄉、異鄉染病、官非、冤獄、被盜、意外一類斷語不用；天月、天刑、龍池鳳閣等引擎冇嘅星不用；要睇廟陷嘅條文暫不用。",
+  "topic": {
+    "id": "七殺.遷移",
+    "palace": "遷移",
+    "stars": [
+      "七殺"
+    ]
+  },
+  "rules": [
+    {
+      "id": "遷移.七殺.火",
+      "role": "refine",
+      "when": {
+        "star": "火星",
+        "at": "same"
+      },
+      "text": "同宮有火星，在外會突然發起來；只是易得易失，要見好就收。",
+      "en": "With Huo Xing in the palace, sudden success comes away from home; but what comes easily goes easily, so know when to stop.",
+      "source": {
+        "passage": "deep.遷移.七殺.1",
+        "quote": "唯易得易失"
+      }
+    },
+    {
+      "id": "遷移.七殺.鈴",
+      "role": "refine",
+      "when": {
+        "star": "鈴星",
+        "at": "same"
+      },
+      "text": "同宮有鈴星，在外適合從事工藝、工業。",
+      "en": "With Ling Xing in the palace, craft or industrial work suits you away from home.",
+      "source": {
+        "passage": "deep.遷移.七殺.2",
+        "quote": "现代亦可从事工艺、工业"
+      }
+    },
+    {
+      "id": "遷移.七殺.空劫",
+      "role": "limit",
+      "when": {
+        "star": [
+          "地空",
+          "地劫"
+        ],
+        "at": "same"
+      },
+      "text": "同宮有地空地劫，理想常超過現實，不守一業、不守一地；宜做工藝、工業，靠新意念開創。",
+      "en": "With Di Kong or Di Jie in the palace, your ideals outrun reality, and you do not stay in one job or place; craft or industry suits you, where new ideas can build something.",
+      "source": {
+        "passage": "deep.遷移.七殺.3",
+        "quote": "理想常超过现实"
+      }
+    }
+  ]
+}

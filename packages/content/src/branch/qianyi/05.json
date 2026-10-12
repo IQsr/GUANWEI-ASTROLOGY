@@ -1,0 +1,23 @@
+{
+  "$note": "遷移宮（2026-10-12）：紫微七殺.遷移。《深造講義》下篇 宮垣論 遷移宮 p.496–515。客死異鄉、異鄉染病、官非、冤獄、被盜、意外一類斷語不用；天月、天刑、龍池鳳閣等引擎冇嘅星不用；要睇廟陷嘅條文暫不用。",
+  "topic": {
+    "id": "紫微七殺.遷移",
+    "palace": "遷移",
+    "stars": [
+      "紫微",
+      "七殺"
+    ]
+  },
+  "rules": [
+    {
+      "id": "遷移.紫殺.敬畏",
+      "role": "base",
+      "text": "紫微七殺在遷移宮，出外為人敬畏，在外能建立事功。",
+      "en": "Zi Wei with Qi Sha in your Travel Palace earns you respect away from home, and you can make your mark there.",
+      "source": {
+        "passage": "deep.遷移.紫微.6",
+        "quote": "主出外为人敬畏"
+      }
+    }
+  ]
+}

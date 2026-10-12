@@ -1,0 +1,87 @@
+{
+  "$note": "遷移宮（2026-10-12）：貪狼.遷移。《深造講義》下篇 宮垣論 遷移宮 p.496–515。客死異鄉、異鄉染病、官非、冤獄、被盜、意外一類斷語不用；天月、天刑、龍池鳳閣等引擎冇嘅星不用；要睇廟陷嘅條文暫不用。",
+  "topic": {
+    "id": "貪狼.遷移",
+    "palace": "遷移",
+    "stars": [
+      "貪狼"
+    ]
+  },
+  "rules": [
+    {
+      "id": "遷移.貪狼.吉",
+      "role": "refine",
+      "when": {
+        "any": [
+          {
+            "hua": "祿",
+            "star": "貪狼",
+            "at": "same"
+          },
+          {
+            "hua": "權",
+            "star": "貪狼",
+            "at": "same"
+          },
+          {
+            "hua": "祿",
+            "star": "廉貞",
+            "at": "sifang"
+          }
+        ]
+      },
+      "text": "貪狼化祿化權，或會廉貞化祿，遷移在外精彩發達。",
+      "en": "Tan Lang in Abundance or Authority, or meeting Lian Zhen in Abundance: life away from home flourishes.",
+      "source": {
+        "passage": "deep.遷移.貪狼.3",
+        "quote": "亦主迁移在外精彩发达"
+      }
+    },
+    {
+      "id": "遷移.貪狼.火鈴",
+      "role": "refine",
+      "when": {
+        "all": [
+          {
+            "star": [
+              "火星",
+              "鈴星"
+            ],
+            "at": "same"
+          },
+          {
+            "not": {
+              "branch": [
+                "辰",
+                "戌"
+              ]
+            }
+          }
+        ]
+      },
+      "text": "同宮有火星或鈴星，在外熱鬧，多是場面應酬，知心朋友難得。",
+      "en": "With Huo Xing or Ling Xing in the palace, life away from home is lively but mostly social show; true friends are rare.",
+      "source": {
+        "passage": "deep.遷移.貪狼.4",
+        "quote": "知交难得"
+      }
+    },
+    {
+      "id": "遷移.貪狼.羊陀",
+      "role": "limit",
+      "when": {
+        "star": [
+          "擎羊",
+          "陀羅"
+        ],
+        "at": "same"
+      },
+      "text": "同宮有擎羊或陀羅，出門多是非困擾，往往由應酬遊宴而起。",
+      "en": "With Qing Yang or Tuo Luo in the palace, trouble follows you away from home, usually out of socialising.",
+      "source": {
+        "passage": "deep.遷移.貪狼.5",
+        "quote": "且往往由应酬、游宴而致"
+      }
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "$note": "遷移宮（2026-10-12）：武曲七殺.遷移。《深造講義》下篇 宮垣論 遷移宮 p.496–515。客死異鄉、異鄉染病、官非、冤獄、被盜、意外一類斷語不用；天月、天刑、龍池鳳閣等引擎冇嘅星不用；要睇廟陷嘅條文暫不用。",
+  "topic": {
+    "id": "武曲七殺.遷移",
+    "palace": "遷移",
+    "stars": [
+      "武曲",
+      "七殺"
+    ]
+  },
+  "rules": [
+    {
+      "id": "遷移.武殺.祿",
+      "role": "refine",
+      "when": {
+        "hua": "祿",
+        "star": "武曲",
+        "at": "same"
+      },
+      "text": "武曲化祿，遷移異地後活動能力很強，因此獲利。",
+      "en": "Wu Qu in Abundance: once you move, you are very active, and that is how you profit.",
+      "source": {
+        "passage": "deep.遷移.武曲.4",
+        "quote": "则迁移异地后，活动能力甚强，因此获利"
+      }
+    }
+  ]
+}

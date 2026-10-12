@@ -1,0 +1,61 @@
+{
+  "$note": "遷移宮（2026-10-12）：破軍.遷移。《深造講義》下篇 宮垣論 遷移宮 p.496–515。客死異鄉、異鄉染病、官非、冤獄、被盜、意外一類斷語不用；天月、天刑、龍池鳳閣等引擎冇嘅星不用；要睇廟陷嘅條文暫不用。",
+  "topic": {
+    "id": "破軍.遷移",
+    "palace": "遷移",
+    "stars": [
+      "破軍"
+    ]
+  },
+  "rules": [
+    {
+      "id": "遷移.破軍.權",
+      "role": "refine",
+      "when": {
+        "hua": "權",
+        "star": "破軍",
+        "at": "same"
+      },
+      "text": "破軍化權，宜在外地憑技藝為人服務。",
+      "en": "Po Jun in Authority: away from home, serve others through a skill.",
+      "source": {
+        "passage": "deep.遷移.破軍.2",
+        "quote": "宜在异乡凭技艺为人服务"
+      }
+    },
+    {
+      "id": "遷移.破軍.火鈴",
+      "role": "limit",
+      "when": {
+        "star": [
+          "火星",
+          "鈴星"
+        ],
+        "at": "same"
+      },
+      "text": "同宮有火星或鈴星，在外容易漂泊。",
+      "en": "With Huo Xing or Ling Xing in the palace, you tend to drift when away from home.",
+      "source": {
+        "passage": "deep.遷移.破軍.3",
+        "quote": "火铃主流离"
+      }
+    },
+    {
+      "id": "遷移.破軍.羊陀",
+      "role": "limit",
+      "when": {
+        "star": [
+          "擎羊",
+          "陀羅"
+        ],
+        "at": "same"
+      },
+      "text": "同宮有擎羊或陀羅，在外容易破耗。",
+      "en": "With Qing Yang or Tuo Luo in the palace, you tend to lose money when away from home.",
+      "source": {
+        "passage": "deep.遷移.破軍.3",
+        "quote": "羊陀主破败"
+      }
+    }
+  ]
+}

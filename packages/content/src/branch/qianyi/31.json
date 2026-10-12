@@ -1,0 +1,67 @@
+{
+  "$note": "遷移宮（2026-10-12）：巨門.遷移。《深造講義》下篇 宮垣論 遷移宮 p.496–515。客死異鄉、異鄉染病、官非、冤獄、被盜、意外一類斷語不用；天月、天刑、龍池鳳閣等引擎冇嘅星不用；要睇廟陷嘅條文暫不用。",
+  "topic": {
+    "id": "巨門.遷移",
+    "palace": "遷移",
+    "stars": [
+      "巨門"
+    ]
+  },
+  "rules": [
+    {
+      "id": "遷移.巨門.權",
+      "role": "refine",
+      "when": {
+        "hua": "權",
+        "star": "巨門",
+        "at": "same"
+      },
+      "text": "巨門化權，在外能以言詞取信於人。",
+      "en": "Ju Men in Authority: away from home, your words win people’s trust.",
+      "source": {
+        "passage": "deep.遷移.巨門.1",
+        "quote": "在外能以言词舌辩取信于人"
+      }
+    },
+    {
+      "id": "遷移.巨門.祿",
+      "role": "refine",
+      "when": {
+        "hua": "祿",
+        "star": "巨門",
+        "at": "same"
+      },
+      "text": "巨門化祿，遷移後容易受外地或外國人提拔。",
+      "en": "Ju Men in Abundance: after moving, people from elsewhere tend to promote you.",
+      "source": {
+        "passage": "deep.遷移.巨門.2",
+        "quote": "则主迁移后受外国人或异乡有提拔"
+      }
+    },
+    {
+      "id": "遷移.巨門.忌",
+      "role": "limit",
+      "when": {
+        "hua": "忌",
+        "star": "巨門",
+        "at": "same"
+      },
+      "text": "巨門化忌，在外進退不安，勞碌奔波。",
+      "en": "Ju Men in Hindrance: away from home you are unsettled, rushing about.",
+      "source": {
+        "passage": "deep.遷移.巨門.3",
+        "quote": "主进退不安，劳碌奔波"
+      }
+    },
+    {
+      "id": "遷移.巨門.本",
+      "role": "base",
+      "text": "巨門在遷移宮，在外也是靠口才求財。",
+      "en": "With Ju Men in your Travel Palace, you earn by speaking when away from home too.",
+      "source": {
+        "passage": "deep.遷移.巨門.4",
+        "quote": "基本性质与在命宫相同"
+      }
+    }
+  ]
+}

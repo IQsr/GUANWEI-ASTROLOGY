@@ -1,0 +1,49 @@
+{
+  "$note": "遷移宮（2026-10-12）：太陽.遷移。《深造講義》下篇 宮垣論 遷移宮 p.496–515。客死異鄉、異鄉染病、官非、冤獄、被盜、意外一類斷語不用；天月、天刑、龍池鳳閣等引擎冇嘅星不用；要睇廟陷嘅條文暫不用。",
+  "topic": {
+    "id": "太陽.遷移",
+    "palace": "遷移",
+    "stars": [
+      "太陽"
+    ]
+  },
+  "rules": [
+    {
+      "id": "遷移.太陽.巨門",
+      "role": "refine",
+      "when": {
+        "star": "巨門",
+        "at": [
+          "same",
+          "opp"
+        ]
+      },
+      "text": "太陽與巨門同宮或相對，一般較利經商，容易得外地或外國人賞識，只是較勞心。",
+      "en": "With Tai Yang beside or facing Ju Men, trade generally suits you, and people from elsewhere appreciate you, though it takes mental effort.",
+      "source": {
+        "passage": "deep.遷移.太陽.3",
+        "quote": "可得异乡或外邦人赏识"
+      }
+    },
+    {
+      "id": "遷移.太陽.求名",
+      "role": "refine",
+      "text": "太陽在遷移宮，在外利於求名、求學進修，增加資歷；不主聚財，未必適合在外經商。",
+      "en": "With Tai Yang in your Travel Palace, time away is good for reputation, study and credentials; it does not gather money, and trading abroad may not suit you.",
+      "source": {
+        "passage": "deep.遷移.太陽.4",
+        "quote": "增加资历，未必适宜在外经商"
+      }
+    },
+    {
+      "id": "遷移.太陽.本",
+      "role": "base",
+      "text": "太陽宜動不宜靜，在遷移宮主離鄉別井發福。",
+      "en": "Tai Yang thrives on movement, and in your Travel Palace it means prospering away from home.",
+      "source": {
+        "passage": "deep.遷移.太陽.5",
+        "quote": "离乡背井发福"
+      }
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "$note": "遷移宮（2026-10-12）：紫微破軍.遷移。《深造講義》下篇 宮垣論 遷移宮 p.496–515。客死異鄉、異鄉染病、官非、冤獄、被盜、意外一類斷語不用；天月、天刑、龍池鳳閣等引擎冇嘅星不用；要睇廟陷嘅條文暫不用。",
+  "topic": {
+    "id": "紫微破軍.遷移",
+    "palace": "遷移",
+    "stars": [
+      "紫微",
+      "破軍"
+    ]
+  },
+  "rules": [
+    {
+      "id": "遷移.紫破.兩面",
+      "role": "base",
+      "text": "紫微破軍在遷移宮，在外既有助力，也有破壞力。",
+      "en": "Zi Wei with Po Jun in your Travel Palace brings both help and disruption when you are away.",
+      "source": {
+        "passage": "deep.遷移.紫微.3",
+        "quote": "一般情形为既有助力，亦有破坏力"
+      }
+    }
+  ]
+}

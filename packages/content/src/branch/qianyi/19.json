@@ -1,0 +1,59 @@
+{
+  "$note": "遷移宮（2026-10-12）：天同巨門.遷移。《深造講義》下篇 宮垣論 遷移宮 p.496–515。客死異鄉、異鄉染病、官非、冤獄、被盜、意外一類斷語不用；天月、天刑、龍池鳳閣等引擎冇嘅星不用；要睇廟陷嘅條文暫不用。",
+  "topic": {
+    "id": "天同巨門.遷移",
+    "palace": "遷移",
+    "stars": [
+      "天同",
+      "巨門"
+    ]
+  },
+  "rules": [
+    {
+      "id": "遷移.同巨.口舌",
+      "role": "base",
+      "text": "天同巨門在遷移宮，在外多是非口舌。",
+      "en": "Tian Tong with Ju Men in your Travel Palace brings talk and dispute away from home.",
+      "source": {
+        "passage": "deep.遷移.天同.3",
+        "quote": "天同巨门的组合，主是非口舌"
+      }
+    },
+    {
+      "id": "遷移.同巨.吉",
+      "role": "refine",
+      "when": {
+        "any": [
+          {
+            "hua": [
+              "祿",
+              "權",
+              "科"
+            ],
+            "at": "same"
+          },
+          {
+            "star": [
+              "左輔",
+              "右弼"
+            ],
+            "at": "sifang"
+          },
+          {
+            "star": [
+              "天魁",
+              "天鉞"
+            ],
+            "at": "sifang"
+          }
+        ]
+      },
+      "text": "盤上見吉，在外勞心而能得財。",
+      "en": "With good signs here, your efforts away from home bring money.",
+      "source": {
+        "passage": "deep.遷移.天同.3",
+        "quote": "唯见吉则主劳心得财"
+      }
+    }
+  ]
+}

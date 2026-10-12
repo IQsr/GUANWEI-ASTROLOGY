@@ -1,0 +1,95 @@
+{
+  "$note": "遷移宮（2026-10-12）：天機.遷移。《深造講義》下篇 宮垣論 遷移宮 p.496–515。客死異鄉、異鄉染病、官非、冤獄、被盜、意外一類斷語不用；天月、天刑、龍池鳳閣等引擎冇嘅星不用；要睇廟陷嘅條文暫不用。",
+  "topic": {
+    "id": "天機.遷移",
+    "palace": "遷移",
+    "stars": [
+      "天機"
+    ]
+  },
+  "rules": [
+    {
+      "id": "遷移.天機.祿馬",
+      "role": "refine",
+      "when": {
+        "all": [
+          {
+            "star": "天馬",
+            "at": [
+              "same",
+              "opp"
+            ]
+          },
+          {
+            "any": [
+              {
+                "star": "祿存",
+                "at": [
+                  "same",
+                  "opp"
+                ]
+              },
+              {
+                "hua": "祿",
+                "at": [
+                  "same",
+                  "opp"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "text": "見祿馬交馳，雖然常常走動，卻多享受。",
+      "en": "With Lu and Tian Ma meeting, you move about often, but enjoy it.",
+      "source": {
+        "passage": "deep.遷移.天機.5",
+        "quote": "但却多享受"
+      }
+    },
+    {
+      "id": "遷移.天機.火鈴",
+      "role": "limit",
+      "when": {
+        "star": [
+          "火星",
+          "鈴星"
+        ],
+        "at": "same"
+      },
+      "text": "同宮有火星或鈴星，出外奔忙，不安一地。",
+      "en": "With Huo Xing or Ling Xing in the palace, you are always on the move, never settling in one place.",
+      "source": {
+        "passage": "deep.遷移.天機.6",
+        "quote": "主出外奔忙，风露辛酸，不安一地"
+      }
+    },
+    {
+      "id": "遷移.天機.羊陀",
+      "role": "limit",
+      "when": {
+        "star": [
+          "擎羊",
+          "陀羅"
+        ],
+        "at": "same"
+      },
+      "text": "同宮有擎羊或陀羅，在外多是非口舌。",
+      "en": "With Qing Yang or Tuo Luo in the palace, there is talk and dispute when you are away.",
+      "source": {
+        "passage": "deep.遷移.天機.6",
+        "quote": "与羊陀同度，主是非口舌"
+      }
+    },
+    {
+      "id": "遷移.天機.本",
+      "role": "base",
+      "text": "天機在遷移宮，利出門離鄉發展；不一定離鄉定居，也可能是經常要離家的工作，或常轉工轉業。",
+      "en": "With Tian Ji in your Travel Palace, leaving home to develop suits you; not necessarily settling elsewhere, but perhaps work that keeps you travelling, or frequent changes of job.",
+      "source": {
+        "passage": "deep.遷移.天機.7",
+        "quote": "主利出门离乡发展"
+      }
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "$note": "遷移宮（2026-10-12）：紫微天相.遷移。《深造講義》下篇 宮垣論 遷移宮 p.496–515。客死異鄉、異鄉染病、官非、冤獄、被盜、意外一類斷語不用；天月、天刑、龍池鳳閣等引擎冇嘅星不用；要睇廟陷嘅條文暫不用。",
+  "topic": {
+    "id": "紫微天相.遷移",
+    "palace": "遷移",
+    "stars": [
+      "紫微",
+      "天相"
+    ]
+  },
+  "rules": [
+    {
+      "id": "遷移.紫相.無煞",
+      "role": "refine",
+      "when": {
+        "not": {
+          "star": [
+            "擎羊",
+            "陀羅",
+            "火星",
+            "鈴星",
+            "地空",
+            "地劫"
+          ],
+          "at": "same"
+        }
+      },
+      "text": "紫微天相在遷移宮而不見煞，大利遷移：在外受人尊崇，容易建立事業。",
+      "en": "Zi Wei with Tian Xiang in your Travel Palace and no harsh stars strongly favours moving: people respect you away from home, and you build a career easily.",
+      "source": {
+        "passage": "deep.遷移.紫微.4",
+        "quote": "在外受人尊崇，易于建立事业"
+      }
+    },
+    {
+      "id": "遷移.紫相.煞",
+      "role": "limit",
+      "when": {
+        "star": [
+          "擎羊",
+          "陀羅",
+          "火星",
+          "鈴星",
+          "地空",
+          "地劫"
+        ],
+        "at": "same"
+      },
+      "text": "紫微天相在遷移宮而見煞，在外容易招人嫉妒是非。",
+      "en": "Zi Wei with Tian Xiang in your Travel Palace alongside harsh stars draws envy and gossip when you are away.",
+      "source": {
+        "passage": "deep.遷移.紫微.5",
+        "quote": "若见煞忌则招嫉妒是非"
+      }
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "$note": "遷移宮（2026-10-12）：天同.遷移。《深造講義》下篇 宮垣論 遷移宮 p.496–515。客死異鄉、異鄉染病、官非、冤獄、被盜、意外一類斷語不用；天月、天刑、龍池鳳閣等引擎冇嘅星不用；要睇廟陷嘅條文暫不用。",
+  "topic": {
+    "id": "天同.遷移",
+    "palace": "遷移",
+    "stars": [
+      "天同"
+    ]
+  },
+  "rules": [
+    {
+      "id": "遷移.天同.祿",
+      "role": "refine",
+      "when": {
+        "hua": "祿",
+        "star": "天同",
+        "at": "same"
+      },
+      "text": "天同化祿，出外不主發財，但主安定享福，遇事有人幫忙。",
+      "en": "Tian Tong in Abundance: travel brings comfort rather than money; things settle, and others help when needed.",
+      "source": {
+        "passage": "deep.遷移.天同.5",
+        "quote": "或遇事可得他人助力"
+      }
+    },
+    {
+      "id": "遷移.天同.忌",
+      "role": "limit",
+      "when": {
+        "hua": "忌",
+        "star": "天同",
+        "at": "same"
+      },
+      "text": "天同化忌，出外多擔心。",
+      "en": "Tian Tong in Hindrance: being away brings much worry.",
+      "source": {
+        "passage": "deep.遷移.天同.6",
+        "quote": "则主多担心"
+      }
+    },
+    {
+      "id": "遷移.天同.火鈴",
+      "role": "limit",
+      "when": {
+        "star": [
+          "火星",
+          "鈴星"
+        ],
+        "at": "same"
+      },
+      "text": "同宮有火星或鈴星，在外多挫折不安，往往功虧一簣，要費盡心力才扭轉得來。",
+      "en": "With Huo Xing or Ling Xing in the palace, there are setbacks away from home, often at the last step, and it takes real effort to turn things round.",
+      "source": {
+        "passage": "deep.遷移.天同.7",
+        "quote": "往往功亏一篑"
+      }
+    },
+    {
+      "id": "遷移.天同.本",
+      "role": "base",
+      "when": {
+        "not": {
+          "hua": "忌",
+          "star": "天同",
+          "at": "same"
+        }
+      },
+      "text": "天同在遷移宮，一般主出門得福。",
+      "en": "With Tian Tong in your Travel Palace, going out into the world generally brings good fortune.",
+      "source": {
+        "passage": "deep.遷移.天同.8",
+        "quote": "一般主出门得福"
+      }
+    }
+  ]
+}

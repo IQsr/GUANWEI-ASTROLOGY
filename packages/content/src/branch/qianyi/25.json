@@ -1,0 +1,73 @@
+{
+  "$note": "遷移宮（2026-10-12）：廉貞.遷移。《深造講義》下篇 宮垣論 遷移宮 p.496–515。客死異鄉、異鄉染病、官非、冤獄、被盜、意外一類斷語不用；天月、天刑、龍池鳳閣等引擎冇嘅星不用；要睇廟陷嘅條文暫不用。",
+  "topic": {
+    "id": "廉貞.遷移",
+    "palace": "遷移",
+    "stars": [
+      "廉貞"
+    ]
+  },
+  "rules": [
+    {
+      "id": "遷移.廉貞.祿",
+      "role": "refine",
+      "when": {
+        "hua": "祿",
+        "star": "廉貞",
+        "at": "same"
+      },
+      "text": "廉貞化祿，在外得意，人緣也好，但不主發財。",
+      "en": "Lian Zhen in Abundance: you do well and are well liked away from home, though it does not bring wealth.",
+      "source": {
+        "passage": "deep.遷移.廉貞.5",
+        "quote": "只主在外得意，并不主发财"
+      }
+    },
+    {
+      "id": "遷移.廉貞.忌",
+      "role": "limit",
+      "when": {
+        "all": [
+          {
+            "hua": "忌",
+            "star": "廉貞",
+            "at": "same"
+          },
+          {
+            "star": [
+              "擎羊",
+              "陀羅",
+              "火星",
+              "鈴星",
+              "地空",
+              "地劫"
+            ],
+            "at": "same"
+          }
+        ]
+      },
+      "text": "廉貞化忌又見煞，出外容易因遊樂應酬而生是非。",
+      "en": "Lian Zhen in Hindrance with harsh stars: outings and socialising away from home can stir up trouble.",
+      "source": {
+        "passage": "deep.遷移.廉貞.6",
+        "quote": "则仅主出外因游乐应酬而生是非"
+      }
+    },
+    {
+      "id": "遷移.廉貞.本",
+      "role": "base",
+      "when": {
+        "not": {
+          "star": "天相",
+          "at": "same"
+        }
+      },
+      "text": "廉貞在遷移宮，通常宜離開出生地發展。",
+      "en": "With Lian Zhen in your Travel Palace, developing away from your birthplace usually suits you.",
+      "source": {
+        "passage": "deep.遷移.廉貞.7",
+        "quote": "通常均主宜离开出生地发展"
+      }
+    }
+  ]
+}
