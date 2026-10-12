@@ -207,7 +207,7 @@ export function bookChapters(
   /* 序唔再印版本號（2026-09）：版本照舊寫落 DB（成書嗰陣，見 cast/actions.ts）。 */
   const xu = xuChapter({ chart, solar: opts.solar, place: opts.place });
   const shen = shenChapter({ chart, year: opts.year });
-  const gujia = gujiaChapter({ chart });
+  const gujia = gujiaChapter({ chart, year: opts.year });
   /* 大限（2026-09-30）：一生十二步免費，這十年收費；跟成書年份講 */
   const steps = lifeStepsChapter({ chart, year: opts.year });
   const decade = decadeChapter({ chart, year: opts.year });

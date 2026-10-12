@@ -8,7 +8,7 @@ import { CORPUS, cjkCount, normaliseForMatch } from './lexicon';
 import { scanForbidden } from './lint';
 import { scanPlain } from './plain';
 import { AREA, palaceLabel } from './link';
-import { STEPS_UNTIL_AGE } from './steps';
+import { STEPS_UNTIL_AGE, num } from './steps';
 import { FORBIDDEN_TERMS } from './frame';
 import { leanOf, xingxiOf } from './xingxi';
 import { conclusionFor } from './palace-plain';
@@ -185,15 +185,7 @@ export type DaxianSegment = { slot: string; text: string; source_id: string | nu
 type Out = { slug: string; title: string; segments: DaxianSegment[] } | null;
 
 const DIGITS = ['〇', '一', '二', '三', '四', '五', '六', '七', '八', '九'] as const;
-export function num(n: number): string {
-  if (n >= 100) {
-    const r = n % 100;
-    return `一百${r === 0 ? '' : r < 10 ? `零${DIGITS[r]}` : num(r)}`;
-  }
-  if (n < 10) return DIGITS[n]!;
-  if (n < 20) return `十${n % 10 ? DIGITS[n % 10] : ''}`;
-  return `${DIGITS[Math.floor(n / 10)]}十${n % 10 ? DIGITS[n % 10] : ''}`;
-}
+export { num } from './steps';
 export const yearCN = (y: number) => [...String(y)].map((d) => DIGITS[Number(d)]).join('');
 
 const majors = (p: Palace) => p.stars.filter((s) => s.kind === 'major').map((s) => s.name);

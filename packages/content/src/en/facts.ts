@@ -140,6 +140,24 @@ export function factTemplate(s: string, missing: string[]): string | null {
     return `Your Life Palace sits in ${BRANCH_EN[m[1]!]} and holds no major star, so it is read through ${starsEn(m[2]!, missing)} in the opposite palace.`;
   }
 
+  /* 性格的骨架 · 細讀講到嘅大限幾多歲、行過未（branch.ts decadeNote，2026-10-12） */
+  m = /^這一步在虛歲(\S+?)至(\S+?)歲(，你已經走過，可以對照當時的經歷|，也已經走過|，你正走在這一步)?。$/.exec(s);
+  if (m && cnNum(m[1]!) && cnNum(m[2]!)) {
+    const tail = !m[3] ? '' : m[3] === '，也已經走過' ? ', also behind you' : m[3].includes('已經走過') ? ', and you have already been through it: compare it with what happened then' : ', and you are in it now';
+    return `That phase runs ${ageRange(cnNum(m[1]!)!, cnNum(m[2]!)!)}${tail}.`;
+  }
+  m = /^這幾步在虛歲(.+)。$/.exec(s);
+  if (m) {
+    const items = m[1]!.split('、').map((x) => {
+      const p = /^(\S+?)至(\S+?)歲(（已走過）|（正在走）)?$/.exec(x);
+      const [a, b] = p ? [cnNum(p[1]!), cnNum(p[2]!)] : [null, null];
+      if (!p || !a || !b) return null;
+      const note = p[3] === '（已走過）' ? ', already behind you' : p[3] === '（正在走）' ? ', where you are now' : '';
+      return `roughly ${Math.max(0, a - 1)} to ${b - 1} (${a}–${b} by Chinese reckoning${note})`;
+    });
+    if (items.every(Boolean)) return `Those phases run ${listEn(items as string[])}.`;
+  }
+
   /* 性格的骨架 · 兩邊都冇訊號（xingxi-chapters.ts undecidedLean，2026-10-12） */
   m = /^你的盤上，「(.+?)」和「(.+?)」兩頭的訊號都不明顯，沒有一邊特別重。$/.exec(s);
   if (m) return `In your chart, the signals towards ${poleEn(m[1]!, missing)} and towards ${poleEn(m[2]!, missing)} are both faint; neither side weighs more.`;

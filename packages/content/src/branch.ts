@@ -5,7 +5,7 @@ import { BRANCH_RAW } from './branch/index';
 import { CORPUS, normaliseForMatch } from './lexicon';
 import { scanForbidden } from './lint';
 import { scanPlain } from './plain';
-import { STEPS_UNTIL_AGE } from './steps';
+import { STEPS_UNTIL_AGE, num } from './steps';
 
 /* ───────────────────────────────────────────────────────────
  * 原文分支（2026-10-11 內容審查第 3 層 · 試點）
@@ -296,18 +296,62 @@ function restates(a: string, b: string, n = 6): boolean {
  * `avoid`：骨架章已經講咗嘅字（骨架段、偏向句）。細讀唔重複 —— 例如骨架段已講「子午的七殺相對是強格」，
  * 細讀就唔再講一次。
  */
-export function xingxiReading(chart: Chart, avoid = ''): { text: string; ids: string[]; sources: string[] } | null {
+export function xingxiReading(
+  chart: Chart,
+  avoid = '',
+  year?: number,
+): { text: string; ids: string[]; sources: string[] } | null {
   for (const t of BRANCH_TOPICS) {
     if (t.topic.xingxi === undefined) continue;
     const rules = branchRules(chart, t).filter((r) => !r.gujia && !(avoid && restates(r.text, avoid)));
     if (!rules.length) continue;
     return {
-      text: rules.map((r) => r.text).join(''),
+      text: (() => {
+        /* 「已經走過，可以對照當時的經歷」一段只講一次，之後縮做「也已經走過」 */
+        let told = false;
+        return rules
+          .map((r) => {
+            let note = decadeNote(chart, r, year);
+            if (note.includes(PAST_FULL)) {
+              if (told) note = note.replace(PAST_FULL, PAST_AGAIN);
+              told = true;
+            }
+            return r.text + note;
+          })
+          .join('');
+      })(),
       ids: rules.map((r) => r.id),
       sources: [...new Set(rules.flatMap((r) => [r.source.passage, ...(r.also ?? []).map((a) => a.passage)]))],
     };
   }
   return null;
+}
+
+/**
+ * 講「某星嗰步運」嘅規則後面補一句：嗰步運係虛歲幾多至幾多歲（2026-10-12）。
+ * 有寫書年份就講埋行過未：已經走過嘅叫讀者對照當時經歷，正在走嘅講明。
+ * 只列大限章列得到嘅步（九十歲前起步）。規則冇 `decade` 就唔補。
+ */
+const PAST_FULL = '，你已經走過，可以對照當時的經歷';
+const PAST_AGAIN = '，也已經走過';
+
+export function decadeNote(chart: Chart, r: BranchRule, year?: number): string {
+  if (!r.decade?.length) return '';
+  const branches = r.decade.map((k) => (k.startsWith('#') ? k.slice(1) : chart.palaces.find((p) => p.stars.some((s) => s.name === k))?.branch));
+  const steps = chart.decadals
+    .filter((d) => branches.includes(d.branch) && d.fromAge < STEPS_UNTIL_AGE)
+    .sort((a, b) => a.fromAge - b.fromAge);
+  if (!steps.length) return '';
+  const age = year === undefined ? null : year - chart.lunar.y + 1;
+  const state = (d: { fromAge: number; toAge: number }) => (age === null ? 'future' : d.toAge < age ? 'past' : d.fromAge <= age ? 'now' : 'future');
+  const span = (d: { fromAge: number; toAge: number }) => `${num(d.fromAge)}至${num(d.toAge)}歲`;
+  if (steps.length === 1) {
+    const d = steps[0]!;
+    const tail = { past: PAST_FULL, now: '，你正走在這一步', future: '' }[state(d)];
+    return `這一步在虛歲${span(d)}${tail}。`;
+  }
+  const mark = { past: '（已走過）', now: '（正在走）', future: '' };
+  return `這幾步在虛歲${steps.map((d) => span(d) + mark[state(d)]).join('、')}。`;
 }
 
 /** 星系題目嘅基本出處（骨架章 basis、偏向句用） */

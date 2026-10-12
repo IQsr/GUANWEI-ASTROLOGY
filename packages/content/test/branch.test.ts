@@ -7,7 +7,7 @@
 import { describe, expect, it } from 'vitest';
 import { annual, cast, SCHOOL_PROFILE, type Chart } from '@guanwei/ziwei';
 import { BRANCH_TOPICS, RULE_REGISTRY, SPEC_VERSION, assembleAll, branchReading, branchRules, gujiaChapter, gujiaException, inferAll, leanState } from '../src/index';
-import { STEPS_UNTIL_AGE } from '../src/steps';
+import { STEPS_UNTIL_AGE, num } from '../src/steps';
 import { renderParagraph } from '../src/en/render';
 
 const DEMO = cast({
@@ -239,5 +239,33 @@ describe('細讀講嘅大限（2026-10-12 重疊檢查）', () => {
     }
     expect(withDecade).toBeGreaterThan(500);
     expect(late).toEqual([]);
+  }, 300_000);
+});
+
+describe('細讀講嘅大限：講明幾多歲、行過未（2026-10-12）', () => {
+  it('有寫書年份：已走過／正在走講得啱；同一段「對照當時的經歷」只講一次；英文譯得到', () => {
+    let past = 0, now = 0;
+    for (let i = 0; i < 4320; i += 5) {
+      const y = 1950 + (i % 60);
+      const r = cast({
+        solar: { y, m: 1 + (Math.floor(i / 60) % 12), d: 1 + ((i * 7) % 28) }, time: { h: (Math.floor(i / 720) * 4 + 1) % 24, min: 30 },
+        tz: 'Asia/Hong_Kong', place: { lng: 114.17, lat: 22.32, label: '香港' }, sex: i % 2 ? 'male' : 'female',
+      });
+      if (!r.ok) continue;
+      const deep = gujiaChapter({ chart: r.value, year: 2026 })?.segments.find((s) => s.slot === '細讀');
+      if (!deep) continue;
+      const age = 2026 - r.value.lunar.y + 1;
+      for (const m of deep.text.matchAll(/這一步在虛歲(\S+?)至(\S+?)歲(，你已經走過[^。]*|，也已經走過|，你正走在這一步)?。/g)) {
+        const toAge = r.value.decadals.find((d) => `${num(d.fromAge)}至${num(d.toAge)}` === `${m[1]}至${m[2]}`)!.toAge;
+        const fromAge = toAge - 9;
+        if (m[3]?.includes('已經走過')) { past++; expect(toAge).toBeLessThan(age); }
+        else if (m[3]) { now++; expect(age).toBeGreaterThanOrEqual(fromAge); expect(age).toBeLessThanOrEqual(toAge); }
+        else expect(fromAge).toBeGreaterThan(age);
+      }
+      expect(deep.text.split('可以對照當時的經歷').length).toBeLessThanOrEqual(2);
+      expect(renderParagraph(deep.text).missing).toEqual([]);
+    }
+    expect(past).toBeGreaterThan(50);
+    expect(now).toBeGreaterThan(10);
   }, 300_000);
 });

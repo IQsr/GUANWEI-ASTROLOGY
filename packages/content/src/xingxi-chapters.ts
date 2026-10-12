@@ -137,8 +137,10 @@ export function undecidedLean(poles: readonly string[]): string {
 
 export function gujiaChapter(input: {
   chart: Chart;
+  /** 寫書年份：細讀講到嘅大限會講明行過未（冇就只講歲數） */
+  year?: number;
 }): { slug: string; title: string; segments: XingxiSegment[] } | null {
-  const { chart } = input;
+  const { chart, year } = input;
   const found = xingxiOf(chart);
   const m = chart.palaces.find((p) => p.name === '命宮');
   if (!found || !m) return null;
@@ -163,7 +165,7 @@ export function gujiaChapter(input: {
   const why = undecided ? null : reason(x, pole, seen, said);
   const lean = undecided ? undecidedLean(x.poles) : x.plain.lean[pole]!;
   /* 星系細讀（branch/xingxi/*.json）：偏向嘅後果、原書點名嘅特殊結構，逐句有出處 */
-  const deep = xingxiReading(chart, `${lean}${where}${x.plain.basis}${byBranch ?? ''}`);
+  const deep = xingxiReading(chart, `${lean}${where}${x.plain.basis}${byBranch ?? ''}`, year);
   /* 長處跟偏向揀（未定 = 冇一頭，用通用句）；同偏向講同一樣嘢就唔出（「你的長處是」唔計） */
   const own = strengthFor(x, undecided ? '未定' : pole);
   const strength = overlaps(lean, own.replace(/^你的長處是/, '')) ? null : own;
