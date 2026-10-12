@@ -14,22 +14,12 @@
       "when": {
         "all": [
           {
-            "any": [
-              {
-                "hua": "祿",
-                "star": "巨門",
-                "at": "same"
-              },
-              {
-                "hua": "權",
-                "star": "巨門",
-                "at": "same"
-              },
-              {
-                "star": "祿存",
-                "at": "same"
-              }
-            ]
+            "hua": [
+              "祿",
+              "權"
+            ],
+            "star": "巨門",
+            "at": "same"
           },
           {
             "any": [
@@ -51,21 +41,101 @@
           }
         ]
       },
-      "text": "巨門化祿化權或有祿存，又見〔輔佐吉星〕，可得能言善辯的朋友或下屬，助你創業；彼此多討論辯論，事業由此而興。",
-      "en": "Ju Men in Abundance or Authority, or with Lu Cun, plus 〔helper stars〕: articulate friends or staff help you build a business, and your discussions together drive it forward.",
+      "text": "巨門〔吉化〕，又見〔輔佐吉星〕，你可得能言善辯的朋友或下屬助你創業；彼此多討論辯論，事業由此而興。",
+      "en": "Ju Men with 〔good transformations〕 and 〔helper stars〕: articulate friends or staff help you build a business, and your discussions together drive it forward.",
       "source": {
         "passage": "deep.僕役.巨門.1",
         "quote": "可助自己创业"
       }
     },
     {
-      "id": "僕役.巨門.本",
-      "role": "base",
-      "text": "巨門在僕役宮，吉則口才好、能言善辯，凶則多口舌爭吵。",
-      "en": "With Ju Men in your Friends Palace, at best it means eloquence, at worst, quarrels.",
+      "id": "僕役.巨門.吉口",
+      "role": "refine",
+      "when": {
+        "all": [
+          {
+            "any": [
+              {
+                "hua": [
+                  "祿",
+                  "權",
+                  "科"
+                ],
+                "at": "same"
+              },
+              {
+                "star": [
+                  "左輔",
+                  "右弼"
+                ],
+                "at": "sifang"
+              },
+              {
+                "star": [
+                  "天魁",
+                  "天鉞"
+                ],
+                "at": "sifang"
+              }
+            ]
+          },
+          {
+            "not": {
+              "any": [
+                {
+                  "star": [
+                    "擎羊",
+                    "陀羅",
+                    "火星",
+                    "鈴星",
+                    "地空",
+                    "地劫"
+                  ],
+                  "at": "same"
+                },
+                {
+                  "hua": "忌",
+                  "at": "same"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "text": "巨門見〔吉〕，你身邊的朋友、下屬口才好、能言善辯。",
+      "en": "Ju Men meets 〔good signs〕: the friends and staff around you are articulate and good at argument.",
       "source": {
         "passage": "deep.僕役.巨門.2",
         "quote": "吉则主舌辩、口才"
+      }
+    },
+    {
+      "id": "僕役.巨門.凶口",
+      "role": "refine",
+      "when": {
+        "any": [
+          {
+            "star": [
+              "擎羊",
+              "陀羅",
+              "火星",
+              "鈴星",
+              "地空",
+              "地劫"
+            ],
+            "at": "same"
+          },
+          {
+            "hua": "忌",
+            "at": "same"
+          }
+        ]
+      },
+      "text": "巨門見〔煞忌〕，你和朋友、下屬之間多口舌爭吵。",
+      "en": "Ju Men meets 〔harsh stars or Hindrance〕: there is much arguing between you and your friends or staff.",
+      "source": {
+        "passage": "deep.僕役.巨門.2",
+        "quote": "凶则主口舌、争吵"
       }
     }
   ]

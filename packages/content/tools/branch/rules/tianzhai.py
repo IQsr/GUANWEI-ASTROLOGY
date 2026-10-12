@@ -83,7 +83,7 @@ T.append({'id': '天機天梁.田宅', 'stars': ['天機', '天梁'], 'rules': [
    '天机天梁的组合，基本性质主难自置产业，必四十岁以后始能置业。', '必四十岁以后始能置业', 'base'),
 ]})
 T.append({'id': '天機.田宅', 'stars': ['天機'], 'rules': [
- R('田宅.天機.本', None,
+ R('田宅.天機.本', {'not': {'star': '太陰', 'at': 'same'}},
    '天機在田宅宮，產業多變動：時時搬遷、時買時賣，或者常換工作環境。',
    'With Tian Ji in your Property Palace, property is always on the move: frequent moves, buying and selling, or changing workplaces.',
    '在现代，亦主时时迁动，或时买时卖，甚或主时时变换工作环境，不一定主退祖自兴。', '或时买时卖', 'base'),
@@ -261,7 +261,7 @@ T.append({'id': '天府.田宅', 'stars': ['天府'], 'rules': [
 
 # ── 太陰 ──
 T.append({'id': '太陰.田宅', 'stars': ['太陰'], 'rules': [
- R('田宅.太陰.廟', {'all': [{'bright': 'high', 'star': '太陰'}, {'not': H('忌', '太陰')}]},
+ R('田宅.太陰.廟', {'all': [{'bright': 'high', 'star': '太陰'}, {'not': H('忌', '太陰')}, {'not': {'star': '太陽', 'at': 'same'}}]},
    '太陰光亮，太陰主富，對你的家宅有利。',
    'Tai Yin shines brightly, and Tai Yin stands for wealth: it favours your home and property.',
    '太阴主富，故入庙则利宅，', '故入庙则利宅'),
@@ -281,10 +281,6 @@ T.append({'id': '太陰.田宅', 'stars': ['太陰'], 'rules': [
    '太陰與太陽相對，也算「日月合璧」：你的家道興隆，任職的機構也興旺。',
    'Tai Yin facing Tai Yang, what the old books call sun and moon joined: your household prospers, and so does the organisation you work for.',
    '太阴亦喜与太阳同度或拱照，古人说：[日月合壁]田宅，家道与兴隆。]此意亦可用于服务机构。', '此意亦可用于服务机构'),
- R('田宅.太陰.機', {'star': '天機', 'at': 'same'},
-   '太陰與天機同宮，你多遷移搬動，住處常有變化。',
-   'Tai Yin beside Tian Ji: you move house often.',
-   '太阴天同主得花木之利，太阴天机则主迁移，', '太阴天机则主迁移'),
  R('田宅.太陰.輔佐', {'all': [{'any': [{'star': ['左輔', '右弼'], 'at': 'same'}, {'star': '祿存', 'at': 'same'}]}, {'not': {'hua': '忌', 'star': '太陽', 'at': 'same'}}]},
    '太陰與左輔右弼或祿存同宮，你承接祖業而興盛。',
    'Tai Yin with Zuo Fu, You Bi or Lu Cun in the palace: you inherit family property and it prospers.',

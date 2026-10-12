@@ -309,14 +309,18 @@ T.append({'id': '貪狼.僕役', 'stars': ['貪狼'], 'rules': [
 
 # ── 巨門 ──
 T.append({'id': '巨門.僕役', 'stars': ['巨門'], 'rules': [
- R('僕役.巨門.吉', {'all': [{'any': [H('祿', '巨門'), H('權', '巨門'), {'star': '祿存', 'at': 'same'}]}, {'any': [FUZUO, KUIYUE]}]},
-   '巨門化祿化權或有祿存，又見〔輔佐吉星〕，可得能言善辯的朋友或下屬，助你創業；彼此多討論辯論，事業由此而興。',
-   'Ju Men in Abundance or Authority, or with Lu Cun, plus 〔helper stars〕: articulate friends or staff help you build a business, and your discussions together drive it forward.',
+ R('僕役.巨門.吉', {'all': [{'hua': ['祿', '權'], 'star': '巨門', 'at': 'same'}, {'any': [FUZUO, KUIYUE]}]},
+   '巨門〔吉化〕，又見〔輔佐吉星〕，你可得能言善辯的朋友或下屬助你創業；彼此多討論辯論，事業由此而興。',
+   'Ju Men with 〔good transformations〕 and 〔helper stars〕: articulate friends or staff help you build a business, and your discussions together drive it forward.',
    '故巨门化禄，或禄存同度，或化权星，又会辅佐吉曜，则主得能言善辩之友，可助自己创业；或得下属亦如是。又或与友人下属多辩论、讨论，由是创兴事业。', '可助自己创业'),
- R('僕役.巨門.本', None,
-   '巨門在僕役宮，吉則口才好、能言善辯，凶則多口舌爭吵。',
-   'With Ju Men in your Friends Palace, at best it means eloquence, at worst, quarrels.',
-   '凡巨门坐交友宫，吉则主舌辩、口才；凶则主口舌、争吵。', '吉则主舌辩、口才', 'base'),
+ R('僕役.巨門.吉口', {'all': [GOOD, {'not': {'any': [SHA, {'hua': '忌', 'at': 'same'}]}}]},
+   '巨門見〔吉〕，你身邊的朋友、下屬口才好、能言善辯。',
+   'Ju Men meets 〔good signs〕: the friends and staff around you are articulate and good at argument.',
+   '凡巨门坐交友宫，吉则主舌辩、口才；凶则主口舌、争吵。', '吉则主舌辩、口才'),
+ R('僕役.巨門.凶口', {'any': [SHA, {'hua': '忌', 'at': 'same'}]},
+   '巨門見〔煞忌〕，你和朋友、下屬之間多口舌爭吵。',
+   'Ju Men meets 〔harsh stars or Hindrance〕: there is much arguing between you and your friends or staff.',
+   '凡巨门坐交友宫，吉则主舌辩、口才；凶则主口舌、争吵。', '凶则主口舌、争吵'),
 ]})
 
 # ── 天相 ──

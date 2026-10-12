@@ -12,12 +12,24 @@
       "id": "兄弟.天同.本",
       "role": "base",
       "when": {
-        "not": {
-          "star": "巨門",
-          "at": "same"
-        }
+        "all": [
+          {
+            "not": {
+              "star": "巨門",
+              "at": "same"
+            }
+          },
+          {
+            "not": {
+              "branch": [
+                "辰",
+                "戌"
+              ]
+            }
+          }
+        ]
       },
-      "text": "天同在兄弟宮，多主兄弟和好；也能結交中下層的朋友，只是實際助力不多。",
+      "text": "天同在兄弟宮，你和兄弟大多和好；也能結交中下層的朋友，只是實際助力不多。",
       "en": "With Tian Tong in your Siblings Palace, siblings generally get on; you also make friends easily at every level, though practical help is limited.",
       "source": {
         "passage": "deep.兄弟.天同.8",

@@ -50,11 +50,29 @@
           "opp"
         ]
       },
-      "text": "天機遇上巨門，心思更易動盪；巨門化祿，則敏於思考，勞而有獲。",
-      "en": "Tian Ji meeting Ju Men stirs your mind further; with Ju Men in Abundance you think quickly, and the effort pays.",
+      "text": "天機遇上巨門，你的心思更容易動盪不安。",
+      "en": "Tian Ji meeting Ju Men stirs your mind further.",
       "source": {
         "passage": "deep.福德.天機.4",
         "quote": "皆增加其动荡"
+      }
+    },
+    {
+      "id": "福德.天機.巨祿",
+      "role": "refine",
+      "when": {
+        "hua": "祿",
+        "star": "巨門",
+        "at": [
+          "same",
+          "opp"
+        ]
+      },
+      "text": "巨門化祿，你敏於思考，勞心之後也有收穫。",
+      "en": "Ju Men in Abundance: you think quickly, and the effort pays off.",
+      "source": {
+        "passage": "deep.福德.天機.4",
+        "quote": "亦仅主敏于思考"
       }
     },
     {

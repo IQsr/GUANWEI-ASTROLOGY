@@ -111,7 +111,7 @@ T.append({'id': '紫微.官祿', 'stars': ['紫微'], 'rules': [
    '紫微化權，你的工作獨立性強，能獨當一面。',
    'Zi Wei in Authority: your work is highly independent, and you can run things on your own.',
    '紫微化权在事业宫，仅主独当一面，或所从事工作独立性强。', '或所从事工作独立性强'),
- R('官祿.紫微.本', None,
+ R('官祿.紫微.本', {'not': H('權', '紫微')},
    '紫微在官祿宮，主獨當一面：多是獨立工作或負責一個部門，不一定是自己經營或做領袖。',
    'With Zi Wei in your Career Palace, you work on your own terms: usually independently or in charge of a department, not necessarily as owner or leader.',
    '紫微在事业宫，主独当一面。但却并不意味其人可以宁行经营，亦不主其人可为领袖。一般情况下仅主独立工作，或负责部门工作。', '一般情况下仅主独立工作，或负责部门工作', 'base'),
@@ -312,7 +312,7 @@ T.append({'id': '廉貞貪狼.官祿', 'stars': ['廉貞', '貪狼'], 'rules': [
 ]})
 T.append({'id': '廉貞寅申.官祿', 'stars': ['廉貞'], 'branch': ['寅', '申'], 'rules': [
  R('官祿.廉貞寅申.財經', None,
-   '你以從商為宜，最適合財經金融行業，負責買賣。',
+   '廉貞在寅申帶投機性質；你要經商的話，最適合財經金融行業，負責買賣。',
    'Business suits you, above all finance and banking, in a trading role.',
    '寅申宫廉贞，亦带投机性质，故若从商，最宜投身财经金融行业，负买卖之责。', '最宜投身财经金融行业'),
 ]})

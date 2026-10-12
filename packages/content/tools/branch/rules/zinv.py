@@ -356,7 +356,7 @@ T.append({'id': '破軍子午.子女', 'stars': ['破軍'], 'branch': ['子', '�
    'Lian Zhen in Abundance opposite: you and your children are deeply close.',
    '子午破军见廉贞化禄，则两代情深。', '子午破军见廉贞化禄，则两代情深'),
  R('子女.破軍子午.本', None,
-   '子女個性強，容易有代溝；與晚輩要注意調和，但門下會出好子弟。',
+   '你的子女個性強，容易有代溝；與晚輩要注意調和，但你門下會出好子弟。',
    'Your children are strong characters and a generation gap opens easily; take care to keep things smooth with protégés, though some fine talent will come from your circle.',
    '子午宫破军，见辅佐对星，主子女三人。唯个性强，易有代沟。与晚辈的关系，宜注意调和。但主门下出佳子弟。', '但主门下出佳子弟', 'base'),
 ]})

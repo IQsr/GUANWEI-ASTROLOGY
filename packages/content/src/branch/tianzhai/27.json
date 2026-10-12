@@ -23,6 +23,12 @@
               "star": "太陰",
               "at": "same"
             }
+          },
+          {
+            "not": {
+              "star": "太陽",
+              "at": "same"
+            }
           }
         ]
       },
@@ -145,20 +151,6 @@
       }
     },
     {
-      "id": "田宅.太陰.機",
-      "role": "refine",
-      "when": {
-        "star": "天機",
-        "at": "same"
-      },
-      "text": "太陰與天機同宮，你多遷移搬動，住處常有變化。",
-      "en": "Tai Yin beside Tian Ji: you move house often.",
-      "source": {
-        "passage": "deep.田宅.太陰.4",
-        "quote": "太阴天机则主迁移"
-      }
-    },
-    {
       "id": "田宅.太陰.輔佐",
       "role": "refine",
       "when": {
@@ -190,7 +182,7 @@
       "text": "太陰與左輔右弼或祿存同宮，你承接祖業而興盛。",
       "en": "Tai Yin with Zuo Fu, You Bi or Lu Cun in the palace: you inherit family property and it prospers.",
       "source": {
-        "passage": "deep.田宅.太陰.5",
+        "passage": "deep.田宅.太陰.4",
         "quote": "则承祖业而盛"
       }
     },
@@ -222,7 +214,7 @@
       "text": "太陰化忌而無煞，你家中或任職的機構多是非。",
       "en": "Tai Yin in Hindrance without harsh stars: there is friction at home or at work.",
       "source": {
-        "passage": "deep.田宅.太陰.6",
+        "passage": "deep.田宅.太陰.5",
         "quote": "无煞则主家宅或服务机构有是非"
       }
     }

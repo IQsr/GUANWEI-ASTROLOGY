@@ -66,6 +66,20 @@
     {
       "id": "財帛.天府.本",
       "role": "base",
+      "when": {
+        "not": {
+          "any": [
+            {
+              "hua": "祿",
+              "at": "sifang"
+            },
+            {
+              "star": "祿存",
+              "at": "sifang"
+            }
+          ]
+        }
+      },
       "text": "天府在財帛宮不主富厚，主的是儲財和理財的能力。",
       "en": "Tian Fu in the Wealth Palace does not mean riches as such; it means the ability to save and manage money.",
       "source": {

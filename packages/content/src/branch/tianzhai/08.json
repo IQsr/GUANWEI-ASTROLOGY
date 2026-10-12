@@ -11,6 +11,12 @@
     {
       "id": "田宅.天機.本",
       "role": "base",
+      "when": {
+        "not": {
+          "star": "太陰",
+          "at": "same"
+        }
+      },
       "text": "天機在田宅宮，產業多變動：時時搬遷、時買時賣，或者常換工作環境。",
       "en": "With Tian Ji in your Property Palace, property is always on the move: frequent moves, buying and selling, or changing workplaces.",
       "source": {

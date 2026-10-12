@@ -88,7 +88,7 @@ T.append({'id': '天機丑未.夫妻', 'stars': ['天機'], 'branch': ['丑', '�
    'With Tuo Luo in the palace, marriage comes later, and good matches are easily missed.',
    '丑未天机最怕陀罗同度，不但婚迟，而且多误良缘，', '不但婚迟，而且多误良缘', 'limit'),
  R('夫妻.天機丑未.波折', None,
-   '感情上，婚前經過波折反而好；婚前太順，婚後反而容易聚少離多。',
+   '天機在丑未，你婚前感情經過波折反而好；婚前太順，婚後反而容易聚少離多。',
    'In love, a bumpy road before marriage is actually better for you; if it is too smooth beforehand, you may see less of each other afterwards.',
    '丑未天机，以婚前饱经挫折，或婚前有风波阻碍者为佳。若婚前顺利，则婚后反易会少离多，或貌合神离。', '以婚前饱经挫折，或婚前有风波阻碍者为佳', 'base'),
 ]})
