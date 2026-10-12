@@ -27,11 +27,11 @@
       },
       "text": "你的太陰化祿：這份內斂是性格上的沉潛，不事浮誇。",
       "en": "Your Tai Yin is transformed by Lu: this restraint is depth of character, without showiness.",
+      "pole": "收斂",
       "source": {
         "passage": "deep.星系04.2",
         "quote": "前者仅为性格上的沉潜，不事浮夸"
-      },
-      "pole": "收斂"
+      }
     },
     {
       "id": "太陰巳亥.忌",
@@ -44,11 +44,11 @@
       "text": "你的太陰化忌：內斂容易變成工於心計、耍手段；把想法說出來，比放在心裡盤算好。",
       "en": "Your Tai Yin is transformed by Ji: restraint can turn into scheming and manoeuvring; saying what you think works better than calculating in private.",
       "edit": "末句建議是編輯加的。",
+      "pole": "收斂",
       "source": {
         "passage": "deep.星系04.2",
         "quote": "后者则工心计，耍手段"
-      },
-      "pole": "收斂"
+      }
     },
     {
       "id": "太陰巳亥.發揮",
@@ -61,6 +61,73 @@
       "source": {
         "passage": "deep.星系04.3",
         "quote": "亦仅主虚名"
+      }
+    },
+    {
+      "id": "太陰巳亥.收斂運",
+      "role": "refine",
+      "when": {
+        "lean": "收斂"
+      },
+      "text": "收斂較重的你，喜行有發揮性的運：例如貪狼化祿或化權、太陽天梁化科、七殺會化權、紫微化權、破軍化祿或化權的那幾步。",
+      "en": "With restraint running strong, you do well in phases that draw you out: Tan Lang in Abundance or Authority, Tai Yang–Tian Liang in Merit, Qi Sha meeting Authority, Zi Wei in Authority, Po Jun in Abundance or Authority.",
+      "pole": "收斂",
+      "source": {
+        "passage": "deep.星系04.4",
+        "quote": "喜行带发射性的星系宫垣"
+      }
+    },
+    {
+      "id": "太陰巳亥.收斂離鄉",
+      "role": "refine",
+      "when": {
+        "all": [
+          {
+            "lean": "收斂"
+          },
+          {
+            "hua": [
+              "權",
+              "科"
+            ],
+            "star": "天機",
+            "at": "opp"
+          }
+        ]
+      },
+      "text": "你收斂較重，對宮的天機卻化權或化科，偏向發揮：離開出生地反而有利，守在家鄉不動就不好。",
+      "en": "You lean to restraint, but Tian Ji opposite is in Authority or Merit and draws you out: leaving your birthplace serves you better than staying put.",
+      "pole": "收斂",
+      "source": {
+        "passage": "deep.星系04.5",
+        "quote": "其人可以离开出生地而获吉"
+      }
+    },
+    {
+      "id": "太陰巳亥.發揮運",
+      "role": "refine",
+      "when": {
+        "lean": "發揮"
+      },
+      "text": "發揮較重的你，遇到偏收斂的運也不太受害，有時反而是好運。",
+      "en": "With expressiveness running strong, phases that hold you in do little harm, and sometimes even turn out well.",
+      "pole": "發揮",
+      "source": {
+        "passage": "deep.星系04.6",
+        "quote": "碰到收敛性的星曜亦不甚为害"
+      }
+    },
+    {
+      "id": "太陰巳亥.適度",
+      "role": "refine",
+      "when": {
+        "lean": "平衡"
+      },
+      "text": "你收斂與發揮適度，一生行運只要煞忌不太重，又見吉化吉星，大多是好運。",
+      "en": "Your restraint and expressiveness are in balance: so long as the harsh stars are not heavy and helpful ones appear, most phases of your life go well.",
+      "source": {
+        "passage": "deep.星系04.7",
+        "quote": "收敛发射适度的太阴，经行十二宫"
       }
     }
   ]

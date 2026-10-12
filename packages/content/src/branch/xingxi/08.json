@@ -64,11 +64,11 @@
       },
       "text": "你的太陽天梁在卯，三方四正不見煞忌，是極祥和的組合。",
       "en": "Your Tai Yang–Tian Liang sits in Mao with no malefics or Ji in its four directions: a very peaceful combination.",
+      "pole": "祥和",
       "source": {
         "passage": "deep.星系08.3",
         "quote": "则为极祥和的星系组合"
-      },
-      "pole": "祥和"
+      }
     },
     {
       "id": "陽梁卯酉.極孤",
@@ -100,11 +100,11 @@
       },
       "text": "你的太陽化忌，坐在日落的酉宮，又見煞星：這組星孤剋的色彩最重。",
       "en": "Your Tai Yang is transformed by Ji, sits in the setting-sun palace of You, and meets malefics: these stars at their most solitary.",
+      "pole": "孤獨",
       "source": {
         "passage": "deep.星系08.4",
         "quote": "便呈现极其孤忌的色彩"
-      },
-      "pole": "孤獨"
+      }
     },
     {
       "id": "陽梁卯酉.同忌",
@@ -134,6 +134,34 @@
       "source": {
         "passage": "deep.星系08.6",
         "quote": "一生易受是非、纠纷困扰"
+      }
+    },
+    {
+      "id": "陽梁卯酉.祥和運",
+      "role": "refine",
+      "when": {
+        "lean": "祥和"
+      },
+      "text": "祥和的你，行到七殺、破軍或貪狼所在的運，再見吉星或吉化，就是才華發揮、可以得志的時候；人生雖有變動，也變得合宜。",
+      "en": "Being the gentle kind, when a phase runs through Qi Sha, Po Jun or Tan Lang and meets helpful stars or transformations, your talent shines and you can rise; the changes it brings are well timed.",
+      "pole": "祥和",
+      "source": {
+        "passage": "deep.星系08.7",
+        "quote": "即主英华发越，可以得志"
+      }
+    },
+    {
+      "id": "陽梁卯酉.孤獨運",
+      "role": "limit",
+      "when": {
+        "lean": "孤獨"
+      },
+      "text": "孤獨一面重的你，行到七殺、破軍或貪狼所在的運，即使見吉，也多是不得不變的變動，身邊的人際關係也跟著變。",
+      "en": "With the solitary side strong, when a phase runs through Qi Sha, Po Jun or Tan Lang, even with helpful stars the changes tend to be forced on you, and the people around you change with them.",
+      "pole": "孤獨",
+      "source": {
+        "passage": "deep.星系08.8",
+        "quote": "仅主有不得不变的变动"
       }
     }
   ]

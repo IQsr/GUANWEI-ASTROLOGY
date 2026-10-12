@@ -47,6 +47,7 @@
       },
       "text": "你的巨門吉化而同宮不見煞，成石中隱玉格：英華內斂，可成大業；只是一生不宜走到最高峰、出鋒頭，否則容易招惹是非。",
       "en": "Your Ju Men has a favourable transformation and no malefic beside it, forming the 'jade hidden in stone' pattern: brilliance held within, able to build something great; but you shouldn't push for the very top or the limelight, or trouble follows.",
+      "pole": "英華內斂",
       "source": {
         "passage": "deep.星系15.2",
         "quote": "则称为[石中隐玉]，主其人英华内敛，可成大业"
@@ -56,8 +57,7 @@
           "passage": "deep.星系15.3",
           "quote": "所以一生不能走最高峰，不能出锋头"
         }
-      ],
-      "pole": "英華內斂"
+      ]
     },
     {
       "id": "巨門子午.祿存次格",
@@ -96,11 +96,11 @@
       },
       "text": "你的命宮見擎羊，收斂才華的本質容易轉成對別人的疑忌：表面不動聲色，心裡卻覺得人人都對自己不利，人生因此多了困境。",
       "en": "Qing Yang in your Life Palace can turn the habit of holding back your talent into suspicion of others: outwardly calm, inwardly sure everyone is against you, which brings more hardship.",
+      "pole": "疑慮",
       "source": {
         "passage": "deep.星系15.5",
         "quote": "转为对别人的疑忌"
-      },
-      "pole": "疑慮"
+      }
     },
     {
       "id": "巨門子午.機忌",
@@ -112,11 +112,49 @@
       },
       "text": "對宮的天機化忌，也令你容易生疑忌。",
       "en": "Tian Ji opposite you is transformed by Ji, which also makes you prone to suspicion.",
+      "pole": "疑慮",
       "source": {
         "passage": "deep.星系15.6",
         "quote": "亦足以影响巨门具疑忌之性"
+      }
+    },
+    {
+      "id": "巨門子午.內斂天府",
+      "role": "refine",
+      "when": {
+        "lean": "英華內斂"
       },
-      "pole": "疑慮"
+      "text": "英華內斂的你，行到天府所在的運，只要天府不空，就是收穫的時候。",
+      "en": "Keeping your gifts within, a phase that runs through Tian Fu, so long as it is not empty, is your time to harvest.",
+      "pole": "英華內斂",
+      "source": {
+        "passage": "deep.星系15.7",
+        "quote": "最利英华内敛的巨门，为收获的运程"
+      }
+    },
+    {
+      "id": "巨門子午.疑慮太陽",
+      "role": "refine",
+      "when": {
+        "lean": "疑慮"
+      },
+      "text": "疑慮重的你，行到太陽入廟又有吉化的運，反而可以吐氣揚眉。",
+      "en": "Being the wary kind, a phase where Tai Yang is bright and well transformed is when you can finally hold your head high.",
+      "pole": "疑慮",
+      "source": {
+        "passage": "deep.星系15.8",
+        "quote": "反可以吐气扬眉"
+      }
+    },
+    {
+      "id": "巨門子午.天機運",
+      "role": "limit",
+      "text": "天機所在的那一步運，無論多吉，對你都不利；那段時間不宜生改變之心，多忍讓為宜。",
+      "en": "The phase that runs through Tian Ji does not favour you, however good it looks; in that time, do not seek change, and give way where you can.",
+      "source": {
+        "passage": "deep.星系15.9",
+        "quote": "对任何本质的巨门都不利"
+      }
     }
   ]
 }

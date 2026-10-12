@@ -40,6 +40,7 @@
       },
       "text": "你的破軍得祿，本質調和：有福澤，只是一波三折仍免不了。",
       "en": "Your Po Jun gains Lu, so its nature is balanced: good fortune comes, though twists and turns are still unavoidable.",
+      "pole": "調和",
       "source": {
         "passage": "deep.星系47.2",
         "quote": "破军必须得禄然后始主调和"
@@ -49,8 +50,7 @@
           "passage": "deep.星系47.3",
           "quote": "唯一波三折则仍在所不免"
         }
-      ],
-      "pole": "調和"
+      ]
     },
     {
       "id": "破軍辰戌.無祿",
@@ -77,11 +77,11 @@
       },
       "text": "你的破軍不得祿，偏枯之性已成：就算有吉星，六親關係冷淡和人生的波折仍難避免。",
       "en": "Your Po Jun gains no Lu, so its lopsided nature is set: even with good stars, cool family ties and life's setbacks are hard to avoid.",
+      "pole": "偏執",
       "source": {
         "passage": "deep.星系47.4",
         "quote": "无禄的破军，偏枯之性已成"
-      },
-      "pole": "偏執"
+      }
     },
     {
       "id": "破軍辰戌.權無祿",
@@ -112,11 +112,21 @@
       },
       "text": "你的破軍化權而不得祿，只增加際遇上的聲勢，不主調和。",
       "en": "Your Po Jun is transformed by Quan without Lu, which adds momentum to your fortunes but doesn't bring balance.",
+      "pole": "偏執",
       "source": {
         "passage": "deep.星系47.5",
         "quote": "仅增加人生际遇上的一些声势"
-      },
-      "pole": "偏執"
+      }
+    },
+    {
+      "id": "破軍辰戌.紫相運",
+      "role": "limit",
+      "text": "紫微天相所在的那一步運，是你最不喜歡的運。",
+      "en": "The phase through Zi Wei–Tian Xiang is the one that suits you least.",
+      "source": {
+        "passage": "deep.星系47.6",
+        "quote": "最不为破军所喜"
+      }
     }
   ]
 }

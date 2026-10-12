@@ -27,11 +27,11 @@
       },
       "text": "你的太陰化祿，意志容易在感情上薄弱。",
       "en": "Your Tai Yin is transformed by Lu, so your will tends to weaken where feelings are involved.",
+      "pole": "意志薄弱",
       "source": {
         "passage": "deep.星系22.2",
         "quote": "化禄者易对感情意志薄弱"
-      },
-      "pole": "意志薄弱"
+      }
     },
     {
       "id": "太陰卯酉.忌",
@@ -43,11 +43,11 @@
       },
       "text": "你的太陰化忌，意志容易在物質上薄弱。",
       "en": "Your Tai Yin is transformed by Ji, so your will tends to weaken where material things are involved.",
+      "pole": "意志薄弱",
       "source": {
         "passage": "deep.星系22.2",
         "quote": "化忌者对物质意志薄弱"
-      },
-      "pole": "意志薄弱"
+      }
     },
     {
       "id": "太陰卯酉.權",
@@ -59,11 +59,11 @@
       },
       "text": "你的太陰化權，意志力增強。",
       "en": "Your Tai Yin is transformed by Quan, which strengthens your will.",
+      "pole": "意志堅強",
       "source": {
         "passage": "deep.星系22.3",
         "quote": "则可以增加意志力"
-      },
-      "pole": "意志堅強"
+      }
     },
     {
       "id": "太陰卯酉.科",
@@ -75,11 +75,11 @@
       },
       "text": "你的太陰化科，意志力增強。",
       "en": "Your Tai Yin is transformed by Ke, which strengthens your will.",
+      "pole": "意志堅強",
       "source": {
         "passage": "deep.星系22.3",
         "quote": "则可以增加意志力"
-      },
-      "pole": "意志堅強"
+      }
     },
     {
       "id": "太陰卯酉.同忌",
@@ -91,11 +91,49 @@
       },
       "text": "對宮的天同化忌，令你的意志容易薄弱，耽於享樂或物欲。",
       "en": "Tian Tong opposite you is transformed by Ji, so your will can weaken, drifting into pleasure or material wants.",
+      "pole": "意志薄弱",
       "source": {
         "passage": "deep.星系22.4",
         "quote": "容易耽于欲乐或物欲"
+      }
+    },
+    {
+      "id": "太陰卯酉.天機運",
+      "role": "refine",
+      "text": "天機所在的那一步運，對你非常重要：天機化科往往是一生事業奠基之時；天機化忌，就要不理是非，我行我素。",
+      "en": "The phase through Tian Ji matters greatly to you: with Tian Ji in Merit it often lays the foundation of your career; with Tian Ji in Hindrance, ignore the gossip and go your own way.",
+      "source": {
+        "passage": "deep.星系22.5",
+        "quote": "对原局太阴守命的人来说非常重要"
+      }
+    },
+    {
+      "id": "太陰卯酉.堅強武曲",
+      "role": "refine",
+      "when": {
+        "lean": "意志堅強"
       },
-      "pole": "意志薄弱"
+      "text": "意志堅強的你，行到武曲所在的運，是積極有利的運程。",
+      "en": "With a firm will, the phase through Wu Qu is an active and favourable one for you.",
+      "pole": "意志堅強",
+      "source": {
+        "passage": "deep.星系22.6",
+        "quote": "对意志坚强的太阴有利"
+      }
+    },
+    {
+      "id": "太陰卯酉.薄弱殺破狼",
+      "role": "limit",
+      "when": {
+        "lean": "意志薄弱"
+      },
+      "text": "意志較軟的你，行到七殺、破軍、貪狼的運，以守成為佳，也不宜陷入感情困擾。",
+      "en": "With a softer will, in the phases through Qi Sha, Po Jun and Tan Lang, hold what you have, and keep clear of emotional entanglements.",
+      "pole": "意志薄弱",
+      "source": {
+        "passage": "deep.星系22.7",
+        "quote": "以守成为佳，亦不宜陷于感情困扰"
+      }
     }
   ]
 }

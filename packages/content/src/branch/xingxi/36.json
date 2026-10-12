@@ -112,11 +112,48 @@
       "text": "你的天梁在子化科，祿存在對宮拱照，又有輔佐吉星：這是融和之力最強的組合。",
       "en": "Your Tian Liang in Zi is transformed by Ke, with Lu Cun shining from opposite and supporting stars in view: the most harmonious combination of all.",
       "edit": "原書另列三台八座等雜曜，引擎冇，條件不含。",
+      "pole": "融和",
       "source": {
         "passage": "deep.星系36.5",
         "quote": "最好的星曜组合是一一天梁在子化科"
+      }
+    },
+    {
+      "id": "天梁子午.天同運",
+      "role": "refine",
+      "text": "天同所在的那一步運，是你最喜歡的運，可能就是一生最好的大運。",
+      "en": "The phase that runs through Tian Tong suits you best of all; it may well be the finest decade of your life.",
+      "source": {
+        "passage": "deep.星系36.6",
+        "quote": "天梁最喜经行"
+      }
+    },
+    {
+      "id": "天梁子午.融和機陰",
+      "role": "refine",
+      "when": {
+        "lean": "融和"
       },
-      "pole": "融和"
+      "text": "融和的你，行到天機太陰所在的運，是得意的時候。",
+      "en": "Being the harmonious kind, the phase through Tian Ji–Tai Yin is a time of success for you.",
+      "pole": "融和",
+      "source": {
+        "passage": "deep.星系36.7",
+        "quote": "更为得意的运限"
+      }
+    },
+    {
+      "id": "天梁子午.兩面",
+      "role": "refine",
+      "when": {
+        "lean": "平衡"
+      },
+      "text": "你孤獨與融和兩面都有：這樣的人，多在比較偏門的專業，或在講紀律的機構做領導。",
+      "en": "You carry both the solitary and the harmonious sides: people like this often lead in a specialist niche, or in a disciplined organisation.",
+      "source": {
+        "passage": "deep.星系36.4",
+        "quote": "则多为半偏行业"
+      }
     }
   ]
 }

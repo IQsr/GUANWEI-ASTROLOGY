@@ -54,11 +54,11 @@
       },
       "text": "你的巨門化祿，這組星最吉利。",
       "en": "Your Ju Men is transformed by Lu, the most favourable case for these stars.",
+      "pole": "穩重",
       "source": {
         "passage": "deep.星系52.3",
         "quote": "所以最为吉利"
-      },
-      "pole": "穩重"
+      }
     },
     {
       "id": "機巨卯酉.機忌",
@@ -70,11 +70,11 @@
       },
       "text": "你的天機化忌，增加浮蕩。",
       "en": "Your Tian Ji is transformed by Ji, adding restlessness.",
+      "pole": "浮動",
       "source": {
         "passage": "deep.星系52.4",
         "quote": "若天机化忌，则增加浮荡"
-      },
-      "pole": "浮動"
+      }
     },
     {
       "id": "機巨卯酉.巨忌",
@@ -86,11 +86,11 @@
       },
       "text": "你的巨門化忌，容易變得輕薄，是這組星最不宜的。",
       "en": "Your Ju Men is transformed by Ji, which can make you flippant, the least suitable case for these stars.",
+      "pole": "浮動",
       "source": {
         "passage": "deep.星系52.4",
         "quote": "巨门化忌，则变为轻薄"
-      },
-      "pole": "浮動"
+      }
     },
     {
       "id": "機巨卯酉.鈴",
@@ -101,11 +101,11 @@
       },
       "text": "你的機巨與鈴星同宮，最易破壞穩重。",
       "en": "Your Ji–Ju shares the palace with Ling Xing, which most easily undermines steadiness.",
+      "pole": "浮動",
       "source": {
         "passage": "deep.星系52.5",
         "quote": "铃星同度最坏"
-      },
-      "pole": "浮動"
+      }
     },
     {
       "id": "機巨卯酉.火",
@@ -126,11 +126,11 @@
       },
       "text": "你的機巨與火星同宮，容易破壞穩重。",
       "en": "Your Ji–Ju shares the palace with Huo Xing, which can undermine steadiness.",
+      "pole": "浮動",
       "source": {
         "passage": "deep.星系52.5",
         "quote": "火铃二垣容易破坏[机巨]的稳重"
-      },
-      "pole": "浮動"
+      }
     },
     {
       "id": "機巨卯酉.酉",
@@ -142,11 +142,69 @@
       },
       "text": "你的機巨在酉，會照的太陽得地，浮薄之性減少，比在卯宮有利。",
       "en": "Your Ji–Ju sits in You, where the Sun it meets has ground, lessening flightiness: better than in Mao.",
+      "pole": "穩重",
       "source": {
         "passage": "deep.星系52.6",
         "quote": "故[机巨]以酉宫数为有利"
+      }
+    },
+    {
+      "id": "機巨卯酉.天同運",
+      "role": "refine",
+      "when": {
+        "lean": "穩重"
       },
-      "pole": "穩重"
+      "text": "你屬穩重的一型，天同所在的那一步運或那一年，往往就是你興家立業的時候，要把握。",
+      "en": "You are the steady kind: the phase or year that runs through Tian Tong is often when you build your household and career, so seize it.",
+      "pole": "穩重",
+      "source": {
+        "passage": "deep.星系52.7",
+        "quote": "往往在天同躔度的流年或大运兴家立业"
+      }
+    },
+    {
+      "id": "機巨卯酉.貪狼運",
+      "role": "limit",
+      "when": {
+        "lean": "浮動"
+      },
+      "text": "貪狼所在的那一步運，往往是你人生大改變的時期；浮動的一型動盪幅度更大，要有貪狼化祿或化權，變化才不會帶來壞影響。",
+      "en": "The phase that runs through Tan Lang is often a time of major change for you, and the restless kind swings wider; only with Tan Lang in Abundance or Authority does the change pass without harm.",
+      "pole": "浮動",
+      "source": {
+        "passage": "deep.星系52.8",
+        "quote": "其动荡幅度亦往往更大"
+      }
+    },
+    {
+      "id": "機巨卯酉.忌卯行酉",
+      "role": "limit",
+      "when": {
+        "branch": [
+          "卯"
+        ]
+      },
+      "text": "你的天機巨門坐卯，最忌行到酉宮那一步運。",
+      "en": "Your Tian Ji–Ju Men sits in Mao, and the phase that runs through You is the one it fears most.",
+      "source": {
+        "passage": "deep.星系52.9",
+        "quote": "原坐卯宫者不宜行酉限"
+      }
+    },
+    {
+      "id": "機巨卯酉.忌酉行卯",
+      "role": "limit",
+      "when": {
+        "branch": [
+          "酉"
+        ]
+      },
+      "text": "你的天機巨門坐酉，最忌行到卯宮那一步運。",
+      "en": "Your Tian Ji–Ju Men sits in You, and the phase that runs through Mao is the one it fears most.",
+      "source": {
+        "passage": "deep.星系52.9",
+        "quote": "机巨忌迁移"
+      }
     }
   ]
 }

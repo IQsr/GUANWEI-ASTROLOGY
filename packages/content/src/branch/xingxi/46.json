@@ -113,11 +113,11 @@
       "text": "你的廉貞與火鈴同宮，敏感容易走向不好的一面，例如自作多情。",
       "en": "Your Lian Zhen shares the palace with Huo or Ling, so sensitivity can take a bad turn, such as reading too much into things.",
       "edit": "原句續講投機取巧、趨炎附勢，屬人格貶語，不用。",
+      "pole": "敏感",
       "source": {
         "passage": "deep.星系46.5",
         "quote": "而且亦使之具有不良的敏感本质"
-      },
-      "pole": "敏感"
+      }
     },
     {
       "id": "廉貞寅申.祿貪",
@@ -131,6 +131,44 @@
       "source": {
         "passage": "deep.星系46.6",
         "quote": "且往往于困境中突生意外之喜"
+      }
+    },
+    {
+      "id": "廉貞寅申.七殺運",
+      "role": "refine",
+      "text": "七殺所在的那一步運，是你的重要運限：見吉化吉星，就是開創的時候。",
+      "en": "The phase through Qi Sha is a key one for you: with helpful stars or transformations, it is your time to break new ground.",
+      "source": {
+        "passage": "deep.星系46.7",
+        "quote": "为廉贞的重要运限"
+      }
+    },
+    {
+      "id": "廉貞寅申.敏感天同",
+      "role": "refine",
+      "when": {
+        "lean": "敏感"
+      },
+      "text": "敏感的你，行到天同所在的運，只要煞忌不重，一般就是奠定基業的時候。",
+      "en": "Being the sensitive kind, the phase through Tian Tong, unless harsh stars crowd in, is usually when you lay your foundations.",
+      "pole": "敏感",
+      "source": {
+        "passage": "deep.星系46.8",
+        "quote": "一般为奠立基业的运限"
+      }
+    },
+    {
+      "id": "廉貞寅申.踏實貪狼",
+      "role": "refine",
+      "when": {
+        "lean": "踏實"
+      },
+      "text": "踏實的你，行到貪狼化祿的運，財喜接連而來。",
+      "en": "Being the grounded kind, a phase with Tan Lang in Abundance brings one gain after another.",
+      "pole": "踏實",
+      "source": {
+        "passage": "deep.星系46.9",
+        "quote": "财喜迭迭而来"
       }
     }
   ]

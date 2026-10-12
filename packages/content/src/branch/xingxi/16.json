@@ -60,11 +60,11 @@
       },
       "text": "對宮的紫微破軍吉化，是天相遇明主之兆：你容易遇到賞識自己的上司。",
       "en": "Zi Wei–Po Jun opposite you has a favourable transformation, a sign of Tian Xiang meeting a wise master: you tend to find superiors who value you.",
+      "pole": "優雅",
       "source": {
         "passage": "deep.星系16.3",
         "quote": "则为天相见明主之兆"
-      },
-      "pole": "優雅"
+      }
     },
     {
       "id": "天相丑未.朝秦暮楚",
@@ -92,6 +92,26 @@
       "source": {
         "passage": "deep.星系16.4",
         "quote": "难免朝秦暮楚"
+      }
+    },
+    {
+      "id": "天相丑未.紫破年",
+      "role": "refine",
+      "text": "紫微破軍所在的那一年，是你的重要年份，往往就在那時改變命運，也常是與人合作創業的時候。",
+      "en": "The year that runs through Zi Wei–Po Jun is a key one for you: fortunes often turn then, and it is often when you go into business with others.",
+      "source": {
+        "passage": "deep.星系16.5",
+        "quote": "为天相的重要流年"
+      }
+    },
+    {
+      "id": "天相丑未.天府運",
+      "role": "refine",
+      "text": "天府所在的那一步運也很重要：你有沒有收穫，就看那段時間的機遇；天府得祿就吉。",
+      "en": "The phase through Tian Fu matters too: whether you reap a harvest depends on the chances of that time, and it goes well when Tian Fu meets Lu.",
+      "source": {
+        "passage": "deep.星系16.6",
+        "quote": "是否能有收获，即视此年运的机遇而定"
       }
     }
   ]

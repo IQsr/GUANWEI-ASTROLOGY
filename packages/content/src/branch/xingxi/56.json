@@ -47,11 +47,11 @@
       "text": "你的天同太陰在午，與擎羊同宮，成馬頭帶劍格：經過人生的奮鬥而成富貴。",
       "en": "Your Tian Tong–Tai Yin sits in Wu with Qing Yang, forming the 'sword at the horse's head' pattern: wealth and standing won through life's struggle.",
       "edit": "原書：天同或太陰化忌則不成馬頭帶劍。",
+      "pole": "積極",
       "source": {
         "passage": "deep.星系56.2",
         "quote": "主经过人生的奋斗而成富贵"
-      },
-      "pole": "積極"
+      }
     },
     {
       "id": "同陰子午.子羊",
@@ -71,11 +71,11 @@
       },
       "text": "你的天同太陰在子，不喜擎羊同宮：較經不起人生的磨練。",
       "en": "Your Tian Tong–Tai Yin sits in Zi, which doesn't welcome Qing Yang beside it: it holds up less well under life's trials.",
+      "pole": "消極",
       "source": {
         "passage": "deep.星系56.3",
         "quote": "经不起人生的磨练"
-      },
-      "pole": "消極"
+      }
     },
     {
       "id": "同陰子午.同吉",
@@ -91,11 +91,11 @@
       },
       "text": "你的天同吉化，本質積極。",
       "en": "Your Tian Tong has a favourable transformation: active at heart.",
+      "pole": "積極",
       "source": {
         "passage": "deep.星系56.4",
         "quote": "天同得吉化，即主积极"
-      },
-      "pole": "積極"
+      }
     },
     {
       "id": "同陰子午.同忌",
@@ -107,11 +107,11 @@
       },
       "text": "你的天同化忌，本質偏消極。",
       "en": "Your Tian Tong is transformed by Ji: passive at heart.",
+      "pole": "消極",
       "source": {
         "passage": "deep.星系56.4",
         "quote": "则本质消极"
-      },
-      "pole": "消極"
+      }
     },
     {
       "id": "同陰子午.陰忌",
@@ -123,11 +123,11 @@
       },
       "text": "你的太陰化忌，本質偏消極。",
       "en": "Your Tai Yin is transformed by Ji: passive at heart.",
+      "pole": "消極",
       "source": {
         "passage": "deep.星系56.4",
         "quote": "则本质消极"
-      },
-      "pole": "消極"
+      }
     },
     {
       "id": "同陰子午.空",
@@ -151,6 +151,44 @@
       "source": {
         "passage": "deep.星系56.5",
         "quote": "否则虽积极而偏多空想"
+      }
+    },
+    {
+      "id": "同陰子午.武貪積極",
+      "role": "refine",
+      "when": {
+        "lean": "積極"
+      },
+      "text": "武曲貪狼所在的那一步運最適合你：先經過一些周折，然後打好事業的基礎。",
+      "en": "The phase that runs through Wu Qu–Tan Lang suits you best: some twists first, then a solid footing for your career.",
+      "pole": "積極",
+      "source": {
+        "passage": "deep.星系56.6",
+        "quote": "主先经周折而能奠立事业基础"
+      }
+    },
+    {
+      "id": "同陰子午.武貪消極",
+      "role": "limit",
+      "when": {
+        "lean": "消極"
+      },
+      "text": "武曲貪狼所在的那一步運，你容易只顧享受而失了志氣；那幾年要把理想提高一點。",
+      "en": "In the phase that runs through Wu Qu–Tan Lang you can slip into comfort and lose your drive; in those years, raise your sights.",
+      "pole": "消極",
+      "source": {
+        "passage": "deep.星系56.6",
+        "quote": "但却易于丧志"
+      }
+    },
+    {
+      "id": "同陰子午.天相弱",
+      "role": "limit",
+      "text": "天相所在的那一步運或那一年，是你的弱運：宜沉潛，不宜奮進。",
+      "en": "The phase or year that runs through Tian Xiang is a weak one for you: lie low, rather than push forward.",
+      "source": {
+        "passage": "deep.星系56.7",
+        "quote": "仅利沈潜，不宜奋进"
       }
     }
   ]

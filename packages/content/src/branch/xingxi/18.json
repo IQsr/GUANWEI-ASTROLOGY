@@ -56,11 +56,21 @@
       },
       "text": "對宮的天府有文昌或文曲同宮，能調和短慮的一面。",
       "en": "Tian Fu opposite you shares its palace with Wen Chang or Wen Qu, which tempers the short-sighted side.",
+      "pole": "決斷",
       "source": {
         "passage": "deep.星系18.3",
         "quote": "唯喜与[武杀]对宫的天府同躔"
-      },
-      "pole": "決斷"
+      }
+    },
+    {
+      "id": "武殺卯酉.轉變",
+      "role": "base",
+      "text": "武曲七殺、廉貞貪狼、紫微破軍所在的那幾步運，是你人生極大轉變的時候。",
+      "en": "The phases through Wu Qu–Qi Sha, Lian Zhen–Tan Lang and Zi Wei–Po Jun are the times of great change in your life.",
+      "source": {
+        "passage": "deep.星系18.4",
+        "quote": "具极大转变性的流年或运限"
+      }
     }
   ]
 }

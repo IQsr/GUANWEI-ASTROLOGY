@@ -50,11 +50,11 @@
       },
       "text": "你的天同得祿，又稍見煞星，意志反而堅強。",
       "en": "Your Tian Tong gains Lu and meets a touch of malefics, which actually strengthens your will.",
+      "pole": "意志堅強",
       "source": {
         "passage": "deep.星系48.2",
         "quote": "必须稍见一二点煞曜，然后始主意志坚强"
-      },
-      "pole": "意志堅強"
+      }
     },
     {
       "id": "天同巳亥.祿無煞",
@@ -91,11 +91,11 @@
       },
       "text": "你的天同得祿而不見煞，容易流於意志薄弱。",
       "en": "Your Tian Tong gains Lu with no malefics in view, so your will can slide into weakness.",
+      "pole": "意志薄弱",
       "source": {
         "passage": "deep.星系48.2",
         "quote": "否则可能沦为意志薄弱"
-      },
-      "pole": "意志薄弱"
+      }
     },
     {
       "id": "天同巳亥.權",
@@ -107,11 +107,11 @@
       },
       "text": "你的天同化權，意志堅強：情緒受到管束，天份因此得以發揮。",
       "en": "Your Tian Tong is transformed by Quan, which makes your will strong: emotions held in check let your talent come through.",
+      "pole": "意志堅強",
       "source": {
         "passage": "deep.星系48.3",
         "quote": "因而得以发挥其天份的象征"
-      },
-      "pole": "意志堅強"
+      }
     },
     {
       "id": "天同巳亥.馬陀",
@@ -125,11 +125,11 @@
       },
       "text": "你的天同與天馬或陀羅同宮，至少主毅力不足。",
       "en": "Your Tian Tong shares the palace with Tian Ma or Tuo Luo, which at the least means staying power falls short.",
+      "pole": "意志薄弱",
       "source": {
         "passage": "deep.星系48.4",
         "quote": "至少亦主毅力不足"
-      },
-      "pole": "意志薄弱"
+      }
     },
     {
       "id": "天同巳亥.意志",
@@ -142,6 +142,44 @@
       "source": {
         "passage": "deep.星系48.5",
         "quote": "便仅指创兴事业的魄力"
+      }
+    },
+    {
+      "id": "天同巳亥.貪狼運",
+      "role": "refine",
+      "text": "貪狼所在的那一步運，無論見不見吉星，對你都好，往往帶來良好的轉變。",
+      "en": "The phase through Tan Lang suits you, with or without helpful stars, and often brings a change for the better.",
+      "source": {
+        "passage": "deep.星系48.6",
+        "quote": "往往主出现良好转变的运势"
+      }
+    },
+    {
+      "id": "天同巳亥.堅強武府",
+      "role": "refine",
+      "when": {
+        "lean": "意志堅強"
+      },
+      "text": "意志堅強的你，行到武曲天府所在的運，往往就是發展的時候。",
+      "en": "With a firm will, the phase through Wu Qu–Tian Fu is often your time to grow.",
+      "pole": "意志堅強",
+      "source": {
+        "passage": "deep.星系48.7",
+        "quote": "坚强者喜行，往往为生发之运"
+      }
+    },
+    {
+      "id": "天同巳亥.薄弱破軍",
+      "role": "limit",
+      "when": {
+        "lean": "意志薄弱"
+      },
+      "text": "魄力偏弱的你，不喜行到破軍所在的運：那段時間人生容易有重大的變化。",
+      "en": "With less drive, the phase through Po Jun does not suit you: life is prone to major upheaval then.",
+      "pole": "意志薄弱",
+      "source": {
+        "passage": "deep.星系48.8",
+        "quote": "为意志薄弱的天同所不喜"
       }
     }
   ]

@@ -27,11 +27,11 @@
       },
       "text": "對宮的廉貞化忌，你的破軍基本上帶頑嚚的性質：破壞力大、創造力弱；有魁鉞、左右或祿存，可以調和。",
       "en": "Lian Zhen opposite you is transformed by Ji, which gives your Po Jun a basically stubborn streak: much destructive force, little creative force; Kui, Yue, Zuo, You or Lu Cun can temper it.",
+      "pole": "莽撞",
       "source": {
         "passage": "deep.星系31.2",
         "quote": "已基本上成顽嚣之格"
-      },
-      "pole": "莽撞"
+      }
     },
     {
       "id": "破軍子午.曲忌",
@@ -46,11 +46,11 @@
       },
       "text": "文曲化忌同宮或對照，成破軍暗曜，其實也是頑嚚。",
       "en": "Wen Qu transformed by Ji in your palace or opposite forms the 'darkened Po Jun', which is really just stubbornness.",
+      "pole": "莽撞",
       "source": {
         "passage": "deep.星系31.3",
         "quote": "其实亦不过顽嚣而已"
-      },
-      "pole": "莽撞"
+      }
     },
     {
       "id": "破軍子午.祿",
@@ -62,11 +62,11 @@
       },
       "text": "你的破軍化祿，為人果敢。",
       "en": "Your Po Jun is transformed by Lu, which makes you decisive.",
+      "pole": "果敢",
       "source": {
         "passage": "deep.星系31.4",
         "quote": "则主为人果敢"
-      },
-      "pole": "果敢"
+      }
     },
     {
       "id": "破軍子午.權",
@@ -78,11 +78,63 @@
       },
       "text": "你的破軍化權，為人果敢。",
       "en": "Your Po Jun is transformed by Quan, which makes you decisive.",
+      "pole": "果敢",
       "source": {
         "passage": "deep.星系31.4",
         "quote": "则主为人果敢"
+      }
+    },
+    {
+      "id": "破軍子午.果敢七殺",
+      "role": "refine",
+      "when": {
+        "lean": "果敢"
       },
-      "pole": "果敢"
+      "text": "果敢的你，在七殺、破軍、貪狼的運裡，以行到七殺那一步最好。",
+      "en": "Being the decisive kind, among the phases through Qi Sha, Po Jun and Tan Lang, the one through Qi Sha serves you best.",
+      "pole": "果敢",
+      "source": {
+        "passage": "deep.星系31.5",
+        "quote": "果敢者以经行七杀宫度为佳"
+      }
+    },
+    {
+      "id": "破軍子午.果敢天同",
+      "role": "refine",
+      "when": {
+        "lean": "果敢"
+      },
+      "text": "天同所在的運，只要天同不化忌、吉星多而煞星少，就是你創立事業的吉運。",
+      "en": "The phase through Tian Tong, so long as Tian Tong is not in Hindrance and helpful stars outweigh harsh ones, is your good time to found an enterprise.",
+      "pole": "果敢",
+      "source": {
+        "passage": "deep.星系31.6",
+        "quote": "能藉此创立事业的吉运"
+      }
+    },
+    {
+      "id": "破軍子午.莽撞三思",
+      "role": "limit",
+      "when": {
+        "lean": "莽撞"
+      },
+      "text": "莽撞的你，行到七殺、破軍、貪狼的運，要有吉星（尤其天魁天鉞）才相宜；凡事三思而後行，就能避開困境。",
+      "en": "Being the rash kind, the phases through Qi Sha, Po Jun and Tan Lang suit you only with helpful stars, Tian Kui and Tian Yue above all; think three times before acting, and you can avoid the hard places.",
+      "pole": "莽撞",
+      "source": {
+        "passage": "deep.星系31.7",
+        "quote": "凡事三思而后行"
+      }
+    },
+    {
+      "id": "破軍子午.天梁運",
+      "role": "limit",
+      "text": "天梁所在的那一步運，你只宜退居策劃，不宜衝在前面。",
+      "en": "In the phase through Tian Liang, step back and plan rather than lead from the front.",
+      "source": {
+        "passage": "deep.星系31.8",
+        "quote": "亦只宜退居策划"
+      }
     }
   ]
 }

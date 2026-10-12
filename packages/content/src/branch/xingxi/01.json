@@ -1,5 +1,5 @@
 {
-  "$note": "第 3 層 · 六十星系（2026-10-12）：紫微獨坐子午，p.42–45。原書命宮部份就係精神／物質一條軸（骨架章已講），其餘篇幅講行運，暫唔入細讀。",
+  "$note": "第 3 層 · 六十星系（2026-10-12）：紫微獨坐子午，p.42–45。命宮部份就係精神／物質一條軸（骨架章已講）；細讀講兩頭各自喜行嘅運同七殺運轉變快慢（第 7 批補）。",
   "topic": {
     "id": "紫微獨坐子午.命宮",
     "palace": "命宮",
@@ -16,5 +16,62 @@
     "passage": "deep.星系01.1",
     "quote": "既有属于精神方面的本质"
   },
-  "rules": []
+  "rules": [
+    {
+      "id": "紫微子午.物質運",
+      "role": "refine",
+      "when": {
+        "lean": "物質"
+      },
+      "text": "物質性重的你，行到破軍、廉貞天府、武曲天相、七殺、天機所在的運，那一宮若也偏重物質，就是你得志或發財的時候。",
+      "en": "With the material side strong, the phases that run through Po Jun, Lian Zhen–Tian Fu, Wu Qu–Tian Xiang, Qi Sha or Tian Ji are your times to rise or prosper, when that palace leans material too.",
+      "pole": "物質",
+      "source": {
+        "passage": "deep.星系01.2",
+        "quote": "必为得志或发财的大运或流年"
+      }
+    },
+    {
+      "id": "紫微子午.精神運",
+      "role": "refine",
+      "when": {
+        "lean": "精神"
+      },
+      "text": "精神性重的你，行到太陰、太陽天梁所在的運，那一宮若也偏重精神，就是你得名聲的時候。",
+      "en": "With the spiritual side strong, the phases that run through Tai Yin or Tai Yang–Tian Liang are your times to win a name, when that palace leans spiritual too.",
+      "pole": "精神",
+      "source": {
+        "passage": "deep.星系01.3",
+        "quote": "必为得名、得声誉的大运或流年"
+      }
+    },
+    {
+      "id": "紫微子午.物質七殺",
+      "role": "refine",
+      "when": {
+        "lean": "物質"
+      },
+      "text": "行到七殺所在的運，你會立刻轉變，變的主要是物質生活。",
+      "en": "When a phase runs through Qi Sha, change comes at once for you, and mostly in your material life.",
+      "pole": "物質",
+      "source": {
+        "passage": "deep.星系01.4",
+        "quote": "行经七杀，立即发生转变"
+      }
+    },
+    {
+      "id": "紫微子午.精神七殺",
+      "role": "refine",
+      "when": {
+        "lean": "精神"
+      },
+      "text": "行到七殺所在的運，你的轉變會拖後才來：流年在下半年，大運在後五年。",
+      "en": "When a phase runs through Qi Sha, change comes late for you: in the second half of the year, or the last five years of the decade.",
+      "pole": "精神",
+      "source": {
+        "passage": "deep.星系01.4",
+        "quote": "七杀为大运命宫，主后五年转变"
+      }
+    }
+  ]
 }

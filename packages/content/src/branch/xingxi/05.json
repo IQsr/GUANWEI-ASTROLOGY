@@ -38,11 +38,11 @@
       },
       "text": "你的貪狼化忌，又見鈴星或陀羅：欲望偏低，甚至畏懼競爭，一碰到阻力就退縮。",
       "en": "Your Tan Lang is transformed by Ji and meets Ling Xing or Tuo Luo: desire runs low, you may even shy away from competition, and you back off at the first obstacle.",
+      "pole": "欲望淡",
       "source": {
         "passage": "deep.星系05.2",
         "quote": "甚至可以变成畏惧竞争，一碰到阻力便退缩"
-      },
-      "pole": "欲望淡"
+      }
     },
     {
       "id": "貪狼子午.淡",
@@ -84,6 +84,47 @@
           "quote": "偏向于物欲"
         }
       ]
+    },
+    {
+      "id": "貪狼子午.淡奮發",
+      "role": "refine",
+      "when": {
+        "lean": "欲望淡"
+      },
+      "text": "欲望偏淡的你，遇到奮發的大運仍然大有作為：例如七殺或破軍見祿權、太陽天梁化科、廉貞天府見吉化的那幾步。",
+      "en": "With desire running low, you can still achieve a great deal in a phase that spurs you on: Qi Sha or Po Jun with Abundance or Authority, Tai Yang–Tian Liang in Merit, Lian Zhen–Tian Fu well transformed.",
+      "pole": "欲望淡",
+      "source": {
+        "passage": "deep.星系05.6",
+        "quote": "逢奋发图强的大运，仍然有所为"
+      }
+    },
+    {
+      "id": "貪狼子午.強忌深",
+      "role": "limit",
+      "when": {
+        "lean": "欲望強"
+      },
+      "text": "欲望偏強的你，不宜再行加深物欲的運，例如巨門化祿、太陽化權、天機化祿的那幾步；否則際遇未必如意，精神也容易空虛。",
+      "en": "With desire running high, avoid phases that deepen it further, such as Ju Men in Abundance, Tai Yang in Authority or Tian Ji in Abundance; otherwise things may not go your way, and you can feel empty inside.",
+      "pole": "欲望強",
+      "source": {
+        "passage": "deep.星系05.7",
+        "quote": "便不喜再行加深物欲色彩的运限"
+      }
+    },
+    {
+      "id": "貪狼子午.適度",
+      "role": "refine",
+      "when": {
+        "lean": "平衡"
+      },
+      "text": "你的欲望強弱適中，這正是貪狼最好的狀態：不過高，也不過低。",
+      "en": "Your desire is neither too strong nor too weak, which is exactly where Tan Lang is at its best.",
+      "source": {
+        "passage": "deep.星系05.8",
+        "quote": "人生不宜欲望过高，亦不宜欲望过低"
+      }
     }
   ]
 }

@@ -27,11 +27,11 @@
       },
       "text": "你的武曲化祿，容易變得因循。",
       "en": "Your Wu Qu is transformed by Lu, which makes it easy to settle into a rut.",
+      "pole": "因循",
       "source": {
         "passage": "deep.星系29.2",
         "quote": "很容易变成因循"
-      },
-      "pole": "因循"
+      }
     },
     {
       "id": "武曲辰戌.科",
@@ -43,11 +43,11 @@
       },
       "text": "你的武曲化科，少年較不順，靠一技之長自立；得到一些聲譽之後，容易因循。",
       "en": "Your Wu Qu is transformed by Ke: youth is less smooth, you stand on your own through a skill, and once you've earned some reputation it's easy to coast.",
+      "pole": "因循",
       "source": {
         "passage": "deep.星系29.3",
         "quote": "主少年不利，赖自己一技之长自立"
-      },
-      "pole": "因循"
+      }
     },
     {
       "id": "武曲辰戌.權",
@@ -76,11 +76,11 @@
       },
       "text": "你的武曲化權而不受煞擾，有破網而出的心，本質進取。",
       "en": "Your Wu Qu is transformed by Quan and free of malefics, with the drive to break out of the net: enterprising at heart.",
+      "pole": "進取",
       "source": {
         "passage": "deep.星系29.4",
         "quote": "本质变为进取"
-      },
-      "pole": "進取"
+      }
     },
     {
       "id": "武曲辰戌.忌無陀",
@@ -102,11 +102,11 @@
       },
       "text": "你的武曲化忌，人生較艱苦，少年也不順；但沒有陀羅同宮，反而令你進取。",
       "en": "Your Wu Qu is transformed by Ji: life is harder and youth less smooth; but with no Tuo Luo beside it, this actually makes you enterprising.",
+      "pole": "進取",
       "source": {
         "passage": "deep.星系29.5",
         "quote": "但如无陀罗同度，则反主进取"
-      },
-      "pole": "進取"
+      }
     },
     {
       "id": "武曲辰戌.忌陀",
@@ -141,11 +141,11 @@
       },
       "text": "對宮的貪狼化祿，令你進取，往往要離鄉別井去改變命運。",
       "en": "Tan Lang opposite you is transformed by Lu, which makes you enterprising; changing your fortunes often means leaving home.",
+      "pole": "進取",
       "source": {
         "passage": "deep.星系29.7",
         "quote": "往往为离乡背井改变命运的征兆"
-      },
-      "pole": "進取"
+      }
     },
     {
       "id": "武曲辰戌.貪火鈴",
@@ -178,11 +178,21 @@
       },
       "text": "對宮的貪狼有火鈴同宮，激發你，令你進取。",
       "en": "Tan Lang opposite you shares its palace with Huo or Ling, which spurs you on and makes you enterprising.",
+      "pole": "進取",
       "source": {
         "passage": "deep.星系29.8",
         "quote": "则对武曲生激发力"
-      },
-      "pole": "進取"
+      }
+    },
+    {
+      "id": "武曲辰戌.破軍運",
+      "role": "refine",
+      "text": "破軍所在的那一步運，是你的重要運限；見吉星吉化，就要好好利用。",
+      "en": "The phase through Po Jun is a key one for you; when helpful stars or transformations appear, make full use of it.",
+      "source": {
+        "passage": "deep.星系29.9",
+        "quote": "亦为武曲守命于辰戌者之重要运限"
+      }
     }
   ]
 }

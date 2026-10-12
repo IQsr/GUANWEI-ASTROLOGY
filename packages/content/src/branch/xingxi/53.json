@@ -45,11 +45,11 @@
       },
       "text": "你的紫微化權，又沒有輔佐吉星會合，霸氣容易過重。",
       "en": "Your Zi Wei is transformed by Quan without supporting stars, so the domineering streak can run too strong.",
+      "pole": "強勢",
       "source": {
         "passage": "deep.星系53.2",
         "quote": "否则即易变成横霸"
-      },
-      "pole": "強勢"
+      }
     },
     {
       "id": "紫殺巳亥.權有輔",
@@ -76,11 +76,11 @@
       },
       "text": "你的紫微化權，有輔佐吉星會合，去其橫霸之氣，成為權威。",
       "en": "Your Zi Wei is transformed by Quan and joined by supporting stars, which removes the domineering edge and leaves authority.",
+      "pole": "權威",
       "source": {
         "passage": "deep.星系53.3",
         "quote": "然后始可去其横霸之气"
-      },
-      "pole": "權威"
+      }
     },
     {
       "id": "紫殺巳亥.儒將",
@@ -103,11 +103,11 @@
       },
       "text": "你的紫微化科，又會昌曲：權威而彬彬儒雅，前人稱為儒將風流。",
       "en": "Your Zi Wei is transformed by Ke and meets Chang or Qu: authority with refined grace, what earlier writers called 'the scholar-general'.",
+      "pole": "權威",
       "source": {
         "passage": "deep.星系53.4",
         "quote": "更主彬彬儒雅"
-      },
-      "pole": "權威"
+      }
     },
     {
       "id": "紫殺巳亥.府科",
@@ -144,11 +144,11 @@
       "text": "對宮的天府化科，可以消減你的霸氣，人生的際遇也多順境。",
       "en": "Tian Fu opposite you is transformed by Ke, which tempers the domineering streak, and life brings more smooth stretches.",
       "edit": "原書只取庚年天府化科；壬年天府化科時武曲同時化忌，故以「武曲不化忌」排除壬年。",
+      "pole": "權威",
       "source": {
         "passage": "deep.星系53.5",
         "quote": "人生的际遇因此亦多顺境"
-      },
-      "pole": "權威"
+      }
     },
     {
       "id": "紫殺巳亥.無輔見煞",
@@ -200,11 +200,11 @@
       },
       "text": "你的紫殺沒有輔佐吉星，又見煞星，容易流於強橫，人生多挫折。",
       "en": "Your Zi Wei–Qi Sha lacks supporting stars and meets malefics, so it can turn overbearing, with many setbacks.",
+      "pole": "強勢",
       "source": {
         "passage": "deep.星系53.6",
         "quote": "人生亦必多挫折"
-      },
-      "pole": "強勢"
+      }
     },
     {
       "id": "紫殺巳亥.權威",
@@ -230,6 +230,16 @@
       "source": {
         "passage": "deep.星系53.7",
         "quote": "则易起易跌"
+      }
+    },
+    {
+      "id": "紫殺巳亥.同陰運",
+      "role": "refine",
+      "text": "天同太陰所在的那一步運，一般是你喜歡的：一向勞碌的你，那段時間可以得到寧靜。",
+      "en": "The phase through Tian Tong–Tai Yin is generally welcome: busy as you always are, it brings you a stretch of calm.",
+      "source": {
+        "passage": "deep.星系53.8",
+        "quote": "得[同阴]则可得宁静"
       }
     }
   ]

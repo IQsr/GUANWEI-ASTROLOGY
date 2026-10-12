@@ -44,11 +44,11 @@
       },
       "text": "你的貪狼化祿，未發跡之前容易被欲望推著走，急躁冒進。",
       "en": "Your Tan Lang is transformed by Lu, so before you make your mark, desire can push you into rushing.",
+      "pole": "躁進",
       "source": {
         "passage": "deep.星系23.3",
         "quote": "以致躁进"
-      },
-      "pole": "躁進"
+      }
     },
     {
       "id": "貪狼辰戌.權",
@@ -60,11 +60,11 @@
       },
       "text": "你的貪狼化權，較腳踏實地。",
       "en": "Your Tan Lang is transformed by Quan, which keeps you more grounded.",
+      "pole": "堅忍",
       "source": {
         "passage": "deep.星系23.3",
         "quote": "贪狼化权，则较脚踏实地"
-      },
-      "pole": "堅忍"
+      }
     },
     {
       "id": "貪狼辰戌.忌",
@@ -76,11 +76,11 @@
       },
       "text": "你的貪狼化忌，容易因為失意而急躁冒進。",
       "en": "Your Tan Lang is transformed by Ji, so disappointment can push you into rushing.",
+      "pole": "躁進",
       "source": {
         "passage": "deep.星系23.4",
         "quote": "易因失意而致躁进"
-      },
-      "pole": "躁進"
+      }
     },
     {
       "id": "貪狼辰戌.破吉",
@@ -95,11 +95,11 @@
       },
       "text": "會照的破軍吉化，增加你的堅忍。",
       "en": "Po Jun with a favourable transformation in your trine adds to your endurance.",
+      "pole": "堅忍",
       "source": {
         "passage": "deep.星系23.5",
         "quote": "可增加坚忍之性"
-      },
-      "pole": "堅忍"
+      }
     },
     {
       "id": "貪狼辰戌.鈴陀",
@@ -131,11 +131,49 @@
       "text": "你的盤鈴星、陀羅同會：外表從容，內心焦躁。",
       "en": "Ling Xing and Tuo Luo both meet your chart: calm on the outside, restless within.",
       "edit": "原書此條講貪狼不見四化的情形，條件照錄。",
+      "pole": "躁進",
       "source": {
         "passage": "deep.星系23.6",
         "quote": "而铃陀同会则主外表从容，内心焦躁"
+      }
+    },
+    {
+      "id": "貪狼辰戌.堅忍巨門",
+      "role": "refine",
+      "when": {
+        "lean": "堅忍"
       },
-      "pole": "躁進"
+      "text": "堅忍的你，喜行巨門所在的運：經過一段困難之後，就能轉好。",
+      "en": "Being the patient kind, you do well in the phase through Ju Men: after a stretch of difficulty, things turn for the better.",
+      "pole": "堅忍",
+      "source": {
+        "passage": "deep.星系23.7",
+        "quote": "经一段困难之后即能变泰"
+      }
+    },
+    {
+      "id": "貪狼辰戌.躁進巨門",
+      "role": "limit",
+      "when": {
+        "lean": "躁進"
+      },
+      "text": "躁進的你，不宜行巨門所在的運：即使巨門化權化祿，也容易橫生事端。",
+      "en": "Being the hasty kind, the phase through Ju Men does not suit you: even with Ju Men in Authority or Abundance, trouble springs up.",
+      "pole": "躁進",
+      "source": {
+        "passage": "deep.星系23.8",
+        "quote": "躁进的贪狼不宜行巨门运限"
+      }
+    },
+    {
+      "id": "貪狼辰戌.武曲運",
+      "role": "refine",
+      "text": "武曲所在的那一步運或那一年，即使不見吉化吉星，你也會有所作為。",
+      "en": "In the phase or year that runs through Wu Qu, you get things done even without helpful stars.",
+      "source": {
+        "passage": "deep.星系23.9",
+        "quote": "亦主有所作为"
+      }
     }
   ]
 }

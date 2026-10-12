@@ -86,11 +86,11 @@
       "text": "你的七殺在子，又見煞星會聚，中年或晚年較困頓。",
       "en": "Your Qi Sha in Zi meets a cluster of malefics, which makes middle or later life harder.",
       "edit": "原句引古人「投河溺水」，不用；「煞曜會聚」以羊陀之一加火鈴之一近似。",
+      "pole": "多焦慮",
       "source": {
         "passage": "deep.星系45.4",
         "quote": "则中年或晚年困顿"
-      },
-      "pole": "多焦慮"
+      }
     },
     {
       "id": "七殺子午.貪祿",
@@ -102,11 +102,11 @@
       },
       "text": "會照的貪狼化祿，七殺之性得到調和，是最喜的配合。",
       "en": "Tan Lang transformed by Lu in your trine tempers Qi Sha's nature, the most welcome combination.",
+      "pole": "威權",
       "source": {
         "passage": "deep.星系45.5",
         "quote": "最喜贪狼化禄，不但七杀之性得其调和"
-      },
-      "pole": "威權"
+      }
     },
     {
       "id": "七殺子午.武祿",
@@ -118,11 +118,11 @@
       },
       "text": "對宮的武曲化祿，天府同時得祿，是威權的高格。",
       "en": "Wu Qu opposite you is transformed by Lu, so Tian Fu gains Lu too: a high form of authority.",
+      "pole": "威權",
       "source": {
         "passage": "deep.星系45.6",
         "quote": "此亦为本质威权的高格"
-      },
-      "pole": "威權"
+      }
     },
     {
       "id": "七殺子午.擎羊",
@@ -133,11 +133,11 @@
       },
       "text": "你的七殺與擎羊同宮，剋忌的性質最重。",
       "en": "Your Qi Sha shares the palace with Qing Yang, making its clashing nature heaviest.",
+      "pole": "多焦慮",
       "source": {
         "passage": "deep.星系45.7",
         "quote": "克忌的性质最重"
-      },
-      "pole": "多焦慮"
+      }
     },
     {
       "id": "七殺子午.武忌",
@@ -149,11 +149,59 @@
       },
       "text": "對宮的武曲化忌，令你帶剋忌之性，內心也多焦慮。",
       "en": "Wu Qu opposite you is transformed by Ji, giving you a clashing streak and more inner anxiety.",
+      "pole": "多焦慮",
       "source": {
         "passage": "deep.星系45.8",
         "quote": "则七杀便带克忌之性"
+      }
+    },
+    {
+      "id": "七殺子午.貪狼運",
+      "role": "refine",
+      "text": "貪狼所在的那一步運，對你一般都好：人生較順，再見吉化吉星，更是財祿之期。",
+      "en": "The phase that runs through Tan Lang generally suits you: life runs smoother, and with helpful stars or transformations it becomes a time of income.",
+      "source": {
+        "passage": "deep.星系45.9",
+        "quote": "亦主人生较为顺遂"
+      }
+    },
+    {
+      "id": "七殺子午.焦慮破軍",
+      "role": "limit",
+      "when": {
+        "lean": "多焦慮"
       },
-      "pole": "多焦慮"
+      "text": "焦慮偏多的你，行到破軍所在的運，即使有吉星，也要先經挫敗才轉變。",
+      "en": "With anxiety running high, a phase through Po Jun brings change only after a setback, even with helpful stars.",
+      "pole": "多焦慮",
+      "source": {
+        "passage": "deep.星系45.10",
+        "quote": "亦先经挫败而后转变"
+      }
+    },
+    {
+      "id": "七殺子午.威權破軍",
+      "role": "refine",
+      "when": {
+        "lean": "威權"
+      },
+      "text": "威權的你，行到破軍所在的運，再見吉化吉星，必是好的轉變。",
+      "en": "Being the commanding kind, a phase through Po Jun with helpful stars or transformations brings change for the better.",
+      "pole": "威權",
+      "source": {
+        "passage": "deep.星系45.10",
+        "quote": "必主性质良好的转变"
+      }
+    },
+    {
+      "id": "七殺子午.天梁運",
+      "role": "refine",
+      "text": "天梁所在的那一步運，往往是你離鄉別井的時候；不離鄉，內心也會動盪不安。",
+      "en": "The phase that runs through Tian Liang is often when you leave home; if you stay, you are restless inside.",
+      "source": {
+        "passage": "deep.星系45.11",
+        "quote": "往往为七杀背井离乡的运程"
+      }
     }
   ]
 }

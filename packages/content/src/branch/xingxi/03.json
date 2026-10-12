@@ -55,11 +55,11 @@
       "text": "你的廉貞化祿，同宮的天府得祿，反而加深廉貞的感情色彩：你人生的遇合，往往沿著一條固定的軌跡發展。",
       "en": "Your Lian Zhen is transformed by Lu, so Tian Fu beside it gains Lu, which deepens Lian Zhen's emotional colouring: the people and chances in your life tend to follow one fixed track.",
       "edit": "祿存不入辰戌，天府「得祿」取同宮廉貞化祿。",
+      "pole": "感情",
       "source": {
         "passage": "deep.星系03.4",
         "quote": "以致人生的遇合，往往循着一条固定的轨迹来发展"
-      },
-      "pole": "感情"
+      }
     },
     {
       "id": "廉府辰戌.昌曲",
@@ -84,11 +84,39 @@
       },
       "text": "你的盤會昌曲，反而加深廉貞的感情色彩：你人生的遇合，往往沿著一條固定的軌跡發展。",
       "en": "Your chart meets Chang and Qu, which deepens Lian Zhen's emotional colouring: the people and chances in your life tend to follow one fixed track.",
+      "pole": "感情",
       "source": {
         "passage": "deep.星系03.4",
         "quote": "或者有昌曲会合，反而加深廉贞的感情色彩"
+      }
+    },
+    {
+      "id": "廉府辰戌.理智運",
+      "role": "refine",
+      "when": {
+        "lean": "理智"
       },
-      "pole": "感情"
+      "text": "理智較重的你，行運只要避開引起感情困擾、或令物質生活匱乏的那幾步，大致都是好運。",
+      "en": "With reason running strong, so long as a phase does not stir emotional trouble or leave you short of means, it is generally a good one.",
+      "pole": "理智",
+      "source": {
+        "passage": "deep.星系03.5",
+        "quote": "大致都是好运"
+      }
+    },
+    {
+      "id": "廉府辰戌.感情運",
+      "role": "refine",
+      "when": {
+        "lean": "感情"
+      },
+      "text": "感情重的你，不喜行到七殺、破軍的運；遇到太陽天梁吉化、或貪狼化祿化權的運，就可以脫穎而出，提高地位或發財。",
+      "en": "With feeling running strong, you dislike phases through Qi Sha or Po Jun; a phase with Tai Yang–Tian Liang well transformed, or Tan Lang in Abundance or Authority, is where you stand out, raise your standing or prosper.",
+      "pole": "感情",
+      "source": {
+        "passage": "deep.星系03.6",
+        "quote": "所以不喜行经七杀、破军之地"
+      }
     }
   ]
 }

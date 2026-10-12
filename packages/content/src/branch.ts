@@ -67,7 +67,7 @@ const Rule = z.object({
   role: z.enum(['base', 'refine', 'limit', 'exception']),
   /**
    * 星系題目：呢條規則斷定咗偏向邊一頭（2026-10-12）。骨架章點票出嚟係另一頭，就唔出 ——
-   * 例如點票「虛浮」，就唔講「太陽在子化祿，本質沉穩」；平衡、未定就兩頭都照講。
+   * 例如點票「虛浮」，就唔講「太陽在子化祿，本質沉穩」；平衡就兩頭都照講，未定就兩頭都唔講。
    */
   pole: z.string().optional(),
   /** 成立就改寫「性格的骨架」嘅偏向句（只限命宮題目） */
@@ -148,7 +148,8 @@ const list = <T>(x: T | T[]): T[] => (Array.isArray(x) ? x : [x]);
 
 function where(chart: Chart, p: Palace, at: z.infer<typeof At>): Palace[] {
   const [self, a, dui, b] = sanFangPalaces(chart.palaces, p.branch) as [Palace, Palace, Palace, Palace];
-  if (at === 'same') return [self];
+  /* 本宮用 `p` 本身：借星命宮嘅 `p` 係加咗對宮主星嘅版本 */
+  if (at === 'same') return [p];
   if (at === 'opp') return [dui];
   if (at === 'trine') return [a, b];
   return [self, a, dui, b];
@@ -158,12 +159,13 @@ function majorsOf(p: Palace): string[] {
   return p.stars.filter((s) => MAJOR.includes(s.name)).map((s) => s.name);
 }
 
-function holds(chart: Chart, p: Palace, focus: string, c: Cond): boolean {
-  if ('all' in c) return c.all.every((x) => holds(chart, p, focus, x));
-  if ('any' in c) return c.any.some((x) => holds(chart, p, focus, x));
-  if ('not' in c) return !holds(chart, p, focus, c.not);
+/** `seat`：主星坐嘅地支（借星命宮係對宮；其餘就係本宮） */
+function holds(chart: Chart, p: Palace, focus: string, c: Cond, seat: Palace['branch'] = p.branch): boolean {
+  if ('all' in c) return c.all.every((x) => holds(chart, p, focus, x, seat));
+  if ('any' in c) return c.any.some((x) => holds(chart, p, focus, x, seat));
+  if ('not' in c) return !holds(chart, p, focus, c.not, seat);
   if ('lean' in c) return leanState(chart) === c.lean;
-  if ('branch' in c) return c.branch.includes(p.branch);
+  if ('branch' in c) return c.branch.includes(seat);
   if ('alone' in c) return majorsOf(p).length === 1;
   if ('with' in c) return majorsOf(p).includes(c.with) && majorsOf(p).includes(focus);
   if ('jia' in c) {
@@ -177,7 +179,7 @@ function holds(chart: Chart, p: Palace, focus: string, c: Cond): boolean {
   const places = list(c.at).flatMap((a) => where(chart, p, a));
   /*
    * 借星（2026-10-12）：會照或對宮嗰宮冇主星，原書照借對宮主星嚟讀（「借星安宮的天同巨門」）。
-   * 只借主星同主星嘅四化；輔星、煞星唔借。本宮（same）唔借 —— 星系題目本身已經排除借星命宮。
+   * 只借主星同主星嘅四化；輔星、煞星唔借。本宮（same）唔喺度借 —— 借星命宮由 `applies()` 造好。
    */
   const borrowed = (q: Palace): Palace[] => {
     if (q === p || majorsOf(q).length || !q.borrowsFrom) return [];
@@ -196,29 +198,44 @@ function holds(chart: Chart, p: Palace, focus: string, c: Cond): boolean {
 
 /* ── 收斂 ── */
 
-/** 呢個題目套唔套到呢張盤：宮內主星包晒題目嘅星，地支（如有）啱。 */
-function applies(chart: Chart, t: BranchTopic): Palace | null {
-  const p = chart.palaces.find((x) => x.name === t.topic.palace);
+/**
+ * 呢個題目套唔套到呢張盤：宮內主星包晒題目嘅星，地支（如有）啱。
+ *
+ * 借星命宮（2026-10-12）：命宮冇主星，原書「借對宮某某安星」—— 主星連四化搬入命宮嚟讀，
+ * 命宮自己嘅輔星煞星照留、三方四正照命宮計。所以造一個「加咗對宮主星」嘅命宮；
+ * 地支條件（「坐子宮」）講嘅係主星，用主星原本坐嘅地支（`seat`）。
+ * 以前呢類盤（約一成六）全部冇細讀。
+ */
+function applies(chart: Chart, t: BranchTopic): { p: Palace; seat: Palace['branch'] } | null {
+  let p = chart.palaces.find((x) => x.name === t.topic.palace);
   if (!p) return null;
+  let seat = p.branch;
   if (t.topic.xingxi !== undefined) {
-    /* 借對宮主星嘅命宮唔套：條件講嘅同宮、會照係星喺本宮嗰陣 */
     const found = xingxiOf(chart);
-    if (!found || found.borrowed || found.system.n !== t.topic.xingxi) return null;
+    if (!found || found.system.n !== t.topic.xingxi) return null;
+    if (found.borrowed) {
+      const opp = chart.palaces.find((x) => x.branch === p!.borrowsFrom);
+      if (!opp) return null;
+      p = { ...p, stars: [...p.stars, ...opp.stars.filter((s) => MAJOR.includes(s.name))] };
+      seat = opp.branch;
+    }
   }
   const majors = majorsOf(p);
   if (!t.topic.stars.every((s) => majors.includes(s))) return null;
-  if (t.topic.branch && !t.topic.branch.includes(p.branch)) return null;
-  return p;
+  if (t.topic.branch && !t.topic.branch.includes(seat)) return null;
+  return { p, seat };
 }
 
 /** 呢張盤喺某題目成立嘅規則（已除去被取代嗰啲），照檔案次序。 */
 export function branchRules(chart: Chart, t: BranchTopic): BranchRule[] {
-  const p = applies(chart, t);
-  if (!p) return [];
+  const at = applies(chart, t);
+  if (!at) return [];
+  const { p, seat } = at;
   const focus = t.topic.stars[0]!;
   const state = t.topic.xingxi !== undefined ? leanState(chart) : null;
-  const against = (r: BranchRule) => Boolean(r.pole && state && state !== '平衡' && state !== '未定' && state !== r.pole);
-  const hit = t.rules.filter((r) => (!r.when || holds(chart, p, focus, r.when)) && !against(r));
+  /* 未定（兩頭都冇訊號）：斷定咗某一頭嘅規則都唔出，否則同偏向句「兩頭都不明顯」打架 */
+  const against = (r: BranchRule) => Boolean(r.pole && state && state !== '平衡' && state !== r.pole);
+  const hit = t.rules.filter((r) => (!r.when || holds(chart, p, focus, r.when, seat)) && !against(r));
   const gone = new Set(hit.flatMap((r) => r.overrides ?? []));
   return hit.filter((r) => !gone.has(r.id));
 }

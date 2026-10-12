@@ -60,11 +60,11 @@
       },
       "text": "你的天機吉化，格局變佳，力爭上游。",
       "en": "Your Tian Ji has a favourable transformation, which lifts the pattern: you strive upwards.",
+      "pole": "上進",
       "source": {
         "passage": "deep.星系32.4",
         "quote": "天机化禄、权、科之时，格局变佳"
-      },
-      "pole": "上進"
+      }
     },
     {
       "id": "天機丑未.煞",
@@ -97,11 +97,49 @@
       },
       "text": "你的天機沒有吉化，同宮又有煞星：容易甘居下游，要靠後天努力補救。",
       "en": "Your Tian Ji has no favourable transformation and a malefic beside it: it's easy to settle for less, and effort is needed to make up for it.",
+      "pole": "停滯",
       "source": {
         "passage": "deep.星系32.5",
         "quote": "必须藉后天人事补救"
+      }
+    },
+    {
+      "id": "天機丑未.紫府",
+      "role": "refine",
+      "text": "紫微天府所在的那一步運或那一年，對你都不錯；紫微或天府化科時更好。",
+      "en": "The phase or year through Zi Wei–Tian Fu goes well for you, and better still when Zi Wei or Tian Fu is in Merit.",
+      "source": {
+        "passage": "deep.星系32.6",
+        "quote": "即使下游的天机经行亦不俗"
+      }
+    },
+    {
+      "id": "天機丑未.上進巨門",
+      "role": "refine",
+      "when": {
+        "lean": "上進"
       },
-      "pole": "停滯"
+      "text": "上進的你，行到巨門所在的運，若對宮太陽入廟、又見吉化，就是得人提拔、平步青雲的時候。",
+      "en": "Being the striving kind, the phase through Ju Men, with a bright Tai Yang opposite and helpful transformations, is when you are lifted up and climb fast.",
+      "pole": "上進",
+      "source": {
+        "passage": "deep.星系32.7",
+        "quote": "上进的天机为得人提拔，平步青云的运势"
+      }
+    },
+    {
+      "id": "天機丑未.停滯太陰",
+      "role": "refine",
+      "when": {
+        "lean": "停滯"
+      },
+      "text": "容易停滯的你，行到太陰入廟的運，宜慢慢發展、不急於名利，就能扭轉後運。",
+      "en": "Prone to stalling, in a phase where Tai Yin is bright you should build slowly, without hurrying after name or gain; that is how you turn the later years around.",
+      "pole": "停滯",
+      "source": {
+        "passage": "deep.星系32.8",
+        "quote": "不急于名利，则可扭转后运"
+      }
     }
   ]
 }

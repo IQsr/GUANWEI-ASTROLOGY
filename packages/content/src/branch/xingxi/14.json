@@ -65,6 +65,70 @@
         "passage": "deep.星系14.3",
         "quote": "反而可能追求刺激"
       }
+    },
+    {
+      "id": "廉貪巳亥.兩重",
+      "role": "refine",
+      "when": {
+        "lean": "平衡"
+      },
+      "text": "你感情和物欲兩面都重，最要緊的是心裡有主張，才不會隨波逐流。",
+      "en": "Both feeling and material desire run strong in you; what matters most is a firm mind of your own, so you are not carried along by the current.",
+      "source": {
+        "passage": "deep.星系14.4",
+        "quote": "则可有主张，不致随波逐流"
+      }
+    },
+    {
+      "id": "廉貪巳亥.感情誤事",
+      "role": "limit",
+      "when": {
+        "lean": "感情"
+      },
+      "text": "感情重的你，行到需要專注的運時，容易因為專注感情而耽誤事業。",
+      "en": "With feeling running strong, in phases that call for focus you can let devotion to love get in the way of your career.",
+      "pole": "感情",
+      "source": {
+        "passage": "deep.星系14.5",
+        "quote": "可能因专注于感情而妨碍事业"
+      }
+    },
+    {
+      "id": "廉貪巳亥.物欲誤情",
+      "role": "limit",
+      "when": {
+        "lean": "物欲"
+      },
+      "text": "物欲重的你，行到需要專注的運時，反而容易一心撲在學業、事業上，犧牲了感情。",
+      "en": "With material desire running strong, in phases that call for focus you tend to throw yourself into study or work, at the cost of your relationships.",
+      "pole": "物欲",
+      "source": {
+        "passage": "deep.星系14.5",
+        "quote": "而致牺牲感情"
+      }
+    },
+    {
+      "id": "廉貪巳亥.未定",
+      "role": "refine",
+      "when": {
+        "lean": "未定"
+      },
+      "text": "哪一頭重，要看行運：哪一步運加重了感情或物欲，那幾年那一面就會浮上來。",
+      "en": "Which side weighs more depends on the phases of your life: whichever phase adds weight to feeling or to material desire, that side comes to the surface in those years.",
+      "source": {
+        "passage": "deep.星系14.6",
+        "quote": "看是否由平衡变成不平衡"
+      }
+    },
+    {
+      "id": "廉貪巳亥.巨門",
+      "role": "limit",
+      "text": "巨門所在那一宮行運的時候，對你不利：即使有吉星，也多奔波勞累，有福難享。",
+      "en": "The phase that runs through the palace holding Ju Men does not favour you: even with helpful stars, it brings rushing about and fatigue, with good fortune hard to enjoy.",
+      "source": {
+        "passage": "deep.星系14.7",
+        "quote": "巨门躔度的宫垣，对[廉贪]不利"
+      }
     }
   ]
 }

@@ -2,7 +2,7 @@ import type { Chart, Palace } from '@guanwei/ziwei';
 import { BASE_BLOCKS } from './baseblock-data';
 import { FORBIDDEN_TERMS } from './frame';
 import { conclusionFor } from './palace-plain';
-import { xingxiOf } from './xingxi';
+import { leanOf, strengthFor, xingxiOf } from './xingxi';
 import { decadeChapter } from './daxian';
 import { AREA } from './link';
 import { yearChapter } from './liunian';
@@ -75,7 +75,7 @@ export function epilogueChapter(input: { chart: Chart; year: number }): { slug: 
   const taken = new Set<string>(['命宮']);
 
   /* 長處：骨架嘅長處 → 做事 → 化祿嗰方面 → 錢、在外、心境、家（同前面重複就跳過） */
-  const strengths: { text: string; id: string }[] = [{ text: plain.strength, id: xid }];
+  const strengths: { text: string; id: string }[] = [{ text: strengthFor(x.system, leanOf(chart, x.system).pole), id: xid }];
   for (const name of ['官祿', luP?.name, '財帛', '遷移', '福德', '田宅']) {
     if (!name || strengths.length >= 3 || taken.has(name) || name === jiP?.name || name === '疾厄') continue;
     const pp = lineOf(name);

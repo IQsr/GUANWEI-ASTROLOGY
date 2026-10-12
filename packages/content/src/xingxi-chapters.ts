@@ -3,7 +3,7 @@ import type { Chart } from '@guanwei/ziwei';
 import { FORBIDDEN_TERMS } from './frame';
 import { cjkCount } from './lexicon';
 import { assertNoReading } from './free';
-import { leanOf, xingxiOf, type Xingxi } from './xingxi';
+import { leanOf, strengthFor, xingxiOf, type Xingxi } from './xingxi';
 import { gujiaException, leanState, xingxiReading } from './branch';
 
 /* ───────────────────────────────────────────────────────────
@@ -163,9 +163,10 @@ export function gujiaChapter(input: {
   const why = undecided ? null : reason(x, pole, seen, said);
   const lean = undecided ? undecidedLean(x.poles) : x.plain.lean[pole]!;
   /* 星系細讀（branch/xingxi/*.json）：偏向嘅後果、原書點名嘅特殊結構，逐句有出處 */
-  const deep = borrowed ? null : xingxiReading(chart, `${lean}${where}${x.plain.basis}${byBranch ?? ''}`);
-  /* 長處同偏向講同一樣嘢就唔出（「你的長處是」唔計） */
-  const strength = overlaps(lean, x.plain.strength.replace(/^你的長處是/, '')) ? null : x.plain.strength;
+  const deep = xingxiReading(chart, `${lean}${where}${x.plain.basis}${byBranch ?? ''}`);
+  /* 長處跟偏向揀（未定 = 冇一頭，用通用句）；同偏向講同一樣嘢就唔出（「你的長處是」唔計） */
+  const own = strengthFor(x, undecided ? '未定' : pole);
+  const strength = overlaps(lean, own.replace(/^你的長處是/, '')) ? null : own;
 
   /*
    * 原文例外（branch.ts，2026-10-11 第 3 層試點）：例如天同化忌、羊陀夾忌 —— 書講係同梁最壞嘅結構，

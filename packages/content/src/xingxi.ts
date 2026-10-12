@@ -59,6 +59,11 @@ const Plain = z.object({
   summary: z.string(),
   /** 長處。 */
   strength: z.string(),
+  /**
+   * 長處句本身偏咗一頭（2026-10-12）：例如「沉得住氣，不浮誇」只啱「收斂」，點票「發揮」就自相矛盾。
+   * 偏向係呢頭就用呢句；平衡、未定照用 `strength`。用 `strengthFor()`。
+   */
+  strengthBy: z.record(z.string(), z.string()).optional(),
   /** 要留意。 */
   watch: z.string(),
   /** 點解咁講：可以有星名，擺喺結論後面做證據。 */
@@ -131,6 +136,11 @@ export const Xingxi = z
       if (p.note) len('note', p.note, 10, 40);
       lint('summary', p.summary, true);
       lint('strength', p.strength, true);
+      for (const [k, t] of Object.entries(p.strengthBy ?? {})) {
+        if (!x.poles.includes(k)) ctx.addIssue({ code: 'custom', message: `${x.n}：plain.strengthBy.${k} 唔係兩頭之一` });
+        len(`strengthBy.${k}`, t, 10, 36);
+        lint(`strengthBy.${k}`, t, true);
+      }
       /* 留意句以「要留意的是：」開頭，唔行第一句規矩；但一樣要講你、唔准術語 */
       lint('watch', p.watch, false);
       if (!p.watch.includes('你')) ctx.addIssue({ code: 'custom', message: `${x.n}：plain.watch 要對住讀者講` });
@@ -231,6 +241,11 @@ function evidence(m: Palace, four: Palace[], starBranch: string, c: XingxiCond):
  * 呢張盤喺條軸上偏向邊頭。逐條條件喺命宮三方四正對，數兩頭各中幾條；
  * 多嗰頭贏，一樣多就「平衡」。`seen` 係兩頭各自喺盤上見到乜 —— 三方四正章逐樣講出嚟。
  */
+/** 骨架長處：偏向嗰頭有專屬長處句就用嗰句（見 `strengthBy`） */
+export function strengthFor(x: Xingxi, pole: string): string {
+  return x.plain.strengthBy?.[pole] ?? x.plain.strength;
+}
+
 export function leanOf(
   chart: Chart,
   x: Xingxi,

@@ -27,11 +27,11 @@
       },
       "text": "你的太陽在巳，較積極，也不易招惹是非。",
       "en": "Your Sun sits in Si: more active, and less likely to stir up disputes.",
+      "pole": "積極",
       "source": {
         "passage": "deep.星系30.2",
         "quote": "巳宫的太阳不易招惹是非"
-      },
-      "pole": "積極"
+      }
     },
     {
       "id": "太陽巳亥.亥",
@@ -43,11 +43,11 @@
       },
       "text": "你的太陽在亥，較消極，容易招惹是非。",
       "en": "Your Sun sits in Hai: more passive, and more likely to stir up disputes.",
+      "pole": "消極",
       "source": {
         "passage": "deep.星系30.2",
         "quote": "亥宫者易招非"
-      },
-      "pole": "消極"
+      }
     },
     {
       "id": "太陽巳亥.積極",
@@ -73,6 +73,58 @@
       "source": {
         "passage": "deep.星系30.4",
         "quote": "而消极者则往往愈冷退愈招是非尤怨"
+      }
+    },
+    {
+      "id": "太陽巳亥.紫府",
+      "role": "refine",
+      "when": {
+        "lean": "積極"
+      },
+      "text": "積極的你，行到紫微天府所在的運，是人生的大關口。",
+      "en": "Being the active kind, the phase that runs through Zi Wei–Tian Fu is the great turning point of your life.",
+      "pole": "積極",
+      "source": {
+        "passage": "deep.星系30.5",
+        "quote": "积极的太阳最宜经行，为人生大结穴"
+      }
+    },
+    {
+      "id": "太陽巳亥.天同積極",
+      "role": "refine",
+      "when": {
+        "lean": "積極"
+      },
+      "text": "天同所在的那一步運，是你創立事業的時候。",
+      "en": "The phase that runs through Tian Tong is your time to found your own enterprise.",
+      "pole": "積極",
+      "source": {
+        "passage": "deep.星系30.6",
+        "quote": "积极者却为创立事业的运限"
+      }
+    },
+    {
+      "id": "太陽巳亥.天同消極",
+      "role": "limit",
+      "when": {
+        "lean": "消極"
+      },
+      "text": "天同所在的那一步運，你最容易失了志氣；那段時間要給自己定目標。",
+      "en": "The phase that runs through Tian Tong is when you most easily lose heart; in that time, set yourself a goal.",
+      "pole": "消極",
+      "source": {
+        "passage": "deep.星系30.6",
+        "quote": "消极的太阳最易因之丧志"
+      }
+    },
+    {
+      "id": "太陽巳亥.巨門",
+      "role": "refine",
+      "text": "巨門所在的那一步運，甚至只是那一年，對你都是重要的運程。",
+      "en": "The phase, or even just the year, that runs through Ju Men is an important one for you.",
+      "source": {
+        "passage": "deep.星系30.7",
+        "quote": "亦为太阳坐命者的重要运程"
       }
     }
   ]

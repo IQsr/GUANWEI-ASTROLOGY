@@ -40,11 +40,11 @@
       },
       "text": "你的太陽在辰，光華燦爛，又有吉化，不怕身邊的人拖累。",
       "en": "Your Sun sits in Chen, shining brightly, and with a favourable transformation it isn't dragged down by those around it.",
+      "pole": "從容",
       "source": {
         "passage": "deep.星系19.2",
         "quote": "则不怕太阴、巨门、天梁的剥削拖累"
-      },
-      "pole": "從容"
+      }
     },
     {
       "id": "太陽辰戌.從容",
@@ -70,6 +70,30 @@
       "source": {
         "passage": "deep.星系19.3",
         "quote": "否则便易见门亲冰炭"
+      }
+    },
+    {
+      "id": "太陽辰戌.紫破",
+      "role": "limit",
+      "text": "紫微破軍所在的那一步運，無論如何都不宜與人合作經營，否則容易生波折。",
+      "en": "In the phase through Zi Wei–Po Jun, do not go into business with partners whatever the circumstances, or trouble follows.",
+      "source": {
+        "passage": "deep.星系19.4",
+        "quote": "均不宜与人合作经营"
+      }
+    },
+    {
+      "id": "太陽辰戌.負擔天相",
+      "role": "limit",
+      "when": {
+        "lean": "負擔重"
+      },
+      "text": "負擔偏重的你，行到天相所在的運，即使有吉化，也多是為人作嫁。",
+      "en": "Carrying a heavy load, in the phase through Tian Xiang, even helpful stars mostly mean working for someone else’s benefit.",
+      "pole": "負擔重",
+      "source": {
+        "passage": "deep.星系19.5",
+        "quote": "亦不过为人作嫁"
       }
     }
   ]
