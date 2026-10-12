@@ -1,0 +1,42 @@
+{
+  "$note": "財帛宮（2026-10-12）：貪狼辰戌.財帛。《深造講義》下篇 宮垣論 財帛宮 p.436–462。倒閉、破產、官非、盜賊、火災、疾病一類斷語不用；金額、「巨富」一類保證不用；天刑、天月、龍池鳳閣等引擎冇嘅星不用。",
+  "topic": {
+    "id": "貪狼辰戌.財帛",
+    "palace": "財帛",
+    "stars": [
+      "貪狼"
+    ],
+    "branch": [
+      "辰",
+      "戌"
+    ]
+  },
+  "rules": [
+    {
+      "id": "財帛.貪狼辰戌.火貪",
+      "role": "refine",
+      "when": {
+        "all": [
+          {
+            "star": [
+              "火星",
+              "鈴星"
+            ],
+            "at": "same"
+          },
+          {
+            "hua": "祿",
+            "star": "貪狼",
+            "at": "same"
+          }
+        ]
+      },
+      "text": "火貪或鈴貪而貪狼化祿，財運會突然亨通，帶點投機色彩；記得見好就收。",
+      "en": "With Huo Xing or Ling Xing and Tan Lang in Abundance, fortune turns suddenly in your favour, with a speculative edge; know when to stop.",
+      "source": {
+        "passage": "deep.財帛.貪狼.1",
+        "quote": "主突然财运亨通"
+      }
+    }
+  ]
+}

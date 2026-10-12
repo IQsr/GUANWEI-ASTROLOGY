@@ -1,0 +1,59 @@
+{
+  "$note": "財帛宮（2026-10-12）：武曲七殺.財帛。《深造講義》下篇 宮垣論 財帛宮 p.436–462。倒閉、破產、官非、盜賊、火災、疾病一類斷語不用；金額、「巨富」一類保證不用；天刑、天月、龍池鳳閣等引擎冇嘅星不用。",
+  "topic": {
+    "id": "武曲七殺.財帛",
+    "palace": "財帛",
+    "stars": [
+      "武曲",
+      "七殺"
+    ]
+  },
+  "rules": [
+    {
+      "id": "財帛.武殺.白手",
+      "role": "base",
+      "text": "武曲七殺在財帛宮，主白手興家。",
+      "en": "With Wu Qu and Qi Sha in your Wealth Palace, you build your fortune from nothing.",
+      "source": {
+        "passage": "deep.財帛.武曲.6",
+        "quote": "主白手兴家"
+      }
+    },
+    {
+      "id": "財帛.武殺.投資",
+      "role": "refine",
+      "when": {
+        "any": [
+          {
+            "star": [
+              "左輔",
+              "右弼"
+            ],
+            "at": "sifang"
+          },
+          {
+            "star": [
+              "天魁",
+              "天鉞"
+            ],
+            "at": "sifang"
+          },
+          {
+            "hua": [
+              "祿",
+              "權",
+              "科"
+            ],
+            "at": "same"
+          }
+        ]
+      },
+      "text": "見吉，投資規模大，資財多在企業資產上，不主積蓄。",
+      "en": "With good signs, you invest on a large scale; your wealth sits in business assets rather than savings.",
+      "source": {
+        "passage": "deep.財帛.武曲.7",
+        "quote": "其资财往往在企业资产上"
+      }
+    }
+  ]
+}

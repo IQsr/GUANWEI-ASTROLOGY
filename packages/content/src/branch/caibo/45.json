@@ -1,0 +1,51 @@
+{
+  "$note": "財帛宮（2026-10-12）：貪狼.財帛。《深造講義》下篇 宮垣論 財帛宮 p.436–462。倒閉、破產、官非、盜賊、火災、疾病一類斷語不用；金額、「巨富」一類保證不用；天刑、天月、龍池鳳閣等引擎冇嘅星不用。",
+  "topic": {
+    "id": "貪狼.財帛",
+    "palace": "財帛",
+    "stars": [
+      "貪狼"
+    ]
+  },
+  "rules": [
+    {
+      "id": "財帛.貪狼.煞",
+      "role": "limit",
+      "when": {
+        "star": [
+          "擎羊",
+          "陀羅",
+          "地空",
+          "地劫"
+        ],
+        "at": "sifang"
+      },
+      "text": "會到羊陀空劫，以不投機為宜。",
+      "en": "Meeting Qing Yang, Tuo Luo, Di Kong or Di Jie, it is best not to speculate.",
+      "source": {
+        "passage": "deep.財帛.貪狼.2",
+        "quote": "则以不投机为宜"
+      }
+    },
+    {
+      "id": "財帛.貪狼.本",
+      "role": "base",
+      "text": "貪狼在財帛宮，擅長運用金錢，卻不擅守財，常常以攻為守。",
+      "en": "With Tan Lang in your Wealth Palace, you are good at putting money to work but not at keeping it, and often treat attack as the best defence.",
+      "source": {
+        "passage": "deep.財帛.貪狼.3",
+        "quote": "但却不擅长守财"
+      }
+    },
+    {
+      "id": "財帛.貪狼.闊綽",
+      "role": "refine",
+      "text": "出手闊綽大方，心裡卻精於盤算計較。",
+      "en": "Open-handed on the outside, you keep careful accounts on the inside.",
+      "source": {
+        "passage": "deep.財帛.貪狼.4",
+        "quote": "手段阔绰大方"
+      }
+    }
+  ]
+}

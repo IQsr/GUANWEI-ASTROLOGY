@@ -1,0 +1,26 @@
+{
+  "$note": "財帛宮（2026-10-12）：巨門辰戌.財帛。《深造講義》下篇 宮垣論 財帛宮 p.436–462。倒閉、破產、官非、盜賊、火災、疾病一類斷語不用；金額、「巨富」一類保證不用；天刑、天月、龍池鳳閣等引擎冇嘅星不用。",
+  "topic": {
+    "id": "巨門辰戌.財帛",
+    "palace": "財帛",
+    "stars": [
+      "巨門"
+    ],
+    "branch": [
+      "辰",
+      "戌"
+    ]
+  },
+  "rules": [
+    {
+      "id": "財帛.巨門辰戌.專業",
+      "role": "base",
+      "text": "主白手創業，以專業為宜，因此可以成富；但工作多奔波。",
+      "en": "You start from nothing, best in a profession, and can prosper that way, though the work keeps you on the move.",
+      "source": {
+        "passage": "deep.財帛.巨門.3",
+        "quote": "且以专业为宜"
+      }
+    }
+  ]
+}

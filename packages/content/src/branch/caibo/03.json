@@ -1,0 +1,43 @@
+{
+  "$note": "財帛宮（2026-10-12）：紫微貪狼.財帛。《深造講義》下篇 宮垣論 財帛宮 p.436–462。倒閉、破產、官非、盜賊、火災、疾病一類斷語不用；金額、「巨富」一類保證不用；天刑、天月、龍池鳳閣等引擎冇嘅星不用。",
+  "topic": {
+    "id": "紫微貪狼.財帛",
+    "palace": "財帛",
+    "stars": [
+      "紫微",
+      "貪狼"
+    ]
+  },
+  "rules": [
+    {
+      "id": "財帛.紫貪.科",
+      "role": "refine",
+      "when": {
+        "hua": "科",
+        "star": "紫微",
+        "at": "same"
+      },
+      "text": "紫微化科，財來得較長久。",
+      "en": "Zi Wei in Merit: money comes in more steadily over time.",
+      "source": {
+        "passage": "deep.財帛.紫微.6",
+        "quote": "则财来较悠久"
+      }
+    },
+    {
+      "id": "財帛.紫貪.祿",
+      "role": "refine",
+      "when": {
+        "hua": "祿",
+        "star": "貪狼",
+        "at": "same"
+      },
+      "text": "貪狼化祿，財來得較急，但也藏著破耗。",
+      "en": "Tan Lang in Abundance: money comes fast, but with losses hidden in it.",
+      "source": {
+        "passage": "deep.財帛.紫微.7",
+        "quote": "然而亦隐藏破耗之机"
+      }
+    }
+  ]
+}

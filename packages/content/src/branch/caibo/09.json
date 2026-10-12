@@ -1,0 +1,80 @@
+{
+  "$note": "財帛宮（2026-10-12）：天機天梁.財帛。《深造講義》下篇 宮垣論 財帛宮 p.436–462。倒閉、破產、官非、盜賊、火災、疾病一類斷語不用；金額、「巨富」一類保證不用；天刑、天月、龍池鳳閣等引擎冇嘅星不用。",
+  "topic": {
+    "id": "天機天梁.財帛",
+    "palace": "財帛",
+    "stars": [
+      "天機",
+      "天梁"
+    ]
+  },
+  "rules": [
+    {
+      "id": "財帛.機梁.科",
+      "role": "refine",
+      "when": {
+        "any": [
+          {
+            "hua": "科",
+            "star": "天機",
+            "at": "same"
+          },
+          {
+            "hua": "科",
+            "star": "天梁",
+            "at": "same"
+          }
+        ]
+      },
+      "text": "天機或天梁化科，名利雙收。",
+      "en": "With Tian Ji or Tian Liang in Merit, you gain both name and money.",
+      "source": {
+        "passage": "deep.財帛.天機.5",
+        "quote": "均主名利双收"
+      }
+    },
+    {
+      "id": "財帛.機梁.梁祿",
+      "role": "limit",
+      "when": {
+        "hua": "祿",
+        "star": "天梁",
+        "at": "same"
+      },
+      "text": "天梁化祿，暗中競爭多，容易受人排擠，要費心思求財。",
+      "en": "Tian Liang in Abundance: there is much hidden rivalry and you are easily edged out, so earning takes real effort.",
+      "source": {
+        "passage": "deep.財帛.天機.6",
+        "quote": "天梁化禄尤主多暗争"
+      }
+    },
+    {
+      "id": "財帛.機梁.兼職",
+      "role": "refine",
+      "when": {
+        "any": [
+          {
+            "star": [
+              "左輔",
+              "右弼"
+            ],
+            "at": "sifang"
+          },
+          {
+            "star": [
+              "天魁",
+              "天鉞"
+            ],
+            "at": "sifang"
+          }
+        ]
+      },
+      "text": "見輔佐吉星，財源不只一端，往往兼職兼業。",
+      "en": "With helper stars, your income has more than one source, often from side jobs alongside the main one.",
+      "source": {
+        "passage": "deep.財帛.天機.7",
+        "quote": "往往兼职兼业"
+      }
+    }
+  ]
+}

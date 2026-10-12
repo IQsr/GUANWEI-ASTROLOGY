@@ -1,0 +1,62 @@
+{
+  "$note": "財帛宮（2026-10-12）：天同太陰.財帛。《深造講義》下篇 宮垣論 財帛宮 p.436–462。倒閉、破產、官非、盜賊、火災、疾病一類斷語不用；金額、「巨富」一類保證不用；天刑、天月、龍池鳳閣等引擎冇嘅星不用。",
+  "topic": {
+    "id": "天同太陰.財帛",
+    "palace": "財帛",
+    "stars": [
+      "天同",
+      "太陰"
+    ]
+  },
+  "rules": [
+    {
+      "id": "財帛.同陰.最利",
+      "role": "base",
+      "text": "天同太陰同在財帛宮，是天同各組合中最利財源的一組。",
+      "en": "Tian Tong and Tai Yin together make the most favourable of all Tian Tong pairings for income.",
+      "source": {
+        "passage": "deep.財帛.天同.1",
+        "quote": "最利财源的星系"
+      }
+    },
+    {
+      "id": "財帛.同陰.陰祿",
+      "role": "refine",
+      "when": {
+        "hua": "祿",
+        "star": "太陰",
+        "at": "same"
+      },
+      "text": "太陰化祿，一生至少有一次意外的財源。",
+      "en": "Tai Yin in Abundance: at least once in life, money comes from an unexpected source.",
+      "source": {
+        "passage": "deep.財帛.天同.2",
+        "quote": "则一生至少有一次意外财源"
+      }
+    },
+    {
+      "id": "財帛.同陰.忌",
+      "role": "limit",
+      "when": {
+        "any": [
+          {
+            "hua": "忌",
+            "star": "天同",
+            "at": "same"
+          },
+          {
+            "hua": "忌",
+            "star": "太陰",
+            "at": "same"
+          }
+        ]
+      },
+      "text": "天同或太陰化忌，財帛較難積聚。",
+      "en": "With Tian Tong or Tai Yin in Hindrance, money is hard to build up.",
+      "source": {
+        "passage": "deep.財帛.天同.3",
+        "quote": "财帛皆难积聚"
+      }
+    }
+  ]
+}

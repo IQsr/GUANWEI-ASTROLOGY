@@ -1,0 +1,22 @@
+{
+  "$note": "財帛宮（2026-10-12）：武曲.財帛。《深造講義》下篇 宮垣論 財帛宮 p.436–462。倒閉、破產、官非、盜賊、火災、疾病一類斷語不用；金額、「巨富」一類保證不用；天刑、天月、龍池鳳閣等引擎冇嘅星不用。",
+  "topic": {
+    "id": "武曲.財帛",
+    "palace": "財帛",
+    "stars": [
+      "武曲"
+    ]
+  },
+  "rules": [
+    {
+      "id": "財帛.武曲.本",
+      "role": "base",
+      "text": "武曲是財星，主求財的行動：先有事業，才有錢財；一般最利經商。",
+      "en": "Wu Qu is the wealth star of action: the business comes first and the money after; trade generally suits you best.",
+      "source": {
+        "passage": "deep.財帛.武曲.13",
+        "quote": "故必先有事业然后有钱财"
+      }
+    }
+  ]
+}

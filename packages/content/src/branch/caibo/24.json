@@ -1,0 +1,56 @@
+{
+  "$note": "財帛宮（2026-10-12）：武曲破軍.財帛。《深造講義》下篇 宮垣論 財帛宮 p.436–462。倒閉、破產、官非、盜賊、火災、疾病一類斷語不用；金額、「巨富」一類保證不用；天刑、天月、龍池鳳閣等引擎冇嘅星不用。",
+  "topic": {
+    "id": "武曲破軍.財帛",
+    "palace": "財帛",
+    "stars": [
+      "武曲",
+      "破軍"
+    ]
+  },
+  "rules": [
+    {
+      "id": "財帛.武破.忌",
+      "role": "refine",
+      "when": {
+        "hua": "忌",
+        "star": "武曲",
+        "at": "same"
+      },
+      "text": "武曲化忌，不宜經商，以受雇為宜，更不宜投機。",
+      "en": "Wu Qu in Hindrance: business is not for you; salaried work suits you better, and speculation even less.",
+      "source": {
+        "passage": "deep.財帛.武曲.8",
+        "quote": "则不宜经商，以任职为宜"
+      }
+    },
+    {
+      "id": "財帛.武破.克服",
+      "role": "refine",
+      "when": {
+        "hua": [
+          "祿",
+          "權",
+          "科"
+        ],
+        "at": "sifang"
+      },
+      "text": "會到祿權科，一生至少有一次困境，克服之後仍能致富。",
+      "en": "Meeting Abundance, Authority or Merit, you face at least one hard patch in life, and come through it to prosper.",
+      "source": {
+        "passage": "deep.財帛.武曲.9",
+        "quote": "但克服困难之后，仍能致富"
+      }
+    },
+    {
+      "id": "財帛.武破.起伏",
+      "role": "base",
+      "text": "武曲破軍在財帛宮，一生財帛起伏較大。",
+      "en": "With Wu Qu and Po Jun in your Wealth Palace, your finances rise and fall more than most.",
+      "source": {
+        "passage": "deep.財帛.武曲.10",
+        "quote": "因一生起伏波澜甚大"
+      }
+    }
+  ]
+}

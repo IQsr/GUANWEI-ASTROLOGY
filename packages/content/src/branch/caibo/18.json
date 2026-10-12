@@ -1,0 +1,31 @@
+{
+  "$note": "財帛宮（2026-10-12）：太陽巳亥.財帛。《深造講義》下篇 宮垣論 財帛宮 p.436–462。倒閉、破產、官非、盜賊、火災、疾病一類斷語不用；金額、「巨富」一類保證不用；天刑、天月、龍池鳳閣等引擎冇嘅星不用。",
+  "topic": {
+    "id": "太陽巳亥.財帛",
+    "palace": "財帛",
+    "stars": [
+      "太陽"
+    ],
+    "branch": [
+      "巳",
+      "亥"
+    ]
+  },
+  "rules": [
+    {
+      "id": "財帛.太陽巳亥.巨祿",
+      "role": "refine",
+      "when": {
+        "hua": "祿",
+        "star": "巨門",
+        "at": "opp"
+      },
+      "text": "對宮巨門化祿，受外地或外國人賞識，地位提高，財源也因此暢順。",
+      "en": "With Ju Men in Abundance opposite, people from abroad value you, your standing rises, and money flows more freely.",
+      "source": {
+        "passage": "deep.財帛.太陽.8",
+        "quote": "则受异邦人赏识"
+      }
+    }
+  ]
+}

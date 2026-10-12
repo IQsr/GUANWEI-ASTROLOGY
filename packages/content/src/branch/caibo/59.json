@@ -1,0 +1,46 @@
+{
+  "$note": "財帛宮（2026-10-12）：破軍辰戌.財帛。《深造講義》下篇 宮垣論 財帛宮 p.436–462。倒閉、破產、官非、盜賊、火災、疾病一類斷語不用；金額、「巨富」一類保證不用；天刑、天月、龍池鳳閣等引擎冇嘅星不用。",
+  "topic": {
+    "id": "破軍辰戌.財帛",
+    "palace": "財帛",
+    "stars": [
+      "破軍"
+    ],
+    "branch": [
+      "辰",
+      "戌"
+    ]
+  },
+  "rules": [
+    {
+      "id": "財帛.破軍辰戌.魁鉞",
+      "role": "refine",
+      "when": {
+        "jia": [
+          "天魁",
+          "天鉞"
+        ]
+      },
+      "text": "天魁天鉞相夾，一生多發展、創新的機會。",
+      "en": "Flanked by Tian Kui and Tian Yue, you have many chances to grow and innovate.",
+      "source": {
+        "passage": "deep.財帛.破軍.1",
+        "quote": "则一生多发展或创新的机会"
+      }
+    },
+    {
+      "id": "財帛.破軍辰戌.陀羅",
+      "role": "limit",
+      "when": {
+        "star": "陀羅",
+        "at": "same"
+      },
+      "text": "同宮有陀羅，有突破的機會也容易失去。",
+      "en": "With Tuo Luo in the palace, chances to break through are easily lost.",
+      "source": {
+        "passage": "deep.財帛.破軍.2",
+        "quote": "则主有突破机会亦易失却"
+      }
+    }
+  ]
+}

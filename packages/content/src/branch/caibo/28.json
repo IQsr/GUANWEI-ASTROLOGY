@@ -1,0 +1,59 @@
+{
+  "$note": "財帛宮（2026-10-12）：天同巨門.財帛。《深造講義》下篇 宮垣論 財帛宮 p.436–462。倒閉、破產、官非、盜賊、火災、疾病一類斷語不用；金額、「巨富」一類保證不用；天刑、天月、龍池鳳閣等引擎冇嘅星不用。",
+  "topic": {
+    "id": "天同巨門.財帛",
+    "palace": "財帛",
+    "stars": [
+      "天同",
+      "巨門"
+    ]
+  },
+  "rules": [
+    {
+      "id": "財帛.同巨.唇舌",
+      "role": "base",
+      "text": "天同巨門在財帛宮，容易因財生是非口舌，所以最宜費唇舌求財。",
+      "en": "With Tian Tong and Ju Men in your Wealth Palace, money tends to bring talk and dispute, so earning by talking suits you best.",
+      "source": {
+        "passage": "deep.財帛.天同.4",
+        "quote": "故最宜费唇舌以求财"
+      }
+    },
+    {
+      "id": "財帛.同巨.吉",
+      "role": "refine",
+      "when": {
+        "any": [
+          {
+            "hua": [
+              "祿",
+              "權",
+              "科"
+            ],
+            "at": "same"
+          },
+          {
+            "star": [
+              "左輔",
+              "右弼"
+            ],
+            "at": "sifang"
+          },
+          {
+            "star": [
+              "天魁",
+              "天鉞"
+            ],
+            "at": "sifang"
+          }
+        ]
+      },
+      "text": "見吉化吉星，也適合傳播或專業工作。",
+      "en": "With good transformations or helper stars, media or professional work also suits you.",
+      "source": {
+        "passage": "deep.財帛.天同.5",
+        "quote": "亦宜传播工作"
+      }
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "$note": "財帛宮（2026-10-12）：武曲貪狼.財帛。《深造講義》下篇 宮垣論 財帛宮 p.436–462。倒閉、破產、官非、盜賊、火災、疾病一類斷語不用；金額、「巨富」一類保證不用；天刑、天月、龍池鳳閣等引擎冇嘅星不用。",
+  "topic": {
+    "id": "武曲貪狼.財帛",
+    "palace": "財帛",
+    "stars": [
+      "武曲",
+      "貪狼"
+    ]
+  },
+  "rules": [
+    {
+      "id": "財帛.武貪.火鈴",
+      "role": "refine",
+      "when": {
+        "star": [
+          "火星",
+          "鈴星"
+        ],
+        "at": "same"
+      },
+      "text": "同宮有火星或鈴星，容易突然發財；再見煞忌，就會暴起暴跌。",
+      "en": "With Huo Xing or Ling Xing in the palace, money can arrive suddenly; with further harsh stars, it rises and falls just as fast.",
+      "source": {
+        "passage": "deep.財帛.武曲.2",
+        "quote": "若同时再见煞忌，则暴起暴跌"
+      }
+    },
+    {
+      "id": "財帛.武貪.偏財",
+      "role": "base",
+      "text": "武曲貪狼在財帛宮，一般主得偏財。",
+      "en": "With Wu Qu and Tan Lang in your Wealth Palace, you tend to gain from side or unexpected sources.",
+      "source": {
+        "passage": "deep.財帛.武曲.3",
+        "quote": "一般情况下主得偏财"
+      }
+    }
+  ]
+}

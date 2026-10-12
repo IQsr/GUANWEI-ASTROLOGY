@@ -1,0 +1,42 @@
+{
+  "$note": "財帛宮（2026-10-12）：廉貞貪狼.財帛。《深造講義》下篇 宮垣論 財帛宮 p.436–462。倒閉、破產、官非、盜賊、火災、疾病一類斷語不用；金額、「巨富」一類保證不用；天刑、天月、龍池鳳閣等引擎冇嘅星不用。",
+  "topic": {
+    "id": "廉貞貪狼.財帛",
+    "palace": "財帛",
+    "stars": [
+      "廉貞",
+      "貪狼"
+    ]
+  },
+  "rules": [
+    {
+      "id": "財帛.廉貪.偏財",
+      "role": "refine",
+      "when": {
+        "all": [
+          {
+            "hua": "祿",
+            "star": [
+              "廉貞",
+              "貪狼"
+            ],
+            "at": "same"
+          },
+          {
+            "star": [
+              "火星",
+              "鈴星"
+            ],
+            "at": "same"
+          }
+        ]
+      },
+      "text": "廉貞或貪狼化祿，又與火星或鈴星同宮，可得偏財，但來得快、去得也快。",
+      "en": "With Lian Zhen or Tan Lang in Abundance alongside Huo Xing or Ling Xing, windfalls come, but go as quickly as they came.",
+      "source": {
+        "passage": "deep.財帛.廉貞.6",
+        "quote": "均主得偏财，但暴得暴失"
+      }
+    }
+  ]
+}

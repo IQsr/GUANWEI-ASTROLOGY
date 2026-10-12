@@ -1,0 +1,54 @@
+{
+  "$note": "財帛宮（2026-10-12）：天梁巳亥.財帛。《深造講義》下篇 宮垣論 財帛宮 p.436–462。倒閉、破產、官非、盜賊、火災、疾病一類斷語不用；金額、「巨富」一類保證不用；天刑、天月、龍池鳳閣等引擎冇嘅星不用。",
+  "topic": {
+    "id": "天梁巳亥.財帛",
+    "palace": "財帛",
+    "stars": [
+      "天梁"
+    ],
+    "branch": [
+      "巳",
+      "亥"
+    ]
+  },
+  "rules": [
+    {
+      "id": "財帛.天梁巳亥.白手",
+      "role": "base",
+      "text": "主白手興家。",
+      "en": "You build your fortune from nothing.",
+      "source": {
+        "passage": "deep.財帛.天梁.1",
+        "quote": "巳亥天梁与天同相对，主白手兴家"
+      }
+    },
+    {
+      "id": "財帛.天梁巳亥.祿馬",
+      "role": "refine",
+      "when": {
+        "all": [
+          {
+            "star": "天馬",
+            "at": [
+              "same",
+              "opp"
+            ]
+          },
+          {
+            "star": "祿存",
+            "at": [
+              "same",
+              "opp"
+            ]
+          }
+        ]
+      },
+      "text": "見祿馬交馳，一生財源在外地。",
+      "en": "With Lu Cun and Tian Ma meeting, your income comes from far away all your life.",
+      "source": {
+        "passage": "deep.財帛.天梁.2",
+        "quote": "决主一生财源在于异域"
+      }
+    }
+  ]
+}

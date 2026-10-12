@@ -1,0 +1,51 @@
+{
+  "$note": "財帛宮（2026-10-12）：武曲天相.財帛。《深造講義》下篇 宮垣論 財帛宮 p.436–462。倒閉、破產、官非、盜賊、火災、疾病一類斷語不用；金額、「巨富」一類保證不用；天刑、天月、龍池鳳閣等引擎冇嘅星不用。",
+  "topic": {
+    "id": "武曲天相.財帛",
+    "palace": "財帛",
+    "stars": [
+      "武曲",
+      "天相"
+    ]
+  },
+  "rules": [
+    {
+      "id": "財帛.武相.技能",
+      "role": "base",
+      "text": "武曲天相不擅理財，宜憑特殊技能求財。",
+      "en": "Wu Qu with Tian Xiang is not good at managing money; earn through a special skill.",
+      "source": {
+        "passage": "deep.財帛.武曲.4",
+        "quote": "亦主凭特殊技能以求财"
+      }
+    },
+    {
+      "id": "財帛.武相.祿馬",
+      "role": "refine",
+      "when": {
+        "all": [
+          {
+            "star": "天馬",
+            "at": [
+              "same",
+              "opp"
+            ]
+          },
+          {
+            "star": "祿存",
+            "at": [
+              "same",
+              "opp"
+            ]
+          }
+        ]
+      },
+      "text": "見祿馬交馳，離鄉別井建立事業，因此成富。",
+      "en": "With Lu Cun and Tian Ma meeting, you build your career away from home, and that is how you prosper.",
+      "source": {
+        "passage": "deep.財帛.武曲.5",
+        "quote": "主离乡背井以建立事业，因此成富"
+      }
+    }
+  ]
+}

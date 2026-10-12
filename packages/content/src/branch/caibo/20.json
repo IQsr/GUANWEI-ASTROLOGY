@@ -1,0 +1,35 @@
+{
+  "$note": "財帛宮（2026-10-12）：武曲天府.財帛。《深造講義》下篇 宮垣論 財帛宮 p.436–462。倒閉、破產、官非、盜賊、火災、疾病一類斷語不用；金額、「巨富」一類保證不用；天刑、天月、龍池鳳閣等引擎冇嘅星不用。",
+  "topic": {
+    "id": "武曲天府.財帛",
+    "palace": "財帛",
+    "stars": [
+      "武曲",
+      "天府"
+    ]
+  },
+  "rules": [
+    {
+      "id": "財帛.武府.祿",
+      "role": "refine",
+      "when": {
+        "any": [
+          {
+            "hua": "祿",
+            "at": "sifang"
+          },
+          {
+            "star": "祿存",
+            "at": "sifang"
+          }
+        ]
+      },
+      "text": "武曲是財星，天府是財庫，見祿才成格局。",
+      "en": "Wu Qu is the wealth star and Tian Fu the treasury; with Lu present, the pattern is complete.",
+      "source": {
+        "passage": "deep.財帛.武曲.1",
+        "quote": "故必须见禄然后始成格局"
+      }
+    }
+  ]
+}

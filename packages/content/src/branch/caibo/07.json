@@ -1,0 +1,41 @@
+{
+  "$note": "財帛宮（2026-10-12）：天機太陰.財帛。《深造講義》下篇 宮垣論 財帛宮 p.436–462。倒閉、破產、官非、盜賊、火災、疾病一類斷語不用；金額、「巨富」一類保證不用；天刑、天月、龍池鳳閣等引擎冇嘅星不用。",
+  "topic": {
+    "id": "天機太陰.財帛",
+    "palace": "財帛",
+    "stars": [
+      "天機",
+      "太陰"
+    ]
+  },
+  "rules": [
+    {
+      "id": "財帛.機陰.祿馬",
+      "role": "refine",
+      "when": {
+        "all": [
+          {
+            "star": "天馬",
+            "at": [
+              "same",
+              "opp"
+            ]
+          },
+          {
+            "star": "祿存",
+            "at": [
+              "same",
+              "opp"
+            ]
+          }
+        ]
+      },
+      "text": "你的天機太陰見祿馬交馳，財發於遠方，宜離開出生地。",
+      "en": "Your Tian Ji–Tai Yin meets Lu Cun and Tian Ma: your money is made far away, so leaving your birthplace suits you.",
+      "source": {
+        "passage": "deep.財帛.天機.1",
+        "quote": "则主发财于远方"
+      }
+    }
+  ]
+}

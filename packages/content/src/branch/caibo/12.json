@@ -1,0 +1,26 @@
+{
+  "$note": "財帛宮（2026-10-12）：天機巳亥.財帛。《深造講義》下篇 宮垣論 財帛宮 p.436–462。倒閉、破產、官非、盜賊、火災、疾病一類斷語不用；金額、「巨富」一類保證不用；天刑、天月、龍池鳳閣等引擎冇嘅星不用。",
+  "topic": {
+    "id": "天機巳亥.財帛",
+    "palace": "財帛",
+    "stars": [
+      "天機"
+    ],
+    "branch": [
+      "巳",
+      "亥"
+    ]
+  },
+  "rules": [
+    {
+      "id": "財帛.天機巳亥.服務",
+      "role": "base",
+      "text": "不宜自己經營，適合服務性行業或居間代理；也可以做財經、稅務、核數。",
+      "en": "Running your own business does not suit you; service work or acting as an agent does, as does finance, tax or audit work.",
+      "source": {
+        "passage": "deep.財帛.天機.11",
+        "quote": "不宜自行经营"
+      }
+    }
+  ]
+}

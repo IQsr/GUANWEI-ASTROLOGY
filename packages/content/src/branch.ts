@@ -90,7 +90,8 @@ const Topic = z
     topic: z.object({
       id: z.string(),
       palace: z.string(),
-      stars: z.array(z.string()).min(1),
+      /** 空 = 通則題目：唔限主星（例：財帛宮見祿馬交馳、擎羊坐財帛），宮內乜星都套 */
+      stars: z.array(z.string()),
       branch: z.array(z.string()).optional(),
       /** 六十星系編號：有就係星系題目，細讀擺喺「性格的骨架」章，唔擺命宮章 */
       xingxi: z.number().optional(),
@@ -232,7 +233,7 @@ export function branchRules(chart: Chart, t: BranchTopic): BranchRule[] {
   const at = applies(chart, t);
   if (!at) return [];
   const { p, seat } = at;
-  const focus = t.topic.stars[0]!;
+  const focus = t.topic.stars[0] ?? '';
   const state = t.topic.xingxi !== undefined ? leanState(chart) : null;
   /* 未定（兩頭都冇訊號）：斷定咗某一頭嘅規則都唔出，否則同偏向句「兩頭都不明顯」打架 */
   const against = (r: BranchRule) => Boolean(r.pole && state && state !== '平衡' && state !== r.pole);
@@ -253,6 +254,8 @@ export function branchReading(chart: Chart, palace: string): { text: string; ids
   const rules: BranchRule[] = [];
   for (const t of BRANCH_TOPICS) {
     if (t.topic.palace !== palace || t.topic.xingxi !== undefined) continue;
+    /* 唔限主星嘅通則（財帛宮見祿馬、擎羊⋯）係後備：主星規則已經有兩條就唔出 */
+    if (!t.topic.stars.length && rules.length >= 2) continue;
     for (const r of branchRules(chart, t)) {
       if (r.gujia || rules.length >= READING_MAX) continue;
       if (rules.some((x) => x.id === r.id || restates(r.text, x.text))) continue;

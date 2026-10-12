@@ -1,0 +1,48 @@
+{
+  "$note": "財帛宮（2026-10-12）：天梁丑未.財帛。《深造講義》下篇 宮垣論 財帛宮 p.436–462。倒閉、破產、官非、盜賊、火災、疾病一類斷語不用；金額、「巨富」一類保證不用；天刑、天月、龍池鳳閣等引擎冇嘅星不用。",
+  "topic": {
+    "id": "天梁丑未.財帛",
+    "palace": "財帛",
+    "stars": [
+      "天梁"
+    ],
+    "branch": [
+      "丑",
+      "未"
+    ]
+  },
+  "rules": [
+    {
+      "id": "財帛.天梁丑未.左右夾",
+      "role": "refine",
+      "when": {
+        "jia": [
+          "左輔",
+          "右弼"
+        ]
+      },
+      "text": "左輔右弼相夾，財帛才能積存。",
+      "en": "Flanked by Zuo Fu and You Bi, you are able to save.",
+      "source": {
+        "passage": "deep.財帛.天梁.3",
+        "quote": "唯左辅右弼夹者，始主能积存"
+      }
+    },
+    {
+      "id": "財帛.天梁丑未.昌曲夾",
+      "role": "refine",
+      "when": {
+        "jia": [
+          "文昌",
+          "文曲"
+        ]
+      },
+      "text": "文昌文曲相夾，一生名大於利，求利不如求名。",
+      "en": "Flanked by Wen Chang and Wen Qu, your name outweighs your earnings; seek reputation rather than profit.",
+      "source": {
+        "passage": "deep.財帛.天梁.4",
+        "quote": "一生名大于利"
+      }
+    }
+  ]
+}

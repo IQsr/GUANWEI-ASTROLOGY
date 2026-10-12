@@ -1,0 +1,23 @@
+{
+  "$note": "財帛宮（2026-10-12）：太陽太陰.財帛。《深造講義》下篇 宮垣論 財帛宮 p.436–462。倒閉、破產、官非、盜賊、火災、疾病一類斷語不用；金額、「巨富」一類保證不用；天刑、天月、龍池鳳閣等引擎冇嘅星不用。",
+  "topic": {
+    "id": "太陽太陰.財帛",
+    "palace": "財帛",
+    "stars": [
+      "太陽",
+      "太陰"
+    ]
+  },
+  "rules": [
+    {
+      "id": "財帛.陰陽.先散後聚",
+      "role": "base",
+      "text": "太陽太陰同在財帛宮，先散後聚；坐丑後聚的力量比坐未大。",
+      "en": "With Tai Yang and Tai Yin together in your Wealth Palace, money first scatters, then gathers; the gathering is stronger in Chou than in Wei.",
+      "source": {
+        "passage": "deep.財帛.太陽.1",
+        "quote": "基本性质主先散后聚"
+      }
+    }
+  ]
+}
