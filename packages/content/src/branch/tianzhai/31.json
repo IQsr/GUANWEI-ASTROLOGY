@@ -1,0 +1,120 @@
+{
+  "$note": "田宅宮（2026-10-12）：天相.田宅。《深造講義》下篇 宮垣論 田宅宮 p.556–560。火災、水災、孝服、血光、兵災、官非、倒閉一類斷語不用；風水不用（近「化解」）；添丁、天喜紅鸞、天巫、天刑等不用；要分日夜生、廟陷嘅條文暫不用。",
+  "topic": {
+    "id": "天相.田宅",
+    "palace": "田宅",
+    "stars": [
+      "天相"
+    ]
+  },
+  "rules": [
+    {
+      "id": "田宅.天相.祿",
+      "role": "refine",
+      "when": {
+        "any": [
+          {
+            "hua": "祿",
+            "at": "sifang"
+          },
+          {
+            "star": "祿存",
+            "at": "sifang"
+          }
+        ]
+      },
+      "text": "天相見祿，可以自置產業。",
+      "en": "Tian Xiang meeting Lu: you can buy your own place.",
+      "source": {
+        "passage": "deep.田宅.天相.1",
+        "quote": "然后始主可以自置"
+      }
+    },
+    {
+      "id": "田宅.天相.豐盈",
+      "role": "refine",
+      "when": {
+        "all": [
+          {
+            "any": [
+              {
+                "hua": "祿",
+                "at": "sifang"
+              },
+              {
+                "star": "祿存",
+                "at": "sifang"
+              }
+            ]
+          },
+          {
+            "any": [
+              {
+                "star": [
+                  "左輔",
+                  "右弼"
+                ],
+                "at": "sifang"
+              },
+              {
+                "star": [
+                  "天魁",
+                  "天鉞"
+                ],
+                "at": "sifang"
+              }
+            ]
+          }
+        ]
+      },
+      "text": "見祿又見輔佐吉星，產業豐盈。",
+      "en": "With Lu and helper stars, your property is ample.",
+      "source": {
+        "passage": "deep.田宅.天相.1",
+        "quote": "则产业丰盈"
+      }
+    },
+    {
+      "id": "田宅.天相.火鈴夾",
+      "role": "limit",
+      "when": {
+        "jia": [
+          "火星",
+          "鈴星"
+        ]
+      },
+      "text": "火星鈴星相夾，家宅不安，住處喧鬧。",
+      "en": "Flanked by Huo Xing and Ling Xing, home is unsettled and noisy.",
+      "source": {
+        "passage": "deep.田宅.天相.2",
+        "quote": "主家宅不安，住宅喧闹"
+      }
+    },
+    {
+      "id": "田宅.天相.吉夾",
+      "role": "refine",
+      "when": {
+        "any": [
+          {
+            "jia": [
+              "文昌",
+              "文曲"
+            ]
+          },
+          {
+            "jia": [
+              "左輔",
+              "右弼"
+            ]
+          }
+        ]
+      },
+      "text": "文昌文曲或左輔右弼相夾，住宅華麗。",
+      "en": "Flanked by Wen Chang and Wen Qu, or Zuo Fu and You Bi, your home is handsome.",
+      "source": {
+        "passage": "deep.田宅.天相.3",
+        "quote": "则住宅华丽"
+      }
+    }
+  ]
+}

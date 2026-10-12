@@ -1,0 +1,51 @@
+{
+  "$note": "田宅宮（2026-10-12）：廉貞破軍.田宅。《深造講義》下篇 宮垣論 田宅宮 p.556–560。火災、水災、孝服、血光、兵災、官非、倒閉一類斷語不用；風水不用（近「化解」）；添丁、天喜紅鸞、天巫、天刑等不用；要分日夜生、廟陷嘅條文暫不用。",
+  "topic": {
+    "id": "廉貞破軍.田宅",
+    "palace": "田宅",
+    "stars": [
+      "廉貞",
+      "破軍"
+    ]
+  },
+  "rules": [
+    {
+      "id": "田宅.廉破.本",
+      "role": "base",
+      "text": "廉貞破軍在田宅宮，祖業根基容易動搖。",
+      "en": "Lian Zhen with Po Jun in your Property Palace shakes the family foundations.",
+      "source": {
+        "passage": "deep.田宅.廉貞.2",
+        "quote": "但祖基动摇之性质则更甚"
+      }
+    },
+    {
+      "id": "田宅.廉破.自置",
+      "role": "refine",
+      "when": {
+        "any": [
+          {
+            "star": [
+              "火星",
+              "鈴星"
+            ],
+            "at": "same"
+          },
+          {
+            "star": [
+              "地空",
+              "地劫"
+            ],
+            "at": "same"
+          }
+        ]
+      },
+      "text": "同宮有火鈴或空劫，祖業破了之後，也能自己再置。",
+      "en": "With Huo Xing, Ling Xing, Di Kong or Di Jie in the palace, you can rebuild your own property after the family estate is lost.",
+      "source": {
+        "passage": "deep.田宅.廉貞.2",
+        "quote": "则破后亦能自置"
+      }
+    }
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "$note": "田宅宮（2026-10-12）：太陽巨門.田宅。《深造講義》下篇 宮垣論 田宅宮 p.556–560。火災、水災、孝服、血光、兵災、官非、倒閉一類斷語不用；風水不用（近「化解」）；添丁、天喜紅鸞、天巫、天刑等不用；要分日夜生、廟陷嘅條文暫不用。",
+  "topic": {
+    "id": "太陽巨門.田宅",
+    "palace": "田宅",
+    "stars": [
+      "太陽",
+      "巨門"
+    ]
+  },
+  "rules": [
+    {
+      "id": "田宅.陽巨.吉",
+      "role": "refine",
+      "when": {
+        "all": [
+          {
+            "any": [
+              {
+                "hua": [
+                  "祿",
+                  "權",
+                  "科"
+                ],
+                "at": "same"
+              },
+              {
+                "star": [
+                  "左輔",
+                  "右弼"
+                ],
+                "at": "sifang"
+              },
+              {
+                "star": [
+                  "天魁",
+                  "天鉞"
+                ],
+                "at": "sifang"
+              }
+            ]
+          },
+          {
+            "not": {
+              "star": [
+                "擎羊",
+                "陀羅",
+                "火星",
+                "鈴星",
+                "地空",
+                "地劫"
+              ],
+              "at": "same"
+            }
+          }
+        ]
+      },
+      "text": "太陽巨門見吉而無煞，產業增置，宜在外地或外國置業；只是仍免不了明爭暗鬥，不宜做地產投資。",
+      "en": "Tai Yang with Ju Men, good signs and no harsh stars: property grows, best bought away from home or abroad; but rivalry remains, so avoid property speculation.",
+      "source": {
+        "passage": "deep.田宅.太陽.3",
+        "quote": "且宜外国或外地置业"
+      }
+    }
+  ]
+}

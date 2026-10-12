@@ -1,0 +1,49 @@
+{
+  "$note": "田宅宮（2026-10-12）：廉貞貪狼.田宅。《深造講義》下篇 宮垣論 田宅宮 p.556–560。火災、水災、孝服、血光、兵災、官非、倒閉一類斷語不用；風水不用（近「化解」）；添丁、天喜紅鸞、天巫、天刑等不用；要分日夜生、廟陷嘅條文暫不用。",
+  "topic": {
+    "id": "廉貞貪狼.田宅",
+    "palace": "田宅",
+    "stars": [
+      "廉貞",
+      "貪狼"
+    ]
+  },
+  "rules": [
+    {
+      "id": "田宅.廉貪.本",
+      "role": "base",
+      "when": {
+        "any": [
+          {
+            "hua": [
+              "祿",
+              "權",
+              "科"
+            ],
+            "at": "same"
+          },
+          {
+            "star": [
+              "左輔",
+              "右弼"
+            ],
+            "at": "sifang"
+          },
+          {
+            "star": [
+              "天魁",
+              "天鉞"
+            ],
+            "at": "sifang"
+          }
+        ]
+      },
+      "text": "廉貞貪狼見吉，有祖業，只是不易守。",
+      "en": "Lian Zhen with Tan Lang and good signs brings family property, though it is hard to keep.",
+      "source": {
+        "passage": "deep.田宅.廉貞.3",
+        "quote": "见吉亦有祖业，唯不易守"
+      }
+    }
+  ]
+}

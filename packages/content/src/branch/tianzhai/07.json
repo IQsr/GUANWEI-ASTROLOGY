@@ -1,0 +1,38 @@
+{
+  "$note": "田宅宮（2026-10-12）：天機天梁.田宅。《深造講義》下篇 宮垣論 田宅宮 p.556–560。火災、水災、孝服、血光、兵災、官非、倒閉一類斷語不用；風水不用（近「化解」）；添丁、天喜紅鸞、天巫、天刑等不用；要分日夜生、廟陷嘅條文暫不用。",
+  "topic": {
+    "id": "天機天梁.田宅",
+    "palace": "田宅",
+    "stars": [
+      "天機",
+      "天梁"
+    ]
+  },
+  "rules": [
+    {
+      "id": "田宅.機梁.梁祿",
+      "role": "refine",
+      "when": {
+        "hua": "祿",
+        "star": "天梁",
+        "at": "same"
+      },
+      "text": "天梁化祿，多住舊宅華廈，或在有年資的機構服務。",
+      "en": "Tian Liang in Abundance: you often live in a grand old house, or work for a long-established organisation.",
+      "source": {
+        "passage": "deep.田宅.天機.5",
+        "quote": "或在有年资之机构服务"
+      }
+    },
+    {
+      "id": "田宅.機梁.遲",
+      "role": "base",
+      "text": "天機天梁在田宅宮，較難自置產業，多要四十歲以後才置業。",
+      "en": "Tian Ji with Tian Liang in your Property Palace: buying your own place is hard, and usually comes after forty.",
+      "source": {
+        "passage": "deep.田宅.天機.6",
+        "quote": "必四十岁以后始能置业"
+      }
+    }
+  ]
+}

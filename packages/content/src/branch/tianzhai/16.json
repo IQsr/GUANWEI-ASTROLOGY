@@ -1,0 +1,45 @@
+{
+  "$note": "田宅宮（2026-10-12）：武曲七殺.田宅。《深造講義》下篇 宮垣論 田宅宮 p.556–560。火災、水災、孝服、血光、兵災、官非、倒閉一類斷語不用；風水不用（近「化解」）；添丁、天喜紅鸞、天巫、天刑等不用；要分日夜生、廟陷嘅條文暫不用。",
+  "topic": {
+    "id": "武曲七殺.田宅",
+    "palace": "田宅",
+    "stars": [
+      "武曲",
+      "七殺"
+    ]
+  },
+  "rules": [
+    {
+      "id": "田宅.武殺.祿",
+      "role": "refine",
+      "when": {
+        "hua": "祿",
+        "star": "武曲",
+        "at": "same"
+      },
+      "text": "武曲化祿，自置產業豐盈。",
+      "en": "Wu Qu in Abundance: the property you buy yourself is plentiful.",
+      "source": {
+        "passage": "deep.田宅.武曲.5",
+        "quote": "然后始主自置产业丰盈"
+      }
+    },
+    {
+      "id": "田宅.武殺.本",
+      "role": "limit",
+      "when": {
+        "not": {
+          "hua": "祿",
+          "star": "武曲",
+          "at": "same"
+        }
+      },
+      "text": "武曲七殺在田宅宮，一般不利田宅。",
+      "en": "Wu Qu with Qi Sha in your Property Palace generally does not favour property.",
+      "source": {
+        "passage": "deep.田宅.武曲.6",
+        "quote": "一般不利田宅"
+      }
+    }
+  ]
+}

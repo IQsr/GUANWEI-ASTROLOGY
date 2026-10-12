@@ -1,0 +1,94 @@
+{
+  "$note": "田宅宮（2026-10-12）：紫微.田宅。《深造講義》下篇 宮垣論 田宅宮 p.556–560。火災、水災、孝服、血光、兵災、官非、倒閉一類斷語不用；風水不用（近「化解」）；添丁、天喜紅鸞、天巫、天刑等不用；要分日夜生、廟陷嘅條文暫不用。",
+  "topic": {
+    "id": "紫微.田宅",
+    "palace": "田宅",
+    "stars": [
+      "紫微"
+    ]
+  },
+  "rules": [
+    {
+      "id": "田宅.紫微.文書",
+      "role": "limit",
+      "when": {
+        "hua": "忌",
+        "star": [
+          "文昌",
+          "文曲"
+        ],
+        "at": "sifang"
+      },
+      "text": "文昌或文曲化忌，買賣物業容易因文書契約受損失。",
+      "en": "With Wen Chang or Wen Qu in Hindrance, property deals can go wrong over contracts and paperwork.",
+      "source": {
+        "passage": "deep.田宅.紫微.5",
+        "quote": "主买卖物业因文书契约而受损失"
+      }
+    },
+    {
+      "id": "田宅.紫微.輔佐",
+      "role": "refine",
+      "when": {
+        "any": [
+          {
+            "star": [
+              "左輔",
+              "右弼"
+            ],
+            "at": "sifang"
+          },
+          {
+            "star": [
+              "天魁",
+              "天鉞"
+            ],
+            "at": "sifang"
+          }
+        ]
+      },
+      "text": "見輔佐吉星，主聚族而居；任職的機構也人多。",
+      "en": "With helper stars, your family lives close together, and the organisation you work for is large.",
+      "source": {
+        "passage": "deep.田宅.紫微.6",
+        "quote": "主聚族而居"
+      }
+    },
+    {
+      "id": "田宅.紫微.置業",
+      "role": "refine",
+      "when": {
+        "any": [
+          {
+            "hua": [
+              "祿",
+              "權",
+              "科"
+            ],
+            "at": "same"
+          },
+          {
+            "star": [
+              "左輔",
+              "右弼"
+            ],
+            "at": "sifang"
+          },
+          {
+            "star": [
+              "天魁",
+              "天鉞"
+            ],
+            "at": "sifang"
+          }
+        ]
+      },
+      "text": "紫微見吉，主置業。",
+      "en": "Zi Wei with good signs: you buy property.",
+      "source": {
+        "passage": "deep.田宅.紫微.7",
+        "quote": "均主置业"
+      }
+    }
+  ]
+}

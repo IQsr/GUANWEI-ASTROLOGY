@@ -1,0 +1,94 @@
+{
+  "$note": "田宅宮（2026-10-12）：紫微破軍.田宅。《深造講義》下篇 宮垣論 田宅宮 p.556–560。火災、水災、孝服、血光、兵災、官非、倒閉一類斷語不用；風水不用（近「化解」）；添丁、天喜紅鸞、天巫、天刑等不用；要分日夜生、廟陷嘅條文暫不用。",
+  "topic": {
+    "id": "紫微破軍.田宅",
+    "palace": "田宅",
+    "stars": [
+      "紫微",
+      "破軍"
+    ]
+  },
+  "rules": [
+    {
+      "id": "田宅.紫破.意外",
+      "role": "refine",
+      "when": {
+        "all": [
+          {
+            "any": [
+              {
+                "hua": "祿",
+                "at": [
+                  "same",
+                  "opp"
+                ]
+              },
+              {
+                "star": "祿存",
+                "at": [
+                  "same",
+                  "opp"
+                ]
+              }
+            ]
+          },
+          {
+            "not": {
+              "star": [
+                "擎羊",
+                "陀羅",
+                "火星",
+                "鈴星",
+                "地空",
+                "地劫"
+              ],
+              "at": "same"
+            }
+          }
+        ]
+      },
+      "text": "紫微破軍見祿而無煞，會有意外得來的資產。",
+      "en": "Zi Wei with Po Jun meeting Lu and no harsh stars: property or assets come to you unexpectedly.",
+      "source": {
+        "passage": "deep.田宅.紫微.1",
+        "quote": "则主有意外资产可得"
+      }
+    },
+    {
+      "id": "田宅.紫破.新",
+      "role": "refine",
+      "when": {
+        "any": [
+          {
+            "hua": [
+              "祿",
+              "權",
+              "科"
+            ],
+            "at": "same"
+          },
+          {
+            "star": [
+              "左輔",
+              "右弼"
+            ],
+            "at": "sifang"
+          },
+          {
+            "star": [
+              "天魁",
+              "天鉞"
+            ],
+            "at": "sifang"
+          }
+        ]
+      },
+      "text": "紫微破軍見吉，任職的多是新興機構。",
+      "en": "Zi Wei with Po Jun and good signs: you tend to work for young, growing organisations.",
+      "source": {
+        "passage": "deep.田宅.紫微.2",
+        "quote": "若为[紫破]见吉，则为新兴机构"
+      }
+    }
+  ]
+}

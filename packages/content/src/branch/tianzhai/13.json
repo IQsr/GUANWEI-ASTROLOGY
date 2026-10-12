@@ -1,0 +1,35 @@
+{
+  "$note": "田宅宮（2026-10-12）：武曲天府.田宅。《深造講義》下篇 宮垣論 田宅宮 p.556–560。火災、水災、孝服、血光、兵災、官非、倒閉一類斷語不用；風水不用（近「化解」）；添丁、天喜紅鸞、天巫、天刑等不用；要分日夜生、廟陷嘅條文暫不用。",
+  "topic": {
+    "id": "武曲天府.田宅",
+    "palace": "田宅",
+    "stars": [
+      "武曲",
+      "天府"
+    ]
+  },
+  "rules": [
+    {
+      "id": "田宅.武府.祿",
+      "role": "refine",
+      "when": {
+        "any": [
+          {
+            "hua": "祿",
+            "at": "sifang"
+          },
+          {
+            "star": "祿存",
+            "at": "sifang"
+          }
+        ]
+      },
+      "text": "武曲天府見祿，能守住祖業、父業，還能發揚光大。",
+      "en": "Wu Qu with Tian Fu meeting Lu: you hold on to the family property and make more of it.",
+      "source": {
+        "passage": "deep.田宅.武曲.1",
+        "quote": "且能将之发扬光大"
+      }
+    }
+  ]
+}

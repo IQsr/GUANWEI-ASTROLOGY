@@ -1,0 +1,34 @@
+{
+  "$note": "田宅宮（2026-10-12）：天機巨門.田宅。《深造講義》下篇 宮垣論 田宅宮 p.556–560。火災、水災、孝服、血光、兵災、官非、倒閉一類斷語不用；風水不用（近「化解」）；添丁、天喜紅鸞、天巫、天刑等不用；要分日夜生、廟陷嘅條文暫不用。",
+  "topic": {
+    "id": "天機巨門.田宅",
+    "palace": "田宅",
+    "stars": [
+      "天機",
+      "巨門"
+    ]
+  },
+  "rules": [
+    {
+      "id": "田宅.機巨.煞",
+      "role": "limit",
+      "when": {
+        "star": [
+          "擎羊",
+          "陀羅",
+          "火星",
+          "鈴星",
+          "地空",
+          "地劫"
+        ],
+        "at": "same"
+      },
+      "text": "天機巨門有煞同宮，即使見吉化，產業也難守；坐卯較好。",
+      "en": "Tian Ji with Ju Men and harsh stars in the palace: even with good transformations property is hard to keep; Mao is the better seat.",
+      "source": {
+        "passage": "deep.田宅.天機.1",
+        "quote": "仍主产业难守"
+      }
+    }
+  ]
+}

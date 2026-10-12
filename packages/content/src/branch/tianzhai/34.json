@@ -1,0 +1,80 @@
+{
+  "$note": "田宅宮（2026-10-12）：破軍.田宅。《深造講義》下篇 宮垣論 田宅宮 p.556–560。火災、水災、孝服、血光、兵災、官非、倒閉一類斷語不用；風水不用（近「化解」）；添丁、天喜紅鸞、天巫、天刑等不用；要分日夜生、廟陷嘅條文暫不用。",
+  "topic": {
+    "id": "破軍.田宅",
+    "palace": "田宅",
+    "stars": [
+      "破軍"
+    ]
+  },
+  "rules": [
+    {
+      "id": "田宅.破軍.祿權",
+      "role": "refine",
+      "when": {
+        "all": [
+          {
+            "hua": [
+              "祿",
+              "權"
+            ],
+            "star": "破軍",
+            "at": "same"
+          },
+          {
+            "any": [
+              {
+                "star": [
+                  "左輔",
+                  "右弼"
+                ],
+                "at": "sifang"
+              },
+              {
+                "star": [
+                  "天魁",
+                  "天鉞"
+                ],
+                "at": "sifang"
+              }
+            ]
+          }
+        ]
+      },
+      "text": "破軍化祿化權又見吉星，舊宅拆建翻新，也會轉到更好的工作環境。",
+      "en": "Po Jun in Abundance or Authority with helper stars: an old house is rebuilt, and you move to a better workplace.",
+      "source": {
+        "passage": "deep.田宅.破軍.1",
+        "quote": "主旧宅拆建翻新"
+      }
+    },
+    {
+      "id": "田宅.破軍.火鈴",
+      "role": "limit",
+      "when": {
+        "any": [
+          {
+            "star": [
+              "火星",
+              "鈴星"
+            ],
+            "at": "same"
+          },
+          {
+            "star": [
+              "地空",
+              "地劫"
+            ],
+            "at": "same"
+          }
+        ]
+      },
+      "text": "同宮有火鈴或空劫，產業上會有損失。",
+      "en": "With Huo Xing, Ling Xing, Di Kong or Di Jie in the palace, property brings losses.",
+      "source": {
+        "passage": "deep.田宅.破軍.2",
+        "quote": "破军与火铃，空劫同度会照"
+      }
+    }
+  ]
+}

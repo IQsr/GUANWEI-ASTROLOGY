@@ -1,0 +1,91 @@
+{
+  "$note": "田宅宮（2026-10-12）：天梁.田宅。《深造講義》下篇 宮垣論 田宅宮 p.556–560。火災、水災、孝服、血光、兵災、官非、倒閉一類斷語不用；風水不用（近「化解」）；添丁、天喜紅鸞、天巫、天刑等不用；要分日夜生、廟陷嘅條文暫不用。",
+  "topic": {
+    "id": "天梁.田宅",
+    "palace": "田宅",
+    "stars": [
+      "天梁"
+    ]
+  },
+  "rules": [
+    {
+      "id": "田宅.天梁.祿",
+      "role": "limit",
+      "when": {
+        "hua": "祿",
+        "star": "天梁",
+        "at": "same"
+      },
+      "text": "天梁化祿，在機構內人緣容易不佳。",
+      "en": "Tian Liang in Abundance: you can find yourself less popular at work.",
+      "source": {
+        "passage": "deep.田宅.天梁.1",
+        "quote": "易致人缘不佳"
+      }
+    },
+    {
+      "id": "田宅.天梁.機",
+      "role": "refine",
+      "when": {
+        "star": "天機",
+        "at": [
+          "same",
+          "opp"
+        ]
+      },
+      "text": "天梁與天機同宮或相對，多遷動。",
+      "en": "With Tian Liang beside or facing Tian Ji, you move often.",
+      "source": {
+        "passage": "deep.田宅.天梁.2",
+        "quote": "天梁天机，主多迂动"
+      }
+    },
+    {
+      "id": "田宅.天梁.馬",
+      "role": "limit",
+      "when": {
+        "any": [
+          {
+            "star": "天馬",
+            "at": "same"
+          },
+          {
+            "star": [
+              "火星",
+              "鈴星"
+            ],
+            "at": "same"
+          }
+        ]
+      },
+      "text": "同宮有天馬或火鈴，主漂盪；就算有祖業也難享。",
+      "en": "With Tian Ma, Huo Xing or Ling Xing in the palace, you drift, and even family property is hard to enjoy.",
+      "source": {
+        "passage": "deep.田宅.天梁.3",
+        "quote": "则主飘荡"
+      }
+    },
+    {
+      "id": "田宅.天梁.本",
+      "role": "base",
+      "when": {
+        "not": {
+          "star": [
+            "天機",
+            "天同"
+          ],
+          "at": [
+            "same",
+            "opp"
+          ]
+        }
+      },
+      "text": "天梁是蔭星，在田宅宮主有祖業父業。",
+      "en": "Tian Liang is the sheltering star: in your Property Palace it points to family property.",
+      "source": {
+        "passage": "deep.田宅.天梁.4",
+        "quote": "主必有祖业父业"
+      }
+    }
+  ]
+}

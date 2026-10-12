@@ -1,0 +1,83 @@
+{
+  "$note": "田宅宮（2026-10-12）：天同.田宅。《深造講義》下篇 宮垣論 田宅宮 p.556–560。火災、水災、孝服、血光、兵災、官非、倒閉一類斷語不用；風水不用（近「化解」）；添丁、天喜紅鸞、天巫、天刑等不用；要分日夜生、廟陷嘅條文暫不用。",
+  "topic": {
+    "id": "天同.田宅",
+    "palace": "田宅",
+    "stars": [
+      "天同"
+    ]
+  },
+  "rules": [
+    {
+      "id": "田宅.天同.祿",
+      "role": "refine",
+      "when": {
+        "any": [
+          {
+            "hua": "祿",
+            "at": "sifang"
+          },
+          {
+            "star": "祿存",
+            "at": "sifang"
+          }
+        ]
+      },
+      "text": "天同見祿，置業豐厚。",
+      "en": "Tian Tong meeting Lu: you acquire plenty of property.",
+      "source": {
+        "passage": "deep.田宅.天同.4",
+        "quote": "若见禄者，置业丰厚"
+      }
+    },
+    {
+      "id": "田宅.天同.忌",
+      "role": "limit",
+      "when": {
+        "hua": "忌",
+        "star": "天同",
+        "at": "same"
+      },
+      "text": "天同化忌，雖能自置產業，卻要為產業花不少精神。",
+      "en": "Tian Tong in Hindrance: you can buy your own property, but it takes a lot of your energy.",
+      "source": {
+        "passage": "deep.田宅.天同.5",
+        "quote": "或一生为产业而花费精神"
+      }
+    },
+    {
+      "id": "田宅.天同.梁對",
+      "role": "refine",
+      "when": {
+        "all": [
+          {
+            "star": "天梁",
+            "at": "opp"
+          },
+          {
+            "not": {
+              "star": "天梁",
+              "at": "same"
+            }
+          }
+        ]
+      },
+      "text": "天同與天梁相對，置業較為順利。",
+      "en": "With Tian Tong facing Tian Liang, buying property goes more smoothly.",
+      "source": {
+        "passage": "deep.田宅.天同.6",
+        "quote": "主置业较为顺利"
+      }
+    },
+    {
+      "id": "田宅.天同.本",
+      "role": "base",
+      "text": "天同在田宅宮，一般主白手興家；重的是居住環境的享受，不主物業豐厚。",
+      "en": "With Tian Tong in your Property Palace, you generally build from nothing; you value a comfortable home more than a large portfolio.",
+      "source": {
+        "passage": "deep.田宅.天同.7",
+        "quote": "仅主居住环境的享受"
+      }
+    }
+  ]
+}

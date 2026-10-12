@@ -1,0 +1,33 @@
+{
+  "$note": "田宅宮（2026-10-12）：廉貞.田宅。《深造講義》下篇 宮垣論 田宅宮 p.556–560。火災、水災、孝服、血光、兵災、官非、倒閉一類斷語不用；風水不用（近「化解」）；添丁、天喜紅鸞、天巫、天刑等不用；要分日夜生、廟陷嘅條文暫不用。",
+  "topic": {
+    "id": "廉貞.田宅",
+    "palace": "田宅",
+    "stars": [
+      "廉貞"
+    ]
+  },
+  "rules": [
+    {
+      "id": "田宅.廉貞.本",
+      "role": "base",
+      "when": {
+        "not": {
+          "star": [
+            "天府",
+            "天相",
+            "破軍",
+            "貪狼"
+          ],
+          "at": "same"
+        }
+      },
+      "text": "廉貞在田宅宮，帶破祖的性質，自己創業時也容易有困擾糾紛。",
+      "en": "Lian Zhen in your Property Palace tends to break with the family inheritance, and starting your own venture brings its share of trouble.",
+      "source": {
+        "passage": "deep.田宅.廉貞.4",
+        "quote": "还有自己创业时必带困扰"
+      }
+    }
+  ]
+}

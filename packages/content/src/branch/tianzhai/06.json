@@ -1,0 +1,82 @@
+{
+  "$note": "田宅宮（2026-10-12）：天機太陰.田宅。《深造講義》下篇 宮垣論 田宅宮 p.556–560。火災、水災、孝服、血光、兵災、官非、倒閉一類斷語不用；風水不用（近「化解」）；添丁、天喜紅鸞、天巫、天刑等不用；要分日夜生、廟陷嘅條文暫不用。",
+  "topic": {
+    "id": "天機太陰.田宅",
+    "palace": "田宅",
+    "stars": [
+      "天機",
+      "太陰"
+    ]
+  },
+  "rules": [
+    {
+      "id": "田宅.機陰.陰祿",
+      "role": "refine",
+      "when": {
+        "hua": "祿",
+        "star": "太陰",
+        "at": "same"
+      },
+      "text": "太陰化祿，容易自置產業，居住環境也較安靜。",
+      "en": "Tai Yin in Abundance: buying your own property comes easily, and your home is quieter.",
+      "source": {
+        "passage": "deep.田宅.天機.2",
+        "quote": "然后主易自置产业，居住环境亦较安静"
+      }
+    },
+    {
+      "id": "田宅.機陰.吉",
+      "role": "refine",
+      "when": {
+        "all": [
+          {
+            "hua": [
+              "祿",
+              "權",
+              "科"
+            ],
+            "star": [
+              "天機",
+              "太陰"
+            ],
+            "at": "same"
+          },
+          {
+            "any": [
+              {
+                "star": [
+                  "左輔",
+                  "右弼"
+                ],
+                "at": "sifang"
+              },
+              {
+                "star": [
+                  "天魁",
+                  "天鉞"
+                ],
+                "at": "sifang"
+              }
+            ]
+          }
+        ]
+      },
+      "text": "天機太陰見吉化又見吉星，買賣田宅可以獲利。",
+      "en": "Tian Ji with Tai Yin well transformed and with helper stars: buying and selling property can turn a profit.",
+      "source": {
+        "passage": "deep.田宅.天機.3",
+        "quote": "则买卖田宅可以获利"
+      }
+    },
+    {
+      "id": "田宅.機陰.遷",
+      "role": "base",
+      "text": "天機太陰在田宅宮，主時時遷動，也常轉換工作環境。",
+      "en": "Tian Ji with Tai Yin in your Property Palace: you move often, and change workplaces often too.",
+      "source": {
+        "passage": "deep.田宅.天機.4",
+        "quote": "天机太阴的星曜组合，主时时迁动"
+      }
+    }
+  ]
+}

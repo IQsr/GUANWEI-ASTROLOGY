@@ -1,0 +1,51 @@
+{
+  "$note": "田宅宮（2026-10-12）：太陽.田宅。《深造講義》下篇 宮垣論 田宅宮 p.556–560。火災、水災、孝服、血光、兵災、官非、倒閉一類斷語不用；風水不用（近「化解」）；添丁、天喜紅鸞、天巫、天刑等不用；要分日夜生、廟陷嘅條文暫不用。",
+  "topic": {
+    "id": "太陽.田宅",
+    "palace": "田宅",
+    "stars": [
+      "太陽"
+    ]
+  },
+  "rules": [
+    {
+      "id": "田宅.太陽.巨對",
+      "role": "limit",
+      "when": {
+        "all": [
+          {
+            "star": "巨門",
+            "at": "opp"
+          },
+          {
+            "not": {
+              "star": "巨門",
+              "at": "same"
+            }
+          }
+        ]
+      },
+      "text": "太陽與巨門相對，即使見吉，產業上也主爭奪。",
+      "en": "With Tai Yang facing Ju Men, property brings contention even with good signs.",
+      "source": {
+        "passage": "deep.田宅.太陽.4",
+        "quote": "亦主争夺"
+      }
+    },
+    {
+      "id": "田宅.太陽.忌",
+      "role": "limit",
+      "when": {
+        "hua": "忌",
+        "star": "太陽",
+        "at": "same"
+      },
+      "text": "太陽化忌，祖業難守，事業根基也較難建立。",
+      "en": "Tai Yang in Hindrance: inherited property is hard to keep, and a solid base for your career is hard to build.",
+      "source": {
+        "passage": "deep.田宅.太陽.5",
+        "quote": "或平生事业难有根基"
+      }
+    }
+  ]
+}

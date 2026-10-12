@@ -1,0 +1,131 @@
+{
+  "$note": "田宅宮（2026-10-12）：天府.田宅。《深造講義》下篇 宮垣論 田宅宮 p.556–560。火災、水災、孝服、血光、兵災、官非、倒閉一類斷語不用；風水不用（近「化解」）；添丁、天喜紅鸞、天巫、天刑等不用；要分日夜生、廟陷嘅條文暫不用。",
+  "topic": {
+    "id": "天府.田宅",
+    "palace": "田宅",
+    "stars": [
+      "天府"
+    ]
+  },
+  "rules": [
+    {
+      "id": "田宅.天府.紫",
+      "role": "refine",
+      "when": {
+        "all": [
+          {
+            "star": "紫微",
+            "at": "same"
+          },
+          {
+            "star": [
+              "左輔",
+              "右弼"
+            ],
+            "at": "sifang"
+          },
+          {
+            "star": [
+              "天魁",
+              "天鉞"
+            ],
+            "at": "sifang"
+          }
+        ]
+      },
+      "text": "天府與紫微同宮，又得眾星拱照，田園豐茂。",
+      "en": "Tian Fu with Zi Wei and surrounded by helpers: your property flourishes.",
+      "source": {
+        "passage": "deep.田宅.天府.1",
+        "quote": "则田园丰茂"
+      }
+    },
+    {
+      "id": "田宅.天府.文",
+      "role": "refine",
+      "when": {
+        "all": [
+          {
+            "star": [
+              "文昌",
+              "文曲"
+            ],
+            "at": "same"
+          },
+          {
+            "any": [
+              {
+                "hua": "祿",
+                "at": "sifang"
+              },
+              {
+                "star": "祿存",
+                "at": "sifang"
+              }
+            ]
+          }
+        ]
+      },
+      "text": "同宮有文昌文曲，又見祿，置產得利。",
+      "en": "With Wen Chang or Wen Qu in the palace and Lu present, buying property pays off.",
+      "source": {
+        "passage": "deep.田宅.天府.2",
+        "quote": "若更遇禄，则主置产得利"
+      }
+    },
+    {
+      "id": "田宅.天府.增益",
+      "role": "refine",
+      "when": {
+        "all": [
+          {
+            "any": [
+              {
+                "star": [
+                  "左輔",
+                  "右弼"
+                ],
+                "at": "sifang"
+              },
+              {
+                "star": [
+                  "天魁",
+                  "天鉞"
+                ],
+                "at": "sifang"
+              }
+            ]
+          },
+          {
+            "any": [
+              {
+                "hua": "祿",
+                "at": "sifang"
+              },
+              {
+                "star": "祿存",
+                "at": "sifang"
+              }
+            ]
+          }
+        ]
+      },
+      "text": "見輔佐吉星又見祿，能在現成基礎上發展，物業增加。",
+      "en": "With helper stars and Lu, you build on what is already there, and your property grows.",
+      "source": {
+        "passage": "deep.田宅.天府.3",
+        "quote": "物业增益"
+      }
+    },
+    {
+      "id": "田宅.天府.本",
+      "role": "base",
+      "text": "天府在田宅宮，主有祖業父業，或能在有基礎聲譽的機構服務。",
+      "en": "With Tian Fu in your Property Palace, there is family property, or you work for an established, reputable organisation.",
+      "source": {
+        "passage": "deep.田宅.天府.4",
+        "quote": "或能在有基础声誉之机构服务"
+      }
+    }
+  ]
+}

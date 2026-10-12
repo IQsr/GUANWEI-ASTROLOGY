@@ -1,0 +1,43 @@
+{
+  "$note": "田宅宮（2026-10-12）：巨門.田宅。《深造講義》下篇 宮垣論 田宅宮 p.556–560。火災、水災、孝服、血光、兵災、官非、倒閉一類斷語不用；風水不用（近「化解」）；添丁、天喜紅鸞、天巫、天刑等不用；要分日夜生、廟陷嘅條文暫不用。",
+  "topic": {
+    "id": "巨門.田宅",
+    "palace": "田宅",
+    "stars": [
+      "巨門"
+    ]
+  },
+  "rules": [
+    {
+      "id": "田宅.巨門.忌",
+      "role": "limit",
+      "when": {
+        "hua": "忌",
+        "star": "巨門",
+        "at": "same"
+      },
+      "text": "巨門化忌，家宅不安，或自己要遠離家室。",
+      "en": "Ju Men in Hindrance: home is unsettled, or you live far from your family.",
+      "source": {
+        "passage": "deep.田宅.巨門.2",
+        "quote": "主家宅不安，或主自身远离家室"
+      }
+    },
+    {
+      "id": "田宅.巨門.本",
+      "role": "base",
+      "when": {
+        "not": {
+          "star": "太陽",
+          "at": "same"
+        }
+      },
+      "text": "巨門不利田宅：即使見吉，也不主有祖業可守，多要中年以後才自置。",
+      "en": "Ju Men does not favour property: even with good signs there is no family estate to keep, and you usually buy your own only in midlife.",
+      "source": {
+        "passage": "deep.田宅.巨門.3",
+        "quote": "仅能于中年后自置"
+      }
+    }
+  ]
+}

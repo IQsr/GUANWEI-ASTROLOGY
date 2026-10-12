@@ -1,0 +1,22 @@
+{
+  "$note": "田宅宮（2026-10-12）：天機.田宅。《深造講義》下篇 宮垣論 田宅宮 p.556–560。火災、水災、孝服、血光、兵災、官非、倒閉一類斷語不用；風水不用（近「化解」）；添丁、天喜紅鸞、天巫、天刑等不用；要分日夜生、廟陷嘅條文暫不用。",
+  "topic": {
+    "id": "天機.田宅",
+    "palace": "田宅",
+    "stars": [
+      "天機"
+    ]
+  },
+  "rules": [
+    {
+      "id": "田宅.天機.本",
+      "role": "base",
+      "text": "天機在田宅宮，產業多變動：時時搬遷、時買時賣，或者常換工作環境。",
+      "en": "With Tian Ji in your Property Palace, property is always on the move: frequent moves, buying and selling, or changing workplaces.",
+      "source": {
+        "passage": "deep.田宅.天機.7",
+        "quote": "或时买时卖"
+      }
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "$note": "田宅宮（2026-10-12）：紫微天相.田宅。《深造講義》下篇 宮垣論 田宅宮 p.556–560。火災、水災、孝服、血光、兵災、官非、倒閉一類斷語不用；風水不用（近「化解」）；添丁、天喜紅鸞、天巫、天刑等不用；要分日夜生、廟陷嘅條文暫不用。",
+  "topic": {
+    "id": "紫微天相.田宅",
+    "palace": "田宅",
+    "stars": [
+      "紫微",
+      "天相"
+    ]
+  },
+  "rules": [
+    {
+      "id": "田宅.紫相.煞",
+      "role": "limit",
+      "when": {
+        "star": [
+          "擎羊",
+          "陀羅",
+          "火星",
+          "鈴星",
+          "地空",
+          "地劫"
+        ],
+        "at": "same"
+      },
+      "text": "紫微天相見煞，任職的多是老舊機構，根基不穩；要留意轉職或改革的機會。",
+      "en": "Zi Wei with Tian Xiang and harsh stars: you tend to work for older organisations on shaky ground; watch for chances to move on or to reform.",
+      "source": {
+        "passage": "deep.田宅.紫微.3",
+        "quote": "宜注意转职或改革之机会"
+      }
+    }
+  ]
+}

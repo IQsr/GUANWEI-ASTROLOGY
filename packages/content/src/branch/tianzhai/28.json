@@ -1,0 +1,95 @@
+{
+  "$note": "田宅宮（2026-10-12）：貪狼.田宅。《深造講義》下篇 宮垣論 田宅宮 p.556–560。火災、水災、孝服、血光、兵災、官非、倒閉一類斷語不用；風水不用（近「化解」）；添丁、天喜紅鸞、天巫、天刑等不用；要分日夜生、廟陷嘅條文暫不用。",
+  "topic": {
+    "id": "貪狼.田宅",
+    "palace": "田宅",
+    "stars": [
+      "貪狼"
+    ]
+  },
+  "rules": [
+    {
+      "id": "田宅.貪狼.火鈴",
+      "role": "refine",
+      "when": {
+        "all": [
+          {
+            "star": [
+              "火星",
+              "鈴星"
+            ],
+            "at": "same"
+          },
+          {
+            "not": {
+              "star": "武曲",
+              "at": "same"
+            }
+          }
+        ]
+      },
+      "text": "同宮有火星或鈴星，自置豐厚，只是房子總有破損，古人說「火貪宜住舊宅華廈」。",
+      "en": "With Huo Xing or Ling Xing in the palace, you acquire plenty, though the house always has some wear; the old saying is that this suits a grand old home.",
+      "source": {
+        "passage": "deep.田宅.貪狼.1",
+        "quote": "则自置丰厚"
+      }
+    },
+    {
+      "id": "田宅.貪狼.吉",
+      "role": "refine",
+      "when": {
+        "all": [
+          {
+            "any": [
+              {
+                "hua": [
+                  "祿",
+                  "權",
+                  "科"
+                ],
+                "at": "same"
+              },
+              {
+                "star": "祿存",
+                "at": "same"
+              },
+              {
+                "star": [
+                  "文昌",
+                  "文曲"
+                ],
+                "at": "same"
+              }
+            ]
+          },
+          {
+            "not": {
+              "star": [
+                "火星",
+                "鈴星"
+              ],
+              "at": "same"
+            }
+          }
+        ]
+      },
+      "text": "見吉化、祿存或文昌文曲，產業耐久而豐盛。",
+      "en": "With good transformations, Lu Cun, Wen Chang or Wen Qu, your property lasts and grows.",
+      "source": {
+        "passage": "deep.田宅.貪狼.2",
+        "quote": "则产业耐久且丰盛"
+      }
+    },
+    {
+      "id": "田宅.貪狼.本",
+      "role": "base",
+      "text": "貪狼主散不主聚，稍見刑忌，產業就容易生事端。",
+      "en": "Tan Lang scatters rather than gathers: the slightest harsh influence stirs up trouble over property.",
+      "source": {
+        "passage": "deep.田宅.貪狼.3",
+        "quote": "贪狼主散不主聚"
+      }
+    }
+  ]
+}

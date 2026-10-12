@@ -1,0 +1,58 @@
+{
+  "$note": "田宅宮（2026-10-12）：武曲破軍.田宅。《深造講義》下篇 宮垣論 田宅宮 p.556–560。火災、水災、孝服、血光、兵災、官非、倒閉一類斷語不用；風水不用（近「化解」）；添丁、天喜紅鸞、天巫、天刑等不用；要分日夜生、廟陷嘅條文暫不用。",
+  "topic": {
+    "id": "武曲破軍.田宅",
+    "palace": "田宅",
+    "stars": [
+      "武曲",
+      "破軍"
+    ]
+  },
+  "rules": [
+    {
+      "id": "田宅.武破.自創",
+      "role": "refine",
+      "when": {
+        "any": [
+          {
+            "hua": "祿",
+            "star": "破軍",
+            "at": "same"
+          },
+          {
+            "all": [
+              {
+                "star": "天相",
+                "at": "opp"
+              },
+              {
+                "any": [
+                  {
+                    "star": [
+                      "左輔",
+                      "右弼"
+                    ],
+                    "at": "sifang"
+                  },
+                  {
+                    "star": [
+                      "天魁",
+                      "天鉞"
+                    ],
+                    "at": "sifang"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "text": "祖業不主豐厚，會漸漸消磨，然後靠自己興創；也宜買舊宅。",
+      "en": "Family property is not large and wears away, after which you build your own; older houses suit you.",
+      "source": {
+        "passage": "deep.田宅.武曲.4",
+        "quote": "却主祖业消磨而自身兴创"
+      }
+    }
+  ]
+}
