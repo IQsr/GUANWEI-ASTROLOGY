@@ -1,0 +1,37 @@
+{
+  "$note": "子女宮（2026-10-12）：七殺.子女。《深造講義》下篇 宮垣論 子女宮 p.400–435。子女數目、生男生女、遲得子、流產、刑剋、夭折、傷殘、偏房外室所生、入贅、吸毒、弱智、生產手術一類斷語不用；天月、天刑、龍池鳳閣、華蓋、蜚廉等引擎冇嘅星不用；要分日夜生、廟陷嘅條文暫不用。原書子女宮兼論後輩、門生、親信下屬，呢部份照用。",
+  "topic": {
+    "id": "七殺.子女",
+    "palace": "子女",
+    "stars": [
+      "七殺"
+    ]
+  },
+  "rules": [
+    {
+      "id": "子女.七殺.紫權",
+      "role": "refine",
+      "when": {
+        "hua": "權",
+        "star": "紫微",
+        "at": "same"
+      },
+      "text": "與紫微化權同宮，子女性格極剛。",
+      "en": "With Zi Wei in Authority in the palace, your children are extremely forceful.",
+      "source": {
+        "passage": "deep.子女.七殺.4",
+        "quote": "但性格极刚"
+      }
+    },
+    {
+      "id": "子女.七殺.下屬",
+      "role": "base",
+      "text": "七殺在子女宮，門生弟子和追隨你的晚輩較少。",
+      "en": "With Qi Sha in your Children Palace, you have few students or younger followers.",
+      "source": {
+        "passage": "deep.子女.七殺.5",
+        "quote": "及追随自己的晚辈稀少"
+      }
+    }
+  ]
+}

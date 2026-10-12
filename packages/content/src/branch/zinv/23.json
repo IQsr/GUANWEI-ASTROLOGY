@@ -1,0 +1,67 @@
+{
+  "$note": "子女宮（2026-10-12）：天府巳亥.子女。《深造講義》下篇 宮垣論 子女宮 p.400–435。子女數目、生男生女、遲得子、流產、刑剋、夭折、傷殘、偏房外室所生、入贅、吸毒、弱智、生產手術一類斷語不用；天月、天刑、龍池鳳閣、華蓋、蜚廉等引擎冇嘅星不用；要分日夜生、廟陷嘅條文暫不用。原書子女宮兼論後輩、門生、親信下屬，呢部份照用。",
+  "topic": {
+    "id": "天府巳亥.子女",
+    "palace": "子女",
+    "stars": [
+      "天府"
+    ],
+    "branch": [
+      "巳",
+      "亥"
+    ]
+  },
+  "rules": [
+    {
+      "id": "子女.天府巳亥.吉",
+      "role": "refine",
+      "when": {
+        "any": [
+          {
+            "hua": [
+              "祿",
+              "權",
+              "科"
+            ],
+            "at": "same"
+          },
+          {
+            "any": [
+              {
+                "hua": "祿",
+                "at": "sifang"
+              },
+              {
+                "star": "祿存",
+                "at": "sifang"
+              }
+            ]
+          }
+        ]
+      },
+      "text": "天府見吉化或見祿，子女必能獨當一面，宜發展他們的組織力和領導力。",
+      "en": "Tian Fu with good transformations or Lu: your children can certainly stand on their own; develop their organising and leadership skills.",
+      "source": {
+        "passage": "deep.子女.天府.1",
+        "quote": "则子女必能独当一面"
+      }
+    },
+    {
+      "id": "子女.天府巳亥.火鈴",
+      "role": "refine",
+      "when": {
+        "star": [
+          "火星",
+          "鈴星"
+        ],
+        "at": "same"
+      },
+      "text": "同宮有火星或鈴星，子女宜離家發展；守在出生地反而不得意。",
+      "en": "With Huo Xing or Ling Xing in the palace, your children do better away from home; staying put holds them back.",
+      "source": {
+        "passage": "deep.子女.天府.2",
+        "quote": "子女宜离家发展"
+      }
+    }
+  ]
+}

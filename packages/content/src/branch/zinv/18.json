@@ -1,0 +1,81 @@
+{
+  "$note": "子女宮（2026-10-12）：天同巳亥.子女。《深造講義》下篇 宮垣論 子女宮 p.400–435。子女數目、生男生女、遲得子、流產、刑剋、夭折、傷殘、偏房外室所生、入贅、吸毒、弱智、生產手術一類斷語不用；天月、天刑、龍池鳳閣、華蓋、蜚廉等引擎冇嘅星不用；要分日夜生、廟陷嘅條文暫不用。原書子女宮兼論後輩、門生、親信下屬，呢部份照用。",
+  "topic": {
+    "id": "天同巳亥.子女",
+    "palace": "子女",
+    "stars": [
+      "天同"
+    ],
+    "branch": [
+      "巳",
+      "亥"
+    ]
+  },
+  "rules": [
+    {
+      "id": "子女.天同巳亥.離",
+      "role": "refine",
+      "when": {
+        "any": [
+          {
+            "star": [
+              "火星",
+              "鈴星"
+            ],
+            "at": "same"
+          },
+          {
+            "all": [
+              {
+                "star": "天馬",
+                "at": [
+                  "same",
+                  "opp"
+                ]
+              },
+              {
+                "any": [
+                  {
+                    "star": "祿存",
+                    "at": [
+                      "same",
+                      "opp"
+                    ]
+                  },
+                  {
+                    "hua": "祿",
+                    "at": [
+                      "same",
+                      "opp"
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "text": "見火鈴或祿馬，子女離家發展，性格難以捉摸，反叛性強。",
+      "en": "With Huo Xing, Ling Xing, or Lu and Tian Ma, your children leave home to find their way; they are hard to read and strongly independent.",
+      "source": {
+        "passage": "deep.子女.天同.5",
+        "quote": "且性格难以捉摸，反叛性强"
+      }
+    },
+    {
+      "id": "子女.天同巳亥.祿",
+      "role": "refine",
+      "when": {
+        "hua": "祿",
+        "star": "天同",
+        "at": "same"
+      },
+      "text": "天同化祿，子女離鄉別井。",
+      "en": "Tian Tong in Abundance: your children leave their home town.",
+      "source": {
+        "passage": "deep.子女.天同.6",
+        "quote": "亦主子女离乡背井"
+      }
+    }
+  ]
+}

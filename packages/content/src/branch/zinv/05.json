@@ -1,0 +1,39 @@
+{
+  "$note": "子女宮（2026-10-12）：紫微.子女。《深造講義》下篇 宮垣論 子女宮 p.400–435。子女數目、生男生女、遲得子、流產、刑剋、夭折、傷殘、偏房外室所生、入贅、吸毒、弱智、生產手術一類斷語不用；天月、天刑、龍池鳳閣、華蓋、蜚廉等引擎冇嘅星不用；要分日夜生、廟陷嘅條文暫不用。原書子女宮兼論後輩、門生、親信下屬，呢部份照用。",
+  "topic": {
+    "id": "紫微.子女",
+    "palace": "子女",
+    "stars": [
+      "紫微"
+    ]
+  },
+  "rules": [
+    {
+      "id": "子女.紫微.輔弼",
+      "role": "refine",
+      "when": {
+        "star": [
+          "左輔",
+          "右弼"
+        ],
+        "at": "sifang"
+      },
+      "text": "紫微見左輔右弼，子女和晚輩能成為你的助力。",
+      "en": "Zi Wei with Zuo Fu or You Bi: your children and protégés become a real help to you.",
+      "source": {
+        "passage": "deep.子女.紫微.8",
+        "quote": "须见辅弼，然后才可以成为自己的助力"
+      }
+    },
+    {
+      "id": "子女.紫微.遲",
+      "role": "base",
+      "text": "紫微在子女宮，門生弟子和追隨你的晚輩都來得較遲，也以遲來為宜。",
+      "en": "With Zi Wei in your Children Palace, students and followers come to you late, and that is how it should be.",
+      "source": {
+        "passage": "deep.子女.紫微.9",
+        "quote": "门生弟子以及追随自己的晚辈亦主迟得"
+      }
+    }
+  ]
+}

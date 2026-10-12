@@ -1,0 +1,98 @@
+{
+  "$note": "子女宮（2026-10-12）：紫微七殺.子女。《深造講義》下篇 宮垣論 子女宮 p.400–435。子女數目、生男生女、遲得子、流產、刑剋、夭折、傷殘、偏房外室所生、入贅、吸毒、弱智、生產手術一類斷語不用；天月、天刑、龍池鳳閣、華蓋、蜚廉等引擎冇嘅星不用；要分日夜生、廟陷嘅條文暫不用。原書子女宮兼論後輩、門生、親信下屬，呢部份照用。",
+  "topic": {
+    "id": "紫微七殺.子女",
+    "palace": "子女",
+    "stars": [
+      "紫微",
+      "七殺"
+    ]
+  },
+  "rules": [
+    {
+      "id": "子女.紫殺.祿",
+      "role": "refine",
+      "when": {
+        "any": [
+          {
+            "hua": "祿",
+            "at": "sifang"
+          },
+          {
+            "star": "祿存",
+            "at": "sifang"
+          }
+        ]
+      },
+      "text": "紫微七殺的子女性格很強；見祿得以調和。晚輩的性格也一樣。",
+      "en": "Zi Wei with Qi Sha makes for very strong-willed children; Lu present brings balance. The same goes for the younger people around you.",
+      "source": {
+        "passage": "deep.子女.紫微.5",
+        "quote": "须见禄以调和"
+      }
+    },
+    {
+      "id": "子女.紫殺.無祿",
+      "role": "limit",
+      "when": {
+        "not": {
+          "any": [
+            {
+              "hua": "祿",
+              "at": "sifang"
+            },
+            {
+              "star": "祿存",
+              "at": "sifang"
+            }
+          ]
+        }
+      },
+      "text": "紫微七殺的子女性格很強；不見祿，兩代容易有代溝。晚輩的性格也一樣。",
+      "en": "Zi Wei with Qi Sha makes for very strong-willed children; without Lu, a generation gap opens. The same goes for the younger people around you.",
+      "source": {
+        "passage": "deep.子女.紫微.5",
+        "quote": "否则有代沟"
+      }
+    },
+    {
+      "id": "子女.紫殺.祿馬",
+      "role": "refine",
+      "when": {
+        "all": [
+          {
+            "star": "天馬",
+            "at": [
+              "same",
+              "opp"
+            ]
+          },
+          {
+            "any": [
+              {
+                "star": "祿存",
+                "at": [
+                  "same",
+                  "opp"
+                ]
+              },
+              {
+                "hua": "祿",
+                "at": [
+                  "same",
+                  "opp"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "text": "見祿馬交馳，子女能在遠方創業；你自己也桃李滿天下。",
+      "en": "With Lu and Tian Ma meeting, your children can start ventures far away, and your own students and protégés spread far and wide.",
+      "source": {
+        "passage": "deep.子女.紫微.6",
+        "quote": "又主自己桃李满天下"
+      }
+    }
+  ]
+}

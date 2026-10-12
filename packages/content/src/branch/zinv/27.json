@@ -1,0 +1,131 @@
+{
+  "$note": "子女宮（2026-10-12）：貪狼.子女。《深造講義》下篇 宮垣論 子女宮 p.400–435。子女數目、生男生女、遲得子、流產、刑剋、夭折、傷殘、偏房外室所生、入贅、吸毒、弱智、生產手術一類斷語不用；天月、天刑、龍池鳳閣、華蓋、蜚廉等引擎冇嘅星不用；要分日夜生、廟陷嘅條文暫不用。原書子女宮兼論後輩、門生、親信下屬，呢部份照用。",
+  "topic": {
+    "id": "貪狼.子女",
+    "palace": "子女",
+    "stars": [
+      "貪狼"
+    ]
+  },
+  "rules": [
+    {
+      "id": "子女.貪狼.火鈴",
+      "role": "refine",
+      "when": {
+        "star": [
+          "火星",
+          "鈴星"
+        ],
+        "at": "same"
+      },
+      "text": "同宮有火星或鈴星，兩代感情起初融洽，後來卻冷淡。",
+      "en": "With Huo Xing or Ling Xing in the palace, the generations start close, but cool over time.",
+      "source": {
+        "passage": "deep.子女.貪狼.3",
+        "quote": "主两代感情起初融洽"
+      }
+    },
+    {
+      "id": "子女.貪狼.吉",
+      "role": "refine",
+      "when": {
+        "all": [
+          {
+            "any": [
+              {
+                "hua": [
+                  "祿",
+                  "權",
+                  "科"
+                ],
+                "at": "same"
+              },
+              {
+                "star": [
+                  "左輔",
+                  "右弼"
+                ],
+                "at": "sifang"
+              },
+              {
+                "star": [
+                  "天魁",
+                  "天鉞"
+                ],
+                "at": "sifang"
+              }
+            ]
+          },
+          {
+            "not": {
+              "star": [
+                "火星",
+                "鈴星"
+              ],
+              "at": "same"
+            }
+          }
+        ]
+      },
+      "text": "貪狼見吉，兩代和好。",
+      "en": "Tan Lang with good signs: the generations get on.",
+      "source": {
+        "passage": "deep.子女.貪狼.4",
+        "quote": "贪狼在子女宫，见吉，主父子和好"
+      }
+    },
+    {
+      "id": "子女.貪狼.煞",
+      "role": "limit",
+      "when": {
+        "all": [
+          {
+            "star": [
+              "擎羊",
+              "陀羅",
+              "火星",
+              "鈴星",
+              "地空",
+              "地劫"
+            ],
+            "at": "same"
+          },
+          {
+            "not": {
+              "any": [
+                {
+                  "hua": [
+                    "祿",
+                    "權",
+                    "科"
+                  ],
+                  "at": "same"
+                },
+                {
+                  "star": [
+                    "左輔",
+                    "右弼"
+                  ],
+                  "at": "sifang"
+                },
+                {
+                  "star": [
+                    "天魁",
+                    "天鉞"
+                  ],
+                  "at": "sifang"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "text": "貪狼見煞忌，兩代不和。",
+      "en": "Tan Lang with harsh stars: the generations clash.",
+      "source": {
+        "passage": "deep.子女.貪狼.4",
+        "quote": "若见煞忌则父子不和"
+      }
+    }
+  ]
+}
