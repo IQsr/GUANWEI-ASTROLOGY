@@ -31,7 +31,7 @@ T.append({'id': '紫微破軍.夫妻', 'stars': ['紫微', '破軍'], 'rules': [
 ]})
 T.append({'id': '紫微天府.夫妻', 'stars': ['紫微', '天府'], 'rules': [
  R('夫妻.紫府.對星', PAIR,
-   '你的紫微天府會到成對的輔佐星，關係可以長久。',
+   '你的紫微天府會到〔成對的輔佐星〕，關係可以長久。',
    'Your Zi Wei–Tian Fu meets helper stars in matched pairs, so the relationship can last.',
    '寅申宫『紫府]，必须见辅佐对星者，然后主白头偕老。', '必须见辅佐对星者，然后主白头偕老'),
  R('夫妻.紫府.祿存', {'star': '祿存', 'at': 'same'},
@@ -41,7 +41,7 @@ T.append({'id': '紫微天府.夫妻', 'stars': ['紫微', '天府'], 'rules': [
 ]})
 T.append({'id': '紫微貪狼.夫妻', 'stars': ['紫微', '貪狼'], 'rules': [
  R('夫妻.紫貪.合作', {'all': [{'any': [GOODHUA, FUZUO, KUIYUE]}, {'not': {'palace': '夫妻', 'is': 'bad'}}]},
-   '你的紫微貪狼見吉，夫妻可以合作創業，但要以伴侶做事業的主體。',
+   '你的紫微貪狼見〔吉〕，夫妻可以合作創業，但要以伴侶做事業的主體。',
    'Your Zi Wei–Tan Lang meets good signs: you and your partner can build a business together, with your partner at its centre.',
    '『紫贪』见吉，不可作『桃花犯主』看。亦主夫妻可以合作创业，唯必须以配偶为事业主体。', '唯必须以配偶为事业主体'),
 ]})
@@ -61,7 +61,7 @@ T.append({'id': '紫微七殺.夫妻', 'stars': ['紫微', '七殺'], 'rules': [
    'With Zi Wei and Qi Sha in your Partnership Palace, marrying later suits you better; there is no need to rush to settle down.',
    '『紫杀』在夫妻宫以迟婚为宜。', '在夫妻宫以迟婚为宜', 'base'),
  R('夫妻.紫殺.輔佐', {'any': [FUZUO, KUIYUE]},
-   '見輔佐吉星，伴侶的事業做得大，只是兩人容易聚少離多。',
+   '見〔輔佐吉星〕，伴侶的事業做得大，只是兩人容易聚少離多。',
    'With helper stars present, your partner builds a large career, though the two of you may see less of each other.',
    '巳亥[紫杀]一般均主配偶弄权。若见辅佐吉曜，则配偶事业广大。唯易与自身会少离多，', '则配偶事业广大'),
 ]})
@@ -101,7 +101,7 @@ T.append({'id': '天機天梁.夫妻', 'stars': ['天機', '天梁'], 'rules': [
 ]})
 T.append({'id': '天機巳亥.夫妻', 'stars': ['天機'], 'branch': ['巳', '亥'], 'rules': [
  R('夫妻.天機巳亥.吉', {'all': [GOODHUA, {'any': [FUZUO, KUIYUE]}]},
-   '你的夫妻宮天機吉化，又見輔佐吉星：伴侶斯文秀氣，也能創出自己的事業。',
+   '你的夫妻宮天機吉化，又見〔輔佐吉星〕：伴侶斯文秀氣，也能創出自己的事業。',
    'Tian Ji in your Partnership Palace is well transformed and meets helper stars: your partner is refined, and able to build their own career.',
    '巳亥天机有吉化，见辅弼、魁钺，则主配偶文秀，且能创建事业。', '则主配偶文秀，且能创建事业'),
 ]})
@@ -205,13 +205,13 @@ T.append({'id': '武曲辰戌.夫妻', 'stars': ['武曲'], 'branch': ['辰', '�
    'With Huo Xing or Ling Xing in the palace, marriage may come about in a hurry.',
    '火铃同度，主仓卒成婚。', '主仓卒成婚'),
  R('夫妻.武曲辰戌.吉', {'any': [GOODHUA, FUZUO, KUIYUE]},
-   '夫妻宮見吉，你的伴侶精明能幹，處事俐落。',
+   '夫妻宮見〔吉〕，你的伴侶精明能幹，處事俐落。',
    'With good signs in the palace, your partner is sharp and capable, and handles things deftly.',
    '见吉化吉曜，则配偶精明能干。', '则配偶精明能干'),
 ]})
 T.append({'id': '武曲破軍.夫妻', 'stars': ['武曲', '破軍'], 'rules': [
  R('夫妻.武破.吉', {'any': [GOODHUA, FUZUO, KUIYUE]},
-   '見吉化吉星，伴侶精明，你在關係裡往往由對方主導。',
+   '見〔吉化吉星〕，伴侶精明，你在關係裡往往由對方主導。',
    'With good transformations or helper stars, your partner is shrewd, and tends to take the lead in the relationship.',
    '巳亥宫[武破]见吉化、吉曜，则主配偶精明，但自身仍受配偶控制。', '则主配偶精明'),
  R('夫妻.武破.祿馬', LUMA,
@@ -229,7 +229,7 @@ T.append({'id': '天同太陰.夫妻', 'stars': ['天同', '太陰'], 'rules': [
 ]})
 T.append({'id': '天同巨門.夫妻', 'stars': ['天同', '巨門'], 'rules': [
  R('夫妻.同巨.對星', PAIR,
-   '你的天同巨門會到成對的輔佐星，婚姻才穩定。',
+   '你的天同巨門會到〔成對的輔佐星〕，婚姻才穩定。',
    'Your Tian Tong–Ju Men meets helper stars in matched pairs, which is what keeps the marriage steady.',
    '丑未『同巨』，见辅佐吉曜，且系成对会入，然后婚姻始主稳定。', '且系成对会入，然后婚姻始主稳定'),
 ]})
@@ -239,7 +239,7 @@ T.append({'id': '天同卯酉.夫妻', 'stars': ['天同'], 'branch': ['卯', '�
    'With Tian Tong in Mao or You facing Tai Yin, your partner is good-looking.',
    '卯酉天同独坐，对太阴，亦主配偶俊美。', '亦主配偶俊美', 'base'),
  R('夫妻.天同卯酉.吉', {'any': [GOODHUA, FUZUO, KUIYUE]},
-   '天同見吉化和吉星，你的婚姻和美，兩人相處融洽。',
+   '天同見〔吉化和吉星〕，你的婚姻和美，兩人相處融洽。',
    'Tian Tong meets good transformations and helper stars: your marriage is harmonious and the two of you get on well.',
    '见吉化、吉曜，可卜婚姻和美。', '可卜婚姻和美'),
 ]})
@@ -295,7 +295,7 @@ T.append({'id': '天府巳亥.夫妻', 'stars': ['天府'], 'branch': ['巳', '�
 ]})
 T.append({'id': '天府卯酉.夫妻', 'stars': ['天府'], 'branch': ['卯', '酉'], 'rules': [
  R('夫妻.天府卯酉.吉', {'all': [{'hua': ['祿', '權', '科'], 'at': 'sifang'}, {'any': [FUZUO, KUIYUE]}]},
-   '會吉又見吉化：你們感情好，兩人也能互相扶持。',
+   '會吉又見〔吉化〕：你們感情好，兩人也能互相扶持。',
    'With helper stars and good transformations, the bond is warm and you support each other.',
    '卯酉宫天府会吉，见吉化，男女皆主美配，感情既佳，又能互相扶助。', '感情既佳，又能互相扶助'),
 ]})
@@ -315,7 +315,7 @@ T.append({'id': '太陰辰戌.夫妻', 'stars': ['太陰'], 'branch': ['辰', '�
 ]})
 T.append({'id': '太陰酉.夫妻', 'stars': ['太陰'], 'branch': ['酉'], 'rules': [
  R('夫妻.太陰酉.事業', {'any': [GOODHUA, FUZUO, KUIYUE]},
-   '太陰坐酉，伴侶的事業較好；見吉，更可以自己開創事業。',
+   '太陰坐酉，伴侶的事業較好；見〔吉〕，更可以自己開創事業。',
    'With Tai Yin in You, your partner does well at work, and with good signs can found their own business.',
    '卯宫太阴对天同，不如酉宫。酉宫音主配偶事业较佳，见辅佐占曜及吉化，亦可以兴创事业。', '亦可以兴创事业'),
 ]})
@@ -333,7 +333,7 @@ T.append({'id': '太陰巳亥.夫妻', 'stars': ['太陰'], 'branch': ['巳', '�
 # ── 貪狼 ──
 T.append({'id': '貪狼辰戌.夫妻', 'stars': ['貪狼'], 'branch': ['辰', '戌'], 'rules': [
  R('夫妻.貪狼辰戌.和美', {'any': [GOODHUA, FUZUO, KUIYUE]},
-   '辰戌的貪狼桃花意味較輕，見吉化吉星，夫妻和美。',
+   '辰戌的貪狼桃花意味較輕，見〔吉化吉星〕，夫妻和美。',
    'Tan Lang in Chen or Xu carries less of its romantic restlessness; with good signs, the marriage is harmonious.',
    '辰戌贪狼为天罗地网，桃花的意味减轻，故性质较佳。若见吉化、吉曜，则夫妻和美。', '则夫妻和美'),
  R('夫妻.貪狼辰戌.火鈴', FIRE,
@@ -355,7 +355,7 @@ T.append({'id': '貪狼.夫妻', 'stars': ['貪狼'], 'rules': [
    'With Huo Xing or Ling Xing in the palace, it starts as a passionate romance but can cool soon after marriage.',
    '『火贪』、『铃贪』守夫妻宫，主初时热恋，婚后不久即同冰炭。', '主初时热恋', 'limit'),
  R('夫妻.貪狼.煞', {'all': [SHA, {'not': {'branch': ['辰', '戌']}}]},
-   '同宮見煞，你以遲婚為宜；婚前經過波折，反而好。',
+   '同宮見〔煞〕，你以遲婚為宜；婚前經過波折，反而好。',
    'With harsh stars in the palace, marrying later suits you; twists beforehand actually help.',
    '必须迟婚，且婚前曾经波折，然后可免。', '必须迟婚，且婚前曾经波折'),
 ]})
@@ -363,7 +363,7 @@ T.append({'id': '貪狼.夫妻', 'stars': ['貪狼'], 'rules': [
 # ── 巨門 ──
 T.append({'id': '巨門子午.夫妻', 'stars': ['巨門'], 'branch': ['子', '午'], 'rules': [
  R('夫妻.巨門子午.吉', {'any': [GOODHUA, {'star': '祿存', 'at': 'same'}, KUIYUE, FUZUO]},
-   '你的巨門見吉，伴侶聰慧，或事業良好。',
+   '你的巨門見〔吉〕，伴侶聰慧，或事業良好。',
    'Your Ju Men meets good signs: your partner is bright, or doing well in their career.',
    '子午巨门见吉化吉曜，如化禄、权、科、禄存、魁钺、辅弼者，男主配聪慧貌美之妻，女主配事业良好之夫。', '女主配事业良好之夫'),
 ]})
@@ -423,7 +423,7 @@ T.append({'id': '天梁.夫妻', 'stars': ['天梁'], 'rules': [
 # ── 七殺 ──
 T.append({'id': '七殺辰戌.夫妻', 'stars': ['七殺'], 'branch': ['辰', '戌'], 'rules': [
  R('夫妻.七殺辰戌.理想', {'any': [GOODHUA, FUZUO, KUIYUE]},
-   '見吉化吉星，終能遇到理想的伴侶，只是婚前多有感情波折。',
+   '見〔吉化吉星〕，終能遇到理想的伴侶，只是婚前多有感情波折。',
    'With good transformations or helper stars, you do find the partner you hoped for, though not without twists along the way.',
    '辰戌七杀见吉化吉曜，主终能获得理想的配偶，而婚前则有恋爱波折。', '主终能获得理想的配偶'),
 ]})
@@ -433,7 +433,7 @@ T.append({'id': '七殺.夫妻', 'stars': ['七殺'], 'rules': [
    'With Qi Sha in your Partnership Palace, marrying later generally suits you better.',
    '七杀临夫妻宫，一般以迟婚为宜。', '一般以迟婚为宜', 'base'),
  R('夫妻.七殺.獨立', {'all': [{'hua': ['祿', '權', '科'], 'at': 'sifang'}, {'any': [FUZUO, KUIYUE]}]},
-   '會到吉化又見輔佐吉星，兩人宜各有獨立的事業。',
+   '會到〔吉化〕又見〔輔佐吉星〕，兩人宜各有獨立的事業。',
    'With good transformations and helper stars, you and your partner do best with separate careers of your own.',
    '七杀临夫妻宫，若会照吉化，且见辅佐诸曜，则宜配偶各有独立事业。', '则宜配偶各有独立事业'),
 ]})

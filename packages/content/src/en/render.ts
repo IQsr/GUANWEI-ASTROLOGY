@@ -2,7 +2,7 @@ import tmRaw from './tm.json';
 import { WATCH_LEADS } from '../watch-lead';
 import { LINK_REFS } from '../link';
 import { JI_WATCH, PAIR_PLAIN } from '../palace-plain';
-import { BRANCH_TOPICS } from '../branch';
+import { BRANCH_TOPICS, slotPattern } from '../branch';
 import { AREA_EN, AREA_ON_EN, PALACE_EN, STAR_EN, cap, listEn, star, starFirst } from './terms';
 import { factTemplate } from './facts';
 import { timeTemplate } from './time';
@@ -31,6 +31,8 @@ for (const w of Object.values(JI_WATCH)) TM.sentences[w.zh] = w.en;
 
 export type Rendered = { text: string; missing: string[] };
 
+const SLOTS: { re: RegExp; en: string }[] = [];
+
 /** 一句中文喺翻譯表嘅英文（冇就 null）。出處註（citation.ts）用嚟配英文句。 */
 export function tmSentence(zh: string): string | null {
   return TM.sentences[zh] ?? null;
@@ -44,6 +46,8 @@ for (const t of BRANCH_TOPICS)
     const zh = sentencesOf(r.text);
     const en = r.en.match(/[^.!?]+[.!?]+/g)?.map((x) => x.trim()) ?? [r.en];
     if (zh.length === en.length) zh.forEach((z, i) => (TM.sentences[z] = en[i]!));
+    /* 泛稱填實（branch.ts `fillSlots`）：中文填咗盤上嘅星，英文照模板句 */
+    if (zh.length === en.length) zh.forEach((z, i) => z.includes('〔') && SLOTS.push({ re: slotPattern(z), en: en[i]! }));
     else TM.sentences[r.text] = r.en;
     if (r.tail && r.tailEn) TM.sentences[r.tail] = r.tailEn;
   }
@@ -113,6 +117,8 @@ function refPart(part: string, missing: string[]): string | null {
 function lookupSentence(s: string): string | null {
   const direct = TM.sentences[s];
   if (direct) return direct;
+  const slot = SLOTS.find((x) => x.re.test(s));
+  if (slot) return slot.en;
   /* 結論段輪換過嘅轉接語（assemble.ts `WATCH_LEADS`）：翻譯表只存「要留意的是：」嗰款 */
   const lead = WATCH_LEADS.slice(1).find((l) => s.startsWith(l));
   if (lead) {

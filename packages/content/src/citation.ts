@@ -1,4 +1,4 @@
-import { BRANCH_TOPICS } from './branch';
+import { BRANCH_TOPICS, slotPattern } from './branch';
 import { DAXIAN_HUA, LOOKBACK_EVENTS } from './daxian';
 import { CORPUS } from './lexicon';
 import { tmSentence } from './en/render';
@@ -58,7 +58,8 @@ export function citation(id: string): Citation | null {
 const sentencesZh = (t: string) => (t.match(/[^。！？]*[。！？]|[^。！？]+$/g) ?? []).map((s) => s.trim()).filter(Boolean);
 const sentencesEn = (t: string) => (t.match(/[^.!?]+[.!?]+/g) ?? [t]).map((s) => s.trim()).filter(Boolean);
 
-export type CiteKey = { key: string; ids: string[] };
+/** `re`：模板句（有〔〕泛稱，branch.ts `fillSlots` 填咗盤上嘅星）用比對式對 */
+export type CiteKey = { key: string; ids: string[]; re?: RegExp };
 
 function build(): { zh: CiteKey[]; en: CiteKey[] } {
   const zh: CiteKey[] = [];
@@ -66,7 +67,7 @@ function build(): { zh: CiteKey[]; en: CiteKey[] } {
   for (const t of BRANCH_TOPICS)
     for (const r of t.rules) {
       const ids = [r.source.passage, ...(r.also ?? []).map((a) => a.passage)];
-      for (const s of sentencesZh(r.text)) zh.push({ key: s, ids });
+      for (const s of sentencesZh(r.text)) zh.push(s.includes('〔') ? { key: s, ids, re: slotPattern(s.replace(/。$/, ''), false) } : { key: s, ids });
       for (const s of sentencesEn(r.en)) en.push({ key: s, ids });
       if (r.tail) zh.push({ key: r.tail, ids });
       if (r.tailEn) en.push({ key: r.tailEn, ids });
@@ -105,7 +106,7 @@ export function citeOf(sentence: string, lang: 'zh' | 'en' = 'zh'): string[] | n
   /* 英文渲染會喺星名後面加花名「Ju Men (the Great Gate)」：比較前拎走 */
   const norm = (x: string) =>
     lang === 'en' ? x.replace(/\s*\(the [^)]*\)/g, '').toLowerCase().replace(/[.;:,]$/, '') : x.replace(/。$/, '');
-  const hit = list.find((k) => norm(s).includes(norm(k.key)));
+  const hit = list.find((k) => (k.re ? k.re.test(norm(s)) : norm(s).includes(norm(k.key))));
   return hit ? hit.ids : null;
 }
 

@@ -357,3 +357,26 @@ describe('細讀句子唔可以太短太乾（2026-10-12 讀者回饋）', () =>
     expect(short).toEqual([]);
   });
 });
+
+describe('泛稱填實：「見吉」「見煞」換成盤上真係有嘅星（2026-10-12）', () => {
+  it('標咗〔〕嘅規則一定有條件；讀者見唔到〔〕；大部份填到真星', () => {
+    for (const t of BRANCH_TOPICS) for (const r of t.rules) if (r.text.includes('〔')) expect(r.when, r.id).toBeDefined();
+    let filled = 0;
+    let slots = 0;
+    for (let i = 0; i < 2000; i += 3) {
+      const r = cast({
+        solar: { y: 1950 + (i % 60), m: 1 + (i % 12), d: 1 + ((i * 7) % 28) }, time: { h: (i * 5) % 24, min: 30 },
+        tz: 'Asia/Hong_Kong', place: { lng: 114.17, lat: 22.32, label: '香港' }, sex: i % 2 ? 'male' : 'female',
+      });
+      if (!r.ok) continue;
+      for (const t of BRANCH_TOPICS) for (const x of branchRules(r.value, t)) {
+        expect(x.text, x.id).not.toMatch(/[〔〕]/);
+        const tpl = t.rules.find((y) => y.id === x.id)!.text;
+        if (!tpl.includes('〔')) continue;
+        slots++;
+        if (x.text !== tpl.replace(/[〔〕]/g, '')) filled++;
+      }
+    }
+    expect(filled / slots).toBeGreaterThan(0.85);
+  });
+});

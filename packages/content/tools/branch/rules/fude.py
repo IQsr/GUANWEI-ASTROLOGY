@@ -20,7 +20,7 @@ T.append({'id': '紫微破軍.福德', 'stars': ['紫微', '破軍'], 'rules': [
    'With Zi Wei and Po Jun in your Wellbeing Palace, you like to do things yourself; even with help on hand, you find it hard to let go.',
    '丑未[紫微破军1守福德，主其人好亲力亲为，纵有左辅右弼夹，只主助力多，但仍不易放心。', '主其人好亲力亲为', 'base'),
  R('福德.紫破.吉', GOOD,
-   '見吉化吉星，你的創造力極強，適合需要開創的思考。',
+   '見〔吉化吉星〕，你的創造力極強，適合需要開創的思考。',
    'With good transformations or helper stars, your creativity is exceptional, suited to thinking that breaks new ground.',
    '[紫破]若见吉化，吉曜，吉夹，则创造力极强，故宜从事有开创性之思考。', '则创造力极强'),
  R('福德.紫破.火鈴', FIRE,
@@ -30,7 +30,7 @@ T.append({'id': '紫微破軍.福德', 'stars': ['紫微', '破軍'], 'rules': [
 ]})
 T.append({'id': '紫微天府.福德', 'stars': ['紫微', '天府'], 'rules': [
  R('福德.紫府.朝拱', {'all': [FUZUO, KUIYUE]},
-   '紫微天府得吉星拱照，你福厚，為人寬厚大度。',
+   '紫微天府得〔吉星〕拱照，你福厚，為人寬厚大度。',
    'Zi Wei with Tian Fu, surrounded by helper stars: you are fortunate, generous and broad-minded.',
    '寅申宫[紫破天府]，有吉曜朝拱则福厚，且宽厚大度，无则劳心，', '有吉曜朝拱则福厚，且宽厚大度'),
  R('福德.紫府.無吉', {'not': {'any': [FUZUO, KUIYUE]}},
@@ -54,7 +54,7 @@ T.append({'id': '紫微貪狼.福德', 'stars': ['紫微', '貪狼'], 'rules': [
 ]})
 T.append({'id': '紫微天相.福德', 'stars': ['紫微', '天相'], 'rules': [
  R('福德.紫相.輔佐', {'any': [FUZUO, KUIYUE]},
-   '紫微天相見輔佐吉星，你為人寬厚大度。',
+   '紫微天相見〔輔佐吉星〕，你為人寬厚大度。',
    'Zi Wei with Tian Xiang and helper stars: you are generous and broad-minded.',
    '[紫微天相]守福德宫，见辅佐吉曜则宽厚大度。', '见辅佐吉曜则宽厚大度'),
  R('福德.紫相.空劫', KONG,
@@ -168,7 +168,7 @@ T.append({'id': '武曲七殺.福德', 'stars': ['武曲', '七殺'], 'rules': [
 ]})
 T.append({'id': '武曲天相.福德', 'stars': ['武曲', '天相'], 'rules': [
  R('福德.武相.吉', GOOD,
-   '武曲天相見吉，你善於乘勢、利用機會。',
+   '武曲天相見〔吉〕，你善於乘勢、利用機會。',
    'Wu Qu with Tian Xiang and good signs: you ride the tide and make good use of opportunities.',
    '[武曲天相]在福德宫，主其人易随波逐流。见吉，然后始主能乘势，善于利用机会。', '善于利用机会'),
  R('福德.武相.空劫', KONG,
@@ -234,7 +234,7 @@ T.append({'id': '廉貞天相.福德', 'stars': ['廉貞', '天相'], 'rules': [
    'With Wen Chang or Wen Qu in the palace, you are refined, with a strong artistic sense and a taste for political talk.',
    '又喜与科文诸曜同度，则气质优雅，艺术感极强。且喜谈论政治，或参与政治活动。', '则气质优雅，艺术感极强'),
  R('福德.廉相.煞夾', {'any': [{'jia': ['火星', '鈴星']}, {'jia': ['擎羊', '陀羅']}]},
-   '被煞星相夾，你心理上自然有壓迫感。',
+   '被〔煞星〕相夾，你心理上自然有壓迫感。',
    'Flanked by harsh stars, you naturally feel pressed in.',
    '[廉贞天相]若为火铃夹、羊陀夹，则心理上自然产生压逼感。', '则心理上自然产生压逼感', 'limit'),
  R('福德.廉相.自得', None,
@@ -258,7 +258,7 @@ T.append({'id': '廉貞破軍.福德', 'stars': ['廉貞', '破軍'], 'rules': [
    'Po Jun has a favourable transformation: you work hard, but the effort pays off.',
    '[廉贞破军]在福德宫主劳碌。破军吉化者则劳而有成，若廉贞化忌，则劳而无功。', '破军吉化者则劳而有成'),
  R('福德.廉破.煞', SHA,
-   '同宮有煞，凡事容易生改變之心；無煞才有決斷力。',
+   '同宮有〔煞〕，凡事容易生改變之心；無煞才有決斷力。',
    'With harsh stars in the palace, you are quick to change your mind; without them, you are decisive.',
    '[廉贞破军]有煞，凡事易生改变之心。无煞者始有决断力。', '[廉贞破军]有煞，凡事易生改变之心', 'limit'),
  R('福德.廉破.本', None,
@@ -434,7 +434,7 @@ T.append({'id': '七殺.福德', 'stars': ['七殺'], 'rules': [
 # ── 破軍 ──
 T.append({'id': '破軍.福德', 'stars': ['破軍'], 'rules': [
  R('福德.破軍.輔佐', {'all': [{'any': [FUZUO, KUIYUE]}, {'not': {'star': '紫微', 'at': 'same'}}]},
-   '破軍見左輔右弼等吉星，你多創見，常有新點子。',
+   '破軍見〔左輔右弼等吉星〕，你多創見，常有新點子。',
    'Po Jun meets helper stars: you are full of original ideas.',
    '破军见辅佐吉曜，则主多创见。', '破军见辅佐吉曜，则主多创见'),
  R('福德.破軍.火鈴', FIRE,

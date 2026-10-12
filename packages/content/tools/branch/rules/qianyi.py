@@ -22,7 +22,7 @@ T.append({'id': '紫微天府.遷移', 'stars': ['紫微', '天府'], 'rules': [
 ]})
 T.append({'id': '紫微貪狼.遷移', 'stars': ['紫微', '貪狼'], 'rules': [
  R('遷移.紫貪.輔佐', {'any': [FUZUO, KUIYUE]},
-   '紫微貪狼在遷移宮，又見輔佐吉星，遷移多有利；離開出生地發展，也利經商。',
+   '紫微貪狼在遷移宮，又見〔輔佐吉星〕，遷移多有利；離開出生地發展，也利經商。',
    'Zi Wei with Tan Lang in your Travel Palace, joined by helper stars, generally makes moving worthwhile; developing away from home and trading both suit you.',
    '在卯西二富无正曜，迁移宫为『紫微贪狼』，又见辅佐吉曜同会，多主迁移有利。', '多主迁移有利'),
 ]})
@@ -38,7 +38,7 @@ T.append({'id': '紫微天相.遷移', 'stars': ['紫微', '天相'], 'rules': [
    'Zi Wei with Tian Xiang in your Travel Palace and no harsh stars strongly favours moving: people respect you away from home, and you build a career easily.',
    '[紫徽天相]守迁移宫，不见煞忌，则大利迁移，在外受人尊崇，易于建立事业。', '在外受人尊崇，易于建立事业'),
  R('遷移.紫相.煞', SHA,
-   '紫微天相在遷移宮而見煞，在外容易招人嫉妒是非。',
+   '紫微天相在遷移宮而見〔煞〕，在外容易招人嫉妒是非。',
    'Zi Wei with Tian Xiang in your Travel Palace alongside harsh stars draws envy and gossip when you are away.',
    '若见煞忌则招嫉妒是非。', '若见煞忌则招嫉妒是非', 'limit'),
 ]})
@@ -54,7 +54,7 @@ T.append({'id': '紫微.遷移', 'stars': ['紫微'], 'rules': [
    'Zi Wei in your Travel Palace surrounded by helpers favours moving: people abroad lift you up and lend a hand.',
    '紫迁移富有百官朝拱，则宜迁移，主有人提携，或有助力；', '则宜迁移，主有人提携，或有助力'),
  R('遷移.紫微.科', {'all': [H('科', '紫微'), {'any': [FUZUO, KUIYUE]}]},
-   '紫微化科又見輔佐吉星，你在外受人敬重。',
+   '紫微化科又見〔輔佐吉星〕，你在外受人敬重。',
    'Zi Wei in Merit with helper stars: people away from home hold you in high regard.',
    '紫微化科在迁移宫，见辅佐吉曜?主在外有人敬重；', '主在外有人敬重'),
  R('遷移.紫微.權', H('權', '紫微'),
@@ -82,13 +82,13 @@ T.append({'id': '天機巨門.遷移', 'stars': ['天機', '巨門'], 'rules': [
 ]})
 T.append({'id': '天機天梁.遷移', 'stars': ['天機', '天梁'], 'rules': [
  R('遷移.機梁.機遇', GOOD,
-   '天機天梁見吉，你在外機遇多，只是不安定。',
+   '天機天梁見〔吉〕，你在外機遇多，只是不安定。',
    'Tian Ji with Tian Liang and good signs: plenty of opportunities away from home, though little stability.',
    '天梁、天机的组合，若逢吉化、吉曜，则多机遇而不安定，', '则多机遇而不安定'),
 ]})
 T.append({'id': '天機.遷移', 'stars': ['天機'], 'rules': [
  R('遷移.天機.祿馬', LUMA,
-   '見祿馬交馳，你雖然常常走動，卻多享受。',
+   '祿星與天馬相會，你雖然常常走動，卻多享受。',
    'With Lu and Tian Ma meeting, you move about often, but enjoy it.',
    '迁移宫天机见禄马交驰，则虽主经常迁动，但却多享受；', '但却多享受'),
  R('遷移.天機.火鈴', FIRE,
@@ -146,7 +146,7 @@ T.append({'id': '武曲貪狼.遷移', 'stars': ['武曲', '貪狼'], 'rules': [
 ]})
 T.append({'id': '武曲天相.遷移', 'stars': ['武曲', '天相'], 'rules': [
  R('遷移.武相.吉', GOOD,
-   '武曲天相見吉，利遷移外地經商，常有意料不到的機會。',
+   '武曲天相見〔吉〕，利遷移外地經商，常有意料不到的機會。',
    'Wu Qu with Tian Xiang and good signs favours moving away to trade, often bringing chances you never expected.',
    '[武曲天相]在迁移宫，见吉即利迁移外地经商。常主可得意料不及的机会。', '常主可得意料不及的机会'),
 ]})
@@ -174,7 +174,7 @@ T.append({'id': '天同太陰.遷移', 'stars': ['天同', '太陰'], 'rules': [
    'Tian Tong–Tai Yin with Tai Yin in Hindrance: you should never invest away from home.',
    '天同太阴的组合，若太阴化忌，绝不宜在外投资。', '绝不宜在外投资', 'limit'),
  R('遷移.同陰.祿', {'all': [LU, GOOD]},
-   '見祿又見吉星，你可以遠走他方，白手興家。',
+   '見祿又見〔吉星〕，你可以遠走他方，白手興家。',
    'With Lu and helpful stars, you can go far and build a home from nothing.',
    '太阴与天同的组合，见禄，又见吉曜，主因远涉重洋而白手兴家。', '主因远涉重洋而白手兴家'),
 ]})
@@ -184,13 +184,13 @@ T.append({'id': '天同巨門.遷移', 'stars': ['天同', '巨門'], 'rules': [
    'Tian Tong with Ju Men in your Travel Palace brings talk and dispute away from home.',
    '天同巨门的组合，主是非口舌。唯见吉则主劳心得财。', '天同巨门的组合，主是非口舌', 'base'),
  R('遷移.同巨.吉', GOOD,
-   '天同巨門見吉，你在外雖然勞心，卻能得財。',
+   '天同巨門見〔吉〕，你在外雖然勞心，卻能得財。',
    'Tian Tong–Ju Men meets good signs: away from home you work your mind hard, but it brings money.',
    '天同巨门的组合，主是非口舌。唯见吉则主劳心得财。', '唯见吉则主劳心得财'),
 ]})
 T.append({'id': '天同天梁.遷移', 'stars': ['天同', '天梁'], 'rules': [
  R('遷移.同梁.提拔', GOOD,
-   '天同天梁在遷移宮而見吉，出外受人提拔，或在外地有現成的機會。',
+   '天同天梁在遷移宮而見〔吉〕，出外受人提拔，或在外地有現成的機會。',
    'Tian Tong with Tian Liang in your Travel Palace, with good signs: people away from home lift you up, or an opening is waiting for you there.',
    '[天同天梁]同度，命宫必无正曜，若命宫不会吉，而迁移宫会吉，则主出外受人提拔，或在异地有现成机会。', '则主出外受人提拔，或在异地有现成机会'),
 ]})
@@ -242,7 +242,7 @@ T.append({'id': '廉貞.遷移', 'stars': ['廉貞'], 'rules': [
    'Lian Zhen in Abundance: you do well and are well liked away from home, though it does not bring wealth.',
    '廉贞化禄，只主在外得意，并不主发财。亦主多缘。', '只主在外得意，并不主发财'),
  R('遷移.廉貞.忌', {'all': [H('忌', '廉貞'), SHA]},
-   '廉貞化忌又見煞，出外容易因遊樂應酬而生是非。',
+   '廉貞化忌又見〔煞〕，出外容易因遊樂應酬而生是非。',
    'Lian Zhen in Hindrance with harsh stars: outings and socialising away from home can stir up trouble.',
    '若仅廉贞化忌，见煞曜，则仅主出外因游乐应酬而生是非；', '则仅主出外因游乐应酬而生是非', 'limit'),
  R('遷移.廉貞.本', {'not': {'star': '天相', 'at': 'same'}},
@@ -272,11 +272,11 @@ T.append({'id': '天府.遷移', 'stars': ['天府'], 'rules': [
    'With Tuo Luo in the palace, trips drag on, and getting home can be held up.',
    '天府与陀罗同度，出门往往迁延，致回乡受阻。', '出门往往迁延，致回乡受阻', 'limit'),
  R('遷移.天府.紫', {'all': [{'star': '紫微', 'at': 'same'}, GOOD]},
-   '天府與紫微同宮又見吉，你出門近貴。',
+   '天府與紫微同宮又見〔吉〕，你出門近貴。',
    'Tian Fu beside Zi Wei with good signs brings you close to influential people when away.',
    '天府在迁移宫，喜与紫微同度，主出门近贵。亦喜与武曲同度，主经商可以致富。唯必须见吉曜吉化始确。', '主出门近贵'),
  R('遷移.天府.武', {'all': [{'star': '武曲', 'at': 'same'}, GOOD]},
-   '天府與武曲同宮又見吉，你在外經商可以致富。',
+   '天府與武曲同宮又見〔吉〕，你在外經商可以致富。',
    'Tian Fu beside Wu Qu with good signs: trade away from home can make you rich.',
    '天府在迁移宫，喜与紫微同度，主出门近贵。亦喜与武曲同度，主经商可以致富。唯必须见吉曜吉化始确。', '主经商可以致富'),
 ]})
@@ -350,11 +350,11 @@ T.append({'id': '巨門.遷移', 'stars': ['巨門'], 'rules': [
 # ── 天相 ──
 T.append({'id': '天相.遷移', 'stars': ['天相'], 'rules': [
  R('遷移.天相.吉夾', {'any': [{'jia': ['左輔', '右弼']}, {'jia': ['天魁', '天鉞']}, {'jia': ['文昌', '文曲']}]},
-   '天相被吉星相夾，你在外人緣好，容易得人好感。',
+   '天相被〔吉星〕相夾，你在外人緣好，容易得人好感。',
    'Tian Xiang is flanked by helper stars: you are well liked away from home and win people over easily.',
    '大致而言，天相遇吉夹则多人缘，遇凶夹则主孤立。', '天相遇吉夹则多人缘'),
  R('遷移.天相.凶夾', {'any': [{'jia': ['擎羊', '陀羅']}, {'jia': ['火星', '鈴星']}]},
-   '天相被煞星相夾，你在外容易孤立，少人照應。',
+   '天相被〔煞星〕相夾，你在外容易孤立，少人照應。',
    'Tian Xiang is flanked by harsh stars: away from home you can end up isolated, with few to look out for you.',
    '大致而言，天相遇吉夹则多人缘，遇凶夹则主孤立。', '遇凶夹则主孤立', 'limit'),
 ]})
@@ -362,7 +362,7 @@ T.append({'id': '天相.遷移', 'stars': ['天相'], 'rules': [
 # ── 天梁 ──
 T.append({'id': '天梁.遷移', 'stars': ['天梁'], 'rules': [
  R('遷移.天梁.輔佐', {'any': [FUZUO, KUIYUE]},
-   '見輔佐吉星，你在外機會多，受人敬重，也多助力。',
+   '見〔輔佐吉星〕，你在外機會多，受人敬重，也多助力。',
    'With helper stars, you have many chances away from home, are respected, and get plenty of help.',
    '天梁与魁钺、辅弼同会于迁移宫，主在外多机会，且主受人敬畏，因而自多助力。', '主在外多机会'),
  R('遷移.天梁.火鈴', FIRE,
@@ -394,7 +394,7 @@ T.append({'id': '七殺.遷移', 'stars': ['七殺'], 'rules': [
 # ── 破軍 ──
 T.append({'id': '破軍子午.遷移', 'stars': ['破軍'], 'branch': ['子', '午'], 'rules': [
  R('遷移.破軍子午.經商', GOOD,
-   '見吉，也可在外經商，但經營的要帶專門性質，例如在外地開家鄉菜館。',
+   '見〔吉〕，也可在外經商，但經營的要帶專門性質，例如在外地開家鄉菜館。',
    'With good signs, you can trade away from home, so long as it is something specialised, like opening a restaurant of your home cuisine abroad.',
    '破军在子午二宫，见吉化、吉曜，则亦可经商，但所经营者仍须带有专门的性质。如在异邦开家乡菜馆，即是一例。', '但所经营者仍须带有专门的性质'),
 ]})

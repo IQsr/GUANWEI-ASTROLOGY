@@ -202,6 +202,94 @@ export function palaceState(chart: Chart, name: string): 'good' | 'bad' | null {
   return null;
 }
 
+/**
+ * 條件睇嘅宮。借星（2026-10-12）：會照或對宮嗰宮冇主星，原書照借對宮主星嚟讀（「借星安宮的天同巨門」）。
+ * 只借主星同主星嘅四化；輔星、煞星唔借。本宮（same）唔喺度借 —— 借星命宮由 `applies()` 造好。
+ */
+function looked(chart: Chart, p: Palace, at: z.infer<typeof At> | z.infer<typeof At>[]): Palace[] {
+  const places = list(at).flatMap((a) => where(chart, p, a));
+  const borrowed = (q: Palace): Palace[] => {
+    if (q === p || majorsOf(q).length || !q.borrowsFrom) return [];
+    const opp = chart.palaces.find((x) => x.branch === q.borrowsFrom);
+    return opp ? [{ ...opp, stars: opp.stars.filter((s) => MAJOR.includes(s.name)) }] : [];
+  };
+  return [...places, ...places.flatMap(borrowed)];
+}
+
+/**
+ * 條件喺呢張盤中咗乜（2026-10-12 術語填實）：中咗嘅星（「左輔」）同四化（「天同化祿」），
+ * 只計正面條件 —— `not` 入面嘅唔計，`any` 只計中咗嗰幾支。條件唔成立就冇。
+ */
+function evidence(chart: Chart, p: Palace, focus: string, c: Cond, seat: Palace['branch']): string[] {
+  if (!holds(chart, p, focus, c, seat)) return [];
+  if ('all' in c) return c.all.flatMap((x) => evidence(chart, p, focus, x, seat));
+  if ('any' in c) return c.any.flatMap((x) => evidence(chart, p, focus, x, seat));
+  if ('jia' in c) return [...c.jia];
+  if ('palace' in c || !('at' in c)) return [];
+  const qs = looked(chart, p, c.at);
+  if ('hua' in c) {
+    const stars = c.star ? list(c.star) : null;
+    return qs.flatMap((q) =>
+      q.stars
+        .filter((s) => s.sihua && list(c.hua).includes(s.sihua as z.infer<typeof HUA>) && (!stars || stars.includes(s.name)))
+        .map((s) => `${s.name}化${s.sihua}`),
+    );
+  }
+  return qs.flatMap((q) => q.stars.filter((s) => list(c.star).includes(s.name)).map((s) => s.name));
+}
+
+/*
+ * ── 泛稱填實（2026-10-12 讀者回饋：術語太多）──
+ *
+ * 原書講「見吉」「見煞忌」「輔佐吉星」，讀者唔知係邊粒星。規則文字用〔〕標住泛稱，
+ * 引擎填返令呢條規則成立嘅星：「紫微見〔煞忌〕」→「紫微化忌，又見擎羊」。
+ * 揀邊類星睇〔〕入面嘅字；乜都揾唔到（或者句子已經講咗）就照原本泛稱。
+ * 英文暫時照原本泛稱譯（en/render.ts 用 `slotPattern` 對返模板句）。
+ */
+const FILL_VERB = '又見|見齊|見|又有|有|會到|加上|得|被|與|多';
+const FILL = new RegExp(`(${FILL_VERB})?〔([^〕]+)〕`, 'g');
+
+function pick(phrase: string, ev: string[]): string[] {
+  const good = (e: string) => /化[祿權科]$/.test(e);
+  if (phrase.includes('煞')) return ev.filter((e) => SHA_STARS.includes(e) || (phrase.includes('忌') && e.endsWith('化忌')));
+  if (phrase === '吉化') return ev.filter(good);
+  if (/^(吉星|輔佐吉星|成對的輔佐星|左輔右弼等吉星)$/.test(phrase)) return ev.filter((e) => AIDE_STARS.includes(e));
+  return ev.filter((e) => AIDE_STARS.includes(e) || e === '祿存' || good(e));
+}
+
+export function fillSlots(text: string, ev: string[]): string {
+  if (!text.includes('〔')) return text;
+  const plain = text.replace(/〔[^〕]+〕/g, '');
+  return text.replace(FILL, (_all, verb: string | undefined, phrase: string, off: number) => {
+    /* 句子已經講咗嘅唔重複：「見〔煞忌〕或空劫」唔再填地空地劫 */
+    const said = (e: string) =>
+      plain.includes(e) || [['空劫', '地空', '地劫'], ['羊陀', '擎羊', '陀羅'], ['火鈴', '火星', '鈴星']].some(([k, ...xs]) => plain.includes(k!) && xs.includes(e));
+    /* 次序跟慣用：四化先，然後左右昌曲魁鉞、祿存、羊陀火鈴空劫 */
+    const rank = (e: string) => (e.includes('化') ? -1 : [...AIDE_STARS, '祿存', ...SHA_STARS].indexOf(e));
+    const items = [...new Set(pick(phrase, ev))].filter((e) => !said(e)).sort((a, b) => rank(a) - rank(b));
+    if (!items.length) return `${verb ?? ''}${phrase}`;
+    /* 「天同見〔吉化〕」而化祿正係天同嘅：寫「天同化祿，又見左輔」，唔寫「天同見天同化祿」 */
+    const before = text.slice(0, off);
+    const own = MAJOR.find((m) => before.endsWith(m));
+    const mine = own ? items.filter((e) => e.startsWith(`${own}化`)) : [];
+    if (mine.length) {
+      const rest = items.filter((e) => !mine.includes(e));
+      const head = mine.map((e) => e.slice(own!.length)).join('、');
+      return rest.length ? `${head}，又見${rest.join('、')}` : head;
+    }
+    /* 「多吉星」填實後讀「見左輔、右弼」 */
+    return `${verb === '多' ? '見' : verb ?? ''}${items.join('、')}`;
+  });
+}
+
+/** 有〔〕嘅模板句嘅比對式（翻譯、出處用）：〔〕連前面動詞換成任意字 */
+export function slotPattern(template: string, anchored = true): RegExp {
+  const esc = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const parts = template.split(new RegExp(`(?:${FILL_VERB})?〔[^〕]+〕`)).map(esc);
+  const body = parts.join('[^。！？]+?');
+  return new RegExp(anchored ? `^${body}$` : body);
+}
+
 /** `seat`：主星坐嘅地支（借星命宮係對宮；其餘就係本宮） */
 function holds(chart: Chart, p: Palace, focus: string, c: Cond, seat: Palace['branch'] = p.branch): boolean {
   if ('all' in c) return c.all.every((x) => holds(chart, p, focus, x, seat));
@@ -224,17 +312,7 @@ function holds(chart: Chart, p: Palace, focus: string, c: Cond, seat: Palace['br
     const [x, y] = c.jia;
     return (sides[0]!.includes(x) && sides[1]!.includes(y)) || (sides[0]!.includes(y) && sides[1]!.includes(x));
   }
-  const places = list(c.at).flatMap((a) => where(chart, p, a));
-  /*
-   * 借星（2026-10-12）：會照或對宮嗰宮冇主星，原書照借對宮主星嚟讀（「借星安宮的天同巨門」）。
-   * 只借主星同主星嘅四化；輔星、煞星唔借。本宮（same）唔喺度借 —— 借星命宮由 `applies()` 造好。
-   */
-  const borrowed = (q: Palace): Palace[] => {
-    if (q === p || majorsOf(q).length || !q.borrowsFrom) return [];
-    const opp = chart.palaces.find((x) => x.branch === q.borrowsFrom);
-    return opp ? [{ ...opp, stars: opp.stars.filter((s) => MAJOR.includes(s.name)) }] : [];
-  };
-  const withBorrowed = [...places, ...places.flatMap(borrowed)];
+  const withBorrowed = looked(chart, p, c.at);
   if ('hua' in c) {
     const huas = list(c.hua);
     const stars = c.star ? list(c.star) : null;
@@ -292,7 +370,10 @@ export function branchRules(chart: Chart, t: BranchTopic): BranchRule[] {
   const tooLate = (r: BranchRule) => Boolean(r.decade?.length && r.decade.every((k) => fromAge(k) >= STEPS_UNTIL_AGE));
   const hit = t.rules.filter((r) => (!r.when || holds(chart, p, focus, r.when, seat)) && !against(r) && !tooLate(r));
   const gone = new Set(hit.flatMap((r) => r.overrides ?? []));
-  return hit.filter((r) => !gone.has(r.id));
+  /* 泛稱填實：返回嘅文字已經係呢張盤嘅星（模板仍然喺 BRANCH_TOPICS） */
+  return hit
+    .filter((r) => !gone.has(r.id))
+    .map((r) => (r.text.includes('〔') ? { ...r, text: fillSlots(r.text, r.when ? evidence(chart, p, focus, r.when, seat) : []) } : r));
 }
 
 /** 一段細讀最多幾條規則：雙星宮會同時中組合題目同兩粒星嘅通則，唔封頂就太長 */

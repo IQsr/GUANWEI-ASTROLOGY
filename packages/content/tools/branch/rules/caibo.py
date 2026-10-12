@@ -69,7 +69,7 @@ T.append({'id': '紫微七殺.財帛', 'stars': ['紫微', '七殺'], 'rules': [
    'With Zi Wei and Qi Sha in your Wealth Palace, money can rise suddenly, though it is hard to sustain.',
    '[紫杀]在财帛宫亦主能骤发，唯较难持久。', '唯较难持久', 'base'),
  R('財帛.紫殺.祿馬', {'all': [LUMA, {'not': SHA}]},
-   '見祿馬交馳而無煞，在外地能發，在出生地反多波折。',
+   '祿星與天馬相會而無煞，在外地能發，在出生地反多波折。',
    'With Lu Cun and Tian Ma meeting and no harsh stars, you prosper away from home, while your birthplace brings more setbacks.',
    '唯[紫杀]见[禄马交驰]之局者，无煞，在外埠外国能发，在出生地反多波折。', '在外埠外国能发，在出生地反多波折'),
 ]})
@@ -93,7 +93,7 @@ T.append({'id': '紫微.財帛', 'stars': ['紫微'], 'rules': [
 # ── 天機 ──
 T.append({'id': '天機太陰.財帛', 'stars': ['天機', '太陰'], 'rules': [
  R('財帛.機陰.祿馬', LUMA,
-   '你的天機太陰見祿馬交馳，財發於遠方，宜離開出生地。',
+   '你的天機太陰遇上祿星與天馬，財發於遠方，宜離開出生地。',
    'Your Tian Ji–Tai Yin meets Lu Cun and Tian Ma: your money is made far away, so leaving your birthplace suits you.',
    '『天机太阴』最喜与『禄马交驰』同度，则主发财于远方。故以离开出生地为宜。', '则主发财于远方'),
 ]})
@@ -121,7 +121,7 @@ T.append({'id': '天機天梁.財帛', 'stars': ['天機', '天梁'], 'rules': [
    'Tian Liang in Abundance: there is much hidden rivalry and you are easily edged out, so earning takes real effort.',
    '『机梁』不宜化禄，天梁化禄尤主多暗争，每易受人排挤，故必须劳心费神以求财。', '天梁化禄尤主多暗争', 'limit'),
  R('財帛.機梁.兼職', {'any': [FUZUO, KUIYUE]},
-   '見輔佐吉星，你的財源不只一端，往往兼職兼業。',
+   '見〔輔佐吉星〕，你的財源不只一端，往往兼職兼業。',
    'With helper stars, your income has more than one source, often from side jobs alongside the main one.',
    '『机梁』多变动，故见辅弼、魁钺者，指财源不只一端，往往兼职兼业。', '往往兼职兼业'),
 ]})
@@ -240,7 +240,7 @@ T.append({'id': '武曲天相.財帛', 'stars': ['武曲', '天相'], 'rules': [
    'Wu Qu with Tian Xiang is not good at managing money; earn through a special skill.',
    '『武曲天相』亦主凭特殊技能以求财。', '亦主凭特殊技能以求财', 'base'),
  R('財帛.武相.祿馬', LUMA,
-   '見祿馬交馳，你離鄉別井建立事業，因此成富。',
+   '祿星與天馬相會，你離鄉別井建立事業，因此成富。',
    'With Lu Cun and Tian Ma meeting, you build your career away from home, and that is how you prosper.',
    '[武相]喜禄马交驰，主离乡背井以建立事业，因此成富。', '主离乡背井以建立事业，因此成富'),
 ]})
@@ -250,7 +250,7 @@ T.append({'id': '武曲七殺.財帛', 'stars': ['武曲', '七殺'], 'rules': [
    'With Wu Qu and Qi Sha in your Wealth Palace, you build your fortune from nothing, not from family money.',
    '卯酉宫『武风七杀』，主白手兴家。', '主白手兴家', 'base'),
  R('財帛.武殺.投資', {'any': [FUZUO, KUIYUE, {'hua': ['祿', '權', '科'], 'at': 'same'}]},
-   '見吉，投資規模大，資財多在企業資產上，不主積蓄。',
+   '見〔吉〕，投資規模大，資財多在企業資產上，不主積蓄。',
    'With good signs, you invest on a large scale; your wealth sits in business assets rather than savings.',
    '[武杀]见吉曜，投资额巨大，其资财往往在企业资产上。不主积蓄。', '其资财往往在企业资产上'),
 ]})
@@ -306,7 +306,7 @@ T.append({'id': '天同巨門.財帛', 'stars': ['天同', '巨門'], 'rules': [
    'With Tian Tong and Ju Men in your Wealth Palace, money tends to bring talk and dispute, so earning by talking suits you best.',
    '丑未宫『天同巨门』，基本性质主因财而生是非口舌，故最宜费唇舌以求财。', '故最宜费唇舌以求财', 'base'),
  R('財帛.同巨.吉', {'any': [{'hua': ['祿', '權', '科'], 'at': 'same'}, FUZUO, KUIYUE]},
-   '見吉化吉星，你也適合從事傳播或專業工作。',
+   '見〔吉化吉星〕，你也適合從事傳播或專業工作。',
    'With good transformations or helper stars, media or professional work also suits you.',
    '『天同巨门』见吉化、吉曜，亦宜传播工作，或专业工作以求财。', '亦宜传播工作'),
 ]})
@@ -362,7 +362,7 @@ T.append({'id': '廉貞寅申.財帛', 'stars': ['廉貞'], 'branch': ['寅', '�
    'You handle money very well, and finance is your natural field.',
    '寅申宫廉贞独坐，与贪狼相对，理财能力甚强。与火星同度者，亦主横发横破，且对钱财相当重视。廉贞坐寅申，最宜从事财经事业。', '最宜从事财经事业', 'base'),
  R('財帛.廉貞寅申.祿馬', LUMA,
-   '見祿馬交馳，你不但善於理財，做貿易也得利。',
+   '祿星與天馬相會，你不但善於理財，做貿易也得利。',
    'With Lu Cun and Tian Ma meeting, you not only manage money well but profit from trade.',
    '寅申宫廉贞，最喜禄马交驰，不但善于理财，且主贸适得利。', '不但善于理财'),
 ]})
@@ -476,7 +476,7 @@ T.append({'id': '巨門辰戌.財帛', 'stars': ['巨門'], 'branch': ['辰', '�
 ]})
 T.append({'id': '巨門.財帛', 'stars': ['巨門'], 'rules': [
  R('財帛.巨門.太陽', {'all': [{'star': '太陽', 'at': ['same', 'opp']}, {'hua': ['祿', '權', '科'], 'star': ['巨門', '太陽'], 'at': ['same', 'opp']}]},
-   '巨門與太陽同宮或相對而有吉化，一生受外地或外國人信賴而成富，也有語言天份。',
+   '巨門與太陽同宮或相對而有〔吉化〕，一生受外地或外國人信賴而成富，也有語言天份。',
    'With Ju Men facing or sharing with Tai Yang under good transformations, people from abroad trust you and that is how you prosper; you also have a gift for languages.',
    '巨门与太阳同度或对照，有吉化者，或命宫见禄马交驰者，主一生受异族信赖而成富。且主其人有语言天才，', '主一生受异族信赖而成富'),
 ]})
@@ -490,11 +490,11 @@ T.append({'id': '天相丑未.財帛', 'stars': ['天相'], 'branch': ['丑', '�
 ]})
 T.append({'id': '天相巳亥.財帛', 'stars': ['天相'], 'branch': ['巳', '亥'], 'rules': [
  R('財帛.天相巳亥.祿馬', LUMA,
-   '見祿馬交馳，你常有外地來的生財機會。',
+   '祿星與天馬相會，你常有外地來的生財機會。',
    'With Lu Cun and Tian Ma meeting, money-making chances often come from elsewhere.',
    '巳亥天相见禄马交驰，主常得外地提供之生财机会。', '主常得外地提供之生财机会'),
  R('財帛.天相巳亥.武吉', {'all': [{'hua': ['權', '科'], 'star': '武曲', 'at': 'opp'}, {'any': [FUZUO, KUIYUE]}]},
-   '對宮武曲化權或化科，又有吉星，財源較穩定，終有積蓄。',
+   '對宮武曲化權或化科，又有〔吉星〕，財源較穩定，終有積蓄。',
    'With Wu Qu in Authority or Merit opposite and helper stars present, income is steadier and you end up with savings.',
    '巳亥天相见武曲化权、化科，又有吉曜同拱，则财源较为稳定，且主终有积蓄。', '且主终有积蓄'),
 ]})
@@ -548,13 +548,13 @@ T.append({'id': '天梁.財帛', 'stars': ['天梁'], 'rules': [
 # ── 七殺 ──
 T.append({'id': '七殺子午.財帛', 'stars': ['七殺'], 'branch': ['子', '午'], 'rules': [
  R('財帛.七殺子午.意外', {'any': [{'hua': ['祿', '權', '科'], 'at': 'sifang'}, {'star': '祿存', 'at': 'sifang'}]},
-   '見吉化或祿存，你常得意外之財，而且來路正當。',
+   '見〔吉化〕或祿存，你常得意外之財，而且來路正當。',
    'With good transformations or Lu Cun, unexpected money often comes your way, and from honest sources.',
    '子午宫七杀独坐，对宫『武曲天府』，见吉化或禄存者，常得意外财。唯此意外财并非由非法途径得来。', '常得意外财'),
 ]})
 T.append({'id': '七殺寅申.財帛', 'stars': ['七殺'], 'branch': ['寅', '申'], 'rules': [
  R('財帛.七殺寅申.祿馬', LUMA,
-   '見祿馬交馳，一生至少有一次事業上的重大改變，而且多是好的改變。',
+   '祿星與天馬相會，一生至少有一次事業上的重大改變，而且多是好的改變。',
    'With Lu Cun and Tian Ma meeting, your career takes at least one major turn in life, usually for the better.',
    '寅申七杀见禄马交驰，主一生必至少有一次事业上的重大改变。此改变且倾向于良好的转变。', '此改变且倾向于良好的转变'),
  R('財帛.七殺寅申.科', {'any': [H('科', '紫微', 'opp'), H('科', '天府', 'opp')]},
@@ -564,7 +564,7 @@ T.append({'id': '七殺寅申.財帛', 'stars': ['七殺'], 'branch': ['寅', '�
 ]})
 T.append({'id': '七殺辰戌.財帛', 'stars': ['七殺'], 'branch': ['辰', '戌'], 'rules': [
  R('財帛.七殺辰戌.吉', {'any': [{'hua': ['祿', '權', '科'], 'at': 'sifang'}, FUZUO, KUIYUE]},
-   '見吉化吉星，你會富裕，但不宜投機賭博。',
+   '見〔吉化吉星〕，你會富裕，但不宜投機賭博。',
    'With good transformations or helper stars, you prosper, but gambling and speculation are not for you.',
    '辰戌七杀独坐，对宫为[廉贞天府]，若见吉化吉曜，亦主富裕。', '若见吉化吉曜，亦主富裕'),
 ]})

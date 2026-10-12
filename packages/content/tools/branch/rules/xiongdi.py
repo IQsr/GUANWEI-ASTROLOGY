@@ -22,11 +22,11 @@ T.append({'id': '紫微子午.兄弟', 'stars': ['紫微'], 'branch': ['子', '�
 ]})
 T.append({'id': '紫微破軍.兄弟', 'stars': ['紫微', '破軍'], 'rules': [
  R('兄弟.紫破.煞', SHA,
-   '紫微破軍見煞，同事之間容易結成派系，捲入權力鬥爭。',
+   '紫微破軍見〔煞〕，同事之間容易結成派系，捲入權力鬥爭。',
    'Zi Wei with Po Jun and harsh stars: colleagues split into factions, and power struggles follow.',
    '将此意义推广，自己与共事的同事关系，亦易成党派，且主政治、权力斗争。见煞曜尤确，见辅佐吉曜则较平和。', '自己与共事的同事关系，亦易成党派', 'limit'),
  R('兄弟.紫破.輔佐', {'all': [{'any': [FUZUO, KUIYUE]}, {'not': SHA}]},
-   '紫微破軍見輔佐吉星，你的同事關係較平和。',
+   '紫微破軍見〔輔佐吉星〕，你的同事關係較平和。',
    'Zi Wei with Po Jun and helper stars: relations with colleagues are calmer.',
    '将此意义推广，自己与共事的同事关系，亦易成党派，且主政治、权力斗争。见煞曜尤确，见辅佐吉曜则较平和。', '见辅佐吉曜则较平和'),
 ]})
@@ -38,23 +38,23 @@ T.append({'id': '紫微天府.兄弟', 'stars': ['紫微', '天府'], 'rules': [
 ]})
 T.append({'id': '紫微貪狼.兄弟', 'stars': ['紫微', '貪狼'], 'rules': [
  R('兄弟.紫貪.吉', GOOD,
-   '紫微貪狼多吉星，你的兄長得力，能幫到你。',
+   '紫微貪狼多〔吉星〕，你的兄長得力，能幫到你。',
    'Zi Wei–Tan Lang has plenty of helpful stars: your older siblings are capable and can help you.',
    '卯酉宫[紫贪]多吉曜，亦主兄长得力；', '亦主兄长得力'),
 ]})
 T.append({'id': '紫微天相.兄弟', 'stars': ['紫微', '天相'], 'rules': [
  R('兄弟.紫相.吉', GOOD,
-   '紫微天相見吉，你和兄弟朋友和好，可以合作。',
+   '紫微天相見〔吉〕，你和兄弟朋友和好，可以合作。',
    'Zi Wei with Tian Xiang and good signs: siblings and friends get on and can work together.',
    '辰戌[紫相]，见吉曜则主和好合作，见凶曜则各怀异见。', '见吉曜则主和好合作'),
  R('兄弟.紫相.煞', {'all': [SHA, {'not': GOOD}]},
-   '紫微天相見煞，你和兄弟朋友各有己見。',
+   '紫微天相見〔煞〕，你和兄弟朋友各有己見。',
    'Zi Wei with Tian Xiang and harsh stars: siblings and friends each go their own way.',
    '辰戌[紫相]，见吉曜则主和好合作，见凶曜则各怀异见。', '见凶曜则各怀异见', 'limit'),
 ]})
 T.append({'id': '紫微七殺.兄弟', 'stars': ['紫微', '七殺'], 'rules': [
  R('兄弟.紫殺.吉', GOOD,
-   '紫微七殺見吉，兄弟有權貴，也可以依附有權勢的朋友。',
+   '紫微七殺見〔吉〕，兄弟有權貴，也可以依附有權勢的朋友。',
    'Zi Wei with Qi Sha and good signs: your siblings are influential, and you can lean on powerful friends.',
    '巳亥宫[紫杀]，见吉则兄弟有权贵，亦主可依附权贵之友人。若见煞，则受欺负。', '亦主可依附权贵之友人'),
 ]})
@@ -62,7 +62,7 @@ T.append({'id': '紫微七殺.兄弟', 'stars': ['紫微', '七殺'], 'rules': [
 # ── 天機 ──
 T.append({'id': '天機太陰.兄弟', 'stars': ['天機', '太陰'], 'rules': [
  R('兄弟.機陰.輔佐', {'any': [FUZUO, KUIYUE]},
-   '天機太陰見輔佐吉星，一生得兄弟和朋友之力；合作雖不持久，卻常有可用的夥伴。',
+   '天機太陰見〔輔佐吉星〕，一生得兄弟和朋友之力；合作雖不持久，卻常有可用的夥伴。',
    'Tian Ji with Tai Yin and helper stars: siblings and friends help you all your life; partnerships may not last, but there is always someone to work with.',
    '寅申[机阴]见辅佐吉曜，则一生得兄弟及友人之力。与人合作虽不持久，但时时有使用伙伴。', '则一生得兄弟及友人之力'),
  R('兄弟.機陰.祿馬', LUMA,
@@ -76,11 +76,11 @@ T.append({'id': '天機太陰.兄弟', 'stars': ['天機', '太陰'], 'rules': [
 ]})
 T.append({'id': '天機巨門.兄弟', 'stars': ['天機', '巨門'], 'rules': [
  R('兄弟.機巨.吉', GOOD,
-   '天機巨門見吉，多是短暫的助力，不宜謀求長期合作。',
+   '天機巨門見〔吉〕，多是短暫的助力，不宜謀求長期合作。',
    'Tian Ji with Ju Men and good signs: help tends to be short-lived, so do not plan long partnerships.',
    '卯酉『天机巨门』守兄弟宫，见煞曜主始善终恶。见吉曜，则多短暂的助力，不宜谋求长期合作关系。', '不宜谋求长期合作关系'),
  R('兄弟.機巨.煞', SHA,
-   '天機巨門見煞，你的朋友關係容易始善終惡。',
+   '天機巨門見〔煞〕，你的朋友關係容易始善終惡。',
    'Tian Ji with Ju Men and harsh stars: friendships that start well tend to end badly.',
    '卯酉『天机巨门』守兄弟宫，见煞曜主始善终恶。', '见煞曜主始善终恶', 'limit'),
 ]})
@@ -90,7 +90,7 @@ T.append({'id': '天機天梁.兄弟', 'stars': ['天機', '天梁'], 'rules': [
    'Tian Ji with Tian Liang in your Siblings Palace: you have articulate friends.',
    '辰戌[机梁]主有能言善辩之友，见吉曜则诤谏之友。', '辰戌[机梁]主有能言善辩之友', 'base'),
  R('兄弟.機梁.吉', GOOD,
-   '見吉，你的朋友中有肯直言規勸的諍友。',
+   '見〔吉〕，你的朋友中有肯直言規勸的諍友。',
    'With good signs, you have friends who will tell you hard truths.',
    '辰戌[机梁]主有能言善辩之友，见吉曜则诤谏之友。', '见吉曜则诤谏之友'),
 ]})
@@ -120,7 +120,7 @@ T.append({'id': '太陽太陰.兄弟', 'stars': ['太陽', '太陰'], 'rules': [
 ]})
 T.append({'id': '太陽巨門.兄弟', 'stars': ['太陽', '巨門'], 'rules': [
  R('兄弟.陽巨.吉', GOOD,
-   '太陽巨門見吉，兄弟朋友都有助力，宜發展彼此有聯繫的業務。',
+   '太陽巨門見〔吉〕，兄弟朋友都有助力，宜發展彼此有聯繫的業務。',
    'Tai Yang with Ju Men and good signs: siblings and friends all help, so build business that links you together.',
    '寅申[太阳巨门]同度，见吉曜则兄弟友人皆有助力，宜发展彼此有联系的业务。', '宜发展彼此有联系的业务'),
  R('兄弟.陽巨.祿權', {'hua': ['祿', '權'], 'star': ['太陽', '巨門'], 'at': 'same'},
@@ -130,7 +130,7 @@ T.append({'id': '太陽巨門.兄弟', 'stars': ['太陽', '巨門'], 'rules': [
 ]})
 T.append({'id': '太陽天梁.兄弟', 'stars': ['太陽', '天梁'], 'rules': [
  R('兄弟.陽梁.輔佐', {'any': [FUZUO, KUIYUE]},
-   '太陽天梁見輔佐吉星，有可依靠的兄姊，或得朋友提攜。',
+   '太陽天梁見〔輔佐吉星〕，有可依靠的兄姊，或得朋友提攜。',
    'Tai Yang with Tian Liang and helper stars: an older sibling you can rely on, or friends who give you a leg up.',
    '见辅佐吉曜，则有可依靠之兄姊，或主得友人提携。', '则有可依靠之兄姊'),
 ]})
@@ -160,7 +160,7 @@ T.append({'id': '武曲天府.兄弟', 'stars': ['武曲', '天府'], 'rules': [
 ]})
 T.append({'id': '武曲貪狼.兄弟', 'stars': ['武曲', '貪狼'], 'rules': [
  R('兄弟.武貪.吉', GOOD,
-   '武曲貪狼見吉，你受兄弟朋友蔭庇，但不可爭權。',
+   '武曲貪狼見〔吉〕，你受兄弟朋友蔭庇，但不可爭權。',
    'Wu Qu with Tan Lang and good signs: siblings and friends shelter you, so long as you do not fight for control.',
    '丑未[武贪]，见吉化、吉曜，则可受兄弟友人之益荫，但不可争权。', '但不可争权'),
 ]})
@@ -198,11 +198,11 @@ T.append({'id': '天同巨門.兄弟', 'stars': ['天同', '巨門'], 'rules': [
 ]})
 T.append({'id': '天同天梁.兄弟', 'stars': ['天同', '天梁'], 'rules': [
  R('兄弟.同梁.吉', {'all': [GOOD, {'not': SHA}]},
-   '天同天梁見吉，你和兄弟朋友和好，只是容易離散。',
+   '天同天梁見〔吉〕，你和兄弟朋友和好，只是容易離散。',
    'Tian Tong with Tian Liang and good signs: siblings and friends get on, though they drift apart easily.',
    '见吉，则和好而易离散。', '见吉，则和好而易离散'),
  R('兄弟.同梁.煞', SHA,
-   '天同天梁見煞，兄弟朋友表面和好，內心各有打算。',
+   '天同天梁見〔煞〕，兄弟朋友表面和好，內心各有打算。',
    'Tian Tong with Tian Liang and harsh stars: siblings and friends look friendly but each has their own agenda.',
    '寅申宫『同梁]同度，稍见煞曜，即主兄弟或友人表面和好，内心各怀鬼胎。', '即主兄弟或友人表面和好', 'limit'),
 ]})
@@ -218,7 +218,7 @@ T.append({'id': '天同辰戌.兄弟', 'stars': ['天同'], 'branch': ['辰', '�
    'With Tian Tong in Chen or Xu, pointless arguments often come up between you and your siblings or friends.',
    '辰戌天同守兄弟宫，兄弟或友人间常多无谓争执。', '兄弟或友人间常多无谓争执', 'base'),
  R('兄弟.天同辰戌.輔佐', {'any': [FUZUO, KUIYUE]},
-   '見輔佐吉星，交友廣，也多合作機會，但仍要事事親力親為。',
+   '見〔輔佐吉星〕，交友廣，也多合作機會，但仍要事事親力親為。',
    'With helper stars, you have a wide circle and many chances to partner, though you still have to see to everything yourself.',
    '辰戌天同，见辅佐吉曜，亦主兄弟多，或交友广，且多与友人合作的机会，但仍必须事事亲力亲为。', '但仍必须事事亲力亲为'),
 ]})
@@ -248,13 +248,13 @@ T.append({'id': '廉貞天相.兄弟', 'stars': ['廉貞', '天相'], 'rules': [
 ]})
 T.append({'id': '廉貞七殺.兄弟', 'stars': ['廉貞', '七殺'], 'rules': [
  R('兄弟.廉殺.吉', {'any': [GOODHUA, FUZUO, KUIYUE]},
-   '廉貞七殺見吉，你可得朋友合作之力，帶挈自己。',
+   '廉貞七殺見〔吉〕，你可得朋友合作之力，帶挈自己。',
    'Lian Zhen with Qi Sha and good signs: friends partner with you and carry you forward.',
    '丑未[廉杀]见辅佐吉曜及吉化，可得友人合作之力，因而带挈自身。', '可得友人合作之力'),
 ]})
 T.append({'id': '廉貞破軍.兄弟', 'stars': ['廉貞', '破軍'], 'rules': [
  R('兄弟.廉破.吉', GOOD,
-   '廉貞破軍見吉，關係融洽持久，也可以合作經營，得力。',
+   '廉貞破軍見〔吉〕，關係融洽持久，也可以合作經營，得力。',
    'Lian Zhen with Po Jun and good signs: relationships are warm and lasting, and you can run a business together to good effect.',
    '卯酉宫『廉贞破军』同度，见火铃，兄弟或知交成仇。见吉曜及吉化，则可以融洽持久，且亦可合作营运事业，主得力。', '且亦可合作营运事业'),
 ]})
@@ -280,7 +280,7 @@ T.append({'id': '廉貞.兄弟', 'stars': ['廉貞'], 'rules': [
 # ── 天府 ──
 T.append({'id': '天府.兄弟', 'stars': ['天府'], 'rules': [
  R('兄弟.天府.輔佐', {'any': [FUZUO, KUIYUE]},
-   '天府見左輔右弼等吉星，你兄弟姊妹眾多。',
+   '天府見〔左輔右弼等吉星〕，你兄弟姊妹眾多。',
    'Tian Fu meets helper stars: you have many siblings.',
    '天府守兄弟宫，见煞忌刑曜主兄弟少或主多而刑克；见辅佐诸曜始主兄弟众多。', '见辅佐诸曜始主兄弟众多'),
  R('兄弟.天府.廉忌', H('忌', '廉貞', 'sifang'),
@@ -304,7 +304,7 @@ T.append({'id': '太陰.兄弟', 'stars': ['太陰'], 'rules': [
 # ── 貪狼 ──
 T.append({'id': '貪狼.兄弟', 'stars': ['貪狼'], 'rules': [
  R('兄弟.貪狼.和', {'all': [{'not': {'branch': ['巳', '亥']}}, GOOD]},
-   '貪狼在兄弟宮見吉，你和兄弟和睦，交友也廣闊。',
+   '貪狼在兄弟宮見〔吉〕，你和兄弟和睦，交友也廣闊。',
    'Tan Lang in your Siblings Palace with good signs: siblings get on, and your circle is wide.',
    '贪狼守兄弟宫，除巳亥二宫为贪狼陷地外，一般情形下均主兄弟和睦，亦主人交友广阔。', '一般情形下均主兄弟和睦'),
  R('兄弟.貪狼.酒肉', {'all': [{'not': {'branch': ['巳', '亥']}}, {'not': GOOD}]},
@@ -333,7 +333,7 @@ T.append({'id': '巨門.兄弟', 'stars': ['巨門'], 'rules': [
 # ── 天梁 ──
 T.append({'id': '天梁.兄弟', 'stars': ['天梁'], 'rules': [
  R('兄弟.天梁.輔佐', {'any': [FUZUO, KUIYUE]},
-   '天梁見輔佐吉星，兄弟和美；吉凶都在暗處，朋友多是暗中相助。',
+   '天梁見〔輔佐吉星〕，兄弟和美；吉凶都在暗處，朋友多是暗中相助。',
    'Tian Liang with helper stars: siblings are close; everything happens behind the scenes, so friends help you quietly.',
    '天梁吉，则主兄弟或友人暗生助力。凶恶则主暗争、排挤。吉凶皆在暗面而不在明面。', '则主兄弟或友人暗生助力'),
  R('兄弟.天梁.合作', None,
@@ -349,7 +349,7 @@ T.append({'id': '七殺.兄弟', 'stars': ['七殺'], 'rules': [
    'Qi Sha meeting Abundance, Authority or Merit with Zuo Fu or You Bi: many siblings.',
    '七杀守兄弟宫，见禄、权、科及辅弼，兄弟众多。', '见禄、权、科及辅弼，兄弟众多'),
  R('兄弟.七殺.煞', {'star': ['擎羊', '陀羅', '火星', '鈴星', '地空', '地劫'], 'at': 'sifang'},
-   '七殺會到煞星，你兄弟姊妹少，較為孤單。',
+   '七殺會到〔煞星〕，你兄弟姊妹少，較為孤單。',
    'Qi Sha meets harsh stars: you have few siblings and a more solitary path.',
    '七杀守兄弟宫，煞曜聚合者，则主孤单。', '煞曜聚合者，则主孤单', 'limit'),
 ]})
@@ -357,7 +357,7 @@ T.append({'id': '七殺.兄弟', 'stars': ['七殺'], 'rules': [
 # ── 破軍 ──
 T.append({'id': '破軍.兄弟', 'stars': ['破軍'], 'rules': [
  R('兄弟.破軍.吉', {'all': [FUZUO, KUIYUE, {'not': {'star': '祿存', 'at': 'same'}}]},
-   '破軍見齊輔佐吉星，你可以借別人之力創業。',
+   '破軍見齊〔輔佐吉星〕，你可以借別人之力創業。',
    'Po Jun with helper stars all round: you can build a venture on others’ strength.',
    '破军守兄弟宫而辅佐吉曜咸集，则可藉他人之力创业。(注意禄存同度时情形恰恰相反)。', '则可藉他人之力创业'),
  R('兄弟.破軍.年齡', None,

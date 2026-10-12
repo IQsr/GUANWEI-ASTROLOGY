@@ -52,7 +52,7 @@ T.append({'id': '紫微破軍.官祿', 'stars': ['紫微', '破軍'], 'rules': [
 ]})
 T.append({'id': '紫微天府.官祿', 'stars': ['紫微', '天府'], 'rules': [
  R('官祿.紫府.朝拱', {'all': [FUZUO, KUIYUE]},
-   '你的紫微天府得輔佐吉星拱照，事業可以有成。',
+   '你的紫微天府得〔輔佐吉星〕拱照，事業可以有成。',
    'Your Zi Wei–Tian Fu is surrounded by helper stars, so your career can come to something.',
    '寅申宫[紫微天府]同度，必须见百官司朝拱然后施主有成，', '必须见百官司朝拱然后施主有成'),
  R('官祿.紫府.無吉', {'not': {'any': [FUZUO, KUIYUE]}},
@@ -98,7 +98,7 @@ T.append({'id': '紫微七殺.官祿', 'stars': ['紫微', '七殺'], 'rules': [
    'Zi Wei in Merit strengthens your management and leadership.',
    '『紫杀』最喜紫微化科，可加强管理领导之力。', '可加强管理领导之力'),
  R('官祿.紫殺.祿馬', LUMA,
-   '見祿馬交馳，你一生要轉幾次行業，然後才安定。',
+   '祿星與天馬相會，你一生要轉幾次行業，然後才安定。',
    'With Lu and Tian Ma meeting, you change line of work a few times before you settle.',
    '[紫杀]见禄马交驰，一生三度转业然后始安定。', '一生三度转业然后始安定'),
 ]})
@@ -180,7 +180,7 @@ T.append({'id': '武曲天府.官祿', 'stars': ['武曲', '天府'], 'rules': [
    'Your Wu Qu–Tian Fu meets Lu without harsh stars, which suits finance or tax work.',
    '子午宫[武曲天府]对宫为七杀，无煞忌刑而有禄，则主为财赋之官，', '则主为财赋之官'),
  R('官祿.武府.煞', SHA,
-   '武曲天府與煞星同宮，你適合往工程、技藝方面發展。',
+   '武曲天府與〔煞星〕同宮，你適合往工程、技藝方面發展。',
    'Wu Qu–Tian Fu shares the palace with harsh stars: engineering and technical skills are the direction for you.',
    '[武曲天府]与煞曜同度，则宜工程技艺。亦以有禄为佳。', '则宜工程技艺'),
 ]})
@@ -200,17 +200,17 @@ T.append({'id': '武曲天相.官祿', 'stars': ['武曲', '天相'], 'rules': [
    'With Wu Qu and Tian Xiang in your Career Palace, you bring a hands-on edge to desk work, or a careful hand to field work; roles that span both suit you.',
    '寅申宫[武曲天相]，主文职武做，或武职文做。', '主文职武做，或武职文做', 'base'),
  R('官祿.武相.吉', GOODHUA,
-   '見吉化，你宜與人合作，而且要負實際責任。',
+   '見〔吉化〕，你宜與人合作，而且要負實際責任。',
    'With good transformations, partnership suits you, with real responsibility in your hands.',
    '[武曲天相]守事业宫，有吉化，亦主与人合作，且须负实际责任。', '且须负实际责任'),
 ]})
 T.append({'id': '武曲七殺.官祿', 'stars': ['武曲', '七殺'], 'rules': [
  R('官祿.武殺.本煞', SHA,
-   '同宮有煞，宜從事工程技藝，以帶金屬性質的為佳。',
+   '同宮有〔煞〕，宜從事工程技藝，以帶金屬性質的為佳。',
    'With harsh stars in the palace, engineering and technical work suits you, especially with metal.',
    '若煞在本宫，则仅主工程技艺。亦以带金属性质者为宜', '则仅主工程技艺'),
  R('官祿.武殺.紀律', {'all': [{'star': ['擎羊', '陀羅', '火星', '鈴星'], 'at': 'trine'}, {'not': SHA}]},
-   '三方有煞而本宮無煞，適合紀律部隊或制度嚴謹的機構出身。',
+   '三方有〔煞〕而本宮無煞，適合紀律部隊或制度嚴謹的機構出身。',
    'With harsh stars in the trines but not in the palace itself, a disciplined service or tightly run organisation is a good start for you.',
    '卯酉宫[武曲七杀]有煞曜在三方者，宜军旅出身。', '宜军旅出身'),
 ]})
@@ -226,7 +226,7 @@ T.append({'id': '武曲破軍.官祿', 'stars': ['武曲', '破軍'], 'rules': [
 ]})
 T.append({'id': '武曲.官祿', 'stars': ['武曲'], 'rules': [
  R('官祿.武曲.財經', GOODHUA,
-   '武曲是財星，又有吉化，你利於從事財經工作。',
+   '武曲是財星，又有〔吉化〕，你利於從事財經工作。',
    'Wu Qu is the wealth star, and well transformed it favours work in finance.',
    '武曲为财星，守事业宫时，利于从事财经工作，或为赋税官吏。此以得化禄、化权、化科者为宜。', '利于从事财经工作'),
  R('官祿.武曲.左右', FUZUO,
@@ -244,7 +244,7 @@ T.append({'id': '天同太陰.官祿', 'stars': ['天同', '太陰'], 'rules': [
 ]})
 T.append({'id': '天同巨門.官祿', 'stars': ['天同', '巨門'], 'rules': [
  R('官祿.同巨.煞忌', {'any': [SHA, {'hua': '忌', 'at': 'same'}]},
-   '天同巨門見煞忌，你的事業反而要經歷艱難，然後成就大業。',
+   '天同巨門見〔煞忌〕，你的事業反而要經歷艱難，然後成就大業。',
    'Tian Tong–Ju Men meets harsh stars or Hindrance: your career goes through hardship, and that is how you build something great.',
    '[天同巨门]见煞忌，反主历艰危而成大业。', '反主历艰危而成大业'),
  R('官祿.同巨.半途', None,
@@ -290,7 +290,7 @@ T.append({'id': '廉貞破軍.官祿', 'stars': ['廉貞', '破軍'], 'rules': [
    'Lian Zhen–Po Jun meets Lu: your career has the footing it needs to succeed.',
    '卯酉宫[廉贞破军]]必须见禄然后始主事业有成。', '必须见禄然后始主事业有成'),
  R('官祿.廉破.應酬', {'any': [GOODHUA, FUZUO, KUIYUE]},
-   '見吉，多因事業而應酬，又由應酬發展事業，所做的不只一門。',
+   '見〔吉〕，多因事業而應酬，又由應酬發展事業，所做的不只一門。',
    'With good signs, work brings socialising and socialising brings work, so you run more than one line.',
    '廉破守事业宫见吉，多因事业而应酗，又由应酬发展事业，故其所经营，不只一端。', '又由应酬发展事业'),
 ]})
@@ -476,11 +476,11 @@ T.append({'id': '七殺辰戌.官祿', 'stars': ['七殺'], 'branch': ['辰', '�
 ]})
 T.append({'id': '七殺.官祿', 'stars': ['七殺'], 'rules': [
  R('官祿.七殺.剛柔', {'all': [{'any': [FUZUO, KUIYUE]}, {'not': SHA}]},
-   '見輔佐吉星，管理上能剛柔相濟，號令得動很多人。',
+   '見〔輔佐吉星〕，管理上能剛柔相濟，號令得動很多人。',
    'With helper stars, you manage with both firmness and warmth, and can command many people.',
    '凡管理，必须恩威并济，七杀守事业宫者，威有余而恩不足，[紫微七杀]尤然。故以得辅弼、魁铖、三台八座朝拱同会者为贵，得此则自能则柔相济，虽千万人皆能号令。', '虽千万人皆能号令'),
  R('官祿.七殺.技', {'all': [SHA, {'not': {'star': '紫微', 'at': 'same'}}]},
-   '同宮有煞，你最好有一技傍身，不宜做管理。',
+   '同宮有〔煞〕，你最好有一技傍身，不宜做管理。',
    'With harsh stars in the palace, a specialist skill serves you better than management.',
    '七杀有煞曜同度，最宜一技傍身，故必需学习专门技术，不宜管理。', '最宜一技傍身'),
  R('官祿.七殺.本', {'not': SHA},

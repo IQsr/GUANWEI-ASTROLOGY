@@ -26,7 +26,7 @@ T.append({'id': '紫微破軍.子女', 'stars': ['紫微', '破軍'], 'rules': [
    'Flanked by Zuo Fu and You Bi, your children are capable and creative.',
    '只见昌曲夹，主子女聪明，只见左右夹，主子女得力，且富创造力。', '只见左右夹，主子女得力，且富创造力'),
  R('子女.紫破.煞', SHA,
-   '紫微破軍見煞，你的下屬晚輩帶反叛性。',
+   '紫微破軍見〔煞〕，你的下屬晚輩帶反叛性。',
    'Zi Wei with Po Jun and harsh stars: younger colleagues and staff have a rebellious streak.',
    '『紫破』见煞，一般主下属其反叛性。', '一般主下属其反叛性', 'limit'),
 ]})
@@ -36,7 +36,7 @@ T.append({'id': '紫微天相.子女', 'stars': ['紫微', '天相'], 'rules': [
    'With Zi Wei and Tian Xiang in your Children Palace, younger people generally support your work.',
    '[紫相]守子女宫，一般主有晚辈扶助自己的事业，若煞忌刑曜重重，则反为所累。', '一般主有晚辈扶助自己的事业'),
  R('子女.紫相.秀', GOOD,
-   '紫微天相見吉，子女出色，富同情心，只是仍然主觀，愛惡分明。',
+   '紫微天相見〔吉〕，子女出色，富同情心，只是仍然主觀，愛惡分明。',
    'Zi Wei with Tian Xiang and good signs: your children shine and are compassionate, though opinionated, with strong likes and dislikes.',
    '天相与紫微同度或对拱，主子女三人。见吉，子女秀发，富同情心，但仍主观，且爱恶随心而强烈。', '子女秀发，富同情心，但仍主观'),
 ]})
@@ -50,7 +50,7 @@ T.append({'id': '紫微七殺.子女', 'stars': ['紫微', '七殺'], 'rules': [
    'Zi Wei with Qi Sha makes for very strong-willed children; without Lu, a generation gap opens. The same goes for the younger people around you.',
    '巳亥『紫杀』，子女极强头。须见禄以调和，否则有代沟，晚辈性：质亦如是。', '否则有代沟', 'limit'),
  R('子女.紫殺.祿馬', LUMA,
-   '見祿馬交馳，子女能在遠方創業；你自己也桃李滿天下。',
+   '祿星與天馬相會，子女能在遠方創業；你自己也桃李滿天下。',
    'With Lu and Tian Ma meeting, your children can start ventures far away, and your own students and protégés spread far and wide.',
    '巳亥『紫杀』躔禄马，或与禄马对拱，主：子女能于远方创业。又主自己桃李满天下。', '又主自己桃李满天下'),
 ]})
@@ -126,7 +126,7 @@ T.append({'id': '太陽辰.子女', 'stars': ['太陽'], 'branch': ['辰'], 'rul
 ]})
 T.append({'id': '太陽巳亥.子女', 'stars': ['太陽'], 'branch': ['巳', '亥'], 'rules': [
  R('子女.太陽巳亥.吉', GOOD,
-   '太陽見吉，你的子女是創業或專業人才，而且偏商業。',
+   '太陽見〔吉〕，你的子女是創業或專業人才，而且偏商業。',
    'Tai Yang with good signs: your children are entrepreneurs or professionals, with a commercial bent.',
    '巳亥宫太阳见占化、古曜同会，子女亦为创业或专业人才，可参考『太阳巨门』，唯巳亥宫者，商业性质更重。', '子女亦为创业或专业人才'),
 ]})
@@ -188,7 +188,7 @@ T.append({'id': '天同巳亥.子女', 'stars': ['天同'], 'branch': ['巳', '�
 # ── 廉貞 ──
 T.append({'id': '廉貞七殺.子女', 'stars': ['廉貞', '七殺'], 'rules': [
  R('子女.廉殺.吉', {'all': [{'hua': ['祿', '權', '科'], 'at': 'same'}, {'any': [FUZUO, KUIYUE]}]},
-   '廉貞七殺見吉化，又有左輔右弼等吉星，你的子女成才。',
+   '廉貞七殺見〔吉化〕，又有〔左輔右弼等吉星〕，你的子女成才。',
    'Lian Zhen–Qi Sha meets favourable transformations and helper stars: your children make something of themselves.',
    '丑未[廉贞七杀]见吉化，及见辅佐吉曜则子女成才。', '则子女成才'),
  R('子女.廉殺.忌', H('忌', '廉貞'),
@@ -198,7 +198,7 @@ T.append({'id': '廉貞七殺.子女', 'stars': ['廉貞', '七殺'], 'rules': [
 ]})
 T.append({'id': '廉貞天府.子女', 'stars': ['廉貞', '天府'], 'rules': [
  R('子女.廉府.吉', GOOD,
-   '廉貞天府見吉，你的子女出色，有所成就。',
+   '廉貞天府見〔吉〕，你的子女出色，有所成就。',
    'Lian Zhen–Tian Fu meets good signs: your children are outstanding and go far.',
    '辰戌宫[廉贞天府]，见吉化吉曜主子女秀发贵显。', '见吉化吉曜主子女秀发贵显'),
 ]})
@@ -222,7 +222,7 @@ T.append({'id': '廉貞.子女', 'stars': ['廉貞'], 'rules': [
 # ── 天府 ──
 T.append({'id': '天府巳亥.子女', 'stars': ['天府'], 'branch': ['巳', '亥'], 'rules': [
  R('子女.天府巳亥.吉', {'any': [GOODHUA, LU]},
-   '天府見吉化或見祿，子女必能獨當一面，宜發展他們的組織力和領導力。',
+   '天府見〔吉化〕或見祿，子女必能獨當一面，宜發展他們的組織力和領導力。',
    'Tian Fu with good transformations or Lu: your children can certainly stand on their own; develop their organising and leadership skills.',
    '巳亥天府若见吉化、吉曜，或府库充盈，则子女必能独当一面，宜发展其组织力及领导力。', '则子女必能独当一面'),
  R('子女.天府巳亥.火鈴', FIRE,
@@ -260,11 +260,11 @@ T.append({'id': '貪狼.子女', 'stars': ['貪狼'], 'rules': [
    'With Huo Xing or Ling Xing in the palace, the generations start close, but cool over time.',
    '贪狼与火铃同度，主两代感情起初融洽，至后来却冷如冰炭。', '主两代感情起初融洽'),
  R('子女.貪狼.吉', {'all': [GOOD, {'not': FIRE}]},
-   '貪狼見吉，你和子女兩代和好，相處融洽。',
+   '貪狼見〔吉〕，你和子女兩代和好，相處融洽。',
    'Tan Lang meets good signs: you and your children get on well.',
    '贪狼在子女宫，见吉，主父子和好；若见煞忌则父子不和。', '贪狼在子女宫，见吉，主父子和好'),
  R('子女.貪狼.煞', {'all': [SHA, {'not': GOOD}]},
-   '貪狼見煞忌，你和子女兩代不和，容易起衝突。',
+   '貪狼見〔煞忌〕，你和子女兩代不和，容易起衝突。',
    'Tan Lang meets harsh stars or Hindrance: you and your children do not get on, and clashes come easily.',
    '贪狼在子女宫，见吉，主父子和好；若见煞忌则父子不和。', '若见煞忌则父子不和', 'limit'),
 ]})
@@ -280,7 +280,7 @@ T.append({'id': '巨門巳亥.子女', 'stars': ['巨門'], 'branch': ['巳', '�
 # ── 天相 ──
 T.append({'id': '廉貞天相.子女', 'stars': ['廉貞', '天相'], 'rules': [
  R('子女.廉相.吉', GOOD,
-   '天相與廉貞同宮而見吉，你的子女是行政人才。',
+   '天相與廉貞同宮而見〔吉〕，你的子女是行政人才。',
    'Tian Xiang with Lian Zhen and good signs: your children are natural administrators.',
    '若与廉贞同度或对拱，则仅主二人，吉则子女为行政人才，凶则刑克，且主代沟。', '吉则子女为行政人才'),
 ]})
@@ -298,7 +298,7 @@ T.append({'id': '天梁子午.子女', 'stars': ['天梁'], 'branch': ['子', '�
 ]})
 T.append({'id': '天梁丑未.子女', 'stars': ['天梁'], 'branch': ['丑', '未'], 'rules': [
  R('子女.天梁丑未.煞', SHA,
-   '同宮有煞，子女宜學工程或工藝，現代多是電訊、電子、電腦工程。',
+   '同宮有〔煞〕，子女宜學工程或工藝，現代多是電訊、電子、電腦工程。',
    'With harsh stars in the palace, your children should study engineering or a craft, these days telecoms, electronics or computing.',
    '丑未天梁，煞曜同度，子女宜学习工程或工艺。在现代又往往为电讯、电子、计算机工程。', '在现代又往往为电讯、电子、计算机工程'),
  R('子女.天梁丑未.少', None,
@@ -308,7 +308,7 @@ T.append({'id': '天梁丑未.子女', 'stars': ['天梁'], 'branch': ['丑', '�
 ]})
 T.append({'id': '天梁.子女', 'stars': ['天梁'], 'rules': [
  R('子女.天梁.吉', {'all': [GOOD, {'not': SHA}]},
-   '天梁見吉，你手下的人眾多而且得力。',
+   '天梁見〔吉〕，你手下的人眾多而且得力。',
    'Tian Liang meets good signs: you have many capable people working under you.',
    '天梁见吉化吉曜，亦主手下人众多，且得力，唯若同时见煞，则亦主手下人可能对自己不利。', '亦主手下人众多，且得力'),
 ]})
