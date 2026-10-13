@@ -25,13 +25,14 @@
  * 一個元素自己宣告嘅變數贏繼承返嚟嘅，夜讀模式之下本書都係紙色。
  *
  * ⚠ `.fanye-tai`（翻頁嗰頁紙）掛喺 body，唔喺本書入面 —— 唔喺呢度宣告就會跟 `:root`
- * 嘅夜讀值，深色模式之下翻嗰頁變咗黑色（2026-09，Issac 撞到）。
+ * 嘅夜讀值，深色模式之下翻嗰頁變咗黑色（2026-09，Issac 撞到）。`.yindao`（第一次打開嘅引導紙箋）一樣。
  */
 :root,
 .ye-ink .shu-wrap,
 .ye-ink .fan-wrap,
 .ye-ink .shuzhuo,
-.fanye-tai {
+.fanye-tai,
+.yindao {
   /* ── 紙 ── */
   --paper: #eee6d8;
   --paper-2: #e6dcc9;
@@ -149,7 +150,8 @@
 .ye-ink .shu-wrap:lang(zh-Hans),
 .ye-ink .fan-wrap:lang(zh-Hans),
 .ye-ink .shuzhuo:lang(zh-Hans),
-.fanye-tai:lang(zh-Hans) {
+.fanye-tai:lang(zh-Hans),
+.yindao:lang(zh-Hans) {
   --font-serif-stack: "Playfair Display Variable", "Noto Serif SC Variable", "Noto Serif SC", "Songti SC",
     "Source Han Serif SC", serif;
   --font-latin-stack: "Playfair Display Variable", "Noto Serif SC Variable", Georgia, serif;
@@ -3022,7 +3024,7 @@
 
    兩條窄邊擺喺頁邊留白入面：左頁嘅左邊、右頁嘅右邊。
    ⚠ 右邊嗰條離頁邊 10px —— 讓出右頁嘅捲動條，唔好蓋住佢拉唔到。
-   平時透明；滑鼠移過去（或者鍵盤 focus）先有一條影同一個箭嘴。
+   平時淡淡一個箭嘴；滑鼠移過去（或者鍵盤 focus）先有一條影、箭嘴變實。
    ============================================================ */
 
 .shuzhuo-bian {
@@ -3038,7 +3040,8 @@
   font-family: var(--font-serif-stack);
   font-size: 1.75rem;
   line-height: 1;
-  opacity: 0;
+  /* 2026-10-13：平時淡淡見到個箭嘴（以前 0，引導收咗之後讀者唔記得書邊撳得） */
+  opacity: 0.3;
   transition:
     opacity var(--dur-1) var(--motion-ease-ink),
     background var(--dur-1) var(--motion-ease-ink);
@@ -4330,4 +4333,149 @@ select.zhou-xian {
 .ju:focus-visible {
   outline: 1px solid var(--indigo);
   outline-offset: 2px;
+}
+
+/*
+ * ── 第一次打開本書嘅引導（`Yindao`，2026-10-13）──────────────
+ *
+ * 兩張紙箋：右頁底教捲、下一頁窄邊旁教翻。同書頁入面嘅卡（`.shuzhuo-you .ka`）一樣嘅紙箋樣 ——
+ * 深一級紙色 ＋ 淡金框，好似夾喺書頁上嘅一張便條。fixed 定位，位由 JS 按真實嘅頁同窄邊度。
+ * 引導出緊嗰陣，下一頁窄邊亮起、輕輕閃（`data-yindao`）。
+ * 箭嘴同窄邊郁三下就停（全站唔准無限迴圈嘅動畫 —— test/zhanjuan.test.ts）。
+ */
+.yindao {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  pointer-events: none;
+}
+
+.yindao-jian {
+  position: fixed;
+  max-width: min(17rem, calc(100vw - 32px));
+  padding: 12px 16px;
+  border: 1px solid color-mix(in srgb, var(--gold) 70%, transparent);
+  border-radius: 3px;
+  background: var(--paper-2);
+  color: var(--ink);
+  font-family: var(--font-sans-stack);
+  font-size: 0.875rem;
+  line-height: 1.6;
+  box-shadow: 0 10px 28px -12px rgb(40 30 15 / 0.45);
+  pointer-events: auto;
+  animation: yindao-chu 420ms var(--motion-ease-ink) both;
+}
+
+.yindao-jian p {
+  margin: 0;
+}
+
+/* 捲：置中、貼住頁底 */
+.yindao-juan {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: max-content;
+  transform: translate(-50%, -100%);
+  white-space: nowrap;
+}
+
+.yindao-xia {
+  color: var(--cinnabar);
+  font-size: 1.1rem;
+  animation: yindao-xia 1.6s ease-in-out 3;
+}
+
+/* 翻：右邊貼住窄邊（用 right 定位 —— 用 left 嘅話張紙箋會畀屏邊擠窄）、上下置中 */
+.yindao-fan {
+  width: max-content;
+  transform: translateY(-50%);
+}
+
+.yindao-fan .yindao-ci {
+  margin-top: 4px;
+  color: var(--ink-2);
+  font-size: 0.8125rem;
+}
+
+.yindao-fan button {
+  margin-top: 10px;
+  padding: 4px 14px;
+  border: 1px solid color-mix(in srgb, var(--gold) 70%, transparent);
+  border-radius: 2px;
+  background: transparent;
+  color: var(--ink);
+  font: inherit;
+  font-size: 0.8125rem;
+  cursor: pointer;
+}
+
+.yindao-fan button:hover {
+  background: color-mix(in srgb, var(--gold) 18%, transparent);
+}
+
+.yindao-fan button:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+/* 紙箋右邊一個尖角指住窄邊 */
+.yindao-you {
+  position: absolute;
+  top: 50%;
+  right: -14px;
+  color: var(--cinnabar);
+  font-family: var(--font-serif-stack);
+  font-size: 1.4rem;
+  line-height: 1;
+  transform: translateY(-50%);
+  animation: yindao-you 1.6s ease-in-out 3;
+}
+
+/* 下一頁窄邊亮起、輕輕閃 */
+.shuzhuo-shu[data-yindao] .shuzhuo-bian-you {
+  opacity: 1;
+  color: var(--cinnabar);
+  background: linear-gradient(to left, color-mix(in srgb, var(--gold) 26%, transparent), transparent);
+  animation: yindao-liang 1.6s ease-in-out 3;
+}
+
+@keyframes yindao-chu {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes yindao-xia {
+  50% {
+    translate: 0 4px;
+  }
+}
+
+@keyframes yindao-you {
+  50% {
+    translate: 4px 0;
+  }
+}
+
+@keyframes yindao-liang {
+  50% {
+    opacity: 0.55;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .yindao-jian,
+  .yindao-xia,
+  .yindao-you,
+  .shuzhuo-shu[data-yindao] .shuzhuo-bian-you {
+    animation: none;
+  }
+}
+
+/* 手機：紙箋細啲，翻嗰張唔好闊過屏一半太多 */
+@media (max-width: 899px) {
+  .yindao-fan {
+    max-width: min(14rem, calc(100vw - 72px));
+  }
 }

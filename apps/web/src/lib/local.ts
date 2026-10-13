@@ -27,6 +27,11 @@ export const LOCAL_KEYS = {
    * 只係防同一本書記錄兩次（記錄本身唔連書，所以要喺讀者部機度記）。
    */
   shiyan: 'gw-shiyan',
+  /**
+   * 第一次打開本書嘅引導（`Yindao`，2026-10-13）學識咗邊樣：`{"scroll":true,"flip":true}`。
+   * 冇生辰、冇內容 —— 只係唔使每次都教一次。
+   */
+  yindao: 'gw-yindao',
 } as const;
 
 export type LocalKey = keyof typeof LOCAL_KEYS;

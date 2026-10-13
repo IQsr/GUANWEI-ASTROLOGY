@@ -457,7 +457,14 @@
     "layerDecadalCap": "Decade · ages {from}–{to}",
     "layerAnnualCap": "{year} ({ganzhi}) · age {age}",
     "prevFold": "Previous fold",
-    "nextFold": "Next fold"
+    "nextFold": "Next fold",
+    "guideLabel": "Reading tips",
+    "guideScroll": "Scroll down to keep reading",
+    "guideFlip": "Click the right edge of the page to turn to the next one",
+    "guideFlipMore": "The left edge turns back. The ← → keys work too.",
+    "guideFlipTouch": "Tap the arrow on the right to turn to the next page",
+    "guideFlipTouchMore": "The arrow on the left turns back.",
+    "guideGotIt": "Got it"
   },
   "consent": {
     "title": "Before you begin",

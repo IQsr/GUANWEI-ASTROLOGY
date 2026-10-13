@@ -460,7 +460,14 @@
     "layerDecadalCap": "大限 {from}–{to} 歲",
     "layerAnnualCap": "{year} {ganzhi}年 · 虛歲 {age}",
     "prevFold": "上一摺",
-    "nextFold": "下一摺"
+    "nextFold": "下一摺",
+    "guideLabel": "閱讀提示",
+    "guideScroll": "向下捲動，繼續閱讀",
+    "guideFlip": "點書頁右緣，翻到下一頁",
+    "guideFlipMore": "左緣翻回上一頁；鍵盤的 ← → 也可以。",
+    "guideFlipTouch": "點右邊的箭頭，翻到下一頁",
+    "guideFlipTouchMore": "左邊的箭頭翻回上一頁。",
+    "guideGotIt": "知道了"
   },
   "consent": {
     "title": "開始之前",

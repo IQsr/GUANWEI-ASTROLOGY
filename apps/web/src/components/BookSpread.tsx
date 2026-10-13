@@ -9,6 +9,7 @@ import { Zhanjuan } from '@/components/Zhanjuan';
 import { GROW_MS } from '@/lib/timing';
 import { usePathname } from 'next/navigation';
 import { TurnEdges, type PageTurn } from '@/components/TurnEdges';
+import { Yindao } from '@/components/Yindao';
 import { TURNING_ATTR } from '@/components/PageTurnLink';
 import { OPENING_SLOT, chartStateAt, resolveSlot } from '@/lib/suidu';
 import type { Chart as ZChart } from '@guanwei/ziwei/contract';
@@ -317,6 +318,8 @@ export function BookSpread({
       <article ref={book} className="shuzhuo-shu" data-tone={tone}>
         {/* 撳左邊翻前、撳右邊翻後；← → 一樣 */}
         <TurnEdges prev={edgePrev} next={edgeNext} fold={turnFold} />
+        {/* 第一次打開：教捲、教翻（記低咗就唔再出） */}
+        <Yindao book={book} page={page} hasNext={Boolean(edgeNext)} pathname={pathname} ready={grown} />
         {/* 左頁：命盤。個盤 aria-hidden —— 盤面嘅資訊正文已經講晒，讀屏唔使讀兩次；揀層嗰排掣唔收 */}
         <div className="shuzhuo-ye shuzhuo-zuo">
           {left && !showPlate ? (
