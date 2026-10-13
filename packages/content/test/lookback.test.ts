@@ -32,14 +32,14 @@ describe('回看過去', () => {
     for (const s of got) if (s) expect(yearsOf(s.text)).toBeLessThanOrEqual(3);
   });
 
-  it('只講過去（寫書嗰年之前）、虛歲十八之後', () => {
+  it('只講過去（寫書嗰年之前）、虛歲十二之後（2026-10-13 由十八改）', () => {
     for (const c of CHARTS) {
       const s = lookBack(c, 2026);
       if (!s) continue;
       for (const m of s.text.matchAll(/([〇一二三四五六七八九]{4})年（/g)) {
         const y = Number([...m[1]!].map((d) => '〇一二三四五六七八九'.indexOf(d)).join(''));
         expect(y).toBeLessThan(2026);
-        expect(y - c.lunar.y + 1).toBeGreaterThanOrEqual(18);
+        expect(y - c.lunar.y + 1).toBeGreaterThanOrEqual(12);
       }
     }
   });

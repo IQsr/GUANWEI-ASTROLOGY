@@ -397,9 +397,61 @@ const LU_AREA: Record<string, Area> = {
   福德: { gist: '心境比較安穩', eg: '像是心情安定，有時間做自己喜歡的事' },
   父母: { gist: '和長輩或上司之間比較順', eg: '像是得到長輩或上司提攜' },
 };
+/**
+ * 後生讀者（2026-10-13 · 讀者 feedback：「後生啲嘅讀者覺得回看太短」）：
+ * 以前由虛歲十八先揀，廿幾歲嘅人得一兩年。而家由十二歲（中學）起，
+ * 十二至十七歲用讀書年代嘅例子；夫妻、子女、財帛、疾厄嗰幾方面嗰個年紀唔講（冇得對、亦唔應該講）；
+ * 錢、感情、身體、出行、是非嗰幾條書上嘅條件（`lookBackEvent`）亦唔用喺十八歲之前。
+ * 十八至二十四歲：工作、錢兩方面換做讀書、第一份工、兼職嘅講法。
+ */
+export const LOOKBACK_FROM_AGE = 12;
+const TEEN_JI: Record<string, Area> = {
+  命宮: { gist: '你自己的狀態起伏較大', eg: '像是對自己沒信心，心情時好時壞' },
+  兄弟: { gist: '和同學朋友之間比較費心', eg: '像是和要好的同學鬧翻，或者在班上覺得格格不入' },
+  僕役: { gist: '和同學朋友之間比較費心', eg: '像是和要好的同學鬧翻，或者在班上覺得格格不入' },
+  遷移: { gist: '身邊的環境變化大', eg: '像是轉校、搬到新的地方，要重新適應' },
+  官祿: { gist: '讀書上比較吃力', eg: '像是成績起伏、考試壓力大，或者對要讀的科目提不起勁' },
+  田宅: { gist: '住處或家裡的事變動較多', eg: '像是搬屋，或者家裡的安排改變了你的日常' },
+  福德: { gist: '心事較多，不容易靜下來', eg: '像是有心事不知道跟誰講' },
+  父母: { gist: '和父母或老師之間要磨合的事較多', eg: '像是和父母意見不合，或者和老師相處不來' },
+};
+const TEEN_LU: Record<string, Area> = {
+  命宮: { gist: '你自己的狀態比較順', eg: '像是做事特別有信心，或者找到自己真正喜歡的東西' },
+  兄弟: { gist: '和同學朋友之間比較順', eg: '像是交到後來一直來往的好朋友' },
+  僕役: { gist: '和同學朋友之間比較順', eg: '像是交到後來一直來往的好朋友' },
+  遷移: { gist: '外出的機會較多', eg: '像是參加交流、旅行或課外活動，眼界打開了' },
+  官祿: { gist: '讀書上有起色', eg: '像是成績進步、考進想讀的學校，或者某一科突然開竅' },
+  田宅: { gist: '住處或家裡的事安頓下來', eg: '像是搬到更舒服的地方，或者家裡的安排讓你更自在' },
+  福德: { gist: '心境比較安穩', eg: '像是有了自己的興趣，玩得開心' },
+  父母: { gist: '和父母或老師之間比較順', eg: '像是得到老師賞識，或者家人支持你的決定' },
+};
+const YOUNG_JI: Record<string, Area> = {
+  官祿: { gist: '讀書或工作上變動較多，事情不容易照計劃走', eg: '像是轉科、找工作不順，或者第一份工做得不開心' },
+  財帛: { gist: '錢方面比較吃緊', eg: '像是生活費緊張，或者兼職收入不穩' },
+  疾厄: { gist: '身心負荷較重，容易覺得累', eg: '像是趕功課、溫習或工作到夜深，作息被打亂，總覺得睡不夠' },
+};
+const YOUNG_LU: Record<string, Area> = {
+  官祿: { gist: '讀書或工作上有轉機', eg: '像是考進想讀的學系，或者找到合心意的第一份工' },
+  財帛: { gist: '錢方面有轉機', eg: '像是兼職或第一份工的收入不錯，或者拿到獎學金' },
+};
+/** 按嗰年嘅虛歲揀方面講法；十八歲前冇嗰方面就回 undefined（唔講）。 */
+function areaAt(palace: string | null | undefined, age: number, kind: '忌' | '祿'): Area | undefined {
+  if (!palace) return undefined;
+  const adult = kind === '忌' ? JI_AREA : LU_AREA;
+  if (age < 18) return (kind === '忌' ? TEEN_JI : TEEN_LU)[palace];
+  if (age <= 24) return (kind === '忌' ? YOUNG_JI : YOUNG_LU)[palace] ?? adult[palace];
+  return adult[palace];
+}
+
 /** 換大限嗰年：按年紀舉例 */
 const turnEg = (age: number) =>
-  age <= 24 ? '像是升學、畢業或出來工作' : age <= 40 ? '像是轉工、轉行、搬屋或成家' : '像是工作崗位、住處或家庭角色有了變化';
+  age < 18
+    ? '像是升中、轉校或換了一班同學'
+    : age <= 24
+      ? '像是升學、畢業或出來工作'
+      : age <= 40
+        ? '像是轉工、轉行、搬屋或成家'
+        : '像是工作崗位、住處或家庭角色有了變化';
 
 const NATAL_SHA = ['擎羊', '陀羅', '火星', '鈴星'];
 
@@ -460,7 +512,7 @@ export function lookBack(chart: Chart, year: number): DaxianSegment | null {
   const pivot = pivotRule(chart, 'year');
   type Cand = { y: number; gz: string; age: number; score: number; key: boolean; event: string | null; parts: string[]; sources: string[] };
   const cands: Cand[] = [];
-  for (let y = born + 17; y < year; y++) {
+  for (let y = born + LOOKBACK_FROM_AGE - 1; y < year; y++) {
     const r = annual(chart, y);
     if (!r.ok) continue;
     const A = r.value;
@@ -474,27 +526,28 @@ export function lookBack(chart: Chart, year: number): DaxianSegment | null {
     }
     const ji = A.sihua.annual.find((h) => h.hua === '忌');
     const lu = A.sihua.annual.find((h) => h.hua === '祿');
-    const jiA = ji?.annualPalace ? JI_AREA[ji.annualPalace] : undefined;
+    const jiA = areaAt(ji?.annualPalace, A.nominalAge, '忌');
     /* 心情、身心、自己嗰三方面一吃緊一順利，讀落自相矛盾（「心事較多⋯同一年身心鬆得下來」）：唔並講 */
     const MOOD = ['命宮', '福德', '疾厄'];
     const clash = Boolean(ji?.annualPalace && lu?.annualPalace && MOOD.includes(ji.annualPalace) && MOOD.includes(lu.annualPalace));
-    const luA = lu?.annualPalace && lu.annualPalace !== ji?.annualPalace && !clash ? LU_AREA[lu.annualPalace] : undefined;
+    const luA = lu?.annualPalace && lu.annualPalace !== ji?.annualPalace && !clash ? areaAt(lu.annualPalace, A.nominalAge, '祿') : undefined;
     /*
      * 書入面身體、出行、是非、錢嘅條件（一本書最多兩年，見下面）。
      * 佢講嘅就係呢年化忌嘅事，所以中咗就唔再出化忌嗰方面嘅句，免得同一件事講兩次。
      */
-    const event = lookBackEvent(chart, A);
+    const event = A.nominalAge >= 18 ? lookBackEvent(chart, A) : null;
     if (event) {
       parts.push(event.text);
       sources.push(...event.sources.map((x) => x.passage_id));
       score += 3;
-      if (luA) parts.push(`同一年，${luA.gist}`);
+      if (luA) parts.push(`同一年，${luA.gist}，${luA.eg}`);
     } else if (jiA) {
       /* 換大限嗰年已經有一組例子：方面只講一句，唔好兩串「像是」 */
       parts.push(turn ? jiA.gist : `${jiA.gist}，${jiA.eg}`);
       sources.push('huigu.env');
       score += ['官祿', '夫妻', '田宅', '遷移', '財帛', '疾厄'].includes(ji!.annualPalace!) ? 2 : 1;
-      if (luA) parts.push(`同一年，${luA.gist}`);
+      /* 每年多講少少（2026-10-13）：順嗰方面都舉例；換大限嗰年已經有一組例子，唔好再加 */
+      if (luA) parts.push(turn ? `同一年，${luA.gist}` : `同一年，${luA.gist}，${luA.eg}`);
     } else if (luA) {
       parts.push(turn ? luA.gist : `${luA.gist}，${luA.eg}`);
       sources.push('huigu.env');
@@ -511,7 +564,8 @@ export function lookBack(chart: Chart, year: number): DaxianSegment | null {
   const picked: Cand[] = [];
   for (const c of [...cands].sort((a, b) => b.score - a.score || b.y - a.y)) {
     if (picked.length >= 3) break;
-    if (picked.some((p) => Math.abs(p.y - c.y) < 3)) continue;
+    /* 後生讀者（寫書時虛歲三十以下）走過嘅年份少：年份之間隔兩年就得 */
+    if (picked.some((p) => Math.abs(p.y - c.y) < (year - born < 30 ? 2 : 3))) continue;
     /* 身體、出行、是非、錢一本書最多講兩年 —— 三年都係難關，讀落似咒 */
     if (c.event && picked.filter((p) => p.event).length >= 2) continue;
     /* 同一類（例如兩年都係是非）只講一次：同一句出兩次，讀落似模板 */

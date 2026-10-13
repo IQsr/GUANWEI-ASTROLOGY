@@ -116,6 +116,7 @@ const RULES = (rulesRaw as { rules: { id: string; text: string }[] }).rules.map(
 
 /* ── 回看過去（daxian.ts lookBack；過去式） ── */
 const TURN_EG: Record<string, string> = {
+  '像是升中、轉校或換了一班同學': 'such as starting secondary school, changing schools or finding yourself among new classmates',
   '像是升學、畢業或出來工作': 'such as moving up in school, graduating or starting work',
   '像是轉工、轉行、搬屋或成家': 'such as changing jobs or careers, moving house or starting a family',
   '像是工作崗位、住處或家庭角色有了變化': 'such as a change in your role at work, where you lived or your place in the family',
@@ -178,6 +179,38 @@ const GIST_EN: Record<string, string> = {
   '像是心情安定，有時間做自己喜歡的事': 'for example, feeling settled, with time for things you enjoy',
   '和長輩或上司之間比較順': 'things went relatively smoothly with elders or bosses',
   '像是得到長輩或上司提攜': 'for example, being helped along by an elder or a boss',
+  /* 十二至二十四歲（2026-10-13） */
+  '像是對自己沒信心，心情時好時壞': "for example, doubting yourself, with your mood up one day and down the next",
+  '和同學朋友之間比較費心': "things with classmates and friends took more effort",
+  '像是和要好的同學鬧翻，或者在班上覺得格格不入': "for example, falling out with a close classmate, or feeling out of place in your class",
+  '身邊的環境變化大': "your surroundings changed a lot",
+  '像是轉校、搬到新的地方，要重新適應': "for example, changing schools or moving somewhere new and having to adjust",
+  '讀書上比較吃力': "school felt harder going",
+  '像是成績起伏、考試壓力大，或者對要讀的科目提不起勁': "for example, uneven grades, exam pressure, or subjects you couldn't get interested in",
+  '像是搬屋，或者家裡的安排改變了你的日常': "for example, moving house, or family arrangements changing your daily routine",
+  '像是有心事不知道跟誰講': "for example, having something on your mind and not knowing who to tell",
+  '和父母或老師之間要磨合的事較多': "there was more to work out with parents or teachers",
+  '像是和父母意見不合，或者和老師相處不來': "for example, disagreeing with your parents, or not getting on with a teacher",
+  '像是做事特別有信心，或者找到自己真正喜歡的東西': "for example, feeling especially sure of yourself, or finding something you truly loved",
+  '和同學朋友之間比較順': "things with classmates and friends went well",
+  '像是交到後來一直來往的好朋友': "for example, making a friend you have kept ever since",
+  '外出的機會較多': "there were more chances to get out and about",
+  '像是參加交流、旅行或課外活動，眼界打開了': "for example, an exchange, a trip or activities outside class that opened your eyes",
+  '讀書上有起色': "school picked up",
+  '像是成績進步、考進想讀的學校，或者某一科突然開竅': "for example, better grades, getting into the school you wanted, or a subject suddenly clicking",
+  '住處或家裡的事安頓下來': "things at home settled down",
+  '像是搬到更舒服的地方，或者家裡的安排讓你更自在': "for example, moving somewhere more comfortable, or family arrangements that put you more at ease",
+  '像是有了自己的興趣，玩得開心': "for example, finding a hobby of your own and enjoying it",
+  '和父母或老師之間比較順': "things went well with parents or teachers",
+  '像是得到老師賞識，或者家人支持你的決定': "for example, a teacher recognising you, or your family backing your choices",
+  '讀書或工作上變動較多，事情不容易照計劃走': "study or work changed a lot, and things didn't easily go to plan",
+  '像是轉科、找工作不順，或者第一份工做得不開心': "for example, switching courses, a hard job hunt, or a first job you didn't enjoy",
+  '錢方面比較吃緊': "money was tight",
+  '像是趕功課、溫習或工作到夜深，作息被打亂，總覺得睡不夠': 'for example, late nights over assignments, revision or work, a disrupted routine, never feeling you had enough sleep',
+  '像是生活費緊張，或者兼職收入不穩': "for example, living costs stretching you, or part-time income that came and went",
+  '讀書或工作上有轉機': "study or work took a turn for the better",
+  '像是考進想讀的學系，或者找到合心意的第一份工': "for example, getting into the course you wanted, or landing a first job you liked",
+  '像是兼職或第一份工的收入不錯，或者拿到獎學金': "for example, good pay from part-time work or a first job, or winning a scholarship",
 };
 
 function lookPart(zh: string, missing: string[]): string {
@@ -186,6 +219,13 @@ function lookPart(zh: string, missing: string[]): string {
   if (EVENT_EN[zh]) return EVENT_EN[zh]!;
   m = /^同一年，(.+)$/.exec(zh);
   if (m && GIST_EN[m[1]!]) return `in the same year, ${GIST_EN[m[1]!]}`;
+  /* 同一年 ＋ 例子（2026-10-13）：「同一年，錢方面有轉機，像是⋯」 */
+  if (m) {
+    const j = m[1]!.indexOf('，像是');
+    const g = m[1]!.slice(0, j);
+    const e = m[1]!.slice(j + 1);
+    if (j > 0 && GIST_EN[g] && GIST_EN[e]) return `in the same year, ${GIST_EN[g]}, ${GIST_EN[e]}`;
+  }
   if (GIST_EN[zh]) return GIST_EN[zh]!;
   /* 方面 ＋ 例子：「工作上變動較多，事情不容易照計劃走，像是轉工⋯」—— 喺「，像是」切開 */
   const i = zh.indexOf('，像是');
