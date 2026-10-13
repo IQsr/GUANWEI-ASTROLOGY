@@ -117,8 +117,9 @@ export function yearChapter(input: { chart: Chart; year: number }): { slug: stri
   /* 流年四化（四方面已經講咗嘅唔再講） */
   const huaLines = hits.filter((h) => !areas.used.has(`${h.star}${h.hua}`)).map((h) => {
     const m = DAXIAN_HUA.find((e) => e.star === h.star && e.hua === h.hua);
-    const where = h.annualPalace ? `（在這一年的${palaceLabel(h.annualPalace)}）` : '';
-    return { text: m ? `${h.star}化${h.hua}${where}：${m.text}` : '', id: m?.id ?? null };
+    /* 2026-10-13：「天機化權（在這一年的疾厄宮）：⋯」改做一句話，唔再括號加冒號 */
+    const where = h.annualPalace ? `落在這一年的${palaceLabel(h.annualPalace)}` : '';
+    return { text: m ? `${h.star}化${h.hua}${where}${where ? '，' : '：'}${m.text}` : '', id: m?.id ?? null };
   });
 
   /* 互動 */
@@ -154,7 +155,7 @@ export function yearChapter(input: { chart: Chart; year: number }): { slug: stri
     /* 流魁流鉞冲起本命魁鉞（深造講義 p.8、9，`kuiyue.ts`） */
     ...(kuiyueRises(chart, A.mingGong, A.liuyao.annual) ? [seg('魁鉞', KUIYUE_TEXT.year, KUIYUE_SOURCE)] : []),
     ...areas.segments,
-    seg('四化', huaLines.length && areas.segments.length ? `四化各自的意思：${huaLines.map((l) => l.text).join('')}` : huaLines.map((l) => l.text).join(''), huaLines.map((l) => l.id).filter(Boolean).join('+') || null),
+    seg('四化', huaLines.map((l) => l.text).join(''), huaLines.map((l) => l.id).filter(Boolean).join('+') || null),
     ...(interSeg ? [seg('互動', interSeg.text, interSeg.id)] : []),
     ...(advice ? [advice] : []),
     seg('逐月', months.text, months.source_id),

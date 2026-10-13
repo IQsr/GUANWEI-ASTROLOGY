@@ -348,11 +348,11 @@ export function timeTemplate(s: string, missing: string[], h: TimeHelpers): stri
   if (m && n(m[1]!)) return `The stages after that begin at ${ageStart(n(m[1]!)!)} and aren't listed here.`;
 
   /* ── 回看過去 ── */
-  m = /^(回看你走過的路：)?(\S+?)年（(\S)(\S)年，你虛歲(\S+?)），(.+)。$/.exec(s);
+  m = /^(回看你走過的路[：，])?(\S+?)年（(\S)(\S)年，你虛歲(\S+?)），(.+)。$/.exec(s);
   if (m && n(m[2]!) && n(m[5]!) && STEM_EN[m[3]!] && BRANCH_EN[m[4]!]) {
     const when = `${n(m[2]!)} (a ${STEM_EN[m[3]!]} ${BRANCH_EN[m[4]!]} year, when you were ${agePoint(n(m[5]!)!)})`;
     const pre = m[1] ? "Looking back on the road you've walked: " : '';
-    const hm = /^(是你命盤裡關鍵的一年|同樣是關鍵的一年)(?:：(.+))?$/.exec(m[6]!);
+    const hm = /^(是你命盤裡關鍵的一年|同樣是關鍵的一年)(?:[：，](.+))?$/.exec(m[6]!);
     const body = (hm ? (hm[2] ?? '') : m[6]!) ;
     const parts = body ? body.split('；').map((p) => lookPart(p, missing)).join('; ') : '';
     if (hm) {
@@ -484,6 +484,11 @@ export function timeTemplate(s: string, missing: string[], h: TimeHelpers): stri
     return `(Basis: ${layer} ${pal(m[2]!, missing)} ${seatVerb(m[3]!, missing)}${fall}.)`;
   }
 
+  /* 2026-10-13 起：「天機化權落在這一年的疾厄宮，⋯」 */
+  m = /^(\S{2})化(\S)落在這(十年|一年)的(\S+?宮)，(.+)$/.exec(s);
+  if (m && star(m[1]!) && HUA_EN[m[2]!] && h.tm(m[5]!)) {
+    return `${star(m[1]!)} turns to ${HUA_EN[m[2]!]} in ${m[3] === '十年' ? "this decade's" : "this year's"} ${pal(m[4]!, missing)}: ${h.lower(h.tm(m[5]!)!)}`;
+  }
   /* 四化各自的意思：天機化權（在這一年的命宮）：⋯ */
   m = /^(四化各自的意思：)?(\S{2})化(\S)(?:（在這(十年|一年)的(\S+?)）)?：(.+)$/.exec(s);
   if (m && star(m[2]!) && HUA_EN[m[3]!] && h.tm(m[6]!)) {

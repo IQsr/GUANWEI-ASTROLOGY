@@ -621,12 +621,12 @@ export function lookBack(chart: Chart, year: number): DaxianSegment | null {
       keySeen = true;
     }
     const body = c.parts.join('；');
-    const text = head ? `${head}${body ? `：${body}` : ''}` : body;
+    const text = head ? `${head}${body ? `，${body}` : ''}` : body;
     return `${yearCN(c.y)}年（${c.gz}年，你虛歲${num(c.age)}），${text}。`;
   });
   return {
     slot: '回看',
-    text: `回看你走過的路：${lines.join('')}這幾年，對你來說是不是有過轉折？對不上的，就當那一年的訊號沒有落在你身上。`,
+    text: `回看你走過的路，${lines.join('')}這幾年，對你來說是不是有過轉折？對不上的，就當那一年的訊號沒有落在你身上。`,
     source_id: [...new Set(picked.flatMap((c) => c.sources))].join('+') || null,
     rule_ids: [],
   };
@@ -756,8 +756,9 @@ export function decadeChapter(input: { chart: Chart; year: number }): Out {
   /* 四化：逐粒講，落喺呢十年嘅邊宮（四方面已經講咗嘅唔再講） */
   const huaLines = hits.filter((h) => !areas.used.has(`${h.star}${h.hua}`)).map((h) => {
     const m = DAXIAN_HUA.find((e) => e.star === h.star && e.hua === h.hua);
-    const where = h.decadalPalace ? `（在這十年的${palaceLabel(h.decadalPalace)}）` : '';
-    return { text: m ? `${h.star}化${h.hua}${where}：${m.text}` : '', id: m?.id ?? null };
+    /* 2026-10-13：「天機化權（在這十年的疾厄宮）：⋯」改做一句話，唔再括號加冒號 */
+    const where = h.decadalPalace ? `落在這十年的${palaceLabel(h.decadalPalace)}` : '';
+    return { text: m ? `${h.star}化${h.hua}${where}${where ? '，' : '：'}${m.text}` : '', id: m?.id ?? null };
   });
 
   /* 同本命四化碰唔碰到 */
@@ -790,7 +791,7 @@ export function decadeChapter(input: { chart: Chart; year: number }): Out {
     /* 流魁流鉞冲起本命魁鉞（深造講義 p.8、9，`kuiyue.ts`） */
     ...(kuiyueRises(chart, d.branch, flowStars(d.stem, d.branch)) ? [seg('魁鉞', KUIYUE_TEXT.decade, KUIYUE_SOURCE)] : []),
     ...areas.segments,
-    seg('四化', huaLines.length && areas.segments.length ? `四化各自的意思：${huaLines.map((l) => l.text).join('')}` : huaLines.map((l) => l.text).join(''), huaLines.map((l) => l.id).filter(Boolean).join('+') || null),
+    seg('四化', huaLines.map((l) => l.text).join(''), huaLines.map((l) => l.id).filter(Boolean).join('+') || null),
     ...(interSeg ? [seg('互動', interSeg.text, interSeg.id)] : []),
     ...(advice ? [advice] : []),
     ...(nextLine ? [seg('下一步', nextLine)] : []),

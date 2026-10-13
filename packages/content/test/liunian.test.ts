@@ -45,7 +45,7 @@ describe('這一年', () => {
     const AREA_SLOTS = ['工作', '錢', '感情', '心境'];
     for (const c of CHARTS.slice(0, 100)) {
       const segs = yearChapter({ chart: c, year: 2026 })!.segments;
-      const rest = segs.find((x) => x.slot === '四化')?.text.match(/化[祿權科忌]（在這一年的/g)?.length ?? 0;
+      const rest = segs.find((x) => x.slot === '四化')?.text.match(/化[祿權科忌]落在這一年的/g)?.length ?? 0;
       const inAreas = new Set(
         segs
           .filter((x) => AREA_SLOTS.includes(x.slot))
@@ -54,7 +54,7 @@ describe('這一年', () => {
       const all = segs.map((x) => x.text).join(' ');
       /* 四粒都有講到：喺四方面嘅依據入面，或者喺四化段 */
       const fourth = segs.find((x) => x.slot === '四化')?.text ?? '';
-      const listed = [...inAreas].filter((h) => !fourth.includes(`${h}（在`)).length;
+      const listed = [...inAreas].filter((h) => !fourth.includes(`${h}落在`)).length;
       expect(rest + listed, all).toBe(4);
       for (const e of DAXIAN_HUA) {
         const where = segs.filter((x) => x.text.includes(e.text));
