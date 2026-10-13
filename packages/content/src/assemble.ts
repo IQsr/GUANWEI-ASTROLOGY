@@ -29,7 +29,7 @@
  * 而我哋真係有嘢講 —— 只係唔係一個方向。
  */
 import type { Brightness, Chart, Palace, PalaceName } from '@guanwei/ziwei';
-import { WATCH_LEADS, varyWatch } from './watch-lead';
+import { WATCH_ROTATION, varyWatch } from './watch-lead';
 import { branchReading } from './branch';
 import { BASE_BLOCKS } from './baseblock-data';
 import { PALACE_TOPIC } from './baseblock';
@@ -93,7 +93,8 @@ export const SLOT_SPEC = [
   /* 生活裡的樣子（2026-09-30）：結論講成一個現代場景，每格一段（`life.ts`） */
   { slot: '生活' as const, min: 25, max: 110, required: true },
   /* 2026-10-05：開頭唔再列範疇，後面幾章（三宮都講過）淨係得指返句，二三十字 */
-  { slot: '牽動' as const, min: 20, max: 140, required: true },
+  /* 2026-10-13：唔再每章必出 —— 冇新嘢講就唔出（link.ts） */
+  { slot: '牽動' as const, min: 20, max: 140, required: false },
   { slot: '擾動' as const, min: 0, max: 60, required: false },
   /* 2026-10-02：宮位章唔再以反思問題收（改由「生活」格收），留白只剩疾厄嘅免責句 */
   { slot: '留白' as const, min: 0, max: 45, required: false },
@@ -607,9 +608,7 @@ export function assemble(
    */
   const l3 = l3For(palace, p, chart, matchedRuleIds, opts.used).filter((b) => b.kind !== 'relation');
   const link = linkLine(chart, p, opts.used);
-  if (!link && l3.length === 0) {
-    missing.push({ slot: '牽動', reason: `${palace} 三方四正搵唔齊，亦冇 L3 結構塊命中` });
-  } else {
+  if (link || l3.length > 0) {
     push({
       slot: '牽動',
       /* 「X宮的三方四正見多顆煞曜。」係術語、而且一本書出十次 —— 留後面嗰句白話（2026-10-02） */
@@ -726,7 +725,7 @@ export function assembleAll(
   [...names]
     .sort((a, b) => rank(a) - rank(b))
     .forEach((n, i) => {
-      const watchLead = WATCH_LEADS[i % WATCH_LEADS.length];
+      const watchLead = WATCH_ROTATION[i % WATCH_ROTATION.length];
       built.set(n, assemble(chart, n, byTopic[PALACE_TOPIC[n]!]!, { ...opts, used, watchLead }));
     });
   return names.map((n) => built.get(n)!);

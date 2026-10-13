@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { cast } from '@guanwei/ziwei';
 import { BASE_BLOCKS } from '../src/baseblock-data';
-import { LINK_REFS, gistOf, linkLine } from '../src/link';
+import { LINK_HEADS, LINK_REFS, gistOf, linkLine } from '../src/link';
 
 /**
  * 牽動格頭一句（2026-09）：講呢張盤嘅對宮同三合宮坐咗乜，唔再係每本書一樣嘅關係塊。
@@ -36,9 +36,11 @@ describe('牽動格頭一句', () => {
     const line = linkLine(chart, ming)!;
     /* 直白（2026-09-29）：講生活嘅邊一面，唔講宮名；對宮（遷移＝在外）行先。
        2026-10-05：開頭唔再先列一次範疇（後面每截已經以範疇起頭） */
-    expect(line.text.startsWith('同一種底色，延伸到盤上別處：在外時，')).toBe(true);
+    /* 2026-10-13：開頭係一句完整嘅話，唔再「⋯：」 */
+    expect(line.text.startsWith(`${LINK_HEADS[0]}在外時，`)).toBe(true);
     expect(line.sources).toHaveLength(3);
-    expect(line.text).toMatch(/：在外時，.+；.+，.+；.+，.+。$/);
+    expect(line.text).not.toContain('：');
+    expect(line.text).toMatch(/在外時，.+；.+，.+；.+，.+。$/);
     expect(line.text).not.toMatch(/正對|連成一組|宮，/);
   });
 
@@ -59,17 +61,21 @@ describe('全書每宮嗰截只詳講一次（2026-09-30）', () => {
   const chart = r.value;
   const ORDER = ['命宮', '兄弟', '夫妻', '子女', '財帛', '疾厄', '遷移', '僕役', '官祿', '田宅', '福德', '父母'];
 
-  it('跟閱讀次序行一次：每一截只出一次，之後指返嗰章', () => {
+  it('跟閱讀次序行一次：每一截只出一次；講完就唔再指返（2026-10-13 起冇新嘢成段唔出）', () => {
     const used = new Set<string>();
-    const lines = ORDER.map((n) => linkLine(chart, chart.palaces.find((p) => p.name === n)!, used)!.text);
-    const clauses = lines.flatMap((t) => (t.includes('：') ? t.split(/[：；。]/).slice(1) : [])).filter((c) => /，/.test(c) && !/見〈|另有細講|前面各自|各有一章/.test(c));
+    const lines = ORDER.map((n) => linkLine(chart, chart.palaces.find((p) => p.name === n)!, used)?.text ?? null);
+    const texts = lines.filter((t): t is string => t !== null);
+    const strip = (t: string) => LINK_HEADS.reduce((x, h) => x.replace(h, ''), t);
+    const clauses = texts.flatMap((t) => strip(t).replace(/。$/, '').split('；'));
     expect(clauses.length).toBe(new Set(clauses).size);
     /* 十二宮每宮詳講一次，唔多唔少 */
     expect(clauses).toHaveLength(12);
-    /* 最後一章嘅三個宮前面實講過 */
-    expect(lines.at(-1)).toMatch(new RegExp(`^[^：]+是.+、.+是.+、.+是.+，(${LINK_REFS.join('|')})。$`));
-    /* 2026-10-11：三款講法輪流用，唔係十次都同一句 */
-    expect(new Set(lines.map((t) => LINK_REFS.find((x) => t.includes(x))).filter(Boolean)).size).toBeGreaterThan(1);
+    /* 冇指返其他章嘅尾巴；後面嘅章三個宮都講過就成段唔出 */
+    for (const t of texts) expect(t).not.toMatch(new RegExp(`見〈|${LINK_REFS.join('|')}`));
+    expect(lines.at(-1)).toBeNull();
+    /* 開頭一本書每款最多一次 */
+    const heads = texts.map((t) => LINK_HEADS.find((h) => t.startsWith(h))).filter(Boolean);
+    expect(heads.length).toBe(new Set(heads).size);
   });
 
   it('唔畀 used 就三截都講（單獨砌一章）', () => {

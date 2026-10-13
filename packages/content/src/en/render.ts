@@ -153,6 +153,22 @@ const SHA_ADDS: Record<string, string> = {
   地劫: 'making gains harder to hold on to',
 };
 
+/* 2026-10-13 起嘅牽動開頭（link.ts LINK_HEADS）：自己一句 */
+const LINK_HEAD_SENTENCES: Record<string, string> = {
+  "你生活的其他部分，也帶著這一面的影子。": "Other parts of your life carry a shadow of this side too.",
+  "這一面，在你生活的別處也有回響。": "This side of you echoes elsewhere in your life.",
+  "換到別的場合，這一面也在。": "Move to another setting and this side of you is still there.",
+  "這種性子，不會只停在一處。": "This temperament doesn't stay in one place.",
+  "同一股力量，也走到了別的地方。": "The same force reaches other places too.",
+  "這一面也和你生活裡的其他事情相連。": "This side of you is linked to other things in your life as well.",
+  "同一種底色，也延伸到你生活的別處。": "The same pattern carries into other parts of your life.",
+  "這一面不只出現在這裡。": "This side of you doesn't show up only here.",
+  "別的方面，也和這一面連在一起。": "Other areas are tied to this side of you too.",
+  "同樣的性子，在別處也看得到。": "The same temperament can be seen elsewhere too.",
+  "這一面也牽動著你生活的其他部分。": "This side of you also pulls on other parts of your life.",
+  "把眼光放遠一點，這一面還連著別處。": "Look a little further and this side of you connects to others.",
+};
+
 /* 牽動格開頭四款（link.ts 嘅 HEADS），英文各自一款。2026-10-05 起開頭唔再列一次範疇 */
 const LINK_HEADS: [string, string][] = [
   ['同一種底色，延伸到盤上別處', 'The same pattern carries into other parts of the chart.'],
@@ -288,6 +304,19 @@ function template(s: string, missing: string[]): string | null {
     return m[1] === '同宮還有' ? `${name} also sits here, ${adds}: ${body}.` : `${name} is here too, ${adds}: ${body}.`;
   }
 
+  if (LINK_HEAD_SENTENCES[s]) return LINK_HEAD_SENTENCES[s]!;
+  /* 2026-10-13 起：牽動嘅幾截自己一句：「感情上，⋯；心境上，⋯。」 */
+  if (s.endsWith('。') && !s.includes('：')) {
+    const ps = s.slice(0, -1).split('；');
+    const done = ps.map((part) => {
+      const c = part.indexOf('，');
+      const on = c > 0 ? AREA_ON_EN[part.slice(0, c)] : undefined;
+      return on ? `${on}, ${lowerFirst(clause(part.slice(c + 1), []))}` : null;
+    });
+    if (done.every(Boolean) && ps.every((part) => !/〔/.test(clause(part.slice(part.indexOf('，') + 1), [])))) {
+      return done.map((d) => `${d}.`).join(' ');
+    }
+  }
   /* 牽動：三個宮都講過，淨係得指返句（冇開頭） */
   if (s.endsWith('。') && !s.includes('：')) {
     const ref = refPart(s.slice(0, -1), missing);

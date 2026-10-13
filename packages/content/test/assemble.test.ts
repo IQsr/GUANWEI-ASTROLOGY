@@ -270,7 +270,8 @@ describe('V-001：一章入面根本冇「勢」呢個插槽', () => {
     expect(graded.map((c) => c.palace)).toEqual(['財帛']);
     /* 2026-09 拎走內部規則句之後每章短咗；2026-09-29 直白版剷走同結論重複嘅句，最短嗰章（田宅）約 230 */
     /* 2026-10-02 拎走結尾問題（約 35 字）之後，最短嗰章（田宅）約 197 */
-    for (const c of CH) expect(c.words, c.palace).toBeGreaterThan(170);
+    /* 2026-10-13 牽動唔再每章必出（冇新嘢就唔出），最短嗰章（田宅）約 140 */
+    for (const c of CH) expect(c.words, c.palace).toBeGreaterThan(120);
   });
 
   /** 主題得七個，宮位有十二個 —— 欄名要講得出佢係主題級數，唔係呢一宮嘅級數。 */
