@@ -5,7 +5,7 @@ import { useLocale, useTranslations } from "next-intl";
 import { Seal } from "@/components/Seal";
 import { MARK } from "@/lib/site";
 import { slotName, slotSummary, type ShichenWords, type Slot } from "@/lib/slots";
-import { PLACES, isAnswered, type Draft, type Step } from "@/lib/luokuan";
+import { PLACES, PLACE_REGIONS, isAnswered, type Draft, type Step } from "@/lib/luokuan";
 
 /**
  * 落款卷軸（2026-10-06 · Issac：落款唔好再一步一步寫落本書）
@@ -44,6 +44,7 @@ export function Juanzhou({
 }) {
   const t = useTranslations("juanzhou");
   const tp = useTranslations("places");
+  const tr = useTranslations("placeRegions");
   /* 英文另外排：字距、標籤闊度、印字橫寫（globals.css `.juanzhou[data-lang="en"]`） */
   const locale = useLocale();
   /* 姓名留空都算寫咗（書上寫「無名」） */
@@ -108,10 +109,17 @@ export function Juanzhou({
               }
             >
               <option value="">{t("choose")}</option>
-              {PLACES.map((p, i) => (
-                <option key={p.key} value={i}>
-                  {tp(p.key)}
-                </option>
+              {/* 按地區分組（2026-10-13 加到近一百個地方）；value 照舊係 PLACES 嘅位置號 */}
+              {PLACE_REGIONS.map((r) => (
+                <optgroup key={r} label={tr(r)}>
+                  {PLACES.map((p, i) => ({ p, i }))
+                    .filter(({ p }) => p.region === r)
+                    .map(({ p, i }) => (
+                      <option key={p.key} value={i}>
+                        {tp(p.key)}
+                      </option>
+                    ))}
+                </optgroup>
               ))}
             </select>
           </div>

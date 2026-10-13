@@ -168,6 +168,20 @@ const PLACE_EN: Record<string, string> = {
   廣州: 'Guangzhou', 深圳: 'Shenzhen', 上海: 'Shanghai', 北京: 'Beijing', 新加坡: 'Singapore', 吉隆坡: 'Kuala Lumpur',
   倫敦: 'London', 曼徹斯特: 'Manchester', 紐約: 'New York', 三藩市: 'San Francisco', 舊金山: 'San Francisco', 洛杉磯: 'Los Angeles',
   溫哥華: 'Vancouver', 多倫多: 'Toronto', 悉尼: 'Sydney', 雪梨: 'Sydney', 墨爾本: 'Melbourne', 東京: 'Tokyo', 首爾: 'Seoul',
+  /* 2026-10-13：落款加地方 —— 同 apps/web lib/luokuan.ts PLACES 一一對應（web 測試量住） */
+  桃園: 'Taoyuan', 台南: 'Tainan', 東莞: 'Dongguan', 佛山: 'Foshan', 珠海: 'Zhuhai', 中山: 'Zhongshan',
+  江門: 'Jiangmen', 汕頭: 'Shantou', 潮州: 'Chaozhou', 梅州: 'Meizhou', 湛江: 'Zhanjiang', 天津: 'Tianjin',
+  重慶: 'Chongqing', 成都: 'Chengdu', 武漢: 'Wuhan', 南京: 'Nanjing', 杭州: 'Hangzhou', 蘇州: 'Suzhou',
+  寧波: 'Ningbo', 溫州: 'Wenzhou', 廈門: 'Xiamen', 福州: 'Fuzhou', 泉州: 'Quanzhou', 長沙: 'Changsha',
+  南昌: 'Nanchang', 合肥: 'Hefei', 鄭州: 'Zhengzhou', 濟南: 'Jinan', 青島: 'Qingdao', 石家莊: 'Shijiazhuang',
+  太原: 'Taiyuan', 西安: "Xi'an", 蘭州: 'Lanzhou', 西寧: 'Xining', 銀川: 'Yinchuan', 烏魯木齊: 'Urumqi',
+  拉薩: 'Lhasa', 呼和浩特: 'Hohhot', 瀋陽: 'Shenyang', 大連: 'Dalian', 長春: 'Changchun', 哈爾濱: 'Harbin',
+  南寧: 'Nanning', 桂林: 'Guilin', 海口: 'Haikou', 三亞: 'Sanya', 昆明: 'Kunming', 貴陽: 'Guiyang',
+  檳城: 'Penang', 怡保: 'Ipoh', 新山: 'Johor Bahru', 馬六甲: 'Malacca', 古晉: 'Kuching', 詩巫: 'Sibu',
+  亞庇: 'Kota Kinabalu', 曼谷: 'Bangkok', 清邁: 'Chiang Mai', 雅加達: 'Jakarta', 泗水: 'Surabaya', 棉蘭: 'Medan',
+  坤甸: 'Pontianak', 馬尼拉: 'Manila', 宿霧: 'Cebu', 胡志明市: 'Ho Chi Minh City', 河內: 'Hanoi', 金邊: 'Phnom Penh',
+  永珍: 'Vientiane', 仰光: 'Yangon', 斯里巴加灣: 'Bandar Seri Begawan', 大阪: 'Osaka', 伯明翰: 'Birmingham', 愛丁堡: 'Edinburgh',
+  巴黎: 'Paris', 阿姆斯特丹: 'Amsterdam', 布里斯本: 'Brisbane', 珀斯: 'Perth', 奧克蘭: 'Auckland',
 };
 export function placeEn(zh: string): string | null {
   if (!/[㐀-鿿]/.test(zh)) return zh;

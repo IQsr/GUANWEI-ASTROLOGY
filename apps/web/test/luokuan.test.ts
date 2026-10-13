@@ -1,6 +1,8 @@
 import { describe, expect, it } from 'vitest';
 import zh from '../messages/zh-Hant.json';
-import { EMPTY_DRAFT, PLACES, STEPS, isAnswered, isComplete, toCastRequest, type Draft } from '@/lib/luokuan';
+import en from '../messages/en.json';
+import { placeEn } from '../../../packages/content/src/en/terms';
+import { EMPTY_DRAFT, PLACES, PLACE_REGIONS, STEPS, isAnswered, isComplete, toCastRequest, type Draft } from '@/lib/luokuan';
 
 const TIME_HINT = zh.cast.timeHint;
 
@@ -201,5 +203,34 @@ describe('姓名可以留空（2026-09）', () => {
     expect(isAnswered('name', blank)).toBe(true);
     expect(isComplete(blank)).toBe(true);
     expect(toCastRequest(blank)).not.toBeNull();
+  });
+});
+
+describe('出生地（2026-10-13 加到近一百個）', () => {
+  it('頭六個嘅次序唔准郁（草稿用位置號記住揀咗邊個）', () => {
+    expect(PLACES.slice(0, 6).map((p) => p.key)).toEqual(['hongKong', 'guangzhou', 'taipei', 'singapore', 'london', 'newYork']);
+  });
+
+  it('key、中文名都唔重複；時區瀏覽器識；經緯度喺範圍內；地區有效', () => {
+    expect(new Set(PLACES.map((p) => p.key)).size).toBe(PLACES.length);
+    expect(new Set(PLACES.map((p) => p.label)).size).toBe(PLACES.length);
+    for (const p of PLACES) {
+      expect(() => new Intl.DateTimeFormat('en', { timeZone: p.tz })).not.toThrow();
+      expect(Math.abs(p.lng)).toBeLessThanOrEqual(180);
+      expect(Math.abs(p.lat)).toBeLessThanOrEqual(90);
+      expect(PLACE_REGIONS).toContain(p.region);
+    }
+  });
+
+  it('每個地方：選單有中英文名、英文命書譯得出', () => {
+    for (const p of PLACES) {
+      expect((zh.places as Record<string, string>)[p.key]).toBe(p.label);
+      expect((en.places as Record<string, string>)[p.key]).toBeTruthy();
+      expect(placeEn(p.label)).toBe((en.places as Record<string, string>)[p.key]);
+    }
+    for (const r of PLACE_REGIONS) {
+      expect((zh.placeRegions as Record<string, string>)[r]).toBeTruthy();
+      expect((en.placeRegions as Record<string, string>)[r]).toBeTruthy();
+    }
   });
 });
