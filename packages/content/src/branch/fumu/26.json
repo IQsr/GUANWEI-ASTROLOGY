@@ -1,0 +1,23 @@
+{
+  "$note": "父母宮（2026-10-12）：武曲七殺.父母。《深造講義》下篇 宮垣論 父母宮 p.575–595。父母存亡、刑剋、孝服、灾病、偏房繼室所生、父有外遇、重拜父母一類斷語不用；天巫、天刑、天壽、白虎丧门等引擎冇嘅星不用；要分日夜生、廟陷嘅條文暫不用。原書父母宮兼論上司，呢部份照用。",
+  "topic": {
+    "id": "武曲七殺.父母",
+    "palace": "父母",
+    "stars": [
+      "武曲",
+      "七殺"
+    ]
+  },
+  "rules": [
+    {
+      "id": "父母.武殺.淡",
+      "role": "limit",
+      "text": "武曲七殺在父母宮，你和父母的緣分較淡，早年起就各自發展，聚少離多。",
+      "en": "With Wu Qu and Qi Sha in your Parents Palace, the bond with your parents is lighter; from early on you each go your own way and see each other little.",
+      "source": {
+        "passage": "deep.父母.武曲.3",
+        "quote": "武曲七杀基本亦主刑克"
+      }
+    }
+  ]
+}

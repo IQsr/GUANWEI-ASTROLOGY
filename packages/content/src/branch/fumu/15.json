@@ -9,6 +9,48 @@
   },
   "rules": [
     {
+      "id": "父母.天府.穩",
+      "role": "base",
+      "when": {
+        "all": [
+          {
+            "not": {
+              "star": "廉貞",
+              "at": "same"
+            }
+          },
+          {
+            "not": {
+              "star": [
+                "擎羊",
+                "陀羅",
+                "火星",
+                "鈴星",
+                "地空",
+                "地劫"
+              ],
+              "at": "same"
+            }
+          },
+          {
+            "not": {
+              "hua": "忌",
+              "at": [
+                "same",
+                "opp"
+              ]
+            }
+          }
+        ]
+      },
+      "text": "天府在父母宮，你和父母之間一般少有大的衝突或阻隔，兩代關係穩定。",
+      "en": "Tian Fu in your Parents Palace: there is generally little serious conflict or distance between you and your parents, and the two generations stay on steady terms.",
+      "source": {
+        "passage": "deep.父母.天府.1",
+        "quote": "始有刑克"
+      }
+    },
+    {
       "id": "父母.天府.火鈴",
       "role": "refine",
       "when": {
@@ -21,7 +63,7 @@
       "text": "天府與火星或鈴星同宮，你和父母容易分隔兩地。",
       "en": "Tian Fu with Huo Xing or Ling Xing: you and your parents tend to live apart.",
       "source": {
-        "passage": "deep.父母.天府.1",
+        "passage": "deep.父母.天府.2",
         "quote": "天府与火、铃同度，主生离"
       }
     },
@@ -50,7 +92,7 @@
       "text": "天府與祿存同宮又見〔煞〕，你和父母意見不合，各持己見。",
       "en": "Tian Fu with Lu Cun meets 〔harsh stars〕: you and your parents disagree, each holding to their own view.",
       "source": {
-        "passage": "deep.父母.天府.2",
+        "passage": "deep.父母.天府.3",
         "quote": "见煞，主父子参商"
       }
     },
@@ -81,7 +123,7 @@
       "text": "天府見化祿，你父母的財力對你有幫助。",
       "en": "Tian Fu with Abundance: your parents’ means are a help to you.",
       "source": {
-        "passage": "deep.父母.天府.3",
+        "passage": "deep.父母.天府.4",
         "quote": "天府与化禄同度或对拱"
       }
     },
@@ -99,7 +141,7 @@
       "text": "天府會武曲化祿，你從父母那裡得到的財力支持頗厚。",
       "en": "Tian Fu meets Wu Qu in Abundance: the financial support you get from your parents is generous.",
       "source": {
-        "passage": "deep.父母.天府.3",
+        "passage": "deep.父母.天府.4",
         "quote": "则父母财荫颇厚"
       }
     },
@@ -113,7 +155,7 @@
       "text": "天府與擎羊同宮，你和父母兩代不和，常有摩擦。",
       "en": "Tian Fu shares the palace with Qing Yang: you and your parents do not get on, and friction is common.",
       "source": {
-        "passage": "deep.父母.天府.4",
+        "passage": "deep.父母.天府.5",
         "quote": "主两代不和"
       }
     },
@@ -127,7 +169,7 @@
       "text": "天府與祿存同宮，你的父母喜歡獨自掌管家中財權。",
       "en": "Tian Fu shares the palace with Lu Cun: your parents like to keep control of the household money to themselves.",
       "source": {
-        "passage": "deep.父母.天府.5",
+        "passage": "deep.父母.天府.6",
         "quote": "又主父母喜独掌财权"
       }
     }

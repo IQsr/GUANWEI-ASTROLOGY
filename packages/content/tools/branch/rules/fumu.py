@@ -149,12 +149,28 @@ T.append({'id': '天同.父母', 'stars': ['天同'], 'rules': [
 
 # ── 廉貞 ──
 T.append({'id': '廉貞天府.父母', 'stars': ['廉貞', '天府'], 'rules': [
+ R('父母.廉府.穩', {'all': [{'not': {'any': [FUZUO, KUIYUE]}}, {'not': {'star': ['擎羊', '陀羅', '火星', '鈴星', '地空', '地劫'], 'at': 'same'}}]},
+   '廉貞天府是父母宮最穩定的組合，你和父母之間一般少有大的衝突。',
+   "Lian Zhen with Tian Fu is the steadiest combination in the Parents Palace: there is generally little serious conflict between you and your parents.",
+   '[廉贞天府]为最稳定结构，不主刑克，见吉曜且主感情和美。', '不主刑克，见吉曜', 'base'),
  R('父母.廉府.本', {'all': [{'any': [FUZUO, KUIYUE]}, {'not': SHA}]},
    '廉貞天府是父母宮最穩定的結構；見〔吉星〕，你和父母兩代感情和美。',
    'Lian Zhen with Tian Fu is the steadiest structure in the Parents Palace; with helpful stars, the generations are close.',
    '[廉贞天府]为最稳定结构，不主刑克，见吉曜且主感情和美。', '[廉贞天府]为最稳定结构', 'base'),
 ]})
 T.append({'id': '廉貞.父母', 'stars': ['廉貞'], 'rules': [
+ R('父母.廉貞.殺淡', {'all': [{'star': '七殺', 'at': 'same'}, {'not': {'hua': '祿', 'star': '廉貞', 'at': 'same'}}]},
+   '廉貞與七殺同宮，你和父母的緣分較淡，往往各有各的生活，聚少離多。',
+   "Lian Zhen shares the palace with Qi Sha: the bond with your parents is lighter, and you tend to lead separate lives and see each other little.",
+   '[廉杀]、[廉破]、[廉贪]，基本性质亦主刑伤。', '基本性质亦主刑伤', 'limit'),
+ R('父母.廉貞.破淡', {'all': [{'star': '破軍', 'at': 'same'}, {'not': {'hua': '祿', 'star': '廉貞', 'at': 'same'}}]},
+   '廉貞與破軍同宮，你和父母的緣分較淡，往往各有各的生活，聚少離多。',
+   "Lian Zhen shares the palace with Po Jun: the bond with your parents is lighter, and you tend to lead separate lives and see each other little.",
+   '[廉杀]、[廉破]、[廉贪]，基本性质亦主刑伤。', '基本性质亦主刑伤', 'limit'),
+ R('父母.廉貞.貪淡', {'all': [{'star': '貪狼', 'at': 'same'}, {'not': {'hua': '祿', 'star': '廉貞', 'at': 'same'}}]},
+   '廉貞與貪狼同宮，你和父母的緣分較淡，往往各有各的生活，聚少離多。',
+   "Lian Zhen shares the palace with Tan Lang: the bond with your parents is lighter, and you tend to lead separate lives and see each other little.",
+   '[廉杀]、[廉破]、[廉贪]，基本性质亦主刑伤。', '基本性质亦主刑伤', 'limit'),
  R('父母.廉貞.祿', H('祿', '廉貞'),
    '廉貞化祿，你和父母一般感情融洽，相處和睦。',
    'Lian Zhen in Abundance: you generally get on warmly with your parents.',
@@ -167,6 +183,10 @@ T.append({'id': '廉貞.父母', 'stars': ['廉貞'], 'rules': [
 
 # ── 天府 ──
 T.append({'id': '天府.父母', 'stars': ['天府'], 'rules': [
+ R('父母.天府.穩', {'all': [{'not': {'star': '廉貞', 'at': 'same'}}, {'not': {'star': ['擎羊', '陀羅', '火星', '鈴星', '地空', '地劫'], 'at': 'same'}}, {'not': {'hua': '忌', 'at': ['same', 'opp']}}]},
+   '天府在父母宮，你和父母之間一般少有大的衝突或阻隔，兩代關係穩定。',
+   "Tian Fu in your Parents Palace: there is generally little serious conflict or distance between you and your parents, and the two generations stay on steady terms.",
+   '仅于府库宰露的情形下，始有刑克，或主不克享父荫。', '始有刑克', 'base'),
  R('父母.天府.火鈴', {'star': ['火星', '鈴星'], 'at': 'same'},
    '天府與火星或鈴星同宮，你和父母容易分隔兩地。',
    'Tian Fu with Huo Xing or Ling Xing: you and your parents tend to live apart.',
@@ -195,6 +215,18 @@ T.append({'id': '天府.父母', 'stars': ['天府'], 'rules': [
 
 # ── 太陰 ──
 T.append({'id': '太陰.父母', 'stars': ['太陰'], 'rules': [
+ R('父母.太陰.辰', {'branch': ['辰']},
+   '太陰在辰位守父母宮，你和父母的緣分較淡，早年起往往聚少離多。',
+   "Tai Yin holds your Parents Palace in Chen: the bond with your parents is lighter, and from early on you often see each other little.",
+   '辰宫太阴落陷，刑克较重，戌宫入庙，见煞亦仅主与父母无缘。', '辰宫太阴落陷，刑克较重', 'limit'),
+ R('父母.太陰.巳', {'branch': ['巳']},
+   '太陰在巳位守父母宮，你和父母容易分隔兩地，聚少離多。',
+   "Tai Yin holds your Parents Palace in Si: you and your parents easily end up living apart and see each other little.",
+   '巳亥宫太阴，巳宫主刑克分离，亥宫则不是。', '巳宫主刑克分离', 'limit'),
+ R('父母.太陰.穩', {'all': [{'not': {'branch': ['辰', '巳']}}, {'not': {'star': ['擎羊', '陀羅', '火星', '鈴星', '地空', '地劫'], 'at': 'same'}}, {'not': {'hua': '忌', 'at': ['same', 'opp']}}]},
+   '太陰在父母宮，你和父母之間一般少有大的衝突，關係細水長流。',
+   "Tai Yin in your Parents Palace: there is generally little serious conflict between you and your parents, and the bond runs quietly and steadily.",
+   '太阴守父母宫，一般不主刑克。', '一般不主刑克', 'base'),
  R('父母.太陰.火鈴', {'star': ['火星', '鈴星'], 'at': 'same'},
    '太陰與火星或鈴星同宮，你和父母容易分隔兩地。',
    'Tai Yin with Huo Xing or Ling Xing: you and your parents tend to live apart.',
@@ -353,6 +385,18 @@ T.append({'id': '武曲天府.父母', 'stars': ['武曲', '天府'], 'rules': [
    '武曲天府會廉貞化忌，你和父母之間意見不合。',
    'Wu Qu–Tian Fu meets Lian Zhen in Hindrance: you and your parents disagree.',
    '[武曲天府]会廉贞化忌，则主父子参商。', '会廉贞化忌，则主父子参商'),
+]})
+T.append({'id': '武曲破軍.父母', 'stars': ['武曲', '破軍'], 'rules': [
+ R('父母.武破.淡', None,
+   '武曲破軍在父母宮，你和父母的緣分較淡，早年起就各自發展，聚少離多。',
+   "With Wu Qu and Po Jun in your Parents Palace, the bond with your parents is lighter; from early on you each go your own way and see each other little.",
+   '[武曲破军]刑克亦重，与武杀大致相若。', '刑克亦重，与武杀大致相若', 'limit'),
+]})
+T.append({'id': '武曲七殺.父母', 'stars': ['武曲', '七殺'], 'rules': [
+ R('父母.武殺.淡', None,
+   '武曲七殺在父母宮，你和父母的緣分較淡，早年起就各自發展，聚少離多。',
+   "With Wu Qu and Qi Sha in your Parents Palace, the bond with your parents is lighter; from early on you each go your own way and see each other little.",
+   '武曲七杀基本亦主刑克，见煞忌者尤甚。', '武曲七杀基本亦主刑克', 'limit'),
 ]})
 T.append({'id': '父母通則', 'stars': [], 'rules': [
  R('父母.通則.吉化', {'hua': ['祿', '權', '科'], 'at': 'same'},

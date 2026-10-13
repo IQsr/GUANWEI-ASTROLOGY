@@ -9,6 +9,81 @@
   },
   "rules": [
     {
+      "id": "父母.廉貞.殺淡",
+      "role": "limit",
+      "when": {
+        "all": [
+          {
+            "star": "七殺",
+            "at": "same"
+          },
+          {
+            "not": {
+              "hua": "祿",
+              "star": "廉貞",
+              "at": "same"
+            }
+          }
+        ]
+      },
+      "text": "廉貞與七殺同宮，你和父母的緣分較淡，往往各有各的生活，聚少離多。",
+      "en": "Lian Zhen shares the palace with Qi Sha: the bond with your parents is lighter, and you tend to lead separate lives and see each other little.",
+      "source": {
+        "passage": "deep.父母.廉貞.2",
+        "quote": "基本性质亦主刑伤"
+      }
+    },
+    {
+      "id": "父母.廉貞.破淡",
+      "role": "limit",
+      "when": {
+        "all": [
+          {
+            "star": "破軍",
+            "at": "same"
+          },
+          {
+            "not": {
+              "hua": "祿",
+              "star": "廉貞",
+              "at": "same"
+            }
+          }
+        ]
+      },
+      "text": "廉貞與破軍同宮，你和父母的緣分較淡，往往各有各的生活，聚少離多。",
+      "en": "Lian Zhen shares the palace with Po Jun: the bond with your parents is lighter, and you tend to lead separate lives and see each other little.",
+      "source": {
+        "passage": "deep.父母.廉貞.2",
+        "quote": "基本性质亦主刑伤"
+      }
+    },
+    {
+      "id": "父母.廉貞.貪淡",
+      "role": "limit",
+      "when": {
+        "all": [
+          {
+            "star": "貪狼",
+            "at": "same"
+          },
+          {
+            "not": {
+              "hua": "祿",
+              "star": "廉貞",
+              "at": "same"
+            }
+          }
+        ]
+      },
+      "text": "廉貞與貪狼同宮，你和父母的緣分較淡，往往各有各的生活，聚少離多。",
+      "en": "Lian Zhen shares the palace with Tan Lang: the bond with your parents is lighter, and you tend to lead separate lives and see each other little.",
+      "source": {
+        "passage": "deep.父母.廉貞.2",
+        "quote": "基本性质亦主刑伤"
+      }
+    },
+    {
       "id": "父母.廉貞.祿",
       "role": "refine",
       "when": {
@@ -19,7 +94,7 @@
       "text": "廉貞化祿，你和父母一般感情融洽，相處和睦。",
       "en": "Lian Zhen in Abundance: you generally get on warmly with your parents.",
       "source": {
-        "passage": "deep.父母.廉貞.2",
+        "passage": "deep.父母.廉貞.3",
         "quote": "或感情融洽"
       }
     },
@@ -34,7 +109,7 @@
       "text": "廉貞化忌，你與父母的感情較難融洽。",
       "en": "Lian Zhen in Hindrance: warmth with your parents does not come easily.",
       "source": {
-        "passage": "deep.父母.廉貞.3",
+        "passage": "deep.父母.廉貞.4",
         "quote": "或感情不融洽"
       }
     }

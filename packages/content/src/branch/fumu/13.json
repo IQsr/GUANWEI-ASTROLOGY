@@ -10,6 +10,53 @@
   },
   "rules": [
     {
+      "id": "父母.廉府.穩",
+      "role": "base",
+      "when": {
+        "all": [
+          {
+            "not": {
+              "any": [
+                {
+                  "star": [
+                    "左輔",
+                    "右弼"
+                  ],
+                  "at": "sifang"
+                },
+                {
+                  "star": [
+                    "天魁",
+                    "天鉞"
+                  ],
+                  "at": "sifang"
+                }
+              ]
+            }
+          },
+          {
+            "not": {
+              "star": [
+                "擎羊",
+                "陀羅",
+                "火星",
+                "鈴星",
+                "地空",
+                "地劫"
+              ],
+              "at": "same"
+            }
+          }
+        ]
+      },
+      "text": "廉貞天府是父母宮最穩定的組合，你和父母之間一般少有大的衝突。",
+      "en": "Lian Zhen with Tian Fu is the steadiest combination in the Parents Palace: there is generally little serious conflict between you and your parents.",
+      "source": {
+        "passage": "deep.父母.廉貞.1",
+        "quote": "不主刑克，见吉曜"
+      }
+    },
+    {
       "id": "父母.廉府.本",
       "role": "base",
       "when": {
