@@ -5,6 +5,33 @@ import { useState } from 'react';
 import { Link } from '@/i18n/navigation';
 import type { MarkedSegment } from '@/lib/zhu';
 import { sectionBreaks } from '@/lib/suidu';
+import { keyRange } from '@/lib/key-sentence';
+import type { Run } from '@/lib/zhu';
+
+/**
+ * 將一段嘅 runs 按加粗範圍切開（`lib/key-sentence.ts`）：普通字可以切開一半粗一半唔粗；
+ * 術語、出處唔切，同範圍有交疊就成個粗。
+ */
+function withKey(slot: string, runs: Run[]): (Run & { key?: boolean })[] {
+  const range = keyRange(slot, runs.map((r) => r.text).join(''));
+  if (!range) return runs;
+  const [a, b] = range;
+  const out: (Run & { key?: boolean })[] = [];
+  let at = 0;
+  for (const r of runs) {
+    const from = at;
+    const to = at + r.text.length;
+    at = to;
+    if (r.term || r.cite || to <= a || from >= b) {
+      out.push({ ...r, key: !r.cite && from < b && to > a });
+      continue;
+    }
+    const cut = [from, Math.max(from, a), Math.min(to, b), to];
+    const parts: [number, number, boolean][] = [[cut[0]!, cut[1]!, false], [cut[1]!, cut[2]!, true], [cut[2]!, cut[3]!, false]];
+    for (const [x, y, k] of parts) if (y > x) out.push({ text: r.text.slice(x - from, y - from), key: k });
+  }
+  return out;
+}
 
 /**
  * 命書正文 ＋ 註層（工單 F1 · 內容系統 §4 · 視覺系統 §6）
@@ -61,8 +88,10 @@ export function Juan({
         const shown = seg.runs.find((r) => r.term && open === r.term.id)?.term;
         const note = shown ? notes[shown.id] : undefined;
         /* 出處嘅 key 帶住段號同 run 號：同一個出處喺兩段都撳得開，唔會兩段一齊開 */
-        const citeOpen = seg.runs.findIndex((r, j) => r.cite && open === `cite:${i}:${j}`);
-        const citeList = citeOpen >= 0 ? seg.runs[citeOpen]!.cite!.map((id) => cites[id]).filter(Boolean) : [];
+        /* 重點句加粗（lib/key-sentence.ts）；出處嘅 run 號跟切開之後嘅 */
+        const runs = withKey(seg.slot, seg.runs);
+        const citeOpen = runs.findIndex((r, j) => r.cite && open === `cite:${i}:${j}`);
+        const citeList = citeOpen >= 0 ? runs[citeOpen]!.cite!.map((id) => cites[id]).filter(Boolean) : [];
 
         return (
           /*
@@ -73,7 +102,7 @@ export function Juan({
             {/* 分節記號：取代以前嘅過場句（lib/suidu.ts `sectionBreaks`）。純裝飾，讀屏唔讀。 */}
             {breaks[i] ? <div className="fen-jie" aria-hidden="true" /> : null}
             <p className="text-body leading-[1.95]">
-              {seg.runs.map((run, j) =>
+              {runs.map((run, j) =>
                 run.cite ? (
                   <button
                     key={j}
@@ -86,6 +115,7 @@ export function Juan({
                     {t('citeMark')}
                   </button>
                 ) : run.term ? (
+                  <Bold key={j} on={run.key}>
                   <button
                     key={j}
                     type="button"
@@ -100,6 +130,9 @@ export function Juan({
                   >
                     {run.text}
                   </button>
+                  </Bold>
+                ) : run.key ? (
+                  <strong key={j} className="zhong">{run.text}</strong>
                 ) : (
                   <span key={j}>{run.text}</span>
                 ),
@@ -145,4 +178,9 @@ export function Juan({
       })}
     </div>
   );
+}
+
+/** 術語喺重點句入面：成個掣一齊粗 */
+function Bold({ on, children }: { on?: boolean; children: React.ReactNode }) {
+  return on ? <strong className="zhong">{children}</strong> : <>{children}</>;
 }

@@ -4513,3 +4513,12 @@ select.zhou-xian {
     max-width: min(14rem, calc(100vw - 72px));
   }
 }
+
+/*
+ * 重點句（2026-10-13 · 讀者 feedback：搵唔到重點）：每章第一段嘅結論句加粗（Juan + lib/key-sentence.ts）。
+ * 只係字重深一級，唔轉色、唔加底線 —— 一段最多一句。
+ */
+.wen strong.zhong {
+  font-weight: 600;
+  color: var(--ink);
+}
