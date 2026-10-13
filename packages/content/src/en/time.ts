@@ -114,6 +114,22 @@ const RULES = (rulesRaw as { rules: { id: string; text: string }[] }).rules.map(
   ),
 }));
 
+/* 建議段講某一方面（daxian.ts ADVICE_ON） */
+const ADVICE_EN: Record<string, string> = {
+  你自己想做的事: 'the things you want to do yourself',
+  '和兄弟、朋輩合作的事': 'working with siblings and peers',
+  感情: 'your love life',
+  後輩和手上的作品: 'the next generation and your own work',
+  錢的安排: 'how you arrange your money',
+  照顧自己的身心: 'looking after your body and mind',
+  外面的機會: 'opportunities out in the world',
+  朋友和人脈: 'friends and connections',
+  工作: 'your work',
+  家裡的事: 'matters at home',
+  自己的興趣和心境: 'your own interests and state of mind',
+  '和長輩、上司之間的事': 'matters with elders and bosses',
+};
+
 /* ── 回看過去（daxian.ts lookBack；過去式） ── */
 const TURN_EG: Record<string, string> = {
   '像是升中、轉校或換了一班同學': 'such as starting secondary school, changing schools or finding yourself among new classmates',
@@ -413,6 +429,49 @@ export function timeTemplate(s: string, missing: string[], h: TimeHelpers): stri
   }
   m = /^這(十年|一年)，(.+)$/.exec(s);
   if (m && h.tm(m[2]!)) return `${m[1] === '十年' ? 'Over these ten years' : 'This year'}, ${h.lower(h.tm(m[2]!)!)}`;
+
+  /* 2026-10-13 起：四方面開頭一句講根據（「這十年的官祿宮坐紫微、貪狼，紫微化權。」），方面跟結論句（冇「這十年」） */
+  m = new RegExp(`^這(十年|一年)的(\\S+?宮)(坐[^；。（），]+|沒有主星，借對面宮位的[^；。（），]+|沒有主星)(?:，(\\S+?化\\S(?:、\\S+?化\\S)*))?。$`).exec(s);
+  if (m) {
+    const layer = m[1] === '十年' ? "This decade's" : "This year's";
+    const hits = m[4] ? huaList(m[4], missing) : null;
+    const with_ = hits ? `, with ${hits.text}` : '';
+    return `${layer} ${pal(m[2]!, missing)} ${seatVerb(m[3]!, missing)}${with_}.`;
+  }
+  m = /^(工作上|錢方面|感情上|心境上)，(.+)$/.exec(s);
+  if (m && h.tm(m[2]!)) {
+    const on = AREA_ON_EN[m[1]!]!;
+    const en = h.tm(m[2]!)!;
+    const body = en.toLowerCase().startsWith(on.toLowerCase()) ? en.slice(on.length).replace(/^,?\s*/, '') : en;
+    return `${on}, ${h.lower(body)}`;
+  }
+
+  /* 建議段（2026-10-13 起） */
+  m = /^這(十年|一年)最順的是(.+?)，力氣放在這裡，最容易見到回報。$/.exec(s);
+  if (m && ADVICE_EN[m[2]!]) return `${m[1] === '十年' ? 'Over these ten years' : 'This year'}, what runs most smoothly is ${ADVICE_EN[m[2]!]}; put your effort there and it pays back most readily.`;
+  m = /^牽涉到(.+?)的決定，多花一點時間再定，(簽字、承諾之前多問一句|急著要答覆的事，先放一晚)。$/.exec(s);
+  if (m && ADVICE_EN[m[1]!]) {
+    const tail = m[2]!.startsWith('急') ? 'let anything that needs an urgent answer wait a night' : 'ask one more question before you sign or commit to anything';
+    return `With decisions involving ${ADVICE_EN[m[1]!]}, take a little more time, and ${tail}.`;
+  }
+  m = /^這(十年|一年)，(.+?)有得著也有牽掛，進一步之前，先想好退路。$/.exec(s);
+  if (m && ADVICE_EN[m[2]!]) return `${m[1] === '十年' ? 'Over these ten years' : 'This year'}, ${ADVICE_EN[m[2]!]} bring gains and worries alike, so before you go further, work out your way back.`;
+  /* 給你的話：「時間上，這十年，力氣放在工作，錢的安排慢一步；這一年，⋯。」 */
+  m = /^時間上，(.+)。$/.exec(s);
+  if (m) {
+    const parts = m[1]!.split('；').map((p) => {
+      const pm = /^這(十年|一年)，(?:力氣放在(.+?)(?:，(.+?)慢一步)?|(.+?)慢一步|(.+?)進退都要想清楚)$/.exec(p);
+      if (!pm) return null;
+      const span = pm[1] === '十年' ? 'over these ten years' : 'this year';
+      const en = (zh: string | undefined) => (zh ? (ADVICE_EN[zh] ?? null) : null);
+      if (pm[5]) return en(pm[5]) && `${span}, think carefully before moving either way on ${en(pm[5])}`;
+      if (pm[4]) return en(pm[4]) && `${span}, go slower on ${en(pm[4])}`;
+      const put = en(pm[2]);
+      if (!put) return null;
+      return pm[3] ? en(pm[3]) && `${span}, put your effort into ${put} and go slower on ${en(pm[3])}` : `${span}, put your effort into ${put}`;
+    });
+    if (parts.every(Boolean)) return `As for timing: ${parts.join('; ')}.`;
+  }
   m = /^只是(.+)$/.exec(s);
   if (m && h.tm(`要留意的是：${m[1]}`)) return `That said, ${h.lower(h.strip(h.tm(`要留意的是：${m[1]}`)!))}`;
 

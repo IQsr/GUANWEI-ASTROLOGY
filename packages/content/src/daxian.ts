@@ -181,7 +181,7 @@ for (const t of Object.values(DAXIAN_FRAMES)) {
 export const STEPS_SLUG = '一生十二步';
 export const DECADE_SLUG = '這十年';
 
-export type DaxianSegment = { slot: string; text: string; source_id: string | null; rule_ids: string[] };
+export type DaxianSegment = { slot: string; text: string; source_id: string | null; rule_ids: string[]; /** 建議段：給你的話用嘅一句撮要（唔入正文） */ brief?: string };
 type Out = { slug: string; title: string; segments: DaxianSegment[] } | null;
 
 const DIGITS = ['〇', '一', '二', '三', '四', '五', '六', '七', '八', '九'] as const;
@@ -291,15 +291,18 @@ export function areaSegments(
      *   冇，而結論句自己已經講明係邊方面（「你在感情裡⋯」）—— 唔再加「感情上」，唔好講兩次
      */
     const says = a.says.test(pp.summary.slice(0, 8));
-    /* 「要留意的是：」一本書已經出二十幾次（每宮結論都有），呢度改講「只是」 */
-    const watch = pp.watch.replace(/^要留意的是：/, '只是');
+    /*
+     * 2026-10-13 讀者 feedback（識斗數嘅讀者：「似照搬、似 AI」）：
+     *   一、以前句尾跟一句「只是⋯」—— 嗰句係星嘅通用提醒，宮位章已經講過，同一本書講兩次就係照搬；剷走。
+     *   二、以前句尾一個「（依據：大限的官祿宮坐⋯。）」括號，似機器記錄。改做開頭一句平常講法：
+     *       「這十年的官祿宮坐紫微、貪狼，紫微化權。」—— 識斗數嘅一眼見到根據，唔識嘅當佢係一句背景。
+     */
+    const basis = `${scope}的${a.palace}宮${starsOf(chart, p)}${here.length ? `，${here.map((h) => `${h.star}化${h.hua}`).join('、')}` : ''}。`;
     const head = tones.length
-      ? `${label}，${scope}${tones.join('，也')}。${pp.summary}${watch}`
+      ? `${basis}${label}，${scope}${tones.join('，也')}。${pp.summary}`
       : says
-        ? `${scope}，${pp.summary}${watch}`
-        : `${label}，${scope}${pp.summary}${watch}`;
-    const layer = scope === '這十年' ? '大限' : '流年';
-    const fact = `（依據：${layer}的${a.palace}宮${starsOf(chart, p)}${here.length ? `；${here.map((h) => `${h.star}化${h.hua}`).join('、')}落在這裡` : ''}。）`;
+        ? `${basis}${pp.summary}`
+        : `${basis}${label}，${pp.summary}`;
     /*
      * 星嘅句講緊呢方面先用（記入 `used`，四化段唔再講）；講緊別方面就用呢方面嘅通用句，
      * 星嘅句留畀四化段。同一種化只出一句通用句。
@@ -312,7 +315,7 @@ export function areaSegments(
     const huaText = fits.map((m) => m.text).join('') + generic.map((hua) => AREA_HUA[a.slot][hua]).join('');
     segments.push({
       slot: a.slot,
-      text: head + fact + huaText,
+      text: head + huaText,
       source_id: [pp.id, ...fits.map((m) => m.id)].join('+'),
       rule_ids: [],
     });
@@ -320,17 +323,52 @@ export function areaSegments(
   return { segments, used };
 }
 
+/*
+ * 建議段點講某一方面（2026-10-13）：以前係「家方面是這一年最順的地方」「性格方面的決定」——
+ * 填格式嘅講法，「性格方面」「身心負荷方面」讀落生硬。逐宮寫一個平常講法。
+ */
+export const ADVICE_ON: Record<string, string> = {
+  命宮: '你自己想做的事',
+  兄弟: '和兄弟、朋輩合作的事',
+  夫妻: '感情',
+  子女: '後輩和手上的作品',
+  財帛: '錢的安排',
+  疾厄: '照顧自己的身心',
+  遷移: '外面的機會',
+  僕役: '朋友和人脈',
+  官祿: '工作',
+  田宅: '家裡的事',
+  福德: '自己的興趣和心境',
+  父母: '和長輩、上司之間的事',
+};
+
 /** 呢段時期最值得做嘅事：力氣放喺化祿嗰方面，化忌嗰方面嘅決定慢一步。 */
 export function adviceSegment(hits: readonly PeriodHit[], scope: '這十年' | '這一年'): DaxianSegment | null {
   const lu = hits.find((h) => h.hua === '祿')?.palace ?? null;
   const ji = hits.find((h) => h.hua === '忌')?.palace ?? null;
   if (!lu && !ji) return null;
   const parts: string[] = [];
-  if (lu) parts.push(`${area(lu)}方面是${scope}最順的地方，值得多花心思`);
-  /* 兩章嘅尾句唔同：給你的話會將兩段排埋一齊 */
-  if (ji && ji !== lu) parts.push(`${area(ji)}方面的決定，多花一點時間再定，${scope === '這十年' ? '簽字、承諾之前多問一句' : '急著要答覆的事，先放一晚'}`);
-  if (ji && ji === lu) parts.push(`這方面有得著也有牽掛，進一步之前，先想好退路`);
-  return { slot: '建議', text: `${scope}最值得做的事：${parts.join('；')}。`, source_id: null, rule_ids: [] };
+  if (lu && ji === lu) parts.push(`${scope}，${ADVICE_ON[lu]}有得著也有牽掛，進一步之前，先想好退路。`);
+  else {
+    if (lu) parts.push(`${scope}最順的是${ADVICE_ON[lu]}，力氣放在這裡，最容易見到回報。`);
+    /* 兩章嘅尾句唔同 */
+    if (ji) parts.push(`牽涉到${ADVICE_ON[ji]}的決定，多花一點時間再定，${scope === '這十年' ? '簽字、承諾之前多問一句' : '急著要答覆的事，先放一晚'}。`);
+  }
+  return { slot: '建議', text: parts.join(''), source_id: null, rule_ids: [], brief: adviceBrief(hits, scope) ?? undefined };
+}
+
+/**
+ * 給你的話嘅「時間」一句（2026-10-13）：以前將兩章嘅建議段原句再印一次（同一本書兩次）；
+ * 而家用一句撮要：「這十年，力氣放在工作，錢的安排慢一步；這一年⋯」。
+ */
+export function adviceBrief(hits: readonly PeriodHit[], scope: '這十年' | '這一年'): string | null {
+  const lu = hits.find((h) => h.hua === '祿')?.palace ?? null;
+  const ji = hits.find((h) => h.hua === '忌')?.palace ?? null;
+  if (!lu && !ji) return null;
+  if (lu && ji === lu) return `${scope}，${ADVICE_ON[lu]}進退都要想清楚`;
+  if (lu && ji) return `${scope}，力氣放在${ADVICE_ON[lu]}，${ADVICE_ON[ji]}慢一步`;
+  if (lu) return `${scope}，力氣放在${ADVICE_ON[lu]}`;
+  return `${scope}，${ADVICE_ON[ji!]}慢一步`;
 }
 
 /** 寫書嗰年嘅虛歲同大限。未起運回第一個大限，`started: false`。 */

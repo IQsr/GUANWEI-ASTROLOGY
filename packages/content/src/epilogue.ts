@@ -98,8 +98,9 @@ export function epilogueChapter(input: { chart: Chart; year: number }): { slug: 
   watches.push({ text: strip(plain.watch), id: xid });
 
   /* 時間：兩章嘅建議段（冇就唔出） */
+  /* 2026-10-13：唔再原句照印兩章嘅建議段（同一本書講兩次），用撮要句 */
   const advice = [decadeChapter({ chart, year }), yearChapter({ chart, year })]
-    .map((c) => c?.segments.find((s) => s.slot === '建議')?.text)
+    .map((c) => (c?.segments.find((s) => s.slot === '建議') as { brief?: string } | undefined)?.brief)
     .filter((t): t is string => Boolean(t));
 
   const NUM = ['一', '二', '三'];
@@ -109,7 +110,7 @@ export function epilogueChapter(input: { chart: Chart; year: number }): { slug: 
     { slot: '結論', text: plain.summary, source_id: xid, rule_ids: [] },
     { slot: '長處', text: `你可以倚仗的：${listed(strengths)}`, source_id: strengths.map((s) => s.id).join('+'), rule_ids: [] },
     { slot: '留意', text: `你要記住的：${listed(watches)}`, source_id: watches.map((w) => w.id).join('+'), rule_ids: [] },
-    ...(advice.length ? [{ slot: '時間', text: advice.join(''), source_id: null, rule_ids: [] }] : []),
+    ...(advice.length ? [{ slot: '時間', text: `時間上，${advice.join('；')}。`, source_id: null, rule_ids: [] }] : []),
     { slot: '留白', text: EPILOGUE_CLOSE, source_id: null, rule_ids: [] },
   ];
   return { slug: EPILOGUE_SLUG, title: EPILOGUE_SLUG, segments };

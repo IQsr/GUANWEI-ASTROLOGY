@@ -71,7 +71,7 @@ describe('兩章', () => {
       const inAreas = new Set(
         segs
           .filter((x) => AREA_SLOTS.includes(x.slot))
-          .flatMap((x) => /；([^。]*)落在這裡/.exec(x.text)?.[1]?.split('、') ?? []),
+          .flatMap((x) => /^這十年的\S+?宮[^。]*?，((?:\S{2}化\S、?)+)。/.exec(x.text)?.[1]?.split('、') ?? []),
       );
       const all = segs.map((x) => x.text).join(' ');
       /* 四粒都有講到：喺四方面嘅依據入面，或者喺四化段 */

@@ -15,7 +15,7 @@
     "kind": "sanfang",
     "key": "兄弟",
     "variant": "pressure",
-    "body": "兄弟宮的三方四正見多顆煞曜。平輩之間的來往條件較多，話說到哪一層、幫到哪一步，往往要各自拿捏。",
+    "body": "兄弟宮的三方四正見多顆煞曜。和兄弟朋輩之間，話說到哪一層、幫到哪一步，往往要各自拿捏；一起做事之前，先講清楚分工比較好。",
     "rule_ids": [
       "sanfang.兄弟-pressure.structural"
     ],
@@ -48,7 +48,7 @@
     "kind": "sanfang",
     "key": "財帛",
     "variant": "pressure",
-    "body": "財帛宮的三方四正見多顆煞曜。資源進出的條件較多，來路和去路往往不在同一條線上。",
+    "body": "財帛宮的三方四正見多顆煞曜。你的錢進出不太整齊，收入來的時候，支出往往也同時找上門，留一筆備用比較安心。",
     "rule_ids": [
       "sanfang.財帛-pressure.structural"
     ],
@@ -59,7 +59,7 @@
     "kind": "sanfang",
     "key": "疾厄",
     "variant": "pressure",
-    "body": "疾厄宮的三方四正見多顆煞曜。你身上同時扛著的事情條件較多，回氣的空檔不容易連在一起。",
+    "body": "疾厄宮的三方四正見多顆煞曜。你常常同時扛著幾件事，想喘口氣，空檔卻很難連成一段。",
     "rule_ids": [
       "sanfang.疾厄-pressure.structural"
     ],
@@ -70,7 +70,7 @@
     "kind": "sanfang",
     "key": "遷移",
     "variant": "pressure",
-    "body": "遷移宮的三方四正見多顆煞曜。你在外的樣子不變，變的是要應付的條件較多：離開熟悉的地方之後，重新架起生活的節奏往往要花時間。",
+    "body": "遷移宮的三方四正見多顆煞曜。離開熟悉的地方之後，你要重新架起生活的節奏，往往比別人多花一點時間。",
     "rule_ids": [
       "sanfang.遷移-pressure.structural"
     ],
@@ -81,7 +81,7 @@
     "kind": "sanfang",
     "key": "僕役",
     "variant": "pressure",
-    "body": "僕役宮的三方四正見多顆煞曜。人群裡的來往條件較多，親疏的界線不容易一次劃清。",
+    "body": "僕役宮的三方四正見多顆煞曜。在人群裡，誰親誰疏不容易一次劃清，你的交情要慢慢看。",
     "rule_ids": [
       "sanfang.僕役-pressure.structural"
     ],
@@ -92,7 +92,7 @@
     "kind": "sanfang",
     "key": "官祿",
     "variant": "pressure",
-    "body": "官祿宮的三方四正見多顆煞曜。做事這件事在你這裡條件較多：要成一件事，往往得先把不相干的東西擺平。",
+    "body": "官祿宮的三方四正見多顆煞曜。要做成一件事，你往往得先把一堆不相干的雜事擺平，才輪到正題。",
     "rule_ids": [
       "sanfang.官祿-pressure.structural"
     ],
@@ -103,7 +103,7 @@
     "kind": "sanfang",
     "key": "田宅",
     "variant": "pressure",
-    "body": "田宅宮的三方四正見多顆煞曜。與住的地方、與家的關係條件較多，要安頓下來通常不是一次到位。",
+    "body": "田宅宮的三方四正見多顆煞曜。你的住處和家裡的事，通常不是一次就安頓得好，搬動、修整會比預期多。",
     "rule_ids": [
       "sanfang.田宅-pressure.structural"
     ],
@@ -114,7 +114,7 @@
     "kind": "sanfang",
     "key": "福德",
     "variant": "pressure",
-    "body": "福德宮的三方四正見多顆煞曜。內在安放自己的條件較多，想要靜下來，往往要先把幾件事放好。",
+    "body": "福德宮的三方四正見多顆煞曜。想靜下來之前，你往往要先把手上幾件事放好，心才放得下。",
     "rule_ids": [
       "sanfang.福德-pressure.structural"
     ],
@@ -136,7 +136,7 @@
     "kind": "sanfang",
     "key": "命宮",
     "variant": "support",
-    "body": "命宮的三方四正見多顆吉曜。條件相對配合：你想推一件事的時候，通常不必從最基本的地方開始鋪。",
+    "body": "命宮的三方四正見多顆吉曜。你想推一件事的時候，通常不必從最基本的地方開始鋪，起步比別人省力。",
     "rule_ids": [
       "sanfang.命宮-support.structural"
     ],
@@ -158,7 +158,7 @@
     "kind": "sanfang",
     "key": "夫妻",
     "variant": "support",
-    "body": "夫妻宮的三方四正見多顆吉曜。感情裡你還是你，外面的條件則相對配合，要談的事比較容易找到時機。",
+    "body": "夫妻宮的三方四正見多顆吉曜。感情裡你還是你，只是要談的事，比較容易找到合適的時機開口。",
     "rule_ids": [
       "sanfang.夫妻-support.structural"
     ],
@@ -224,7 +224,7 @@
     "kind": "sanfang",
     "key": "官祿",
     "variant": "support",
-    "body": "官祿宮的三方四正見多顆吉曜。做事的條件相對配合：要推一件事，願意接的人通常找得到。",
+    "body": "官祿宮的三方四正見多顆吉曜。你要推一件事，願意接手、肯幫忙的人通常找得到。",
     "rule_ids": [
       "sanfang.官祿-support.structural"
     ],
@@ -235,7 +235,7 @@
     "kind": "sanfang",
     "key": "田宅",
     "variant": "support",
-    "body": "田宅宮的三方四正見多顆吉曜。要安頓下來，阻力比較小：住處和家裡的事，多半順手。",
+    "body": "田宅宮的三方四正見多顆吉曜。你要安頓下來，阻力比較小，住處和家裡的事多半順手。",
     "rule_ids": [
       "sanfang.田宅-support.structural"
     ],
@@ -257,7 +257,7 @@
     "kind": "sanfang",
     "key": "父母",
     "variant": "support",
-    "body": "父母宮的三方四正見多顆吉曜。與長輩相處的分寸仍由你自己的性格決定；周圍的條件則相對配合，要交代一件事，路徑比較直接。",
+    "body": "父母宮的三方四正見多顆吉曜。和長輩、上司之間要交代一件事，你的路徑比較直接，不必繞圈。",
     "rule_ids": [
       "sanfang.父母-support.structural"
     ],

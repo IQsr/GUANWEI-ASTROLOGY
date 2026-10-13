@@ -1,5 +1,5 @@
 import tmRaw from './tm.json';
-import { WATCH_LEADS } from '../watch-lead';
+import { OLD_WATCH_LEADS, WATCH_LEADS } from '../watch-lead';
 import { LINK_REFS } from '../link';
 import { JI_WATCH, PAIR_PLAIN } from '../palace-plain';
 import { BRANCH_TOPICS, FILL_VERB, MAJOR, slotPattern } from '../branch';
@@ -198,7 +198,7 @@ function lookupSentence(s: string): string | null {
     if (m) return huiEn(h, m);
   }
   /* 結論段輪換過嘅轉接語（assemble.ts `WATCH_LEADS`）：翻譯表只存「要留意的是：」嗰款 */
-  const lead = WATCH_LEADS.slice(1).find((l) => s.startsWith(l));
+  const lead = [...WATCH_LEADS.slice(1), ...OLD_WATCH_LEADS].find((l) => s.startsWith(l));
   if (lead) {
     const watched = TM.sentences[WATCH_LEADS[0] + s.slice(lead.length)];
     if (watched) return watched;
@@ -276,7 +276,9 @@ function template(s: string, missing: string[]): string | null {
 
   /* 擾動：同宮還有火星：⋯。／還有鈴星：⋯。
    * 睇稿指南第 13 節：煞星唔好得一個標籤 —— 先講佢改咗啲乜，後面嗰截（逐宮寫）講落地點樣。 */
-  m = /^(同宮還有|還有)(\S{2})：(.+)。$/.exec(s);
+  /* 2026-10-13 起：「加上擎羊同宮，⋯。」「再加上陀羅，⋯。」—— 同舊講法一樣譯 */
+  const sha = /^(?:加上(\S{2})同宮|再加上(\S{2}))，(.+)。$/.exec(s);
+  m = sha ? ['', sha[1] ? '同宮還有' : '還有', (sha[1] ?? sha[2])!, sha[3]!] as unknown as RegExpExecArray : /^(同宮還有|還有)(\S{2})：(.+)。$/.exec(s);
   if (m) {
     const name = starFirst(m[2]!);
     if (!name) missing.push(m[2]!);

@@ -578,8 +578,18 @@ export function assemble(
      * 喺詞條寫得出之前，呢度保留星名（讀者要知講緊邊粒星），剝走定義。
      */
     /* 直白：「鈴星：外表沉⋯」讀落似一個標籤，改成一句話 —— 同宮還有鈴星：⋯ */
+    /*
+     * 2026-10-13：「同宮還有擎羊：⋯」一本書出五次，冒號開頭似標籤。改做一句話：
+     * 「加上擎羊同宮，⋯」「再加上陀羅，⋯」。
+     */
     const shaText = mods
-      .map((m, i) => `${i === 0 ? '同宮還有' : '還有'}${stripDefinition(m!.text, m!.star)}`)
+      .map((m, i) => {
+        const t = stripDefinition(m!.text, m!.star);
+        const c = t.indexOf('：');
+        const name = c > 0 ? t.slice(0, c) : m!.star;
+        const body = c > 0 ? t.slice(c + 1) : t;
+        return i === 0 ? `加上${name}同宮，${body}` : `再加上${name}，${body}`;
+      })
       .join('');
     push({
       slot: '擾動',
