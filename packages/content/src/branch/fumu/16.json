@@ -9,6 +9,73 @@
   },
   "rules": [
     {
+      "id": "父母.太陰.火鈴",
+      "role": "refine",
+      "when": {
+        "star": [
+          "火星",
+          "鈴星"
+        ],
+        "at": "same"
+      },
+      "text": "太陰與火星或鈴星同宮，你和父母容易分隔兩地。",
+      "en": "Tai Yin with Huo Xing or Ling Xing: you and your parents tend to live apart.",
+      "source": {
+        "passage": "deep.父母.太陰.1",
+        "quote": "倘仅躔火、铃，则只主分离"
+      }
+    },
+    {
+      "id": "父母.太陰.馬",
+      "role": "refine",
+      "when": {
+        "star": "天馬",
+        "at": "same"
+      },
+      "text": "太陰與天馬同宮，你和父母住得遠，見面少。",
+      "en": "Tai Yin with Tian Ma: you live far from your parents and see them little.",
+      "source": {
+        "passage": "deep.父母.太陰.2",
+        "quote": "不见火铃亦主远离父母"
+      }
+    },
+    {
+      "id": "父母.太陰.讒",
+      "role": "refine",
+      "when": {
+        "all": [
+          {
+            "hua": "忌",
+            "star": "太陰",
+            "at": "same"
+          },
+          {
+            "star": [
+              "擎羊",
+              "陀羅"
+            ],
+            "at": "sifang"
+          },
+          {
+            "star": "文曲",
+            "at": "sifang"
+          },
+          {
+            "not": {
+              "star": "陀羅",
+              "at": "same"
+            }
+          }
+        ]
+      },
+      "text": "太陰化忌又見羊陀和文曲，容易有人從中挑撥，令你和父母或上司不和。",
+      "en": "Tai Yin in Hindrance with Qing Yang or Tuo Luo and Wen Qu: someone may stir things up between you and your parents or boss.",
+      "source": {
+        "passage": "deep.父母.太陰.3",
+        "quote": "主有人进谗"
+      }
+    },
+    {
       "id": "父母.太陰.羊",
       "role": "limit",
       "when": {
@@ -18,7 +85,7 @@
       "text": "太陰與擎羊同宮，你和母親的緣份較淺。",
       "en": "Tai Yin with Qing Yang: your bond with your mother is thinner.",
       "source": {
-        "passage": "deep.父母.太陰.1",
+        "passage": "deep.父母.太陰.4",
         "quote": "主与母亲缘份浅"
       }
     },
@@ -32,7 +99,7 @@
       "text": "太陰與陀羅同宮，你與母親各有成見，不易融洽。",
       "en": "Tai Yin with Tuo Luo: you and your mother each hold your own views, and harmony is hard.",
       "source": {
-        "passage": "deep.父母.太陰.2",
+        "passage": "deep.父母.太陰.5",
         "quote": "各怀成见"
       }
     }

@@ -1,68 +1,27 @@
 {
-  "$note": "父母宮（2026-10-12）：父母通則。《深造講義》下篇 宮垣論 父母宮 p.575–595。父母存亡、刑剋、孝服、灾病、偏房繼室所生、父有外遇、重拜父母一類斷語不用；天巫、天刑、天壽、白虎丧门等引擎冇嘅星不用；要分日夜生、廟陷嘅條文暫不用。原書父母宮兼論上司，呢部份照用。",
+  "$note": "父母宮（2026-10-12）：武曲天府.父母。《深造講義》下篇 宮垣論 父母宮 p.575–595。父母存亡、刑剋、孝服、灾病、偏房繼室所生、父有外遇、重拜父母一類斷語不用；天巫、天刑、天壽、白虎丧门等引擎冇嘅星不用；要分日夜生、廟陷嘅條文暫不用。原書父母宮兼論上司，呢部份照用。",
   "topic": {
-    "id": "父母通則",
+    "id": "武曲天府.父母",
     "palace": "父母",
-    "stars": []
+    "stars": [
+      "武曲",
+      "天府"
+    ]
   },
   "rules": [
     {
-      "id": "父母.通則.吉化",
+      "id": "父母.武府.廉忌",
       "role": "refine",
       "when": {
-        "hua": [
-          "祿",
-          "權",
-          "科"
-        ],
-        "at": "same"
+        "hua": "忌",
+        "star": "廉貞",
+        "at": "sifang"
       },
-      "text": "父母宮見祿權科，很多時候講的是上司的特質：一般宜在大機構服務，或者上司身居要職。",
-      "en": "Abundance, Authority or Merit in the Parents Palace often describes your bosses: you generally do well in a large organisation, or your boss holds an important post.",
+      "text": "武曲天府會廉貞化忌，你和父母之間意見不合。",
+      "en": "Wu Qu–Tian Fu meets Lian Zhen in Hindrance: you and your parents disagree.",
       "source": {
-        "passage": "deep.父母.通則.1",
-        "quote": "可视为宜在大机构企业服务"
-      }
-    },
-    {
-      "id": "父母.通則.煞",
-      "role": "refine",
-      "when": {
-        "star": [
-          "擎羊",
-          "陀羅",
-          "火星",
-          "鈴星"
-        ],
-        "at": "same"
-      },
-      "text": "父母宮見〔煞〕，有時只主人際關係欠佳，包括與父母、與上司。",
-      "en": "〔Harsh stars〕 in the Parents Palace can simply mean strained relationships, with your parents and with your bosses.",
-      "source": {
-        "passage": "deep.父母.通則.2",
-        "quote": "有时仅主人际关系不佳"
-      }
-    },
-    {
-      "id": "父母.通則.祿馬",
-      "role": "refine",
-      "when": {
-        "any": [
-          {
-            "star": "祿存",
-            "at": "same"
-          },
-          {
-            "star": "天馬",
-            "at": "same"
-          }
-        ]
-      },
-      "text": "父母宮見祿存或天馬，父母多遷動；有時也表示你常換上司。",
-      "en": "Lu Cun or Tian Ma in the Parents Palace often means your parents move around; sometimes it means your bosses keep changing.",
-      "source": {
-        "passage": "deep.父母.通則.3",
-        "quote": "但有时亦主自己时时更换上司"
+        "passage": "deep.父母.武曲.1",
+        "quote": "会廉贞化忌，则主父子参商"
       }
     }
   ]

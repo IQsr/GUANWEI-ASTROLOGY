@@ -9,6 +9,47 @@
   },
   "rules": [
     {
+      "id": "父母.七殺.代溝",
+      "role": "refine",
+      "when": {
+        "all": [
+          {
+            "star": [
+              "擎羊",
+              "陀羅",
+              "火星",
+              "鈴星",
+              "地空",
+              "地劫"
+            ],
+            "at": "same"
+          },
+          {
+            "not": {
+              "star": [
+                "火星",
+                "鈴星"
+              ],
+              "at": "same"
+            }
+          },
+          {
+            "not": {
+              "hua": "祿",
+              "star": "廉貞",
+              "at": "same"
+            }
+          }
+        ]
+      },
+      "text": "七殺見〔煞〕，你和父母有代溝，和上司也容易不和。",
+      "en": "Qi Sha meets 〔harsh stars〕: there is a generation gap with your parents, and friction with bosses.",
+      "source": {
+        "passage": "deep.父母.七殺.1",
+        "quote": "七杀守父母宫，煞轻者，主有代沟"
+      }
+    },
+    {
       "id": "父母.七殺.紫權",
       "role": "limit",
       "when": {
@@ -22,7 +63,7 @@
       "text": "七殺會紫微化權，你的父母成見很深，不易被說服。",
       "en": "Qi Sha meets Zi Wei in Authority: your parents hold very fixed views and are hard to persuade.",
       "source": {
-        "passage": "deep.父母.七殺.1",
+        "passage": "deep.父母.七殺.2",
         "quote": "七杀会紫微化权，父母成见极深"
       }
     },
@@ -70,7 +111,7 @@
       "text": "會紫微化科又見〔吉〕，父母有聲譽，只是兩代關係未必相諧。",
       "en": "Meeting Zi Wei in Merit with 〔helpful stars〕, your parents are well regarded, though the generations do not always see eye to eye.",
       "source": {
-        "passage": "deep.父母.七殺.2",
+        "passage": "deep.父母.七殺.3",
         "quote": "父母有声誉"
       }
     },
@@ -88,7 +129,7 @@
       "text": "七殺會到祿權科，你得到父母蔭庇之力。",
       "en": "Qi Sha meeting Abundance, Authority or Merit: you benefit from your parents’ shelter.",
       "source": {
-        "passage": "deep.父母.七殺.3",
+        "passage": "deep.父母.七殺.4",
         "quote": "主得父母荫庇之力"
       }
     },
@@ -116,7 +157,7 @@
       "text": "同宮有火鈴，或會天馬，你與父母遠離。",
       "en": "With Huo Xing or Ling Xing in the palace, or meeting Tian Ma, you live far from your parents.",
       "source": {
-        "passage": "deep.父母.七殺.4",
+        "passage": "deep.父母.七殺.5",
         "quote": "主远离父母"
       }
     },
@@ -126,7 +167,7 @@
       "text": "七殺在父母宮，你與父母的關係較疏遠。",
       "en": "With Qi Sha in your Parents Palace, your relationship with your parents is more distant.",
       "source": {
-        "passage": "deep.父母.七殺.5",
+        "passage": "deep.父母.七殺.6",
         "quote": "亦与父母关系疏远"
       }
     }

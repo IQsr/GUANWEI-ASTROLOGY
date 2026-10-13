@@ -9,6 +9,34 @@
   },
   "rules": [
     {
+      "id": "父母.巨門.同火",
+      "role": "refine",
+      "when": {
+        "all": [
+          {
+            "star": "天同",
+            "at": [
+              "same",
+              "opp"
+            ]
+          },
+          {
+            "star": [
+              "火星",
+              "鈴星"
+            ],
+            "at": "same"
+          }
+        ]
+      },
+      "text": "巨門遇天同，又與火星或鈴星同宮，你和父母意見不合。",
+      "en": "Ju Men meeting Tian Tong, with Huo Xing or Ling Xing: you and your parents disagree.",
+      "source": {
+        "passage": "deep.父母.巨門.1",
+        "quote": "则主父母子女参商"
+      }
+    },
+    {
       "id": "父母.巨門.煞忌",
       "role": "refine",
       "when": {
@@ -33,7 +61,7 @@
       "text": "巨門在父母宮又見〔煞忌〕，你和父母之間難免不和。",
       "en": "Ju Men in your Parents Palace meets 〔harsh stars or Hindrance〕: some friction with your parents is hard to avoid.",
       "source": {
-        "passage": "deep.父母.巨門.1",
+        "passage": "deep.父母.巨門.2",
         "quote": "或不和仍难避免"
       }
     },
@@ -71,7 +99,7 @@
       "text": "巨門與太陽同宮或相對，你和父母一般兩代不和。",
       "en": "With Ju Men beside or facing Tai Yang, the generations generally do not get on.",
       "source": {
-        "passage": "deep.父母.巨門.2",
+        "passage": "deep.父母.巨門.3",
         "quote": "一般情形下主父子不和"
       }
     },
@@ -105,7 +133,7 @@
       "text": "巨門與天機同宮或相對而無煞，你小時候多會寄住或寄養在別處，離開父母一段時間。",
       "en": "With Ju Men beside or facing Tian Ji and no harsh stars, you stay with others for a time as a child, away from your parents.",
       "source": {
-        "passage": "deep.父母.巨門.3",
+        "passage": "deep.父母.巨門.4",
         "quote": "仅主寄宿或寄养"
       }
     }

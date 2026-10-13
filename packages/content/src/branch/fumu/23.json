@@ -9,6 +9,43 @@
   },
   "rules": [
     {
+      "id": "父母.太陽.陷煞",
+      "role": "refine",
+      "when": {
+        "all": [
+          {
+            "bright": "low",
+            "star": "太陽"
+          },
+          {
+            "any": [
+              {
+                "star": [
+                  "擎羊",
+                  "陀羅",
+                  "火星",
+                  "鈴星",
+                  "地空",
+                  "地劫"
+                ],
+                "at": "same"
+              },
+              {
+                "hua": "忌",
+                "at": "same"
+              }
+            ]
+          }
+        ]
+      },
+      "text": "太陽光熱不足又見〔煞忌〕，你小時候不太得父母歡心。",
+      "en": "Tai Yang shines weakly and meets 〔harsh stars or Hindrance〕: as a child you were not your parents’ favourite.",
+      "source": {
+        "passage": "deep.父母.太陽.10",
+        "quote": "或不为父母所喜"
+      }
+    },
+    {
       "id": "父母.太陽.廟吉",
       "role": "refine",
       "when": {
@@ -48,7 +85,7 @@
       "text": "太陽光熱充足又見〔吉〕，你童年很受父母愛護。",
       "en": "Tai Yang shines strongly and meets 〔good signs〕: your parents cherished you as a child.",
       "source": {
-        "passage": "deep.父母.太陽.10",
+        "passage": "deep.父母.太陽.11",
         "quote": "童年受父母爱护"
       }
     }

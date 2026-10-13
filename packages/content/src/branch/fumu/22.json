@@ -9,6 +9,64 @@
   },
   "rules": [
     {
+      "id": "父母.破軍.煞",
+      "role": "refine",
+      "when": {
+        "all": [
+          {
+            "star": [
+              "擎羊",
+              "陀羅",
+              "地空",
+              "地劫"
+            ],
+            "at": "same"
+          },
+          {
+            "not": {
+              "star": [
+                "火星",
+                "鈴星"
+              ],
+              "at": "same"
+            }
+          }
+        ]
+      },
+      "text": "破軍見〔煞〕，你和父母容易分隔兩地。",
+      "en": "Po Jun meets 〔harsh stars〕: you and your parents tend to live apart.",
+      "source": {
+        "passage": "deep.父母.破軍.1",
+        "quote": "稍见煞即主远离"
+      }
+    },
+    {
+      "id": "父母.破軍.權羊陀",
+      "role": "refine",
+      "when": {
+        "all": [
+          {
+            "hua": "權",
+            "star": "破軍",
+            "at": "same"
+          },
+          {
+            "star": [
+              "擎羊",
+              "陀羅"
+            ],
+            "at": "same"
+          }
+        ]
+      },
+      "text": "破軍化權又與擎羊或陀羅同宮，你和父母或上司關係不和。",
+      "en": "Po Jun in Authority with Qing Yang or Tuo Luo: relations with your parents or boss are strained.",
+      "source": {
+        "passage": "deep.父母.破軍.2",
+        "quote": "否则主父子关系不和"
+      }
+    },
+    {
       "id": "父母.破軍.祿",
       "role": "refine",
       "when": {
@@ -19,7 +77,7 @@
       "text": "破軍化祿，你的父母之間感情和美，家裡氣氛好。",
       "en": "Po Jun in Abundance: your parents get on well together, and home feels good.",
       "source": {
-        "passage": "deep.父母.破軍.1",
+        "passage": "deep.父母.破軍.3",
         "quote": "破军化禄，则父母和美"
       }
     },
@@ -36,7 +94,7 @@
       "text": "破軍與火星或鈴星同宮，你和父母分隔兩地。",
       "en": "Po Jun shares the palace with Huo Xing or Ling Xing: you and your parents live far apart.",
       "source": {
-        "passage": "deep.父母.破軍.2",
+        "passage": "deep.父母.破軍.4",
         "quote": "破军与火星、铃星同度，决主远离"
       }
     },
@@ -49,7 +107,7 @@
       "text": "破軍獨坐父母宮，本質孤獨，跟上司關係也疏遠，所以有時會常換工作。",
       "en": "With Po Jun alone in your Parents Palace, things are solitary by nature: you are distant from bosses too, so you may change jobs often.",
       "source": {
-        "passage": "deep.父母.破軍.3",
+        "passage": "deep.父母.破軍.5",
         "quote": "亦主跟上司关系疏远"
       }
     }
