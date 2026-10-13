@@ -301,7 +301,7 @@ T.append({'id': '貪狼.田宅', 'stars': ['貪狼'], 'rules': [
    '見〔吉化〕、祿存或文昌文曲，你的產業耐久而豐盛。',
    'With 〔good transformations〕, Lu Cun, Wen Chang or Wen Qu, your property lasts and grows.',
    '贪狼入庙，无火铃，但有吉星同度会照，如吉化、禄存、昌曲、则产业耐久且丰盛。', '则产业耐久且丰盛'),
- R('田宅.貪狼.本', None,
+ R('田宅.貪狼.本', {'not': {'any': [{'star': ['火星', '鈴星'], 'at': 'same'}, {'hua': '祿', 'at': 'same'}, {'star': ['祿存', '武曲'], 'at': 'same'}]}},
    '貪狼主散不主聚，稍見刑忌，你的產業就容易生事端。',
    'Tan Lang scatters rather than gathers: the slightest harsh influence stirs up trouble over property.',
    '贪狼主散不主聚，故稍见刑忌即生事端。', '贪狼主散不主聚', 'base'),
@@ -327,7 +327,7 @@ T.append({'id': '巨門.田宅', 'stars': ['巨門'], 'rules': [
 
 # ── 天相 ──
 T.append({'id': '天相.田宅', 'stars': ['天相'], 'rules': [
- R('田宅.天相.武祿', H('祿', '武曲', 'sifang'),
+ R('田宅.天相.武祿', {'all': [H('祿', '武曲', 'sifang'), {'not': {'any': [FUZUO, KUIYUE]}}]},
    '天相會到武曲化祿，你名下的產業豐厚。',
    'Tian Xiang meets Wu Qu in Abundance: your property is plentiful.',
    '天相喜会武曲化禄，主产业丰厚。', '主产业丰厚'),

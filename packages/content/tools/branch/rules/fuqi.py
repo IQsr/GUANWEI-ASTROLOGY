@@ -367,7 +367,7 @@ T.append({'id': '貪狼.夫妻', 'stars': ['貪狼'], 'rules': [
    '同宮有火星或鈴星：起初熱戀，婚後不久就容易冷下來。',
    'With Huo Xing or Ling Xing in the palace, it starts as a passionate romance but can cool soon after marriage.',
    '『火贪』、『铃贪』守夫妻宫，主初时热恋，婚后不久即同冰炭。', '主初时热恋', 'limit'),
- R('夫妻.貪狼.煞', {'all': [SHA, {'not': {'branch': ['辰', '戌']}}]},
+ R('夫妻.貪狼.煞', {'all': [{'all': [SHA, {'not': {'branch': ['辰', '戌']}}]}, {'not': {'hua': '忌', 'star': '貪狼', 'at': 'same'}}]},
    '同宮見〔煞〕，你以遲婚為宜；婚前經過波折，反而好。',
    'With 〔harsh stars〕 in the palace, marrying later suits you; twists beforehand actually help.',
    '必须迟婚，且婚前曾经波折，然后可免。', '必须迟婚，且婚前曾经波折'),

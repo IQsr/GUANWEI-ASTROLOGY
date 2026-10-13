@@ -371,7 +371,7 @@ T.append({'id': '廉貞寅申.財帛', 'stars': ['廉貞'], 'branch': ['寅', '�
    '寅申宫廉贞，最喜禄马交驰，不但善于理财，且主贸适得利。', '不但善于理财'),
 ]})
 T.append({'id': '廉貞.財帛', 'stars': ['廉貞'], 'rules': [
- R('財帛.廉貞.祿', {'any': [H('祿', '廉貞'), {'star': '祿存', 'at': 'same'}]},
+ R('財帛.廉貞.祿', {'all': [{'any': [H('祿', '廉貞'), {'star': '祿存', 'at': 'same'}]}, {'not': {'star': '天相', 'at': 'same'}}]},
    '廉貞化祿或有祿存，容易成富，錢財多由交際應酬而來。',
    'With Lian Zhen in Abundance or Lu Cun present, wealth comes readily, mostly through your social dealings.',
    '但廉贞化禄，或禄存同度，却易成富格。其财每由交际应酬而来。', '其财每由交际应酬而来'),

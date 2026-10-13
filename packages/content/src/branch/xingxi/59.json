@@ -47,11 +47,36 @@
       "id": "天相卯酉.火鈴",
       "role": "limit",
       "when": {
-        "star": [
-          "火星",
-          "鈴星"
-        ],
-        "at": "sifang"
+        "all": [
+          {
+            "star": [
+              "火星",
+              "鈴星"
+            ],
+            "at": "sifang"
+          },
+          {
+            "not": {
+              "lean": "重情面"
+            }
+          },
+          {
+            "not": {
+              "star": [
+                "地空",
+                "地劫"
+              ],
+              "at": "same"
+            }
+          },
+          {
+            "not": {
+              "hua": "忌",
+              "star": "廉貞",
+              "at": "opp"
+            }
+          }
+        ]
       },
       "text": "會照的火鈴，令你帶重情面而失原則的色彩。",
       "en": "Huo or Ling meeting your chart adds a tendency to put loyalty above principle.",
@@ -65,11 +90,20 @@
       "id": "天相卯酉.空劫",
       "role": "limit",
       "when": {
-        "star": [
-          "地空",
-          "地劫"
-        ],
-        "at": "same"
+        "all": [
+          {
+            "star": [
+              "地空",
+              "地劫"
+            ],
+            "at": "same"
+          },
+          {
+            "not": {
+              "lean": "重情面"
+            }
+          }
+        ]
       },
       "text": "你的命宮有空劫，也容易重情面而失原則。",
       "en": "Kong or Jie in your Life Palace also leans you towards loyalty over principle.",
@@ -105,9 +139,27 @@
       "id": "天相卯酉.廉忌",
       "role": "limit",
       "when": {
-        "hua": "忌",
-        "star": "廉貞",
-        "at": "opp"
+        "all": [
+          {
+            "hua": "忌",
+            "star": "廉貞",
+            "at": "opp"
+          },
+          {
+            "not": {
+              "lean": "重情面"
+            }
+          },
+          {
+            "not": {
+              "star": [
+                "地空",
+                "地劫"
+              ],
+              "at": "same"
+            }
+          }
+        ]
       },
       "text": "對面遷移宮的廉貞化忌，多感情拖累，容易因此重情面而失原則。",
       "en": "Lian Zhen opposite you is transformed by Ji, bringing emotional entanglements that can push loyalty above principle.",

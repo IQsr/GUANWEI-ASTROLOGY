@@ -82,16 +82,26 @@
       "id": "僕役.天梁.吉",
       "role": "refine",
       "when": {
-        "any": [
+        "all": [
           {
-            "hua": "權",
-            "star": "天梁",
-            "at": "same"
+            "any": [
+              {
+                "hua": "權",
+                "star": "天梁",
+                "at": "same"
+              },
+              {
+                "hua": "科",
+                "star": "天梁",
+                "at": "same"
+              }
+            ]
           },
           {
-            "hua": "科",
-            "star": "天梁",
-            "at": "same"
+            "not": {
+              "star": "祿存",
+              "at": "same"
+            }
           }
         ]
       },

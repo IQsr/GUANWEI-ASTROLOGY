@@ -12,15 +12,25 @@
       "id": "財帛.廉貞.祿",
       "role": "refine",
       "when": {
-        "any": [
+        "all": [
           {
-            "hua": "祿",
-            "star": "廉貞",
-            "at": "same"
+            "any": [
+              {
+                "hua": "祿",
+                "star": "廉貞",
+                "at": "same"
+              },
+              {
+                "star": "祿存",
+                "at": "same"
+              }
+            ]
           },
           {
-            "star": "祿存",
-            "at": "same"
+            "not": {
+              "star": "天相",
+              "at": "same"
+            }
           }
         ]
       },

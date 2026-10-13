@@ -291,7 +291,7 @@ T.append({'id': '天府.遷移', 'stars': ['天府'], 'rules': [
 
 # ── 太陰 ──
 T.append({'id': '太陰.遷移', 'stars': ['太陰'], 'rules': [
- R('遷移.太陰.忌', H('忌', '太陰'),
+ R('遷移.太陰.忌', {'all': [H('忌', '太陰'), {'not': {'star': '天同', 'at': 'same'}}]},
    '太陰化忌，你不宜在外地投資，更不宜見獵心喜。',
    'Tai Yin in Hindrance: avoid investing away from home, and do not chase what looks tempting.',
    '太阴化忌守迁移宫，不宜在外乡异域投资。更不宜见猎心喜，主反招损失破败。', '不宜在外乡异域投资'),
@@ -385,7 +385,7 @@ T.append({'id': '天相.遷移', 'stars': ['天相'], 'rules': [
    '命宮的紫微化權，你以離開出生地發展為宜。',
    'Zi Wei in Authority in your Life Palace: developing away from your birthplace suits you.',
    '天相与[紫微破军]相对，若原局贪狼化禄者，主动静皆利；原局紫微化权，则以离开出生地发展为宜。', '则以离开出生地发展为宜'),
- R('遷移.天相.吉夾', {'any': [{'jia': ['左輔', '右弼']}, {'jia': ['天魁', '天鉞']}, {'jia': ['文昌', '文曲']}]},
+ R('遷移.天相.吉夾', {'all': [{'any': [{'jia': ['左輔', '右弼']}, {'jia': ['天魁', '天鉞']}, {'jia': ['文昌', '文曲']}]}, {'not': {'any': [{'jia': ['擎羊', '陀羅']}, {'jia': ['火星', '鈴星']}]}}]},
    '天相被〔吉星〕相夾，你在外人緣好，容易得人好感。',
    'Tian Xiang is flanked by 〔helper stars〕: you are well liked away from home and win people over easily.',
    '大致而言，天相遇吉夹则多人缘，遇凶夹则主孤立。', '天相遇吉夹则多人缘'),

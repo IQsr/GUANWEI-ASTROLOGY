@@ -84,6 +84,30 @@
     {
       "id": "田宅.貪狼.本",
       "role": "base",
+      "when": {
+        "not": {
+          "any": [
+            {
+              "star": [
+                "火星",
+                "鈴星"
+              ],
+              "at": "same"
+            },
+            {
+              "hua": "祿",
+              "at": "same"
+            },
+            {
+              "star": [
+                "祿存",
+                "武曲"
+              ],
+              "at": "same"
+            }
+          ]
+        }
+      },
       "text": "貪狼主散不主聚，稍見刑忌，你的產業就容易生事端。",
       "en": "Tan Lang scatters rather than gathers: the slightest harsh influence stirs up trouble over property.",
       "source": {

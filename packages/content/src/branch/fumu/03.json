@@ -41,6 +41,16 @@
     {
       "id": "父母.紫微.本",
       "role": "base",
+      "when": {
+        "not": {
+          "hua": "科",
+          "star": [
+            "紫微",
+            "天府"
+          ],
+          "at": "same"
+        }
+      },
       "text": "紫微在父母宮，你的父母有權威，在家說了算。",
       "en": "With Zi Wei in your Parents Palace, your parents carry authority and have the final say at home.",
       "source": {

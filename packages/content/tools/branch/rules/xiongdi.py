@@ -233,7 +233,7 @@ T.append({'id': '天同巳亥.兄弟', 'stars': ['天同'], 'branch': ['巳', '�
    '同时亦主交友面广，尤擅结交地位不如己者。', '尤擅结交地位不如己者', 'base'),
 ]})
 T.append({'id': '天同.兄弟', 'stars': ['天同'], 'rules': [
- R('兄弟.天同.本', {'all': [{'not': {'star': '巨門', 'at': 'same'}}, {'not': {'branch': ['辰', '戌']}}]},
+ R('兄弟.天同.本', {'all': [{'not': {'star': '巨門', 'at': 'same'}}, {'not': {'branch': ['辰', '戌']}}, {'not': SHA}]},
    '天同在兄弟宮，你和兄弟大多和好；也能結交中下層的朋友，只是實際助力不多。',
    'With Tian Tong in your Siblings Palace, siblings generally get on; you also make friends easily at every level, though practical help is limited.',
    '凡天同守兄弟宫，多主兄弟和好，有煞亦多表面和好。且主为人能结交中下层的朋友，唯无太多实际助力。', '多主兄弟和好', 'base'),
@@ -356,7 +356,7 @@ T.append({'id': '天梁.兄弟', 'stars': ['天梁'], 'rules': [
 
 # ── 七殺 ──
 T.append({'id': '七殺.兄弟', 'stars': ['七殺'], 'rules': [
- R('兄弟.七殺.吉', {'all': [{'hua': ['祿', '權', '科'], 'at': 'sifang'}, FUZUO, {'not': SHA}]},
+ R('兄弟.七殺.吉', {'all': [{'hua': ['祿', '權', '科'], 'at': 'sifang'}, FUZUO, {'not': {'star': ['擎羊', '陀羅', '火星', '鈴星', '地空', '地劫'], 'at': 'sifang'}}]},
    '七殺會到祿權科又見左輔右弼，你兄弟眾多。',
    'Qi Sha meeting Abundance, Authority or Merit with Zuo Fu or You Bi: many siblings.',
    '七杀守兄弟宫，见禄、权、科及辅弼，兄弟众多。', '见禄、权、科及辅弼，兄弟众多'),

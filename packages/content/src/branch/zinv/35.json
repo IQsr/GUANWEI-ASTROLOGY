@@ -26,6 +26,12 @@
     {
       "id": "子女.七殺.下屬",
       "role": "base",
+      "when": {
+        "not": {
+          "star": "武曲",
+          "at": "same"
+        }
+      },
       "text": "七殺在子女宮，門生弟子和追隨你的晚輩較少。",
       "en": "With Qi Sha in your Children Palace, you have few students or younger followers.",
       "source": {

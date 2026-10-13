@@ -409,3 +409,51 @@ describe('太陽太陰入廟落陷（2026-10-12）', () => {
     expect(seen.size).toBe(24);
   });
 });
+
+describe('同一段細讀唔可以有相反講法：反義詞對掃描（2026-10-13 系統掃描後加）', () => {
+  /* 一句有左邊（冇右邊）、另一句有右邊，就係一正一反。12000 張盤掃過，下面 OK 係人手睇過、唔算打架嘅組合。 */
+  const ANT: [string, string][] = [
+    ['眾多', '少'], ['廣闊', '不廣'], ['得力', '不得力'], ['和好', '不和'], ['和睦', '不和'], ['和美', '不和'], ['融洽', '不和'],
+    ['順利', '不順'], ['有利', '不利'], ['吉利', '不吉'], ['穩定', '不穩'], ['安定', '動盪'], ['長久', '不能長久'],
+    ['豐厚', '不主'], ['有祖業', '沒有祖業'], ['孤單', '眾多'], ['孤立', '人緣好'], ['寧靜', '喧鬧'], ['助力', '幫不上'],
+    ['積聚', '不主積聚'], ['周密', '欠周密'],
+  ];
+  const OK = new Set([
+    '僕役.紫破.輔佐|僕役.紫微.煞', // 兩句都講助力不足
+    '官祿.紫貪.左右|官祿.紫貪.忌', // 一講下屬、一講合作
+    '天機官祿.機陰無祿|天機官祿.機陰煞', // 不宜經商、更不宜
+    '官祿.連動.官夫皆凶|官祿.破軍子午.合作', // 夫妻之間 vs 與人
+    '天機官祿.火鈴|天機官祿.忌', // 都講變動
+    '天機官祿.本|天機官祿.忌',
+    '僕役.機巨.本|僕役.巨門.吉',
+    '田宅.同陰.吉|田宅.太陰.陷煞', // 宜買寧靜地段 vs 而家住處喧鬧
+    '僕役.天同.羊陀|僕役.天梁.輔佐',
+    '財帛.連動.官吉財凶|財帛.巨門辰戌.專業',
+  ]);
+  it('掃 6000 張盤十個宮', () => {
+    const text = new Map(BRANCH_TOPICS.flatMap((t) => t.rules.map((r) => [r.id, r.text] as const)));
+    const bad = new Set<string>();
+    for (let i = 0; i < 6000; i++) {
+      const r = cast({
+        solar: { y: 1930 + (i % 85), m: 1 + ((i * 7) % 12), d: 1 + ((i * 13) % 28) }, time: { h: (i * 5 + Math.floor(i / 85)) % 24, min: 30 },
+        tz: 'Asia/Hong_Kong', place: { lng: 114.17, lat: 22.32, label: '香港' }, sex: i % 2 ? 'male' : 'female',
+      });
+      if (!r.ok) continue;
+      for (const pal of ['兄弟', '夫妻', '子女', '財帛', '遷移', '僕役', '官祿', '田宅', '福德', '父母']) {
+        const ids = branchReading(r.value, pal)?.ids ?? [];
+        for (let x = 0; x < ids.length; x++) for (let y = 0; y < ids.length; y++) {
+          if (x === y) continue;
+          const a = text.get(ids[x]!)!;
+          const b = text.get(ids[y]!)!;
+          for (const [p, q] of ANT) {
+            if (a.includes(p) && !a.includes(q) && b.includes(q) && !b.includes(p)) {
+              const k = x < y ? `${ids[x]}|${ids[y]}` : `${ids[y]}|${ids[x]}`;
+              if (!OK.has(k)) bad.add(`${p}/${q}｜${k}`);
+            }
+          }
+        }
+      }
+    }
+    expect([...bad]).toEqual([]);
+  }, 600_000);
+});

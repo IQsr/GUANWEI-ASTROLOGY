@@ -37,7 +37,7 @@ T.append({'id': '紫微.父母', 'stars': ['紫微'], 'rules': [
    '紫微不得眾星拱照，父母較主觀，習慣下命令；同樣可以看你和上司的關係：上司慣於發號施令，要懂得調和。',
    'Without helpers around Zi Wei, your parents are opinionated and used to giving orders; the same applies to your bosses, who like to command, so learn to work with that.',
    '然如无百官朝拱，则仅主父母主观，在家庭有暴君倾向，其权威性质在此。故若见煞忌刑曜，则主自己童年不为父母爱护，或父母常主观命令，左右自己的意志。这点性质，亦可以用来推断跟上司的关系。上司习惯命令，须注意如何调和。', '上司习惯命令，须注意如何调和'),
- R('父母.紫微.本', None,
+ R('父母.紫微.本', {'not': {'hua': '科', 'star': ['紫微', '天府'], 'at': 'same'}},
    '紫微在父母宮，你的父母有權威，在家說了算。',
    'With Zi Wei in your Parents Palace, your parents carry authority and have the final say at home.',
    '紫微守父母宫，主父母有权威。', '紫微守父母宫，主父母有权威', 'base'),
@@ -149,8 +149,8 @@ T.append({'id': '天同.父母', 'stars': ['天同'], 'rules': [
 
 # ── 廉貞 ──
 T.append({'id': '廉貞天府.父母', 'stars': ['廉貞', '天府'], 'rules': [
- R('父母.廉府.本', None,
-   '廉貞天府是父母宮最穩定的結構；見吉星，兩代感情和美。',
+ R('父母.廉府.本', {'all': [{'any': [FUZUO, KUIYUE]}, {'not': SHA}]},
+   '廉貞天府是父母宮最穩定的結構；見〔吉星〕，你和父母兩代感情和美。',
    'Lian Zhen with Tian Fu is the steadiest structure in the Parents Palace; with helpful stars, the generations are close.',
    '[廉贞天府]为最稳定结构，不主刑克，见吉曜且主感情和美。', '[廉贞天府]为最稳定结构', 'base'),
 ]})

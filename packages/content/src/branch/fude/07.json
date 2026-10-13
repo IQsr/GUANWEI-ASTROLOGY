@@ -44,10 +44,21 @@
       "id": "福德.天機.巨門",
       "role": "refine",
       "when": {
-        "star": "巨門",
-        "at": [
-          "same",
-          "opp"
+        "all": [
+          {
+            "star": "巨門",
+            "at": [
+              "same",
+              "opp"
+            ]
+          },
+          {
+            "not": {
+              "hua": "權",
+              "star": "天機",
+              "at": "same"
+            }
+          }
         ]
       },
       "text": "天機遇上巨門，你的心思更容易動盪不安。",
@@ -78,6 +89,22 @@
     {
       "id": "福德.天機.本",
       "role": "base",
+      "when": {
+        "not": {
+          "any": [
+            {
+              "hua": "權",
+              "star": "天機",
+              "at": "same"
+            },
+            {
+              "hua": "祿",
+              "star": "太陰",
+              "at": "same"
+            }
+          ]
+        }
+      },
       "text": "天機在福德宮，思慮多、興趣多，思想不易集中，考慮有時欠周密。",
       "en": "With Tian Ji in your Wellbeing Palace, you think a lot and have many interests; focus comes hard, and plans are not always thorough.",
       "source": {

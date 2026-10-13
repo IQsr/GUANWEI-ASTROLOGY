@@ -12,9 +12,19 @@
       "id": "遷移.太陰.忌",
       "role": "refine",
       "when": {
-        "hua": "忌",
-        "star": "太陰",
-        "at": "same"
+        "all": [
+          {
+            "hua": "忌",
+            "star": "太陰",
+            "at": "same"
+          },
+          {
+            "not": {
+              "star": "天同",
+              "at": "same"
+            }
+          }
+        ]
       },
       "text": "太陰化忌，你不宜在外地投資，更不宜見獵心喜。",
       "en": "Tai Yin in Hindrance: avoid investing away from home, and do not chase what looks tempting.",

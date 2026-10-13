@@ -6,34 +6,6 @@
  },
  "rules": [
   {
-   "id": "天機子午.陽剛",
-   "role": "refine",
-   "when": {
-    "lean": "陽剛"
-   },
-   "text": "陽剛的天機，你適合開創性的時期，不宜守成。",
-   "en": "A firm Tian Ji suits times of building something new, not of holding steady.",
-   "src": {
-    "page": 95,
-    "text": "阳刚的天机宜行开创性的运限或流年，不宜守成。",
-    "quote": "阳刚的天机宜行开创性的运限或流年，不宜守成"
-   }
-  },
-  {
-   "id": "天機子午.陰柔",
-   "role": "limit",
-   "when": {
-    "lean": "陰柔"
-   },
-   "text": "陰柔的天機，適合利於守成的時期；遇到多變化的時候，反而動輒得咎。",
-   "en": "A soft Tian Ji suits times for holding steady; in times of much change, every move tends to backfire.",
-   "src": {
-    "page": 95,
-    "text": "阴柔的天机则宜见利于守成的运限或流年。若经行的宫度多性质主变化的星曜，则反而动辄得咎。",
-    "quote": "则反而动辄得咎"
-   }
-  },
-  {
    "id": "天機子午.巨忌",
    "role": "limit",
    "when": {

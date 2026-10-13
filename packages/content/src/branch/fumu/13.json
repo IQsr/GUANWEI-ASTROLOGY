@@ -12,7 +12,42 @@
     {
       "id": "父母.廉府.本",
       "role": "base",
-      "text": "廉貞天府是父母宮最穩定的結構；見吉星，兩代感情和美。",
+      "when": {
+        "all": [
+          {
+            "any": [
+              {
+                "star": [
+                  "左輔",
+                  "右弼"
+                ],
+                "at": "sifang"
+              },
+              {
+                "star": [
+                  "天魁",
+                  "天鉞"
+                ],
+                "at": "sifang"
+              }
+            ]
+          },
+          {
+            "not": {
+              "star": [
+                "擎羊",
+                "陀羅",
+                "火星",
+                "鈴星",
+                "地空",
+                "地劫"
+              ],
+              "at": "same"
+            }
+          }
+        ]
+      },
+      "text": "廉貞天府是父母宮最穩定的結構；見〔吉星〕，你和父母兩代感情和美。",
       "en": "Lian Zhen with Tian Fu is the steadiest structure in the Parents Palace; with helpful stars, the generations are close.",
       "source": {
         "passage": "deep.父母.廉貞.1",

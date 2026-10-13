@@ -12,9 +12,33 @@
       "id": "田宅.天相.武祿",
       "role": "refine",
       "when": {
-        "hua": "祿",
-        "star": "武曲",
-        "at": "sifang"
+        "all": [
+          {
+            "hua": "祿",
+            "star": "武曲",
+            "at": "sifang"
+          },
+          {
+            "not": {
+              "any": [
+                {
+                  "star": [
+                    "左輔",
+                    "右弼"
+                  ],
+                  "at": "sifang"
+                },
+                {
+                  "star": [
+                    "天魁",
+                    "天鉞"
+                  ],
+                  "at": "sifang"
+                }
+              ]
+            }
+          }
+        ]
       },
       "text": "天相會到武曲化祿，你名下的產業豐厚。",
       "en": "Tian Xiang meets Wu Qu in Abundance: your property is plentiful.",
