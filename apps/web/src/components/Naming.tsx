@@ -198,6 +198,7 @@ export function Naming({
                */}
               <p
                 className="moshen mu-qian-ming"
+                data-long={shown.length > 14 ? "" : undefined}
                 style={{ animationDuration: `${INK_MS}ms` }}
               >
                 {shown}

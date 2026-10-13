@@ -3423,26 +3423,60 @@
 }
 
 /*
- * 英文題簽（2026-10-08）：`upright` 會將字母逐個疊起（N／a／m／e…），讀唔落。
- * 英文改做打側（同西書書脊一樣由上讀落），字距收返；名同副題並排兩行。
+ * 英文題簽（2026-10-13 重做 · Issac：「英文好少直寫」）。
+ *
+ * 2026-10-08 版將英文打側擺入直身嘅題簽 —— 頭要側埋先讀到，而且副題壓住題簽邊。
+ * 而家英文版換一張封面（cover-en.webp：同一張相，直身題簽用旁邊嘅布面補走），
+ * 另外貼一張橫題簽（qian-en.webp：原相嗰張題簽轉橫，金框照舊），字由左至右讀。
+ * 題簽擺喺封面上方正中，印落喺題簽右下嘅布面。
  */
+.mu-ti:lang(en) .fan-mian::before {
+  background-image: url("/img/book/cover-en.webp");
+}
+
 .mu-qian:lang(en) {
-  flex-direction: row-reverse;
+  left: 14.5%;
+  top: 9%;
+  width: 72%;
+  height: 17%;
+  padding: 0 7%;
   justify-content: center;
-  gap: 0.5em;
+  gap: 0.35em;
+  border-style: solid;
+  border-image: url("/img/book/qian-en.webp") 16 fill / 8px stretch;
+  filter: drop-shadow(0 1px 1px rgb(30 25 15 / 0.35));
+  text-align: center;
 }
 
 .mu-qian:lang(en) > p {
-  text-orientation: mixed;
+  writing-mode: horizontal-tb;
+  max-width: 100%;
+  overflow-wrap: anywhere;
 }
 
 .mu-qian:lang(en) .mu-qian-ming {
-  letter-spacing: 0.06em;
+  font-family: var(--font-latin-stack);
+  font-size: clamp(20px, 6.2cqw, 40px);
+  line-height: 1.1;
+  letter-spacing: 0.02em;
+}
+
+/* 長名（兩個字以上嘅英文名好易過十個字母）細一級，唔好逼爆題簽 */
+.mu-qian:lang(en) .mu-qian-ming[data-long] {
+  font-size: clamp(16px, 4.4cqw, 28px);
 }
 
 .mu-qian:lang(en) .mu-qian-hou {
   margin-top: 0;
-  letter-spacing: 0.12em;
+  font-family: var(--font-latin-stack);
+  font-size: clamp(11px, 2.2cqw, 15px);
+  font-style: italic;
+  letter-spacing: 0.04em;
+}
+
+.mu-feng-yin:lang(en) {
+  left: 80%;
+  top: 28.5%;
 }
 
 /* 落款同題名幕本書入面兩頁：同實物書一樣有紙紋，唔好係平色 */
