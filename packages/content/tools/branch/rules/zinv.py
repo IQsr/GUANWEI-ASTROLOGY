@@ -78,7 +78,7 @@ T.append({'id': '天機天梁.子女', 'stars': ['天機', '天梁'], 'rules': [
    'With Qing Yang or Tuo Luo in the palace, nurture your children’s interest in science and engineering.',
    '与羊陀同度，则宜培养其理工方面的兴趣。', '则宜培养其理工方面的兴趣'),
  R('子女.機梁.口才', None,
-   '天機天梁借會太陽巨門，太陽巨門主口才，宜培養子女這方面的發展。',
+   '天機天梁借會太陽巨門，太陽巨門代表口才，宜培養你的子女在這方面發展。',
    'Tian Ji with Tian Liang borrows Tai Yang and Ju Men, which are about speaking, so develop your children’s way with words.',
    '辰戌『天机天梁』，借会『太阳巨门』，以借会寅宫耆为佳。『太阳巨门』主口才，故亦宜培养子女这方面的发展。', '故亦宜培养子女这方面的发展', 'base'),
 ]})

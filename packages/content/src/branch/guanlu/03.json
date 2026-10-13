@@ -71,21 +71,27 @@
       "id": "官祿.紫府.科",
       "role": "refine",
       "when": {
-        "any": [
-          {
-            "hua": "科",
-            "star": "紫微",
-            "at": "same"
-          },
-          {
-            "hua": "科",
-            "star": "天府",
-            "at": "same"
-          }
-        ]
+        "hua": "科",
+        "star": "紫微",
+        "at": "same"
       },
-      "text": "紫微化科主白手開創事業；天府化科則在現成的局面下發展。",
-      "en": "Zi Wei in Merit means building a career from scratch; Tian Fu in Merit means growing within something already in place.",
+      "text": "紫微化科，你的事業由白手開創而來。",
+      "en": "Zi Wei in Merit: you build your career from scratch.",
+      "source": {
+        "passage": "deep.官祿.紫微.6",
+        "quote": "主白手与创事业"
+      }
+    },
+    {
+      "id": "官祿.紫府.府科",
+      "role": "refine",
+      "when": {
+        "hua": "科",
+        "star": "天府",
+        "at": "same"
+      },
+      "text": "天府化科，你的事業在現成的局面下發展起來。",
+      "en": "Tian Fu in Merit: your career grows within something already in place.",
       "source": {
         "passage": "deep.官祿.紫微.6",
         "quote": "则主在现成局面下兴创"

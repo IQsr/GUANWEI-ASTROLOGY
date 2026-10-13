@@ -85,7 +85,7 @@ T.append({'id': '紫微.財帛', 'stars': ['紫微'], 'rules': [
    'Zi Wei in Merit: you do well earning on your name and reputation; your good name is your capital.',
    '紫微化科，则宜凭名誉、商誉以求财。', '则宜凭名誉、商誉以求财'),
  R('財帛.紫微.本', {'not': {'star': '天府', 'at': 'same'}},
-   '紫微不是財星：你的財源可以充裕，卻不主積聚。',
+   '紫微不是財星：你的財源可以充裕，卻不容易積聚下來。',
    'Zi Wei is not a wealth star: income can be ample, but it does not tend to accumulate.',
    '紫微守财帛宫，在最好的情形下，亦仅主财源充裕，并不主能积聚。盖紫微偏重于名誉与权力，不是财星。', '亦仅主财源充裕，并不主能积聚', 'base'),
 ]})
@@ -176,7 +176,7 @@ T.append({'id': '太陽巨門.財帛', 'stars': ['太陽', '巨門'], 'rules': [
    'Tai Yang in Authority and Ju Men in Abundance: you are likely to be lifted by people from elsewhere, and can also earn through your way with words.',
    '寅申宫[太阳巨门]同度。太阳化权，巨门化禄者，主受异族提拔得财。亦主凭口舌以得财。', '主受异族提拔得财'),
  R('財帛.陽巨.自創', None,
-   '財由自己創立，不主承接現成產業，而且要經過競爭才得到。',
+   '你的財由自己創立，不是承接現成的產業，而且要經過競爭才得到。',
    'Your money is built by your own hand rather than inherited, and it comes only through competition.',
    '[太阳巨门]纵使见吉化、吉曜，亦主财由自身创立，不主得现成产业。亦主必须竞争而后得。', '亦主财由自身创立', 'base'),
 ]})
@@ -250,7 +250,7 @@ T.append({'id': '武曲七殺.財帛', 'stars': ['武曲', '七殺'], 'rules': [
    'With Wu Qu and Qi Sha in your Wealth Palace, you build your fortune from nothing, not from family money.',
    '卯酉宫『武风七杀』，主白手兴家。', '主白手兴家', 'base'),
  R('財帛.武殺.投資', {'any': [FUZUO, KUIYUE, {'hua': ['祿', '權', '科'], 'at': 'same'}]},
-   '見〔吉〕，投資規模大，資財多在企業資產上，不主積蓄。',
+   '見〔吉〕，你的投資規模大，資財多放在企業資產上，不在積蓄。',
    'With 〔good signs〕, you invest on a large scale; your wealth sits in business assets rather than savings.',
    '[武杀]见吉曜，投资额巨大，其资财往往在企业资产上。不主积蓄。', '其资财往往在企业资产上'),
 ]})
@@ -280,7 +280,7 @@ T.append({'id': '武曲辰戌.財帛', 'stars': ['武曲'], 'branch': ['辰', '�
 ]})
 T.append({'id': '武曲.財帛', 'stars': ['武曲'], 'rules': [
  R('財帛.武曲.本', {'not': H('忌', '武曲')},
-   '武曲是財星，主求財的行動：先有事業，才有錢財；一般最利經商。',
+   '武曲是財星，代表求財的行動：你先有事業，才有錢財；一般最利經商。',
    'Wu Qu is the wealth star of action: the business comes first and the money after; trade generally suits you best.',
    '武曲为财星，主求财的行动，故必先有事业然后有钱财。一般而言一最利经商，', '故必先有事业然后有钱财', 'base'),
 ]})
@@ -414,7 +414,7 @@ T.append({'id': '天府.財帛', 'stars': ['天府'], 'rules': [
    'Without Lu, Tian Fu in Merit gives you a reputation in managing and investing money; people trust you.',
    '若不见禄，则宜天府化科。此主有信誉，特别于理财及投资方面，必有人予以信赖，', '此主有信誉'),
  R('財帛.天府.本', {'not': LU},
-   '天府在財帛宮不主富厚，主的是儲財和理財的能力。',
+   '天府在財帛宮不代表大富，代表的是你儲財和理財的能力。',
    'Tian Fu in the Wealth Palace does not mean riches as such; it means the ability to save and manage money.',
    '天府守财帛宫，不主富厚，仅主其人有储财及理财能力。', '仅主其人有储财及理财能力', 'base'),
 ]})
@@ -474,7 +474,7 @@ T.append({'id': '巨門子午.財帛', 'stars': ['巨門'], 'branch': ['子', '�
 ]})
 T.append({'id': '巨門辰戌.財帛', 'stars': ['巨門'], 'branch': ['辰', '戌'], 'rules': [
  R('財帛.巨門辰戌.專業', None,
-   '主白手創業，以專業為宜，因此可以成富；但工作多奔波。',
+   '你多是白手創業，以專業為宜，因此可以成富；但工作多奔波。',
    'You start from nothing, best in a profession, and can prosper that way, though the work keeps you on the move.',
    '辰戌宫巨门与天同相对，主白手创业，且以专业为宜，因之可以成富。', '且以专业为宜', 'base'),
 ]})
@@ -578,7 +578,7 @@ T.append({'id': '七殺.財帛', 'stars': ['七殺'], 'rules': [
    'Qi Sha shares the palace with Qing Yang: earning often means fighting others for it.',
    '七杀躔擎羊主争夺；', '七杀躔擎羊主争夺', 'limit'),
  R('財帛.七殺.本', None,
-   '七殺在財帛宮，主掌財權；與天府主守不同，七殺主攻，主創出新局面。',
+   '七殺在財帛宮，你會掌管財權；天府重守，七殺重攻，你能開創出新局面。',
    'With Qi Sha in your Wealth Palace, you control the purse; unlike Tian Fu’s holding, Qi Sha attacks and opens new ground.',
    '七杀守财帛宫，主掌财权。这种掌财权的性质与天府不同。大致而言，天府主守，七杀主攻。天府主在现成局面下发展，七杀则主创出新局面。', '七杀守财帛宫，主掌财权', 'base'),
 ]})

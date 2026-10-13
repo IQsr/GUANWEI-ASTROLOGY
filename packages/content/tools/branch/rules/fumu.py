@@ -46,13 +46,13 @@ T.append({'id': '紫微.父母', 'stars': ['紫微'], 'rules': [
 # ── 天機 ──
 T.append({'id': '天機太陰.父母', 'stars': ['天機', '太陰'], 'rules': [
  R('父母.機陰.本', {'not': SHA},
-   '天機太陰是較好的組合：無煞，與父母關係穩定，不主分離。',
+   '天機太陰是較好的組合：沒有煞星，你與父母關係穩定，不會分隔兩地。',
    'Tian Ji with Tai Yin is a good pairing: with no harsh stars, your bond with your parents is steady and does not point to separation.',
    '[天机太阴]为较佳组合，无煞，不主刑克分离。', '[天机太阴]为较佳组合', 'base'),
 ]})
 T.append({'id': '天機巨門.父母', 'stars': ['天機', '巨門'], 'rules': [
  R('父母.機巨.本', None,
-   '天機巨門在父母宮，不見煞也主與父母遠離，或兩代關係欠佳；坐酉比坐卯好。用來看上司，也主上司工作上境況不利。',
+   '天機巨門在父母宮，即使不見煞，你也容易與父母遠離，或兩代關係欠佳；坐酉比坐卯好。用來看上司，你的上司工作上境況也不太順。',
    'With Tian Ji and Ju Men in your Parents Palace, you live apart from your parents even without harsh stars, or the generations do not get on; You is better than Mao. Applied to your bosses, it means they have a hard time at work.',
    '卯酉宫[天机巨门]，不见煞亦主远离，或两代人际关系不佳，或不利父母。见煞者主刑克，或父业破败。然酉宫者优于卯宫。所谓[不利父母]，乃指出生后父母境遇欠佳。持此以验上司，亦主上司在工作上境况不利。', '不见煞亦主远离，或两代人际关系不佳', 'base'),
 ]})
@@ -118,7 +118,7 @@ T.append({'id': '太陽天梁.父母', 'stars': ['太陽', '天梁'], 'rules': [
 # ── 天同 ──
 T.append({'id': '天同天梁.父母', 'stars': ['天同', '天梁'], 'rules': [
  R('父母.同梁.馬', {'star': '天馬', 'at': 'same'},
-   '同宮有天馬，父母要離鄉別井；有時也主父親的工作帶流動性質。',
+   '同宮有天馬，父母要離鄉別井；有時也表示你父親的工作帶流動性質。',
    'With Tian Ma in the palace, your parents leave their home town; sometimes it means your father’s work involves travel.',
    '[天同天梁]与天马同度，主父母须离乡背井。更见火铃，则主飘流。此种星曜性质，有时又主父亲所业者带流动色彩。', '有时又主父亲所业者带流动色彩'),
 ]})
@@ -220,7 +220,7 @@ T.append({'id': '巨門.父母', 'stars': ['巨門'], 'rules': [
    'With Ju Men beside or facing Tai Yang, the generations generally do not get on.',
    '巨门太阳的结构，一般情形下主父子不和。若见吉化，则主父母离乡别井。', '一般情形下主父子不和', 'limit'),
  R('父母.巨門.機', {'all': [{'star': '天機', 'at': ['same', 'opp']}, {'not': SHA}]},
-   '巨門與天機同宮或相對而無煞，主小時候寄住或寄養，離開父母一段時間。',
+   '巨門與天機同宮或相對而無煞，你小時候多會寄住或寄養在別處，離開父母一段時間。',
    'With Ju Men beside or facing Tian Ji and no harsh stars, you stay with others for a time as a child, away from your parents.',
    '巨门与天机同度或相对，古人认为乃重拜父母，二姓延生之兆。其实若不见煞，仅主寄宿或寄养，不主二姓。', '仅主寄宿或寄养'),
 ]})
@@ -314,7 +314,7 @@ T.append({'id': '父母通則', 'stars': [], 'rules': [
    '〔Harsh stars〕 in the Parents Palace can simply mean strained relationships, with your parents and with your bosses.',
    '父母宫见四煞，亦不一定主刑克，有时仅主人际关系不佳(包括与本身父母宫及上司主管的关系)。', '有时仅主人际关系不佳'),
  R('父母.通則.祿馬', {'any': [{'star': '祿存', 'at': 'same'}, {'star': '天馬', 'at': 'same'}]},
-   '父母宮見祿存或天馬，父母多遷動；有時也主自己常換上司。',
+   '父母宮見祿存或天馬，父母多遷動；有時也表示你常換上司。',
    'Lu Cun or Tian Ma in the Parents Palace often means your parents move around; sometimes it means your bosses keep changing.',
    '父母宫见禄存、天马，往往主父母迁动。但有时亦主自己时时更换上司。', '但有时亦主自己时时更换上司'),
 ]})

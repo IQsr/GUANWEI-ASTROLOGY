@@ -302,7 +302,7 @@ T.append({'id': '貪狼.僕役', 'stars': ['貪狼'], 'rules': [
    'Tan Lang with 〔helper stars in matched pairs〕: many friends and staff.',
    '见辅佐诸曜皆为对星者，主友人及下属众多。', '主友人及下属众多'),
  R('僕役.貪狼.本', None,
-   '貪狼主應酬，在僕役宮，你多場面上的朋友。',
+   '貪狼重應酬，在僕役宮，你多是場面上的朋友。',
    'Tan Lang is about socialising: in your Friends Palace it brings many acquaintances for show.',
    '贪狼主应酬，居交友宫，基本性质已多场面上的朋友，必须见吉化吉曜，然后始主有益，及主得下属众多。否则仅为泛泛之交。', '基本性质已多场面上的朋友', 'base'),
 ]})
@@ -418,7 +418,7 @@ T.append({'id': '太陰.僕役', 'stars': ['太陰'], 'rules': [
 ]})
 T.append({'id': '僕役通則', 'stars': [], 'rules': [
  R('僕役.通則.祿存', {'star': '祿存', 'at': 'same'},
-   '僕役宮有祿存，羊陀必照命宮，一般主你為人奔波。',
+   '僕役宮有祿存，擎羊陀羅必定照到命宮，你一般要為別人奔波。',
    'Lu Cun in the Friends Palace means Qing Yang and Tuo Luo fall on your Life Palace: you generally run about for others.',
    '盖凡交友宫育禄存，则擎羊陀罗必照射命宫，故一般而言，主人奔波。', '故一般而言，主人奔波'),
 ]})

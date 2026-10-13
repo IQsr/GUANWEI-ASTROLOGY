@@ -68,7 +68,7 @@ T.append({'id': '天機太陰.田宅', 'stars': ['天機', '太陰'], 'rules': [
    'Tian Ji with Tai Yin, with 〔good transformations〕 and 〔helper stars〕: buying and selling property can turn a profit.',
    '天机太阴见吉化(最喜天机化禄)，又见吉曜，则买卖田宅可以获利。', '则买卖田宅可以获利'),
  R('田宅.機陰.遷', None,
-   '天機太陰在田宅宮，主時時遷動，也常轉換工作環境。',
+   '天機太陰在田宅宮，你時時遷動，也常轉換工作環境。',
    'Tian Ji with Tai Yin in your Property Palace: you move often, and change workplaces often too.',
    '天机太阴的星曜组合，主时时迁动，尤以寅申二宫为然，见煞则不守祖业，亦不享现成的事业，亦主时时变换工作环境。', '天机太阴的星曜组合，主时时迁动', 'base'),
 ]})
@@ -146,7 +146,7 @@ T.append({'id': '武曲貪狼.田宅', 'stars': ['武曲', '貪狼'], 'rules': [
 ]})
 T.append({'id': '武曲破軍.田宅', 'stars': ['武曲', '破軍'], 'rules': [
  R('田宅.武破.自創', {'any': [H('祿', '破軍'), {'all': [{'star': '天相', 'at': 'opp'}, {'any': [FUZUO, KUIYUE]}]}]},
-   '祖業不主豐厚，會漸漸消磨，然後靠自己興創；也宜買舊宅。',
+   '你的祖業不算豐厚，會漸漸消磨，然後靠自己興創；也宜買舊宅。',
    'Family property is not large and wears away, after which you build your own; older houses suit you.',
    '武曲破军的星系，若天相会吉曜，或破军化禄，则不主祖业丰厚，却主祖业消磨而自身兴创，亦主宜买旧宅。', '却主祖业消磨而自身兴创'),
 ]})
@@ -204,7 +204,7 @@ T.append({'id': '天同.田宅', 'stars': ['天同'], 'rules': [
    'Tian Tong faces Tian Liang: buying property goes fairly smoothly for you, with few setbacks.',
    '天同守田宅宫与天梁对拱，其性质较[天同天梁]同度为佳，主置业较为顺利。', '主置业较为顺利'),
  R('田宅.天同.本', {'not': LU},
-   '天同在田宅宮，一般主白手興家；重的是居住環境的享受，不主物業豐厚。',
+   '天同在田宅宮，你一般白手興家；重的是居住環境的享受，物業不算豐厚。',
    'With Tian Tong in your Property Palace, you generally build from nothing; you value a comfortable home more than a large portfolio.',
    '天同守田宅宫，由于天同的精神受比物质享受为重，所以一般情况下，仅主居住环境的享受，故不主牧业丰厚。', '仅主居住环境的享受', 'base'),
 ]})
@@ -254,7 +254,7 @@ T.append({'id': '天府.田宅', 'stars': ['天府'], 'rules': [
    'With 〔helper stars〕 and Lu, you build on what is already there, and your property grows.',
    '天府主守成，但当与辅佐吉曜会合，又与化禄或禄存相会之时，则能在现成基础下发展，物业增益。', '物业增益'),
  R('田宅.天府.本', None,
-   '天府在田宅宮，主有祖業父業，或能在有基礎聲譽的機構服務。',
+   '天府在田宅宮，你有祖業父業，或能在有基礎聲譽的機構服務。',
    'With Tian Fu in your Property Palace, there is family property, or you work for an established, reputable organisation.',
    '田宅宫喜天府坐守，主有祖、父物业，或能在有基础声誉之机构服务。', '或能在有基础声誉之机构服务', 'base'),
 ]})
@@ -320,7 +320,7 @@ T.append({'id': '巨門.田宅', 'stars': ['巨門'], 'rules': [
    'Ju Men in Hindrance: home is unsettled, or you live far from your family.',
    '巨门化忌于田宅，主家宅不安，或主自身远离家室。', '主家宅不安，或主自身远离家室', 'limit'),
  R('田宅.巨門.本', {'not': {'star': '太陽', 'at': 'same'}},
-   '巨門不利田宅：即使見吉，也不主有祖業可守，多要中年以後才自置。',
+   '巨門不利田宅：即使見吉，你也沒有祖業可守，多要中年以後才自置。',
    'Ju Men does not favour property: even with good signs there is no family estate to keep, and you usually buy your own only in midlife.',
    '巨门不利田宅，故纵遇吉星祥曜，亦不主有祖。父遗业可守，仅能于中年后自置。', '仅能于中年后自置', 'base'),
 ]})

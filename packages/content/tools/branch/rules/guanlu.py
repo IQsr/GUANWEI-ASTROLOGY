@@ -38,7 +38,7 @@ T.append({'id': '官祿連動', 'stars': [], 'link': True, 'rules': [
 # ── 紫微 ──
 T.append({'id': '紫微破軍.官祿', 'stars': ['紫微', '破軍'], 'rules': [
  R('官祿.紫破.開創', None,
-   '紫微破軍在官祿宮，以發揮開創力為佳：無論從商從政，都主開創而不主守成，所以常有勞累之感。',
+   '紫微破軍在官祿宮，以發揮開創力為佳：無論從商從政，你都重開創而不重守成，所以常有勞累之感。',
    'With Zi Wei and Po Jun in your Career Palace, you do best when you break new ground: in business or public life you build rather than hold, which is why it so often feels tiring.',
    '丑未宫[紫微破军]在事业宫，以能发挥开创力者为佳。故无论从商从政，皆主开创而不主守成，因而便有劳累之感。', '皆主开创而不主守成', 'base'),
  R('官祿.紫破.祿', H('祿', '破軍'),
@@ -59,9 +59,13 @@ T.append({'id': '紫微天府.官祿', 'stars': ['紫微', '天府'], 'rules': [
    '你的紫微天府不見輔佐吉星，事業上容易進退失據；目標要配合實力。',
    'Your Zi Wei–Tian Fu lacks helper stars, so you can lose your footing at work; match your aims to your means.',
    '若无吉曜，则往往进退失据，或志大才疏。', '则往往进退失据', 'limit'),
- R('官祿.紫府.科', {'any': [H('科', '紫微'), H('科', '天府')]},
-   '紫微化科主白手開創事業；天府化科則在現成的局面下發展。',
-   'Zi Wei in Merit means building a career from scratch; Tian Fu in Merit means growing within something already in place.',
+ R('官祿.紫府.科', H('科', '紫微'),
+   '紫微化科，你的事業由白手開創而來。',
+   'Zi Wei in Merit: you build your career from scratch.',
+   '[紫府]而紫微化科，主白手与创事业；若天府化科，则主在现成局面下兴创。', '主白手与创事业'),
+ R('官祿.紫府.府科', H('科', '天府'),
+   '天府化科，你的事業在現成的局面下發展起來。',
+   'Tian Fu in Merit: your career grows within something already in place.',
    '[紫府]而紫微化科，主白手与创事业；若天府化科，则主在现成局面下兴创。', '则主在现成局面下兴创'),
 ]})
 T.append({'id': '紫微貪狼.官祿', 'stars': ['紫微', '貪狼'], 'rules': [
@@ -112,7 +116,7 @@ T.append({'id': '紫微.官祿', 'stars': ['紫微'], 'rules': [
    'Zi Wei in Authority: your work is highly independent, and you can run things on your own.',
    '紫微化权在事业宫，仅主独当一面，或所从事工作独立性强。', '或所从事工作独立性强'),
  R('官祿.紫微.本', {'not': H('權', '紫微')},
-   '紫微在官祿宮，主獨當一面：多是獨立工作或負責一個部門，不一定是自己經營或做領袖。',
+   '紫微在官祿宮，你能獨當一面：多是獨立工作或負責一個部門，不一定是自己經營或做領袖。',
    'With Zi Wei in your Career Palace, you work on your own terms: usually independently or in charge of a department, not necessarily as owner or leader.',
    '紫微在事业宫，主独当一面。但却并不意味其人可以宁行经营，亦不主其人可为领袖。一般情况下仅主独立工作，或负责部门工作。', '一般情况下仅主独立工作，或负责部门工作', 'base'),
 ]})
@@ -196,7 +200,7 @@ T.append({'id': '武曲貪狼.官祿', 'stars': ['武曲', '貪狼'], 'rules': [
 ]})
 T.append({'id': '武曲天相.官祿', 'stars': ['武曲', '天相'], 'rules': [
  R('官祿.武相.文武', None,
-   '武曲天相在官祿宮，主文職武做，或武職文做：內外兼顧的工作最合適。',
+   '武曲天相在官祿宮，你適合文職武做，或武職文做：內外兼顧的工作最合適。',
    'With Wu Qu and Tian Xiang in your Career Palace, you bring a hands-on edge to desk work, or a careful hand to field work; roles that span both suit you.',
    '寅申宫[武曲天相]，主文职武做，或武职文做。', '主文职武做，或武职文做', 'base'),
  R('官祿.武相.吉', GOODHUA,
@@ -230,7 +234,7 @@ T.append({'id': '武曲.官祿', 'stars': ['武曲'], 'rules': [
    'Wu Qu is the wealth star, and with 〔good transformations〕 it favours work in finance.',
    '武曲为财星，守事业宫时，利于从事财经工作，或为赋税官吏。此以得化禄、化权、化科者为宜。', '利于从事财经工作'),
  R('官祿.武曲.左右', FUZUO,
-   '武曲主行動，見左輔右弼，你的行動有人相助。',
+   '武曲代表行動，見左輔右弼，你的行動有人相助。',
    'Wu Qu is about action, and with Zuo Fu or You Bi your actions have backing.',
    '所以喜见左辅右弼，主行动有助力。', '主行动有助力'),
 ]})
@@ -264,7 +268,7 @@ T.append({'id': '天同.官祿', 'stars': ['天同'], 'rules': [
    'Tian Tong in Hindrance: you often start working young, but your career may also take off earlier.',
    '天同化忌，往往早年即须工作，但事业之创兴却可能比化禄者为早，', '但事业之创兴却可能比化禄者为早'),
  R('官祿.天同.享受', None,
-   '天同主享受，適合經營講究美觀或帶享受色彩的行業。',
+   '天同重享受，你適合經營講究美觀或帶享受色彩的行業。',
    'Tian Tong loves comfort, so businesses built around beauty or enjoyment suit you.',
    '天同又主享受，故居事业宫，每主适宜经营美观或带享受色彩之行业。', '每主适宜经营美观或带享受色彩之行业'),
  R('官祿.天同.白手', None,
@@ -332,7 +336,7 @@ T.append({'id': '天府.官祿', 'stars': ['天府'], 'rules': [
    'With Di Kong or Di Jie in the palace, you want change but cling to caution; stick to real business and avoid speculation.',
    '天府有空劫同度者，事业多进退失据，既思改革，又保守，以致事业发展受到障碍。故以从事实业为宜。切忌投机。', '故以从事实业为宜。切忌投机'),
  R('官祿.天府.踏實', None,
-   '天府不主浮華，你做任何事業都以腳踏實地為佳。',
+   '天府不尚浮華，你做任何事業都以腳踏實地為佳。',
    'Tian Fu is not for show: whatever you do, keep your feet on the ground.',
    '天府不主浮华，凡有经营，皆以脚踏实地为佳，', '凡有经营，皆以脚踏实地为佳', 'base'),
 ]})
@@ -366,7 +370,7 @@ T.append({'id': '太陰.官祿', 'stars': ['太陰'], 'rules': [
 # ── 貪狼 ──
 T.append({'id': '貪狼子午.官祿', 'stars': ['貪狼'], 'branch': ['子', '午'], 'rules': [
  R('官祿.貪狼子午.自由', None,
-   '主獨當一面，或從事自由職業；以帶藝術、美觀、享受色彩的工作為宜。',
+   '你多是獨當一面，或從事自由職業；以帶藝術、美觀、享受色彩的工作為宜。',
    'You work on your own, or freelance; work with an artistic, aesthetic or pleasurable side suits you.',
    '子午贪狼与紫微对拱，主独当一面，或主自由职业。以带艺术、美观、享受色彩者为宜。', '以带艺术、美观、享受色彩者为宜', 'base'),
 ]})

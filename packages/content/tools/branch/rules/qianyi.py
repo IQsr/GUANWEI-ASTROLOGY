@@ -124,7 +124,7 @@ T.append({'id': '太陽.遷移', 'stars': ['太陽'], 'rules': [
    'With Tai Yang beside or facing Ju Men, trade generally suits you, and people from elsewhere appreciate you, though it takes mental effort.',
    '太阳与巨门同度或对拱，一般较利经商，可得异乡或外邦人赏识，唯主劳心。', '可得异乡或外邦人赏识'),
  R('遷移.太陽.求名', {'not': {'star': '巨門', 'at': ['same', 'opp']}},
-   '太陽在遷移宮，在外利於求名、求學進修，增加資歷；不主聚財，未必適合在外經商。',
+   '太陽在遷移宮，在外利於求名、求學進修，增加資歷；不利於聚財，未必適合在外經商。',
    'With Tai Yang in your Travel Palace, time away is good for reputation, study and credentials; it does not gather money, and trading abroad may not suit you.',
    '太阳主贵，亦即对社会地位的争取相鼍重要，居迁移宫亦有同样意味，故往往表现为适宜任外求学、进修，增加资历，未必适宜在外经商。', '增加资历，未必适宜在外经商'),
  R('遷移.太陽.本', None,
@@ -196,7 +196,7 @@ T.append({'id': '天同天梁.遷移', 'stars': ['天同', '天梁'], 'rules': [
 ]})
 T.append({'id': '天同.遷移', 'stars': ['天同'], 'rules': [
  R('遷移.天同.祿', H('祿', '天同'),
-   '天同化祿，出外不主發財，但主安定享福，遇事有人幫忙。',
+   '天同化祿，你出外不一定發財，但安定享福，遇事有人幫忙。',
    'Tian Tong in Abundance: travel brings comfort rather than money; things settle, and others help when needed.',
    '天同化禄，不主出外发财，但主纳福。必须何禄存迭冲，然后始主发财。所谓纳福，但主安定，而不必劳心劳力，或遇事可得他人助力。', '或遇事可得他人助力'),
  R('遷移.天同.忌', H('忌', '天同'),
@@ -238,7 +238,7 @@ T.append({'id': '廉貞貪狼.遷移', 'stars': ['廉貞', '貪狼'], 'rules': [
 ]})
 T.append({'id': '廉貞.遷移', 'stars': ['廉貞'], 'rules': [
  R('遷移.廉貞.祿', H('祿', '廉貞'),
-   '廉貞化祿，你在外得意，人緣也好，但不主發財。',
+   '廉貞化祿，你在外得意，人緣也好，但不一定發財。',
    'Lian Zhen in Abundance: you do well and are well liked away from home, though it does not bring wealth.',
    '廉贞化禄，只主在外得意，并不主发财。亦主多缘。', '只主在外得意，并不主发财'),
  R('遷移.廉貞.忌', {'all': [H('忌', '廉貞'), SHA]},

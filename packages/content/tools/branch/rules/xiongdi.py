@@ -182,7 +182,7 @@ T.append({'id': '武曲七殺.兄弟', 'stars': ['武曲', '七殺'], 'rules': [
 ]})
 T.append({'id': '武曲破軍.兄弟', 'stars': ['武曲', '破軍'], 'rules': [
  R('兄弟.武破.本', None,
-   '武曲破軍在兄弟宮，兄弟朋友不主得力，合作也不耐久；結交外地或外國朋友情況較好。',
+   '武曲破軍在兄弟宮，兄弟朋友幫不上大忙，合作也不耐久；結交外地或外國朋友情況較好。',
    'With Wu Qu and Po Jun in your Siblings Palace, siblings and friends are not much help and partnerships do not last; friends from other places or countries work out better.',
    '巳亥[武破]守兄弟宫，即使见吉曜，亦不主兄弟友人得力，合作亦不耐久。见煞忌刑曜，更主受掣肘。唯交异族、异乡友人，情形则较佳。', '唯交异族、异乡友人，情形则较佳', 'base'),
 ]})
@@ -349,7 +349,7 @@ T.append({'id': '天梁.兄弟', 'stars': ['天梁'], 'rules': [
    'Tian Liang with 〔helper stars〕: siblings are close; everything happens behind the scenes, so friends help you quietly.',
    '天梁吉，则主兄弟或友人暗生助力。凶恶则主暗争、排挤。吉凶皆在暗面而不在明面。', '则主兄弟或友人暗生助力'),
  R('兄弟.天梁.合作', None,
-   '天梁帶孤剋之性，即使見吉也不主可與人合作；除非合作者完全退居幕後，做你的後台。',
+   '天梁帶孤剋之性，即使見吉，你也不宜與人合作；除非合作者完全退居幕後，做你的後台。',
    'Tian Liang is a loner: even with good signs, partnership does not suit you, unless your partner stays entirely behind the scenes as your backer.',
    '天梁有孤克之性，所以即使见吉曜，亦不主可与人合作。除非合作者完全退居幕后，作为自己的后台。', '除非合作者完全退居幕后'),
 ]})

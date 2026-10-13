@@ -290,7 +290,7 @@ T.append({'id': '廉貞.福德', 'stars': ['廉貞'], 'rules': [
    'Lian Zhen in Abundance: you know how to enjoy painting, calligraphy, music and games.',
    '廉贞化禄者，无科文诸曜同度，则情操平庸，有则情操高雅，唯皆能享受书画琴棋之乐。', '唯皆能享受书画琴棋之乐'),
  R('福德.廉貞.本', {'alone': True},
-   '廉貞獨坐福德宮，主忙碌；就算自得其樂，樂趣也從忙碌而來，興趣多在繪畫、攝影。',
+   '廉貞獨坐福德宮，你閒不下來；就算自得其樂，樂趣也從忙碌而來，興趣多在繪畫、攝影。',
    'With Lian Zhen alone in your Wellbeing Palace, you are busy, and even your pleasures come from being busy; your interests often lie in painting or photography.',
    '6廉贞廉贞守福德宫，主忙碌。即使能自得其乐，其乐趣仍由忙碌而来。一般兴趣在于绘画及摄影。', '一般兴趣在于绘画及摄影', 'base'),
 ]})
@@ -338,7 +338,7 @@ T.append({'id': '太陰.福德', 'stars': ['太陰'], 'rules': [
    'Tai Yin in Hindrance: inner peace does not come easily, and something is often on your mind.',
    '太阴化忌，不见煞!亦主内心不安宁。', '亦主内心不安宁', 'limit'),
  R('福德.太陰.本', {'not': {'star': ['太陽', '天機'], 'at': 'same'}},
-   '太陰主靜，在福德宮喜歡寧靜；就算環境熱鬧，也能鬧中取靜，只是競爭心不強。',
+   '太陰性靜，在福德宮，你喜歡寧靜；就算環境熱鬧，也能鬧中取靜，只是競爭心不強。',
    'Tai Yin is still, so in your Wellbeing Palace you love quiet; even in a busy setting you find calm, though you are not very competitive.',
    '太阴主静，故居福德宫，一般主喜宁静。即使太阴落陷，有煞，亦主其人闹中有静趣，或能忙里偷闲。唯无论入庙落陷，均主竞争力不强、。', '一般主喜宁静', 'base'),
 ]})
@@ -374,7 +374,7 @@ T.append({'id': '巨門.福德', 'stars': ['巨門'], 'rules': [
    'Ju Men in Hindrance: you often have regrets, and chase ideals too hard.',
    '巨门化忌则常追悔，而且过份追求理想。', '巨门化忌则常追悔', 'limit'),
  R('福德.巨門.本', None,
-   '巨門在福德宮，主費神：往往決定得太快，事後又後悔；或者事事都要親力親為。',
+   '巨門在福德宮，你容易費神：往往決定得太快，事後又後悔；或者事事都要親力親為。',
    'With Ju Men in your Wellbeing Palace, your mind is taxed: you decide too quickly and regret it later, or insist on doing everything yourself.',
    '巨门临福德宫，其基本意义为费神。原因在于凡事轻于决定，然后生追悔之心。或喜事事亲力亲为，事无大小皆必过问。', '原因在于凡事轻于决定，然后生追悔之心', 'base'),
 ]})
@@ -418,7 +418,7 @@ T.append({'id': '天梁.福德', 'stars': ['天梁'], 'rules': [
    'Tian Liang shares the palace with Di Kong or Di Jie: your ideals run too high to land easily.',
    '空劫同度，主理想太高。', '空劫同度，主理想太高', 'limit'),
  R('福德.天梁.本', None,
-   '天梁主清貴，在福德宮，你重視精神享受。',
+   '天梁是清貴之星，在福德宮，你重視精神享受。',
    'Tian Liang stands for integrity: in your Wellbeing Palace it puts the life of the mind first.',
    '天梁主清贵，故居福德宫时，主人重视精神享受。', '主人重视精神享受', 'base'),
 ]})
@@ -486,7 +486,7 @@ T.append({'id': '福德通則', 'stars': [], 'rules': [
    'With Tian Kui or Tian Yue in your Wellbeing Palace, there are people around who look after you.',
    '魁铖守[福德宫卜主有人照拂。', '主有人照拂'),
  R('福德.通則.昌曲', CHANGQU,
-   '文昌文曲在福德宮，是福德宮最喜歡的星，主聰明才智。',
+   '文昌文曲在福德宮，是福德宮最喜歡的星，令你聰明有才智。',
    'Wen Chang or Wen Qu are the stars the Wellbeing Palace welcomes most, pointing to intelligence and talent.',
    '[福德宫]最喜昌曲，亦喜龙池，凤阁，天才，华盖等曜。盖本宫亦可用来辅助[命宫]，推断人之聪明才智。', '[福德宫]最喜昌曲'),
 ]})
