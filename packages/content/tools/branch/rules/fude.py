@@ -148,9 +148,17 @@ T.append({'id': '太陽巨門.福德', 'stars': ['太陽', '巨門'], 'rules': [
 ]})
 T.append({'id': '太陽.福德', 'stars': ['太陽'], 'rules': [
  R('福德.太陽.本', {'not': {'star': '太陰', 'at': 'same'}},
-   '太陽在福德宮，好動不好靜；入廟的話個性開朗，任勞任怨也有精神上的享受。',
-   'With Tai Yang in your Wellbeing Palace, you prefer action to stillness; when it is bright, you are open-hearted and find joy even in hard work.',
+   '太陽在福德宮，你好動不好靜，很難閒下來。',
+   'With Tai Yang in your Wellbeing Palace, you prefer action to stillness and rarely sit idle.',
    '太阳守福德宫，入庙者，主个性开朗，虽任劳任怨亦有精神享受。落陷者，则招是非口舌，且烦躁不宁。太阳主发射，故在福德宫时，无论入庙落陷，均主人好动不好静。', '均主人好动不好静', 'base'),
+ R('福德.太陽.廟', {'all': [{'bright': 'high', 'star': '太陽'}, {'not': {'star': '太陰', 'at': 'same'}}]},
+   '太陽光熱充足，你個性開朗，任勞任怨之餘也有精神上的享受。',
+   'Tai Yang shines strongly: you are open-hearted, and find joy even in hard work.',
+   '太阳守福德宫，入庙者，主个性开朗，虽任劳任怨亦有精神享受。落陷者，则招是非口舌，且烦躁不宁。太阳主发射，故在福德宫时，无论入庙落陷，均主人好动不好静。', '主个性开朗，虽任劳任怨亦有精神享受'),
+ R('福德.太陽.陷', {'all': [{'bright': 'low', 'star': '太陽'}, {'not': {'star': '太陰', 'at': 'same'}}]},
+   '太陽光熱不足，你容易招惹是非口舌，心裡也煩躁不寧。',
+   'Tai Yang shines weakly: you draw gossip and quarrels, and feel restless inside.',
+   '太阳守福德宫，入庙者，主个性开朗，虽任劳任怨亦有精神享受。落陷者，则招是非口舌，且烦躁不宁。太阳主发射，故在福德宫时，无论入庙落陷，均主人好动不好静。', '则招是非口舌，且烦躁不宁'),
 ]})
 
 # ── 武曲 ──

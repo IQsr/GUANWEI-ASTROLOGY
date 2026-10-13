@@ -35,11 +35,11 @@ function starsEn(zh: string, missing: string[]): string {
 }
 
 /** daxian.ts starsOf()：「坐天機」「沒有主星，借對宮的天同、天梁」「沒有主星」→ 英文尾巴（前面加逗號） */
-const SEAT = '坐[^；。（）]+|沒有主星，借對宮的[^；。（）]+|沒有主星';
+const SEAT = '坐[^；。（）]+|沒有主星，借對(?:宮|面宮位)的[^；。（）]+|沒有主星';
 function seat(zh: string, missing: string[]): string {
   let m = /^坐(.+)$/.exec(zh);
   if (m) return `, shaped by ${starsEn(m[1]!, missing)}`;
-  m = /^沒有主星，借對宮的(.+)$/.exec(zh);
+  m = /^沒有主星，借對(?:宮|面宮位)的(.+)$/.exec(zh);
   if (m) return `, which has no major star and borrows ${starsEn(m[1]!, missing)} from the opposite palace`;
   return ', which has no major star';
 }
@@ -47,7 +47,7 @@ function seat(zh: string, missing: string[]): string {
 function seatVerb(zh: string, missing: string[]): string {
   let m = /^坐(.+)$/.exec(zh);
   if (m) return `holds ${starsEn(m[1]!, missing)}`;
-  m = /^沒有主星，借對宮的(.+)$/.exec(zh);
+  m = /^沒有主星，借對(?:宮|面宮位)的(.+)$/.exec(zh);
   if (m) return `has no major star and borrows ${starsEn(m[1]!, missing)} from the opposite palace`;
   return 'has no major star';
 }

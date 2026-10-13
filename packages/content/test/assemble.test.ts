@@ -188,14 +188,14 @@ describe('AC ③ 空宮一定明寫借咗邊個宮', () => {
     expect(empties.length).toBeGreaterThan(0);
     for (const c of empties) {
       const first = c.segments.find((s) => s.slot === '開場')!;
-      expect(first.text, c.palace).toContain('無主星');
-      expect(first.text, c.palace).toContain(`借對宮${c.borrowed!.stars.join('、')}參看`);
+      expect(first.text, c.palace).toMatch(/無主星|沒有主星/);
+      expect(first.text, c.palace).toContain(`借對面${c.borrowed!.from.endsWith('宮') ? c.borrowed!.from : `${c.borrowed!.from}宮`}的${c.borrowed!.stars.join('、')}來讀`);
     }
   });
 
   it('唔係空宮就冇借星句', () => {
     for (const c of CH.filter((x) => !x.borrowed)) {
-      expect(c.text.includes('借對宮'), c.palace).toBe(false);
+      expect(c.text.includes('借對宮') || c.text.includes('借對面'), c.palace).toBe(false);
     }
   });
 });

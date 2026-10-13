@@ -194,7 +194,7 @@ export function starsOf(chart: Chart, p: Palace): string {
   if (own.length) return `坐${own.join('、')}`;
   const opp = p.borrowsFrom ? chart.palaces.find((x) => x.branch === p.borrowsFrom) : undefined;
   const b = opp ? majors(opp) : [];
-  return b.length ? `沒有主星，借對宮的${b.join('、')}` : '沒有主星';
+  return b.length ? `沒有主星，借對面宮位的${b.join('、')}` : '沒有主星';
 }
 export const area = (palace: string | null) => (palace ? (AREA[palace]?.[0] ?? palaceLabel(palace)) : '');
 

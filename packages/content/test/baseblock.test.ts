@@ -240,3 +240,11 @@ describe('同 L0 詞條接得返', () => {
     expect(bad).toEqual([]);
   });
 });
+
+describe('宮位基塊唔講「廟旺時⋯落陷時⋯」兩頭（2026-10-13）', () => {
+  it('基塊只講原則；呢張盤實際係邊頭，由 assemble.ts PALACE_BRIGHT 按廟旺補一句', async () => {
+    const { BASE_BLOCKS } = await import('../src/baseblock-data');
+    const bad = BASE_BLOCKS.filter((b) => /廟旺時|落陷時|入廟時|陷地時|入廟的話|落陷的話|不是得力，就是招怨/.test(b.body)).map((b) => `${b.id}`);
+    expect(bad).toEqual([]);
+  });
+});

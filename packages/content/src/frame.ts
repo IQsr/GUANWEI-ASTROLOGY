@@ -265,8 +265,14 @@ export function chapterFooter(palace: string): string | null {
  * 「空宮本身就係訊息，照實講反而可信。」
  * 偷偷借對宮主星寫落去，讀者見到嗰一格係空嘅就會覺得我哋喺度作。
  */
-export function emptyPalaceLine(palace: string, oppositeStars: string[]): string {
+export function emptyPalaceLine(palace: string, oppositeStars: string[], oppositeName?: string): string {
   if (oppositeStars.length === 0) return `此宮無主星，對宮亦無主星，兩宮同看。`;
+  /* 2026-10-13：同骨架章、大限章講法統一 —— 講明對面係邊個宮，唔講「參看」 */
+  if (oppositeName) {
+    const label = oppositeName.endsWith('宮') ? oppositeName : `${oppositeName}宮`;
+    const own = palace.endsWith('宮') ? palace : `${palace}宮`;
+    return `你的${own}沒有主星，借對面${label}的${oppositeStars.join('、')}來讀。`;
+  }
   return `此宮無主星，借對宮${oppositeStars.join('、')}參看。`;
 }
 

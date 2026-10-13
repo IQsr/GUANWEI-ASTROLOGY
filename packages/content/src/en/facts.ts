@@ -38,7 +38,7 @@ function seatEn(rest: string, missing: string[]): string | null {
   let m = /^，坐(.+)$/.exec(rest);
   if (m) return `, shaped by ${starsEn(m[1]!, missing)}`;
   if (rest === '，宮內沒有主星') return ', which holds no major star';
-  m = /^，宮內沒有主星，借對宮的(.+)來看$/.exec(rest);
+  m = /^，宮內沒有主星，借(?:對宮|對面\S+?宮)的(.+)來看$/.exec(rest);
   if (m) return `, which holds no major star, so it is read through ${starsEn(m[1]!, missing)} in the opposite palace`;
   return null;
 }

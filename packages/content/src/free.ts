@@ -447,7 +447,7 @@ export function shenChapter(
   const label = where.endsWith('宮') ? where : `${where}宮`;
   const lines = shenLines(chart);
   const opp = sp.borrowsFrom && !sp.stars.some((s) => s.kind === 'major') ? chart.palaces.find((p) => p.branch === sp.borrowsFrom) : undefined;
-  const borrowed = opp ? `，借對宮的${opp.stars.filter((s) => s.kind === 'major').map((s) => s.name).join('、')}來看` : '';
+  const borrowed = opp ? `，借對面${opp.name.endsWith('宮') ? opp.name : `${opp.name}宮`}的${opp.stars.filter((s) => s.kind === 'major').map((s) => s.name).join('、')}來看` : '';
   const fact = where === '命宮' ? `你的身宮和命宮在同一宮${starsOf(sp)}${borrowed}。` : `你的身宮落在${label}${starsOf(sp)}${borrowed}。`;
 
   const segments: ShenSegment[] = [

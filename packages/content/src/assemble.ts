@@ -238,6 +238,22 @@ function leadIn(body: string, min: number): { lead: string; rest: string } {
   return { lead, rest: ss.slice(i).join('') };
 }
 
+/*
+ * 宮位基塊入面有幾句以前「廟旺時⋯，落陷時⋯」兩頭都講（2026-10-13 改）：而家基塊只講原則，
+ * 呢度按呢張盤嗰粒星嘅廟旺補返一句講佢實際係邊頭。用引擎廟旺表（同命宮章嘅廟旺修飾語一樣），
+ * 只用兩頭：廟旺 → high，陷／不 → low；中間檔唔講。依據都係基塊引嘅《全書》句（入廟⋯陷宮⋯）。
+ */
+const PALACE_BRIGHT: Record<string, { high?: string; low?: string }> = {
+  '太陽.財帛': { high: '你的太陽光熱充足，錢財流出與流入大致相抵。', low: '你的太陽光熱不足，錢財容易出多入少。' },
+  '太陰.財帛': { high: '你的太陰光亮有力，賺到的錢積得住，不容易散。', low: '你的太陰光弱，同樣用力去積，錢財卻會反反覆覆。' },
+  '貪狼.財帛': { high: '你的貪狼光亮有力，財運起時來得又快又猛。', low: '你的貪狼力弱，財運不穩，要防入不敷出。' },
+  '破軍.僕役': { high: '你的破軍有力，在群體裡多是得力的一員。', low: '你的破軍力弱，在群體裡容易招人怨懟。' },
+  '太陽.子女': { low: '你的太陽光熱不足，同樣的心意會表現為想給而給不出，於是轉成焦急或反覆叮囑。' },
+  '太陰.子女': { low: '你的太陰光弱，同樣的細心會轉成憂慮，表現為反覆確認而不是放手。' },
+  '天機.子女': { low: '你的天機力弱，同樣的多想會表現為反覆修改安排，讓被帶的一方無所適從。' },
+};
+export const PALACE_BRIGHT_LINES = Object.values(PALACE_BRIGHT).flatMap((x) => [x.high, x.low]).filter((x): x is string => Boolean(x));
+
 const MAJOR = new Set(BASE_BLOCKS.map((b) => b.star));
 
 function majorsIn(p: Palace): { name: string; brightness?: Brightness; sihua?: string }[] {
@@ -341,7 +357,7 @@ export function assemble(
     borrowed = opp ? { from: opp.name, stars: oppStars.map((s) => s.name) } : null;
     push({
       slot: '開場',
-      text: emptyPalaceLine(palace, oppStars.map((s) => s.name)),
+      text: emptyPalaceLine(palace, oppStars.map((s) => s.name), opp?.name),
       source_id: 'frame.empty',
       rule_ids: [`structure.empty.${palace}`].filter((id) => matchedRuleIds.has(id)),
     });
@@ -436,6 +452,12 @@ export function assemble(
         structure.push(m.text);
         ids.push(m.id);
       }
+    }
+    if (leadStar.brightness && borrowed === null && palace !== '命宮') {
+      const pb = PALACE_BRIGHT[`${leadStar.name}.${palace}`];
+      const level = ['廟', '旺'].includes(leadStar.brightness) ? 'high' : ['陷', '不'].includes(leadStar.brightness) ? 'low' : null;
+      const line = pb && level ? pb[level] : undefined;
+      if (line) structure.push(line);
     }
     /*
      * 同座嗰粒星擺喺領銜星嘅廟旺**之後**（2026-09）：以前次序係「領銜星 → 同座星 → 領銜星嘅廟旺」，

@@ -269,6 +269,10 @@ function template(s: string, missing: string[]): string | null {
   if (s === '此宮無主星，對宮亦無主星，兩宮同看。') return 'Neither this palace nor the one opposite holds a major star, so the two are read together.';
   m = /^此宮無主星，借對宮(.+)參看。$/.exec(s);
   if (m) return `This palace holds no major star of its own, so it is read through ${starsList(m[1]!, missing)} in the opposite palace.`;
+  /* 2026-10-13 起：「你的僕役宮沒有主星，借對面兄弟宮的太陽、太陰來讀。」 */
+  m = /^你的(\S+?宮)沒有主星，借對面(\S+?宮)的(.+)來讀。$/.exec(s);
+  const pe = (x: string) => PALACE_EN[x] ?? PALACE_EN[x.replace(/宮$/, '')];
+  if (m && pe(m[1]!) && pe(m[2]!)) return `Your ${pe(m[1]!)} holds no major star of its own, so it is read through ${starsList(m[3]!, missing)} in the ${pe(m[2]!)} opposite.`;
 
   /* 擾動：同宮還有火星：⋯。／還有鈴星：⋯。
    * 睇稿指南第 13 節：煞星唔好得一個標籤 —— 先講佢改咗啲乜，後面嗰截（逐宮寫）講落地點樣。 */
