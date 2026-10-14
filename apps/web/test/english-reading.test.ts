@@ -57,4 +57,15 @@ describe('英文閱讀模式', () => {
       if (r.term?.kind === 'sihua') expect(s.runs[k - 1]?.text ?? '').toMatch(/(turns|turning) to $/);
     });
   });
+
+  /* 英文在地化（2026-10-14）：唔好退返舊寫法 */
+  it('在地化：冇「星名: 句」標籤句、冇彎引號、干支年有生肖、農曆月有大約西曆月', () => {
+    const all = en.flat().map((s) => s.text).join(' ');
+    const sents = all.split(/(?<=[.!?])\s+/);
+    expect(sents.filter((s) => /^[A-Z][a-z]+ [A-Z][a-z]+(?: \(the [A-Za-z]+\))?: [A-Z]/.test(s))).toEqual([]);
+    expect(all).not.toMatch(/’/);
+    expect(all).not.toMatch(/\bjuniors's\b/);
+    expect(all).toMatch(/year \(the Year of the (Wood|Fire|Earth|Metal|Water) [A-Z][a-z]+\)/);
+    expect(all).toMatch(/lunar month \(around [A-Z][a-z]+\)/);
+  });
 });

@@ -2,7 +2,7 @@ import rulesRaw from '../daxian/rules.json';
 import { LIUYUE, LIUYUE_FLAT, LIUYUE_LEAD, LIUYUE_REST, MONTH_CN, mixedText } from '../liuyue';
 import { KUIYUE_TEXT } from '../kuiyue';
 import { ageRange, ageStart, agePoint, palaceEn } from './facts';
-import { AREA_EN, AREA_ON_EN, BRANCH_EN, STEM_EN, cnNum, listEn, ordinalWord, star } from './terms';
+import { AREA_EN, AREA_ON_EN, BRANCH_EN, STEM_EN, cnNum, listEn, lunarAround, ordinalWord, star, zodiacEn } from './terms';
 
 /* ───────────────────────────────────────────────────────────
  * 英文版：時間章（一生十二步、這十年、這一年 · 2026-10-05）
@@ -294,9 +294,12 @@ const MONTH_AREA_EN: Record<string, string> = {
   心境: 'your state of mind',
   和長輩之間: 'things with older relatives',
 };
+/* 複數主語（things with…、dealings with…）用 bring，唔係 brings（2026-10-14 · 英文在地化） */
+const MONTH_AREA_PLURAL = new Set(['兄弟朋友之間', '和晚輩之間', '人際', '和長輩之間']);
 for (const e of LIUYUE) {
   if (!MONTH_AREA_EN[e.area]) throw new Error(`逐月方面未有英文：${e.area}`);
-  LIUYUE_EN[mixedText(e.area)] = `${MONTH_AREA_EN[e.area]} brings both openings and snags; make the most of what flows, and don't force what sticks`;
+  const verb = MONTH_AREA_PLURAL.has(e.area) ? 'bring' : 'brings';
+  LIUYUE_EN[mixedText(e.area)] = `${MONTH_AREA_EN[e.area]} ${verb} both openings and snags; make the most of what flows, and don't force what sticks`;
 }
 for (const e of LIUYUE) for (const t of [e.good, e.bad]) if (!LIUYUE_EN[t]) throw new Error(`逐月未有英文：${t}`);
 
@@ -307,10 +310,14 @@ function liuyueEn(s: string): string | null {
   if (s === LIUYUE_REST) return 'The other months show no clear rise or dip on the chart; keep to your usual pace.';
   if (s === LIUYUE_FLAT) return 'Month by month (by the Chinese calendar), no month gives a particularly strong signal this year; keep to your usual pace.';
   let m = /^(正月|十一月|十二月|[二三四五六七八九十]月)：(.+)。$/.exec(s);
-  if (m && monthNo(m[1]!) > 0 && LIUYUE_EN[m[2]!]) return `In the ${ordinalWord(monthNo(m[1]!))} month, ${LIUYUE_EN[m[2]!]}.`;
+  if (m && monthNo(m[1]!) > 0 && LIUYUE_EN[m[2]!]) {
+    /* 英文讀者唔熟農曆：講明係 lunar，再畀大約嘅西曆月（2026-10-14） */
+    const k = monthNo(m[1]!);
+    return `In the ${ordinalWord(k)} lunar month (around ${lunarAround(k)}), ${LIUYUE_EN[m[2]!]}.`;
+  }
   m = /^今年有閏(\S+?)：上半月照(\S+?)看，下半月照(\S+?)看。$/.exec(s);
   if (m && monthNo(m[1]!) > 0 && monthNo(m[3]!) > 0)
-    return `This year has a leap ${ordinalWord(monthNo(m[1]!))} month: read its first half as the ${ordinalWord(monthNo(m[2]!))} month and its second half as the ${ordinalWord(monthNo(m[3]!))} month.`;
+    return `This year has a leap ${ordinalWord(monthNo(m[1]!))} lunar month: read its first half as the ${ordinalWord(monthNo(m[2]!))} month and its second half as the ${ordinalWord(monthNo(m[3]!))} month.`;
   return null;
 }
 
@@ -352,7 +359,8 @@ export function timeTemplate(s: string, missing: string[], h: TimeHelpers): stri
   /* ── 回看過去 ── */
   m = /^(回看你走過的路[：，])?(\S+?)年（(\S)(\S)年，你虛歲(\S+?)），(.+)。$/.exec(s);
   if (m && n(m[2]!) && n(m[5]!) && STEM_EN[m[3]!] && BRANCH_EN[m[4]!]) {
-    const when = `${n(m[2]!)} (a ${STEM_EN[m[3]!]} ${BRANCH_EN[m[4]!]} year, when you were ${agePoint(n(m[5]!)!)})`;
+    const zo = zodiacEn(m[3]!, m[4]!);
+    const when = `${n(m[2]!)} (a ${STEM_EN[m[3]!]} ${BRANCH_EN[m[4]!]} year${zo ? `, the ${zo}` : ''}, when you were ${agePoint(n(m[5]!)!)})`;
     const pre = m[1] ? "Looking back on the road you've walked: " : '';
     const hm = /^(是你命盤裡關鍵的一年|同樣是關鍵的一年)(?:[：，](.+))?$/.exec(m[6]!);
     const body = (hm ? (hm[2] ?? '') : m[6]!) ;
@@ -392,7 +400,8 @@ export function timeTemplate(s: string, missing: string[], h: TimeHelpers): stri
   /* ── 這一年 · 結論、流年命宮、明年 ── */
   m = /^寫這本書的(\S+?)年是(\S)(\S)年，你虛歲(\S+?)。$/.exec(s);
   if (m && n(m[1]!) && n(m[4]!) && STEM_EN[m[2]!] && BRANCH_EN[m[3]!]) {
-    return `${n(m[1]!)}, the year this book was written, was a ${STEM_EN[m[2]!]} ${BRANCH_EN[m[3]!]} year, and you were ${agePoint(n(m[4]!)!)} (${n(m[4]!)} by Chinese reckoning).`;
+    const zo = zodiacEn(m[2]!, m[3]!);
+    return `${n(m[1]!)}, the year this book was written, was a ${STEM_EN[m[2]!]} ${BRANCH_EN[m[3]!]} year${zo ? ` (the Year of the ${zo})` : ''}, and you were ${agePoint(n(m[4]!)!)} (${n(m[4]!)} by Chinese reckoning).`;
   }
   m = new RegExp(`^這一年的流年命宮在(\\S)，落在你本命的(\\S+?宮)(?:，也就是這十年大限的(\\S+?宮))?，(${SEAT})。$`).exec(s);
   if (m && BRANCH_EN[m[1]!]) {
@@ -402,7 +411,8 @@ export function timeTemplate(s: string, missing: string[], h: TimeHelpers): stri
   m = new RegExp(`^(\\S+?)年是(\\S)(\\S)年，流年命宮轉到(\\S)，落在你本命的(\\S+?宮)，(${SEAT})(?:；那一年(\\S{2})化祿、(\\S{2})化忌)?。$`).exec(s);
   if (m && n(m[1]!) && STEM_EN[m[2]!] && BRANCH_EN[m[3]!] && BRANCH_EN[m[4]!]) {
     const hua = m[7] && m[8] ? `; that year ${starsEn(m[7], missing)} turns to Abundance and ${starsEn(m[8], missing)} to Obstruction` : '';
-    return `${n(m[1]!)} is a ${STEM_EN[m[2]!]} ${BRANCH_EN[m[3]!]} year: the year's Life Palace moves to ${BRANCH_EN[m[4]!]}, your birth chart's ${pal(m[5]!, missing)}${seat(m[6]!, missing)}${hua}.`;
+    const zo = zodiacEn(m[2]!, m[3]!);
+    return `${n(m[1]!)} is a ${STEM_EN[m[2]!]} ${BRANCH_EN[m[3]!]} year${zo ? ` (the Year of the ${zo})` : ''}: the year's Life Palace moves to ${BRANCH_EN[m[4]!]}, your birth chart's ${pal(m[5]!, missing)}${seat(m[6]!, missing)}${hua}.`;
   }
   m = new RegExp(`^下一個大限從虛歲(\\S+?)歲開始，轉到(\\S+?宮)，(${SEAT})(?:；那十年(\\S{2})化祿、(\\S{2})化忌)?。$`).exec(s);
   if (m && n(m[1]!)) {

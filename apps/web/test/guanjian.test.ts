@@ -1,6 +1,8 @@
 import { describe, expect, it } from 'vitest';
 import { keywordMarks, SHEN, SHUN, TI, SHEN_HANS, SHUN_HANS, TI_HANS } from '@/lib/guanjian';
 import { hans } from '@/lib/hans';
+import { sampleBook } from '@/lib/sample-book';
+import { englishChapters } from '@/lib/english';
 
 const show = (t: string) => keywordMarks(t).map((m) => `${m.kind}:${t.slice(m.start, m.end)}`);
 
@@ -40,4 +42,25 @@ describe('關鍵字標記', () => {
     expect(show(t)).toEqual(['ti:心境', 'shen:顺中有阻', 'ti:朋辈', 'shen:要多留神', 'shun:比较顺']);
   });
 
+  it('英文：判語、月份、同一分句嘅主題字', () => {
+    expect(show('This year, your inner life goes smoothly, though not without snags, and more care is needed with your peers.')).toEqual([
+      'ti:inner life', 'shun:goes smoothly', 'shen:though not without snags', 'shen:more care is needed', 'ti:peers',
+    ]);
+    expect(show('In the seventh lunar month (around August), there are more hold-ups than usual.')).toEqual(['yue:seventh lunar month', 'shen:more hold-ups than usual']);
+    /* 詞界：network 入面嘅 work 唔中；冇判語嘅分句唔標主題 */
+    expect(show('Your network matters; your work is steady.')).toEqual([]);
+  });
+
+  it('英文示範書：時間章有記號，月份用農曆加大約西曆月（對住 packages/content 嘅譯法）', () => {
+    const book = sampleBook()!;
+    const en = englishChapters(book.drafts.map((d) => ({ text: d.body, slots: d.slots })));
+    const year = en[book.drafts.findIndex((d) => d.slug === '這一年')]!.map((s) => s.text);
+    const marks = year.flatMap((p) => keywordMarks(p).map((m) => `${m.kind}:${p.slice(m.start, m.end)}`));
+    expect(marks.length).toBeGreaterThan(10);
+    for (const k of ['shen', 'shun', 'yue', 'ti']) expect(marks.some((m) => m.startsWith(k + ':')), k).toBe(true);
+    const all = year.join(' ');
+    expect(all).toMatch(/the Year of the (Wood|Fire|Earth|Metal|Water) [A-Z][a-z]+/);
+    expect(all).toMatch(/lunar month \(around [A-Z][a-z]+\)/);
+    expect(all).not.toMatch(/\b(things|dealings) with [a-z ]+ brings\b/);
+  });
 });

@@ -141,11 +141,30 @@ export const HOUR_RANGE: Record<string, string> = {
   午: '11 am – 1 pm', 未: '1 – 3 pm', 申: '3 – 5 pm', 酉: '5 – 7 pm', 戌: '7 – 9 pm', 亥: '9 – 11 pm',
 };
 export const ELEMENT_EN: Record<string, string> = { 金: 'Metal', 木: 'Wood', 水: 'Water', 火: 'Fire', 土: 'Earth' };
+/*
+ * 干支年嘅生肖講法（2026-10-14 · 英文在地化）：「a Bing Wu year」英文讀者唔知係乜，
+ * 加返西方熟悉嘅「the Year of the Fire Horse」。天干定五行（甲乙木⋯），地支定生肖。
+ */
+const STEM_ELEMENT: Record<string, string> = {
+  甲: 'Wood', 乙: 'Wood', 丙: 'Fire', 丁: 'Fire', 戊: 'Earth', 己: 'Earth', 庚: 'Metal', 辛: 'Metal', 壬: 'Water', 癸: 'Water',
+};
+const BRANCH_ANIMAL: Record<string, string> = {
+  子: 'Rat', 丑: 'Ox', 寅: 'Tiger', 卯: 'Rabbit', 辰: 'Dragon', 巳: 'Snake', 午: 'Horse', 未: 'Goat', 申: 'Monkey', 酉: 'Rooster', 戌: 'Dog', 亥: 'Pig',
+};
+/** 丙午 → 'Fire Horse'；認唔到就 null */
+export const zodiacEn = (stem: string, branch: string): string | null =>
+  STEM_ELEMENT[stem] && BRANCH_ANIMAL[branch] ? `${STEM_ELEMENT[stem]} ${BRANCH_ANIMAL[branch]}` : null;
+
 export const MONTH_EN = ['', 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 const NUM_WORD = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve'];
 export const numWord = (n: number) => NUM_WORD[n] ?? String(n);
 const ORD_WORD = ['', 'first', 'second', 'third', 'fourth', 'fifth', 'sixth', 'seventh', 'eighth', 'ninth', 'tenth', 'eleventh', 'twelfth'];
 export const ordinalWord = (n: number) => ORD_WORD[n] ?? `${n}th`;
+/**
+ * 農曆月大約對應嘅西曆月（2026-10-14 · 英文在地化）：農曆月通常遲西曆一個月左右，
+ * 正月 ≈ 二月、十二月 ≈ 一月。只係「大約」，畫面寫 around。
+ */
+export const lunarAround = (n: number) => MONTH_EN[(n % 12) + 1] ?? '';
 export const ordinal = (n: number) => {
   const t = n % 100;
   const suf = t >= 11 && t <= 13 ? 'th' : (['th', 'st', 'nd', 'rd'][n % 10] ?? 'th');

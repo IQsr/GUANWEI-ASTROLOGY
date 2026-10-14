@@ -222,7 +222,14 @@ function lookupSentence(s: string): string | null {
   const pre = /^(\S{2})：(.+)$/.exec(s);
   if (pre && star(pre[1]!)) {
     const rest = TM.sentences[pre[2]!];
-    if (rest) return `${star(pre[1]!)}: ${rest}`;
+    /*
+     * 「天機：…」中文係標籤寫法；英文寫成「Tian Ji: Roles that…」似筆記，唔似一句話（2026-10-14 · 英文在地化）。
+     * 改做「With Tian Ji, roles that…」：句首細寫，除非開頭本身係星名（「Tian Tong …」兩個大寫字）。
+     */
+    if (rest) {
+      const body = /^[A-Z][a-z]+ [A-Z]/.test(rest) || /^I\b/.test(rest) ? rest : rest.charAt(0).toLowerCase() + rest.slice(1);
+      return `With ${star(pre[1]!)}, ${body}`;
+    }
   }
   const head = s.slice(0, 2);
   if (star(head)) {

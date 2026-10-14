@@ -15,7 +15,7 @@
  * 「最順」150、「要留意的是」180、月份清單 204。單獨一個「留意」有 367 次，多數係
  * 「要留意它⋯」嘅句中用法，太嘈，唔標。
  *
- * 喺顯示嗰陣先標，唔寫落 DB（舊書一樣有）。繁簡都標；英文未做（英文段落冇記號）。
+ * 喺顯示嗰陣先標，唔寫落 DB（舊書一樣有）。繁、簡、英都標（英文 2026-10-14 加）。
  * 2026-10-14 取代咗「每章第一段結論句加粗」（lib/key-sentence.ts，已刪）。
  * 樣式：墨色粗體（globals.css `.wen .guan`）；試過色墨，用戶揀咗唔要色。
  */
@@ -44,18 +44,45 @@ export const TI_HANS = [
 export { SHEN, SHUN, TI };
 const MONTH = /(?:正|十一|十二|二|三|四|五|六|七|八|九|十)月(?=：)/g;
 
-/* 繁簡兩套一齊搵；長嘅放前面 */
+/*
+ * 英文（2026-10-14）：英文係讀嗰陣由中文譯（@guanwei/content 嘅 En），所以呢度對住**譯出嚟嘅講法**，
+ * 唔係對中文。講法由 60 本書嘅英文數出：「more care is needed」對「要多留神」、
+ * 「The catch is／The trade-off／What complicates this／The other side of this」係「要留意的是」嘅四個輪換講法⋯⋯
+ * ⚠ 改 packages/content/src/en 嘅講法要睇吓呢度仲對唔對得上（test/guanjian.test.ts 用示範書量住）。
+ */
+const SHEN_EN = [
+  'more care is needed', 'though not without snags', 'both openings and snags', 'more hold-ups than usual', 'some worry',
+  'setbacks', "don't force it", "don't force what sticks", 'work against', 'works against',
+  'The catch is', 'What complicates this', 'The trade-off', 'The other side of this',
+];
+const SHUN_EN = [
+  "it's smoother going", 'smoother going', 'goes smoothly', 'go smoothly', 'runs most smoothly', 'run most smoothly',
+  'runs relatively smoothly', 'went relatively smoothly', 'move forward smoothly', 'has a chance to grow', 'pays back most readily', 'pays off', 'pay off',
+  'turn in your favour', 'goes well', 'go well',
+];
+const TI_EN = [
+  'love life', 'love', 'people you mentor', 'finances', 'money', 'own work', 'work', 'home', 'inner life', 'peers', 'circle',
+  'ties with elders', 'wider world', 'younger people', 'older relatives', 'siblings and friends', 'dealings with people',
+  'routine', 'state of mind', 'relationships', 'income', 'next generation', 'opportunities out in the world',
+  'time away from home', 'household spending',
+];
+const MONTH_EN = /\b(?:first|second|third|fourth|fifth|sixth|seventh|eighth|ninth|tenth|eleventh|twelfth) lunar month\b/g;
+
+/* 繁、簡、英三套一齊搵；長嘅放前面；英文詞加詞界（「work」唔好喺「network」入面中） */
 const alt = (...lists: readonly (readonly string[])[]) =>
   new RegExp(
     [...new Set(lists.flat())]
       .sort((a, b) => b.length - a.length)
-      .map((w) => w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'))
+      .map((w) => {
+        const e = w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        return /^[A-Za-z]/.test(w) ? `\\b${e}\\b` : e;
+      })
       .join('|'),
     'g',
   );
-const SHEN_RE = alt(SHEN, SHEN_HANS);
-const SHUN_RE = alt(SHUN, SHUN_HANS);
-const TI_RE = alt(TI, TI_HANS);
+const SHEN_RE = alt(SHEN, SHEN_HANS, SHEN_EN);
+const SHUN_RE = alt(SHUN, SHUN_HANS, SHUN_EN);
+const TI_RE = alt(TI, TI_HANS, TI_EN);
 
 function find(text: string, re: RegExp, kind: MarkKind, from = 0, to = text.length): Mark[] {
   const out: Mark[] = [];
@@ -68,11 +95,11 @@ function find(text: string, re: RegExp, kind: MarkKind, from = 0, to = text.leng
 /** 一段字入面嘅記號，按位置排好、互不重疊（先到先得：留神 > 順 > 月份 > 主題） */
 export function keywordMarks(text: string): Mark[] {
   const verdicts = [...find(text, SHEN_RE, 'shen'), ...find(text, SHUN_RE, 'shun')];
-  const months = find(text, MONTH, 'yue');
+  const months = [...find(text, MONTH, 'yue'), ...find(text, MONTH_EN, 'yue')];
 
-  /* 主題字：只喺有判語嘅分句（以 ，。；：！？ 分）入面標 */
+  /* 主題字：只喺有判語嘅分句（中文以 ，。；：！？、英文以 , ; : . ! ? 分）入面標 */
   const topics: Mark[] = [];
-  const clause = /[^，。；：！？\n]+/g;
+  const clause = /[^，。；：！？\n,;:.!?]+/g;
   for (let c = clause.exec(text); c; c = clause.exec(text)) {
     const a = c.index;
     const b = a + c[0].length;
