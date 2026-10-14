@@ -1,7 +1,8 @@
 /**
  * L3 結構層正文實例（工單 C8b）
  */
-import type { Chart, Palace, PalaceName } from '@guanwei/ziwei';
+import { sanFangPalaces, type Chart, type Palace, type PalaceName } from '@guanwei/ziwei';
+import gejuDoc from './rules/geju.json';
 import raw from './l3/blocks.json';
 import { buildL3, mostSimilarL3, type L3Block } from './l3';
 
@@ -35,6 +36,30 @@ export function l3Coverage() {
  * 身宮同空宮最後 —— 前者最貼呢一章，後者最容易喧賓奪主。
  * 而且第二塊**只揀命中咗規則**嗰啲：一塊冇規則撐住嘅正文，就係即席創作。
  */
+/** 格局觸發條件入面提到嘅星名（together／opposite 等陣列入面嘅字串） */
+function triggerStars(t: unknown): string[] {
+  if (typeof t === 'string') return [t];
+  if (Array.isArray(t)) return t.flatMap(triggerStars);
+  if (t && typeof t === 'object') return Object.values(t).flatMap(triggerStars);
+  return [];
+}
+const GEJU_STARS = new Map(
+  (gejuDoc as unknown as { geju: { id: string; trigger: unknown }[] }).geju.map((g) => [g.id, [...new Set(triggerStars(g.trigger))]]),
+);
+
+/**
+ * 格局塊只出喺星真係喺呢一宮三方四正入面嗰章（2026-10-14）。
+ * 以前跟主題（self 由命宮、子女、父母、遷移共用）派，火貪喺兄弟宮都會出喺遷移章，讀者摸唔著頭腦。
+ */
+function gejuHere(b: L3Block, p: Palace, chart: Chart): boolean {
+  const id = b.rule_ids.map((r) => /^geju\.([^.]+)\./.exec(r)?.[1]).find(Boolean);
+  const names = id ? GEJU_STARS.get(id) : undefined;
+  if (!names?.length) return true;
+  const four = sanFangPalaces(chart.palaces, p.branch);
+  const found = names.filter((n) => four.some((q) => q.stars.some((s) => s.name === n)));
+  return found.length >= Math.min(2, names.length);
+}
+
 export function l3For(
   palace: PalaceName,
   _p: Palace,
@@ -68,6 +93,7 @@ export function l3For(
       if (kind !== 'geju' && b.key !== palace) continue;
       if (!fires(b)) continue;
       if (kind === 'geju' && used?.has(b.id)) continue;
+      if (kind === 'geju' && !gejuHere(b, _p, _chart)) continue;
       used?.add(b.id);
       pick.push(b);
       return pick;

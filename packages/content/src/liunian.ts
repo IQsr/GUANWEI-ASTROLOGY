@@ -4,7 +4,7 @@ import { palaceLabel } from './link';
 import { leanOf, xingxiOf } from './xingxi';
 import { monthSegment } from './liuyue';
 import { KUIYUE_SOURCE, KUIYUE_TEXT, kuiyueRises } from './kuiyue';
-import { DAXIAN_HUA, DAXIAN_RULES, adviceSegment, area, areaSegments, decadeView, num, pivotRule, starsOf, yearCN, type DaxianSegment } from './daxian';
+import { DAXIAN_HUA, DAXIAN_RULES, adviceSegment, area, areaSegments, periodArea, decadeView, num, pivotRule, starsOf, yearCN, type DaxianSegment } from './daxian';
 
 /* ───────────────────────────────────────────────────────────
  * 流年章〈這一年〉（2026-09-30）
@@ -94,8 +94,8 @@ export function yearChapter(input: { chart: Chart; year: number }): { slug: stri
   const jiEased = Boolean(jiB && lower.some((h) => h.hua === '祿' && h.branch === jiB));
   const gist =
     lu.annualPalace && lu.annualPalace === ji.annualPalace
-      ? `這一年，你的${area(lu.annualPalace)}起伏較大，有得著，也有牽掛。`
-      : `這一年，你的${area(lu.annualPalace)}${luBlocked ? '順中有阻' : '比較順'}，${area(ji.annualPalace)}${jiEased ? '雖有牽掛，也有轉圜的餘地' : '要多留神'}。`;
+      ? `這一年，你的${periodArea(lu.annualPalace)}起伏較大，有得著，也有牽掛。`
+      : `這一年，你的${periodArea(lu.annualPalace)}${luBlocked ? '順中有阻' : '比較順'}，${periodArea(ji.annualPalace)}${jiEased ? '雖有牽掛，也有轉圜的餘地' : '要多留神'}。`;
   const lead =
     `寫這本書的${yearCN(year)}年是${gan}${zhi}年，你虛歲${num(A.nominalAge)}。` +
     gist +

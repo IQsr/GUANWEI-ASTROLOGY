@@ -63,7 +63,12 @@ export function epilogueChapter(input: { chart: Chart; year: number }): { slug: 
   };
   const strip = (watch: string) => watch.replace(/^要留意的是：/, '');
   /* 由宮位抽嘅句加返係邊方面（「心境上，」）—— 抽出嚟之後冇咗章名，讀者唔知講緊邊樣 */
-  const tag = (name: string, text: string) => (name === '命宮' ? text : `${AREA[name]?.[1] ?? ''}，${text}`);
+  const tag = (name: string, text: string) => {
+    if (name === '命宮') return text;
+    const on = AREA[name]?.[1] ?? '';
+    /* 「對長輩時，你投入了卻得不到回應時」兩個「時」（2026-10-14）：句子自己有「⋯時」就剝走方面嗰個 */
+    return `${on.endsWith('時') && /^[^，。]*時/.test(text) ? on.slice(0, -1) : on}，${text}`;
+  };
 
   /*
    * ⚠ 長處同留意唔講同一方面（2026-10-04）：以前化忌落官祿，就會「長處：工作上⋯」「要記住：工作上⋯」

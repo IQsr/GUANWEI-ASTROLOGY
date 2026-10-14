@@ -117,6 +117,7 @@ const RULES = (rulesRaw as { rules: { id: string; text: string }[] }).rules.map(
 /* 建議段講某一方面（daxian.ts ADVICE_ON） */
 const ADVICE_EN: Record<string, string> = {
   你自己想做的事: 'the things you want to do yourself',
+  自己的計劃: 'your own plans',
   '和兄弟、朋輩合作的事': 'working with siblings and peers',
   感情: 'your love life',
   後輩和手上的作品: 'the next generation and your own work',
@@ -449,7 +450,8 @@ export function timeTemplate(s: string, missing: string[], h: TimeHelpers): stri
   /* 建議段（2026-10-13 起） */
   m = /^這(十年|一年)最順的是(.+?)，力氣放在這裡，最容易見到回報。$/.exec(s);
   if (m && ADVICE_EN[m[2]!]) return `${m[1] === '十年' ? 'Over these ten years' : 'This year'}, what runs most smoothly is ${ADVICE_EN[m[2]!]}; put your effort there and it pays back most readily.`;
-  m = /^牽涉到(.+?)的決定，多花一點時間再定，(簽字、承諾之前多問一句|急著要答覆的事，先放一晚)。$/.exec(s);
+  m = /^(?:牽涉到(.+?)的決定，多花一點時間再定|關於(.+?)，決定之前多花一點時間)，(簽字、承諾之前多問一句|急著要答覆的事，先放一晚)。$/.exec(s);
+  if (m) m = [m[0], m[1] ?? m[2], m[3]] as unknown as RegExpExecArray;
   if (m && ADVICE_EN[m[1]!]) {
     const tail = m[2]!.startsWith('急') ? 'let anything that needs an urgent answer wait a night' : 'ask one more question before you sign or commit to anything';
     return `With decisions involving ${ADVICE_EN[m[1]!]}, take a little more time, and ${tail}.`;

@@ -74,6 +74,8 @@ export const AREA_EN: Record<string, [string, string]> = {
   家: ['your home', 'At home'],
   心境: ['your inner life', 'In your inner life'],
   長輩關係: ['your ties with elders', 'With elders and seniors'],
+  /* 時間章結論句：命宮唔講「性格」（2026-10-14） */
+  自己的狀態: ['your own state', 'In yourself'],
 };
 /** 中文句首講法 → 英文（「在外時」→「Out in the world」） */
 export const AREA_ON_EN: Record<string, string> = {
@@ -89,6 +91,10 @@ export const AREA_ON_EN: Record<string, string> = {
   家裡: 'At home',
   心境上: 'In your inner life',
   對長輩時: 'With elders and seniors',
+  /* 給你的話：句子自己有「⋯時」，方面剝走「時」（2026-10-14） */
+  對長輩: 'With elders and seniors',
+  帶後輩: 'With those you bring up',
+  在外: 'Out in the world',
 };
 
 const ROMAN = ['', 'I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI', 'XII'];

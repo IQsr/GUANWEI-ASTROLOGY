@@ -197,6 +197,8 @@ export function starsOf(chart: Chart, p: Palace): string {
   return b.length ? `沒有主星，借對面宮位的${b.join('、')}` : '沒有主星';
 }
 export const area = (palace: string | null) => (palace ? (AREA[palace]?.[0] ?? palaceLabel(palace)) : '');
+/** 時間章結論句講某方面（2026-10-14）：命宮唔講「性格要多留神」，講「自己的狀態」 */
+export const periodArea = (palace: string | null) => (palace === '命宮' ? '自己的狀態' : area(palace));
 
 /* ── 分四方面讀一段時期（2026-10-02）───────────────────────
  *
@@ -328,7 +330,7 @@ export function areaSegments(
  * 填格式嘅講法，「性格方面」「身心負荷方面」讀落生硬。逐宮寫一個平常講法。
  */
 export const ADVICE_ON: Record<string, string> = {
-  命宮: '你自己想做的事',
+  命宮: '自己的計劃',
   兄弟: '和兄弟、朋輩合作的事',
   夫妻: '感情',
   子女: '後輩和手上的作品',
@@ -352,7 +354,8 @@ export function adviceSegment(hits: readonly PeriodHit[], scope: '這十年' | '
   else {
     if (lu) parts.push(`${scope}最順的是${ADVICE_ON[lu]}，力氣放在這裡，最容易見到回報。`);
     /* 兩章嘅尾句唔同 */
-    if (ji) parts.push(`牽涉到${ADVICE_ON[ji]}的決定，多花一點時間再定，${scope === '這十年' ? '簽字、承諾之前多問一句' : '急著要答覆的事，先放一晚'}。`);
+    /* 2026-10-14：以前「牽涉到錢的安排的決定」兩個「的」，改句式 */
+    if (ji) parts.push(`關於${ADVICE_ON[ji]}，決定之前多花一點時間，${scope === '這十年' ? '簽字、承諾之前多問一句' : '急著要答覆的事，先放一晚'}。`);
   }
   return { slot: '建議', text: parts.join(''), source_id: null, rule_ids: [], brief: adviceBrief(hits, scope) ?? undefined };
 }
@@ -733,8 +736,8 @@ export function decadeChapter(input: { chart: Chart; year: number }): Out {
   const young = d.toAge <= 20 ? '你還年少，下面講的是這十年身邊的環境，很多要到長大後才用得上。' : '';
   const gist =
     lu.decadalPalace && lu.decadalPalace === ji.decadalPalace
-      ? `這十年，你的${area(lu.decadalPalace)}起伏較大，有得著，也有牽掛。`
-      : `這十年，你的${area(lu.decadalPalace)}比較順，${area(ji.decadalPalace)}要多留神。`;
+      ? `這十年，你的${periodArea(lu.decadalPalace)}起伏較大，有得著，也有牽掛。`
+      : `這十年，你的${periodArea(lu.decadalPalace)}比較順，${periodArea(ji.decadalPalace)}要多留神。`;
 
   /* 大限命宮：盤面事實 ＋ 六十星系偏向（用大限四化） */
   const fact = `這個大限落在你的${palaceLabel(dp.name)}，${starsOf(chart, dp)}，宮干是${d.stem}。`;
