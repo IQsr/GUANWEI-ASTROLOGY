@@ -10,6 +10,7 @@ import { LIFE_PALACE } from '@/lib/suidu';
 import { chapterHref, SAMPLE_BOOK } from '@/lib/journey';
 import { sampleBook } from '@/lib/sample-book';
 import { displayTitle } from '@/lib/english';
+import { buildAsks, leadsFromBodies } from '@/lib/wenmu';
 import { Feiye } from '@/components/Feiye';
 
 export function generateStaticParams() {
@@ -63,7 +64,7 @@ export default async function SamplePage({ params }: { params: Promise<{ locale:
           }
         >
           <p className="banxin mb-8 border-b jielan pb-6 text-sm leading-[1.9] text-ink-2">{t('note')}</p>
-          <BookContents bookId={SAMPLE_BOOK} chapters={book.chapters.map((c) => ({ ...c, title: displayTitle(c.title, locale) }))} lastRead={null} cut />
+          <BookContents bookId={SAMPLE_BOOK} chapters={book.chapters.map((c) => ({ ...c, title: displayTitle(c.title, locale) }))} lastRead={null} cut asks={buildAsks(leadsFromBodies(book.drafts), locale)} />
         </BookSpread>
       ) : (
         <p className="banxin text-body leading-[1.95] text-ink-2">{t('missing')}</p>

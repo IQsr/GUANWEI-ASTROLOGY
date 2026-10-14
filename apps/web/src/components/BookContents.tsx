@@ -3,9 +3,11 @@ import { Link } from '@/i18n/navigation';
 import { PageTurnLink } from '@/components/PageTurnLink';
 import { ShiyanCard } from '@/components/ShiyanCard';
 import { DingshiCard } from '@/components/DingshiCard';
+import { Wenmu } from '@/components/Wenmu';
 import { chapterHref, payHref } from '@/lib/journey';
 import { groupChapters, tally } from '@/lib/themes';
 import type { ChapterMeta } from '@/lib/juan-view';
+import type { AskItem } from '@/lib/wenmu';
 
 /**
  * 呢本書（重新設計第三期；2026-10-06 改做書嘅樣）
@@ -27,6 +29,7 @@ export function BookContents({
   cut,
   experiment = false,
   awaiting = false,
+  asks = [],
 }: {
   bookId: string;
   chapters: readonly ChapterMeta[];
@@ -36,6 +39,8 @@ export function BookContents({
   experiment?: boolean;
   /** 待時辰（冇時辰、冇盤）：目次頂出「推算時辰（測試中）」（2026-10-09） */
   awaiting?: boolean;
+  /** 目次問目「你想知甚麼」（2026-10-14）：由 `buildAsks()` 砌好；空就唔出 */
+  asks?: readonly AskItem[];
 }) {
   const t = useTranslations('book');
   const { preface, epilogue, groups, rest } = groupChapters(chapters);
@@ -67,6 +72,8 @@ export function BookContents({
   return (
     <div className="banxin shu-kai">
       {awaiting ? <DingshiCard bookId={bookId} /> : null}
+      {/* 〇、你想知甚麼：先答讀者想知嘅嘢，再請佢入章（2026-10-14） */}
+      <Wenmu bookId={bookId} items={asks} titles={Object.fromEntries(chapters.map((c) => [c.slug, c.title]))} />
       {/* 一、這本書 */}
       <section aria-labelledby="zhe-ben-shu" className="shu-jie">
         <h2 id="zhe-ben-shu" className="shu-xiao-biao">{t('aboutTitle')}</h2>

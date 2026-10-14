@@ -14,6 +14,7 @@ import { FontWarm } from '@/components/FontWarm';
 import { distinctChars } from '@/lib/fontwarm';
 import { displayTitle } from '@/lib/english';
 import { Feiye } from '@/components/Feiye';
+import { buildAsks } from '@/lib/wenmu';
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -81,7 +82,9 @@ export default async function BookPage({
   const next = first ? { href: chapterHref(bookId, first.slug), label: tr('turnTo', { title: displayTitle(first.title, locale) }) } : null;
   /* 由目次翻去第一章：先載定嗰章用到嘅字（見 FontWarm） */
   const ahead = first ? await port.body(bookId, first.slug).catch(() => null) : null;
-  const warm = distinctChars(`${first?.title ?? ''}${ahead?.text ?? ''}`);
+  /* 目次問目：每章第一段（未買嘅深度章都有，DB 只開第一段 · 0008）。撈唔到就唔出嗰節 */
+  const asks = view.kind === 'ok' ? buildAsks(await port.leads(bookId).catch(() => []), locale) : [];
+  const warm = distinctChars(`${first?.title ?? ''}${ahead?.text ?? ''}${asks.map((a) => `${a.answer}${a.quote ?? ''}`).join('')}`);
 
   return (
     /*
@@ -106,7 +109,7 @@ export default async function BookPage({
             </h1>
           }
         >
-          <BookContents bookId={bookId} chapters={view.chapters.map((c) => ({ ...c, title: displayTitle(c.title, locale) }))} lastRead={view.lastRead} cut={view.cut} experiment={chart !== null} awaiting={chart === null && view.chapters.length === 0} />
+          <BookContents bookId={bookId} chapters={view.chapters.map((c) => ({ ...c, title: displayTitle(c.title, locale) }))} lastRead={view.lastRead} cut={view.cut} experiment={chart !== null} awaiting={chart === null && view.chapters.length === 0} asks={asks} />
         </BookSpread>
       ) : (
         <p className="banxin text-body leading-[1.95] text-ink-2">

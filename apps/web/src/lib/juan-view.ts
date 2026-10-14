@@ -48,7 +48,15 @@ export type JuanPort = {
    * `year` 係寫書嗰年：左頁個盤嘅大限、流年兩層跟佢（`layers.ts`）。
    */
   chart(bookId: string): Promise<{ payload: unknown; year: number } | null>;
+  /**
+   * 目次問目（2026-10-14 · 0008 `chapter_leads()`）：每章第一段 ＋ 第一句《…》引文。
+   *
+   * ⚠ 未買嘅深度章都有 —— DB 只開第一段，其餘段落照舊要行 `body()`（有票先有）。
+   */
+  leads(bookId: string): Promise<ChapterLead[]>;
 };
+
+export type ChapterLead = { slug: string; lead: string; quote: string | null };
 
 export type ContentsView =
   | { kind: 'ok'; title: string | null; chapters: ChapterMeta[]; lastRead: string | null; cut: boolean }

@@ -97,5 +97,18 @@ export function serverJuan(): JuanPort {
       /* 寫書嗰年：同成書嗰陣（server 時鐘，UTC）畀 `annual()` 嘅年一樣 */
       return { payload: chart.payload, year: new Date(data!.created_at as string).getUTCFullYear() };
     },
+
+    async leads(bookId) {
+      const sb = supabaseServer();
+      if (!(await signedIn(sb))) return [];
+      /* ⚠ 只開第一段同一句引文（0008）；全章正文照舊行 `chapter_body()` */
+      const { data, error } = await sb.rpc('chapter_leads', { p_book: bookId });
+      if (error) throw error;
+      return ((data ?? []) as { slug: string; lead: string | null; quote: string | null }[]).map((r) => ({
+        slug: r.slug,
+        lead: r.lead ?? '',
+        quote: r.quote ?? null,
+      }));
+    },
   };
 }

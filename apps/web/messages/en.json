@@ -360,7 +360,38 @@
         "lead": "Understanding yourself with others"
       }
     },
-    "epilogueLead": "A few lines to take with you: your strengths, what to keep in mind, and what is worth doing now."
+    "epilogueLead": "A few lines to take with you: your strengths, what to keep in mind, and what is worth doing now.",
+    "asks": {
+      "title": "What you want to know",
+      "lead": "Each question is answered first, with the opening paragraph of its chapter. To see why, turn to that chapter.",
+      "readAll": "Read “{title}” in full",
+      "q": {
+        "ming": {
+          "ask": "What kind of person am I?",
+          "sub": "Life Palace · your groundwork"
+        },
+        "guan": {
+          "ask": "What work suits me?",
+          "sub": "Career Palace · how you work"
+        },
+        "cai": {
+          "ask": "How will I do with money?",
+          "sub": "Wealth Palace · earning and keeping"
+        },
+        "fu": {
+          "ask": "What will love be like for me?",
+          "sub": "Partnership Palace · partners and getting along"
+        },
+        "ji": {
+          "ask": "What should I watch with my health?",
+          "sub": "Health Palace · body and strain"
+        },
+        "nian": {
+          "ask": "What will this year bring?",
+          "sub": "This year · where its weight falls"
+        }
+      }
+    }
   },
   "chapter": {
     "nav": "Chapters",
