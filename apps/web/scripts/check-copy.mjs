@@ -54,6 +54,7 @@ const ALLOWED = {
   'lib/mingshu.ts': '十二宮嘅閱讀次序（章嘅 slug）',
   'lib/chengshu.ts': '免費章 slug、章序用嘅中文數字（寫落本書嘅章名）',
   'lib/themes.ts': '主題入面嘅宮位名（章嘅 slug）；主題名本身喺 messages',
+  'lib/guanjian.ts': '關鍵字標記嘅字詞表（「要多留神」「比較順」月份等）：用嚟喺正文入面搵字，唔係畫面文案',
   'lib/wenmu.ts': '問目對應嘅章 slug 同引文嘅切法（《…》寫「…」）；問題同副題喺 messages `book.asks`',
   'lib/zhu.ts': '註層術語：「化祿」等四化名（內容資料）',
   'lib/luokuan.ts': '出生地嘅中文名（交畀引擎、寫落書）同中文日期寫法；畫面上嘅地名喺 messages',

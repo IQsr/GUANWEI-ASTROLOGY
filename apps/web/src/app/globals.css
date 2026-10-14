@@ -4515,10 +4515,24 @@ select.zhou-xian {
 }
 
 /*
- * 重點句（2026-10-13 · 讀者 feedback：搵唔到重點）：每章第一段嘅結論句加粗（Juan + lib/key-sentence.ts）。
- * 只係字重深一級，唔轉色、唔加底線 —— 一段最多一句。
+ * 關鍵字記號（2026-10-14 · 樣板揀咗「色墨」；取代 10-13 嘅整句加粗）
+ * 規則喺 lib/guanjian.ts。四類：留神朱砂、順靛、月份金褐、主題字加重。
+ * 只轉色同字重，唔加底、唔加線 —— 書嘅樣，唔係螢光筆。
  */
-.wen strong.zhong {
+.wen .guan {
+  font-style: normal;
   font-weight: 600;
+}
+.wen .guan-shen {
+  color: var(--cinnabar);
+}
+.wen .guan-shun {
+  color: var(--indigo-2);
+}
+.wen .guan-yue {
+  color: var(--gold-ink);
+}
+.wen .guan-ti {
   color: var(--ink);
 }
+/* ⚠ 唔使夜讀版：書頁永遠係紙色，`.wen` 入面嘅 token 一直係日讀值（夜讀只轉書桌，唔轉紙） */

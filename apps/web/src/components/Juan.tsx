@@ -5,30 +5,44 @@ import { useState } from 'react';
 import { Link } from '@/i18n/navigation';
 import type { MarkedSegment } from '@/lib/zhu';
 import { sectionBreaks } from '@/lib/suidu';
-import { keyRange } from '@/lib/key-sentence';
+import { keywordMarks, type MarkKind } from '@/lib/guanjian';
 import type { Run } from '@/lib/zhu';
 
+type MarkedRun = Run & { mark?: MarkKind };
+
 /**
- * 將一段嘅 runs 按加粗範圍切開（`lib/key-sentence.ts`）：普通字可以切開一半粗一半唔粗；
- * 術語、出處唔切，同範圍有交疊就成個粗。
+ * 將一段嘅 runs 按關鍵字記號切開（`lib/guanjian.ts`）：普通字喺記號邊界切開；
+ * 術語、出處唔切 —— 術語成個落喺記號入面先跟記號色，出處永遠唔標。
  */
-function withKey(slot: string, runs: Run[]): (Run & { key?: boolean })[] {
-  const range = keyRange(slot, runs.map((r) => r.text).join(''));
-  if (!range) return runs;
-  const [a, b] = range;
-  const out: (Run & { key?: boolean })[] = [];
+function withMarks(runs: Run[]): MarkedRun[] {
+  const marks = keywordMarks(runs.map((r) => r.text).join(''));
+  if (marks.length === 0) return runs;
+  const out: MarkedRun[] = [];
   let at = 0;
   for (const r of runs) {
     const from = at;
     const to = at + r.text.length;
     at = to;
-    if (r.term || r.cite || to <= a || from >= b) {
-      out.push({ ...r, key: !r.cite && from < b && to > a });
+    if (r.cite) {
+      out.push(r);
       continue;
     }
-    const cut = [from, Math.max(from, a), Math.min(to, b), to];
-    const parts: [number, number, boolean][] = [[cut[0]!, cut[1]!, false], [cut[1]!, cut[2]!, true], [cut[2]!, cut[3]!, false]];
-    for (const [x, y, k] of parts) if (y > x) out.push({ text: r.text.slice(x - from, y - from), key: k });
+    if (r.term) {
+      const m = marks.find((k) => k.start <= from && k.end >= to);
+      out.push(m ? { ...r, mark: m.kind } : r);
+      continue;
+    }
+    /* 普通字：按記號邊界切 */
+    let pos = from;
+    for (const m of marks) {
+      if (m.end <= pos || m.start >= to) continue;
+      const a = Math.max(m.start, from);
+      const b = Math.min(m.end, to);
+      if (a > pos) out.push({ text: r.text.slice(pos - from, a - from) });
+      out.push({ text: r.text.slice(a - from, b - from), mark: m.kind });
+      pos = b;
+    }
+    if (pos < to) out.push({ text: r.text.slice(pos - from) });
   }
   return out;
 }
@@ -88,8 +102,8 @@ export function Juan({
         const shown = seg.runs.find((r) => r.term && open === r.term.id)?.term;
         const note = shown ? notes[shown.id] : undefined;
         /* 出處嘅 key 帶住段號同 run 號：同一個出處喺兩段都撳得開，唔會兩段一齊開 */
-        /* 重點句加粗（lib/key-sentence.ts）；出處嘅 run 號跟切開之後嘅 */
-        const runs = withKey(seg.slot, seg.runs);
+        /* 關鍵字記號（lib/guanjian.ts）；出處嘅 run 號跟切開之後嘅 */
+        const runs = withMarks(seg.runs);
         const citeOpen = runs.findIndex((r, j) => r.cite && open === `cite:${i}:${j}`);
         const citeList = citeOpen >= 0 ? runs[citeOpen]!.cite!.map((id) => cites[id]).filter(Boolean) : [];
 
@@ -115,7 +129,7 @@ export function Juan({
                     {t('citeMark')}
                   </button>
                 ) : run.term ? (
-                  <Bold key={j} on={run.key}>
+                  <Guan key={j} kind={run.mark}>
                   <button
                     key={j}
                     type="button"
@@ -130,9 +144,11 @@ export function Juan({
                   >
                     {run.text}
                   </button>
-                  </Bold>
-                ) : run.key ? (
-                  <strong key={j} className="zhong">{run.text}</strong>
+                  </Guan>
+                ) : run.mark ? (
+                  <em key={j} className={`guan guan-${run.mark}`}>
+                    {run.text}
+                  </em>
                 ) : (
                   <span key={j}>{run.text}</span>
                 ),
@@ -180,7 +196,7 @@ export function Juan({
   );
 }
 
-/** 術語喺重點句入面：成個掣一齊粗 */
-function Bold({ on, children }: { on?: boolean; children: React.ReactNode }) {
-  return on ? <strong className="zhong">{children}</strong> : <>{children}</>;
+/** 術語成個落喺關鍵字入面：個掣跟記號色 */
+function Guan({ kind, children }: { kind?: MarkKind; children: React.ReactNode }) {
+  return kind ? <em className={`guan guan-${kind}`}>{children}</em> : <>{children}</>;
 }
