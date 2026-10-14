@@ -25,6 +25,21 @@ import { gujiaException } from './branch';
 
 export const EPILOGUE_SLUG = '給你的話';
 
+/** 句子自己已經講明方面嘅字（見 `tag`）：有就唔再加「錢方面，」呢類方面 */
+const AREA_WORDS: Record<string, readonly string[]> = {
+  兄弟: ['朋輩', '朋友'],
+  夫妻: ['感情', '伴侶'],
+  子女: ['後輩', '晚輩', '子女'],
+  財帛: ['錢'],
+  疾厄: ['身心', '身體'],
+  遷移: ['在外', '新環境'],
+  僕役: ['朋友', '人脈'],
+  官祿: ['工作', '做事'],
+  田宅: ['家', '住'],
+  福德: ['心境'],
+  父母: ['長輩', '上司'],
+};
+
 export const EPILOGUE_CLOSE = '命書寫的是一張底圖。往後的路怎樣走，仍然在你；需要的時候，再翻回來看看。';
 {
   const bad = FORBIDDEN_TERMS.filter((w) => EPILOGUE_CLOSE.includes(w));
@@ -66,6 +81,12 @@ export function epilogueChapter(input: { chart: Chart; year: number }): { slug: 
   /* 由宮位抽嘅句加返係邊方面（「心境上，」）—— 抽出嚟之後冇咗章名，讀者唔知講緊邊樣 */
   const tag = (name: string, text: string) => {
     if (name === '命宮') return text;
+    /*
+     * 句子第一截已經講咗係邊方面就唔再加（2026-10-14 · 200 本有 125 本中）：
+     * 「錢方面，你對錢是夠用就好」「對長輩時，你對長輩和上司有話直說」—— 方面講兩次。
+     */
+    const head = text.split(/[，：。]/)[0] ?? '';
+    if ((AREA_WORDS[name] ?? []).some((w) => head.includes(w))) return text;
     const on = AREA[name]?.[1] ?? '';
     /* 「對長輩時，你投入了卻得不到回應時」兩個「時」（2026-10-14）：句子自己有「⋯時」就剝走方面嗰個 */
     return `${on.endsWith('時') && /^[^，。]*時/.test(text) ? on.slice(0, -1) : on}，${text}`;

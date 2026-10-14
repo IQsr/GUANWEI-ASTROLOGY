@@ -75,7 +75,7 @@ export const AREA_EN: Record<string, [string, string]> = {
   心境: ['your inner life', 'In your inner life'],
   長輩關係: ['your ties with elders', 'With elders and seniors'],
   /* 時間章結論句：命宮唔講「性格」（2026-10-14） */
-  自己的狀態: ['your own state', 'In yourself'],
+  自己的狀態: ['your own condition', 'In yourself'],
 };
 /** 中文句首講法 → 英文（「在外時」→「Out in the world」） */
 export const AREA_ON_EN: Record<string, string> = {

@@ -148,7 +148,7 @@ const EVENT_EN: Record<string, string> = {
 };
 const GIST_EN: Record<string, string> = {
   /* 化忌嗰方面 */
-  '你自己的狀態起伏較大': 'your own state went up and down more',
+  '你自己的狀態起伏較大': 'your own condition went up and down more',
   '像是對自己的方向沒把握，想法反反覆覆': 'for example, you felt unsure of your direction, and your thinking kept changing',
   '朋輩之間的事比較費心': 'dealings with peers took more effort',
   '像是和兄弟姊妹、同學或合伙人有爭拗，或者要替他們分擔': 'for example, disputes with siblings, classmates or partners, or having to share their burdens',
@@ -329,6 +329,12 @@ const KUIYUE_EN: Record<string, string> = {
     "This year, you have help from benefactors and openings: this year's Tian Kui and Tian Yue land right on your birth chart's own, so your abilities find room to show, and change often follows.",
 };
 
+/*
+ * 英文係複數嘅方面（your finances、your peers、the people you mentor、your ties with elders）：
+ * 動詞用 go／bring，唔係 goes／brings（2026-10-14 · 200 本書抽查：「the people you mentor brings」）
+ */
+const PLURAL_AREA = new Set(['錢', '朋輩', '後輩', '長輩關係']);
+
 export function timeTemplate(s: string, missing: string[], h: TimeHelpers): string | null {
   if (KUIYUE_EN[s]) return KUIYUE_EN[s]!;
   const month = liuyueEn(s);
@@ -385,14 +391,17 @@ export function timeTemplate(s: string, missing: string[], h: TimeHelpers): stri
   m = /^這(十年|一年)，你的(\S+?)(比較順|順中有阻)，(\S+?)(要多留神|雖有牽掛，也有轉圜的餘地)。$/.exec(s);
   if (m) {
     const span = m[1] === '十年' ? 'Over these ten years' : 'This year';
-    const good = m[3] === '比較順' ? `it's smoother going for ${areaEn(m[2]!, missing)}` : `${areaEn(m[2]!, missing)} go${['錢', '朋輩'].includes(m[2]!) ? '' : 'es'} smoothly, though not without snags`;
-    const care = m[5] === '要多留神' ? `more care is needed with ${areaEn(m[4]!, missing)}` : `${areaEn(m[4]!, missing)} bring${['錢', '朋輩'].includes(m[4]!) ? '' : 's'} some worry, but with room to turn things round`;
+    const good = m[3] === '比較順'
+      ? m[2] === '身心負荷'
+        ? 'the load on your body and mind eases' /* 「smoother going for the load」唔通 */
+        : `it's smoother going for ${areaEn(m[2]!, missing)}` : `${areaEn(m[2]!, missing)} go${PLURAL_AREA.has(m[2]!) ? '' : 'es'} smoothly, though not without snags`;
+    const care = m[5] === '要多留神' ? `more care is needed with ${areaEn(m[4]!, missing)}` : `${areaEn(m[4]!, missing)} bring${PLURAL_AREA.has(m[4]!) ? '' : 's'} some worry, but with room to turn things round`;
     return `${span}, ${good}, and ${care}.`;
   }
   m = /^這(十年|一年)，你的(\S+?)起伏較大，有得著，也有牽掛。$/.exec(s);
   if (m) {
     const span = m[1] === '十年' ? 'Over these ten years' : 'This year';
-    return `${span}, ${areaEn(m[2]!, missing)} go${['錢', '朋輩'].includes(m[2]!) ? '' : 'es'} through bigger ups and downs, with gains and worries alike.`;
+    return `${span}, ${areaEn(m[2]!, missing)} go${PLURAL_AREA.has(m[2]!) ? '' : 'es'} through bigger ups and downs, with gains and worries alike.`;
   }
   m = new RegExp(`^這個大限落在你的(\\S+?宮)，(${SEAT})，宮干是(\\S)。$`).exec(s);
   if (m && STEM_EN[m[3]!]) return `This stage falls in your ${pal(m[1]!, missing)}${seat(m[2]!, missing)}, and its palace stem is ${STEM_EN[m[3]!]}.`;

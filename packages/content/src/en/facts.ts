@@ -1,4 +1,4 @@
-import { BRANCH_EN, ELEMENT_EN, HOUR_RANGE, MONTH_EN, PALACE_EN, STEM_EN, cnNum, listEn, numWord, ordinal, ordinalWord, placeEn, star } from './terms';
+import { BRANCH_EN, ELEMENT_EN, HOUR_RANGE, MONTH_EN, PALACE_EN, STEM_EN, cnNum, listEn, numWord, ordinal, ordinalWord, placeEn, star, zodiacEn } from './terms';
 
 /* ───────────────────────────────────────────────────────────
  * 英文版：宮位章以外嘅程式句（2026-10-05 起）
@@ -61,7 +61,9 @@ export function factTemplate(s: string, missing: string[]): string | null {
     const mo = m[4] === '正' ? 1 : cnNum(m[4]!);
     const d = cnNum(m[5]!);
     if (!gz || !mo || !d) return null;
-    return `By the lunar calendar: the ${ordinal(d)} day of the ${m[3] ? 'leap ' : ''}${ordinal(mo)} month, in the ${gz} year.`;
+    /* 生肖（2026-10-14 · 英文在地化）：同這一年、回看嘅寫法一樣 */
+    const zo = zodiacEn(m[1]!, m[2]!);
+    return `By the lunar calendar: the ${ordinal(d)} day of the ${m[3] ? 'leap ' : ''}${ordinal(mo)} month, in the ${gz} year${zo ? ` (the Year of the ${zo})` : ''}.`;
   }
 
   /* 序 · 盤面：五行局是水二局。 */
