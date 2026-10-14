@@ -4,7 +4,7 @@ import { FORBIDDEN_TERMS } from './frame';
 import { cjkCount } from './lexicon';
 import { assertNoReading } from './free';
 import { leanOf, strengthFor, xingxiOf, type Xingxi } from './xingxi';
-import { gujiaException, leanState, xingxiReading } from './branch';
+import { fillOr, gujiaException, leanState, xingxiReading } from './branch';
 
 /* ───────────────────────────────────────────────────────────
  * 免費章之四：性格的骨架（工單 B5 · 架構 §6）
@@ -162,6 +162,8 @@ export function gujiaChapter(input: {
   /* 星系按主星所在嘅地支分（借對宮就用對宮），讀者只讀到自己嗰邊 */
   const starBranch = borrowed ? m.borrowsFrom! : m.branch;
   const byBranch = x.plain.byBranch?.[starBranch];
+  /* 基本講法嘅「辰戌」之類填實做主星真正坐嘅地支（branch.ts `fillOr`，2026-10-14） */
+  const basis = fillOr(x.plain.basis, [], starBranch);
   /* 同 `leanOf()` 地支證據嘅寫法一樣 */
   const said = byBranch ? (starBranch === m.branch ? `命宮在${m.branch}` : `主星在${starBranch}`) : null;
   /*
@@ -172,7 +174,7 @@ export function gujiaChapter(input: {
   const why = undecided ? null : reason(x, pole, seen, said);
   const lean = undecided ? undecidedLean(x.poles) : x.plain.lean[pole]!;
   /* 星系細讀（branch/xingxi/*.json）：偏向嘅後果、原書點名嘅特殊結構，逐句有出處 */
-  const deep = xingxiReading(chart, `${lean}${where}${x.plain.basis}${byBranch ?? ''}`, year);
+  const deep = xingxiReading(chart, `${lean}${where}${basis}${byBranch ?? ''}`, year);
   /* 長處跟偏向揀（未定 = 冇一頭，用通用句）；同偏向講同一樣嘢就唔出（「你的長處是」唔計） */
   const own = strengthFor(x, undecided ? '未定' : pole);
   const strength = overlaps(lean, own.replace(/^你的長處是/, '')) ? null : own;
@@ -184,7 +186,7 @@ export function gujiaChapter(input: {
   const exc = gujiaException(chart);
   const segments = [
     exc ? { slot: '偏向' as const, text: exc.text, source_id: exc.source.passage, rule_ids: [exc.id] } : sourced('偏向', lean, x),
-    sourced('骨架', `${where}${x.plain.basis}${byBranch ?? ''}`, x),
+    sourced('骨架', `${where}${basis}${byBranch ?? ''}`, x),
     /*
      * 原文例外嘅偏向句已經講咗盤上乜嘢令佢兩頭拉扯；再講「說你偏向原則，是因為⋯」就同佢打架（2026-10-12），
      * 所以例外唔出推力。`tail` 留喺資料度，舊書照讀。

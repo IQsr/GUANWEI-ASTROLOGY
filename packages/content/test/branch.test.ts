@@ -8,7 +8,7 @@ import { describe, expect, it } from 'vitest';
 import { annual, cast, SCHOOL_PROFILE, type Chart } from '@guanwei/ziwei';
 import { BRANCH_TOPICS, RULE_REGISTRY, SPEC_VERSION, assembleAll, branchReading, branchRules, gujiaChapter, gujiaException, inferAll, leanState } from '../src/index';
 import { STEPS_UNTIL_AGE, num } from '../src/steps';
-import { BRIGHT, palaceState } from '../src/branch';
+import { BRIGHT, fillOr, palaceState, stripOr } from '../src/branch';
 import { renderParagraph } from '../src/en/render';
 import { citeOf } from '../src/citation';
 
@@ -466,4 +466,62 @@ describe('唔用「主」字古書口吻（2026-10-13）', () => {
     for (const t of BRANCH_TOPICS) for (const r of t.rules) if (r.text.replace(OK, '').includes('主')) bad.push(`${r.id}：${r.text}`);
     expect(bad).toEqual([]);
   });
+});
+
+describe('「或」填實（2026-10-14）：條件寫「火星或鈴星」「子或午」，書入面寫返呢張盤嘅', () => {
+  it('地支填主星坐嘅；星填真正喺度嘅，兩粒都喺就兩粒；四化填真正化嗰粒', () => {
+    expect(fillOr('天同在｛卯酉｝，你交友廣闊。', [], '酉')).toBe('天同在酉，你交友廣闊。');
+    expect(fillOr('同宮有｛火星或鈴星｝，你工作變動。', ['鈴星'], '子')).toBe('同宮有鈴星，你工作變動。');
+    expect(fillOr('同宮有｛火星或鈴星｝，你工作變動。', ['火星', '鈴星'], '子')).toBe('同宮有火星、鈴星，你工作變動。');
+    expect(fillOr('貪狼會到｛羊陀空劫｝，你不宜投機。', ['陀羅', '地劫'], '子')).toBe('貪狼會到陀羅、地劫，你不宜投機。');
+    expect(fillOr('對宮｛紫微或天府化科｝，風波也小。', ['天府化科'], '寅')).toBe('對宮天府化科，風波也小。');
+    expect(fillOr('七殺會到｛祿權科｝，你得到蔭庇。', ['武曲化祿', '左輔'], '寅')).toBe('七殺會到武曲化祿，你得到蔭庇。');
+    /* 主語自己嘅化：「巨門｛化祿化權｝」→「巨門化權」 */
+    expect(fillOr('巨門｛化祿化權｝，事事要過問。', ['巨門化權'], '辰')).toBe('巨門化權，事事要過問。');
+    expect(fillOr('｛武曲化權或化科｝，財源較穩定。', ['武曲化科'], '巳')).toBe('武曲化科，財源較穩定。');
+    /* 唔同類嘅「或」：逐截揀，兩截都中用「，又」接 */
+    expect(fillOr('｛天機化祿或有祿存｝，錢財流通。', ['祿存'], '子')).toBe('有祿存，錢財流通。');
+    expect(fillOr('｛天機化祿或有祿存｝，錢財流通。', ['天機化祿', '祿存'], '子')).toBe('天機化祿，又有祿存，錢財流通。');
+    /* 揀唔到就照原文（拎走｛｝） */
+    expect(fillOr('同宮有｛火星或鈴星｝，你工作變動。', [], '子')).toBe('同宮有火星或鈴星，你工作變動。');
+  });
+
+  it('已出嘅書（R-008）：拎走｛｝嘅舊句、改過字嘅舊句（was），英文照譯，同以前一樣', () => {
+    /* 舊句 = 拎走｛｝嘅現行句，加埋 was；有〔〕嘅舊句存嘅係填咗星嘅版本，另有測試 */
+    const old = BRANCH_TOPICS.flatMap((t) =>
+      t.rules.flatMap((r) => [...(r.text.includes('｛') ? [{ id: r.id, text: r.text, en: r.en }] : []), ...(r.was ?? []).map((v) => ({ id: r.id, ...v }))]),
+    );
+    expect(old.length).toBeGreaterThan(200);
+    const bad: string[] = [];
+    for (const v of old) {
+      if (v.text.includes('〔')) continue;
+      const out = renderParagraph(stripOr(v.text));
+      if (out.missing.length || out.text.replace(/\s*\(the [^)]*\)/g, '') !== stripOr(v.en)) bad.push(`${v.id}：${out.text}`);
+    }
+    expect(bad).toEqual([]);
+    /* 舊句有〔〕：書入面存嘅係填咗星嘅版本（60 本抽樣見過嘅兩句） */
+    expect(renderParagraph('見紫微化權、祿存或文昌文曲，你的產業耐久而豐盛。').text).toMatch(/^With Zi Wei \(the Emperor\) in Authority, Lu Cun, Wen Chang or Wen Qu, your property lasts/);
+    expect(renderParagraph('天機太陰見火星或空劫，你更不宜自己出來經商。').missing).toEqual([]);
+  });
+
+  it('隨機 600 張盤：有｛｝嘅規則填完冇剩「X或Y」，英文冇剩 or、全部譯到', () => {
+    const NAME = '紫微|天機|太陽|武曲|天同|廉貞|天府|太陰|貪狼|巨門|天相|天梁|七殺|破軍|左輔|右弼|文昌|文曲|天魁|天鉞|擎羊|陀羅|火星|鈴星|地空|地劫|祿存|天馬|化祿|化權|化科|化忌|[子丑寅卯辰巳午未申酉戌亥]';
+    const OR = new RegExp(`(?:${NAME})或(?:${NAME})|[｛｝]`);
+    const marked = new Set(BRANCH_TOPICS.flatMap((t) => t.rules.filter((r) => r.text.includes('｛')).map((r) => r.id)));
+    const bad = new Set<string>();
+    let s = 11;
+    const rnd = () => (s = (s * 1103515245 + 12345) % 2147483648) / 2147483648;
+    for (let i = 0; i < 600; i++) {
+      const r = cast({ solar: { y: 1940 + Math.floor(rnd() * 70), m: 1 + Math.floor(rnd() * 12), d: 1 + Math.floor(rnd() * 28) }, time: { h: Math.floor(rnd() * 24), min: 20 }, tz: 'Asia/Hong_Kong', place: { lng: 114.17, lat: 22.32, label: '香港' }, sex: rnd() < 0.5 ? 'male' : 'female' });
+      if (!r.ok) continue;
+      for (const t of BRANCH_TOPICS)
+        for (const x of branchRules(r.value, t)) {
+          if (!marked.has(x.id)) continue;
+          if (OR.test(x.text)) bad.add(`${x.id}：${x.text}`);
+          const en = renderParagraph(x.text);
+          if (en.missing.length || /[｛｝]/.test(en.text)) bad.add(`${x.id}：${en.text}`);
+        }
+    }
+    expect([...bad]).toEqual([]);
+  }, 600_000);
 });

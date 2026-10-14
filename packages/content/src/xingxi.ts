@@ -132,7 +132,8 @@ export const Xingxi = z
       len('summary', p.summary, 8, 40);
       len('strength', p.strength, 10, 36);
       len('watch', p.watch, 10, 36);
-      len('basis', p.basis, 20, 90);
+      /* basis 可以有｛｝（「或」填實，branch.ts `fillOr`）：數字、lint 睇拎走｛｝嘅句 */
+      len('basis', p.basis.replace(/[｛｝]/g, ''), 20, 90);
       if (p.note) len('note', p.note, 10, 40);
       lint('summary', p.summary, true);
       lint('strength', p.strength, true);
@@ -146,7 +147,7 @@ export const Xingxi = z
       if (!p.watch.includes('你')) ctx.addIssue({ code: 'custom', message: `${x.n}：plain.watch 要對住讀者講` });
       const wt = FORBIDDEN_TERMS.filter((t) => p.watch.includes(t));
       if (wt.length) ctx.addIssue({ code: 'custom', message: `${x.n}：plain.watch 有術語「${wt.join('、')}」` });
-      lint('basis', p.basis, false);
+      lint('basis', p.basis.replace(/[｛｝]/g, ''), false);
       if (p.note) lint('note', p.note, false);
       if (p.byBranch) {
         for (const [b, t] of Object.entries(p.byBranch)) {

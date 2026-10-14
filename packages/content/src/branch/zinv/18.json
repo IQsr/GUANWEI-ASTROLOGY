@@ -16,51 +16,64 @@
       "id": "子女.天同巳亥.離",
       "role": "refine",
       "when": {
-        "any": [
+        "star": [
+          "火星",
+          "鈴星"
+        ],
+        "at": "same"
+      },
+      "text": "見｛火星或鈴星｝，子女離家發展，性格難以捉摸，反叛性強。",
+      "en": "With ｛Huo Xing or Ling Xing｝, your children leave home to find their way; they are hard to read and strongly independent.",
+      "was": [
+        {
+          "text": "見火鈴或祿馬，子女離家發展，性格難以捉摸，反叛性強。",
+          "en": "With Huo Xing, Ling Xing, or Lu and Tian Ma, your children leave home to find their way; they are hard to read and strongly independent."
+        }
+      ],
+      "source": {
+        "passage": "deep.子女.天同.7",
+        "quote": "且性格难以捉摸，反叛性强"
+      }
+    },
+    {
+      "id": "子女.天同巳亥.離馬",
+      "role": "refine",
+      "when": {
+        "all": [
           {
-            "star": [
-              "火星",
-              "鈴星"
-            ],
-            "at": "same"
+            "star": "天馬",
+            "at": [
+              "same",
+              "opp"
+            ]
           },
           {
-            "all": [
+            "any": [
               {
-                "star": "天馬",
+                "star": "祿存",
                 "at": [
                   "same",
                   "opp"
                 ]
               },
               {
-                "any": [
-                  {
-                    "star": "祿存",
-                    "at": [
-                      "same",
-                      "opp"
-                    ]
-                  },
-                  {
-                    "hua": "祿",
-                    "at": [
-                      "same",
-                      "opp"
-                    ]
-                  }
+                "hua": "祿",
+                "at": [
+                  "same",
+                  "opp"
                 ]
               }
             ]
           }
         ]
       },
-      "text": "見火鈴或祿馬，子女離家發展，性格難以捉摸，反叛性強。",
-      "en": "With Huo Xing, Ling Xing, or Lu and Tian Ma, your children leave home to find their way; they are hard to read and strongly independent.",
+      "text": "見天馬又見｛祿存或化祿｝，子女離家發展，性格難以捉摸，反叛性強。",
+      "en": "With Tian Ma and ｛Lu Cun or Abundance｝, your children leave home to find their way; they are hard to read and strongly independent.",
       "source": {
         "passage": "deep.子女.天同.7",
         "quote": "且性格难以捉摸，反叛性强"
-      }
+      },
+      "edit": "子女.天同巳亥.離 拆出嚟（2026-10-14 「或」填實）：原文「或」嘅另一半，條件唔同類，分開先填得實"
     },
     {
       "id": "子女.天同巳亥.祿",

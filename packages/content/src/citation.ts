@@ -1,4 +1,4 @@
-import { BRANCH_TOPICS, slotPattern } from './branch';
+import { BRANCH_TOPICS, slotPattern, stripOr } from './branch';
 import { DAXIAN_HUA, LOOKBACK_EVENTS } from './daxian';
 import { CORPUS } from './lexicon';
 import { tmSentence } from './en/render';
@@ -63,10 +63,14 @@ const sentencesEn = (t: string) => (t.match(/[^.!?]+[.!?]+/g) ?? [t]).map((s) =>
 function enSlotPattern(t: string): RegExp {
   const esc = (x: string) => x.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
   /* 填完「Lu and Zuo Fu and You Bi」會改成「Lu, Zuo Fu and You Bi」（en/render.ts fillEn）：〔〕前面嘅 and 兩款都收 */
-  const parts = t.toLowerCase().replace(/[.;:,]$/, '').split(/〔[^〕]+〕/);
+  const parts = t.toLowerCase().replace(/[.;:,]$/, '').split(/〔[^〕]+〕|｛[^｝]+｝/);
   const body = parts.map((p, i) => (i < parts.length - 1 && p.endsWith(' and ') ? `${esc(p.slice(0, -5))}(?: and |, )` : esc(p))).join('.+?');
-  return new RegExp(body);
+  /* ｛｝同「會照」一齊（「｛Huo or Ling｝ meeting your chart」）：填咗宮名都收 */
+  return new RegExp(body.replace(/in your trine|in your four directions|meeting your chart/, '(?:$&|in your .+?)'));
 }
+
+/** 模板句又有「會照的」：宮名都收（「或」填實 + 填宮名，branch.ts `fillOr`、`placeHui`） */
+const orHui = (re: RegExp) => new RegExp(re.source.replace('會照的', '(?:會照|[^，。]+?宮)的'));
 
 /** 骨架章「會照的X」填咗宮名（branch.ts `placeHui`） */
 const escCite = (x: string) => x.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
@@ -86,9 +90,12 @@ function build(): { zh: CiteKey[]; en: CiteKey[] } {
   for (const t of BRANCH_TOPICS)
     for (const r of t.rules) {
       const ids = [r.source.passage, ...(r.also ?? []).map((a) => a.passage)];
-      for (const s of sentencesZh(r.text)) zh.push(s.includes('〔') ? { key: s, ids, re: slotPattern(s.replace(/。$/, ''), false) } : s.includes('會照的') ? { key: s, ids, re: huiPattern(s) } : { key: s, ids });
-      for (const s of sentencesEn(r.en))
-        en.push(s.includes('〔') ? { key: s, ids, re: enSlotPattern(s) } : s.includes('會照的') || /in your (?:trine|four directions)|meeting your chart/.test(s) ? { key: s, ids, re: enHuiPattern(s) } : { key: s, ids });
+      /* 改過字嘅規則：舊寫法（`was`）照認（R-008） */
+      for (const v of [{ text: r.text, en: r.en }, ...(r.was ?? [])]) {
+        for (const s of sentencesZh(v.text)) zh.push(/[〔｛]/.test(s) ? { key: stripOr(s), ids, re: orHui(slotPattern(s.replace(/。$/, ''), false)) } : s.includes('會照的') ? { key: s, ids, re: huiPattern(s) } : { key: s, ids });
+        for (const s of sentencesEn(v.en))
+          en.push(/[〔｛]/.test(s) ? { key: stripOr(s), ids, re: enSlotPattern(s) } : s.includes('會照的') || /in your (?:trine|four directions)|meeting your chart/.test(s) ? { key: s, ids, re: enHuiPattern(s) } : { key: s, ids });
+      }
       if (r.tail) zh.push({ key: r.tail, ids });
       if (r.tailEn) en.push({ key: r.tailEn, ids });
     }
@@ -99,9 +106,9 @@ function build(): { zh: CiteKey[]; en: CiteKey[] } {
     if (!x) continue;
     const ids = [t.basis.passage];
     for (const text of [x.plain.basis, ...x.poles.map((p) => x.plain.lean[p] ?? '')])
-      for (const s of sentencesZh(text)) zh.push({ key: s, ids });
+      for (const s of sentencesZh(text)) zh.push(s.includes('｛') ? { key: stripOr(s), ids, re: slotPattern(s.replace(/。$/, ''), false) } : { key: s, ids });
     for (const text of [x.plain.basis, ...x.poles.map((p) => x.plain.lean[p] ?? '')]) {
-      const e = tmSentence(text);
+      const e = tmSentence(stripOr(text));
       if (e) for (const s of sentencesEn(e)) en.push({ key: s, ids });
     }
   }

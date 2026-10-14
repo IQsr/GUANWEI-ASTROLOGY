@@ -29,8 +29,8 @@
         ],
         "at": "same"
       },
-      "text": "同宮有火星或鈴星，你工作變動的幅度會更大。",
-      "en": "With Huo Xing or Ling Xing in the palace, the swings are bigger.",
+      "text": "同宮有｛火星或鈴星｝，你工作變動的幅度會更大。",
+      "en": "With ｛Huo Xing or Ling Xing｝ in the palace, the swings are bigger.",
       "source": {
         "passage": "deep.事業.天機",
         "quote": "倘火铃同度，则更增加其波动"
@@ -119,8 +119,8 @@
           }
         ]
       },
-      "text": "同宮又有左輔或右弼，可能身兼數職，而且多是較長期的工作。",
-      "en": "With Zuo Fu or You Bi in the palace too, you may hold several roles at once, mostly longer-term ones.",
+      "text": "同宮又有｛左輔或右弼｝，可能身兼數職，而且多是較長期的工作。",
+      "en": "With ｛Zuo Fu or You Bi｝ in the palace too, you may hold several roles at once, mostly longer-term ones.",
       "source": {
         "passage": "deep.事業.天機權",
         "quote": "唯所兼职务均为较长期工作"
@@ -180,8 +180,8 @@
           }
         ]
       },
-      "text": "天機又見空劫或煞星，你在工作上更容易做多錯多。",
-      "en": "Tian Ji also meets Kong, Jie or harsh stars, so at work, the more you do, the more easily things go wrong.",
+      "text": "天機又見｛空劫或煞星｝，你在工作上更容易做多錯多。",
+      "en": "Tian Ji also meets ｛Kong, Jie or harsh stars｝, so at work, the more you do, the more easily things go wrong.",
       "source": {
         "passage": "deep.事業.天機忌",
         "quote": "更属动辄得咎"
@@ -197,8 +197,8 @@
         ],
         "at": "same"
       },
-      "text": "同宮有文昌或文曲，你適合計劃、設計一類的工作。",
-      "en": "With Wen Chang or Wen Qu in the palace, planning and design work suits you.",
+      "text": "同宮有｛文昌或文曲｝，你適合計劃、設計一類的工作。",
+      "en": "With ｛Wen Chang or Wen Qu｝ in the palace, planning and design work suits you.",
       "source": {
         "passage": "deep.事業.天機昌曲",
         "quote": "天机与昌曲、天才同度，宜计划"
@@ -220,8 +220,8 @@
           }
         ]
       },
-      "text": "你的天機獨坐子午，對宮是巨門：就算條件好，工作也要花不少心思經營；比起從零開創，你較適合在已有的架構裡發揮。",
-      "en": "Your Tian Ji sits alone in Zi or Wu, facing Ju Men: even when conditions are good, work takes a lot of careful managing, and you're better suited to working within an existing structure than starting from scratch.",
+      "text": "你的天機獨坐｛子午｝，對宮是巨門：就算條件好，工作也要花不少心思經營；比起從零開創，你較適合在已有的架構裡發揮。",
+      "en": "Your Tian Ji sits alone in ｛Zi or Wu｝, facing Ju Men: even when conditions are good, work takes a lot of careful managing, and you're better suited to working within an existing structure than starting from scratch.",
       "source": {
         "passage": "deep.事業.天機子午",
         "quote": "即使会吉星祥曜，其事业亦必费心机"
@@ -337,8 +337,8 @@
           }
         ]
       },
-      "text": "你的天機在丑未，較適合在機構裡任職；對宮天梁帶計劃、監察、管理的意味，財經、會計、計劃一類的部門都合適。",
-      "en": "Your Tian Ji is in Chou or Wei, which suits working within an organisation; facing Tian Liang adds a flavour of planning, oversight and management, so finance, accounting or planning departments fit well.",
+      "text": "你的天機在｛丑未｝，較適合在機構裡任職；對宮天梁帶計劃、監察、管理的意味，財經、會計、計劃一類的部門都合適。",
+      "en": "Your Tian Ji is in ｛Chou or Wei｝, which suits working within an organisation; facing Tian Liang adds a flavour of planning, oversight and management, so finance, accounting or planning departments fit well.",
       "source": {
         "passage": "deep.事業.天機丑未",
         "quote": "故宜在公司机构任职"
@@ -461,8 +461,14 @@
           }
         ]
       },
-      "text": "天機太陰見〔煞忌〕或空劫，你更不宜自己出來經商。",
-      "en": "Tian Ji–Tai Yin meets 〔harsh stars, Obstruction〕, Kong or Jie, so running your own business suits you even less.",
+      "text": "天機太陰見｛煞星或化忌｝，你更不宜自己出來經商。",
+      "en": "Tian Ji–Tai Yin meets ｛harsh stars or Obstruction｝, so running your own business suits you even less.",
+      "was": [
+        {
+          "text": "天機太陰見〔煞忌〕或空劫，你更不宜自己出來經商。",
+          "en": "Tian Ji–Tai Yin meets 〔harsh stars, Obstruction〕, Kong or Jie, so running your own business suits you even less."
+        }
+      ],
       "source": {
         "passage": "deep.事業.機陰無祿",
         "quote": "有煞忌、空劫，则绝不宜经商"
@@ -547,8 +553,8 @@
           }
         ]
       },
-      "text": "同宮有火星或鈴星，會令你工作上的變動和是非都加重。",
-      "en": "Huo Xing or Ling Xing in the palace makes both the changes and the friction heavier.",
+      "text": "同宮有｛火星或鈴星｝，會令你工作上的變動和是非都加重。",
+      "en": "With ｛Huo Xing or Ling Xing｝ in the palace, both the changes and the friction at work grow heavier.",
       "source": {
         "passage": "deep.事業.機巨火鈴",
         "quote": "增加天机之浮荡，巨门之是非"
@@ -600,8 +606,14 @@
           }
         ]
       },
-      "text": "加上〔吉化〕或吉星，顧問一類的工作對你最合適。",
-      "en": "With 〔favourable transformations〕 or stars in view, advisory work suits you best.",
+      "text": "加上｛吉化或吉星｝，顧問一類的工作對你最合適。",
+      "en": "With ｛favourable transformations or helper stars｝, advisory work suits you best.",
+      "was": [
+        {
+          "text": "加上〔吉化〕或吉星，顧問一類的工作對你最合適。",
+          "en": "With 〔favourable transformations〕 or stars in view, advisory work suits you best."
+        }
+      ],
       "source": {
         "passage": "deep.事業.機梁",
         "quote": "以从事顾问工作为适宜"

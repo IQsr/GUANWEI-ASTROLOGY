@@ -126,8 +126,8 @@
         ],
         "at": "sifang"
       },
-      "text": "七殺會到祿權科，你得到父母蔭庇之力。",
-      "en": "Qi Sha meeting Abundance, Authority or Recognition: you benefit from your parents' shelter.",
+      "text": "七殺會到｛祿權科｝，你得到父母蔭庇之力。",
+      "en": "Qi Sha meeting ｛Abundance, Authority or Recognition｝: you benefit from your parents' shelter.",
       "source": {
         "passage": "deep.父母.七殺.4",
         "quote": "主得父母荫庇之力"
@@ -137,29 +137,42 @@
       "id": "父母.七殺.遠",
       "role": "limit",
       "when": {
-        "any": [
-          {
-            "star": [
-              "火星",
-              "鈴星"
-            ],
-            "at": "same"
-          },
-          {
-            "star": "天馬",
-            "at": [
-              "same",
-              "opp"
-            ]
-          }
-        ]
+        "star": [
+          "火星",
+          "鈴星"
+        ],
+        "at": "same"
       },
-      "text": "同宮有火鈴，或會天馬，你與父母遠離。",
-      "en": "With Huo Xing or Ling Xing in the palace, or meeting Tian Ma, you live far from your parents.",
+      "text": "同宮有｛火星或鈴星｝，你與父母遠離。",
+      "en": "With ｛Huo Xing or Ling Xing｝ in the palace, you live far from your parents.",
+      "was": [
+        {
+          "text": "同宮有火鈴，或會天馬，你與父母遠離。",
+          "en": "With Huo Xing or Ling Xing in the palace, or meeting Tian Ma, you live far from your parents."
+        }
+      ],
       "source": {
         "passage": "deep.父母.七殺.5",
         "quote": "主远离父母"
       }
+    },
+    {
+      "id": "父母.七殺.遠馬",
+      "role": "limit",
+      "when": {
+        "star": "天馬",
+        "at": [
+          "same",
+          "opp"
+        ]
+      },
+      "text": "天馬會照父母宮，你多與父母遠離。",
+      "en": "With Tian Ma meeting your Parents Palace, you tend to live far from your parents.",
+      "source": {
+        "passage": "deep.父母.七殺.5",
+        "quote": "主远离父母"
+      },
+      "edit": "父母.七殺.遠 拆出嚟（2026-10-14 「或」填實）：原文「或」嘅另一半，條件唔同類，分開先填得實"
     },
     {
       "id": "父母.七殺.本",

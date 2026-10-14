@@ -96,6 +96,11 @@ const Rule = z.object({
   source: Cite,
   also: z.array(Cite).optional(),
   edit: z.string().optional(),
+  /**
+   * 改過字嘅規則嘅舊寫法（R-008，2026-10-14 起）：已出嘅書存咗舊句，英文翻譯、出處索引照認。
+   * 舊句有〔〕就連填咗星嘅版本都認。只改｛｝唔使寫 —— 拎走｛｝就係舊句。
+   */
+  was: z.array(z.object({ text: z.string(), en: z.string() }).strict()).optional(),
 });
 export type BranchRule = z.infer<typeof Rule>;
 
@@ -142,7 +147,12 @@ const Topic = z
         if (!p) issue(`${r.id}：語料庫搵唔到 ${c.passage}`);
         else if (!normaliseForMatch(p.text).includes(normaliseForMatch(c.quote))) issue(`${r.id}：引文「${c.quote}」唔喺原文`);
       }
-      for (const t of [r.text, r.tail ?? '']) for (const f of [...scanForbidden(t, 'body'), ...scanPlain(t, 'body')]) issue(`${r.id} ${f.code} ${f.message}`);
+      /* ｛｝（「或」填實）：中英文一樣多截、每截認得出 */
+      const spans = (x: string) => x.match(/｛[^｝]*｝/g) ?? [];
+      if (spans(r.text).length !== spans(r.en).length) issue(`${r.id}：｛｝中文 ${spans(r.text).length} 截、英文 ${spans(r.en).length} 截`);
+      for (const sp of spans(r.text)) if (!orAlts(sp.slice(1, -1))) issue(`${r.id}：｛｝認唔到「${sp}」`);
+      if (/[｛｝]/.test(stripOr(r.text).replace(/｛[^｝]*｝/g, ''))) issue(`${r.id}：｛｝唔成對`);
+      for (const t of [stripOr(r.text), r.tail ?? '']) for (const f of [...scanForbidden(t, 'body'), ...scanPlain(t, 'body')]) issue(`${r.id} ${f.code} ${f.message}`);
       if (Boolean(r.tail) !== Boolean(r.tailEn)) issue(`${r.id}：tail 同 tailEn 要一齊有`);
       if (r.gujia && t.topic.palace !== '命宮') issue(`${r.id}：gujia 只限命宮題目`);
       for (const k of r.decade ?? []) if (!MAJOR.includes(k) && !(k.startsWith('#') && BRANCHES.includes(k.slice(1)))) issue(`${r.id}：decade「${k}」唔係主星或者「#地支」`);
@@ -150,7 +160,6 @@ const Topic = z
   });
 export type BranchTopic = z.infer<typeof Topic>;
 
-export const BRANCH_TOPICS: BranchTopic[] = BRANCH_RAW.map((raw) => Topic.parse(raw));
 
 /* ── 條件 ── */
 
@@ -228,6 +237,10 @@ function evidence(chart: Chart, p: Palace, focus: string, c: Cond, seat: Palace[
   if ('all' in c) return c.all.flatMap((x) => evidence(chart, p, focus, x, seat));
   if ('any' in c) return c.any.flatMap((x) => evidence(chart, p, focus, x, seat));
   if ('jia' in c) return [...c.jia];
+  if ('palace' in c && 'star' in c) {
+    const q = palaceView(chart, c.palace);
+    return q ? q.stars.filter((s) => list(c.star).includes(s.name)).map((s) => s.name) : [];
+  }
   if ('palace' in c || 'bright' in c || !('at' in c)) return [];
   const qs = looked(chart, p, c.at);
   if ('hua' in c) {
@@ -287,6 +300,138 @@ export function fillSlots(text: string, ev: string[]): string {
 }
 
 /*
+ * ── 「或」填實（2026-10-14）──
+ *
+ * 原書條件寫「紫微在子或午」「地空或地劫在官祿宮」「對宮紫微或天府化科」，讀者睇到嘅係條件，唔係自己個盤。
+ * 規則文字用｛｝標住「多揀一」嗰截，引擎換成呢張盤真正有嘅：
+ *   地支：主星真正坐嘅地支（「天同在｛卯酉｝」→「天同在卯」）
+ *   星　：真正喺度嗰粒，兩粒都喺就兩粒都寫（「同宮有｛火星或鈴星｝」→「同宮有火星、鈴星」）
+ *   四化：真正化嗰粒星（「七殺會到｛祿權科｝」→「七殺會到武曲化祿」）
+ * 「或」前後係唔同類條件（「｛天機化祿或有祿存｝」）就逐截揀，兩截都中寫「天機化祿，又有祿存」。
+ * 揀唔到（借星、條件冇講到嗰粒）就照原文。
+ *
+ * ⚠ 已出嘅書（R-008）存咗原句：拎走｛｝之後嘅文字一定要同舊句一字不差 —— 英文翻譯表、出處索引靠佢認舊書。
+ */
+export const stripOr = (t: string) => t.replace(/[｛｝]/g, '');
+
+const OR_NAMES = [...MAJOR, ...AIDE_STARS, ...SHA_STARS, '祿存', '天馬'];
+const OR_ABBR: Record<string, string[]> = {
+  火鈴: ['火星', '鈴星'], 羊陀: ['擎羊', '陀羅'], 昌曲: ['文昌', '文曲'], 空劫: ['地空', '地劫'],
+  魁鉞: ['天魁', '天鉞'], 左右: ['左輔', '右弼'], 輔弼: ['左輔', '右弼'], 煞星: SHA_STARS, 吉星: AIDE_STARS,
+};
+export const OR_VERB = '又有|又見|會到|有|見|會';
+
+type OrAlt = { verb: string; stars: string[]; huas: string[]; branches: string[] };
+
+/** ｛｝入面嗰截拆成「或」嘅幾支；認唔到嘅字就 null（規則檔 load 時報錯） */
+export function orAlts(span: string): OrAlt[] | null {
+  const alts: OrAlt[] = [];
+  for (const seg of span.split(/或|、/)) {
+    const a: OrAlt = { verb: '', stars: [], huas: [], branches: [] };
+    let s = seg;
+    const v = new RegExp(`^(${OR_VERB})`).exec(s);
+    if (v) {
+      a.verb = v[1]!;
+      s = s.slice(v[1]!.length);
+    }
+    /* 「見祿」：化祿或者祿存都算 */
+    if (s === '祿') {
+      alts.push({ ...a, stars: ['祿存'], huas: ['祿'] });
+      continue;
+    }
+    while (s) {
+      const name = OR_NAMES.find((n) => s.startsWith(n));
+      const abbr = Object.keys(OR_ABBR).find((k) => s.startsWith(k));
+      let m: RegExpExecArray | null;
+      if (name) {
+        a.stars.push(name);
+        s = s.slice(name.length);
+      } else if (abbr) {
+        a.stars.push(...OR_ABBR[abbr]!);
+        s = s.slice(abbr.length);
+      } else if (s.startsWith('吉化')) {
+        a.huas.push('祿', '權', '科');
+        s = s.slice(2);
+      } else if ((m = /^化?([祿權科忌])/.exec(s))) {
+        a.huas.push(m[1]!);
+        s = s.slice(m[0].length);
+      } else if ((m = /^[子丑寅卯辰巳午未申酉戌亥]/.exec(s))) {
+        a.branches.push(m[0]);
+        s = s.slice(1);
+      } else return null;
+    }
+    alts.push(a);
+  }
+  /* 「天機或天梁化科」：化科兩粒都講；「武曲化權或化科」：化科講返武曲 */
+  const last = alts.at(-1)!;
+  for (const [i, a] of alts.entries()) {
+    const majors = a.stars.filter((x) => MAJOR.includes(x));
+    if (!a.huas.length && majors.length === a.stars.length && majors.length && last.huas.length && last.stars.some((x) => MAJOR.includes(x))) a.huas = [...last.huas];
+    const prev = alts[i - 1];
+    if (a.huas.length && !a.stars.length && !a.verb && prev?.huas.length && prev.stars.some((x) => MAJOR.includes(x))) a.stars = prev.stars.filter((x) => MAJOR.includes(x));
+  }
+  return alts;
+}
+
+/** 一支「或」喺呢張盤中咗乜：星名、「天機化祿」、主語自己嘅「化祿」、地支 */
+function orItems(a: OrAlt, ev: string[], seat: string, ownerOf: string | undefined): string[] {
+  /* 「天相｛見左輔右弼或見祿｝」：有「見」就唔係天相自己化 */
+  const owner = a.verb ? undefined : ownerOf;
+  const out: string[] = [];
+  if (a.branches.includes(seat)) out.push(seat);
+  const majors = a.stars.filter((x) => MAJOR.includes(x));
+  const others = a.stars.filter((x) => !MAJOR.includes(x));
+  if (a.huas.length) {
+    const who = majors.length ? majors : owner ? [owner] : null;
+    for (const e of ev) {
+      const m = /^(\S+)化(\S)$/.exec(e);
+      if (m && a.huas.includes(m[2]!) && (!who || who.includes(m[1]!))) out.push(!majors.length && owner ? `化${m[2]}` : e);
+    }
+    out.push(...others.filter((x) => ev.includes(x)));
+  } else out.push(...a.stars.filter((x) => ev.includes(x)));
+  return [...new Set(out)];
+}
+
+/**
+ * ｛｝前面講緊邊粒主星化：「巨門｛化祿化權｝」「天機卻｛化權或化科｝」—— 同一截之內最後一粒主星，
+ * 中間冇「見、會、與」之類（「天相見｛祿存或化祿｝」嘅化祿唔係天相自己嘅）。單星先算，「太陽天梁｛…｝」唔算。
+ */
+export function orOwner(before: string): string | undefined {
+  const clause = before.split(/[，。；：]/).at(-1) ?? '';
+  for (let i = clause.length - 2; i >= 0; i--) {
+    const m = MAJOR.find((x) => clause.startsWith(x, i));
+    if (!m) continue;
+    const gap = clause.slice(i + 2);
+    if (/[見會與和同有又及或]/.test(gap) || gap.length > 2) return undefined;
+    return MAJOR.some((n) => clause.slice(0, i).endsWith(n)) ? undefined : m;
+  }
+  return undefined;
+}
+
+/** 規則文字嘅｛｝換成呢張盤真正有嘅（`ev`：條件中咗嘅星同四化；`seat`：主星坐嘅地支） */
+export function fillOr(text: string, ev: string[], seat: string): string {
+  if (!text.includes('｛')) return text;
+  return text.replace(/｛([^｝]+)｝/g, (_all, span: string, off: number) => {
+    const alts = orAlts(span);
+    if (!alts) return span;
+    const owner = orOwner(stripOr(text.slice(0, off)));
+    const kept = alts.map((a) => ({ verb: a.verb, items: orItems(a, ev, seat, owner) })).filter((a) => a.items.length);
+    if (!kept.length) return span;
+    const seen = new Set<string>();
+    const parts = kept
+      .map((a) => ({ verb: a.verb, items: a.items.filter((x) => !seen.has(x) && seen.add(x)) }))
+      .filter((a) => a.items.length);
+    /* 有動詞（「或有祿存」）嘅分支用「，又」接：「天機化祿，又有祿存」；淨係星名就用頓號 */
+    const out = parts.some((a) => a.verb)
+      ? parts.map((a, i) => `${i ? `，又${a.verb.replace(/^又/, '')}` : a.verb}${a.items.join('、')}`).join('')
+      : parts.flatMap((a) => a.items).join('、');
+    /* 「天府｛見吉化⋯｝」中咗天府自己化科：寫「天府化科」，唔寫「天府見天府化科」 */
+    const self = MAJOR.find((m) => stripOr(text.slice(0, off)).endsWith(m));
+    return self ? out.replace(new RegExp(`^(?:${OR_VERB})${self}(化\\S)`), '$1') : out;
+  });
+}
+
+/*
  * 骨架章「會照的X」（2026-10-12 術語）：「會照」即係命宮三方四正其中一宮，讀者唔知係邊。
  * 換成盤上嗰粒星真正坐嘅宮：「會照的天機化忌」→「財帛宮的天機化忌」。揾唔到（借星等）就照舊。
  */
@@ -306,10 +451,10 @@ export function placeHui(chart: Chart, text: string): string {
   });
 }
 
-/** 有〔〕嘅模板句嘅比對式（翻譯、出處用）：〔〕連前面動詞換成任意字 */
+/** 有〔〕／｛｝嘅模板句嘅比對式（翻譯、出處用）：〔〕連前面動詞、｛｝換成任意字 */
 export function slotPattern(template: string, anchored = true): RegExp {
   const esc = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-  const parts = template.split(new RegExp(`(?:${FILL_VERB})?〔[^〕]+〕`)).map(esc);
+  const parts = template.split(new RegExp(`(?:${FILL_VERB})?〔[^〕]+〕|｛[^｝]+｝`)).map(esc);
   /* 每個〔〕一個捕捉組：英文（en/render.ts）靠佢知道中文填咗乜 */
   const body = parts.join('([^。！？]+?)');
   return new RegExp(anchored ? `^${body}$` : body);
@@ -415,7 +560,12 @@ export function branchRules(chart: Chart, t: BranchTopic): BranchRule[] {
   /* 泛稱填實：返回嘅文字已經係呢張盤嘅星（模板仍然喺 BRANCH_TOPICS） */
   return hit
     .filter((r) => !gone.has(r.id))
-    .map((r) => (r.text.includes('〔') ? { ...r, text: fillSlots(r.text, r.when ? evidence(chart, p, focus, r.when, seat) : []) } : r));
+    .map((r) => {
+      if (!/[〔｛]/.test(r.text)) return r;
+      const ev = r.when ? evidence(chart, p, focus, r.when, seat) : [];
+      /* 「或」先揀（｛｝），再填泛稱（〔〕）：泛稱嗰邊識得睇「句子已經講咗」 */
+      return { ...r, text: fillSlots(fillOr(r.text, ev, seat), ev) };
+    });
 }
 
 /** 一段細讀最多幾條規則：雙星宮會同時中組合題目同兩粒星嘅通則，唔封頂就太長 */
@@ -533,3 +683,6 @@ export function gujiaException(chart: Chart): BranchRule | null {
   }
   return null;
 }
+
+/* 放最尾：驗證（superRefine）用到下面先定義嘅「或」填實（`orAlts`、`stripOr`） */
+export const BRANCH_TOPICS: BranchTopic[] = BRANCH_RAW.map((raw) => Topic.parse(raw));

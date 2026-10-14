@@ -2,8 +2,8 @@ import tmRaw from './tm.json';
 import { OLD_WATCH_LEADS, WATCH_LEADS } from '../watch-lead';
 import { LINK_REFS } from '../link';
 import { JI_WATCH, PAIR_PLAIN } from '../palace-plain';
-import { BRANCH_TOPICS, FILL_VERB, MAJOR, slotPattern } from '../branch';
-import { AREA_EN, AREA_ON_EN, PALACE_EN, STAR_EN, cap, listEn, star, starFirst } from './terms';
+import { BRANCH_TOPICS, FILL_VERB, MAJOR, OR_VERB, stripOr } from '../branch';
+import { AREA_EN, AREA_ON_EN, BRANCH_EN, PALACE_EN, STAR_EN, cap, listEn, star, starFirst } from './terms';
 import { factTemplate } from './facts';
 import { timeTemplate } from './time';
 
@@ -35,30 +35,66 @@ export type Rendered = { text: string; missing: string[] };
  * 泛稱填實（branch.ts `fillSlots`，2026-10-12）：中文〔〕填咗盤上嘅星，英文〔〕跟住填同一批星。
  * 每句模板記低：比對式、英文模板、每個〔〕嘅原本泛稱（填唔到就照出）、前面嘅主星（「天同化祿」寫成「化祿」嗰陣用）。
  */
-type Slot = { re: RegExp; en: string; phrases: string[]; owners: (string | undefined)[] };
+type Slot = { re: RegExp; en: string; kinds: ('slot' | 'or')[]; phrases: string[]; owners: (string | undefined)[]; head: string; tail: string };
 const SLOTS: Slot[] = [];
 const SLOT_HUA: Record<string, string> = { 祿: 'Abundance', 權: 'Authority', 科: 'Recognition', 忌: 'Obstruction' };
 const SLOT_STARS = Object.keys(STAR_EN).sort((a, b) => b.length - a.length).join('|');
 const SLOT_ITEM = `(?:(?:${SLOT_STARS})?化[祿權科忌]|${SLOT_STARS})`;
 const SLOT_ITEMS = `${SLOT_ITEM}(?:(?:、|，又見)${SLOT_ITEM})*`;
 
+/* 「或」填實（branch.ts `fillOr`）：填咗嘅一截係星名、「天機化祿」、「化祿」、地支，用頓號或者「，又」接 */
+const OR_ITEM = `(?:(?:${SLOT_STARS})?化[祿權科忌]|${SLOT_STARS}|[子丑寅卯辰巳午未申酉戌亥])`;
+const OR_ITEMS = `(?:${OR_VERB})?${OR_ITEM}(?:(?:、|，又(?:${OR_VERB})?)${OR_ITEM})*`;
+
 function slotOf(zh: string, en: string): Slot {
+  const kinds: ('slot' | 'or')[] = [];
   const phrases: string[] = [];
   const owners: (string | undefined)[] = [];
-  const re = new RegExp(`(${FILL_VERB})?〔([^〕]+)〕`, 'g');
-  for (let m = re.exec(zh); m; m = re.exec(zh)) {
-    phrases.push(`${m[1] ?? ''}${m[2]}`);
-    const before = zh.slice(0, m.index);
-    owners.push(MAJOR.find((x) => before.endsWith(x) && !MAJOR.some((y) => before.slice(0, -x.length).endsWith(y))));
-  }
+  const re = new RegExp(`(${FILL_VERB})?〔([^〕]+)〕|｛([^｝]+)｝`, 'g');
   /*
    * 兩個〔〕貼住（「會到〔吉化〕又見〔輔佐吉星〕」）用任意字比對會切錯位，所以每格只准係
    * 原本泛稱，或者真星名／四化組成嘅清單。
    */
   const esc = (x: string) => x.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-  const parts = zh.split(re).filter((_x, i) => i % 3 === 0).map(esc);
-  const body = parts.map((p, i) => (i < phrases.length ? `${p}(${esc(phrases[i]!)}|(?:${FILL_VERB})?${SLOT_ITEMS})` : p)).join('');
-  return { re: new RegExp(`^${body}$`), en, phrases, owners };
+  let body = '';
+  let at = 0;
+  for (let m = re.exec(zh); m; m = re.exec(zh)) {
+    const before = stripOr(zh.slice(0, m.index));
+    body += esc(stripOr(zh.slice(at, m.index)));
+    at = m.index + m[0].length;
+    owners.push(MAJOR.find((x) => before.endsWith(x) && !MAJOR.some((y) => before.slice(0, -x.length).endsWith(y))));
+    if (m[3] !== undefined) {
+      kinds.push('or');
+      phrases.push(m[3]);
+      body += `(${esc(m[3])}|${OR_ITEMS})`;
+    } else {
+      kinds.push('slot');
+      phrases.push(`${m[1] ?? ''}${m[2]}`);
+      body += `(${esc(phrases.at(-1)!)}|(?:${FILL_VERB})?${SLOT_ITEMS})`;
+    }
+  }
+  body += esc(stripOr(zh.slice(at)));
+  /* 頭尾嘅定字：先用 startsWith／endsWith 篩，二百幾條比對式唔使逐條行 */
+  const head = stripOr(zh.slice(0, zh.search(/〔|｛/))).replace(new RegExp(`(?:${FILL_VERB})$`), '');
+  const tail = stripOr(zh.slice(Math.max(zh.lastIndexOf('〕'), zh.lastIndexOf('｝')) + 1));
+  return { re: new RegExp(`^${body}$`), en, kinds, phrases, owners, head, tail };
+}
+
+/** 「或」填咗嘅一截（「火星、鈴星」「天機化祿，又有祿存」「卯」）→ 英文；認唔到就 null */
+/* `bare`：英文模板寫「Ju Men in ｛…｝」，自己嘅化只寫「Authority」；否則寫「its own Authority」 */
+function orEn(seg: string, bare = true): string | null {
+  const out: string[] = [];
+  for (const raw of seg.split(/，又|、/)) {
+    const it = raw.replace(new RegExp(`^(?:${OR_VERB})`), '');
+    let m = /^化(\S)$/.exec(it);
+    if (m && SLOT_HUA[m[1]!]) { out.push(bare ? SLOT_HUA[m[1]!]! : `its own ${SLOT_HUA[m[1]!]}`); continue; }
+    m = /^(\S{2})化(\S)$/.exec(it);
+    if (m && star(m[1]!) && SLOT_HUA[m[2]!]) { out.push(`${star(m[1]!)} in ${SLOT_HUA[m[2]!]}`); continue; }
+    if (BRANCH_EN[it]) { out.push(BRANCH_EN[it]!); continue; }
+    if (star(it)) { out.push(star(it)!); continue; }
+    return null;
+  }
+  return listEn(out);
 }
 
 /** 中文填咗嘅一截（「見左輔、天鉞」「化祿，又見左輔」）→ 英文星名清單；冇填（照泛稱）就 null */
@@ -94,10 +130,17 @@ function huiEn(h: Hui, m: RegExpExecArray): string {
 }
 
 function fillEn(slot: Slot, m: RegExpExecArray): string {
-  let i = 0;
-  const out = slot.en.replace(/〔([^〕]+)〕/g, (_all, generic: string) => {
-    const k = i++;
-    return slotEn(m[k + 1]!, slot.phrases[k]!, slot.owners[k]) ?? generic;
+  /* 英文模板嘅〔〕同｛｝各自按次序對返中文嗰幾格 */
+  const idx = { slot: slot.kinds.flatMap((k, i) => (k === 'slot' ? [i] : [])), or: slot.kinds.flatMap((k, i) => (k === 'or' ? [i] : [])) };
+  const n = { slot: 0, or: 0 };
+  const out = slot.en.replace(/〔([^〕]+)〕|｛([^｝]+)｝/g, (_all, generic: string | undefined, orig: string | undefined, off: number) => {
+    if (orig !== undefined) {
+      const k = idx.or[n.or++]!;
+      const seg = m[k + 1]!;
+      return seg === slot.phrases[k] ? orig : (orEn(seg, / in $/.test(slot.en.slice(0, off))) ?? orig);
+    }
+    const k = idx.slot[n.slot++]!;
+    return slotEn(m[k + 1]!, slot.phrases[k]!, slot.owners[k]) ?? generic!;
   });
   /* 「meets Lu and 〔helper stars〕」填完係「Lu and Zuo Fu and You Bi」：頭一個 and 改逗號 */
   return out.replace(/ and ([A-Z][a-z]+ [A-Z][a-z]+) and /, ', $1 and ');
@@ -113,16 +156,23 @@ const sentencesOf = (t: string) => (t.match(/[^。！？]*[。！？]|[^。！�
 /* 原文分支（branch.ts）：一條規則可以有兩句，逐句對返英文 */
 for (const t of BRANCH_TOPICS)
   for (const r of t.rules) {
-    const zh = sentencesOf(r.text);
-    const en = r.en.match(/[^.!?]+[.!?]+/g)?.map((x) => x.trim()) ?? [r.en];
-    if (zh.length === en.length) zh.forEach((z, i) => (TM.sentences[z] = en[i]!));
-    /* 泛稱填實（branch.ts `fillSlots`）：中文填咗盤上嘅星，英文照模板句 */
-    if (zh.length === en.length) zh.forEach((z, i) => z.includes('〔') && SLOTS.push(slotOf(z, en[i]!)));
-    if (zh.length === en.length)
-      zh.forEach((z, i) => z.includes('會照的') && HUI.push({ re: new RegExp(`^${escRe(z).replace('會照的', '(會照|[^，。]+?宮)的')}$`), en: en[i]! }));
-    else TM.sentences[r.text] = r.en;
+    /* 改過字嘅規則：舊寫法（`was`）照認，已出嘅書存嘅係舊句（R-008） */
+    for (const v of [{ text: r.text, en: r.en }, ...(r.was ?? [])]) {
+      const zh = sentencesOf(v.text);
+      const en = v.en.match(/[^.!?]+[.!?]+/g)?.map((x) => x.trim()) ?? [v.en];
+      /* ｛｝拎走就係舊句（R-008：已出嘅書存嘅係呢句） */
+      if (zh.length === en.length) zh.forEach((z, i) => (TM.sentences[stripOr(z)] = stripOr(en[i]!)));
+      /* 泛稱填實（branch.ts `fillSlots`）、「或」填實（`fillOr`）：中文填咗盤上嘅星，英文跟住填 */
+      if (zh.length === en.length) zh.forEach((z, i) => /[〔｛]/.test(z) && SLOTS.push(slotOf(z, en[i]!)));
+      if (zh.length === en.length)
+        zh.forEach((z, i) => z.includes('會照的') && HUI.push({ re: new RegExp(`^${escRe(stripOr(z)).replace('會照的', '(會照|[^，。]+?宮)的')}$`), en: stripOr(en[i]!) }));
+      else TM.sentences[stripOr(v.text)] = stripOr(v.en);
+    }
     if (r.tail && r.tailEn) TM.sentences[r.tail] = r.tailEn;
   }
+
+/* 翻譯表入面有｛｝嘅句（骨架章 basis「太陰在｛辰戌｝」，2026-10-14）：填咗地支嘅版本照認；舊句係另一個 key */
+for (const [zh, en] of Object.entries(TM.sentences)) if (zh.includes('｛')) SLOTS.push(slotOf(zh, en));
 
 /** 一截（冇句號）：查 clauses */
 function clause(zh: string, missing: string[]): string {
@@ -206,12 +256,26 @@ function lookupSentence(s: string): string | null {
   const direct = TM.sentences[s];
   if (direct) return direct;
   for (const slot of SLOTS) {
+    if (!s.startsWith(slot.head) || !s.endsWith(slot.tail)) continue;
     const m = slot.re.exec(s);
     if (m) return fillEn(slot, m);
   }
   for (const h of HUI) {
     const m = h.re.exec(s);
     if (m) return huiEn(h, m);
+  }
+  /* 「會照的｛…｝」兩樣都填咗（「遷移宮的火星」）：宮名換返「會照的」對模板，英文再換宮名 */
+  for (const m of s.matchAll(/([^，。；：]+?宮(?:和[^，。；：]+?宮)*)的/g)) {
+    for (let i = 0; i < m[1]!.length; i++) {
+      const names = m[1]!.slice(i).split('和').map((x) => PALACE_EN[x.replace(/宮$/, '')]);
+      if (names.some((x) => !x)) continue;
+      const back = `${s.slice(0, m.index! + i)}會照的${s.slice(m.index! + m[0].length)}`;
+      for (const slot of SLOTS) {
+        if (!back.startsWith(slot.head) || !back.endsWith(slot.tail)) continue;
+        const mm = slot.re.exec(back);
+        if (mm) return fillEn(slot, mm).replace(/in your (?:trine|four directions)|meeting your chart|in the trine palaces/, `in your ${listEn(names as string[])}`);
+      }
+    }
   }
   /* 結論段輪換過嘅轉接語（assemble.ts `WATCH_LEADS`）：翻譯表只存「要留意的是：」嗰款 */
   const lead = [...WATCH_LEADS.slice(1), ...OLD_WATCH_LEADS].find((l) => s.startsWith(l));
