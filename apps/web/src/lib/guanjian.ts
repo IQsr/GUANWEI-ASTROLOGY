@@ -17,7 +17,7 @@
  *
  * 喺顯示嗰陣先標，唔寫落 DB（舊書一樣有）。繁簡都標；英文未做（英文段落冇記號）。
  * 2026-10-14 取代咗「每章第一段結論句加粗」（lib/key-sentence.ts，已刪）。
- * 樣式：色墨（globals.css `.wen .guan-*`）—— 留神朱砂、順靛、月份金褐、主題加重。
+ * 樣式：墨色粗體（globals.css `.wen .guan`）；試過色墨，用戶揀咗唔要色。
  */
 
 export type MarkKind = 'shen' | 'shun' | 'yue' | 'ti';
