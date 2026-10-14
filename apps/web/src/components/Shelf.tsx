@@ -13,11 +13,17 @@ import type { Spine } from '@/lib/shelf';
  * 所以而家個櫃係一張相（`/img/study/shelf.webp`，燈喺左上，同 `desk.webp` 同一盞），
  * 書脊係同封面一樣嘅墨綠布面、燙金線、紙題簽。
  *
+ * ── 成版就係間書房（2026-10-15 第二版）──
+ *
+ * 第一版個櫃係一張相擺喺黑底上面，似貼上去。第二版成版就係書房：一張闊景（橫屏，
+ * /img/study/zhai-wide.webp）或者一張直景（直屏，zhai-tall.webp），書櫃喺正中，
+ * 書櫃上面嗰幅暗牆寫標題（`head`）。
+ *
  * ── 書點樣企得準層板 ──
  *
- * 張相用「高度貼滿」（background-size: auto 100%），所以層板嘅**上下位置**喺任何闊度都唔變：
- * 三塊層板面喺相高 30.2%、56%、79.6%（2026-10-15 量相素）。闊窄只係左右裁多少 ——
- * 每層由邊度開始、去到邊度，用 CSS 變數按闊度改（globals.css `.jia`）。
+ * 個景鎖死張相嘅比例（aspect-ratio），相 100% 貼滿，所以層板位置用百分比就永遠對得上：
+ * 闊景三塊層板面喺相高 40.2%、56.3%、71%，直景 40%、51.9%、62.5%（2026-10-15 量相素）。
+ * 橫屏直屏用 `orientation` 換相同換位置（globals.css `.jia`）。
  *
  * ── 取書唔係跳版（舊規矩照留）──
  *
@@ -34,8 +40,11 @@ export function Shelf({
   taken,
   onTake,
   children,
+  head,
 }: {
   spines: Spine[];
+  /** 寫喺書櫃上面暗牆嘅嘢（書齋標題、細 nav）。demo 冇。 */
+  head?: ReactNode;
   /** 攞咗邊本落嚟。`null` = 仲喺架上。 */
   taken?: string | null;
   /** 冇傳就係連結（server component 行得）；有傳就係掣（demo 同客戶端流程）。 */
@@ -58,9 +67,12 @@ export function Shelf({
 
   return (
     <div className="jia-wai">
+      {/* 成版底色：同張相地板一樣嘅暖黑，捲落去都唔會見到另一隻色 */}
+      <div className="zhai-di" aria-hidden="true" />
       <div className="jia" data-dim={dim}>
-        {/* 個櫃本身：一張相。淡嗰陣淡呢層，書照企喺度 */}
+        {/* 間房同個櫃：一張相。淡嗰陣淡呢層，書照企喺度 */}
         <div className="jia-tu" aria-hidden="true" />
+        {head ? <div className="jia-tou">{head}</div> : null}
         {rows.map((row, i) =>
           row.length ? (
             <div key={i} className="jia-ceng" data-ceng={i}>

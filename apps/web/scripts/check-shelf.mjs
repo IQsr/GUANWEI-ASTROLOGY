@@ -48,10 +48,10 @@ try {
   await page.waitForTimeout(800);
 
   /*
-   * ── 一、個櫃係書房嗰張相，書企喺層板上（2026-10-15 改版）─────────
+   * ── 一、成版係書房張相，書企喺層板上（2026-10-15 第二版）─────────
    *
-   * 舊版量「五條 1px 線」。改版之後個櫃係 /img/study/shelf.webp，
-   * 所以量嘅係：相喺度、第一層嘅書底貼住相高 30.2% 嗰塊層板（±1.5%）。
+   * 舊版量「五條 1px 線」。改版之後成版係書房 /img/study/zhai-wide.webp（直屏 zhai-tall.webp），
+   * 所以量嘅係：相喺度、第一層嘅書底貼住闊景相高 40.2% 嗰塊層板（±1.5%；1280×1000 係橫屏，用闊景）。
    */
   const caseInfo = await page.evaluate(() => {
     const jia = document.querySelector('.jia');
@@ -63,9 +63,9 @@ try {
       bottoms: first.map((el) => ((el.getBoundingClientRect().bottom - r.top) / r.height) * 100),
     };
   });
-  check('書櫃係書房張相', caseInfo.image.includes('/img/study/shelf.webp'), caseInfo.image);
+  check('書櫃係書房張相', caseInfo.image.includes('/img/study/zhai-wide.webp'), caseInfo.image);
   check('第一層有書', caseInfo.bottoms.length > 0, '冇書');
-  for (const b of caseInfo.bottoms) check('書企喺層板上', Math.abs(b - 30.2) <= 1.5, `書底喺 ${b.toFixed(1)}%`);
+  for (const b of caseInfo.bottoms) check('書企喺層板上', Math.abs(b - 40.2) <= 1.5, `書底喺 ${b.toFixed(1)}%`);
 
   /*
    * ── 二、仍然零透視、零圓角（陰影同布紋而家准用）─────────

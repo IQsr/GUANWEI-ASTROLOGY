@@ -1026,66 +1026,132 @@
 }
 
 /* ============================================================
-   書櫃（工單 E3 · 2026-10-15 改版：書房入面一個真書櫃）
+   書齋（工單 E3 · 2026-10-15 第二版：成版就係間書房）
 
-   舊版係五條 1px 線、零木紋零陰影零透視。2026-10-15 Issac 改咗：書齋要同閱讀頁嘅
-   書桌係同一間書房，所以個櫃係一張相（/img/study/shelf.webp，燈喺左上），
-   書脊係同封面一樣嘅墨綠布面、上下燙金線、紙題簽。
+   第一版個櫃係一張相擺喺黑底上面，冷黑底對暖棕相，似貼上去。第二版成版就係書房：
+   橫屏一張闊景（/img/study/zhai-wide.webp，1672×941），直屏一張直景（zhai-tall.webp，941×1672），
+   書櫃喺正中，標題寫喺書櫃上面嗰幅暗牆（.jia-tou），版底係同地板一樣嘅暖黑（.zhai-di）。
 
-   ⚠ 書企得準層板，靠張相「高度貼滿」：
-     層板面喺相高 30.2%、56%、79.6%（量相素），所以用 cqh 定每層嘅底，任何闊度都對得上。
-     左右只係裁多少 —— 每層開始同完結嘅位置用 --l1 / --l / --r，按闊度改。
-   ⚠ 取書之後個櫃（.jia-tu）淡到 16%，唔消失；書脊收埋。scripts/check-shelf.mjs 量住。
+   ⚠ 書企得準層板，靠個景鎖死張相比例、相 100% 貼滿：
+     闊景三塊層板面喺 40.2%、56.3%、71%；直景 40%、51.9%、62.5%（量相素）。
+     書櫃內邊：闊景 23.6%–76.6%，直景 10.6%–89.8%。每層書高約層與層之間嘅 85%。
+   ⚠ 取書之後個景（.jia-tu）淡到 16%，唔消失；書脊收埋。scripts/check-shelf.mjs 量住。
    ⚠ 書脊唯一嘅位移係 hover 升 10px（冇 scale、冇 rotate、冇 3D）。
    ============================================================ */
 
+/* 全闊：個景由版邊去到版邊（用 100vw 會多出捲軸闊度，所以用嗰版要 .zhai-ye 橫向裁走） */
 .jia-wai {
-  max-width: 1120px;
-  margin-inline: auto;
+  margin-inline: calc(50% - 50vw);
+}
+
+.zhai-ye {
+  overflow-x: clip;
+}
+
+/* 書齋：個景緊貼頂嘅導覽列（mockup 頁唔係 .juan，唔郁） */
+.juan.zhai-ye {
+  padding-top: 0 !important;
+}
+
+/* 版底：同地板一樣嘅暖黑，固定喺最底 */
+.zhai-di {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: #0b0704;
+  pointer-events: none;
 }
 
 .jia {
-  --ar: 1586 / 992;
-  /* 第一層由香爐右邊開始；第二三層由左立板開始；右邊到右立板 */
-  --l1: 26cqw;
-  --l: 16.5cqw;
-  --r: 9cqw;
+  --b1: 40.2%;
+  --b2: 56.3%;
+  --b3: 71%;
+  --h1: 13.6cqh;
+  --h2: 11.8cqh;
+  --h3: 9.8cqh;
+  --l: 25%;
+  --r: 25%;
   position: relative;
-  aspect-ratio: var(--ar);
+  aspect-ratio: 1672 / 941;
   container-type: size;
   overflow: hidden;
 }
 
-@media (max-width: 900px) {
+@media (orientation: portrait) {
   .jia {
-    --ar: 1.2;
-    --l1: 17cqw;
-    --l: 5cqw;
-    --r: 3.5cqw;
+    --b1: 40%;
+    --b2: 51.9%;
+    --b3: 62.5%;
+    --h1: 9.4cqh;
+    --h2: 8.9cqh;
+    --h3: 6.9cqh;
+    --l: 12%;
+    --r: 11.6%;
+    aspect-ratio: 941 / 1672;
   }
 }
 
-@media (max-width: 560px) {
-  .jia {
-    --ar: 0.8;
-    --l1: 4cqw;
-    --l: 4cqw;
-    --r: 4cqw;
-  }
-}
-
-/* 個櫃：一張相，高度貼滿、左右置中裁；四邊淡入書房嘅黑 */
+/* 間房同個櫃：一張相，貼滿；底部淡入版底嘅暖黑 */
 .jia-tu {
   position: absolute;
   inset: 0;
-  background: #120c07 url("/img/study/shelf.webp") 50% 0 / auto 100% no-repeat;
-  -webkit-mask-image: linear-gradient(to right, transparent, #000 5%, #000 95%, transparent),
-    linear-gradient(to bottom, #000 88%, transparent);
-  -webkit-mask-composite: source-in;
-  mask-image: linear-gradient(to right, transparent, #000 5%, #000 95%, transparent),
-    linear-gradient(to bottom, #000 88%, transparent);
-  mask-composite: intersect;
+  background: #0b0704 url("/img/study/zhai-wide.webp") 0 0 / 100% 100% no-repeat;
   transition: opacity var(--dur-2) var(--motion-ease-ink);
+}
+
+@media (orientation: portrait) {
+  .jia-tu {
+    background-image: url("/img/study/zhai-tall.webp");
+  }
+}
+
+.jia-tu::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 82%, #0b0704);
+}
+
+.jia[data-dim="1"] .jia-tu {
+  opacity: 0.16;
+}
+
+/* 書櫃上面嘅暗牆：標題、一句講呢度係乜、細 nav。字色寫死淺色 —— 牆永遠係暗嘅 */
+.jia-tou {
+  position: absolute;
+  z-index: 1;
+  top: 3.5cqh;
+  inset-inline: 23.6% 23.4%;
+  color: #eee6d8;
+}
+
+@media (orientation: portrait) {
+  .jia-tou {
+    top: 5cqh;
+    inset-inline: 7% 7%;
+  }
+}
+
+.jia-tou h1 {
+  font-size: clamp(28px, 5.4cqh, 64px);
+  line-height: 1.15;
+}
+
+.jia-tou p {
+  margin-top: 1.2cqh;
+  font-size: clamp(13px, 2cqh, 18px);
+  line-height: 1.7;
+  color: rgb(238 230 216 / 0.8);
+}
+
+.jia-tou nav {
+  margin-top: 1.4cqh;
+  color: rgb(238 230 216 / 0.62);
+}
+
+.jia-tou nav a:hover,
+.jia-tou nav a:focus-visible {
+  color: #eee6d8;
 }
 
 /* 一層書：底貼住層板面 */
@@ -1094,37 +1160,46 @@
   inset-inline: var(--l) var(--r);
   display: flex;
   align-items: flex-end;
-  gap: max(4px, 0.9cqh);
+  gap: max(4px, 0.8cqh);
 }
 
 .jia-ceng[data-ceng="0"] {
-  inset-inline-start: var(--l1);
-  bottom: 69.8cqh;
+  bottom: calc(100% - var(--b1));
 }
 
 .jia-ceng[data-ceng="1"] {
-  bottom: 44cqh;
+  bottom: calc(100% - var(--b2));
 }
 
 .jia-ceng[data-ceng="2"] {
-  bottom: 20.4cqh;
+  bottom: calc(100% - var(--b3));
 }
 
-/* 三層都放滿之後嘅書（好少見）：擺喺個櫃下面，唔塞爆 */
+.jia-ceng[data-ceng="0"] .ji {
+  height: var(--h1);
+}
+
+.jia-ceng[data-ceng="1"] .ji {
+  height: var(--h2);
+}
+
+.jia-ceng[data-ceng="2"] .ji {
+  height: var(--h3);
+}
+
+/* 三層都放滿之後嘅書（好少見）：擺喺個景下面，唔塞爆 */
 .jia-yu {
   display: flex;
   flex-wrap: wrap;
   align-items: flex-end;
   gap: 8px;
-  padding: 20px 4px 0;
+  max-width: 1120px;
+  margin-inline: auto;
+  padding: 20px 16px 0;
 }
 
 .jia-yu .ji {
-  height: 120px;
-}
-
-.jia[data-dim="1"] .jia-tu {
-  opacity: 0.16;
+  height: 110px;
 }
 
 /* ── 書脊 ────────────────────────────────────────────────
@@ -1133,13 +1208,12 @@
 .ji {
   position: relative;
   display: flex;
-  width: max(28px, 4.8cqh);
-  height: 19.5cqh;
-  min-height: 84px;
+  width: max(24px, 3.5cqh);
+  min-height: 58px;
   flex: 0 0 auto;
   flex-direction: column;
   align-items: center;
-  padding: max(9px, 1.9cqh) 0 max(7px, 1.4cqh);
+  padding: max(7px, 1.3cqh) 0 max(6px, 1cqh);
   background-color: #1d3326;
   background-image: url("/img/book/cloth.webp");
   background-size: 168px 147px;
@@ -1150,7 +1224,7 @@
     5px 3px 7px rgb(0 0 0 / 0.55);
   color: var(--ink);
   font-family: var(--font-serif-stack);
-  font-size: max(11px, 1.9cqh);
+  font-size: max(11px, 1.55cqh);
   line-height: 1.05;
   letter-spacing: 0;
   transition:

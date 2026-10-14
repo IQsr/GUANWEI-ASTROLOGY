@@ -58,52 +58,60 @@ export default async function ShelfPage({ params }: { params: Promise<{ locale: 
   setRequestLocale(locale);
 
   const t = await getTranslations('shelf');
+  const tNav = await getTranslations('nav');
   const view = await shelfView(serverShelf(), { untitled: t('untitled'), newBook: t('newBook') });
 
+  if (view.kind === 'unavailable') {
+    /*
+     * ⚠ 呢度唔會出一個空書架。
+     *
+     * 撈唔到你有幾多本書嗰陣，唔應該請你開多一本 ——
+     * 所以呢個狀態亦都冇「＋ 新書」。
+     */
+    return (
+      <main className="juan tai">
+        <Juanshou title={t('title')} nav="shelf" />
+        <p className="banxin text-body leading-[1.95] text-ink-2">{t('unavailable')}</p>
+      </main>
+    );
+  }
+
+  /*
+   * 2026-10-15 第二版：成版就係間書房。標題、一句講呢度係乜、去藏經閣／設定嘅細 nav
+   * 寫喺書櫃上面嗰幅暗牆（`Shelf` 嘅 `head`），唔再係黑底上面一行卷首。
+   */
+  const head = (
+    <>
+      <h1 className="font-semibold tracking-[0.16em]">{t('title')}</h1>
+      <p>{t('intro')}</p>
+      <nav className="flex gap-6 font-sans text-cap tracking-[0.18em]">
+        <Link href="/lexicon" className="transition-colors duration-200">
+          {tNav('lexicon')}
+        </Link>
+        <Link href="/account" className="transition-colors duration-200">
+          {tNav('account')}
+        </Link>
+      </nav>
+    </>
+  );
+
   return (
-    <main className="juan tai">
-      <Juanshou title={t('title')} nav="shelf" />
+    <main className="juan zhai-ye">
+      {/* 簡體：書脊上嘅名（包括留空時嘅「無名」）由繁體轉 */}
+      <Shelf head={head} spines={view.spines.map((s) => ({ ...s, label: zhFor(locale, s.label) }))} />
 
-      {view.kind === 'unavailable' ? (
-        /*
-         * ⚠ 呢度唔會出一個空書架。
-         *
-         * 撈唔到你有幾多本書嗰陣，唔應該請你開多一本 ——
-         * 所以呢個狀態亦都冇「＋ 新書」。
-         */
-        <p className="banxin text-body leading-[1.95] text-ink-2">
-          {t('unavailable')}
+      {/*
+        * 認領提示第二個位：第二次回訪，書架下面**一條界欄**（架構 §4）。
+        * 唔擋路、撳唔走 —— 佢本來就唔阻住你。
+        */}
+      {view.prompt ? (
+        <p className="banxin mt-10 border-y jielan py-4 font-sans text-sm leading-[1.9] text-ink-3">
+          {t('claimPrompt')}
+          <Link href="/claim" className="ms-2 text-indigo transition-colors duration-[240ms] hover:text-ink">
+            {t('claimLink')}
+          </Link>
         </p>
-      ) : (
-        <>
-          {/*
-            * 認領提示第二個位：第二次回訪，書架頂**一條界欄**（架構 §4）。
-            * 唔擋路、撳唔走 —— 佢本來就唔阻住你。
-            */}
-          {view.prompt ? (
-            <p className="banxin mb-10 border-y jielan py-4 font-sans text-sm leading-[1.9] text-ink-3">
-              {t('claimPrompt')}
-              <Link
-                href="/claim"
-                className="ms-2 text-indigo transition-colors duration-[240ms] hover:text-ink"
-              >
-                {t('claimLink')}
-              </Link>
-            </p>
-          ) : null}
-
-          {/* 一句講清楚呢度係乜（重新設計第四期）：之前一入嚟淨係見到幾條直線 */}
-          <p className="banxin mb-10 text-lead leading-[1.9] text-ink-2">
-            {t('intro')}
-          </p>
-
-          {/* 書櫃比版心闊（2026-10-15）：一個櫃擺喺書房度，唔係一段字 */}
-          <div className="px-2 md:px-6">
-            {/* 簡體：書脊上嘅名（包括留空時嘅「無名」）由繁體轉 */}
-            <Shelf spines={view.spines.map((s) => ({ ...s, label: zhFor(locale, s.label) }))} />
-          </div>
-        </>
-      )}
+      ) : null}
     </main>
   );
 }

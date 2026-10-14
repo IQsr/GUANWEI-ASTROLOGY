@@ -26,7 +26,7 @@ export default async function ShelfDemoPage({
   setRequestLocale(locale);
 
   return (
-    <main className="mx-auto w-full max-w-page px-6 pb-dijiao pt-10">
+    <main className="zhai-ye mx-auto w-full max-w-page px-6 pb-dijiao pt-10">
       <header className="mb-10 flex flex-wrap items-end justify-between gap-x-10 gap-y-4 border-b jielan pb-5">
         <div>
           <Link
@@ -38,7 +38,7 @@ export default async function ShelfDemoPage({
           <h1 className="mt-3 text-h1 font-semibold tracking-[0.16em]">書架</h1>
         </div>
         <p className="max-w-[26rem] text-sm leading-[1.9] tracking-[0.06em] text-ink-2">
-          工單 E3（2026-10-15 改版）。書房書櫃一張相，書脊墨綠布面、燙金線、紙題簽，企喺層板上。零透視、零圓角。
+          工單 E3（2026-10-15 第二版）。成版係書房：闊景／直景兩張相，書脊墨綠布面、燙金線、紙題簽，企喺層板上。零透視、零圓角。
           最近讀嗰本喺最左，在讀嗰本轉朱砂，hover 升 10px。
         </p>
         <ThemeToggle dayLabel="日讀" nightLabel="夜讀" />
