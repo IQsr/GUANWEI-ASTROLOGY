@@ -3,7 +3,6 @@ import { notFound } from 'next/navigation';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { lexiconCoverage, singleBookEntries } from '@guanwei/content';
 import { Link } from '@/i18n/navigation';
-import { Juanshou } from '@/components/Juanshou';
 import { ReturnToReading } from '@/components/ReturnToReading';
 import { OG_LEXICON } from '@/lib/site';
 import { KINDS, LEXICON_LOCALES, entriesOf, hrefOf, isLexiconLocale, lexiconAlternates, localePath, teaserFor, textOf } from '@/lib/lexicon';
@@ -54,69 +53,68 @@ export default async function LexiconIndex({
   const single = singleBookEntries().length;
 
   return (
-    <main className="juan tai">
-      <Juanshou title={t('title')} aside={<ReturnToReading />} />
+    <main className="juan tai jing-ye">
 
-      <div className="banxin">
-        <p className="text-lead text-ink-2">
-          {t('intro')}
-        </p>
+      {/*
+        藏經閣（2026-10-15 改版）：之前係黑底一列列字。而家成版係一個經櫃 ——
+        頂一張經櫃夜景（/img/study/cangjing.webp，燈喺左上，標題擺喺右邊暗位），
+        每一類詞條係一個櫃，每一條係一格：一張紙題簽寫名，下面兩行摘要。
+      */}
+      <header className="jing-tou">
+        <div className="jing-tou-zi">
+          {/* 由書入嚟先會出「返回閱讀」；擺喺標題上面，唔另開一行空卷首 */}
+          <ReturnToReading />
+          <h1 className="text-display font-semibold tracking-[0.16em]">{t('title')}</h1>
+          <p className="mt-4 text-lead leading-[1.85] text-ink-2">{t('intro')}</p>
+        </div>
+      </header>
 
+      <div className="jing-ben">
         {/*
           ⚠ 覆蓋率同單一來源嘅數字擺喺**公開頁**，唔係收喺 repo 入面。
 
           `lexiconCoverage()` 個註釋寫住「呢個數應該公開，唔應該收埋」。
           一個講出處嘅網站，最唔誠實嘅做法就係列出處而唔講啲出處有幾薄。
+          2026-10-15：寫喺一張藏書簿嘅紙條上，同經櫃一齊。
         */}
-        <dl className="mt-10 border-t border-rule pt-4 font-sans text-sm text-ink-2" data-nums>
-          <div className="flex justify-between border-b border-rule-2 py-2">
-            <dt>{t('entries')}</dt>
-            <dd>
-              {cov.done} / {cov.target}
-            </dd>
-          </div>
-          <div className="flex justify-between py-2">
-            <dt>{t('singleSource')}</dt>
-            <dd className="em-zhu">{single}</dd>
-          </div>
-        </dl>
-
-        <p className="mt-4 font-sans text-sm leading-[1.9] text-ink-3">
-          {t('twoSourcesNote')}
-        </p>
+        <div className="jing-bu">
+          <dl className="font-sans text-sm" data-nums>
+            <div className="flex justify-between gap-6 py-1">
+              <dt>{t('entries')}</dt>
+              <dd>
+                {cov.done} / {cov.target}
+              </dd>
+            </div>
+            <div className="flex justify-between gap-6 py-1">
+              <dt>{t('singleSource')}</dt>
+              <dd className="em-zhu">{single}</dd>
+            </div>
+          </dl>
+          <p className="mt-3 font-sans text-xs leading-[1.8] opacity-80">{t('twoSourcesNote')}</p>
+        </div>
 
         {KINDS.map((kind) => {
           const rows = entriesOf(kind);
           if (rows.length === 0) return null;
           return (
-            <section key={kind} className="mt-16">
-              <h2 className="font-sans text-cap tracking-[0.24em] text-ink-3">
+            <section key={kind} className="mt-16" aria-labelledby={`jing-${kind}`}>
+              <h2 id={`jing-${kind}`} className="jing-lei">
                 {t(`kind.${kind}`)}
-                <span className="ml-3" data-nums>
+                <span className="ms-3 text-ink-3" data-nums>
                   {rows.length}
                 </span>
               </h2>
-              <ul className="mt-4 border-t border-rule">
+              {/* 一個櫃：木框入面一格格，每格一條詞條 */}
+              <ul className="jing-gui">
                 {rows.map((e) => (
-                  <li key={e.id} className="border-b border-rule-2">
+                  <li key={e.id}>
                     {/*
-                      ⚠ 摘要要**左對齊**。
-                      第一版寫咗 `text-end` ＋ `truncate`：右對齊之下，
-                      overflow 係由**頭**度剪走嘅，而且冇省略號 ——
-                      即係讀者見到一句冇頭嘅說話，而 `teaser()` 特登整咗一句
-                      完整嘅話出嚟，完全白費。
-
-                      左對齊之後兩樣嘢先夾得返：`teaser()` 保證句子完整，
-                      `truncate` 淨係做闊度唔夠嗰陣嘅保險，而且省略號出喺尾。
+                      摘要左對齊、最多兩行（`teaserFor()` 保證句子完整；line-clamp 只係闊度唔夠嗰陣嘅保險，
+                      省略號出喺尾）。以前得一行仲要 truncate，讀者見到半句。
                     */}
-                    <Link
-                      href={hrefOf(e)}
-                      className="flex items-baseline gap-6 py-3 transition-colors duration-[240ms] hover:text-indigo"
-                    >
-                      <span className={`${locale === 'en' ? 'w-[11em]' : 'w-[6.5em]'} shrink-0 text-h3`}>{textOf(e, locale).label}</span>
-                      <span className="min-w-0 flex-1 truncate font-sans text-sm text-ink-3">
-                        {teaserFor(textOf(e, locale).summary, locale)}
-                      </span>
+                    <Link href={hrefOf(e)} className="jing-ge">
+                      <span className={`jing-qian ${locale === 'en' ? 'jing-qian-xi' : ''}`}>{textOf(e, locale).label}</span>
+                      <span className="jing-zhai">{teaserFor(textOf(e, locale).summary, locale)}</span>
                     </Link>
                   </li>
                 ))}
@@ -133,7 +131,6 @@ export default async function LexiconIndex({
             {t('noPersonal')}
           </p>
         </footer>
-    
       </div>
     </main>
   );

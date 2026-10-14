@@ -3,7 +3,8 @@
  *
  * 四條 AC 入面有三條要開瀏覽器先量得到：
  *
- *   零木紋、零陰影、零透視　　→ 要 computed style
+ *   個櫃係書房嗰張相、書企喺層板上 → 要量位置（2026-10-15 改版；舊版係「零木紋零陰影」）
+ *   零透視、零圓角　　　　　　→ 要 computed style
  *   hover 升 10px　　　　　　 → 要真係 hover 一下
  *   取書之後書櫃淡到 16% 但唔消失 → 要撳一下再量
  *
@@ -47,64 +48,41 @@ try {
   await page.waitForTimeout(800);
 
   /*
-   * ── 一、成個書櫃得五條線 ────────────────────────────
+   * ── 一、個櫃係書房嗰張相，書企喺層板上（2026-10-15 改版）─────────
    *
-   * 頂板、兩塊層板（三個 `.jia-ban`）＋ 兩塊立板（`::before` / `::after`）。
-   * 逐條量佢係咪真係 1px —— 一條 2px 嘅「線」就唔再係一條界欄。
+   * 舊版量「五條 1px 線」。改版之後個櫃係 /img/study/shelf.webp，
+   * 所以量嘅係：相喺度、第一層嘅書底貼住相高 30.2% 嗰塊層板（±1.5%）。
    */
-  const lines = await page.evaluate(() => {
+  const caseInfo = await page.evaluate(() => {
     const jia = document.querySelector('.jia');
-    const bans = [...document.querySelectorAll('.jia-ban')].map(
-      (el) => getComputedStyle(el).height,
-    );
-    const uprights = ['::before', '::after'].map((p) => getComputedStyle(jia, p).width);
-    return { bans, uprights };
+    const tu = document.querySelector('.jia-tu');
+    const r = jia.getBoundingClientRect();
+    const first = [...document.querySelectorAll('.jia-ceng[data-ceng="0"] .ji')];
+    return {
+      image: tu ? getComputedStyle(tu).backgroundImage : 'none',
+      bottoms: first.map((el) => ((el.getBoundingClientRect().bottom - r.top) / r.height) * 100),
+    };
   });
-  check('書櫃', lines.bans.length === 3, `${lines.bans.length} 塊層板／頂板，應該 3`);
-  for (const h of lines.bans) check('層板', h === '1px', `厚 ${h}`);
-  for (const w of lines.uprights) check('立板', w === '1px', `闊 ${w}`);
+  check('書櫃係書房張相', caseInfo.image.includes('/img/study/shelf.webp'), caseInfo.image);
+  check('第一層有書', caseInfo.bottoms.length > 0, '冇書');
+  for (const b of caseInfo.bottoms) check('書企喺層板上', Math.abs(b - 30.2) <= 1.5, `書底喺 ${b.toFixed(1)}%`);
 
   /*
-   * ── 二、零木紋、零陰影、零透視 ─────────────────────
+   * ── 二、仍然零透視、零圓角（陰影同布紋而家准用）─────────
    *
-   * 視覺 §10 將木紋貼圖同圓角投影列咗入「避」。
-   * 呢三樣唔係「盡量唔用」，係一樣都冇 —— 所以量嘅係 `none`。
+   * 改版准咗木紋相、書脊布紋同陰影；但書脊照舊係平面嘅 —— 冇 perspective、冇圓角。
    */
-  const materials = await page.evaluate(() => {
-    const els = ['.jia', '.jia-ban', '.ji'].flatMap((sel) => [
-      ...document.querySelectorAll(sel),
-    ]);
-    const jia = document.querySelector('.jia');
-    const rows = els.map((el) => {
-      const cs = getComputedStyle(el);
-      return {
-        sel: el.className,
-        shadow: cs.boxShadow,
-        image: cs.backgroundImage,
-        perspective: cs.perspective,
-        radius: cs.borderTopLeftRadius,
-        filter: cs.filter,
-      };
-    });
-    for (const p of ['::before', '::after']) {
-      const cs = getComputedStyle(jia, p);
-      rows.push({
-        sel: `.jia${p}`,
-        shadow: cs.boxShadow,
-        image: cs.backgroundImage,
-        perspective: cs.perspective,
-        radius: cs.borderTopLeftRadius,
-        filter: cs.filter,
-      });
-    }
-    return rows;
-  });
+  const materials = await page.evaluate(() =>
+    ['.jia', '.ji'].flatMap((sel) =>
+      [...document.querySelectorAll(sel)].map((el) => {
+        const cs = getComputedStyle(el);
+        return { sel: el.className, perspective: cs.perspective, radius: cs.borderTopLeftRadius };
+      }),
+    ),
+  );
   for (const r of materials) {
-    check(`${r.sel} 零陰影`, r.shadow === 'none', r.shadow);
-    check(`${r.sel} 零木紋`, r.image === 'none', r.image);
     check(`${r.sel} 零透視`, r.perspective === 'none', r.perspective);
     check(`${r.sel} 零圓角`, r.radius === '0px', r.radius);
-    check(`${r.sel} 零濾鏡`, r.filter === 'none', r.filter);
   }
 
   /*
@@ -143,24 +121,18 @@ try {
   await page.waitForTimeout(900);
 
   const dim = await page.evaluate(() => {
-    const jia = document.querySelector('.jia');
-    const ban = document.querySelector('.jia-ban');
-    const cs = getComputedStyle(ban);
-    const before = getComputedStyle(jia, '::before');
+    const tu = document.querySelector('.jia-tu');
+    const cs = getComputedStyle(tu);
     return {
-      banOpacity: cs.opacity,
-      banDisplay: cs.display,
-      banWidth: ban.getBoundingClientRect().width,
-      uprightOpacity: before.opacity,
-      uprightWidth: before.width,
+      opacity: cs.opacity,
+      display: cs.display,
+      width: tu.getBoundingClientRect().width,
       cover: Boolean(document.querySelector('.ji-kong .shu')),
       coverShape: document.querySelector('.ji-kong .shu')?.dataset.shape,
     };
   });
-  check('書櫃淡到 16%', dim.banOpacity === '0.16', `opacity ${dim.banOpacity}`);
-  check('立板一樣淡到 16%', dim.uprightOpacity === '0.16', `opacity ${dim.uprightOpacity}`);
-  check('書櫃冇消失', dim.banDisplay !== 'none' && dim.banWidth > 100, `${dim.banDisplay} ${dim.banWidth}px`);
-  check('立板冇消失', dim.uprightWidth === '1px', dim.uprightWidth);
+  check('書櫃淡到 16%', dim.opacity === '0.16', `opacity ${dim.opacity}`);
+  check('書櫃冇消失', dim.display !== 'none' && dim.width > 100, `${dim.display} ${dim.width}px`);
   check('取咗嗰本變咗封面', dim.cover && dim.coverShape === 'closed', dim.coverShape ?? '冇書');
 
   /* ── 五、空狀態 = 得一條虛線書脊 ─────────────────── */
@@ -200,4 +172,4 @@ if (fail.length) {
   for (const f of fail) console.error('  ' + f);
   process.exit(1);
 }
-console.log('✓ 書架：五條線、零木紋零陰影零透視、hover 升 10px、取書淡到 16% 但冇消失');
+console.log('✓ 書架：書房書櫃、書企喺層板上、零透視零圓角、hover 升 10px、取書淡到 16% 但冇消失');

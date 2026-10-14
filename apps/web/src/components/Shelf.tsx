@@ -4,16 +4,31 @@ import { Link } from '@/i18n/navigation';
 import type { Spine } from '@/lib/shelf';
 
 /**
- * 書架（工單 E3 · 視覺系統 §8）
+ * 書架（工單 E3 · 2026-10-15 改版）
  *
- * 五條線：頂板、兩塊立板、兩塊層板。冇第六條，亦都冇任何一張圖。
+ * ── 由五條線變成書房入面一個真書櫃 ──
  *
- * ── 取書唔係跳版 ──
+ * 舊版係五條 1px 線（頂板、兩塊立板、兩塊層板），「零木紋、零陰影、零透視」。
+ * 2026-10-15 Issac：書齋、藏經閣、設定成片黑底太過簡潔，要同閱讀頁嘅書桌係同一間書房。
+ * 所以而家個櫃係一張相（`/img/study/shelf.webp`，燈喺左上，同 `desk.webp` 同一盞），
+ * 書脊係同封面一樣嘅墨綠布面、燙金線、紙題簽。
  *
- * 攞咗書落嚟之後，個櫃**淡到 16%，但唔消失**（驗收標準第四條）。
- * 消失咗就變咗「跳去另一版」；留住就仲係「你企喺書齋度，手上攞住一本」。
- * 呢個分別就係六幕流程同五個頁嘅分別。
+ * ── 書點樣企得準層板 ──
+ *
+ * 張相用「高度貼滿」（background-size: auto 100%），所以層板嘅**上下位置**喺任何闊度都唔變：
+ * 三塊層板面喺相高 30.2%、56%、79.6%（2026-10-15 量相素）。闊窄只係左右裁多少 ——
+ * 每層由邊度開始、去到邊度，用 CSS 變數按闊度改（globals.css `.jia`）。
+ *
+ * ── 取書唔係跳版（舊規矩照留）──
+ *
+ * 攞咗書落嚟之後，個櫃**淡到 16%，但唔消失**。消失咗就變咗「跳去另一版」；
+ * 留住就仲係「你企喺書齋度，手上攞住一本」。
  */
+
+/** 每層最多幾本（手機一層大約放得落十本）。多過三層嘅擺喺個櫃下面。 */
+const PER_ROW = 10;
+const ROWS = 3;
+
 export function Shelf({
   spines,
   taken,
@@ -29,29 +44,32 @@ export function Shelf({
   children?: ReactNode;
 }) {
   const dim = taken ? '1' : '0';
+  const rows = Array.from({ length: ROWS }, (_, i) => spines.slice(i * PER_ROW, (i + 1) * PER_ROW));
+  const rest = spines.slice(ROWS * PER_ROW);
+
+  const el = (spine: Spine) =>
+    spine.key === taken ? (
+      <div key={spine.key} className="ji-kong">
+        {children}
+      </div>
+    ) : (
+      <SpineEl key={spine.key} spine={spine} onTake={onTake} />
+    );
 
   return (
-    <div className="jia" data-dim={dim}>
-      {/* 頂板 */}
-      <div className="jia-ban" />
-      <div className="jia-ding-dai" />
-      {/* 層板一 */}
-      <div className="jia-ban" />
-
-      <div className="jia-ge">
-        {spines.map((spine) =>
-          spine.key === taken ? (
-            <div key={spine.key} className="ji-kong">
-              {children}
+    <div className="jia-wai">
+      <div className="jia" data-dim={dim}>
+        {/* 個櫃本身：一張相。淡嗰陣淡呢層，書照企喺度 */}
+        <div className="jia-tu" aria-hidden="true" />
+        {rows.map((row, i) =>
+          row.length ? (
+            <div key={i} className="jia-ceng" data-ceng={i}>
+              {row.map(el)}
             </div>
-          ) : (
-            <SpineEl key={spine.key} spine={spine} onTake={onTake} />
-          ),
+          ) : null,
         )}
       </div>
-
-      {/* 層板二 —— 書企喺呢塊上面 */}
-      <div className="jia-ban" />
+      {rest.length ? <div className="jia-yu">{rest.map(el)}</div> : null}
     </div>
   );
 }
@@ -63,14 +81,15 @@ function SpineEl({ spine, onTake }: { spine: Spine; onTake?: (key: string) => vo
    * （2026-10-09 英文手機 feedback）。中文名照舊逐個字直排。
    */
   const latin = /[A-Za-z]/.test(spine.label) && !/\p{Script=Han}/u.test(spine.label);
-  const inner = latin ? (
-    <span className="ji-xi">{spine.label}</span>
-  ) : (
-    <>
-      {[...spine.label].map((zi, i) => (
-        <span key={`${zi}-${i}`}>{zi}</span>
-      ))}
-    </>
+  const inner = (
+    /* 紙題簽：書名寫喺一張貼喺書脊上面嘅紙度，同線裝書一樣 */
+    <span className="ji-qian">
+      {latin ? (
+        <span className="ji-xi">{spine.label}</span>
+      ) : (
+        [...spine.label].map((zi, i) => <span key={`${zi}-${i}`}>{zi}</span>)
+      )}
+    </span>
   );
 
   const props = {
@@ -81,21 +100,25 @@ function SpineEl({ spine, onTake }: { spine: Spine; onTake?: (key: string) => vo
     'aria-label': spine.kind === 'new' ? t('newBookAria') : spine.label,
   };
 
+  const body = (
+    <span aria-hidden="true" className="contents">
+      {inner}
+      {/* 在讀嗰本：一條朱砂書簽帶由書底垂落層板 */}
+      {spine.reading ? <span className="ji-dai" /> : null}
+    </span>
+  );
+
   if (onTake) {
     return (
       <button type="button" {...props} onClick={() => onTake(spine.key)}>
-        <span aria-hidden="true" className="contents">
-          {inner}
-        </span>
+        {body}
       </button>
     );
   }
 
   return (
     <Link href={spine.href} {...props}>
-      <span aria-hidden="true" className="contents">
-        {inner}
-      </span>
+      {body}
     </Link>
   );
 }

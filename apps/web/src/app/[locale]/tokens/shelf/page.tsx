@@ -38,7 +38,7 @@ export default async function ShelfDemoPage({
           <h1 className="mt-3 text-h1 font-semibold tracking-[0.16em]">書架</h1>
         </div>
         <p className="max-w-[26rem] text-sm leading-[1.9] tracking-[0.06em] text-ink-2">
-          工單 E3。五條線：頂板、兩塊立板、兩塊層板。零木紋、零陰影、零透視。
+          工單 E3（2026-10-15 改版）。書房書櫃一張相，書脊墨綠布面、燙金線、紙題簽，企喺層板上。零透視、零圓角。
           最近讀嗰本喺最左，在讀嗰本轉朱砂，hover 升 10px。
         </p>
         <ThemeToggle dayLabel="日讀" nightLabel="夜讀" />

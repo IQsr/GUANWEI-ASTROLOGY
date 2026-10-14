@@ -26,13 +26,15 @@
  *
  * ⚠ `.fanye-tai`（翻頁嗰頁紙）掛喺 body，唔喺本書入面 —— 唔喺呢度宣告就會跟 `:root`
  * 嘅夜讀值，深色模式之下翻嗰頁變咗黑色（2026-09，Issac 撞到）。`.yindao`（第一次打開嘅引導紙箋）一樣。
+ * `.xinjian`（設定頁擺喺書桌上嘅信箋，2026-10-15）一樣：紙永遠係紙色。
  */
 :root,
 .ye-ink .shu-wrap,
 .ye-ink .fan-wrap,
 .ye-ink .shuzhuo,
 .fanye-tai,
-.yindao {
+.yindao,
+.xinjian {
   /* ── 紙 ── */
   --paper: #eee6d8;
   --paper-2: #e6dcc9;
@@ -1024,154 +1026,228 @@
 }
 
 /* ============================================================
-   書櫃（工單 E3 · 視覺系統 §8 元件 · §6 痕）
+   書櫃（工單 E3 · 2026-10-15 改版：書房入面一個真書櫃）
 
-   ⚠ 成個書櫃**得五條線**：頂板、兩塊立板、兩塊層板。
+   舊版係五條 1px 線、零木紋零陰影零透視。2026-10-15 Issac 改咗：書齋要同閱讀頁嘅
+   書桌係同一間書房，所以個櫃係一張相（/img/study/shelf.webp，燈喺左上），
+   書脊係同封面一樣嘅墨綠布面、上下燙金線、紙題簽。
 
-   零木紋、零陰影、零透視 —— 呢三樣唔係「盡量唔用」，係一樣都冇。
-   視覺系統 §10 將木紋羊皮紙貼圖同圓角投影玻璃列咗入「避」，
-   §2 又寫住「古意來自版式同比例，唔來自貼圖」。
-   一個畫咗木紋嘅書櫃，係一張插圖；五條線嘅書櫃，係一個版式。
-
-   `scripts/check-shelf.mjs` 喺真瀏覽器度數呢五條線，
-   同埋確認冇 box-shadow、冇 background-image、冇 perspective。
+   ⚠ 書企得準層板，靠張相「高度貼滿」：
+     層板面喺相高 30.2%、56%、79.6%（量相素），所以用 cqh 定每層嘅底，任何闊度都對得上。
+     左右只係裁多少 —— 每層開始同完結嘅位置用 --l1 / --l / --r，按闊度改。
+   ⚠ 取書之後個櫃（.jia-tu）淡到 16%，唔消失；書脊收埋。scripts/check-shelf.mjs 量住。
+   ⚠ 書脊唯一嘅位移係 hover 升 10px（冇 scale、冇 rotate、冇 3D）。
    ============================================================ */
 
+.jia-wai {
+  max-width: 1120px;
+  margin-inline: auto;
+}
+
 .jia {
+  --ar: 1586 / 992;
+  /* 第一層由香爐右邊開始；第二三層由左立板開始；右邊到右立板 */
+  --l1: 26cqw;
+  --l: 16.5cqw;
+  --r: 9cqw;
   position: relative;
-  /* 立板喺左右兩邊，所以入面要讓出位 */
-  padding-inline: 22px;
-  /*
-   * ⚠ 個櫃唔可以扯到成版咁闊。
-   *
-   * 第一版係 100%（1080px）。四本書企晒喺左邊，右邊得一大片空 ——
-   * 讀落唔似一個書櫃，似三條界欄夾住幾條直線。
-   * 收返去版心（690）之後比例先啱返：一個櫃應該同一版字一樣闊。
-   */
-  max-width: var(--banxin);
+  aspect-ratio: var(--ar);
+  container-type: size;
+  overflow: hidden;
 }
 
-/* 兩塊立板 —— 成個櫃嘅高度 */
-.jia::before,
-.jia::after {
-  content: "";
+@media (max-width: 900px) {
+  .jia {
+    --ar: 1.2;
+    --l1: 17cqw;
+    --l: 5cqw;
+    --r: 3.5cqw;
+  }
+}
+
+@media (max-width: 560px) {
+  .jia {
+    --ar: 0.8;
+    --l1: 4cqw;
+    --l: 4cqw;
+    --r: 4cqw;
+  }
+}
+
+/* 個櫃：一張相，高度貼滿、左右置中裁；四邊淡入書房嘅黑 */
+.jia-tu {
   position: absolute;
-  inset-block: 0;
-  width: 1px;
-  background: var(--rule);
+  inset: 0;
+  background: #120c07 url("/img/study/shelf.webp") 50% 0 / auto 100% no-repeat;
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 5%, #000 95%, transparent),
+    linear-gradient(to bottom, #000 88%, transparent);
+  -webkit-mask-composite: source-in;
+  mask-image: linear-gradient(to right, transparent, #000 5%, #000 95%, transparent),
+    linear-gradient(to bottom, #000 88%, transparent);
+  mask-composite: intersect;
   transition: opacity var(--dur-2) var(--motion-ease-ink);
 }
 
-.jia::before {
-  inset-inline-start: 0;
-}
-
-.jia::after {
-  inset-inline-end: 0;
-}
-
-/* 頂板、兩塊層板 */
-.jia-ban {
-  height: 1px;
-  background: var(--rule);
-  transition: opacity var(--dur-2) var(--motion-ease-ink);
-}
-
-/* 頂板同層板一之間嗰條淺帶。唔係一格空書架 —— 佢係個櫃嘅頂緣。 */
-.jia-ding-dai {
-  height: 34px;
-}
-
-/* 書格：書脊企喺層板二上面 */
-.jia-ge {
+/* 一層書：底貼住層板面 */
+.jia-ceng {
+  position: absolute;
+  inset-inline: var(--l) var(--r);
   display: flex;
   align-items: flex-end;
-  gap: 10px;
-  min-height: 210px;
-  padding-top: 20px;
+  gap: max(4px, 0.9cqh);
 }
 
-/*
- * ⚠ 取書之後個櫃淡到 16%，**唔消失**。
- *
- * 消失咗就變咗「跳去另一版」；留住就仲係「你喺書齋度，
- * 手上攞住一本」。呢個分別就係六幕流程同五個頁嘅分別。
- */
-.jia[data-dim="1"] .jia-ban,
-.jia[data-dim="1"]::before,
-.jia[data-dim="1"]::after {
+.jia-ceng[data-ceng="0"] {
+  inset-inline-start: var(--l1);
+  bottom: 69.8cqh;
+}
+
+.jia-ceng[data-ceng="1"] {
+  bottom: 44cqh;
+}
+
+.jia-ceng[data-ceng="2"] {
+  bottom: 20.4cqh;
+}
+
+/* 三層都放滿之後嘅書（好少見）：擺喺個櫃下面，唔塞爆 */
+.jia-yu {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 8px;
+  padding: 20px 4px 0;
+}
+
+.jia-yu .ji {
+  height: 120px;
+}
+
+.jia[data-dim="1"] .jia-tu {
   opacity: 0.16;
 }
 
 /* ── 書脊 ────────────────────────────────────────────────
-   直排、左側 3px 書口、在讀嗰本朱砂、hover 升 10px（視覺 §8）。 */
+   墨綠布面（同封面同一匹布）、上下各兩條燙金線、中間一張紙題簽。
+   陰影：左邊微光、右邊收暗，似一本有厚度嘅書；底下一點影落喺櫃背板。 */
 .ji {
+  position: relative;
   display: flex;
-  width: 34px;
-  height: 190px;
+  width: max(28px, 4.8cqh);
+  height: 19.5cqh;
+  min-height: 84px;
   flex: 0 0 auto;
   flex-direction: column;
   align-items: center;
-  gap: 3px;
-  padding: 16px 0 10px;
-  border: 1px solid var(--rule);
-  /* 3px 書口喺左邊 */
-  /* 2026-10-04：墨綠書脊、燙金字 —— 一排排似效果圖嘅書盒 */
-  border-color: var(--jade-2);
-  border-inline-start: 3px solid var(--jade-rule);
-  background: var(--jade);
-  color: var(--gilt-2);
+  padding: max(9px, 1.9cqh) 0 max(7px, 1.4cqh);
+  background-color: #1d3326;
+  background-image: url("/img/book/cloth.webp");
+  background-size: 168px 147px;
+  background-blend-mode: multiply;
+  box-shadow:
+    inset 2px 0 2px rgb(255 240 210 / 0.1),
+    inset -4px 0 5px rgb(0 0 0 / 0.5),
+    5px 3px 7px rgb(0 0 0 / 0.55);
+  color: var(--ink);
   font-family: var(--font-serif-stack);
-  font-size: 14.5px;
+  font-size: max(11px, 1.9cqh);
   line-height: 1.05;
   letter-spacing: 0;
-  /*
-   * 唯一一個位移。視覺 §7 第二條：只准 translateY ≤ 16px ——
-   * 10px 喺入面，而且冇 scale、冇 rotate、冇 3D。
-   */
   transition:
     transform var(--dur-1) var(--motion-ease-ink),
     opacity var(--dur-2) var(--motion-ease-ink),
-    color var(--dur-1) var(--motion-ease-ink),
-    border-color var(--dur-1) var(--motion-ease-ink);
+    filter var(--dur-1) var(--motion-ease-ink);
 }
 
-/* 英文書名打側（見 Shelf.tsx）。拉丁字母冇直排疊字嘅問題，所以可以用 writing-mode */
+/* 上下燙金線：每邊兩條 */
+.ji::before,
+.ji::after {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  height: 4px;
+  border-block: 1px solid rgb(201 173 116 / 0.75);
+}
+
+.ji::before {
+  top: max(4px, 0.8cqh);
+}
+
+.ji::after {
+  bottom: max(3px, 0.6cqh);
+}
+
+/* 紙題簽：書名寫喺上面 */
+.ji-qian {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  min-height: 40%;
+  width: 72%;
+  padding: 5px 0;
+  background: #e9dfc9 url("/img/book/paper.webp") 0 0 / 160px 160px;
+  box-shadow: 0 0 0 1px rgb(60 40 20 / 0.25);
+  color: #2a2620;
+}
+
 .ji-xi {
   writing-mode: vertical-rl;
   text-orientation: mixed;
-  max-height: 160px;
+  max-height: 11cqh;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  font-size: 13px;
-  letter-spacing: 0.06em;
+  font-size: max(10px, 1.6cqh);
+  letter-spacing: 0.04em;
 }
 
-.ji:hover {
+.ji:hover,
+.ji:focus-visible {
   transform: translateY(-10px);
-  border-color: var(--gilt-2);
-  color: var(--gilt);
+  filter: brightness(1.12);
 }
 
-/* 在讀嗰本。朱砂喺呢度嘅意思係「你停咗喺呢度」。 */
-.ji[data-reading="1"] {
-  border-inline-start-color: var(--cinnabar);
-  color: var(--gilt);
+/* 在讀嗰本：一條朱砂書簽帶由書底垂落層板 */
+.ji-dai {
+  position: absolute;
+  bottom: -9px;
+  left: 58%;
+  width: 4px;
+  height: 22px;
+  background: var(--cinnabar);
+  box-shadow: 1px 1px 2px rgb(0 0 0 / 0.5);
 }
 
-/* 待時辰、＋ 新書：虛線。 */
-.ji[data-kind="awaiting"],
-.ji[data-kind="new"] {
-  border-style: dashed;
-  border-color: var(--rule);
-  background: none;
-  color: var(--ink-3);
+/* 待時辰：未染色嘅素布 —— 書已經開咗，等你補時辰 */
+.ji[data-kind="awaiting"] {
+  background-color: #8d8270;
+  color: #2a2620;
 }
 
+/* ＋ 新書：櫃入面一格空位，只得一張空白題簽同一圈金色虛線 */
 .ji[data-kind="new"] {
   justify-content: center;
-  padding-top: 10px;
+  border: 1px dashed rgb(201 173 116 / 0.55);
+  background: rgb(18 12 7 / 0.35);
+  box-shadow: none;
+}
+
+.ji[data-kind="new"]::before,
+.ji[data-kind="new"]::after {
+  content: none;
+}
+
+.ji[data-kind="new"] .ji-qian {
+  min-height: 0;
+  background: none;
+  box-shadow: none;
+  color: rgb(233 223 201 / 0.82);
+}
+
+.ji[data-kind="new"]:hover,
+.ji[data-kind="new"]:focus-visible {
+  border-color: rgb(201 173 116 / 0.95);
 }
 
 .jia[data-dim="1"] .ji {
@@ -1190,11 +1266,13 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .ji {
+  .ji,
+  .jia-tu {
     transition: none !important;
   }
 
-  .ji:hover {
+  .ji:hover,
+  .ji:focus-visible {
     transform: none !important;
   }
 }
@@ -4524,4 +4602,211 @@ select.zhou-xian {
   font-style: normal;
   font-weight: 600;
   color: var(--ink);
+}
+
+/* ============================================================
+   藏經閣（2026-10-15 改版）
+
+   之前黑底一列列字。而家同書齋、書桌係同一間書房：
+   頂一張經櫃夜景（/img/study/cangjing.webp，燈喺左上 —— 標題擺右邊暗位），
+   藏書簿紙條記住詞條數同單一來源數，每一類詞條係一個木櫃，每一條係一格：
+   紙題簽寫名，下面兩行摘要。
+   ⚠ 相同櫃係深色實物，日讀夜讀都一樣 —— 所以入面嘅字色寫死淺色，唔跟 --ink。
+   ============================================================ */
+
+.jing-tou {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  min-height: clamp(300px, 38vw, 540px);
+  margin-inline: calc(50% - 50vw);
+  padding: clamp(28px, 5vw, 72px) clamp(20px, 6vw, 96px) 120px;
+  background: #0e0906 url("/img/study/cangjing.webp") 30% 100% / cover no-repeat;
+  color: #eee6d8;
+}
+
+/* 右邊壓暗墊字、底部淡入版面底色 */
+.jing-tou::before,
+.jing-tou::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.jing-tou::before {
+  background: linear-gradient(to left, rgb(10 7 4 / 0.82) 0%, rgb(10 7 4 / 0.45) 45%, rgb(10 7 4 / 0) 75%);
+}
+
+.jing-tou::after {
+  background: linear-gradient(to bottom, transparent 62%, var(--paper));
+}
+
+.jing-tou-zi {
+  position: relative;
+  z-index: 1;
+  max-width: 30rem;
+}
+
+.jing-tou-zi p {
+  color: rgb(238 230 216 / 0.82);
+}
+
+@media (max-width: 640px) {
+  .jing-tou {
+    align-items: flex-end;
+    justify-content: flex-start;
+    min-height: 420px;
+    padding-bottom: 96px;
+    background-position: 22% 100%;
+  }
+
+  .jing-tou::before {
+    background: linear-gradient(to top, rgb(10 7 4 / 0.9) 15%, rgb(10 7 4 / 0.35) 60%, rgb(10 7 4 / 0.1));
+  }
+}
+
+.jing-ben {
+  position: relative;
+  max-width: 1120px;
+  margin-inline: auto;
+  padding-inline: clamp(16px, 4vw, 40px);
+}
+
+/* 藏書簿：一張紙條，壓住張相底 */
+.jing-bu {
+  position: relative;
+  z-index: 1;
+  max-width: 26rem;
+  margin-top: -72px;
+  padding: 16px 20px 14px;
+  background: #e9dfc9 url("/img/book/paper.webp") 0 0 / 240px 240px;
+  box-shadow: 0 8px 22px rgb(0 0 0 / 0.45);
+  color: #2a2620;
+}
+
+.jing-lei {
+  font-family: var(--font-serif-stack);
+  font-size: var(--text-h3, 1.25rem);
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  color: var(--gold-ink);
+}
+
+/* 一個櫃：木框，入面一格格 */
+.jing-gui {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
+  gap: 6px;
+  margin-top: 14px;
+  padding: 6px;
+  background: #2a190d url("/img/study/shelf.webp") 50% 40% / 260% auto;
+  box-shadow:
+    inset 0 0 0 1px rgb(201 173 116 / 0.18),
+    0 10px 30px rgb(0 0 0 / 0.5);
+  list-style: none;
+}
+
+.jing-ge {
+  display: flex;
+  height: 100%;
+  min-height: 116px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 14px 16px 16px;
+  background: #0d0805;
+  box-shadow: inset 0 3px 10px rgb(0 0 0 / 0.85);
+  transition: background-color var(--dur-1) var(--motion-ease-ink);
+}
+
+.jing-ge:hover,
+.jing-ge:focus-visible {
+  background: #1a100a;
+}
+
+.jing-ge:focus-visible {
+  outline: 2px solid var(--gilt);
+  outline-offset: -2px;
+}
+
+/* 紙題簽：詞條名 */
+.jing-qian {
+  padding: 3px 12px 4px;
+  background: #e9dfc9 url("/img/book/paper.webp") 0 0 / 160px 160px;
+  box-shadow: 0 2px 4px rgb(0 0 0 / 0.6);
+  color: #23201b;
+  font-family: var(--font-serif-stack);
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  transition: transform var(--dur-1) var(--motion-ease-ink);
+}
+
+.jing-qian-xi {
+  letter-spacing: 0.02em;
+  font-size: 1.05rem;
+}
+
+.jing-ge:hover .jing-qian,
+.jing-ge:focus-visible .jing-qian {
+  transform: translateY(-2px);
+}
+
+/* 摘要：兩行，句子由 teaserFor() 保證完整 */
+.jing-zhai {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  font-family: var(--font-sans-stack, sans-serif);
+  font-size: 0.85rem;
+  line-height: 1.75;
+  color: rgb(233 223 201 / 0.74);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .jing-ge,
+  .jing-qian {
+    transition: none !important;
+  }
+
+  .jing-ge:hover .jing-qian,
+  .jing-ge:focus-visible .jing-qian {
+    transform: none !important;
+  }
+}
+
+/* 全闊張相用 100vw，會多出一條捲軸嘅闊度；呢版橫向裁走（clip 唔會開捲動容器） */
+.jing-ye {
+  overflow-x: clip;
+  /* 張相緊貼頂嘅導覽列：唔要 .tai 個天頭 */
+  padding-top: 0 !important;
+}
+
+
+/* ============================================================
+   設定：書桌上嘅信箋（2026-10-15 改版）
+
+   之前成版黑底三張卡。而家同閱讀頁一樣擺喺書桌（NightScene table），
+   匯出、重排、刪除各寫喺一張信箋上。信箋入面嘅色變數喺頂嗰組 `:root, … .xinjian`
+   轉返紙色 —— 所以入面嘅表格、掣、重排表照用 token，唔使逐個改。
+   ============================================================ */
+.xinjian {
+  border: 0;
+  border-radius: 0;
+  background: var(--paper) url("/img/book/paper.webp") 0 0 / 320px 320px repeat;
+  box-shadow:
+    0 2px 0 rgb(0 0 0 / 0.2),
+    0 30px 70px -28px rgb(0 0 0 / 0.85);
+  color: var(--ink);
+}
+
+/* 刪除嗰張：信箋頂一條朱砂線，提你呢張唔同 */
+.xinjian.xinjian-zhu {
+  box-shadow:
+    inset 0 3px 0 var(--cinnabar),
+    0 2px 0 rgb(0 0 0 / 0.2),
+    0 30px 70px -28px rgb(0 0 0 / 0.85);
 }

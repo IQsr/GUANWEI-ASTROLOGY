@@ -97,7 +97,8 @@ export default async function ShelfPage({ params }: { params: Promise<{ locale: 
             {t('intro')}
           </p>
 
-          <div className="banxin">
+          {/* 書櫃比版心闊（2026-10-15）：一個櫃擺喺書房度，唔係一段字 */}
+          <div className="px-2 md:px-6">
             {/* 簡體：書脊上嘅名（包括留空時嘅「無名」）由繁體轉 */}
             <Shelf spines={view.spines.map((s) => ({ ...s, label: zhFor(locale, s.label) }))} />
           </div>
