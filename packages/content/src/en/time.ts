@@ -337,7 +337,7 @@ export function timeTemplate(s: string, missing: string[], h: TimeHelpers): stri
     const steps = m[1]!.split('、').map((x) => /^第(\S+?)步$/.exec(x)?.[1]).map((x) => (x && n(x) ? ordinalWord(n(x)!) : null));
     if (steps.every(Boolean)) {
       const one = steps.length === 1;
-      return `The key ${one ? 'stage' : 'stages'} in your chart ${one ? 'is' : 'are'} the ${listEn(steps as string[])} ${one ? 'step' : 'steps'}: what you gain and lose ${one ? 'there' : 'in them'} shapes your life more than anything else.`;
+      return `The key ${one ? 'stage' : 'stages'} in your chart ${one ? 'is' : 'are'} the ${listEn(steps as string[])} ${one ? 'step' : 'steps'}: what you gain and lose ${one ? 'there' : 'in them'} has a particularly strong influence on your life.`;
     }
   }
   m = new RegExp(`^第(\\S+?)步　(\\S+?)至(\\S+?)歲　(\\S+?宮)，(${SEAT})。$`).exec(s);

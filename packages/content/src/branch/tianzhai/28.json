@@ -71,6 +71,12 @@
               ],
               "at": "same"
             }
+          },
+          {
+            "not": {
+              "star": "廉貞",
+              "at": "same"
+            }
           }
         ]
       },
@@ -108,8 +114,8 @@
           ]
         }
       },
-      "text": "貪狼主散不主聚，稍見刑忌，你的產業就容易生事端。",
-      "en": "Tan Lang scatters rather than gathers: the slightest harsh influence stirs up trouble over property.",
+      "text": "貪狼主散不主聚，你的產業不容易聚攏，遇上變數就容易生事端。",
+      "en": "Tan Lang scatters rather than gathers: your property does not easily come together, and when things change, trouble over it stirs up easily.",
       "source": {
         "passage": "deep.田宅.貪狼.3",
         "quote": "贪狼主散不主聚"

@@ -1,6 +1,7 @@
 {
   "$note": "英文翻譯表（2026-10-05 起 · 試做命宮）。key = 內容庫砌出嚟嘅中文句（或者句入面嘅一截），value = 英文。中文改咗 key 就對唔上，en-pilot 測試會列出缺邊句。術語跟 terms.ts、語氣跟 docs/en-voice.md。",
   "sentences": {
+    "貪狼主散不主聚，稍見刑忌，你的產業就容易生事端。": "Tan Lang scatters rather than gathers: the slightest harsh influence stirs up trouble over property.",
     "天機太陰會天同化忌，你的伴侶容易過份敏感，婚姻較易起風波。": "Tian Ji–Tai Yin meets Tian Tong in Obstruction: your partner can be oversensitive, and the marriage more easily runs into storms.",
     "巨門會祿權科而煞星少，你的伴侶任勞任怨，肯為家裡付出。": "Ju Men meets Abundance, Authority or Recognition with few harsh stars: your partner works hard without complaint and gives a lot to the home.",
     "太陰坐亥，你的伴侶一般手頭寬裕，經濟條件不錯。": "With Tai Yin in Hai, your partner is generally comfortably off.",
@@ -766,7 +767,7 @@
     "太陰照顧細節，讓被照顧的一方感到安全，也容易變成過度貼近——替對方預先想好，反而減少了對方自己判斷的機會。": "This makes those cared for feel safe, and can also become too close — thinking things through for them in advance leaves them fewer chances to judge for themselves.",
     "太陰落陷時，同樣的細心會轉成憂慮，表現為反覆確認而不是放手。": "When Tai Yin is weak, the same attentiveness turns into worry, showing up as checking again and again rather than letting go.",
     "多留一點不確定給對方，反而是你最需要練習的事。": "Leaving them a little more uncertainty is what you most need to practise.",
-    "《全書》寫「入廟富足倉箱，陷宮成敗不聚」，核心在聚與不聚。": "The *Complete Book* says \"full granaries when strong; when weak, gains and losses that don't add up\" — the heart of it is whether money gathers or not.",
+    "《全書》寫「入廟富足倉箱，陷宮成敗不聚」，核心在聚與不聚。": "The *Complete Book* says \"full granaries when strong; when weak, fortunes rise and fall without gathering\" — the heart of it is whether money gathers or not.",
     "太陰處理資源的方式是慢慢積：小額、長期、不聲張，而且傾向於留給具體的用途而不是泛泛儲蓄。": "Tai Yin has you build up slowly: small amounts, over a long time, without fuss, and usually for a specific purpose rather than general saving.",
     "太陰處理資源是慢慢積，小額、長期、不聲張，而且傾向於留給具體的用途，而不是泛泛儲蓄。": "Tai Yin has you build up slowly: small amounts, over a long time, without fuss, and usually for a specific purpose rather than general saving.",
     "它對開銷敏感，對突然的支出尤其不安。": "You're sensitive to spending, and especially uneasy about sudden expenses.",
@@ -1359,6 +1360,7 @@
     "遷移宮的三方四正見多顆煞曜。": "Several harsh stars fall in the four directions of the Travel Palace.",
     "你在外的樣子不變，變的是要應付的條件較多：離開熟悉的地方之後，重新架起生活的節奏往往要花時間。": "Who you are away from home doesn't change; what changes is that there's more to handle, and after leaving familiar ground it usually takes time to rebuild the rhythm of daily life.",
     "離開熟悉的地方之後，你要重新架起生活的節奏，往往比別人多花一點時間。": "After leaving familiar ground, it usually takes you a little longer than others to rebuild the rhythm of your life.",
+    "和人相處或許不難，真正花時間的，是離開熟悉的地方之後，重新架起你自己的生活節奏。": "Getting on with people may not be hard; what takes time is rebuilding your own rhythm of life after leaving familiar ground.",
     "僕役宮的三方四正見多顆煞曜。": "Several harsh stars fall in the four directions of the Friends Palace.",
     "人群裡的來往條件較多，親疏的界線不容易一次劃清。": "In groups, you rarely find your footing all at once; the line between close and distant is hard to draw once and for all.",
     "在人群裡，誰親誰疏不容易一次劃清，你的交情要慢慢看。": "In a crowd, it's hard to sort out at once who is close and who isn't; your friendships take time to read.",
@@ -1397,6 +1399,7 @@
     "田宅宮的三方四正見多顆吉曜。": "Several helpful stars fall in the four directions of the Property Palace.",
     "要安頓下來，阻力比較小：住處和家裡的事，多半順手。": "Settling in meets less resistance: matters of home and household mostly go smoothly.",
     "你要安頓下來，阻力比較小，住處和家裡的事多半順手。": "Settling down meets less resistance for you; where you live and matters at home mostly fall into place.",
+    "日常住處和家裡的事多半順手，你要安頓下來阻力比較小；這和家產守不守得住是兩回事。": "Day-to-day living arrangements and matters at home mostly fall into place, and settling down meets little resistance for you; that is a separate matter from whether family property holds.",
     "福德宮的三方四正見多顆吉曜。": "Several helpful stars fall in the four directions of the Wellbeing Palace.",
     "你安頓自己的方式照舊，但內在可以安放自己的地方比較多。": "The way you settle yourself stays the same, but you have more places inside to rest in.",
     "父母宮的三方四正見多顆吉曜。": "Several helpful stars fall in the four directions of the Parents Palace.",

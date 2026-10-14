@@ -297,13 +297,13 @@ T.append({'id': '貪狼.田宅', 'stars': ['貪狼'], 'rules': [
    '同宮有火星或鈴星，自置豐厚，只是房子總有破損，古人說「火貪宜住舊宅華廈」。',
    'With Huo Xing or Ling Xing in the palace, you acquire plenty, though the house always has some wear; the old saying is that this suits a grand old home.',
    '若入庙与火铃同度，则自置丰厚，但所住之房宅必有破损。即所谓[火贪宜住旧宅华厦]。', '则自置丰厚'),
- R('田宅.貪狼.吉', {'all': [{'any': [GOODHUA, {'star': '祿存', 'at': 'same'}, CHANGQU]}, {'not': FIRE}]},
+ R('田宅.貪狼.吉', {'all': [{'any': [GOODHUA, {'star': '祿存', 'at': 'same'}, CHANGQU]}, {'not': FIRE}, {'not': {'star': '廉貞', 'at': 'same'}}]},
    '見〔吉化〕、祿存或文昌文曲，你的產業耐久而豐盛。',
    'With 〔good transformations〕, Lu Cun, Wen Chang or Wen Qu, your property lasts and grows.',
    '贪狼入庙，无火铃，但有吉星同度会照，如吉化、禄存、昌曲、则产业耐久且丰盛。', '则产业耐久且丰盛'),
  R('田宅.貪狼.本', {'not': {'any': [{'star': ['火星', '鈴星'], 'at': 'same'}, {'hua': '祿', 'at': 'same'}, {'star': ['祿存', '武曲'], 'at': 'same'}]}},
-   '貪狼主散不主聚，稍見刑忌，你的產業就容易生事端。',
-   'Tan Lang scatters rather than gathers: the slightest harsh influence stirs up trouble over property.',
+   '貪狼主散不主聚，你的產業不容易聚攏，遇上變數就容易生事端。',
+   'Tan Lang scatters rather than gathers: your property does not easily come together, and when things change, trouble over it stirs up easily.',
    '贪狼主散不主聚，故稍见刑忌即生事端。', '贪狼主散不主聚', 'base'),
 ]})
 

@@ -6,6 +6,7 @@ import { leanOf, strengthFor, xingxiOf } from './xingxi';
 import { decadeChapter } from './daxian';
 import { AREA } from './link';
 import { yearChapter } from './liunian';
+import { gujiaException } from './branch';
 
 /* ───────────────────────────────────────────────────────────
  * 給你的話（2026-10-02 · 書尾總結，收費章）
@@ -80,7 +81,12 @@ export function epilogueChapter(input: { chart: Chart; year: number }): { slug: 
   const taken = new Set<string>(['命宮']);
 
   /* 長處：骨架嘅長處 → 做事 → 化祿嗰方面 → 錢、在外、心境、家（同前面重複就跳過） */
-  const strengths: { text: string; id: string }[] = [{ text: strengthFor(x.system, leanOf(chart, x.system).pole), id: xid }];
+  /*
+   * 骨架章有原文例外（例如天同化忌、羊陀夾忌：兩種取向之間拉扯）嗰陣，星系嘅通用結論同長處
+   * （「不急不躁」「穩當、可靠」）同正文打架 —— 結論改用骨架嗰句，長處唔用星系通用句（2026-10-14 審稿）。
+   */
+  const exc = gujiaException(chart);
+  const strengths: { text: string; id: string }[] = exc ? [] : [{ text: strengthFor(x.system, leanOf(chart, x.system).pole), id: xid }];
   for (const name of ['官祿', luP?.name, '財帛', '遷移', '福德', '田宅']) {
     if (!name || strengths.length >= 3 || taken.has(name) || name === jiP?.name || name === '疾厄') continue;
     const pp = lineOf(name);
@@ -112,7 +118,7 @@ export function epilogueChapter(input: { chart: Chart; year: number }): { slug: 
   const listed = (xs: { text: string }[]) => xs.map((s, i) => `${NUM[i]}、${s.text}`).join('');
 
   const segments: Seg[] = [
-    { slot: '結論', text: plain.summary, source_id: xid, rule_ids: [] },
+    { slot: '結論', text: exc ? (exc.text.match(/^[^。]*。/)?.[0] ?? exc.text) : plain.summary, source_id: exc ? exc.source.passage : xid, rule_ids: exc ? [exc.id] : [] },
     { slot: '長處', text: `你可以倚仗的：${listed(strengths)}`, source_id: strengths.map((s) => s.id).join('+'), rule_ids: [] },
     { slot: '留意', text: `你要記住的：${listed(watches)}`, source_id: watches.map((w) => w.id).join('+'), rule_ids: [] },
     ...(advice.length ? [{ slot: '時間', text: `時間上，${advice.join('；')}。`, source_id: null, rule_ids: [] }] : []),
