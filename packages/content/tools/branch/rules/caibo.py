@@ -56,7 +56,7 @@ T.append({'id': '紫微天府.財帛', 'stars': ['紫微', '天府'], 'rules': [
 T.append({'id': '紫微貪狼.財帛', 'stars': ['紫微', '貪狼'], 'rules': [
  R('財帛.紫貪.科', H('科', '紫微'),
    '紫微化科，你的錢來得比較長久，不是一陣風。',
-   'Zi Wei in Merit: your money comes in more lastingly, not as a passing gust.',
+   'Zi Wei in Recognition: your money comes in more lastingly, not as a passing gust.',
    '卯酉宫『紫微贪狼』亦主骤发，若紫徽化科，则财来较悠久，', '则财来较悠久'),
  R('財帛.紫貪.祿', H('祿', '貪狼'),
    '貪狼化祿，你的錢來得較急，但也藏著破耗。',
@@ -82,7 +82,7 @@ T.append({'id': '紫微子午.財帛', 'stars': ['紫微'], 'branch': ['子', '�
 T.append({'id': '紫微.財帛', 'stars': ['紫微'], 'rules': [
  R('財帛.紫微.科', H('科', '紫微'),
    '紫微化科，你適合憑名聲和信譽賺錢，口碑就是本錢。',
-   'Zi Wei in Merit: you do well earning on your name and reputation; your good name is your capital.',
+   'Zi Wei in Recognition: you do well earning on your name and reputation; your good name is your capital.',
    '紫微化科，则宜凭名誉、商誉以求财。', '则宜凭名誉、商誉以求财'),
  R('財帛.紫微.本', {'not': {'star': '天府', 'at': 'same'}},
    '紫微不是財星：你的財源可以充裕，卻不容易積聚下來。',
@@ -108,13 +108,13 @@ T.append({'id': '天機巨門.財帛', 'stars': ['天機', '巨門'], 'rules': [
    '若巨门化禄，则主得异族之财。', '则主得异族之财'),
  R('財帛.機巨.巨忌', H('忌', '巨門'),
    '巨門化忌，往往功敗垂成；不如隨緣，或做競爭較小的行業。',
-   'Ju Men in Hindrance: success often slips away at the last step; go with the flow, or choose a less competitive line.',
+   'Ju Men in Obstruction: success often slips away at the last step; go with the flow, or choose a less competitive line.',
    '若巨门化忌，则往往功败垂成，枉抛心力。此时不如随缘，或从事竞争较小的行业。', '或从事竞争较小的行业', 'limit'),
 ]})
 T.append({'id': '天機天梁.財帛', 'stars': ['天機', '天梁'], 'rules': [
  R('財帛.機梁.科', {'any': [H('科', '天機'), H('科', '天梁')]},
    '天機或天梁化科，你名和利可以兼得。',
-   'With Tian Ji or Tian Liang in Merit, you can gain both name and money.',
+   'With Tian Ji or Tian Liang in Recognition, you can gain both name and money.',
    '天机化科或天梁化科，均主名利双收。', '均主名利双收'),
  R('財帛.機梁.梁祿', H('祿', '天梁'),
    '天梁化祿，暗中競爭多，容易受人排擠，要費心思求財。',
@@ -158,7 +158,7 @@ T.append({'id': '天機.財帛', 'stars': ['天機'], 'rules': [
    '天机化禄，则气佳，但仍主财源不只一端，会吉曜，主有多方面的财路。', '主有多方面的财路'),
  R('財帛.天機.忌', H('忌', '天機'),
    '天機化忌，財運稍順就容易受打擊或排擠；逆境時處之泰然，才守得住。',
-   'Tian Ji in Hindrance: as soon as money starts flowing, setbacks or pushback follow; stay calm through the hard spells to keep what you have.',
+   'Tian Ji in Obstruction: as soon as money starts flowing, setbacks or pushback follow; stay calm through the hard spells to keep what you have.',
    '天机化忌，主财运稍顺即遭破坏，打击或排挤。必须于逆境时处之泰然，', '必须于逆境时处之泰然', 'limit'),
 
 ]})
@@ -257,11 +257,11 @@ T.append({'id': '武曲七殺.財帛', 'stars': ['武曲', '七殺'], 'rules': [
 T.append({'id': '武曲破軍.財帛', 'stars': ['武曲', '破軍'], 'rules': [
  R('財帛.武破.忌', H('忌', '武曲'),
    '武曲化忌，你不宜經商，以受雇為宜，更不宜投機。',
-   'Wu Qu in Hindrance: business is not for you; salaried work suits you better, and speculation even less.',
+   'Wu Qu in Obstruction: business is not for you; salaried work suits you better, and speculation even less.',
    '若武曲化忌，则不宜经商，以任职为宜。更不宜投机，', '则不宜经商，以任职为宜'),
  R('財帛.武破.克服', {'hua': ['祿', '權', '科'], 'at': 'sifang'},
    '會到祿權科，一生至少有一次困境，克服之後仍能致富。',
-   'Meeting Abundance, Authority or Merit, you face at least one hard patch in life, and come through it to prosper.',
+   'Meeting Abundance, Authority or Recognition, you face at least one hard patch in life, and come through it to prosper.',
    '『武破』得禄权科会者，一生人亦至少有一次困境，但克服困难之后，仍能致富。', '但克服困难之后，仍能致富'),
  R('財帛.武破.起伏', None,
    '武曲破軍在財帛宮，你一生財帛起伏較大。',
@@ -297,7 +297,7 @@ T.append({'id': '天同太陰.財帛', 'stars': ['天同', '太陰'], 'rules': [
    '太阴化禄，则一生至少有一次意外财源。', '则一生至少有一次意外财源'),
  R('財帛.同陰.忌', {'any': [H('忌', '天同'), H('忌', '太陰')]},
    '天同或太陰化忌，你的錢較難積聚，要刻意去存。',
-   'With Tian Tong or Tai Yin in Hindrance, money is hard for you to build up; saving takes deliberate effort.',
+   'With Tian Tong or Tai Yin in Obstruction, money is hard for you to build up; saving takes deliberate effort.',
    '『天同太阴』若天同化忌，或太阴化忌，财帛皆难积聚。', '财帛皆难积聚', 'limit'),
 ]})
 T.append({'id': '天同巨門.財帛', 'stars': ['天同', '巨門'], 'rules': [
@@ -385,13 +385,13 @@ T.append({'id': '廉貞.財帛', 'stars': ['廉貞'], 'rules': [
 T.append({'id': '天府卯酉.財帛', 'stars': ['天府'], 'branch': ['卯', '酉'], 'rules': [
  R('財帛.天府卯酉.武科', H('科', '武曲', 'opp'),
    '對宮武曲化科，理財能力很好，善於以錢生錢，容易得人信任。',
-   'With Wu Qu in Merit opposite, you manage money very well, make money work for you, and win people’s trust.',
+   'With Wu Qu in Recognition opposite, you manage money very well, make money work for you, and win people’s trust.',
    '若武曲化科，则理财能力甚佳，所渭『以钱生钱』，易得人信任，最宜积集资金。', '则理财能力甚佳'),
 ]})
 T.append({'id': '天府巳亥.財帛', 'stars': ['天府'], 'branch': ['巳', '亥'], 'rules': [
  R('財帛.天府巳亥.掌財', {'all': [H('權', '紫微', 'opp'), H('科', '天府')]},
    '對宮紫微化權、天府化科，一生掌財權，適合基金、財務一類機構。',
-   'With Zi Wei in Authority opposite and Tian Fu in Merit, you hold the purse strings all your life; fund or finance houses suit you.',
+   'With Zi Wei in Authority opposite and Tian Fu in Recognition, you hold the purse strings all your life; fund or finance houses suit you.',
    '巳亥天府为『紫微七杀』相对，最喜紫微化权，天府同时化科，则一生职掌财权。在现代，宜经营基金、财务机构等。', '则一生职掌财权'),
  R('財帛.天府巳亥.惜財', None,
    '你很惜財，手上沒有現金就沒有安全感。',
@@ -411,7 +411,7 @@ T.append({'id': '天府.財帛', 'stars': ['天府'], 'rules': [
    '天府守财帛宫，不主富厚，仅主其人有储财及理财能力。必须见禄，然后始可成富局，禄存或化禄均可。', '必须见禄，然后始可成富局'),
  R('財帛.天府.科', {'all': [{'not': LU}, H('科', '天府')]},
    '不見祿而天府化科，在理財投資上有信譽，別人信得過你。',
-   'Without Lu, Tian Fu in Merit gives you a reputation in managing and investing money; people trust you.',
+   'Without Lu, Tian Fu in Recognition gives you a reputation in managing and investing money; people trust you.',
    '若不见禄，则宜天府化科。此主有信誉，特别于理财及投资方面，必有人予以信赖，', '此主有信誉'),
  R('財帛.天府.本', {'not': LU},
    '天府在財帛宮不代表大富，代表的是你儲財和理財的能力。',
@@ -499,7 +499,7 @@ T.append({'id': '天相巳亥.財帛', 'stars': ['天相'], 'branch': ['巳', '�
    '巳亥天相见禄马交驰，主常得外地提供之生财机会。', '主常得外地提供之生财机会'),
  R('財帛.天相巳亥.武吉', {'all': [{'hua': ['權', '科'], 'star': '武曲', 'at': 'opp'}, {'any': [FUZUO, KUIYUE]}]},
    '對宮武曲化權或化科，又有〔吉星〕，財源較穩定，終有積蓄。',
-   'With Wu Qu in Authority or Merit opposite and 〔helper stars〕 present, income is steadier and you end up with savings.',
+   'With Wu Qu in Authority or Recognition opposite and 〔helper stars〕 present, income is steadier and you end up with savings.',
    '巳亥天相见武曲化权、化科，又有吉曜同拱，则财源较为稳定，且主终有积蓄。', '且主终有积蓄'),
 ]})
 T.append({'id': '天相.財帛', 'stars': ['天相'], 'rules': [
@@ -541,7 +541,7 @@ T.append({'id': '天梁.財帛', 'stars': ['天梁'], 'rules': [
    '天梁不宜化禄，若化禄，反主有纠纷、困扰。', '反主有纠纷、困扰', 'limit'),
  R('財帛.天梁.科', H('科', '天梁'),
    '天梁化科，你先有名聲，錢隨後才來。',
-   'Tian Liang in Merit: reputation comes first for you, and money follows.',
+   'Tian Liang in Recognition: reputation comes first for you, and money follows.',
    '天梁守财帛宫，亦先名后利。故天梁化科，优于天梁化禄。', '故天梁化科，优于天梁化禄'),
  R('財帛.天梁.服務', None,
    '天梁在財帛宮宜以服務為目的，不宜以求財為目的；從商也以受雇為宜。',
@@ -563,7 +563,7 @@ T.append({'id': '七殺寅申.財帛', 'stars': ['七殺'], 'branch': ['寅', '�
    '寅申七杀见禄马交驰，主一生必至少有一次事业上的重大改变。此改变且倾向于良好的转变。', '此改变且倾向于良好的转变'),
  R('財帛.七殺寅申.科', {'any': [H('科', '紫微', 'opp'), H('科', '天府', 'opp')]},
    '對宮紫微或天府化科，你的財雖不橫發，風波也小。',
-   'With Zi Wei or Tian Fu in Merit opposite, no sudden fortune, but few storms either.',
+   'With Zi Wei or Tian Fu in Recognition opposite, no sudden fortune, but few storms either.',
    '喜会紫微化科、天府化科，则虽不横发，但风波亦小。', '则虽不横发，但风波亦小'),
 ]})
 T.append({'id': '七殺辰戌.財帛', 'stars': ['七殺'], 'branch': ['辰', '戌'], 'rules': [
@@ -617,7 +617,7 @@ T.append({'id': '財帛通則', 'stars': [], 'rules': [
    '财帛宫最喜『禄马交驰』，即禄存与天马同度或相对。', '财帛宫最喜『禄马交驰』'),
  R('財帛.通則.文書', {'hua': '忌', 'star': ['文昌', '文曲'], 'at': 'sifang'},
    '文昌或文曲化忌，帶文書失誤的性質：簽約、支票一類事要格外小心。',
-   'Wen Chang or Wen Qu in Hindrance carries a risk of paperwork errors: take extra care with contracts and cheques.',
+   'Wen Chang or Wen Qu in Obstruction carries a risk of paperwork errors: take extra care with contracts and cheques.',
    '尤不喜文昌化忌及文曲化忌。此二星化忌皆有文书失误的性质，须防空头支票，合同纠纷等损失。', '此二星化忌皆有文书失误的性质', 'limit'),
  R('財帛.通則.空劫', KONG,
    '地空或地劫在財帛宮，財帛容易突然有挫折性的變化。',

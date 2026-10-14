@@ -78,8 +78,8 @@ ingest 停喺邊條，就改返嗰條嘅摘錄。
   - 只係標條件（`when`）真係有檢查嗰類星嘅泛稱 —— 條件冇查嗰類星就永遠填唔到，照出泛稱。冇 `when` 嘅規則唔准標。
   - 唔好標否定、讓步、假設同講將來行運嘅（「無煞」「即使見吉」「只要見吉化」「行到⋯又見吉化的那幾步」）：
     嗰啲星唔係而家盤上成立嘅條件。
-  - 英文都要標，數目同中文一樣、次序一樣：「Zi Wei meets 〔harsh stars or Hindrance〕」。英文會填同一批星
-    （`en/render.ts` `fillEn()`）：「Zi Wei meets Qing Yang and Zi Wei in Hindrance」；主星自己嘅四化寫「its own Abundance」。
+  - 英文都要標，數目同中文一樣、次序一樣：「Zi Wei meets 〔harsh stars or Obstruction〕」。英文會填同一批星
+    （`en/render.ts` `fillEn()`）：「Zi Wei meets Qing Yang and Zi Wei in Obstruction」；主星自己嘅四化寫「its own Abundance」。
     〔〕前後嘅英文要填咗星名都讀得通（「well transformed」緊跟星名就唔得，改「with 〔good transformations〕」）。
     填唔到就照出〔〕入面嘅泛稱。
 - **命宮星系（骨架章）用真宮名**：命宮嘅對宮一定係遷移宮，三合一定係財帛宮、官祿宮。寫「對面遷移宮的太陽」，

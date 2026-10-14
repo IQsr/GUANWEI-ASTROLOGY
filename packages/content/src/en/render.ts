@@ -37,7 +37,7 @@ export type Rendered = { text: string; missing: string[] };
  */
 type Slot = { re: RegExp; en: string; phrases: string[]; owners: (string | undefined)[] };
 const SLOTS: Slot[] = [];
-const SLOT_HUA: Record<string, string> = { 祿: 'Abundance', 權: 'Authority', 科: 'Merit', 忌: 'Hindrance' };
+const SLOT_HUA: Record<string, string> = { 祿: 'Abundance', 權: 'Authority', 科: 'Recognition', 忌: 'Obstruction' };
 const SLOT_STARS = Object.keys(STAR_EN).sort((a, b) => b.length - a.length).join('|');
 const SLOT_ITEM = `(?:(?:${SLOT_STARS})?化[祿權科忌]|${SLOT_STARS})`;
 const SLOT_ITEMS = `${SLOT_ITEM}(?:(?:、|，又見)${SLOT_ITEM})*`;
@@ -377,7 +377,7 @@ function listItem(zh: string, missing: string[]): string | null {
 function stripOpener(en: string): string {
   const notTo = /^Keep in mind not to (.+)$/.exec(en);
   if (notTo) return `don't ${notTo[1]}`;
-  const m = /^(?:The catch: |The cost: |The risk is that |Keep in mind that,? |Keep in mind: |The catch is that |The trade-off is that |But |Watch that )(.+)$/.exec(en);
+  const m = /^(?:The catch: |The cost: |The risk is that |Keep in mind that,? |Keep in mind: |The catch is that |The trade-off is that |But |Watch that,? )(.+)$/.exec(en);
   return m ? m[1]! : en;
 }
 
@@ -398,9 +398,9 @@ const VARIANTS = [
   'The other side of this is that ',
   'What complicates this is that ',
   'Keep in mind that ',
-  'Watch that ',
   'The risk is that ',
 ] as const;
+/* 2026-10-14：「Watch that」唔再輪換 —— 後面接祈使句（Stay too long⋯）就讀唔通 */
 /* 唔用「But」：翻譯表本身好多句已經用 But 開頭（生活場景等），再輪多一個就會連續兩句 But。
    唔用「The difficulty is that」：留畀翻譯表嗰八句「難處是⋯」，輪換用咗會同下一章撞款 */
 

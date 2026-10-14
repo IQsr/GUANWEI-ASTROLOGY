@@ -39,13 +39,13 @@ T.append({'id': '紫微天府.福德', 'stars': ['紫微', '天府'], 'rules': [
    '寅申宫[紫破天府]，有吉曜朝拱则福厚，且宽厚大度，无则劳心，再见煞则多迟疑不决，进退失据，以致劳累不安。', '无则劳心', 'limit'),
  R('福德.紫府.化', {'any': [H('科', '紫微'), H('權', '紫微'), H('科', '天府')]},
    '紫微或天府化科化權，你的自尊心很重。',
-   'With Zi Wei or Tian Fu in Merit or Authority, your self-respect runs very deep.',
+   'With Zi Wei or Tian Fu in Recognition or Authority, your self-respect runs very deep.',
    '[紫府]化科、化权，自尊心极重。', '[紫府]化科、化权，自尊心极重'),
 ]})
 T.append({'id': '紫微貪狼.福德', 'stars': ['紫微', '貪狼'], 'rules': [
  R('福德.紫貪.忌', H('忌', '貪狼'),
    '貪狼化忌，多奔波勞碌，也常因為不能當機立斷而事後追悔。',
-   'Tan Lang in Hindrance: you rush about, and often regret not deciding sooner.',
+   'Tan Lang in Obstruction: you rush about, and often regret not deciding sooner.',
    '倘贪狼化忌，则主多奔波劳碌，且往往因不能当机立断而常生追悔之心。', '且往往因不能当机立断而常生追悔之心', 'limit'),
  R('福德.紫貪.火鈴', FIRE,
    '紫微貪狼與火星或鈴星同宮，你的想法積極、向前看。',
@@ -233,7 +233,7 @@ T.append({'id': '廉貞天府.福德', 'stars': ['廉貞', '天府'], 'rules': [
    '廉贞天府愤}；不加，一生自得其乐。能忙里偷闲，或虽忙碌而仍多乐趣。', '能忙里偷闲，或虽忙碌而仍多乐趣', 'base'),
  R('福德.廉府.科', H('科', '天府'),
    '天府化科，你外表平易近人，其實自尊心很重。',
-   'Tian Fu in Merit: easy-going on the surface, but proud underneath.',
+   'Tian Fu in Recognition: easy-going on the surface, but proud underneath.',
    '[廉贞天府]而天府化科者，外表平易，其实自尊心甚重。', '外表平易，其实自尊心甚重'),
 ]})
 T.append({'id': '廉貞天相.福德', 'stars': ['廉貞', '天相'], 'rules': [
@@ -291,7 +291,7 @@ T.append({'id': '廉貞七殺.福德', 'stars': ['廉貞', '七殺'], 'rules': [
 T.append({'id': '廉貞.福德', 'stars': ['廉貞'], 'rules': [
  R('福德.廉貞.忌', H('忌', '廉貞'),
    '廉貞化忌，你多憂多慮，心事放不下。',
-   'Lian Zhen in Hindrance: you worry a great deal and find it hard to put things down.',
+   'Lian Zhen in Obstruction: you worry a great deal and find it hard to put things down.',
    '廉贞化忌，主多忧多虑，', '廉贞化忌，主多忧多虑'),
  R('福德.廉貞.祿', H('祿', '廉貞'),
    '廉貞化祿，你懂得享受書畫琴棋之樂。',
@@ -307,7 +307,7 @@ T.append({'id': '廉貞.福德', 'stars': ['廉貞'], 'rules': [
 T.append({'id': '天府.福德', 'stars': ['天府'], 'rules': [
  R('福德.天府.科', H('科', '天府'),
    '天府化科，你重信用，答應了的事會做到。',
-   'Tian Fu in Merit: you value trust, and what you promise you deliver.',
+   'Tian Fu in Recognition: you value trust, and what you promise you deliver.',
    '天府化科，则重信诺。', '天府化科，则重信诺'),
  R('福德.天府.輔佐', FUZUO,
    '見左輔右弼，你內心安靜，也有決斷力。',
@@ -343,7 +343,7 @@ T.append({'id': '太陰辰戌.福德', 'stars': ['太陰'], 'branch': ['辰', '�
 T.append({'id': '太陰.福德', 'stars': ['太陰'], 'rules': [
  R('福德.太陰.忌', H('忌', '太陰'),
    '太陰化忌，你內心不容易安寧，常有牽掛。',
-   'Tai Yin in Hindrance: inner peace does not come easily, and something is often on your mind.',
+   'Tai Yin in Obstruction: inner peace does not come easily, and something is often on your mind.',
    '太阴化忌，不见煞!亦主内心不安宁。', '亦主内心不安宁', 'limit'),
  R('福德.太陰.本', {'not': {'star': ['太陽', '天機'], 'at': 'same'}},
    '太陰性靜，在福德宮，你喜歡寧靜；就算環境熱鬧，也能鬧中取靜，只是競爭心不強。',
@@ -379,7 +379,7 @@ T.append({'id': '巨門.福德', 'stars': ['巨門'], 'rules': [
    '巨门化禄、化权，主人事无大小必须过问，而且很难接受别人的决定，遇事必加己见。', '而且很难接受别人的决定'),
  R('福德.巨門.忌', H('忌', '巨門'),
    '巨門化忌，你常常追悔，也過份追求理想。',
-   'Ju Men in Hindrance: you often have regrets, and chase ideals too hard.',
+   'Ju Men in Obstruction: you often have regrets, and chase ideals too hard.',
    '巨门化忌则常追悔，而且过份追求理想。', '巨门化忌则常追悔', 'limit'),
  R('福德.巨門.本', None,
    '巨門在福德宮，你容易費神：往往決定得太快，事後又後悔；或者事事都要親力親為。',
@@ -411,7 +411,7 @@ T.append({'id': '天相.福德', 'stars': ['天相'], 'rules': [
 T.append({'id': '天梁.福德', 'stars': ['天梁'], 'rules': [
  R('福德.天梁.科', H('科', '天梁'),
    '天梁化科，你聰明敏銳，宜做學術研究。',
-   'Tian Liang in Merit: sharp and quick, suited to scholarship.',
+   'Tian Liang in Recognition: sharp and quick, suited to scholarship.',
    '天梁化禄主招忌；化权，则自尊心极重；化科则主聪明敏睿，宜学术研究。', '化科则主聪明敏睿，宜学术研究'),
  R('福德.天梁.權', H('權', '天梁'),
    '天梁化權，你的自尊心很重，受不得輕視。',

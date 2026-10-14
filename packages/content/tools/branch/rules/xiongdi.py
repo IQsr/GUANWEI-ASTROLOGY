@@ -71,7 +71,7 @@ T.append({'id': '天機太陰.兄弟', 'stars': ['天機', '太陰'], 'rules': [
    '若更见禄马交驰，则有远方友人助力。', '则有远方友人助力'),
  R('兄弟.機陰.忌', {'hua': '忌', 'star': ['天機', '太陰'], 'at': 'same'},
    '天機或太陰化忌，你的兄弟朋友之間容易有權術。',
-   'With Tian Ji or Tai Yin in Hindrance, scheming creeps in among siblings and friends.',
+   'With Tian Ji or Tai Yin in Obstruction, scheming creeps in among siblings and friends.',
    '寅申宫[天机太阴]同度，见化忌，则兄弟朋友间皆易生权术阴谋。', '则兄弟朋友间皆易生权术阴谋', 'limit'),
 ]})
 T.append({'id': '天機巨門.兄弟', 'stars': ['天機', '巨門'], 'rules': [
@@ -289,11 +289,11 @@ T.append({'id': '天府.兄弟', 'stars': ['天府'], 'rules': [
    '天府守兄弟宫，见煞忌刑曜主兄弟少或主多而刑克；见辅佐诸曜始主兄弟众多。', '见辅佐诸曜始主兄弟众多'),
  R('兄弟.天府.廉忌', H('忌', '廉貞', 'sifang'),
    '會廉貞化忌，你的兄弟或知己容易反目。',
-   'Meeting Lian Zhen in Hindrance, siblings or close friends can turn against you.',
+   'Meeting Lian Zhen in Obstruction, siblings or close friends can turn against you.',
    '天府守兄弟宫，最嫌会廉贞化忌，主兄弟或知交反目，恩反成仇。', '主兄弟或知交反目', 'limit'),
  R('兄弟.天府.武忌', H('忌', '武曲', 'sifang'),
    '會武曲化忌，你容易為兄弟或朋友破財。',
-   'Meeting Wu Qu in Hindrance, you can lose money over siblings or friends.',
+   'Meeting Wu Qu in Obstruction, you can lose money over siblings or friends.',
    '亦嫌会武曲化忌，主为兄弟或友人破财，煞重则为争财之兆。', '主为兄弟或友人破财', 'limit'),
 ]})
 
@@ -309,7 +309,7 @@ T.append({'id': '太陰.兄弟', 'stars': ['太陰'], 'rules': [
    '太阴守兄弟宫，日生人值之，虽入庙亦不和美；见煞主刑克、不和；见吉曜始和美，但亦有缺憾。', '见煞主刑克、不和'),
  R('兄弟.太陰.忌', {'all': [H('忌', '太陰'), {'not': SHA}]},
    '太陰化忌而無煞，雖然會受兄弟或夥伴所累，但多是無心之失。',
-   'Tai Yin in Hindrance without harsh stars: siblings or partners may cause you trouble, but usually without meaning to.',
+   'Tai Yin in Obstruction without harsh stars: siblings or partners may cause you trouble, but usually without meaning to.',
    '太阴化忌守兄弟宫，无煞，虽主受兄弟或伙伴之累，但多属无心之失。', '但多属无心之失', 'limit'),
 ]})
 
@@ -358,7 +358,7 @@ T.append({'id': '天梁.兄弟', 'stars': ['天梁'], 'rules': [
 T.append({'id': '七殺.兄弟', 'stars': ['七殺'], 'rules': [
  R('兄弟.七殺.吉', {'all': [{'hua': ['祿', '權', '科'], 'at': 'sifang'}, FUZUO, {'not': {'star': ['擎羊', '陀羅', '火星', '鈴星', '地空', '地劫'], 'at': 'sifang'}}]},
    '七殺會到祿權科又見左輔右弼，你兄弟眾多。',
-   'Qi Sha meeting Abundance, Authority or Merit with Zuo Fu or You Bi: many siblings.',
+   'Qi Sha meeting Abundance, Authority or Recognition with Zuo Fu or You Bi: many siblings.',
    '七杀守兄弟宫，见禄、权、科及辅弼，兄弟众多。', '见禄、权、科及辅弼，兄弟众多'),
  R('兄弟.七殺.煞', {'star': ['擎羊', '陀羅', '火星', '鈴星', '地空', '地劫'], 'at': 'sifang'},
    '七殺會到〔煞星〕，你兄弟姊妹少，較為孤單。',
@@ -384,7 +384,7 @@ T.append({'id': '天相.兄弟', 'stars': ['天相'], 'rules': [
    '天相对武曲、廉贞、破军三曜至为敏感。此三曜化吉则吉，化忌或加煞则凶。', '此三曜化吉则吉'),
  R('兄弟.天相.三曜忌', {'hua': '忌', 'star': ['武曲', '廉貞', '破軍'], 'at': 'sifang'},
    '天相會到〔煞忌〕，你和兄弟朋友之間多不順。',
-   'Tian Xiang meets 〔harsh stars or Hindrance〕: things often go awry between you and your siblings and friends.',
+   'Tian Xiang meets 〔harsh stars or Obstruction〕: things often go awry between you and your siblings and friends.',
    '天相对武曲、廉贞、破军三曜至为敏感。此三曜化吉则吉，化忌或加煞则凶。', '化忌或加煞则凶'),
  R('兄弟.天相.孤', {'all': [{'star': ['擎羊', '陀羅', '火星', '鈴星', '地空', '地劫'], 'at': 'same'}, {'star': ['擎羊', '陀羅', '火星', '鈴星', '地空', '地劫'], 'at': 'opp'}]},
    '天相本宮和對宮都見〔煞星〕，你在兄弟朋友之間較孤單。',

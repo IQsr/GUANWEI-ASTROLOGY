@@ -39,7 +39,7 @@ T.append({'id': '紫微貪狼.田宅', 'stars': ['紫微', '貪狼'], 'rules': [
 T.append({'id': '紫微.田宅', 'stars': ['紫微'], 'rules': [
  R('田宅.紫微.文書', {'hua': '忌', 'star': ['文昌', '文曲'], 'at': 'sifang'},
    '文昌或文曲化忌，買賣物業容易因文書契約受損失。',
-   'With Wen Chang or Wen Qu in Hindrance, property deals can go wrong over contracts and paperwork.',
+   'With Wen Chang or Wen Qu in Obstruction, property deals can go wrong over contracts and paperwork.',
    '紫微守田宅宫虽见辅佐吉曜，亦不宜昌曲化忌，主买卖物业因文书契约而受损失。', '主买卖物业因文书契约而受损失', 'limit'),
  R('田宅.紫微.輔佐', {'any': [FUZUO, KUIYUE]},
    '見〔輔佐吉星〕，你的家族聚居；你任職的機構也人多。',
@@ -123,7 +123,7 @@ T.append({'id': '太陽.田宅', 'stars': ['太陽'], 'rules': [
    '太阳与巨门相对，即使见吉曜，亦主争夺。', '亦主争夺', 'limit'),
  R('田宅.太陽.忌', H('忌', '太陽'),
    '太陽化忌，你的祖業難守，事業根基也較難建立。',
-   'Tai Yang in Hindrance: inherited property is hard to keep, and a solid base for your career is hard to build.',
+   'Tai Yang in Obstruction: inherited property is hard to keep, and a solid base for your career is hard to build.',
    '太阳化忌在田宅，不主不利父亲，主祖业倾败，或平生事业难有根基。', '或平生事业难有根基', 'limit'),
 ]})
 
@@ -141,7 +141,7 @@ T.append({'id': '武曲貪狼.田宅', 'stars': ['武曲', '貪狼'], 'rules': [
    '[武曲贪狼]同度，为[火贪]、[铃贪]格者，祖、父遗业突然增值。', '祖、父遗业突然增值'),
  R('田宅.武貪.忌', {'all': [H('忌', '武曲'), SHA]},
    '武曲化忌又見〔煞〕，你容易因產業引起糾紛。',
-   'Wu Qu in Hindrance with 〔harsh stars〕: property tends to lead to disputes.',
+   'Wu Qu in Obstruction with 〔harsh stars〕: property tends to lead to disputes.',
    '武曲贪狼星系，若武曲化为忌星，|_又见煞，主因产业引致纠纷。', '主因产业引致纠纷', 'limit'),
 ]})
 T.append({'id': '武曲破軍.田宅', 'stars': ['武曲', '破軍'], 'rules': [
@@ -197,7 +197,7 @@ T.append({'id': '天同.田宅', 'stars': ['天同'], 'rules': [
    '天同守田宅宫，一般主白手兴家，可以嚣为业。若见禄者，置业丰厚。', '若见禄者，置业丰厚'),
  R('田宅.天同.忌', H('忌', '天同'),
    '天同化忌，雖能自置產業，卻要為產業花不少精神。',
-   'Tian Tong in Hindrance: you can buy your own property, but it takes a lot of your energy.',
+   'Tian Tong in Obstruction: you can buy your own property, but it takes a lot of your energy.',
    '唯若天同化忌，则虽能自置产业，却为鼍业招致烦恼，或一生为产业而花费精神。', '或一生为产业而花费精神', 'limit'),
  R('田宅.天同.梁對', {'all': [{'star': '天梁', 'at': 'opp'}, {'not': {'star': '天梁', 'at': 'same'}}]},
    '天同與天梁相對，你置業的過程比較順利，少有波折。',
@@ -287,7 +287,7 @@ T.append({'id': '太陰.田宅', 'stars': ['太陰'], 'rules': [
    '又日：[与左右禄主阴福同居，则承祖业而盛。故知太阴遇吉，有祖业且可自置。', '则承祖业而盛'),
  R('田宅.太陰.忌', {'all': [H('忌', '太陰'), {'not': SHA}]},
    '太陰化忌而無煞，你家中或任職的機構多是非。',
-   'Tai Yin in Hindrance without harsh stars: there is friction at home or at work.',
+   'Tai Yin in Obstruction without harsh stars: there is friction at home or at work.',
    '太阴化忌见煞防有孝服。无煞则主家宅或服务机构有是非。', '无煞则主家宅或服务机构有是非', 'limit'),
 ]})
 
@@ -317,7 +317,7 @@ T.append({'id': '巨門辰戌.田宅', 'stars': ['巨門'], 'branch': ['辰', '�
 T.append({'id': '巨門.田宅', 'stars': ['巨門'], 'rules': [
  R('田宅.巨門.忌', H('忌', '巨門'),
    '巨門化忌，你的家宅不安，或自己要遠離家室。',
-   'Ju Men in Hindrance: home is unsettled, or you live far from your family.',
+   'Ju Men in Obstruction: home is unsettled, or you live far from your family.',
    '巨门化忌于田宅，主家宅不安，或主自身远离家室。', '主家宅不安，或主自身远离家室', 'limit'),
  R('田宅.巨門.本', {'not': {'star': '太陽', 'at': 'same'}},
    '巨門不利田宅：即使見吉，你也沒有祖業可守，多要中年以後才自置。',
@@ -333,7 +333,7 @@ T.append({'id': '天相.田宅', 'stars': ['天相'], 'rules': [
    '天相喜会武曲化禄，主产业丰厚。', '主产业丰厚'),
  R('田宅.天相.武忌', H('忌', '武曲', 'sifang'),
    '天相會武曲化忌，你的產業容易傾敗。',
-   'Tian Xiang meets Wu Qu in Hindrance: your property is prone to collapse.',
+   'Tian Xiang meets Wu Qu in Obstruction: your property is prone to collapse.',
    '天相喜会武曲化禄，主产业丰厚。若武曲化忌则主倾效。', '若武曲化忌则主'),
  R('田宅.天相.廉祿', H('祿', '廉貞', 'sifang'),
    '天相會廉貞化祿，你的家宅有喜慶。',
@@ -341,7 +341,7 @@ T.append({'id': '天相.田宅', 'stars': ['天相'], 'rules': [
    '廉贞化禄者，必因事事而置业，或家宅有喜庆，', '或家宅有喜庆'),
  R('田宅.天相.煞忌', {'any': [SHA, {'hua': '忌', 'at': 'same'}]},
    '天相見〔煞忌〕，你容易因產業惹上是非糾紛。',
-   'Tian Xiang meets 〔harsh stars or Hindrance〕: property tends to bring arguments and disputes.',
+   'Tian Xiang meets 〔harsh stars or Obstruction〕: property tends to bring arguments and disputes.',
    '天相与煞忌刑同会，主因产业惹是非纠纷，煞重则主破荡倾败。', '主因产业惹是非纠纷'),
  R('田宅.天相.魁鉞夾', {'jia': ['天魁', '天鉞']},
    '天魁天鉞夾著天相，你的住所靠近有地位的人家。',
@@ -421,7 +421,7 @@ T.append({'id': '破軍.田宅', 'stars': ['破軍'], 'rules': [
    '破军与廉贞同度及会照，喜廉贞化禄，则产业增加，若化忌，则主耗散。', '则产业增加'),
  R('田宅.破軍.廉忌', H('忌', '廉貞', 'sifang'),
    '破軍會廉貞化忌，你的產業容易耗散。',
-   'Po Jun meets Lian Zhen in Hindrance: your property tends to drain away.',
+   'Po Jun meets Lian Zhen in Obstruction: your property tends to drain away.',
    '破军与廉贞同度及会照，喜廉贞化禄，则产业增加，若化忌，则主耗散。', '若化忌，则主耗散'),
  R('田宅.破軍.祿權', {'all': [{'hua': ['祿', '權'], 'star': '破軍', 'at': 'same'}, {'any': [FUZUO, KUIYUE]}]},
    '破軍化祿化權又見〔吉星〕，舊宅拆建翻新，也會轉到更好的工作環境。',

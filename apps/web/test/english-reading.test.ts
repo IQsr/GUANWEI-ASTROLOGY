@@ -17,8 +17,11 @@ describe('英文閱讀模式', () => {
   it('示範書每章段數、格名同中文一樣', () => {
     book.drafts.forEach((d, i) => {
       const zh = paragraphs(d.body, d.slots);
-      expect(en[i]!.length, d.slug).toBe(zh.length);
-      expect(en[i]!.map((s) => s.slot), d.slug).toEqual(zh.map((p) => p.slot ?? '正文'));
+      /* 2026-10-14：英文序章多一段閱讀說明（slot「閱讀」），其餘一一對應 */
+      const mine = en[i]!.filter((s) => s.slot !== '閱讀');
+      expect(mine.length, d.slug).toBe(zh.length);
+      expect(mine.map((s) => s.slot), d.slug).toEqual(zh.map((p) => p.slot ?? '正文'));
+      expect(en[i]!.filter((s) => s.slot === '閱讀').length, d.slug).toBe(i === 0 ? 1 : 0);
     });
   });
 

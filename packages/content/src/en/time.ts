@@ -92,6 +92,7 @@ function tonesEn(zh: string, year: boolean): string | null {
   return out.length > 1 ? `${out.slice(0, -1).join(', ')}, and also ${out.at(-1)}` : out[0]!;
 }
 const AREA_LABELS = ['工作上', '錢方面', '感情上', '心境上'];
+const AREA_NOUN_EN: Record<string, string> = { 工作上: 'your work', 錢方面: 'your finances', 感情上: 'your love life', 心境上: 'your inner life' };
 
 /* ── 互動（daxian/rules.json）：本命或大限嘅化 × 呢段時期嘅化 ── */
 const RULE_EN: Record<string, string> = {
@@ -420,7 +421,8 @@ export function timeTemplate(s: string, missing: string[], h: TimeHelpers): stri
     const span = year ? 'this year' : 'these ten years';
     const on = AREA_ON_EN[m[1]!]!;
     const tones = tonesEn(m[3]!, year);
-    if (tones) return `${on}, ${span} ${tones}.`;
+    /* 2026-10-14：下一句（結論句）多數又係「With money⋯」開頭 —— 呢句將方面擺尾，唔好兩句同一個開頭 */
+    if (tones) return `${year ? 'This year' : 'These ten years'} ${tones} when it comes to ${AREA_NOUN_EN[m[1]!]}.`;
     const en = h.tm(`${m[3]}。`);
     if (en) {
       /* 結論句本身已經以方面開頭（「At work you're⋯」）就剝走 */
@@ -449,7 +451,7 @@ export function timeTemplate(s: string, missing: string[], h: TimeHelpers): stri
 
   /* 建議段（2026-10-13 起） */
   m = /^這(十年|一年)最順的是(.+?)，力氣放在這裡，最容易見到回報。$/.exec(s);
-  if (m && ADVICE_EN[m[2]!]) return `${m[1] === '十年' ? 'Over these ten years' : 'This year'}, what runs most smoothly is ${ADVICE_EN[m[2]!]}; put your effort there and it pays back most readily.`;
+  if (m && ADVICE_EN[m[2]!]) return `${m[1] === '十年' ? 'Over these ten years' : 'This year'}, things run most smoothly when it comes to ${ADVICE_EN[m[2]!]}; put your effort there and it pays back most readily.`;
   m = /^(?:牽涉到(.+?)的決定，多花一點時間再定|關於(.+?)，決定之前多花一點時間)，(簽字、承諾之前多問一句|急著要答覆的事，先放一晚)。$/.exec(s);
   if (m) m = [m[0], m[1] ?? m[2], m[3]] as unknown as RegExpExecArray;
   if (m && ADVICE_EN[m[1]!]) {

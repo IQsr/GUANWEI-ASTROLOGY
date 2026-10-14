@@ -65,7 +65,7 @@ export const AREA_EN: Record<string, [string, string]> = {
   性格: ['your character', 'In your character'],
   朋輩: ['your peers', 'Among your peers'],
   感情: ['your love life', 'In love'],
-  後輩: ['the next generation', 'With those you bring up'],
+  後輩: ['the people you mentor', 'With the people you mentor'],
   錢: ['your finances', 'With money'],
   身心負荷: ['the load on your body and mind', 'In body and mind'],
   在外表現: ['the way you engage with the wider world', 'Out in the world'],
@@ -82,7 +82,7 @@ export const AREA_ON_EN: Record<string, string> = {
   性格上: 'In your character',
   朋輩之間: 'Among your peers',
   感情上: 'In love',
-  帶後輩時: 'With those you bring up',
+  帶後輩時: 'With the people you mentor',
   錢方面: 'With money',
   身心上: 'In body and mind',
   在外時: 'Out in the world',
@@ -93,7 +93,7 @@ export const AREA_ON_EN: Record<string, string> = {
   對長輩時: 'With elders and seniors',
   /* 給你的話：句子自己有「⋯時」，方面剝走「時」（2026-10-14） */
   對長輩: 'With elders and seniors',
-  帶後輩: 'With those you bring up',
+  帶後輩: 'With the people you mentor',
   在外: 'Out in the world',
 };
 

@@ -71,7 +71,7 @@ T.append({'id': '紫微子午.僕役', 'stars': ['紫微'], 'branch': ['子', '�
 T.append({'id': '紫微.僕役', 'stars': ['紫微'], 'rules': [
  R('僕役.紫微.煞', {'any': [SHA, {'hua': '忌', 'at': 'same'}]},
    '紫微見〔煞忌〕，你的下屬強硬而不得力，不服指揮。',
-   'Zi Wei meets 〔harsh stars or Hindrance〕: the people under you are stubborn and unhelpful, and resist direction.',
+   'Zi Wei meets 〔harsh stars or Obstruction〕: the people under you are stubborn and unhelpful, and resist direction.',
    '紫微守交友宫，不喜见煞忌刑耗，主下属强顽而且不得力，甚至以怨报德；', '主下属强顽而且不得力', 'limit'),
  R('僕役.紫微.朝拱', {'all': [{'all': [FUZUO, KUIYUE]}, {'not': {'star': '破軍', 'at': 'same'}}]},
    '紫微得眾星拱照，下屬權威太大，容易把你架空。',
@@ -105,7 +105,7 @@ T.append({'id': '天機太陰.僕役', 'stars': ['天機', '太陰'], 'rules': [
 T.append({'id': '天機.僕役', 'stars': ['天機'], 'rules': [
  R('僕役.天機.忌', H('忌', '天機'),
    '天機化忌，你和身邊的朋友、下屬各懷機心，不易交心。',
-   'Tian Ji in Hindrance: you and your friends or staff each keep your own agenda, and trust is hard to build.',
+   'Tian Ji in Obstruction: you and your friends or staff each keep your own agenda, and trust is hard to build.',
    '天机化忌，主彼此各怀机一己。更见煞，则更主受友人或下属造谣诽谤、背面是非。', '主彼此各怀机一己', 'limit'),
  R('僕役.天機.祿', {'all': [H('祿', '天機'), {'not': {'hua': '忌', 'at': 'sifang'}}]},
    '天機化祿，你交友雖不固定，卻時時得到助力。',
@@ -125,7 +125,7 @@ T.append({'id': '天機.僕役', 'stars': ['天機'], 'rules': [
 T.append({'id': '太陽天梁.僕役', 'stars': ['太陽', '天梁'], 'rules': [
  R('僕役.陽梁.吉', {'all': [{'any': [H('權', '天梁'), H('科', '天梁')]}, {'not': SHA}]},
    '天梁化權化科而無煞，可以結交令你敬畏的諍友，或有正直敢言的下屬。',
-   'Tian Liang in Authority or Merit with no harsh stars: you make friends who keep you honest, or have upright, outspoken staff.',
+   'Tian Liang in Authority or Recognition with no harsh stars: you make friends who keep you honest, or have upright, outspoken staff.',
    '太阳天梁的组合，若太阳入庙，或天梁化权，化科，不见煞，则主得交畏友，或诤谏之友，或正直敢言下属。', '或正直敢言下属'),
  R('僕役.陽梁.孤', None,
    '太陽天梁較孤立，你要多花心思經營人際關係。',
@@ -217,7 +217,7 @@ T.append({'id': '武曲.僕役', 'stars': ['武曲'], 'rules': [
    '武曲化禄于交友宫，须见左辅、右弼，然后始主下属得力，若无辅弼，则主为友人或下属奔波伤神。', '则主为友人或下属奔波伤神', 'limit'),
  R('僕役.武曲.忌', H('忌', '武曲'),
    '武曲化忌，你容易受下屬或朋友拖累而有損失。',
-   'Wu Qu in Hindrance: staff or friends can cost you.',
+   'Wu Qu in Obstruction: staff or friends can cost you.',
    '若武曲化忌，则主受下属侵吞，友人剥削，或因友人下属拖累而招致损失。', '或因友人下属拖累而招致损失', 'limit'),
  R('僕役.武曲.本', {'not': {'star': '天府', 'at': ['same', 'opp']}},
    '武曲在僕役宮，你基本上交遊不廣，下屬也無力。',
@@ -291,7 +291,7 @@ T.append({'id': '天府.僕役', 'stars': ['天府'], 'rules': [
    '天府与空劫刑耗同会，则主交损友以致破耗，及主手下人偷盗侵吞。', '则主交损友以致破耗'),
  R('僕役.天府.科', H('科', '天府'),
    '天府化科，你的朋友和下屬都忠厚誠信。',
-   'Tian Fu in Merit: friends and staff alike are honest and trustworthy.',
+   'Tian Fu in Recognition: friends and staff alike are honest and trustworthy.',
    '天府化科，则友人及下属皆忠厚诚信。', '则友人及下属皆忠厚诚信'),
 ]})
 
@@ -319,7 +319,7 @@ T.append({'id': '巨門.僕役', 'stars': ['巨門'], 'rules': [
    '凡巨门坐交友宫，吉则主舌辩、口才；凶则主口舌、争吵。', '吉则主舌辩、口才'),
  R('僕役.巨門.凶口', {'any': [SHA, {'hua': '忌', 'at': 'same'}]},
    '巨門見〔煞忌〕，你和朋友、下屬之間多口舌爭吵。',
-   'Ju Men meets 〔harsh stars or Hindrance〕: there is much arguing between you and your friends or staff.',
+   'Ju Men meets 〔harsh stars or Obstruction〕: there is much arguing between you and your friends or staff.',
    '凡巨门坐交友宫，吉则主舌辩、口才；凶则主口舌、争吵。', '凶则主口舌、争吵'),
 ]})
 
@@ -351,7 +351,7 @@ T.append({'id': '天梁.僕役', 'stars': ['天梁'], 'rules': [
    '天梁与四煞会照，因友人或下属而起是非纠纷；', '因友人或下属而起是非纠纷'),
  R('僕役.天梁.吉', {'all': [{'any': [H('權', '天梁'), H('科', '天梁')]}, {'not': {'star': '祿存', 'at': 'same'}}]},
    '天梁化權化科，結交到正直無私、有義氣的朋友和下屬。',
-   'Tian Liang in Authority or Merit: you attract upright, selfless and loyal friends and staff.',
+   'Tian Liang in Authority or Recognition: you attract upright, selfless and loyal friends and staff.',
    '除非化权、化科，或与吉化会合，否则不主有助力，及招正直无私有义的友人及下属。', '及招正直无私有义的友人及下属'),
  R('僕役.天梁.馬', {'star': '天馬', 'at': 'same'},
    '同宮有天馬，你的知交容易離散，也常換手下。',
@@ -401,11 +401,11 @@ T.append({'id': '太陰.僕役', 'stars': ['太陰'], 'rules': [
    '化权，则主在财权方面得益；', '则主在财权方面得益'),
  R('僕役.太陰.科', H('科', '太陰'),
    '太陰化科，你得到忠誠可靠的朋友或下屬。',
-   'Tai Yin in Merit: you gain loyal, dependable friends or staff.',
+   'Tai Yin in Recognition: you gain loyal, dependable friends or staff.',
    '化科，主得忠诚可靠之友人贫下属。', '主得忠诚可靠之友人'),
  R('僕役.太陰.忌', H('忌', '太陰'),
    '太陰化忌，你容易受朋友牽連而破財，或受影響去投資而損失。',
-   'Tai Yin in Hindrance: friends can drag you into losses, or talk you into investments that go wrong.',
+   'Tai Yin in Obstruction: friends can drag you into losses, or talk you into investments that go wrong.',
    '若化忌星，则主受牵连而破财，亦主受友人影响而投资损失，或主下属破耗。', '则主受牵连而破财'),
  R('僕役.太陰.奔忙', {'any': [FIRE, {'star': '祿存', 'at': 'same'}]},
    '太陰與火星、鈴星或祿存同宮，你常為朋友或下屬的事奔忙。',

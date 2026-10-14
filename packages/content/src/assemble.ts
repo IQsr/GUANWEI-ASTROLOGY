@@ -28,9 +28,9 @@
  * 一個寫成三行免責聲明嘅觀察章，讀者見到嘅係「乜都冇講」；
  * 而我哋真係有嘢講 —— 只係唔係一個方向。
  */
-import type { Brightness, Chart, Palace, PalaceName } from '@guanwei/ziwei';
+import { sanFangPalaces, type Brightness, type Chart, type Palace, type PalaceName } from '@guanwei/ziwei';
 import { WATCH_ROTATION, varyWatch } from './watch-lead';
-import { branchReading } from './branch';
+import { BRIGHT, branchReading } from './branch';
 import { BASE_BLOCKS } from './baseblock-data';
 import { PALACE_TOPIC } from './baseblock';
 import { brightnessModifier, maleficModifier, sihuaModifier } from './modifier-data';
@@ -42,7 +42,7 @@ import { lifeLine } from './life';
 import { cjkCount } from './lexicon';
 import { similarity } from './baseblock';
 import { L3_BLOCKS, l3For } from './l3-data';
-import { linkLine, palaceLabel } from './link';
+import { palaceLabel } from './link';
 import type { InferResult } from './infer';
 
 /**
@@ -253,6 +253,9 @@ const PALACE_BRIGHT: Record<string, { high?: string; low?: string }> = {
   '太陰.子女': { low: '你的太陰光弱，同樣的細心會轉成憂慮，表現為反覆確認而不是放手。' },
   '天機.子女': { low: '你的天機力弱，同樣的多想會表現為反覆修改安排，讓被帶的一方無所適從。' },
 };
+/** 巨門有力而太陽落陷（見上面 `sunDim`） */
+export const JUMEN_SUN_DIM = '你的巨門本身有力，可是太陽落陷，照不亮它；口才要靠自己練出來，說話前先想清楚，免得變成是非。';
+
 export const PALACE_BRIGHT_LINES = Object.values(PALACE_BRIGHT).flatMap((x) => [x.high, x.low]).filter((x): x is string => Boolean(x));
 
 const MAJOR = new Set(BASE_BLOCKS.map((b) => b.star));
@@ -449,7 +452,15 @@ export function assemble(
        * 讀者唔知信邊句。化忌嗰句同一粒星、而且講得更具體，佢行；廟旺好話讓位。
        */
       const overruled = leadStar.sihua === '忌' && m?.id.endsWith('.廟旺');
-      if (m && !overruled && fresh(m.id)) {
+      /*
+       * 巨門廟旺嗰句講「暗處被照亮」—— 前提係太陽照得到（基塊自己講：太陽嘅位置比巨門廟旺更關鍵）。
+       * 三方四正見太陽而太陽落陷，就唔講「照亮」，講返呢張盤嘅情況（2026-10-14 · 審稿：同骨架章「太陽落陷，多是非口舌」打架）。
+       */
+      const sun = leadStar.name === '巨門' ? sanFangPalaces(chart.palaces, p.branch).find((q) => q.stars.some((s) => s.name === '太陽')) : undefined;
+      const sunDim = Boolean(m?.id.endsWith('.廟旺') && sun && BRIGHT.太陽.low.includes(sun.branch));
+      if (m && !overruled && sunDim) {
+        structure.push(JUMEN_SUN_DIM);
+      } else if (m && !overruled && fresh(m.id)) {
         structure.push(m.text);
         ids.push(m.id);
       }
@@ -607,8 +618,12 @@ export function assemble(
    * 每截由嗰粒星喺嗰個宮嘅基塊撮出嚟（見 link.ts）。關係塊留喺資料度，唔再出街。
    */
   const l3 = l3For(palace, p, chart, matchedRuleIds, opts.used).filter((b) => b.kind !== 'relation');
-  const link = linkLine(chart, p, opts.used);
-  if (link || l3.length > 0) {
+  /*
+   * 2026-10-14 審稿：「這一面不只出現在這裡。朋友圈裡，⋯」去其他宮兜一圈，讀落似拼接
+   * （疾厄講疲累，突然轉去朋友關係）。牽動格只留三方四正對呢一宮嘅影響（L3），唔再引其他宮。
+   * `linkLine` 照留（英文要認得舊書嘅牽動句；link.test 守住佢）。
+   */
+  if (l3.length > 0) {
     push({
       slot: '牽動',
       /* 「X宮的三方四正見多顆煞曜。」係術語、而且一本書出十次 —— 留後面嗰句白話（2026-10-02） */
@@ -616,8 +631,8 @@ export function assemble(
        * 2026-10-05 睇稿指南第 9 節：先講「因為連住其他宮，呢一面變咗乜」（L3：三方煞吉、格局、身宮），
        * 再講其他宮坐咗乜星做依據。以前倒轉，讀者要讀完一張清單先知重點。
        */
-      text: [...l3.map((b) => b.body.replace(/^\S{1,3}宮的三方四正見多顆[煞吉]曜。/, '')), link?.text ?? ''].join(''),
-      source_id: [...(link ? ['frame.link', ...link.sources] : []), ...l3.map((b) => b.id)].join('+'),
+      text: l3.map((b) => b.body.replace(/^\S{1,3}宮的三方四正見多顆[煞吉]曜。/, '')).join(''),
+      source_id: l3.map((b) => b.id).join('+'),
       rule_ids: l3.flatMap((b) => b.rule_ids),
     });
   }

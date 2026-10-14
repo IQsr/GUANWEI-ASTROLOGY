@@ -61,11 +61,11 @@ T.append({'id': '紫微天府.官祿', 'stars': ['紫微', '天府'], 'rules': [
    '若无吉曜，则往往进退失据，或志大才疏。', '则往往进退失据', 'limit'),
  R('官祿.紫府.科', H('科', '紫微'),
    '紫微化科，你的事業由白手開創而來。',
-   'Zi Wei in Merit: you build your career from scratch.',
+   'Zi Wei in Recognition: you build your career from scratch.',
    '[紫府]而紫微化科，主白手与创事业；若天府化科，则主在现成局面下兴创。', '主白手与创事业'),
  R('官祿.紫府.府科', H('科', '天府'),
    '天府化科，你的事業在現成的局面下發展起來。',
-   'Tian Fu in Merit: your career grows within something already in place.',
+   'Tian Fu in Recognition: your career grows within something already in place.',
    '[紫府]而紫微化科，主白手与创事业；若天府化科，则主在现成局面下兴创。', '则主在现成局面下兴创'),
 ]})
 T.append({'id': '紫微貪狼.官祿', 'stars': ['紫微', '貪狼'], 'rules': [
@@ -79,7 +79,7 @@ T.append({'id': '紫微貪狼.官祿', 'stars': ['紫微', '貪狼'], 'rules': [
    '『紫贪』躔左辅或右弼，对宫为右弼或左辅，则构成良好格局，主下属众多。唯必须分润下属。然后事业始能持久。', '唯必须分润下属'),
  R('官祿.紫貪.忌', H('忌', '貪狼'),
    '貪狼化忌，你與人合作往往不能長久。',
-   'Tan Lang in Hindrance: partnerships tend not to last.',
+   'Tan Lang in Obstruction: partnerships tend not to last.',
    '紫贪而贪狼化忌，常主与人合作不能长久。', '常主与人合作不能长久', 'limit'),
 ]})
 T.append({'id': '紫微天相.官祿', 'stars': ['紫微', '天相'], 'rules': [
@@ -99,7 +99,7 @@ T.append({'id': '紫微七殺.官祿', 'stars': ['紫微', '七殺'], 'rules': [
    '巳亥[紫微七杀]在事业宫，其特长在于管理，故宜以人力资源为主。', '其特长在于管理', 'base'),
  R('官祿.紫殺.科', H('科', '紫微'),
    '紫微化科，加強你管理和領導的力量。',
-   'Zi Wei in Merit strengthens your management and leadership.',
+   'Zi Wei in Recognition strengthens your management and leadership.',
    '『紫杀』最喜紫微化科，可加强管理领导之力。', '可加强管理领导之力'),
  R('官祿.紫殺.祿馬', LUMA,
    '祿星與天馬相會，你一生要轉幾次行業，然後才安定。',
@@ -109,7 +109,7 @@ T.append({'id': '紫微七殺.官祿', 'stars': ['紫微', '七殺'], 'rules': [
 T.append({'id': '紫微.官祿', 'stars': ['紫微'], 'rules': [
  R('官祿.紫微.科', H('科', '紫微'),
    '紫微化科，你名大於利，以自由職業或專業為宜。',
-   'Zi Wei in Merit: reputation outweighs money, so freelance or professional work suits you.',
+   'Zi Wei in Recognition: reputation outweighs money, so freelance or professional work suits you.',
    '紫微化科在事业宫，主名大于利，故以自由职业，或专业人士为宜。', '故以自由职业，或专业人士为宜'),
  R('官祿.紫微.權', H('權', '紫微'),
    '紫微化權，你的工作獨立性強，能獨當一面。',
@@ -161,11 +161,11 @@ T.append({'id': '太陽.官祿', 'stars': ['太陽'], 'rules': [
    '太阳化权，则巨门必同时化禄。在事业宫，此为受异族提拔、赏识之星系，或一生事业与异族有莫大关系，因此须提高外语知识，俾便适应。', '此为受异族提拔、赏识之星系'),
  R('官祿.太陽.科', H('科', '太陽'),
    '太陽化科，你宜做有榮譽感的專業工作。',
-   'Tai Yang in Merit: work that carries honour, in a profession, suits you.',
+   'Tai Yang in Recognition: work that carries honour, in a profession, suits you.',
    '太阳化科，宜事业有荣誉感。例如名医、名律师，或有声誉的社会工作者之类，皆不出专业人士范围。', '宜事业有荣誉感'),
  R('官祿.太陽.忌', H('忌', '太陽'),
    '太陽化忌，宜做帶排難解紛或靠口才的工作，例如教學、演唱。',
-   'Tai Yang in Hindrance: work that resolves disputes or relies on speaking suits you, such as teaching or performing.',
+   'Tai Yang in Obstruction: work that resolves disputes or relies on speaking suits you, such as teaching or performing.',
    '太阳化忌，所从事行业必须有排难解纷，或是非口舌的色彩。但所谓口舌是非却未必指纷争，如教学、演唱等，', '所从事行业必须有排难解纷'),
  R('官祿.太陽.左右', FUZUO,
    '太陽見左輔右弼，你工作上可以少些奔波勞碌。',
@@ -195,7 +195,7 @@ T.append({'id': '武曲貪狼.官祿', 'stars': ['武曲', '貪狼'], 'rules': [
    '[武曲贪狼]守事业宫，喜与人合作，故所业亦不只一端。', '故所业亦不只一端', 'base'),
  R('官祿.武貪.忌', H('忌', '貪狼'),
    '貪狼化忌，你一生奔波勞碌，事業多頭並進。',
-   'Tan Lang in Hindrance: a life of rushing about, with many ventures at once.',
+   'Tan Lang in Obstruction: a life of rushing about, with many ventures at once.',
    '丑未[武曲贪狼]，见贪狼化忌者，终生不得闲暇，奔波劳碌，事业多端，', '终生不得闲暇，奔波劳碌，事业多端', 'limit'),
 ]})
 T.append({'id': '武曲天相.官祿', 'stars': ['武曲', '天相'], 'rules': [
@@ -249,7 +249,7 @@ T.append({'id': '天同太陰.官祿', 'stars': ['天同', '太陰'], 'rules': [
 T.append({'id': '天同巨門.官祿', 'stars': ['天同', '巨門'], 'rules': [
  R('官祿.同巨.煞忌', {'any': [SHA, {'hua': '忌', 'at': 'same'}]},
    '天同巨門見〔煞忌〕，你的事業反而要經歷艱難，然後成就大業。',
-   'Tian Tong–Ju Men meets 〔harsh stars or Hindrance〕: your career goes through hardship, and that is how you build something great.',
+   'Tian Tong–Ju Men meets 〔harsh stars or Obstruction〕: your career goes through hardship, and that is how you build something great.',
    '[天同巨门]见煞忌，反主历艰危而成大业。', '反主历艰危而成大业'),
  R('官祿.同巨.半途', None,
    '天同巨門在官祿宮，事業容易半途而廢；要選本質就要勞心的工作，才有成就。',
@@ -265,7 +265,7 @@ T.append({'id': '天同天梁.官祿', 'stars': ['天同', '天梁'], 'rules': [
 T.append({'id': '天同.官祿', 'stars': ['天同'], 'rules': [
  R('官祿.天同.忌', H('忌', '天同'),
    '天同化忌，往往很早就要出來工作，但事業的起步也可能更早。',
-   'Tian Tong in Hindrance: you often start working young, but your career may also take off earlier.',
+   'Tian Tong in Obstruction: you often start working young, but your career may also take off earlier.',
    '天同化忌，往往早年即须工作，但事业之创兴却可能比化禄者为早，', '但事业之创兴却可能比化禄者为早'),
  R('官祿.天同.享受', None,
    '天同重享受，你適合經營講究美觀或帶享受色彩的行業。',
@@ -305,7 +305,7 @@ T.append({'id': '廉貞天府.官祿', 'stars': ['廉貞', '天府'], 'rules': [
    '辰戌宫廉贞天府同度，事业倾向于财经。', '事业倾向于财经', 'base'),
  R('官祿.廉府.科', H('科', '天府'),
    '天府化科，你的事業和名聲緊扣在一起，口碑直接影響發展。',
-   'Tian Fu in Merit: your career and reputation are tightly bound, and your standing shapes how far you go.',
+   'Tian Fu in Recognition: your career and reputation are tightly bound, and your standing shapes how far you go.',
    '天府化科，则事业与声誉有密切关系。', '则事业与声誉有密切关系'),
 ]})
 T.append({'id': '廉貞貪狼.官祿', 'stars': ['廉貞', '貪狼'], 'rules': [
@@ -359,7 +359,7 @@ T.append({'id': '太陰.官祿', 'stars': ['太陰'], 'rules': [
    '太阴主富不主贵，故守事业宫时，必以见文昌文曲同会，然后始主其人有社会地位。', '必以见文昌文曲同会，然后始主其人有社会地位'),
  R('官祿.太陰.梁科', H('科', '天梁', 'sifang'),
    '會天梁化科，你宜做監督、管理一類工作。',
-   'Meeting Tian Liang in Merit, supervisory or management work suits you.',
+   'Meeting Tian Liang in Recognition, supervisory or management work suits you.',
    '太阴会天梁化科，宜从事监督、管理工作，或如公证行之类。', '宜从事监督、管理工作'),
  R('官祿.太陰.同祿', H('祿', '天同', 'sifang'),
    '太陰會天同化祿，你的事業靠自己白手建立。',
@@ -387,7 +387,7 @@ T.append({'id': '貪狼寅申.官祿', 'stars': ['貪狼'], 'branch': ['寅', '�
 T.append({'id': '貪狼.官祿', 'stars': ['貪狼'], 'rules': [
  R('官祿.貪狼.忌', H('忌', '貪狼'),
    '貪狼化忌，你插手的事業必引起競爭。',
-   'Tan Lang in Hindrance: whatever you take on draws competition.',
+   'Tan Lang in Obstruction: whatever you take on draws competition.',
    '贪狼化忌在事业宫者，主凡插手事业必引起竞争。', '主凡插手事业必引起竞争', 'limit'),
  R('官祿.貪狼.左右', {'star': ['左輔', '右弼'], 'at': 'same'},
    '同宮有左輔右弼，你下屬眾多，事業有相當氣派。',
@@ -409,7 +409,7 @@ T.append({'id': '巨門巳亥.官祿', 'stars': ['巨門'], 'branch': ['巳', '�
 T.append({'id': '巨門.官祿', 'stars': ['巨門'], 'rules': [
  R('官祿.巨門.忌', H('忌', '巨門'),
    '巨門化忌，要從事靠口才或費唇舌的行業，否則反招是非。',
-   'Ju Men in Hindrance: choose work that relies on speaking, or the talk turns against you.',
+   'Ju Men in Obstruction: choose work that relies on speaking, or the talk turns against you.',
    '尤其当巨门化忌之时，若不从事依赖口才，或费劳唇舌的行业，则反招是非口舌。', '则反招是非口舌', 'limit'),
  R('官祿.巨門.祿', {'any': [H('祿', '巨門'), {'star': '祿存', 'at': 'same'}]},
    '巨門化祿或有祿存，口才可以轉化為名聲；但以不主動出鋒頭為宜。',
@@ -463,7 +463,7 @@ T.append({'id': '天梁.官祿', 'stars': ['天梁'], 'rules': [
    '天梁化权，利于权威性工作，法律固有权威，', '利于权威性工作'),
  R('官祿.天梁.科', H('科', '天梁'),
    '天梁化科，以清貴為宜：先爭取社會地位，財富隨之而來。',
-   'Tian Liang in Merit: aim for respected rather than lucrative roles; win your standing first and the money follows.',
+   'Tian Liang in Recognition: aim for respected rather than lucrative roles; win your standing first and the money follows.',
    '天梁化科，以清贵为宜，故须极力争取社会地位，然后财富始随之而来。', '然后财富始随之而来'),
  R('官祿.天梁.本', None,
    '天梁是清貴之星：即使吉星齊會，也較少負行政之責，適合監察、審核、司法一類工作。',
