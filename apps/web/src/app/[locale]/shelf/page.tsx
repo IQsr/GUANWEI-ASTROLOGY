@@ -6,7 +6,7 @@ import { Juanshou } from '@/components/Juanshou';
 import { Shelf } from '@/components/Shelf';
 import { shelfView } from '@/lib/shelf';
 import { serverShelf } from '@/lib/shelf.server';
-import { zhFor } from '@/lib/hans';
+import { bookTitleFor } from '@/lib/japanese';
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -98,7 +98,7 @@ export default async function ShelfPage({ params }: { params: Promise<{ locale: 
   return (
     <main className="juan zhai-ye">
       {/* 簡體：書脊上嘅名（包括留空時嘅「無名」）由繁體轉 */}
-      <Shelf head={head} spines={view.spines.map((s) => ({ ...s, label: zhFor(locale, s.label) }))} />
+      <Shelf head={head} spines={view.spines.map((s) => ({ ...s, label: bookTitleFor(locale, s.label) }))} />
 
       {/*
         * 認領提示第二個位：第二次回訪，書架下面**一條界欄**（架構 §4）。

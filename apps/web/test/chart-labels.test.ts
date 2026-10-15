@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
-import { En } from '@guanwei/content';
-import { BRANCH_PY, PALACE_SHORT, STAR_PY, ganzhiPy, slugEn } from '@/lib/chart-labels';
+import { En, Ja } from '@guanwei/content';
+import { BRANCH_PY, PALACE_SHORT, STAR_PY, ganzhiPy, jaZi, slugEn, slugJa } from '@/lib/chart-labels';
 import { dialFor } from '@/lib/dial';
 import { sampleBook } from '@/lib/sample-book';
 
@@ -40,5 +40,28 @@ describe('命盤英文標籤', () => {
       if (dial) expect(dial.caption, d.slug).not.toMatch(/[\u3400-\u9fff]/);
     }
     expect(dialFor(book.chart, '命宮', book.layers, true)!.caption).toMatch(/^Life Palace in \w+ · /);
+  });
+
+  /* 日文（2026-10-15）：命盤用嘅新字體、宮名同 content ja/terms.ts 一樣 */
+  it('日文命盤：宮名、星名同 content 一樣', () => {
+    for (const [zh, ja] of Object.entries(Ja.PALACE_JA)) if (zh !== '身宮' && zh !== '命宮') expect(jaZi(`${zh}宮`), zh).toBe(ja);
+    for (const [zh, s] of Object.entries(Ja.STAR_JA)) expect(jaZi(zh), zh).toBe(s.kanji);
+    expect(jaZi('化祿')).toBe('化禄');
+  });
+
+  it('日文命盤中宮：章 slug 同章名一樣', () => {
+    const book = sampleBook()!;
+    for (const d of book.drafts) {
+      const title = Ja.chapterTitleJa(d.title)!;
+      expect(title, d.title).toContain(slugJa(d.slug));
+    }
+  });
+
+  it('章尾星盤嘅說明：日文用新字體', () => {
+    const book = sampleBook()!;
+    for (const d of book.drafts) {
+      const dial = dialFor(book.chart, d.slug, book.layers, false, true);
+      if (dial) expect(dial.caption, d.slug).not.toMatch(/[祿權]|借對宮|沒有主星/);
+    }
   });
 });

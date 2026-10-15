@@ -1,6 +1,7 @@
 import { En } from '@guanwei/content';
 import { paragraphs } from '@/lib/suidu';
 import { zhFor } from '@/lib/hans';
+import { isJapanese, japaneseTitle } from '@/lib/japanese';
 
 /**
  * 英文閱讀模式（2026-10-05）
@@ -21,9 +22,9 @@ export function englishTitle(title: string): string {
   return En.chapterTitleEn(title) ?? title;
 }
 
-/** 章名點顯示：英文譯、簡體轉（2026-10-08）、繁體照舊。slug 永遠係繁體，唔好用呢個。 */
+/** 章名點顯示：英文、日文（2026-10-15）譯、簡體轉（2026-10-08）、繁體照舊。slug 永遠係繁體，唔好用呢個。 */
 export function displayTitle(title: string, locale: string): string {
-  return isEnglish(locale) ? englishTitle(title) : zhFor(locale, title);
+  return isEnglish(locale) ? englishTitle(title) : isJapanese(locale) ? japaneseTitle(title) : zhFor(locale, title);
 }
 
 /** 由第一章到而家呢章（按次序），回每章嘅段落（同中文段一一對應，格名照用）。 */

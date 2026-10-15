@@ -1,4 +1,5 @@
 import { englishChapters, isEnglish } from '@/lib/english';
+import { isJapanese, japaneseChapters } from '@/lib/japanese';
 import { zhFor } from '@/lib/hans';
 import type { ChapterLead } from '@/lib/juan-view';
 
@@ -53,6 +54,11 @@ export function buildAsks(leads: readonly ChapterLead[], locale: string): AskIte
   if (isEnglish(locale)) {
     const en = englishChapters(picked.map((p) => ({ text: clean(p.lead.lead), slots: [] })));
     return picked.map((p, i) => ({ key: p.key, slug: p.slug, answer: en[i]?.[0]?.text ?? '', quote: null }));
+  }
+  /* 日文（2026-10-15）：同閱讀頁一樣逐句譯；引文係中文原句，唔出 */
+  if (isJapanese(locale)) {
+    const ja = japaneseChapters(picked.map((p) => ({ text: clean(p.lead.lead), slots: [] })));
+    return picked.map((p, i) => ({ key: p.key, slug: p.slug, answer: ja[i]?.[0]?.text ?? '', quote: null }));
   }
   return picked.map((p) => ({
     key: p.key,

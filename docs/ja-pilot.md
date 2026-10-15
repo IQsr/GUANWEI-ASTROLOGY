@@ -22,10 +22,15 @@
 - 「天同化忌」喺正文寫成「天同が化忌になっている」，依據括號先用四字。
 - 「火星同宮」正文寫「火星が同じ宮にある」，見詞彙表第六節第四條（火星撞名）。
 
-## 全書要做嘅（量度跟英文）
+## 全書（2026-10-15 完成）
 
-- 資料句約 1,500 句、子句約 240 條（英文 `tm.json` 同量）
-- 程式砌出嚟嘅句要模板：英文用咗四五十條（`en/render.ts`、`facts.ts`、`time.ts`）；日文而家只得「你的X宮坐Y」一條
-- 年齡：日文保留数え年，比英文簡單
-- 接入網站：仿 `apps/web/src/lib/english.ts`；命盤標籤（`chart-labels.ts`）大部分漢字照用，只換新字體
-- 藏經閣 35 條、溯時／推算時辰題目（`rectify.ts` 嘅 ASK_EN 要加 ASK_JA）
+審稿人睇過試做之後，成本書譯晒，接咗入 `/ja` 閱讀頁：
+
+- 翻譯表 `packages/content/src/ja/tm.json`：約 2,950 句資料句、72 條子句
+- 原文分支規則入面有〔泛稱〕｛或｝「會照的」嘅 466 句：`ja/slots.json`，盤上填咗乜星，日文跟住填
+- 程式砌出嚟嘅句：`ja/render.ts`（宮位章）、`ja/facts.ts`（序、身宮、骨架）、`ja/time.ts`（時間章、逐月、建議）
+- 測試：`ja-palaces.test.ts`、`ja-other.test.ts`（150 張盤逐句譯到、過日文檢查）；另外 2,000 張盤掃過，冇漏句
+- 網站：`apps/web/src/lib/japanese.ts`；命盤標籤換新字體（`chart-labels.ts` 嘅 `jaZi`）
+- 全書樣本：[ja-sample-book.md](ja-sample-book.md)
+
+仲係中文：藏經閣詞條（`/ja/lexicon` 301 返繁中，閱讀頁冇註層）、溯時／推算時辰題目、條款（出英文）。

@@ -5,6 +5,7 @@ import { Seal } from '@/components/Seal';
 import { StarDial } from '@/components/StarDial';
 import { branchPy, ganzhiPy } from '@/lib/chart-labels';
 import { zhFor } from '@/lib/hans';
+import { bookTitleFor } from '@/lib/japanese';
 import { MARK } from '@/lib/site';
 
 /**
@@ -16,9 +17,11 @@ import { MARK } from '@/lib/site';
  *
  * ⚠ 生辰用盤上嘅農曆同干支（盤本身有），唔另外撈出生資料 —— 同一個元件真書、示範書都用得。
  */
-function birthLine(chart: ZChart, en: boolean): string {
+function birthLine(chart: ZChart, en: boolean, ja = false): string {
   const [ys, yb] = chart.ganzhi.year;
   const hour = chart.ganzhi.hour[1];
+  /* 日文（2026-10-15）：干支同時辰照用漢字，農曆月日用數字 */
+  if (ja) return `${ys}${yb}の年　旧暦${chart.lunar.isLeapMonth ? '閏' : ''}${chart.lunar.m}月${chart.lunar.d}日　${hour}の刻`;
   if (en) {
     const nth = (n: number) => `${n}${n % 10 === 1 && n !== 11 ? 'st' : n % 10 === 2 && n !== 12 ? 'nd' : n % 10 === 3 && n !== 13 ? 'rd' : 'th'}`;
     const leap = chart.lunar.isLeapMonth ? 'leap ' : '';
@@ -42,14 +45,14 @@ export async function Feiye({ title, chart, locale }: { title: string; chart: ZC
   return (
     <div className="feiye">
       <p className="feiye-mu" aria-hidden="true">✦</p>
-      <h1 className="feiye-ming">{zhFor(locale, title)}</h1>
+      <h1 className="feiye-ming">{bookTitleFor(locale, title)}</h1>
       <p className="feiye-ci">{t('essence')}</p>
       {chart ? (
         <>
           <div className="feiye-pan" aria-hidden="true">
             <StarDial branch={chart.mingGong} stars={lifeStars(chart)} caption="" en={en} />
           </div>
-          <p className="feiye-sheng">{zhFor(locale, birthLine(chart, en))}</p>
+          <p className="feiye-sheng">{zhFor(locale, birthLine(chart, en, locale === 'ja'))}</p>
         </>
       ) : null}
       <Seal text={MARK} label="" className="feiye-yin" />

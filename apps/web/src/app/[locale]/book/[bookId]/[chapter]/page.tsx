@@ -26,6 +26,7 @@ import { ChapterNav } from '@/components/ChapterNav';
 import { ShiyanCard } from '@/components/ShiyanCard';
 import { chapterHref, chapterParam, contentsHref, neighbours } from '@/lib/journey';
 import { displayTitle, englishChapters, isEnglish } from '@/lib/english';
+import { bookTitleFor, isJapanese, japaneseChapters } from '@/lib/japanese';
 import { zhFor } from '@/lib/hans';
 
 export function generateStaticParams() {
@@ -134,9 +135,12 @@ export default async function ChapterPage({
    * ⚠ 標註要**成本書**一齊標，但跟捲動高亮只關呢一章事。
    * 所以前面幾章照樣攞返嚟標，段落結構就只有呢一章要（F2）。
    */
+  const bodies = upto.map((c, i) => ({ text: fetched[i]?.text ?? '', slots: fetched[i]?.slots ?? [] }));
   const marked = localizeMarked(en
-    ? markBook(englishChapters(upto.map((c, i) => ({ text: fetched[i]?.text ?? '', slots: fetched[i]?.slots ?? [] }))).map((segments, i) => ({ palace: upto[i]!.title, segments })), 'en')
-    : markBook(
+    ? markBook(englishChapters(bodies).map((segments, i) => ({ palace: upto[i]!.title, segments })), 'en')
+    : isJapanese(locale)
+      ? markBook(japaneseChapters(bodies).map((segments, i) => ({ palace: upto[i]!.title, segments })), 'ja')
+      : markBook(
     upto.map((c, i) => ({
       palace: c.title,
       segments: paragraphs(fetched[i]?.text ?? '', fetched[i]?.slots ?? []).map((para) => ({
@@ -153,7 +157,7 @@ export default async function ChapterPage({
    */
   const justCut = here && body !== null ? await cutPage(here.id) : false;
   /* 章尾金線星盤（2026-10-04）：點出呢章講緊嗰一格 */
-  const dialRaw = chart && here ? dialFor(chart, here.slug, layers, en) : null;
+  const dialRaw = chart && here ? dialFor(chart, here.slug, layers, en, isJapanese(locale)) : null;
   const dial = dialRaw ? { ...dialRaw, caption: zhFor(locale, dialRaw.caption) } : null;
 
   return (
@@ -177,7 +181,7 @@ export default async function ChapterPage({
           follow={body !== null}
           prev={turnPrev}
           next={turnNext}
-          top={<p className="font-serif text-lead tracking-[0.16em] text-ink-2">{view.title ? zhFor(locale, view.title) : tShelf('untitled')}</p>}
+          top={<p className="font-serif text-lead tracking-[0.16em] text-ink-2">{view.title ? bookTitleFor(locale, view.title) : tShelf('untitled')}</p>}
         >
           {/* ⚠ 章名係內容嘅一部分，唔係頁頭：擺喺右頁頂 */}
           <ChapterTitle title={here.title} />

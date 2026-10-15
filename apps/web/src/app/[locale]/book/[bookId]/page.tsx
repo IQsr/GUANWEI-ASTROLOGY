@@ -14,6 +14,7 @@ import { FontWarm } from '@/components/FontWarm';
 import { distinctChars } from '@/lib/fontwarm';
 import { displayTitle } from '@/lib/english';
 import { Feiye } from '@/components/Feiye';
+import { bookTitleFor } from '@/lib/japanese';
 import { buildAsks } from '@/lib/wenmu';
 
 export function generateStaticParams() {
@@ -105,7 +106,7 @@ export default async function BookPage({
           next={next}
           top={
             <h1 className="font-serif text-h2 font-semibold tracking-[0.16em]">
-              {view.title ?? tShelf('untitled')}
+              {view.title ? bookTitleFor(locale, view.title) : tShelf('untitled')}
             </h1>
           }
         >

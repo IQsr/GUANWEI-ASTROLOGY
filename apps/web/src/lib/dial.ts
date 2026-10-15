@@ -1,6 +1,6 @@
 import type { Branch, Chart, Palace } from '@guanwei/ziwei/contract';
 import type { ChartLayers } from '@/lib/layers';
-import { branchPy, palaceShort, starPy } from '@/lib/chart-labels';
+import { branchPy, jaZi, palaceShort, starPy } from '@/lib/chart-labels';
 
 /**
  * 章尾圓形星盤點出邊一格（2026-10-04）。
@@ -30,6 +30,7 @@ export function dialFor(
   slug: string,
   layers: ChartLayers | null,
   en = false,
+  ja = false,
 ): { branch: Branch; stars: string[]; caption: string } | null {
   let p: Palace | undefined;
   let who: string;
@@ -63,6 +64,13 @@ export function dialFor(
     const names = stars.map(starPy).join(' & ');
     const tailEn = stars.length ? `${own ? '' : 'borrowing '}${names}` : 'no major star';
     return { branch: p.branch, stars, caption: `${whoEn} in ${branchPy(p.branch)} · ${tailEn}` };
+  }
+  /* 日文（2026-10-15）：新字體宮名、「・」分星 */
+  if (ja) {
+    const WHO: Record<string, string> = { 這十年的大限命宮: 'この十年の大限命宮', 這一年的流年命宮: 'この一年の流年命宮' };
+    const whoJa = WHO[who] ?? jaZi(who);
+    const tailJa = stars.length ? `${own ? '' : '向かいの宮を借りて '}${stars.map(jaZi).join('・')}` : '主星なし';
+    return { branch: p.branch, stars, caption: `${whoJa}は${p.branch} · ${tailJa}` };
   }
   const tail = stars.length ? `${own ? '' : '借對宮 '}${stars.join('、')}` : '沒有主星';
   return { branch: p.branch, stars, caption: `${who}在${p.branch} · ${tail}` };

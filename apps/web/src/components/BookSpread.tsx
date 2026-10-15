@@ -2,7 +2,7 @@
 
 import { useEffect, useLayoutEffect, useRef, useState, type ReactNode } from 'react';
 import { useLocale, useTranslations } from 'next-intl';
-import { ganzhiPy, slugEn } from '@/lib/chart-labels';
+import { ganzhiPy, slugEn, slugJa } from '@/lib/chart-labels';
 import { zi } from '@/lib/hans-zi';
 import { Chart } from '@/components/Chart';
 import { Zhanjuan } from '@/components/Zhanjuan';
@@ -270,7 +270,7 @@ export function BookSpread({
         maxWidth={520}
         center={
           <>
-            <p className="text-center font-sans text-cap tracking-[0.16em] text-ink-3">{en ? slugEn(palace) : (palaceLabel ?? zi(palace, locale === 'zh-Hans'))}</p>
+            <p className="text-center font-sans text-cap tracking-[0.16em] text-ink-3">{en ? slugEn(palace) : locale === 'ja' ? slugJa(palace) : (palaceLabel ?? zi(palace, locale === 'zh-Hans'))}</p>
             {caption ? <p className="text-center font-sans text-cap tracking-[0.08em] text-cinnabar">{caption}</p> : null}
           </>
         }

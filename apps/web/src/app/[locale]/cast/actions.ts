@@ -9,6 +9,7 @@ import { bookChapters } from '@/lib/mingshu';
 import { getLocale } from 'next-intl/server';
 import { hans, isHans } from '@/lib/hans';
 import { englishChapters, englishTitle, isEnglish } from '@/lib/english';
+import { isJapanese, japaneseChapters, japaneseTitle } from '@/lib/japanese';
 
 /**
  * 排盤（工單 E4 · 架構 §9）
@@ -157,6 +158,9 @@ export async function castChart(raw: unknown): Promise<CastOutcome> {
     } else if (preface && isEnglish(locale) && xu) {
       preface.title = englishTitle(preface.title);
       preface.lead = englishChapters([{ text: xu.text, slots: xu.slots }])[0]?.[0]?.text ?? preface.lead;
+    } else if (preface && isJapanese(locale) && xu) {
+      preface.title = japaneseTitle(preface.title);
+      preface.lead = japaneseChapters([{ text: xu.text, slots: xu.slots }])[0]?.[0]?.text ?? preface.lead;
     }
 
     return { ok: true, kind: 'full', chart, bookId, preface };

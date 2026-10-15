@@ -3,7 +3,7 @@
 /* ⚠ 由 `/contract` 攞，唔係由總入口 —— 總入口會拖埋成個引擎落 client（E4）。 */
 import { BRANCHES, type Branch, type Chart as ZChart, type Sihua } from '@guanwei/ziwei/contract';
 import { useLocale } from 'next-intl';
-import { HUA_EN, branchPy, palaceShort, starPy } from '@/lib/chart-labels';
+import { HUA_EN, branchPy, jaZi, palaceShort, starPy } from '@/lib/chart-labels';
 import { zi } from '@/lib/hans-zi';
 
 /**
@@ -88,7 +88,8 @@ export function Chart({
   const locale = useLocale();
   const en = locale === 'en';
   /* 簡體頁：星名、宮名、廟旺、四化、干支逐字換（lib/hans-zi.ts）；資料本身唔郁 */
-  const h = (s: string) => zi(s, locale === 'zh-Hans');
+  /* 日文（2026-10-15）：漢字照用，換新字體（祿→禄）同「交友」 */
+  const h = (s: string) => (locale === 'ja' ? jaZi(s) : zi(s, locale === 'zh-Hans'));
   return (
     <div className="pan-wrap" style={{ maxWidth }} data-lang={en ? 'en' : undefined}>
       <div className="pan">
