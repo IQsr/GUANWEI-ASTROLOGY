@@ -57,6 +57,7 @@ const ALLOWED = {
   'lib/guanjian.ts': '關鍵字標記嘅字詞表（「要多留神」「比較順」月份等）：用嚟喺正文入面搵字，唔係畫面文案',
   'lib/wenmu.ts': '問目對應嘅章 slug 同引文嘅切法（《…》寫「…」）；問題同副題喺 messages `book.asks`',
   'lib/zhu.ts': '註層術語：「化祿」等四化名（內容資料）',
+  'lib/pairing-demo.ts': '兩人對照預覽（只畀 /tokens/hepan 用）：「轉述」「對照」「盤面」係事實包 JSON 嘅 kind（資料鍵），唔顯示',
   'lib/luokuan.ts': '出生地嘅中文名（交畀引擎、寫落書）同中文日期寫法；畫面上嘅地名喺 messages',
   'app/[locale]/cast/actions.ts': '序嘅 slug「序」（內容資料）',
   'app/[locale]/book/[bookId]/[chapter]/page.tsx': '段落格名預設「正文」（資料鍵）',
