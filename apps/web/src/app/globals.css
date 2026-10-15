@@ -2038,6 +2038,138 @@
 }
 
 /* ============================================================
+   頁尾（2026-10-15）
+
+   兩個樣，跟導覽：
+     一、夜景上面（首頁、起盤、示範書封面）：透明、夜色字
+     二、其餘：紙底、頂一條界欄
+   ============================================================ */
+
+/* ⚠ z-index 要高過 `.juan`（z 1）：藏經閣、書齋嗰啲 fixed 背景相（.jing-di 等）
+   喺 `<main>` 嘅疊層入面，main 疊喺上面就會連頁尾一齊遮住。 */
+.wei {
+  position: relative;
+  z-index: 2;
+  border-top: 1px solid var(--rule);
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.wei[data-over="night"] {
+  border-top-color: var(--night-rule);
+  background: rgb(11 13 11 / 0.55);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: var(--night-ink);
+}
+
+.wei-nei {
+  max-width: 1280px;
+  margin-inline: auto;
+  padding: 48px 24px 32px;
+}
+
+@media (min-width: 768px) {
+  .wei-nei {
+    padding: 56px 40px 36px;
+  }
+}
+
+.wei-shang {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+@media (min-width: 768px) {
+  .wei-shang {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.wei-yu {
+  color: var(--ink-2);
+}
+
+.wei[data-over="night"] .wei-yu {
+  color: var(--night-ink-2);
+}
+
+.wei-zu {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  justify-content: start;
+  gap: 24px 32px;
+  white-space: nowrap;
+}
+
+@media (min-width: 768px) {
+  .wei-zu {
+    gap: 24px 72px;
+  }
+}
+
+.wei-biao {
+  font-family: var(--font-sans-stack);
+  font-size: var(--t-cap);
+  letter-spacing: 0.24em;
+  color: var(--ink-3);
+}
+
+.wei[data-over="night"] .wei-biao {
+  color: var(--night-ink-3);
+}
+
+.wei-lian {
+  font-family: var(--font-serif-stack);
+  font-size: var(--t-sm);
+  letter-spacing: 0.16em;
+  opacity: 0.82;
+  transition: opacity var(--dur-1) var(--motion-ease-ink);
+}
+
+.wei-lian:hover {
+  opacity: 1;
+  text-decoration: underline;
+  text-decoration-color: var(--gold);
+  text-underline-offset: 5px;
+}
+
+.wei-xia {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 44px;
+  border-top: 1px solid var(--rule);
+  padding-top: 20px;
+  font-family: var(--font-sans-stack);
+  font-size: var(--t-cap);
+  line-height: 1.9;
+  letter-spacing: 0.08em;
+  color: var(--ink-3);
+}
+
+.wei:lang(en) .wei-lian,
+.wei:lang(en) .wei-yu {
+  letter-spacing: 0.02em;
+}
+
+.wei:lang(en) .wei-biao {
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.wei:lang(en) .wei-xia {
+  letter-spacing: 0.01em;
+}
+
+.wei[data-over="night"] .wei-xia {
+  border-top-color: var(--night-rule);
+  color: var(--night-ink-3);
+}
+
+/* ============================================================
    首頁夜景：書房相 ＋ 窗外會郁嘅星（重新設計第一期）
 
    ⚠ 張相同星空遮罩要用**同一個** background-size / position，

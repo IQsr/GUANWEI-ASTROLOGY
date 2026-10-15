@@ -99,6 +99,26 @@
     "contents": "Contents",
     "back": "Back"
   },
+  "footer": {
+    "aria": "Footer",
+    "homeAria": "Stellogue home",
+    "groups": {
+      "read": "Read",
+      "yours": "Your book",
+      "legal": "Terms"
+    },
+    "links": {
+      "cast": "Begin",
+      "sample": "Sample book",
+      "lexicon": "Library",
+      "shelf": "My shelf",
+      "account": "Settings",
+      "terms": "Terms of use",
+      "privacy": "Privacy"
+    },
+    "school": "Following the San He school · Zhongzhou school (Wang Tingzhi).",
+    "notAdvice": "Your book is a reading based on classical Zi Wei Dou Shu texts, not medical, legal, financial or other professional advice."
+  },
   "journey": {
     "label": "Where you are",
     "s1": "Inscribe",

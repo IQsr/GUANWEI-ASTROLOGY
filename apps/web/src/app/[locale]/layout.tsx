@@ -8,6 +8,7 @@ import { themeInitScript } from '@/lib/theme';
 import '../fonts';
 import { SiteHeader } from '@/components/SiteHeader';
 import { PageFade } from '@/components/PageFade';
+import { SiteFooter } from '@/components/SiteFooter';
 import '../globals.css';
 
 export function generateStaticParams() {
@@ -78,6 +79,7 @@ export default async function LocaleLayout({
           <div className="relative z-[1]">
             <SiteHeader />
             {children}
+            <SiteFooter />
           </div>
         </NextIntlClientProvider>
       </body>

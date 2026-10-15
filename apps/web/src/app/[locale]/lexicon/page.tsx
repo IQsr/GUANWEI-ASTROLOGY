@@ -128,8 +128,7 @@ export default async function LexiconIndex({
         <footer className="mt-tiantou border-t border-rule pt-4">
           <LexiconCta />
           <p className="mt-6 font-sans text-cap leading-[2] text-ink-3">
-            {t('school')}
-            <br />
+            {/* 派別出處喺全站頁尾（SiteFooter），呢度唔再寫一次 */}
             {t('noPersonal')}
           </p>
         </footer>

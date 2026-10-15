@@ -102,6 +102,26 @@
     "contents": "目次",
     "back": "返回"
   },
+  "footer": {
+    "aria": "頁尾",
+    "homeAria": "星敘 首頁",
+    "groups": {
+      "read": "閱讀",
+      "yours": "你的書",
+      "legal": "條款"
+    },
+    "links": {
+      "cast": "起盤",
+      "sample": "示範書",
+      "lexicon": "藏經閣",
+      "shelf": "我的書齋",
+      "account": "設定",
+      "terms": "使用條款",
+      "privacy": "私隱政策"
+    },
+    "school": "體系依三合派 · 中州派（王亭之系統）。",
+    "notAdvice": "命書是依據紫微斗數古籍寫成的參考讀物，不是醫療、法律、投資或其他專業意見。"
+  },
   "journey": {
     "label": "你在第幾步",
     "s1": "落款",
