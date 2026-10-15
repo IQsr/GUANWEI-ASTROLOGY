@@ -26,15 +26,13 @@
  *
  * ⚠ `.fanye-tai`（翻頁嗰頁紙）掛喺 body，唔喺本書入面 —— 唔喺呢度宣告就會跟 `:root`
  * 嘅夜讀值，深色模式之下翻嗰頁變咗黑色（2026-09，Issac 撞到）。`.yindao`（第一次打開嘅引導紙箋）一樣。
- * `.xinjian`（設定頁擺喺書桌上嘅信箋，2026-10-15）一樣：紙永遠係紙色。
  */
 :root,
 .ye-ink .shu-wrap,
 .ye-ink .fan-wrap,
 .ye-ink .shuzhuo,
 .fanye-tai,
-.yindao,
-.xinjian {
+.yindao {
   /* ── 紙 ── */
   --paper: #eee6d8;
   --paper-2: #e6dcc9;
@@ -4873,30 +4871,6 @@ select.zhou-xian {
   padding-top: 0 !important;
 }
 
-/* ============================================================
-   設定：書桌上嘅信箋（2026-10-15 改版）
-
-   之前成版黑底三張卡。而家同閱讀頁一樣擺喺書桌（NightScene table），
-   匯出、重排、刪除各寫喺一張信箋上。信箋入面嘅色變數喺頂嗰組 `:root, … .xinjian`
-   轉返紙色 —— 所以入面嘅表格、掣、重排表照用 token，唔使逐個改。
-   ============================================================ */
-.xinjian {
-  border: 0;
-  border-radius: 0;
-  background: var(--paper) url("/img/book/paper.webp") 0 0 / 320px 320px repeat;
-  box-shadow:
-    0 2px 0 rgb(0 0 0 / 0.2),
-    0 30px 70px -28px rgb(0 0 0 / 0.85);
-  color: var(--ink);
-}
-
-/* 刪除嗰張：信箋頂一條朱砂線，提你呢張唔同 */
-.xinjian.xinjian-zhu {
-  box-shadow:
-    inset 0 3px 0 var(--cinnabar),
-    0 2px 0 rgb(0 0 0 / 0.2),
-    0 30px 70px -28px rgb(0 0 0 / 0.85);
-}
 
 /* ── 藏經閣詞條頁（2026-10-15）：由經櫃攞咗一卷出嚟攤開讀 ──
    頂一條短嘅經櫃相（同目錄同一張），名寫喺相底；正文直接喺暗處讀（冇白紙）。 */
@@ -4960,13 +4934,47 @@ select.zhou-xian {
 }
 
 /*
- * 書齋、藏經閣係暗房：日讀都係暗底，所以連結用夜讀嘅靛（.ye-ink 冇管 --indigo）。
- * 紙（.xinjian）入面喺頂嗰組變數轉返紙色，唔受呢度影響。
+ * 書齋、藏經閣、設定係暗房：日讀都係暗底，所以連結、朱砂用夜讀嘅色（.ye-ink 冇管 --indigo、--cinnabar）。
  */
 .jing-ye,
-.zhai-ye {
+.zhai-ye,
+.she-ye {
   --indigo: #8fa9bb;
   --indigo-2: #5e7788;
   --cinnabar: #cb5a47;
 }
 
+
+
+/* ============================================================
+   設定：書桌上嘅暗木板（2026-10-15 第二版）
+
+   第一版係書桌上幾張白信箋（.xinjian）。Issac 喺藏經閣講過白底襯暗房好怪，所以設定一齊改：
+   匯出、重排、刪除各一塊半透明嘅深木板，金色細邊；刪除嗰塊頂一條朱砂。
+   字用夜色（.ye-ink），日讀夜讀一樣。
+   ⚠ 板入面要自己設 --paper、--card：主掣 .btn-mo 係「--ink 底 --paper 字」，
+     輸入框 .ruled 係 --card 底 —— 日讀嘅 --paper／--card 係淺色，唔改就會淺字淺底。
+   ============================================================ */
+.an-ban {
+  --paper: #140c07;
+  --card: rgb(0 0 0 / 0.35);
+  --rule: rgb(201 173 116 / 0.28);
+  --rule-2: rgb(201 173 116 / 0.14);
+  background: rgb(22 13 7 / 0.82);
+  box-shadow:
+    inset 0 0 0 1px rgb(201 173 116 / 0.22),
+    inset 0 1px 0 rgb(255 214 160 / 0.06),
+    0 24px 60px -24px rgb(0 0 0 / 0.9);
+  color: var(--ink);
+}
+
+.an-ban h2 {
+  color: var(--gilt);
+}
+
+.an-ban-zhu {
+  box-shadow:
+    inset 0 3px 0 var(--cinnabar),
+    inset 0 0 0 1px rgb(201 173 116 / 0.22),
+    0 24px 60px -24px rgb(0 0 0 / 0.9);
+}

@@ -62,10 +62,10 @@ export default async function AccountPage({ params }: { params: Promise<{ locale
   } catch (error) {
     console.error('[account] ', error);
     return (
-      <main className="juan tai ye-ink">
+      <main className="juan tai ye-ink she-ye">
         <NightScene variant="table" />
         <Juanshou back="shelf" title={t('title')} nav="account" />
-        <p className="banxin xinjian p-6 text-body leading-[1.95] text-ink-2 sm:p-8">
+        <p className="banxin an-ban p-6 text-body leading-[1.95] text-ink-2 sm:p-8">
           {t('unreachable')}
         </p>
       </main>
@@ -74,10 +74,10 @@ export default async function AccountPage({ params }: { params: Promise<{ locale
 
   if (!account) {
     return (
-      <main className="juan tai ye-ink">
+      <main className="juan tai ye-ink she-ye">
         <NightScene variant="table" />
         <Juanshou back="shelf" title={t('title')} nav="account" />
-        <p className="banxin xinjian p-6 text-body leading-[1.95] sm:p-8">
+        <p className="banxin an-ban p-6 text-body leading-[1.95] sm:p-8">
           {t('noBooks')}
         </p>
       </main>
@@ -87,7 +87,7 @@ export default async function AccountPage({ params }: { params: Promise<{ locale
   const rows = recastRows(books, CURRENT);
 
   return (
-    <main className="juan tai ye-ink">
+    <main className="juan tai ye-ink she-ye">
         <NightScene variant="table" />
       <Juanshou back="shelf" title={t('title')} nav="account" />
       <p className="banxin text-sm leading-[1.9] text-ink-2">
@@ -97,7 +97,7 @@ export default async function AccountPage({ params }: { params: Promise<{ locale
       {/* 三件事，三張卡（重新設計第四期 · 參考稿閱讀卡） */}
       <div className="banxin mt-10 flex flex-col gap-6">
       {/* ── 一、匯出 ───────────────────────────────── */}
-      <section className="ka xinjian p-6 sm:p-8">
+      <section className="an-ban p-6 sm:p-8">
         <h2 className="text-h3 font-medium tracking-[0.16em]">{t('exportTitle')}</h2>
         <div className="mt-6 flex flex-col gap-4 text-body leading-[1.95]">
           <p>{t('export1')}</p>
@@ -109,7 +109,7 @@ export default async function AccountPage({ params }: { params: Promise<{ locale
       </section>
 
       {/* ── 二、重排（R-008） ──────────────────────── */}
-      <section className="ka xinjian p-6 sm:p-8">
+      <section className="an-ban p-6 sm:p-8">
         <h2 className="text-h3 font-medium tracking-[0.16em]">{t('recastTitle')}</h2>
         <p className="mt-6 text-body leading-[1.95] text-ink-2">
           {t('recastIntro')}
@@ -150,7 +150,7 @@ export default async function AccountPage({ params }: { params: Promise<{ locale
       </section>
 
       {/* ── 三、刪除 ───────────────────────────────── */}
-      <section className="ka xinjian xinjian-zhu p-6 sm:p-8">
+      <section className="an-ban an-ban-zhu p-6 sm:p-8">
         <h2 className="text-h3 font-medium tracking-[0.16em]">{t('deleteTitle')}</h2>
         <p className="mt-6 text-body leading-[1.95]">
           {t('deleteIntro')}
