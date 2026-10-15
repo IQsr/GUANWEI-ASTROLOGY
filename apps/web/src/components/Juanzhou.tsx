@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useId, useState, type ReactNode } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { Seal } from "@/components/Seal";
 import { MARK } from "@/lib/site";
@@ -33,6 +33,12 @@ export function Juanzhou({
   busy,
   error,
   onFolded,
+  title,
+  lead,
+  extra,
+  gate,
+  hints,
+  hold = false,
 }: {
   draft: Draft;
   setDraft: (d: Draft) => void;
@@ -41,6 +47,18 @@ export function Juanzhou({
   busy: boolean;
   error?: string | null;
   onFolded?: () => void;
+  /* ── 兩人對照（2026-10-15）：兩幅卷軸並排，以下幾格單人落款唔使理 ── */
+  /** 換卷軸題目同副題（第二幅寫「對方」） */
+  title?: string;
+  lead?: string;
+  /** 卷尾之前加一行（對方同意嗰格） */
+  extra?: ReactNode;
+  /** 寫齊之外仲要過嘅一關：未過就唔准落印，`hint` 寫喺印旁邊 */
+  gate?: { ok: boolean; hint: string };
+  /** 換印旁邊嗰句：寫齊（單人係「落印，就成書」—— 兩人唔係成書）、落咗印未捲 */
+  hints?: { ready?: string; sealed?: string; noHour?: string };
+  /** 落咗印都唔好捲埋 —— 等另一幅都落埋印先一齊捲 */
+  hold?: boolean;
 }) {
   const t = useTranslations("juanzhou");
   const tp = useTranslations("places");
@@ -49,21 +67,29 @@ export function Juanzhou({
   const locale = useLocale();
   /* 姓名留空都算寫咗（書上寫「無名」） */
   const missing = (["date", "place", "time", "sex"] as const).filter((s) => !isAnswered(s, draft));
-  const ready = missing.length === 0;
+  const ready = missing.length === 0 && (gate?.ok ?? true);
+  /* 一版兩幅卷軸嘅話 id 唔可以撞（aria-labelledby 會指錯幅） */
+  const uid = useId();
+  const id = (k: string) => `zhou-${k}${uid}`;
+  /* 展開過一次就算：揭返個印（核唔過）唔好成幅由頭再展開一次 */
+  const [opened, setOpened] = useState(false);
 
   /* reduced-motion：冇捲軸動畫，animationend 唔會嚟 —— 落咗印就當捲完 */
   useEffect(() => {
-    if (sealed && window.matchMedia("(prefers-reduced-motion: reduce)").matches) onFolded?.();
+    if (sealed && !hold && window.matchMedia("(prefers-reduced-motion: reduce)").matches) onFolded?.();
     // eslint-disable-next-line react-hooks/exhaustive-deps -- onFolded 係 callback，唔係觸發條件
-  }, [sealed]);
+  }, [sealed, hold]);
 
   return (
     <section
       className="juanzhou"
       data-lang={locale === "en" ? "en" : undefined}
-      aria-label={t("title")}
+      aria-label={title ?? t("title")}
       data-sealed={sealed ? "" : undefined}
+      data-hold={hold ? "" : undefined}
+      data-opened={opened ? "" : undefined}
       onAnimationEnd={(e) => {
+        if (e.animationName === "zhou-kai") setOpened(true);
         /* 卷軸捲埋（zhou-shou）；唔支援 interpolate-size 嘅瀏覽器淡出（zhou-dan） */
         if (e.animationName === "zhou-shou" || e.animationName === "zhou-dan") onFolded?.();
       }}
@@ -72,19 +98,19 @@ export function Juanzhou({
       <div className="zhou-ling">
         <div className="zhou-zhi">
           <header className="zhou-tou">
-            <h2 className="zhou-ti">{t("title")}</h2>
-            <p className="zhou-ci">{t("lead")}</p>
+            <h2 className="zhou-ti">{title ?? t("title")}</h2>
+            <p className="zhou-ci">{lead ?? t("lead")}</p>
           </header>
 
           <div className="zhou-hang">
-            <span className="zhou-ming" id="zhou-name">{t("label.name")}</span>
+            <span className="zhou-ming" id={id("name")}>{t("label.name")}</span>
             <input
               className="zhou-xian"
               value={draft.name}
               maxLength={40}
               autoComplete="off"
               placeholder={t("namePh")}
-              aria-labelledby="zhou-name"
+              aria-labelledby={id("name")}
               onChange={(e) => setDraft({ ...draft, name: e.target.value })}
             />
           </div>
@@ -95,11 +121,11 @@ export function Juanzhou({
           </div>
 
           <div className="zhou-hang">
-            <span className="zhou-ming" id="zhou-place">{t("label.place")}</span>
+            <span className="zhou-ming" id={id("place")}>{t("label.place")}</span>
             <select
               className="zhou-xian"
               value={draft.placeIndex ?? ""}
-              aria-labelledby="zhou-place"
+              aria-labelledby={id("place")}
               onChange={(e) =>
                 setDraft({
                   ...draft,
@@ -126,9 +152,9 @@ export function Juanzhou({
 
           {/* 計時（2026-10-06，R-004）：出生地真太陽時（預設）或者中州派講義嘅洛陽時間 */}
           <div className="zhou-hang">
-            <span className="zhou-ming" id="zhou-basis">{t("label.basis")}</span>
+            <span className="zhou-ming" id={id("basis")}>{t("label.basis")}</span>
             <div>
-              <div className="zhou-ji" role="group" aria-labelledby="zhou-basis">
+              <div className="zhou-ji" role="group" aria-labelledby={id("basis")}>
                 {(["birthplace", "luoyang"] as const).map((b) => (
                   <button
                     key={b}
@@ -148,13 +174,13 @@ export function Juanzhou({
           </div>
 
           <div className="zhou-hang">
-            <span className="zhou-ming" id="zhou-time">{t("label.time")}</span>
-            <TimeLine draft={draft} setDraft={setDraft} />
+            <span className="zhou-ming" id={id("time")}>{t("label.time")}</span>
+            <TimeLine draft={draft} setDraft={setDraft} labelId={id("time")} noHourNote={hints?.noHour} />
           </div>
 
           <div className="zhou-hang">
-            <span className="zhou-ming" id="zhou-sex">{t("label.sex")}</span>
-            <div className="zhou-quan" role="group" aria-labelledby="zhou-sex">
+            <span className="zhou-ming" id={id("sex")}>{t("label.sex")}</span>
+            <div className="zhou-quan" role="group" aria-labelledby={id("sex")}>
               {(["male", "female"] as const).map((sex) => (
                 <button key={sex} type="button" aria-pressed={draft.sex === sex} onClick={() => setDraft({ ...draft, sex })}>
                   {t(sex)}
@@ -163,14 +189,20 @@ export function Juanzhou({
             </div>
           </div>
 
+          {extra}
+
           <footer className="zhou-wei">
             <p className="zhou-qian" aria-live="polite">
               {error ? (
                 <span className="zhou-cuo">{error}</span>
-              ) : sealed ? null : ready ? (
-                t("readyHint")
-              ) : (
+              ) : sealed ? (
+                (hints?.sealed ?? null)
+              ) : missing.length ? (
                 t("missing", { list: missing.map((s: Step) => t(`label.${s}`)).join(t("sep")) })
+              ) : gate && !gate.ok ? (
+                gate.hint
+              ) : (
+                (hints?.ready ?? t("readyHint"))
               )}
             </p>
             {/* 印就係掣：未寫齊係虛線框，寫齊咗轉紅；落咗印，換做真嗰枚印壓落去 */}
@@ -276,7 +308,17 @@ function DateLine({ draft, setDraft }: { draft: Draft; setDraft: (d: Draft) => v
  * `/api/slots` 逐分鐘計）、「記得準確時間」（出一格填時間）、「不知道時辰」。
  * 計唔到（server 壞咗）就淨係得準確時間同不知道。
  */
-function TimeLine({ draft, setDraft }: { draft: Draft; setDraft: (d: Draft) => void }) {
+function TimeLine({
+  draft,
+  setDraft,
+  labelId,
+  noHourNote,
+}: {
+  draft: Draft;
+  setDraft: (d: Draft) => void;
+  labelId: string;
+  noHourNote?: string;
+}) {
   const t = useTranslations("juanzhou");
   const tc = useTranslations("cast");
   const shichen = useShichenWords();
@@ -311,7 +353,7 @@ function TimeLine({ draft, setDraft }: { draft: Draft; setDraft: (d: Draft) => v
     <div className="zhou-shi">
       <select
         className="zhou-xian"
-        aria-labelledby="zhou-time"
+        aria-labelledby={labelId}
         disabled={!open}
         value={open ? value : ""}
         onChange={(e) => {
@@ -351,7 +393,7 @@ function TimeLine({ draft, setDraft }: { draft: Draft; setDraft: (d: Draft) => v
         />
       ) : null}
       {/* R-007：呢句要出現喺畫面上 */}
-      <p className="zhou-zhu">{draft.noHour ? tc("noHourComfort") : tc("timeHint")}</p>
+      <p className="zhou-zhu">{draft.noHour ? (noHourNote ?? tc("noHourComfort")) : tc("timeHint")}</p>
     </div>
   );
 }

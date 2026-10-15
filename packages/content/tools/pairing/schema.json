@@ -1,0 +1,32 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["headline", "sections"],
+  "properties": {
+    "headline": { "$ref": "#/$defs/sentence" },
+    "sections": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["title", "sentences"],
+        "properties": {
+          "title": { "type": "string" },
+          "sentences": { "type": "array", "items": { "$ref": "#/$defs/sentence" } }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "sentence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["text", "kind", "facts"],
+      "properties": {
+        "text": { "type": "string" },
+        "kind": { "type": "string", "enum": ["轉述", "對照"] },
+        "facts": { "type": "array", "items": { "type": "string" } }
+      }
+    }
+  }
+}

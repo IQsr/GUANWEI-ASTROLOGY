@@ -9,6 +9,7 @@ import { Juanzhou } from "@/components/Juanzhou";
 import { NAMELESS, nameOf } from "@/lib/chengshu";
 import { castChart, type CastOutcome } from "@/app/[locale]/cast/actions";
 import { ConsentGate } from "@/components/ConsentGate";
+import { HepanLuokuan } from "@/components/HepanLuokuan";
 import { LEGAL_VERSION } from "@/lib/legal";
 import { EMPTY_DRAFT, toCastRequest, type Draft } from "@/lib/luokuan";
 
@@ -42,6 +43,10 @@ export function Luokuan() {
   const [folded, setFolded] = useState(false);
   /* 同意咗條款及私隱政策先准排盤（ConsentGate）；server 同 DB 會再查一次 */
   const [consented, setConsented] = useState(false);
+  /* 一人／雙人（2026-10-15 · 兩人對照入口）：切換掣喺卷軸外面、桌面上 */
+  const [pair, setPair] = useState(false);
+  /* 兩幅都核過咗：捲緊／快將推出 —— 切換掣收起，同單人落咗印一樣 */
+  const [pairPassed, setPairPassed] = useState(false);
 
   /*
    * ⚠ 一個 mount 一個 token —— 重試用返同一個（G5）。
@@ -111,18 +116,53 @@ export function Luokuan() {
   return (
     <FlowChrome>
       <ConsentGate onConsent={() => setConsented(true)} />
-      <div className="mu-wei">
-        <Juanzhou
-          draft={draft}
-          setDraft={setDraft}
-          onSeal={seal}
-          sealed={sealed}
-          busy={casting}
-          error={error}
-          onFolded={() => setFolded(true)}
+      {/* 單人落咗印就收起：捲緊卷軸嗰陣唔好再畀人換 */}
+      {sealed || pairPassed ? null : <RenShu pair={pair} setPair={setPair} />}
+      {pair ? (
+        <HepanLuokuan
+          onPassed={() => setPairPassed(true)}
+          onSingle={() => {
+            setPairPassed(false);
+            setPair(false);
+          }}
         />
-      </div>
+      ) : (
+        <div className="mu-wei">
+          <Juanzhou
+            draft={draft}
+            setDraft={setDraft}
+            onSeal={seal}
+            sealed={sealed}
+            busy={casting}
+            error={error}
+            onFolded={() => setFolded(true)}
+          />
+        </div>
+      )}
     </FlowChrome>
+  );
+}
+
+/**
+ * 一人／雙人（2026-10-15）。
+ *
+ * ⚠ 單人嗰幅卷軸寫咗嘅嘢，切去雙人再切返嚟仲喺度（`draft` 喺 `Luokuan` 度）；
+ * 雙人嗰兩幅就切走就冇 —— 嗰度有對方嘅生辰，唔留得就唔留。
+ */
+function RenShu({ pair, setPair }: { pair: boolean; setPair: (p: boolean) => void }) {
+  const t = useTranslations("hepan");
+  return (
+    <div className="ren-shu">
+      <div className="ren-qie" role="group" aria-label={t("modeAria")}>
+        <button type="button" aria-pressed={!pair} onClick={() => setPair(false)}>
+          {t("single")}
+        </button>
+        <button type="button" aria-pressed={pair} onClick={() => setPair(true)}>
+          {t("pair")}
+        </button>
+      </div>
+      {pair ? <p className="ren-zhu">{t("pairNote")}</p> : null}
+    </div>
   );
 }
 
