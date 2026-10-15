@@ -132,6 +132,8 @@ function SpineEl({ spine, onTake }: { spine: Spine; onTake?: (key: string) => vo
     'data-kind': spine.kind,
     'data-reading': spine.reading ? '1' : '0',
     'data-bu': spine.kind === 'new' ? undefined : buOf(spine.key),
+    /* 撳落去：書脊變成書桌上攤開嗰本書（PageFade · `.shuzhuo-shu`） */
+    'data-vt': spine.kind === 'new' ? undefined : 'shu',
     /* 題簽高度固定，字多就縮細字（globals.css .ji-qian） */
     style: { '--n': n } as CSSProperties,
     title: shown.length < zis.length || latin ? spine.label : undefined,

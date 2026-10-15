@@ -167,5 +167,6 @@ export function PageTurnLink({
     router.push(href);
   };
 
-  return <Link href={href} onClick={handle} {...rest} />;
+  /* `data-page-turn`：全站淡入（PageFade）唔好截呢條 —— 本書有自己嘅翻頁 */
+  return <Link href={href} onClick={handle} data-page-turn="" {...rest} />;
 }

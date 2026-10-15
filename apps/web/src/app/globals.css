@@ -4950,3 +4950,44 @@ select.zhou-xian {
     inset 0 0 0 1px rgb(201 173 116 / 0.22),
     0 24px 60px -24px rgb(0 0 0 / 0.9);
 }
+
+/* ============================================================
+   轉頁淡入（`PageFade` · 2026-10-15）
+
+   全站：舊頁淡走、新頁淡入，180ms —— 短到唔覺喺度等，淨係唔再白閃。
+   導覽條自己一組，轉頁唔跟成版一齊閃。
+   書齋：撳嗰本書嘅書脊（`data-vt="shu"`，撳先畀名）變成書桌上攤開嗰本書。
+   reduced-motion：PageFade 根本唔開過場，呢度唔使再寫。
+   ============================================================ */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 180ms;
+  animation-timing-function: ease-out;
+}
+
+.dao {
+  view-transition-name: site-header;
+}
+
+.shuzhuo-shu {
+  view-transition-name: shu;
+}
+
+::view-transition-group(shu) {
+  animation-duration: 460ms;
+  animation-timing-function: cubic-bezier(0.22, 0.8, 0.24, 1);
+}
+/* 書脊又窄又高、本書又闊：兩張影像都跟住個框拉，唔好保持比例 —— 似抽出嚟再攤開 */
+::view-transition-old(shu),
+::view-transition-new(shu) {
+  height: 100%;
+  object-fit: fill;
+}
+::view-transition-old(shu) {
+  animation-duration: 200ms;
+}
+::view-transition-new(shu) {
+  animation-duration: 340ms;
+  animation-delay: 60ms;
+  animation-fill-mode: both;
+}
