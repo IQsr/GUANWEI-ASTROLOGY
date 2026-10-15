@@ -142,8 +142,7 @@ function SpineEl({ spine, onTake }: { spine: Spine; onTake?: (key: string) => vo
   const body = (
     <span aria-hidden="true" className="contents">
       {inner}
-      {/* 在讀嗰本：一條朱砂書簽帶由書底垂落層板 */}
-      {spine.reading ? <span className="ji-dai" /> : null}
+      {/* 在讀嗰本嘅朱砂書簽帶 2026-10-15 拎走咗（Issac：唔要）；data-reading 照留 */}
     </span>
   );
 

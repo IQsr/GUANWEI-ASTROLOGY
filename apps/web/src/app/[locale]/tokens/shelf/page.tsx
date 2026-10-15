@@ -39,7 +39,7 @@ export default async function ShelfDemoPage({
         </div>
         <p className="max-w-[26rem] text-sm leading-[1.9] tracking-[0.06em] text-ink-2">
           工單 E3（2026-10-15 第二版）。成版係書房：闊景／直景兩張相，書脊墨綠布面、燙金線、紙題簽，企喺層板上。零透視、零圓角。
-          最近讀嗰本喺最左，在讀嗰本轉朱砂，hover 升 10px。
+          最近讀嗰本喺最左，hover 升 10px。
         </p>
         <ThemeToggle dayLabel="日讀" nightLabel="夜讀" />
       </header>
