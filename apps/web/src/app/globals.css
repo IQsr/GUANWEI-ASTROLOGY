@@ -1173,16 +1173,16 @@
   bottom: calc(100% - var(--b3));
 }
 
-.jia-ceng[data-ceng="0"] .ji {
-  height: var(--h1);
+.jia-ceng[data-ceng="0"] {
+  --h: var(--h1);
 }
 
-.jia-ceng[data-ceng="1"] .ji {
-  height: var(--h2);
+.jia-ceng[data-ceng="1"] {
+  --h: var(--h2);
 }
 
-.jia-ceng[data-ceng="2"] .ji {
-  height: var(--h3);
+.jia-ceng[data-ceng="2"] {
+  --h: var(--h3);
 }
 
 /* 三層都放滿之後嘅書（好少見）：擺喺個景下面，唔塞爆 */
@@ -1196,33 +1196,25 @@
   padding: 20px 16px 0;
 }
 
-.jia-yu .ji {
-  height: 110px;
+.jia-yu {
+  --h: 110px;
 }
 
 /* ── 書脊 ────────────────────────────────────────────────
-   墨綠布面（同封面同一匹布）、上下各兩條燙金線、中間一張紙題簽。
-   陰影：左邊微光、右邊收暗，似一本有厚度嘅書；底下一點影落喺櫃背板。 */
+   2026-10-15 第三版：書脊係相（/img/study/ji-*.webp，五款布面，Shelf.tsx `buOf` 揀）。
+   張相本身有燙金線、紙題簽同光暗；呢度只係將書名疊喺題簽上面。
+   ⚠ 每張相嘅題簽喺：高 8.6%–50%、闊 14.5%–85.5%。換相要照呢個位，否則字會出咗題簽。
+   書脊闊 = 高 ÷ 5（相本身 1:6.7，橫向拉闊少少；細過 20px 就再拉闊啲，手機先放得落字）。 */
 .ji {
   position: relative;
-  display: flex;
-  width: max(24px, 3.5cqh);
-  min-height: 58px;
+  display: block;
+  height: var(--h, 110px);
+  width: max(20px, calc(var(--h, 110px) / 5));
   flex: 0 0 auto;
-  flex-direction: column;
-  align-items: center;
-  padding: max(7px, 1.3cqh) 0 max(6px, 1cqh);
-  background-color: #1d3326;
-  background-image: url("/img/book/cloth.webp");
-  background-size: 168px 147px;
-  background-blend-mode: multiply;
-  box-shadow:
-    inset 2px 0 2px rgb(255 240 210 / 0.1),
-    inset -4px 0 5px rgb(0 0 0 / 0.5),
-    5px 3px 7px rgb(0 0 0 / 0.55);
-  color: var(--ink);
+  background: 0 0 / 100% 100% no-repeat;
+  filter: drop-shadow(4px 3px 4px rgb(0 0 0 / 0.55));
+  color: #2a2620;
   font-family: var(--font-serif-stack);
-  font-size: max(11px, 1.55cqh);
   line-height: 1.05;
   letter-spacing: 0;
   transition:
@@ -1231,53 +1223,44 @@
     filter var(--dur-1) var(--motion-ease-ink);
 }
 
-/* 上下燙金線：每邊兩條 */
-.ji::before,
-.ji::after {
-  content: "";
-  position: absolute;
-  inset-inline: 0;
-  height: 4px;
-  border-block: 1px solid rgb(201 173 116 / 0.75);
-}
+.ji[data-bu="lu"] { background-image: url("/img/study/ji-lu.webp"); }
+.ji[data-bu="lan"] { background-image: url("/img/study/ji-lan.webp"); }
+.ji[data-bu="he"] { background-image: url("/img/study/ji-he.webp"); }
+.ji[data-bu="zhu"] { background-image: url("/img/study/ji-zhu.webp"); }
+.ji[data-bu="wu"] { background-image: url("/img/study/ji-wu.webp"); }
 
-.ji::before {
-  top: max(4px, 0.8cqh);
-}
-
-.ji::after {
-  bottom: max(3px, 0.6cqh);
-}
-
-/* 紙題簽：書名寫喺上面 */
+/* 書名：疊喺相上面嗰張題簽。字多就縮細，題簽高度唔變 */
 .ji-qian {
+  position: absolute;
+  top: 8.6%;
+  height: 41.4%;
+  inset-inline: 14.5%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2px;
-  min-height: 40%;
-  width: 72%;
-  padding: 5px 0;
-  background: #e9dfc9 url("/img/book/paper.webp") 0 0 / 160px 160px;
-  box-shadow: 0 0 0 1px rgb(60 40 20 / 0.25);
-  color: #2a2620;
+  justify-content: center;
+  gap: 1px;
+  overflow: hidden;
+  /* 中文：--n 係擺出嚟嘅字數（最多四隻，Shelf.tsx） */
+  font-size: max(8px, min(calc(var(--h, 110px) / 5 * 0.62), calc(var(--h, 110px) * 0.36 / var(--n, 2))));
 }
 
 .ji-xi {
   writing-mode: vertical-rl;
   text-orientation: mixed;
-  max-height: 11cqh;
+  max-height: 100%;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  font-size: max(10px, 1.6cqh);
-  letter-spacing: 0.04em;
+  /* 英文：--n 係字母數；題簽高 41.4%，一個字母約 0.55em 闊 */
+  font-size: max(8px, min(calc(var(--h, 110px) / 5 * 0.5), calc(var(--h, 110px) * 0.414 * 1.7 / var(--n, 8))));
+  letter-spacing: 0.02em;
 }
 
 .ji:hover,
 .ji:focus-visible {
   transform: translateY(-10px);
-  filter: brightness(1.12);
+  filter: drop-shadow(4px 3px 4px rgb(0 0 0 / 0.55)) brightness(1.12);
 }
 
 /* 在讀嗰本：一條朱砂書簽帶由書底垂落層板 */
@@ -1291,35 +1274,35 @@
   box-shadow: 1px 1px 2px rgb(0 0 0 / 0.5);
 }
 
-/* 待時辰：未染色嘅素布 —— 書已經開咗，等你補時辰 */
+/* 待時辰：褪咗色嘅布 —— 書已經開咗，等你補時辰 */
 .ji[data-kind="awaiting"] {
-  background-color: #8d8270;
-  color: #2a2620;
+  filter: drop-shadow(4px 3px 4px rgb(0 0 0 / 0.55)) grayscale(0.85) brightness(0.92);
 }
 
-/* ＋ 新書：櫃入面一格空位，只得一張空白題簽同一圈金色虛線 */
+.ji[data-kind="awaiting"]:hover,
+.ji[data-kind="awaiting"]:focus-visible {
+  filter: drop-shadow(4px 3px 4px rgb(0 0 0 / 0.55)) grayscale(0.85) brightness(1.05);
+}
+
+/* ＋ 新書：櫃入面一格空位，只得一圈金色虛線同兩隻字 */
 .ji[data-kind="new"] {
-  justify-content: center;
   border: 1px dashed rgb(201 173 116 / 0.55);
   background: rgb(18 12 7 / 0.35);
-  box-shadow: none;
-}
-
-.ji[data-kind="new"]::before,
-.ji[data-kind="new"]::after {
-  content: none;
+  filter: none;
 }
 
 .ji[data-kind="new"] .ji-qian {
-  min-height: 0;
-  background: none;
-  box-shadow: none;
+  top: 0;
+  height: 100%;
+  inset-inline: 0;
+  font-size: max(10px, calc(var(--h, 110px) / 5 * 0.55));
   color: rgb(233 223 201 / 0.82);
 }
 
 .ji[data-kind="new"]:hover,
 .ji[data-kind="new"]:focus-visible {
   border-color: rgb(201 173 116 / 0.95);
+  filter: none;
 }
 
 .jia[data-dim="1"] .ji {

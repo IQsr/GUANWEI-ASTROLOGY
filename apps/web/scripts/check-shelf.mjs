@@ -68,6 +68,29 @@ try {
   for (const b of caseInfo.bottoms) check('書企喺層板上', Math.abs(b - 40.2) <= 1.5, `書底喺 ${b.toFixed(1)}%`);
 
   /*
+   * ── 一之二、書脊係布面相，書名喺題簽入面（2026-10-15 第三版）─────────
+   *
+   * 每條書脊（「＋ 新書」除外）用 /img/study/ji-*.webp；書名每個字都要喺張相題簽嘅位入面
+   * （高 8.6%–50%，左右 14.5%–85.5%，留 1px 誤差）。
+   */
+  const spines = await page.evaluate(() =>
+    [...document.querySelectorAll('.jia .ji:not([data-kind="new"])')].map((el) => {
+      const r = el.getBoundingClientRect();
+      const zi = [...el.querySelectorAll('.ji-qian > span')].map((z) => z.getBoundingClientRect());
+      return {
+        image: getComputedStyle(el).backgroundImage,
+        inSlip: zi.every((z) => z.top >= r.top + r.height * 0.086 - 1 && z.bottom <= r.top + r.height * 0.5 + 1 && z.left >= r.left + r.width * 0.145 - 1 && z.right <= r.left + r.width * 0.855 + 1),
+        zi: zi.length,
+      };
+    }),
+  );
+  check('有書脊', spines.length > 0, '冇');
+  for (const sp of spines) {
+    check('書脊係布面相', /\/img\/study\/ji-(lu|lan|he|zhu|wu)\.webp/.test(sp.image), sp.image);
+    check('書名喺題簽入面', sp.inSlip && sp.zi > 0, `${sp.zi} 個字`);
+  }
+
+  /*
    * ── 二、仍然零透視、零圓角（陰影同布紋而家准用）─────────
    *
    * 改版准咗木紋相、書脊布紋同陰影；但書脊照舊係平面嘅 —— 冇 perspective、冇圓角。
@@ -172,4 +195,4 @@ if (fail.length) {
   for (const f of fail) console.error('  ' + f);
   process.exit(1);
 }
-console.log('✓ 書架：書房書櫃、書企喺層板上、零透視零圓角、hover 升 10px、取書淡到 16% 但冇消失');
+console.log('✓ 書架：書房書櫃、布面書脊相、書名喺題簽、書企喺層板上、零透視零圓角、hover 升 10px、取書淡到 16% 但冇消失');

@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react';
+import type { CSSProperties, ReactNode } from 'react';
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import type { Spine } from '@/lib/shelf';
@@ -25,11 +25,27 @@ import type { Spine } from '@/lib/shelf';
  * 闊景三塊層板面喺相高 40.2%、56.3%、71%，直景 40%、51.9%、62.5%（2026-10-15 量相素）。
  * 橫屏直屏用 `orientation` 換相同換位置（globals.css `.jia`）。
  *
+ * ── 書脊係相（2026-10-15 第三版）──
+ *
+ * 五款布面書脊相（/img/study/ji-*.webp：墨綠、靛藍、赭褐、暗朱、烏木），每張都有一張空白紙題簽，
+ * 位置五張一樣（高 8.6%–50%、闊 14.5%–85.5%）。書名係 HTML 字疊上去 —— 清、轉得簡體英文、讀屏讀到。
+ * 用邊款由本書 key 決定（`buOf`），同一本書永遠同一個樣。
+ *
  * ── 取書唔係跳版（舊規矩照留）──
  *
  * 攞咗書落嚟之後，個櫃**淡到 16%，但唔消失**。消失咗就變咗「跳去另一版」；
  * 留住就仲係「你企喺書齋度，手上攞住一本」。
  */
+
+/** 書脊相嘅款數（globals.css `.ji[data-bu]`）。 */
+const BU = ['lu', 'lan', 'he', 'zhu', 'wu'] as const;
+
+/** 同一本書永遠揀同一款布面：key 嘅字碼加埋取餘。 */
+export function buOf(key: string): (typeof BU)[number] {
+  let h = 0;
+  for (const ch of key) h = (h * 31 + ch.codePointAt(0)!) >>> 0;
+  return BU[h % BU.length]!;
+}
 
 /** 每層最多幾本（手機一層大約放得落十本）。多過三層嘅擺喺個櫃下面。 */
 const PER_ROW = 10;
@@ -93,13 +109,20 @@ function SpineEl({ spine, onTake }: { spine: Spine; onTake?: (key: string) => vo
    * （2026-10-09 英文手機 feedback）。中文名照舊逐個字直排。
    */
   const latin = /[A-Za-z]/.test(spine.label) && !/\p{Script=Han}/u.test(spine.label);
+  /*
+   * 題簽只有咁長：中文名最多擺四隻字，再長就頭三隻加「︙」（全名喺 aria-label 同 title）。
+   * 英文名照成句，字縮細到放得落為止，再唔夠先截。
+   */
+  const zis = [...spine.label];
+  const shown = !latin && zis.length > 4 ? [...zis.slice(0, 3), '︙'] : zis;
+  const n = latin ? spine.label.length : Math.max(2, shown.length);
   const inner = (
     /* 紙題簽：書名寫喺一張貼喺書脊上面嘅紙度，同線裝書一樣 */
     <span className="ji-qian">
       {latin ? (
         <span className="ji-xi">{spine.label}</span>
       ) : (
-        [...spine.label].map((zi, i) => <span key={`${zi}-${i}`}>{zi}</span>)
+        shown.map((zi, i) => <span key={`${zi}-${i}`}>{zi}</span>)
       )}
     </span>
   );
@@ -108,6 +131,10 @@ function SpineEl({ spine, onTake }: { spine: Spine; onTake?: (key: string) => vo
     className: 'ji',
     'data-kind': spine.kind,
     'data-reading': spine.reading ? '1' : '0',
+    'data-bu': spine.kind === 'new' ? undefined : buOf(spine.key),
+    /* 題簽高度固定，字多就縮細字（globals.css .ji-qian） */
+    style: { '--n': n } as CSSProperties,
+    title: shown.length < zis.length || latin ? spine.label : undefined,
     /* 直排書名要讀得返做一行字 —— 逐個字 render 之後讀屏會逐個字讀。 */
     'aria-label': spine.kind === 'new' ? t('newBookAria') : spine.label,
   };
