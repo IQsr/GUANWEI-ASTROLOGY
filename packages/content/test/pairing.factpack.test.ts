@@ -48,9 +48,12 @@ const rnd = () => {
 
 it.runIf(process.env.SIM)('事實包', () => {
   const HK = { lng: 114.17, lat: 22.32, label: '香港' };
+  /* 生辰跟住事實包寫出去：預覽頁（apps/web /tokens/hepan）要用嚟畫盤 */
+  const births = new Map<Chart, Parameters<typeof cast>[0]>();
   const one = (b: Parameters<typeof cast>[0]) => {
     const c = cast(b);
     if (!c.ok) throw new Error('排盤失敗');
+    births.set(c.value, b);
     return c.value;
   };
   const random = () =>
@@ -70,7 +73,7 @@ it.runIf(process.env.SIM)('事實包', () => {
   ];
   mkdirSync('tools/pairing/packs', { recursive: true });
   pairs.forEach(([an, a, bn, b], i) => {
-    const pack = { note: '每條 text 入面嘅「你」指嗰條所屬嘅人', people: [person('A', an, a), person('B', bn, b)] };
+    const pack = { note: '每條 text 入面嘅「你」指嗰條所屬嘅人', people: [{ ...person('A', an, a), birth: births.get(a) }, { ...person('B', bn, b), birth: births.get(b) }] };
     writeFileSync(`tools/pairing/packs/${String(i + 1).padStart(2, '0')}.json`, JSON.stringify(pack, null, 1) + '\n');
   });
 });
