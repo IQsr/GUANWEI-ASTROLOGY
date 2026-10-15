@@ -115,7 +115,8 @@ const EN_PRIVACY: LegalDoc = {
 };
 
 export function legalDoc(kind: 'terms' | 'privacy', locale: string): LegalDoc {
-  const en = locale === 'en';
+  /* 日文（2026-10-15）：條款未有日文譯本，先出英文（法律文字要人審過先換） */
+  const en = locale === 'en' || locale === 'ja';
   const doc = kind === 'terms' ? (en ? EN_TERMS : ZH_TERMS) : en ? EN_PRIVACY : ZH_PRIVACY;
   /* 簡體（2026-10-08）：由繁體轉；同一份條款，唔係另一個版本 */
   return isHans(locale) ? deepHans(doc) : doc;

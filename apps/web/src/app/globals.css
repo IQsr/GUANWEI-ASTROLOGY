@@ -160,6 +160,25 @@
   --font-body-stack: "Noto Serif SC Variable", "Noto Serif SC", "Songti SC", "Source Han Serif SC", serif;
 }
 
+/*
+ * 日文頁（2026-10-15）：換 JP 字形。同上面一樣，書頁入面要再蓋一次。
+ * ⚠ 第一期日文頁入面命書正文、命盤仲係繁中：JP 字型排得到大部分繁體字，排唔到（例：隻、裡）就跌落 TC。
+ *   正文譯好接入之後，呢個後備可以拎走。
+ */
+:root:lang(ja),
+.ye-ink .shu-wrap:lang(ja),
+.ye-ink .fan-wrap:lang(ja),
+.ye-ink .shuzhuo:lang(ja),
+.fanye-tai:lang(ja),
+.yindao:lang(ja) {
+  --font-serif-stack: "Playfair Display Variable", "Noto Serif JP Variable", "Noto Serif TC Variable", "Noto Serif JP",
+    "Hiragino Mincho ProN", "Yu Mincho", serif;
+  --font-latin-stack: "Playfair Display Variable", "Noto Serif JP Variable", "Noto Serif TC Variable", Georgia, serif;
+  --font-sans-stack: "Noto Sans JP Variable", "Noto Sans TC Variable", "Noto Sans JP", "Hiragino Sans", "Yu Gothic", "Meiryo",
+    system-ui, sans-serif;
+  --font-body-stack: "Noto Serif JP Variable", "Noto Serif TC Variable", "Noto Serif JP", "Hiragino Mincho ProN", "Yu Mincho", serif;
+}
+
 /* 跟系統 = 冇 data-theme stamp，只有 prefers-color-scheme 分得出。
    :not([data-theme="light"]) 令明示揀咗日讀嘅人唔會被系統覆蓋。 */
 @media (prefers-color-scheme: dark) {
@@ -4578,6 +4597,15 @@ select.zhou-xian {
   letter-spacing: 0.08em;
 }
 
+/* 日文（2026-10-15）：標籤有三四個字（生年月日、出生地），兩字闊嘅欄會逼斷；字距收細 */
+.juanzhou[data-lang="ja"] .zhou-hang {
+  grid-template-columns: 5.4em 1fr;
+}
+
+.juanzhou[data-lang="ja"] .zhou-ming {
+  letter-spacing: 0.08em;
+}
+
 /* 手機：標籤喺線上面，一行一樣 */
 @media (max-width: 639px) {
   .juanzhou {
@@ -4606,7 +4634,8 @@ select.zhou-xian {
   }
 
   .zhou-hang,
-  .juanzhou[data-lang="en"] .zhou-hang {
+  .juanzhou[data-lang="en"] .zhou-hang,
+  .juanzhou[data-lang="ja"] .zhou-hang {
     grid-template-columns: 1fr;
     row-gap: 2px;
   }

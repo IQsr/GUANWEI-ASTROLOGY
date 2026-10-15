@@ -20,9 +20,12 @@
  *
  * ⚠ family 名多咗「Variable」（例：'Noto Serif TC Variable'），globals.css 嘅 stack 用呢個名。
  *   SC 嗰兩隻宣告咗但只有簡體頁嘅 stack 用到 —— 冇用到嘅 @font-face 唔會下載。
+ *   JP 兩隻（2026-10-15）同理，只有日文頁用：假名同日本新字體（数、権、禄）TC 冇或者字形唔啱。
  */
 import '@fontsource-variable/noto-serif-tc';
 import '@fontsource-variable/noto-sans-tc';
 import '@fontsource-variable/noto-serif-sc';
 import '@fontsource-variable/noto-sans-sc';
+import '@fontsource-variable/noto-serif-jp';
+import '@fontsource-variable/noto-sans-jp';
 import '@fontsource-variable/playfair-display';

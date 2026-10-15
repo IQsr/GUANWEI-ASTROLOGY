@@ -20,4 +20,6 @@ export const LOCALE_LABEL: Record<Locale, { short: string; name: string }> = {
   /* 簡體（2026-10-08）：成站由繁體喺 server 轉（lib/hans.ts），唔另外寫 */
   'zh-Hans': { short: '简', name: '简体中文' },
   en: { short: 'EN', name: 'English' },
+  /* 日文（2026-10-15）：介面先行，命書正文暫時照出繁中 */
+  ja: { short: '日', name: '日本語' },
 };

@@ -63,7 +63,7 @@ export function Juanzhou({
   const t = useTranslations("juanzhou");
   const tp = useTranslations("places");
   const tr = useTranslations("placeRegions");
-  /* 英文另外排：字距、標籤闊度、印字橫寫（globals.css `.juanzhou[data-lang="en"]`） */
+  /* 英文另外排：字距、標籤闊度、印字橫寫（globals.css `.juanzhou[data-lang="en"]`）；日文標籤長過兩字，另外放闊（`[data-lang="ja"]`） */
   const locale = useLocale();
   /* 姓名留空都算寫咗（書上寫「無名」） */
   const missing = (["date", "place", "time", "sex"] as const).filter((s) => !isAnswered(s, draft));
@@ -83,7 +83,7 @@ export function Juanzhou({
   return (
     <section
       className="juanzhou"
-      data-lang={locale === "en" ? "en" : undefined}
+      data-lang={locale === "en" || locale === "ja" ? locale : undefined}
       aria-label={title ?? t("title")}
       data-sealed={sealed ? "" : undefined}
       data-hold={hold ? "" : undefined}

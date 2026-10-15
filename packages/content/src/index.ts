@@ -38,5 +38,6 @@ export * from './epilogue';
 export * from './plain';
 export * from './rectify';
 export * as En from './en/index';
+export * as Ja from './ja/index';
 export * from './branch';
 export * from './citation';
