@@ -1,0 +1,12 @@
+{
+  "name": "pairing-runner",
+  "private": true,
+  "type": "module",
+  "description": "兩人對照連接句試跑（唔係 workspace 套件，自己 npm install）",
+  "scripts": {
+    "run": "node --env-file=.env run.mjs"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "0.134.0"
+  }
+}

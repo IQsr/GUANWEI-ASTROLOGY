@@ -1,5 +1,5 @@
 import { it } from 'vitest';
-import { writeFileSync } from 'node:fs';
+import { mkdirSync, writeFileSync } from 'node:fs';
 import { cast, type Chart } from '@guanwei/ziwei';
 import { BRANCH_TOPICS, branchRules, gujiaChapter } from '../src/index';
 import { conclusionFor } from '../src/palace-plain';
@@ -7,7 +7,7 @@ import zz from '../src/sources/zhongzhou.json';
 
 /**
  * 兩人對照事實包（2026-10-15 試做）。`SIM=1 npx vitest run test/pairing.factpack.test.ts`
- * 寫出 tools/pairing/factpack.json：LLM 連接句淨係准用呢度嘅句，每句要引 id。
+ * 寫出 tools/pairing/packs/NN.json（第一對同舊 factpack.json 一樣）：LLM 連接句淨係准用呢度嘅句，每句要引 id。
  */
 const PASSAGES = (zz as { passages: Record<string, { lines?: number[] }> }).passages;
 const page = (id: string | null | undefined) => (id ? PASSAGES[id.split('+')[0]!]?.lines?.[0] : undefined);
@@ -29,7 +29,8 @@ function person(key: 'A' | 'B', name: string, chart: Chart) {
     facts.push({ id: `${key}.感情.留意`, kind: '在感情裡', text: c.watch, cite: '《全書》卷二〈三妻妾〉' });
   }
   for (const s of gujiaChapter({ chart })?.segments ?? [])
-    if (['偏向', '骨架', '長處'].includes(s.slot)) facts.push({ id: `${key}.命宮.${s.slot}`, kind: '性格', text: s.text, cite: SHENZAO(s.source_id) });
+    /* 偏向唔放：負面標籤（莽撞、虛浮、三心兩意）會被轉述，validator 捉唔晒（2026-10-15 試跑） */
+    if (['骨架', '長處'].includes(s.slot)) facts.push({ id: `${key}.命宮.${s.slot}`, kind: '性格', text: s.text, cite: SHENZAO(s.source_id) });
   for (const t of BRANCH_TOPICS.filter((x) => x.topic.palace === '夫妻' && x.topic.xingxi === undefined))
     for (const r of branchRules(chart, t))
       if (TRAIT_OR_RELATE.test(r.id) && !facts.some((f) => f.id === `${key}.${r.id}`))
@@ -37,11 +38,39 @@ function person(key: 'A' | 'B', name: string, chart: Chart) {
   return { key, name, facts };
 }
 
+let seed = 20261016;
+const rnd = () => {
+  seed = (seed + 0x6d2b79f5) | 0;
+  let t = Math.imul(seed ^ (seed >>> 15), 1 | seed);
+  t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+  return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+};
+
 it.runIf(process.env.SIM)('事實包', () => {
   const HK = { lng: 114.17, lat: 22.32, label: '香港' };
-  const a = cast({ solar: { y: 1996, m: 7, d: 18 }, time: { h: 3, min: 30 }, tz: 'Asia/Hong_Kong', place: HK, sex: 'female' });
-  const b = cast({ solar: { y: 1990, m: 5, d: 15 }, time: { h: 10, min: 0 }, tz: 'Asia/Taipei', place: { lng: 121.56, lat: 25.04, label: '台北' }, sex: 'male' });
-  if (!a.ok || !b.ok) throw new Error('排盤失敗');
-  const pack = { note: '每條 text 入面嘅「你」指嗰條所屬嘅人', people: [person('A', '阿晴', a.value), person('B', '子朗', b.value)] };
-  writeFileSync('tools/pairing/factpack.json', JSON.stringify(pack, null, 1) + '\n');
+  const one = (b: Parameters<typeof cast>[0]) => {
+    const c = cast(b);
+    if (!c.ok) throw new Error('排盤失敗');
+    return c.value;
+  };
+  const random = () =>
+    one({
+      solar: { y: 1975 + Math.floor(rnd() * 30), m: 1 + Math.floor(rnd() * 12), d: 1 + Math.floor(rnd() * 28) },
+      time: { h: Math.floor(rnd() * 24), min: Math.floor(rnd() * 60) },
+      tz: 'Asia/Hong_Kong', place: HK, sex: rnd() < 0.5 ? 'male' : 'female',
+    });
+  /* 第一對係示範（阿晴 1996 夫妻宮空、子朗 1990）；其餘隨機，名係虛構 */
+  const pairs: [string, Chart, string, Chart][] = [
+    ['阿晴', one({ solar: { y: 1996, m: 7, d: 18 }, time: { h: 3, min: 30 }, tz: 'Asia/Hong_Kong', place: HK, sex: 'female' }),
+     '子朗', one({ solar: { y: 1990, m: 5, d: 15 }, time: { h: 10, min: 0 }, tz: 'Asia/Taipei', place: { lng: 121.56, lat: 25.04, label: '台北' }, sex: 'male' })],
+    ['嘉怡', random(), '浩然', random()],
+    ['詠詩', random(), '俊傑', random()],
+    ['卓琳', random(), '家朗', random()],
+    ['曉彤', random(), '志明', random()],
+  ];
+  mkdirSync('tools/pairing/packs', { recursive: true });
+  pairs.forEach(([an, a, bn, b], i) => {
+    const pack = { note: '每條 text 入面嘅「你」指嗰條所屬嘅人', people: [person('A', an, a), person('B', bn, b)] };
+    writeFileSync(`tools/pairing/packs/${String(i + 1).padStart(2, '0')}.json`, JSON.stringify(pack, null, 1) + '\n');
+  });
 });
