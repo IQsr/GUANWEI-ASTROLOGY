@@ -4,6 +4,7 @@ import { createServerClient } from '@supabase/ssr';
 import { routing } from './i18n/routing';
 import { LEXICON_LOCALE, isLexiconLocale } from './lib/lexicon-locale';
 import { parsePublicEnv } from './lib/env';
+import { maintenanceOn, maintenanceResponse } from './lib/maintenance';
 
 const intl = createMiddleware(routing);
 
@@ -93,6 +94,8 @@ async function refreshSession(req: NextRequest): Promise<{ name: string; value: 
 }
 
 export default async function middleware(req: NextRequest) {
+  if (maintenanceOn()) return maintenanceResponse();
+
   const { pathname } = req.nextUrl;
 
   for (const locale of routing.locales) {
