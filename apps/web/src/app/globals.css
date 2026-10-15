@@ -4487,7 +4487,6 @@ select.zhou-xian {
   }
 }
 
-
 /*
  * 出處字號（2026-10-12）：句尾一個「據」，上標細字、靛色 —— 同術語墨點分得開。
  * 字細但撳得中：用 ::before 向外擴大撳嘅範圍，唔推開行距。
@@ -4682,63 +4681,65 @@ select.zhou-xian {
    藏經閣（2026-10-15 改版）
 
    之前黑底一列列字。而家同書齋、書桌係同一間書房：
-   頂一張經櫃夜景（/img/study/cangjing.webp，燈喺左上 —— 標題擺右邊暗位），
-   藏書簿紙條記住詞條數同單一來源數，每一類詞條係一個木櫃，每一條係一格：
-   紙題簽寫名，下面兩行摘要。
+   成版背景係經閣長廊（.jing-di，見下面），標題寫喺長廊中間暗處，
+   藏書牌（金線之間嘅金字）記住詞條數同單一來源數，每一類詞條係一個木櫃，每一條係一格：
+   抽屜面燙金字寫名，下面兩行摘要（2026-10-15 第二版：拎走紙題簽同白紙，Issac：白底襯書櫃好怪）。
    ⚠ 相同櫃係深色實物，日讀夜讀都一樣 —— 所以入面嘅字色寫死淺色，唔跟 --ink。
    ============================================================ */
 
-.jing-tou {
-  position: relative;
-  display: flex;
-  align-items: flex-start;
-  justify-content: flex-end;
-  min-height: clamp(300px, 38vw, 540px);
-  margin-inline: calc(50% - 50vw);
-  padding: clamp(28px, 5vw, 72px) clamp(20px, 6vw, 96px) 120px;
-  background: #0e0906 url("/img/study/cangjing.webp") 30% 100% / cover no-repeat;
-  color: #eee6d8;
-}
-
-/* 右邊壓暗墊字、底部淡入版面底色 */
-.jing-tou::before,
-.jing-tou::after {
-  content: "";
-  position: absolute;
+/*
+ * 經閣成版背景（2026-10-15 第二版）：一條對稱嘅經閣長廊，兩邊經櫃去到畫面邊、兩盞燈籠、中間暗。
+ * 橫屏 /img/study/jing-wide.webp、直屏 jing-tall.webp，固定喺最底、cover 貼滿 —— 唔使對位，所以點裁都得。
+ * 中間壓暗一層，等標題、藏書牌、抽屜櫃嘅字讀得清；兩邊留返經櫃同燈。
+ * 第一版係一條橫額（cangjing.webp），右半差唔多全黑，闊屏睇似一張相擺中間（Issac：兩邊食唔晒）。
+ */
+.jing-di {
+  position: fixed;
   inset: 0;
+  z-index: -1;
+  background: #0b0704 url("/img/study/jing-wide.webp") 50% 40% / cover no-repeat;
   pointer-events: none;
 }
 
-.jing-tou::before {
-  background: linear-gradient(to left, rgb(10 7 4 / 0.82) 0%, rgb(10 7 4 / 0.45) 45%, rgb(10 7 4 / 0) 75%);
+@media (orientation: portrait) {
+  .jing-di {
+    background-image: url("/img/study/jing-tall.webp");
+    background-position: 50% 30%;
+  }
 }
 
-.jing-tou::after {
-  background: linear-gradient(to bottom, transparent 62%, var(--paper));
+.jing-di::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to right, rgb(8 5 3 / 0.2), rgb(8 5 3 / 0.62) 28%, rgb(8 5 3 / 0.62) 72%, rgb(8 5 3 / 0.2)),
+    linear-gradient(to bottom, rgb(8 5 3 / 0.1), rgb(8 5 3 / 0.35));
 }
+
+@media (orientation: portrait) {
+  .jing-di::after {
+    background: linear-gradient(to bottom, rgb(8 5 3 / 0.45), rgb(8 5 3 / 0.7));
+  }
+}
+
+/* 頁頭：標題同一句簡介，直接寫喺長廊中間嘅暗處（唔再係一條有相嘅橫額） */
+.jing-tou {
+  display: flex;
+  justify-content: center;
+  padding: clamp(48px, 9vh, 120px) clamp(20px, 6vw, 96px) clamp(36px, 6vh, 72px);
+  color: #eee6d8;
+  text-align: center;
+}
+
+/* 右邊壓暗墊字、底部淡入版面底色 */
 
 .jing-tou-zi {
-  position: relative;
-  z-index: 1;
-  max-width: 30rem;
+  max-width: 34rem;
 }
 
 .jing-tou-zi p {
   color: rgb(238 230 216 / 0.82);
-}
-
-@media (max-width: 640px) {
-  .jing-tou {
-    align-items: flex-end;
-    justify-content: flex-start;
-    min-height: 420px;
-    padding-bottom: 96px;
-    background-position: 22% 100%;
-  }
-
-  .jing-tou::before {
-    background: linear-gradient(to top, rgb(10 7 4 / 0.9) 15%, rgb(10 7 4 / 0.35) 60%, rgb(10 7 4 / 0.1));
-  }
 }
 
 .jing-ben {
@@ -4748,16 +4749,24 @@ select.zhou-xian {
   padding-inline: clamp(16px, 4vw, 40px);
 }
 
-/* 藏書簿：一張紙條，壓住張相底 */
+/* 藏書簿：金線之間嘅金字，壓住張相底 */
 .jing-bu {
+  /* 2026-10-15：唔再係一張白紙 —— 金字寫喺暗處，上下兩條金線，好似經閣門口嘅藏書牌 */
   position: relative;
   z-index: 1;
-  max-width: 26rem;
-  margin-top: -72px;
-  padding: 16px 20px 14px;
-  background: #e9dfc9 url("/img/book/paper.webp") 0 0 / 240px 240px;
-  box-shadow: 0 8px 22px rgb(0 0 0 / 0.45);
-  color: #2a2620;
+  max-width: 30rem;
+  margin-inline: auto;
+  padding: 12px 0 10px;
+  border-block: 1px solid rgb(201 173 116 / 0.45);
+  color: rgb(238 230 216 / 0.86);
+}
+
+.jing-bu dd {
+  color: var(--gilt);
+}
+
+.jing-bu .em-zhu {
+  color: #d9705c;
 }
 
 .jing-lei {
@@ -4770,34 +4779,41 @@ select.zhou-xian {
 
 /* 一個櫃：木框，入面一格格 */
 .jing-gui {
+  /* 一個櫃：深木框，入面一格格抽屜面。純木色，唔再借書櫃張相做紋理 */
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
-  gap: 6px;
+  gap: 5px;
   margin-top: 14px;
-  padding: 6px;
-  background: #2a190d url("/img/study/shelf.webp") 50% 40% / 260% auto;
+  padding: 5px;
+  background: #160d07;
   box-shadow:
-    inset 0 0 0 1px rgb(201 173 116 / 0.18),
-    0 10px 30px rgb(0 0 0 / 0.5);
+    inset 0 0 0 1px rgb(201 173 116 / 0.14),
+    0 18px 40px rgb(0 0 0 / 0.45);
   list-style: none;
 }
 
 .jing-ge {
+  /* 抽屜面：暖木色，上沿一點反光，好似燈由左上照落 */
   display: flex;
   height: 100%;
-  min-height: 116px;
+  min-height: 112px;
   flex-direction: column;
   align-items: flex-start;
-  gap: 10px;
-  padding: 14px 16px 16px;
-  background: #0d0805;
-  box-shadow: inset 0 3px 10px rgb(0 0 0 / 0.85);
-  transition: background-color var(--dur-1) var(--motion-ease-ink);
+  gap: 8px;
+  padding: 16px 18px 18px;
+  background: linear-gradient(180deg, #2e1c10 0%, #24150b 100%);
+  box-shadow:
+    inset 0 1px 0 rgb(255 214 160 / 0.08),
+    inset 0 -2px 0 rgb(0 0 0 / 0.35);
+  transition: background-color var(--dur-1) var(--motion-ease-ink), box-shadow var(--dur-1) var(--motion-ease-ink);
 }
 
 .jing-ge:hover,
 .jing-ge:focus-visible {
-  background: #1a100a;
+  box-shadow:
+    inset 0 1px 0 rgb(255 214 160 / 0.14),
+    inset 0 -2px 0 rgb(0 0 0 / 0.35),
+    inset 0 0 0 1px rgb(201 173 116 / 0.35);
 }
 
 .jing-ge:focus-visible {
@@ -4805,17 +4821,15 @@ select.zhou-xian {
   outline-offset: -2px;
 }
 
-/* 紙題簽：詞條名 */
+/* 詞條名：燙金字 */
 .jing-qian {
-  padding: 3px 12px 4px;
-  background: #e9dfc9 url("/img/book/paper.webp") 0 0 / 160px 160px;
-  box-shadow: 0 2px 4px rgb(0 0 0 / 0.6);
-  color: #23201b;
+  /* 抽屜上嘅名：燙金字，冇紙底 */
+  color: var(--gilt);
   font-family: var(--font-serif-stack);
-  font-size: 1.25rem;
+  font-size: 1.35rem;
   font-weight: 600;
-  letter-spacing: 0.12em;
-  transition: transform var(--dur-1) var(--motion-ease-ink);
+  letter-spacing: 0.14em;
+  transition: color var(--dur-1) var(--motion-ease-ink);
 }
 
 .jing-qian-xi {
@@ -4825,7 +4839,7 @@ select.zhou-xian {
 
 .jing-ge:hover .jing-qian,
 .jing-ge:focus-visible .jing-qian {
-  transform: translateY(-2px);
+  color: #e6cf98;
 }
 
 /* 摘要：兩行，句子由 teaserFor() 保證完整 */
@@ -4859,7 +4873,6 @@ select.zhou-xian {
   padding-top: 0 !important;
 }
 
-
 /* ============================================================
    設定：書桌上嘅信箋（2026-10-15 改版）
 
@@ -4884,3 +4897,76 @@ select.zhou-xian {
     0 2px 0 rgb(0 0 0 / 0.2),
     0 30px 70px -28px rgb(0 0 0 / 0.85);
 }
+
+/* ── 藏經閣詞條頁（2026-10-15）：由經櫃攞咗一卷出嚟攤開讀 ──
+   頂一條短嘅經櫃相（同目錄同一張），名寫喺相底；正文直接喺暗處讀（冇白紙）。 */
+.jing-tou-dan {
+  /* 詞條頁：名同類別左對齊，同正文同一條邊 */
+  justify-content: center;
+  padding-bottom: 36px;
+  text-align: start;
+}
+
+.jing-tou-dan .jing-tou-zi {
+  width: 100%;
+  max-width: 760px;
+}
+
+.jing-tou-dan a {
+  color: rgb(238 230 216 / 0.7);
+}
+
+.jing-tou-dan a:hover,
+.jing-tou-dan a:focus-visible {
+  color: #eee6d8;
+}
+
+/* 攤開嗰卷：一張紙，壓住張相底 */
+.jing-juan {
+  /* 2026-10-15：攤開讀嗰卷唔再係一張白紙 —— 字直接喺經閣嘅暗處讀，暖米色字 */
+  position: relative;
+  z-index: 1;
+  max-width: 720px;
+  margin: 0 auto;
+  color: rgb(238 230 216 / 0.9);
+}
+
+/* 出處：每一句引文一張朱砂邊嘅紙條 */
+.jing-yin {
+  /* 出處：朱砂邊、略深一級嘅底 */
+  border-inline-start: 3px solid var(--cinnabar);
+  background: rgb(0 0 0 / 0.28);
+  padding: 14px 18px;
+}
+
+/* 相關詞條：細紙簽 */
+.jing-guan {
+  /* 相關詞條：金線細牌 */
+  display: inline-block;
+  padding: 3px 12px;
+  border: 1px solid rgb(201 173 116 / 0.4);
+  color: var(--gilt);
+  font-family: var(--font-serif-stack);
+  letter-spacing: 0.1em;
+  transition:
+    border-color var(--dur-1) var(--motion-ease-ink),
+    color var(--dur-1) var(--motion-ease-ink);
+}
+
+.jing-guan:hover,
+.jing-guan:focus-visible {
+  border-color: var(--cinnabar);
+  color: var(--cinnabar);
+}
+
+/*
+ * 書齋、藏經閣係暗房：日讀都係暗底，所以連結用夜讀嘅靛（.ye-ink 冇管 --indigo）。
+ * 紙（.xinjian）入面喺頂嗰組變數轉返紙色，唔受呢度影響。
+ */
+.jing-ye,
+.zhai-ye {
+  --indigo: #8fa9bb;
+  --indigo-2: #5e7788;
+  --cinnabar: #cb5a47;
+}
+

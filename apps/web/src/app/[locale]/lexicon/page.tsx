@@ -53,12 +53,14 @@ export default async function LexiconIndex({
   const single = singleBookEntries().length;
 
   return (
-    <main className="juan tai jing-ye">
+    <main className="juan tai jing-ye ye-ink">
+      {/* 成版係經閣長廊（固定背景，globals.css .jing-di）；字用夜色（日讀都係一間暗房，唔可以用日讀嘅深字） */}
+      <div className="jing-di" aria-hidden="true" />
 
       {/*
         藏經閣（2026-10-15 改版）：之前係黑底一列列字。而家成版係一個經櫃 ——
-        頂一張經櫃夜景（/img/study/cangjing.webp，燈喺左上，標題擺喺右邊暗位），
-        每一類詞條係一個櫃，每一條係一格：一張紙題簽寫名，下面兩行摘要。
+        成版背景係經閣長廊（/img/study/jing-wide.webp、jing-tall.webp），標題寫喺長廊中間暗處，
+        每一類詞條係一個櫃，每一條係一格抽屜：燙金字寫名，下面兩行摘要。
       */}
       <header className="jing-tou">
         <div className="jing-tou-zi">
@@ -75,7 +77,7 @@ export default async function LexiconIndex({
 
           `lexiconCoverage()` 個註釋寫住「呢個數應該公開，唔應該收埋」。
           一個講出處嘅網站，最唔誠實嘅做法就係列出處而唔講啲出處有幾薄。
-          2026-10-15：寫喺一張藏書簿嘅紙條上，同經櫃一齊。
+          2026-10-15：寫喺藏書牌上（金線之間嘅金字），同經櫃一齊。
         */}
         <div className="jing-bu">
           <dl className="font-sans text-sm" data-nums>
