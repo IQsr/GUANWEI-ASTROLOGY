@@ -278,6 +278,28 @@
     },
     "basisNote": "The Zhongzhou school's original method: wherever you were born, the hour is set by Luoyang time. If you were born far from China, the hour can differ a great deal from your birthplace."
   },
+  "hepan": {
+    "modeAria": "How many people",
+    "single": "One",
+    "pair": "Two",
+    "pairNote": "Side by side: two charts next to each other. No score, no verdict on whether you match.",
+    "titleA": "You",
+    "leadA": "Your own birth details first.",
+    "titleB": "Them",
+    "leadB": "Then theirs. Seal both to go on.",
+    "agree": "They know, and agree, that I am using their birth details for this comparison.",
+    "agreeHint": "Tick the box above before sealing.",
+    "you": "You",
+    "them": "Them",
+    "soonTitle": "Side by side · Coming soon",
+    "soonBody1": "Both sets of birth details check out and can be cast. The comparison page is still being written.",
+    "soonBody2": "Neither set of birth details was saved or put on your shelf.",
+    "soonBack": "Back to one person",
+    "readyHint": "All written. You can seal it.",
+    "waitOther": "Sealed. Waiting for the other scroll.",
+    "checking": "Both sealed. Checking⋯",
+    "noHour": "Without the hour we cannot place the Life Palace or the Partnership Palace, so most of the comparison would be missing. It is usually on the birth certificate, and family can often remember."
+  },
   "shichen": {
     "branch": [
       "Zi",

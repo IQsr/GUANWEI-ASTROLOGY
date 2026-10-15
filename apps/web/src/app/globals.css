@@ -4288,6 +4288,117 @@ select.zhou-xian {
 }
 
 /*
+ * ── 兩人對照（2026-10-15 · Issac）─────────────────────
+ *
+ * 一人／雙人切換喺卷軸外面、桌面上（夜色字）。揀雙人：兩幅卷軸並排，收細少少。
+ * 一幅落咗印就停住（`data-hold`）睇住個印，等另一幅；兩幅齊印先一齊捲埋。
+ */
+.ren-shu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-top: 8px;
+  margin-bottom: 16px;
+}
+
+.ren-qie {
+  display: inline-flex;
+  border: 1px solid var(--ink-3);
+  border-radius: 999px;
+  padding: 3px;
+}
+
+.ren-qie > button {
+  min-width: 5.5em;
+  padding: 6px 18px;
+  border-radius: 999px;
+  font-family: var(--font-serif-stack);
+  font-size: 0.9375rem;
+  letter-spacing: 0.3em;
+  color: var(--ink-3);
+  transition:
+    color var(--dur-1) var(--motion-ease-ink),
+    background-color var(--dur-1) var(--motion-ease-ink);
+}
+
+.ren-qie > button:hover {
+  color: var(--ink);
+}
+
+/* ⚠ 唔用 var(--ink)／var(--paper)：夜景桌面上兩個可以同時係淺色，揀咗嗰粒一片白。
+   同 .btn-ye 一樣用夜景色。 */
+.ren-qie > button[aria-pressed="true"] {
+  background: var(--night-ink);
+  color: var(--night);
+}
+
+.ren-qie > button:focus-visible {
+  outline: 1px dotted var(--ink-3);
+  outline-offset: 3px;
+}
+
+.ren-zhu {
+  font-size: 0.8125rem;
+  letter-spacing: 0.08em;
+  color: var(--ink-3);
+  text-align: center;
+}
+
+.hepan-zhou {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+  justify-items: center;
+  align-items: start;
+  padding-bottom: calc(var(--tiantou) - var(--dijiao));
+}
+
+@media (min-width: 1100px) {
+  .hepan-zhou {
+    grid-template-columns: repeat(2, minmax(0, 520px));
+    justify-content: center;
+    gap: 32px;
+  }
+
+  /* 收細少少：成幅縮（字、線、印一齊），唔係淨係收窄 */
+  .hepan-zhou > .juanzhou {
+    zoom: 0.92;
+  }
+}
+
+/* 停住：落咗印都唔捲，等另一幅 */
+.juanzhou[data-sealed][data-hold],
+.juanzhou[data-sealed][data-hold] .zhou-ling {
+  animation: none;
+}
+
+/* 展開過一次：揭返個印（核唔過）唔好由頭再展開 */
+.juanzhou[data-opened]:not([data-sealed]) .zhou-ling {
+  animation: none;
+}
+
+/* 對方同意：卷尾之前一格 */
+.hepan-yi {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-top: 22px;
+  font-size: 0.875rem;
+  line-height: 1.8;
+  color: var(--ink-2);
+  cursor: pointer;
+}
+
+.hepan-yi > input {
+  flex: none;
+  width: 16px;
+  height: 16px;
+  margin-top: 0.35em;
+  accent-color: var(--zhu);
+}
+
+/*
  * 英文（`data-lang="en"`）：中文嘅字距同直排唔可以照搬 ——
  * 「I n s c r i p t i o n」、「Birthplace」撞埋選單、「Seal」打側，都係因為咁。
  */
