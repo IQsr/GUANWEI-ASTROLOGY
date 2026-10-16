@@ -363,6 +363,13 @@ function template(s: string, missing: string[]): string | null {
 
   /* 擾動：同宮還有火星：⋯。／還有鈴星：⋯。
    * 睇稿指南第 13 節：煞星唔好得一個標籤 —— 先講佢改咗啲乜，後面嗰截（逐宮寫）講落地點樣。 */
+  /* 方向相反嘅第二粒煞（assemble.ts OPPOSED_SHA）：「不過同宮還有火星，拉向另一邊：⋯。」 */
+  const opp = /^不過同宮還有(\S{2})，拉向另一邊：(.+)。$/.exec(s);
+  if (opp) {
+    const name = starFirst(opp[1]!);
+    if (!name) missing.push(opp[1]!);
+    return `But ${name} sits here too, pulling the other way: ${clause(opp[2]!, missing)}.`;
+  }
   /* 2026-10-13 起：「加上擎羊同宮，⋯。」「再加上陀羅，⋯。」—— 同舊講法一樣譯 */
   const sha = /^(?:加上(\S{2})同宮|再加上(\S{2}))，(.+)。$/.exec(s);
   m = sha ? ['', sha[1] ? '同宮還有' : '還有', (sha[1] ?? sha[2])!, sha[3]!] as unknown as RegExpExecArray : /^(同宮還有|還有)(\S{2})：(.+)。$/.exec(s);

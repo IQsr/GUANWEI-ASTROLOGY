@@ -338,6 +338,13 @@ function template(s: string, missing: string[]): string | null {
   if (m && palaceJa(m[1]!) && palaceJa(m[2]!)) return `あなたの${palaceJa(m[1]!)}には主星がないので、向かいの${palaceJa(m[2]!)}の${starsList(m[3]!, missing)}を借りて読みます。`;
 
   /* 煞星：「加上擎羊同宮，⋯。」「再加上陀羅，⋯。」；舊講法「同宮還有火星：⋯。」「還有鈴星：⋯。」 */
+  /* 方向相反嘅第二粒煞（assemble.ts OPPOSED_SHA）：「不過同宮還有火星，拉向另一邊：⋯。」 */
+  const opp = /^不過同宮還有(\S{2})，拉向另一邊：(.+)。$/.exec(s);
+  if (opp) {
+    const name = starJa(opp[1]!);
+    if (!name) missing.push(opp[1]!);
+    return `ただ、同じ宮には${name ?? `〔${opp[1]}〕`}もあり、反対の方向にも引っ張られます。${clause(opp[2]!, missing)}。`;
+  }
   const sha = /^(?:加上(\S{2})同宮|再加上(\S{2}))，(.+)。$/.exec(s) ?? /^(?:同宮還有(\S{2})|還有(\S{2}))：(.+)。$/.exec(s);
   if (sha) {
     const name = starJa((sha[1] ?? sha[2])!);

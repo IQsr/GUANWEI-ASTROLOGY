@@ -195,6 +195,16 @@ export function afterConclusion(body: string, conclusion: string): string[] {
  * （「不搶、不計較、願意配合⋯」「改造的成本高，但對它而言⋯」）。400 本書量到七十幾款。
  * 「它」開頭就換做星名；冇點名就加「星名：」—— 同擾動格「擎羊：⋯」一樣嘅寫法。
  */
+/**
+ * 同宮會自相矛盾嘅兩粒煞（排好序做 key）→ 喺邊幾宮兩截真係講相反嘅嘢（2026-10-16）。
+ * 陀羅＋火星：慢對快；擎羊＋鈴星：直講對唔講。其他宮兩截講得埋（例如子女宮陀羅「再交代一次」、火星「教得快」）。
+ * 火星＋鈴星、擎羊＋陀羅唔會同宮。
+ */
+const OPPOSED_SHA: Record<string, readonly string[]> = {
+  '火星+陀羅': ['命宮', '夫妻', '財帛', '疾厄', '官祿', '田宅', '福德', '父母'],
+  '擎羊+鈴星': ['命宮', '兄弟', '夫妻', '子女', '遷移', '僕役', '田宅', '福德', '父母'],
+};
+
 export function withSubject(text: string, star: string, others: readonly string[] = []): string {
   if (!text) return text;
   const first = sentences(text)[0] ?? '';
@@ -594,13 +604,25 @@ export function assemble(
      * 2026-10-13：「同宮還有擎羊：⋯」一本書出五次，冒號開頭似標籤。改做一句話：
      * 「加上擎羊同宮，⋯」「再加上陀羅，⋯」。
      */
+    /*
+     * 2026-10-16 審稿：兩粒煞方向相反（陀羅慢、火星快；擎羊直、鈴星悶）而同宮，
+     * 兩截照出會自相矛盾（田宅：「決定了也要很久才執行」接「說搬就搬」）。
+     * 《全書》只把羊陀火鈴當作疊加，冇講相反性情點合；所以唔自己作結論，
+     * 只講明第二粒「拉向另一邊」，兩截都留。只限兩截真係打架嘅宮。
+     */
+    const opposed = (a: string, b: string) => {
+      const k = [a, b].sort().join('+');
+      return (OPPOSED_SHA[k] ?? []).includes(palace);
+    };
     const shaText = mods
       .map((m, i) => {
         const t = stripDefinition(m!.text, m!.star);
         const c = t.indexOf('：');
         const name = c > 0 ? t.slice(0, c) : m!.star;
         const body = c > 0 ? t.slice(c + 1) : t;
-        return i === 0 ? `加上${name}同宮，${body}` : `再加上${name}，${body}`;
+        if (i === 0) return `加上${name}同宮，${body}`;
+        if (mods.slice(0, i).some((x) => opposed(x!.star, m!.star))) return `不過同宮還有${name}，拉向另一邊：${body}`;
+        return `再加上${name}，${body}`;
       })
       .join('');
     push({
