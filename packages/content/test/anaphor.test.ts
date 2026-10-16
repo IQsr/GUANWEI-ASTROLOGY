@@ -16,7 +16,7 @@ import { BASE_BLOCKS, RULE_REGISTRY, SPEC_VERSION, assembleAll, inferAll, withSu
  * 自己模擬一定漏。
  */
 
-const ANAPHOR = /^(這|那|至於|它的課題|相對地|所以|於是|因此|而|但|也|同樣|卷二那句)/;
+const ANAPHOR = /^(這|那|至於|它的課題|相對地|所以|於是|因此|而|但|也|同樣|卷二那句|不是)/;
 const sentences = (s: string): string[] => s.match(/[^。！？]*[。！？]|[^。！？]+$/g) ?? [];
 
 let seed = 20260930;
@@ -53,7 +53,9 @@ function dangling(): string[] {
       for (const s of c.segments) {
         if (s.slot !== '開場' && s.slot !== '結構') continue;
         const ss = sentences(s.text);
-        ss.forEach((t, i) => {
+        ss.forEach((raw, i) => {
+          /* withSubject 加咗「天梁：」嘅頭一句：拎走先驗（「天梁：不是被讚，是⋯」本身都係懸空，2026-10-16） */
+          const t = raw.replace(/^\S{2}：/, '');
           if (!ANAPHOR.test(t)) return;
           const block = BASE_BLOCKS.find((b) => b.body.includes(t));
           if (!block || t.slice(0, 8).includes(block.star)) return;

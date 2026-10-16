@@ -64,6 +64,13 @@ const Plain = z.object({
    * 偏向係呢頭就用呢句；平衡、未定照用 `strength`。用 `strengthFor()`。
    */
   strengthBy: z.record(z.string(), z.string()).optional(),
+  /**
+   * 結論、留意句本身偏咗一頭（2026-10-16 五盤通讀）：例如廉貞「你感受細膩」只啱「敏感」，
+   * 骨架章話你偏「踏實」，給你的話第一句就講返敏感嗰頭，前後矛盾。偏向係呢頭就用呢句。
+   * 用 `summaryFor()`／`watchFor()`。
+   */
+  summaryBy: z.record(z.string(), z.string()).optional(),
+  watchBy: z.record(z.string(), z.string()).optional(),
   /** 要留意。 */
   watch: z.string(),
   /** 點解咁講：可以有星名，擺喺結論後面做證據。 */
@@ -141,6 +148,20 @@ export const Xingxi = z
         if (!x.poles.includes(k)) ctx.addIssue({ code: 'custom', message: `${x.n}：plain.strengthBy.${k} 唔係兩頭之一` });
         len(`strengthBy.${k}`, t, 10, 36);
         lint(`strengthBy.${k}`, t, true);
+      }
+      for (const [k, t] of Object.entries(p.summaryBy ?? {})) {
+        if (!x.poles.includes(k)) ctx.addIssue({ code: 'custom', message: `${x.n}：plain.summaryBy.${k} 唔係兩頭之一` });
+        len(`summaryBy.${k}`, t, 8, 40);
+        lint(`summaryBy.${k}`, t, true);
+      }
+      for (const [k, t] of Object.entries(p.watchBy ?? {})) {
+        if (!x.poles.includes(k)) ctx.addIssue({ code: 'custom', message: `${x.n}：plain.watchBy.${k} 唔係兩頭之一` });
+        if (!t.startsWith('要留意的是：')) ctx.addIssue({ code: 'custom', message: `${x.n}：plain.watchBy.${k} 要以「要留意的是：」開頭` });
+        len(`watchBy.${k}`, t, 10, 36);
+        lint(`watchBy.${k}`, t, false);
+        if (!t.includes('你')) ctx.addIssue({ code: 'custom', message: `${x.n}：plain.watchBy.${k} 要對住讀者講` });
+        const bt = FORBIDDEN_TERMS.filter((f) => t.includes(f));
+        if (bt.length) ctx.addIssue({ code: 'custom', message: `${x.n}：plain.watchBy.${k} 有術語「${bt.join('、')}」` });
       }
       /* 留意句以「要留意的是：」開頭，唔行第一句規矩；但一樣要講你、唔准術語 */
       lint('watch', p.watch, false);
@@ -245,6 +266,16 @@ function evidence(m: Palace, four: Palace[], starBranch: string, c: XingxiCond):
 /** 骨架長處：偏向嗰頭有專屬長處句就用嗰句（見 `strengthBy`） */
 export function strengthFor(x: Xingxi, pole: string): string {
   return x.plain.strengthBy?.[pole] ?? x.plain.strength;
+}
+
+/** 給你的話結論句：偏向嗰頭有專屬句就用嗰句（見 `summaryBy`） */
+export function summaryFor(x: Xingxi, pole: string): string {
+  return x.plain.summaryBy?.[pole] ?? x.plain.summary;
+}
+
+/** 給你的話留意句：偏向嗰頭有專屬句就用嗰句（見 `watchBy`） */
+export function watchFor(x: Xingxi, pole: string): string {
+  return x.plain.watchBy?.[pole] ?? x.plain.watch;
 }
 
 export function leanOf(

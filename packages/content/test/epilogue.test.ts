@@ -77,3 +77,21 @@ describe('給你的話', () => {
     }
   });
 });
+
+describe('給你的話跟骨架章同一頭（2026-10-16 五盤通讀）', () => {
+  it('廉貞獨坐申、偏踏實：結論同留意都講踏實，唔講「感受細膩」', () => {
+    const r = cast({
+      solar: { y: 2004, m: 5, d: 20 },
+      time: { h: 17, min: 30 },
+      tz: 'Asia/Tokyo',
+      place: { lng: 135.5, lat: 34.69, label: '大阪' },
+      sex: 'female',
+    });
+    if (!r.ok) throw new Error('cast');
+    const ch = epilogueChapter({ chart: r.value, year: 2026 })!;
+    const t = (slot: string) => ch.segments.find((s) => s.slot === slot)!.text;
+    expect(t('結論')).toBe('你重精神生活，但一定先把物質基礎打好。');
+    expect(t('留意')).toContain('你把基礎打穩之後，也別忘了給感受留位置');
+    expect(t('留意')).not.toContain('你的感受太細時');
+  });
+});

@@ -2,7 +2,7 @@ import type { Chart, Palace } from '@guanwei/ziwei';
 import { BASE_BLOCKS } from './baseblock-data';
 import { FORBIDDEN_TERMS } from './frame';
 import { conclusionFor } from './palace-plain';
-import { leanOf, strengthFor, xingxiOf } from './xingxi';
+import { leanOf, strengthFor, summaryFor, watchFor, xingxiOf } from './xingxi';
 import { decadeChapter } from './daxian';
 import { AREA } from './link';
 import { yearChapter } from './liunian';
@@ -67,7 +67,6 @@ export function epilogueChapter(input: { chart: Chart; year: number }): { slug: 
   const { chart, year } = input;
   const x = xingxiOf(chart);
   if (!x) return null;
-  const plain = x.system.plain;
   const xid = `xingxi.${x.system.n}`;
 
   const lineOf = (name: string) => {
@@ -107,7 +106,8 @@ export function epilogueChapter(input: { chart: Chart; year: number }): { slug: 
    * （「不急不躁」「穩當、可靠」）同正文打架 —— 結論改用骨架嗰句，長處唔用星系通用句（2026-10-14 審稿）。
    */
   const exc = gujiaException(chart);
-  const strengths: { text: string; id: string }[] = exc ? [] : [{ text: strengthFor(x.system, leanOf(chart, x.system).pole), id: xid }];
+  const pole = leanOf(chart, x.system).pole;
+  const strengths: { text: string; id: string }[] = exc ? [] : [{ text: strengthFor(x.system, pole), id: xid }];
   for (const name of ['官祿', luP?.name, '財帛', '遷移', '福德', '田宅']) {
     if (!name || strengths.length >= 3 || taken.has(name) || name === jiP?.name || name === '疾厄') continue;
     const pp = lineOf(name);
@@ -127,7 +127,7 @@ export function epilogueChapter(input: { chart: Chart; year: number }): { slug: 
       taken.add(name);
     }
   }
-  watches.push({ text: strip(plain.watch), id: xid });
+  watches.push({ text: strip(watchFor(x.system, pole)), id: xid });
 
   /* 時間：兩章嘅建議段（冇就唔出） */
   /* 2026-10-13：唔再原句照印兩章嘅建議段（同一本書講兩次），用撮要句 */
@@ -139,7 +139,7 @@ export function epilogueChapter(input: { chart: Chart; year: number }): { slug: 
   const listed = (xs: { text: string }[]) => xs.map((s, i) => `${NUM[i]}、${s.text}`).join('');
 
   const segments: Seg[] = [
-    { slot: '結論', text: exc ? (exc.text.match(/^[^。]*。/)?.[0] ?? exc.text) : plain.summary, source_id: exc ? exc.source.passage : xid, rule_ids: exc ? [exc.id] : [] },
+    { slot: '結論', text: exc ? (exc.text.match(/^[^。]*。/)?.[0] ?? exc.text) : summaryFor(x.system, pole), source_id: exc ? exc.source.passage : xid, rule_ids: exc ? [exc.id] : [] },
     { slot: '長處', text: `你可以倚仗的：${listed(strengths)}`, source_id: strengths.map((s) => s.id).join('+'), rule_ids: [] },
     { slot: '留意', text: `你要記住的：${listed(watches)}`, source_id: watches.map((w) => w.id).join('+'), rule_ids: [] },
     ...(advice.length ? [{ slot: '時間', text: `時間上，${advice.join('；')}。`, source_id: null, rule_ids: [] }] : []),
