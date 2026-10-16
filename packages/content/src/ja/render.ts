@@ -403,9 +403,37 @@ function joinBrackets(ss: string[]): string[] {
   return out;
 }
 
-function paragraphJa(zh: string, missing: string[]): string {
-  return joinBrackets(sentencesOf(zh))
-    .map((s) => lookupSentence(s) ?? template(s, missing) ?? (missing.push(s), `〔${s}〕`))
+/* ── 「この星」指邊粒（2026-10-16）──────────────────────────
+ *
+ * 翻譯表將「它」譯做「この星」。上一句啱啱講完嗰粒星就咁留低係自然日文；
+ * 但掃 3,000 張盤見到 169 款句係指代唔清：上一句講緊擎羊（「この星」會讀成擎羊）、
+ * 或者成段之前未提過星（疾厄「この星に役立つのは⋯」）。
+ * 規則：「它」指嘅係段入面佢之前最後一粒主星（冇就段入面之後第一粒、再冇就上一段）；
+ * 由上一句開頭到「它」之間最後提到嘅星唔係佢，就換做星名。 */
+const ANY_STAR = new RegExp(SLOT_STARS, 'g');
+const MAJOR_RE = new RegExp(MAJOR.join('|'), 'g');
+const lastOf = (re: RegExp, t: string) => [...t.matchAll(re)].pop()?.[0];
+const firstOf = (re: RegExp, t: string) => t.match(new RegExp(re.source))?.[0];
+
+function resolveKonoHoshi(ja: string, ss: string[], i: number, carry: string | undefined): string {
+  if (!ja.includes('この星')) return ja;
+  const s = ss[i]!;
+  const at = s.includes('它') ? s.indexOf('它') : 0;
+  const before = ss.slice(0, i).join('') + s.slice(0, at);
+  const star = lastOf(MAJOR_RE, before) ?? firstOf(MAJOR_RE, ss.slice(i).join('')) ?? carry;
+  const name = star && starJa(star);
+  if (!name) return ja;
+  const near = (ss[i - 1] ?? '') + s.slice(0, at);
+  return lastOf(ANY_STAR, near) === star ? ja : ja.replaceAll('この星', name);
+}
+
+function paragraphJa(zh: string, missing: string[], carry?: string): string {
+  const ss = joinBrackets(sentencesOf(zh));
+  return ss
+    .map((s, i) => {
+      const ja = lookupSentence(s) ?? template(s, missing);
+      return ja === null ? (missing.push(s), `〔${s}〕`) : resolveKonoHoshi(ja, ss, i, carry);
+    })
     .join('');
 }
 
@@ -414,7 +442,13 @@ const PARA = String.fromCharCode(10, 10);
 /** 逐段譯，段數同輸入一樣（網站要靠段數對返每段嘅格名） */
 export function renderParagraphs(zhParas: readonly string[]): { paras: string[]; missing: string[] } {
   const missing: string[] = [];
-  return { paras: zhParas.map((p) => paragraphJa(p, missing)), missing };
+  let carry: string | undefined;
+  const paras = zhParas.map((p) => {
+    const out = paragraphJa(p, missing, carry);
+    carry = lastOf(MAJOR_RE, p) ?? carry;
+    return out;
+  });
+  return { paras, missing };
 }
 
 export function renderChapter(zh: string): Rendered {
