@@ -46,14 +46,37 @@ const WIN = process.platform === 'win32';
  * 呢個係「一個喺乜都冇之上通過嘅檢查」嘅第八次，
  * 而頭七次都係喺 script 入面；呢次係喺起 server 嗰一層。
  * 所以擋喺呢度：條 port 有人就即刻死，唔好扮跑過。
+ *
+ * ⚠ 唔好 listen '127.0.0.1'（2026-09 喺 Windows 捉到）：next-server
+ * 聽嘅係 0.0.0.0 同 [::]，而 Windows 准你喺上面再 bind 一個
+ * 127.0.0.1 —— 個 probe 話「空㗎」，孤兒就咁過咗關。
+ * 唔指定 host ＝ 聽晒所有介面，撞到任何一個都係 EADDRINUSE。
  */
 async function portIsFree(port) {
   return new Promise((resolve) => {
     const probe = createServer();
     probe.once('error', () => resolve(false));
     probe.once('listening', () => probe.close(() => resolve(true)));
-    probe.listen(port, '127.0.0.1');
+    probe.listen(port);
   });
+}
+
+/** Windows：邊啲 PID 喺度 LISTEN 緊呢條 port。 */
+function listeningPids(port) {
+  let out = '';
+  try {
+    out = execFileSync('netstat', ['-ano'], { encoding: 'utf8' });
+  } catch {
+    return [];
+  }
+  const pids = new Set();
+  for (const line of out.split(/\r?\n/)) {
+    const [proto, local, , state, pid] = line.trim().split(/\s+/);
+    if (proto === 'TCP' && state === 'LISTENING' && local?.endsWith(`:${port}`) && pid !== '0') {
+      pids.add(pid);
+    }
+  }
+  return [...pids];
 }
 
 /** 起一個 production server，回一個 handle。 */
@@ -61,7 +84,13 @@ export async function startServer(port) {
   if (!(await portIsFree(port))) {
     console.error(`✗ port ${port} 已經有人用 —— 多數係上次跑剩低嘅 next-server 孤兒。`);
     console.error('  佢會令呢次掃描量緊一個舊 build 而照樣全綠。');
-    console.error(`  殺咗佢：pkill -f next-server（或者 lsof -ti:${port} | xargs kill）`);
+    if (WIN) {
+      const pids = listeningPids(port);
+      console.error(`  LISTEN 緊嘅 PID：${pids.join(', ') || '（搵唔到）'}`);
+      console.error(`  殺咗佢：taskkill /PID <pid> /T /F（netstat -ano | findstr :${port} 睇 PID）`);
+    } else {
+      console.error(`  殺咗佢：pkill -f next-server（或者 lsof -ti:${port} | xargs kill）`);
+    }
     process.exit(1);
   }
 
@@ -87,12 +116,32 @@ export async function startServer(port) {
     process.exit(1);
   });
 
+  child.guanweiPort = port;
+
+  /*
+   * ⚠ 點樣收工都要殺（2026-09 喺 Windows 捉到孤兒）。
+   *
+   * 啲 check 腳本喺 `try` 入面 `process.exit(1)`（server 起唔到、
+   * 開唔到 Chromium、spawn 'error'）—— process.exit 唔會行 `finally`，
+   * 所以 stopServer 從來冇被叫到。Ctrl+C 同未接住嘅 exception 都一樣。
+   * 喺度掛落 'exit'（stopServer 係同步嘅，'exit' 入面行得）同兩個訊號。
+   */
+  const onExit = () => stopServer(child);
+  const onSignal = (sig) => {
+    stopServer(child);
+    process.exit(sig === 'SIGINT' ? 130 : 143);
+  };
+  process.once('exit', onExit);
+  process.once('SIGINT', onSignal);
+  process.once('SIGTERM', onSignal);
+
   return child;
 }
 
 /** 收工。⚠ 要連埋啲仔一齊殺，否則下次撞到「port 有人用」。 */
 export function stopServer(child) {
-  if (!child?.pid) return;
+  if (!child?.pid || child.guanweiStopped) return;
+  child.guanweiStopped = true;
   try {
     if (WIN) {
       execFileSync('taskkill', ['/pid', String(child.pid), '/T', '/F'], { stdio: 'ignore' });
@@ -101,6 +150,23 @@ export function stopServer(child) {
     }
   } catch {
     /* 已經死咗就算數 —— 收工嗰陣唔應該再掟嘢。 */
+  }
+  /*
+   * ⚠ Windows 嘅第二道閘：個樹斷咗就殺唔到。
+   *
+   * 條鏈係 cmd → npx → cmd → node next-server。中間任何一個
+   * 早死咗，taskkill /T 由 child.pid 行落去就去唔到 next-server
+   * （Windows 唔會將孤兒過繼畀祖父）。所以殺完再睇條 port，
+   * 仲有人 LISTEN 就照 PID 殺 —— 呢條 port 係 startServer 驗過係空先起嘅。
+   */
+  if (WIN && child.guanweiPort) {
+    for (const pid of listeningPids(child.guanweiPort)) {
+      try {
+        execFileSync('taskkill', ['/PID', pid, '/T', '/F'], { stdio: 'ignore' });
+      } catch {
+        /* 同上 */
+      }
+    }
   }
 }
 
