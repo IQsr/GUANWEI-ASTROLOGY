@@ -343,7 +343,9 @@ function template(s: string, missing: string[]): string | null {
     const name = starJa((sha[1] ?? sha[2])!);
     if (!name) missing.push((sha[1] ?? sha[2])!);
     const body = clause(sha[3]!, missing);
-    return sha[1] ? `さらに${name}が同じ宮にあるので、${body}。` : `そのうえ${name}もあるので、${body}。`;
+    /* 後半自己已經有「ので」：前半改「あり、」，免得一句兩個「ので」（2026-10-16 五盤通讀） */
+    const so = body.includes('ので') ? 'あり' : 'あるので';
+    return sha[1] ? `さらに${name}が同じ宮に${so}、${body}。` : `そのうえ${name}も${so}、${body}。`;
   }
 
   if (LINK_HEAD_SENTENCES[s]) return LINK_HEAD_SENTENCES[s]!;
@@ -408,10 +410,13 @@ function joinBrackets(ss: string[]): string[] {
  * 翻譯表將「它」譯做「この星」。上一句啱啱講完嗰粒星就咁留低係自然日文；
  * 但掃 3,000 張盤見到 169 款句係指代唔清：上一句講緊擎羊（「この星」會讀成擎羊）、
  * 或者成段之前未提過星（疾厄「この星に役立つのは⋯」）。
- * 規則：「它」指嘅係段入面佢之前最後一粒主星（冇就段入面之後第一粒、再冇就上一段）；
+ * 規則：「它」指嘅係段入面佢之前最後一粒主星／輔星（冇就上一段、再冇就段入面之後第一粒）；
+ * 星嘅頭一句有時自己一段（「武曲本就是財帛主，這是它最順的一格。」），所以上一段排先；
+ * 上一段係「你的X宮坐／借⋯來讀」就攞頭一粒（下面先講嗰粒）。
  * 由上一句開頭到「它」之間最後提到嘅星唔係佢，就換做星名。 */
 const ANY_STAR = new RegExp(SLOT_STARS, 'g');
-const MAJOR_RE = new RegExp(MAJOR.join('|'), 'g');
+/* 「它」可以指化科嘅文昌、文曲、左輔、右弼（「文昌化科⋯它修飾的是呈現方式」）；煞星唔算 */
+const MAJOR_RE = new RegExp([...MAJOR, '文昌', '文曲', '左輔', '右弼'].join('|'), 'g');
 const lastOf = (re: RegExp, t: string) => [...t.matchAll(re)].pop()?.[0];
 const firstOf = (re: RegExp, t: string) => t.match(new RegExp(re.source))?.[0];
 
@@ -420,7 +425,7 @@ function resolveKonoHoshi(ja: string, ss: string[], i: number, carry: string | u
   const s = ss[i]!;
   const at = s.includes('它') ? s.indexOf('它') : 0;
   const before = ss.slice(0, i).join('') + s.slice(0, at);
-  const star = lastOf(MAJOR_RE, before) ?? firstOf(MAJOR_RE, ss.slice(i).join('')) ?? carry;
+  const star = lastOf(MAJOR_RE, before) ?? carry ?? firstOf(MAJOR_RE, ss.slice(i).join(''));
   const name = star && starJa(star);
   if (!name) return ja;
   const near = (ss[i - 1] ?? '') + s.slice(0, at);
@@ -445,7 +450,7 @@ export function renderParagraphs(zhParas: readonly string[]): { paras: string[];
   let carry: string | undefined;
   const paras = zhParas.map((p) => {
     const out = paragraphJa(p, missing, carry);
-    carry = lastOf(MAJOR_RE, p) ?? carry;
+    carry = (/宮坐|來讀/.test(p) ? firstOf(MAJOR_RE, p) : lastOf(MAJOR_RE, p)) ?? carry;
     return out;
   });
   return { paras, missing };
