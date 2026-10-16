@@ -283,7 +283,19 @@ function listItem(zh: string, missing: string[]): string | null {
     missing.push(zh);
     return null;
   }
-  return ja.startsWith(area.slice(0, -1)) && area ? ja : `${area}${ja}`;
+  if (!area) return ja;
+  /*
+   * 句子頭一截已經用「は／では」講明同一方面，就唔再加方面（2026-10-16 第二輪審稿）：
+   * 「お金の面では、お金の管理では秩序を重んじます」—— 以前淨係完全相同先省。
+   * 方面詞後面要跟助詞（「外」唔會撞「外見は」，「心」唔會撞「心身」）。
+   */
+  const key = area
+    .slice(0, -1)
+    .replace(/(の面では|とのあいだでは|を育てるときは|の輪では|では)$/, '')
+    .replace(/の人$/, '');
+  const head = ja.split(/[、。]/)[0] ?? '';
+  if (ja.startsWith(area.slice(0, -1)) || (new RegExp(`${key}(?:の|で|は|と|に)`).test(head) && /は/.test(head))) return ja;
+  return `${area}${ja}`;
 }
 
 /** 程式砌出嚟嘅句。認唔到回 null。 */
