@@ -5120,13 +5120,16 @@ select.zhou-xian {
 .jing-tou-dan {
   /* 詞條頁：名同類別左對齊，同正文同一條邊 */
   justify-content: center;
+  /* ⚠ 左右留白要同 .jing-ben 一樣、闊度要同 .jing-juan 一樣（720），名先會同正文同一條邊。
+     之前跟 .jing-tou 嘅 6vw 同 760 闊：桌面個名凸出 20px、手機縮入 7px（check-juanshou 量住） */
+  padding-inline: clamp(16px, 4vw, 40px);
   padding-bottom: 36px;
   text-align: start;
 }
 
 .jing-tou-dan .jing-tou-zi {
   width: 100%;
-  max-width: 760px;
+  max-width: 720px;
 }
 
 .jing-tou-dan a {
