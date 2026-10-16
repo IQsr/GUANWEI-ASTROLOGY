@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import type { Chart, Palace, PalaceName } from '@guanwei/ziwei';
+import { annual, type Chart, type Palace, type PalaceName } from '@guanwei/ziwei';
 import { shenLines } from './shen';
 import { L3_BLOCKS } from './l3-data';
 import { FORBIDDEN_TERMS } from './frame';
@@ -55,7 +55,7 @@ import { cjkCount } from './lexicon';
 export const XU_SLUG = '序';
 export const XU_TITLE = '序 · 你的命盤';
 
-export const XU_SLOTS = ['章首', '生辰', '盤面', '體系', '留白'] as const;
+export const XU_SLOTS = ['章首', '生辰', '盤面', '體系', '年少', '留白'] as const;
 export type XuSlot = (typeof XU_SLOTS)[number];
 
 export type XuSegment = {
@@ -142,6 +142,8 @@ export type XuInput = {
   /** 國曆生辰同出生地 —— 盤入面冇留低，由落款嗰邊帶過嚟。 */
   solar: { y: number; m: number; d: number };
   place: string;
+  /** 成書年份：有就睇讀者係咪年少（`isYoungReader`），加一句提醒。 */
+  year?: number;
   /*
    * ⚠ 2026-09 拎走咗 `declaration`（流派聲明全文）同 `contentVersion`（規則庫版本）：
    * 序唔再印設定細節同版本號（見 `xuChapter()` 體系段）。流派聲明全文照舊喺
@@ -233,6 +235,21 @@ export function assertSettingsOnly(text: string, declaration = ''): void {
   }
 }
 
+/**
+ * 年少讀者（2026-10-16 · 審稿 J 盤，虛歲三）：成書嗰年虛歲 13 或以下。
+ *
+ * 宮位章嘅工作、感情、錢係大人嘅講法；細路（多半係家長代讀）讀落唔對路。
+ * 定咗嘅做法（Issac 揀）：序加一句提醒；宮位章唔出最後嗰段大人生活場景（`生活` 格）。
+ * 唔另寫兒童版內容 —— 冇出處，亦唔應該替原文作新主張。
+ */
+export const YOUNG_READER_MAX_AGE = 13;
+export const XU_YOUNG = '你還小，書裡講工作、感情、錢的地方，說的是長大後的傾向；現在可以先當作性格的底色來讀。';
+
+export function isYoungReader(chart: Chart, year: number): boolean {
+  const a = annual(chart, year);
+  return a.ok && a.value.nominalAge <= YOUNG_READER_MAX_AGE;
+}
+
 /** 序 · 你的命盤。 */
 export function xuChapter(input: XuInput): { slug: string; title: string; segments: XuSegment[] } {
   const { chart, solar, place } = input;
@@ -281,6 +298,7 @@ export function xuChapter(input: XuInput): { slug: string; title: string; segmen
     seg('生辰', birth),
     seg('盤面', board),
     seg('體系', lines.join('')),
+    ...(input.year !== undefined && isYoungReader(chart, input.year) ? [seg('年少', XU_YOUNG)] : []),
     seg('留白', XU_FRAMES[1]!.text),
   ];
 

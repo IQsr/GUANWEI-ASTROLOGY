@@ -12,6 +12,7 @@ import {
   yearChapter,
   epilogueChapter,
   xuChapter,
+  isYoungReader,
   LEXICON,
   type Chapter,
 } from '@guanwei/content';
@@ -205,7 +206,7 @@ export function bookChapters(
   });
 
   /* 序唔再印版本號（2026-09）：版本照舊寫落 DB（成書嗰陣，見 cast/actions.ts）。 */
-  const xu = xuChapter({ chart, solar: opts.solar, place: opts.place });
+  const xu = xuChapter({ chart, solar: opts.solar, place: opts.place, year: opts.year });
   const shen = shenChapter({ chart, year: opts.year });
   const gujia = gujiaChapter({ chart, year: opts.year });
   /* 大限（2026-09-30）：一生十二步免費，這十年收費；跟成書年份講 */
@@ -224,7 +225,14 @@ export function bookChapters(
    * 「三方四正」章 2026-10-07 併入骨架（見 content `xingxi-chapters.ts`）；舊書照讀。
    * 身宮嗰章擺喺後面：佢講嘅係「後天著力喺邊」，讀完「先天基調」先至讀得通。
    */
-  const [ming, ...rest] = palaces;
+  /*
+   * 年少讀者（虛歲 13 或以下，2026-10-16）：宮位章唔出最後嗰段大人生活場景
+   * （同事、伴侶、投資⋯）。序有一句提醒（content `XU_YOUNG`）。
+   */
+  const young = isYoungReader(chart, opts.year);
+  const [ming, ...rest] = (young
+    ? palaces.map((c) => ({ ...c, segments: c.segments.filter((s) => s.slot !== '生活') }))
+    : palaces);
 
   return [
     { slug: xu.slug, title: xu.title, ...body(xu.segments) },

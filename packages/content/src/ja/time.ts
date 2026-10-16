@@ -324,6 +324,13 @@ export function timeTemplate(s: string, missing: string[], h: TimeHelpers): stri
   const month = liuyueJa(s);
   if (month) return month;
 
+  /* 未起運嘅這十年（daxian.ts）：「從虛歲四歲起的這十年，⋯」→「数え4歳から始まる十年のあいだ、⋯」 */
+  const preDecade = /^從虛歲(\S+?)歲起的(這十年，.+)$/.exec(s);
+  if (preDecade && n(preDecade[1]!)) {
+    const inner = timeTemplate(preDecade[2]!, missing, h);
+    if (inner?.startsWith('この十年')) return `${kazoe(n(preDecade[1]!)!)}から始まる十年のあいだ${inner.slice('この十年'.length)}`;
+  }
+
   /* ── 一生十二步 ── */
   let m = /^你的大限由虛歲(\S+?)歲起，每十年換一步；寫這本書時（(\S+?)年），你(走到第(\S+?)步|還未起步)。$/.exec(s);
   if (m && n(m[1]!) && n(m[2]!)) {

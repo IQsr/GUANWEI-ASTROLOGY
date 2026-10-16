@@ -734,10 +734,15 @@ export function decadeChapter(input: { chart: Chart; year: number }): Out {
     : `寫這本書時（${yearCN(year)}年），你虛歲${num(A.nominalAge)}，第一個大限從虛歲${num(d.fromAge)}歲開始。`;
   /* 未成年：下面講嘅（實權、上級、合約）係呢十年身邊嘅環境，唔係佢自己要做嘅事 */
   const young = d.toAge <= 20 ? '你還年少，下面講的是這十年身邊的環境，很多要到長大後才用得上。' : '';
+  /*
+   * 未起運（2026-10-16 審稿 J 盤：虛歲三、四歲起運）：上一句講咗第一個大限仲未開始，
+   * 呢句再講「這十年」就似講緊而家。點明係由幾歲起嗰十年，後面嘅「這十年」都跟住指返佢。
+   */
+  const span = started ? '這十年' : `從虛歲${num(d.fromAge)}歲起的這十年`;
   const gist =
     lu.decadalPalace && lu.decadalPalace === ji.decadalPalace
-      ? `這十年，你的${periodArea(lu.decadalPalace)}起伏較大，有得著，也有牽掛。`
-      : `這十年，你的${periodArea(lu.decadalPalace)}比較順，${periodArea(ji.decadalPalace)}要多留神。`;
+      ? `${span}，你的${periodArea(lu.decadalPalace)}起伏較大，有得著，也有牽掛。`
+      : `${span}，你的${periodArea(lu.decadalPalace)}比較順，${periodArea(ji.decadalPalace)}要多留神。`;
 
   /* 大限命宮：盤面事實 ＋ 六十星系偏向（用大限四化） */
   const fact = `這個大限落在你的${palaceLabel(dp.name)}，${starsOf(chart, dp)}，宮干是${d.stem}。`;
