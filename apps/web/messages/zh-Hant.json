@@ -410,6 +410,8 @@
       "title": "你想知甚麼",
       "lead": "每一題先給答案，答案就是該章的第一段；想知道為甚麼，翻進那一章。",
       "readAll": "讀〈{title}〉全章",
+      "sourceMark": "據",
+      "source": "{book}，第 {page} 頁 · {section}",
       "q": {
         "ming": {
           "ask": "我是怎樣的人？",

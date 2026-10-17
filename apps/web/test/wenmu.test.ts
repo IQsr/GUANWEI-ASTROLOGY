@@ -47,6 +47,22 @@ describe('目次問目', () => {
     }
   });
 
+  /* 2026-10-18 · A2：第一段有出處註就喺答案下面出書名、頁、節；冇就空，唔作 */
+  it('第一段有出處就出書名同頁；冇就唔出', () => {
+    const lead = '這一年，錢這一方面，你的財祿有增加的機會；工作上的計劃容易卡住或要返工。';
+    for (const locale of ['zh-Hant', 'zh-Hans', 'en', 'ja']) {
+      const [a] = buildAsks([{ slug: '這一年', lead, quote: null }], locale);
+      expect(a!.sources.map((s) => s.id), locale).toEqual(['daxian.hua.天同.祿']);
+      expect(a!.sources[0]!.page, locale).toBeGreaterThan(0);
+    }
+    expect(buildAsks([{ slug: '這一年', lead, quote: null }], 'zh-Hant')[0]!.sources[0]!.book).toBe('王亭之《中州派紫微斗數深造講義》');
+    expect(buildAsks([{ slug: '這一年', lead, quote: null }], 'en')[0]!.sources[0]!.book).toMatch(/^Wang Tingzhi/);
+    /* 通用句冇出處 */
+    const plain = buildAsks([{ slug: '這一年', lead: '這一年，工作上容易遇到合適的機會；錢容易周轉緊或超出預算。', quote: null }], 'zh-Hant');
+    expect(plain[0]!.sources).toEqual([]);
+    expect(buildAsks([{ slug: '財帛', lead: '你對錢是慢慢積。', quote: null }], 'zh-Hant')[0]!.sources).toEqual([]);
+  });
+
   it('每題喺兩個語言都有問題同副題', () => {
     for (const m of [zhHant, en]) {
       for (const a of ASKS) {

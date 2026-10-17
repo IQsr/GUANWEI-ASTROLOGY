@@ -1,3 +1,4 @@
+import { citation, citeOf } from '@guanwei/content';
 import { englishChapters, isEnglish } from '@/lib/english';
 import { isJapanese, japaneseChapters } from '@/lib/japanese';
 import { zhFor } from '@/lib/hans';
@@ -31,11 +32,33 @@ export type AskItem = {
   answer: string;
   /** 第一句《…》引文；英文版唔出（引文喺譯文入面已經變咗講法，抽唔返原句） */
   quote: string | null;
+  /** 第一段嘅出處註（2026-10-18 · A2）：同閱讀頁「據」一樣嘅書名、頁、節；冇就空 */
+  sources: AskSource[];
 };
+
+export type AskSource = { id: string; book: string; page: number; section: string };
 
 /** 讀者見到嘅第一段：拎走粗體記號，唔要空白答案 */
 function clean(s: string): string {
   return s.replace(/\*\*/g, '').trim();
+}
+
+/**
+ * 第一段嘅出處（2026-10-18 · docs/leads-audit-2026-10-17.md A2 第二步）。
+ *
+ * 一律用中文原段配（`citeOf` 嘅中文索引最齊；出處係同一段原文，同讀者用乜語言無關），
+ * 再按 locale 寫書名同節名 —— 同 `mingshu.ts` `citesFor()` 一樣嘅寫法。
+ */
+function sourcesOf(lead: string, locale: string): AskSource[] {
+  const sentences = lead.match(/[^。！？]*[。！？]|[^。！？]+$/g) ?? [];
+  const ids = [...new Set(sentences.flatMap((s) => citeOf(s.trim()) ?? []))];
+  return ids.flatMap((id) => {
+    const c = citation(id);
+    if (!c) return [];
+    const book = isEnglish(locale) ? `${c.authorEn}, ${c.bookEn} (${c.book})` : isJapanese(locale) ? `${c.author}《${c.book}》` : zhFor(locale, `${c.author}《${c.book}》`);
+    const section = isJapanese(locale) || isEnglish(locale) ? c.section : zhFor(locale, c.section);
+    return [{ id, book, page: c.page, section }];
+  });
 }
 
 /**
@@ -53,18 +76,19 @@ export function buildAsks(leads: readonly ChapterLead[], locale: string): AskIte
 
   if (isEnglish(locale)) {
     const en = englishChapters(picked.map((p) => ({ text: clean(p.lead.lead), slots: [] })));
-    return picked.map((p, i) => ({ key: p.key, slug: p.slug, answer: en[i]?.[0]?.text ?? '', quote: null }));
+    return picked.map((p, i) => ({ key: p.key, slug: p.slug, answer: en[i]?.[0]?.text ?? '', quote: null, sources: sourcesOf(clean(p.lead.lead), locale) }));
   }
   /* 日文（2026-10-15）：同閱讀頁一樣逐句譯；引文係中文原句，唔出 */
   if (isJapanese(locale)) {
     const ja = japaneseChapters(picked.map((p) => ({ text: clean(p.lead.lead), slots: [] })));
-    return picked.map((p, i) => ({ key: p.key, slug: p.slug, answer: ja[i]?.[0]?.text ?? '', quote: null }));
+    return picked.map((p, i) => ({ key: p.key, slug: p.slug, answer: ja[i]?.[0]?.text ?? '', quote: null, sources: sourcesOf(clean(p.lead.lead), locale) }));
   }
   return picked.map((p) => ({
     key: p.key,
     slug: p.slug,
     answer: zhFor(locale, clean(p.lead.lead)),
     quote: p.lead.quote ? zhFor(locale, p.lead.quote) : null,
+    sources: sourcesOf(clean(p.lead.lead), locale),
   }));
 }
 

@@ -407,6 +407,8 @@
       "title": "What you want to know",
       "lead": "Each question is answered first, with the opening paragraph of its chapter. To see why, turn to that chapter.",
       "readAll": "Read “{title}” in full",
+      "sourceMark": "src",
+      "source": "{book}, p. {page} · {section}",
       "q": {
         "ming": {
           "ask": "What kind of person am I?",
