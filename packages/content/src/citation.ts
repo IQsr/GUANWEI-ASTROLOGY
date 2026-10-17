@@ -1,7 +1,9 @@
 import { BRANCH_TOPICS, slotPattern, stripOr } from './branch';
-import { DAXIAN_HUA, LOOKBACK_EVENTS } from './daxian';
+import { DAXIAN_HUA, LOOKBACK_EVENTS, firstClause } from './daxian';
 import { CORPUS } from './lexicon';
+import { LIFE_LINES } from './life';
 import { tmSentence } from './en/render';
+import { huaClauseEn } from './en/time';
 import { XINGXI } from './xingxi';
 
 /* ───────────────────────────────────────────────────────────
@@ -15,7 +17,10 @@ import { XINGXI } from './xingxi';
  *   二、大限／流年四化句（daxian/hua.json）—— 每句由一段四化原文撮出
  *   三、回看嘅事件句（daxian/events.json）—— 條件跟書，句子婉轉
  *   四、性格的骨架：星系嘅基本講法、兩頭偏向句（2026-10-12）—— 譯自每個星系開頭嗰段
- * 舊有嘅宮位基塊、結論句、生活句未收：審查指出佢哋掛嘅《全書》古文撐唔起後面嘅描述，
+ *   五、這十年、這一年第一句嘅四化分句（2026-10-18 · A2）—— 就係二嗰句嘅第一分句，出處一樣；
+ *       一句可以有化祿化忌兩個分句，兩個出處都回。通用句（AREA_HUA）冇逐句出處，唔收。
+ *   六、生活句有王亭之出處嗰 85 句（2026-10-18）—— life.ts 載入時已經逐字核過引文
+ * 舊有嘅宮位基塊、結論句、冇出處嘅生活句未收：審查指出佢哋掛嘅《全書》古文撐唔起後面嘅描述，
  * 加註只會令讀者對照時發現對唔上。轉做分支規則之後先加。
  *
  * 配對係「句子包含索引句」：四化句入書時前面會加「天機化祿在你的官祿宮：」。
@@ -82,7 +87,8 @@ function enHuiPattern(t: string): RegExp {
   return new RegExp(body.replace(/in your trine|in your four directions|meeting your chart/, '(?:in your trine|in your four directions|meeting your chart|in your .+?)'));
 }
 
-export type CiteKey = { key: string; ids: string[]; re?: RegExp };
+/** `clause`：四化分句 —— 一句入面可以有兩個，citeOf 會合埋兩個出處 */
+export type CiteKey = { key: string; ids: string[]; re?: RegExp; clause?: true };
 
 function build(): { zh: CiteKey[]; en: CiteKey[] } {
   const zh: CiteKey[] = [];
@@ -117,6 +123,24 @@ function build(): { zh: CiteKey[]; en: CiteKey[] } {
     const e = tmSentence(h.text);
     if (e) en.push({ key: e, ids: [h.source.passage_id] });
   }
+  /*
+   * 這十年、這一年第一句（daxian.ts `periodGist`）用嘅係四化句第一分句。分句短，
+   * 所以只配「這十年／這一年」開頭嗰句，唔會配錯第二度啱啱有同一截字嘅句。
+   */
+  for (const h of DAXIAN_HUA) {
+    const ids = [h.source.passage_id];
+    const c = firstClause(h.text);
+    zh.push({ key: c, ids, clause: true, re: new RegExp(`^這(?:十年|一年).*${escCite(c)}`) });
+    const e = huaClauseEn(c);
+    if (e) en.push({ key: e, ids, clause: true, re: new RegExp(`^(?:over these ten years|this year).*${escCite(e.toLowerCase())}`) });
+  }
+  for (const l of LIFE_LINES) {
+    if (!l.source) continue;
+    const ids = [l.source.passage_id];
+    for (const s of sentencesZh(l.text)) zh.push({ key: s, ids });
+    const e = tmSentence(l.text);
+    if (e) for (const s of sentencesEn(e)) en.push({ key: s, ids });
+  }
   for (const e of LOOKBACK_EVENTS) zh.push({ key: e.text, ids: e.sources.map((s) => s.passage_id) });
   /* 長嘅行先：一句包含兩條索引句時，揀最具體嗰條 */
   const byLen = (a: CiteKey, b: CiteKey) => b.key.length - a.key.length;
@@ -133,8 +157,14 @@ export function citeOf(sentence: string, lang: 'zh' | 'en' = 'zh'): string[] | n
   /* 英文渲染會喺星名後面加花名「Ju Men (the Great Gate)」：比較前拎走 */
   const norm = (x: string) =>
     lang === 'en' ? x.replace(/\s*\(the [^)]*\)/g, '').toLowerCase().replace(/[.;:,]$/, '') : x.replace(/。$/, '');
-  const hit = list.find((k) => (k.re ? k.re.test(norm(s)) : norm(s).includes(norm(k.key))));
-  return hit ? hit.ids : null;
+  const match = (k: CiteKey) => (k.re ? k.re.test(norm(s)) : norm(s).includes(norm(k.key)));
+  const hit = list.find(match);
+  if (!hit) return null;
+  if (!hit.clause) return hit.ids;
+  /* 四化分句：化祿化忌兩截各有出處，合埋（次序跟句子入面出現嘅先後） */
+  const at = (k: CiteKey) => norm(s).indexOf(norm(k.key));
+  const clauses = list.filter((k) => k.clause && match(k)).sort((a, b) => at(a) - at(b));
+  return [...new Set(clauses.flatMap((k) => k.ids))];
 }
 
 /** 測試／診斷用：索引幾多句 */

@@ -341,7 +341,7 @@ const yourArea = (palace: string) => {
   const a = periodArea(palace);
   return a.startsWith('自己') ? `你${a}` : `你的${a}`;
 };
-const firstClause = (t: string) => (t.split(/[，；。]/)[0] ?? t).trim();
+export const firstClause = (t: string) => (t.split(/[，；。]/)[0] ?? t).trim();
 /** 通用句（`AREA_HUA`）自己講明係邊方面，唔使再加「X這一方面：」；星句要標返落喺邊。 */
 export function huaClause(h: PeriodHit, used: ReadonlySet<string>, areasRead: boolean): { text: string; generic: boolean } {
   const star = DAXIAN_HUA.find((e) => e.star === h.star && e.hua === h.hua);

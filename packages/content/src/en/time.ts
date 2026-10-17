@@ -366,6 +366,9 @@ const HUA_CLAUSE_EN: Record<string, string> = {
 };
 const PLURAL_AREA = new Set(['錢', '朋輩', '後輩', '長輩關係']);
 
+/** 四化分句嘅英文（出處索引用：citation.ts 要用英文分句對英文第一段） */
+export const huaClauseEn = (zh: string): string | undefined => HUA_CLAUSE_EN[zh];
+
 export function timeTemplate(s: string, missing: string[], h: TimeHelpers): string | null {
   if (KUIYUE_EN[s]) return KUIYUE_EN[s]!;
   const month = liuyueEn(s);
