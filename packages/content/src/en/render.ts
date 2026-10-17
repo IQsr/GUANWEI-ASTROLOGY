@@ -336,12 +336,20 @@ function template(s: string, missing: string[]): string | null {
   }
 
   /* 給你的話：「你可以倚仗的：一、⋯。」「二、⋯。」「你要記住的：一、⋯。」（epilogue.ts） */
-  const li = /^(?:(你可以倚仗的|你要記住的)：)?([一二三])、(.+)$/.exec(s);
+  /* 2026-10-17：第一段揀咗最具體嘅一樣長處同提醒，清單改叫「其他⋯」 */
+  const top = /^(最可以倚仗的一點|最要記住的一點)：(.+)$/.exec(s);
+  if (top) {
+    const item = listItem(top[2]!, missing);
+    if (item === null) return null;
+    return `${top[1] === '最可以倚仗的一點' ? 'What you can rely on most' : 'Above all, keep in mind'}: ${item}`;
+  }
+  const li = /^(?:(你可以倚仗的|你要記住的|其他可以倚仗的|其他要記住的)：)?([一二三])、(.+)$/.exec(s);
   if (li) {
     const item = listItem(li[3]!, missing);
     if (item === null) return null;
     const nth = { 一: 'first', 二: 'second', 三: 'third' }[li[2]!]!;
-    const head = li[1] === '你可以倚仗的' ? 'What you can rely on: ' : li[1] === '你要記住的' ? 'What to keep in mind: ' : '';
+    const HEAD: Record<string, string> = { 你可以倚仗的: 'What you can rely on: ', 你要記住的: 'What to keep in mind: ', 其他可以倚仗的: 'More you can rely on: ', 其他要記住的: 'More to keep in mind: ' };
+    const head = li[1] ? HEAD[li[1]]! : '';
     return head ? `${head}${nth}, ${item}` : `${cap(nth)}, ${item}`;
   }
 

@@ -108,8 +108,14 @@ export function epilogueChapter(input: { chart: Chart; year: number }): { slug: 
   const exc = gujiaException(chart);
   const pole = leanOf(chart, x.system).pole;
   const strengths: { text: string; id: string }[] = exc ? [] : [{ text: strengthFor(x.system, pole), id: xid }];
-  for (const name of ['官祿', luP?.name, '財帛', '遷移', '福德', '田宅']) {
-    if (!name || strengths.length >= 3 || taken.has(name) || name === jiP?.name || name === '疾厄') continue;
+  /*
+   * 第一段（免費）揀一樣最具體嘅長處同命宮提醒（2026-10-17，docs/leads-audit-2026-10-17.md B3）：
+   * 以前第一段得一句星系總結，同主星系嘅人一字不差。揀走嗰樣喺清單由下一個候選補上，
+   * 清單照舊各三樣，第一段同清單唔重複。
+   */
+  const want = 4;
+  for (const name of ['官祿', luP?.name, '財帛', '遷移', '福德', '田宅', '兄弟', '子女', '父母']) {
+    if (!name || strengths.length >= want || taken.has(name) || name === jiP?.name || name === '疾厄') continue;
     const pp = lineOf(name);
     if (pp && !strengths.some((s) => s.id === pp.id)) {
       strengths.push({ text: tag(name, pp.summary), id: pp.id });
@@ -120,7 +126,7 @@ export function epilogueChapter(input: { chart: Chart; year: number }): { slug: 
   /* 留意：命宮 → 化忌嗰方面 → 感情 → 心境、朋友圈（長處用咗嘅宮跳過）→ 骨架 */
   const watches: { text: string; id: string }[] = [];
   for (const name of ['命宮', jiP?.name, '夫妻', '福德', '僕役']) {
-    if (!name || watches.length >= 2 || (name !== '命宮' && taken.has(name))) continue;
+    if (!name || watches.length >= 3 || (name !== '命宮' && taken.has(name))) continue;
     const pp = lineOf(name);
     if (pp && !watches.some((w) => w.id === pp.id)) {
       watches.push({ text: tag(name, strip(pp.watch)), id: pp.id });
@@ -135,13 +141,28 @@ export function epilogueChapter(input: { chart: Chart; year: number }): { slug: 
     .map((c) => (c?.segments.find((s) => s.slot === '建議') as { brief?: string } | undefined)?.brief)
     .filter((t): t is string => Boolean(t));
 
+  /* 第一段：最具體嘅一樣長處（唔用星系通用句）＋命宮提醒；其餘入清單 */
+  const leadStrength = strengths.find((s) => s.id !== xid) ?? null;
+  const leadWatch = watches[0]?.id !== xid ? (watches[0] ?? null) : null;
+  const restStrengths = strengths.filter((s) => s !== leadStrength).slice(0, 3);
+  const restWatches = watches.filter((w) => w !== leadWatch).slice(0, 3);
+  const summary = exc ? (exc.text.match(/^[^。]*。/)?.[0] ?? exc.text) : summaryFor(x.system, pole);
+  const lead =
+    summary +
+    (leadStrength ? `最可以倚仗的一點：${leadStrength.text}` : '') +
+    (leadWatch ? `最要記住的一點：${leadWatch.text}` : '');
   const NUM = ['一', '二', '三'];
   const listed = (xs: { text: string }[]) => xs.map((s, i) => `${NUM[i]}、${s.text}`).join('');
 
   const segments: Seg[] = [
-    { slot: '結論', text: exc ? (exc.text.match(/^[^。]*。/)?.[0] ?? exc.text) : summaryFor(x.system, pole), source_id: exc ? exc.source.passage : xid, rule_ids: exc ? [exc.id] : [] },
-    { slot: '長處', text: `你可以倚仗的：${listed(strengths)}`, source_id: strengths.map((s) => s.id).join('+'), rule_ids: [] },
-    { slot: '留意', text: `你要記住的：${listed(watches)}`, source_id: watches.map((w) => w.id).join('+'), rule_ids: [] },
+    {
+      slot: '結論',
+      text: lead,
+      source_id: [exc ? exc.source.passage : xid, leadStrength?.id, leadWatch?.id].filter(Boolean).join('+'),
+      rule_ids: exc ? [exc.id] : [],
+    },
+    { slot: '長處', text: `${leadStrength ? '其他' : '你'}可以倚仗的：${listed(restStrengths)}`, source_id: restStrengths.map((s) => s.id).join('+'), rule_ids: [] },
+    { slot: '留意', text: `${leadWatch ? '其他' : '你'}要記住的：${listed(restWatches)}`, source_id: restWatches.map((w) => w.id).join('+'), rule_ids: [] },
     ...(advice.length ? [{ slot: '時間', text: `時間上，${advice.join('；')}。`, source_id: null, rule_ids: [] }] : []),
     { slot: '留白', text: EPILOGUE_CLOSE, source_id: null, rule_ids: [] },
   ];
