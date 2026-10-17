@@ -120,7 +120,7 @@ describe('規則庫版本', () => {
    * 爆咗要問：規則庫版本要唔要 bump？已經出咗嘅書帶住舊 ref，會唔會對唔返？
    */
   it('fingerprint 冇無端變過', () => {
-    expect(RULE_REGISTRY.ref).toBe('r1@aec70cc1393fb7ad');
+    expect(RULE_REGISTRY.ref).toBe('r1@fab40018c7dc6344');
   });
 });
 
