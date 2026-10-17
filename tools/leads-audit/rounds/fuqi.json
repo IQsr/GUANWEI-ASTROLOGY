@@ -1,0 +1,22 @@
+{
+  "palace": "夫妻",
+  "$note": "只做原書有「一般情形」講感情關係本身嘅四款（2026-10-18 · Issac 揀）。其餘十款：天同、廉貞（年齡差）、天梁（婚前波折）、七殺（遲婚）原文講事件或配偶，細讀已經出；紫微、天機、太陽、武曲、太陰、貪狼原文只有帶條件嘅講法。呢十款結論照舊，冇出處。",
+  "cells": {
+    "天府": {
+      "summary": ["你在感情裡是調和的一方，關係裡的不順會因你而緩和。", "In love you're the one who smooths things over; what goes wrong in the relationship eases because of you.", "恋愛では調整役で、関係のつまずきもあなたのおかげで和らぎます。"],
+      "source": ["life.夫妻.天府", "由于天府有调和夫妻关系的性质"]
+    },
+    "天相": {
+      "summary": ["你們兩人宜合作共事，一個主導、一個配合，做起事來很順。", "The two of you do well working together: one leads, the other follows, and things run smoothly.", "二人は協力して事に当たるのが向いていて、一人が引っぱり一人が合わせると、物事がうまく運びます。"],
+      "source": ["life.夫妻.天相", "宜夫妻合作共事"]
+    },
+    "破軍": {
+      "summary": ["你在感情裡傾向主導，容易想去駕馭對方。", "In love you tend to take the lead, and can easily want to steer your partner.", "恋愛では主導権を握りがちで、相手を思いどおりに動かしたくなりやすいほうです。"],
+      "source": ["deep.夫妻.破軍.2", "男女皆有驾御配偶的倾向"]
+    },
+    "巨門": {
+      "summary": ["你和伴侶之間容易為小事爭論，就算關係好也一樣。", "You and your partner easily argue over small things, even when the relationship is good.", "関係がうまくいっていても、パートナーとは小さなことで言い争いになりがちです。"],
+      "source": ["deep.夫妻.巨門.5", "虽吉，亦多无谓争吵"]
+    }
+  }
+}
