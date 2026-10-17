@@ -1,0 +1,24 @@
+{
+  "palace": "田宅",
+  "$note": "同夫妻一樣嘅準則（2026-10-18）：免費第一段唔講資產或事件預測。只做原書有「一般情形」講你點樣住、點樣安頓嘅五款。其餘九款：紫微、天梁（有祖業／自置）、巨門（中年後自置）、貪狼（主散不主聚）、廉貞（破祖）原文講資產或事件；武曲、太陰、七殺、破軍原文只有帶條件嘅講法。照舊冇出處。",
+  "cells": {
+    "天機": {
+      "summary": ["你的住處常在變動，搬家、換工作環境都不算少。", "Where you live keeps changing; moving house and changing work settings are nothing unusual for you.", "住まいはよく変わり、引っ越しや職場環境の変化も珍しくありません。"],
+      "source": ["life.田宅.天機", "亦主时时迁动，或时买时卖"]
+    },
+    "太陽": {
+      "source": ["life.田宅.太陽", "但仍时时变换"]
+    },
+    "天同": {
+      "source": ["life.田宅.天同", "仅主居住环境的享受"]
+    },
+    "天府": {
+      "summary": ["你的居處和工作都傾向安定，不輕易搬動。", "Both your home and your work tend to be settled; you don't move lightly.", "住まいも仕事も安定しやすく、軽々しく動きません。"],
+      "source": ["life.田宅.天府", "天府守田宅，本主人工作安定"]
+    },
+    "天相": {
+      "summary": ["住的地方合不合你，對你影響特別大，環境稍差就住不安穩。", "Whether a place suits you affects you more than most; if the surroundings are a little off, you can't settle.", "住む場所が合うかどうかの影響が人一倍大きく、環境が少しでも悪いと落ち着いて暮らせません。"],
+      "source": ["life.田宅.天相", "天相对风水相当敏感"]
+    }
+  }
+}
