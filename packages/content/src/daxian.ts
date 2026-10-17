@@ -326,6 +326,51 @@ export function areaSegments(
 }
 
 /*
+ * 時間章第一段（2026-10-17，docs/leads-audit-2026-10-17.md B1＋B2）。
+ *
+ * 以前寫「你的X比較順，Y要多留神」：X、Y 係祿忌落入嘅宮，但「比較順」係我哋自己嘅語氣 ——
+ * 後面四化段引《深造講義》嘅星句，可以講緊另一回事（天同化祿＝財祿增加），甚至唔係順
+ * （天梁化祿＝容易被捲入別人的麻煩）。免費第一段同收費正文講兩樣嘢。
+ *
+ * 而家第一段直接用**章入面實際講嗰句**嘅第一個分句：
+ *   星句喺四方面段用咗 → 星句；落四方面但用通用句 → 通用句；其餘 → 四化段嘅星句。
+ * 咁第一段同後文講同一件事，亦唔加書冇講嘅推論。
+ */
+/** 「你的錢」「你的朋友圈」；命宮係「自己的狀態」，寫「你自己的狀態」，唔好「你的自己的」 */
+const yourArea = (palace: string) => {
+  const a = periodArea(palace);
+  return a.startsWith('自己') ? `你${a}` : `你的${a}`;
+};
+const firstClause = (t: string) => (t.split(/[，；。]/)[0] ?? t).trim();
+/** 通用句（`AREA_HUA`）自己講明係邊方面，唔使再加「X這一方面：」；星句要標返落喺邊。 */
+export function huaClause(h: PeriodHit, used: ReadonlySet<string>, areasRead: boolean): { text: string; generic: boolean } {
+  const star = DAXIAN_HUA.find((e) => e.star === h.star && e.hua === h.hua);
+  const area = AREAS.find((a) => a.palace === h.palace);
+  if (areasRead && area && !used.has(`${h.star}${h.hua}`)) return { text: firstClause(AREA_HUA[area.slot][h.hua]), generic: true };
+  return { text: star ? firstClause(star.text) : '', generic: false };
+}
+export function periodGist(
+  span: string,
+  lu: PeriodHit,
+  ji: PeriodHit,
+  used: ReadonlySet<string>,
+  areasRead: boolean,
+  notes: { luBlocked?: boolean; jiEased?: boolean } = {},
+): string {
+  const l = huaClause(lu, used, areasRead);
+  const j = huaClause(ji, used, areasRead);
+  if (!l.text || !j.text || !lu.palace || !ji.palace) return '';
+  if (lu.palace === ji.palace)
+    return `${span}，${yourArea(lu.palace)}有得有失：${l.text}；同時，${j.text}。`;
+  const at = (c: { text: string; generic: boolean }, palace: string) => (c.generic ? c.text : `${periodArea(palace)}這一方面，${c.text}`);
+  const blocked = notes.luBlocked ? '，只是同時有阻滯' : '';
+  const eased = notes.jiEased ? '，不過也有轉圜的餘地' : '';
+  const body = `${at(l, lu.palace)}${blocked}；${at(j, ji.palace)}${eased}。`;
+  /* 通用句冇「你」：第一句要對住讀者講（lint P2） */
+  return body.includes('你') ? `${span}，${body}` : `${span}對你來說，${body}`;
+}
+
+/*
  * 建議段點講某一方面（2026-10-13）：以前係「家方面是這一年最順的地方」「性格方面的決定」——
  * 填格式嘅講法，「性格方面」「身心負荷方面」讀落生硬。逐宮寫一個平常講法。
  */
@@ -739,7 +784,8 @@ export function decadeChapter(input: { chart: Chart; year: number }): Out {
    * 呢句再講「這十年」就似講緊而家。點明係由幾歲起嗰十年，後面嘅「這十年」都跟住指返佢。
    */
   const span = started ? '這十年' : `從虛歲${num(d.fromAge)}歲起的這十年`;
-  const gist =
+  /* 祿忌冇落宮（理論上唔會）先用舊講法；正常情況見 `periodGist` */
+  const fallbackGist =
     lu.decadalPalace && lu.decadalPalace === ji.decadalPalace
       ? `${span}，你的${periodArea(lu.decadalPalace)}起伏較大，有得著，也有牽掛。`
       : `${span}，你的${periodArea(lu.decadalPalace)}比較順，${periodArea(ji.decadalPalace)}要多留神。`;
@@ -760,6 +806,9 @@ export function decadeChapter(input: { chart: Chart; year: number }): Out {
       )
     : { segments: [], used: new Set<string>() };
   const advice = started ? adviceSegment(hits.map((h) => ({ star: h.star, hua: h.hua, palace: h.decadalPalace })), '這十年') : null;
+  const gist =
+    periodGist(span, { star: lu.star, hua: '祿', palace: lu.decadalPalace }, { star: ji.star, hua: '忌', palace: ji.decadalPalace }, areas.used, started) ||
+    fallbackGist;
 
   /* 四化：逐粒講，落喺呢十年嘅邊宮（四方面已經講咗嘅唔再講） */
   const huaLines = hits.filter((h) => !areas.used.has(`${h.star}${h.hua}`)).map((h) => {
@@ -794,7 +843,7 @@ export function decadeChapter(input: { chart: Chart; year: number }): Out {
 
   const seg = (slot: string, text: string, source_id: string | null = null): DaxianSegment => ({ slot, text, source_id, rule_ids: [] });
   const segments = [
-    seg('結論', when + gist + young + (pivotSteps(chart).steps.includes(d.index) ? '這十年是你命盤裡的關鍵大限之一，這段時期的得失，對你一生影響特別大。' : '')),
+    seg('結論', gist + when + young + (pivotSteps(chart).steps.includes(d.index) ? '這十年是你命盤裡的關鍵大限之一，這段時期的得失，對你一生影響特別大。' : '')),
     seg('大限', fact + leanLine, x ? `xingxi.${x.system.n}` : null),
     /* 流魁流鉞冲起本命魁鉞（深造講義 p.8、9，`kuiyue.ts`） */
     ...(kuiyueRises(chart, d.branch, flowStars(d.stem, d.branch)) ? [seg('魁鉞', KUIYUE_TEXT.decade, KUIYUE_SOURCE)] : []),

@@ -4,7 +4,7 @@ import { palaceLabel } from './link';
 import { leanOf, xingxiOf } from './xingxi';
 import { monthSegment } from './liuyue';
 import { KUIYUE_SOURCE, KUIYUE_TEXT, kuiyueRises } from './kuiyue';
-import { DAXIAN_HUA, DAXIAN_RULES, adviceSegment, area, areaSegments, periodArea, decadeView, num, pivotRule, starsOf, yearCN, type DaxianSegment } from './daxian';
+import { DAXIAN_HUA, DAXIAN_RULES, adviceSegment, area, areaSegments, periodArea, periodGist, decadeView, num, pivotRule, starsOf, yearCN, type DaxianSegment } from './daxian';
 
 /* ───────────────────────────────────────────────────────────
  * 流年章〈這一年〉（2026-09-30）
@@ -92,15 +92,11 @@ export function yearChapter(input: { chart: Chart; year: number }): { slug: stri
   const jiB = at(ji.star);
   const luBlocked = Boolean(luB && lower.some((h) => h.hua === '忌' && h.branch === luB));
   const jiEased = Boolean(jiB && lower.some((h) => h.hua === '祿' && h.branch === jiB));
-  const gist =
+  const fallbackGist =
     lu.annualPalace && lu.annualPalace === ji.annualPalace
       ? `這一年，你的${periodArea(lu.annualPalace)}起伏較大，有得著，也有牽掛。`
       : `這一年，你的${periodArea(lu.annualPalace)}${luBlocked ? '順中有阻' : '比較順'}，${periodArea(ji.annualPalace)}${jiEased ? '雖有牽掛，也有轉圜的餘地' : '要多留神'}。`;
-  const lead =
-    `寫這本書的${yearCN(year)}年是${gan}${zhi}年，你虛歲${num(A.nominalAge)}。` +
-    gist +
-    young +
-    (isKey ? '這一年是你命盤裡的關鍵年份之一，今年的得失，影響會比一般年份深。' : '');
+  const background = `寫這本書的${yearCN(year)}年是${gan}${zhi}年，你虛歲${num(A.nominalAge)}。`;
 
   /* 流年命宮 */
   const dec = ov.decadal ? `，也就是這十年大限的${palaceLabel(ov.decadal)}` : '';
@@ -113,6 +109,15 @@ export function yearChapter(input: { chart: Chart; year: number }): { slug: stri
   const periodHits = hits.map((h) => ({ star: h.star, hua: h.hua, palace: h.annualPalace }));
   const areas = areaSegments(chart, (b) => A.overlay.find((o) => o.branch === b)?.annual ?? null, periodHits, '這一年');
   const advice = adviceSegment(periodHits, '這一年');
+  /* 第一段結論先行，講同後文同一句（docs/leads-audit-2026-10-17.md B1＋B2） */
+  const gist =
+    periodGist('這一年', { star: lu.star, hua: '祿', palace: lu.annualPalace }, { star: ji.star, hua: '忌', palace: ji.annualPalace }, areas.used, true, { luBlocked, jiEased }) ||
+    fallbackGist;
+  const lead =
+    gist +
+    background +
+    young +
+    (isKey ? '這一年是你命盤裡的關鍵年份之一，今年的得失，影響會比一般年份深。' : '');
 
   /* 流年四化（四方面已經講咗嘅唔再講） */
   const huaLines = hits.filter((h) => !areas.used.has(`${h.star}${h.hua}`)).map((h) => {

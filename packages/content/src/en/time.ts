@@ -333,6 +333,37 @@ const KUIYUE_EN: Record<string, string> = {
  * 英文係複數嘅方面（your finances、your peers、the people you mentor、your ties with elders）：
  * 動詞用 go／bring，唔係 goes／brings（2026-10-14 · 200 本書抽查：「the people you mentor brings」）
  */
+/* 時間章結論句：化祿化忌原句嘅第一分句（daxian.ts `huaClause`），譯自 tm.json 全句嘅開頭 */
+const HUA_CLAUSE_EN: Record<string, string> = {
+  '你肯為生活品味和人際應酬花錢': "you're willing to spend on good taste and socialising",
+  '你在地位和人際上容易有摩擦': "you may meet friction over status and with people",
+  '你容易主動找到機會': "you tend to find opportunities yourself",
+  '你容易有說不出口的感情困擾': "you may have emotional troubles you can't put into words",
+  '你的財祿有增加的機會': "your income has a chance to grow",
+  '你的感情和人際容易有挫折': "your relationships may meet setbacks",
+  '你的財源比較順遂': "your sources of income run relatively smoothly",
+  '你身邊的是非口舌較多': "there's more gossip and dispute around you",
+  '你容易藉交際應酬打開局面、帶來收入': "you tend to open doors and bring in income through socialising",
+  '你的計劃容易延誤或出錯': "your plans may be delayed or go wrong",
+  '你適合主動做事、開創局面': "you're suited to taking the initiative and opening things up",
+  '你說話和文書容易出錯': "mistakes creep into what you say and write",
+  '你容易憑名聲和地位得到收入': "your income tends to come through reputation and status",
+  '你的情緒容易不安定': "your emotions may be unsettled",
+  '你的口才變成本錢': "your way with words becomes an asset",
+  '你的文書、考試和合約容易出錯': "mistakes can creep into your paperwork, exams and contracts",
+  '你容易被捲入別人的麻煩': "you may get drawn into other people's trouble",
+  '你的財務容易周轉不靈或超出預算': "your finances may run tight or over budget",
+  '你這段時期的變動較有條件落得穩當': "changes in this period have a better footing to land well",
+  '你容易有不如理想的失落感': "you may feel that things fall short",
+  '工作上容易遇到合適的機會': "suitable opportunities tend to come along at work",
+  '工作上的計劃容易卡住或要返工': "plans at work may stall or need redoing",
+  '收入有增加的機會': "income has a chance to grow",
+  '錢容易周轉緊或超出預算': "money may run tight or over budget",
+  '感情上比較甜': "love is sweeter",
+  '感情上容易有誤會': "misunderstandings in love are more likely",
+  '你的心情比較寬鬆': "your mood is easier",
+  '你心裡容易有放不下的事': "things may weigh on your mind that you can't let go of",
+};
 const PLURAL_AREA = new Set(['錢', '朋輩', '後輩', '長輩關係']);
 
 export function timeTemplate(s: string, missing: string[], h: TimeHelpers): string | null {
@@ -341,7 +372,7 @@ export function timeTemplate(s: string, missing: string[], h: TimeHelpers): stri
   if (month) return month;
 
   /* 未起運嘅這十年（daxian.ts）：「從虛歲四歲起的這十年，⋯」 */
-  const preDecade = /^從虛歲(\S+?)歲起的(這十年，.+)$/.exec(s);
+  const preDecade = /^從虛歲(\S+?)歲起的(這十年(?:對你來說)?，.+)$/.exec(s);
   if (preDecade && n(preDecade[1]!)) {
     const inner = timeTemplate(preDecade[2]!, missing, h);
     if (inner?.startsWith('Over these ten years')) return `Over the ten years from ${ageStart(n(preDecade[1]!)!)}${inner.slice('Over these ten years'.length)}`;
@@ -394,6 +425,25 @@ export function timeTemplate(s: string, missing: string[], h: TimeHelpers): stri
   m = /^寫這本書時（(\S+?)年），你虛歲(\S+?)，第一個大限從虛歲(\S+?)歲開始。$/.exec(s);
   if (m && n(m[1]!) && n(m[2]!) && n(m[3]!)) {
     return `When this book was written (${n(m[1]!)}), you were ${agePoint(n(m[2]!)!)} (${n(m[2]!)} by Chinese reckoning); your first ten-year stage begins at ${ageStart(n(m[3]!)!)}.`;
+  }
+  /* ── 這十年／這一年 · 結論（2026-10-17：用章入面嗰句化祿化忌原句，見 daxian.ts `periodGist`） ── */
+  m = /^這(十年|一年)(?:對你來說)?，(.+)。$/.exec(s);
+  if (m) {
+    const span = m[1] === '十年' ? 'Over these ten years' : 'This year';
+    const same = /^你的?(\S+?)有得有失：(.+?)；同時，(.+)$/.exec(m[2]!);
+    if (same && HUA_CLAUSE_EN[same[2]!] && HUA_CLAUSE_EN[same[3]!]) {
+      return `${span}, ${areaEn(same[1]!, missing)} ${PLURAL_AREA.has(same[1]!) ? 'have' : 'has'} gains and losses: ${HUA_CLAUSE_EN[same[2]!]}; at the same time, ${HUA_CLAUSE_EN[same[3]!]}.`;
+    }
+    const parts = m[2]!.split('；').map((p) => {
+      const blocked = p.endsWith('，只是同時有阻滯');
+      const eased = p.endsWith('，不過也有轉圜的餘地');
+      const core = p.replace(/，(只是同時有阻滯|不過也有轉圜的餘地)$/, '');
+      const at = /^(\S+?)這一方面，(.+)$/.exec(core);
+      const clause = HUA_CLAUSE_EN[at ? at[2]! : core];
+      if (!clause) return null;
+      return (at ? `when it comes to ${areaEn(at[1]!, missing)}, ${clause}` : clause) + (blocked ? ', though with some snags at the same time' : '') + (eased ? ', though with room to turn things round' : '');
+    });
+    if (parts.length === 2 && parts.every(Boolean)) return `${span}, ${parts.join('; ')}.`;
   }
   m = /^這(十年|一年)，你的(\S+?)(比較順|順中有阻)，(\S+?)(要多留神|雖有牽掛，也有轉圜的餘地)。$/.exec(s);
   if (m) {
