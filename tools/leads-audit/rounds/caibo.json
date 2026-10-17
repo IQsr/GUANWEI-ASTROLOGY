@@ -1,0 +1,56 @@
+{
+  "palace": "財帛",
+  "cells": {
+    "紫微": {
+      "summary": ["你的財源大多充足，錢卻不易存得住。", "Your sources of income are usually ample, but the money doesn't easily stay put.", "収入源はたいてい十分ですが、お金はなかなか手元に残りません。"],
+      "source": ["life.財帛.紫微", "亦仅主财源充裕，并不主能积聚"]
+    },
+    "天機": {
+      "source": ["life.財帛.天機", "亦宜倾向于劳心以求财"]
+    },
+    "太陽": {
+      "summary": ["你的錢多半跟著地位和名聲來，先有位置，才有收入。", "Your money tends to follow status and reputation: the position comes first, then the income.", "お金はたいてい地位や名声についてきます。先に立場があり、そのあとに収入が来ます。"],
+      "source": ["life.財帛.太陽", "其财皆凭社会地位而来"]
+    },
+    "武曲": {
+      "summary": ["你求財靠行動，懂得以錢賺錢，很少安於只拿一份薪水。", "You earn by taking action and know how to make money with money; you're rarely content with just a salary.", "行動で財を求め、お金でお金を生むことを心得ていて、給料一本で満足することはあまりありません。"],
+      "source": ["life.財帛.武曲", "所以亦长于以钱赚钱，一般很少会安于任职"]
+    },
+    "天同": {
+      "summary": ["你賺錢適合走帶享受性質的行業，例如讓人放鬆、享受的生意。", "You're suited to earning in trades with an element of enjoyment, the kind of business that lets people relax and enjoy themselves.", "楽しみの性質を帯びた業種で稼ぐのが向いていて、たとえば人がくつろぎ、楽しめる商売です。"],
+      "source": ["life.財帛.天同", "凡天同在财帛宫，所业宜带享受性质"]
+    },
+    "廉貞": {
+      "summary": ["你求財離不開競爭，生意和客戶都要靠爭。", "Earning, for you, is bound up with competition; business and clients have to be fought for.", "あなたの稼ぎは競争と切り離せず、商売も顧客も争って勝ち取るものです。"],
+      "source": ["life.財帛.廉貞", "廉贞主竞争是非以求财"]
+    },
+    "天府": {
+      "summary": ["你懂得存錢、管錢，長處在守得住，而不在一下子致富。", "You know how to save and manage money; your strength is holding on to it, not getting rich overnight.", "お金を貯め、管理する術を心得ていて、強みは一気に豊かになることではなく、守り抜くことです。"],
+      "source": ["life.財帛.天府", "仅主其人有储财及理财能力"]
+    },
+    "太陰": {
+      "source": ["life.財帛.太陰", "故在财帛上表征为储蓄、积聚"]
+    },
+    "貪狼": {
+      "source": ["life.財帛.貪狼", "常常有以攻为守的倾向，因此往往倾向于投机"]
+    },
+    "巨門": {
+      "source": ["life.財帛.巨門", "或主以口舌求财"]
+    },
+    "天相": {
+      "summary": ["你手上有錢時，遇到別人有急難，常會慷慨解囊。", "When you have money and someone else is in urgent need, you'll often open your wallet generously.", "手元にお金があるとき、人が急に困っていれば、気前よく手を差し伸べることがよくあります。"],
+      "source": ["deep.財帛.天相.5", "常能慷慨解囊以济人之危"]
+    },
+    "天梁": {
+      "source": ["life.財帛.天梁", "天梁守财帛宫一般不宜经商"]
+    },
+    "七殺": {
+      "summary": ["你會掌財權，而且重攻不重守，賺錢靠開創新局面。", "You come to hold the purse strings, and you lean towards attack rather than defence, earning by opening new ground.", "財布のひもを握る立場になりやすく、守りより攻めで、新しい局面を開いて稼ぎます。"],
+      "source": ["life.財帛.七殺", "七杀守财帛宫，主掌财权"]
+    },
+    "破軍": {
+      "summary": ["你的長處是開創財源，而不是精打細算地理財。", "Your strength is opening up new sources of income, not careful, penny-counting money management.", "強みは新しい収入源を切り開くことで、細かく計算してお金を管理することではありません。"],
+      "source": ["life.財帛.破軍", "不擅理财，其本质为开创财源"]
+    }
+  }
+}
