@@ -1,0 +1,24 @@
+{
+  "palace": "兄弟",
+  "$note": "宮垣論兄弟宮大部分按宮位、組合分（子午、寅申…），或者講兄弟多少、年齡差（破軍）。照夫妻準則，只做有「一般情形」講你同朋輩點相處嘅四款。貪狼「一般情形」明言除巳亥，套落巳亥會錯，唔做。紫微、天機、太陽、武曲、天府、太陰、天相、七殺、破軍照舊冇出處。",
+  "cells": {
+    "天同": {
+      "summary": ["你和兄弟朋友多半相處和好，也結交得到各種層次的朋友。", "You mostly get on well with your siblings and friends, and you make friends at every level.", "兄弟や友人とはたいてい仲よくやれて、いろいろな立場の人と友だちになれます。"],
+      "source": ["deep.兄弟.天同.8", "凡天同守兄弟宫，多主兄弟和好"]
+    },
+    "廉貞": {
+      "summary": ["你和朋友之間，淡淡的交情反而最長久。", "With friends, a light touch is what lasts longest.", "友人とは、あっさりした付き合いのほうがかえって長続きします。"],
+      "watch": ["要留意的是：你交得太深時，一旦失望就收得很徹底。", "The catch: when you get too close, one disappointment makes you pull back completely.", "深く付き合いすぎると、一度失望しただけで、きっぱり身を引いてしまいます。"],
+      "source": ["life.兄弟.廉貞", "君子之交淡如水"]
+    },
+    "巨門": {
+      "summary": ["你和朋友起初投契，交得太深反而容易生嫌隙。", "You hit it off with friends at first, but getting too close easily breeds friction.", "友人とは最初は意気投合しても、深く付き合いすぎるとかえって溝が生まれやすいのです。"],
+      "source": ["deep.兄弟.巨門.2", "巨门交人，始善终恶"]
+    },
+    "天梁": {
+      "summary": ["你和朋友各自做事最好，合夥共事不是你的強項。", "You and your friends do best working separately; going into partnership isn't your strength.", "友人とはそれぞれ別に動くのがいちばんで、組んで事業をするのは得意ではありません。"],
+      "watch": ["要留意的是：你習慣自己扛，別人想幫也未必插得上手。", "The catch: you're used to carrying things yourself, so others who want to help may find no way in.", "自分で背負うのに慣れているので、手を貸したい人がいても入り込む余地がないことがあります。"],
+      "source": ["deep.兄弟.天梁.2", "亦不主可与人合作"]
+    }
+  }
+}
