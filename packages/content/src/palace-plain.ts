@@ -2,6 +2,7 @@ import { z } from 'zod';
 import raw from './plain/palace.json';
 import pairsRaw from './plain/pairs.json';
 import stanceRaw from './plain/stance.json';
+import jiWatchRaw from './plain/ji-watch.json';
 import { FORBIDDEN_TERMS } from './frame';
 import { cjkCount } from './lexicon';
 import { scanForbidden } from './lint';
@@ -125,8 +126,8 @@ export function conclusionFor(stars: readonly string[], palace: string, ji?: str
     : stars[0]
       ? palacePlain(stars[0], palace)
       : undefined;
-  /* 呢宮有主星生年化忌：留意句改講化忌（見 JI_WATCH） */
-  const jw = ji && stars.includes(ji) ? JI_WATCH[ji] : undefined;
+  /* 呢宮有主星生年化忌：留意句改講化忌（見 JI_WATCH；命宮以外逐宮一句，見 JI_WATCH_PALACE） */
+  const jw = ji && stars.includes(ji) ? jiWatch(ji, palace) : undefined;
   return base && jw ? { ...base, watch: jw.zh } : base;
 }
 
@@ -134,8 +135,10 @@ export function conclusionFor(stars: readonly string[], palace: string, ji?: str
  * 生年化忌嘅留意句（2026-10-11 內容審查第 2 層）
  *
  * 示範命宮：結論「很懂得把日子過得舒服」，同一章四化段「天同化忌，舒服的條件恰好最缺」——
- * 結論冇理化忌。化忌係同一粒星、更具體嘅訊號，所以佢做留意句；意思跟返 modifiers/sihua.json 嗰句，
- * 同宮位無關（嗰句本身都唔分宮）。
+ * 結論冇理化忌。化忌係同一粒星、更具體嘅訊號，所以佢做留意句；意思跟返 modifiers/sihua.json 嗰句。
+ *
+ * 下面呢八句係命宮用嘅（講你自己）。其餘十一宮用 `plain/ji-watch.json` 逐宮一句（2026-10-17 · B5）：
+ * 以前十二宮同一句，太陰化忌落財帛都講「把感受壓得很深」，同嗰章講錢對唔上。
  */
 export const JI_WATCH: Record<string, { zh: string; en: string }> = {
   天機: { zh: '要留意的是：你的念頭容易轉個不停，一件事想來想去，遲遲定不下來。', en: 'The catch: your mind easily keeps turning, going round and round one thing without settling.' },
@@ -147,7 +150,32 @@ export const JI_WATCH: Record<string, { zh: string; en: string }> = {
   貪狼: { zh: '要留意的是：你求而不得的東西，很容易一直纏在心上。', en: "The catch: what you want and can't get easily stays wound around your mind." },
   巨門: { zh: '要留意的是：你說出口的話容易被誤解，越想說清楚，越容易糾纏。', en: 'The catch: what you say is easily misunderstood, and the harder you try to make it clear, the more tangled it gets.' },
 };
+
+export const JI_WATCH_PALACE: Record<string, Record<string, { zh: string; en: string }>> = Object.fromEntries(
+  Object.entries(jiWatchRaw as Record<string, unknown>).filter(([k]) => !k.startsWith('$')),
+) as Record<string, Record<string, { zh: string; en: string }>>;
+
+/** 化忌留意句：命宮用星嘅通用句，其餘宮用嗰宮嗰句。 */
+export function jiWatch(star: string, palace: string): { zh: string; en: string } | undefined {
+  return palace === '命宮' ? JI_WATCH[star] : (JI_WATCH_PALACE[star]?.[palace] ?? JI_WATCH[star]);
+}
+
+/** 所有化忌留意句（翻譯表載入用） */
+export const ALL_JI_WATCH = [...Object.values(JI_WATCH), ...Object.values(JI_WATCH_PALACE).flatMap((m) => Object.values(m))];
+
 for (const [star, w] of Object.entries(JI_WATCH)) {
   const r = PalacePlain.safeParse({ id: `plain.${star}.命宮`, star, palace: '命宮', summary: '你這是一句佔位的結論句子。', watch: w.zh });
   if (!r.success) throw new Error(`化忌留意句唔合格：${r.error.issues.map((i) => i.message).join('；')}`);
+}
+{
+  const bad: string[] = [];
+  for (const [star, m] of Object.entries(JI_WATCH_PALACE)) {
+    if (!JI_WATCH[star]) bad.push(`${star}：冇命宮通用句`);
+    for (const [palace, w] of Object.entries(m)) {
+      if (palace === '命宮') bad.push(`${star}.命宮：命宮用 JI_WATCH`);
+      const r = PalacePlain.safeParse({ id: `plain.${star}.${palace}`, star, palace, summary: '你這是一句佔位的結論句子。', watch: w.zh });
+      if (!r.success) bad.push(...r.error.issues.map((i) => i.message));
+    }
+  }
+  if (bad.length) throw new Error(`逐宮化忌留意句唔合格（${bad.length} 處）：\n${bad.join('\n')}`);
 }

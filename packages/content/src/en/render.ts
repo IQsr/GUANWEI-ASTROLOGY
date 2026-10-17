@@ -1,7 +1,7 @@
 import tmRaw from './tm.json';
 import { OLD_WATCH_LEADS, WATCH_LEADS } from '../watch-lead';
 import { LINK_REFS } from '../link';
-import { JI_WATCH, PAIR_PLAIN } from '../palace-plain';
+import { ALL_JI_WATCH, PAIR_PLAIN } from '../palace-plain';
 import { BRANCH_TOPICS, FILL_VERB, MAJOR, OR_VERB, stripOr } from '../branch';
 import { AREA_EN, AREA_ON_EN, BRANCH_EN, PALACE_EN, STAR_EN, cap, listEn, star, starFirst } from './terms';
 import { factTemplate } from './facts';
@@ -27,7 +27,7 @@ for (const x of PAIR_PLAIN) {
   TM.sentences[x.watch] = x.en.watch;
   TM.sentences[x.life] = x.en.life;
 }
-for (const w of Object.values(JI_WATCH)) TM.sentences[w.zh] = w.en;
+for (const w of ALL_JI_WATCH) TM.sentences[w.zh] = w.en;
 
 export type Rendered = { text: string; missing: string[] };
 
