@@ -10,7 +10,7 @@ corp={}
 for f in ['quanshu.json','zhongzhou.json']:
     d=json.load(open(R+f,encoding='utf-8'));corp[f]=norm(' '.join(p.get('text','') if isinstance(p,dict) else str(p) for p in d['passages'].values()))
 STARS='紫微 天機 太陽 武曲 天同 廉貞 天府 太陰 貪狼 巨門 天相 天梁 七殺 破軍 文昌 文曲 左輔 右弼 天魁 天鉞 祿存 擎羊 陀羅 火星 鈴星 地空 地劫 化祿 化權 化科 化忌 天馬'.split()
-Q=re.compile(r'《([^》]+)》寫「([^」]+)」')
+Q=re.compile(r'《([^》]+)》[^「」。，；：！？、\n]{0,12}「([^」]+)」')  # 同 wenmu.ts QUOTE_RE、0009 一樣
 rows=[];per=collections.defaultdict(list)
 for bi,b in enumerate(books):
     for c in b['chapters']:

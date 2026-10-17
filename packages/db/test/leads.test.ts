@@ -87,4 +87,29 @@ describe('chapter_leads()', () => {
     await db.asAnon();
     await expect(db.sql('select * from chapter_leads($1)', [myBook])).rejects.toThrow(/permission denied/);
   });
+
+  /* 0009 · A4：「寫」以外嘅引出語都認；有標點隔住就唔算（唔會跨句） */
+  it('認埋「另有一句」「記」「形容其人」「卷二說七殺」呢類引法', async () => {
+    await db.asOwner();
+    const [b] = await db.sql('insert into books (reader_id) values ($1) returning id', [me]);
+    const book = String(b!.id);
+    const cases: [string, string | null][] = [
+      ['第一段。\n\n《全書》另有一句「在廟旺有力，陷地無力」：所以要看亮度。', '《全書》另有一句「在廟旺有力，陷地無力」'],
+      ['第一段。\n\n《全書》鈴星歌記「若與貪狼會，指日立邊庭」。', '《全書》鈴星歌記「若與貪狼會，指日立邊庭」'],
+      ['第一段。\n\n《全書》形容其人「忠厚老成，謙恭耿直」——這是自我要求的樣子。', '《全書》形容其人「忠厚老成，謙恭耿直」'],
+      ['第一段。\n\n《全書》卷二說七殺「遇帝為權」。', '《全書》卷二說七殺「遇帝為權」'],
+      ['第一段。\n\n這一句講《全書》。下一句「不是引文」。', null],
+      ['第一段。\n\n《全書》：「冒號後面不算」。', null],
+    ];
+    for (const [i, [body]] of cases.entries()) {
+      await db.sql(
+        `insert into chapters (book_id, slug, ord, tier, title, body, content_version)
+         values ($1, $2, $3, 'deep', $2, $4, 'c1@aec70cc1')`,
+        [book, `q${i}`, i + 1, body],
+      );
+    }
+    await db.asReader(me);
+    const rows = await db.sql('select slug, quote from chapter_leads($1)', [book]);
+    expect(rows.map((r) => r.quote)).toEqual(cases.map(([, q]) => q));
+  });
 });

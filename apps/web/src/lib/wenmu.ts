@@ -68,11 +68,17 @@ export function buildAsks(leads: readonly ChapterLead[], locale: string): AskIte
   }));
 }
 
-/** 示範書：成本書喺 build 嗰陣計好，直接由正文切第一段同第一句引文（同 0008 嘅 SQL 一樣切法） */
+/**
+ * 第一句引文：「《全書》寫「…」」，或者「另有一句」「記」「形容其人」呢類引出語（2026-10-18 · A4）。
+ * 引出語最多十二字、唔准有標點，唔會跨句。同 0009 `chapter_leads()` 嘅 SQL 一樣，兩邊要一齊改。
+ */
+export const QUOTE_RE = /《[^》]+》[^「」。，；：！？、\n]{0,12}「[^」]+」/;
+
+/** 示範書：成本書喺 build 嗰陣計好，直接由正文切第一段同第一句引文（同 0009 嘅 SQL 一樣切法） */
 export function leadsFromBodies(drafts: readonly { slug: string; body: string }[]): ChapterLead[] {
   return drafts.map((d) => ({
     slug: d.slug,
     lead: d.body.split('\n\n')[0] ?? '',
-    quote: d.body.match(/《[^》]+》寫「[^」]+」/)?.[0] ?? null,
+    quote: d.body.match(QUOTE_RE)?.[0] ?? null,
   }));
 }
