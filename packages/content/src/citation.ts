@@ -2,6 +2,7 @@ import { BRANCH_TOPICS, slotPattern, stripOr } from './branch';
 import { DAXIAN_HUA, LOOKBACK_EVENTS, firstClause } from './daxian';
 import { CORPUS } from './lexicon';
 import { LIFE_LINES } from './life';
+import { PALACE_PLAIN } from './palace-plain';
 import { tmSentence } from './en/render';
 import { huaClauseEn } from './en/time';
 import { XINGXI } from './xingxi';
@@ -20,6 +21,7 @@ import { XINGXI } from './xingxi';
  *   五、這十年、這一年第一句嘅四化分句（2026-10-18 · A2）—— 就係二嗰句嘅第一分句，出處一樣；
  *       一句可以有化祿化忌兩個分句，兩個出處都回。通用句（AREA_HUA）冇逐句出處，唔收。
  *   六、生活句有王亭之出處嗰 85 句（2026-10-18）—— life.ts 載入時已經逐字核過引文
+ *   七、宮位結論句有 `source` 嗰啲（2026-10-18 · A2 第三步）—— 逐格對過宮垣論，palace-plain.ts 載入時核引文
  * 舊有嘅宮位基塊、結論句、冇出處嘅生活句未收：審查指出佢哋掛嘅《全書》古文撐唔起後面嘅描述，
  * 加註只會令讀者對照時發現對唔上。轉做分支規則之後先加。
  *
@@ -140,6 +142,14 @@ function build(): { zh: CiteKey[]; en: CiteKey[] } {
     for (const s of sentencesZh(l.text)) zh.push({ key: s, ids });
     const e = tmSentence(l.text);
     if (e) for (const s of sentencesEn(e)) en.push({ key: s, ids });
+  }
+  /* 結論句：只收 summary（留意句未逐句對過）。給你的話清單前面會加「工作上，」—— 按包含配，一樣配得到 */
+  for (const p of PALACE_PLAIN) {
+    if (!p.source) continue;
+    const ids = [p.source.passage_id];
+    zh.push({ key: p.summary, ids });
+    const e = tmSentence(p.summary);
+    if (e) en.push({ key: e, ids });
   }
   for (const e of LOOKBACK_EVENTS) zh.push({ key: e.text, ids: e.sources.map((s) => s.passage_id) });
   /* 長嘅行先：一句包含兩條索引句時，揀最具體嗰條 */

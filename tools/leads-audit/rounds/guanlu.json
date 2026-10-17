@@ -1,0 +1,154 @@
+{
+  "palace": "官祿",
+  "cells": {
+    "紫微": {
+      "summary": [
+        "你做事獨當一面的時候多，常是獨立作業，或管一個部門。",
+        "At work you often hold your own ground, typically working on your own or in charge of a department.",
+        "仕事では一人で持ち場を担うことが多く、独立して動くか、一部門を受け持ちます。"
+      ],
+      "source": [
+        "life.官祿.紫微",
+        "紫微在事业宫，主独当一面"
+      ]
+    },
+    "天機": {
+      "summary": [
+        "你適合帶變動性質的工作，擅長在變化裡找空間。",
+        "Work with an element of change suits you; you're good at finding room within shifting circumstances.",
+        "変動のある仕事が向いていて、変化の中に余地を見つけるのが得意です。"
+      ],
+      "source": [
+        "life.官祿.天機",
+        "从事行业以带不稳定性质"
+      ]
+    },
+    "太陽": {
+      "summary": [
+        "你在行內容易有名聲和號召力，對外、對人的位置最合你。",
+        "In your field you easily gain a name and the power to draw people; outward-facing, people-facing roles suit you best.",
+        "業界の中で名前と人を集める力を得やすく、外や人と向き合う立場がいちばん合います。"
+      ],
+      "source": [
+        "deep.官祿.太陽.11",
+        "吉则在行业中必有声名，纵凶亦主有号召力"
+      ]
+    },
+    "武曲": {
+      "summary": [
+        "你利於做財經一類的工作，講結果、講數字的位置最合你。",
+        "Finance-type work favours you; roles that are about results and numbers suit you best.",
+        "財務・経理系の仕事に向いていて、結果や数字で語る立場がいちばん合います。"
+      ],
+      "source": [
+        "life.官祿.武曲",
+        "利于从事财经工作"
+      ]
+    },
+    "天同": {
+      "summary": [
+        "你適合帶美感或享受色彩的工作，讓人舒服的行業最合你。",
+        "Work with a sense of beauty or enjoyment suits you; trades that make people comfortable fit you best.",
+        "美しさや楽しみの色合いがある仕事が向いていて、人を心地よくさせる業種がいちばん合います。"
+      ],
+      "source": [
+        "life.官祿.天同",
+        "适宜经营美观或带享受色彩之行业"
+      ]
+    },
+    "廉貞": {
+      "source": [
+        "life.官祿.廉貞",
+        "皆表现得有气派"
+      ]
+    },
+    "天府": {
+      "summary": [
+        "你適合在現成的局面下發展，把已有的事業管好、做穩。",
+        "You do best developing within an existing set-up, running an established business well and keeping it steady.",
+        "すでにある基盤の上で伸ばしていくのが向いていて、既存の事業をうまく管理し、安定させるのが得意です。"
+      ],
+      "source": [
+        "life.官祿.天府",
+        "以在现成局面下发展为宜"
+      ]
+    },
+    "太陰": {
+      "source": [
+        "life.官祿.太陰",
+        "主计划而不主行动"
+      ]
+    },
+    "貪狼": {
+      "summary": [
+        "你的事業多和消費、交際有關，不少機會由社交而來。",
+        "Your career tends to involve consumption and socialising, and many openings come through social life.",
+        "仕事は消費や交際と関わることが多く、チャンスの多くは人付き合いから生まれます。"
+      ],
+      "source": [
+        "life.官祿.貪狼",
+        "主其事业倾向于消费、交际，或由社交而成事业"
+      ]
+    },
+    "巨門": {
+      "summary": [
+        "你靠口才做事，說話是你謀生的本錢。",
+        "You work through your eloquence; speaking is what you make your living by.",
+        "弁舌で仕事をする人で、話すことが生計の元手です。"
+      ],
+      "source": [
+        "life.官祿.巨門",
+        "故以口才为主，或须费唇舌以谋生"
+      ]
+    },
+    "天相": {
+      "summary": [
+        "你做副手或執行者最得心應手，不必去爭名義上的第一位。",
+        "You're most at home as a deputy or the one who carries things out; there's no need to fight for the top title.",
+        "副手や実行役でいちばん力を発揮し、名目上の一番を争う必要はありません。"
+      ],
+      "source": [
+        "life.官祿.天相",
+        "均不宜在名义上占取最高位置，以副贰为宜"
+      ]
+    },
+    "天梁": {
+      "summary": [
+        "你適合監察、審核一類要判斷是非的位置，較少負行政之責。",
+        "Roles that oversee and review, judging right from wrong, suit you; you seldom carry administrative duties.",
+        "監察や審査のように是非を判断する立場が向いていて、行政の責任を負うことは少なめです。"
+      ],
+      "source": [
+        "deep.官祿.天梁.5",
+        "亦不负行政之责，仅宜居监察"
+      ]
+    },
+    "七殺": {
+      "summary": [
+        "你管理能力強，適合帶團隊、管人的位置。",
+        "You're a strong manager, suited to leading teams and managing people.",
+        "管理能力が高く、チームを率いて人を動かす立場に向いています。"
+      ],
+      "watch": [
+        "要留意的是：你帶人時威嚴有餘、恩惠不足，下屬未必心服。",
+        "The catch: when you lead, you have more authority than kindness, and those under you may not be won over.",
+        "人を率いるとき威厳は十分でも思いやりが足りず、部下が心から従うとは限りません。"
+      ],
+      "source": [
+        "life.官祿.七殺",
+        "七杀居事业宫，主管理能力强"
+      ]
+    },
+    "破軍": {
+      "summary": [
+        "你做事的長處在創新，擅長打破現狀、開新局面。",
+        "Your strength at work is innovation: you're good at breaking the status quo and opening new ground.",
+        "仕事での強みは革新で、現状を打ち破り、新しい局面を開くのが得意です。"
+      ],
+      "source": [
+        "life.官祿.破軍",
+        "破军之特长却在创新"
+      ]
+    }
+  }
+}

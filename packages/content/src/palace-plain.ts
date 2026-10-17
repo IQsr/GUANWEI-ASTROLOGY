@@ -4,7 +4,7 @@ import pairsRaw from './plain/pairs.json';
 import stanceRaw from './plain/stance.json';
 import jiWatchRaw from './plain/ji-watch.json';
 import { FORBIDDEN_TERMS } from './frame';
-import { cjkCount } from './lexicon';
+import { CORPUS, cjkCount, normaliseForMatch } from './lexicon';
 import { scanForbidden } from './lint';
 import { scanPlain } from './plain';
 
@@ -15,8 +15,14 @@ import { scanPlain } from './plain';
  * `watch` 係一句「要留意的是：⋯」。兩句都由嗰格基塊（`base.星.宮`）撮出嚟，
  * 唔加基塊冇講過嘅象義，所以出處跟返基塊。
  *
+ * ⚠ `source`（2026-10-18 · docs/leads-audit-2026-10-17.md A2 第三步）：逐格對過王亭之宮垣論嗰格嘅
+ * 「一般情形」講法。有 `source` 嘅 `summary` 就係嗰句原文嘅白話，**唔再跟基塊**，引文逐字核過，
+ * 入出處索引（citation.ts）—— 章第一段同目次答案就撳得出原文。冇 `source` 嘅仲未對過。
+ *
  * 基塊本身照舊入書，擺喺結論後面做依據（星名、引文、廟旺都喺嗰度）。
  */
+const PlainSource = z.object({ corpus: z.literal('zhongzhou'), passage_id: z.string(), quote: z.string().min(4).max(40) });
+
 export const PalacePlain = z
   .object({
     id: z.string(),
@@ -24,10 +30,19 @@ export const PalacePlain = z
     palace: z.string(),
     summary: z.string(),
     watch: z.string(),
+    source: PlainSource.optional(),
   })
   .superRefine((x, ctx) => {
     const issue = (m: string) => ctx.addIssue({ code: 'custom', message: `${x.id}：${m}` });
     if (x.id !== `plain.${x.star}.${x.palace}`) issue('id 要係 plain.星.宮');
+    if (x.source) {
+      const p = CORPUS[x.source.corpus]?.passages[x.source.passage_id];
+      if (!p) issue(`語料庫搵唔到 ${x.source.passage_id}`);
+      else if (!normaliseForMatch(p.text).includes(normaliseForMatch(x.source.quote))) issue(`引文「${x.source.quote}」唔喺原文`);
+      /* 一定要係講緊呢粒星喺呢個宮嘅段（life.宮.星 或者 deep.宮.星.N） */
+      const cell = new RegExp(`^(?:life\\.${x.palace}\\.${x.star}|deep\\.${x.palace}\\.${x.star}\\.\\d+)$`);
+      if (!cell.test(x.source.passage_id)) issue(`出處 ${x.source.passage_id} 唔係呢格（${x.star}·${x.palace}）嘅段`);
+    }
     const ws = cjkCount(x.summary);
     if (ws < 8 || ws > 40) issue(`summary ${ws} 字，要 8–40`);
     for (const f of scanPlain(x.summary, 'summary', { leadsWithConclusion: true })) issue(`summary ${f.code} ${f.message}`);
