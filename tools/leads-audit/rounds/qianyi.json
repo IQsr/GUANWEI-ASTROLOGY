@@ -3,54 +3,142 @@
   "$note": "紫微：宮垣論遷移宮講紫微全部帶條件（命宮坐乜、百官朝拱、化科化權），冇一般情形，照舊冇出處。",
   "cells": {
     "天機": {
-      "summary": ["你出外比守在原地有利，新環境往往讓你更順。", "Going out into the world serves you better than staying put; new surroundings tend to make things go more smoothly.", "地元にとどまるより外に出るほうが有利で、新しい環境のほうが物事がうまく運びがちです。"],
-      "source": ["life.遷移.天機", "天机居迁移宫，主利出门离乡发展"]
+      "summary": [
+        "你出外比守在原地有利，新環境往往讓你更順。",
+        "Going out into the world serves you better than staying put; new surroundings tend to make things go more smoothly.",
+        "地元にとどまるより外に出るほうが有利で、新しい環境のほうが物事がうまく運びがちです。"
+      ],
+      "source": [
+        "life.遷移.天機",
+        "天机居迁移宫，主利出门离乡发展"
+      ]
     },
     "太陽": {
-      "summary": ["你宜動不宜靜，到外面求學、增加資歷，比守在家鄉有利。", "You do better on the move than standing still; studying and building credentials away from home serves you better than staying.", "静より動が向いていて、外で学び、経歴を積むほうが、地元にとどまるより有利です。"],
-      "source": ["life.遷移.太陽", "适宜任外求学、进修，增加资历"]
+      "summary": [
+        "你宜動不宜靜，到外面求學、增加資歷，比守在家鄉有利。",
+        "You do better on the move than standing still; studying and building credentials away from home serves you better than staying.",
+        "静より動が向いていて、外で学び、経歴を積むほうが、地元にとどまるより有利です。"
+      ],
+      "source": [
+        "life.遷移.太陽",
+        "适宜任外求学、进修，增加资历"
+      ]
     },
     "武曲": {
-      "summary": ["你到了外地總是特別忙，事情一件接一件找上門。", "Wherever you move to, you end up especially busy, with one thing after another coming your way.", "よその土地に移るといつも特に忙しくなり、用事が次から次へと舞い込みます。"],
-      "source": ["life.遷移.武曲", "主迁移异地后必多忙碌"]
+      "summary": [
+        "你到了外地總是特別忙，事情一件接一件找上門。",
+        "Wherever you move to, you end up especially busy, with one thing after another coming your way.",
+        "よその土地に移るといつも特に忙しくなり、用事が次から次へと舞い込みます。"
+      ],
+      "source": [
+        "life.遷移.武曲",
+        "主迁移异地后必多忙碌"
+      ]
     },
     "天同": {
-      "summary": ["你出門在外大多是有福的，日子過得比在家順心。", "Away from home you're usually blessed, and life tends to go more pleasantly than at home.", "家を離れるとたいてい恵まれ、地元にいるより心地よく過ごせます。"],
-      "source": ["life.遷移.天同", "天同守迁移宫，一般主出门得福"]
+      "summary": [
+        "你出門在外大多是有福的，日子過得比在家順心。",
+        "Away from home you're usually blessed, and life tends to go more pleasantly than at home.",
+        "家を離れるとたいてい恵まれ、地元にいるより心地よく過ごせます。"
+      ],
+      "source": [
+        "life.遷移.天同",
+        "天同守迁移宫，一般主出门得福"
+      ]
     },
     "廉貞": {
-      "summary": ["你到外地闖，通常比守在出生的地方好。", "Striking out elsewhere usually does better for you than staying where you were born.", "よその土地で勝負するほうが、生まれた土地にとどまるよりたいていうまくいきます。"],
-      "source": ["life.遷移.廉貞", "通常均主宜离开出生地发展"]
+      "summary": [
+        "你到外地闖，通常比守在出生的地方好。",
+        "Striking out elsewhere usually does better for you than staying where you were born.",
+        "よその土地で勝負するほうが、生まれた土地にとどまるよりたいていうまくいきます。"
+      ],
+      "source": [
+        "life.遷移.廉貞",
+        "通常均主宜离开出生地发展"
+      ]
     },
     "天府": {
-      "summary": ["你在外地一般安定，搬過去之後能一步步站穩。", "Away from home you're generally settled, and after a move you find your footing step by step.", "よその土地でもたいてい落ち着いていて、移ったあとは一歩ずつ足場を固めていけます。"],
-      "source": ["life.遷移.天府", "迁移宫，一般安定"]
+      "summary": [
+        "你在外地一般安定，搬過去之後能一步步站穩。",
+        "Away from home you're generally settled, and after a move you find your footing step by step.",
+        "よその土地でもたいてい落ち着いていて、移ったあとは一歩ずつ足場を固めていけます。"
+      ],
+      "source": [
+        "life.遷移.天府",
+        "迁移宫，一般安定"
+      ]
     },
     "太陰": {
-      "summary": ["你在外地不宜與人爭奪，靜靜做事反而容易被接納。", "Away from home it's best not to compete with others; working quietly makes you more readily accepted.", "よその土地では人と争わないほうがよく、静かに事を進めるほうが受け入れられやすいのです。"],
-      "source": ["life.遷移.太陰", "故守迁移宫时，不宜与人竞争、争夺"]
+      "summary": [
+        "你在外地不宜與人爭奪，靜靜做事反而容易被接納。",
+        "Away from home it's best not to compete with others; working quietly makes you more readily accepted.",
+        "よその土地では人と争わないほうがよく、静かに事を進めるほうが受け入れられやすいのです。"
+      ],
+      "source": [
+        "life.遷移.太陰",
+        "故守迁移宫时，不宜与人竞争、争夺"
+      ]
     },
     "貪狼": {
-      "summary": ["你在外面應酬多，飯局和社交常常排得滿滿。", "Out in the world you socialise a lot, with dinners and gatherings often filling your diary.", "外では付き合いが多く、会食や交際の予定がよく埋まっています。"],
-      "source": ["life.遷移.貪狼", "贪狼守迁移宫，在外多应酬"]
+      "summary": [
+        "你在外面應酬多，飯局和社交常常排得滿滿。",
+        "Out in the world you socialise a lot, with dinners and gatherings often filling your diary.",
+        "外では付き合いが多く、会食や交際の予定がよく埋まっています。"
+      ],
+      "source": [
+        "life.遷移.貪狼",
+        "贪狼守迁移宫，在外多应酬"
+      ]
     },
     "巨門": {
-      "summary": ["你在外靠口才打開局面，說話就是你的本錢。", "Away from home you open doors with your eloquence; speaking is your capital.", "外では弁舌で道を切り開き、話すことがあなたの元手です。"],
-      "source": ["life.遷移.巨門", "口舌以求财"]
+      "summary": [
+        "你在外靠口才打開局面，說話就是你的本錢。",
+        "Away from home you open doors with your eloquence; speaking is your capital.",
+        "外では弁舌で道を切り開き、話すことがあなたの元手です。"
+      ],
+      "source": [
+        "life.遷移.巨門",
+        "口舌以求财"
+      ],
+      "watch": [
+        "要留意的是：初相識時你的直率容易被誤會，熟了之後才被欣賞。",
+        "The catch: at first your directness is easily misread; only once people know you is it appreciated.",
+        "初対面では率直さが誤解されやすく、親しくなってからようやく評価されます。"
+      ]
     },
     "天相": {
-      "summary": ["你出外多遇貴人，靠近有份量的人，機會也跟著來。", "Away from home you often meet people who help you up; being near people of standing brings opportunities with it.", "外ではよく引き立ててくれる人に出会い、力のある人の近くにいると、チャンスもついてきます。"],
-      "source": ["life.遷移.天相", "一般情形下吉利，主近贵得利"]
+      "summary": [
+        "你出外多遇貴人，靠近有份量的人，機會也跟著來。",
+        "Away from home you often meet people who help you up; being near people of standing brings opportunities with it.",
+        "外ではよく引き立ててくれる人に出会い、力のある人の近くにいると、チャンスもついてきます。"
+      ],
+      "source": [
+        "life.遷移.天相",
+        "一般情形下吉利，主近贵得利"
+      ]
     },
     "天梁": {
-      "source": ["life.遷移.天梁", "一般主出外得人荫庇"]
+      "source": [
+        "life.遷移.天梁",
+        "一般主出外得人荫庇"
+      ]
     },
     "七殺": {
-      "summary": ["你在外的日子多，在家的日子少。", "You spend more of your days away than at home.", "家にいる日より、外にいる日のほうが多いほうです。"],
-      "source": ["life.遷移.七殺", "主在外曰多，在家日少"]
+      "summary": [
+        "你在外的日子多，在家的日子少。",
+        "You spend more of your days away than at home.",
+        "家にいる日より、外にいる日のほうが多いほうです。"
+      ],
+      "source": [
+        "life.遷移.七殺",
+        "主在外曰多，在家日少"
+      ]
     },
     "破軍": {
-      "source": ["life.遷移.破軍", "必须靠专门技能起家"]
+      "source": [
+        "life.遷移.破軍",
+        "必须靠专门技能起家"
+      ]
     }
   }
 }
