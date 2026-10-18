@@ -29,8 +29,8 @@
  * 而我哋真係有嘢講 —— 只係唔係一個方向。
  */
 import { sanFangPalaces, type Brightness, type Chart, type Palace, type PalaceName } from '@guanwei/ziwei';
-import { WATCH_ROTATION, varyWatch } from './watch-lead';
-import { BRIGHT, branchReading } from './branch';
+import { WATCH_ROTATION, fitWatchLead, varyWatch } from './watch-lead';
+import { BRIGHT, MAJOR as MAJOR_LIST, branchReading } from './branch';
 import { BASE_BLOCKS } from './baseblock-data';
 import { PALACE_TOPIC } from './baseblock';
 import { brightnessModifier, maleficModifier, sihuaModifier } from './modifier-data';
@@ -194,7 +194,7 @@ export function afterConclusion(body: string, conclusion: string): string[] {
  *
  * 基塊頭一句（點名嗰句）同結論重複，組裝時剷咗；剩低嘅頭一句可能冇主語
  * （「不搶、不計較、願意配合⋯」「改造的成本高，但對它而言⋯」）。400 本書量到七十幾款。
- * 「它」開頭就換做星名；冇點名就加「星名：」—— 同擾動格「擎羊：⋯」一樣嘅寫法。
+ * 「它」開頭就換做星名（2026-10-18 起句中嘅「它」都換，唔再加「星名：」標籤，見下面）。
  */
 /**
  * 同宮會自相矛盾嘅兩粒煞（排好序做 key）→ 喺邊幾宮兩截真係講相反嘅嘢（2026-10-16）。
@@ -206,14 +206,21 @@ const OPPOSED_SHA: Record<string, readonly string[]> = {
   '擎羊+鈴星': ['命宮', '兄弟', '夫妻', '子女', '遷移', '僕役', '田宅', '福德', '父母'],
 };
 
+/*
+ * 2026-10-18 · 後生讀者抽樣 B6：「星名：」標籤 400 本書有 326 本出（43 款句），讀落似筆記。
+ * 唔再加標籤：句入面有「它」就換頭一個做星名（「改造的成本高，但對廉貞而言⋯」）；
+ * 其餘照出 —— 開場已經講咗「你的X宮坐Y」，剩低嗰啲句講緊「你」或者講緊嗰件事，讀者知道講邊粒。
+ */
+const NAMED = new RegExp([...MAJOR_LIST, '左輔', '右弼', '文昌', '文曲', '祿存', '帝座', '蔭星'].join('|'));
+
 export function withSubject(text: string, star: string, others: readonly string[] = []): string {
   if (!text) return text;
   const first = sentences(text)[0] ?? '';
-  /* 頭一句已經講緊呢格任何一粒主星（例如同座嗰粒），就唔使加 */
-  if ([star, ...others].some((s) => first.slice(0, 12).includes(s))) return text;
-  if (text.startsWith('它')) return star + text.slice(1);
-  if (/^(你|《全書》)/.test(text)) return text;
-  return `${star}：${text}`;
+  /* 頭一句已經點咗名（呢格嘅星、四化嗰粒輔星、「帝座」呢類別稱），就唔使加 */
+  if ([star, ...others].some((s) => first.includes(s)) || NAMED.test(first)) return text;
+  const it = first.indexOf('它');
+  if (it < 0) return text;
+  return text.slice(0, it) + star + text.slice(it + 1);
 }
 
 /**
@@ -353,7 +360,7 @@ export function assemble(
       conclusion = `${single.summary}${single.watch}`;
       push({
         slot: '結論',
-        text: `${pp.summary}${varyWatch(pp.watch, opts.watchLead)}`,
+        text: `${pp.summary}${varyWatch(pp.watch, fitWatchLead(pp.summary, pp.watch, opts.watchLead))}`,
         source_id: pp.id,
         rule_ids: leadNames.map((n) => `base.${n}.${palace}`).filter((id) => matchedRuleIds.has(id)),
       });

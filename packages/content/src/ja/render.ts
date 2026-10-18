@@ -147,6 +147,7 @@ const WATCH_JA: Record<string, string> = {
   但: 'けれど、',
   只是: 'ただ、',
   '另一面是：': 'その一方で、',
+  而且: 'それに、',
 };
 
 /** 一句中文喺翻譯表嘅日文（冇就 null） */
@@ -199,6 +200,11 @@ function lookupSentence(s: string): string | null {
   if (starJa(head)) {
     const asIt = TM.sentences[`它${s.slice(2)}`];
     if (asIt) return /^(この星|それ)/.test(asIt) ? asIt.replace(/^(この星|それ)/, starJa(head)!) : `${starJa(head)}は、${asIt}`;
+  }
+  /* 「改造的成本高，但對廉貞而言⋯」（原句句中「它」，assemble.ts `withSubject` 2026-10-18）：同「天機：」一樣處理 */
+  for (const m of s.matchAll(new RegExp(MAJOR.join('|'), 'g'))) {
+    const rest = TM.sentences[s.slice(0, m.index) + '它' + s.slice(m.index! + m[0].length)];
+    if (rest) return rest.includes('この星') ? rest.replace('この星', starJa(m[0])!) : `${starJa(m[0])}の場合、${rest}`;
   }
   return null;
 }

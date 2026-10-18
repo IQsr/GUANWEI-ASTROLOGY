@@ -304,6 +304,13 @@ function lookupSentence(s: string): string | null {
     const asIt = TM.sentences[`它${s.slice(2)}`];
     if (asIt) return asIt.replace(/^Its\b/, `${star(head)}'s`).replace(/^It\b/, star(head)!);
   }
+  /* 「改造的成本高，但對廉貞而言⋯」（原句句中「它」，assemble.ts `withSubject` 2026-10-18）：同「天機：」一樣用 With 帶起 */
+  for (const m of s.matchAll(/紫微|天機|太陽|武曲|天同|廉貞|天府|太陰|貪狼|巨門|天相|天梁|七殺|破軍/g)) {
+    const rest = TM.sentences[s.slice(0, m.index) + '它' + s.slice(m.index! + m[0].length)];
+    if (!rest) continue;
+    const body = /^[A-Z][a-z]+ [A-Z]/.test(rest) || /^I\b/.test(rest) ? rest : rest.charAt(0).toLowerCase() + rest.slice(1);
+    return `With ${star(m[0])}, ${body}`;
+  }
   return null;
 }
 
