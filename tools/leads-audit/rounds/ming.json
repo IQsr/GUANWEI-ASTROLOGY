@@ -1,0 +1,111 @@
+{
+  "palace": "命宮",
+  "$note": "命宮（2026-10-18）：宮垣論命宮 p.336–366 逐星。紫微一段全部講運限（行至某宮垣吉凶），天機只按宮位分，太陽講六親刑克，巨門講暗曜原理，都冇講性格嘅一般情形，照舊冇出處。所需原句補入 zhongzhou.json（deep.命宮.*；life.命宮.廉貞、七殺補同頁相鄰句）。",
+  "cells": {
+    "武曲": {
+      "summary": [
+        "你是行動派，想到就做，求財也靠出手。",
+        "You're a doer: you act as soon as an idea comes, and you earn by taking action too.",
+        "行動派で、思いついたらすぐ動き、稼ぐときも自分から打って出ます。"
+      ],
+      "source": [
+        "deep.命宮.武曲.1",
+        "又为生财的行动"
+      ]
+    },
+    "天同": {
+      "summary": [
+        "你是重精神的人，要有外來的刺激，才會真正發奮。",
+        "You're driven by the inner life, and it takes a push from outside to truly spur you on.",
+        "精神面を重んじる人で、外からの刺激があってこそ本気で奮い立ちます。"
+      ],
+      "watch": [
+        "要留意的是：日子太安穩時，你最好主動替自己找點挑戰。",
+        "The catch: when life gets too settled, go looking for a challenge yourself.",
+        "暮らしが落ち着きすぎたら、自分から挑戦を探しにいくとよいでしょう。"
+      ],
+      "source": [
+        "deep.命宮.天同.1",
+        "喜受激发，然后始有奋发之心"
+      ]
+    },
+    "廉貞": {
+      "summary": [
+        "你感情強烈，對在意的理想會投入到近乎狂熱。",
+        "You feel things intensely, and you can throw yourself into the ideals you care about almost to the point of zeal.",
+        "感情が強く、大切にする理想には熱狂に近いほど打ち込みます。"
+      ],
+      "source": [
+        "life.命宮.廉貞",
+        "或为对政治的狂热与理想"
+      ]
+    },
+    "天府": {
+      "summary": [
+        "你擅長守成，把已有的局面守穩，比開創更合你。",
+        "Your strength is holding what you have; keeping an existing position steady suits you better than starting something new.",
+        "守りを固めるのが得意で、新しく始めるより、今ある局面を安定させるほうが合っています。"
+      ],
+      "source": [
+        "life.命宮.天府",
+        "天府仅擅长守成，不擅开创"
+      ]
+    },
+    "太陰": {
+      "summary": [
+        "你本性收斂，心裡的事多半收著不說。",
+        "You're reserved by nature, and mostly keep what's on your mind to yourself.",
+        "本来控えめな性格で、心の内はたいてい口に出さずにしまっておきます。"
+      ],
+      "source": [
+        "deep.命宮.太陰.1",
+        "太阴本性收敛"
+      ]
+    },
+    "貪狼": {
+      "summary": [
+        "你物欲強，想要的會主動去爭取，也擅長交際應酬。",
+        "Your desires are strong: you go after what you want, and you're good at socialising.",
+        "欲しいものへの思いが強く、自分から取りに行き、人付き合いも得意です。"
+      ],
+      "source": [
+        "deep.命宮.貪狼.1",
+        "所以又成为擅长交际应酬的表征"
+      ]
+    },
+    "天相": {
+      "summary": [
+        "你跟甚麼人在一起，就容易變成甚麼樣子。",
+        "You tend to become like the people you keep company with.",
+        "誰と一緒にいるかで、自分もそのように変わりやすいのです。"
+      ],
+      "source": [
+        "life.命宮.天相",
+        "天相逢善则善，遇恶则恶"
+      ]
+    },
+    "天梁": {
+      "source": [
+        "deep.命宮.天梁.1",
+        "由荫庇引伸为替人服务"
+      ]
+    },
+    "七殺": {
+      "summary": [
+        "你是站到前台管事的人，帶人、管事比退在幕後合你。",
+        "You're one to step up front and run things; leading people and managing suit you better than staying behind the scenes.",
+        "表に立って采配を振るうタイプで、裏方に回るより人を率いて管理するほうが合っています。"
+      ],
+      "source": [
+        "life.命宮.七殺",
+        "七杀则上前台"
+      ]
+    },
+    "破軍": {
+      "source": [
+        "life.命宮.破軍",
+        "破军有[继旧换新]的特性"
+      ]
+    }
+  }
+}

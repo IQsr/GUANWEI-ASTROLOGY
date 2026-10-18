@@ -1,0 +1,43 @@
+{
+  "$note": "命宮雙星整合版（2026-10-18）：7 款入面 3 款宮垣論命宮有組合嘅一般情形。天同天梁、太陽太陰（「與太陽同度者，欠精神生活」帶入廟會吉條件）、廉貞天府（「良好的基本結構，見吉曜可成大器」帶條件）、武曲天相冇，照舊。",
+  "pairs": {
+    "pair.廉貞天相.命宮": {
+      "summary": [
+        "你投入得深，性情卻比較平和。",
+        "You commit deeply, yet your temperament is fairly mild.",
+        "深く打ち込むほうですが、気質は比較的穏やかです。"
+      ],
+      "source": [
+        "deep.命宮.廉貞.1",
+        "其气较和"
+      ]
+    },
+    "pair.武曲天府.命宮": {
+      "summary": [
+        "你的性情平和，衝勁和穩健在你身上調和得好。",
+        "Your temperament is even; drive and steadiness sit well together in you.",
+        "気質は穏やかで、勢いと堅実さがうまく調和しています。"
+      ],
+      "watch": [
+        "要留意的是：你凡事求穩，有時會錯過要當機立斷的時機。",
+        "The catch: you like to play it safe, and can sometimes miss the moment that calls for a quick decision.",
+        "何事も安定を求めるので、即断すべきタイミングを逃すことがあります。"
+      ],
+      "source": [
+        "deep.命宮.武曲.2",
+        "其气最和"
+      ]
+    },
+    "pair.天同巨門.命宮": {
+      "summary": [
+        "你待人和緩，心裡卻常有說不出口的隱衷。",
+        "You're gentle with people, yet you often carry private feelings you can't put into words.",
+        "人には穏やかに接しますが、心の中には口にできない思いをよく抱えています。"
+      ],
+      "source": [
+        "deep.命宮.巨門.1",
+        "本主缠绵一往的隐衷"
+      ]
+    }
+  }
+}
