@@ -150,5 +150,12 @@
   {"target": "plain.天梁.僕役", "rule": "僕役.天梁.本", "summary": "你交遊不算廣，往來的人不多。", "en": "Your social circle isn't wide, and you deal with few people."},
   {"target": "pair.天同天梁.僕役", "rule": "僕役.天梁.煞", "summary": "你跟朋友、下屬容易生出是非。", "en": "Disputes easily arise between you and your friends or staff."},
   {"target": "pair.天同天梁.僕役", "rule": "僕役.天梁.本", "summary": "你交遊不算廣，往來的人不多。", "en": "Your social circle isn't wide, and you deal with few people."},
-  {"target": "plain.破軍.僕役", "rule": "僕役.破軍.本", "summary": "你在朋友、下屬當中比較孤立。", "en": "Among friends and staff, you're rather isolated."}
+  {"target": "plain.破軍.僕役", "rule": "僕役.破軍.本", "summary": "你在朋友、下屬當中比較孤立。", "en": "Among friends and staff, you're rather isolated."},
+  {"target": "pair.天機天梁.官祿", "rule": "天機官祿.機梁吉", "summary": "你最適合做顧問一類的工作。", "en": "Advisory work suits you best."},
+  {"target": "pair.天機天梁.官祿", "rule": "天機官祿.機梁", "summary": "你很容易同時兼著好幾份工作。", "en": "You very easily end up holding several jobs at once."},
+  {"target": "pair.天機太陰.官祿", "rule": "天機官祿.機陰煞", "summary": "你不宜自己出來做生意。", "en": "Going into business for yourself isn't advisable."},
+  {"target": "pair.天機太陰.官祿", "rule": "天機官祿.機陰無祿", "summary": "你較適合到政府或大型機構上班，經商並不相宜。", "en": "Working for the government or a large organisation suits you better; business doesn't."},
+  {"target": "pair.天機太陰.官祿", "rule": "天機官祿.機陰", "summary": "你的事業多半從現有的基礎上發展起來。", "en": "Your career mostly grows from a foundation that's already in place."},
+  {"target": "pair.武曲天府.官祿", "rule": "官祿.武府.煞", "summary": "工程、技藝這條路，你走起來最合適。", "en": "Engineering and skilled crafts are the direction that suits you."},
+  {"target": "pair.武曲天府.官祿", "rule": "官祿.武府.祿", "summary": "財經、稅務這類工作，你做起來最合適。", "en": "Finance and tax work suit you."}
 ]
