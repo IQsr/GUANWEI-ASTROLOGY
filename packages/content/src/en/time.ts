@@ -76,6 +76,8 @@ const n = (zh: string) => cnNum(zh);
 const PIVOT_COND_EN: Record<string, string> = {
   '，大限順行': ', with your stages moving forward',
   '，大限逆行': ', with your stages moving backward',
+  '，命宮和相關的幾個宮位見到煞星': ', with malefic stars in your Life Palace and the palaces linked to it',
+  '，命宮和相關的幾個宮位都沒有煞星': ', with no malefic stars in your Life Palace or the palaces linked to it',
   '，三方四正見煞': ', with malefic stars in its four directions',
   '，三方四正不見煞': ', with no malefic stars in its four directions',
   '，丙年生': ', born in a Bing year',

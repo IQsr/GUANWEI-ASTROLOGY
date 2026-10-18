@@ -170,10 +170,13 @@ const pivotHit = (g: string[], p: Palace) => g.every((s) => pivotNames(p).includ
 const PIVOT_COND: Partial<Record<NonNullable<(typeof DAXIAN_PIVOTS)[number]['cond']>, string>> = {
   forward: '，大限順行',
   backward: '，大限逆行',
-  sha: '，三方四正見煞',
-  nosha: '，三方四正不見煞',
+  /* 2026-10-18 · 後生讀者抽樣 C12：「三方四正見煞」讀者唔識，改白話；舊句（R-008）見 `PIVOT_COND_OLD` */
+  sha: '，命宮和相關的幾個宮位見到煞星',
+  nosha: '，命宮和相關的幾個宮位都沒有煞星',
   'stem:丙': '，丙年生',
 };
+/** 舊書嘅寫法，出處註照認 */
+const PIVOT_COND_OLD: Partial<Record<string, string>> = { sha: '，三方四正見煞', nosha: '，三方四正不見煞' };
 const orList = (xs: string[]) => (xs.length < 2 ? (xs[0] ?? '') : `${xs.slice(0, -1).join('、')}或${xs[xs.length - 1]}`);
 const pivotGroup = (g: string[]) => (g.length === 1 ? g[0]! : `${g.join('')}同宮`);
 const WHY_TAIL = '：這樣的命盤，行到';
@@ -192,8 +195,8 @@ export function pivotWhyPattern(rule: (typeof DAXIAN_PIVOTS)[number]): RegExp {
   const stars = rule.ming.length === 2 ? `(?:${rule.ming.join('、')}|${[...rule.ming].reverse().join('、')})` : rule.ming[0]!;
   const own = rule.branches ? `[${rule.branches.join('')}]` : '.';
   const borrowed = rule.branches ? `[${rule.branches.map(opp).join('')}]` : '.';
-  const cond = PIVOT_COND[rule.cond ?? 'hua'] ?? '';
-  return new RegExp(`^你的命宮在(?:${own}，坐${stars}|${borrowed}，沒有主星，借對面宮位的${stars})${cond}${WHY_TAIL}`);
+  const conds = [PIVOT_COND[rule.cond ?? 'hua'] ?? '', PIVOT_COND_OLD[rule.cond ?? 'hua']].filter((x): x is string => x !== undefined);
+  return new RegExp(`^你的命宮在(?:${own}，坐${stars}|${borrowed}，沒有主星，借對面宮位的${stars})(?:${conds.join('|')})${WHY_TAIL}`);
 }
 
 /** 呢張盤邊幾步大限係樞紐。冇資料（書冇講嗰組命宮星）就回空。 */
@@ -672,7 +675,7 @@ export function lookBack(chart: Chart, year: number, solarBorn?: number): Daxian
   const born = chart.lunar.y;
   const pivot = pivotRule(chart, 'year');
   const keySteps = pivotSteps(chart).steps;
-  type Cand = { y: number; gz: string; age: number; score: number; key: boolean; event: string | null; parts: string[]; sources: string[] };
+  type Cand = { y: number; gz: string; age: number; score: number; key: boolean; event: string | null; parts: string[]; sources: string[]; areas: string[] };
   const cands: Cand[] = [];
   for (let y = born + LOOKBACK_FROM_AGE - 1; y < year; y++) {
     const r = annual(chart, y);
@@ -728,7 +731,13 @@ export function lookBack(chart: Chart, year: number, solarBorn?: number): Daxian
       sources.push(pivot!.source);
       score += 3;
     }
-    if (score >= 3 && (parts.length || key)) cands.push({ y, gz: `${A.ganzhi[0]}${A.ganzhi[1]}`, age: A.nominalAge, score, key, event: event?.id ?? null, parts, sources });
+    /*
+     * 2026-10-18 · 後生讀者抽樣 C13：淨係「是你命盤裡關鍵的一年」、冇講那年有乜嘅，唔列 —— 讀者冇嘢對。
+     * C14：記低講咗邊方面（化忌、化祿嗰句），揀年份時同一句只講一次。
+     */
+    /* 用講出嚟嘅字比：後生讀者兄弟、僕役兩宮都講「和同學朋友之間比較費心」 */
+    const areas = [...(!event && jiA ? [jiA.gist] : []), ...(luA ? [luA.gist] : [])];
+    if (score >= 3 && parts.length) cands.push({ y, gz: `${A.ganzhi[0]}${A.ganzhi[1]}`, age: A.nominalAge, score, key, event: event?.id ?? null, parts, sources, areas });
   }
   const picked: Cand[] = [];
   for (const c of [...cands].sort((a, b) => b.score - a.score || b.y - a.y)) {
@@ -739,6 +748,8 @@ export function lookBack(chart: Chart, year: number, solarBorn?: number): Daxian
     if (c.event && picked.filter((p) => p.event).length >= 2) continue;
     /* 同一類（例如兩年都係是非）只講一次：同一句出兩次，讀落似模板 */
     if (c.event && picked.some((p) => p.event === c.event)) continue;
+    /* 兩年都係「和同學朋友之間比較費心」：同一句只講一次 */
+    if (c.areas.some((a) => picked.some((p) => p.areas.includes(a)))) continue;
     picked.push(c);
   }
   if (!picked.length) return null;

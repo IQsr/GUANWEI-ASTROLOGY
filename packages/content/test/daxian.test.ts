@@ -106,6 +106,22 @@ describe('兩章', () => {
     expect(checked).toBeGreaterThan(0);
   });
 
+  it('回看：每年都有內容，同一句方面講法唔出兩次（2026-10-18 · 後生讀者抽樣 C13、C14）', () => {
+    let n = 0;
+    for (const c of CHARTS) {
+      for (const year of [2026, c.lunar.y + 20]) {
+        const back = lifeStepsChapter({ chart: c, year })?.segments.find((s) => s.slot === '回看');
+        if (!back) continue;
+        n++;
+        const lines = back.text.match(/[〇一二三四五六七八九]{4}年（[^）]+）[^。]*。/g) ?? [];
+        for (const l of lines) expect(l, back.text).not.toMatch(/關鍵的一年。$/);
+        const gists = lines.flatMap((l) => l.split(/[，；]/).filter((x) => /^(和|跟|在|你的|家裡|工作|錢)/.test(x)));
+        expect(new Set(gists).size, back.text).toBe(gists.length);
+      }
+    }
+    expect(n).toBeGreaterThan(200);
+  });
+
   it('這十年：已起運就分工作、錢、感情、心境四方面講，仲有一段建議', () => {
     for (const c of CHARTS.slice(0, 100)) {
       const ch = decadeChapter({ chart: c, year: 2026 })!;
@@ -200,6 +216,13 @@ describe('樞紐大限（下篇宮垣論・命宮，p.336–366）', () => {
       expect(why, ch.segments[0]!.text).toBeDefined();
       expect(why).not.toMatch(/行到的大限/);
       expect(citeOf(`${why}。`), why).toEqual([pv.source]);
+      /* C12（2026-10-18）：唔講「三方四正見煞」；舊書嘅寫法照配得到出處、照譯得到 */
+      expect(why).not.toMatch(/三方四正/);
+      const old = why!.replace('，命宮和相關的幾個宮位見到煞星', '，三方四正見煞').replace('，命宮和相關的幾個宮位都沒有煞星', '，三方四正不見煞');
+      if (old !== why) {
+        expect(citeOf(`${old}。`), old).toEqual([pv.source]);
+        for (const r of [renderEn(`${old}。`), renderJa(`${old}。`)]) expect(r.missing, old).toEqual([]);
+      }
       expect(ch.segments[0]!.text).toContain(shown.length === 1 ? '這一步的得失' : '這幾步的得失');
       for (const r of [renderEn(ch.segments[0]!.text), renderJa(ch.segments[0]!.text)]) expect(r.missing, why).toEqual([]);
     }
