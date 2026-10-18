@@ -127,3 +127,15 @@ describe('宮位章：相反嘅講法講明係例外', () => {
     expect(bridged).toBeGreaterThan(20);
   });
 });
+
+/*
+ * B11：空泛嘅狀態句（「沒有另外一套」「這是結構，不是好壞」「這是條件不是評價」），讀者唔知講緊乜（2026-10-18）。
+ */
+describe('宮位章：唔講空泛嘅狀態句', () => {
+  it('冇「沒有另外一套／沒有自己的定調／這是結構／這是條件／回收率」', { timeout: 120_000 }, () => {
+    const VAGUE = /沒有另外一套|沒有自己的定調|這是結構|這是條件|不是評價|回收率|結構不固定|形狀不固定/;
+    const bad = new Set<string>();
+    for (const book of BOOKS) for (const c of book) for (const s of c.segments) for (const t of sentences(s.text)) if (VAGUE.test(t)) bad.add(`${c.palace}｜${s.slot}：${t}`);
+    expect([...bad]).toEqual([]);
+  });
+});
