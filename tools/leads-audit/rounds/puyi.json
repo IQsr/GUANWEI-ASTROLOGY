@@ -1,0 +1,33 @@
+{
+  "palace": "僕役",
+  "$note": "天相：原文一般情形「下屬及友人對自己忠誠」，但同章細讀出「必與破軍相對，本質上已有反覆」，結論寫忠誠會同細讀打架，唔做。天梁（除非見輔佐否則不主交遊廣闊）、破軍（獨坐主孤立）屬帶條件；紫微、太陽、太陰、巨門只有帶條件講法。照舊冇出處。",
+  "cells": {
+    "天機": {
+      "summary": ["你結識的朋友來自四方八面，但大多來來去去，常在更換。", "Your friends come from all walks of life, but they come and go, changing often.", "友人はあちこちから集まりますが、入れ替わりが多く、よく顔ぶれが変わります。"],
+      "source": ["deep.僕役.天機.8", "主结识各方面的朋友，但亦时时更换"]
+    },
+    "武曲": {
+      "summary": ["你交遊不算廣，身邊能幫得上手的人也不多。", "Your circle isn't wide, and there aren't many around you who can lend a hand.", "交友範囲はそれほど広くなく、手を貸してくれる人も多くありません。"],
+      "watch": ["要留意的是：很多事你得自己扛，別指望靠人脈解決。", "The catch: much of the time you'll have to carry things yourself; don't count on connections to sort them out.", "多くのことは自分で背負うことになるので、人脈に頼って片づけようとしないことです。"],
+      "source": ["deep.僕役.武曲.7", "基本性质不利。主交游不广，下属无力"]
+    },
+    "天同": {
+      "source": ["life.僕役.天同", "故易结交朋友，与下属关系亦佳"]
+    },
+    "廉貞": {
+      "summary": ["你交遊廣闊，但交情多停在表面，深交不多。", "You know a lot of people, but most friendships stay on the surface; few go deep.", "交友は広いものの、付き合いの多くは表面にとどまり、深い仲は多くありません。"],
+      "source": ["deep.僕役.廉貞.4", "往往较表面，故不多深交"]
+    },
+    "天府": {
+      "summary": ["你擇友謹慎，交上的多是對你有益的朋友。", "You choose friends carefully, and those you make are mostly good for you.", "友人を慎重に選ぶので、付き合う相手はたいていあなたのためになる人です。"],
+      "source": ["deep.僕役.天府.1", "主择交谨慎"]
+    },
+    "貪狼": {
+      "source": ["life.僕役.貪狼", "基本性质已多场面上的朋友"]
+    },
+    "七殺": {
+      "summary": ["你在人群裡多半落落寡合，獨自做事比與人合夥合適。", "In a crowd you tend to keep to yourself, and working alone suits you better than going into partnership.", "人の輪の中ではたいてい打ち解けにくく、人と組むより一人で動くほうが合っています。"],
+      "source": ["life.僕役.七殺", "多落落寡合，故不宜与人合作事业"]
+    }
+  }
+}
