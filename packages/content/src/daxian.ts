@@ -528,6 +528,13 @@ const LU_AREA: Record<string, Area> = {
  * 十八至二十四歲：工作、錢兩方面換做讀書、第一份工、兼職嘅講法。
  */
 export const LOOKBACK_FROM_AGE = 12;
+/*
+ * 年紀用實歲（2026-10-18 · 十八歲讀者抽樣）：以前全部用虛歲，虛歲比實歲大一至兩歲 ——
+ * 虛歲十二（實歲十）已經寫「升中」，虛歲十八（實歲十六）已經用大人嘅感情例子。
+ * 有國曆出生年就用「嗰年減出生年」（嗰年生日之後嘅歲數，對讀書階段夠準）；冇就用虛歲減一。
+ * 書入面顯示照寫虛歲（全書一律虛歲），只係揀講法嘅界線用實歲。
+ */
+const realAgeIn = (y: number, nominalAge: number, born?: number) => (born !== undefined ? y - born : nominalAge - 1);
 const TEEN_JI: Record<string, Area> = {
   命宮: { gist: '你自己的狀態起伏較大', eg: '像是對自己沒信心，心情時好時壞' },
   兄弟: { gist: '和同學朋友之間比較費心', eg: '像是和要好的同學鬧翻，或者在班上覺得格格不入' },
@@ -566,10 +573,12 @@ function areaAt(palace: string | null | undefined, age: number, kind: '忌' | '�
   return adult[palace];
 }
 
-/** 換大限嗰年：按年紀舉例 */
+/** 換大限嗰年：按年紀（實歲）舉例 */
 const turnEg = (age: number) =>
-  age < 18
+  age <= 12
     ? '像是升中、轉校或換了一班同學'
+    : age < 18
+      ? '像是轉校、分班、選科或換了一班同學'
     : age <= 24
       ? '像是升學、畢業或出來工作'
       : age <= 40
@@ -630,7 +639,7 @@ export function lookBackEvent(chart: Chart, A: AnnualChart): (typeof LOOKBACK_EV
   return null;
 }
 
-export function lookBack(chart: Chart, year: number): DaxianSegment | null {
+export function lookBack(chart: Chart, year: number, solarBorn?: number): DaxianSegment | null {
   const born = chart.lunar.y;
   const pivot = pivotRule(chart, 'year');
   const keySteps = pivotSteps(chart).steps;
@@ -640,6 +649,8 @@ export function lookBack(chart: Chart, year: number): DaxianSegment | null {
     const r = annual(chart, y);
     if (!r.ok) continue;
     const A = r.value;
+    const age = realAgeIn(y, A.nominalAge, solarBorn);
+    if (age < LOOKBACK_FROM_AGE) continue;
     const parts: string[] = [];
     const sources: string[] = [];
     let score = 0;
@@ -650,21 +661,21 @@ export function lookBack(chart: Chart, year: number): DaxianSegment | null {
      */
     const keyTurn = Boolean(turn && keySteps.includes(turn.index));
     if (turn) {
-      parts.push(`你走進第${num(turn.index)}個大限，${keyTurn ? '正是開頭說的關鍵大限，' : ''}生活的重心換了方向，${turnEg(A.nominalAge)}`);
+      parts.push(`你走進第${num(turn.index)}個大限，${keyTurn ? '正是開頭說的關鍵大限，' : ''}生活的重心換了方向，${turnEg(age)}`);
       score += keyTurn ? 3 : 2;
     }
     const ji = A.sihua.annual.find((h) => h.hua === '忌');
     const lu = A.sihua.annual.find((h) => h.hua === '祿');
-    const jiA = areaAt(ji?.annualPalace, A.nominalAge, '忌');
+    const jiA = areaAt(ji?.annualPalace, age, '忌');
     /* 心情、身心、自己嗰三方面一吃緊一順利，讀落自相矛盾（「心事較多⋯同一年身心鬆得下來」）：唔並講 */
     const MOOD = ['命宮', '福德', '疾厄'];
     const clash = Boolean(ji?.annualPalace && lu?.annualPalace && MOOD.includes(ji.annualPalace) && MOOD.includes(lu.annualPalace));
-    const luA = lu?.annualPalace && lu.annualPalace !== ji?.annualPalace && !clash ? areaAt(lu.annualPalace, A.nominalAge, '祿') : undefined;
+    const luA = lu?.annualPalace && lu.annualPalace !== ji?.annualPalace && !clash ? areaAt(lu.annualPalace, age, '祿') : undefined;
     /*
      * 書入面身體、出行、是非、錢嘅條件（一本書最多兩年，見下面）。
      * 佢講嘅就係呢年化忌嘅事，所以中咗就唔再出化忌嗰方面嘅句，免得同一件事講兩次。
      */
-    const event = A.nominalAge >= 18 ? lookBackEvent(chart, A) : null;
+    const event = age >= 18 ? lookBackEvent(chart, A) : null;
     if (event) {
       parts.push(event.text);
       sources.push(...event.sources.map((x) => x.passage_id));
@@ -731,7 +742,8 @@ export function lookBack(chart: Chart, year: number): DaxianSegment | null {
  */
 export { STEPS_UNTIL_AGE } from './steps';
 
-export function lifeStepsChapter(input: { chart: Chart; year: number }): Out {
+/** `solar`：國曆生辰（有就回看用實歲，見 `realAgeIn`） */
+export function lifeStepsChapter(input: { chart: Chart; year: number; solar?: { y: number } }): Out {
   const { chart, year } = input;
   const at = decadeAt(chart, year);
   if (!at || chart.decadals.length === 0) return null;
@@ -741,7 +753,7 @@ export function lifeStepsChapter(input: { chart: Chart; year: number }): Out {
     : `你的大限由虛歲${num(first.fromAge)}歲起，每十年換一步；寫這本書時（${yearCN(year)}年），你還未起步。`;
   const shown = chart.decadals.filter((d) => d.fromAge < STEPS_UNTIL_AGE);
   /* 回看過去：讀者見到對得上嘅年份，之後嘅講法先容易接受 */
-  const back = lookBack(chart, year);
+  const back = lookBack(chart, year, input.solar?.y);
   const rest = chart.decadals.find((d) => d.fromAge >= STEPS_UNTIL_AGE);
   const pv = pivotSteps(chart);
   const keySteps = pv.steps.filter((n) => shown.some((d) => d.index === n));

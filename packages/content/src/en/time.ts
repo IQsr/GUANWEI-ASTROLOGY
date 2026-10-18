@@ -151,6 +151,7 @@ const ADVICE_EN: Record<string, string> = {
 
 /* ── 回看過去（daxian.ts lookBack；過去式） ── */
 const TURN_EG: Record<string, string> = {
+  '像是轉校、分班、選科或換了一班同學': 'such as changing schools, moving to a new class, choosing your subjects or finding yourself among new classmates',
   '像是升中、轉校或換了一班同學': 'such as starting secondary school, changing schools or finding yourself among new classmates',
   '像是升學、畢業或出來工作': 'such as moving up in school, graduating or starting work',
   '像是轉工、轉行、搬屋或成家': 'such as changing jobs or careers, moving house or starting a family',

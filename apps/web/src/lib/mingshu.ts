@@ -13,6 +13,8 @@ import {
   epilogueChapter,
   xuChapter,
   isYoungReader,
+  isYouthReader,
+  youthPass,
   LEXICON,
   type Chapter,
 } from '@guanwei/content';
@@ -210,7 +212,7 @@ export function bookChapters(
   const shen = shenChapter({ chart, year: opts.year });
   const gujia = gujiaChapter({ chart, year: opts.year });
   /* 大限（2026-09-30）：一生十二步免費，這十年收費；跟成書年份講 */
-  const steps = lifeStepsChapter({ chart, year: opts.year });
+  const steps = lifeStepsChapter({ chart, year: opts.year, solar: opts.solar });
   const decade = decadeChapter({ chart, year: opts.year });
   /* 流年（2026-09-30）：寫書嗰年同下一年，收費 */
   const liunian = yearChapter({ chart, year: opts.year });
@@ -234,17 +236,24 @@ export function bookChapters(
     ? palaces.map((c) => ({ ...c, segments: c.segments.filter((s) => s.slot !== '生活') }))
     : palaces);
 
-  return [
-    { slug: xu.slug, title: xu.title, ...body(xu.segments) },
-    ...(ming ? [{ slug: ming.palace, ...body(ming.segments) }] : []),
-    ...(gujia ? [{ slug: gujia.slug, title: gujia.title, ...body(gujia.segments) }] : []),
-    ...(shen ? [{ slug: shen.slug, title: shen.title, ...body(shen.segments) }] : []),
-    ...(steps ? [{ slug: steps.slug, title: steps.title, ...body(steps.segments) }] : []),
-    ...(decade ? [{ slug: decade.slug, title: decade.title, ...body(decade.segments) }] : []),
-    ...(liunian ? [{ slug: liunian.slug, title: liunian.title, ...body(liunian.segments) }] : []),
-    ...rest.map((c) => ({ slug: c.palace, ...body(c.segments) })),
-    ...(epilogue ? [{ slug: epilogue.slug, title: epilogue.title, ...body(epilogue.segments) }] : []),
+  type Part = { slug: string; title?: string; segments: { slot: string; text: string }[] };
+  const parts: Part[] = [
+    { slug: xu.slug, title: xu.title, segments: xu.segments },
+    ...(ming ? [{ slug: ming.palace, segments: ming.segments }] : []),
+    ...(gujia ? [{ slug: gujia.slug, title: gujia.title, segments: gujia.segments }] : []),
+    ...(shen ? [{ slug: shen.slug, title: shen.title, segments: shen.segments }] : []),
+    ...(steps ? [{ slug: steps.slug, title: steps.title, segments: steps.segments }] : []),
+    ...(decade ? [{ slug: decade.slug, title: decade.title, segments: decade.segments }] : []),
+    ...(liunian ? [{ slug: liunian.slug, title: liunian.title, segments: liunian.segments }] : []),
+    ...rest.map((c) => ({ slug: c.palace, segments: c.segments })),
+    ...(epilogue ? [{ slug: epilogue.slug, title: epilogue.title, segments: epilogue.segments }] : []),
   ];
+  /*
+   * 後生讀者（虛歲二十四或以下，2026-10-18）：婚姻、子女講明係將來；這十年、這一年用讀書年代講法；
+   * 骨架重嘅偏向名換輕啲（content `youthPass`）。只改呢度砌出嚟嘅字，內容庫唔郁。
+   */
+  const finished = isYouthReader(chart, opts.year) ? youthPass(parts) : parts;
+  return finished.map((p) => ({ slug: p.slug, ...(p.title ? { title: p.title } : {}), ...body(p.segments) }));
 }
 
 /**

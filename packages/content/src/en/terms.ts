@@ -79,6 +79,10 @@ export const AREA_EN: Record<string, [string, string]> = {
 };
 /** 中文句首講法 → 英文（「在外時」→「Out in the world」） */
 export const AREA_ON_EN: Record<string, string> = {
+  /* 後生讀者前綴（youth.ts）：給你的話清單入面當方面用 */
+  說到將來的婚姻: 'When it comes to a future marriage',
+  說到將來的子女: 'When it comes to future children',
+  如果你有伴侶: 'If you have a partner',
   性格上: 'In your character',
   朋輩之間: 'Among your peers',
   感情上: 'In love',

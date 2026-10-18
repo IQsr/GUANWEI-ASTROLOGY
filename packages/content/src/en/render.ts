@@ -6,6 +6,7 @@ import { PLAIN_VARIANTS } from '../plain-variant';
 import { BRANCH_TOPICS, FILL_VERB, MAJOR, OR_VERB, stripOr } from '../branch';
 import { AREA_EN, AREA_ON_EN, BRANCH_EN, PALACE_EN, STAR_EN, cap, listEn, star, starFirst } from './terms';
 import { factTemplate } from './facts';
+import { YOUTH_PREFIX, unyouth } from '../youth';
 import { timeTemplate } from './time';
 
 /* ───────────────────────────────────────────────────────────
@@ -536,7 +537,13 @@ function joinBrackets(ss: string[]): string[] {
 }
 
 function paragraphSentences(zh: string, missing: string[]): string[] {
-  return joinBrackets(sentencesOf(zh)).map((s) => lookupSentence(s) ?? template(s, missing) ?? (missing.push(s), `〔${s}〕`));
+  return joinBrackets(sentencesOf(zh)).map((zhS) => {
+    /* 後生讀者（youth.ts）：認返大人原句；句頭前綴另譯 */
+    const { prefix, rest: s } = unyouth(zhS);
+    const en = lookupSentence(s) ?? template(s, missing);
+    if (en === null) return (missing.push(zhS), `〔${zhS}〕`);
+    return prefix ? `${YOUTH_PREFIX[prefix].en}, ${lowerFirst(en)}` : en;
+  });
 }
 
 /** 一段（可以幾句）。單獨用嗰陣當呢段自己一本書。 */

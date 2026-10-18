@@ -5,6 +5,7 @@ import { LINK_REFS } from '../link';
 import { FILL_VERB, MAJOR, OR_VERB, stripOr } from '../branch';
 import { AREA_JA, AREA_ON_JA, HUA_JA, PALACE_JA, listJa, starJa } from './terms';
 import { factTemplate } from './facts';
+import { YOUTH_PREFIX, unyouth } from '../youth';
 import { timeTemplate } from './time';
 
 /* ───────────────────────────────────────────────────────────
@@ -462,9 +463,13 @@ function resolveKonoHoshi(ja: string, ss: string[], i: number, carry: string | u
 function paragraphJa(zh: string, missing: string[], carry?: string): string {
   const ss = joinBrackets(sentencesOf(zh));
   return ss
-    .map((s, i) => {
+    .map((zhS, i) => {
+      /* 後生讀者（youth.ts）：認返大人原句；句頭前綴另譯 */
+      const { prefix, rest: s } = unyouth(zhS);
       const ja = lookupSentence(s) ?? template(s, missing);
-      return ja === null ? (missing.push(s), `〔${s}〕`) : resolveKonoHoshi(ja, ss, i, carry);
+      if (ja === null) return (missing.push(zhS), `〔${zhS}〕`);
+      const out = resolveKonoHoshi(ja, ss, i, carry);
+      return prefix ? `${YOUTH_PREFIX[prefix].ja}、${out}` : out;
     })
     .join('');
 }

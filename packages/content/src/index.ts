@@ -36,6 +36,7 @@ export * from './daxian';
 export * from './liunian';
 export * from './life';
 export * from './epilogue';
+export * from './youth';
 export * from './plain';
 export * from './rectify';
 export * as En from './en/index';
