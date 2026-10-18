@@ -1,0 +1,18 @@
+{
+  "palace": "父母",
+  "$note": "宮垣論父母宮主要講父母本人（有權威、有責任心）同刑克、分離，而且多數按化祿化忌、見煞分。照夫妻準則，只做有「一般情形」講你同長輩關係本身嘅三款。紫微「父母有權威」講父母本人，唔做；天府、太陰「一般不主刑克」屬事件，唔做。其餘十一款照舊冇出處。",
+  "cells": {
+    "天機": {
+      "summary": ["你和長輩之間的關係不易經營，需要多花心思維繫。", "Your relationship with your elders isn't easy to tend; it takes extra effort to keep it going.", "目上の人との関係は保ちにくく、つなぎとめるには余計に気を配る必要があります。"],
+      "source": ["deep.父母.天機.3", "基本性质不利父子间的人际关系"]
+    },
+    "七殺": {
+      "summary": ["你和長輩的關係較疏遠，各自保持距離。", "You're rather distant from your elders, each keeping to your own side.", "目上の人とはやや疎遠で、お互いに距離を保っています。"],
+      "source": ["deep.父母.七殺.6", "即使入庙，亦与父母关系疏远"]
+    },
+    "破軍": {
+      "summary": ["你對長輩和上司不會一味忍受，說不通的事就不配合。", "You don't simply put up with your elders and superiors; if something doesn't make sense, you won't go along with it.", "目上の人や上司にただ我慢することはなく、筋の通らないことには従いません。"],
+      "source": ["deep.父母.破軍.1", "基本性质不忍受"]
+    }
+  }
+}
