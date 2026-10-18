@@ -4,7 +4,7 @@ import { palaceLabel } from './link';
 import { leanOf, xingxiOf } from './xingxi';
 import { monthSegment } from './liuyue';
 import { KUIYUE_SOURCE, KUIYUE_TEXT, kuiyueRises } from './kuiyue';
-import { DAXIAN_HUA, DAXIAN_RULES, adviceSegment, area, areaSegments, periodArea, periodGist, decadeView, num, pivotRule, starsOf, yearCN, type DaxianSegment } from './daxian';
+import { DAXIAN_HUA, DAXIAN_RULES, adviceSegment, area, areaSegments, huaSegment, periodArea, periodGist, decadeView, num, pivotRule, starsOf, yearCN, type DaxianSegment } from './daxian';
 
 /* ───────────────────────────────────────────────────────────
  * 流年章〈這一年〉（2026-09-30）
@@ -120,12 +120,10 @@ export function yearChapter(input: { chart: Chart; year: number }): { slug: stri
     (isKey ? '這一年是你命盤裡的關鍵年份之一，今年的得失，影響會比一般年份深。' : '');
 
   /* 流年四化（四方面已經講咗嘅唔再講） */
-  const huaLines = hits.filter((h) => !areas.used.has(`${h.star}${h.hua}`)).map((h) => {
-    const m = DAXIAN_HUA.find((e) => e.star === h.star && e.hua === h.hua);
-    /* 2026-10-13：「天機化權（在這一年的疾厄宮）：⋯」改做一句話，唔再括號加冒號 */
-    const where = h.annualPalace ? `落在這一年的${palaceLabel(h.annualPalace)}` : '';
-    return { text: m ? `${h.star}化${h.hua}${where}${where ? '，' : '：'}${m.text}` : '', id: m?.id ?? null };
-  });
+  const huaLines = huaSegment(
+    hits.filter((h) => !areas.used.has(`${h.star}${h.hua}`)).map((h) => ({ star: h.star, hua: h.hua, palace: h.annualPalace })),
+    '這一年',
+  );
 
   /* 互動 */
   const inter = interplay(A);
@@ -160,7 +158,7 @@ export function yearChapter(input: { chart: Chart; year: number }): { slug: stri
     /* 流魁流鉞冲起本命魁鉞（深造講義 p.8、9，`kuiyue.ts`） */
     ...(kuiyueRises(chart, A.mingGong, A.liuyao.annual) ? [seg('魁鉞', KUIYUE_TEXT.year, KUIYUE_SOURCE)] : []),
     ...areas.segments,
-    seg('四化', huaLines.map((l) => l.text).join(''), huaLines.map((l) => l.id).filter(Boolean).join('+') || null),
+    seg('四化', huaLines.text, huaLines.id),
     ...(interSeg ? [seg('互動', interSeg.text, interSeg.id)] : []),
     ...(advice ? [advice] : []),
     seg('逐月', months.text, months.source_id),

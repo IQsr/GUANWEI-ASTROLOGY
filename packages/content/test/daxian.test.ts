@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { cast, sihuaOfStem, STEMS } from '@guanwei/ziwei';
-import { DAXIAN_HUA, DAXIAN_PIVOTS, STEPS_UNTIL_AGE, decadeChapter, lifeStepsChapter, num, pivotSteps } from '../src/daxian';
+import { AREAS, DAXIAN_HUA, DAXIAN_PIVOTS, STEPS_UNTIL_AGE, decadeChapter, firstClause, lifeStepsChapter, num, periodArea, pivotSteps } from '../src/daxian';
 import { scanForbidden } from '../src/lint';
 import { scanPlain } from '../src/plain';
 import { withoutCitations } from '../src/lexicon';
@@ -70,7 +70,7 @@ describe('兩章', () => {
     const AREA_SLOTS = ['工作', '錢', '感情', '心境'];
     for (const c of CHARTS.slice(0, 100)) {
       const segs = decadeChapter({ chart: c, year: 2026 })!.segments;
-      const rest = segs.find((x) => x.slot === '四化')?.text.match(/化[祿權科忌]落在這十年的/g)?.length ?? 0;
+      const rest = segs.find((x) => x.slot === '四化')?.text.match(/化[祿權科忌]落在[^、。，]+?宮/g)?.length ?? 0;
       const inAreas = new Set(
         segs
           .filter((x) => AREA_SLOTS.includes(x.slot))
@@ -88,6 +88,22 @@ describe('兩章', () => {
         if (s && AREA_SLOTS.includes(s.slot)) expect(e.areas, `${e.id} 唔講${s.slot}，唔應該出喺嗰段`).toContain(s.slot);
       }
     }
+  });
+
+  it('第一段「X這一方面，」後面嘅星句真係講緊X（2026-10-18 · 後生讀者抽樣 B5）', () => {
+    const SLOT = new Map<string, string>(AREAS.map((a) => [periodArea(a.palace), a.slot]));
+    let checked = 0;
+    for (const c of CHARTS) {
+      const lead = decadeChapter({ chart: c, year: 2026 })!.segments[0]!.text;
+      for (const m of lead.matchAll(/(?:^|[，；])([^，；。]+?)這一方面，([^，；。]+)/g)) {
+        const e = DAXIAN_HUA.find((x) => firstClause(x.text) === m[2]);
+        if (!e) continue;
+        checked++;
+        /* 第一分句講嘅係 areas 頭一樣 */
+        expect(e.areas[0], `${m[1]}：${m[2]}`).toBe(SLOT.get(m[1]!));
+      }
+    }
+    expect(checked).toBeGreaterThan(0);
   });
 
   it('這十年：已起運就分工作、錢、感情、心境四方面講，仲有一段建議', () => {

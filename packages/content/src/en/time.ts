@@ -593,6 +593,18 @@ export function timeTemplate(s: string, missing: string[], h: TimeHelpers): stri
     return `(Basis: ${layer} ${pal(m[2]!, missing)} ${seatVerb(m[3]!, missing)}${fall}.)`;
   }
 
+  /* 2026-10-18 起四化段：「這十年，天同化祿落在兄弟宮、廉貞化忌落在財帛宮。」＋「天同化祿，⋯」（daxian.ts `huaSegment`） */
+  m = /^這(十年|一年)，((?:\S{2}化\S落在\S+?宮、)*\S{2}化\S落在\S+?宮)。$/.exec(s);
+  if (m) {
+    const items = m[2]!.split('、').map((x) => /^(\S{2})化(\S)落在(\S+?宮)$/.exec(x));
+    if (items.every((x) => x && star(x[1]!) && HUA_EN[x[2]!])) {
+      const said = items.map((x) => `${star(x![1]!)} turns to ${HUA_EN[x![2]!]} in your ${pal(x![3]!, missing)}`);
+      const list = said.length > 1 ? `${said.slice(0, -1).join(', ')} and ${said.at(-1)}` : said[0];
+      return `${m[1] === '十年' ? 'Over these ten years' : 'This year'}, ${list}.`;
+    }
+  }
+  m = /^(\S{2})化(\S)，(.+)$/.exec(s);
+  if (m && star(m[1]!) && HUA_EN[m[2]!] && h.tm(m[3]!)) return `With ${star(m[1]!)} turning to ${HUA_EN[m[2]!]}, ${h.lower(h.tm(m[3]!)!)}`;
   /* 2026-10-13 起：「天機化權落在這一年的疾厄宮，⋯」 */
   m = /^(\S{2})化(\S)落在這(十年|一年)的(\S+?宮)，(.+)$/.exec(s);
   if (m && star(m[1]!) && HUA_EN[m[2]!] && h.tm(m[5]!)) {

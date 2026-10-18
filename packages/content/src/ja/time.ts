@@ -542,6 +542,16 @@ export function timeTemplate(s: string, missing: string[], h: TimeHelpers): stri
     return `（根拠：${layer}の${pal(m[2]!, missing)}${seatVerb(m[3]!, missing)}${fall}。）`;
   }
 
+  /* 2026-10-18 起四化段：「這十年，天同化祿落在兄弟宮、廉貞化忌落在財帛宮。」＋「天同化祿，⋯」（daxian.ts `huaSegment`） */
+  m = /^這(十年|一年)，((?:\S{2}化\S落在\S+?宮、)*\S{2}化\S落在\S+?宮)。$/.exec(s);
+  if (m) {
+    const items = m[2]!.split('、').map((x) => /^(\S{2})化(\S)落在(\S+?宮)$/.exec(x));
+    if (items.every((x) => x && starJa(x[1]!) && HUA[x[2]!])) {
+      return `${span(m[1]!)}、${items.map((x) => `${starJa(x![1]!)}${HUA[x![2]!]}が${pal(x![3]!, missing)}に`).join('、')}落ちています。`;
+    }
+  }
+  m = /^(\S{2})化(\S)，(.+)$/.exec(s);
+  if (m && starJa(m[1]!) && HUA[m[2]!] && h.tm(m[3]!)) return `${starJa(m[1]!)}${HUA[m[2]!]}によって、${h.tm(m[3]!)!}`;
   /* 「天機化權落在這一年的疾厄宮，⋯」 */
   m = /^(\S{2})化(\S)落在這(十年|一年)的(\S+?宮)，(.+)$/.exec(s);
   if (m && starJa(m[1]!) && HUA[m[2]!] && h.tm(m[5]!)) return `${starJa(m[1]!)}${HUA[m[2]!]}が${span(m[3]!)}の${pal(m[4]!, missing)}に落ちています。${h.tm(m[5]!)!}`;

@@ -373,6 +373,25 @@ export function areaSegments(
  *   星句喺四方面段用咗 → 星句；落四方面但用通用句 → 通用句；其餘 → 四化段嘅星句。
  * 咁第一段同後文講同一件事，亦唔加書冇講嘅推論。
  */
+/*
+ * 四化段（2026-10-18 · 後生讀者抽樣 B5）：以前逐粒寫「太陰化忌落在這十年的財帛宮，你容易有說不出口的感情困擾」——
+ * 落點同意思黐埋一句，讀落似「財帛宮會有感情困擾」。呢段剩低嘅星句都係四方面段用唔到嘅（講緊另一方面），
+ * 所以分開講：先一句講落點（盤面事實），再逐粒講嗰粒星化咗之後嘅意思。
+ */
+export function huaSegment(hits: readonly PeriodHit[], scope: '這十年' | '這一年'): { text: string; id: string | null } {
+  const lines = hits.flatMap((h) => {
+    const m = DAXIAN_HUA.find((e) => e.star === h.star && e.hua === h.hua);
+    return m ? [{ h, m }] : [];
+  });
+  if (!lines.length) return { text: '', id: null };
+  const placed = lines.filter((x) => x.h.palace);
+  const fact = placed.length ? `${scope}，${placed.map((x) => `${x.h.star}化${x.h.hua}落在${palaceLabel(x.h.palace!)}`).join('、')}。` : '';
+  return {
+    text: fact + lines.map((x) => `${x.h.star}化${x.h.hua}，${x.m.text}`).join(''),
+    id: lines.map((x) => x.m.id).join('+'),
+  };
+}
+
 /** 「你的錢」「你的朋友圈」；命宮係「自己的狀態」，寫「你自己的狀態」，唔好「你的自己的」 */
 const yourArea = (palace: string) => {
   const a = periodArea(palace);
@@ -380,11 +399,20 @@ const yourArea = (palace: string) => {
 };
 export const firstClause = (t: string) => (t.split(/[，；。]/)[0] ?? t).trim();
 /** 通用句（`AREA_HUA`）自己講明係邊方面，唔使再加「X這一方面：」；星句要標返落喺邊。 */
-export function huaClause(h: PeriodHit, used: ReadonlySet<string>, areasRead: boolean): { text: string; generic: boolean } {
+/*
+ * 星句講緊嗰個宮嘅方面先冠「X這一方面，」（2026-10-18 · 後生讀者抽樣 B5）：
+ * 以前一律冠落點嘅方面 ——「家這一方面，你的感情和人際容易有挫折」（廉貞化忌落田宅）、
+ * 「朋輩這一方面，你容易憑名聲和地位得到收入」。星句係嗰粒星化咗之後嘅意思（《深造講義》大限四化），
+ * 唔係落點嗰宮嘅事；對唔上就唔冠方面，淨講意思：「你的感情和人際容易有挫折」（第一句唔講星名，lint P2）。
+ * 命宮唔冠（「自己的狀態這一方面，你的財源比較順遂」讀落唔通）。
+ */
+export function huaClause(h: PeriodHit, used: ReadonlySet<string>, areasRead: boolean): { text: string; generic: boolean; fits: boolean } {
   const star = DAXIAN_HUA.find((e) => e.star === h.star && e.hua === h.hua);
   const area = AREAS.find((a) => a.palace === h.palace);
-  if (areasRead && area && !used.has(`${h.star}${h.hua}`)) return { text: firstClause(AREA_HUA[area.slot][h.hua]), generic: true };
-  return { text: star ? firstClause(star.text) : '', generic: false };
+  if (areasRead && area && !used.has(`${h.star}${h.hua}`)) return { text: firstClause(AREA_HUA[area.slot][h.hua]), generic: true, fits: true };
+  /* 第一段只用星句第一個分句，佢講嘅係 `areas` 頭一樣（廉貞化祿 [錢, 工作]：「你肯為生活品味和人際應酬花錢」） */
+  const fits = Boolean(area && star?.areas[0] === area.slot);
+  return { text: star ? firstClause(star.text) : '', generic: false, fits };
 }
 export function periodGist(
   span: string,
@@ -397,12 +425,13 @@ export function periodGist(
   const l = huaClause(lu, used, areasRead);
   const j = huaClause(ji, used, areasRead);
   if (!l.text || !j.text || !lu.palace || !ji.palace) return '';
-  if (lu.palace === ji.palace)
+  if (lu.palace === ji.palace && l.fits && j.fits)
     return `${span}，${yourArea(lu.palace)}有得有失：${l.text}；同時，${j.text}。`;
-  const at = (c: { text: string; generic: boolean }, palace: string) => (c.generic ? c.text : `${periodArea(palace)}這一方面，${c.text}`);
+  const at = (c: { text: string; generic: boolean; fits: boolean }, h: PeriodHit) =>
+    c.generic || !c.fits ? c.text : `${periodArea(h.palace)}這一方面，${c.text}`;
   const blocked = notes.luBlocked ? '，只是同時有阻滯' : '';
   const eased = notes.jiEased ? '，不過也有轉圜的餘地' : '';
-  const body = `${at(l, lu.palace)}${blocked}；${at(j, ji.palace)}${eased}。`;
+  const body = `${at(l, lu)}${blocked}；${at(j, ji)}${eased}。`;
   /* 通用句冇「你」：第一句要對住讀者講（lint P2） */
   return body.includes('你') ? `${span}，${body}` : `${span}對你來說，${body}`;
 }
@@ -868,12 +897,10 @@ export function decadeChapter(input: { chart: Chart; year: number }): Out {
     fallbackGist;
 
   /* 四化：逐粒講，落喺呢十年嘅邊宮（四方面已經講咗嘅唔再講） */
-  const huaLines = hits.filter((h) => !areas.used.has(`${h.star}${h.hua}`)).map((h) => {
-    const m = DAXIAN_HUA.find((e) => e.star === h.star && e.hua === h.hua);
-    /* 2026-10-13：「天機化權（在這十年的疾厄宮）：⋯」改做一句話，唔再括號加冒號 */
-    const where = h.decadalPalace ? `落在這十年的${palaceLabel(h.decadalPalace)}` : '';
-    return { text: m ? `${h.star}化${h.hua}${where}${where ? '，' : '：'}${m.text}` : '', id: m?.id ?? null };
-  });
+  const huaLines = huaSegment(
+    hits.filter((h) => !areas.used.has(`${h.star}${h.hua}`)).map((h) => ({ star: h.star, hua: h.hua, palace: h.decadalPalace })),
+    '這十年',
+  );
 
   /* 同本命四化碰唔碰到 */
   const inter = hits.flatMap((h) => {
@@ -905,7 +932,7 @@ export function decadeChapter(input: { chart: Chart; year: number }): Out {
     /* 流魁流鉞冲起本命魁鉞（深造講義 p.8、9，`kuiyue.ts`） */
     ...(kuiyueRises(chart, d.branch, flowStars(d.stem, d.branch)) ? [seg('魁鉞', KUIYUE_TEXT.decade, KUIYUE_SOURCE)] : []),
     ...areas.segments,
-    seg('四化', huaLines.map((l) => l.text).join(''), huaLines.map((l) => l.id).filter(Boolean).join('+') || null),
+    seg('四化', huaLines.text, huaLines.id),
     ...(interSeg ? [seg('互動', interSeg.text, interSeg.id)] : []),
     ...(advice ? [advice] : []),
     ...(nextLine ? [seg('下一步', nextLine)] : []),
