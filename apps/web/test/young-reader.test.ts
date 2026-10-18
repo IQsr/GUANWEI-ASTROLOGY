@@ -97,13 +97,20 @@ describe('後生讀者（虛歲十四至二十四）', () => {
     expect(seen).toBeGreaterThan(20);
   });
 
-  it('英文、日文照譯得到', () => {
-    for (const { chapters } of books.slice(0, 10)) {
+  it('英文、日文照譯得到，而且用後生講法（唔係換返大人原句）', () => {
+    let study = 0;
+    for (const { chapters } of books) {
       for (const d of chapterDrafts(chapters, 'x')) {
-        expect(En.renderChapter(d.body).missing, d.slug).toEqual([]);
-        expect(Ja.renderChapter(d.body).missing, d.slug).toEqual([]);
+        const en = En.renderChapter(d.body);
+        const ja = Ja.renderChapter(d.body);
+        expect(en.missing, d.slug).toEqual([]);
+        expect(ja.missing, d.slug).toEqual([]);
+        expect(en.text, d.slug).not.toMatch(/You lean towards (?:the shadow|passivity|daydreams|aimless movement|recklessness|hollowness|obstinacy|short-sightedness|dominance|self-interest|suspicion|isolation|sharpness|rushing|heaviness):|You tend to stall|sign or commit|and borrowing|with loans/);
+        expect(ja.text, d.slug).not.toMatch(/暗さに傾|消極に傾|署名や約束|借り入れ/);
+        if (/studies and part-time work/.test(en.text) && /勉強やアルバイト/.test(ja.text)) study++;
       }
     }
+    expect(study).toBeGreaterThan(5);
   });
 
   it('大人嘅書唔加前綴', () => {

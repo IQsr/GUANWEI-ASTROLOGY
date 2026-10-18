@@ -227,6 +227,8 @@ const POLE_EN: Record<string, string> = {
   穩重: 'steadiness', 浮動: 'restlessness', 權威: 'authority', 強勢: 'dominance', 為公: 'the public good', 為己: 'self-interest',
   多思慮: 'overthinking', 有度: 'restraint', 野心: 'ambition', 得助: 'finding help', 孤立: 'isolation', 有原則: 'principle',
   重情面: 'sentiment', 明斷: 'clear judgement', 尖銳: 'sharpness',
+  /* 後生讀者換輕嘅偏向名（youth.ts YOUTH_LEAN） */
+  內斂: 'reserve', 深藏: 'keeping things inside', 觀望: 'waiting and watching', 多想: 'thinking a lot', 多試: 'trying things', 求變: 'wanting change', 心急: 'eagerness', 重表現: 'being seen', 執著: 'persistence', 快決: 'quick decisions', 直言: 'speaking plainly', 主導: 'taking the lead', 自保: 'looking after yourself', 多防: 'wariness', 獨行: 'going your own way', 慢熱: 'a slow start',
 };
 export const poleKeys = () => Object.keys(POLE_EN);
 

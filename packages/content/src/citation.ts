@@ -7,7 +7,7 @@ import { PLAIN_VARIANTS } from './plain-variant';
 import { tmSentence } from './en/render';
 import { huaClauseEn } from './en/time';
 import { XINGXI } from './xingxi';
-import { unyouth } from './youth';
+import { adultOf } from './youth';
 
 /* ───────────────────────────────────────────────────────────
  * 出處註（2026-10-12 · Issac：「人哋 challenge 我哋，要講得出喺邊本書、邊一頁、邊一節」）
@@ -183,7 +183,7 @@ const INDEX = build();
 export function citeOf(sentence: string, lang: 'zh' | 'en' = 'zh'): string[] | null {
   const list = lang === 'en' ? INDEX.en : INDEX.zh;
   /* 後生讀者嘅書（youth.ts）換過偏向名、加過前綴：認返原句先配 */
-  const s = lang === 'zh' ? unyouth(sentence.trim()).rest : sentence.trim();
+  const s = lang === 'zh' ? adultOf(sentence.trim()) : sentence.trim();
   /* 英文：入書時句頭大細楷、句尾標點可能唔同，比較時一律細楷、去句尾標點 */
   /* 英文渲染會喺星名後面加花名「Ju Men (the Great Gate)」：比較前拎走 */
   const norm = (x: string) =>

@@ -18,8 +18,8 @@ import { YEAR_SLUG } from './liunian';
  *   四、這十年、這一年：「工作上」改「讀書和打工上」；借貸、簽字嗰幾句改細路講法。
  *   五、骨架：十五個重嘅偏向名（陰暗、消極、空想⋯）換輕啲嘅講法，再加一句「這是傾向，不是定局」。
  *
- * 英文、日文：讀嗰陣用 `unyouth()` 認返原句去翻譯表搵；一、二、三嘅前綴有自己嘅譯法，
- * 四、五換返大人原句嘅譯文（未另譯，見 docs）。
+ * 英文、日文：後生句全部有自己嘅譯文（翻譯表、偏向名、時間章模板）；`unyouth()` 只剝句頭前綴。
+ * 出處註用 `adultOf()` 認返大人原句先配。
  * ─────────────────────────────────────────────────────────── */
 
 /** 虛歲二十四或以下（實歲約二十三：大學畢業前） */
@@ -59,6 +59,7 @@ export const YOUTH_LEAN: Record<string, string> = {
   為己: '自保',
   疑慮: '多防',
   孤立: '獨行',
+  停滯: '慢熱',
 };
 export const YOUTH_LEAN_NOTE = '你還年輕，這裡說的是盤上的傾向，不是定局；路怎樣走，仍然在你。';
 
@@ -67,7 +68,7 @@ const SWAPS: [string, string][] = [
   ['簽字、承諾之前多問一句', '答應別人之前多問一句'],
   ['大額支出和借貸先多想一步', '大額支出先多想一步'],
   ['借貸、合作都容易得到別人信任', '和人合作都容易得到別人信任'],
-  ['你容易停滯：', '你起步較慢：'],
+  ['你容易停滯：', '你偏向慢熱：'],
   ...Object.entries(YOUTH_LEAN).map(([a, b]) => [`偏向${a}`, `偏向${b}`] as [string, string]),
 ];
 const PERIOD_WORK: [string, string] = ['工作上，', '讀書和打工上，'];
@@ -118,16 +119,20 @@ export function youthPass<C extends YouthChapter>(chapters: C[]): C[] {
   }));
 }
 
+/** 出處註：認返大人原句（換過嘅偏向名、借貸講法、前綴全部還原） */
+export function adultOf(s: string): string {
+  let rest = s;
+  for (const [a, b] of [...SWAPS, PERIOD_WORK]) rest = rest.split(b).join(a);
+  return unyouth(rest).rest;
+}
+
 /**
- * 英文、日文讀嗰陣：認返大人原句。
- * 回 `prefix`（句頭加咗嘅前綴，冇就 null）同 `rest`（翻譯表認得嘅原句）。
+ * 英文、日文讀嗰陣：剝走句頭前綴（「說到將來的婚姻，」），前綴另譯，後面照翻譯表。
  * 給你的話清單嘅前綴喺「一、」後面：留喺句入面，listItem 當方面（AREA_ON）譯。
  */
 export function unyouth(s: string): { prefix: Prefix | null; rest: string } {
-  let rest = s;
-  for (const [a, b] of [...SWAPS, PERIOD_WORK]) rest = rest.split(b).join(a);
   for (const p of Object.keys(YOUTH_PREFIX) as Prefix[]) {
-    if (rest.startsWith(`${p}，`)) return { prefix: p, rest: rest.slice(p.length + 1) };
+    if (s.startsWith(`${p}，`)) return { prefix: p, rest: s.slice(p.length + 1) };
   }
-  return { prefix: null, rest };
+  return { prefix: null, rest: s };
 }
