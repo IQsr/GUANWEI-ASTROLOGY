@@ -1,7 +1,7 @@
 import tmRaw from './tm.json';
 import { OLD_WATCH_LEADS, WATCH_LEADS } from '../watch-lead';
 import { LINK_REFS } from '../link';
-import { ALL_JI_WATCH, PAIR_PLAIN } from '../palace-plain';
+import { ALL_JI_WATCH, LEAN_SUMMARY, PAIR_PLAIN } from '../palace-plain';
 import { PLAIN_VARIANTS } from '../plain-variant';
 import { BRANCH_TOPICS, FILL_VERB, MAJOR, OR_VERB, stripOr } from '../branch';
 import { AREA_EN, AREA_ON_EN, BRANCH_EN, PALACE_EN, STAR_EN, cap, listEn, star, starFirst } from './terms';
@@ -24,6 +24,7 @@ import { timeTemplate } from './time';
 const TM = tmRaw as { sentences: Record<string, string>; clauses: Record<string, string> };
 
 /* 雙星整合版（palace-plain.ts，2026-10-11）：英文跟條目一齊存，喺度併入翻譯表 */
+for (const lines of Object.values(LEAN_SUMMARY)) for (const l of Object.values(lines)) TM.sentences[l.zh] = l.en;
 for (const x of PAIR_PLAIN) {
   TM.sentences[x.summary] = x.en.summary;
   TM.sentences[x.watch] = x.en.watch;
@@ -259,6 +260,12 @@ function refPart(part: string, missing: string[]): string | null {
 function lookupSentence(s: string): string | null {
   const direct = TM.sentences[s];
   if (direct) return direct;
+  /* 細讀例外句（assemble.ts `bridgeExceptions`，2026-10-18）：「不過，同宮有鈴星，⋯」 */
+  const but = /^(?:不過，|但)(.+)$/.exec(s);
+  if (but) {
+    const rest = lookupSentence(but[1]!);
+    if (rest) return `${s.startsWith('但') ? 'But' : 'That said,'} ${/^[A-Z][a-z]+ [A-Z]/.test(rest) || /^I\b/.test(rest) ? rest : rest.charAt(0).toLowerCase() + rest.slice(1)}`;
+  }
   for (const slot of SLOTS) {
     if (!s.startsWith(slot.head) || !s.endsWith(slot.tail)) continue;
     const m = slot.re.exec(s);

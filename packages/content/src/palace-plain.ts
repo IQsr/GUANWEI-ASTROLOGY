@@ -135,6 +135,20 @@ export function clashes(a: string, b: string, palace: string): boolean {
 }
 
 /** 同宮兩粒主星嘅整合版（唔理次序）。 */
+/*
+ * 命宮結論跟骨架偏向（2026-10-18 · 後生讀者抽樣 B9）：武曲天府坐命結論講「衝勁和穩健在你身上調和得好」，
+ * 但六十星系 p.181 呢個組合要分「統籌」定「偏於一端」；偏於一端嗰陣下一章骨架講「你在生財或守財其中一方特別強」，
+ * 兩章打架。偏向係「偏於一端」就換一句同骨架一致嘅結論（只講骨架講過嘅嘢）。
+ */
+export const LEAN_SUMMARY: Record<string, Record<string, { zh: string; en: string }>> = {
+  'pair.武曲天府.命宮': {
+    偏於一端: {
+      zh: '你有衝勁也求穩，只是生財和守財兩樣，往往有一樣特別強。',
+      en: 'You have drive and you like things steady, though between making money and keeping it, one side tends to be much stronger.',
+    },
+  },
+};
+
 export function pairPlain(stars: readonly string[], palace: string): PairPlain | undefined {
   if (stars.length !== 2) return undefined;
   return PAIR_PLAIN.find((x) => x.palace === palace && x.stars.includes(stars[0]!) && x.stars.includes(stars[1]!));

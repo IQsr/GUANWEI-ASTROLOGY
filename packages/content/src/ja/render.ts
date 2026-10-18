@@ -160,6 +160,12 @@ export function tmSentence(zh: string): string | null {
 function lookupSentence(s: string): string | null {
   const direct = tmSentence(s);
   if (direct) return direct;
+  /* 細讀例外句（assemble.ts `bridgeExceptions`，2026-10-18）：「不過，同宮有鈴星，⋯」 */
+  const but = /^(?:不過，|但)(.+)$/.exec(s);
+  if (but) {
+    const rest = lookupSentence(but[1]!);
+    if (rest) return `${s.startsWith('但') ? 'けれど、' : 'とはいえ、'}${rest}`;
+  }
   for (const slot of SLOTS) {
     if (!s.startsWith(slot.head) || !s.endsWith(slot.tail)) continue;
     const m = slot.re.exec(s);

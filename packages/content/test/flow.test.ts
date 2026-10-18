@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { annual, cast, SCHOOL_PROFILE } from '@guanwei/ziwei';
 import { BASE_BLOCKS, RULE_REGISTRY, SPEC_VERSION, assembleAll, inferAll } from '../src/index';
 import { fitWatchLead } from '../src/watch-lead';
+import { poleOf } from '../src/axes';
 
 const sentences = (s: string): string[] => s.match(/[^。！？]*[。！？]|[^。！？]+$/g) ?? [];
 
@@ -97,5 +98,32 @@ describe('宮位章：唔講兩次', () => {
         const sha = c.segments.find((s) => s.slot === '擾動')?.text ?? '';
         for (const x of SHA) if (deep.includes(x)) expect(sha, `${c.palace}：${x}`).not.toMatch(new RegExp(`(加上|再加上|還有)${x}`));
       }
+  });
+});
+
+/*
+ * B9：細讀、牽動句同前文方向相反（「出門在外大多是有福的」⟂「同宮有鈴星，在外多挫折」），要講明係例外（2026-10-18）。
+ */
+describe('宮位章：相反嘅講法講明係例外', () => {
+  it('細讀、牽動同前文相反嘅句，有「不過／但」或者自己有轉折', { timeout: 120_000 }, () => {
+    const bad: string[] = [];
+    let bridged = 0;
+    for (const book of BOOKS)
+      for (const c of book) {
+        const seen = new Set<number>();
+        for (const seg of c.segments) {
+          for (const t of sentences(seg.text)) {
+            const q = poleOf(c.palace!, t);
+            if (!q) continue;
+            if ((seg.slot === '細讀' || seg.slot === '牽動') && seen.has(-q)) {
+              if (/^(不過|但)/.test(t)) bridged++;
+              else if (!/但|只是|卻/.test(t)) bad.push(`${c.palace}｜${t}`);
+            }
+            if (['結論', '開場', '結構', '細讀', '牽動'].includes(seg.slot)) seen.add(q);
+          }
+        }
+      }
+    expect(bad).toEqual([]);
+    expect(bridged).toBeGreaterThan(20);
   });
 });

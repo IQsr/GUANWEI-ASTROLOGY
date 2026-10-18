@@ -31,13 +31,15 @@
 import { sanFangPalaces, type Brightness, type Chart, type Palace, type PalaceName } from '@guanwei/ziwei';
 import { WATCH_ROTATION, fitWatchLead, varyWatch } from './watch-lead';
 import { BRIGHT, MAJOR as MAJOR_LIST, branchReading } from './branch';
+import { poleOf } from './axes';
 import { BASE_BLOCKS } from './baseblock-data';
 import { PALACE_TOPIC } from './baseblock';
 import { brightnessModifier, maleficModifier, sihuaModifier } from './modifier-data';
 import { MALEFICS } from './modifier';
 import { chapterFooter, emptyPalaceLine, type Slot } from './frame';
 import { closeFor } from './frame-data';
-import { conclusionFor, pairPlain, palacePlain } from './palace-plain';
+import { LEAN_SUMMARY, conclusionFor, pairPlain, palacePlain } from './palace-plain';
+import { leanOf, xingxiOf } from './xingxi';
 import { variantFor } from './plain-variant';
 import { lifeLine } from './life';
 import { cjkCount } from './lexicon';
@@ -214,6 +216,47 @@ function dropEchoes(segments: Segment[]): void {
     segments[i] = { ...seg, text: kept.join('') };
   }
   for (let i = segments.length - 1; i >= 0; i--) if (!segments[i]!.text.trim()) segments.splice(i, 1);
+}
+
+/* 見 axes.ts：細讀同一般講法方向相反（2026-10-18 · 後生讀者抽樣 B9） */
+const TURN_START = /^(不過|但|只是|可是|然而)/;
+function bridgeExceptions(segments: Segment[], palace: string): void {
+  const at = segments.findIndex((x) => x.slot === '細讀');
+  if (at >= 0) {
+    const ss = sentences(segments[at]!.text);
+    const poles = ss.map((t) => poleOf(palace, t));
+    /* 一、「一般⋯」讓位畀相反方向嘅帶條件規則 */
+    const kept = ss.filter((t, i) => !(poles[i] !== 0 && t.includes('一般') && poles.some((q, j) => j !== i && q === -poles[i]!)));
+    if (kept.length) segments[at] = { ...segments[at]!, text: kept.join('') };
+    else segments.splice(at, 1);
+  }
+  /*
+   * 二、細讀、牽動（三方四正吉煞）句同前文（結論、開場、結構，同佢之前嘅細讀）方向相反：講明係例外。
+   * 一格入面第一處「不過，」，之後「但」，唔好連住兩個「不過」；句子自己已經有轉折就唔加。
+   */
+  const seen = new Set<number>();
+  for (let i = 0; i < segments.length; i++) {
+    const seg = segments[i]!;
+    const ss = sentences(seg.text);
+    if (seg.slot === '結論' || seg.slot === '開場' || seg.slot === '結構') {
+      ss.forEach((t) => {
+        const q = poleOf(palace, t);
+        if (q) seen.add(q);
+      });
+      continue;
+    }
+    if (seg.slot !== '細讀' && seg.slot !== '牽動') continue;
+    let turned = 0;
+    const out = ss.map((t) => {
+      const q = poleOf(palace, t);
+      if (q === 0) return t;
+      const clash = seen.has(-q);
+      seen.add(q);
+      if (!clash || TURN_START.test(t) || /但|只是|卻/.test(t)) return t;
+      return `${turned++ ? '但' : '不過，'}${t}`;
+    });
+    segments[i] = { ...seg, text: out.join('') };
+  }
 }
 
 /**
@@ -394,7 +437,12 @@ export function assemble(
     const base = lead ? conclusionFor(leadNames, palace, ji) : undefined;
     /* 結論冇出處、而呢張盤有帶條件嘅原文成立：換做帶條件嘅結論句（plain-variant.ts，2026-10-18） */
     const v = base ? variantFor(chart, base) : undefined;
-    const pp = base && v ? { ...base, summary: v.summary } : base;
+    const varied = base && v ? { ...base, summary: v.summary } : base;
+    /* 命宮結論跟骨架偏向（palace-plain.ts `LEAN_SUMMARY`） */
+    const byLean = varied && palace === '命宮' ? LEAN_SUMMARY[varied.id] : undefined;
+    const x = byLean ? xingxiOf(chart) : null;
+    const leanLine = x ? byLean![leanOf(chart, x.system).pole] : undefined;
+    const pp = varied && leanLine ? { ...varied, summary: leanLine.zh } : varied;
     if (pp) {
       /*
        * `conclusion` 係用嚟喺基塊度剷走同結論重複嗰句。整合版係改寫，唔係基塊撮句，
@@ -754,6 +802,7 @@ export function assemble(
    * 冇方向嘅係評級，唔係章 —— **章照樣有象、有結構、有牽動、有留白**。
    */
   dropEchoes(segments);
+  bridgeExceptions(segments, palace);
   const text = segments.map((s) => s.text).join('');
   const words = cjkCount(text);
 
