@@ -19,6 +19,23 @@ export type TimeHelpers = {
 
 const HUA: Record<string, string> = { 祿: '化禄', 權: '化権', 科: '化科', 忌: '化忌' };
 const isBranch = (x: string) => x.length === 1 && BRANCHES.includes(x);
+
+const PIVOT_COND_JA: Record<string, string> = {
+  '，大限順行': '大限は順行します',
+  '，大限逆行': '大限は逆行します',
+  '，三方四正見煞': '三方四正に煞星が入っています',
+  '，三方四正不見煞': '三方四正に煞星は入っていません',
+  '，丙年生': '丙の年の生まれです',
+};
+/** 「太陽太陰同宮或七殺」→「太陽と太陰が同宮する、または七殺」 */
+function pivotGroupsJa(zh: string, missing: string[]): string {
+  if (zh === '有化祿、化權、化科或化忌') return '化禄・化権・化科・化忌のいずれかがある';
+  const items = zh.replace(/或/g, '、').split('、').map((g) => {
+    const pair = /^(\S{2})(\S{2})同宮$/.exec(g);
+    return pair ? `${starsJa(pair[1]!, missing)}と${starsJa(pair[2]!, missing)}が同宮する` : starsJa(g, missing);
+  });
+  return items.length < 2 ? items[0]! : `${items.slice(0, -1).join('、')}、または${items[items.length - 1]}`;
+}
 const isStem = (x: string) => x.length === 1 && STEMS.includes(x);
 
 /** daxian.ts starsOf()：「坐天機」「沒有主星，借對宮的天同、天梁」「沒有主星」 */
@@ -265,8 +282,11 @@ const GIST_JA: Record<string, string> = {
 };
 
 function lookPart(zh: string, missing: string[]): string {
-  let m = /^你走進第(\S+?)個大限，生活的重心換了方向，(.+)$/.exec(zh);
-  if (m && n(m[1]!) && TURN_EG[m[2]!]) return `${kanjiNum(n(m[1]!)!)}番目の大限に入り、暮らしの重心の向きが変わりました。${TURN_EG[m[2]!]}です`;
+  let m = /^你走進第(\S+?)個大限，(正是開頭說的關鍵大限，)?生活的重心換了方向，(.+)$/.exec(zh);
+  if (m && n(m[1]!) && TURN_EG[m[3]!]) {
+    const key = m[2] ? '（冒頭で挙げた大切な大限です）' : '';
+    return `${kanjiNum(n(m[1]!)!)}番目の大限${key}に入り、暮らしの重心の向きが変わりました。${TURN_EG[m[3]!]}です`;
+  }
   if (EVENT_JA[zh]) return EVENT_JA[zh]!;
   m = /^同一年，(.+)$/.exec(zh);
   if (m && GIST_JA[m[1]!]) return `同じ年、${GIST_JA[m[1]!]}`;
@@ -368,7 +388,7 @@ export function timeTemplate(s: string, missing: string[], h: TimeHelpers): stri
     const where = m[4] ? `${kanjiNum(n(m[4])!)}番目の段階を歩いていました` : 'まだ最初の段階に入っていませんでした';
     return `大限は${kazoe(n(m[1]!)!)}から始まり、十年ごとに次の段階へ移ります。この本を書いた時点（${n(m[2]!)}年）で、あなたは${where}。`;
   }
-  m = /^你命盤裡的關鍵大限是(.+)：這幾步的得失，對你一生影響特別大。$/.exec(s);
+  m = /^你命盤裡的關鍵大限是(.+)：這(?:幾|一)步的得失，對你一生影響特別大。$/.exec(s);
   if (m) {
     const steps = m[1]!.split('、').map((x) => /^第(\S+?)步$/.exec(x)?.[1]).map((x) => (x && n(x) ? `${kanjiNum(n(x)!)}番目` : null));
     if (steps.every(Boolean)) return `あなたの命盤で大切な大限は、${steps.join('・')}の段階です。そこでの得失は、生涯にとりわけ大きく影響します。`;
@@ -376,6 +396,11 @@ export function timeTemplate(s: string, missing: string[], h: TimeHelpers): stri
   m = new RegExp(`^第(\\S+?)步　(\\S+?)至(\\S+?)歲　(\\S+?宮)，(${SEAT})。$`).exec(s);
   if (m && n(m[1]!) && n(m[2]!) && n(m[3]!)) {
     return `第${kanjiNum(n(m[1]!)!)}段階　${kazoeRange(n(m[2]!)!, n(m[3]!)!)}　${pal(m[4]!, missing)}${seat(m[5]!, missing)}。`;
+  }
+  /* 關鍵大限點解（daxian.ts pivotWhy，2026-10-18） */
+  m = /^你的命宮在(\S)，(坐[^：，]+|沒有主星，借對面宮位的[^：，]+)((?:，[^：]+)?)：這樣的命盤，行到(.+)的大限，就是一生的轉折點。$/.exec(s);
+  if (m && isBranch(m[1]!) && (!m[3] || PIVOT_COND_JA[m[3]])) {
+    return `あなたの命宮は${m[1]}${seat(m[2]!, missing)}${m[3] ? `。${PIVOT_COND_JA[m[3]]}` : ''}。このような命盤では、${pivotGroupsJa(m[4]!, missing)}の大限が、人生の転機になります。`;
   }
   if (s === '關鍵大限。') return '大切な大限です。';
   if (s === '寫這本書時，你在這一步。') return 'この本を書いた時点で、あなたはこの段階にいました。';

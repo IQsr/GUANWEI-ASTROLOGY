@@ -124,7 +124,7 @@ const SHA4 = ['擎羊', '陀羅', '火星', '鈴星'];
 export function pivotRule(
   chart: Chart,
   scope: 'decade' | 'year',
-): { isPivot: (p: Palace) => boolean; source: string } | null {
+): { isPivot: (p: Palace) => boolean; source: string; rule: (typeof DAXIAN_PIVOTS)[number] } | null {
   const ming = chart.palaces.find((p) => p.name === '命宮');
   if (!ming || chart.decadals.length < 2) return null;
   let stars = majors(ming);
@@ -153,18 +153,55 @@ export function pivotRule(
       ok(r.cond),
   );
   if (!rule) return null;
-  const names = (p: Palace) => p.stars.filter((s) => s.kind === 'major' || s.name === '文昌' || s.name === '文曲').map((s) => s.name);
   const isPivot = (p: Palace) =>
-    rule.cond === 'hua' ? p.stars.some((s) => s.sihua) : rule.pivots.some((g) => g.every((s) => names(p).includes(s)));
-  return { isPivot, source: rule.source.passage_id };
+    rule.cond === 'hua' ? p.stars.some((s) => s.sihua) : rule.pivots.some((g) => pivotHit(g, p));
+  return { isPivot, source: rule.source.passage_id, rule };
+}
+const pivotNames = (p: Palace) => p.stars.filter((s) => s.kind === 'major' || s.name === '文昌' || s.name === '文曲').map((s) => s.name);
+const pivotHit = (g: string[], p: Palace) => g.every((s) => pivotNames(p).includes(s));
+
+/*
+ * 關鍵大限點解關鍵（2026-10-18 · Issac：「關鍵大限加一句王亭之出處講點解」）
+ *
+ * 一句講晒：命宮係乜星（同條件），書上以邊類大限做樞紐。只列呢張盤真係行到嗰幾類
+ * （例如天機丑未以太陽、太陰為樞紐，太陰嗰步九十歲後先到，就淨講太陽），
+ * 讀者對住下面逐步嘅星就見到點解係嗰幾步。出處註由 citation.ts 用 `pivotWhyPattern` 配返。
+ */
+const PIVOT_COND: Partial<Record<NonNullable<(typeof DAXIAN_PIVOTS)[number]['cond']>, string>> = {
+  forward: '，大限順行',
+  backward: '，大限逆行',
+  sha: '，三方四正見煞',
+  nosha: '，三方四正不見煞',
+  'stem:丙': '，丙年生',
+};
+const orList = (xs: string[]) => (xs.length < 2 ? (xs[0] ?? '') : `${xs.slice(0, -1).join('、')}或${xs[xs.length - 1]}`);
+const pivotGroup = (g: string[]) => (g.length === 1 ? g[0]! : `${g.join('')}同宮`);
+const WHY_TAIL = '：這樣的命盤，行到';
+
+function pivotWhy(chart: Chart, rule: (typeof DAXIAN_PIVOTS)[number], keyPalaces: Palace[]): string {
+  const ming = chart.palaces.find((p) => p.name === '命宮')!;
+  const groups =
+    rule.cond === 'hua' ? ['有化祿、化權、化科或化忌'] : rule.pivots.filter((g) => keyPalaces.some((p) => pivotHit(g, p))).map(pivotGroup);
+  return `你的命宮在${ming.branch}，${starsOf(chart, ming)}${PIVOT_COND[rule.cond ?? 'hua'] ?? ''}${WHY_TAIL}${orList(groups)}的大限，就是一生的轉折點。`;
+}
+
+/** 認返「關鍵大限點解」嗰句係邊條規則寫嘅（出處註用）：星、命宮地支、條件都要對 */
+export function pivotWhyPattern(rule: (typeof DAXIAN_PIVOTS)[number]): RegExp {
+  const B = '子丑寅卯辰巳午未申酉戌亥';
+  const opp = (b: string) => B[(B.indexOf(b) + 6) % 12]!;
+  const stars = rule.ming.length === 2 ? `(?:${rule.ming.join('、')}|${[...rule.ming].reverse().join('、')})` : rule.ming[0]!;
+  const own = rule.branches ? `[${rule.branches.join('')}]` : '.';
+  const borrowed = rule.branches ? `[${rule.branches.map(opp).join('')}]` : '.';
+  const cond = PIVOT_COND[rule.cond ?? 'hua'] ?? '';
+  return new RegExp(`^你的命宮在(?:${own}，坐${stars}|${borrowed}，沒有主星，借對面宮位的${stars})${cond}${WHY_TAIL}`);
 }
 
 /** 呢張盤邊幾步大限係樞紐。冇資料（書冇講嗰組命宮星）就回空。 */
-export function pivotSteps(chart: Chart): { steps: number[]; source: string | null } {
+export function pivotSteps(chart: Chart): { steps: number[]; source: string | null; rule: (typeof DAXIAN_PIVOTS)[number] | null } {
   const r = pivotRule(chart, 'decade');
-  if (!r) return { steps: [], source: null };
+  if (!r) return { steps: [], source: null, rule: null };
   const steps = chart.decadals.filter((d) => r.isPivot(chart.palaces.find((x) => x.branch === d.branch)!)).map((d) => d.index);
-  return { steps, source: r.source };
+  return { steps, source: r.source, rule: r.rule };
 }
 export const DAXIAN_RULES = RulesDoc.parse(rulesRaw);
 
@@ -596,6 +633,7 @@ export function lookBackEvent(chart: Chart, A: AnnualChart): (typeof LOOKBACK_EV
 export function lookBack(chart: Chart, year: number): DaxianSegment | null {
   const born = chart.lunar.y;
   const pivot = pivotRule(chart, 'year');
+  const keySteps = pivotSteps(chart).steps;
   type Cand = { y: number; gz: string; age: number; score: number; key: boolean; event: string | null; parts: string[]; sources: string[] };
   const cands: Cand[] = [];
   for (let y = born + LOOKBACK_FROM_AGE - 1; y < year; y++) {
@@ -606,9 +644,14 @@ export function lookBack(chart: Chart, year: number): DaxianSegment | null {
     const sources: string[] = [];
     let score = 0;
     const turn = chart.decadals.find((d) => d.fromAge === A.nominalAge);
+    /*
+     * 走進關鍵大限嗰年（2026-10-18）：講明係開頭講嗰步，回看同十二步先扣得埋。
+     * 多一分：同分嘅年份入面優先揀佢，呢度係成章最直接嘅連接。
+     */
+    const keyTurn = Boolean(turn && keySteps.includes(turn.index));
     if (turn) {
-      parts.push(`你走進第${num(turn.index)}個大限，生活的重心換了方向，${turnEg(A.nominalAge)}`);
-      score += 2;
+      parts.push(`你走進第${num(turn.index)}個大限，${keyTurn ? '正是開頭說的關鍵大限，' : ''}生活的重心換了方向，${turnEg(A.nominalAge)}`);
+      score += keyTurn ? 3 : 2;
     }
     const ji = A.sihua.annual.find((h) => h.hua === '忌');
     const lu = A.sihua.annual.find((h) => h.hua === '祿');
@@ -702,8 +745,10 @@ export function lifeStepsChapter(input: { chart: Chart; year: number }): Out {
   const rest = chart.decadals.find((d) => d.fromAge >= STEPS_UNTIL_AGE);
   const pv = pivotSteps(chart);
   const keySteps = pv.steps.filter((n) => shown.some((d) => d.index === n));
+  const keyPalaces = keySteps.map((n) => chart.palaces.find((p) => p.branch === chart.decadals.find((d) => d.index === n)!.branch)!);
   const keyLine = keySteps.length
-    ? `你命盤裡的關鍵大限是${keySteps.map((n) => `第${num(n)}步`).join('、')}：這幾步的得失，對你一生影響特別大。`
+    ? `你命盤裡的關鍵大限是${keySteps.map((n) => `第${num(n)}步`).join('、')}：${keySteps.length === 1 ? '這一步' : '這幾步'}的得失，對你一生影響特別大。` +
+      pivotWhy(chart, pv.rule!, keyPalaces)
     : '';
   const steps: DaxianSegment[] = shown.map((d) => {
     const p = chart.palaces.find((x) => x.branch === d.branch)!;

@@ -119,7 +119,8 @@ export function factTemplate(s: string, missing: string[]): string | null {
   if (m) return `命宮に貪狼があり、身宮にはさらに${starsJa(m[1]!, missing)}を見て、そのうえ煞星と会っています。欲も勢いも強いので、まっとうな出口を見つけてあげるのがいちばんです。`;
 
   /* 性格的骨架 · 你的命宮在子，坐巨門。／宮內沒有主星，借對宮的太陰、太陽來讀。 */
-  m = /^你的命宮在(\S)，坐(.+)。$/.exec(s);
+  /* 唔收有「：」嗰款：嗰句係一生十二步嘅關鍵大限點解（time.ts） */
+  m = /^你的命宮在(\S)，坐([^：]+)。$/.exec(s);
   if (m && isBranch(m[1]!)) return `あなたの命宮は${m[1]}にあり、${starsJa(m[2]!, missing)}が入っています。`;
   m = /^你的命宮在(\S)，宮內沒有主星，借(?:對宮|對面遷移宮)的(.+)來讀。$/.exec(s);
   if (m && isBranch(m[1]!)) return `あなたの命宮は${m[1]}にあり、主星がないので、向かいの遷移宮の${starsJa(m[2]!, missing)}を借りて読みます。`;

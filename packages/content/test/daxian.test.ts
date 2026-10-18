@@ -1,9 +1,12 @@
 import { describe, expect, it } from 'vitest';
 import { cast, sihuaOfStem, STEMS } from '@guanwei/ziwei';
-import { DAXIAN_HUA, DAXIAN_PIVOTS, STEPS_UNTIL_AGE, decadeChapter, lifeStepsChapter, pivotSteps } from '../src/daxian';
+import { DAXIAN_HUA, DAXIAN_PIVOTS, STEPS_UNTIL_AGE, decadeChapter, lifeStepsChapter, num, pivotSteps } from '../src/daxian';
 import { scanForbidden } from '../src/lint';
 import { scanPlain } from '../src/plain';
 import { withoutCitations } from '../src/lexicon';
+import { citeOf } from '../src/citation';
+import { renderChapter as renderEn } from '../src/en/render';
+import { renderChapter as renderJa } from '../src/ja/render';
 
 /** 大限兩章（2026-09-30）：出處喺 daxian.ts 開頭 */
 
@@ -163,5 +166,44 @@ describe('樞紐大限（下篇宮垣論・命宮，p.336–366）', () => {
       expect(ch.segments.filter((s) => s.text.includes('關鍵大限。')).length).toBe(steps.length);
       if (steps.length) expect(ch.segments[0]!.text).toContain('關鍵大限');
     }
+  });
+
+  /* 2026-10-18 · Issac：「關鍵大限加一句王亭之出處講點解；回看走進關鍵步嗰年要講明」 */
+  it('一生十二步：關鍵大限有一句點解，出處係嗰條樞紐原文，英日譯得到', () => {
+    let seen = 0;
+    for (const c of CHARTS) {
+      const ch = lifeStepsChapter({ chart: c, year: 2026 })!;
+      const pv = pivotSteps(c);
+      const shown = pv.steps.filter((n) => c.decadals.find((d) => d.index === n)!.fromAge < STEPS_UNTIL_AGE);
+      const why = ch.segments[0]!.text.split('。').find((x) => x.startsWith('你的命宮在'));
+      if (!shown.length) {
+        expect(why, ch.segments[0]!.text).toBeUndefined();
+        continue;
+      }
+      seen++;
+      expect(why, ch.segments[0]!.text).toBeDefined();
+      expect(why).not.toMatch(/行到的大限/);
+      expect(citeOf(`${why}。`), why).toEqual([pv.source]);
+      expect(ch.segments[0]!.text).toContain(shown.length === 1 ? '這一步的得失' : '這幾步的得失');
+      for (const r of [renderEn(ch.segments[0]!.text), renderJa(ch.segments[0]!.text)]) expect(r.missing, why).toEqual([]);
+    }
+    expect(seen).toBeGreaterThan(100);
+  });
+
+  it('回看：走進關鍵大限嗰年講明係關鍵嗰步，其餘換大限年唔講', () => {
+    let seen = 0;
+    for (const c of CHARTS) {
+      const ch = lifeStepsChapter({ chart: c, year: 2026 })!;
+      const back = ch.segments.find((s) => s.slot === '回看');
+      if (!back) continue;
+      const key = pivotSteps(c).steps;
+      for (const m of back.text.matchAll(/你走進第(\S+?)個大限，(正是開頭說的關鍵大限，)?/g)) {
+        const idx = c.decadals.find((d) => `第${num(d.index)}個大限` === `第${m[1]}個大限`)!.index;
+        expect(Boolean(m[2]), back.text).toBe(key.includes(idx));
+        if (m[2]) seen++;
+      }
+      for (const r of [renderEn(back.text), renderJa(back.text)]) expect(r.missing, back.text).toEqual([]);
+    }
+    expect(seen).toBeGreaterThan(10);
   });
 });

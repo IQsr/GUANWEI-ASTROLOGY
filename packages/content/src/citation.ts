@@ -1,5 +1,5 @@
 import { BRANCH_TOPICS, slotPattern, stripOr } from './branch';
-import { DAXIAN_HUA, LOOKBACK_EVENTS, firstClause } from './daxian';
+import { DAXIAN_HUA, DAXIAN_PIVOTS, LOOKBACK_EVENTS, firstClause, pivotWhyPattern } from './daxian';
 import { CORPUS } from './lexicon';
 import { LIFE_LINES } from './life';
 import { PAIR_PLAIN, PALACE_PLAIN } from './palace-plain';
@@ -23,6 +23,7 @@ import { XINGXI } from './xingxi';
  *       一句可以有化祿化忌兩個分句，兩個出處都回。通用句（AREA_HUA）冇逐句出處，唔收。
  *   六、生活句有王亭之出處嗰 85 句（2026-10-18）—— life.ts 載入時已經逐字核過引文
  *   七、宮位結論句有 `source` 嗰啲（2026-10-18 · A2 第三步）—— 逐格對過宮垣論，palace-plain.ts 載入時核引文
+ *   八、一生十二步「關鍵大限點解」嗰句（2026-10-18）—— 掛命宮樞紐原文（daxian/pivots.json，載入時核引文）
  * 舊有嘅宮位基塊、結論句、冇出處嘅生活句未收：審查指出佢哋掛嘅《全書》古文撐唔起後面嘅描述，
  * 加註只會令讀者對照時發現對唔上。轉做分支規則之後先加。
  *
@@ -163,6 +164,11 @@ function build(): { zh: CiteKey[]; en: CiteKey[] } {
   for (const v of PLAIN_VARIANTS) {
     zh.push({ key: v.summary, ids: v.passages });
     en.push({ key: v.en, ids: v.passages });
+  }
+  /* 關鍵大限點解：一條規則一個比對式（星、命宮地支、條件），句子按盤填，所以用 re */
+  for (const r of DAXIAN_PIVOTS) {
+    if (r.scope === 'year') continue;
+    zh.push({ key: `樞紐 ${r.id}`, ids: [r.source.passage_id], re: pivotWhyPattern(r) });
   }
   for (const e of LOOKBACK_EVENTS) zh.push({ key: e.text, ids: e.sources.map((s) => s.passage_id) });
   /* 長嘅行先：一句包含兩條索引句時，揀最具體嗰條 */

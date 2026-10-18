@@ -73,6 +73,23 @@ function huaList(zh: string, missing: string[]): { text: string; many: boolean }
 }
 const n = (zh: string) => cnNum(zh);
 
+const PIVOT_COND_EN: Record<string, string> = {
+  '，大限順行': ', with your stages moving forward',
+  '，大限逆行': ', with your stages moving backward',
+  '，三方四正見煞': ', with malefic stars in its four directions',
+  '，三方四正不見煞': ', with no malefic stars in its four directions',
+  '，丙年生': ', born in a Bing year',
+};
+/** 「太陽太陰同宮或七殺」→ Tai Yang and Tai Yin together, or Qi Sha */
+function pivotGroupsEn(zh: string, missing: string[]): string {
+  if (zh === '有化祿、化權、化科或化忌') return 'a star turning to Abundance, Authority, Recognition or Obstruction';
+  const items = zh.replace(/或/g, '、').split('、').map((g) => {
+    const pair = /^(\S{2})(\S{2})同宮$/.exec(g);
+    return pair ? `${starsEn(pair[1]!, missing)} and ${starsEn(pair[2]!, missing)} together` : starsEn(g, missing);
+  });
+  return items.length < 2 ? items[0]! : `${items.slice(0, -1).join(', ')} or ${items[items.length - 1]}`;
+}
+
 /* ── 分四方面（daxian.ts TONE）：主語係「these ten years」（眾數）或「this year」 ── */
 const TONES: [string, (year: boolean) => string][] = [
   ['有發揮的空間，也要多扛一點', (y) => `give${y ? 's' : ''} you room to make your mark, and ask${y ? 's' : ''} you to carry a little more`],
@@ -232,8 +249,11 @@ const GIST_EN: Record<string, string> = {
 };
 
 function lookPart(zh: string, missing: string[]): string {
-  let m = /^你走進第(\S+?)個大限，生活的重心換了方向，(.+)$/.exec(zh);
-  if (m && n(m[1]!) && TURN_EG[m[2]!]) return `you entered your ${ordinalWord(n(m[1]!)!)} ten-year stage, and the centre of your life shifted, ${TURN_EG[m[2]!]}`;
+  let m = /^你走進第(\S+?)個大限，(正是開頭說的關鍵大限，)?生活的重心換了方向，(.+)$/.exec(zh);
+  if (m && n(m[1]!) && TURN_EG[m[3]!]) {
+    const key = m[2] ? ' (the key stage named at the start)' : '';
+    return `you entered your ${ordinalWord(n(m[1]!)!)} ten-year stage${key}, and the centre of your life shifted, ${TURN_EG[m[3]!]}`;
+  }
   if (EVENT_EN[zh]) return EVENT_EN[zh]!;
   m = /^同一年，(.+)$/.exec(zh);
   if (m && GIST_EN[m[1]!]) return `in the same year, ${GIST_EN[m[1]!]}`;
@@ -386,7 +406,7 @@ export function timeTemplate(s: string, missing: string[], h: TimeHelpers): stri
     const where = m[4] ? `you were on the ${ordinalWord(n(m[4])!)} step` : "you hadn't reached the first step yet";
     return `Your ten-year stages begin at ${ageStart(n(m[1]!)!)} and move on every ten years; when this book was written (${n(m[2]!)}), ${where}.`;
   }
-  m = /^你命盤裡的關鍵大限是(.+)：這幾步的得失，對你一生影響特別大。$/.exec(s);
+  m = /^你命盤裡的關鍵大限是(.+)：這(?:幾|一)步的得失，對你一生影響特別大。$/.exec(s);
   if (m) {
     const steps = m[1]!.split('、').map((x) => /^第(\S+?)步$/.exec(x)?.[1]).map((x) => (x && n(x) ? ordinalWord(n(x)!) : null));
     if (steps.every(Boolean)) {
@@ -397,6 +417,11 @@ export function timeTemplate(s: string, missing: string[], h: TimeHelpers): stri
   m = new RegExp(`^第(\\S+?)步　(\\S+?)至(\\S+?)歲　(\\S+?宮)，(${SEAT})。$`).exec(s);
   if (m && n(m[1]!) && n(m[2]!) && n(m[3]!)) {
     return `Step ${n(m[1]!)} — ${ageRange(n(m[2]!)!, n(m[3]!)!)} — your ${pal(m[4]!, missing)}${seat(m[5]!, missing)}.`;
+  }
+  /* 關鍵大限點解（daxian.ts pivotWhy，2026-10-18） */
+  m = /^你的命宮在(\S)，(坐[^：，]+|沒有主星，借對面宮位的[^：，]+)((?:，[^：]+)?)：這樣的命盤，行到(.+)的大限，就是一生的轉折點。$/.exec(s);
+  if (m && BRANCH_EN[m[1]!] && (!m[3] || PIVOT_COND_EN[m[3]])) {
+    return `Your Life Palace sits in ${BRANCH_EN[m[1]!]}${seat(m[2]!, missing)}${m[3] ? PIVOT_COND_EN[m[3]] : ''}: in a chart like this, the ten-year stages holding ${pivotGroupsEn(m[4]!, missing)} are the turning points of a life.`;
   }
   if (s === '關鍵大限。') return 'A key stage.';
   if (s === '寫這本書時，你在這一步。') return 'You were on this step when this book was written.';
