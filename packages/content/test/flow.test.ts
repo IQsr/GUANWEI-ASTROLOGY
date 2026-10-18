@@ -66,3 +66,36 @@ describe('結論段轉接語跟方向（fitWatchLead）', () => {
     expect(fitWatchLead('你和後輩之間容易不和。', '要留意的是：x。', '要留意的是，')).toBe('要留意的是，');
   });
 });
+
+/*
+ * B7：一章入面同一句意思講兩次；B8：同一粒煞細讀講完擾動再講（2026-10-18）。
+ * 框架字（兩粒星共用嘅開頭）唔算重複，同 assemble.ts `ECHO_FRAME` 一樣。
+ */
+const FRAME = /培養人的時候|對居所的態度是|或自己在做的事|離開熟悉的地方/g;
+const cjk = (t: string) => t.replace(FRAME, '').replace(/[^㐀-鿿]/g, '');
+const shareRun = (a: string, b: string, n: number) => {
+  for (let i = 0; i + n <= a.length; i++) if (b.includes(a.slice(i, i + n))) return true;
+  return false;
+};
+describe('宮位章：唔講兩次', () => {
+  it('冇兩句有七個字以上逐字一樣', { timeout: 120_000 }, () => {
+    const bad = new Set<string>();
+    for (const book of BOOKS)
+      for (const c of book) {
+        const ss = c.segments.filter((s) => s.slot !== '過場' && s.slot !== '留白').flatMap((s) => sentences(s.text).map((t) => ({ slot: s.slot, t })));
+        for (let i = 0; i < ss.length; i++)
+          for (let j = i + 1; j < ss.length; j++)
+            if (shareRun(cjk(ss[i]!.t), cjk(ss[j]!.t), 7)) bad.add(`${c.palace}｜${ss[i]!.slot}：${ss[i]!.t} ⟂ ${ss[j]!.slot}：${ss[j]!.t}`);
+      }
+    expect([...bad]).toEqual([]);
+  });
+  it('細讀講咗嘅煞，擾動唔再講', { timeout: 120_000 }, () => {
+    const SHA = ['擎羊', '陀羅', '火星', '鈴星', '地空', '地劫'];
+    for (const book of BOOKS)
+      for (const c of book) {
+        const deep = c.segments.find((s) => s.slot === '細讀')?.text ?? '';
+        const sha = c.segments.find((s) => s.slot === '擾動')?.text ?? '';
+        for (const x of SHA) if (deep.includes(x)) expect(sha, `${c.palace}：${x}`).not.toMatch(new RegExp(`(加上|再加上|還有)${x}`));
+      }
+  });
+});

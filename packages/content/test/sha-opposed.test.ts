@@ -29,8 +29,12 @@ function shaTexts(palace: string, pair: [string, string]): string[] {
     const p = chart.palaces.find((x) => x.name === palace)!;
     const names = p.stars.map((s) => s.name);
     if (!pair.every((x) => names.includes(x))) continue;
-    const seg = book.find((c) => c.palace === palace)?.segments.find((s) => s.slot === '擾動');
+    const segs = book.find((c) => c.palace === palace)?.segments ?? [];
+    const seg = segs.find((s) => s.slot === '擾動');
+    /* 2026-10-18 B8：細讀已經講咗嗰粒煞，擾動唔再講；兩粒都講咗就冇擾動格 */
+    const deep = segs.find((s) => s.slot === '細讀')?.text ?? '';
     if (seg) out.push(seg.text);
+    else expect(pair.every((x) => deep.includes(x)), `${palace}：冇擾動格，細讀要講齊${pair.join('、')}`).toBe(true);
   }
   return out;
 }
@@ -43,8 +47,8 @@ describe('方向相反嘅煞同宮', () => {
   });
 
   it('父母擎羊＋鈴星：一樣', () => {
+    /* 父母宮細讀多數兩粒都講齊（「父母宮見擎羊、鈴星⋯」），擾動格可能一個都唔出 */
     const ts = shaTexts('父母', ['擎羊', '鈴星']);
-    expect(ts.length).toBeGreaterThan(0);
     for (const t of ts) expect(t).toMatch(/不過同宮還有(擎羊|鈴星)，拉向另一邊：/);
   });
 

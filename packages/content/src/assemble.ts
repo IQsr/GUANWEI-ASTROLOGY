@@ -174,6 +174,48 @@ function sharesRun(a: string, b: string, n: number): boolean {
   return false;
 }
 
+/*
+ * 一章入面同一句意思講兩次（2026-10-18 · 後生讀者抽樣 B7）。
+ *
+ * 400 本書 4,800 章有 552 章中招，九成係「結構／細讀」同「生活」撞句：生活格本來就係將基塊講過嘅嘢
+ * 換成場景（life.ts），所以會撞原字（「事情推到有結論」「可以窩著的角落」）；另外係基塊自己連講兩句
+ * （「起伏的原因多半是選擇而不是運氣。它的起伏來自選擇而不是運氣。」）。
+ *
+ * 規則：結構、細讀格入面一句，同**前面**任何一句（包括同一格前面），或者同**後面嘅生活格**，
+ * 有七個字以上逐字一樣，就剷呢句 —— 抽象講法讓位畀場景；結論、開場、生活本身唔剷。
+ * 一格剷到冇句就成格拎走。比較前拎走兩粒星共用嘅框架字（「培養人的時候」），唔係重複。
+ */
+const ECHO_FRAME = /培養人的時候|對居所的態度是|或自己在做的事|離開熟悉的地方/g;
+const ECHO_DROP = new Set(['結構', '細讀']);
+const ECHO_SKIP = new Set(['過場', '留白']);
+/* 同 test/anaphor.test.ts 嘅 ANAPHOR 一樣 */
+const ECHO_ANAPHOR = /^(這|那|至於|它的課題|相對地|所以|於是|因此|而|但|也|同樣|卷二那句|不是)/;
+function dropEchoes(segments: Segment[]): void {
+  const bare = (t: string) => t.replace(ECHO_FRAME, '');
+  const life = segments.filter((x) => x.slot === '生活').flatMap((x) => sentences(x.text)).map(bare);
+  const seen: string[] = [];
+  for (let i = 0; i < segments.length; i++) {
+    const seg = segments[i]!;
+    if (ECHO_SKIP.has(seg.slot)) continue;
+    const ss = sentences(seg.text);
+    if (!ECHO_DROP.has(seg.slot)) {
+      seen.push(...ss.map(bare));
+      continue;
+    }
+    const kept = ss.filter((t, k) => {
+      const b = bare(t);
+      /* 下一句靠住佢（「這使⋯」「所以它⋯」）就唔剷，唔係下一句冇咗前文 */
+      const leanedOn = ECHO_ANAPHOR.test(ss[k + 1] ?? '');
+      if (!leanedOn && cjkCount(t) >= 8 && [...seen, ...life].some((u) => sharesRun(b, u, 7))) return false;
+      seen.push(b);
+      return true;
+    });
+    if (kept.length === ss.length) continue;
+    segments[i] = { ...seg, text: kept.join('') };
+  }
+  for (let i = segments.length - 1; i >= 0; i--) if (!segments[i]!.text.trim()) segments.splice(i, 1);
+}
+
 /**
  * 基塊剷走同結論重複嗰幾句之後，餘下嘅句（直白版，2026-09-29）。
  *
@@ -318,6 +360,8 @@ export function assemble(
   const matchedRuleIds = new Set(o.evidence.map((e) => e.rule_id));
   /* 空段唔出（直白版剷走重複句之後，短基塊嘅結構格可能乜都唔剩）—— 空段會令段數同格名對唔上 */
   let lifeSeg: Segment | null = null;
+  /* 細讀已經講咗邊粒煞（擾動唔再講，見下面） */
+  let deepText = '';
   const push = (seg: Segment) => {
     if (seg.text.trim() !== '') segments.push(seg);
   };
@@ -565,6 +609,7 @@ export function assemble(
     /* 細讀：原文分支收斂出嚟嘅主張（官祿天機、夫妻宮）。借對宮照讀 —— branch.ts 將對宮主星借入本宮。 */
     const deep = branchReading(chart, palace);
     if (deep) {
+      deepText = deep.text;
       push({ slot: '細讀', text: deep.text, source_id: deep.sources.join('+'), rule_ids: [] });
     }
 
@@ -589,7 +634,15 @@ export function assemble(
    */
   const shaHere = p.stars.filter((s) => (MALEFICS as readonly string[]).includes(s.name));
   if (shaHere.length > 0) {
-    const mods = shaHere.map((s) => maleficModifier(s.name, palace)).filter(Boolean);
+    /*
+     * 2026-10-18 · 後生讀者抽樣 B8：細讀規則已經講咗呢粒煞（「祖業破了之後，也能自己再置」嗰類），
+     * 擾動再講「加上火星同宮，⋯」就同一粒星一章講兩三次。細讀係原文帶條件嘅講法，佢行；擾動讓位。
+     */
+    const inDeep = shaHere.filter((s) => deepText.includes(s.name)).map((s) => s.name);
+    const mods = shaHere
+      .filter((s) => !inDeep.includes(s.name))
+      .map((s) => maleficModifier(s.name, palace))
+      .filter(Boolean);
     /*
      * ⚠ 剝走煞星嘅**定義句**，淨低呢一宮嘅部分。
      *
@@ -631,8 +684,10 @@ export function assemble(
         const c = t.indexOf('：');
         const name = c > 0 ? t.slice(0, c) : m!.star;
         const body = c > 0 ? t.slice(c + 1) : t;
+        /* 細讀講咗嗰粒同呢粒方向相反：呢粒一樣講明拉向另一邊 */
+        if (mods.slice(0, i).some((x) => opposed(x!.star, m!.star)) || inDeep.some((x) => opposed(x, m!.star)))
+          return `不過同宮還有${name}，拉向另一邊：${body}`;
         if (i === 0) return `加上${name}同宮，${body}`;
-        if (mods.slice(0, i).some((x) => opposed(x!.star, m!.star))) return `不過同宮還有${name}，拉向另一邊：${body}`;
         return `再加上${name}，${body}`;
       })
       .join('');
@@ -698,6 +753,7 @@ export function assemble(
    * 呢個分工令 V-001「大部分章冇方向」嘅代價細好多：
    * 冇方向嘅係評級，唔係章 —— **章照樣有象、有結構、有牽動、有留白**。
    */
+  dropEchoes(segments);
   const text = segments.map((s) => s.text).join('');
   const words = cjkCount(text);
 
