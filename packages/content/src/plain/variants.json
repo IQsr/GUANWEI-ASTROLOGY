@@ -198,5 +198,18 @@
   {"target": "pair.武曲天府.遷移", "rule": "遷移.武曲.本", "summary": "你到了外地，總是忙個不停。", "en": "Once you're somewhere new, you're kept busy nonstop."},
   {"target": "pair.武曲天相.遷移", "rule": "遷移.天相.凶夾", "summary": "你在外面常是孤身一人，身邊少人照顧。", "en": "Out in the world you easily end up isolated, with few to look out for you."},
   {"target": "pair.武曲天相.遷移", "rule": "遷移.天相.吉夾", "summary": "你在外面人緣好，容易討人喜歡。", "en": "Out in the world you get on well with people and are easily liked."},
-  {"target": "pair.武曲天相.遷移", "rule": "遷移.武曲.本", "summary": "你到了外地，總是忙個不停。", "en": "Once you're somewhere new, you're kept busy nonstop."}
+  {"target": "pair.武曲天相.遷移", "rule": "遷移.武曲.本", "summary": "你到了外地，總是忙個不停。", "en": "Once you're somewhere new, you're kept busy nonstop."},
+  {"target": "plain.天相.福德", "rule": "福德.天相.空劫", "summary": "你容易想得多、做得少，話說了卻落不了地。", "en": "You easily think a lot and do little; what you say often doesn't get carried out."},
+  {"target": "plain.天相.福德", "rule": "福德.天相.祿", "summary": "你心裡踏實，精神上不覺得空虛。", "en": "You feel grounded inside, and your inner life doesn't feel empty."},
+  {"target": "plain.天相.福德", "rule": "福德.天相.廉破", "summary": "你特別有正義感，也很能體諒別人。", "en": "You have a strong sense of justice and a lot of sympathy for others."},
+  {"target": "plain.天相.福德", "rule": "福德.天相.武破", "summary": "你很有責任心，只是遇事拿不定主意，容易被人說動。", "en": "You're very responsible, but when something comes up you can't make up your mind and are easily talked into things."},
+  {"target": "plain.天相.福德", "rule": "福德.通則.火", "summary": "你的心思比較浮躁，難得靜下來。", "en": "Your mind is rather restless and rarely settles."},
+  {"target": "plain.天相.福德", "rule": "福德.通則.鈴", "summary": "你心裡容易焦慮，常常暗自擔憂。", "en": "You're prone to anxiety and often worry quietly to yourself."},
+  {"target": "plain.天相.福德", "rule": "福德.通則.陀", "summary": "你憂慮多，心事總是反覆在腦裡打轉。", "en": "You worry a lot, and your concerns keep circling in your head."},
+  {"target": "plain.天相.福德", "rule": "福德.通則.羊", "summary": "你一生勞碌，事情常常落到你身上。", "en": "Your life is a busy one, and things often land on your shoulders."},
+  {"target": "plain.天相.福德", "rule": "福德.通則.祿存", "summary": "你衝勁不算大，但心裡安樂。", "en": "You're not especially driven, but you're content inside."},
+  {"target": "plain.破軍.福德", "rule": "福德.破軍.火鈴", "summary": "你內心容易急躁、焦慮。", "en": "Inside, you easily become impatient and anxious."},
+  {"target": "plain.破軍.福德", "rule": "福德.破軍.空劫", "summary": "你空想多，真正動手的少。", "en": "You daydream a lot and actually act on little of it."},
+  {"target": "plain.破軍.福德", "rule": "福德.破軍.輔佐", "summary": "你點子多，常有自己的創見。", "en": "You're full of ideas and often have original insights."},
+  {"target": "plain.破軍.福德", "rule": "福德.破軍.本", "summary": "你喜歡凡事自己動手，再累也不推辭，心思也容易想變。", "en": "You like to do everything yourself and never shy from the effort, and your mind easily turns toward change."}
 ]
