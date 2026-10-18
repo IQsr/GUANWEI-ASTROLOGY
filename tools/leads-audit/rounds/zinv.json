@@ -1,0 +1,14 @@
+{
+  "palace": "子女",
+  "$note": "宮垣論子女宮差唔多全部按宮位、組合、見煞忌分，或者講子女本身（數目、性格、孝順、出路）。照夫妻準則（唔講對方本人、唔講事件），只做有「一般情形」講你同後輩關係嘅兩款。天府「子女孝順友愛…數目眾多」講子女本身同數目，唔做；天機「下屬晚輩稀少」出自丑未一段，唔當一般情形。其餘十二款照舊冇出處。",
+  "cells": {
+    "天同": {
+      "summary": ["你和後輩之間話說得通，關係少有隔閡。", "You and the young people in your care can talk things through, and there's seldom a gap between you.", "後輩とは話が通じやすく、隔たりはめったにありません。"],
+      "source": ["life.子女.天同", "天同在子女宫，主与子女感情易沟通"]
+    },
+    "廉貞": {
+      "summary": ["你和後輩的感情濃厚，就算有隔膜，也互相諒解得來。", "Your bond with the young people in your care runs deep; even when there's distance, you can understand each other.", "後輩との情は深く、隔たりがあってもお互いに理解し合えます。"],
+      "source": ["life.子女.廉貞", "主两代感情浓厚，有隔膜亦能互相谅解"]
+    }
+  }
+}
