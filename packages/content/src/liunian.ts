@@ -1,4 +1,5 @@
 import { annual, type AnnualChart, type Chart, type Sihua } from '@guanwei/ziwei';
+import { resolveClashes } from './clash';
 import { FORBIDDEN_TERMS } from './frame';
 import { palaceLabel } from './link';
 import { leanOf, xingxiOf } from './xingxi';
@@ -165,5 +166,6 @@ export function yearChapter(input: { chart: Chart; year: number }): { slug: stri
     ...(nextLine ? [seg('明年', nextLine)] : []),
     seg('留白', LIUNIAN_CLOSE),
   ].filter((s) => s.text.trim() !== '');
-  return { slug: YEAR_SLUG, title: YEAR_SLUG, segments };
+  /* 同章相反講法（clash.ts）：運限章唔剷，只講明係另一面 */
+  return { slug: YEAR_SLUG, title: YEAR_SLUG, segments: resolveClashes(segments, { drop: false }).segments };
 }

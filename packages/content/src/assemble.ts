@@ -31,7 +31,7 @@
 import { sanFangPalaces, type Brightness, type Chart, type Palace, type PalaceName } from '@guanwei/ziwei';
 import { WATCH_ROTATION, fitWatchLead, varyWatch } from './watch-lead';
 import { BRIGHT, MAJOR as MAJOR_LIST, branchReading } from './branch';
-import { poleOf } from './axes';
+import { resolveClashes } from './clash';
 import { BASE_BLOCKS } from './baseblock-data';
 import { PALACE_TOPIC } from './baseblock';
 import { brightnessModifier, maleficModifier, sihuaModifier } from './modifier-data';
@@ -218,46 +218,6 @@ function dropEchoes(segments: Segment[]): void {
   for (let i = segments.length - 1; i >= 0; i--) if (!segments[i]!.text.trim()) segments.splice(i, 1);
 }
 
-/* 見 axes.ts：細讀同一般講法方向相反（2026-10-18 · 後生讀者抽樣 B9） */
-const TURN_START = /^(不過|但|只是|可是|然而)/;
-function bridgeExceptions(segments: Segment[], palace: string): void {
-  const at = segments.findIndex((x) => x.slot === '細讀');
-  if (at >= 0) {
-    const ss = sentences(segments[at]!.text);
-    const poles = ss.map((t) => poleOf(palace, t));
-    /* 一、「一般⋯」讓位畀相反方向嘅帶條件規則 */
-    const kept = ss.filter((t, i) => !(poles[i] !== 0 && t.includes('一般') && poles.some((q, j) => j !== i && q === -poles[i]!)));
-    if (kept.length) segments[at] = { ...segments[at]!, text: kept.join('') };
-    else segments.splice(at, 1);
-  }
-  /*
-   * 二、細讀、牽動（三方四正吉煞）句同前文（結論、開場、結構，同佢之前嘅細讀）方向相反：講明係例外。
-   * 一格入面第一處「不過，」，之後「但」，唔好連住兩個「不過」；句子自己已經有轉折就唔加。
-   */
-  const seen = new Set<number>();
-  for (let i = 0; i < segments.length; i++) {
-    const seg = segments[i]!;
-    const ss = sentences(seg.text);
-    if (seg.slot === '結論' || seg.slot === '開場' || seg.slot === '結構') {
-      ss.forEach((t) => {
-        const q = poleOf(palace, t);
-        if (q) seen.add(q);
-      });
-      continue;
-    }
-    if (seg.slot !== '細讀' && seg.slot !== '牽動') continue;
-    let turned = 0;
-    const out = ss.map((t) => {
-      const q = poleOf(palace, t);
-      if (q === 0) return t;
-      const clash = seen.has(-q);
-      seen.add(q);
-      if (!clash || TURN_START.test(t) || /但|只是|卻/.test(t)) return t;
-      return `${turned++ ? '但' : '不過，'}${t}`;
-    });
-    segments[i] = { ...seg, text: out.join('') };
-  }
-}
 
 /**
  * 基塊剷走同結論重複嗰幾句之後，餘下嘅句（直白版，2026-09-29）。
@@ -802,7 +762,8 @@ export function assemble(
    * 冇方向嘅係評級，唔係章 —— **章照樣有象、有結構、有牽動、有留白**。
    */
   dropEchoes(segments);
-  bridgeExceptions(segments, palace);
+  /* 同章相反講法（clash.ts，取代 2026-10-18 下晝嘅 axes.ts 字表） */
+  segments.splice(0, segments.length, ...resolveClashes(segments).segments);
   const text = segments.map((s) => s.text).join('');
   const words = cjkCount(text);
 

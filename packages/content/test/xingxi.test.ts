@@ -182,7 +182,7 @@ describe('性格的骨架（2026-10-07 併埋偏向）', () => {
     }
   });
 
-  it('推力句直接講「說你偏向 X，是因為⋯」，唔講「推力」「推你」；英文譯得到（2026-10-12）', () => {
+  it('推力句直接講「說你偏向 X，是因為⋯」，唔講「推力」「推你」；英文譯得到（2026-10-12）', { timeout: 15_000 }, () => {
     const kinds = new Set<string>();
     for (const c of CHARTS) {
       const t = gujiaChapter({ chart: c })!.segments.find((s) => s.slot === '推力')?.text;

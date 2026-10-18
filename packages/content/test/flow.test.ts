@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { annual, cast, SCHOOL_PROFILE } from '@guanwei/ziwei';
 import { BASE_BLOCKS, RULE_REGISTRY, SPEC_VERSION, assembleAll, inferAll } from '../src/index';
 import { fitWatchLead } from '../src/watch-lead';
-import { poleOf } from '../src/axes';
+import { annOf } from '../src/clash';
 
 const sentences = (s: string): string[] => s.match(/[^。！？]*[。！？]|[^。！？]+$/g) ?? [];
 
@@ -102,29 +102,24 @@ describe('宮位章：唔講兩次', () => {
 });
 
 /*
- * B9：細讀、牽動句同前文方向相反（「出門在外大多是有福的」⟂「同宮有鈴星，在外多挫折」），要講明係例外（2026-10-18）。
+ * B9 → 2026-10-18 晚：同章相反講法用 clash.ts（每句標註 plain/clash.json）處理，唔再係 axes.ts 字表。
+ * 同一條軸、同一個對象、方向相反，而兩句貼住，後面嗰句要有轉折（「不過／但」或者句入面有「但／只是／卻」）。
+ * 唔貼住嘅唔再加「不過」（同晚模擬讀者覆檢：六成讀落突兀），留畀「一個話題一把聲」處理。
  */
 describe('宮位章：相反嘅講法講明係例外', () => {
-  it('細讀、牽動同前文相反嘅句，有「不過／但」或者自己有轉折', { timeout: 120_000 }, () => {
+  it('貼住嘅相反句有轉折', { timeout: 120_000 }, () => {
     const bad: string[] = [];
-    let bridged = 0;
     for (const book of BOOKS)
       for (const c of book) {
-        const seen = new Set<number>();
-        for (const seg of c.segments) {
-          for (const t of sentences(seg.text)) {
-            const q = poleOf(c.palace!, t);
-            if (!q) continue;
-            if ((seg.slot === '細讀' || seg.slot === '牽動') && seen.has(-q)) {
-              if (/^(不過|但)/.test(t)) bridged++;
-              else if (!/但|只是|卻/.test(t)) bad.push(`${c.palace}｜${t}`);
-            }
-            if (['結論', '開場', '結構', '細讀', '牽動'].includes(seg.slot)) seen.add(q);
-          }
+        const ss = c.segments.filter((s) => s.slot !== '過場' && s.slot !== '留白').flatMap((s) => sentences(s.text).map((t) => ({ t, a: annOf(t) })));
+        for (let j = 1; j < ss.length; j++) {
+          const A = ss[j - 1]!.a, B = ss[j]!.a;
+          if (!A || !B || !A.a.some(([x, s, o]) => B.a.some(([x2, s2, o2]) => x === x2 && o === o2 && s !== s2))) continue;
+          if (/^(不過|但)/.test(ss[j]!.t) || /但|只是|卻|拉向另一邊/.test(ss[j]!.t)) continue;
+          bad.push(`${c.palace}｜${ss[j - 1]!.t} ⟂ ${ss[j]!.t}`);
         }
       }
     expect(bad).toEqual([]);
-    expect(bridged).toBeGreaterThan(20);
   });
 });
 

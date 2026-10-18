@@ -1,4 +1,5 @@
 import { z } from 'zod';
+import { resolveClashes } from './clash';
 import { annual, flowStars, sanFangPalaces, sihuaOfStem, tianxingBranch, type AnnualChart, type Branch, type Chart, type Palace, type Sihua } from '@guanwei/ziwei';
 import huaRaw from './daxian/hua.json';
 import rulesRaw from './daxian/rules.json';
@@ -401,6 +402,15 @@ const yourArea = (palace: string) => {
   return a.startsWith('自己') ? `你${a}` : `你的${a}`;
 };
 export const firstClause = (t: string) => (t.split(/[，；。]/)[0] ?? t).trim();
+/** 一個分句講緊邊方面（回傳代表嗰方面嘅宮，`yourArea` 用）；認唔到回 null */
+const DOMAIN: [string, RegExp][] = [
+  ['財帛', /財|錢|收入|預算|周轉|開支|借貸/],
+  ['夫妻', /感情|伴侶/],
+  ['官祿', /工作|事業/],
+  ['福德', /心情|心裡|情緒|心境/],
+  ['僕役', /人際|朋友/],
+];
+const domainOf = (clause: string) => DOMAIN.find(([, re]) => re.test(clause))?.[0] ?? null;
 /** 通用句（`AREA_HUA`）自己講明係邊方面，唔使再加「X這一方面：」；星句要標返落喺邊。 */
 /*
  * 星句講緊嗰個宮嘅方面先冠「X這一方面，」（2026-10-18 · 後生讀者抽樣 B5）：
@@ -430,6 +440,12 @@ export function periodGist(
   if (!l.text || !j.text || !lu.palace || !ji.palace) return '';
   if (lu.palace === ji.palace && l.fits && j.fits)
     return `${span}，${yourArea(lu.palace)}有得有失：${l.text}；同時，${j.text}。`;
+  /*
+   * 兩半句冇方面字、但講緊同一方面（2026-10-18 晚 · 模擬讀者覆檢）：「這一年，你的財祿有增加的機會；
+   * 錢容易周轉緊或超出預算。」讀落自己打自己。同樣講明「有得有失」。
+   */
+  const same = l.generic || !l.fits ? (j.generic || !j.fits ? domainOf(l.text) : null) : null;
+  if (same && same === domainOf(j.text)) return `${span}，${yourArea(same)}有得有失：${l.text}；同時，${j.text}。`;
   const at = (c: { text: string; generic: boolean; fits: boolean }, h: PeriodHit) =>
     c.generic || !c.fits ? c.text : `${periodArea(h.palace)}這一方面，${c.text}`;
   const blocked = notes.luBlocked ? '，只是同時有阻滯' : '';
@@ -458,9 +474,37 @@ export const ADVICE_ON: Record<string, string> = {
   父母: '和長輩、上司之間的事',
 };
 
+/*
+ * 化忌星句講緊化祿嗰方面（2026-10-18 · 模擬讀者 D）：「這一年最順的是朋友和人脈」對住同章
+ * 「廉貞化忌，你的感情和人際容易有挫折」。星句係嗰粒星化忌嘅意思，唔理落邊宮，所以佢講到嘅方面
+ * 唔可以再叫「最順」。逐宮列出星句會點講嗰方面。
+ */
+const AREA_WORDS: Record<string, RegExp> = {
+  兄弟: /人際|朋友|朋輩|兄弟/,
+  僕役: /人際|朋友|朋輩|下屬/,
+  夫妻: /感情|伴侶/,
+  官祿: /工作|事業|上司/,
+  財帛: /錢|財|收入|開支|借貸/,
+  田宅: /家|住/,
+  遷移: /在外|出門|外地/,
+  父母: /長輩|上司|父母/,
+  子女: /後輩|子女|下屬/,
+  疾厄: /身心|健康|辛勞|勞碌/,
+  福德: /心情|情緒|心裡/,
+  命宮: /心情|情緒/,
+};
+/** 化祿嗰方面：化忌星句講緊佢就當冇（唔講最順） */
+function luArea(hits: readonly PeriodHit[]): string | null {
+  const lu = hits.find((h) => h.hua === '祿')?.palace ?? null;
+  const ji = hits.find((h) => h.hua === '忌');
+  const line = ji ? DAXIAN_HUA.find((e) => e.star === ji.star && e.hua === '忌')?.text : undefined;
+  if (lu && line && ji?.palace !== lu && AREA_WORDS[lu]?.test(firstClause(line))) return null;
+  return lu;
+}
+
 /** 呢段時期最值得做嘅事：力氣放喺化祿嗰方面，化忌嗰方面嘅決定慢一步。 */
 export function adviceSegment(hits: readonly PeriodHit[], scope: '這十年' | '這一年'): DaxianSegment | null {
-  const lu = hits.find((h) => h.hua === '祿')?.palace ?? null;
+  const lu = luArea(hits);
   const ji = hits.find((h) => h.hua === '忌')?.palace ?? null;
   if (!lu && !ji) return null;
   const parts: string[] = [];
@@ -479,7 +523,7 @@ export function adviceSegment(hits: readonly PeriodHit[], scope: '這十年' | '
  * 而家用一句撮要：「這十年，力氣放在工作，錢的安排慢一步；這一年⋯」。
  */
 export function adviceBrief(hits: readonly PeriodHit[], scope: '這十年' | '這一年'): string | null {
-  const lu = hits.find((h) => h.hua === '祿')?.palace ?? null;
+  const lu = luArea(hits);
   const ji = hits.find((h) => h.hua === '忌')?.palace ?? null;
   if (!lu && !ji) return null;
   if (lu && ji === lu) return `${scope}，${ADVICE_ON[lu]}進退都要想清楚`;
@@ -949,5 +993,6 @@ export function decadeChapter(input: { chart: Chart; year: number }): Out {
     ...(nextLine ? [seg('下一步', nextLine)] : []),
     seg('留白', DAXIAN_FRAMES.decadeClose),
   ].filter((s) => s.text.trim() !== '');
-  return { slug: DECADE_SLUG, title: DECADE_SLUG, segments };
+  /* 同章相反講法（clash.ts）：運限章唔剷，只講明係另一面 */
+  return { slug: DECADE_SLUG, title: DECADE_SLUG, segments: resolveClashes(segments, { drop: false }).segments };
 }

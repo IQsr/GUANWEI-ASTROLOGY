@@ -51,7 +51,8 @@ describe('雙星整合版', () => {
         /* 2026-10-18：整合版冇出處、而呢張盤有帶條件嘅原文成立，結論句換做變體（plain-variant.ts） */
         const v = variantFor(r.value, { id: pair.id, palace: ch.palace, source: pair.source });
         expect(con.text.startsWith(v ? v.summary : pair.summary), pair.id).toBe(true);
-        expect(life.text, pair.id).toBe(pair.life);
+        /* clash.ts 可能喺前面加「不過，」講明同細讀相反（2026-10-18） */
+        expect(life.text.replace(/^(不過，|但)/, ""), pair.id).toBe(pair.life);
         for (const seg of [con, life]) expect(renderParagraph(seg.text).missing, `${pair.id} ${seg.text}`).toEqual([]);
       }
     }

@@ -63,7 +63,8 @@ function dangling(): string[] {
           const prev = orig[orig.indexOf(t) - 1];
           if (prev === undefined) return;
           /* 結構格頭一句可能被加咗「星名：」或者「它」換咗星名（withSubject）—— 比對前還原 */
-          const before = ss[i - 1];
+          /* clash.ts 可能喺上一句前面加咗「不過，／但」（2026-10-18）：比對前拎走 */
+          const before = ss[i - 1]?.replace(/^(不過，|但)/, '');
           const same = before === prev || before === `${block.star}：${prev}` || before === prev.replace(/^它/, block.star);
           if (!same) out.add(`${block.id}：${t}`);
         });

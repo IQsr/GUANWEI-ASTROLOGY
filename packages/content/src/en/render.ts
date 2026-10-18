@@ -554,7 +554,12 @@ function paragraphSentences(zh: string, missing: string[]): string[] {
   return joinBrackets(sentencesOf(zh)).map((zhS) => {
     /* 後生讀者（youth.ts）：認返大人原句；句頭前綴另譯 */
     const { prefix, rest: s } = unyouth(zhS);
-    const en = lookupSentence(s) ?? template(s, missing);
+    /* clash.ts 加嘅「不過，／但」：模板句（四化、運限）都要譯得到 */
+    const turn = /^(不過，|但)(.+)$/.exec(s);
+    const turned = turn && !TM.sentences[s] ? (lookupSentence(turn[2]!) ?? template(turn[2]!, missing)) : null;
+    const en = turned
+      ? `${turn![1] === '但' ? 'But' : 'That said,'} ${/^[A-Z][a-z]+ [A-Z]/.test(turned) || /^I\b/.test(turned) ? turned : lowerFirst(turned)}`
+      : (lookupSentence(s) ?? template(s, missing));
     if (en === null) return (missing.push(zhS), `〔${zhS}〕`);
     return prefix ? `${YOUTH_PREFIX[prefix].en}, ${lowerFirst(en)}` : en;
   });

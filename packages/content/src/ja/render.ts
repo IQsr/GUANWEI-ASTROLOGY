@@ -478,7 +478,10 @@ function paragraphJa(zh: string, missing: string[], carry?: string): string {
     .map((zhS, i) => {
       /* 後生讀者（youth.ts）：認返大人原句；句頭前綴另譯 */
       const { prefix, rest: s } = unyouth(zhS);
-      const ja = lookupSentence(s) ?? template(s, missing);
+      /* clash.ts 加嘅「不過，／但」：模板句（四化、運限）都要譯得到 */
+      const turn = /^(不過，|但)(.+)$/.exec(s);
+      const turned = turn && !TM.sentences[s] ? (lookupSentence(turn[2]!) ?? template(turn[2]!, missing)) : null;
+      const ja = turned ? `${turn![1] === '但' ? 'けれど、' : 'とはいえ、'}${turned}` : (lookupSentence(s) ?? template(s, missing));
       if (ja === null) return (missing.push(zhS), `〔${zhS}〕`);
       const out = resolveKonoHoshi(ja, ss, i, carry);
       return prefix ? `${YOUTH_PREFIX[prefix].ja}、${out}` : out;
