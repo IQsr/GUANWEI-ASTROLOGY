@@ -38,6 +38,7 @@ import { MALEFICS } from './modifier';
 import { chapterFooter, emptyPalaceLine, type Slot } from './frame';
 import { closeFor } from './frame-data';
 import { conclusionFor, pairPlain, palacePlain } from './palace-plain';
+import { variantFor } from './plain-variant';
 import { lifeLine } from './life';
 import { cjkCount } from './lexicon';
 import { similarity } from './baseblock';
@@ -339,7 +340,10 @@ export function assemble(
     const leadNames = (own.length ? own : opp ? majorsIn(opp) : []).map((s) => s.name);
     /* 生年化忌落喺呢宮主星（借對宮就唔計，化忌屬對宮嗰章）：留意句講化忌 */
     const ji = own.find((s) => s.sihua === '忌')?.name ?? null;
-    const pp = lead ? conclusionFor(leadNames, palace, ji) : undefined;
+    const base = lead ? conclusionFor(leadNames, palace, ji) : undefined;
+    /* 結論冇出處、而呢張盤有帶條件嘅原文成立：換做帶條件嘅結論句（plain-variant.ts，2026-10-18） */
+    const v = base ? variantFor(chart, base) : undefined;
+    const pp = base && v ? { ...base, summary: v.summary } : base;
     if (pp) {
       /*
        * `conclusion` 係用嚟喺基塊度剷走同結論重複嗰句。整合版係改寫，唔係基塊撮句，

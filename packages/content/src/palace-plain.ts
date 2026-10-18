@@ -147,7 +147,7 @@ export function pairPlain(stars: readonly string[], palace: string): PairPlain |
 export function conclusionFor(stars: readonly string[], palace: string, ji?: string | null): PalacePlain | undefined {
   const pair = pairPlain(stars, palace);
   const base = pair
-    ? { id: pair.id, star: stars[0]!, palace, summary: pair.summary, watch: pair.watch }
+    ? { id: pair.id, star: stars[0]!, palace, summary: pair.summary, watch: pair.watch, source: pair.source }
     : stars[0]
       ? palacePlain(stars[0], palace)
       : undefined;

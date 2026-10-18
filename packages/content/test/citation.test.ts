@@ -2,7 +2,7 @@
  * 出處註（2026-10-12）：講得肯定嘅句，句尾撳得出原文 —— 書、頁、節、原句。
  */
 import { describe, expect, it } from 'vitest';
-import { BRANCH_TOPICS, BASE_BLOCKS, DAXIAN_HUA, PALACE_PLAIN, PAIR_PLAIN, citation, citeOf, En } from '../src/index';
+import { BRANCH_TOPICS, BASE_BLOCKS, DAXIAN_HUA, PALACE_PLAIN, PAIR_PLAIN, PLAIN_VARIANTS, citation, citeOf, En } from '../src/index';
 
 const sentences = (t: string) => t.match(/[^。！？]*[。！？]|[^。！？]+$/g) ?? [];
 
@@ -45,5 +45,14 @@ describe('出處註', () => {
     const checked = [...PALACE_PLAIN, ...PAIR_PLAIN].filter((x) => x.source);
     expect(checked.length).toBeGreaterThan(0);
     for (const x of checked) expect(citeOf(x.summary), x.id).toEqual([x.source!.passage_id]);
+  });
+
+  /* 2026-10-18 · A2 放寬準則：帶條件嘅結論句，註嘅係佢掛住嗰條細讀規則嘅原文 */
+  it('帶條件嘅結論句：註嘅係佢嗰條規則嘅原文，英文一樣', () => {
+    expect(PLAIN_VARIANTS.length).toBeGreaterThan(0);
+    for (const v of PLAIN_VARIANTS) {
+      expect(citeOf(v.summary), v.rule).toEqual(v.passages);
+      expect(citeOf(v.en, 'en'), v.rule).toEqual(v.passages);
+    }
   });
 });

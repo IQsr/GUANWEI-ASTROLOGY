@@ -3,6 +3,7 @@ import { DAXIAN_HUA, LOOKBACK_EVENTS, firstClause } from './daxian';
 import { CORPUS } from './lexicon';
 import { LIFE_LINES } from './life';
 import { PAIR_PLAIN, PALACE_PLAIN } from './palace-plain';
+import { PLAIN_VARIANTS } from './plain-variant';
 import { tmSentence } from './en/render';
 import { huaClauseEn } from './en/time';
 import { XINGXI } from './xingxi';
@@ -157,6 +158,11 @@ function build(): { zh: CiteKey[]; en: CiteKey[] } {
     const ids = [p.source.passage_id];
     zh.push({ key: p.summary, ids });
     en.push({ key: p.en.summary, ids });
+  }
+  /* 帶條件嘅結論句：出處就係佢掛住嗰條細讀規則嘅原文 */
+  for (const v of PLAIN_VARIANTS) {
+    zh.push({ key: v.summary, ids: v.passages });
+    en.push({ key: v.en, ids: v.passages });
   }
   for (const e of LOOKBACK_EVENTS) zh.push({ key: e.text, ids: e.sources.map((s) => s.passage_id) });
   /* 長嘅行先：一句包含兩條索引句時，揀最具體嗰條 */

@@ -30,6 +30,7 @@ export * from './reader';
 export * from './xingxi';
 export * from './xingxi-chapters';
 export * from './palace-plain';
+export * from './plain-variant';
 export * from './shen';
 export * from './daxian';
 export * from './liunian';

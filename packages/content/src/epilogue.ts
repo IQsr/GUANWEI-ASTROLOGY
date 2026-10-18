@@ -2,6 +2,7 @@ import type { Chart, Palace } from '@guanwei/ziwei';
 import { BASE_BLOCKS } from './baseblock-data';
 import { FORBIDDEN_TERMS } from './frame';
 import { conclusionFor } from './palace-plain';
+import { variantFor } from './plain-variant';
 import { leanOf, strengthFor, summaryFor, watchFor, xingxiOf } from './xingxi';
 import { decadeChapter } from './daxian';
 import { AREA } from './link';
@@ -74,7 +75,10 @@ export function epilogueChapter(input: { chart: Chart; year: number }): { slug: 
     /* 雙星整合版優先（2026-10-11）：同宮章結論一致 */
     const names = p ? majorsOf(chart, p) : [];
     const ji = p?.stars.find((s) => MAJOR.has(s.name) && s.sihua === '忌')?.name ?? null;
-    return names.length ? conclusionFor(names, name, ji) : undefined;
+    const base = names.length ? conclusionFor(names, name, ji) : undefined;
+    /* 同宮位章一樣：帶條件嘅結論句（plain-variant.ts） */
+    const v = base ? variantFor(chart, base) : undefined;
+    return base && v ? { ...base, summary: v.summary } : base;
   };
   const strip = (watch: string) => watch.replace(/^要留意的是：/, '');
   /* 由宮位抽嘅句加返係邊方面（「心境上，」）—— 抽出嚟之後冇咗章名，讀者唔知講緊邊樣 */
