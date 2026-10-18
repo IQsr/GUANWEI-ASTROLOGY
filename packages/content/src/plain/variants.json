@@ -157,5 +157,10 @@
   {"target": "pair.天機太陰.官祿", "rule": "天機官祿.機陰無祿", "summary": "你較適合到政府或大型機構上班，經商並不相宜。", "en": "Working for the government or a large organisation suits you better; business doesn't."},
   {"target": "pair.天機太陰.官祿", "rule": "天機官祿.機陰", "summary": "你的事業多半從現有的基礎上發展起來。", "en": "Your career mostly grows from a foundation that's already in place."},
   {"target": "pair.武曲天府.官祿", "rule": "官祿.武府.煞", "summary": "工程、技藝這條路，你走起來最合適。", "en": "Engineering and skilled crafts are the direction that suits you."},
-  {"target": "pair.武曲天府.官祿", "rule": "官祿.武府.祿", "summary": "財經、稅務這類工作，你做起來最合適。", "en": "Finance and tax work suit you."}
+  {"target": "pair.武曲天府.官祿", "rule": "官祿.武府.祿", "summary": "財經、稅務這類工作，你做起來最合適。", "en": "Finance and tax work suit you."},
+  {"target": "pair.太陽天梁.財帛", "rule": "財帛.陽梁.地位", "summary": "你的錢賺得多少，看的是你的社會地位。", "en": "How much you earn depends on your standing in society."},
+  {"target": "pair.廉貞天府.財帛", "rule": "財帛.天府.科", "summary": "你理財、投資都講信用，別人信得過你。", "en": "You keep your word in money and investments, and people trust you."},
+  {"target": "pair.廉貞天府.財帛", "rule": "財帛.天府.本", "summary": "你的長處在於儲錢和打理錢財。", "en": "Your strength lies in saving and managing money."},
+  {"target": "pair.武曲天府.財帛", "rule": "財帛.天府.科", "summary": "你理財、投資都講信用，別人信得過你。", "en": "You keep your word in money and investments, and people trust you."},
+  {"target": "pair.武曲天府.財帛", "rule": "財帛.武曲.本", "summary": "你要先把事業做起來，錢才跟著來，經商最合適。", "en": "For you, the business comes first and the money follows, so trade suits you best."}
 ]
