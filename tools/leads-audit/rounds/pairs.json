@@ -1,0 +1,217 @@
+{
+  "$note": "雙星整合版（2026-10-18）：同單星版同一準則。只收宮垣論對呢個組合有「一般情形」、講你本身（唔係事件、唔係對方本人）嘅 17 款。命宮 7 款未做（命宮未開始）。其餘 44 款原文帶條件（見吉、見煞、化祿…）或講事件、對方，照舊冇出處。",
+  "pairs": {
+    "pair.廉貞天府.夫妻": {
+      "summary": [
+        "你們之間常有磨擦，但關係本身結構穩定。",
+        "The two of you often rub against each other, but the relationship itself is built on a stable frame.",
+        "二人のあいだには摩擦がよくありますが、関係そのものの骨組みは安定しています。"
+      ],
+      "source": [
+        "deep.夫妻.廉貞.5",
+        "结构较为稳定，多主不和"
+      ]
+    },
+    "pair.太陽太陰.財帛": {
+      "summary": [
+        "你的錢先散後聚：起初花得開，往後才慢慢積起來。",
+        "Your money scatters first and gathers later: early on it flows out freely, and only later does it build up.",
+        "お金はまず散ってから集まるほうで、はじめは気前よく出ていき、あとになってようやく貯まっていきます。"
+      ],
+      "source": [
+        "deep.財帛.太陽.1",
+        "基本性质主先散后聚"
+      ]
+    },
+    "pair.廉貞天相.財帛": {
+      "summary": [
+        "你做生意手腕靈活，交際應酬就是你求財的門路。",
+        "In business you're nimble, and socialising is your route to money.",
+        "商売の立ち回りが巧みで、付き合いや接待こそが稼ぎの道です。"
+      ],
+      "watch": [
+        "要留意的是：你應酬多，花在場面上的錢也要算清楚。",
+        "The catch: with so much socialising, count the money spent keeping up appearances too.",
+        "付き合いが多いぶん、体面のために使うお金もきちんと勘定に入れましょう。"
+      ],
+      "source": [
+        "deep.財帛.廉貞.1",
+        "为长袖善舞的商人"
+      ]
+    },
+    "pair.武曲天相.財帛": {
+      "summary": [
+        "你憑一門特殊的技能求財，手藝就是你的本錢。",
+        "You earn through a particular skill; your craft is your capital.",
+        "特別な技能で財を求め、腕前があなたの元手です。"
+      ],
+      "watch": [
+        "要留意的是：你的技能要跟得上時勢，別讓吃飯的本事停在原地。",
+        "The catch: keep your skill up to date, so the craft you live by doesn't stand still.",
+        "技能は時代に合わせて磨き続け、食べていくための腕を止めないことです。"
+      ],
+      "source": [
+        "deep.財帛.武曲.4",
+        "亦主凭特殊技能以求财"
+      ]
+    },
+    "pair.天同巨門.遷移": {
+      "summary": [
+        "你在外面容易因為說話惹來是非。",
+        "Away from home, what you say easily stirs up trouble.",
+        "外では、口にしたことがもめごとを招きやすいほうです。"
+      ],
+      "source": [
+        "deep.遷移.天同.3",
+        "天同巨门的组合，主是非口舌"
+      ]
+    },
+    "pair.天機太陰.遷移": {
+      "summary": [
+        "你在外浮動不定，工作和落腳處常換，勞心又勞力。",
+        "Away from home you're unsettled, often changing jobs and where you stay, wearing out both mind and body.",
+        "外では落ち着かず、仕事も居場所もよく変わり、心も体も疲れがちです。"
+      ],
+      "source": [
+        "deep.遷移.天機.1",
+        "亦主劳心劳力，不专一业，不守一地"
+      ]
+    },
+    "pair.太陽太陰.遷移": {
+      "summary": [
+        "你在外變動多，閒不下來，總是忙碌。",
+        "Away from home there's a lot of change, and you're never idle; you're always busy.",
+        "外では変化が多く、手が空くことがなく、いつも忙しくしています。"
+      ],
+      "source": [
+        "deep.遷移.太陽.1",
+        "虽见吉亦主变动不居，每多忙碌"
+      ]
+    },
+    "pair.廉貞天相.遷移": {
+      "summary": [
+        "你離鄉發展有利，適合在大機構擔任行政管理一類的職務。",
+        "Developing away from home serves you well, especially in administrative or management roles at large organisations.",
+        "故郷を離れて伸びるのが有利で、大きな組織での行政や管理の役職が向いています。"
+      ],
+      "source": [
+        "deep.遷移.廉貞.1",
+        "为离乡出仕，或任职僚幕之兆"
+      ]
+    },
+    "pair.紫微破軍.遷移": {
+      "summary": [
+        "你出外既有人幫，也有人拆台，好壞參半。",
+        "Away from home some people help you and some undermine you; it's a mix of good and bad.",
+        "外では助けてくれる人もいれば足を引っぱる人もいて、良し悪しが半々です。"
+      ],
+      "source": [
+        "deep.遷移.紫微.3",
+        "一般情形为既有助力，亦有破坏力"
+      ]
+    },
+    "pair.天同巨門.僕役": {
+      "summary": [
+        "你和朋友、同事之間容易生誤會，就算彼此都沒有惡意。",
+        "Misunderstandings easily arise between you and your friends or colleagues, even when no one means harm.",
+        "友人や同僚とのあいだでは、誰にも悪気がなくても誤解が生まれやすいのです。"
+      ],
+      "source": [
+        "deep.僕役.天同.1",
+        "即不见煞，亦主易生误会"
+      ]
+    },
+    "pair.太陽天梁.官祿": {
+      "summary": [
+        "你最適合服務性的行業，例如醫護、保險這類照顧人的工作。",
+        "Service industries suit you best, such as healthcare or insurance — work that looks after people.",
+        "人の世話をする医療や保険のような、サービス業がいちばん向いています。"
+      ],
+      "source": [
+        "deep.官祿.太陽.4",
+        "最宜从事医药、保险等服务性行业"
+      ]
+    },
+    "pair.太陽太陰.官祿": {
+      "summary": [
+        "你適合打理內部事務的工作，像行政、財務、計劃。",
+        "Work that runs an organisation's internal affairs suits you, such as administration, finance and planning.",
+        "行政、財務、計画のように、組織の内側を回す仕事が向いています。"
+      ],
+      "watch": [
+        "要留意的是：你長於幕後打點，功勞容易被站在台前的人帶走。",
+        "The catch: you're good at running things behind the scenes, so credit easily goes to whoever stands out front.",
+        "裏方で段取りするのが得意なぶん、手柄は表に立つ人に持っていかれがちです。"
+      ],
+      "life": [
+        "你在團隊裡最有價值的，是把後台打理妥當：帳目、流程、計劃都交得出；站到台前的事，可以分給別人。",
+        "Your greatest value to a team is keeping the back office in order — accounts, processes and plans all delivered; the front-of-stage work can go to others.",
+        "チームでいちばん価値があるのは、帳簿や手順、計画まで裏方をきちんと整えることで、表に立つ仕事は人に任せてかまいません。"
+      ],
+      "source": [
+        "deep.官祿.太陽.1",
+        "比较倾向于内务。故以行政管理财务计划等为宜"
+      ]
+    },
+    "pair.武曲天相.官祿": {
+      "summary": [
+        "你做事文武兼用：文職做得有魄力，武職也做得有條理。",
+        "You work with both pen and sword: in desk roles you bring drive, and in action roles you bring order.",
+        "仕事では文武を兼ね、事務職でも迫力があり、現場の仕事でも筋道立てて進めます。"
+      ],
+      "source": [
+        "deep.官祿.武曲.5",
+        "主文职武做，或武职文做"
+      ]
+    },
+    "pair.天機太陰.田宅": {
+      "summary": [
+        "你的住處和工作環境都常常在變，搬來搬去是常事。",
+        "Both where you live and where you work change often; moving about is a normal part of life for you.",
+        "住まいも職場の環境もよく変わり、あちこち移るのが当たり前です。"
+      ],
+      "source": [
+        "deep.田宅.天機.4",
+        "天机太阴的星曜组合，主时时迁动"
+      ]
+    },
+    "pair.太陽太陰.福德": {
+      "summary": [
+        "你最懂得忙裡偷閒，再忙也找得到片刻清靜。",
+        "You're a master at stealing a moment's rest, finding a little quiet however busy you are.",
+        "忙しさの合間に一息つくのが上手で、どんなに忙しくても静かなひとときを見つけられます。"
+      ],
+      "source": [
+        "deep.福德.太陽.1",
+        "最能忙里偷闲，忙中得静趣"
+      ],
+      "watch": [
+        "要留意的是：你忙中偷來的清靜，別又被替別人辦的事填滿。",
+        "The catch: don't let the quiet you steal from a busy day fill up again with errands for others.",
+        "忙しい中で見つけた静けさを、人のための用事でまた埋めてしまわないことです。"
+      ]
+    },
+    "pair.天機巨門.父母": {
+      "summary": [
+        "你和長輩之間不易融洽，相處起來常有隔閡。",
+        "Things don't easily run smoothly between you and your elders; there's often a gap between you.",
+        "目上の人とはなかなか打ち解けず、付き合ううえで隔たりを感じることがよくあります。"
+      ],
+      "source": [
+        "deep.父母.天機.2",
+        "或两代人际关系不佳"
+      ]
+    },
+    "pair.太陽太陰.父母": {
+      "summary": [
+        "你和長輩、上司的關係一般良好，相處融洽。",
+        "Your relationship with elders and superiors is generally good, and you get along well.",
+        "目上の人や上司との関係はおおむね良好で、うまくやっていけます。"
+      ],
+      "source": [
+        "deep.父母.太陽.1",
+        "与自身关系亦良好"
+      ]
+    }
+  }
+}

@@ -2,7 +2,7 @@ import { BRANCH_TOPICS, slotPattern, stripOr } from './branch';
 import { DAXIAN_HUA, LOOKBACK_EVENTS, firstClause } from './daxian';
 import { CORPUS } from './lexicon';
 import { LIFE_LINES } from './life';
-import { PALACE_PLAIN } from './palace-plain';
+import { PAIR_PLAIN, PALACE_PLAIN } from './palace-plain';
 import { tmSentence } from './en/render';
 import { huaClauseEn } from './en/time';
 import { XINGXI } from './xingxi';
@@ -150,6 +150,13 @@ function build(): { zh: CiteKey[]; en: CiteKey[] } {
     zh.push({ key: p.summary, ids });
     const e = tmSentence(p.summary);
     if (e) en.push({ key: e, ids });
+  }
+  /* 雙星整合版：英文跟條目存 */
+  for (const p of PAIR_PLAIN) {
+    if (!p.source) continue;
+    const ids = [p.source.passage_id];
+    zh.push({ key: p.summary, ids });
+    en.push({ key: p.en.summary, ids });
   }
   for (const e of LOOKBACK_EVENTS) zh.push({ key: e.text, ids: e.sources.map((s) => s.passage_id) });
   /* 長嘅行先：一句包含兩條索引句時，揀最具體嗰條 */

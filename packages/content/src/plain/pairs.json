@@ -214,13 +214,18 @@
    "天府"
   ],
   "palace": "夫妻",
-  "summary": "你在感情裡投入很深，同時想用穩定守住這段關係。",
+  "summary": "你們之間常有磨擦，但關係本身結構穩定。",
   "watch": "要留意的是：你的要求很高，卻習慣把不滿壓下來維持平穩，壓久了反而更重。",
   "life": "你會記得伴侶的習慣、把日子安排妥當，也很在意對方是否同樣上心；介意的地方早一點說，比一直維持表面平穩更好。",
   "en": {
-   "summary": "In love you commit deeply, and you want to protect the relationship by keeping it steady.",
+   "summary": "The two of you often rub against each other, but the relationship itself is built on a stable frame.",
    "watch": "The catch: you expect a lot, yet you tend to push dissatisfaction down to keep the peace, and held too long it only gets heavier.",
    "life": "You remember your partner's habits and keep daily life in order, and you care whether they're just as attentive; saying what bothers you early is better than keeping up a calm surface."
+  },
+  "source": {
+   "corpus": "zhongzhou",
+   "passage_id": "deep.夫妻.廉貞.5",
+   "quote": "结构较为稳定，多主不和"
   }
  },
  {
@@ -358,13 +363,18 @@
    "太陰"
   ],
   "palace": "財帛",
-  "summary": "你一面花錢大方，一面又習慣小額慢慢地積存。",
+  "summary": "你的錢先散後聚：起初花得開，往後才慢慢積起來。",
   "watch": "要留意的是：你給別人時很大方，給自己留的卻要慢慢積，突然的支出最讓你不安。",
   "life": "請客、送禮你不手軟，私底下卻有幾個按月存錢的戶口；把給別人的和留給自己的分開兩個戶口，你會安心得多。",
   "en": {
-   "summary": "You spend generously, and at the same time you're in the habit of saving slowly in small amounts.",
+   "summary": "Your money scatters first and gathers later: early on it flows out freely, and only later does it build up.",
    "watch": "The catch: you're generous with others while what you keep for yourself builds slowly, and sudden expenses unsettle you most.",
    "life": "You don't hold back on treating people or giving gifts, yet privately you have a few accounts you pay into monthly; keeping what's for others and what's for you in separate accounts will put your mind at ease."
+  },
+  "source": {
+   "corpus": "zhongzhou",
+   "passage_id": "deep.財帛.太陽.1",
+   "quote": "基本性质主先散后聚"
   }
  },
  {
@@ -390,13 +400,18 @@
    "天相"
   ],
   "palace": "財帛",
-  "summary": "你願意為認定的事投入成本，同時把帳目和條款弄得清清楚楚。",
-  "watch": "要留意的是：你的投入感和守規矩的習慣會互相拉扯，難下決定時先看條款。",
+  "summary": "你做生意手腕靈活，交際應酬就是你求財的門路。",
+  "watch": "要留意的是：你應酬多，花在場面上的錢也要算清楚。",
   "life": "投資或做生意時，你肯為看好的事出錢，也會把合約、帳目逐條看清；先定好上限和規矩，你出手時會更踏實。",
   "en": {
-   "summary": "You're willing to invest in what you believe in, and you keep the accounts and terms perfectly clear.",
-   "watch": "The catch: your drive to commit and your habit of following the rules pull against each other; when it's hard to decide, read the terms first.",
+   "summary": "In business you're nimble, and socialising is your route to money.",
+   "watch": "The catch: with so much socialising, count the money spent keeping up appearances too.",
    "life": "In investing or business you'll put money into what you rate, and you read contracts and accounts line by line; set your limit and your rules first, and you'll act on firmer ground."
+  },
+  "source": {
+   "corpus": "zhongzhou",
+   "passage_id": "deep.財帛.廉貞.1",
+   "quote": "为长袖善舞的商人"
   }
  },
  {
@@ -422,13 +437,18 @@
    "天相"
   ],
   "palace": "財帛",
-  "summary": "你對錢主動經營，同時講秩序，帳目分明、按時付款。",
-  "watch": "要留意的是：你願意承擔風險，但規矩和程序會拖慢你出手的時機。",
+  "summary": "你憑一門特殊的技能求財，手藝就是你的本錢。",
+  "watch": "要留意的是：你的技能要跟得上時勢，別讓吃飯的本事停在原地。",
   "life": "你對數字敏感，投資和做生意都合你的性格；你也會把帳目和條款弄清楚，替自己定一套出手的規矩，比臨場判斷更穩。",
   "en": {
-   "summary": "You manage money actively and value order: clear accounts and payments on time.",
-   "watch": "The catch: you're willing to take risks, but rules and procedure can slow the moment you act.",
+   "summary": "You earn through a particular skill; your craft is your capital.",
+   "watch": "The catch: keep your skill up to date, so the craft you live by doesn't stand still.",
    "life": "You're sharp with numbers, and investing or running a business suits you; you also keep accounts and terms clear, so setting yourself rules for when to act is steadier than judging on the spot."
+  },
+  "source": {
+   "corpus": "zhongzhou",
+   "passage_id": "deep.財帛.武曲.4",
+   "quote": "亦主凭特殊技能以求财"
   }
  },
  {
@@ -454,13 +474,18 @@
    "巨門"
   ],
   "palace": "遷移",
-  "summary": "你在新環境態度隨和，但要建立信任，仍需要一段時間。",
+  "summary": "你在外面容易因為說話惹來是非。",
   "watch": "要留意的是：你說話直的時候，新認識的人會一時誤會你，相處久了評價才會反過來。",
   "life": "你到了外地，起初別人覺得你好相處；熟一點後你說話直，有人會不習慣，給對方時間認識你，信任會慢慢建立。",
   "en": {
-   "summary": "In a new place your manner is easy-going, but building trust still takes a while.",
+   "summary": "Away from home, what you say easily stirs up trouble.",
    "watch": "The catch: when you speak bluntly, people who've just met you may misread you for a time, and only later does their view turn around.",
    "life": "Somewhere new, people at first find you easy to get along with; once you're more familiar and speak bluntly, some take time to adjust, so give them time to know you and trust will build."
+  },
+  "source": {
+   "corpus": "zhongzhou",
+   "passage_id": "deep.遷移.天同.3",
+   "quote": "天同巨门的组合，主是非口舌"
   }
  },
  {
@@ -470,13 +495,18 @@
    "太陰"
   ],
   "palace": "遷移",
-  "summary": "你在新環境適應得快，但心裡仍要先安頓好，才算真正開始。",
+  "summary": "你在外浮動不定，工作和落腳處常換，勞心又勞力。",
   "watch": "要留意的是：你搬得動也適應得了，只是每次重新安頓都在耗你的力氣。",
   "life": "你適合到外地讀書或工作，新規矩很快摸得清；到埗後先把住處和生活節奏安頓好，再全力展開，會比一到就衝更順。",
   "en": {
-   "summary": "You adapt quickly to new places, but inside you still need to settle before you've truly begun.",
+   "summary": "Away from home you're unsettled, often changing jobs and where you stay, wearing out both mind and body.",
    "watch": "The catch: you can move and you can adapt, but each time you settle again it costs you energy.",
    "life": "Studying or working away suits you, and you soon get the hang of new rules; once you arrive, sort out where you live and your daily rhythm first, then go all out, and it'll go more smoothly than charging in."
+  },
+  "source": {
+   "corpus": "zhongzhou",
+   "passage_id": "deep.遷移.天機.1",
+   "quote": "亦主劳心劳力，不专一业，不守一地"
   }
  },
  {
@@ -502,13 +532,18 @@
    "太陰"
   ],
   "palace": "遷移",
-  "summary": "你在外面放得開，但每到一處，仍要先把生活安頓好。",
+  "summary": "你在外變動多，閒不下來，總是忙碌。",
   "watch": "要留意的是：你在外表現自在，內裡安頓得慢，頻繁變動的代價比你以為的大。",
   "life": "你到外地進修或工作，很快就能和人打成一片；同時你會先找好住處、建立熟悉的生活點，才覺得真正落腳。",
   "en": {
-   "summary": "Away from home you open up, but wherever you go you still need to settle your daily life first.",
+   "summary": "Away from home there's a lot of change, and you're never idle; you're always busy.",
    "watch": "The catch: you look at ease out in the world while settling slowly inside, so frequent change costs more than you think.",
    "life": "Studying or working somewhere new, you soon get on with people; at the same time you find a place to live and a few familiar spots before you feel you've really landed."
+  },
+  "source": {
+   "corpus": "zhongzhou",
+   "passage_id": "deep.遷移.太陽.1",
+   "quote": "虽见吉亦主变动不居，每多忙碌"
   }
  },
  {
@@ -550,13 +585,18 @@
    "天相"
   ],
   "palace": "遷移",
-  "summary": "你在外面比在家放得開，進退也有分寸，讓人願意給你機會。",
+  "summary": "你離鄉發展有利，適合在大機構擔任行政管理一類的職務。",
   "watch": "要留意的是：你在新環境需要先摸清規矩，才找得到自己的位置。",
   "life": "你離開熟悉的地方發展，往往更放得開，也容易得到前輩賞識；先把新地方的規矩熟悉好，你的分寸會替你打開門。",
   "en": {
-   "summary": "You open up more away from home, and your sense of proportion makes people willing to give you a chance.",
+   "summary": "Developing away from home serves you well, especially in administrative or management roles at large organisations.",
    "watch": "Keep in mind that in a new place you need to learn the rules before you can find your footing.",
    "life": "Building a life away from familiar places, you often open up more and win the regard of seniors; get to know the local rules first, and your sense of proportion will open doors for you."
+  },
+  "source": {
+   "corpus": "zhongzhou",
+   "passage_id": "deep.遷移.廉貞.1",
+   "quote": "为离乡出仕，或任职僚幕之兆"
   }
  },
  {
@@ -614,13 +654,18 @@
    "破軍"
   ],
   "palace": "遷移",
-  "summary": "你在外面開得出新局面，但有人同行或引介時，會走得更順。",
+  "summary": "你出外既有人幫，也有人拆台，好壞參半。",
   "watch": "要留意的是：你不怕換地方，在陌生場合卻不太開口求助。",
   "life": "你到外地發展，敢於重新開始；有前輩或熟人引介時更容易站穩，一個人出發前，先替自己找一兩個能問事的人。",
   "en": {
-   "summary": "Away from home you can open up new ground, but with a companion or introduction it goes more smoothly.",
+   "summary": "Away from home some people help you and some undermine you; it's a mix of good and bad.",
    "watch": "The catch: moving costs you little emotionally, yet among strangers you rarely ask for help.",
    "life": "Building a life elsewhere, you dare to start over; with an introduction from a senior or someone you know you find your feet more easily, so before setting out alone, line up one or two people you can ask."
+  },
+  "source": {
+   "corpus": "zhongzhou",
+   "passage_id": "deep.遷移.紫微.3",
+   "quote": "一般情形为既有助力，亦有破坏力"
   }
  },
  {
@@ -662,13 +707,18 @@
    "巨門"
   ],
   "palace": "僕役",
-  "summary": "你在群體裡脾氣好、肯配合，但看見漏洞時會直接指出來。",
+  "summary": "你和朋友、同事之間容易生誤會，就算彼此都沒有惡意。",
   "watch": "要留意的是：你平時不表態，一開口就是指出問題，別人一時會覺得難搞。",
   "life": "你和同事相處隨和，很少爭位置；開會時看到問題，你會說出來，找對時機說，你的意見會更受歡迎。",
   "en": {
-   "summary": "In a group you're good-natured and cooperative, but when you see a flaw you point it out directly.",
+   "summary": "Misunderstandings easily arise between you and your friends or colleagues, even when no one means harm.",
    "watch": "The catch: you usually don't take sides, so when you speak up it's to point out a problem, and people may find you difficult for a while.",
    "life": "You're relaxed with colleagues and rarely compete for position; when you spot a problem in a meeting you say so, and choosing the right moment will make your view more welcome."
+  },
+  "source": {
+   "corpus": "zhongzhou",
+   "passage_id": "deep.僕役.天同.1",
+   "quote": "即不见煞，亦主易生误会"
   }
  },
  {
@@ -726,13 +776,18 @@
    "天梁"
   ],
   "palace": "官祿",
-  "summary": "你做事喜歡站到前面，也講原則，適合需要出面又要把關的位置。",
+  "summary": "你最適合服務性的行業，例如醫護、保險這類照顧人的工作。",
   "watch": "要留意的是：你推得動事情，也容易把把關的責任都攬上身。",
   "life": "你適合對外又講原則的工作，例如教學、公共服務、專業顧問；站到人前推動事情時，也要把收尾的責任分出去。",
   "en": {
-   "summary": "At work you like to be out in front and you hold to principle, which suits roles that need both a public face and a gatekeeper.",
+   "summary": "Service industries suit you best, such as healthcare or insurance — work that looks after people.",
    "watch": "The catch: you can get things moving, and you also tend to take all the gatekeeping on yourself.",
    "life": "Outward-facing work with principles suits you, such as teaching, public service or professional advice; when you lead things in front of people, share out the responsibility for finishing them too."
+  },
+  "source": {
+   "corpus": "zhongzhou",
+   "passage_id": "deep.官祿.太陽.4",
+   "quote": "最宜从事医药、保险等服务性行业"
   }
  },
  {
@@ -742,13 +797,18 @@
    "太陰"
   ],
   "palace": "官祿",
-  "summary": "你做事一面站到前面對外，一面也能在背後把底層打理妥當。",
-  "watch": "要留意的是：你在台前和幕後之間切換，容易兩邊都攬上身。",
-  "life": "你適合既要對外又要細心的工作，例如傳播、教學、規劃；分清哪些場合要站出來、哪些交給自己慢慢做，會省力得多。",
+  "summary": "你適合打理內部事務的工作，像行政、財務、計劃。",
+  "watch": "要留意的是：你長於幕後打點，功勞容易被站在台前的人帶走。",
+  "life": "你在團隊裡最有價值的，是把後台打理妥當：帳目、流程、計劃都交得出；站到台前的事，可以分給別人。",
   "en": {
-   "summary": "At work you step out in front on one side and keep the groundwork in order behind the scenes on the other.",
-   "watch": "The catch: you switch between front stage and backstage, and can easily end up carrying both.",
-   "life": "Work that needs both a public face and care suits you, such as communications, teaching or planning; sorting out which occasions need you up front and which you can work through quietly will save you a lot of effort."
+   "summary": "Work that runs an organisation's internal affairs suits you, such as administration, finance and planning.",
+   "watch": "The catch: you're good at running things behind the scenes, so credit easily goes to whoever stands out front.",
+   "life": "Your greatest value to a team is keeping the back office in order — accounts, processes and plans all delivered; the front-of-stage work can go to others."
+  },
+  "source": {
+   "corpus": "zhongzhou",
+   "passage_id": "deep.官祿.太陽.1",
+   "quote": "比较倾向于内务。故以行政管理财务计划等为宜"
   }
  },
  {
@@ -774,13 +834,18 @@
    "天相"
   ],
   "palace": "官祿",
-  "summary": "你做事直取目標，同時依規格執行，把制度用得好。",
+  "summary": "你做事文武兼用：文職做得有魄力，武職也做得有條理。",
   "watch": "要留意的是：你重結果也重程序，需要協調人情時，容易和人碰撞。",
   "life": "你適合財經、營運、行政管理這類講數字也講規矩的工作；目標清楚、責任分明的崗位，最能發揮你的執行力。",
   "en": {
-   "summary": "At work you go straight for the goal and also follow the specifications, making good use of the system.",
+   "summary": "You work with both pen and sword: in desk roles you bring drive, and in action roles you bring order.",
    "watch": "The catch: you care about results and about procedure, and when personal feelings need handling, you can clash with people.",
    "life": "Finance, operations and administration, where numbers and rules both count, suit you; roles with clear goals and clear responsibility bring out your ability to deliver."
+  },
+  "source": {
+   "corpus": "zhongzhou",
+   "passage_id": "deep.官祿.武曲.5",
+   "quote": "主文职武做，或武职文做"
   }
  },
  {
@@ -806,13 +871,18 @@
    "太陰"
   ],
   "palace": "田宅",
-  "summary": "你搬動不怕麻煩，但每到一處，都要住得安靜、屬於自己。",
+  "summary": "你的住處和工作環境都常常在變，搬來搬去是常事。",
   "watch": "要留意的是：你換地方容易，住得不對卻會長期不舒服，搬之前多看幾次。",
   "life": "你搬家、換工作地點的次數可能比別人多；每次選住處，你很在意安靜和私密，在不同時段親身去看一看，比只看照片可靠。",
   "en": {
-   "summary": "Moving doesn't trouble you, but wherever you go you need somewhere quiet that feels your own.",
+   "summary": "Both where you live and where you work change often; moving about is a normal part of life for you.",
    "watch": "The catch: changing places is easy for you, but living in the wrong one leaves you uneasy for a long time, so look a few times before you move.",
    "life": "You may move house or change workplace more often than most; each time you choose a home you care about quiet and privacy, so visit at different times of day rather than trusting photos."
+  },
+  "source": {
+   "corpus": "zhongzhou",
+   "passage_id": "deep.田宅.天機.4",
+   "quote": "天机太阴的星曜组合，主时时迁动"
   }
  },
  {
@@ -934,13 +1004,18 @@
    "太陰"
   ],
   "palace": "福德",
-  "summary": "你要有事可做才安心，但每天仍需要一段獨處，把心裡的東西放下。",
-  "watch": "要留意的是：你習慣忙著照顧別人，最容易擠掉的，正是自己獨處的時間。",
+  "summary": "你最懂得忙裡偷閒，再忙也找得到片刻清靜。",
+  "watch": "要留意的是：你忙中偷來的清靜，別又被替別人辦的事填滿。",
   "life": "空閒時你寧願幫人、辦活動，也不想閒著；只是一天下來，要留一段一個人看書、散步的時間，才放得下收起來的情緒。",
   "en": {
-   "summary": "You need something to do to feel at ease, yet every day you still need some time alone to set down what's on your mind.",
-   "watch": "The catch: you're used to keeping busy looking after others, and the first thing to get squeezed out is your own time alone.",
+   "summary": "You're a master at stealing a moment's rest, finding a little quiet however busy you are.",
+   "watch": "The catch: don't let the quiet you steal from a busy day fill up again with errands for others.",
    "life": "In your free time you'd rather help people or organise something than sit idle; but at the end of the day, keep some time to read or walk alone, so you can let go of the feelings you've been holding."
+  },
+  "source": {
+   "corpus": "zhongzhou",
+   "passage_id": "deep.福德.太陽.1",
+   "quote": "最能忙里偷闲，忙中得静趣"
   }
  },
  {
@@ -998,13 +1073,18 @@
    "巨門"
   ],
   "palace": "父母",
-  "summary": "你和長輩意見不同時，有時繞路把事辦成，有時會直接問個明白。",
+  "summary": "你和長輩之間不易融洽，相處起來常有隔閡。",
   "watch": "要留意的是：你繞開了的分歧和你追問的分歧，未必是最重要的那幾件。",
   "life": "和父母或上司意見不同，小事你另想辦法辦成，講不通的事你會追問原因；先想清楚哪件最重要，再決定攤開談。",
   "en": {
-   "summary": "When you disagree with elders, sometimes you go around and get it done, and sometimes you ask outright.",
+   "summary": "Things don't easily run smoothly between you and your elders; there's often a gap between you.",
    "watch": "The catch: the disagreements you sidestep and the ones you press on aren't necessarily the ones that matter most.",
    "life": "When you disagree with parents or a manager, you find another way on small things and ask why on things that don't make sense; work out first which matters most, then decide what to talk through openly."
+  },
+  "source": {
+   "corpus": "zhongzhou",
+   "passage_id": "deep.父母.天機.2",
+   "quote": "或两代人际关系不佳"
   }
  },
  {
@@ -1014,13 +1094,18 @@
    "太陰"
   ],
   "palace": "父母",
-  "summary": "你對長輩和上司有時直說，有時把不同意見收在心裡。",
+  "summary": "你和長輩、上司的關係一般良好，相處融洽。",
   "watch": "要留意的是：你說了多少、收起多少，對方未必察覺，真正的距離容易被忽略。",
   "life": "上司或長輩交代的事，你認同就全力去做；心裡不同意時你未必當面說，偶爾找個私下的機會說出來。",
   "en": {
-   "summary": "With elders and managers you sometimes speak plainly and sometimes keep your disagreement to yourself.",
+   "summary": "Your relationship with elders and superiors is generally good, and you get along well.",
    "watch": "The catch: they may not notice how much you've said and how much you've held back, so the real distance is easily missed.",
    "life": "When a manager or elder asks something of you, you give it your all if you agree; when you disagree you may not say so to their face, so now and then find a private moment to say it."
+  },
+  "source": {
+   "corpus": "zhongzhou",
+   "passage_id": "deep.父母.太陽.1",
+   "quote": "与自身关系亦良好"
   }
  },
  {

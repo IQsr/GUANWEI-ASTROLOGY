@@ -89,11 +89,21 @@ export const PairPlain = z
     watch: z.string(),
     life: z.string(),
     en: z.object({ summary: z.string(), watch: z.string(), life: z.string() }),
+    /* 2026-10-18 · A2：宮垣論講呢個組合嘅「一般情形」，逐字核過（同單星版 `source` 一樣） */
+    source: PlainSource.optional(),
   })
   .superRefine((x, ctx) => {
     const issue = (m: string) => ctx.addIssue({ code: 'custom', message: `${x.id}：${m}` });
     /* id 唔用「+」：段嘅 source_id 用「+」分隔幾個出處 */
     if (x.id !== `pair.${x.stars.join('')}.${x.palace}`) issue('id 要係 pair.星星.宮');
+    if (x.source) {
+      const p = CORPUS[x.source.corpus]?.passages[x.source.passage_id];
+      if (!p) issue(`語料庫搵唔到 ${x.source.passage_id}`);
+      else if (!normaliseForMatch(p.text).includes(normaliseForMatch(x.source.quote))) issue(`引文「${x.source.quote}」唔喺原文`);
+      /* 一定要係呢宮其中一粒星嘅段 */
+      const cell = new RegExp(`^(?:life|deep)\\.${x.palace}\\.(?:${x.stars.join('|')})(?:\\.\\d+)?$`);
+      if (!cell.test(x.source.passage_id)) issue(`出處 ${x.source.passage_id} 唔係呢個組合（${x.stars.join('')}·${x.palace}）嘅段`);
+    }
     /* 結論、留意句同單星版用同一套檢查 */
     const r = PalacePlain.safeParse({ id: `plain.${x.stars[0]}.${x.palace}`, star: x.stars[0], palace: x.palace, summary: x.summary, watch: x.watch });
     if (!r.success) r.error.issues.forEach((i) => issue(i.message));
