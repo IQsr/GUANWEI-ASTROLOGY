@@ -1,9 +1,9 @@
 import { describe, expect, it } from 'vitest';
 import { annual, cast, SCHOOL_PROFILE, type Chart } from '@guanwei/ziwei';
-import { assembleAll, inferAll, RULE_REGISTRY, SPEC_VERSION } from '../src/index';
+import { assembleAll, inferAll, mingChapterOf, RULE_REGISTRY, SPEC_VERSION } from '../src/index';
 import { FORBIDDEN_TERMS } from '../src/frame';
 import { scanPlain } from '../src/plain';
-import { CARDS, MING_TOPICS } from '../src/card';
+import { CARDS, cardsFor, MING_TOPICS, type Card } from '../src/card';
 import { mingFlow, writeMing, type MingSection } from '../src/ming-writer';
 
 /*
@@ -138,5 +138,78 @@ describe('開關：mingWriter', () => {
       expect(ming.segments.every((s) => s.en && s.topic && s.source_id)).toBe(true);
       expect(ming.text).toBe(writeMing(chart).sections.flatMap((s) => s.parts.map((p) => p.zh)).join(''));
     }
+  });
+});
+
+describe('review 回歸：大限依據與逐句來源', () => {
+  it('共同的順行條件不會吃掉兩段樞紐大限各自的星曜', () => {
+    const chart = CHARTS[25]!;
+    const chapter = writeMing(chart);
+    expect(chapter.system?.n).toBe(21);
+    const section = chapter.sections.find((s) => s.topic === '運程')!;
+    expect(section.text.zh).toContain('二十三至三十二歲那個十年的命宮有貪狼');
+    expect(section.text.zh).toContain('三十三至四十二歲那個十年的命宮有巨門');
+    expect(section.reasons.filter((r) => r.zh === '你的大限是順行的')).toHaveLength(1);
+    expect(section.text.en).toContain('Tan Lang');
+    expect(section.text.en).toContain('Ju Men');
+    expect(section.text.en).toContain('22–31');
+    expect(section.text.en).toContain('32–41');
+  });
+
+  it('超過四項原因時仍保留每段大限的依據', () => {
+    const chart = CHARTS[25]!;
+    const pivot = CARDS.find((c) => c.id === 'card.ming.zifu-yinshen.pivot')!;
+    const stars = ['紫微', '天機', '太陽', '武曲', '天同', '廉貞', '天府', '太陰', '貪狼', '巨門', '天相', '天梁', '七殺', '破軍'];
+    // 人工擴大測試條件，專門驗證長證據列不被四項上限截斷。
+    const card: Card = { ...pivot, decades: { all: [
+      { decadeOrder: 'forward' },
+      { any: stars.map((star) => ({ star, in: { name: '命宮', layer: 'decade' } })) },
+    ] } };
+    const hit = cardsFor(chart, undefined, 'natal', [card])[0]!;
+    expect(hit.decades!.length).toBeGreaterThan(4);
+    const section = writeMing(chart, { pool: [card] }).sections[0]!;
+    for (const d of hit.decades!) {
+      const palace = chart.palaces.find((p) => p.branch === d.branch)!;
+      const star = stars.find((s) => palace.stars.some((x) => x.name === s))!;
+      expect(section.reasons.some((r) => r.zh.includes(star) && r.en.includes(`${d.fromAge - 1}–${d.toAge - 1}`))).toBe(true);
+    }
+  });
+
+  it('合併多張提醒／建議後仍保存每張卡及各句原文出處', () => {
+    const chart = CHARTS[0]!;
+    const a = annual(chart, 2026);
+    if (!a.ok) throw new Error('測試盤流年資料不足');
+    const by = inferAll(RULE_REGISTRY, { chart, annual: a.value }, SCHOOL_PROFILE.ref, SPEC_VERSION, { chartId: 'provenance', layer: 'natal' });
+    const old = assembleAll(chart, by, { seed: 'provenance' }).find((c) => c.palace === '命宮')!;
+    const natal = cardsFor(chart).map((h) => h.card);
+    const core = natal.find((c) => c.topic === '本質' && c.kind === 'claim')!;
+    const caveats = natal.filter((c) => c.topic === '本質' && c.kind === 'caveat');
+    expect(caveats.length).toBeGreaterThan(1);
+    const advice: Card[] = caveats.slice(0, 2).map((c, i) => ({
+      ...c, id: `card.ming.review.advice-${i}`, kind: 'advice',
+      claim: `你可以先核對第${i + 1}項計畫。`, en: `Check plan ${i + 1} first.`,
+    }));
+    const m = writeMing(chart, { pool: [core, ...caveats, ...advice] });
+    const chapter = mingChapterOf(old, m);
+    for (const part of ['留意', '做法'] as const) {
+      const lines = part === '留意' ? m.sections[0]!.caveats : m.sections[0]!.advice;
+      const segment = chapter.segments.find((s) => s.slot === part)!;
+      expect(segment.source_id?.split('+')).toEqual(lines.map((l) => l.card));
+      expect(segment.source_ids).toEqual(lines.map((l) => l.card));
+      expect(segment.citations).toEqual([...new Set(lines.flatMap((l) => l.sources))]);
+      expect(segment.statements).toEqual(lines.map((l) => ({ text: l.zh, en: l.en, source_ids: [l.card], citations: l.sources })));
+    }
+    const used = new Set(chapter.segments.flatMap((s) => s.source_ids ?? []));
+    expect(m.sections.flatMap((s) => s.source_ids).filter((id) => !used.has(id))).toEqual([]);
+    const reasons = chapter.segments.find((s) => s.slot === '因為')!;
+    expect(reasons.source_ids).toContain('card.ming.qisha-chenxu.tanlu-kongjie');
+    expect(reasons.citations).toContain('wtz.deep.p064.b005');
+    const shared = reasons.statements!.find((s) => s.text === '貪狼化祿')!;
+    expect(shared.source_ids).toEqual(['card.ming.qisha-chenxu.tanlu-kongjie', advice[1]!.id]);
+    expect(shared.citations).toEqual(['wtz.deep.p064.b005']);
+    // 章首是排盤事實，不為了有出處而虛構原書掛源。
+    const chartFact = reasons.statements!.find((s) => s.text.startsWith('你的命宮是'))!;
+    expect(chartFact.source_ids).toEqual([]);
+    expect(chartFact.citations).toEqual([]);
   });
 });

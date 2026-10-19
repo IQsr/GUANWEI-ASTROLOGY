@@ -28,7 +28,13 @@ export type MingTopic = (typeof MING_TOPICS)[number];
 export type MingLine = { zh: string; en: string; card: string; sources: string[] };
 
 /** 因為：一樣盤上嘅事實。 */
-export type MingReason = { zh: string; en: string };
+export type MingReason = {
+  zh: string;
+  en: string;
+  /** 命中條件所屬的卡；純盤面事實／通用後備句沒有卡來源。 */
+  source_ids?: string[];
+  citations?: string[];
+};
 
 export type MingSection = {
   topic: MingTopic;
@@ -71,9 +77,6 @@ const LABEL = {
   zh: { because: '因為', watch: '留意：', act: '做法：' },
   en: { because: 'Because ', watch: 'Watch: ', act: 'What to do: ' },
 };
-
-/** 一段因為最多講幾樣事實（唔好變成證據清單）。 */
-const MAX_REASONS = 4;
 
 /* ── 歲數：`{decades}` ─────────────────────────────── */
 
@@ -404,7 +407,7 @@ const FALLBACK: Record<MingTopic, MingReason> = {
 };
 
 /**
- * 本命運程卡嘅 `decades` 條件（大限層）：逐個中咗嘅十年計一次，只留每個十年都有嘅事實，
+ * 本命運程卡嘅 `decades` 條件（大限層）：共同事實講一次，各十年的獨有事實亦保留，
  * 「這十年」改講「那幾個十年」（本命章唔係講某一個十年）。
  */
 function explainDecades(chart: Chart, cond: Condition, ds: readonly Decadal[]): MingReason[] {
@@ -422,10 +425,13 @@ function explainDecades(chart: Chart, cond: Condition, ds: readonly Decadal[]): 
       en: r.en.replace(/this decade's ([A-Z][A-Za-z ]*?Palace)/g, `the $1 of ${en}`).replace(/ this decade/g, ` in ${en}`),
     }));
   };
-  const common = per[0]!.filter((r) => per.every((rs) => rs.some((x) => x.zh === r.zh)));
-  if (common.length) return relabel(common, ds);
-  /* 幾個十年各自中咗唔同嘢（例如一個行天府、一個行太陰）：逐個十年講 */
-  return per.flatMap((rs, i) => relabel(rs, [ds[i]!]));
+  const common = (per[0] ?? []).filter((r) => per.every((rs) => rs.some((x) => x.zh === r.zh)));
+  const shared = new Set(common.map((r) => r.zh));
+  /* 「順行」可以共用，但不能因此刪掉貪狼／巨門各自對應的年齡。 */
+  return [
+    ...relabel(common, ds),
+    ...per.flatMap((rs, i) => relabel(rs.filter((r) => !shared.has(r.zh)), [ds[i]!])),
+  ];
 }
 
 /** 「這十年的命宮有武曲；這十年的命宮有天府」→「這十年的命宮有武曲、天府」 */
@@ -491,20 +497,31 @@ function section(topic: MingTopic, layer: Card['layer'], hits: Hit[], cx: Ctx): 
   const mingBranch = cx.chart.palaces.find((p) => p.name === '命宮')!.branch;
   const known = new Set(cx.x.borrowed ? [] : cx.x.system.stars.map((s) => `${s}在${mingBranch}宮`));
   const add = (r: MingReason | null) => {
-    if (r && r.zh && !known.has(r.zh) && !cx.said.has(r.zh) && !facts.some((f) => f.zh === r.zh)) facts.push(r);
+    if (!r || !r.zh || known.has(r.zh) || cx.said.has(r.zh)) return;
+    const existing = facts.find((f) => f.zh === r.zh);
+    if (existing) {
+      // 同一句依據可能支撐多張卡；去重文字時不能去掉後一張卡的來源。
+      existing.source_ids = [...new Set([...(existing.source_ids ?? []), ...(r.source_ids ?? [])])];
+      existing.citations = [...new Set([...(existing.citations ?? []), ...(r.citations ?? [])])];
+    } else facts.push({ ...r });
   };
   add(cx.lead);
-  if (used.some((h) => h.card.pole)) add(poleReason(cx.chart, cx.x.system));
+  const polar = used.filter((h) => h.card.pole);
+  if (polar.length) {
+    const reason = poleReason(cx.chart, cx.x.system);
+    if (reason) add({ ...reason, source_ids: polar.map((h) => h.card.id), citations: [...new Set(polar.flatMap((h) => h.card.sources.map((s) => s.id)))] });
+  }
   for (const h of used) {
     /* 合併只喺同一張卡之內做：兩張卡講唔同嘅十年，唔可以撈埋一句 */
     const own = [
       ...(h.card.when ? explain(h.card.when, ctx) : []),
-      /* 本命運程卡講「邊幾個十年」：嗰幾個十年共同中咗乜 */
+      /* 本命運程卡：共同前提及每個十年的獨有依據。 */
       ...(h.card.decades && h.decades?.length ? explainDecades(cx.chart, h.card.decades, h.decades) : []),
     ];
-    for (const r of mergeIn(own)) add(r);
+    for (const r of mergeIn(own)) add({ ...r, source_ids: [h.card.id], citations: h.card.sources.map((s) => s.id) });
   }
-  const reasons = facts.slice(0, MAX_REASONS);
+  // 不可先保留全部結論／年齡，再以四項上限靜默刪掉其必要依據。
+  const reasons = facts;
   if (!reasons.length) reasons.push(layer === 'natal' ? FALLBACK[topic] : FALLBACK.運程);
   cx.lead = null;
 

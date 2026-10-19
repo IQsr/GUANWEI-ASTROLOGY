@@ -109,6 +109,9 @@ export type ChapterSlot = (typeof SLOT_SPEC)[number]['slot'];
 /** 新命宮章（ming-writer.ts）嘅格：結論之後嘅因為、留意、做法。舊章唔會出。 */
 export type MingSlot = '因為' | '留意' | '做法';
 
+/** 新命宮段落的逐句文字及來源；合併段落後仍保留各句的對應。 */
+export type SegmentStatement = { text: string; en: string; source_ids: string[]; citations: string[] };
+
 export type Segment = {
   slot: ChapterSlot | '過場' | MingSlot;
   text: string;
@@ -116,6 +119,10 @@ export type Segment = {
   topic?: string;
   /** 新命宮章：英文（卡嘅 en）。舊章冇，英文照由 tm.json 喺讀嘅時候譯。 */
   en?: string;
+  /** 新命宮章：完整卡 id、原文段落 id 及逐句對應；舊章不加欄位。 */
+  source_ids?: string[];
+  citations?: string[];
+  statements?: SegmentStatement[];
   /** 追得返去邊一舊塊。`null` = 過場句（唔帶新資訊，所以冇塊）。 */
   source_id: string | null;
   /** 撐住呢一段嘅已審核規則。空 = 呢段唔係一個命理主張（章首、過場、留白）。 */
@@ -834,20 +841,32 @@ export function assemble(
 
 /**
  * 新命宮章（條件卡）套返舊 `Chapter` 形狀，網頁可以照排。一個話題四格：結論、因為、留意、做法，
- * 每格帶 `topic` 同 `en`；`source_id` 係卡 id（因為句冇卡，記嗰段結論卡）。
+ * 每格帶 `topic`、`en` 同逐句來源；`source_id` 以「+」保留合併的全部卡 id。
+ * 純盤面／後備原因沒有卡來源，舊 `source_id` 仍以結論卡作索引；逐句來源不虛構掛源。
  * 評級、借宮照抄舊章（嗰啲唔係寫作層嘅嘢）。冇卡命中（星系資料未有）就照用舊章。
  */
 export function mingChapterOf(old: Chapter, m: MingChapter): Chapter {
   if (!m.sections.length) return old;
   const segments: Segment[] = m.sections.flatMap((s) =>
-    s.parts.map((x) => ({
-      slot: x.part,
-      text: x.zh,
-      en: x.en,
-      topic: s.topic,
-      source_id: x.part === '留意' ? s.caveats[0]!.card : x.part === '做法' ? s.advice[0]!.card : s.conclusion.card,
-      rule_ids: [],
-    })),
+    s.parts.map((x) => {
+      const lines = x.part === '結論' ? [s.conclusion] : x.part === '留意' ? s.caveats : x.part === '做法' ? s.advice : [];
+      const statements: SegmentStatement[] = x.part === '因為'
+        ? s.reasons.map((r) => ({ text: r.zh, en: r.en, source_ids: r.source_ids ?? [], citations: r.citations ?? [] }))
+        : lines.map((l) => ({ text: l.zh, en: l.en, source_ids: [l.card], citations: l.sources }));
+      const source_ids = [...new Set(statements.flatMap((l) => l.source_ids))];
+      const citations = [...new Set(statements.flatMap((l) => l.citations))];
+      return {
+        slot: x.part,
+        text: x.zh,
+        en: x.en,
+        topic: s.topic,
+        source_id: source_ids.join('+') || s.conclusion.card,
+        source_ids,
+        citations,
+        statements,
+        rule_ids: [],
+      };
+    }),
   );
   const text = segments.map((s) => s.text).join('');
   const slotWords: Record<string, number> = {};
