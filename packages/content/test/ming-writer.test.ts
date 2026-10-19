@@ -72,7 +72,7 @@ describe('命宮寫作層：400 張盤', () => {
     const bad: string[] = [];
     let wrote = 0;
     for (const [i, chart] of CHARTS.entries()) {
-      const m = writeMing(chart);
+      const m = writeMing(chart, { style: 'compact' });
       if (!m.system) continue;
       wrote++;
       const topics = m.sections.map((s) => s.topic);
@@ -102,7 +102,7 @@ describe('命宮寫作層：400 張盤', () => {
     let n = 0;
     for (const [i, chart] of CHARTS.entries()) {
       const year = 2000 + (i % 40);
-      const f = mingFlow(chart, year);
+      const f = mingFlow(chart, year, { style: 'compact' });
       for (const [layer, s] of [['decade', f.decade], ['annual', f.annual]] as const) {
         if (!s) continue;
         n++;
@@ -116,7 +116,7 @@ describe('命宮寫作層：400 張盤', () => {
   });
 
   it('同一張盤寫兩次，一字不差', () => {
-    for (const chart of CHARTS.slice(0, 20)) expect(writeMing(chart)).toEqual(writeMing(chart));
+    for (const chart of CHARTS.slice(0, 20)) expect(writeMing(chart, { style: 'compact' })).toEqual(writeMing(chart, { style: 'compact' }));
   });
 });
 
@@ -129,14 +129,14 @@ describe('開關：mingWriter', () => {
       const by = inferAll(RULE_REGISTRY, { chart, annual: a.value }, SCHOOL_PROFILE.ref, SPEC_VERSION, { chartId: `m${i}`, layer: 'natal' });
       const def = assembleAll(chart, by, { seed: `m${i}` });
       const legacy = assembleAll(chart, by, { seed: `m${i}`, mingWriter: 'legacy' });
-      const cards = assembleAll(chart, by, { seed: `m${i}`, mingWriter: 'cards' });
+      const cards = assembleAll(chart, by, { seed: `m${i}`, mingWriter: 'cards', mingStyle: 'compact' });
       expect(legacy).toEqual(def);
       expect(cards.filter((c) => c.palace !== '命宮')).toEqual(def.filter((c) => c.palace !== '命宮'));
       const ming = cards.find((c) => c.palace === '命宮')!;
-      if (!writeMing(chart).sections.length) continue;
+      if (!writeMing(chart, { style: 'compact' }).sections.length) continue;
       expect(ming.segments[0]!.slot).toBe('結論');
       expect(ming.segments.every((s) => s.en && s.topic && s.source_id)).toBe(true);
-      expect(ming.text).toBe(writeMing(chart).sections.flatMap((s) => s.parts.map((p) => p.zh)).join(''));
+      expect(ming.text).toBe(writeMing(chart, { style: 'compact' }).sections.flatMap((s) => s.parts.map((p) => p.zh)).join(''));
     }
   });
 });
@@ -144,7 +144,7 @@ describe('開關：mingWriter', () => {
 describe('review 回歸：大限依據與逐句來源', () => {
   it('共同的順行條件不會吃掉兩段樞紐大限各自的星曜', () => {
     const chart = CHARTS[25]!;
-    const chapter = writeMing(chart);
+    const chapter = writeMing(chart, { style: 'compact' });
     expect(chapter.system?.n).toBe(21);
     const section = chapter.sections.find((s) => s.topic === '運程')!;
     expect(section.text.zh).toContain('二十三至三十二歲那個十年的命宮有貪狼');
@@ -167,7 +167,7 @@ describe('review 回歸：大限依據與逐句來源', () => {
     ] } };
     const hit = cardsFor(chart, undefined, 'natal', [card])[0]!;
     expect(hit.decades!.length).toBeGreaterThan(4);
-    const section = writeMing(chart, { pool: [card] }).sections[0]!;
+    const section = writeMing(chart, { pool: [card], style: 'compact' }).sections[0]!;
     for (const d of hit.decades!) {
       const palace = chart.palaces.find((p) => p.branch === d.branch)!;
       const star = stars.find((s) => palace.stars.some((x) => x.name === s))!;
@@ -189,7 +189,7 @@ describe('review 回歸：大限依據與逐句來源', () => {
       ...c, id: `card.ming.review.advice-${i}`, kind: 'advice',
       claim: `你可以先核對第${i + 1}項計畫。`, en: `Check plan ${i + 1} first.`,
     }));
-    const m = writeMing(chart, { pool: [core, ...caveats, ...advice] });
+    const m = writeMing(chart, { pool: [core, ...caveats, ...advice], style: 'compact' });
     const chapter = mingChapterOf(old, m);
     for (const part of ['留意', '做法'] as const) {
       const lines = part === '留意' ? m.sections[0]!.caveats : m.sections[0]!.advice;

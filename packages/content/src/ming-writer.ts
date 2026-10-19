@@ -1,15 +1,13 @@
 /**
  * 命宮寫作層（新架構試點，2026-10-19，見 docs/architecture-v2-plan-2026-10-19.md §2.3、§5）
  *
- * 判斷層（card.ts `cardsFor`）揀好卡，呢度只負責寫：一個話題一段，次序固定
- *   結論 → 因為 → 留意 → 做法
- * 結論係嗰個話題嘅 claim 卡；因為由卡嘅條件同 binding 砌（盤上中咗乜）；
- * 留意係 caveat 卡；做法係 advice 卡。
+ * 預設展開稿：命中卡再過獨立核讀閘 → 主判斷／可獨立提醒 → 展開 → 明示情境與編輯建議。
+ * 盤面依據另列章末；未核或核讀輸入已改，一律留白。compact 保留短版對照及回歸用途。
  *
  * 本命章（`writeMing`）只寫本命層。大限、流年層另外由 `mingDecade`／`mingYear` 出，
- * 唔撈入本命章（plan §2.4：運限章只講同本命唔同嘅地方）。
+ * 唔撈入本命章；未列入本次核讀範圍的運限段預設 null。
  *
- * 中英一齊出：英文用卡嘅 `en`，因為句亦逐款砌英文。唔掂 ja，亦唔掂 tm.json（舊書照舊渲染）。
+ * 展開稿中英一齊編寫；不改 ja、tm.json 或舊書渲染。
  *
  * 讀者文字規矩（GUIDE.md 第五節）卡本身已經守；呢度砌嘅因為句只講盤上有乜，
  * 唔講卡 id、唔抄條件語法、`{decades}` 一定填實。
@@ -21,8 +19,16 @@ import { num } from './steps';
 import { leanOf, xingxiOf, type Xingxi } from './xingxi';
 import { evEn, HUA_EN, POLE_EN } from './en/facts';
 import { BRANCH_EN, PALACE_EN, cap, listEn, star as starEn } from './en/terms';
+import { PROSE_PROFILES, EDITORIAL_THEMES, isProseReviewed, type Bilingual } from './ming-prose';
+import { EXTRA_PROSE } from './ming-prose-extra';
 
 export type MingTopic = (typeof MING_TOPICS)[number];
+export type MingStyle = 'expanded' | 'compact';
+export type MingWriteOptions = { pool?: Card[]; style?: MingStyle };
+export type MingStatement = {
+  text: string; en: string; source_ids: string[]; citations: string[];
+  kind?: 'interpretation' | 'editorial-explanation' | 'editorial-example' | 'editorial-advice' | 'evidence';
+};
 
 /** 一句讀者文字（中英），連出處：卡 id 同原文段落 id。 */
 export type MingLine = { zh: string; en: string; card: string; sources: string[] };
@@ -39,6 +45,8 @@ export type MingReason = {
 export type MingSection = {
   topic: MingTopic;
   layer: Card['layer'];
+  mode?: 'assessment' | 'caution' | 'guidance';
+  heading?: Bilingual;
   /**
    * 結論。通常係 claim 卡；個話題冇 claim 命中（例如只得 caveat），就由第一張 caveat（再冇就 advice）頂上，
    * `kind` 照記原本係乜卡。
@@ -52,11 +60,14 @@ export type MingSection = {
   /** 原文段落 id（去重）。 */
   citations: string[];
   /** 排好嘅四格（留意、做法冇就唔出）。 */
-  parts: { part: '結論' | '因為' | '留意' | '做法'; zh: string; en: string }[];
+  parts: { part: '結論' | '展開' | '情境' | '因為' | '留意' | '做法'; zh: string; en: string; statements?: MingStatement[] }[];
   text: { zh: string; en: string };
 };
 
 export type MingChapter = {
+  style?: MingStyle;
+  /** 只供編輯查核，不寫進讀者正文。 */
+  omitted?: { card: string; reason: 'not_reviewed_or_changed' }[];
   palace: '命宮';
   system: { n: number; name: string; borrowed: boolean } | null;
   sections: MingSection[];
@@ -461,6 +472,7 @@ type Ctx = {
   x: { system: Xingxi; borrowed: boolean };
   /** 成章已經講過嘅句（中文），唔講第二次。 */
   said: Set<string>;
+  proseSaid?: Set<string>;
   /** 第一段先講命宮係乜星；運限段講嗰十年／嗰年。 */
   lead: MingReason | null;
 };
@@ -552,7 +564,13 @@ function section(topic: MingTopic, layer: Card['layer'], hits: Hit[], cx: Ctx): 
   };
 }
 
-function render(title: { zh: string; en: string }, sections: MingSection[]): { zh: string; en: string } {
+function render(title: { zh: string; en: string }, sections: MingSection[], style: MingStyle = 'compact'): { zh: string; en: string } {
+  if (style === 'expanded') {
+    const body = (lang: 'zh' | 'en') => sections.map((s) => `${s.heading?.[lang] ?? (lang === 'zh' ? s.topic : MING_TOPIC_EN[s.topic])}\n\n${s.text[lang]}`);
+    const evidence = (lang: 'zh' | 'en') => sections.flatMap((s) => s.parts.filter((p) => p.part === '因為').map((p) => p[lang]));
+    const text = (lang: 'zh' | 'en') => [title[lang], ...body(lang), ...(evidence(lang).length ? [lang === 'zh' ? '盤面依據' : 'Chart evidence', ...evidence(lang)] : [])].join('\n\n');
+    return { zh: text('zh'), en: text('en') };
+  }
   return {
     zh: [title.zh, ...sections.map((s) => `${s.layer === 'natal' ? `【${s.topic}】\n` : ''}${s.text.zh}`)].filter(Boolean).join('\n\n'),
     en: [title.en, ...sections.map((s) => `${s.layer === 'natal' ? `${MING_TOPIC_EN[s.topic]}\n` : ''}${s.text.en}`)].filter(Boolean).join('\n\n'),
@@ -563,17 +581,21 @@ function render(title: { zh: string; en: string }, sections: MingSection[]): { z
  * 本命命宮章：五個話題，冇卡命中嘅話題唔出。
  * `pool` 畀測試換卡；平時用 `CARDS`。
  */
-export function writeMing(chart: Chart, opts: { pool?: Card[] } = {}): MingChapter {
+export function writeMing(chart: Chart, opts: MingWriteOptions = {}): MingChapter {
+  const style = opts.style ?? 'expanded';
   const x = xingxiOf(chart);
-  if (!x) return { palace: '命宮', system: null, sections: [], text: { zh: '', en: '' } };
-  const hits = cardsFor(chart, undefined, 'natal', opts.pool);
+  if (!x) return { style, palace: '命宮', system: null, sections: [], text: { zh: '', en: '' } };
+  const candidates = cardsFor(chart, undefined, 'natal', opts.pool);
+  const hits = style === 'expanded' ? candidates.filter((h) => isProseReviewed(h.card)) : candidates;
   const cx: Ctx = { chart, x, said: new Set(), lead: systemReason(chart, x) };
-  const sections = MING_TOPICS.map((t) => section(t, 'natal', hits, cx)).filter((s): s is MingSection => !!s);
+  const sections = MING_TOPICS.map((t) => style === 'expanded' ? expandedSection(t, hits, cx) : section(t, 'natal', hits, cx)).filter((s): s is MingSection => !!s);
   return {
+    style,
+    ...(style === 'expanded' ? { omitted: candidates.filter((h) => !isProseReviewed(h.card)).map((h) => ({ card: h.card.id, reason: 'not_reviewed_or_changed' as const })) } : {}),
     palace: '命宮',
     system: { n: x.system.n, name: x.system.name, borrowed: x.borrowed },
     sections,
-    text: render({ zh: '命宮', en: 'Life Palace' }, sections),
+    text: sections.length ? render({ zh: '命宮', en: 'Life Palace' }, sections, style) : { zh: '', en: '' },
   };
 }
 
@@ -581,14 +603,14 @@ export function writeMing(chart: Chart, opts: { pool?: Card[] } = {}): MingChapt
  * 某一個十年嘅命宮運程（大限層卡）。卡本身用「這十年」開頭；因為句第一樣講嗰十年係幾多歲。
  * 用嗰十年第一年嘅流年資料計（同 card.ts `decadesFor` 一樣）。
  */
-export function mingDecade(chart: Chart, decade: Decadal, opts: { pool?: Card[] } = {}): MingSection | null {
+export function mingDecade(chart: Chart, decade: Decadal, opts: MingWriteOptions = {}): MingSection | null {
   const a = annualOf(chart, chart.lunar.y + decade.fromAge - 1);
   if (!a.ok) return null;
-  return flowSection(chart, a.value, 'decade', { zh: `這十年是${decadesZh([decade])}`, en: `this decade covers ${decadesEn([decade])}` }, opts.pool);
+  return flowSection(chart, a.value, 'decade', { zh: `這十年是${decadesZh([decade])}`, en: `this decade covers ${decadesEn([decade])}` }, opts);
 }
 
 /** 某一年嘅命宮運程（流年層卡）。卡本身用「這一年」開頭。 */
-export function mingYear(chart: Chart, year: number, opts: { pool?: Card[] } = {}): MingSection | null {
+export function mingYear(chart: Chart, year: number, opts: MingWriteOptions = {}): MingSection | null {
   const a = annualOf(chart, year);
   if (!a.ok) return null;
   const age = a.value.nominalAge;
@@ -597,20 +619,74 @@ export function mingYear(chart: Chart, year: number, opts: { pool?: Card[] } = {
     a.value,
     'annual',
     { zh: `這一年你虛歲${num(age)}`, en: `this year you are around ${Math.max(0, age - 1)} (${age} by Chinese reckoning)` },
-    opts.pool,
+    opts,
   );
 }
 
 /** 寫書嗰年：行緊嗰個十年同嗰一年，各自一段（冇卡就 null）。 */
-export function mingFlow(chart: Chart, year: number, opts: { pool?: Card[] } = {}): { decade: MingSection | null; annual: MingSection | null } {
+export function mingFlow(chart: Chart, year: number, opts: MingWriteOptions = {}): { decade: MingSection | null; annual: MingSection | null } {
   const a = annualOf(chart, year);
   const d = a.ok ? a.value.decadal : null;
   return { decade: d ? mingDecade(chart, d, opts) : null, annual: mingYear(chart, year, opts) };
 }
 
-function flowSection(chart: Chart, a: AnnualChart, layer: 'decade' | 'annual', lead: MingReason, pool?: Card[]): MingSection | null {
+function flowSection(chart: Chart, a: AnnualChart, layer: 'decade' | 'annual', lead: MingReason, opts: MingWriteOptions): MingSection | null {
   const x = xingxiOf(chart);
   if (!x) return null;
-  const hits = cardsFor(chart, a, layer, pool);
+  const candidates = cardsFor(chart, a, layer, opts.pool);
+  const hits = opts.style === 'compact' ? candidates : candidates.filter((h) => isProseReviewed(h.card));
   return section('運程', layer, hits, { chart, annual: a, x, said: new Set(), lead });
+}
+
+/** 已核判斷 → 編輯展開 → 明示情境／建議；盤面依據另列，沒有後備「因為」。 */
+function expandedSection(topic: MingTopic, hits: Hit[], cx: Ctx): MingSection | null {
+  const mine = hits.filter((h) => h.card.topic === topic);
+  const primary = mine.find((h) => h.card.kind === 'claim') ?? mine.find((h) => EXTRA_PROSE[h.card.id]?.standalone);
+  if (!primary) return null;
+  // 沒有已核主判斷時，只有明確核為可獨立成立的提醒能另出，不能把任意 caveat 頂上。
+  const selected = [primary, ...mine.filter((h) => h !== primary && h.card.kind !== 'claim')];
+  const s = section(topic, 'natal', selected, cx);
+  if (!s) return null;
+  const profile = topic === '本質' ? PROSE_PROFILES.find((p) => p.system === cx.x.system.n) : undefined;
+  const extra = EXTRA_PROSE[primary.card.id];
+  if (!profile && !extra) return null;
+  const theme = topic === '本質' ? EDITORIAL_THEMES[profile!.theme]
+    : topic === '待人' ? EDITORIAL_THEMES.boundaries
+    : topic === '處事' ? EDITORIAL_THEMES.planning : undefined;
+  const mode = primary.card.kind === 'claim' ? 'assessment' : primary.card.kind === 'caveat' ? 'caution' : 'guidance';
+  const lead = profile?.lead ?? extra?.lead ?? { zh: s.conclusion.zh, en: s.conclusion.en };
+  const heading = profile?.title ?? { zh: topic, en: MING_TOPIC_EN[topic] };
+  const parts: MingSection['parts'] = [];
+  const push = (part: MingSection['parts'][number]['part'], text: Bilingual, kind: MingStatement['kind'], ids: string[], citations: string[], label?: Bilingual) => {
+    if (kind === 'editorial-example' || kind === 'editorial-advice') {
+      const said = cx.proseSaid ??= new Set();
+      if (said.has(text.zh)) return;
+      said.add(text.zh);
+    }
+    const statements = [{ text: text.zh, en: text.en, kind, source_ids: ids, citations }];
+    parts.push({ part, zh: (label?.zh ?? '') + text.zh, en: (label?.en ?? '') + text.en, statements });
+  };
+  push(mode === 'caution' ? '留意' : mode === 'guidance' ? '做法' : '結論', lead, 'interpretation', [primary.card.id], s.conclusion.sources);
+  const explanation = profile?.explanation ?? extra!.explanation;
+  push('展開', explanation, 'editorial-explanation', [primary.card.id], s.conclusion.sources);
+  for (const line of [...s.caveats, ...s.advice]) {
+    const branch = EXTRA_PROSE[line.card];
+    push(line.card === s.conclusion.card ? '展開' : '留意', { zh: line.zh, en: line.en }, 'interpretation', [line.card], line.sources);
+    if (branch) push('展開', branch.explanation, 'editorial-explanation', [line.card], line.sources);
+  }
+  if (theme) {
+    push('情境', theme.example, 'editorial-example', [primary.card.id], [], { zh: '情境例子：', en: 'Illustrative situation: ' });
+    push('做法', theme.advice, 'editorial-advice', [primary.card.id], [], { zh: '給你的做法：', en: 'A practical step: ' });
+    push('做法', theme.reflection, 'editorial-advice', [primary.card.id], []);
+  }
+  const reasons = s.reasons.filter((r) => !Object.values(FALLBACK).some((f) => f.zh === r.zh));
+  if (reasons.length) parts.push({
+    part: '因為',
+    zh: `${topic}：${endZh(reasons.map((r) => r.zh).join('；'))}`,
+    en: `${MING_TOPIC_EN[topic]}: ${endEn(reasons.map((r) => r.en).join('; '))}`,
+    statements: reasons.map((r) => ({ text: r.zh, en: r.en, kind: 'evidence', source_ids: r.source_ids ?? [], citations: r.citations ?? [] })),
+  });
+  const body = parts.filter((p) => p.part !== '因為');
+  return { ...s, mode, heading, conclusion: { ...s.conclusion, ...lead }, reasons, parts,
+    text: { zh: body.map((p) => p.zh).join('\n\n'), en: body.map((p) => p.en).join('\n\n') } };
 }
