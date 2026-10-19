@@ -47,6 +47,7 @@ import { similarity } from './baseblock';
 import { L3_BLOCKS, l3For } from './l3-data';
 import { palaceLabel } from './link';
 import type { InferResult } from './infer';
+import { writeMing, type MingChapter } from './ming-writer';
 
 /**
  * §6 插槽表。字數係**上限唔係目標** —— 內容系統 §1 第四行。
@@ -105,9 +106,16 @@ export const SLOT_SPEC = [
 
 export type ChapterSlot = (typeof SLOT_SPEC)[number]['slot'];
 
+/** 新命宮章（ming-writer.ts）嘅格：結論之後嘅因為、留意、做法。舊章唔會出。 */
+export type MingSlot = '因為' | '留意' | '做法';
+
 export type Segment = {
-  slot: ChapterSlot | '過場';
+  slot: ChapterSlot | '過場' | MingSlot;
   text: string;
+  /** 新命宮章：呢段屬邊個話題（本質、格局⋯）。舊章冇。 */
+  topic?: string;
+  /** 新命宮章：英文（卡嘅 en）。舊章冇，英文照由 tm.json 喺讀嘅時候譯。 */
+  en?: string;
   /** 追得返去邊一舊塊。`null` = 過場句（唔帶新資訊，所以冇塊）。 */
   source_id: string | null;
   /** 撐住呢一段嘅已審核規則。空 = 呢段唔係一個命理主張（章首、過場、留白）。 */
@@ -340,6 +348,12 @@ export type AssembleOptions = {
    * `assembleAll()` 按讀者次序輪；單獨砌一章就照原句。英文嗰邊 `lookupSentence` 會認返原句。
    */
   watchLead?: string;
+  /**
+   * 命宮章用邊套寫法（2026-10-19 新架構試點開關）。
+   * 'legacy'（預設）：舊做法，同以前一字不差。
+   * 'cards'：條件卡寫作層（ming-writer.ts）。舊命宮章照砌一次（`used` 照記，其餘十一章同舊書一樣），再換成新章。
+   */
+  mingWriter?: 'legacy' | 'cards';
 };
 
 /**
@@ -354,6 +368,10 @@ export function assemble(
   res: InferResult,
   opts: AssembleOptions,
 ): Chapter {
+  if (palace === '命宮' && opts.mingWriter === 'cards') {
+    const old = assemble(chart, palace, res, { ...opts, mingWriter: 'legacy' });
+    return mingChapterOf(old, writeMing(chart));
+  }
   const p = chart.palaces.find((x) => x.name === palace);
   if (!p) throw new Error(`盤上冇 ${palace}`);
   const { seed } = opts;
@@ -812,6 +830,29 @@ export function assemble(
     borrowed,
     missing,
   };
+}
+
+/**
+ * 新命宮章（條件卡）套返舊 `Chapter` 形狀，網頁可以照排。一個話題四格：結論、因為、留意、做法，
+ * 每格帶 `topic` 同 `en`；`source_id` 係卡 id（因為句冇卡，記嗰段結論卡）。
+ * 評級、借宮照抄舊章（嗰啲唔係寫作層嘅嘢）。冇卡命中（星系資料未有）就照用舊章。
+ */
+export function mingChapterOf(old: Chapter, m: MingChapter): Chapter {
+  if (!m.sections.length) return old;
+  const segments: Segment[] = m.sections.flatMap((s) =>
+    s.parts.map((x) => ({
+      slot: x.part,
+      text: x.zh,
+      en: x.en,
+      topic: s.topic,
+      source_id: x.part === '留意' ? s.caveats[0]!.card : x.part === '做法' ? s.advice[0]!.card : s.conclusion.card,
+      rule_ids: [],
+    })),
+  );
+  const text = segments.map((s) => s.text).join('');
+  const slotWords: Record<string, number> = {};
+  for (const seg of segments) slotWords[seg.slot] = (slotWords[seg.slot] ?? 0) + cjkCount(seg.text);
+  return { ...old, text, segments, words: cjkCount(text), slotWords, outOfRange: [], duplicates: [], missing: [] };
 }
 
 /** 十二宮逐章。 */
