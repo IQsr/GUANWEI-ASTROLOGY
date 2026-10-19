@@ -1620,8 +1620,8 @@
       ]
     },
     "layer": "decade",
-    "claim": "這十年往往帶來改變，而且容易是不好的改變，生出諸般紛擾。",
-    "en": "This decade tends to bring change, and often the unwelcome kind, with all sorts of entanglements.",
+    "claim": "這十年往往帶來變動，而變動較易帶來紛擾。",
+    "en": "This decade tends to bring change, and the change more easily brings trouble.",
     "limit": "原文例外：大運紫破或巨門化祿權守命、流年行同梁又見吉會，為建立事業基礎的流年；這裡只寫大限。",
     "sources": [
       {
@@ -1629,7 +1629,8 @@
         "sha256": "681379732e2a9784aa67dfeb5ad707d9f7764c64ae0214a62ae2eec214bf4694"
       }
     ],
-    "status": "draft"
+    "status": "draft",
+    "note": "B5（2026-10-19 用戶定）：採 p075.b002 同梁大限分支，比 p350 通論完整；收窄成「變動較易帶來紛擾」。例外流年見 tl-year-dev（要核齊所處大限同吉會，唔將整個大限翻成吉）。"
   },
   {
     "id": "card.ming.tianfu-maoyou.visit-jiji-dong",

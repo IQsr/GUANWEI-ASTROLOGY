@@ -13872,15 +13872,16 @@
       ]
     },
     "layer": "decade",
-    "claim": "這十年是從無到有打基礎的時候，為之後的好運作準備。",
-    "en": "This decade is for building foundations from scratch, preparing for the good years ahead.",
+    "claim": "這十年是從無到有、為之後的發展打基礎的時候。",
+    "en": "This decade is about building from nothing, laying the groundwork for what comes next.",
     "sources": [
       {
         "id": "wtz.deep.p065.b006",
         "sha256": "8c38afd5c12157b7d0f965661b37f550820c82c431ab88b6441d92ebf0c35616"
       }
     ],
-    "status": "draft"
+    "status": "draft",
+    "note": "B3（2026-10-19 用戶定）：理想型採 p065.b006，比 p361 七殺通論具體；只講打基礎，唔講十年順遂或必有成果。pole 理想先出，平衡／無偏同空想都唔出。"
   },
   {
     "id": "card.ming.qisha-chenxu.visit-tongju-kongxiang",
@@ -20107,8 +20108,8 @@
       ]
     },
     "layer": "decade",
-    "claim": "這十年往往帶來改變，而且容易是不好的改變，生出諸般紛擾。",
-    "en": "This decade tends to bring change, and often the unwelcome kind, with all sorts of entanglements.",
+    "claim": "這十年往往帶來變動，而變動較易帶來紛擾。",
+    "en": "This decade tends to bring change, and the change more easily brings trouble.",
     "limit": "原文例外：大運紫破或巨門化祿權守命、流年行同梁又見吉會，為建立事業基礎的流年；這裡只寫大限。",
     "sources": [
       {
@@ -20116,7 +20117,8 @@
         "sha256": "681379732e2a9784aa67dfeb5ad707d9f7764c64ae0214a62ae2eec214bf4694"
       }
     ],
-    "status": "draft"
+    "status": "draft",
+    "note": "B5（2026-10-19 用戶定）：採 p075.b002 同梁大限分支，比 p350 通論完整；收窄成「變動較易帶來紛擾」。例外流年見 tl-year-dev（要核齊所處大限同吉會，唔將整個大限翻成吉）。"
   },
   {
     "id": "card.ming.tianfu-maoyou.visit-jiji-dong",
