@@ -117,7 +117,7 @@ export type Condition =
   | { decadeAge: { lt?: number; gte?: number } };
 
 export type FlowName = '祿存' | '擎羊' | '陀羅' | '文昌' | '文曲' | '天魁' | '天鉞' | '天馬';
-export type GejuName = 'baiguan' | 'zaiye' | 'kongku' | 'luku' | 'caiyin' | 'xingji';
+export type GejuName = 'baiguan' | 'zaiye' | 'kongku' | 'luku' | 'caiyinShape' | 'caiyin' | 'xingji' | 'shizhong';
 
 /**
  * 命中嘅細節。一個 binding = 之後 evidence[] 入面嘅一行。
@@ -472,7 +472,12 @@ export function evaluate(cond: Condition, ctx: EvalContext): EvalResult {
   if ('geju' in cond) {
     const r = evaluate(GEJU_DEF[cond.geju].when, ctx);
     if (r.status !== 'matched') return r;
-    return { status: 'matched', bindings: [...r.bindings, { layer: 'natal', palace: null, branch: null, star: null, hua: null, note: `成${GEJU_DEF[cond.geju].name}` }] };
+    const extra: Binding[] = [{ layer: 'natal', palace: null, branch: null, star: null, hua: null, note: `成${GEJU_DEF[cond.geju].name}` }];
+    /* A2（2026-10-19 用戶定）：刑忌夾先論，但財蔭構形照記低 */
+    if (cond.geju === 'xingji' && evaluate(GEJU_DEF.caiyinShape.when, ctx).status === 'matched') {
+      extra.push({ layer: 'natal', palace: null, branch: null, star: null, hua: null, note: '同時有財蔭夾印構形（刑忌先論，財蔭唔計）' });
+    }
+    return { status: 'matched', bindings: [...r.bindings, ...extra] };
   }
 
   // { star, in }
@@ -632,18 +637,28 @@ export const GEJU_DEF: Record<GejuName, { name: string; when: Condition; sources
     sources: ['wtz.deep.p020.b005'],
     note: '「天相不吉，或甚至帶煞來會」，或者「四煞刑忌交會」。天相不吉當天相同度見煞忌；交會當三方四正兩煞以上再見化忌（天刑未計）。',
   },
-  caiyin: {
-    name: '財蔭夾印',
+  caiyinShape: {
+    name: '財蔭夾印構形',
     when: {
       all: [
         { jia: '天相', sides: [['化祿'], ['天梁']] },
         { any: [{ star: '巨門', hua: '祿' }, { star: '天同', hua: '祿' }] },
+      ],
+    },
+    sources: ['wtz.deep.p005.b009', 'wtz.deep.p030.b005'],
+    note: '只睇夾嘅形狀，唔理有冇同時成刑忌夾。寫卡用 `caiyin`；呢個留俾記錄同統計（A2）。',
+  },
+  caiyin: {
+    name: '財蔭夾印',
+    when: {
+      all: [
+        { geju: 'caiyinShape' },
         /* 同一邊又見化忌（例：辛年巨門化祿、文昌化忌同宮）就成刑忌夾，刑忌先論 */
         { not: { geju: 'xingji' } },
       ],
     },
     sources: ['wtz.deep.p005.b009', 'wtz.deep.p030.b005'],
-    note: '天梁同化祿（天同或巨門化祿）夾天相。同時成刑忌夾印就唔算（2026-10-19 寫卡三批都咁處理，待用戶確認）。',
+    note: '天梁同化祿（天同或巨門化祿）夾天相。同時成刑忌夾印就唔算，刑忌先論；構形本身記喺 `caiyinShape`，刑忌夾命中時 binding 會註明（2026-10-19 用戶定 A2）。',
   },
   xingji: {
     name: '刑忌夾印',
@@ -664,5 +679,17 @@ export const GEJU_DEF: Record<GejuName, { name: string; when: Condition; sources
     },
     sources: ['wtz.deep.p005.b009', 'wtz.deep.p030.b009', 'wtz.deep.p030.b010', 'wtz.deep.p358.b004'],
     note: '一邊化忌、另一邊擎羊或天梁夾天相（兩樣喺同一邊唔算，p358.b004「雖不成刑忌夾印」）。天梁化科、三方無煞、見吉就解（p030.b010）。',
+  },
+  shizhong: {
+    name: '石中隱玉',
+    when: {
+      all: [
+        { star: '巨門', at: ['子', '午'] },
+        { any: [{ star: '巨門', hua: '祿' }, { star: '巨門', hua: '權' }] },
+        { not: { meets: '巨門', stars: ['擎羊', '陀羅', '火星', '鈴星'] } },
+      ],
+    },
+    sources: ['wtz.deep.p029.b001', 'wtz.deep.p081.b011', 'wtz.deep.p082.b001', 'wtz.deep.p082.b007'],
+    note: '嚴格定義（2026-10-19 用戶定 A5）：子午巨門、巨門本身本命化祿或化權（p082.b007「必須巨門本身化祿化權」）、三方四正不見羊陀火鈴（A13：空劫唔算煞）。祿存同度係次一等，另寫卡，唔用呢個格。',
   },
 };

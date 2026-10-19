@@ -81,7 +81,7 @@ export const ConditionSchema: z.ZodType<Condition> = z.lazy(() =>
     z.looseObject({ meets: z.string(), stars: z.array(z.string()).min(1), reach: z.enum(['same', 'sanfang', 'jia']).optional(), op: z.enum(['gte', 'lte', 'eq']).optional(), n: z.number().int().min(0).optional() }),
     z.looseObject({ flow: z.enum(['祿存', '擎羊', '陀羅', '文昌', '文曲', '天魁', '天鉞', '天馬']), layer: z.enum(['decade', 'annual']), in: z.object({ name: z.string(), layer: z.string().optional() }), reach: z.enum(['same', 'sanfang']).optional() }),
     z.looseObject({ deLu: z.string(), layer: z.enum(['natal', 'decade', 'annual']).optional() }),
-    z.looseObject({ geju: z.enum(['baiguan', 'zaiye', 'kongku', 'luku', 'caiyin', 'xingji']) }),
+    z.looseObject({ geju: z.enum(['baiguan', 'zaiye', 'kongku', 'luku', 'caiyinShape', 'caiyin', 'xingji', 'shizhong']) }),
     z.looseObject({ star: z.string(), at: z.array(z.enum(['子', '丑', '寅', '卯', '辰', '巳', '午', '未', '申', '酉', '戌', '亥'])).min(1) }),
     z.looseObject({ decadeOrder: z.enum(['forward', 'backward']) }),
     z.looseObject({ jia: z.string(), sides: z.tuple([z.array(z.string()).min(1), z.array(z.string()).min(1)]) }),

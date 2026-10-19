@@ -84,6 +84,24 @@ describe('geju：命名格局', () => {
     for (const ch of CHARTS)
       if (hit({ deLu: '天府' }, ch) && !hit({ meets: '天府', stars: ['地空'], reach: 'same' }, ch)) expect(hit({ geju: 'kongku' }, ch)).toBe(false);
   });
+  it('A2：刑忌夾先論，財蔭構形照記低', () => {
+    for (const ch of CHARTS) {
+      if (hit({ geju: 'caiyin' }, ch)) expect(hit({ geju: 'caiyinShape' }, ch)).toBe(true);
+      if (!hit({ geju: 'xingji' }, ch)) continue;
+      expect(hit({ geju: 'caiyin' }, ch)).toBe(false);
+      const r = evaluate({ geju: 'xingji' }, { chart: ch });
+      const noted = r.status === 'matched' && r.bindings.some((b) => b.note?.includes('財蔭'));
+      expect(noted).toBe(hit({ geju: 'caiyinShape' }, ch));
+    }
+  });
+  it('A5：石中隱玉只喺子午巨門化祿權、不見羊陀火鈴', () => {
+    for (const ch of CHARTS) {
+      if (!hit({ geju: 'shizhong' }, ch)) continue;
+      expect(hit({ star: '巨門', at: ['子', '午'] }, ch)).toBe(true);
+      expect(hit({ any: [{ star: '巨門', hua: '祿' }, { star: '巨門', hua: '權' }] }, ch)).toBe(true);
+      expect(hit({ meets: '巨門', stars: ['擎羊', '陀羅', '火星', '鈴星'] }, ch)).toBe(false);
+    }
+  });
 });
 
 describe('schema 收得落新原子', () => {

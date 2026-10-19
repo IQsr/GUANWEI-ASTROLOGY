@@ -2104,16 +2104,7 @@
           }
         },
         {
-          "any": [
-            {
-              "star": "巨門",
-              "hua": "祿"
-            },
-            {
-              "star": "巨門",
-              "hua": "權"
-            }
-          ]
+          "geju": "shizhong"
         },
         {
           "any": [
@@ -2334,19 +2325,6 @@
         }
       ]
     },
-    "none": {
-      "not": {
-        "not": {
-          "meets": "巨門",
-          "stars": [
-            "擎羊",
-            "陀羅",
-            "火星",
-            "鈴星"
-          ]
-        }
-      }
-    },
     "claim": "這十年是成大事、立大業的時機。",
     "en": "This decade is the time to achieve something big and build a lasting enterprise.",
     "limit": "原文：巨門成石中隱玉（化祿或化權、不見煞），善決斷者最宜經行，更見吉化或吉曜，為成大事立大業的運限。",
@@ -2381,31 +2359,9 @@
           }
         },
         {
-          "any": [
-            {
-              "star": "巨門",
-              "hua": "祿"
-            },
-            {
-              "star": "巨門",
-              "hua": "權"
-            }
-          ]
+          "geju": "shizhong"
         }
       ]
-    },
-    "none": {
-      "not": {
-        "not": {
-          "meets": "巨門",
-          "stars": [
-            "擎羊",
-            "陀羅",
-            "火星",
-            "鈴星"
-          ]
-        }
-      }
     },
     "claim": "這十年往往功虧一簣，或因決定錯誤而受指責。",
     "en": "This decade things often fall short at the last step, or a wrong call brings blame.",

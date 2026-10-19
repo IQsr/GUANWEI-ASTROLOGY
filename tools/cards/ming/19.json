@@ -180,7 +180,7 @@
     },
     "claim": "你的人生較多遷移變動，局面不容易長期固定下來。",
     "en": "Your life involves more moves and changes than most; things rarely stay fixed for long.",
-    "limit": "原文：太陽在戌、太陰在辰為日月失輝（反背），主變遷動盪；見輔佐吉曜則離祖發福。不寫離祖過繼等事件。「反背」用法屬待決 A6。",
+    "limit": "原文：太陽在戌、太陰在辰為日月失輝（反背），主變遷動盪；見輔佐吉曜則離祖發福。不寫離祖過繼等事件。反背按本星系原文條件定義（A6，2026-10-19）。",
     "sources": [
       {
         "id": "wtz.deep.p341.b014",
@@ -1444,44 +1444,7 @@
           }
         },
         {
-          "any": [
-            {
-              "star": "巨門",
-              "hua": "祿"
-            },
-            {
-              "star": "巨門",
-              "hua": "權"
-            }
-          ]
-        }
-      ]
-    },
-    "none": {
-      "any": [
-        {
-          "any": [
-            {
-              "star": "巨門",
-              "hua": "忌"
-            },
-            {
-              "star": "巨門",
-              "hua": "忌",
-              "layer": "decade"
-            }
-          ]
-        },
-        {
-          "meets": "巨門",
-          "stars": [
-            "擎羊",
-            "陀羅",
-            "火星",
-            "鈴星",
-            "地空",
-            "地劫"
-          ]
+          "geju": "shizhong"
         }
       ]
     },
@@ -1502,7 +1465,8 @@
         "sha256": "59e5617ceb218ee4206f333f8ca4ecaad1c5926fc74b8f123b9b13ebdb2167a3"
       }
     ],
-    "status": "draft"
+    "status": "draft",
+    "note": "石中隱玉用嚴格定義 geju shizhong（A5）：子午巨門、本命巨門化祿或化權、三方四正不見羊陀火鈴。空劫唔算煞（A13），原文冇講化忌排除，已刪。受拖累與否只影響得吉程度。"
   },
   {
     "id": "card.ming.taiyang-chenxu.visit-jumen-doubt-fudan",
@@ -1561,7 +1525,11 @@
         "sha256": "8fe10c6afb26996c66f4a4637e9ee2d519141c78d84648d23b0b771c12e89baa"
       }
     ],
-    "status": "draft"
+    "status": "draft",
+    "none": {
+      "geju": "shizhong"
+    },
+    "note": "本命成石中隱玉嘅巨門唔算疑忌巨門（p082.b002 英華內斂同內心疑忌係兩頭），交俾 visit-jumen（A5，2026-10-19）。"
   },
   {
     "id": "card.ming.taiyang-chenxu.visit-jumen-doubt-congrong",
@@ -1619,7 +1587,11 @@
         "sha256": "8fe10c6afb26996c66f4a4637e9ee2d519141c78d84648d23b0b771c12e89baa"
       }
     ],
-    "status": "draft"
+    "status": "draft",
+    "none": {
+      "geju": "shizhong"
+    },
+    "note": "本命成石中隱玉嘅巨門唔算疑忌巨門（p082.b002 英華內斂同內心疑忌係兩頭），交俾 visit-jumen（A5，2026-10-19）。"
   },
   {
     "id": "card.ming.taiyang-chenxu.visit-tianxiang-congrong",

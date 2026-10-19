@@ -289,11 +289,18 @@
       "deLu": "天府"
     },
     "none": {
-      "meets": "天府",
-      "stars": [
-        "地空"
-      ],
-      "reach": "same"
+      "any": [
+        {
+          "meets": "天府",
+          "stars": [
+            "地空"
+          ],
+          "reach": "same"
+        },
+        {
+          "geju": "luku"
+        }
+      ]
     },
     "layer": "natal",
     "claim": "你有實在的根基托著你的志向，對你有利。",
@@ -305,7 +312,8 @@
         "sha256": "736e8b9bfb546b57b9f3fa0ca321527304832e04bf0291b6cd2ca330889ec5b3"
       }
     ],
-    "status": "draft"
+    "status": "draft",
+    "note": "原文空庫、露庫並舉，露庫都排除（A5）。"
   },
   {
     "id": "card.ming.qisha-chenxu.kongku-kongxiang",

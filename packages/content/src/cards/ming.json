@@ -12891,11 +12891,18 @@
       "deLu": "天府"
     },
     "none": {
-      "meets": "天府",
-      "stars": [
-        "地空"
-      ],
-      "reach": "same"
+      "any": [
+        {
+          "meets": "天府",
+          "stars": [
+            "地空"
+          ],
+          "reach": "same"
+        },
+        {
+          "geju": "luku"
+        }
+      ]
     },
     "layer": "natal",
     "claim": "你有實在的根基托著你的志向，對你有利。",
@@ -12907,7 +12914,8 @@
         "sha256": "736e8b9bfb546b57b9f3fa0ca321527304832e04bf0291b6cd2ca330889ec5b3"
       }
     ],
-    "status": "draft"
+    "status": "draft",
+    "note": "原文空庫、露庫並舉，露庫都排除（A5）。"
   },
   {
     "id": "card.ming.qisha-chenxu.kongku-kongxiang",
@@ -18484,7 +18492,7 @@
         "天魁",
         "天鉞"
       ],
-      "n": 3
+      "n": 2
     },
     "layer": "natal",
     "claim": "你的格局高，有能力掌握廣大的事業。",
@@ -18496,7 +18504,8 @@
         "sha256": "36a1ddab3ea8128312b8904eac41d0f3cf20bd5e5707a5448ab665df225efd1c"
       }
     ],
-    "status": "draft"
+    "status": "draft",
+    "note": "原文「天府能得百官朝拱」；百官朝拱統一以錨星三方四正見輔佐兩粒或以上計（同 GEJU_DEF.baiguan，A5）。卯酉天府不會紫微，所以錨天府。"
   },
   {
     "id": "card.ming.tianfu-maoyou.luku-xiaoli",
@@ -24630,31 +24639,7 @@
     "system": 15,
     "layer": "natal",
     "when": {
-      "all": [
-        {
-          "any": [
-            {
-              "star": "巨門",
-              "hua": "祿"
-            },
-            {
-              "star": "巨門",
-              "hua": "權"
-            }
-          ]
-        },
-        {
-          "not": {
-            "meets": "巨門",
-            "stars": [
-              "擎羊",
-              "陀羅",
-              "火星",
-              "鈴星"
-            ]
-          }
-        }
-      ]
+      "geju": "shizhong"
     },
     "claim": "你的盤是「石中隱玉」的大格局：才華內斂，可以成就大業。",
     "en": "Your chart forms the great \"jade hidden in stone\" pattern: talent held within, capable of great achievement.",
@@ -25130,26 +25115,8 @@
           }
         },
         {
-          "any": [
-            {
-              "star": "巨門",
-              "hua": "祿"
-            },
-            {
-              "star": "巨門",
-              "hua": "權"
-            }
-          ]
+          "geju": "shizhong"
         }
-      ]
-    },
-    "none": {
-      "meets": "巨門",
-      "stars": [
-        "擎羊",
-        "陀羅",
-        "火星",
-        "鈴星"
       ]
     },
     "claim": "這十年大致良好，有利受教育，際遇也佳。",
@@ -27153,16 +27120,7 @@
           }
         },
         {
-          "any": [
-            {
-              "star": "巨門",
-              "hua": "祿"
-            },
-            {
-              "star": "巨門",
-              "hua": "權"
-            }
-          ]
+          "geju": "shizhong"
         },
         {
           "star": "太陰",
@@ -27270,15 +27228,6 @@
         }
       ]
     },
-    "none": {
-      "meets": "巨門",
-      "stars": [
-        "擎羊",
-        "陀羅",
-        "火星",
-        "鈴星"
-      ]
-    },
     "claim": "這十年是可以發財、出頭的好運。",
     "en": "This decade is a good one for making money and making your name.",
     "limit": "原文：石中隱玉的巨門，最喜行太陰入廟、見祿、會諸吉（兩粒或以上）的宮垣。",
@@ -27307,16 +27256,7 @@
           }
         },
         {
-          "any": [
-            {
-              "star": "巨門",
-              "hua": "祿"
-            },
-            {
-              "star": "巨門",
-              "hua": "權"
-            }
-          ]
+          "geju": "shizhong"
         },
         {
           "star": "太陰",
@@ -27333,15 +27273,6 @@
           "op": "gte",
           "n": 1
         }
-      ]
-    },
-    "none": {
-      "meets": "巨門",
-      "stars": [
-        "擎羊",
-        "陀羅",
-        "火星",
-        "鈴星"
       ]
     },
     "claim": "這十年也是好運，只是格局稍次。",
@@ -28540,7 +28471,7 @@
       }
     ],
     "status": "draft",
-    "note": "GEJU_DEF 將呢個情況當刑忌夾印（天同化忌同天梁同宮夾天相），原文明講唔係；本系統卡已自行排除，GEJU_DEF 待改。"
+    "note": "p358.b004：天同化忌同天梁同一邊夾，原文明講「雖不成刑忌夾印」。GEJU_DEF.xingji 已改用 jia sides，兩樣同一邊唔算，同本卡一致。"
   },
   {
     "id": "card.ming.tianxiang-chouwei.tongji-fubi",
@@ -41299,16 +41230,7 @@
           }
         },
         {
-          "any": [
-            {
-              "star": "巨門",
-              "hua": "祿"
-            },
-            {
-              "star": "巨門",
-              "hua": "權"
-            }
-          ]
+          "geju": "shizhong"
         },
         {
           "any": [
@@ -41529,19 +41451,6 @@
         }
       ]
     },
-    "none": {
-      "not": {
-        "not": {
-          "meets": "巨門",
-          "stars": [
-            "擎羊",
-            "陀羅",
-            "火星",
-            "鈴星"
-          ]
-        }
-      }
-    },
     "claim": "這十年是成大事、立大業的時機。",
     "en": "This decade is the time to achieve something big and build a lasting enterprise.",
     "limit": "原文：巨門成石中隱玉（化祿或化權、不見煞），善決斷者最宜經行，更見吉化或吉曜，為成大事立大業的運限。",
@@ -41576,31 +41485,9 @@
           }
         },
         {
-          "any": [
-            {
-              "star": "巨門",
-              "hua": "祿"
-            },
-            {
-              "star": "巨門",
-              "hua": "權"
-            }
-          ]
+          "geju": "shizhong"
         }
       ]
-    },
-    "none": {
-      "not": {
-        "not": {
-          "meets": "巨門",
-          "stars": [
-            "擎羊",
-            "陀羅",
-            "火星",
-            "鈴星"
-          ]
-        }
-      }
     },
     "claim": "這十年往往功虧一簣，或因決定錯誤而受指責。",
     "en": "This decade things often fall short at the last step, or a wrong call brings blame.",
@@ -42141,7 +42028,7 @@
     },
     "claim": "你的人生較多遷移變動，局面不容易長期固定下來。",
     "en": "Your life involves more moves and changes than most; things rarely stay fixed for long.",
-    "limit": "原文：太陽在戌、太陰在辰為日月失輝（反背），主變遷動盪；見輔佐吉曜則離祖發福。不寫離祖過繼等事件。「反背」用法屬待決 A6。",
+    "limit": "原文：太陽在戌、太陰在辰為日月失輝（反背），主變遷動盪；見輔佐吉曜則離祖發福。不寫離祖過繼等事件。反背按本星系原文條件定義（A6，2026-10-19）。",
     "sources": [
       {
         "id": "wtz.deep.p341.b014",
@@ -43405,44 +43292,7 @@
           }
         },
         {
-          "any": [
-            {
-              "star": "巨門",
-              "hua": "祿"
-            },
-            {
-              "star": "巨門",
-              "hua": "權"
-            }
-          ]
-        }
-      ]
-    },
-    "none": {
-      "any": [
-        {
-          "any": [
-            {
-              "star": "巨門",
-              "hua": "忌"
-            },
-            {
-              "star": "巨門",
-              "hua": "忌",
-              "layer": "decade"
-            }
-          ]
-        },
-        {
-          "meets": "巨門",
-          "stars": [
-            "擎羊",
-            "陀羅",
-            "火星",
-            "鈴星",
-            "地空",
-            "地劫"
-          ]
+          "geju": "shizhong"
         }
       ]
     },
@@ -43463,7 +43313,8 @@
         "sha256": "59e5617ceb218ee4206f333f8ca4ecaad1c5926fc74b8f123b9b13ebdb2167a3"
       }
     ],
-    "status": "draft"
+    "status": "draft",
+    "note": "石中隱玉用嚴格定義 geju shizhong（A5）：子午巨門、本命巨門化祿或化權、三方四正不見羊陀火鈴。空劫唔算煞（A13），原文冇講化忌排除，已刪。受拖累與否只影響得吉程度。"
   },
   {
     "id": "card.ming.taiyang-chenxu.visit-jumen-doubt-fudan",
@@ -43522,7 +43373,11 @@
         "sha256": "8fe10c6afb26996c66f4a4637e9ee2d519141c78d84648d23b0b771c12e89baa"
       }
     ],
-    "status": "draft"
+    "status": "draft",
+    "none": {
+      "geju": "shizhong"
+    },
+    "note": "本命成石中隱玉嘅巨門唔算疑忌巨門（p082.b002 英華內斂同內心疑忌係兩頭），交俾 visit-jumen（A5，2026-10-19）。"
   },
   {
     "id": "card.ming.taiyang-chenxu.visit-jumen-doubt-congrong",
@@ -43580,7 +43435,11 @@
         "sha256": "8fe10c6afb26996c66f4a4637e9ee2d519141c78d84648d23b0b771c12e89baa"
       }
     ],
-    "status": "draft"
+    "status": "draft",
+    "none": {
+      "geju": "shizhong"
+    },
+    "note": "本命成石中隱玉嘅巨門唔算疑忌巨門（p082.b002 英華內斂同內心疑忌係兩頭），交俾 visit-jumen（A5，2026-10-19）。"
   },
   {
     "id": "card.ming.taiyang-chenxu.visit-tianxiang-congrong",
@@ -45645,16 +45504,7 @@
               }
             },
             {
-              "any": [
-                {
-                  "star": "巨門",
-                  "hua": "祿"
-                },
-                {
-                  "star": "巨門",
-                  "hua": "權"
-                }
-              ]
+              "geju": "shizhong"
             },
             {
               "not": {
@@ -45964,16 +45814,7 @@
               }
             },
             {
-              "any": [
-                {
-                  "star": "巨門",
-                  "hua": "祿"
-                },
-                {
-                  "star": "巨門",
-                  "hua": "權"
-                }
-              ]
+              "geju": "shizhong"
             },
             {
               "not": {
@@ -49181,7 +49022,7 @@
     },
     "claim": "你的盤成了富局，有條件累積可觀的財富。",
     "en": "Your chart forms a pattern of wealth, giving you the means to build up considerable riches.",
-    "limit": "原文：卯酉太陰酉優於卯甚多；唯卯宮見輔佐諸吉、不見煞、又見吉化，則為反背，主大富。不寫金額。「反背」用法屬待決 A6。",
+    "limit": "原文：卯酉太陰酉優於卯甚多；唯卯宮見輔佐諸吉、不見煞、又見吉化，則為反背，主大富。不寫金額。反背按本星系原文條件定義（A6，2026-10-19）。",
     "sources": [
       {
         "id": "wtz.deep.p352.b011",
@@ -73829,19 +73670,65 @@
     "none": {
       "any": [
         {
-          "star": "巨門",
-          "hua": "祿"
+          "all": [
+            {
+              "star": "巨門",
+              "at": [
+                "辰"
+              ]
+            },
+            {
+              "star": "巨門",
+              "hua": "祿"
+            },
+            {
+              "any": [
+                {
+                  "together": [
+                    "巨門",
+                    "文昌"
+                  ]
+                },
+                {
+                  "star": "文昌",
+                  "at": [
+                    "戌"
+                  ]
+                }
+              ]
+            }
+          ]
         },
         {
           "all": [
             {
               "star": "巨門",
-              "hua": "權"
-            },
-            {
-              "star": "巨門",
               "at": [
                 "戌"
+              ]
+            },
+            {
+              "any": [
+                {
+                  "star": "巨門",
+                  "hua": "權"
+                },
+                {
+                  "all": [
+                    {
+                      "star": "巨門",
+                      "hua": "祿"
+                    },
+                    {
+                      "not": {
+                        "meets": "巨門",
+                        "stars": [
+                          "文昌"
+                        ]
+                      }
+                    }
+                  ]
+                }
               ]
             }
           ]
@@ -73861,7 +73748,8 @@
         "sha256": "7aea6b94e77f3bac6fba7b96478ee745269e52725762f4cd18b9f10c6995fed8"
       }
     ],
-    "status": "draft"
+    "status": "draft",
+    "note": "none 同 qige 嘅奇格條件一致（A5）。"
   },
   {
     "id": "card.ming.jumen-chenxu.jifa",
@@ -73921,19 +73809,65 @@
     "when": {
       "any": [
         {
-          "star": "巨門",
-          "hua": "祿"
+          "all": [
+            {
+              "star": "巨門",
+              "at": [
+                "辰"
+              ]
+            },
+            {
+              "star": "巨門",
+              "hua": "祿"
+            },
+            {
+              "any": [
+                {
+                  "together": [
+                    "巨門",
+                    "文昌"
+                  ]
+                },
+                {
+                  "star": "文昌",
+                  "at": [
+                    "戌"
+                  ]
+                }
+              ]
+            }
+          ]
         },
         {
           "all": [
             {
               "star": "巨門",
-              "hua": "權"
-            },
-            {
-              "star": "巨門",
               "at": [
                 "戌"
+              ]
+            },
+            {
+              "any": [
+                {
+                  "star": "巨門",
+                  "hua": "權"
+                },
+                {
+                  "all": [
+                    {
+                      "star": "巨門",
+                      "hua": "祿"
+                    },
+                    {
+                      "not": {
+                        "meets": "巨門",
+                        "stars": [
+                          "文昌"
+                        ]
+                      }
+                    }
+                  ]
+                }
               ]
             }
           ]
@@ -73942,7 +73876,7 @@
     },
     "claim": "你屬少數的奇格，成就可以很高。",
     "en": "Yours is one of the rare exceptional patterns, and your achievements can reach very high.",
-    "limit": "原文「奇格」：辰宮辛年；戌宮癸年、辛年。辰宮癸年化權不算。戌宮見文昌化忌一段與 p136.b003 有出入，見 note。",
+    "limit": "奇格完整條件（A5）：辰宮巨門化祿，文昌（辛年化忌）同度或喺戌宮對拱（p356.b007；p029.b002 講同度，取較寬嘅同度或對拱）；戌宮巨門化權（癸年），或者化祿而三方四正唔見文昌（p356.b008「反不宜見文昌化忌」）。",
     "sources": [
       {
         "id": "wtz.deep.p136.b003",
@@ -73958,7 +73892,7 @@
       }
     ],
     "status": "draft",
-    "note": "p136.b003 說戌宮巨門辛年為奇格，p356.b008 說戌宮巨門「反不宜見文昌化忌」（辛年必同時文昌化忌），待人手判斷。"
+    "note": "p136.b003 話戌宮辛年都係奇格，p356.b008 話戌宮反不宜見文昌化忌；按 A5 取完整條件，辛年戌宮要唔見文昌先算。"
   },
   {
     "id": "card.ming.jumen-chenxu.xiage",
@@ -80989,7 +80923,7 @@
     "layer": "decade",
     "claim": "這十年末段幾年，財富名聲往往突然一齊來到。",
     "en": "In the last few years of this decade, money and reputation often arrive suddenly together.",
-    "limit": "原文「辰宮巨門反背之局（即文昌化忌同在辰宮）」。反背屬待決事項，維持原定義；本系巨門在辰即廉殺在未。",
+    "limit": "原文「辰宮巨門反背之局（即文昌化忌同在辰宮）」。反背按本星系原文條件定義（A6，2026-10-19）。；本系巨門在辰即廉殺在未。",
     "sources": [
       {
         "id": "wtz.deep.p146.b002",
@@ -81036,7 +80970,7 @@
     "layer": "decade",
     "claim": "這十年會有好轉變，但開頭幾年往往先經一次大挫折。",
     "en": "This decade brings a good turn, but its first years often open with a hard setback.",
-    "limit": "原文「奮發本質的廉殺遇反背的巨門」，反背同上一張。反背屬待決事項，維持原定義。",
+    "limit": "原文「奮發本質的廉殺遇反背的巨門」，反背同上一張。反背按本星系原文條件定義（A6，2026-10-19）。",
     "sources": [
       {
         "id": "wtz.deep.p146.b003",
@@ -81282,7 +81216,7 @@
     "layer": "natal",
     "claim": "你的路是艱辛創業、苦盡甘來的一類；事業成敗很受人際和不和順影響。",
     "en": "Yours is the path of building something through hardship and coming good in the end; whether you succeed depends heavily on how smoothly you get on with people.",
-    "limit": "戌宮天同對宮巨門化忌，成反背（p346.b014）；p147.b006 說成反背者必豁達。反背屬待決事項。",
+    "limit": "戌宮天同對宮巨門化忌，成反背（p346.b014）；p147.b006 說成反背者必豁達。反背按本星系原文條件定義（A6，2026-10-19）。",
     "sources": [
       {
         "id": "wtz.deep.p346.b014",
@@ -81325,7 +81259,7 @@
       }
     ],
     "status": "draft",
-    "note": "p347.b001 說辰宮天同對宮巨門化忌不成反背；但 p147.b005 說天同在辰戌都有反背格局。兩處打交，待人手判斷。"
+    "note": "p347.b001 說辰宮天同對宮巨門化忌不成反背；但 p147.b005 說天同在辰戌都有反背格局。兩處打交；按 A6 本星系跟 p347.b001，辰宮唔成反背，只用呢段講法。"
   },
   {
     "id": "card.ming.tiantong-chenxu.zhuguan",
@@ -81966,7 +81900,7 @@
     "layer": "decade",
     "claim": "這十年你可以奮發振作，白手把事業做起來。",
     "en": "This decade you can rouse yourself and build a career from nothing.",
-    "limit": "原文「反背格局者於此為發揚蹈厲，白手振興事業的運限」。反背屬待決事項，這裡用戌宮天同對巨門化忌。",
+    "limit": "原文「反背格局者於此為發揚蹈厲，白手振興事業的運限」。反背按本星系原文條件定義（A6，2026-10-19）。這裡用戌宮天同對巨門化忌。",
     "sources": [
       {
         "id": "wtz.deep.p148.b009",
@@ -82961,7 +82895,7 @@
       }
     ],
     "status": "draft",
-    "note": "p344.b010：亥宮武破、壬年武曲化忌但天梁化祿來拱，稱反背反主吉祥；而系統節 p150.b009 說武曲化忌帶反拗之性。兩處取向不同，待人手判斷（反背屬待決事項）。"
+    "note": "p344.b010：亥宮武破、壬年武曲化忌但天梁化祿來拱，稱反背反主吉祥；而系統節 p150.b009 說武曲化忌帶反拗之性。兩處取向不同；按 A6，亥宮壬年呢個具體條件跟 p344.b010。"
   },
   {
     "id": "card.ming.wupo-sihai.quan",
@@ -85430,7 +85364,7 @@
     "layer": "decade",
     "claim": "這十年就可以發跡，只是先難後易。",
     "en": "Within this decade you can rise, though it is hard first and easier later.",
-    "limit": "原文「若天同成反背的格局」；反背屬待決事項，這裡用戌宮天同對巨門化忌（本系太陽在子）。",
+    "limit": "原文「若天同成反背的格局」；反背按本星系原文條件定義（A6，2026-10-19）。這裡用戌宮天同對巨門化忌（本系太陽在子）。",
     "sources": [
       {
         "id": "wtz.deep.p155.b009",
@@ -99577,7 +99511,7 @@
       }
     ],
     "status": "draft",
-    "note": "systems.json 本系比較軸寫「偏執」，原文（p175.b008–b009）係「偏枯」，pole 字串照 systems.json 用，待人手決定要唔要改軸名。"
+    "note": "比較軸已按原文（p175.b008–b009）改做「偏枯」（2026-10-19 用戶定 A7）；讀者文字講「配合失衡」。"
   },
   {
     "id": "card.ming.pojun-chenxu.tiaohe",
@@ -99607,10 +99541,10 @@
     "topic": "本質",
     "kind": "caveat",
     "system": 47,
-    "pole": "偏執",
+    "pole": "偏枯",
     "layer": "natal",
-    "claim": "你的盤偏枯：你的目標往往定得比能力高，人際關係也容易緊張。",
-    "en": "Your chart leans lopsided: your goals often outrun your means, and relationships can get tense.",
+    "claim": "你的盤配合失衡：你的目標往往定得比能力高，人際關係也容易緊張。",
+    "en": "Your chart is out of balance: your goals often outrun your means, and relationships can get tense.",
     "limit": "原文「志大才疏，人際關係不佳，自身有殘疾缺憾影響心理」；後一項不寫。",
     "sources": [
       {
@@ -99985,7 +99919,7 @@
     "topic": "運程",
     "kind": "claim",
     "system": 47,
-    "pole": "偏執",
+    "pole": "偏枯",
     "when": {
       "star": "天同",
       "in": {
@@ -100034,7 +99968,7 @@
     "topic": "運程",
     "kind": "caveat",
     "system": 47,
-    "pole": "偏執",
+    "pole": "偏枯",
     "when": {
       "all": [
         {
@@ -100161,7 +100095,7 @@
     "topic": "運程",
     "kind": "claim",
     "system": 47,
-    "pole": "偏執",
+    "pole": "偏枯",
     "when": {
       "all": [
         {
@@ -100225,7 +100159,7 @@
     "topic": "運程",
     "kind": "claim",
     "system": 47,
-    "pole": "偏執",
+    "pole": "偏枯",
     "when": {
       "all": [
         {
@@ -100336,7 +100270,7 @@
     "topic": "運程",
     "kind": "claim",
     "system": 47,
-    "pole": "偏執",
+    "pole": "偏枯",
     "when": {
       "all": [
         {
@@ -100443,7 +100377,7 @@
     "topic": "運程",
     "kind": "caveat",
     "system": 47,
-    "pole": "偏執",
+    "pole": "偏枯",
     "when": {
       "all": [
         {
@@ -100698,7 +100632,7 @@
     "topic": "運程",
     "kind": "claim",
     "system": 47,
-    "pole": "偏執",
+    "pole": "偏枯",
     "when": {
       "all": [
         {
@@ -100763,7 +100697,7 @@
     "topic": "運程",
     "kind": "claim",
     "system": 47,
-    "pole": "偏執",
+    "pole": "偏枯",
     "when": {
       "all": [
         {
@@ -100811,7 +100745,7 @@
     "topic": "運程",
     "kind": "claim",
     "system": 47,
-    "pole": "偏執",
+    "pole": "偏枯",
     "when": {
       "all": [
         {
@@ -100848,7 +100782,7 @@
     "topic": "運程",
     "kind": "advice",
     "system": 47,
-    "pole": "偏執",
+    "pole": "偏枯",
     "when": {
       "all": [
         {
@@ -101010,7 +100944,7 @@
     "topic": "運程",
     "kind": "caveat",
     "system": 47,
-    "pole": "偏執",
+    "pole": "偏枯",
     "when": {
       "all": [
         {
@@ -101046,7 +100980,7 @@
     "topic": "運程",
     "kind": "claim",
     "system": 47,
-    "pole": "偏執",
+    "pole": "偏枯",
     "when": {
       "all": [
         {
@@ -101116,7 +101050,7 @@
     "topic": "運程",
     "kind": "claim",
     "system": 47,
-    "pole": "偏執",
+    "pole": "偏枯",
     "when": {
       "all": [
         {
@@ -101348,7 +101282,7 @@
     "topic": "運程",
     "kind": "caveat",
     "system": 47,
-    "pole": "偏執",
+    "pole": "偏枯",
     "when": {
       "all": [
         {
@@ -101389,7 +101323,7 @@
     "topic": "運程",
     "kind": "caveat",
     "system": 47,
-    "pole": "偏執",
+    "pole": "偏枯",
     "when": {
       "all": [
         {
@@ -101614,7 +101548,7 @@
     "topic": "運程",
     "kind": "advice",
     "system": 47,
-    "pole": "偏執",
+    "pole": "偏枯",
     "when": {
       "all": [
         {
@@ -101804,7 +101738,7 @@
     "topic": "運程",
     "kind": "claim",
     "system": 47,
-    "pole": "偏執",
+    "pole": "偏枯",
     "when": {
       "all": [
         {
@@ -108654,30 +108588,64 @@
     "system": 52,
     "pole": "穩重",
     "when": {
-      "any": [
+      "all": [
         {
           "star": "巨門",
-          "hua": "祿"
+          "at": [
+            "卯"
+          ]
         },
         {
-          "star": "太陽",
-          "hua": "權"
+          "any": [
+            {
+              "star": "巨門",
+              "hua": "祿"
+            },
+            {
+              "star": "天機",
+              "hua": "祿"
+            }
+          ]
+        },
+        {
+          "meets": "巨門",
+          "stars": [
+            "祿存"
+          ]
+        },
+        {
+          "not": {
+            "meets": "巨門",
+            "stars": [
+              "擎羊",
+              "陀羅",
+              "火星",
+              "鈴星"
+            ]
+          }
+        },
+        {
+          "meets": "巨門",
+          "stars": [
+            "左輔",
+            "右弼",
+            "天魁",
+            "天鉞",
+            "文昌",
+            "文曲"
+          ]
         }
       ]
-    },
-    "none": {
-      "meets": "巨門",
-      "stars": [
-        "火星",
-        "鈴星"
-      ],
-      "reach": "same"
     },
     "layer": "natal",
     "claim": "你有很好的底子，能憑穩重走到高位。",
     "en": "You have a strong foundation, and steadiness can carry you to a high position.",
     "limit": "原文：唯辛年生人可得巨門化祿、太陽化權，最為吉利；「機巨同臨，位至三公」指本質穩重者。",
     "sources": [
+      {
+        "id": "wtz.deep.p029.b003",
+        "sha256": "06fdd3443209579169974fb5e31ba840ccb0111e3c0b872ef6a95794917661b7"
+      },
       {
         "id": "wtz.deep.p191.b006",
         "sha256": "4259bfbaf8063a509d45b9ca4cdeb62923eefb905312d9b0edc3fcdab0596074"
@@ -108687,7 +108655,9 @@
         "sha256": "d8872dea129534a1fff9f61567a570bbd4e16c29a8e2c2fb454b6ec477d97141"
       }
     ],
-    "status": "draft"
+    "status": "draft",
+    "note": "機巨同臨格完整條件（A5，p029.b003）：卯宮、化祿、會祿存、無煞、見輔弼昌曲魁鉞。原文「化祿」未講邊粒，巨門或天機化祿都計。「位至三公」指本質穩重者（p191.b006）。 嚴格條件下 300 盤 0 次、1000 盤 2 次（D 項：極罕卡去留）。",
+    "rare": true
   },
   {
     "id": "card.ming.jiju-maoyou.pogeju",
@@ -124673,7 +124643,7 @@
                   "文昌",
                   "文曲"
                 ],
-                "n": 3
+                "n": 2
               }
             }
           ]
@@ -124682,7 +124652,7 @@
     },
     "claim": "這十年發跡得太早，反而不易守住成果。",
     "en": "Success comes too early this decade, which makes it harder to hold on to.",
-    "limit": "早年大運以起運虛歲 30 前計；原局百官朝拱（太陽三方四正見六吉三粒或以上）除外。",
+    "limit": "早年大運以起運虛歲 30 前計；原局百官朝拱（太陽三方四正見輔佐兩粒或以上，A5 統一門檻）除外。",
     "sources": [
       {
         "id": "wtz.deep.p211.b004",

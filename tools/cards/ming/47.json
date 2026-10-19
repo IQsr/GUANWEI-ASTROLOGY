@@ -20,7 +20,7 @@
       }
     ],
     "status": "draft",
-    "note": "systems.json 本系比較軸寫「偏執」，原文（p175.b008–b009）係「偏枯」，pole 字串照 systems.json 用，待人手決定要唔要改軸名。"
+    "note": "比較軸已按原文（p175.b008–b009）改做「偏枯」（2026-10-19 用戶定 A7）；讀者文字講「配合失衡」。"
   },
   {
     "id": "card.ming.pojun-chenxu.tiaohe",
@@ -50,10 +50,10 @@
     "topic": "本質",
     "kind": "caveat",
     "system": 47,
-    "pole": "偏執",
+    "pole": "偏枯",
     "layer": "natal",
-    "claim": "你的盤偏枯：你的目標往往定得比能力高，人際關係也容易緊張。",
-    "en": "Your chart leans lopsided: your goals often outrun your means, and relationships can get tense.",
+    "claim": "你的盤配合失衡：你的目標往往定得比能力高，人際關係也容易緊張。",
+    "en": "Your chart is out of balance: your goals often outrun your means, and relationships can get tense.",
     "limit": "原文「志大才疏，人際關係不佳，自身有殘疾缺憾影響心理」；後一項不寫。",
     "sources": [
       {
@@ -428,7 +428,7 @@
     "topic": "運程",
     "kind": "claim",
     "system": 47,
-    "pole": "偏執",
+    "pole": "偏枯",
     "when": {
       "star": "天同",
       "in": {
@@ -477,7 +477,7 @@
     "topic": "運程",
     "kind": "caveat",
     "system": 47,
-    "pole": "偏執",
+    "pole": "偏枯",
     "when": {
       "all": [
         {
@@ -604,7 +604,7 @@
     "topic": "運程",
     "kind": "claim",
     "system": 47,
-    "pole": "偏執",
+    "pole": "偏枯",
     "when": {
       "all": [
         {
@@ -668,7 +668,7 @@
     "topic": "運程",
     "kind": "claim",
     "system": 47,
-    "pole": "偏執",
+    "pole": "偏枯",
     "when": {
       "all": [
         {
@@ -779,7 +779,7 @@
     "topic": "運程",
     "kind": "claim",
     "system": 47,
-    "pole": "偏執",
+    "pole": "偏枯",
     "when": {
       "all": [
         {
@@ -886,7 +886,7 @@
     "topic": "運程",
     "kind": "caveat",
     "system": 47,
-    "pole": "偏執",
+    "pole": "偏枯",
     "when": {
       "all": [
         {
@@ -1141,7 +1141,7 @@
     "topic": "運程",
     "kind": "claim",
     "system": 47,
-    "pole": "偏執",
+    "pole": "偏枯",
     "when": {
       "all": [
         {
@@ -1206,7 +1206,7 @@
     "topic": "運程",
     "kind": "claim",
     "system": 47,
-    "pole": "偏執",
+    "pole": "偏枯",
     "when": {
       "all": [
         {
@@ -1254,7 +1254,7 @@
     "topic": "運程",
     "kind": "claim",
     "system": 47,
-    "pole": "偏執",
+    "pole": "偏枯",
     "when": {
       "all": [
         {
@@ -1291,7 +1291,7 @@
     "topic": "運程",
     "kind": "advice",
     "system": 47,
-    "pole": "偏執",
+    "pole": "偏枯",
     "when": {
       "all": [
         {
@@ -1453,7 +1453,7 @@
     "topic": "運程",
     "kind": "caveat",
     "system": 47,
-    "pole": "偏執",
+    "pole": "偏枯",
     "when": {
       "all": [
         {
@@ -1489,7 +1489,7 @@
     "topic": "運程",
     "kind": "claim",
     "system": 47,
-    "pole": "偏執",
+    "pole": "偏枯",
     "when": {
       "all": [
         {
@@ -1559,7 +1559,7 @@
     "topic": "運程",
     "kind": "claim",
     "system": 47,
-    "pole": "偏執",
+    "pole": "偏枯",
     "when": {
       "all": [
         {
@@ -1791,7 +1791,7 @@
     "topic": "運程",
     "kind": "caveat",
     "system": 47,
-    "pole": "偏執",
+    "pole": "偏枯",
     "when": {
       "all": [
         {
@@ -1832,7 +1832,7 @@
     "topic": "運程",
     "kind": "caveat",
     "system": 47,
-    "pole": "偏執",
+    "pole": "偏枯",
     "when": {
       "all": [
         {
@@ -2057,7 +2057,7 @@
     "topic": "運程",
     "kind": "advice",
     "system": 47,
-    "pole": "偏執",
+    "pole": "偏枯",
     "when": {
       "all": [
         {
@@ -2247,7 +2247,7 @@
     "topic": "運程",
     "kind": "claim",
     "system": 47,
-    "pole": "偏執",
+    "pole": "偏枯",
     "when": {
       "all": [
         {

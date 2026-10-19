@@ -53,6 +53,7 @@ export const YOUTH_LEAN: Record<string, string> = {
   躁進: '心急',
   虛浮: '重表現',
   偏執: '執著',
+  偏枯: '配合失衡',
   短慮: '快決',
   尖銳: '直言',
   強勢: '主導',

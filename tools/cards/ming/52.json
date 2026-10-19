@@ -77,30 +77,64 @@
     "system": 52,
     "pole": "穩重",
     "when": {
-      "any": [
+      "all": [
         {
           "star": "巨門",
-          "hua": "祿"
+          "at": [
+            "卯"
+          ]
         },
         {
-          "star": "太陽",
-          "hua": "權"
+          "any": [
+            {
+              "star": "巨門",
+              "hua": "祿"
+            },
+            {
+              "star": "天機",
+              "hua": "祿"
+            }
+          ]
+        },
+        {
+          "meets": "巨門",
+          "stars": [
+            "祿存"
+          ]
+        },
+        {
+          "not": {
+            "meets": "巨門",
+            "stars": [
+              "擎羊",
+              "陀羅",
+              "火星",
+              "鈴星"
+            ]
+          }
+        },
+        {
+          "meets": "巨門",
+          "stars": [
+            "左輔",
+            "右弼",
+            "天魁",
+            "天鉞",
+            "文昌",
+            "文曲"
+          ]
         }
       ]
-    },
-    "none": {
-      "meets": "巨門",
-      "stars": [
-        "火星",
-        "鈴星"
-      ],
-      "reach": "same"
     },
     "layer": "natal",
     "claim": "你有很好的底子，能憑穩重走到高位。",
     "en": "You have a strong foundation, and steadiness can carry you to a high position.",
     "limit": "原文：唯辛年生人可得巨門化祿、太陽化權，最為吉利；「機巨同臨，位至三公」指本質穩重者。",
     "sources": [
+      {
+        "id": "wtz.deep.p029.b003",
+        "sha256": "06fdd3443209579169974fb5e31ba840ccb0111e3c0b872ef6a95794917661b7"
+      },
       {
         "id": "wtz.deep.p191.b006",
         "sha256": "4259bfbaf8063a509d45b9ca4cdeb62923eefb905312d9b0edc3fcdab0596074"
@@ -110,7 +144,9 @@
         "sha256": "d8872dea129534a1fff9f61567a570bbd4e16c29a8e2c2fb454b6ec477d97141"
       }
     ],
-    "status": "draft"
+    "status": "draft",
+    "note": "機巨同臨格完整條件（A5，p029.b003）：卯宮、化祿、會祿存、無煞、見輔弼昌曲魁鉞。原文「化祿」未講邊粒，巨門或天機化祿都計。「位至三公」指本質穩重者（p191.b006）。 嚴格條件下 300 盤 0 次、1000 盤 2 次（D 項：極罕卡去留）。",
+    "rare": true
   },
   {
     "id": "card.ming.jiju-maoyou.pogeju",

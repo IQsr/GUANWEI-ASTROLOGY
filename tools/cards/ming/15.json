@@ -156,31 +156,7 @@
     "system": 15,
     "layer": "natal",
     "when": {
-      "all": [
-        {
-          "any": [
-            {
-              "star": "巨門",
-              "hua": "祿"
-            },
-            {
-              "star": "巨門",
-              "hua": "權"
-            }
-          ]
-        },
-        {
-          "not": {
-            "meets": "巨門",
-            "stars": [
-              "擎羊",
-              "陀羅",
-              "火星",
-              "鈴星"
-            ]
-          }
-        }
-      ]
+      "geju": "shizhong"
     },
     "claim": "你的盤是「石中隱玉」的大格局：才華內斂，可以成就大業。",
     "en": "Your chart forms the great \"jade hidden in stone\" pattern: talent held within, capable of great achievement.",
@@ -656,26 +632,8 @@
           }
         },
         {
-          "any": [
-            {
-              "star": "巨門",
-              "hua": "祿"
-            },
-            {
-              "star": "巨門",
-              "hua": "權"
-            }
-          ]
+          "geju": "shizhong"
         }
-      ]
-    },
-    "none": {
-      "meets": "巨門",
-      "stars": [
-        "擎羊",
-        "陀羅",
-        "火星",
-        "鈴星"
       ]
     },
     "claim": "這十年大致良好，有利受教育，際遇也佳。",
@@ -2679,16 +2637,7 @@
           }
         },
         {
-          "any": [
-            {
-              "star": "巨門",
-              "hua": "祿"
-            },
-            {
-              "star": "巨門",
-              "hua": "權"
-            }
-          ]
+          "geju": "shizhong"
         },
         {
           "star": "太陰",
@@ -2796,15 +2745,6 @@
         }
       ]
     },
-    "none": {
-      "meets": "巨門",
-      "stars": [
-        "擎羊",
-        "陀羅",
-        "火星",
-        "鈴星"
-      ]
-    },
     "claim": "這十年是可以發財、出頭的好運。",
     "en": "This decade is a good one for making money and making your name.",
     "limit": "原文：石中隱玉的巨門，最喜行太陰入廟、見祿、會諸吉（兩粒或以上）的宮垣。",
@@ -2833,16 +2773,7 @@
           }
         },
         {
-          "any": [
-            {
-              "star": "巨門",
-              "hua": "祿"
-            },
-            {
-              "star": "巨門",
-              "hua": "權"
-            }
-          ]
+          "geju": "shizhong"
         },
         {
           "star": "太陰",
@@ -2859,15 +2790,6 @@
           "op": "gte",
           "n": 1
         }
-      ]
-    },
-    "none": {
-      "meets": "巨門",
-      "stars": [
-        "擎羊",
-        "陀羅",
-        "火星",
-        "鈴星"
       ]
     },
     "claim": "這十年也是好運，只是格局稍次。",
