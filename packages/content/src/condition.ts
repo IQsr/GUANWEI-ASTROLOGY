@@ -18,7 +18,7 @@
  * 條件語言細得滯就加原子，唔准開後門。
  */
 import type { AnnualChart, Branch, Brightness, Chart, PalaceName, Sihua } from '@guanwei/ziwei';
-import { BRANCHES, overlayAt, sanFangPalaces } from '@guanwei/ziwei';
+import { BRANCHES, overlayAt, sanFangPalaces, tianxingBranch } from '@guanwei/ziwei';
 
 /** 時間層。同 schema.ts 嘅 TimeLayer 對齊。 */
 export type Layer = 'natal' | 'decade' | 'annual';
@@ -83,7 +83,41 @@ export type Condition =
    * 夾同會照唔同：夾係鄰宮，會照係三合，兩者唔可以撈亂。
    * 前後唔分次序 —— A 喺前 B 喺後，同 B 喺前 A 喺後，都算夾。
    */
-  | { star: string; between: [string, string] };
+  | { star: string; between: [string, string] }
+  /*
+   * ── 2026-10-19 條件卡（新架構命宮試點）補嘅原子 ──
+   * 王亭之原文嘅前提好多係「某粒星**所在嗰個宮**見乜」（紫微會輔弼、天府得祿），
+   * 唔係「某個宮名」。以下原子全部以星為錨。
+   */
+  /**
+   * 某粒星所在嘅宮：同度（same）、三方四正（sanfang，預設）、或者左右夾（jia）
+   * 見到 `stars` 入面幾多粒。`stars` 可以寫「化祿／化權／化科／化忌」，指本命四化。
+   * 預設 gte 1。
+   */
+  | { meets: string; stars: string[]; reach?: 'same' | 'sanfang' | 'jia'; op?: CountOp; n?: number }
+  /** 流曜（大限／流年嘅祿存、擎羊、陀羅、昌曲、魁鉞、天馬）落喺某個宮，或者佢嘅三方四正。 */
+  | { flow: FlowName; layer: 'decade' | 'annual'; in: PalaceRef; reach?: 'same' | 'sanfang' }
+  /**
+   * 得祿：某粒星嘅三方四正見祿存或者化祿。
+   * layer 係 decade／annual 嗰陣，連埋嗰層嘅四化同流祿存一齊計。
+   */
+  | { deLu: string; layer?: Layer }
+  /** 命名格局，定義見 `GEJU_DEF`。 */
+  | { geju: GejuName }
+  /**
+   * 夾：某粒星左右兩個鄰宮，一邊見 `sides[0]` 任何一粒、另一邊見 `sides[1]` 任何一粒（兩邊唔可以係同一宮）。
+   * 例：刑忌夾印 = 天相一邊化忌、另一邊擎羊或天梁。`meets … reach: jia` 只數兩邊合計，分唔到邊。
+   */
+  | { jia: string; sides: [string[], string[]] }
+  /** 某粒星坐喺呢幾個地支（例：巨門在午）。`star` 寫「天刑」都得。 */
+  | { star: string; at: string[] }
+  /** 大限順行／逆行（陽男陰女順行）。 */
+  | { decadeOrder: 'forward' | 'backward' }
+  /** 而家行緊嘅大限起運歲數（虛歲）喺呢個範圍：`lt` 以下、`gte` 或以上。要流年資料。 */
+  | { decadeAge: { lt?: number; gte?: number } };
+
+export type FlowName = '祿存' | '擎羊' | '陀羅' | '文昌' | '文曲' | '天魁' | '天鉞' | '天馬';
+export type GejuName = 'baiguan' | 'zaiye' | 'kongku' | 'luku' | 'caiyin' | 'xingji';
 
 /**
  * 命中嘅細節。一個 binding = 之後 evidence[] 入面嘅一行。
@@ -171,6 +205,8 @@ function huaAt(layer: Layer, ctx: EvalContext): { rows: { star: string; hua: Sih
 }
 
 function starBranch(star: string, ctx: EvalContext): string | null {
+  /* 天刑唔落 palaces[].stars（liuyao.ts），2026-10-19 條件卡要用，喺呢度補 */
+  if (star === '天刑') return tianxingBranch(ctx.chart);
   return ctx.chart.palaces.find((p) => p.stars.some((s) => s.name === star))?.branch ?? null;
 }
 
@@ -191,13 +227,15 @@ export function evaluate(cond: Condition, ctx: EvalContext): EvalResult {
   }
   if ('any' in cond) {
     const bindings: Binding[] = [];
+    let hit = false;
     let na: string | null = null;
     for (const c of cond.any) {
       const r = evaluate(c, ctx);
       if (r.status === 'not_applicable') { na ??= r.reason; continue; }
-      if (r.status === 'matched') bindings.push(...r.bindings);
+      /* 2026-10-19：`not` 命中冇 binding，以前用 bindings.length 判斷會當咗唔中（空庫一直只計地空） */
+      if (r.status === 'matched') { hit = true; bindings.push(...r.bindings); }
     }
-    if (bindings.length > 0) return { status: 'matched', bindings };
+    if (hit) return { status: 'matched', bindings };
     // 全部唔中，但有部分查唔到 → 唔可以話「冇」
     return na ? { status: 'not_applicable', reason: na } : { status: 'unmatched' };
   }
@@ -295,7 +333,8 @@ export function evaluate(cond: Condition, ctx: EvalContext): EvalResult {
     const layer = cond.sanfangOf.layer ?? 'natal';
     const four = sanFangPalaces(ctx.chart.palaces, b.branch as never);
     if ('contains' in cond) {
-      const hit = four.find((p) => p.stars.some((s) => s.name === cond.contains));
+      const tx = cond.contains === '天刑' ? tianxingBranch(ctx.chart) : null;
+      const hit = four.find((p) => (tx ? p.branch === tx : p.stars.some((s) => s.name === cond.contains)));
       if (!hit) return { status: 'unmatched' };
       return {
         status: 'matched',
@@ -390,6 +429,52 @@ export function evaluate(cond: Condition, ctx: EvalContext): EvalResult {
     };
   }
 
+  if ('at' in cond) {
+    const b = starBranch(cond.star, ctx);
+    if (!b || !cond.at.includes(b)) return { status: 'unmatched' };
+    return { status: 'matched', bindings: [bind(b, ctx, { star: cond.star, note: `${cond.star}坐${b}宮` })] };
+  }
+  if ('decadeOrder' in cond) {
+    const [d1, d2] = ctx.chart.decadals;
+    if (!d1 || !d2) return { status: 'unmatched' };
+    const fwd = BRANCHES.indexOf(d2.branch) === (BRANCHES.indexOf(d1.branch) + 1) % 12;
+    if ((cond.decadeOrder === 'forward') !== fwd) return { status: 'unmatched' };
+    return { status: 'matched', bindings: [{ layer: 'natal', palace: null, branch: null, star: null, hua: null, note: `大限${fwd ? '順' : '逆'}行` }] };
+  }
+  if ('decadeAge' in cond) {
+    if (!ctx.annual) return { status: 'not_applicable', reason: '冇流年資料，唔知行緊邊個大限' };
+    const d = ctx.annual.decadal;
+    if (!d) return { status: 'not_applicable', reason: '呢個虛歲未起運' };
+    const { lt, gte } = cond.decadeAge;
+    if ((lt !== undefined && d.fromAge >= lt) || (gte !== undefined && d.fromAge < gte)) return { status: 'unmatched' };
+    return { status: 'matched', bindings: [bind(d.branch, ctx, { layer: 'decade', note: `虛歲${d.fromAge}至${d.toAge}歲嘅大限` })] };
+  }
+  if ('jia' in cond) {
+    const at = starBranch(cond.jia, ctx);
+    if (!at) return { status: 'unmatched' };
+    type P = Chart['palaces'][number];
+    const [l, r] = neighbours(at).map((b) => ctx.chart.palaces.find((p) => p.branch === b)!) as [P, P];
+    const [a, b] = cond.sides;
+    const pair = (x: P, y: P): [P, P] | null => (seenIn(x, a, ctx).length && seenIn(y, b, ctx).length ? [x, y] : null);
+    const got = pair(l, r) ?? pair(r, l);
+    if (!got) return { status: 'unmatched' };
+    return {
+      status: 'matched',
+      bindings: [
+        bind(got[0].branch, ctx, { note: `${cond.jia}（${at}）一邊${got[0].branch}見${seenIn(got[0], a, ctx).join('、')}` }),
+        bind(got[1].branch, ctx, { note: `${cond.jia}（${at}）另一邊${got[1].branch}見${seenIn(got[1], b, ctx).join('、')}` }),
+      ],
+    };
+  }
+  if ('meets' in cond) return evalMeets(cond, ctx);
+  if ('flow' in cond) return evalFlow(cond, ctx);
+  if ('deLu' in cond) return evalDeLu(cond.deLu, cond.layer ?? 'natal', ctx);
+  if ('geju' in cond) {
+    const r = evaluate(GEJU_DEF[cond.geju].when, ctx);
+    if (r.status !== 'matched') return r;
+    return { status: 'matched', bindings: [...r.bindings, { layer: 'natal', palace: null, branch: null, star: null, hua: null, note: `成${GEJU_DEF[cond.geju].name}` }] };
+  }
+
   // { star, in }
   const b = branchOfPalace(cond.in, ctx);
   if ('missing' in b) return { status: 'not_applicable', reason: b.missing };
@@ -404,3 +489,180 @@ export function evaluate(cond: Condition, ctx: EvalContext): EvalResult {
     })],
   };
 }
+
+/* ── 2026-10-19 條件卡原子 ─────────────────────────────── */
+
+const HUA_WORD = /^化([祿權科忌])$/;
+
+function neighbours(branch: string): string[] {
+  const i = BRANCHES.indexOf(branch as Branch);
+  return [BRANCHES[(i + 11) % 12]!, BRANCHES[(i + 1) % 12]!];
+}
+
+function palacesAround(branch: string, reach: 'same' | 'sanfang' | 'jia', ctx: EvalContext) {
+  const ps = ctx.chart.palaces;
+  if (reach === 'same') return ps.filter((p) => p.branch === branch);
+  if (reach === 'jia') return ps.filter((p) => neighbours(branch).includes(p.branch));
+  return sanFangPalaces(ps, branch as never);
+}
+
+/** 一個宮入面，`want` 列出嘅星（或者「化X」）見到邊幾粒。 */
+function seenIn(p: Chart['palaces'][number], want: string[], ctx: EvalContext): string[] {
+  const out: string[] = [];
+  for (const w of want) {
+    const h = HUA_WORD.exec(w);
+    const ok = h
+      ? p.stars.some((s) => s.sihua === h[1])
+      : w === '天刑'
+        ? tianxingBranch(ctx.chart) === p.branch
+        : p.stars.some((s) => s.name === w);
+    if (ok) out.push(w);
+  }
+  return out;
+}
+
+function evalMeets(
+  cond: { meets: string; stars: string[]; reach?: 'same' | 'sanfang' | 'jia'; op?: CountOp; n?: number },
+  ctx: EvalContext,
+): EvalResult {
+  const at = starBranch(cond.meets, ctx);
+  if (!at) return { status: 'unmatched' };
+  const reach = cond.reach ?? 'sanfang';
+  const found: { branch: string; star: string }[] = [];
+  for (const p of palacesAround(at, reach, ctx)) for (const w of seenIn(p, cond.stars, ctx)) found.push({ branch: p.branch, star: w });
+  const n = found.length;
+  const op = cond.op ?? 'gte';
+  const k = cond.n ?? 1;
+  const pass = op === 'gte' ? n >= k : op === 'lte' ? n <= k : n === k;
+  if (!pass) return { status: 'unmatched' };
+  const where = reach === 'same' ? '同度' : reach === 'jia' ? '相夾' : '三方四正';
+  if (found.length === 0) {
+    return { status: 'matched', bindings: [bind(at, ctx, { star: cond.meets, note: `${cond.meets}（${at}）${where}不見${cond.stars.join('、')}` })] };
+  }
+  return {
+    status: 'matched',
+    bindings: found.map((f) =>
+      bind(f.branch, ctx, { star: f.star.startsWith('化') ? null : f.star, note: `${cond.meets}（${at}）${where}見${f.star}（${f.branch}）` }),
+    ),
+  };
+}
+
+function evalFlow(
+  cond: { flow: FlowName; layer: 'decade' | 'annual'; in: PalaceRef; reach?: 'same' | 'sanfang' },
+  ctx: EvalContext,
+): EvalResult {
+  if (!ctx.annual) return { status: 'not_applicable', reason: '冇流年資料，查唔到流曜' };
+  const set = cond.layer === 'annual' ? ctx.annual.liuyao.annual : ctx.annual.liuyao.decadal;
+  if (!set) return { status: 'not_applicable', reason: '呢個虛歲未起運，冇大限流曜' };
+  const b = branchOfPalace(cond.in, ctx);
+  if ('missing' in b) return { status: 'not_applicable', reason: b.missing };
+  const at = set[cond.flow];
+  const reach = cond.reach ?? 'same';
+  const ok = reach === 'same' ? at === b.branch : sanFangPalaces(ctx.chart.palaces, b.branch as never).some((p) => p.branch === at);
+  if (!ok) return { status: 'unmatched' };
+  return {
+    status: 'matched',
+    bindings: [
+      bind(at, ctx, {
+        layer: cond.layer,
+        note: `${LAYER_ZH[cond.layer]}流${cond.flow}（${at}）${reach === 'same' ? '入' : '照'}${LAYER_ZH[cond.in.layer ?? 'natal']}${cond.in.name}`,
+      }),
+    ],
+  };
+}
+
+function evalDeLu(star: string, layer: Layer, ctx: EvalContext): EvalResult {
+  const at = starBranch(star, ctx);
+  if (!at) return { status: 'unmatched' };
+  const four = sanFangPalaces(ctx.chart.palaces, at as never);
+  const branches = new Set<string>(four.map((p) => p.branch));
+  const bindings: Binding[] = [];
+  for (const p of four) {
+    if (p.stars.some((s) => s.name === '祿存')) bindings.push(bind(p.branch, ctx, { star: '祿存', note: `${star}（${at}）會祿存（${p.branch}）` }));
+    for (const s of p.stars) if (s.sihua === '祿') bindings.push(bind(p.branch, ctx, { star: s.name, hua: '祿', note: `${star}（${at}）會${s.name}化祿（${p.branch}）` }));
+  }
+  if (layer !== 'natal') {
+    const rows = huaAt(layer, ctx);
+    if ('missing' in rows) return { status: 'not_applicable', reason: rows.missing };
+    for (const r of rows.rows) {
+      const b = starBranch(r.star, ctx);
+      if (r.hua === '祿' && b && branches.has(b)) {
+        bindings.push(bind(b, ctx, { layer, star: r.star, hua: '祿', note: `${star}（${at}）會${LAYER_ZH[layer]}${r.star}化祿（${b}）` }));
+      }
+    }
+    const set = layer === 'annual' ? ctx.annual!.liuyao.annual : ctx.annual!.liuyao.decadal;
+    if (set && branches.has(set.祿存)) bindings.push(bind(set.祿存, ctx, { layer, note: `${star}（${at}）會${LAYER_ZH[layer]}流祿（${set.祿存}）` }));
+  }
+  return bindings.length ? { status: 'matched', bindings } : { status: 'unmatched' };
+}
+
+const FUZUO = ['左輔', '右弼', '天魁', '天鉞', '文昌', '文曲'];
+
+/**
+ * 命名格局。定義跟《深造講義》原文；引擎冇嘅雜曜（三台八座、恩光天貴、天空、截空旬空、天刑未入盤）計唔到，
+ * 所以以下全部係「計得到嗰部分」—— 寫卡要喺 limit 講明。
+ */
+export const GEJU_DEF: Record<GejuName, { name: string; when: Condition; sources: string[]; note: string }> = {
+  baiguan: {
+    name: '百官朝拱',
+    when: { meets: '紫微', stars: FUZUO, n: 2 },
+    sources: ['wtz.deep.p005.b005', 'wtz.deep.p005.b006', 'wtz.deep.p006.b001'],
+    note: '正曜府相朝垣喺紫微三方四正差唔多必然有，所以只計輔佐：三方四正見兩粒或以上。雜曜朝拱引擎冇，計唔到。',
+  },
+  zaiye: {
+    name: '在野孤君',
+    when: { all: [{ star: '紫微', brightness: ['平', '不', '陷'] }, { not: { meets: '紫微', stars: FUZUO, n: 2 } }] },
+    sources: ['wtz.deep.p006.b008'],
+    note: '「落陷又無百官朝拱」。紫微喺現行廟旺表最低係子宮「平」，當落陷計。',
+  },
+  kongku: {
+    name: '空庫',
+    when: { any: [{ not: { deLu: '天府' } }, { meets: '天府', stars: ['地空'], reach: 'same' }] },
+    sources: ['wtz.deep.p020.b005', 'wtz.deep.p005.b008'],
+    note: '無祿同會，或者同地空（原文「地空、天空」，引擎冇天空）同度。p.20「年限中…無空庫露庫之說」講嘅係唔可以因此話人本質奸刁；各星系「經行」段（p.72、80、140、151…）仍然用府庫空露判斷嗰十年／嗰年嘅際遇，所以大限卡可以用。',
+  },
+  luku: {
+    name: '露庫',
+    when: {
+      any: [
+        { meets: '天相', stars: ['擎羊', '陀羅', '火星', '鈴星', '化忌'], reach: 'same' },
+        { all: [{ meets: '天府', stars: ['擎羊', '陀羅', '火星', '鈴星'], n: 2 }, { meets: '天府', stars: ['化忌'] }] },
+      ],
+    },
+    sources: ['wtz.deep.p020.b005'],
+    note: '「天相不吉，或甚至帶煞來會」，或者「四煞刑忌交會」。天相不吉當天相同度見煞忌；交會當三方四正兩煞以上再見化忌（天刑未計）。',
+  },
+  caiyin: {
+    name: '財蔭夾印',
+    when: {
+      all: [
+        { jia: '天相', sides: [['化祿'], ['天梁']] },
+        { any: [{ star: '巨門', hua: '祿' }, { star: '天同', hua: '祿' }] },
+        /* 同一邊又見化忌（例：辛年巨門化祿、文昌化忌同宮）就成刑忌夾，刑忌先論 */
+        { not: { geju: 'xingji' } },
+      ],
+    },
+    sources: ['wtz.deep.p005.b009', 'wtz.deep.p030.b005'],
+    note: '天梁同化祿（天同或巨門化祿）夾天相。同時成刑忌夾印就唔算（2026-10-19 寫卡三批都咁處理，待用戶確認）。',
+  },
+  xingji: {
+    name: '刑忌夾印',
+    when: {
+      all: [
+        { jia: '天相', sides: [['化忌'], ['擎羊', '天梁']] },
+        /* p030.b010：天梁化科、天相三方四正不見煞、見魁鉞輔弼昌曲，先可解 */
+        {
+          not: {
+            all: [
+              { star: '天梁', hua: '科' },
+              { meets: '天相', stars: ['擎羊', '陀羅', '火星', '鈴星', '地空', '地劫'], op: 'eq', n: 0 },
+              { meets: '天相', stars: ['左輔', '右弼', '天魁', '天鉞', '文昌', '文曲'] },
+            ],
+          },
+        },
+      ],
+    },
+    sources: ['wtz.deep.p005.b009', 'wtz.deep.p030.b009', 'wtz.deep.p030.b010', 'wtz.deep.p358.b004'],
+    note: '一邊化忌、另一邊擎羊或天梁夾天相（兩樣喺同一邊唔算，p358.b004「雖不成刑忌夾印」）。天梁化科、三方無煞、見吉就解（p030.b010）。',
+  },
+};

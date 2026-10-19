@@ -1,0 +1,6739 @@
+{
+  "schema_version": 1,
+  "pdf_sha256": "513e3d068040efe3684eb3c0e44cf6e447787670bbf5d618f022da2d6c55231b",
+  "parts": [
+    {
+      "id": "intro",
+      "title": "序論",
+      "palace": null,
+      "start": {
+        "page": 1,
+        "line": 1
+      },
+      "position": 10001,
+      "end_position": 40001
+    },
+    {
+      "id": "main-stars",
+      "title": "星曜論前言與十四正曜",
+      "palace": null,
+      "start": {
+        "page": 4,
+        "line": 1
+      },
+      "position": 40001,
+      "end_position": 400001
+    },
+    {
+      "id": "systems",
+      "title": "六十星系（含推斷方法、後記）",
+      "palace": null,
+      "start": {
+        "page": 40,
+        "line": 1
+      },
+      "position": 400001,
+      "end_position": 2200005
+    },
+    {
+      "id": "auxiliary",
+      "title": "輔佐煞曜總論",
+      "palace": null,
+      "start": {
+        "page": 220,
+        "line": 5
+      },
+      "position": 2200005,
+      "end_position": 2340022
+    },
+    {
+      "id": "transformations",
+      "title": "化曜（四化總論及逐星四化）",
+      "palace": null,
+      "start": {
+        "page": 234,
+        "line": 22
+      },
+      "position": 2340022,
+      "end_position": 3140021
+    },
+    {
+      "id": "misc",
+      "title": "雜曜、流曜與十二神",
+      "palace": null,
+      "start": {
+        "page": 314,
+        "line": 21
+      },
+      "position": 3140021,
+      "end_position": 3250022
+    },
+    {
+      "id": "brightness",
+      "title": "廟陷說明、表格與宮次圖",
+      "palace": null,
+      "start": {
+        "page": 325,
+        "line": 22
+      },
+      "position": 3250022,
+      "end_position": 3330001
+    },
+    {
+      "id": "palace-intro",
+      "title": "下篇宮垣論目錄及前言",
+      "palace": null,
+      "start": {
+        "page": 333,
+        "line": 1
+      },
+      "position": 3330001,
+      "end_position": 3350006
+    },
+    {
+      "id": "ming",
+      "title": "命宮",
+      "palace": "命宮",
+      "start": {
+        "page": 335,
+        "line": 6
+      },
+      "position": 3350006,
+      "end_position": 3660010
+    },
+    {
+      "id": "siblings",
+      "title": "兄弟宮",
+      "palace": "兄弟",
+      "start": {
+        "page": 366,
+        "line": 10
+      },
+      "position": 3660010,
+      "end_position": 3770014
+    },
+    {
+      "id": "spouse",
+      "title": "夫妻宮",
+      "palace": "夫妻",
+      "start": {
+        "page": 377,
+        "line": 14
+      },
+      "position": 3770014,
+      "end_position": 4040015
+    },
+    {
+      "id": "children",
+      "title": "子女宮",
+      "palace": "子女",
+      "start": {
+        "page": 404,
+        "line": 15
+      },
+      "position": 4040015,
+      "end_position": 4290011
+    },
+    {
+      "id": "wealth",
+      "title": "財帛宮",
+      "palace": "財帛",
+      "start": {
+        "page": 429,
+        "line": 11
+      },
+      "position": 4290011,
+      "end_position": 4630019
+    },
+    {
+      "id": "health",
+      "title": "疾厄宮",
+      "palace": "疾厄",
+      "start": {
+        "page": 463,
+        "line": 19
+      },
+      "position": 4630019,
+      "end_position": 4860005
+    },
+    {
+      "id": "travel",
+      "title": "遷移宮",
+      "palace": "遷移",
+      "start": {
+        "page": 486,
+        "line": 5
+      },
+      "position": 4860005,
+      "end_position": 5030017
+    },
+    {
+      "id": "friends",
+      "title": "交友宮（奴僕宮）",
+      "palace": "僕役",
+      "start": {
+        "page": 503,
+        "line": 17
+      },
+      "position": 5030017,
+      "end_position": 5160024
+    },
+    {
+      "id": "career",
+      "title": "事業宮（官祿宮）",
+      "palace": "官祿",
+      "start": {
+        "page": 516,
+        "line": 24
+      },
+      "position": 5160024,
+      "end_position": 5510012
+    },
+    {
+      "id": "property",
+      "title": "田宅宮",
+      "palace": "田宅",
+      "start": {
+        "page": 551,
+        "line": 12
+      },
+      "position": 5510012,
+      "end_position": 5650007
+    },
+    {
+      "id": "wellbeing",
+      "title": "福德宮",
+      "palace": "福德",
+      "start": {
+        "page": 565,
+        "line": 7
+      },
+      "position": 5650007,
+      "end_position": 5800022
+    },
+    {
+      "id": "parents",
+      "title": "父母宮",
+      "palace": "父母",
+      "start": {
+        "page": 580,
+        "line": 22
+      },
+      "position": 5800022,
+      "end_position": 5960001
+    }
+  ],
+  "sections": [
+    {
+      "id": "deep.intro.intro",
+      "title": "序論・篇首",
+      "kind": "part_intro",
+      "part": "intro",
+      "palace": null,
+      "start": {
+        "page": 1,
+        "line": 1
+      },
+      "position": 10001,
+      "source_heading": "王亭之编著",
+      "end_position": 40001
+    },
+    {
+      "id": "deep.main-stars.intro",
+      "title": "星曜論前言與十四正曜・篇首",
+      "kind": "part_intro",
+      "part": "main-stars",
+      "palace": null,
+      "start": {
+        "page": 4,
+        "line": 1
+      },
+      "position": 40001,
+      "source_heading": "上篇     星曜论",
+      "end_position": 50002
+    },
+    {
+      "id": "deep.main-stars.紫微",
+      "title": "紫微",
+      "kind": "star",
+      "part": "main-stars",
+      "palace": null,
+      "start": {
+        "page": 5,
+        "line": 2
+      },
+      "position": 50002,
+      "source_heading": "1  紫微",
+      "subject_stars": [
+        "紫微"
+      ],
+      "end_position": 70010
+    },
+    {
+      "id": "deep.main-stars.天機",
+      "title": "天機",
+      "kind": "star",
+      "part": "main-stars",
+      "palace": null,
+      "start": {
+        "page": 7,
+        "line": 10
+      },
+      "position": 70010,
+      "source_heading": "2  天机",
+      "subject_stars": [
+        "天機"
+      ],
+      "end_position": 90001
+    },
+    {
+      "id": "deep.main-stars.太陽",
+      "title": "太陽",
+      "kind": "star",
+      "part": "main-stars",
+      "palace": null,
+      "start": {
+        "page": 9,
+        "line": 1
+      },
+      "position": 90001,
+      "source_heading": "3  太阳",
+      "subject_stars": [
+        "太陽"
+      ],
+      "end_position": 110014
+    },
+    {
+      "id": "deep.main-stars.武曲",
+      "title": "武曲",
+      "kind": "star",
+      "part": "main-stars",
+      "palace": null,
+      "start": {
+        "page": 11,
+        "line": 14
+      },
+      "position": 110014,
+      "source_heading": "4  武曲",
+      "subject_stars": [
+        "武曲"
+      ],
+      "end_position": 140001
+    },
+    {
+      "id": "deep.main-stars.天同",
+      "title": "天同",
+      "kind": "star",
+      "part": "main-stars",
+      "palace": null,
+      "start": {
+        "page": 14,
+        "line": 1
+      },
+      "position": 140001,
+      "source_heading": "5  天同",
+      "subject_stars": [
+        "天同"
+      ],
+      "end_position": 160017
+    },
+    {
+      "id": "deep.main-stars.廉貞",
+      "title": "廉貞",
+      "kind": "star",
+      "part": "main-stars",
+      "palace": null,
+      "start": {
+        "page": 16,
+        "line": 17
+      },
+      "position": 160017,
+      "source_heading": "6  廉贞",
+      "subject_stars": [
+        "廉貞"
+      ],
+      "end_position": 190004
+    },
+    {
+      "id": "deep.main-stars.天府",
+      "title": "天府",
+      "kind": "star",
+      "part": "main-stars",
+      "palace": null,
+      "start": {
+        "page": 19,
+        "line": 4
+      },
+      "position": 190004,
+      "source_heading": "7  天府",
+      "subject_stars": [
+        "天府"
+      ],
+      "end_position": 210016
+    },
+    {
+      "id": "deep.main-stars.太陰",
+      "title": "太陰",
+      "kind": "star",
+      "part": "main-stars",
+      "palace": null,
+      "start": {
+        "page": 21,
+        "line": 16
+      },
+      "position": 210016,
+      "source_heading": "8  太阴",
+      "subject_stars": [
+        "太陰"
+      ],
+      "end_position": 240005
+    },
+    {
+      "id": "deep.main-stars.貪狼",
+      "title": "貪狼",
+      "kind": "star",
+      "part": "main-stars",
+      "palace": null,
+      "start": {
+        "page": 24,
+        "line": 5
+      },
+      "position": 240005,
+      "source_heading": "9  贪狼",
+      "subject_stars": [
+        "貪狼"
+      ],
+      "end_position": 270001
+    },
+    {
+      "id": "deep.main-stars.巨門",
+      "title": "巨門",
+      "kind": "star",
+      "part": "main-stars",
+      "palace": null,
+      "start": {
+        "page": 27,
+        "line": 1
+      },
+      "position": 270001,
+      "source_heading": "10 巨门",
+      "subject_stars": [
+        "巨門"
+      ],
+      "end_position": 290014
+    },
+    {
+      "id": "deep.main-stars.天相",
+      "title": "天相",
+      "kind": "star",
+      "part": "main-stars",
+      "palace": null,
+      "start": {
+        "page": 29,
+        "line": 14
+      },
+      "position": 290014,
+      "source_heading": "11  天相",
+      "subject_stars": [
+        "天相"
+      ],
+      "end_position": 320001
+    },
+    {
+      "id": "deep.main-stars.天梁",
+      "title": "天梁",
+      "kind": "star",
+      "part": "main-stars",
+      "palace": null,
+      "start": {
+        "page": 32,
+        "line": 1
+      },
+      "position": 320001,
+      "source_heading": "12  天梁",
+      "subject_stars": [
+        "天梁"
+      ],
+      "end_position": 340017
+    },
+    {
+      "id": "deep.main-stars.七殺",
+      "title": "七殺",
+      "kind": "star",
+      "part": "main-stars",
+      "palace": null,
+      "start": {
+        "page": 34,
+        "line": 17
+      },
+      "position": 340017,
+      "source_heading": "13  七杀",
+      "subject_stars": [
+        "七殺"
+      ],
+      "end_position": 370007
+    },
+    {
+      "id": "deep.main-stars.破軍",
+      "title": "破軍",
+      "kind": "star",
+      "part": "main-stars",
+      "palace": null,
+      "start": {
+        "page": 37,
+        "line": 7
+      },
+      "position": 370007,
+      "source_heading": "14  破军",
+      "subject_stars": [
+        "破軍"
+      ],
+      "end_position": 400001
+    },
+    {
+      "id": "deep.systems.intro",
+      "title": "六十星系（含推斷方法、後記）・篇首",
+      "kind": "part_intro",
+      "part": "systems",
+      "palace": null,
+      "start": {
+        "page": 40,
+        "line": 1
+      },
+      "position": 400001,
+      "source_heading": "六十星系",
+      "end_position": 420005
+    },
+    {
+      "id": "deep.system.01",
+      "title": "紫微獨坐子午",
+      "kind": "system",
+      "part": "systems",
+      "palace": null,
+      "start": {
+        "page": 42,
+        "line": 5
+      },
+      "position": 420005,
+      "source_heading": "紫微独坐子午紫微独坐子、午。对宫为贪狼独坐；与[武曲天相]、[廉贞天府]相",
+      "subject_stars": [
+        "紫微"
+      ],
+      "branches": [
+        "子",
+        "午"
+      ],
+      "system_number": 1,
+      "title_status": "navigation_name_check_source_heading",
+      "end_position": 450004
+    },
+    {
+      "id": "deep.system.02",
+      "title": "破軍獨坐寅申",
+      "kind": "system",
+      "part": "systems",
+      "palace": null,
+      "start": {
+        "page": 45,
+        "line": 4
+      },
+      "position": 450004,
+      "source_heading": "2 破军独坐寅申",
+      "subject_stars": [
+        "破軍"
+      ],
+      "branches": [
+        "寅",
+        "申"
+      ],
+      "system_number": 2,
+      "title_status": "navigation_name_check_source_heading",
+      "end_position": 470022
+    },
+    {
+      "id": "deep.system.03",
+      "title": "廉貞天府坐辰戌",
+      "kind": "system",
+      "part": "systems",
+      "palace": null,
+      "start": {
+        "page": 47,
+        "line": 22
+      },
+      "position": 470022,
+      "source_heading": "3  廉贞天府坐辰戌",
+      "subject_stars": [
+        "廉貞",
+        "天府"
+      ],
+      "branches": [
+        "辰",
+        "戌"
+      ],
+      "system_number": 3,
+      "title_status": "navigation_name_check_source_heading",
+      "end_position": 500013
+    },
+    {
+      "id": "deep.system.04",
+      "title": "太陰獨坐巳亥",
+      "kind": "system",
+      "part": "systems",
+      "palace": null,
+      "start": {
+        "page": 50,
+        "line": 13
+      },
+      "position": 500013,
+      "source_heading": "4 太阴独坐巳亥",
+      "subject_stars": [
+        "太陰"
+      ],
+      "branches": [
+        "巳",
+        "亥"
+      ],
+      "system_number": 4,
+      "title_status": "navigation_name_check_source_heading",
+      "end_position": 530013
+    },
+    {
+      "id": "deep.system.05",
+      "title": "貪狼獨坐子午",
+      "kind": "system",
+      "part": "systems",
+      "palace": null,
+      "start": {
+        "page": 53,
+        "line": 13
+      },
+      "position": 530013,
+      "source_heading": "5 贪狼独坐子午",
+      "subject_stars": [
+        "貪狼"
+      ],
+      "branches": [
+        "子",
+        "午"
+      ],
+      "system_number": 5,
+      "title_status": "navigation_name_check_source_heading",
+      "end_position": 560003
+    },
+    {
+      "id": "deep.system.06",
+      "title": "天同巨門坐丑未",
+      "kind": "system",
+      "part": "systems",
+      "palace": null,
+      "start": {
+        "page": 56,
+        "line": 3
+      },
+      "position": 560003,
+      "source_heading": "6  天同巨门坐丑未",
+      "subject_stars": [
+        "天同",
+        "巨門"
+      ],
+      "branches": [
+        "丑",
+        "未"
+      ],
+      "system_number": 6,
+      "title_status": "navigation_name_check_source_heading",
+      "end_position": 580023
+    },
+    {
+      "id": "deep.system.07",
+      "title": "武曲天相坐寅申",
+      "kind": "system",
+      "part": "systems",
+      "palace": null,
+      "start": {
+        "page": 58,
+        "line": 23
+      },
+      "position": 580023,
+      "source_heading": "7 武曲天相坐寅申",
+      "subject_stars": [
+        "武曲",
+        "天相"
+      ],
+      "branches": [
+        "寅",
+        "申"
+      ],
+      "system_number": 7,
+      "title_status": "navigation_name_check_source_heading",
+      "end_position": 610005
+    },
+    {
+      "id": "deep.system.08",
+      "title": "太陽天梁坐卯酉",
+      "kind": "system",
+      "part": "systems",
+      "palace": null,
+      "start": {
+        "page": 61,
+        "line": 5
+      },
+      "position": 610005,
+      "source_heading": "8 太阳天梁坐卯酉",
+      "subject_stars": [
+        "太陽",
+        "天梁"
+      ],
+      "branches": [
+        "卯",
+        "酉"
+      ],
+      "system_number": 8,
+      "title_status": "navigation_name_check_source_heading",
+      "end_position": 630023
+    },
+    {
+      "id": "deep.system.09",
+      "title": "七殺獨坐辰戌",
+      "kind": "system",
+      "part": "systems",
+      "palace": null,
+      "start": {
+        "page": 63,
+        "line": 23
+      },
+      "position": 630023,
+      "source_heading": "9 七杀独坐辰戌",
+      "subject_stars": [
+        "七殺"
+      ],
+      "branches": [
+        "辰",
+        "戌"
+      ],
+      "system_number": 9,
+      "title_status": "navigation_name_check_source_heading",
+      "end_position": 660023
+    },
+    {
+      "id": "deep.system.10",
+      "title": "天機獨坐巳亥",
+      "kind": "system",
+      "part": "systems",
+      "palace": null,
+      "start": {
+        "page": 66,
+        "line": 23
+      },
+      "position": 660023,
+      "source_heading": "10 天机独坐巳亥",
+      "subject_stars": [
+        "天機"
+      ],
+      "branches": [
+        "巳",
+        "亥"
+      ],
+      "system_number": 10,
+      "title_status": "navigation_name_check_source_heading",
+      "end_position": 700006
+    },
+    {
+      "id": "deep.system.11",
+      "title": "紫微破軍坐丑未",
+      "kind": "system",
+      "part": "systems",
+      "palace": null,
+      "start": {
+        "page": 70,
+        "line": 6
+      },
+      "position": 700006,
+      "source_heading": "11 紫微在丑未",
+      "subject_stars": [
+        "紫微",
+        "破軍"
+      ],
+      "branches": [
+        "丑",
+        "未"
+      ],
+      "system_number": 11,
+      "title_status": "navigation_name_check_source_heading",
+      "end_position": 730005
+    },
+    {
+      "id": "deep.system.12",
+      "title": "天府獨坐卯酉",
+      "kind": "system",
+      "part": "systems",
+      "palace": null,
+      "start": {
+        "page": 73,
+        "line": 5
+      },
+      "position": 730005,
+      "source_heading": "12 天府独坐卯酉",
+      "subject_stars": [
+        "天府"
+      ],
+      "branches": [
+        "卯",
+        "酉"
+      ],
+      "system_number": 12,
+      "title_status": "navigation_name_check_source_heading",
+      "end_position": 760008
+    },
+    {
+      "id": "deep.system.13",
+      "title": "太陰獨坐辰戌",
+      "kind": "system",
+      "part": "systems",
+      "palace": null,
+      "start": {
+        "page": 76,
+        "line": 8
+      },
+      "position": 760008,
+      "source_heading": "13 太阴独坐辰戌",
+      "subject_stars": [
+        "太陰"
+      ],
+      "branches": [
+        "辰",
+        "戌"
+      ],
+      "system_number": 13,
+      "title_status": "navigation_name_check_source_heading",
+      "end_position": 780019
+    },
+    {
+      "id": "deep.system.14",
+      "title": "廉貞貪狼坐巳亥",
+      "kind": "system",
+      "part": "systems",
+      "palace": null,
+      "start": {
+        "page": 78,
+        "line": 19
+      },
+      "position": 780019,
+      "source_heading": "14 廉贞贪狼坐巳亥",
+      "subject_stars": [
+        "廉貞",
+        "貪狼"
+      ],
+      "branches": [
+        "巳",
+        "亥"
+      ],
+      "system_number": 14,
+      "title_status": "navigation_name_check_source_heading",
+      "end_position": 810023
+    },
+    {
+      "id": "deep.system.15",
+      "title": "巨門獨坐子午",
+      "kind": "system",
+      "part": "systems",
+      "palace": null,
+      "start": {
+        "page": 81,
+        "line": 23
+      },
+      "position": 810023,
+      "source_heading": "15  巨门独坐子午",
+      "subject_stars": [
+        "巨門"
+      ],
+      "branches": [
+        "子",
+        "午"
+      ],
+      "system_number": 15,
+      "title_status": "navigation_name_check_source_heading",
+      "end_position": 840023
+    },
+    {
+      "id": "deep.system.16",
+      "title": "天相獨坐丑未",
+      "kind": "system",
+      "part": "systems",
+      "palace": null,
+      "start": {
+        "page": 84,
+        "line": 23
+      },
+      "position": 840023,
+      "source_heading": "16 天相独坐丑未",
+      "subject_stars": [
+        "天相"
+      ],
+      "branches": [
+        "丑",
+        "未"
+      ],
+      "system_number": 16,
+      "title_status": "navigation_name_check_source_heading",
+      "end_position": 870017
+    },
+    {
+      "id": "deep.system.17",
+      "title": "天同天梁坐寅申",
+      "kind": "system",
+      "part": "systems",
+      "palace": null,
+      "start": {
+        "page": 87,
+        "line": 17
+      },
+      "position": 870017,
+      "source_heading": "17  天同天梁坐寅申",
+      "subject_stars": [
+        "天同",
+        "天梁"
+      ],
+      "branches": [
+        "寅",
+        "申"
+      ],
+      "system_number": 17,
+      "title_status": "navigation_name_check_source_heading",
+      "end_position": 890014
+    },
+    {
+      "id": "deep.system.18",
+      "title": "武曲七殺坐卯酉",
+      "kind": "system",
+      "part": "systems",
+      "palace": null,
+      "start": {
+        "page": 89,
+        "line": 14
+      },
+      "position": 890014,
+      "source_heading": "18 武曲七杀坐卯酉",
+      "subject_stars": [
+        "武曲",
+        "七殺"
+      ],
+      "branches": [
+        "卯",
+        "酉"
+      ],
+      "system_number": 18,
+      "title_status": "navigation_name_check_source_heading",
+      "end_position": 910025
+    },
+    {
+      "id": "deep.system.19",
+      "title": "太陽獨坐辰戌",
+      "kind": "system",
+      "part": "systems",
+      "palace": null,
+      "start": {
+        "page": 91,
+        "line": 25
+      },
+      "position": 910025,
+      "source_heading": "19 太阳独坐辰戌",
+      "subject_stars": [
+        "太陽"
+      ],
+      "branches": [
+        "辰",
+        "戌"
+      ],
+      "system_number": 19,
+      "title_status": "navigation_name_check_source_heading",
+      "end_position": 940013
+    },
+    {
+      "id": "deep.system.20",
+      "title": "天機獨坐子午",
+      "kind": "system",
+      "part": "systems",
+      "palace": null,
+      "start": {
+        "page": 94,
+        "line": 13
+      },
+      "position": 940013,
+      "source_heading": "20 天机独坐子午",
+      "subject_stars": [
+        "天機"
+      ],
+      "branches": [
+        "子",
+        "午"
+      ],
+      "system_number": 20,
+      "title_status": "navigation_name_check_source_heading",
+      "end_position": 970002
+    },
+    {
+      "id": "deep.system.21",
+      "title": "紫微天府坐寅申",
+      "kind": "system",
+      "part": "systems",
+      "palace": null,
+      "start": {
+        "page": 97,
+        "line": 2
+      },
+      "position": 970002,
+      "source_heading": "21  紫微天府坐寅申",
+      "subject_stars": [
+        "紫微",
+        "天府"
+      ],
+      "branches": [
+        "寅",
+        "申"
+      ],
+      "system_number": 21,
+      "title_status": "navigation_name_check_source_heading",
+      "end_position": 1000014
+    },
+    {
+      "id": "deep.system.22",
+      "title": "太陰獨坐卯酉",
+      "kind": "system",
+      "part": "systems",
+      "palace": null,
+      "start": {
+        "page": 100,
+        "line": 14
+      },
+      "position": 1000014,
+      "source_heading": "22 太阳独坐卯酉",
+      "subject_stars": [
+        "太陰"
+      ],
+      "branches": [
+        "卯",
+        "酉"
+      ],
+      "system_number": 22,
+      "title_status": "navigation_name_check_source_heading",
+      "end_position": 1030003
+    },
+    {
+      "id": "deep.system.23",
+      "title": "貪狼獨坐辰戌",
+      "kind": "system",
+      "part": "systems",
+      "palace": null,
+      "start": {
+        "page": 103,
+        "line": 3
+      },
+      "position": 1030003,
+      "source_heading": "23 贪狼独坐辰戌",
+      "subject_stars": [
+        "貪狼"
+      ],
+      "branches": [
+        "辰",
+        "戌"
+      ],
+      "system_number": 23,
+      "title_status": "navigation_name_check_source_heading",
+      "end_position": 1050019
+    },
+    {
+      "id": "deep.system.24",
+      "title": "巨門獨坐巳亥",
+      "kind": "system",
+      "part": "systems",
+      "palace": null,
+      "start": {
+        "page": 105,
+        "line": 19
+      },
+      "position": 1050019,
+      "source_heading": "24  巨门独坐巳亥",
+      "subject_stars": [
+        "巨門"
+      ],
+      "branches": [
+        "巳",
+        "亥"
+      ],
+      "system_number": 24,
+      "title_status": "navigation_name_check_source_heading",
+      "end_position": 1080011
+    },
+    {
+      "id": "deep.system.25",
+      "title": "廉貞天相坐子午",
+      "kind": "system",
+      "part": "systems",
+      "palace": null,
+      "start": {
+        "page": 108,
+        "line": 11
+      },
+      "position": 1080011,
+      "source_heading": "25 廉贞天相坐子午",
+      "subject_stars": [
+        "廉貞",
+        "天相"
+      ],
+      "branches": [
+        "子",
+        "午"
+      ],
+      "system_number": 25,
+      "title_status": "navigation_name_check_source_heading",
+      "end_position": 1100018
+    },
+    {
+      "id": "deep.system.26",
+      "title": "天梁獨坐丑未",
+      "kind": "system",
+      "part": "systems",
+      "palace": null,
+      "start": {
+        "page": 110,
+        "line": 18
+      },
+      "position": 1100018,
+      "source_heading": "26  天梁独坐丑未",
+      "subject_stars": [
+        "天梁"
+      ],
+      "branches": [
+        "丑",
+        "未"
+      ],
+      "system_number": 26,
+      "title_status": "navigation_name_check_source_heading",
+      "end_position": 1130010
+    },
+    {
+      "id": "deep.system.27",
+      "title": "七殺獨坐寅申",
+      "kind": "system",
+      "part": "systems",
+      "palace": null,
+      "start": {
+        "page": 113,
+        "line": 10
+      },
+      "position": 1130010,
+      "source_heading": "27 七杀独坐寅申",
+      "subject_stars": [
+        "七殺"
+      ],
+      "branches": [
+        "寅",
+        "申"
+      ],
+      "system_number": 27,
+      "title_status": "navigation_name_check_source_heading",
+      "end_position": 1160005
+    },
+    {
+      "id": "deep.system.28",
+      "title": "天同獨坐卯酉",
+      "kind": "system",
+      "part": "systems",
+      "palace": null,
+      "start": {
+        "page": 116,
+        "line": 5
+      },
+      "position": 1160005,
+      "source_heading": "28 天同独坐卯酉",
+      "subject_stars": [
+        "天同"
+      ],
+      "branches": [
+        "卯",
+        "酉"
+      ],
+      "system_number": 28,
+      "title_status": "navigation_name_check_source_heading",
+      "end_position": 1190020
+    },
+    {
+      "id": "deep.system.29",
+      "title": "武曲獨坐辰戌",
+      "kind": "system",
+      "part": "systems",
+      "palace": null,
+      "start": {
+        "page": 119,
+        "line": 20
+      },
+      "position": 1190020,
+      "source_heading": "29  武曲独坐辰戌",
+      "subject_stars": [
+        "武曲"
+      ],
+      "branches": [
+        "辰",
+        "戌"
+      ],
+      "system_number": 29,
+      "title_status": "navigation_name_check_source_heading",
+      "end_position": 1230003
+    },
+    {
+      "id": "deep.system.30",
+      "title": "太陽獨坐巳亥",
+      "kind": "system",
+      "part": "systems",
+      "palace": null,
+      "start": {
+        "page": 123,
+        "line": 3
+      },
+      "position": 1230003,
+      "source_heading": "30 太阳独坐巳亥",
+      "subject_stars": [
+        "太陽"
+      ],
+      "branches": [
+        "巳",
+        "亥"
+      ],
+      "system_number": 30,
+      "title_status": "navigation_name_check_source_heading",
+      "end_position": 1260005
+    },
+    {
+      "id": "deep.system.31",
+      "title": "破軍獨坐子午",
+      "kind": "system",
+      "part": "systems",
+      "palace": null,
+      "start": {
+        "page": 126,
+        "line": 5
+      },
+      "position": 1260005,
+      "source_heading": "31 破军独坐子午",
+      "subject_stars": [
+        "破軍"
+      ],
+      "branches": [
+        "子",
+        "午"
+      ],
+      "system_number": 31,
+      "title_status": "navigation_name_check_source_heading",
+      "end_position": 1290016
+    },
+    {
+      "id": "deep.system.32",
+      "title": "天機獨坐丑未",
+      "kind": "system",
+      "part": "systems",
+      "palace": null,
+      "start": {
+        "page": 129,
+        "line": 16
+      },
+      "position": 1290016,
+      "source_heading": "32 天机独坐丑未",
+      "subject_stars": [
+        "天機"
+      ],
+      "branches": [
+        "丑",
+        "未"
+      ],
+      "system_number": 32,
+      "title_status": "navigation_name_check_source_heading",
+      "end_position": 1330001
+    },
+    {
+      "id": "deep.system.33",
+      "title": "紫微貪狼坐卯酉",
+      "kind": "system",
+      "part": "systems",
+      "palace": null,
+      "start": {
+        "page": 133,
+        "line": 1
+      },
+      "position": 1330001,
+      "source_heading": "33  紫微贪狼坐卯酉",
+      "subject_stars": [
+        "紫微",
+        "貪狼"
+      ],
+      "branches": [
+        "卯",
+        "酉"
+      ],
+      "system_number": 33,
+      "title_status": "navigation_name_check_source_heading",
+      "end_position": 1360001
+    },
+    {
+      "id": "deep.system.34",
+      "title": "巨門獨坐辰戌",
+      "kind": "system",
+      "part": "systems",
+      "palace": null,
+      "start": {
+        "page": 136,
+        "line": 1
+      },
+      "position": 1360001,
+      "source_heading": "34 巨门独坐辰戌",
+      "subject_stars": [
+        "巨門"
+      ],
+      "branches": [
+        "辰",
+        "戌"
+      ],
+      "system_number": 34,
+      "title_status": "navigation_name_check_source_heading",
+      "end_position": 1380015
+    },
+    {
+      "id": "deep.system.35",
+      "title": "天相獨坐巳亥",
+      "kind": "system",
+      "part": "systems",
+      "palace": null,
+      "start": {
+        "page": 138,
+        "line": 15
+      },
+      "position": 1380015,
+      "source_heading": "35 天相独坐巳亥",
+      "subject_stars": [
+        "天相"
+      ],
+      "branches": [
+        "巳",
+        "亥"
+      ],
+      "system_number": 35,
+      "title_status": "navigation_name_check_source_heading",
+      "end_position": 1410006
+    },
+    {
+      "id": "deep.system.36",
+      "title": "天梁獨坐子午",
+      "kind": "system",
+      "part": "systems",
+      "palace": null,
+      "start": {
+        "page": 141,
+        "line": 6
+      },
+      "position": 1410006,
+      "source_heading": "36 天梁独坐子午",
+      "subject_stars": [
+        "天梁"
+      ],
+      "branches": [
+        "子",
+        "午"
+      ],
+      "system_number": 36,
+      "title_status": "navigation_name_check_source_heading",
+      "end_position": 1440001
+    },
+    {
+      "id": "deep.system.37",
+      "title": "廉貞七殺坐丑未",
+      "kind": "system",
+      "part": "systems",
+      "palace": null,
+      "start": {
+        "page": 144,
+        "line": 1
+      },
+      "position": 1440001,
+      "source_heading": "37  廉贞七杀坐丑未",
+      "subject_stars": [
+        "廉貞",
+        "七殺"
+      ],
+      "branches": [
+        "丑",
+        "未"
+      ],
+      "system_number": 37,
+      "title_status": "navigation_name_check_source_heading",
+      "end_position": 1470005
+    },
+    {
+      "id": "deep.system.38",
+      "title": "天同獨坐辰戌",
+      "kind": "system",
+      "part": "systems",
+      "palace": null,
+      "start": {
+        "page": 147,
+        "line": 5
+      },
+      "position": 1470005,
+      "source_heading": "38 天同独坐辰戌",
+      "subject_stars": [
+        "天同"
+      ],
+      "branches": [
+        "辰",
+        "戌"
+      ],
+      "system_number": 38,
+      "title_status": "navigation_name_check_source_heading",
+      "end_position": 1500007
+    },
+    {
+      "id": "deep.system.39",
+      "title": "武曲破軍坐巳亥",
+      "kind": "system",
+      "part": "systems",
+      "palace": null,
+      "start": {
+        "page": 150,
+        "line": 7
+      },
+      "position": 1500007,
+      "source_heading": "39  武曲破军坐巳亥",
+      "subject_stars": [
+        "武曲",
+        "破軍"
+      ],
+      "branches": [
+        "巳",
+        "亥"
+      ],
+      "system_number": 39,
+      "title_status": "navigation_name_check_source_heading",
+      "end_position": 1530008
+    },
+    {
+      "id": "deep.system.40",
+      "title": "太陽獨坐子午",
+      "kind": "system",
+      "part": "systems",
+      "palace": null,
+      "start": {
+        "page": 153,
+        "line": 8
+      },
+      "position": 1530008,
+      "source_heading": "40 太阳独坐子午",
+      "subject_stars": [
+        "太陽"
+      ],
+      "branches": [
+        "子",
+        "午"
+      ],
+      "system_number": 40,
+      "title_status": "navigation_name_check_source_heading",
+      "end_position": 1560006
+    },
+    {
+      "id": "deep.system.41",
+      "title": "天府獨坐丑未",
+      "kind": "system",
+      "part": "systems",
+      "palace": null,
+      "start": {
+        "page": 156,
+        "line": 6
+      },
+      "position": 1560006,
+      "source_heading": "41 天府独坐丑未",
+      "subject_stars": [
+        "天府"
+      ],
+      "branches": [
+        "丑",
+        "未"
+      ],
+      "system_number": 41,
+      "title_status": "navigation_name_check_source_heading",
+      "end_position": 1590017
+    },
+    {
+      "id": "deep.system.42",
+      "title": "天機太陰坐寅申",
+      "kind": "system",
+      "part": "systems",
+      "palace": null,
+      "start": {
+        "page": 159,
+        "line": 17
+      },
+      "position": 1590017,
+      "source_heading": "42 天机太阴坐寅申",
+      "subject_stars": [
+        "天機",
+        "太陰"
+      ],
+      "branches": [
+        "寅",
+        "申"
+      ],
+      "system_number": 42,
+      "title_status": "navigation_name_check_source_heading",
+      "end_position": 1630002
+    },
+    {
+      "id": "deep.system.43",
+      "title": "紫微天相坐辰戌",
+      "kind": "system",
+      "part": "systems",
+      "palace": null,
+      "start": {
+        "page": 163,
+        "line": 2
+      },
+      "position": 1630002,
+      "source_heading": "43   紫微天相坐辰戌",
+      "subject_stars": [
+        "紫微",
+        "天相"
+      ],
+      "branches": [
+        "辰",
+        "戌"
+      ],
+      "system_number": 43,
+      "title_status": "navigation_name_check_source_heading",
+      "end_position": 1660013
+    },
+    {
+      "id": "deep.system.44",
+      "title": "天梁獨坐巳亥",
+      "kind": "system",
+      "part": "systems",
+      "palace": null,
+      "start": {
+        "page": 166,
+        "line": 13
+      },
+      "position": 1660013,
+      "source_heading": "44 天梁独坐巳亥",
+      "subject_stars": [
+        "天梁"
+      ],
+      "branches": [
+        "巳",
+        "亥"
+      ],
+      "system_number": 44,
+      "title_status": "navigation_name_check_source_heading",
+      "end_position": 1690021
+    },
+    {
+      "id": "deep.system.45",
+      "title": "七殺獨坐子午",
+      "kind": "system",
+      "part": "systems",
+      "palace": null,
+      "start": {
+        "page": 169,
+        "line": 21
+      },
+      "position": 1690021,
+      "source_heading": "45 七杀独坐子午",
+      "subject_stars": [
+        "七殺"
+      ],
+      "branches": [
+        "子",
+        "午"
+      ],
+      "system_number": 45,
+      "title_status": "navigation_name_check_source_heading",
+      "end_position": 1720013
+    },
+    {
+      "id": "deep.system.46",
+      "title": "廉貞獨坐寅申",
+      "kind": "system",
+      "part": "systems",
+      "palace": null,
+      "start": {
+        "page": 172,
+        "line": 13
+      },
+      "position": 1720013,
+      "source_heading": "46 廉贞独坐寅申",
+      "subject_stars": [
+        "廉貞"
+      ],
+      "branches": [
+        "寅",
+        "申"
+      ],
+      "system_number": 46,
+      "title_status": "navigation_name_check_source_heading",
+      "end_position": 1750013
+    },
+    {
+      "id": "deep.system.47",
+      "title": "破軍獨坐辰戌",
+      "kind": "system",
+      "part": "systems",
+      "palace": null,
+      "start": {
+        "page": 175,
+        "line": 13
+      },
+      "position": 1750013,
+      "source_heading": "47 破军独坐辰戌",
+      "subject_stars": [
+        "破軍"
+      ],
+      "branches": [
+        "辰",
+        "戌"
+      ],
+      "system_number": 47,
+      "title_status": "navigation_name_check_source_heading",
+      "end_position": 1780014
+    },
+    {
+      "id": "deep.system.48",
+      "title": "天同獨坐巳亥",
+      "kind": "system",
+      "part": "systems",
+      "palace": null,
+      "start": {
+        "page": 178,
+        "line": 14
+      },
+      "position": 1780014,
+      "source_heading": "48 天同独坐巳亥",
+      "subject_stars": [
+        "天同"
+      ],
+      "branches": [
+        "巳",
+        "亥"
+      ],
+      "system_number": 48,
+      "title_status": "navigation_name_check_source_heading",
+      "end_position": 1810014
+    },
+    {
+      "id": "deep.system.49",
+      "title": "武曲天府坐子午",
+      "kind": "system",
+      "part": "systems",
+      "palace": null,
+      "start": {
+        "page": 181,
+        "line": 14
+      },
+      "position": 1810014,
+      "source_heading": "49 武曲天府坐子午",
+      "subject_stars": [
+        "武曲",
+        "天府"
+      ],
+      "branches": [
+        "子",
+        "午"
+      ],
+      "system_number": 49,
+      "title_status": "navigation_name_check_source_heading",
+      "end_position": 1840023
+    },
+    {
+      "id": "deep.system.50",
+      "title": "太陰太陽坐丑未",
+      "kind": "system",
+      "part": "systems",
+      "palace": null,
+      "start": {
+        "page": 184,
+        "line": 23
+      },
+      "position": 1840023,
+      "source_heading": "50 太阴太阳坐丑未",
+      "subject_stars": [
+        "太陰",
+        "太陽"
+      ],
+      "branches": [
+        "丑",
+        "未"
+      ],
+      "system_number": 50,
+      "title_status": "navigation_name_check_source_heading",
+      "end_position": 1880006
+    },
+    {
+      "id": "deep.system.51",
+      "title": "貪狼獨坐寅申",
+      "kind": "system",
+      "part": "systems",
+      "palace": null,
+      "start": {
+        "page": 188,
+        "line": 6
+      },
+      "position": 1880006,
+      "source_heading": "51 贪狼独坐寅申",
+      "subject_stars": [
+        "貪狼"
+      ],
+      "branches": [
+        "寅",
+        "申"
+      ],
+      "system_number": 51,
+      "title_status": "navigation_name_check_source_heading",
+      "end_position": 1910003
+    },
+    {
+      "id": "deep.system.52",
+      "title": "天機巨門坐卯酉",
+      "kind": "system",
+      "part": "systems",
+      "palace": null,
+      "start": {
+        "page": 191,
+        "line": 3
+      },
+      "position": 1910003,
+      "source_heading": "52 天机巨门坐卯酉",
+      "subject_stars": [
+        "天機",
+        "巨門"
+      ],
+      "branches": [
+        "卯",
+        "酉"
+      ],
+      "system_number": 52,
+      "title_status": "navigation_name_check_source_heading",
+      "end_position": 1940007
+    },
+    {
+      "id": "deep.system.53",
+      "title": "紫微七殺坐巳亥",
+      "kind": "system",
+      "part": "systems",
+      "palace": null,
+      "start": {
+        "page": 194,
+        "line": 7
+      },
+      "position": 1940007,
+      "source_heading": "53  紫微七杀坐巳亥",
+      "subject_stars": [
+        "紫微",
+        "七殺"
+      ],
+      "branches": [
+        "巳",
+        "亥"
+      ],
+      "system_number": 53,
+      "title_status": "navigation_name_check_source_heading",
+      "end_position": 1970025
+    },
+    {
+      "id": "deep.system.54",
+      "title": "廉貞破軍坐卯酉",
+      "kind": "system",
+      "part": "systems",
+      "palace": null,
+      "start": {
+        "page": 197,
+        "line": 25
+      },
+      "position": 1970025,
+      "source_heading": "54 廉贞破军坐卯酉",
+      "subject_stars": [
+        "廉貞",
+        "破軍"
+      ],
+      "branches": [
+        "卯",
+        "酉"
+      ],
+      "system_number": 54,
+      "title_status": "navigation_name_check_source_heading",
+      "end_position": 2000025
+    },
+    {
+      "id": "deep.system.55",
+      "title": "天府獨坐巳亥",
+      "kind": "system",
+      "part": "systems",
+      "palace": null,
+      "start": {
+        "page": 200,
+        "line": 25
+      },
+      "position": 2000025,
+      "source_heading": "55 天府独坐巳亥",
+      "subject_stars": [
+        "天府"
+      ],
+      "branches": [
+        "巳",
+        "亥"
+      ],
+      "system_number": 55,
+      "title_status": "navigation_name_check_source_heading",
+      "end_position": 2030014
+    },
+    {
+      "id": "deep.system.56",
+      "title": "天同太陰坐子午",
+      "kind": "system",
+      "part": "systems",
+      "palace": null,
+      "start": {
+        "page": 203,
+        "line": 14
+      },
+      "position": 2030014,
+      "source_heading": "56 天同太阴坐子午",
+      "subject_stars": [
+        "天同",
+        "太陰"
+      ],
+      "branches": [
+        "子",
+        "午"
+      ],
+      "system_number": 56,
+      "title_status": "navigation_name_check_source_heading",
+      "end_position": 2060009
+    },
+    {
+      "id": "deep.system.57",
+      "title": "武曲貪狼坐丑未",
+      "kind": "system",
+      "part": "systems",
+      "palace": null,
+      "start": {
+        "page": 206,
+        "line": 9
+      },
+      "position": 2060009,
+      "source_heading": "57 武曲贪狼坐丑未",
+      "subject_stars": [
+        "武曲",
+        "貪狼"
+      ],
+      "branches": [
+        "丑",
+        "未"
+      ],
+      "system_number": 57,
+      "title_status": "navigation_name_check_source_heading",
+      "end_position": 2090018
+    },
+    {
+      "id": "deep.system.58",
+      "title": "太陽巨門坐寅申",
+      "kind": "system",
+      "part": "systems",
+      "palace": null,
+      "start": {
+        "page": 209,
+        "line": 18
+      },
+      "position": 2090018,
+      "source_heading": "58  太阳巨门坐寅申",
+      "subject_stars": [
+        "太陽",
+        "巨門"
+      ],
+      "branches": [
+        "寅",
+        "申"
+      ],
+      "system_number": 58,
+      "title_status": "navigation_name_check_source_heading",
+      "end_position": 2120012
+    },
+    {
+      "id": "deep.system.59",
+      "title": "天相獨坐卯酉",
+      "kind": "system",
+      "part": "systems",
+      "palace": null,
+      "start": {
+        "page": 212,
+        "line": 12
+      },
+      "position": 2120012,
+      "source_heading": "59 天相独坐卯酉",
+      "subject_stars": [
+        "天相"
+      ],
+      "branches": [
+        "卯",
+        "酉"
+      ],
+      "system_number": 59,
+      "title_status": "navigation_name_check_source_heading",
+      "end_position": 2150018
+    },
+    {
+      "id": "deep.system.60",
+      "title": "天機天梁坐辰戌",
+      "kind": "system",
+      "part": "systems",
+      "palace": null,
+      "start": {
+        "page": 215,
+        "line": 18
+      },
+      "position": 2150018,
+      "source_heading": "60 天机天梁坐辰戌",
+      "subject_stars": [
+        "天機",
+        "天梁"
+      ],
+      "branches": [
+        "辰",
+        "戌"
+      ],
+      "system_number": 60,
+      "title_status": "navigation_name_check_source_heading",
+      "end_position": 2190009
+    },
+    {
+      "id": "deep.systems.afterword",
+      "title": "六十星系後記",
+      "kind": "method",
+      "part": "systems",
+      "palace": null,
+      "start": {
+        "page": 219,
+        "line": 9
+      },
+      "position": 2190009,
+      "source_heading": "六十星系后记",
+      "end_position": 2200005
+    },
+    {
+      "id": "deep.auxiliary.intro",
+      "title": "輔佐煞曜總論・篇首",
+      "kind": "part_intro",
+      "part": "auxiliary",
+      "palace": null,
+      "start": {
+        "page": 220,
+        "line": 5
+      },
+      "position": 2200005,
+      "source_heading": "辅佐煞曜总论",
+      "end_position": 2210008
+    },
+    {
+      "id": "deep.aux.01",
+      "title": "天魁天鉞",
+      "kind": "auxiliary",
+      "part": "auxiliary",
+      "palace": null,
+      "start": {
+        "page": 221,
+        "line": 8
+      },
+      "position": 2210008,
+      "source_heading": "1  天魁  天铖",
+      "subject_stars": [
+        "天魁",
+        "天鉞"
+      ],
+      "end_position": 2230001
+    },
+    {
+      "id": "deep.aux.02",
+      "title": "左輔右弼",
+      "kind": "auxiliary",
+      "part": "auxiliary",
+      "palace": null,
+      "start": {
+        "page": 223,
+        "line": 1
+      },
+      "position": 2230001,
+      "source_heading": "2 左辅  右弼",
+      "subject_stars": [
+        "左輔",
+        "右弼"
+      ],
+      "end_position": 2250009
+    },
+    {
+      "id": "deep.aux.03",
+      "title": "文昌文曲",
+      "kind": "auxiliary",
+      "part": "auxiliary",
+      "palace": null,
+      "start": {
+        "page": 225,
+        "line": 9
+      },
+      "position": 2250009,
+      "source_heading": "3  文昌  文曲",
+      "subject_stars": [
+        "文昌",
+        "文曲"
+      ],
+      "end_position": 2270022
+    },
+    {
+      "id": "deep.aux.04",
+      "title": "祿存天馬",
+      "kind": "auxiliary",
+      "part": "auxiliary",
+      "palace": null,
+      "start": {
+        "page": 227,
+        "line": 22
+      },
+      "position": 2270022,
+      "source_heading": "4  禄存  天马",
+      "subject_stars": [
+        "祿存",
+        "天馬"
+      ],
+      "end_position": 2300001
+    },
+    {
+      "id": "deep.aux.05",
+      "title": "擎羊陀羅",
+      "kind": "auxiliary",
+      "part": "auxiliary",
+      "palace": null,
+      "start": {
+        "page": 230,
+        "line": 1
+      },
+      "position": 2300001,
+      "source_heading": "1  擎羊  陀罗",
+      "subject_stars": [
+        "擎羊",
+        "陀羅"
+      ],
+      "end_position": 2320005
+    },
+    {
+      "id": "deep.aux.06",
+      "title": "火星鈴星",
+      "kind": "auxiliary",
+      "part": "auxiliary",
+      "palace": null,
+      "start": {
+        "page": 232,
+        "line": 5
+      },
+      "position": 2320005,
+      "source_heading": "2 火星  铃星",
+      "subject_stars": [
+        "火星",
+        "鈴星"
+      ],
+      "end_position": 2330018
+    },
+    {
+      "id": "deep.aux.07",
+      "title": "地空地劫",
+      "kind": "auxiliary",
+      "part": "auxiliary",
+      "palace": null,
+      "start": {
+        "page": 233,
+        "line": 18
+      },
+      "position": 2330018,
+      "source_heading": "3  地空  地劫",
+      "subject_stars": [
+        "地空",
+        "地劫"
+      ],
+      "end_position": 2340022
+    },
+    {
+      "id": "deep.transformations.intro",
+      "title": "化曜（四化總論及逐星四化）・篇首",
+      "kind": "part_intro",
+      "part": "transformations",
+      "palace": null,
+      "start": {
+        "page": 234,
+        "line": 22
+      },
+      "position": 2340022,
+      "source_heading": "化  曜",
+      "end_position": 2380019
+    },
+    {
+      "id": "deep.hua.甲.祿",
+      "title": "廉貞（甲干化祿）",
+      "kind": "transformation",
+      "part": "transformations",
+      "palace": null,
+      "start": {
+        "page": 238,
+        "line": 19
+      },
+      "position": 2380019,
+      "source_heading": "廉贞(甲干化禄)",
+      "subject_stars": [
+        "廉貞"
+      ],
+      "stem": "甲",
+      "raw_stem": "甲",
+      "hua": "祿",
+      "title_status": "source_heading_located",
+      "end_position": 2400019
+    },
+    {
+      "id": "deep.hua.乙.祿",
+      "title": "天機（乙干化祿）",
+      "kind": "transformation",
+      "part": "transformations",
+      "palace": null,
+      "start": {
+        "page": 240,
+        "line": 19
+      },
+      "position": 2400019,
+      "source_heading": "天机(乙干化禄)",
+      "subject_stars": [
+        "天機"
+      ],
+      "stem": "乙",
+      "raw_stem": "乙",
+      "hua": "祿",
+      "title_status": "source_heading_located",
+      "end_position": 2420021
+    },
+    {
+      "id": "deep.hua.丙.祿",
+      "title": "天同（丙干化祿）",
+      "kind": "transformation",
+      "part": "transformations",
+      "palace": null,
+      "start": {
+        "page": 242,
+        "line": 21
+      },
+      "position": 2420021,
+      "source_heading": "天同(丙干化禄)",
+      "subject_stars": [
+        "天同"
+      ],
+      "stem": "丙",
+      "raw_stem": "丙",
+      "hua": "祿",
+      "title_status": "source_heading_located",
+      "end_position": 2450004
+    },
+    {
+      "id": "deep.hua.丁.祿",
+      "title": "太陰（丁干化祿）",
+      "kind": "transformation",
+      "part": "transformations",
+      "palace": null,
+      "start": {
+        "page": 245,
+        "line": 4
+      },
+      "position": 2450004,
+      "source_heading": "太阴(丁干化禄)",
+      "subject_stars": [
+        "太陰"
+      ],
+      "stem": "丁",
+      "raw_stem": "丁",
+      "hua": "祿",
+      "title_status": "source_heading_located",
+      "end_position": 2470012
+    },
+    {
+      "id": "deep.hua.戊.祿",
+      "title": "貪狼（戊干化祿）",
+      "kind": "transformation",
+      "part": "transformations",
+      "palace": null,
+      "start": {
+        "page": 247,
+        "line": 12
+      },
+      "position": 2470012,
+      "source_heading": "贪狼(戊干化禄)",
+      "subject_stars": [
+        "貪狼"
+      ],
+      "stem": "戊",
+      "raw_stem": "戊",
+      "hua": "祿",
+      "title_status": "source_heading_located",
+      "end_position": 2490008
+    },
+    {
+      "id": "deep.hua.己.祿",
+      "title": "武曲（己干化祿）",
+      "kind": "transformation",
+      "part": "transformations",
+      "palace": null,
+      "start": {
+        "page": 249,
+        "line": 8
+      },
+      "position": 2490008,
+      "source_heading": "武曲(巳干化禄)",
+      "subject_stars": [
+        "武曲"
+      ],
+      "stem": "己",
+      "raw_stem": "巳",
+      "hua": "祿",
+      "title_status": "stem_near_glyph_needs_review",
+      "end_position": 2510010
+    },
+    {
+      "id": "deep.hua.庚.祿",
+      "title": "太陽（庚干化祿）",
+      "kind": "transformation",
+      "part": "transformations",
+      "palace": null,
+      "start": {
+        "page": 251,
+        "line": 10
+      },
+      "position": 2510010,
+      "source_heading": "太阳(庚干化禄)",
+      "subject_stars": [
+        "太陽"
+      ],
+      "stem": "庚",
+      "raw_stem": "庚",
+      "hua": "祿",
+      "title_status": "source_heading_located",
+      "end_position": 2530010
+    },
+    {
+      "id": "deep.hua.辛.祿",
+      "title": "巨門（辛干化祿）",
+      "kind": "transformation",
+      "part": "transformations",
+      "palace": null,
+      "start": {
+        "page": 253,
+        "line": 10
+      },
+      "position": 2530010,
+      "source_heading": "巨门(辛干化禄)",
+      "subject_stars": [
+        "巨門"
+      ],
+      "stem": "辛",
+      "raw_stem": "辛",
+      "hua": "祿",
+      "title_status": "source_heading_located",
+      "end_position": 2550004
+    },
+    {
+      "id": "deep.hua.壬.祿",
+      "title": "天梁（壬干化祿）",
+      "kind": "transformation",
+      "part": "transformations",
+      "palace": null,
+      "start": {
+        "page": 255,
+        "line": 4
+      },
+      "position": 2550004,
+      "source_heading": "天梁(壬干化禄)",
+      "subject_stars": [
+        "天梁"
+      ],
+      "stem": "壬",
+      "raw_stem": "壬",
+      "hua": "祿",
+      "title_status": "source_heading_located",
+      "end_position": 2560024
+    },
+    {
+      "id": "deep.hua.癸.祿",
+      "title": "破軍（癸干化祿）",
+      "kind": "transformation",
+      "part": "transformations",
+      "palace": null,
+      "start": {
+        "page": 256,
+        "line": 24
+      },
+      "position": 2560024,
+      "source_heading": "破军(癸干化禄)",
+      "subject_stars": [
+        "破軍"
+      ],
+      "stem": "癸",
+      "raw_stem": "癸",
+      "hua": "祿",
+      "title_status": "source_heading_located",
+      "end_position": 2580020
+    },
+    {
+      "id": "deep.hua.甲.權",
+      "title": "破軍（甲干化權）",
+      "kind": "transformation",
+      "part": "transformations",
+      "palace": null,
+      "start": {
+        "page": 258,
+        "line": 20
+      },
+      "position": 2580020,
+      "source_heading": "破军(甲干化权)",
+      "subject_stars": [
+        "破軍"
+      ],
+      "stem": "甲",
+      "raw_stem": "甲",
+      "hua": "權",
+      "title_status": "source_heading_located",
+      "end_position": 2610002
+    },
+    {
+      "id": "deep.hua.乙.權",
+      "title": "天梁（乙干化權）",
+      "kind": "transformation",
+      "part": "transformations",
+      "palace": null,
+      "start": {
+        "page": 261,
+        "line": 2
+      },
+      "position": 2610002,
+      "source_heading": "天梁(乙干化权)",
+      "subject_stars": [
+        "天梁"
+      ],
+      "stem": "乙",
+      "raw_stem": "乙",
+      "hua": "權",
+      "title_status": "source_heading_located",
+      "end_position": 2630009
+    },
+    {
+      "id": "deep.hua.丙.權",
+      "title": "天機（丙干化權）",
+      "kind": "transformation",
+      "part": "transformations",
+      "palace": null,
+      "start": {
+        "page": 263,
+        "line": 9
+      },
+      "position": 2630009,
+      "source_heading": "天机(丙干化权)",
+      "subject_stars": [
+        "天機"
+      ],
+      "stem": "丙",
+      "raw_stem": "丙",
+      "hua": "權",
+      "title_status": "source_heading_located",
+      "end_position": 2650010
+    },
+    {
+      "id": "deep.hua.丁.權",
+      "title": "天同（丁干化權）",
+      "kind": "transformation",
+      "part": "transformations",
+      "palace": null,
+      "start": {
+        "page": 265,
+        "line": 10
+      },
+      "position": 2650010,
+      "source_heading": "天同(丁干化权)",
+      "subject_stars": [
+        "天同"
+      ],
+      "stem": "丁",
+      "raw_stem": "丁",
+      "hua": "權",
+      "title_status": "source_heading_located",
+      "end_position": 2670008
+    },
+    {
+      "id": "deep.hua.戊.權",
+      "title": "太陰（戊干化權）",
+      "kind": "transformation",
+      "part": "transformations",
+      "palace": null,
+      "start": {
+        "page": 267,
+        "line": 8
+      },
+      "position": 2670008,
+      "source_heading": "太阴(戊干化权)",
+      "subject_stars": [
+        "太陰"
+      ],
+      "stem": "戊",
+      "raw_stem": "戊",
+      "hua": "權",
+      "title_status": "source_heading_located",
+      "end_position": 2690017
+    },
+    {
+      "id": "deep.hua.己.權",
+      "title": "貪狼（己干化權）",
+      "kind": "transformation",
+      "part": "transformations",
+      "palace": null,
+      "start": {
+        "page": 269,
+        "line": 17
+      },
+      "position": 2690017,
+      "source_heading": "贪狼(巳干化权)",
+      "subject_stars": [
+        "貪狼"
+      ],
+      "stem": "己",
+      "raw_stem": "巳",
+      "hua": "權",
+      "title_status": "stem_near_glyph_needs_review",
+      "end_position": 2710019
+    },
+    {
+      "id": "deep.hua.庚.權",
+      "title": "武曲（庚干化權）",
+      "kind": "transformation",
+      "part": "transformations",
+      "palace": null,
+      "start": {
+        "page": 271,
+        "line": 19
+      },
+      "position": 2710019,
+      "source_heading": "武曲(庚干化权)",
+      "subject_stars": [
+        "武曲"
+      ],
+      "stem": "庚",
+      "raw_stem": "庚",
+      "hua": "權",
+      "title_status": "source_heading_located",
+      "end_position": 2730023
+    },
+    {
+      "id": "deep.hua.辛.權",
+      "title": "太陽（辛干化權）",
+      "kind": "transformation",
+      "part": "transformations",
+      "palace": null,
+      "start": {
+        "page": 273,
+        "line": 23
+      },
+      "position": 2730023,
+      "source_heading": "太阳(辛干化权)",
+      "subject_stars": [
+        "太陽"
+      ],
+      "stem": "辛",
+      "raw_stem": "辛",
+      "hua": "權",
+      "title_status": "source_heading_located",
+      "end_position": 2750022
+    },
+    {
+      "id": "deep.hua.壬.權",
+      "title": "紫微（壬干化權）",
+      "kind": "transformation",
+      "part": "transformations",
+      "palace": null,
+      "start": {
+        "page": 275,
+        "line": 22
+      },
+      "position": 2750022,
+      "source_heading": "紫微(壬干化权)",
+      "subject_stars": [
+        "紫微"
+      ],
+      "stem": "壬",
+      "raw_stem": "壬",
+      "hua": "權",
+      "title_status": "source_heading_located",
+      "end_position": 2780007
+    },
+    {
+      "id": "deep.hua.癸.權",
+      "title": "巨門（癸干化權）",
+      "kind": "transformation",
+      "part": "transformations",
+      "palace": null,
+      "start": {
+        "page": 278,
+        "line": 7
+      },
+      "position": 2780007,
+      "source_heading": "巨门(癸干化权)",
+      "subject_stars": [
+        "巨門"
+      ],
+      "stem": "癸",
+      "raw_stem": "癸",
+      "hua": "權",
+      "title_status": "source_heading_located",
+      "end_position": 2800014
+    },
+    {
+      "id": "deep.hua.甲.科",
+      "title": "武曲（甲干化科）",
+      "kind": "transformation",
+      "part": "transformations",
+      "palace": null,
+      "start": {
+        "page": 280,
+        "line": 14
+      },
+      "position": 2800014,
+      "source_heading": "武曲(甲干化科)",
+      "subject_stars": [
+        "武曲"
+      ],
+      "stem": "甲",
+      "raw_stem": "甲",
+      "hua": "科",
+      "title_status": "source_heading_located",
+      "end_position": 2820003
+    },
+    {
+      "id": "deep.hua.乙.科",
+      "title": "紫微（乙干化科）",
+      "kind": "transformation",
+      "part": "transformations",
+      "palace": null,
+      "start": {
+        "page": 282,
+        "line": 3
+      },
+      "position": 2820003,
+      "source_heading": "紫微(乙干化科)",
+      "subject_stars": [
+        "紫微"
+      ],
+      "stem": "乙",
+      "raw_stem": "乙",
+      "hua": "科",
+      "title_status": "source_heading_located",
+      "end_position": 2840007
+    },
+    {
+      "id": "deep.hua.丙.科",
+      "title": "文昌（丙干化科）",
+      "kind": "transformation",
+      "part": "transformations",
+      "palace": null,
+      "start": {
+        "page": 284,
+        "line": 7
+      },
+      "position": 2840007,
+      "source_heading": "文昌(丙干化科)",
+      "subject_stars": [
+        "文昌"
+      ],
+      "stem": "丙",
+      "raw_stem": "丙",
+      "hua": "科",
+      "title_status": "source_heading_located",
+      "end_position": 2840022
+    },
+    {
+      "id": "deep.hua.丁.科",
+      "title": "天機（丁干化科）",
+      "kind": "transformation",
+      "part": "transformations",
+      "palace": null,
+      "start": {
+        "page": 284,
+        "line": 22
+      },
+      "position": 2840022,
+      "source_heading": "天机(丁干化科)",
+      "subject_stars": [
+        "天機"
+      ],
+      "stem": "丁",
+      "raw_stem": "丁",
+      "hua": "科",
+      "title_status": "source_heading_located",
+      "end_position": 2870003
+    },
+    {
+      "id": "deep.hua.戊.科",
+      "title": "太陽（戊干化科）",
+      "kind": "transformation",
+      "part": "transformations",
+      "palace": null,
+      "start": {
+        "page": 287,
+        "line": 3
+      },
+      "position": 2870003,
+      "source_heading": "太阳(戊干化科)",
+      "subject_stars": [
+        "太陽"
+      ],
+      "stem": "戊",
+      "raw_stem": "戊",
+      "hua": "科",
+      "title_status": "source_heading_located",
+      "end_position": 2890008
+    },
+    {
+      "id": "deep.hua.己.科",
+      "title": "天梁（己干化科）",
+      "kind": "transformation",
+      "part": "transformations",
+      "palace": null,
+      "start": {
+        "page": 289,
+        "line": 8
+      },
+      "position": 2890008,
+      "source_heading": "天梁(巳干化科)",
+      "subject_stars": [
+        "天梁"
+      ],
+      "stem": "己",
+      "raw_stem": "巳",
+      "hua": "科",
+      "title_status": "stem_near_glyph_needs_review",
+      "end_position": 2910006
+    },
+    {
+      "id": "deep.hua.庚.科",
+      "title": "天府（庚干化科）",
+      "kind": "transformation",
+      "part": "transformations",
+      "palace": null,
+      "start": {
+        "page": 291,
+        "line": 6
+      },
+      "position": 2910006,
+      "source_heading": "天府(庚千化科)",
+      "subject_stars": [
+        "天府"
+      ],
+      "stem": "庚",
+      "raw_stem": "庚",
+      "hua": "科",
+      "title_status": "source_heading_located",
+      "end_position": 2930006
+    },
+    {
+      "id": "deep.hua.辛.科",
+      "title": "文曲（辛干化科）",
+      "kind": "transformation",
+      "part": "transformations",
+      "palace": null,
+      "start": {
+        "page": 293,
+        "line": 6
+      },
+      "position": 2930006,
+      "source_heading": "文曲(辛千化科)",
+      "subject_stars": [
+        "文曲"
+      ],
+      "stem": "辛",
+      "raw_stem": "辛",
+      "hua": "科",
+      "title_status": "source_heading_located",
+      "end_position": 2930018
+    },
+    {
+      "id": "deep.hua.壬.科",
+      "title": "天府（壬干化科）",
+      "kind": "transformation",
+      "part": "transformations",
+      "palace": null,
+      "start": {
+        "page": 293,
+        "line": 18
+      },
+      "position": 2930018,
+      "source_heading": "天府(壬干化科)",
+      "subject_stars": [
+        "天府"
+      ],
+      "stem": "壬",
+      "raw_stem": "壬",
+      "hua": "科",
+      "title_status": "source_heading_located",
+      "end_position": 2950007
+    },
+    {
+      "id": "deep.hua.癸.科",
+      "title": "太陰（癸干化科）",
+      "kind": "transformation",
+      "part": "transformations",
+      "palace": null,
+      "start": {
+        "page": 295,
+        "line": 7
+      },
+      "position": 2950007,
+      "source_heading": "太阴(癸干化科)",
+      "subject_stars": [
+        "太陰"
+      ],
+      "stem": "癸",
+      "raw_stem": "癸",
+      "hua": "科",
+      "title_status": "source_heading_located",
+      "end_position": 2970016
+    },
+    {
+      "id": "deep.hua.甲.忌",
+      "title": "太陽（甲干化忌）",
+      "kind": "transformation",
+      "part": "transformations",
+      "palace": null,
+      "start": {
+        "page": 297,
+        "line": 16
+      },
+      "position": 2970016,
+      "source_heading": "太阳(甲干化忌)",
+      "subject_stars": [
+        "太陽"
+      ],
+      "stem": "甲",
+      "raw_stem": "甲",
+      "hua": "忌",
+      "title_status": "source_heading_located",
+      "end_position": 2990019
+    },
+    {
+      "id": "deep.hua.乙.忌",
+      "title": "太陰（乙干化忌）",
+      "kind": "transformation",
+      "part": "transformations",
+      "palace": null,
+      "start": {
+        "page": 299,
+        "line": 19
+      },
+      "position": 2990019,
+      "source_heading": "太阴(乙干化忌)",
+      "subject_stars": [
+        "太陰"
+      ],
+      "stem": "乙",
+      "raw_stem": "乙",
+      "hua": "忌",
+      "title_status": "source_heading_located",
+      "end_position": 3010019
+    },
+    {
+      "id": "deep.hua.丙.忌",
+      "title": "廉貞（丙干化忌）",
+      "kind": "transformation",
+      "part": "transformations",
+      "palace": null,
+      "start": {
+        "page": 301,
+        "line": 19
+      },
+      "position": 3010019,
+      "source_heading": "廉贞(丙干化忌)",
+      "subject_stars": [
+        "廉貞"
+      ],
+      "stem": "丙",
+      "raw_stem": "丙",
+      "hua": "忌",
+      "title_status": "source_heading_located",
+      "end_position": 3040001
+    },
+    {
+      "id": "deep.hua.丁.忌",
+      "title": "巨門（丁干化忌）",
+      "kind": "transformation",
+      "part": "transformations",
+      "palace": null,
+      "start": {
+        "page": 304,
+        "line": 1
+      },
+      "position": 3040001,
+      "source_heading": "巨门(丁干化忌)",
+      "subject_stars": [
+        "巨門"
+      ],
+      "stem": "丁",
+      "raw_stem": "丁",
+      "hua": "忌",
+      "title_status": "source_heading_located",
+      "end_position": 3050016
+    },
+    {
+      "id": "deep.hua.戊.忌",
+      "title": "天機（戊干化忌）",
+      "kind": "transformation",
+      "part": "transformations",
+      "palace": null,
+      "start": {
+        "page": 305,
+        "line": 16
+      },
+      "position": 3050016,
+      "source_heading": "天机(戊干化忌)",
+      "subject_stars": [
+        "天機"
+      ],
+      "stem": "戊",
+      "raw_stem": "戊",
+      "hua": "忌",
+      "title_status": "source_heading_located",
+      "end_position": 3070011
+    },
+    {
+      "id": "deep.hua.己.忌",
+      "title": "文曲（己干化忌）",
+      "kind": "transformation",
+      "part": "transformations",
+      "palace": null,
+      "start": {
+        "page": 307,
+        "line": 11
+      },
+      "position": 3070011,
+      "source_heading": "文曲(已干化忌)",
+      "subject_stars": [
+        "文曲"
+      ],
+      "stem": "己",
+      "raw_stem": "已",
+      "hua": "忌",
+      "title_status": "stem_near_glyph_needs_review",
+      "end_position": 3080001
+    },
+    {
+      "id": "deep.hua.庚.忌",
+      "title": "天同（庚干化忌）",
+      "kind": "transformation",
+      "part": "transformations",
+      "palace": null,
+      "start": {
+        "page": 308,
+        "line": 1
+      },
+      "position": 3080001,
+      "source_heading": "天同(庚干化忌)",
+      "subject_stars": [
+        "天同"
+      ],
+      "stem": "庚",
+      "raw_stem": "庚",
+      "hua": "忌",
+      "title_status": "source_heading_located",
+      "end_position": 3100002
+    },
+    {
+      "id": "deep.hua.辛.忌",
+      "title": "文昌（辛干化忌）",
+      "kind": "transformation",
+      "part": "transformations",
+      "palace": null,
+      "start": {
+        "page": 310,
+        "line": 2
+      },
+      "position": 3100002,
+      "source_heading": "文昌(辛干化忌)",
+      "subject_stars": [
+        "文昌"
+      ],
+      "stem": "辛",
+      "raw_stem": "辛",
+      "hua": "忌",
+      "title_status": "source_heading_located",
+      "end_position": 3100017
+    },
+    {
+      "id": "deep.hua.壬.忌",
+      "title": "武曲（壬干化忌）",
+      "kind": "transformation",
+      "part": "transformations",
+      "palace": null,
+      "start": {
+        "page": 310,
+        "line": 17
+      },
+      "position": 3100017,
+      "source_heading": "武曲(壬干化忌)",
+      "subject_stars": [
+        "武曲"
+      ],
+      "stem": "壬",
+      "raw_stem": "壬",
+      "hua": "忌",
+      "title_status": "source_heading_located",
+      "end_position": 3120019
+    },
+    {
+      "id": "deep.hua.癸.忌",
+      "title": "貪狼（癸干化忌）",
+      "kind": "transformation",
+      "part": "transformations",
+      "palace": null,
+      "start": {
+        "page": 312,
+        "line": 19
+      },
+      "position": 3120019,
+      "source_heading": "贪狼(癸干化忌)",
+      "subject_stars": [
+        "貪狼"
+      ],
+      "stem": "癸",
+      "raw_stem": "癸",
+      "hua": "忌",
+      "title_status": "source_heading_located",
+      "end_position": 3140021
+    },
+    {
+      "id": "deep.misc.intro",
+      "title": "雜曜、流曜與十二神・篇首",
+      "kind": "part_intro",
+      "part": "misc",
+      "palace": null,
+      "start": {
+        "page": 314,
+        "line": 21
+      },
+      "position": 3140021,
+      "source_heading": "杂曜总论",
+      "end_position": 3150001
+    },
+    {
+      "id": "deep.misc.01",
+      "title": "天傷天使",
+      "kind": "miscellany",
+      "part": "misc",
+      "palace": null,
+      "start": {
+        "page": 315,
+        "line": 1
+      },
+      "position": 3150001,
+      "source_heading": "天伤  天使",
+      "subject_stars": [
+        "天傷",
+        "天使"
+      ],
+      "end_position": 3150015
+    },
+    {
+      "id": "deep.misc.02",
+      "title": "天刑天姚",
+      "kind": "miscellany",
+      "part": "misc",
+      "palace": null,
+      "start": {
+        "page": 315,
+        "line": 15
+      },
+      "position": 3150015,
+      "source_heading": "天刑  天姚",
+      "subject_stars": [
+        "天刑",
+        "天姚"
+      ],
+      "end_position": 3160015
+    },
+    {
+      "id": "deep.misc.03",
+      "title": "天哭天虛",
+      "kind": "miscellany",
+      "part": "misc",
+      "palace": null,
+      "start": {
+        "page": 316,
+        "line": 15
+      },
+      "position": 3160015,
+      "source_heading": "天哭天虚",
+      "subject_stars": [
+        "天哭",
+        "天虛"
+      ],
+      "end_position": 3160023
+    },
+    {
+      "id": "deep.misc.04",
+      "title": "紅鸞天喜",
+      "kind": "miscellany",
+      "part": "misc",
+      "palace": null,
+      "start": {
+        "page": 316,
+        "line": 23
+      },
+      "position": 3160023,
+      "source_heading": "红鸾天喜",
+      "subject_stars": [
+        "紅鸞",
+        "天喜"
+      ],
+      "end_position": 3170010
+    },
+    {
+      "id": "deep.misc.05",
+      "title": "三台八座",
+      "kind": "miscellany",
+      "part": "misc",
+      "palace": null,
+      "start": {
+        "page": 317,
+        "line": 10
+      },
+      "position": 3170010,
+      "source_heading": "三台  八座",
+      "subject_stars": [
+        "三台",
+        "八座"
+      ],
+      "end_position": 3170017
+    },
+    {
+      "id": "deep.misc.06",
+      "title": "龍池鳳閣",
+      "kind": "miscellany",
+      "part": "misc",
+      "palace": null,
+      "start": {
+        "page": 317,
+        "line": 17
+      },
+      "position": 3170017,
+      "source_heading": "龙池凤阁",
+      "subject_stars": [
+        "龍池",
+        "鳳閣"
+      ],
+      "end_position": 3180002
+    },
+    {
+      "id": "deep.misc.07",
+      "title": "孤辰寡宿",
+      "kind": "miscellany",
+      "part": "misc",
+      "palace": null,
+      "start": {
+        "page": 318,
+        "line": 2
+      },
+      "position": 3180002,
+      "source_heading": "孤辰  寡宿",
+      "subject_stars": [
+        "孤辰",
+        "寡宿"
+      ],
+      "end_position": 3180011
+    },
+    {
+      "id": "deep.misc.08",
+      "title": "恩光天貴",
+      "kind": "miscellany",
+      "part": "misc",
+      "palace": null,
+      "start": {
+        "page": 318,
+        "line": 11
+      },
+      "position": 3180011,
+      "source_heading": "恩光  天贵",
+      "subject_stars": [
+        "恩光",
+        "天貴"
+      ],
+      "end_position": 3180022
+    },
+    {
+      "id": "deep.misc.09",
+      "title": "天才",
+      "kind": "miscellany",
+      "part": "misc",
+      "palace": null,
+      "start": {
+        "page": 318,
+        "line": 22
+      },
+      "position": 3180022,
+      "source_heading": "天才",
+      "subject_stars": [
+        "天才"
+      ],
+      "end_position": 3190001
+    },
+    {
+      "id": "deep.misc.10",
+      "title": "天壽",
+      "kind": "miscellany",
+      "part": "misc",
+      "palace": null,
+      "start": {
+        "page": 319,
+        "line": 1
+      },
+      "position": 3190001,
+      "source_heading": "天寿",
+      "subject_stars": [
+        "天壽"
+      ],
+      "end_position": 3190009
+    },
+    {
+      "id": "deep.misc.11",
+      "title": "台輔封誥",
+      "kind": "miscellany",
+      "part": "misc",
+      "palace": null,
+      "start": {
+        "page": 319,
+        "line": 9
+      },
+      "position": 3190009,
+      "source_heading": "台辅  封诰",
+      "subject_stars": [
+        "台輔",
+        "封誥"
+      ],
+      "end_position": 3190016
+    },
+    {
+      "id": "deep.misc.12",
+      "title": "天官天福",
+      "kind": "miscellany",
+      "part": "misc",
+      "palace": null,
+      "start": {
+        "page": 319,
+        "line": 16
+      },
+      "position": 3190016,
+      "source_heading": "天宫  天福",
+      "subject_stars": [
+        "天官",
+        "天福"
+      ],
+      "end_position": 3190021
+    },
+    {
+      "id": "deep.misc.13",
+      "title": "蜚廉",
+      "kind": "miscellany",
+      "part": "misc",
+      "palace": null,
+      "start": {
+        "page": 319,
+        "line": 21
+      },
+      "position": 3190021,
+      "source_heading": "蜚廉",
+      "subject_stars": [
+        "蜚廉"
+      ],
+      "end_position": 3200003
+    },
+    {
+      "id": "deep.misc.14",
+      "title": "破碎",
+      "kind": "miscellany",
+      "part": "misc",
+      "palace": null,
+      "start": {
+        "page": 320,
+        "line": 3
+      },
+      "position": 3200003,
+      "source_heading": "破碎",
+      "subject_stars": [
+        "破碎"
+      ],
+      "end_position": 3200011
+    },
+    {
+      "id": "deep.misc.15",
+      "title": "解神",
+      "kind": "miscellany",
+      "part": "misc",
+      "palace": null,
+      "start": {
+        "page": 320,
+        "line": 11
+      },
+      "position": 3200011,
+      "source_heading": "解神",
+      "subject_stars": [
+        "解神"
+      ],
+      "end_position": 3200018
+    },
+    {
+      "id": "deep.misc.16",
+      "title": "天巫",
+      "kind": "miscellany",
+      "part": "misc",
+      "palace": null,
+      "start": {
+        "page": 320,
+        "line": 18
+      },
+      "position": 3200018,
+      "source_heading": "天巫",
+      "subject_stars": [
+        "天巫"
+      ],
+      "end_position": 3200024
+    },
+    {
+      "id": "deep.misc.17",
+      "title": "天月",
+      "kind": "miscellany",
+      "part": "misc",
+      "palace": null,
+      "start": {
+        "page": 320,
+        "line": 24
+      },
+      "position": 3200024,
+      "source_heading": "天月",
+      "subject_stars": [
+        "天月"
+      ],
+      "end_position": 3210006
+    },
+    {
+      "id": "deep.misc.18",
+      "title": "陰煞",
+      "kind": "miscellany",
+      "part": "misc",
+      "palace": null,
+      "start": {
+        "page": 321,
+        "line": 6
+      },
+      "position": 3210006,
+      "source_heading": "阴煞",
+      "subject_stars": [
+        "陰煞"
+      ],
+      "end_position": 3210010
+    },
+    {
+      "id": "deep.misc.huagai",
+      "title": "華蓋〔原檔提取標題疑字，按後文定位〕",
+      "kind": "miscellany",
+      "part": "misc",
+      "palace": null,
+      "start": {
+        "page": 321,
+        "line": 10
+      },
+      "position": 3210010,
+      "source_heading": "化主",
+      "subject_stars": [
+        "華蓋"
+      ],
+      "title_status": "editorial_anchor_damaged_heading",
+      "end_position": 3210015
+    },
+    {
+      "id": "deep.misc.19",
+      "title": "咸池",
+      "kind": "miscellany",
+      "part": "misc",
+      "palace": null,
+      "start": {
+        "page": 321,
+        "line": 15
+      },
+      "position": 3210015,
+      "source_heading": "咸池",
+      "subject_stars": [
+        "咸池"
+      ],
+      "end_position": 3210021
+    },
+    {
+      "id": "deep.misc.20",
+      "title": "大耗",
+      "kind": "miscellany",
+      "part": "misc",
+      "palace": null,
+      "start": {
+        "page": 321,
+        "line": 21
+      },
+      "position": 3210021,
+      "source_heading": "大耗",
+      "subject_stars": [
+        "大耗"
+      ],
+      "end_position": 3220001
+    },
+    {
+      "id": "deep.misc.21",
+      "title": "天空",
+      "kind": "miscellany",
+      "part": "misc",
+      "palace": null,
+      "start": {
+        "page": 322,
+        "line": 1
+      },
+      "position": 3220001,
+      "source_heading": "天空",
+      "subject_stars": [
+        "天空"
+      ],
+      "end_position": 3220010
+    },
+    {
+      "id": "deep.misc.22",
+      "title": "截空旬空",
+      "kind": "miscellany",
+      "part": "misc",
+      "palace": null,
+      "start": {
+        "page": 322,
+        "line": 10
+      },
+      "position": 3220010,
+      "source_heading": "截空  旬空",
+      "subject_stars": [
+        "截空",
+        "旬空"
+      ],
+      "end_position": 3220017
+    },
+    {
+      "id": "deep.misc.23",
+      "title": "天德月德",
+      "kind": "miscellany",
+      "part": "misc",
+      "palace": null,
+      "start": {
+        "page": 322,
+        "line": 17
+      },
+      "position": 3220017,
+      "source_heading": "天德  月德",
+      "subject_stars": [
+        "天德",
+        "月德"
+      ],
+      "end_position": 3220021
+    },
+    {
+      "id": "deep.misc.24",
+      "title": "龍德",
+      "kind": "miscellany",
+      "part": "misc",
+      "palace": null,
+      "start": {
+        "page": 322,
+        "line": 21
+      },
+      "position": 3220021,
+      "source_heading": "龙德",
+      "subject_stars": [
+        "龍德"
+      ],
+      "end_position": 3220024
+    },
+    {
+      "id": "deep.misc.25",
+      "title": "天廚",
+      "kind": "miscellany",
+      "part": "misc",
+      "palace": null,
+      "start": {
+        "page": 322,
+        "line": 24
+      },
+      "position": 3220024,
+      "source_heading": "天厨",
+      "subject_stars": [
+        "天廚"
+      ],
+      "end_position": 3230002
+    },
+    {
+      "id": "deep.misc.26",
+      "title": "長生十二神",
+      "kind": "miscellany",
+      "part": "misc",
+      "palace": null,
+      "start": {
+        "page": 323,
+        "line": 2
+      },
+      "position": 3230002,
+      "source_heading": "长生十二神",
+      "subject_stars": [
+        "長生"
+      ],
+      "end_position": 3230017
+    },
+    {
+      "id": "deep.misc.27",
+      "title": "流曜總論",
+      "kind": "miscellany",
+      "part": "misc",
+      "palace": null,
+      "start": {
+        "page": 323,
+        "line": 17
+      },
+      "position": 3230017,
+      "source_heading": "流曜总论",
+      "subject_stars": [],
+      "end_position": 3240004
+    },
+    {
+      "id": "deep.misc.28",
+      "title": "博士十二神",
+      "kind": "miscellany",
+      "part": "misc",
+      "palace": null,
+      "start": {
+        "page": 324,
+        "line": 4
+      },
+      "position": 3240004,
+      "source_heading": "博士十二神",
+      "subject_stars": [
+        "博士"
+      ],
+      "end_position": 3240018
+    },
+    {
+      "id": "deep.misc.29",
+      "title": "將前十二神",
+      "kind": "miscellany",
+      "part": "misc",
+      "palace": null,
+      "start": {
+        "page": 324,
+        "line": 18
+      },
+      "position": 3240018,
+      "source_heading": "将前十二神",
+      "subject_stars": [],
+      "end_position": 3250007
+    },
+    {
+      "id": "deep.misc.30",
+      "title": "歲前十二神",
+      "kind": "miscellany",
+      "part": "misc",
+      "palace": null,
+      "start": {
+        "page": 325,
+        "line": 7
+      },
+      "position": 3250007,
+      "source_heading": "岁前十二神",
+      "subject_stars": [],
+      "end_position": 3250022
+    },
+    {
+      "id": "deep.brightness.intro",
+      "title": "廟陷說明、表格與宮次圖・篇首",
+      "kind": "part_intro",
+      "part": "brightness",
+      "palace": null,
+      "start": {
+        "page": 325,
+        "line": 22
+      },
+      "position": 3250022,
+      "source_heading": "星曜庙陷",
+      "end_position": 3270001
+    },
+    {
+      "id": "deep.figure.327",
+      "title": "圖片頁327（廟陷表／宮次圖；看原圖）",
+      "kind": "image",
+      "part": "brightness",
+      "palace": null,
+      "start": {
+        "page": 327,
+        "line": 1
+      },
+      "position": 3270001,
+      "source_heading": "中 州 派 紫 微 斗 数 深 造 讲 义",
+      "title_status": "ocr_navigation_only",
+      "end_position": 3280001
+    },
+    {
+      "id": "deep.figure.328",
+      "title": "圖片頁328（廟陷表／宮次圖；看原圖）",
+      "kind": "image",
+      "part": "brightness",
+      "palace": null,
+      "start": {
+        "page": 328,
+        "line": 1
+      },
+      "position": 3280001,
+      "source_heading": "中 州 派 紫 微 斗 数 深 造 讲 义",
+      "title_status": "ocr_navigation_only",
+      "end_position": 3290001
+    },
+    {
+      "id": "deep.figure.329",
+      "title": "圖片頁329（廟陷表／宮次圖；看原圖）",
+      "kind": "image",
+      "part": "brightness",
+      "palace": null,
+      "start": {
+        "page": 329,
+        "line": 1
+      },
+      "position": 3290001,
+      "source_heading": "中 州 派 紫 微 斗 数 深 造 讲 义",
+      "title_status": "ocr_navigation_only",
+      "end_position": 3300001
+    },
+    {
+      "id": "deep.figure.330",
+      "title": "圖片頁330（廟陷表／宮次圖；看原圖）",
+      "kind": "image",
+      "part": "brightness",
+      "palace": null,
+      "start": {
+        "page": 330,
+        "line": 1
+      },
+      "position": 3300001,
+      "source_heading": "中 州 派 紫 微 斗 数 深 造 讲 义",
+      "title_status": "ocr_navigation_only",
+      "end_position": 3310001
+    },
+    {
+      "id": "deep.figure.331",
+      "title": "圖片頁331（廟陷表／宮次圖；看原圖）",
+      "kind": "image",
+      "part": "brightness",
+      "palace": null,
+      "start": {
+        "page": 331,
+        "line": 1
+      },
+      "position": 3310001,
+      "source_heading": "中 州 派 紫 微 斗 数 深 造 讲 义",
+      "title_status": "ocr_navigation_only",
+      "end_position": 3320001
+    },
+    {
+      "id": "deep.figure.332",
+      "title": "圖片頁332（廟陷表／宮次圖；看原圖）",
+      "kind": "image",
+      "part": "brightness",
+      "palace": null,
+      "start": {
+        "page": 332,
+        "line": 1
+      },
+      "position": 3320001,
+      "source_heading": "中 州 派 紫 微 斗 数 深 造 讲 义",
+      "title_status": "ocr_navigation_only",
+      "end_position": 3330001
+    },
+    {
+      "id": "deep.palace-intro.intro",
+      "title": "下篇宮垣論目錄及前言・篇首",
+      "kind": "part_intro",
+      "part": "palace-intro",
+      "palace": null,
+      "start": {
+        "page": 333,
+        "line": 1
+      },
+      "position": 3330001,
+      "source_heading": "目    录",
+      "end_position": 3350006
+    },
+    {
+      "id": "deep.ming.intro",
+      "title": "命宮・篇首",
+      "kind": "part_intro",
+      "part": "ming",
+      "palace": "命宮",
+      "start": {
+        "page": 335,
+        "line": 6
+      },
+      "position": 3350006,
+      "source_heading": "命  宫",
+      "end_position": 3350007
+    },
+    {
+      "id": "deep.ming.紫微",
+      "title": "紫微",
+      "kind": "star",
+      "part": "ming",
+      "palace": "命宮",
+      "start": {
+        "page": 335,
+        "line": 7
+      },
+      "position": 3350007,
+      "source_heading": "1 紫微",
+      "subject_stars": [
+        "紫微"
+      ],
+      "end_position": 3370022
+    },
+    {
+      "id": "deep.ming.天機",
+      "title": "天機",
+      "kind": "star",
+      "part": "ming",
+      "palace": "命宮",
+      "start": {
+        "page": 337,
+        "line": 22
+      },
+      "position": 3370022,
+      "source_heading": "2 天机",
+      "subject_stars": [
+        "天機"
+      ],
+      "end_position": 3400007
+    },
+    {
+      "id": "deep.ming.太陽",
+      "title": "太陽",
+      "kind": "star",
+      "part": "ming",
+      "palace": "命宮",
+      "start": {
+        "page": 340,
+        "line": 7
+      },
+      "position": 3400007,
+      "source_heading": "3  太阳",
+      "subject_stars": [
+        "太陽"
+      ],
+      "end_position": 3420012
+    },
+    {
+      "id": "deep.ming.武曲",
+      "title": "武曲",
+      "kind": "star",
+      "part": "ming",
+      "palace": "命宮",
+      "start": {
+        "page": 342,
+        "line": 12
+      },
+      "position": 3420012,
+      "source_heading": "4 武曲",
+      "subject_stars": [
+        "武曲"
+      ],
+      "end_position": 3440022
+    },
+    {
+      "id": "deep.ming.天同",
+      "title": "天同",
+      "kind": "star",
+      "part": "ming",
+      "palace": "命宮",
+      "start": {
+        "page": 344,
+        "line": 22
+      },
+      "position": 3440022,
+      "source_heading": "5 天同",
+      "subject_stars": [
+        "天同"
+      ],
+      "end_position": 3470011
+    },
+    {
+      "id": "deep.ming.廉貞",
+      "title": "廉貞",
+      "kind": "star",
+      "part": "ming",
+      "palace": "命宮",
+      "start": {
+        "page": 347,
+        "line": 11
+      },
+      "position": 3470011,
+      "source_heading": "6廉贞",
+      "subject_stars": [
+        "廉貞"
+      ],
+      "end_position": 3490024
+    },
+    {
+      "id": "deep.ming.天府",
+      "title": "天府",
+      "kind": "star",
+      "part": "ming",
+      "palace": "命宮",
+      "start": {
+        "page": 349,
+        "line": 24
+      },
+      "position": 3490024,
+      "source_heading": "7 天府",
+      "subject_stars": [
+        "天府"
+      ],
+      "end_position": 3510017
+    },
+    {
+      "id": "deep.ming.太陰",
+      "title": "太陰",
+      "kind": "star",
+      "part": "ming",
+      "palace": "命宮",
+      "start": {
+        "page": 351,
+        "line": 17
+      },
+      "position": 3510017,
+      "source_heading": "8太阴",
+      "subject_stars": [
+        "太陰"
+      ],
+      "end_position": 3530013
+    },
+    {
+      "id": "deep.ming.貪狼",
+      "title": "貪狼",
+      "kind": "star",
+      "part": "ming",
+      "palace": "命宮",
+      "start": {
+        "page": 353,
+        "line": 13
+      },
+      "position": 3530013,
+      "source_heading": "9贪 狼",
+      "subject_stars": [
+        "貪狼"
+      ],
+      "end_position": 3550010
+    },
+    {
+      "id": "deep.ming.巨門",
+      "title": "巨門",
+      "kind": "star",
+      "part": "ming",
+      "palace": "命宮",
+      "start": {
+        "page": 355,
+        "line": 10
+      },
+      "position": 3550010,
+      "source_heading": "10 巨门",
+      "subject_stars": [
+        "巨門"
+      ],
+      "end_position": 3570005
+    },
+    {
+      "id": "deep.ming.天相",
+      "title": "天相",
+      "kind": "star",
+      "part": "ming",
+      "palace": "命宮",
+      "start": {
+        "page": 357,
+        "line": 5
+      },
+      "position": 3570005,
+      "source_heading": "11  天相",
+      "subject_stars": [
+        "天相"
+      ],
+      "end_position": 3590003
+    },
+    {
+      "id": "deep.ming.天梁",
+      "title": "天梁",
+      "kind": "star",
+      "part": "ming",
+      "palace": "命宮",
+      "start": {
+        "page": 359,
+        "line": 3
+      },
+      "position": 3590003,
+      "source_heading": "12 天梁",
+      "subject_stars": [
+        "天梁"
+      ],
+      "end_position": 3610013
+    },
+    {
+      "id": "deep.ming.七殺",
+      "title": "七殺",
+      "kind": "star",
+      "part": "ming",
+      "palace": "命宮",
+      "start": {
+        "page": 361,
+        "line": 13
+      },
+      "position": 3610013,
+      "source_heading": "13七杀",
+      "subject_stars": [
+        "七殺"
+      ],
+      "end_position": 3640001
+    },
+    {
+      "id": "deep.ming.破軍",
+      "title": "破軍",
+      "kind": "star",
+      "part": "ming",
+      "palace": "命宮",
+      "start": {
+        "page": 364,
+        "line": 1
+      },
+      "position": 3640001,
+      "source_heading": "14破军",
+      "subject_stars": [
+        "破軍"
+      ],
+      "end_position": 3660010
+    },
+    {
+      "id": "deep.siblings.intro",
+      "title": "兄弟宮・篇首",
+      "kind": "part_intro",
+      "part": "siblings",
+      "palace": "兄弟",
+      "start": {
+        "page": 366,
+        "line": 10
+      },
+      "position": 3660010,
+      "source_heading": "兄弟宫",
+      "end_position": 3660011
+    },
+    {
+      "id": "deep.siblings.紫微",
+      "title": "紫微",
+      "kind": "star",
+      "part": "siblings",
+      "palace": "兄弟",
+      "start": {
+        "page": 366,
+        "line": 11
+      },
+      "position": 3660011,
+      "source_heading": "1紫 微",
+      "subject_stars": [
+        "紫微"
+      ],
+      "end_position": 3670016
+    },
+    {
+      "id": "deep.siblings.天機",
+      "title": "天機",
+      "kind": "star",
+      "part": "siblings",
+      "palace": "兄弟",
+      "start": {
+        "page": 367,
+        "line": 16
+      },
+      "position": 3670016,
+      "source_heading": "2天 机",
+      "subject_stars": [
+        "天機"
+      ],
+      "end_position": 3680020
+    },
+    {
+      "id": "deep.siblings.太陽",
+      "title": "太陽",
+      "kind": "star",
+      "part": "siblings",
+      "palace": "兄弟",
+      "start": {
+        "page": 368,
+        "line": 20
+      },
+      "position": 3680020,
+      "source_heading": "3太 阳",
+      "subject_stars": [
+        "太陽"
+      ],
+      "end_position": 3690023
+    },
+    {
+      "id": "deep.siblings.武曲",
+      "title": "武曲",
+      "kind": "star",
+      "part": "siblings",
+      "palace": "兄弟",
+      "start": {
+        "page": 369,
+        "line": 23
+      },
+      "position": 3690023,
+      "source_heading": "4武曲",
+      "subject_stars": [
+        "武曲"
+      ],
+      "end_position": 3710001
+    },
+    {
+      "id": "deep.siblings.天同",
+      "title": "天同",
+      "kind": "star",
+      "part": "siblings",
+      "palace": "兄弟",
+      "start": {
+        "page": 371,
+        "line": 1
+      },
+      "position": 3710001,
+      "source_heading": "5  天同",
+      "subject_stars": [
+        "天同"
+      ],
+      "end_position": 3720007
+    },
+    {
+      "id": "deep.siblings.廉貞",
+      "title": "廉貞",
+      "kind": "star",
+      "part": "siblings",
+      "palace": "兄弟",
+      "start": {
+        "page": 372,
+        "line": 7
+      },
+      "position": 3720007,
+      "source_heading": "6  廉贞",
+      "subject_stars": [
+        "廉貞"
+      ],
+      "end_position": 3730011
+    },
+    {
+      "id": "deep.siblings.天府",
+      "title": "天府",
+      "kind": "star",
+      "part": "siblings",
+      "palace": "兄弟",
+      "start": {
+        "page": 373,
+        "line": 11
+      },
+      "position": 3730011,
+      "source_heading": "7  天府",
+      "subject_stars": [
+        "天府"
+      ],
+      "end_position": 3730022
+    },
+    {
+      "id": "deep.siblings.太陰",
+      "title": "太陰",
+      "kind": "star",
+      "part": "siblings",
+      "palace": "兄弟",
+      "start": {
+        "page": 373,
+        "line": 22
+      },
+      "position": 3730022,
+      "source_heading": "8太 阴",
+      "subject_stars": [
+        "太陰"
+      ],
+      "end_position": 3740009
+    },
+    {
+      "id": "deep.siblings.貪狼",
+      "title": "貪狼",
+      "kind": "star",
+      "part": "siblings",
+      "palace": "兄弟",
+      "start": {
+        "page": 374,
+        "line": 9
+      },
+      "position": 3740009,
+      "source_heading": "9贪 狼",
+      "subject_stars": [
+        "貪狼"
+      ],
+      "end_position": 3740023
+    },
+    {
+      "id": "deep.siblings.巨門",
+      "title": "巨門",
+      "kind": "star",
+      "part": "siblings",
+      "palace": "兄弟",
+      "start": {
+        "page": 374,
+        "line": 23
+      },
+      "position": 3740023,
+      "source_heading": "1 0  巨门",
+      "subject_stars": [
+        "巨門"
+      ],
+      "end_position": 3750011
+    },
+    {
+      "id": "deep.siblings.天相",
+      "title": "天相",
+      "kind": "star",
+      "part": "siblings",
+      "palace": "兄弟",
+      "start": {
+        "page": 375,
+        "line": 11
+      },
+      "position": 3750011,
+      "source_heading": "11  天相",
+      "subject_stars": [
+        "天相"
+      ],
+      "end_position": 3750023
+    },
+    {
+      "id": "deep.siblings.天梁",
+      "title": "天梁",
+      "kind": "star",
+      "part": "siblings",
+      "palace": "兄弟",
+      "start": {
+        "page": 375,
+        "line": 23
+      },
+      "position": 3750023,
+      "source_heading": "1 2天梁",
+      "subject_stars": [
+        "天梁"
+      ],
+      "end_position": 3760013
+    },
+    {
+      "id": "deep.siblings.七殺",
+      "title": "七殺",
+      "kind": "star",
+      "part": "siblings",
+      "palace": "兄弟",
+      "start": {
+        "page": 376,
+        "line": 13
+      },
+      "position": 3760013,
+      "source_heading": "13  七杀",
+      "subject_stars": [
+        "七殺"
+      ],
+      "end_position": 3770001
+    },
+    {
+      "id": "deep.siblings.破軍",
+      "title": "破軍",
+      "kind": "star",
+      "part": "siblings",
+      "palace": "兄弟",
+      "start": {
+        "page": 377,
+        "line": 1
+      },
+      "position": 3770001,
+      "source_heading": "14 破军",
+      "subject_stars": [
+        "破軍"
+      ],
+      "end_position": 3770014
+    },
+    {
+      "id": "deep.spouse.intro",
+      "title": "夫妻宮・篇首",
+      "kind": "part_intro",
+      "part": "spouse",
+      "palace": "夫妻",
+      "start": {
+        "page": 377,
+        "line": 14
+      },
+      "position": 3770014,
+      "source_heading": "夫妻宫",
+      "end_position": 3770015
+    },
+    {
+      "id": "deep.spouse.紫微",
+      "title": "紫微",
+      "kind": "star",
+      "part": "spouse",
+      "palace": "夫妻",
+      "start": {
+        "page": 377,
+        "line": 15
+      },
+      "position": 3770015,
+      "source_heading": "1  紫微",
+      "subject_stars": [
+        "紫微"
+      ],
+      "end_position": 3800001
+    },
+    {
+      "id": "deep.spouse.天機",
+      "title": "天機",
+      "kind": "star",
+      "part": "spouse",
+      "palace": "夫妻",
+      "start": {
+        "page": 380,
+        "line": 1
+      },
+      "position": 3800001,
+      "source_heading": "2  天机",
+      "subject_stars": [
+        "天機"
+      ],
+      "end_position": 3820007
+    },
+    {
+      "id": "deep.spouse.太陽",
+      "title": "太陽",
+      "kind": "star",
+      "part": "spouse",
+      "palace": "夫妻",
+      "start": {
+        "page": 382,
+        "line": 7
+      },
+      "position": 3820007,
+      "source_heading": "3太 阳",
+      "subject_stars": [
+        "太陽"
+      ],
+      "end_position": 3850006
+    },
+    {
+      "id": "deep.spouse.武曲",
+      "title": "武曲",
+      "kind": "star",
+      "part": "spouse",
+      "palace": "夫妻",
+      "start": {
+        "page": 385,
+        "line": 6
+      },
+      "position": 3850006,
+      "source_heading": "4武 曲",
+      "subject_stars": [
+        "武曲"
+      ],
+      "end_position": 3870014
+    },
+    {
+      "id": "deep.spouse.天同",
+      "title": "天同",
+      "kind": "star",
+      "part": "spouse",
+      "palace": "夫妻",
+      "start": {
+        "page": 387,
+        "line": 14
+      },
+      "position": 3870014,
+      "source_heading": "5天 同",
+      "subject_stars": [
+        "天同"
+      ],
+      "end_position": 3890010
+    },
+    {
+      "id": "deep.spouse.廉貞",
+      "title": "廉貞",
+      "kind": "star",
+      "part": "spouse",
+      "palace": "夫妻",
+      "start": {
+        "page": 389,
+        "line": 10
+      },
+      "position": 3890010,
+      "source_heading": "6  廉贞",
+      "subject_stars": [
+        "廉貞"
+      ],
+      "end_position": 3910018
+    },
+    {
+      "id": "deep.spouse.天府",
+      "title": "天府",
+      "kind": "star",
+      "part": "spouse",
+      "palace": "夫妻",
+      "start": {
+        "page": 391,
+        "line": 18
+      },
+      "position": 3910018,
+      "source_heading": "7  天府",
+      "subject_stars": [
+        "天府"
+      ],
+      "end_position": 3920020
+    },
+    {
+      "id": "deep.spouse.太陰",
+      "title": "太陰",
+      "kind": "star",
+      "part": "spouse",
+      "palace": "夫妻",
+      "start": {
+        "page": 392,
+        "line": 20
+      },
+      "position": 3920020,
+      "source_heading": "8  太阴",
+      "subject_stars": [
+        "太陰"
+      ],
+      "end_position": 3940011
+    },
+    {
+      "id": "deep.spouse.貪狼",
+      "title": "貪狼",
+      "kind": "star",
+      "part": "spouse",
+      "palace": "夫妻",
+      "start": {
+        "page": 394,
+        "line": 11
+      },
+      "position": 3940011,
+      "source_heading": "9贪 狼",
+      "subject_stars": [
+        "貪狼"
+      ],
+      "end_position": 3960007
+    },
+    {
+      "id": "deep.spouse.巨門",
+      "title": "巨門",
+      "kind": "star",
+      "part": "spouse",
+      "palace": "夫妻",
+      "start": {
+        "page": 396,
+        "line": 7
+      },
+      "position": 3960007,
+      "source_heading": "1 0  巨门",
+      "subject_stars": [
+        "巨門"
+      ],
+      "end_position": 3970025
+    },
+    {
+      "id": "deep.spouse.天相",
+      "title": "天相",
+      "kind": "star",
+      "part": "spouse",
+      "palace": "夫妻",
+      "start": {
+        "page": 397,
+        "line": 25
+      },
+      "position": 3970025,
+      "source_heading": "11  天相",
+      "subject_stars": [
+        "天相"
+      ],
+      "end_position": 3990018
+    },
+    {
+      "id": "deep.spouse.天梁",
+      "title": "天梁",
+      "kind": "star",
+      "part": "spouse",
+      "palace": "夫妻",
+      "start": {
+        "page": 399,
+        "line": 18
+      },
+      "position": 3990018,
+      "source_heading": "1 2  天梁",
+      "subject_stars": [
+        "天梁"
+      ],
+      "end_position": 4010012
+    },
+    {
+      "id": "deep.spouse.七殺",
+      "title": "七殺",
+      "kind": "star",
+      "part": "spouse",
+      "palace": "夫妻",
+      "start": {
+        "page": 401,
+        "line": 12
+      },
+      "position": 4010012,
+      "source_heading": "13 七杀",
+      "subject_stars": [
+        "七殺"
+      ],
+      "end_position": 4020024
+    },
+    {
+      "id": "deep.spouse.破軍",
+      "title": "破軍",
+      "kind": "star",
+      "part": "spouse",
+      "palace": "夫妻",
+      "start": {
+        "page": 402,
+        "line": 24
+      },
+      "position": 4020024,
+      "source_heading": "14 破军",
+      "subject_stars": [
+        "破軍"
+      ],
+      "end_position": 4040015
+    },
+    {
+      "id": "deep.children.intro",
+      "title": "子女宮・篇首",
+      "kind": "part_intro",
+      "part": "children",
+      "palace": "子女",
+      "start": {
+        "page": 404,
+        "line": 15
+      },
+      "position": 4040015,
+      "source_heading": "子女宫",
+      "end_position": 4050016
+    },
+    {
+      "id": "deep.children.紫微",
+      "title": "紫微",
+      "kind": "star",
+      "part": "children",
+      "palace": "子女",
+      "start": {
+        "page": 405,
+        "line": 16
+      },
+      "position": 4050016,
+      "source_heading": "1  紫微",
+      "subject_stars": [
+        "紫微"
+      ],
+      "end_position": 4080002
+    },
+    {
+      "id": "deep.children.天機",
+      "title": "天機",
+      "kind": "star",
+      "part": "children",
+      "palace": "子女",
+      "start": {
+        "page": 408,
+        "line": 2
+      },
+      "position": 4080002,
+      "source_heading": "2  天机",
+      "subject_stars": [
+        "天機"
+      ],
+      "end_position": 4100009
+    },
+    {
+      "id": "deep.children.太陽",
+      "title": "太陽",
+      "kind": "star",
+      "part": "children",
+      "palace": "子女",
+      "start": {
+        "page": 410,
+        "line": 9
+      },
+      "position": 4100009,
+      "source_heading": "3太阳",
+      "subject_stars": [
+        "太陽"
+      ],
+      "end_position": 4120017
+    },
+    {
+      "id": "deep.children.武曲",
+      "title": "武曲",
+      "kind": "star",
+      "part": "children",
+      "palace": "子女",
+      "start": {
+        "page": 412,
+        "line": 17
+      },
+      "position": 4120017,
+      "source_heading": "4·武曲",
+      "subject_stars": [
+        "武曲"
+      ],
+      "end_position": 4140023
+    },
+    {
+      "id": "deep.children.天同",
+      "title": "天同",
+      "kind": "star",
+      "part": "children",
+      "palace": "子女",
+      "start": {
+        "page": 414,
+        "line": 23
+      },
+      "position": 4140023,
+      "source_heading": "5  天同",
+      "subject_stars": [
+        "天同"
+      ],
+      "end_position": 4170005
+    },
+    {
+      "id": "deep.children.廉貞",
+      "title": "廉貞",
+      "kind": "star",
+      "part": "children",
+      "palace": "子女",
+      "start": {
+        "page": 417,
+        "line": 5
+      },
+      "position": 4170005,
+      "source_heading": "6  廉贞",
+      "subject_stars": [
+        "廉貞"
+      ],
+      "end_position": 4190014
+    },
+    {
+      "id": "deep.children.天府",
+      "title": "天府",
+      "kind": "star",
+      "part": "children",
+      "palace": "子女",
+      "start": {
+        "page": 419,
+        "line": 14
+      },
+      "position": 4190014,
+      "source_heading": "7  天府",
+      "subject_stars": [
+        "天府"
+      ],
+      "end_position": 4200018
+    },
+    {
+      "id": "deep.children.太陰",
+      "title": "太陰",
+      "kind": "star",
+      "part": "children",
+      "palace": "子女",
+      "start": {
+        "page": 420,
+        "line": 18
+      },
+      "position": 4200018,
+      "source_heading": "8  太阴",
+      "subject_stars": [
+        "太陰"
+      ],
+      "end_position": 4210023
+    },
+    {
+      "id": "deep.children.貪狼",
+      "title": "貪狼",
+      "kind": "star",
+      "part": "children",
+      "palace": "子女",
+      "start": {
+        "page": 421,
+        "line": 23
+      },
+      "position": 4210023,
+      "source_heading": "9 贪狼",
+      "subject_stars": [
+        "貪狼"
+      ],
+      "end_position": 4230003
+    },
+    {
+      "id": "deep.children.巨門",
+      "title": "巨門",
+      "kind": "star",
+      "part": "children",
+      "palace": "子女",
+      "start": {
+        "page": 423,
+        "line": 3
+      },
+      "position": 4230003,
+      "source_heading": "1 0  巨门",
+      "subject_stars": [
+        "巨門"
+      ],
+      "end_position": 4240012
+    },
+    {
+      "id": "deep.children.天相",
+      "title": "天相",
+      "kind": "star",
+      "part": "children",
+      "palace": "子女",
+      "start": {
+        "page": 424,
+        "line": 12
+      },
+      "position": 4240012,
+      "source_heading": "11  天相",
+      "subject_stars": [
+        "天相"
+      ],
+      "end_position": 4250020
+    },
+    {
+      "id": "deep.children.天梁",
+      "title": "天梁",
+      "kind": "star",
+      "part": "children",
+      "palace": "子女",
+      "start": {
+        "page": 425,
+        "line": 20
+      },
+      "position": 4250020,
+      "source_heading": "1 2  天梁",
+      "subject_stars": [
+        "天梁"
+      ],
+      "end_position": 4270002
+    },
+    {
+      "id": "deep.children.七殺",
+      "title": "七殺",
+      "kind": "star",
+      "part": "children",
+      "palace": "子女",
+      "start": {
+        "page": 427,
+        "line": 2
+      },
+      "position": 4270002,
+      "source_heading": "13 七杀",
+      "subject_stars": [
+        "七殺"
+      ],
+      "end_position": 4280008
+    },
+    {
+      "id": "deep.children.破軍",
+      "title": "破軍",
+      "kind": "star",
+      "part": "children",
+      "palace": "子女",
+      "start": {
+        "page": 428,
+        "line": 8
+      },
+      "position": 4280008,
+      "source_heading": "1 4破军",
+      "subject_stars": [
+        "破軍"
+      ],
+      "end_position": 4290011
+    },
+    {
+      "id": "deep.wealth.intro",
+      "title": "財帛宮・篇首",
+      "kind": "part_intro",
+      "part": "wealth",
+      "palace": "財帛",
+      "start": {
+        "page": 429,
+        "line": 11
+      },
+      "position": 4290011,
+      "source_heading": "财帛宫",
+      "end_position": 4330012
+    },
+    {
+      "id": "deep.wealth.紫微",
+      "title": "紫微〔原提取序號為l，按正文核位〕",
+      "kind": "star_editorial",
+      "part": "wealth",
+      "palace": "財帛",
+      "start": {
+        "page": 433,
+        "line": 12
+      },
+      "position": 4330012,
+      "source_heading": "l紫 微",
+      "subject_stars": [
+        "紫微"
+      ],
+      "title_status": "damaged_number_preserved",
+      "end_position": 4360003
+    },
+    {
+      "id": "deep.wealth.天機",
+      "title": "天機",
+      "kind": "star",
+      "part": "wealth",
+      "palace": "財帛",
+      "start": {
+        "page": 436,
+        "line": 3
+      },
+      "position": 4360003,
+      "source_heading": "2，天机",
+      "subject_stars": [
+        "天機"
+      ],
+      "end_position": 4380018
+    },
+    {
+      "id": "deep.wealth.太陽",
+      "title": "太陽",
+      "kind": "star",
+      "part": "wealth",
+      "palace": "財帛",
+      "start": {
+        "page": 438,
+        "line": 18
+      },
+      "position": 4380018,
+      "source_heading": "3太 阳",
+      "subject_stars": [
+        "太陽"
+      ],
+      "end_position": 4410025
+    },
+    {
+      "id": "deep.wealth.武曲",
+      "title": "武曲",
+      "kind": "star",
+      "part": "wealth",
+      "palace": "財帛",
+      "start": {
+        "page": 441,
+        "line": 25
+      },
+      "position": 4410025,
+      "source_heading": "4 武曲",
+      "subject_stars": [
+        "武曲"
+      ],
+      "end_position": 4450002
+    },
+    {
+      "id": "deep.wealth.天同",
+      "title": "天同",
+      "kind": "star",
+      "part": "wealth",
+      "palace": "財帛",
+      "start": {
+        "page": 445,
+        "line": 2
+      },
+      "position": 4450002,
+      "source_heading": "5天 同",
+      "subject_stars": [
+        "天同"
+      ],
+      "end_position": 4470010
+    },
+    {
+      "id": "deep.wealth.廉貞",
+      "title": "廉貞",
+      "kind": "star",
+      "part": "wealth",
+      "palace": "財帛",
+      "start": {
+        "page": 447,
+        "line": 10
+      },
+      "position": 4470010,
+      "source_heading": "6廉 贞",
+      "subject_stars": [
+        "廉貞"
+      ],
+      "end_position": 4490021
+    },
+    {
+      "id": "deep.wealth.天府",
+      "title": "天府",
+      "kind": "star",
+      "part": "wealth",
+      "palace": "財帛",
+      "start": {
+        "page": 449,
+        "line": 21
+      },
+      "position": 4490021,
+      "source_heading": "7 天府",
+      "subject_stars": [
+        "天府"
+      ],
+      "end_position": 4510011
+    },
+    {
+      "id": "deep.wealth.太陰",
+      "title": "太陰",
+      "kind": "star",
+      "part": "wealth",
+      "palace": "財帛",
+      "start": {
+        "page": 451,
+        "line": 11
+      },
+      "position": 4510011,
+      "source_heading": "8  太阴",
+      "subject_stars": [
+        "太陰"
+      ],
+      "end_position": 4530006
+    },
+    {
+      "id": "deep.wealth.貪狼",
+      "title": "貪狼",
+      "kind": "star",
+      "part": "wealth",
+      "palace": "財帛",
+      "start": {
+        "page": 453,
+        "line": 6
+      },
+      "position": 4530006,
+      "source_heading": "9贪 狼",
+      "subject_stars": [
+        "貪狼"
+      ],
+      "end_position": 4540024
+    },
+    {
+      "id": "deep.wealth.巨門",
+      "title": "巨門",
+      "kind": "star",
+      "part": "wealth",
+      "palace": "財帛",
+      "start": {
+        "page": 454,
+        "line": 24
+      },
+      "position": 4540024,
+      "source_heading": "10  巨门",
+      "subject_stars": [
+        "巨門"
+      ],
+      "end_position": 4560016
+    },
+    {
+      "id": "deep.wealth.天相",
+      "title": "天相",
+      "kind": "star",
+      "part": "wealth",
+      "palace": "財帛",
+      "start": {
+        "page": 456,
+        "line": 16
+      },
+      "position": 4560016,
+      "source_heading": "11  天相",
+      "subject_stars": [
+        "天相"
+      ],
+      "end_position": 4580010
+    },
+    {
+      "id": "deep.wealth.天梁",
+      "title": "天梁",
+      "kind": "star",
+      "part": "wealth",
+      "palace": "財帛",
+      "start": {
+        "page": 458,
+        "line": 10
+      },
+      "position": 4580010,
+      "source_heading": "1 2 天梁，",
+      "subject_stars": [
+        "天梁"
+      ],
+      "end_position": 4600007
+    },
+    {
+      "id": "deep.wealth.七殺",
+      "title": "七殺",
+      "kind": "star",
+      "part": "wealth",
+      "palace": "財帛",
+      "start": {
+        "page": 460,
+        "line": 7
+      },
+      "position": 4600007,
+      "source_heading": "13  七杀",
+      "subject_stars": [
+        "七殺"
+      ],
+      "end_position": 4620003
+    },
+    {
+      "id": "deep.wealth.破軍",
+      "title": "破軍",
+      "kind": "star",
+      "part": "wealth",
+      "palace": "財帛",
+      "start": {
+        "page": 462,
+        "line": 3
+      },
+      "position": 4620003,
+      "source_heading": "14破军",
+      "subject_stars": [
+        "破軍"
+      ],
+      "end_position": 4630019
+    },
+    {
+      "id": "deep.health.intro",
+      "title": "疾厄宮・篇首",
+      "kind": "part_intro",
+      "part": "health",
+      "palace": "疾厄",
+      "start": {
+        "page": 463,
+        "line": 19
+      },
+      "position": 4630019,
+      "source_heading": "疾厄宫",
+      "end_position": 4650005
+    },
+    {
+      "id": "deep.health.紫微",
+      "title": "紫微〔編輯導航：正文起句，原書無獨立標題〕",
+      "kind": "star_editorial",
+      "part": "health",
+      "palace": "疾厄",
+      "start": {
+        "page": 465,
+        "line": 5
+      },
+      "position": 4650005,
+      "source_heading": "紫徽属土，主阴分，故于脏腑为脾。人身吸收营养，专赖脾土营运，所以由紫微",
+      "subject_stars": [
+        "紫微"
+      ],
+      "title_status": "editorial_body_anchor_not_printed_heading",
+      "end_position": 4660014
+    },
+    {
+      "id": "deep.health.天機",
+      "title": "天機〔編輯導航：正文起句，原書無獨立標題〕",
+      "kind": "star_editorial",
+      "part": "health",
+      "palace": "疾厄",
+      "start": {
+        "page": 466,
+        "line": 14
+      },
+      "position": 4660014,
+      "source_heading": "天机属木，主肝脏。又主四肢，尤主手指足趾。此以木之枝条，譬如手足也。",
+      "subject_stars": [
+        "天機"
+      ],
+      "title_status": "editorial_body_anchor_not_printed_heading",
+      "end_position": 4670017
+    },
+    {
+      "id": "deep.health.太陽",
+      "title": "太陽〔編輯導航：正文起句，原書無獨立標題〕",
+      "kind": "star_editorial",
+      "part": "health",
+      "palace": "疾厄",
+      "start": {
+        "page": 467,
+        "line": 17
+      },
+      "position": 4670017,
+      "source_heading": "太阳属火，为阳明。故太阳入庙，必主阳明火盛，易晕眩，有头风。此即所谓血夺",
+      "subject_stars": [
+        "太陽"
+      ],
+      "title_status": "editorial_body_anchor_not_printed_heading",
+      "end_position": 4680023
+    },
+    {
+      "id": "deep.health.武曲",
+      "title": "武曲〔編輯導航：正文起句，原書無獨立標題〕",
+      "kind": "star_editorial",
+      "part": "health",
+      "palace": "疾厄",
+      "start": {
+        "page": 468,
+        "line": 23
+      },
+      "position": 4680023,
+      "source_heading": "武曲属金，主呼吸器官疾患。",
+      "subject_stars": [
+        "武曲"
+      ],
+      "title_status": "editorial_body_anchor_not_printed_heading",
+      "end_position": 4690021
+    },
+    {
+      "id": "deep.health.天同",
+      "title": "天同〔編輯導航：正文起句，原書無獨立標題〕",
+      "kind": "star_editorial",
+      "part": "health",
+      "palace": "疾厄",
+      "start": {
+        "page": 469,
+        "line": 21
+      },
+      "position": 4690021,
+      "source_heading": "天同属水，故主膀胱水道之疾，包括疝气、淋病、尿道、肾脏等排泄系统疾患。",
+      "subject_stars": [
+        "天同"
+      ],
+      "title_status": "editorial_body_anchor_not_printed_heading",
+      "end_position": 4700019
+    },
+    {
+      "id": "deep.health.廉貞",
+      "title": "廉貞〔編輯導航：正文起句，原書無獨立標題〕",
+      "kind": "star_editorial",
+      "part": "health",
+      "palace": "疾厄",
+      "start": {
+        "page": 470,
+        "line": 19
+      },
+      "position": 4700019,
+      "source_heading": "廉贞属阴火，故主血。凡廉贞所主病患，大致上皆与血分有关。",
+      "subject_stars": [
+        "廉貞"
+      ],
+      "title_status": "editorial_body_anchor_not_printed_heading",
+      "end_position": 4710022
+    },
+    {
+      "id": "deep.health.天府",
+      "title": "天府〔編輯導航：正文起句，原書無獨立標題〕",
+      "kind": "star_editorial",
+      "part": "health",
+      "palace": "疾厄",
+      "start": {
+        "page": 471,
+        "line": 22
+      },
+      "position": 4710022,
+      "source_heading": "天府属阳土，于脏腑为胃。所以紫微守疾心宫主泻泄，而天府则不然。冈泻泄乃",
+      "subject_stars": [
+        "天府"
+      ],
+      "title_status": "editorial_body_anchor_not_printed_heading",
+      "end_position": 4720013
+    },
+    {
+      "id": "deep.health.太陰",
+      "title": "太陰〔編輯導航：正文起句，原書無獨立標題〕",
+      "kind": "star_editorial",
+      "part": "health",
+      "palace": "疾厄",
+      "start": {
+        "page": 472,
+        "line": 13
+      },
+      "position": 4720013,
+      "source_heading": "太阳属阴火，故主亏损。一般而言，主肾脏或主神经系统。",
+      "subject_stars": [
+        "太陰"
+      ],
+      "title_status": "editorial_body_anchor_not_printed_heading",
+      "end_position": 4730005
+    },
+    {
+      "id": "deep.health.貪狼",
+      "title": "貪狼〔編輯導航：正文起句，原書無獨立標題〕",
+      "kind": "star_editorial",
+      "part": "health",
+      "palace": "疾厄",
+      "start": {
+        "page": 473,
+        "line": 5
+      },
+      "position": 4730005,
+      "source_heading": "贪狼属阳木，又属水。故于疾病，为肝病，又主生殖系统疾患。",
+      "subject_stars": [
+        "貪狼"
+      ],
+      "title_status": "editorial_body_anchor_not_printed_heading",
+      "end_position": 4740002
+    },
+    {
+      "id": "deep.health.巨門",
+      "title": "巨門〔編輯導航：正文起句，原書無獨立標題〕",
+      "kind": "star_editorial",
+      "part": "health",
+      "palace": "疾厄",
+      "start": {
+        "page": 474,
+        "line": 2
+      },
+      "position": 4740002,
+      "source_heading": "巨门属阴土，故主消化系统：又属阴金，故主呼吸系统。其分别，前者以见禄存、",
+      "subject_stars": [
+        "巨門"
+      ],
+      "title_status": "editorial_body_anchor_not_printed_heading",
+      "end_position": 4740019
+    },
+    {
+      "id": "deep.health.天相",
+      "title": "天相〔編輯導航：正文起句，原書無獨立標題〕",
+      "kind": "star_editorial",
+      "part": "health",
+      "palace": "疾厄",
+      "start": {
+        "page": 474,
+        "line": 19
+      },
+      "position": 4740019,
+      "source_heading": "天相属阳水，故亦主湿疹、肾脏、风湿等疾患。所谓肾脏疾患乃指排泄系统而言，",
+      "subject_stars": [
+        "天相"
+      ],
+      "title_status": "editorial_body_anchor_not_printed_heading",
+      "end_position": 4750014
+    },
+    {
+      "id": "deep.health.天梁",
+      "title": "天梁〔編輯導航：正文起句，原書無獨立標題〕",
+      "kind": "star_editorial",
+      "part": "health",
+      "palace": "疾厄",
+      "start": {
+        "page": 475,
+        "line": 14
+      },
+      "position": 4750014,
+      "source_heading": "天梁属阳土，主脾胃，女命亦主乳房。于五官则为鼻。守疾厄宫，一般情形下主",
+      "subject_stars": [
+        "天梁"
+      ],
+      "title_status": "editorial_body_anchor_not_printed_heading",
+      "end_position": 4760009
+    },
+    {
+      "id": "deep.health.七殺",
+      "title": "七殺〔編輯導航：正文起句，原書無獨立標題〕",
+      "kind": "star_editorial",
+      "part": "health",
+      "palace": "疾厄",
+      "start": {
+        "page": 476,
+        "line": 9
+      },
+      "position": 4760009,
+      "source_heading": "七杀属阴金，故主呼吸系统疾患。如咳嗽、哮喘、痨病、肺炎、气管炎之类。",
+      "subject_stars": [
+        "七殺"
+      ],
+      "title_status": "editorial_body_anchor_not_printed_heading",
+      "end_position": 4770001
+    },
+    {
+      "id": "deep.health.破軍",
+      "title": "破軍〔編輯導航：正文起句，原書無獨立標題〕",
+      "kind": "star_editorial",
+      "part": "health",
+      "palace": "疾厄",
+      "start": {
+        "page": 477,
+        "line": 1
+      },
+      "position": 4770001,
+      "source_heading": "破军属阳水，然而由于其化为耗星的关系，所以多主消耗性疾病。",
+      "subject_stars": [
+        "破軍"
+      ],
+      "title_status": "editorial_body_anchor_not_printed_heading",
+      "end_position": 4780008
+    },
+    {
+      "id": "deep.health.system.1",
+      "title": "神經系統〔傳統疾病論述，僅作文本導航〕",
+      "kind": "health_system",
+      "part": "health",
+      "palace": "疾厄",
+      "start": {
+        "page": 478,
+        "line": 8
+      },
+      "position": 4780008,
+      "source_heading": "第一类  神经系统病",
+      "end_position": 4790021
+    },
+    {
+      "id": "deep.health.system.2",
+      "title": "消化系統〔傳統疾病論述，僅作文本導航〕",
+      "kind": "health_system",
+      "part": "health",
+      "palace": "疾厄",
+      "start": {
+        "page": 479,
+        "line": 21
+      },
+      "position": 4790021,
+      "source_heading": "第二类  消化系统疾病",
+      "end_position": 4810001
+    },
+    {
+      "id": "deep.health.system.3",
+      "title": "循環系統〔傳統疾病論述，僅作文本導航〕",
+      "kind": "health_system",
+      "part": "health",
+      "palace": "疾厄",
+      "start": {
+        "page": 481,
+        "line": 1
+      },
+      "position": 4810001,
+      "source_heading": "第三类    循环系统疾病",
+      "end_position": 4810025
+    },
+    {
+      "id": "deep.health.system.4",
+      "title": "呼吸系統〔傳統疾病論述，僅作文本導航〕",
+      "kind": "health_system",
+      "part": "health",
+      "palace": "疾厄",
+      "start": {
+        "page": 481,
+        "line": 25
+      },
+      "position": 4810025,
+      "source_heading": "第四类  呼吸系统疾病",
+      "end_position": 4820019
+    },
+    {
+      "id": "deep.health.system.5",
+      "title": "泌尿生殖系統〔傳統疾病論述，僅作文本導航〕",
+      "kind": "health_system",
+      "part": "health",
+      "palace": "疾厄",
+      "start": {
+        "page": 482,
+        "line": 19
+      },
+      "position": 4820019,
+      "source_heading": "第五类  泌尿生殖系统疾病",
+      "end_position": 4830020
+    },
+    {
+      "id": "deep.health.system.6",
+      "title": "五官〔傳統疾病論述，僅作文本導航〕",
+      "kind": "health_system",
+      "part": "health",
+      "palace": "疾厄",
+      "start": {
+        "page": 483,
+        "line": 20
+      },
+      "position": 4830020,
+      "source_heading": "第六类  五官疾病",
+      "end_position": 4840018
+    },
+    {
+      "id": "deep.health.system.7",
+      "title": "婦科〔傳統疾病論述，僅作文本導航〕",
+      "kind": "health_system",
+      "part": "health",
+      "palace": "疾厄",
+      "start": {
+        "page": 484,
+        "line": 18
+      },
+      "position": 4840018,
+      "source_heading": "第七类  妇科疾病",
+      "end_position": 4860005
+    },
+    {
+      "id": "deep.travel.intro",
+      "title": "遷移宮・篇首",
+      "kind": "part_intro",
+      "part": "travel",
+      "palace": "遷移",
+      "start": {
+        "page": 486,
+        "line": 5
+      },
+      "position": 4860005,
+      "source_heading": "迁移宫",
+      "end_position": 4870009
+    },
+    {
+      "id": "deep.travel.紫微",
+      "title": "紫微",
+      "kind": "star",
+      "part": "travel",
+      "palace": "遷移",
+      "start": {
+        "page": 487,
+        "line": 9
+      },
+      "position": 4870009,
+      "source_heading": "1紫 微",
+      "subject_stars": [
+        "紫微"
+      ],
+      "end_position": 4880014
+    },
+    {
+      "id": "deep.travel.天機",
+      "title": "天機",
+      "kind": "star",
+      "part": "travel",
+      "palace": "遷移",
+      "start": {
+        "page": 488,
+        "line": 14
+      },
+      "position": 4880014,
+      "source_heading": "2 天机",
+      "subject_stars": [
+        "天機"
+      ],
+      "end_position": 4890016
+    },
+    {
+      "id": "deep.travel.太陽",
+      "title": "太陽",
+      "kind": "star",
+      "part": "travel",
+      "palace": "遷移",
+      "start": {
+        "page": 489,
+        "line": 16
+      },
+      "position": 4890016,
+      "source_heading": "3 太阳",
+      "subject_stars": [
+        "太陽"
+      ],
+      "end_position": 4900020
+    },
+    {
+      "id": "deep.travel.武曲",
+      "title": "武曲",
+      "kind": "star",
+      "part": "travel",
+      "palace": "遷移",
+      "start": {
+        "page": 490,
+        "line": 20
+      },
+      "position": 4900020,
+      "source_heading": "4武曲",
+      "subject_stars": [
+        "武曲"
+      ],
+      "end_position": 4910025
+    },
+    {
+      "id": "deep.travel.天同",
+      "title": "天同",
+      "kind": "star",
+      "part": "travel",
+      "palace": "遷移",
+      "start": {
+        "page": 491,
+        "line": 25
+      },
+      "position": 4910025,
+      "source_heading": "5天 同",
+      "subject_stars": [
+        "天同"
+      ],
+      "end_position": 4930004
+    },
+    {
+      "id": "deep.travel.廉貞",
+      "title": "廉貞",
+      "kind": "star",
+      "part": "travel",
+      "palace": "遷移",
+      "start": {
+        "page": 493,
+        "line": 4
+      },
+      "position": 4930004,
+      "source_heading": "6廉贞",
+      "subject_stars": [
+        "廉貞"
+      ],
+      "end_position": 4940007
+    },
+    {
+      "id": "deep.travel.天府",
+      "title": "天府",
+      "kind": "star",
+      "part": "travel",
+      "palace": "遷移",
+      "start": {
+        "page": 494,
+        "line": 7
+      },
+      "position": 4940007,
+      "source_heading": "7天府",
+      "subject_stars": [
+        "天府"
+      ],
+      "end_position": 4950007
+    },
+    {
+      "id": "deep.travel.太陰",
+      "title": "太陰",
+      "kind": "star",
+      "part": "travel",
+      "palace": "遷移",
+      "start": {
+        "page": 495,
+        "line": 7
+      },
+      "position": 4950007,
+      "source_heading": "8太 阴",
+      "subject_stars": [
+        "太陰"
+      ],
+      "end_position": 4960011
+    },
+    {
+      "id": "deep.travel.貪狼",
+      "title": "貪狼",
+      "kind": "star",
+      "part": "travel",
+      "palace": "遷移",
+      "start": {
+        "page": 496,
+        "line": 11
+      },
+      "position": 4960011,
+      "source_heading": "9贪 狼",
+      "subject_stars": [
+        "貪狼"
+      ],
+      "end_position": 4970017
+    },
+    {
+      "id": "deep.travel.巨門",
+      "title": "巨門",
+      "kind": "star",
+      "part": "travel",
+      "palace": "遷移",
+      "start": {
+        "page": 497,
+        "line": 17
+      },
+      "position": 4970017,
+      "source_heading": "1 0  巨门",
+      "subject_stars": [
+        "巨門"
+      ],
+      "end_position": 4980020
+    },
+    {
+      "id": "deep.travel.天相",
+      "title": "天相",
+      "kind": "star",
+      "part": "travel",
+      "palace": "遷移",
+      "start": {
+        "page": 498,
+        "line": 20
+      },
+      "position": 4980020,
+      "source_heading": "11  天相",
+      "subject_stars": [
+        "天相"
+      ],
+      "end_position": 5000001
+    },
+    {
+      "id": "deep.travel.天梁",
+      "title": "天梁",
+      "kind": "star",
+      "part": "travel",
+      "palace": "遷移",
+      "start": {
+        "page": 500,
+        "line": 1
+      },
+      "position": 5000001,
+      "source_heading": "1 2天梁",
+      "subject_stars": [
+        "天梁"
+      ],
+      "end_position": 5010007
+    },
+    {
+      "id": "deep.travel.七殺",
+      "title": "七殺",
+      "kind": "star",
+      "part": "travel",
+      "palace": "遷移",
+      "start": {
+        "page": 501,
+        "line": 7
+      },
+      "position": 5010007,
+      "source_heading": "13  七杀",
+      "subject_stars": [
+        "七殺"
+      ],
+      "end_position": 5020012
+    },
+    {
+      "id": "deep.travel.破軍",
+      "title": "破軍",
+      "kind": "star",
+      "part": "travel",
+      "palace": "遷移",
+      "start": {
+        "page": 502,
+        "line": 12
+      },
+      "position": 5020012,
+      "source_heading": "14 破军",
+      "subject_stars": [
+        "破軍"
+      ],
+      "end_position": 5030017
+    },
+    {
+      "id": "deep.friends.intro",
+      "title": "交友宮（奴僕宮）・篇首",
+      "kind": "part_intro",
+      "part": "friends",
+      "palace": "僕役",
+      "start": {
+        "page": 503,
+        "line": 17
+      },
+      "position": 5030017,
+      "source_heading": "交友宫(奴仆宫)",
+      "end_position": 5040008
+    },
+    {
+      "id": "deep.friends.紫微",
+      "title": "紫微",
+      "kind": "star",
+      "part": "friends",
+      "palace": "僕役",
+      "start": {
+        "page": 504,
+        "line": 8
+      },
+      "position": 5040008,
+      "source_heading": "1  紫微",
+      "subject_stars": [
+        "紫微"
+      ],
+      "end_position": 5050015
+    },
+    {
+      "id": "deep.friends.天機",
+      "title": "天機",
+      "kind": "star",
+      "part": "friends",
+      "palace": "僕役",
+      "start": {
+        "page": 505,
+        "line": 15
+      },
+      "position": 5050015,
+      "source_heading": "2天 机",
+      "subject_stars": [
+        "天機"
+      ],
+      "end_position": 5060020
+    },
+    {
+      "id": "deep.friends.太陽",
+      "title": "太陽",
+      "kind": "star",
+      "part": "friends",
+      "palace": "僕役",
+      "start": {
+        "page": 506,
+        "line": 20
+      },
+      "position": 5060020,
+      "source_heading": "3 太阳",
+      "subject_stars": [
+        "太陽"
+      ],
+      "end_position": 5080002
+    },
+    {
+      "id": "deep.friends.武曲",
+      "title": "武曲",
+      "kind": "star",
+      "part": "friends",
+      "palace": "僕役",
+      "start": {
+        "page": 508,
+        "line": 2
+      },
+      "position": 5080002,
+      "source_heading": "4武 曲",
+      "subject_stars": [
+        "武曲"
+      ],
+      "end_position": 5090009
+    },
+    {
+      "id": "deep.friends.天同",
+      "title": "天同",
+      "kind": "star",
+      "part": "friends",
+      "palace": "僕役",
+      "start": {
+        "page": 509,
+        "line": 9
+      },
+      "position": 5090009,
+      "source_heading": "5 天同",
+      "subject_stars": [
+        "天同"
+      ],
+      "end_position": 5100011
+    },
+    {
+      "id": "deep.friends.廉貞",
+      "title": "廉貞",
+      "kind": "star",
+      "part": "friends",
+      "palace": "僕役",
+      "start": {
+        "page": 510,
+        "line": 11
+      },
+      "position": 5100011,
+      "source_heading": "6 廉贞",
+      "subject_stars": [
+        "廉貞"
+      ],
+      "end_position": 5110016
+    },
+    {
+      "id": "deep.friends.天府",
+      "title": "天府",
+      "kind": "star",
+      "part": "friends",
+      "palace": "僕役",
+      "start": {
+        "page": 511,
+        "line": 16
+      },
+      "position": 5110016,
+      "source_heading": "7 天府",
+      "subject_stars": [
+        "天府"
+      ],
+      "end_position": 5120006
+    },
+    {
+      "id": "deep.friends.太陰",
+      "title": "太陰",
+      "kind": "star",
+      "part": "friends",
+      "palace": "僕役",
+      "start": {
+        "page": 512,
+        "line": 6
+      },
+      "position": 5120006,
+      "source_heading": "8太 阴",
+      "subject_stars": [
+        "太陰"
+      ],
+      "end_position": 5120023
+    },
+    {
+      "id": "deep.friends.貪狼",
+      "title": "貪狼",
+      "kind": "star",
+      "part": "friends",
+      "palace": "僕役",
+      "start": {
+        "page": 512,
+        "line": 23
+      },
+      "position": 5120023,
+      "source_heading": "9 贪狼",
+      "subject_stars": [
+        "貪狼"
+      ],
+      "end_position": 5130018
+    },
+    {
+      "id": "deep.friends.巨門",
+      "title": "巨門",
+      "kind": "star",
+      "part": "friends",
+      "palace": "僕役",
+      "start": {
+        "page": 513,
+        "line": 18
+      },
+      "position": 5130018,
+      "source_heading": "10  巨门",
+      "subject_stars": [
+        "巨門"
+      ],
+      "end_position": 5140008
+    },
+    {
+      "id": "deep.friends.天相",
+      "title": "天相",
+      "kind": "star",
+      "part": "friends",
+      "palace": "僕役",
+      "start": {
+        "page": 514,
+        "line": 8
+      },
+      "position": 5140008,
+      "source_heading": "11  天相",
+      "subject_stars": [
+        "天相"
+      ],
+      "end_position": 5140024
+    },
+    {
+      "id": "deep.friends.天梁",
+      "title": "天梁",
+      "kind": "star",
+      "part": "friends",
+      "palace": "僕役",
+      "start": {
+        "page": 514,
+        "line": 24
+      },
+      "position": 5140024,
+      "source_heading": "1 2天梁",
+      "subject_stars": [
+        "天梁"
+      ],
+      "end_position": 5150016
+    },
+    {
+      "id": "deep.friends.七殺",
+      "title": "七殺",
+      "kind": "star",
+      "part": "friends",
+      "palace": "僕役",
+      "start": {
+        "page": 515,
+        "line": 16
+      },
+      "position": 5150016,
+      "source_heading": "13 七杀",
+      "subject_stars": [
+        "七殺"
+      ],
+      "end_position": 5160007
+    },
+    {
+      "id": "deep.friends.破軍",
+      "title": "破軍",
+      "kind": "star",
+      "part": "friends",
+      "palace": "僕役",
+      "start": {
+        "page": 516,
+        "line": 7
+      },
+      "position": 5160007,
+      "source_heading": "14  破军",
+      "subject_stars": [
+        "破軍"
+      ],
+      "end_position": 5160024
+    },
+    {
+      "id": "deep.career.intro",
+      "title": "事業宮（官祿宮）・篇首",
+      "kind": "part_intro",
+      "part": "career",
+      "palace": "官祿",
+      "start": {
+        "page": 516,
+        "line": 24
+      },
+      "position": 5160024,
+      "source_heading": "事业宫(官禄宫)",
+      "end_position": 5190005
+    },
+    {
+      "id": "deep.career.紫微",
+      "title": "紫微",
+      "kind": "star",
+      "part": "career",
+      "palace": "官祿",
+      "start": {
+        "page": 519,
+        "line": 5
+      },
+      "position": 5190005,
+      "source_heading": "1  紫微",
+      "subject_stars": [
+        "紫微"
+      ],
+      "end_position": 5220007
+    },
+    {
+      "id": "deep.career.天機",
+      "title": "天機",
+      "kind": "star",
+      "part": "career",
+      "palace": "官祿",
+      "start": {
+        "page": 522,
+        "line": 7
+      },
+      "position": 5220007,
+      "source_heading": "2天 机",
+      "subject_stars": [
+        "天機"
+      ],
+      "end_position": 5250020
+    },
+    {
+      "id": "deep.career.太陽",
+      "title": "太陽",
+      "kind": "star",
+      "part": "career",
+      "palace": "官祿",
+      "start": {
+        "page": 525,
+        "line": 20
+      },
+      "position": 5250020,
+      "source_heading": "3  太阳",
+      "subject_stars": [
+        "太陽"
+      ],
+      "end_position": 5290006
+    },
+    {
+      "id": "deep.career.武曲",
+      "title": "武曲",
+      "kind": "star",
+      "part": "career",
+      "palace": "官祿",
+      "start": {
+        "page": 529,
+        "line": 6
+      },
+      "position": 5290006,
+      "source_heading": "4 武曲",
+      "subject_stars": [
+        "武曲"
+      ],
+      "end_position": 5320007
+    },
+    {
+      "id": "deep.career.天同",
+      "title": "天同",
+      "kind": "star",
+      "part": "career",
+      "palace": "官祿",
+      "start": {
+        "page": 532,
+        "line": 7
+      },
+      "position": 5320007,
+      "source_heading": "5天同",
+      "subject_stars": [
+        "天同"
+      ],
+      "end_position": 5340022
+    },
+    {
+      "id": "deep.career.廉貞",
+      "title": "廉貞",
+      "kind": "star",
+      "part": "career",
+      "palace": "官祿",
+      "start": {
+        "page": 534,
+        "line": 22
+      },
+      "position": 5340022,
+      "source_heading": "6廉 贞",
+      "subject_stars": [
+        "廉貞"
+      ],
+      "end_position": 5370024
+    },
+    {
+      "id": "deep.career.天府",
+      "title": "天府",
+      "kind": "star",
+      "part": "career",
+      "palace": "官祿",
+      "start": {
+        "page": 537,
+        "line": 24
+      },
+      "position": 5370024,
+      "source_heading": "7  天府",
+      "subject_stars": [
+        "天府"
+      ],
+      "end_position": 5390019
+    },
+    {
+      "id": "deep.career.太陰",
+      "title": "太陰",
+      "kind": "star",
+      "part": "career",
+      "palace": "官祿",
+      "start": {
+        "page": 539,
+        "line": 19
+      },
+      "position": 5390019,
+      "source_heading": "8太阴",
+      "subject_stars": [
+        "太陰"
+      ],
+      "end_position": 5410008
+    },
+    {
+      "id": "deep.career.貪狼",
+      "title": "貪狼",
+      "kind": "star",
+      "part": "career",
+      "palace": "官祿",
+      "start": {
+        "page": 541,
+        "line": 8
+      },
+      "position": 5410008,
+      "source_heading": "9贪狼",
+      "subject_stars": [
+        "貪狼"
+      ],
+      "end_position": 5420024
+    },
+    {
+      "id": "deep.career.巨門",
+      "title": "巨門〔原提取標題為臣門，待核字形〕",
+      "kind": "star_editorial",
+      "part": "career",
+      "palace": "官祿",
+      "start": {
+        "page": 542,
+        "line": 24
+      },
+      "position": 5420024,
+      "source_heading": "10  臣门",
+      "subject_stars": [
+        "巨門"
+      ],
+      "title_status": "damaged_heading_preserved",
+      "end_position": 5440009
+    },
+    {
+      "id": "deep.career.天相",
+      "title": "天相",
+      "kind": "star",
+      "part": "career",
+      "palace": "官祿",
+      "start": {
+        "page": 544,
+        "line": 9
+      },
+      "position": 5440009,
+      "source_heading": "11  天相",
+      "subject_stars": [
+        "天相"
+      ],
+      "end_position": 5450024
+    },
+    {
+      "id": "deep.career.天梁",
+      "title": "天梁",
+      "kind": "star",
+      "part": "career",
+      "palace": "官祿",
+      "start": {
+        "page": 545,
+        "line": 24
+      },
+      "position": 5450024,
+      "source_heading": "12  天梁",
+      "subject_stars": [
+        "天梁"
+      ],
+      "end_position": 5470018
+    },
+    {
+      "id": "deep.career.七殺",
+      "title": "七殺",
+      "kind": "star",
+      "part": "career",
+      "palace": "官祿",
+      "start": {
+        "page": 547,
+        "line": 18
+      },
+      "position": 5470018,
+      "source_heading": "13 七杀",
+      "subject_stars": [
+        "七殺"
+      ],
+      "end_position": 5490014
+    },
+    {
+      "id": "deep.career.破軍",
+      "title": "破軍",
+      "kind": "star",
+      "part": "career",
+      "palace": "官祿",
+      "start": {
+        "page": 549,
+        "line": 14
+      },
+      "position": 5490014,
+      "source_heading": "14  破军",
+      "subject_stars": [
+        "破軍"
+      ],
+      "end_position": 5510012
+    },
+    {
+      "id": "deep.property.intro",
+      "title": "田宅宮・篇首",
+      "kind": "part_intro",
+      "part": "property",
+      "palace": "田宅",
+      "start": {
+        "page": 551,
+        "line": 12
+      },
+      "position": 5510012,
+      "source_heading": "田宅宫",
+      "end_position": 5520004
+    },
+    {
+      "id": "deep.property.紫微",
+      "title": "紫微",
+      "kind": "star",
+      "part": "property",
+      "palace": "田宅",
+      "start": {
+        "page": 552,
+        "line": 4
+      },
+      "position": 5520004,
+      "source_heading": "1紫 微",
+      "subject_stars": [
+        "紫微"
+      ],
+      "end_position": 5530008
+    },
+    {
+      "id": "deep.property.天機",
+      "title": "天機",
+      "kind": "star",
+      "part": "property",
+      "palace": "田宅",
+      "start": {
+        "page": 553,
+        "line": 8
+      },
+      "position": 5530008,
+      "source_heading": "2 天机",
+      "subject_stars": [
+        "天機"
+      ],
+      "end_position": 5540015
+    },
+    {
+      "id": "deep.property.太陽",
+      "title": "太陽",
+      "kind": "star",
+      "part": "property",
+      "palace": "田宅",
+      "start": {
+        "page": 554,
+        "line": 15
+      },
+      "position": 5540015,
+      "source_heading": "3 太阳",
+      "subject_stars": [
+        "太陽"
+      ],
+      "end_position": 5550024
+    },
+    {
+      "id": "deep.property.武曲",
+      "title": "武曲",
+      "kind": "star",
+      "part": "property",
+      "palace": "田宅",
+      "start": {
+        "page": 555,
+        "line": 24
+      },
+      "position": 5550024,
+      "source_heading": "4 武曲",
+      "subject_stars": [
+        "武曲"
+      ],
+      "end_position": 5570007
+    },
+    {
+      "id": "deep.property.天同",
+      "title": "天同",
+      "kind": "star",
+      "part": "property",
+      "palace": "田宅",
+      "start": {
+        "page": 557,
+        "line": 7
+      },
+      "position": 5570007,
+      "source_heading": "5天 同",
+      "subject_stars": [
+        "天同"
+      ],
+      "end_position": 5580013
+    },
+    {
+      "id": "deep.property.廉貞",
+      "title": "廉貞",
+      "kind": "star",
+      "part": "property",
+      "palace": "田宅",
+      "start": {
+        "page": 558,
+        "line": 13
+      },
+      "position": 5580013,
+      "source_heading": "6 廉贞",
+      "subject_stars": [
+        "廉貞"
+      ],
+      "end_position": 5590018
+    },
+    {
+      "id": "deep.property.天府",
+      "title": "天府",
+      "kind": "star",
+      "part": "property",
+      "palace": "田宅",
+      "start": {
+        "page": 559,
+        "line": 18
+      },
+      "position": 5590018,
+      "source_heading": "7 天府",
+      "subject_stars": [
+        "天府"
+      ],
+      "end_position": 5600010
+    },
+    {
+      "id": "deep.property.太陰",
+      "title": "太陰",
+      "kind": "star",
+      "part": "property",
+      "palace": "田宅",
+      "start": {
+        "page": 560,
+        "line": 10
+      },
+      "position": 5600010,
+      "source_heading": "8 太阴·",
+      "subject_stars": [
+        "太陰"
+      ],
+      "end_position": 5610001
+    },
+    {
+      "id": "deep.property.貪狼",
+      "title": "貪狼",
+      "kind": "star",
+      "part": "property",
+      "palace": "田宅",
+      "start": {
+        "page": 561,
+        "line": 1
+      },
+      "position": 5610001,
+      "source_heading": "9  贪狼",
+      "subject_stars": [
+        "貪狼"
+      ],
+      "end_position": 5610017
+    },
+    {
+      "id": "deep.property.巨門",
+      "title": "巨門",
+      "kind": "star",
+      "part": "property",
+      "palace": "田宅",
+      "start": {
+        "page": 561,
+        "line": 17
+      },
+      "position": 5610017,
+      "source_heading": "10  巨门",
+      "subject_stars": [
+        "巨門"
+      ],
+      "end_position": 5620011
+    },
+    {
+      "id": "deep.property.天相",
+      "title": "天相",
+      "kind": "star",
+      "part": "property",
+      "palace": "田宅",
+      "start": {
+        "page": 562,
+        "line": 11
+      },
+      "position": 5620011,
+      "source_heading": "11  天相",
+      "subject_stars": [
+        "天相"
+      ],
+      "end_position": 5630004
+    },
+    {
+      "id": "deep.property.天梁",
+      "title": "天梁",
+      "kind": "star",
+      "part": "property",
+      "palace": "田宅",
+      "start": {
+        "page": 563,
+        "line": 4
+      },
+      "position": 5630004,
+      "source_heading": "12  天梁",
+      "subject_stars": [
+        "天梁"
+      ],
+      "end_position": 5630023
+    },
+    {
+      "id": "deep.property.七殺",
+      "title": "七殺",
+      "kind": "star",
+      "part": "property",
+      "palace": "田宅",
+      "start": {
+        "page": 563,
+        "line": 23
+      },
+      "position": 5630023,
+      "source_heading": "13  七杀",
+      "subject_stars": [
+        "七殺"
+      ],
+      "end_position": 5640015
+    },
+    {
+      "id": "deep.property.破軍",
+      "title": "破軍",
+      "kind": "star",
+      "part": "property",
+      "palace": "田宅",
+      "start": {
+        "page": 564,
+        "line": 15
+      },
+      "position": 5640015,
+      "source_heading": "14 破军",
+      "subject_stars": [
+        "破軍"
+      ],
+      "end_position": 5650007
+    },
+    {
+      "id": "deep.wellbeing.intro",
+      "title": "福德宮・篇首",
+      "kind": "part_intro",
+      "part": "wellbeing",
+      "palace": "福德",
+      "start": {
+        "page": 565,
+        "line": 7
+      },
+      "position": 5650007,
+      "source_heading": "福德宫",
+      "end_position": 5660013
+    },
+    {
+      "id": "deep.wellbeing.紫微",
+      "title": "紫微",
+      "kind": "star",
+      "part": "wellbeing",
+      "palace": "福德",
+      "start": {
+        "page": 566,
+        "line": 13
+      },
+      "position": 5660013,
+      "source_heading": "1  紫微",
+      "subject_stars": [
+        "紫微"
+      ],
+      "end_position": 5680010
+    },
+    {
+      "id": "deep.wellbeing.天機",
+      "title": "天機",
+      "kind": "star",
+      "part": "wellbeing",
+      "palace": "福德",
+      "start": {
+        "page": 568,
+        "line": 10
+      },
+      "position": 5680010,
+      "source_heading": "2  天机",
+      "subject_stars": [
+        "天機"
+      ],
+      "end_position": 5690018
+    },
+    {
+      "id": "deep.wellbeing.太陽",
+      "title": "太陽",
+      "kind": "star",
+      "part": "wellbeing",
+      "palace": "福德",
+      "start": {
+        "page": 569,
+        "line": 18
+      },
+      "position": 5690018,
+      "source_heading": "3  太阳",
+      "subject_stars": [
+        "太陽"
+      ],
+      "end_position": 5710001
+    },
+    {
+      "id": "deep.wellbeing.武曲",
+      "title": "武曲",
+      "kind": "star",
+      "part": "wellbeing",
+      "palace": "福德",
+      "start": {
+        "page": 571,
+        "line": 1
+      },
+      "position": 5710001,
+      "source_heading": "4  武曲",
+      "subject_stars": [
+        "武曲"
+      ],
+      "end_position": 5720008
+    },
+    {
+      "id": "deep.wellbeing.天同",
+      "title": "天同",
+      "kind": "star",
+      "part": "wellbeing",
+      "palace": "福德",
+      "start": {
+        "page": 572,
+        "line": 8
+      },
+      "position": 5720008,
+      "source_heading": "5 天同",
+      "subject_stars": [
+        "天同"
+      ],
+      "end_position": 5730016
+    },
+    {
+      "id": "deep.wellbeing.廉貞",
+      "title": "廉貞",
+      "kind": "star",
+      "part": "wellbeing",
+      "palace": "福德",
+      "start": {
+        "page": 573,
+        "line": 16
+      },
+      "position": 5730016,
+      "source_heading": "6  廉贞",
+      "subject_stars": [
+        "廉貞"
+      ],
+      "end_position": 5740024
+    },
+    {
+      "id": "deep.wellbeing.天府",
+      "title": "天府",
+      "kind": "star",
+      "part": "wellbeing",
+      "palace": "福德",
+      "start": {
+        "page": 574,
+        "line": 24
+      },
+      "position": 5740024,
+      "source_heading": "7  天府",
+      "subject_stars": [
+        "天府"
+      ],
+      "end_position": 5750017
+    },
+    {
+      "id": "deep.wellbeing.太陰",
+      "title": "太陰",
+      "kind": "star",
+      "part": "wellbeing",
+      "palace": "福德",
+      "start": {
+        "page": 575,
+        "line": 17
+      },
+      "position": 5750017,
+      "source_heading": "8  太阴",
+      "subject_stars": [
+        "太陰"
+      ],
+      "end_position": 5760011
+    },
+    {
+      "id": "deep.wellbeing.貪狼",
+      "title": "貪狼",
+      "kind": "star",
+      "part": "wellbeing",
+      "palace": "福德",
+      "start": {
+        "page": 576,
+        "line": 11
+      },
+      "position": 5760011,
+      "source_heading": "9 贪狼",
+      "subject_stars": [
+        "貪狼"
+      ],
+      "end_position": 5770001
+    },
+    {
+      "id": "deep.wellbeing.巨門",
+      "title": "巨門",
+      "kind": "star",
+      "part": "wellbeing",
+      "palace": "福德",
+      "start": {
+        "page": 577,
+        "line": 1
+      },
+      "position": 5770001,
+      "source_heading": "10  巨门",
+      "subject_stars": [
+        "巨門"
+      ],
+      "end_position": 5770020
+    },
+    {
+      "id": "deep.wellbeing.天相",
+      "title": "天相",
+      "kind": "star",
+      "part": "wellbeing",
+      "palace": "福德",
+      "start": {
+        "page": 577,
+        "line": 20
+      },
+      "position": 5770020,
+      "source_heading": "11 天相",
+      "subject_stars": [
+        "天相"
+      ],
+      "end_position": 5780016
+    },
+    {
+      "id": "deep.wellbeing.天梁",
+      "title": "天梁",
+      "kind": "star",
+      "part": "wellbeing",
+      "palace": "福德",
+      "start": {
+        "page": 578,
+        "line": 16
+      },
+      "position": 5780016,
+      "source_heading": "12 天梁",
+      "subject_stars": [
+        "天梁"
+      ],
+      "end_position": 5790010
+    },
+    {
+      "id": "deep.wellbeing.七殺",
+      "title": "七殺",
+      "kind": "star",
+      "part": "wellbeing",
+      "palace": "福德",
+      "start": {
+        "page": 579,
+        "line": 10
+      },
+      "position": 5790010,
+      "source_heading": "13  七杀",
+      "subject_stars": [
+        "七殺"
+      ],
+      "end_position": 5800004
+    },
+    {
+      "id": "deep.wellbeing.破軍",
+      "title": "破軍",
+      "kind": "star",
+      "part": "wellbeing",
+      "palace": "福德",
+      "start": {
+        "page": 580,
+        "line": 4
+      },
+      "position": 5800004,
+      "source_heading": "14  破军",
+      "subject_stars": [
+        "破軍"
+      ],
+      "end_position": 5800022
+    },
+    {
+      "id": "deep.parents.intro",
+      "title": "父母宮・篇首",
+      "kind": "part_intro",
+      "part": "parents",
+      "palace": "父母",
+      "start": {
+        "page": 580,
+        "line": 22
+      },
+      "position": 5800022,
+      "source_heading": "父母宫",
+      "end_position": 5820003
+    },
+    {
+      "id": "deep.parents.紫微",
+      "title": "紫微",
+      "kind": "star",
+      "part": "parents",
+      "palace": "父母",
+      "start": {
+        "page": 582,
+        "line": 3
+      },
+      "position": 5820003,
+      "source_heading": "1  紫微",
+      "subject_stars": [
+        "紫微"
+      ],
+      "end_position": 5830010
+    },
+    {
+      "id": "deep.parents.天機",
+      "title": "天機",
+      "kind": "star",
+      "part": "parents",
+      "palace": "父母",
+      "start": {
+        "page": 583,
+        "line": 10
+      },
+      "position": 5830010,
+      "source_heading": "2  天机",
+      "subject_stars": [
+        "天機"
+      ],
+      "end_position": 5840018
+    },
+    {
+      "id": "deep.parents.太陽",
+      "title": "太陽",
+      "kind": "star",
+      "part": "parents",
+      "palace": "父母",
+      "start": {
+        "page": 584,
+        "line": 18
+      },
+      "position": 5840018,
+      "source_heading": "3  太阳",
+      "subject_stars": [
+        "太陽"
+      ],
+      "end_position": 5850024
+    },
+    {
+      "id": "deep.parents.武曲",
+      "title": "武曲",
+      "kind": "star",
+      "part": "parents",
+      "palace": "父母",
+      "start": {
+        "page": 585,
+        "line": 24
+      },
+      "position": 5850024,
+      "source_heading": "4 武曲",
+      "subject_stars": [
+        "武曲"
+      ],
+      "end_position": 5870008
+    },
+    {
+      "id": "deep.parents.天同",
+      "title": "天同",
+      "kind": "star",
+      "part": "parents",
+      "palace": "父母",
+      "start": {
+        "page": 587,
+        "line": 8
+      },
+      "position": 5870008,
+      "source_heading": "5 天同",
+      "subject_stars": [
+        "天同"
+      ],
+      "end_position": 5880016
+    },
+    {
+      "id": "deep.parents.廉貞",
+      "title": "廉貞",
+      "kind": "star",
+      "part": "parents",
+      "palace": "父母",
+      "start": {
+        "page": 588,
+        "line": 16
+      },
+      "position": 5880016,
+      "source_heading": "6  廉贞",
+      "subject_stars": [
+        "廉貞"
+      ],
+      "end_position": 5890021
+    },
+    {
+      "id": "deep.parents.天府",
+      "title": "天府",
+      "kind": "star",
+      "part": "parents",
+      "palace": "父母",
+      "start": {
+        "page": 589,
+        "line": 21
+      },
+      "position": 5890021,
+      "source_heading": "7  天府",
+      "subject_stars": [
+        "天府"
+      ],
+      "end_position": 5900013
+    },
+    {
+      "id": "deep.parents.太陰",
+      "title": "太陰",
+      "kind": "star",
+      "part": "parents",
+      "palace": "父母",
+      "start": {
+        "page": 590,
+        "line": 13
+      },
+      "position": 5900013,
+      "source_heading": "8  太阴",
+      "subject_stars": [
+        "太陰"
+      ],
+      "end_position": 5910009
+    },
+    {
+      "id": "deep.parents.貪狼",
+      "title": "貪狼",
+      "kind": "star",
+      "part": "parents",
+      "palace": "父母",
+      "start": {
+        "page": 591,
+        "line": 9
+      },
+      "position": 5910009,
+      "source_heading": "9  贪狼",
+      "subject_stars": [
+        "貪狼"
+      ],
+      "end_position": 5920004
+    },
+    {
+      "id": "deep.parents.巨門",
+      "title": "巨門",
+      "kind": "star",
+      "part": "parents",
+      "palace": "父母",
+      "start": {
+        "page": 592,
+        "line": 4
+      },
+      "position": 5920004,
+      "source_heading": "1 0  巨门",
+      "subject_stars": [
+        "巨門"
+      ],
+      "end_position": 5920020
+    },
+    {
+      "id": "deep.parents.天相",
+      "title": "天相",
+      "kind": "star",
+      "part": "parents",
+      "palace": "父母",
+      "start": {
+        "page": 592,
+        "line": 20
+      },
+      "position": 5920020,
+      "source_heading": "11  天相",
+      "subject_stars": [
+        "天相"
+      ],
+      "end_position": 5930011
+    },
+    {
+      "id": "deep.parents.天梁",
+      "title": "天梁",
+      "kind": "star",
+      "part": "parents",
+      "palace": "父母",
+      "start": {
+        "page": 593,
+        "line": 11
+      },
+      "position": 5930011,
+      "source_heading": "1 2  天梁",
+      "subject_stars": [
+        "天梁"
+      ],
+      "end_position": 5940003
+    },
+    {
+      "id": "deep.parents.七殺",
+      "title": "七殺",
+      "kind": "star",
+      "part": "parents",
+      "palace": "父母",
+      "start": {
+        "page": 594,
+        "line": 3
+      },
+      "position": 5940003,
+      "source_heading": "13  七杀",
+      "subject_stars": [
+        "七殺"
+      ],
+      "end_position": 5940021
+    },
+    {
+      "id": "deep.parents.破軍",
+      "title": "破軍",
+      "kind": "star",
+      "part": "parents",
+      "palace": "父母",
+      "start": {
+        "page": 594,
+        "line": 21
+      },
+      "position": 5940021,
+      "source_heading": "14  破军",
+      "subject_stars": [
+        "破軍"
+      ],
+      "end_position": 5960001
+    }
+  ],
+  "star_heading_counts": {
+    "main-stars": 14,
+    "ming": 14,
+    "siblings": 14,
+    "spouse": 14,
+    "children": 14,
+    "wealth": 13,
+    "travel": 14,
+    "friends": 14,
+    "career": 13,
+    "property": 14,
+    "wellbeing": 14,
+    "parents": 14
+  },
+  "note": "導航名可作繁簡對照；原檔標題另存。end_position為下一節起點，唔包含下一節。"
+}

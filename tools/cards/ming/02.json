@@ -1,0 +1,2134 @@
+[
+  {
+    "id": "card.ming.pojun-yinshen.core",
+    "palace": "命宮",
+    "topic": "本質",
+    "kind": "claim",
+    "system": 2,
+    "layer": "natal",
+    "claim": "你的人生不走直線，像一個馬鞍：運勢升上去，會遇一次回落，再重新爬起。",
+    "en": "Your life does not run in a straight line but like a saddle: it rises, takes a dip, then climbs again.",
+    "limit": "馬鞍的高低幅度要分順從或叛逆。",
+    "sources": [
+      {
+        "id": "wtz.deep.p045.b004",
+        "sha256": "1e6a582844e77549628f7d8e2559297c73066e018c258ee978d28681d96d86cc"
+      },
+      {
+        "id": "wtz.deep.p045.b006",
+        "sha256": "153825ab8902be4d250dc870e8ba63f32e54ebf2590b1516f7e51ec8bd3f4248"
+      }
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "card.ming.pojun-yinshen.shuncong",
+    "palace": "命宮",
+    "topic": "本質",
+    "kind": "caveat",
+    "system": 2,
+    "pole": "順從",
+    "layer": "natal",
+    "claim": "你偏順從：變動幅度較小，多是順勢而為，也做得到在一個地方長做。",
+    "en": "You lean compliant: your swings are smaller, you change with the tide, and you can stay in one place for the long run.",
+    "sources": [
+      {
+        "id": "wtz.deep.p045.b005",
+        "sha256": "0b70d8de1704d3525a89997de20c362ebd5e5e2fd5e174b45b1e139ef3af4783"
+      },
+      {
+        "id": "wtz.deep.p045.b007",
+        "sha256": "e7ee567cc107cfbd7d1cd60c4002472bda174f228cd474ea44e2f40364dc641c"
+      },
+      {
+        "id": "wtz.deep.p045.b008",
+        "sha256": "ad0bd8940c6b7e803fb67c9181006e190055f31780a3d99523c66f83a77f8627"
+      }
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "card.ming.pojun-yinshen.panni",
+    "palace": "命宮",
+    "topic": "本質",
+    "kind": "caveat",
+    "system": 2,
+    "pole": "叛逆",
+    "layer": "natal",
+    "claim": "你偏叛逆：變動幅度較大，容易頻頻轉換跑道，每次都是真正的轉向。",
+    "en": "You lean rebellious: your swings are bigger, you switch tracks often, and each switch is a real turn.",
+    "sources": [
+      {
+        "id": "wtz.deep.p045.b005",
+        "sha256": "0b70d8de1704d3525a89997de20c362ebd5e5e2fd5e174b45b1e139ef3af4783"
+      },
+      {
+        "id": "wtz.deep.p045.b007",
+        "sha256": "e7ee567cc107cfbd7d1cd60c4002472bda174f228cd474ea44e2f40364dc641c"
+      },
+      {
+        "id": "wtz.deep.p045.b008",
+        "sha256": "ad0bd8940c6b7e803fb67c9181006e190055f31780a3d99523c66f83a77f8627"
+      }
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "card.ming.pojun-yinshen.wuquan",
+    "palace": "命宮",
+    "topic": "格局",
+    "kind": "caveat",
+    "system": 2,
+    "layer": "natal",
+    "claim": "不論條件多好，你的人生總難十全十美，總有缺憾。",
+    "en": "However good the conditions, your life is never quite complete; something is always missing.",
+    "limit": "原文舉富貴不兩全、六親、慢性病、破相等，只寫成「有缺憾」。",
+    "sources": [
+      {
+        "id": "wtz.deep.p364.b009",
+        "sha256": "a48c291236aacd3b0c144fb0e86ce66875e37d19c62f1c66afd67cad56e61113"
+      }
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "card.ming.pojun-yinshen.youzhen",
+    "palace": "命宮",
+    "topic": "格局",
+    "kind": "caveat",
+    "system": 2,
+    "layer": "natal",
+    "when": {
+      "deLu": "破軍"
+    },
+    "claim": "你有根基：耗散的一面減少，開創力更強。",
+    "en": "You have roots: your tendency to scatter is reduced, and your drive to build is stronger.",
+    "sources": [
+      {
+        "id": "wtz.deep.p364.b002",
+        "sha256": "9c5240c8efac8b42be94a77074b521f7b9e17c2fbda58b60cdcc98df01473a48"
+      }
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "card.ming.pojun-yinshen.gj-gui",
+    "palace": "命宮",
+    "topic": "格局",
+    "kind": "claim",
+    "system": 2,
+    "layer": "natal",
+    "when": {
+      "meets": "破軍",
+      "stars": [
+        "左輔",
+        "右弼",
+        "天魁",
+        "天鉞"
+      ],
+      "n": 2
+    },
+    "none": {
+      "meets": "破軍",
+      "stars": [
+        "擎羊",
+        "陀羅",
+        "火星",
+        "鈴星"
+      ]
+    },
+    "claim": "你的富貴之中，地位往往高過財富，錢財多隨地位而來。",
+    "en": "Of the two, standing tends to come out ahead of wealth for you; money mostly follows your position.",
+    "sources": [
+      {
+        "id": "wtz.deep.p364.b003",
+        "sha256": "362b199fc37627d3d1cfd1a390a379895c80e4a4a92e52d3380fadc9b91e390e"
+      }
+    ],
+    "status": "draft",
+    "limit": "原文「見輔弼魁鉞」，這裡當兩粒或以上；有四煞混雜另論（gj-shang）。"
+  },
+  {
+    "id": "card.ming.pojun-yinshen.gj-shang",
+    "palace": "命宮",
+    "topic": "格局",
+    "kind": "claim",
+    "system": 2,
+    "layer": "natal",
+    "when": {
+      "all": [
+        {
+          "meets": "破軍",
+          "stars": [
+            "左輔",
+            "右弼",
+            "天魁",
+            "天鉞"
+          ],
+          "n": 2
+        },
+        {
+          "meets": "破軍",
+          "stars": [
+            "擎羊",
+            "陀羅",
+            "火星",
+            "鈴星"
+          ]
+        }
+      ]
+    },
+    "claim": "你較宜從事工商業，在競爭中取得成果。",
+    "en": "Business and industry suit you; you get results through competition.",
+    "sources": [
+      {
+        "id": "wtz.deep.p364.b003",
+        "sha256": "362b199fc37627d3d1cfd1a390a379895c80e4a4a92e52d3380fadc9b91e390e"
+      }
+    ],
+    "status": "draft",
+    "limit": "原文「見輔弼魁鉞…唯若有四煞混雜其中」：輔弼魁鉞兩粒或以上，再見四煞任何一粒。"
+  },
+  {
+    "id": "card.ming.pojun-yinshen.gj-hanshi",
+    "palace": "命宮",
+    "topic": "格局",
+    "kind": "claim",
+    "system": 2,
+    "layer": "natal",
+    "when": {
+      "all": [
+        {
+          "meets": "破軍",
+          "stars": [
+            "文昌",
+            "文曲"
+          ]
+        },
+        {
+          "meets": "破軍",
+          "stars": [
+            "擎羊",
+            "陀羅",
+            "火星",
+            "鈴星"
+          ]
+        }
+      ]
+    },
+    "none": {
+      "meets": "破軍",
+      "stars": [
+        "左輔",
+        "右弼",
+        "天魁",
+        "天鉞"
+      ],
+      "n": 2
+    },
+    "claim": "你有才學，卻容易覺得懷才不遇。",
+    "en": "You have talent and learning, yet you often feel it goes unrecognised.",
+    "sources": [
+      {
+        "id": "wtz.deep.p364.b003",
+        "sha256": "362b199fc37627d3d1cfd1a390a379895c80e4a4a92e52d3380fadc9b91e390e"
+      }
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "card.ming.pojun-yinshen.gj-yi",
+    "palace": "命宮",
+    "topic": "格局",
+    "kind": "claim",
+    "system": 2,
+    "layer": "natal",
+    "when": {
+      "all": [
+        {
+          "meets": "破軍",
+          "stars": [
+            "擎羊",
+            "陀羅",
+            "火星",
+            "鈴星"
+          ],
+          "n": 2
+        },
+        {
+          "meets": "破軍",
+          "stars": [
+            "左輔",
+            "右弼",
+            "天魁",
+            "天鉞",
+            "文昌",
+            "文曲"
+          ],
+          "op": "lte",
+          "n": 1
+        }
+      ]
+    },
+    "none": {
+      "meets": "破軍",
+      "stars": [
+        "文昌",
+        "文曲"
+      ]
+    },
+    "claim": "你較宜靠一門手藝或專業技能立身。",
+    "en": "A craft or a specialist skill is the best ground for you to stand on.",
+    "limit": "原文「煞曜重而吉曜輕」：這裡當三方四正兩煞以上、六吉最多一粒。",
+    "sources": [
+      {
+        "id": "wtz.deep.p364.b003",
+        "sha256": "362b199fc37627d3d1cfd1a390a379895c80e4a4a92e52d3380fadc9b91e390e"
+      }
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "card.ming.pojun-yinshen.yuanfang",
+    "palace": "命宮",
+    "topic": "格局",
+    "kind": "caveat",
+    "system": 2,
+    "layer": "natal",
+    "when": {
+      "all": [
+        {
+          "star": "天馬",
+          "in": {
+            "name": "遷移"
+          }
+        },
+        {
+          "any": [
+            {
+              "star": "祿存",
+              "in": {
+                "name": "遷移"
+              }
+            },
+            {
+              "hua": "祿",
+              "in": {
+                "name": "遷移"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "claim": "你較宜到遠方發展，在外地容易發跡。",
+    "en": "You do well developing far from home; distant places are where you tend to rise.",
+    "sources": [
+      {
+        "id": "wtz.deep.p365.b007",
+        "sha256": "f254839924c3fa75cb6c8f28497aca6c6628621b623b692e6c23b7da7607e238"
+      }
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "card.ming.pojun-yinshen.jixu",
+    "palace": "命宮",
+    "topic": "處事",
+    "kind": "claim",
+    "system": 2,
+    "layer": "natal",
+    "claim": "你喜歡在舊的基礎上開新局，往往同時兼顧幾份工作或幾門生意。",
+    "en": "You like to build the new on top of the old, and you often run several jobs or businesses at once.",
+    "sources": [
+      {
+        "id": "wtz.deep.p364.b006",
+        "sha256": "1aec98a262b2a0a4e28856fbd1b8537ca7ee53d6866b347874fcce1007c901a5"
+      }
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "card.ming.pojun-yinshen.jixu-lu",
+    "palace": "命宮",
+    "topic": "處事",
+    "kind": "caveat",
+    "system": 2,
+    "layer": "natal",
+    "when": {
+      "star": "破軍",
+      "hua": "祿"
+    },
+    "claim": "你的新事業往往由舊事業帶出來，新舊可以同時經營。",
+    "en": "Your new ventures tend to grow out of old ones, and you can run both together.",
+    "sources": [
+      {
+        "id": "wtz.deep.p364.b006",
+        "sha256": "1aec98a262b2a0a4e28856fbd1b8537ca7ee53d6866b347874fcce1007c901a5"
+      }
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "card.ming.pojun-yinshen.huotan",
+    "palace": "命宮",
+    "topic": "處事",
+    "kind": "caveat",
+    "system": 2,
+    "layer": "natal",
+    "when": {
+      "meets": "貪狼",
+      "stars": [
+        "火星",
+        "鈴星"
+      ],
+      "reach": "same"
+    },
+    "claim": "你一生起伏大，容易驟起驟跌；挫敗多因太主觀、強行出頭，或不自量力與人競爭。",
+    "en": "Your life swings hard, with sudden rises and falls; setbacks come from being too headstrong, pushing forward, or taking on rivals beyond your strength.",
+    "sources": [
+      {
+        "id": "wtz.deep.p365.b008",
+        "sha256": "c96902a4690e340e7063c537dfc7e4495ea1551478fd971fd26bdf549b383093"
+      }
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "card.ming.pojun-yinshen.shun-sha",
+    "palace": "命宮",
+    "topic": "處事",
+    "kind": "caveat",
+    "system": 2,
+    "pole": "順從",
+    "layer": "natal",
+    "when": {
+      "meets": "破軍",
+      "stars": [
+        "擎羊",
+        "陀羅",
+        "火星",
+        "鈴星",
+        "地空",
+        "地劫",
+        "天刑"
+      ],
+      "n": 3
+    },
+    "claim": "你稍有成就就容易自滿。",
+    "en": "Once you achieve a little, you are prone to complacency.",
+    "sources": [
+      {
+        "id": "wtz.deep.p046.b013",
+        "sha256": "0a28007398d9e97a6f285a956a7e4c85f616653153d0fba815edacc6b34508f0"
+      },
+      {
+        "id": "wtz.deep.p047.b001",
+        "sha256": "131ef1cea967e4014cdd452e173f13325f70a0be3ac63f7e1972679fd46e345f"
+      }
+    ],
+    "status": "draft",
+    "limit": "原文「見煞、刑諸曜眾多」：這裡當破軍三方四正見四煞、空劫、天刑三粒或以上。"
+  },
+  {
+    "id": "card.ming.pojun-yinshen.shun-sha-lt",
+    "palace": "命宮",
+    "topic": "處事",
+    "kind": "caveat",
+    "system": 2,
+    "pole": "順從",
+    "when": {
+      "all": [
+        {
+          "meets": "破軍",
+          "stars": [
+            "擎羊",
+            "陀羅",
+            "火星",
+            "鈴星",
+            "地空",
+            "地劫",
+            "天刑"
+          ],
+          "n": 3
+        },
+        {
+          "meets": "破軍",
+          "stars": [
+            "鈴星",
+            "陀羅"
+          ]
+        }
+      ]
+    },
+    "layer": "natal",
+    "claim": "你容易停滯不前，難再往上走。",
+    "en": "You are prone to stalling and find it hard to climb further.",
+    "limit": "原文順從性破軍煞刑眾多，最不宜再見鈴星、陀羅。",
+    "sources": [
+      {
+        "id": "wtz.deep.p046.b013",
+        "sha256": "0a28007398d9e97a6f285a956a7e4c85f616653153d0fba815edacc6b34508f0"
+      },
+      {
+        "id": "wtz.deep.p047.b001",
+        "sha256": "131ef1cea967e4014cdd452e173f13325f70a0be3ac63f7e1972679fd46e345f"
+      }
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "card.ming.pojun-yinshen.pan-sha",
+    "palace": "命宮",
+    "topic": "處事",
+    "kind": "advice",
+    "system": 2,
+    "pole": "叛逆",
+    "layer": "natal",
+    "when": {
+      "meets": "破軍",
+      "stars": [
+        "擎羊",
+        "陀羅",
+        "火星",
+        "鈴星",
+        "地空",
+        "地劫",
+        "天刑"
+      ],
+      "n": 3
+    },
+    "claim": "你的路有時太坎坷，容易因此喪志；可以主動找改變處境的機會，或者換個環境到外地發展。",
+    "en": "Your road can be so rough that you lose heart; seek chances to change your situation, or change your surroundings and try your luck elsewhere.",
+    "sources": [
+      {
+        "id": "wtz.deep.p047.b002",
+        "sha256": "08755f517a4a583a67a2a1d7e7742b0bae2c6f99101442627b28e4e84427e595"
+      }
+    ],
+    "status": "draft",
+    "limit": "原文「見煞、刑諸曜眾多」當三粒或以上；原文按福德宮或遷移宮哪個好而二擇一，這裡兩樣都講。"
+  },
+  {
+    "id": "card.ming.pojun-yinshen.shangsi",
+    "palace": "命宮",
+    "topic": "待人",
+    "kind": "claim",
+    "system": 2,
+    "layer": "natal",
+    "when": {
+      "any": [
+        {
+          "star": "火星",
+          "in": {
+            "name": "命宮"
+          }
+        },
+        {
+          "star": "火星",
+          "in": {
+            "name": "父母"
+          }
+        },
+        {
+          "star": "鈴星",
+          "in": {
+            "name": "命宮"
+          }
+        },
+        {
+          "star": "鈴星",
+          "in": {
+            "name": "父母"
+          }
+        }
+      ]
+    },
+    "claim": "你一生較常更換上司或領導。",
+    "en": "You tend to change bosses and leaders more often than most.",
+    "sources": [
+      {
+        "id": "wtz.deep.p365.b007",
+        "sha256": "f254839924c3fa75cb6c8f28497aca6c6628621b623b692e6c23b7da7607e238"
+      }
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "card.ming.pojun-yinshen.gudu",
+    "palace": "命宮",
+    "topic": "待人",
+    "kind": "caveat",
+    "system": 2,
+    "layer": "natal",
+    "when": {
+      "meets": "破軍",
+      "stars": [
+        "地空",
+        "地劫"
+      ],
+      "reach": "same"
+    },
+    "claim": "你一生較孤獨。",
+    "en": "You tend to be a lonely figure through life.",
+    "sources": [
+      {
+        "id": "wtz.deep.p365.b009",
+        "sha256": "6960f935524a35cb44657ab076fb7ac9b89dbbb32326d831fd5a519d9727820c"
+      }
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "card.ming.pojun-yinshen.pivot",
+    "palace": "命宮",
+    "topic": "運程",
+    "kind": "claim",
+    "system": 2,
+    "layer": "natal",
+    "decades": {
+      "any": [
+        {
+          "star": "武曲",
+          "in": {
+            "name": "命宮",
+            "layer": "decade"
+          }
+        },
+        {
+          "star": "太陽",
+          "in": {
+            "name": "命宮",
+            "layer": "decade"
+          }
+        },
+        {
+          "star": "巨門",
+          "in": {
+            "name": "命宮",
+            "layer": "decade"
+          }
+        },
+        {
+          "star": "廉貞",
+          "in": {
+            "name": "命宮",
+            "layer": "decade"
+          }
+        }
+      ]
+    },
+    "claim": "{decades}這幾段時間，是你一生運程的關鍵。",
+    "en": "The years {decades} are the turning points of your life course.",
+    "sources": [
+      {
+        "id": "wtz.deep.p365.b010",
+        "sha256": "3dd01a53ec8ea457c28c3d51e63c9e4619f64d3d23ee84cb820a669457bb7054"
+      }
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "card.ming.pojun-yinshen.pivot-huotan",
+    "palace": "命宮",
+    "topic": "運程",
+    "kind": "caveat",
+    "system": 2,
+    "layer": "natal",
+    "when": {
+      "meets": "貪狼",
+      "stars": [
+        "火星",
+        "鈴星"
+      ],
+      "reach": "same"
+    },
+    "decades": {
+      "any": [
+        {
+          "star": "天機",
+          "in": {
+            "name": "命宮",
+            "layer": "decade"
+          }
+        },
+        {
+          "star": "廉貞",
+          "in": {
+            "name": "命宮",
+            "layer": "decade"
+          }
+        }
+      ]
+    },
+    "claim": "{decades}這兩段時間對你尤其要緊，走得好，後運也順。",
+    "en": "The years {decades} matter especially for you; if they go well, the years after go smoothly too.",
+    "sources": [
+      {
+        "id": "wtz.deep.p365.b008",
+        "sha256": "c96902a4690e340e7063c537dfc7e4495ea1551478fd971fd26bdf549b383093"
+      }
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "card.ming.pojun-yinshen.huotan-year",
+    "palace": "命宮",
+    "topic": "運程",
+    "kind": "caveat",
+    "system": 2,
+    "layer": "annual",
+    "when": {
+      "all": [
+        {
+          "meets": "貪狼",
+          "stars": [
+            "火星",
+            "鈴星"
+          ],
+          "reach": "same"
+        },
+        {
+          "any": [
+            {
+              "all": [
+                {
+                  "sanfangOf": {
+                    "name": "命宮",
+                    "layer": "annual"
+                  },
+                  "contains": "武曲"
+                },
+                {
+                  "any": [
+                    {
+                      "star": "武曲",
+                      "hua": "忌"
+                    },
+                    {
+                      "star": "武曲",
+                      "hua": "忌",
+                      "layer": "annual"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "all": [
+                {
+                  "star": "天相",
+                  "in": {
+                    "name": "命宮",
+                    "layer": "annual"
+                  }
+                },
+                {
+                  "geju": "xingji"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "claim": "這一年容易從高處急跌，不宜冒進，也不宜硬碰。",
+    "en": "This year a fall from a high point can come fast; do not push ahead or force a fight.",
+    "limit": "原文「暴敗，且易從此一蹶不振」，只寫成風險；原文前提係天機、廉府兩個樞紐宮垣不吉，條件語言未計。流年刑忌夾（流年化忌夾天相）計不到，只計本命刑忌夾。",
+    "sources": [
+      {
+        "id": "wtz.deep.p365.b008",
+        "sha256": "c96902a4690e340e7063c537dfc7e4495ea1551478fd971fd26bdf549b383093"
+      }
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "card.ming.pojun-yinshen.shun-xi",
+    "palace": "命宮",
+    "topic": "運程",
+    "kind": "claim",
+    "system": 2,
+    "pole": "順從",
+    "layer": "decade",
+    "when": {
+      "any": [
+        {
+          "all": [
+            {
+              "star": "廉貞",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "any": [
+                {
+                  "any": [
+                    {
+                      "star": "廉貞",
+                      "hua": "祿"
+                    },
+                    {
+                      "star": "廉貞",
+                      "hua": "祿",
+                      "layer": "decade"
+                    }
+                  ]
+                },
+                {
+                  "any": [
+                    {
+                      "star": "天府",
+                      "hua": "科"
+                    },
+                    {
+                      "star": "天府",
+                      "hua": "科",
+                      "layer": "decade"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "all": [
+            {
+              "star": "太陰",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "any": [
+                {
+                  "star": "太陰",
+                  "hua": "祿"
+                },
+                {
+                  "star": "太陰",
+                  "hua": "祿",
+                  "layer": "decade"
+                },
+                {
+                  "star": "太陰",
+                  "hua": "權"
+                },
+                {
+                  "star": "太陰",
+                  "hua": "權",
+                  "layer": "decade"
+                },
+                {
+                  "star": "太陰",
+                  "hua": "科"
+                },
+                {
+                  "star": "太陰",
+                  "hua": "科",
+                  "layer": "decade"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "all": [
+            {
+              "star": "貪狼",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "any": [
+                {
+                  "star": "貪狼",
+                  "hua": "祿"
+                },
+                {
+                  "star": "貪狼",
+                  "hua": "祿",
+                  "layer": "decade"
+                },
+                {
+                  "star": "貪狼",
+                  "hua": "權"
+                },
+                {
+                  "star": "貪狼",
+                  "hua": "權",
+                  "layer": "decade"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "all": [
+            {
+              "star": "武曲",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "any": [
+                {
+                  "any": [
+                    {
+                      "star": "武曲",
+                      "hua": "祿"
+                    },
+                    {
+                      "star": "武曲",
+                      "hua": "祿",
+                      "layer": "decade"
+                    },
+                    {
+                      "star": "武曲",
+                      "hua": "權"
+                    },
+                    {
+                      "star": "武曲",
+                      "hua": "權",
+                      "layer": "decade"
+                    },
+                    {
+                      "star": "武曲",
+                      "hua": "科"
+                    },
+                    {
+                      "star": "武曲",
+                      "hua": "科",
+                      "layer": "decade"
+                    }
+                  ]
+                },
+                {
+                  "geju": "caiyin"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "all": [
+            {
+              "star": "太陽",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "any": [
+                {
+                  "any": [
+                    {
+                      "star": "太陽",
+                      "hua": "科"
+                    },
+                    {
+                      "star": "太陽",
+                      "hua": "科",
+                      "layer": "decade"
+                    }
+                  ]
+                },
+                {
+                  "any": [
+                    {
+                      "star": "天梁",
+                      "hua": "科"
+                    },
+                    {
+                      "star": "天梁",
+                      "hua": "科",
+                      "layer": "decade"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "all": [
+            {
+              "star": "紫微",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "any": [
+                {
+                  "star": "紫微",
+                  "hua": "科"
+                },
+                {
+                  "star": "紫微",
+                  "hua": "科",
+                  "layer": "decade"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "claim": "這十年雖有變動，卻不是根本的改變，而且變得順利。",
+    "en": "This decade brings change, but not at the roots, and it goes smoothly.",
+    "sources": [
+      {
+        "id": "wtz.deep.p046.b003",
+        "sha256": "dfd478484e391e8a5e4aff15a4155c052d0ca1d61564e7eed8ee34de747a6ace"
+      },
+      {
+        "id": "wtz.deep.p046.b004",
+        "sha256": "b90d5928ffacb2d8d9c84f192a5d682e0a711eeddea20fbdb504afdb736f583c"
+      },
+      {
+        "id": "wtz.deep.p046.b007",
+        "sha256": "174f20e8efe6d718ca4efa166ccc4614c40ba180c3142901ada64a661093e200"
+      }
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "card.ming.pojun-yinshen.shun-buxi",
+    "palace": "命宮",
+    "topic": "運程",
+    "kind": "claim",
+    "system": 2,
+    "pole": "順從",
+    "layer": "decade",
+    "when": {
+      "any": [
+        {
+          "all": [
+            {
+              "star": "廉貞",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "meets": "天府",
+              "stars": [
+                "左輔",
+                "右弼",
+                "天魁",
+                "天鉞"
+              ]
+            }
+          ]
+        },
+        {
+          "all": [
+            {
+              "star": "貪狼",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "meets": "貪狼",
+              "stars": [
+                "火星",
+                "鈴星"
+              ],
+              "reach": "same"
+            }
+          ]
+        },
+        {
+          "all": [
+            {
+              "star": "巨門",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "any": [
+                {
+                  "any": [
+                    {
+                      "star": "天同",
+                      "hua": "祿"
+                    },
+                    {
+                      "star": "天同",
+                      "hua": "祿",
+                      "layer": "decade"
+                    }
+                  ]
+                },
+                {
+                  "any": [
+                    {
+                      "star": "巨門",
+                      "hua": "祿"
+                    },
+                    {
+                      "star": "巨門",
+                      "hua": "祿",
+                      "layer": "decade"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "all": [
+            {
+              "star": "武曲",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "geju": "xingji"
+            }
+          ]
+        },
+        {
+          "all": [
+            {
+              "star": "太陽",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "any": [
+                {
+                  "any": [
+                    {
+                      "star": "太陽",
+                      "hua": "祿"
+                    },
+                    {
+                      "star": "太陽",
+                      "hua": "祿",
+                      "layer": "decade"
+                    },
+                    {
+                      "star": "太陽",
+                      "hua": "權"
+                    },
+                    {
+                      "star": "太陽",
+                      "hua": "權",
+                      "layer": "decade"
+                    }
+                  ]
+                },
+                {
+                  "any": [
+                    {
+                      "star": "天梁",
+                      "hua": "祿"
+                    },
+                    {
+                      "star": "天梁",
+                      "hua": "祿",
+                      "layer": "decade"
+                    },
+                    {
+                      "star": "天梁",
+                      "hua": "權"
+                    },
+                    {
+                      "star": "天梁",
+                      "hua": "權",
+                      "layer": "decade"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "all": [
+            {
+              "star": "七殺",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "deLu": "七殺",
+              "layer": "decade"
+            }
+          ]
+        },
+        {
+          "all": [
+            {
+              "star": "紫微",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "any": [
+                {
+                  "star": "紫微",
+                  "hua": "權"
+                },
+                {
+                  "star": "紫微",
+                  "hua": "權",
+                  "layer": "decade"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "none": {
+      "any": [
+        {
+          "all": [
+            {
+              "star": "廉貞",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "any": [
+                {
+                  "any": [
+                    {
+                      "star": "廉貞",
+                      "hua": "祿"
+                    },
+                    {
+                      "star": "廉貞",
+                      "hua": "祿",
+                      "layer": "decade"
+                    }
+                  ]
+                },
+                {
+                  "any": [
+                    {
+                      "star": "天府",
+                      "hua": "科"
+                    },
+                    {
+                      "star": "天府",
+                      "hua": "科",
+                      "layer": "decade"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "all": [
+            {
+              "star": "太陰",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "any": [
+                {
+                  "star": "太陰",
+                  "hua": "祿"
+                },
+                {
+                  "star": "太陰",
+                  "hua": "祿",
+                  "layer": "decade"
+                },
+                {
+                  "star": "太陰",
+                  "hua": "權"
+                },
+                {
+                  "star": "太陰",
+                  "hua": "權",
+                  "layer": "decade"
+                },
+                {
+                  "star": "太陰",
+                  "hua": "科"
+                },
+                {
+                  "star": "太陰",
+                  "hua": "科",
+                  "layer": "decade"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "all": [
+            {
+              "star": "貪狼",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "any": [
+                {
+                  "star": "貪狼",
+                  "hua": "祿"
+                },
+                {
+                  "star": "貪狼",
+                  "hua": "祿",
+                  "layer": "decade"
+                },
+                {
+                  "star": "貪狼",
+                  "hua": "權"
+                },
+                {
+                  "star": "貪狼",
+                  "hua": "權",
+                  "layer": "decade"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "all": [
+            {
+              "star": "武曲",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "any": [
+                {
+                  "any": [
+                    {
+                      "star": "武曲",
+                      "hua": "祿"
+                    },
+                    {
+                      "star": "武曲",
+                      "hua": "祿",
+                      "layer": "decade"
+                    },
+                    {
+                      "star": "武曲",
+                      "hua": "權"
+                    },
+                    {
+                      "star": "武曲",
+                      "hua": "權",
+                      "layer": "decade"
+                    },
+                    {
+                      "star": "武曲",
+                      "hua": "科"
+                    },
+                    {
+                      "star": "武曲",
+                      "hua": "科",
+                      "layer": "decade"
+                    }
+                  ]
+                },
+                {
+                  "geju": "caiyin"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "all": [
+            {
+              "star": "太陽",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "any": [
+                {
+                  "any": [
+                    {
+                      "star": "太陽",
+                      "hua": "科"
+                    },
+                    {
+                      "star": "太陽",
+                      "hua": "科",
+                      "layer": "decade"
+                    }
+                  ]
+                },
+                {
+                  "any": [
+                    {
+                      "star": "天梁",
+                      "hua": "科"
+                    },
+                    {
+                      "star": "天梁",
+                      "hua": "科",
+                      "layer": "decade"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "all": [
+            {
+              "star": "紫微",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "any": [
+                {
+                  "star": "紫微",
+                  "hua": "科"
+                },
+                {
+                  "star": "紫微",
+                  "hua": "科",
+                  "layer": "decade"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "claim": "這十年變動幅度較大，變得也辛苦。",
+    "en": "This decade the changes are bigger and harder going.",
+    "limit": "原文：叛逆所喜即順從所不喜。",
+    "sources": [
+      {
+        "id": "wtz.deep.p046.b007",
+        "sha256": "174f20e8efe6d718ca4efa166ccc4614c40ba180c3142901ada64a661093e200"
+      },
+      {
+        "id": "wtz.deep.p046.b009",
+        "sha256": "68695b6f576ff6ee359f2ad373e1256af88d5f19bc5f5f2779dffd1b40e61b08"
+      }
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "card.ming.pojun-yinshen.pan-xi",
+    "palace": "命宮",
+    "topic": "運程",
+    "kind": "claim",
+    "system": 2,
+    "pole": "叛逆",
+    "layer": "decade",
+    "when": {
+      "any": [
+        {
+          "all": [
+            {
+              "star": "廉貞",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "meets": "天府",
+              "stars": [
+                "左輔",
+                "右弼",
+                "天魁",
+                "天鉞"
+              ]
+            }
+          ]
+        },
+        {
+          "all": [
+            {
+              "star": "貪狼",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "meets": "貪狼",
+              "stars": [
+                "火星",
+                "鈴星"
+              ],
+              "reach": "same"
+            }
+          ]
+        },
+        {
+          "all": [
+            {
+              "star": "巨門",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "any": [
+                {
+                  "any": [
+                    {
+                      "star": "天同",
+                      "hua": "祿"
+                    },
+                    {
+                      "star": "天同",
+                      "hua": "祿",
+                      "layer": "decade"
+                    }
+                  ]
+                },
+                {
+                  "any": [
+                    {
+                      "star": "巨門",
+                      "hua": "祿"
+                    },
+                    {
+                      "star": "巨門",
+                      "hua": "祿",
+                      "layer": "decade"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "all": [
+            {
+              "star": "武曲",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "geju": "xingji"
+            }
+          ]
+        },
+        {
+          "all": [
+            {
+              "star": "太陽",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "any": [
+                {
+                  "any": [
+                    {
+                      "star": "太陽",
+                      "hua": "祿"
+                    },
+                    {
+                      "star": "太陽",
+                      "hua": "祿",
+                      "layer": "decade"
+                    },
+                    {
+                      "star": "太陽",
+                      "hua": "權"
+                    },
+                    {
+                      "star": "太陽",
+                      "hua": "權",
+                      "layer": "decade"
+                    }
+                  ]
+                },
+                {
+                  "any": [
+                    {
+                      "star": "天梁",
+                      "hua": "祿"
+                    },
+                    {
+                      "star": "天梁",
+                      "hua": "祿",
+                      "layer": "decade"
+                    },
+                    {
+                      "star": "天梁",
+                      "hua": "權"
+                    },
+                    {
+                      "star": "天梁",
+                      "hua": "權",
+                      "layer": "decade"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "all": [
+            {
+              "star": "七殺",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "deLu": "七殺",
+              "layer": "decade"
+            }
+          ]
+        },
+        {
+          "all": [
+            {
+              "star": "紫微",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "any": [
+                {
+                  "star": "紫微",
+                  "hua": "權"
+                },
+                {
+                  "star": "紫微",
+                  "hua": "權",
+                  "layer": "decade"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "claim": "這十年有不得不變之勢，多是根本的改變，過程艱辛。",
+    "en": "This decade change is unavoidable, usually at the roots, and the process is hard.",
+    "sources": [
+      {
+        "id": "wtz.deep.p046.b005",
+        "sha256": "bfb0429a3b711f4c6ec09eb5a236d3e93b32451d16c05299297a0a738a8d77e7"
+      },
+      {
+        "id": "wtz.deep.p046.b006",
+        "sha256": "9808b4b6dd87394294fad2490a95b8632de87adab41ebf407cdc299b86e51469"
+      },
+      {
+        "id": "wtz.deep.p046.b008",
+        "sha256": "7f7405970bcd606dfc62ac17db600f87df6eb6aa1b0b5514de237d0898621c2d"
+      }
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "card.ming.pojun-yinshen.pan-buxi",
+    "palace": "命宮",
+    "topic": "運程",
+    "kind": "claim",
+    "system": 2,
+    "pole": "叛逆",
+    "layer": "decade",
+    "when": {
+      "any": [
+        {
+          "all": [
+            {
+              "star": "廉貞",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "any": [
+                {
+                  "any": [
+                    {
+                      "star": "廉貞",
+                      "hua": "祿"
+                    },
+                    {
+                      "star": "廉貞",
+                      "hua": "祿",
+                      "layer": "decade"
+                    }
+                  ]
+                },
+                {
+                  "any": [
+                    {
+                      "star": "天府",
+                      "hua": "科"
+                    },
+                    {
+                      "star": "天府",
+                      "hua": "科",
+                      "layer": "decade"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "all": [
+            {
+              "star": "太陰",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "any": [
+                {
+                  "star": "太陰",
+                  "hua": "祿"
+                },
+                {
+                  "star": "太陰",
+                  "hua": "祿",
+                  "layer": "decade"
+                },
+                {
+                  "star": "太陰",
+                  "hua": "權"
+                },
+                {
+                  "star": "太陰",
+                  "hua": "權",
+                  "layer": "decade"
+                },
+                {
+                  "star": "太陰",
+                  "hua": "科"
+                },
+                {
+                  "star": "太陰",
+                  "hua": "科",
+                  "layer": "decade"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "all": [
+            {
+              "star": "貪狼",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "any": [
+                {
+                  "star": "貪狼",
+                  "hua": "祿"
+                },
+                {
+                  "star": "貪狼",
+                  "hua": "祿",
+                  "layer": "decade"
+                },
+                {
+                  "star": "貪狼",
+                  "hua": "權"
+                },
+                {
+                  "star": "貪狼",
+                  "hua": "權",
+                  "layer": "decade"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "all": [
+            {
+              "star": "武曲",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "any": [
+                {
+                  "any": [
+                    {
+                      "star": "武曲",
+                      "hua": "祿"
+                    },
+                    {
+                      "star": "武曲",
+                      "hua": "祿",
+                      "layer": "decade"
+                    },
+                    {
+                      "star": "武曲",
+                      "hua": "權"
+                    },
+                    {
+                      "star": "武曲",
+                      "hua": "權",
+                      "layer": "decade"
+                    },
+                    {
+                      "star": "武曲",
+                      "hua": "科"
+                    },
+                    {
+                      "star": "武曲",
+                      "hua": "科",
+                      "layer": "decade"
+                    }
+                  ]
+                },
+                {
+                  "geju": "caiyin"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "all": [
+            {
+              "star": "太陽",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "any": [
+                {
+                  "any": [
+                    {
+                      "star": "太陽",
+                      "hua": "科"
+                    },
+                    {
+                      "star": "太陽",
+                      "hua": "科",
+                      "layer": "decade"
+                    }
+                  ]
+                },
+                {
+                  "any": [
+                    {
+                      "star": "天梁",
+                      "hua": "科"
+                    },
+                    {
+                      "star": "天梁",
+                      "hua": "科",
+                      "layer": "decade"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "all": [
+            {
+              "star": "紫微",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "any": [
+                {
+                  "star": "紫微",
+                  "hua": "科"
+                },
+                {
+                  "star": "紫微",
+                  "hua": "科",
+                  "layer": "decade"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "none": {
+      "any": [
+        {
+          "all": [
+            {
+              "star": "廉貞",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "meets": "天府",
+              "stars": [
+                "左輔",
+                "右弼",
+                "天魁",
+                "天鉞"
+              ]
+            }
+          ]
+        },
+        {
+          "all": [
+            {
+              "star": "貪狼",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "meets": "貪狼",
+              "stars": [
+                "火星",
+                "鈴星"
+              ],
+              "reach": "same"
+            }
+          ]
+        },
+        {
+          "all": [
+            {
+              "star": "巨門",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "any": [
+                {
+                  "any": [
+                    {
+                      "star": "天同",
+                      "hua": "祿"
+                    },
+                    {
+                      "star": "天同",
+                      "hua": "祿",
+                      "layer": "decade"
+                    }
+                  ]
+                },
+                {
+                  "any": [
+                    {
+                      "star": "巨門",
+                      "hua": "祿"
+                    },
+                    {
+                      "star": "巨門",
+                      "hua": "祿",
+                      "layer": "decade"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "all": [
+            {
+              "star": "武曲",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "geju": "xingji"
+            }
+          ]
+        },
+        {
+          "all": [
+            {
+              "star": "太陽",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "any": [
+                {
+                  "any": [
+                    {
+                      "star": "太陽",
+                      "hua": "祿"
+                    },
+                    {
+                      "star": "太陽",
+                      "hua": "祿",
+                      "layer": "decade"
+                    },
+                    {
+                      "star": "太陽",
+                      "hua": "權"
+                    },
+                    {
+                      "star": "太陽",
+                      "hua": "權",
+                      "layer": "decade"
+                    }
+                  ]
+                },
+                {
+                  "any": [
+                    {
+                      "star": "天梁",
+                      "hua": "祿"
+                    },
+                    {
+                      "star": "天梁",
+                      "hua": "祿",
+                      "layer": "decade"
+                    },
+                    {
+                      "star": "天梁",
+                      "hua": "權"
+                    },
+                    {
+                      "star": "天梁",
+                      "hua": "權",
+                      "layer": "decade"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "all": [
+            {
+              "star": "七殺",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "deLu": "七殺",
+              "layer": "decade"
+            }
+          ]
+        },
+        {
+          "all": [
+            {
+              "star": "紫微",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "any": [
+                {
+                  "star": "紫微",
+                  "hua": "權"
+                },
+                {
+                  "star": "紫微",
+                  "hua": "權",
+                  "layer": "decade"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "claim": "這十年容易進退失據，或者錯失良機。",
+    "en": "This decade you may lose your footing, or let good chances slip.",
+    "limit": "原文：順從所喜即叛逆所不喜。",
+    "sources": [
+      {
+        "id": "wtz.deep.p046.b008",
+        "sha256": "7f7405970bcd606dfc62ac17db600f87df6eb6aa1b0b5514de237d0898621c2d"
+      },
+      {
+        "id": "wtz.deep.p046.b009",
+        "sha256": "68695b6f576ff6ee359f2ad373e1256af88d5f19bc5f5f2779dffd1b40e61b08"
+      }
+    ],
+    "status": "draft"
+  }
+]

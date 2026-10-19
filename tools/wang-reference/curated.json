@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "note": "人工整理嘅查閱路線與分歧；頁碼一律係手上595頁PDF嘅一基頁序。唔係可直接執行嘅判斷規則。",
+  "sections": [
+    {"id":"intro","title":"序論","start":1,"end":4},
+    {"id":"main-stars","title":"十四正曜","start":5,"end":40},
+    {"id":"systems","title":"六十星系（含推斷方法、後記）","start":40,"end":220},
+    {"id":"auxiliary","title":"輔佐煞曜總論","start":220,"end":234},
+    {"id":"transformations","title":"化曜（四化總論及逐星四化）","start":234,"end":314},
+    {"id":"misc","title":"雜曜與廟陷說明","start":314,"end":326},
+    {"id":"brightness","title":"廟陷表（含生時星曜表）","start":327,"end":332},
+    {"id":"palace-intro","title":"下篇宮垣論目錄及前言","start":333,"end":335},
+    {"id":"ming","title":"命宮","palace":"命宮","start":335,"end":366},
+    {"id":"siblings","title":"兄弟宮","palace":"兄弟","start":366,"end":377},
+    {"id":"spouse","title":"夫妻宮","palace":"夫妻","start":377,"end":404},
+    {"id":"children","title":"子女宮","palace":"子女","start":404,"end":429},
+    {"id":"wealth","title":"財帛宮","palace":"財帛","start":429,"end":463},
+    {"id":"health","title":"疾厄宮","palace":"疾厄","start":463,"end":486},
+    {"id":"travel","title":"遷移宮","palace":"遷移","start":486,"end":503},
+    {"id":"friends","title":"交友宮（奴僕宮）","palace":"僕役","start":503,"end":516},
+    {"id":"career","title":"事業宮（官祿宮）","palace":"官祿","start":516,"end":551},
+    {"id":"property","title":"田宅宮","palace":"田宅","start":551,"end":565},
+    {"id":"wellbeing","title":"福德宮","palace":"福德","start":565,"end":580},
+    {"id":"parents","title":"父母宮","palace":"父母","start":580,"end":595}
+  ],
+  "conflicts": [
+    {"id":"W-001","subject":"戊干化科","deep_pages":[287,291],"adopted":"中州派：太陽化科；《全書》及通行表右弼化科另列版本。","decision":"docs/rules.md R-003，2026-09-28決定","status":"project_decision_recorded","caution":"唔可以將全書嘅四化前提混入中州派規則。"},
+    {"id":"W-002","subject":"庚干化科","deep_pages":[291],"adopted":"中州派：天府化科；《全書》庚干太陰化科係另一版本。","decision":"docs/rules.md R-003","status":"project_decision_recorded","caution":"保留版本差異；唔以軟件多數票改寫來源。"},
+    {"id":"W-003","subject":"壬干化科及輔弼化科","deep_pages":[291,293],"adopted":"中州派：天府化科；《全書》壬干同為天府，通行表及舊產品曾用左輔。","decision":"docs/rules.md R-003，2026-09-28決定","status":"project_decision_recorded","caution":"舊決策日誌有被推翻嘅左輔方案；讀最新日期決定。"},
+    {"id":"W-004","subject":"廟旺／廟陷表版本","deep_pages":[327,328,329,330,331,332],"adopted":"現行引擎保留既有七檔表；原書用六檔，不能當作同一套數值。","decision":"docs/b5-zhongzhou.md；docs/rules.md 廟旺表；packages/ziwei/src/rules/brightness.json","status":"known_divergence","caution":"引文按原書廟陷分支寫，不能用引擎同名標籤就宣布條件已吻合；要明確對照版本。"},
+    {"id":"W-005","subject":"子時分日","deep_pages":[],"initial_note":4,"adopted":"專案採零時換日（same-day）；初階筆記第4節只作查原文入口。","decision":"docs/rules.md R-002，2026-10-06決定","status":"decision_based_on_prior_transcription_review","caution":"本次未取得初階原書／逐字轉錄；不可替初階摘要製造原書頁碼或逐字引文。"},
+    {"id":"W-006","subject":"出生地時間與洛陽時間","deep_pages":[],"initial_note":4,"adopted":"專案預設出生地，提供洛陽選項；講義採洛陽時間嘅既有核對記錄見R-004。","decision":"docs/rules.md R-004","status":"project_option","caution":"產品預設唔等於作者原文；引用時分開講。"}
+  ],
+  "reading_routes": [
+    {"id":"cooperation-zi-po","query":"紫微 破軍","palace":"僕役","pages":[503,504,516],"purpose":"先讀交友宮引言及紫微、破軍分支，再查六十星系紫破同宮；合作唔等於婚姻或一般紫微性格。"},
+    {"id":"tong-liang","query":"天同 天梁","pages":[14,16,87,88,309],"purpose":"合併讀同梁星系、化忌、火鈴、祿存及羊陀夾；不可由單星福氣句決定全章。"},
+    {"id":"career-ji","query":"天機","palace":"官祿","pages":[516,517,518,522,523,524],"purpose":"先讀事業宮範圍，再讀天機獨坐／機梁等分支，保留四化與配曜條件。"},
+    {"id":"time-layers","query":"大限 流年","pages":[40,41,219,220,234,235,236,237,238],"purpose":"辨認本命性質、所行星系及四化交涉；頁面同時提到幾層，唔代表同一段規則可無條件跨層使用。"}
+  ]
+}

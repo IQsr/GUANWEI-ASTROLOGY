@@ -1,0 +1,1546 @@
+[
+  {
+    "id": "card.ming.liang-chouwei.core",
+    "palace": "命宮",
+    "topic": "本質",
+    "kind": "claim",
+    "system": 26,
+    "layer": "natal",
+    "claim": "你心裡自有一把尺，看人看事都拿它來衡量；你看重的，多是精神上的東西，多於物質。",
+    "en": "You carry your own measuring stick and judge people and situations by it; what you value tends to be more of the spirit than of material things.",
+    "limit": "原文分正直、精明兩頭：同一把尺量人量己，還是只量別人。",
+    "sources": [
+      {
+        "id": "wtz.deep.p110.b014",
+        "sha256": "1239d1e017788c556fd090b8df3596301a0b2e798c8dbdde5c22894f535b556d"
+      },
+      {
+        "id": "wtz.deep.p110.b015",
+        "sha256": "8bb1959d81bf6fe4a0a3c8f7c706df859d52df4cc80d0d76dba81cc8d6c73ce9"
+      },
+      {
+        "id": "wtz.deep.p359.b005",
+        "sha256": "8b8fd57ff248f4999072c4333fd8c45d8f4a168131bea92c3cb578f53b5e0d58"
+      }
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "card.ming.liang-chouwei.zhengzhi",
+    "palace": "命宮",
+    "topic": "本質",
+    "kind": "caveat",
+    "system": 26,
+    "pole": "正直",
+    "layer": "natal",
+    "claim": "你的盤偏正直：你的原則用來要求別人，也同樣用來要求自己。",
+    "en": "Your chart leans upright: the principles you hold others to, you hold yourself to as well.",
+    "sources": [
+      {
+        "id": "wtz.deep.p110.b015",
+        "sha256": "8bb1959d81bf6fe4a0a3c8f7c706df859d52df4cc80d0d76dba81cc8d6c73ce9"
+      },
+      {
+        "id": "wtz.deep.p111.b002",
+        "sha256": "861ec047d87ec403c07bc9b9341cda34ead209f601c7cb95ced627b6d6687c40"
+      }
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "card.ming.liang-chouwei.jingming",
+    "palace": "命宮",
+    "topic": "本質",
+    "kind": "caveat",
+    "system": 26,
+    "pole": "精明",
+    "layer": "natal",
+    "claim": "你的盤偏精明：你一眼看出別人的缺點，對自己卻容易用另一把尺。",
+    "en": "Your chart leans shrewd: you spot other people's faults at a glance, but tend to measure yourself with a different ruler.",
+    "sources": [
+      {
+        "id": "wtz.deep.p110.b015",
+        "sha256": "8bb1959d81bf6fe4a0a3c8f7c706df859d52df4cc80d0d76dba81cc8d6c73ce9"
+      },
+      {
+        "id": "wtz.deep.p110.b016",
+        "sha256": "c7ba4c9608a3cb23a236b2169149982d2c569451208dfcad063738ac13f11dd3"
+      }
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "card.ming.liang-chouwei.style",
+    "palace": "命宮",
+    "topic": "處事",
+    "kind": "claim",
+    "system": 26,
+    "layer": "natal",
+    "claim": "你的長處偏在計劃謀略和監察把關，往往在幕後發揮作用。",
+    "en": "Your strengths lie in planning and in oversight, and you often do your work from behind the scenes.",
+    "limit": "原文丑未天梁與天機對拱，主計劃謀略，又主機動、動盪。",
+    "sources": [
+      {
+        "id": "wtz.deep.p359.b007",
+        "sha256": "885a14c5dd0dadfa95f4352a6e3e32aabf799093f7e40f1ae36bdbdaec99473d"
+      },
+      {
+        "id": "wtz.deep.p360.b011",
+        "sha256": "a21807ad441c84cbdd2fccadf81bb455338b5c9a2aa6e925d9df375fe6d308c0"
+      }
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "card.ming.liang-chouwei.tuoluo",
+    "palace": "命宮",
+    "topic": "處事",
+    "kind": "caveat",
+    "system": 26,
+    "layer": "natal",
+    "when": {
+      "meets": "天梁",
+      "stars": [
+        "陀羅"
+      ],
+      "reach": "same"
+    },
+    "claim": "你的長處較難發揮，短處反而容易露出來。",
+    "en": "Your strengths are harder to bring out, while your weak spots show more easily.",
+    "limit": "原文「天梁最不宜陀羅同度，即非精明，又非正直，缺點最多」。 原文意思：陀羅同度，精明與正直兩頭長處都難發揮。讀者文字唔用「既不精明也不正直」呢類標籤。",
+    "sources": [
+      {
+        "id": "wtz.deep.p111.b002",
+        "sha256": "861ec047d87ec403c07bc9b9341cda34ead209f601c7cb95ced627b6d6687c40"
+      }
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "card.ming.liang-chouwei.ma-jingming",
+    "palace": "命宮",
+    "topic": "處事",
+    "kind": "caveat",
+    "system": 26,
+    "pole": "精明",
+    "layer": "natal",
+    "when": {
+      "meets": "天梁",
+      "stars": [
+        "天馬"
+      ]
+    },
+    "claim": "你容易飄蕩，難以安定在一處。",
+    "en": "You tend to drift and find it hard to settle in one place.",
+    "sources": [
+      {
+        "id": "wtz.deep.p111.b002",
+        "sha256": "861ec047d87ec403c07bc9b9341cda34ead209f601c7cb95ced627b6d6687c40"
+      }
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "card.ming.liang-chouwei.ma-zhengzhi",
+    "palace": "命宮",
+    "topic": "處事",
+    "kind": "caveat",
+    "system": 26,
+    "pole": "正直",
+    "layer": "natal",
+    "when": {
+      "meets": "天梁",
+      "stars": [
+        "天馬"
+      ]
+    },
+    "claim": "你的才智不容易找到發揮的位置。",
+    "en": "Your talents do not easily find a place where they can be put to full use.",
+    "sources": [
+      {
+        "id": "wtz.deep.p111.b002",
+        "sha256": "861ec047d87ec403c07bc9b9341cda34ead209f601c7cb95ced627b6d6687c40"
+      }
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "card.ming.liang-chouwei.changqu",
+    "palace": "命宮",
+    "topic": "處事",
+    "kind": "caveat",
+    "system": 26,
+    "layer": "natal",
+    "when": {
+      "meets": "天梁",
+      "stars": [
+        "文昌",
+        "文曲"
+      ],
+      "reach": "same"
+    },
+    "claim": "你聰明過人，但容易不安於一行，要留意別到頭來樣樣只做一半。",
+    "en": "You are very bright but restless in any one line of work; take care not to end up with everything half-finished.",
+    "limit": "原文「躔昌曲、天才等曜」；天才引擎冇，只計昌曲同度。原文「到老無成」改寫為提醒。",
+    "sources": [
+      {
+        "id": "wtz.deep.p360.b011",
+        "sha256": "a21807ad441c84cbdd2fccadf81bb455338b5c9a2aa6e925d9df375fe6d308c0"
+      },
+      {
+        "id": "wtz.deep.p361.b001",
+        "sha256": "d465c95caebd23eb0b38f7d8d159cc1d8d5dcd1604626bf355401b7710ab43bb"
+      }
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "card.ming.liang-chouwei.sha-kong",
+    "palace": "命宮",
+    "system": 26,
+    "status": "draft",
+    "topic": "處事",
+    "kind": "caveat",
+    "layer": "natal",
+    "when": {
+      "all": [
+        {
+          "meets": "天梁",
+          "stars": [
+            "擎羊",
+            "陀羅",
+            "火星",
+            "鈴星"
+          ]
+        },
+        {
+          "meets": "天梁",
+          "stars": [
+            "地空",
+            "地劫"
+          ]
+        }
+      ]
+    },
+    "claim": "你往往有一套與別人不同的人生觀。",
+    "en": "You tend to hold a view of life quite unlike other people's.",
+    "limit": "原文「見煞曜及空耗」，古人以為僧道之命，現代多表現為獨特人生觀；大耗引擎冇，只計煞曜與空劫。",
+    "sources": [
+      {
+        "id": "wtz.deep.p360.b011",
+        "sha256": "a21807ad441c84cbdd2fccadf81bb455338b5c9a2aa6e925d9df375fe6d308c0"
+      },
+      {
+        "id": "wtz.deep.p361.b001",
+        "sha256": "d465c95caebd23eb0b38f7d8d159cc1d8d5dcd1604626bf355401b7710ab43bb"
+      }
+    ]
+  },
+  {
+    "id": "card.ming.liang-chouwei.art",
+    "palace": "命宮",
+    "topic": "處事",
+    "kind": "caveat",
+    "system": 26,
+    "layer": "natal",
+    "claim": "你帶點藝術氣質，表現出來往往不拘一格。",
+    "en": "You have an artistic streak that tends to show itself in an unconventional, free-spirited way.",
+    "sources": [
+      {
+        "id": "wtz.deep.p361.b006",
+        "sha256": "9c5270e601746902f0377e1eccbd036697f3864d1ee65c0743332d8dcee78a50"
+      }
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "card.ming.liang-chouwei.quan",
+    "palace": "命宮",
+    "topic": "處事",
+    "kind": "caveat",
+    "system": 26,
+    "layer": "natal",
+    "when": {
+      "star": "天梁",
+      "hua": "權"
+    },
+    "claim": "你手上有權時，要提防自己用得太盡。",
+    "en": "When you hold authority, be careful not to push it too far.",
+    "limit": "原文「化權即可能為弄權的傾向，見火鈴者尤然」。",
+    "sources": [
+      {
+        "id": "wtz.deep.p359.b005",
+        "sha256": "8b8fd57ff248f4999072c4333fd8c45d8f4a168131bea92c3cb578f53b5e0d58"
+      }
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "card.ming.liang-chouwei.lonely-jingming",
+    "palace": "命宮",
+    "topic": "待人",
+    "kind": "claim",
+    "system": 26,
+    "pole": "精明",
+    "layer": "natal",
+    "when": {
+      "meets": "天梁",
+      "stars": [
+        "擎羊",
+        "陀羅",
+        "火星",
+        "鈴星",
+        "地空",
+        "地劫",
+        "化忌",
+        "天刑"
+      ],
+      "n": 2
+    },
+    "claim": "你容易因挑剔而招怨、常受人指責，人際上難免孤單。",
+    "en": "Your fault-finding can draw resentment and criticism, and you may feel rather alone among people.",
+    "limit": "原文「煞忌刑耗並湊」；大耗引擎冇，以三方四正兩粒或以上煞忌刑代表。正直者「尚可」。",
+    "sources": [
+      {
+        "id": "wtz.deep.p111.b003",
+        "sha256": "846a5040c5df1a8c668bc53798c74d041a8f47c87174e56d2eea34918418f7de"
+      }
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "card.ming.liang-chouwei.fuzuo",
+    "palace": "命宮",
+    "topic": "待人",
+    "kind": "caveat",
+    "system": 26,
+    "layer": "natal",
+    "when": {
+      "meets": "天梁",
+      "stars": [
+        "左輔",
+        "右弼",
+        "天魁",
+        "天鉞",
+        "文昌",
+        "文曲"
+      ],
+      "n": 2
+    },
+    "claim": "你身邊有人支持，不至於孤立無援。",
+    "en": "You have people backing you, so you are not left to stand alone.",
+    "sources": [
+      {
+        "id": "wtz.deep.p111.b003",
+        "sha256": "846a5040c5df1a8c668bc53798c74d041a8f47c87174e56d2eea34918418f7de"
+      }
+    ],
+    "status": "draft",
+    "limit": "原文「輔佐諸曜同會」，計兩粒或以上。"
+  },
+  {
+    "id": "card.ming.liang-chouwei.lu",
+    "palace": "命宮",
+    "topic": "待人",
+    "kind": "caveat",
+    "system": 26,
+    "layer": "natal",
+    "when": {
+      "star": "天梁",
+      "hua": "祿"
+    },
+    "claim": "你得到的好處容易惹來是非，招人怨氣。",
+    "en": "The advantages you gain can easily stir up gossip and resentment.",
+    "sources": [
+      {
+        "id": "wtz.deep.p359.b005",
+        "sha256": "8b8fd57ff248f4999072c4333fd8c45d8f4a168131bea92c3cb578f53b5e0d58"
+      }
+    ],
+    "status": "draft",
+    "limit": "原文「化祿即帶來是非困擾，為人怨恨」；祿存同度只主精明，不在此卡。"
+  },
+  {
+    "id": "card.ming.liang-chouwei.weak-sun",
+    "palace": "命宮",
+    "topic": "待人",
+    "kind": "caveat",
+    "system": 26,
+    "layer": "natal",
+    "when": {
+      "star": "天梁",
+      "at": [
+        "未"
+      ]
+    },
+    "claim": "你容易招來怨言。",
+    "en": "You tend to draw complaints and resentment.",
+    "limit": "原文「未宮天梁所會者為亥宮的太陽…凡天梁會太陽陷弱，皆主招尤怨」。",
+    "sources": [
+      {
+        "id": "wtz.deep.p361.b002",
+        "sha256": "beccffdbba71bc4f0fff0d4d3e9b960a52e2c1f550ed83a11803c1cabfe2eeed"
+      }
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "card.ming.liang-chouwei.law",
+    "palace": "命宮",
+    "system": 26,
+    "status": "draft",
+    "topic": "處事",
+    "kind": "caveat",
+    "layer": "natal",
+    "when": {
+      "all": [
+        {
+          "star": "天梁",
+          "at": [
+            "未"
+          ]
+        },
+        {
+          "meets": "天梁",
+          "stars": [
+            "天刑"
+          ]
+        },
+        {
+          "meets": "天梁",
+          "stars": [
+            "文昌",
+            "文曲"
+          ]
+        }
+      ]
+    },
+    "none": {
+      "meets": "天梁",
+      "stars": [
+        "擎羊",
+        "陀羅",
+        "火星",
+        "鈴星",
+        "地空",
+        "地劫"
+      ]
+    },
+    "claim": "你反而適合從事法律，或者紀律部隊一類的工作。",
+    "en": "You may in fact be well suited to legal work or a disciplined service.",
+    "limit": "原文「見刑曜及昌曲、龍鳳、青龍、奏書、官符等曜，而不見火鈴、羊陀、空劫」；龍鳳等雜曜引擎冇，只計天刑、昌曲。",
+    "sources": [
+      {
+        "id": "wtz.deep.p361.b002",
+        "sha256": "beccffdbba71bc4f0fff0d4d3e9b960a52e2c1f550ed83a11803c1cabfe2eeed"
+      }
+    ]
+  },
+  {
+    "id": "card.ming.liang-chouwei.pivot",
+    "palace": "命宮",
+    "topic": "運程",
+    "kind": "caveat",
+    "system": 26,
+    "layer": "natal",
+    "decades": {
+      "any": [
+        {
+          "star": "貪狼",
+          "in": {
+            "name": "命宮",
+            "layer": "decade"
+          }
+        },
+        {
+          "star": "巨門",
+          "in": {
+            "name": "命宮",
+            "layer": "decade"
+          }
+        },
+        {
+          "star": "太陽",
+          "in": {
+            "name": "命宮",
+            "layer": "decade"
+          }
+        },
+        {
+          "star": "天同",
+          "in": {
+            "name": "命宮",
+            "layer": "decade"
+          }
+        }
+      ]
+    },
+    "claim": "{decades}這幾段時間，是你一生運程的關鍵。",
+    "en": "The years {decades} are the turning points of your life course.",
+    "sources": [
+      {
+        "id": "wtz.deep.p361.b007",
+        "sha256": "1b24f9e1876df40d109fcdf13de82937afaa2e77c940d944fed9a8e8ea52d98e"
+      }
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "card.ming.liang-chouwei.sha-jingming",
+    "palace": "命宮",
+    "topic": "運程",
+    "kind": "claim",
+    "system": 26,
+    "pole": "精明",
+    "layer": "decade",
+    "when": {
+      "star": "七殺",
+      "in": {
+        "name": "命宮",
+        "layer": "decade"
+      }
+    },
+    "claim": "這十年對你順遂。",
+    "en": "This decade goes smoothly for you.",
+    "sources": [
+      {
+        "id": "wtz.deep.p111.b004",
+        "sha256": "62c9f351fc331d441f7bcb25f537349f2adef67184b0101e884c73ce16190e0a"
+      }
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "card.ming.liang-chouwei.sha-zhengzhi",
+    "palace": "命宮",
+    "topic": "運程",
+    "kind": "claim",
+    "system": 26,
+    "pole": "正直",
+    "layer": "decade",
+    "when": {
+      "star": "七殺",
+      "in": {
+        "name": "命宮",
+        "layer": "decade"
+      }
+    },
+    "claim": "這十年你的直率反而容易招惹是非。",
+    "en": "This decade, your straightness tends to stir up trouble rather than help.",
+    "limit": "原文「除非諸吉齊拱」，當七殺三方四正見三粒或以上輔佐。父母一層不寫。",
+    "sources": [
+      {
+        "id": "wtz.deep.p111.b004",
+        "sha256": "62c9f351fc331d441f7bcb25f537349f2adef67184b0101e884c73ce16190e0a"
+      }
+    ],
+    "status": "draft",
+    "none": {
+      "meets": "七殺",
+      "stars": [
+        "左輔",
+        "右弼",
+        "天魁",
+        "天鉞",
+        "文昌",
+        "文曲"
+      ],
+      "n": 3
+    }
+  },
+  {
+    "id": "card.ming.liang-chouwei.tong-zhengzhi",
+    "palace": "命宮",
+    "topic": "運程",
+    "kind": "claim",
+    "system": 26,
+    "pole": "正直",
+    "layer": "decade",
+    "when": {
+      "star": "天同",
+      "in": {
+        "name": "命宮",
+        "layer": "decade"
+      }
+    },
+    "claim": "這十年往往是你打基礎的時期。",
+    "en": "This decade is often when you lay your foundations.",
+    "sources": [
+      {
+        "id": "wtz.deep.p111.b005",
+        "sha256": "b74ca66a544af59b05e6a7c157dbb98eed2f72ad1c383af7859aafc387c104f3"
+      }
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "card.ming.liang-chouwei.tong-zhengzhi-fuzuo",
+    "palace": "命宮",
+    "system": 26,
+    "status": "draft",
+    "topic": "運程",
+    "kind": "caveat",
+    "pole": "正直",
+    "layer": "decade",
+    "when": {
+      "all": [
+        {
+          "star": "天同",
+          "in": {
+            "name": "命宮",
+            "layer": "decade"
+          }
+        },
+        {
+          "meets": "天同",
+          "stars": [
+            "左輔",
+            "右弼",
+            "天魁",
+            "天鉞",
+            "文昌",
+            "文曲"
+          ],
+          "n": 2
+        }
+      ]
+    },
+    "claim": "這十年更見精彩發達。",
+    "en": "This decade can be especially bright and prosperous for you.",
+    "limit": "原文「見輔佐諸曜則更精彩發達」。",
+    "sources": [
+      {
+        "id": "wtz.deep.p111.b005",
+        "sha256": "b74ca66a544af59b05e6a7c157dbb98eed2f72ad1c383af7859aafc387c104f3"
+      }
+    ]
+  },
+  {
+    "id": "card.ming.liang-chouwei.tong-jingming",
+    "palace": "命宮",
+    "topic": "運程",
+    "kind": "claim",
+    "system": 26,
+    "pole": "精明",
+    "layer": "decade",
+    "when": {
+      "star": "天同",
+      "in": {
+        "name": "命宮",
+        "layer": "decade"
+      }
+    },
+    "claim": "這十年要靠自己艱苦建立，旁人幫忙也只能減輕辛勞。",
+    "en": "This decade you have to build things the hard way; help from others only lightens the load.",
+    "sources": [
+      {
+        "id": "wtz.deep.p111.b005",
+        "sha256": "b74ca66a544af59b05e6a7c157dbb98eed2f72ad1c383af7859aafc387c104f3"
+      }
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "card.ming.liang-chouwei.tong-year-sha",
+    "palace": "命宮",
+    "system": 26,
+    "status": "draft",
+    "topic": "運程",
+    "kind": "caveat",
+    "pole": "精明",
+    "layer": "annual",
+    "when": {
+      "all": [
+        {
+          "star": "天同",
+          "in": {
+            "name": "命宮",
+            "layer": "annual"
+          }
+        },
+        {
+          "meets": "天同",
+          "stars": [
+            "擎羊",
+            "陀羅",
+            "火星",
+            "鈴星",
+            "地空",
+            "地劫"
+          ]
+        },
+        {
+          "meets": "天同",
+          "stars": [
+            "化忌"
+          ]
+        }
+      ]
+    },
+    "claim": "這一年容易被是非和暗中的損害所累。",
+    "en": "This year you are prone to being dragged down by disputes and hidden losses.",
+    "limit": "原文「倘見煞忌同會之年，則尤為是非、陰損所累」，緊接精明者一句。",
+    "sources": [
+      {
+        "id": "wtz.deep.p111.b005",
+        "sha256": "b74ca66a544af59b05e6a7c157dbb98eed2f72ad1c383af7859aafc387c104f3"
+      }
+    ]
+  },
+  {
+    "id": "card.ming.liang-chouwei.wu-jingming",
+    "palace": "命宮",
+    "topic": "運程",
+    "kind": "claim",
+    "system": 26,
+    "pole": "精明",
+    "layer": "decade",
+    "when": {
+      "all": [
+        {
+          "star": "武曲",
+          "in": {
+            "name": "命宮",
+            "layer": "decade"
+          }
+        },
+        {
+          "meets": "武曲",
+          "stars": [
+            "化祿",
+            "化權",
+            "化科"
+          ]
+        },
+        {
+          "meets": "武曲",
+          "stars": [
+            "擎羊",
+            "陀羅",
+            "火星",
+            "鈴星",
+            "地空",
+            "地劫"
+          ],
+          "op": "lte",
+          "n": 1
+        }
+      ]
+    },
+    "claim": "這十年你可以掌權，但容易遭上司猜忌，收斂鋒芒才順遂。",
+    "en": "This decade you can take charge, but superiors may grow wary of you; keep a low profile and things go smoothly.",
+    "limit": "原文「見吉化而煞曜少者」。",
+    "sources": [
+      {
+        "id": "wtz.deep.p111.b006",
+        "sha256": "96a2fc1920684214eb263528316ec0b7cf3b771d276e22a3af97923a1d9aaaa7"
+      }
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "card.ming.liang-chouwei.wu-zhengzhi",
+    "palace": "命宮",
+    "topic": "運程",
+    "kind": "claim",
+    "system": 26,
+    "pole": "正直",
+    "layer": "decade",
+    "when": {
+      "star": "武曲",
+      "in": {
+        "name": "命宮",
+        "layer": "decade"
+      }
+    },
+    "claim": "這十年受上級倚重，事業有發展；但要慎選自己提拔的人，免受其累。",
+    "en": "This decade your superiors rely on you and your career grows, but choose carefully whom you promote, or they may drag you down.",
+    "sources": [
+      {
+        "id": "wtz.deep.p111.b007",
+        "sha256": "33527254b045fd7572d42c616c70287c890fea59e3ddf8f50eea54aa8a138409"
+      }
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "card.ming.liang-chouwei.sun-zhengzhi",
+    "palace": "命宮",
+    "topic": "運程",
+    "kind": "claim",
+    "system": 26,
+    "pole": "正直",
+    "layer": "decade",
+    "when": {
+      "all": [
+        {
+          "star": "太陽",
+          "in": {
+            "name": "命宮",
+            "layer": "decade"
+          }
+        },
+        {
+          "star": "太陽",
+          "brightness": [
+            "廟",
+            "旺"
+          ]
+        }
+      ]
+    },
+    "claim": "這十年是你得到聲譽的時期。",
+    "en": "This decade is a time when you earn a good name.",
+    "sources": [
+      {
+        "id": "wtz.deep.p111.b008",
+        "sha256": "64b7bf601c1d30f72f46db005a32f7af3c59a218f1873e3b598949d12ee3645f"
+      }
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "card.ming.liang-chouwei.dimsun-jingming",
+    "palace": "命宮",
+    "topic": "運程",
+    "kind": "claim",
+    "system": 26,
+    "pole": "精明",
+    "layer": "decade",
+    "when": {
+      "all": [
+        {
+          "star": "太陽",
+          "in": {
+            "name": "命宮",
+            "layer": "decade"
+          }
+        },
+        {
+          "star": "太陽",
+          "brightness": [
+            "陷",
+            "不"
+          ]
+        }
+      ]
+    },
+    "none": {
+      "star": "太陽",
+      "hua": "忌"
+    },
+    "claim": "這十年你可以得到有力人士的支持。",
+    "en": "This decade you can win the backing of influential people.",
+    "sources": [
+      {
+        "id": "wtz.deep.p111.b009",
+        "sha256": "9a12bb81a36d7754b82ccdca6f42d35d57d3d4aa39871909e56b3b4dec97c412"
+      },
+      {
+        "id": "wtz.deep.p112.b001",
+        "sha256": "185feae84711f5bd8cb614f7ea71d540e0685157f079c457bd015a31f2aa6a95"
+      }
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "card.ming.liang-chouwei.dimsun-ji-jingming",
+    "palace": "命宮",
+    "topic": "運程",
+    "kind": "claim",
+    "system": 26,
+    "pole": "精明",
+    "layer": "decade",
+    "when": {
+      "all": [
+        {
+          "star": "太陽",
+          "in": {
+            "name": "命宮",
+            "layer": "decade"
+          }
+        },
+        {
+          "star": "太陽",
+          "brightness": [
+            "陷",
+            "不"
+          ]
+        },
+        {
+          "star": "太陽",
+          "hua": "忌"
+        }
+      ]
+    },
+    "claim": "這十年一般對你不利，容易惹上是非怨言。",
+    "en": "This decade is generally unfavourable for you, with disputes and complaints easily arising.",
+    "sources": [
+      {
+        "id": "wtz.deep.p111.b009",
+        "sha256": "9a12bb81a36d7754b82ccdca6f42d35d57d3d4aa39871909e56b3b4dec97c412"
+      }
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "card.ming.liang-chouwei.dimsun-money",
+    "palace": "命宮",
+    "topic": "運程",
+    "kind": "caveat",
+    "system": 26,
+    "layer": "annual",
+    "when": {
+      "all": [
+        {
+          "star": "太陽",
+          "in": {
+            "name": "命宮",
+            "layer": "annual"
+          }
+        },
+        {
+          "star": "太陽",
+          "brightness": [
+            "陷",
+            "不"
+          ]
+        },
+        {
+          "star": "太陽",
+          "hua": "忌"
+        },
+        {
+          "star": "巨門",
+          "hua": "忌",
+          "layer": "annual"
+        }
+      ]
+    },
+    "claim": "這一年容易受錢財拖累。",
+    "en": "This year, money matters can drag you down.",
+    "limit": "原文：原局太陽化忌，流年巨門化忌沖起；正直者凶險較小。",
+    "sources": [
+      {
+        "id": "wtz.deep.p111.b009",
+        "sha256": "9a12bb81a36d7754b82ccdca6f42d35d57d3d4aa39871909e56b3b4dec97c412"
+      }
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "card.ming.liang-chouwei.po-jingming",
+    "palace": "命宮",
+    "topic": "運程",
+    "kind": "claim",
+    "system": 26,
+    "pole": "精明",
+    "layer": "decade",
+    "when": {
+      "star": "破軍",
+      "in": {
+        "name": "命宮",
+        "layer": "decade"
+      }
+    },
+    "claim": "這十年一般對你有利。",
+    "en": "This decade is generally in your favour.",
+    "sources": [
+      {
+        "id": "wtz.deep.p112.b002",
+        "sha256": "cbf93bfbe29dacdb0326194647ecc23d1499d13ca90776fb3adea9f90afd38ce"
+      }
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "card.ming.liang-chouwei.po-jingming-sha",
+    "palace": "命宮",
+    "system": 26,
+    "status": "draft",
+    "topic": "運程",
+    "kind": "caveat",
+    "pole": "精明",
+    "layer": "decade",
+    "when": {
+      "all": [
+        {
+          "star": "破軍",
+          "in": {
+            "name": "命宮",
+            "layer": "decade"
+          }
+        },
+        {
+          "meets": "破軍",
+          "stars": [
+            "擎羊",
+            "陀羅",
+            "火星",
+            "鈴星",
+            "地空",
+            "地劫"
+          ]
+        }
+      ]
+    },
+    "claim": "這十年你挑剔別人容易招怨，但只是一時的困擾。",
+    "en": "This decade your fault-finding can stir resentment, but the trouble is only passing.",
+    "sources": [
+      {
+        "id": "wtz.deep.p112.b002",
+        "sha256": "cbf93bfbe29dacdb0326194647ecc23d1499d13ca90776fb3adea9f90afd38ce"
+      }
+    ]
+  },
+  {
+    "id": "card.ming.liang-chouwei.po-jingming-clean",
+    "palace": "命宮",
+    "system": 26,
+    "status": "draft",
+    "topic": "運程",
+    "kind": "caveat",
+    "pole": "精明",
+    "layer": "decade",
+    "when": {
+      "star": "破軍",
+      "in": {
+        "name": "命宮",
+        "layer": "decade"
+      }
+    },
+    "none": {
+      "meets": "破軍",
+      "stars": [
+        "擎羊",
+        "陀羅",
+        "火星",
+        "鈴星",
+        "地空",
+        "地劫"
+      ]
+    },
+    "claim": "這十年往往是好轉變的開端。",
+    "en": "This decade is often the start of a change for the better.",
+    "sources": [
+      {
+        "id": "wtz.deep.p112.b002",
+        "sha256": "cbf93bfbe29dacdb0326194647ecc23d1499d13ca90776fb3adea9f90afd38ce"
+      }
+    ]
+  },
+  {
+    "id": "card.ming.liang-chouwei.po-zhengzhi",
+    "palace": "命宮",
+    "topic": "運程",
+    "kind": "claim",
+    "system": 26,
+    "pole": "正直",
+    "layer": "decade",
+    "when": {
+      "star": "破軍",
+      "in": {
+        "name": "命宮",
+        "layer": "decade"
+      }
+    },
+    "claim": "這十年守成就是好運：保住晚節，不求分外之財。",
+    "en": "This decade, holding steady is your good fortune: keep your integrity and do not reach for money that is not yours.",
+    "sources": [
+      {
+        "id": "wtz.deep.p112.b003",
+        "sha256": "140ec27a447eb411e804e85f2a17b137df9070410196531eedcaf011a09ea21e"
+      }
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "card.ming.liang-chouwei.ji-zhengzhi",
+    "palace": "命宮",
+    "topic": "運程",
+    "kind": "claim",
+    "system": 26,
+    "pole": "正直",
+    "layer": "decade",
+    "when": {
+      "star": "天機",
+      "in": {
+        "name": "命宮",
+        "layer": "decade"
+      }
+    },
+    "claim": "這十年聲譽漸隆，適合把關監察，或在幕後策劃。",
+    "en": "This decade your reputation grows; it suits oversight roles or planning from behind the scenes.",
+    "sources": [
+      {
+        "id": "wtz.deep.p112.b004",
+        "sha256": "3abe7c9ebfb3a494cab5a6b646fa5bcc0ed24bff7cd5f147f04627fd04f0604c"
+      }
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "card.ming.liang-chouwei.ji-jingming",
+    "palace": "命宮",
+    "topic": "運程",
+    "kind": "claim",
+    "system": 26,
+    "pole": "精明",
+    "layer": "decade",
+    "when": {
+      "star": "天機",
+      "in": {
+        "name": "命宮",
+        "layer": "decade"
+      }
+    },
+    "claim": "這十年容易招怨，被人孤立。",
+    "en": "This decade you may draw resentment and find yourself isolated.",
+    "sources": [
+      {
+        "id": "wtz.deep.p112.b004",
+        "sha256": "3abe7c9ebfb3a494cab5a6b646fa5bcc0ed24bff7cd5f147f04627fd04f0604c"
+      }
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "card.ming.liang-chouwei.moon-zhengzhi",
+    "palace": "命宮",
+    "topic": "運程",
+    "kind": "claim",
+    "system": 26,
+    "pole": "正直",
+    "layer": "annual",
+    "when": {
+      "all": [
+        {
+          "star": "太陰",
+          "in": {
+            "name": "命宮",
+            "layer": "annual"
+          }
+        },
+        {
+          "star": "太陰",
+          "brightness": [
+            "廟",
+            "旺"
+          ]
+        },
+        {
+          "meets": "太陰",
+          "stars": [
+            "化祿",
+            "化權",
+            "化科"
+          ]
+        }
+      ]
+    },
+    "claim": "這一年你必受人倚重，或者掌管財政、監察稽核。",
+    "en": "This year you are bound to be relied upon, or put in charge of finances, audit or oversight.",
+    "sources": [
+      {
+        "id": "wtz.deep.p112.b008",
+        "sha256": "93debd6b3452d6c4434a7fbb8f8f27bf1de4f34582f030be28cd87663e7593f9"
+      }
+    ],
+    "status": "draft",
+    "limit": "原文「經行太陰入廟躔度的流年，見吉化」。"
+  },
+  {
+    "id": "card.ming.liang-chouwei.dimmoon-jingming",
+    "palace": "命宮",
+    "topic": "運程",
+    "kind": "claim",
+    "system": 26,
+    "pole": "精明",
+    "layer": "annual",
+    "when": {
+      "all": [
+        {
+          "star": "太陰",
+          "in": {
+            "name": "命宮",
+            "layer": "annual"
+          }
+        },
+        {
+          "star": "太陰",
+          "brightness": [
+            "陷",
+            "不"
+          ]
+        }
+      ]
+    },
+    "claim": "這一年你可以掌財權，或者做監察稽核。",
+    "en": "This year you may take charge of money, or of audit and oversight.",
+    "sources": [
+      {
+        "id": "wtz.deep.p112.b009",
+        "sha256": "20c6bafa30c101f6b5aff12c2acb03dafe9277668b81b739badd6d7064451f8b"
+      }
+    ],
+    "status": "draft",
+    "limit": "原文「經行太陰落陷躔度的流年」。"
+  },
+  {
+    "id": "card.ming.liang-chouwei.tan",
+    "palace": "命宮",
+    "topic": "運程",
+    "kind": "claim",
+    "system": 26,
+    "layer": "decade",
+    "when": {
+      "star": "貪狼",
+      "in": {
+        "name": "命宮",
+        "layer": "decade"
+      }
+    },
+    "none": {
+      "any": [
+        {
+          "star": "貪狼",
+          "hua": "忌"
+        },
+        {
+          "star": "貪狼",
+          "hua": "忌",
+          "layer": "decade"
+        }
+      ]
+    },
+    "claim": "這十年是好運，容易有好的變化。",
+    "en": "This decade is a good one, likely to bring positive change.",
+    "sources": [
+      {
+        "id": "wtz.deep.p112.b011",
+        "sha256": "a08e3dc6e17d7726f6cb3a76e2a1a546e54cb90c04c73e8881789e97943e3390"
+      }
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "card.ming.liang-chouwei.tan-ji",
+    "palace": "命宮",
+    "topic": "運程",
+    "kind": "claim",
+    "system": 26,
+    "layer": "decade",
+    "when": {
+      "all": [
+        {
+          "star": "貪狼",
+          "in": {
+            "name": "命宮",
+            "layer": "decade"
+          }
+        },
+        {
+          "any": [
+            {
+              "star": "貪狼",
+              "hua": "忌"
+            },
+            {
+              "star": "貪狼",
+              "hua": "忌",
+              "layer": "decade"
+            }
+          ]
+        }
+      ]
+    },
+    "claim": "這十年是你最不宜的運，容易多爭多氣。",
+    "en": "This decade is the one least suited to you, with more quarrels and friction than usual.",
+    "sources": [
+      {
+        "id": "wtz.deep.p361.b005",
+        "sha256": "2b9219f7111b02b22f22f0c3fd68cbb0f2d67d1977f27bc9cc18797e9cbe08c0"
+      }
+    ],
+    "status": "draft",
+    "limit": "原文「最不宜行貪狼化忌之運…多爭多氣之運限」；因色致禍一層不寫。"
+  },
+  {
+    "id": "card.ming.liang-chouwei.tan-year",
+    "palace": "命宮",
+    "system": 26,
+    "status": "draft",
+    "topic": "運程",
+    "kind": "claim",
+    "layer": "annual",
+    "when": {
+      "star": "貪狼",
+      "in": {
+        "name": "命宮",
+        "layer": "annual"
+      }
+    },
+    "none": {
+      "all": [
+        {
+          "star": "貪狼",
+          "hua": "忌"
+        },
+        {
+          "star": "武曲",
+          "hua": "忌",
+          "layer": "annual"
+        }
+      ]
+    },
+    "claim": "這一年容易有好的變化。",
+    "en": "This year tends to bring good changes.",
+    "sources": [
+      {
+        "id": "wtz.deep.p112.b011",
+        "sha256": "a08e3dc6e17d7726f6cb3a76e2a1a546e54cb90c04c73e8881789e97943e3390"
+      }
+    ]
+  },
+  {
+    "id": "card.ming.liang-chouwei.tan-year-wuji",
+    "palace": "命宮",
+    "system": 26,
+    "status": "draft",
+    "topic": "運程",
+    "kind": "claim",
+    "layer": "annual",
+    "when": {
+      "all": [
+        {
+          "star": "貪狼",
+          "in": {
+            "name": "命宮",
+            "layer": "annual"
+          }
+        },
+        {
+          "all": [
+            {
+              "star": "貪狼",
+              "hua": "忌"
+            },
+            {
+              "star": "武曲",
+              "hua": "忌",
+              "layer": "annual"
+            }
+          ]
+        }
+      ]
+    },
+    "claim": "這一年不宜求變，凡事宜隨和退讓。",
+    "en": "This year is not one for change; be easy-going and willing to give way.",
+    "limit": "原文「貪狼化忌沖會流年武曲化忌，則不宜變化」；刑忌煞重主災病一層不寫。",
+    "sources": [
+      {
+        "id": "wtz.deep.p112.b011",
+        "sha256": "a08e3dc6e17d7726f6cb3a76e2a1a546e54cb90c04c73e8881789e97943e3390"
+      }
+    ]
+  },
+  {
+    "id": "card.ming.liang-chouwei.ju-zhengzhi",
+    "palace": "命宮",
+    "topic": "運程",
+    "kind": "claim",
+    "system": 26,
+    "pole": "正直",
+    "layer": "decade",
+    "when": {
+      "star": "巨門",
+      "in": {
+        "name": "命宮",
+        "layer": "decade"
+      }
+    },
+    "claim": "這十年容易受人賞識而創立事業，但不宜做商業投資。",
+    "en": "This decade others may recognise you and help you build a career, but it is not the time for business investments.",
+    "sources": [
+      {
+        "id": "wtz.deep.p112.b012",
+        "sha256": "de84862f1be5633b2d72915083d65172bc4d369af3edb992583f349847d20e9c"
+      }
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "card.ming.liang-chouwei.ju-jingming",
+    "palace": "命宮",
+    "topic": "運程",
+    "kind": "claim",
+    "system": 26,
+    "pole": "精明",
+    "layer": "decade",
+    "when": {
+      "star": "巨門",
+      "in": {
+        "name": "命宮",
+        "layer": "decade"
+      }
+    },
+    "claim": "這十年只算順遂。",
+    "en": "This decade is merely smooth, nothing more.",
+    "sources": [
+      {
+        "id": "wtz.deep.p112.b013",
+        "sha256": "7e99d3b6a1c411fdc1500352907fd601c0b1d01e64bfcd4a6e27645b52521790"
+      }
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "card.ming.liang-chouwei.ju-jingming-sha",
+    "palace": "命宮",
+    "topic": "運程",
+    "kind": "caveat",
+    "system": 26,
+    "pole": "精明",
+    "layer": "decade",
+    "when": {
+      "all": [
+        {
+          "star": "巨門",
+          "in": {
+            "name": "命宮",
+            "layer": "decade"
+          }
+        },
+        {
+          "any": [
+            {
+              "meets": "巨門",
+              "stars": [
+                "擎羊",
+                "陀羅"
+              ],
+              "n": 2
+            },
+            {
+              "star": "巨門",
+              "hua": "忌"
+            }
+          ]
+        }
+      ]
+    },
+    "claim": "這十年容易因競爭惹上困擾，但終能化解。",
+    "en": "This decade competition may bring trouble, but you will work through it in the end.",
+    "sources": [
+      {
+        "id": "wtz.deep.p112.b013",
+        "sha256": "7e99d3b6a1c411fdc1500352907fd601c0b1d01e64bfcd4a6e27645b52521790"
+      }
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "card.ming.liang-chouwei.xiang-jingming",
+    "palace": "命宮",
+    "topic": "運程",
+    "kind": "claim",
+    "system": 26,
+    "pole": "精明",
+    "layer": "decade",
+    "when": {
+      "star": "天相",
+      "in": {
+        "name": "命宮",
+        "layer": "decade"
+      }
+    },
+    "claim": "這十年人際關係多困擾，不宜輕易求變，也不宜急進。",
+    "en": "This decade relationships bring a lot of trouble; do not rush into changes or push ahead too fast.",
+    "sources": [
+      {
+        "id": "wtz.deep.p112.b014",
+        "sha256": "9cbd7724c2f40836ac71cc5fbdbec3453ab5e6753db1ed925b321cfbb1a9f27f"
+      },
+      {
+        "id": "wtz.deep.p113.b001",
+        "sha256": "30915c04cbbaf41bd75484a47f8e8b755246ed542df990af141376c1d40b6609"
+      }
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "card.ming.liang-chouwei.xiang-jingming-sha",
+    "palace": "命宮",
+    "system": 26,
+    "status": "draft",
+    "topic": "運程",
+    "kind": "caveat",
+    "pole": "精明",
+    "layer": "decade",
+    "when": {
+      "all": [
+        {
+          "star": "天相",
+          "in": {
+            "name": "命宮",
+            "layer": "decade"
+          }
+        },
+        {
+          "meets": "天相",
+          "stars": [
+            "擎羊",
+            "陀羅",
+            "火星",
+            "鈴星",
+            "地空",
+            "地劫",
+            "化忌"
+          ]
+        }
+      ]
+    },
+    "claim": "這十年局面容易反覆，逆境較多。",
+    "en": "This decade things easily swing back and forth, with more setbacks.",
+    "limit": "原文「見煞忌者尤主反覆橫逆」。",
+    "sources": [
+      {
+        "id": "wtz.deep.p112.b014",
+        "sha256": "9cbd7724c2f40836ac71cc5fbdbec3453ab5e6753db1ed925b321cfbb1a9f27f"
+      },
+      {
+        "id": "wtz.deep.p113.b001",
+        "sha256": "30915c04cbbaf41bd75484a47f8e8b755246ed542df990af141376c1d40b6609"
+      }
+    ]
+  },
+  {
+    "id": "card.ming.liang-chouwei.xiang-zhengzhi",
+    "palace": "命宮",
+    "topic": "運程",
+    "kind": "claim",
+    "system": 26,
+    "pole": "正直",
+    "layer": "decade",
+    "when": {
+      "star": "天相",
+      "in": {
+        "name": "命宮",
+        "layer": "decade"
+      }
+    },
+    "claim": "這十年人際上稍有困擾，不宜輕易求變，也不宜急進。",
+    "en": "This decade brings some friction with people; do not rush into changes or push ahead too fast.",
+    "sources": [
+      {
+        "id": "wtz.deep.p112.b014",
+        "sha256": "9cbd7724c2f40836ac71cc5fbdbec3453ab5e6753db1ed925b321cfbb1a9f27f"
+      },
+      {
+        "id": "wtz.deep.p113.b001",
+        "sha256": "30915c04cbbaf41bd75484a47f8e8b755246ed542df990af141376c1d40b6609"
+      }
+    ],
+    "status": "draft"
+  }
+]

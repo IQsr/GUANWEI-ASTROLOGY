@@ -1,0 +1,1440 @@
+[
+  {
+    "id": "card.ming.wuxiang.core",
+    "palace": "命宮",
+    "topic": "本質",
+    "kind": "claim",
+    "system": 7,
+    "layer": "natal",
+    "claim": "你身上有剛有柔，關鍵在兩者相配：配得好，你沉著有韌力；太剛容易碰壁受挫，太軟又容易被人排擠。",
+    "en": "You carry both hardness and softness, and everything turns on how they fit: well matched, you are steady and resilient; too hard, you hit walls and break; too soft, others push you aside.",
+    "limit": "原文說剛柔不調和「可能」令際遇坎坷，不是必然。",
+    "sources": [
+      {
+        "id": "wtz.deep.p058.b013",
+        "sha256": "4da92375c10607f97b6947639b10fa912d4ec57b84bd2b6de9570c7636d1a12e"
+      },
+      {
+        "id": "wtz.deep.p059.b001",
+        "sha256": "0865714ae6737bdfb4afc28f20e797c3b17a4177b0327177495242daaa47020c"
+      },
+      {
+        "id": "wtz.deep.p060.b006",
+        "sha256": "38528ac64a5dd441d6ca25c4c090a63aa7a3bf287a807d4f0b189c7852f70d0d"
+      },
+      {
+        "id": "wtz.deep.p060.b007",
+        "sha256": "b87201d8e059e99ed911ee4c68f8cb7e67a25cd65498de0bd109c9e93555263e"
+      }
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "card.ming.wuxiang.ganggang",
+    "palace": "命宮",
+    "topic": "本質",
+    "kind": "caveat",
+    "system": 7,
+    "pole": "偏剛",
+    "layer": "natal",
+    "claim": "你的盤偏剛：剛強是你的本錢，但過剛則折，再遇上同樣剛硬的環境，最容易接連受挫。",
+    "en": "Your chart leans hard: strength is your capital, but what is too hard snaps, and meeting an equally hard environment is when setbacks pile up.",
+    "sources": [
+      {
+        "id": "wtz.deep.p059.b002",
+        "sha256": "165270f78516c362375498dec9585938f23dace02417f949573b414a108e1eff"
+      },
+      {
+        "id": "wtz.deep.p060.b006",
+        "sha256": "38528ac64a5dd441d6ca25c4c090a63aa7a3bf287a807d4f0b189c7852f70d0d"
+      }
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "card.ming.wuxiang.jiji",
+    "palace": "命宮",
+    "topic": "本質",
+    "kind": "caveat",
+    "system": 7,
+    "pole": "剛柔相濟",
+    "layer": "natal",
+    "claim": "你的盤剛柔相濟：遇到不順，多半只是一時受挫，你能靠自己的沉著和毅力把局面扭轉。",
+    "en": "Your chart balances hard and soft: setbacks are usually passing, and your own steadiness and grit can turn things around.",
+    "sources": [
+      {
+        "id": "wtz.deep.p060.b007",
+        "sha256": "b87201d8e059e99ed911ee4c68f8cb7e67a25cd65498de0bd109c9e93555263e"
+      }
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "card.ming.wuxiang.lianlu-sha",
+    "palace": "命宮",
+    "topic": "本質",
+    "kind": "caveat",
+    "system": 7,
+    "when": {
+      "all": [
+        {
+          "star": "廉貞",
+          "hua": "祿"
+        },
+        {
+          "meets": "武曲",
+          "stars": [
+            "火星",
+            "鈴星",
+            "地空",
+            "地劫"
+          ]
+        }
+      ]
+    },
+    "layer": "natal",
+    "claim": "你身上雖有調和剛硬的力量，但剛與柔仍未真正配合得來。",
+    "en": "Something in your chart softens your hard edge, yet the hard and the soft in you still do not quite fit together.",
+    "limit": "原文：廉貞化祿時武曲同時化科，剛柔是否調和仍看武相會不會火鈴空劫；見煞則仍不調和。",
+    "sources": [
+      {
+        "id": "wtz.deep.p060.b002",
+        "sha256": "f303895ab14244203c15d08ec4a34ca9d1620f6f546e84cfec45dafefc0096e1"
+      }
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "card.ming.wuxiang.ziwei-lucun",
+    "palace": "命宮",
+    "topic": "本質",
+    "kind": "caveat",
+    "system": 7,
+    "when": {
+      "together": [
+        "紫微",
+        "祿存"
+      ]
+    },
+    "layer": "natal",
+    "claim": "你剛硬的一面得到緩和，較容易做到剛柔相配。",
+    "en": "Your hard edge is softened, which makes it easier for firmness and give to work together in you.",
+    "limit": "原文：特別喜紫微與祿存同度，祿存會合武相可減低武曲的剛克。 「只要不見煞」（p060.b001）同全組「見煞則剛柔仍不主調和」（p060.b002）：武曲三方四正見火鈴空劫就唔出。",
+    "sources": [
+      {
+        "id": "wtz.deep.p059.b009",
+        "sha256": "10bf8159a04c0fc1f2db6114d4312778072cdae0ad386e8f4c94b38832ae20e0"
+      },
+      {
+        "id": "wtz.deep.p060.b001",
+        "sha256": "ee01f6ec641a29e538db2992c43cd6838bd8a4fe7b2c29a8c9f9d25259ff871f"
+      },
+      {
+        "id": "wtz.deep.p060.b002",
+        "sha256": "f303895ab14244203c15d08ec4a34ca9d1620f6f546e84cfec45dafefc0096e1"
+      }
+    ],
+    "status": "draft",
+    "none": {
+      "meets": "武曲",
+      "stars": [
+        "火星",
+        "鈴星",
+        "地空",
+        "地劫"
+      ]
+    }
+  },
+  {
+    "id": "card.ming.wuxiang.worst",
+    "palace": "命宮",
+    "topic": "格局",
+    "kind": "claim",
+    "system": 7,
+    "when": {
+      "all": [
+        {
+          "star": "武曲",
+          "hua": "忌"
+        },
+        {
+          "star": "天相",
+          "between": [
+            "火星",
+            "鈴星"
+          ]
+        }
+      ]
+    },
+    "layer": "natal",
+    "claim": "你的盤剛柔兩頭都走了極端：一邊太硬、一邊太軟，容易多波折，去留進退之間拿不定主意。",
+    "en": "Your chart pushes both sides to the extreme, one too hard and one too soft: setbacks come easily, and you struggle to decide when to stay and when to go.",
+    "limit": "原文稱為「最壞的結構」，即使有輔弼同度亦然；只講波折和進退失據，不推到具體事件。",
+    "sources": [
+      {
+        "id": "wtz.deep.p059.b004",
+        "sha256": "f16280ad2f4074a66fe01772b6b735b1c84561ac758479823986720a0d05063f"
+      }
+    ],
+    "status": "draft",
+    "rare": true
+  },
+  {
+    "id": "card.ming.wuxiang.caiyin",
+    "palace": "命宮",
+    "topic": "格局",
+    "kind": "claim",
+    "system": 7,
+    "when": {
+      "all": [
+        {
+          "geju": "caiyin"
+        },
+        {
+          "star": "巨門",
+          "hua": "祿"
+        }
+      ]
+    },
+    "none": {
+      "meets": "天相",
+      "stars": [
+        "化忌"
+      ]
+    },
+    "layer": "natal",
+    "claim": "你身旁有支援托著，本來偏軟的一面因而減少。",
+    "en": "Support on either side holds you up, so the softer side of you weighs less.",
+    "limit": "原文只說財蔭夾令軟弱性減少；「更見得祿的天府、有輔佐吉曜夾會，始化軟弱為能力」在本星系本命盤上不能同時成立（巨門或天同化祿之年，天府三方四正都不見祿），所以不寫。巨門化祿之年必同時文昌化忌，武相見之另作論（caiyin-changji）。",
+    "sources": [
+      {
+        "id": "wtz.deep.p059.b003",
+        "sha256": "766cd98ba27aec6067e5e766f614c811cf4147a34cb0761aef53c97ac0ebc2b0"
+      },
+      {
+        "id": "wtz.deep.p059.b006",
+        "sha256": "919121ea3435e91b8ffe79da31c595e03f239aa53692ca6dc2b66f08cbb97f30"
+      }
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "card.ming.wuxiang.caiyin-tong",
+    "palace": "命宮",
+    "topic": "格局",
+    "kind": "claim",
+    "system": 7,
+    "when": {
+      "all": [
+        {
+          "geju": "caiyin"
+        },
+        {
+          "star": "天同",
+          "hua": "祿"
+        }
+      ]
+    },
+    "layer": "natal",
+    "claim": "你身旁有支援托著，偏軟的一面因而減少；不過你也可能借花費、玩樂或嗜好來平衡心情。",
+    "en": "Support on either side holds you up, so your softer side weighs less; but you may also lean on spending, fun or hobbies to keep your balance.",
+    "limit": "原文說天同化祿的夾不如巨門化祿的夾，因同年廉貞化忌（丙年必然）；「可能」出現，只寫傾向。",
+    "sources": [
+      {
+        "id": "wtz.deep.p059.b003",
+        "sha256": "766cd98ba27aec6067e5e766f614c811cf4147a34cb0761aef53c97ac0ebc2b0"
+      },
+      {
+        "id": "wtz.deep.p059.b006",
+        "sha256": "919121ea3435e91b8ffe79da31c595e03f239aa53692ca6dc2b66f08cbb97f30"
+      }
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "card.ming.wuxiang.caiyin-changji",
+    "palace": "命宮",
+    "topic": "格局",
+    "kind": "claim",
+    "system": 7,
+    "when": {
+      "all": [
+        {
+          "geju": "caiyin"
+        },
+        {
+          "star": "巨門",
+          "hua": "祿"
+        },
+        {
+          "meets": "天相",
+          "stars": [
+            "化忌"
+          ]
+        }
+      ]
+    },
+    "layer": "natal",
+    "claim": "你身旁雖有支援，但學到一門手藝容易自以為精通，少了下苦功鑽研的毅力，也少了虛心。",
+    "en": "You have support around you, yet once you pick up a skill you tend to think you have mastered it, short on the grit to dig deeper and on humility.",
+    "limit": "原文「不良不莠之兆」：巨門化祿的財印，武相再見化忌（辛年即文昌化忌）。",
+    "sources": [
+      {
+        "id": "wtz.deep.p059.b006",
+        "sha256": "919121ea3435e91b8ffe79da31c595e03f239aa53692ca6dc2b66f08cbb97f30"
+      }
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "card.ming.wuxiang.baiguan",
+    "palace": "命宮",
+    "topic": "格局",
+    "kind": "caveat",
+    "system": 7,
+    "when": {
+      "geju": "baiguan"
+    },
+    "layer": "natal",
+    "claim": "你剛與柔兩面較易調和。",
+    "en": "Your hard and soft sides come together more easily.",
+    "limit": "原文指三合紫微成百官朝拱；百官朝拱按 GEJU_DEF 只計輔佐兩粒以上。",
+    "sources": [
+      {
+        "id": "wtz.deep.p059.b008",
+        "sha256": "0ea969b5fef75f733665336472eeecf267c57347bfbbbbb63adea202835cd31d"
+      },
+      {
+        "id": "wtz.deep.p060.b002",
+        "sha256": "f303895ab14244203c15d08ec4a34ca9d1620f6f546e84cfec45dafefc0096e1"
+      }
+    ],
+    "status": "draft",
+    "none": {
+      "meets": "武曲",
+      "stars": [
+        "火星",
+        "鈴星",
+        "地空",
+        "地劫"
+      ]
+    }
+  },
+  {
+    "id": "card.ming.wuxiang.zaiye",
+    "palace": "命宮",
+    "topic": "格局",
+    "kind": "caveat",
+    "system": 7,
+    "when": {
+      "geju": "zaiye"
+    },
+    "layer": "natal",
+    "claim": "你身後的大局欠支援，反而加深你剛與柔之間的矛盾。",
+    "en": "The larger structure behind you lacks support, and that deepens the tension between your hard and soft sides.",
+    "limit": "原文指三合紫微為在野孤君；按 GEJU_DEF 計。",
+    "sources": [
+      {
+        "id": "wtz.deep.p059.b008",
+        "sha256": "0ea969b5fef75f733665336472eeecf267c57347bfbbbbb63adea202835cd31d"
+      }
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "card.ming.wuxiang.jia-bad",
+    "palace": "命宮",
+    "topic": "格局",
+    "kind": "caveat",
+    "system": 7,
+    "when": {
+      "any": [
+        {
+          "star": "天相",
+          "between": [
+            "擎羊",
+            "陀羅"
+          ]
+        },
+        {
+          "star": "天相",
+          "between": [
+            "火星",
+            "鈴星"
+          ]
+        },
+        {
+          "star": "天相",
+          "between": [
+            "地空",
+            "地劫"
+          ]
+        }
+      ]
+    },
+    "layer": "natal",
+    "claim": "你身邊的環境帶來壓力，令你更容易軟弱，也容易受是非困擾、奔波勞碌，或者突然受挫。",
+    "en": "Pressure from your surroundings makes you more prone to give way, and to be caught up in disputes, run ragged, or meet sudden setbacks.",
+    "limit": "原文：羊陀夾、火鈴夾、空劫夾天相皆不吉，天相更軟弱。「主」只寫成傾向。",
+    "sources": [
+      {
+        "id": "wtz.deep.p059.b003",
+        "sha256": "766cd98ba27aec6067e5e766f614c811cf4147a34cb0761aef53c97ac0ebc2b0"
+      },
+      {
+        "id": "wtz.deep.p357.b003",
+        "sha256": "14177ca1796c69bbeddc6401c141f9a70eaf684e9e85624c7660e3df9320ada2"
+      }
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "card.ming.wuxiang.zuoer",
+    "palace": "命宮",
+    "topic": "處事",
+    "kind": "claim",
+    "system": 7,
+    "layer": "natal",
+    "claim": "你最能發揮的是輔助和服務的角色，做得好的副手，不宜一個人獨當一面。",
+    "en": "You shine most in a supporting, service role: an excellent second-in-command rather than someone who should carry everything alone.",
+    "limit": "原文「多主」；只講適合的位置，不講成就高低。",
+    "sources": [
+      {
+        "id": "wtz.deep.p343.b008",
+        "sha256": "6a751ee6a38e1bb90ea211659af70a2a5c79dd373aed3cd3f7ee3e48f6d529d6"
+      },
+      {
+        "id": "wtz.deep.p357.b007",
+        "sha256": "239475d9d3d6a2510fd7634c9b305b21f333a0b666817b78f4ab118a1bec75a8"
+      }
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "card.ming.wuxiang.polu",
+    "palace": "命宮",
+    "topic": "處事",
+    "kind": "caveat",
+    "system": 7,
+    "when": {
+      "star": "破軍",
+      "hua": "祿"
+    },
+    "layer": "natal",
+    "claim": "雖然你多處於輔助的位置，但做得有聲有色，一生常擔起別人難以承擔的重任。",
+    "en": "Even in a supporting position you make your mark, and you often take on heavy responsibilities others could not carry.",
+    "sources": [
+      {
+        "id": "wtz.deep.p343.b013",
+        "sha256": "20940c4291fe43ef4b14d149cca3e33dcd1c853c1e9ece841b8decc048abd91a"
+      }
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "card.ming.wuxiang.changqu",
+    "palace": "命宮",
+    "topic": "處事",
+    "kind": "caveat",
+    "system": 7,
+    "when": {
+      "meets": "天相",
+      "stars": [
+        "文昌",
+        "文曲"
+      ],
+      "n": 2
+    },
+    "none": {
+      "meets": "天相",
+      "stars": [
+        "化忌",
+        "擎羊",
+        "陀羅"
+      ]
+    },
+    "layer": "natal",
+    "claim": "你聰明手巧，有工藝、工程一類的專門本事。",
+    "en": "You are clever with your hands, with a knack for craft and engineering-type skills.",
+    "limit": "p357：天相見昌曲要不見化忌及羊陀始吉。",
+    "sources": [
+      {
+        "id": "wtz.deep.p343.b009",
+        "sha256": "b77939b786f16d554e568bad1ae489cebb4d07aca97f7c8c2b3626647cea056a"
+      },
+      {
+        "id": "wtz.deep.p357.b008",
+        "sha256": "dc2d086171d9408bb489355dbe3588f2cb414f6fbb294abc86b4465256fd862f"
+      }
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "card.ming.wuxiang.changqu-ji",
+    "palace": "命宮",
+    "topic": "處事",
+    "kind": "caveat",
+    "system": 7,
+    "when": {
+      "all": [
+        {
+          "meets": "天相",
+          "stars": [
+            "文昌",
+            "文曲"
+          ],
+          "n": 2
+        },
+        {
+          "meets": "天相",
+          "stars": [
+            "化忌",
+            "擎羊",
+            "陀羅"
+          ]
+        }
+      ]
+    },
+    "layer": "natal",
+    "claim": "你聰明有才，但才華不容易得到賞識，容易有懷才不遇之感。",
+    "en": "You are bright and talented, but your talent is not easily recognised, and you can feel your gifts go unused.",
+    "limit": "原文「聰明而命薄」，這裡只寫懷才不遇。",
+    "sources": [
+      {
+        "id": "wtz.deep.p357.b008",
+        "sha256": "dc2d086171d9408bb489355dbe3588f2cb414f6fbb294abc86b4465256fd862f"
+      }
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "card.ming.wuxiang.lianji-cai",
+    "palace": "命宮",
+    "topic": "處事",
+    "kind": "caveat",
+    "system": 7,
+    "when": {
+      "star": "廉貞",
+      "hua": "忌"
+    },
+    "layer": "natal",
+    "claim": "你求財宜走替人處理實務的專門服務，例如飲食、醫藥、化驗一類行業。",
+    "en": "You do best earning through hands-on specialist services for others, such as food, pharmacy or laboratory work.",
+    "limit": "原文「宜從凶事以求財」，現代指飲食、醫藥、外科、化驗；要不離服務於人的性質。",
+    "sources": [
+      {
+        "id": "wtz.deep.p343.b012",
+        "sha256": "321c1e6625e946d4515203dedf5c7877b3db236075c174fc7634f28da8da9678"
+      }
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "card.ming.wuxiang.fumu-houtai",
+    "palace": "命宮",
+    "topic": "處事",
+    "kind": "caveat",
+    "system": 7,
+    "when": {
+      "all": [
+        {
+          "meets": "天梁",
+          "stars": [
+            "祿存"
+          ],
+          "reach": "same"
+        },
+        {
+          "meets": "天梁",
+          "stars": [
+            "火星",
+            "鈴星"
+          ],
+          "reach": "same"
+        }
+      ]
+    },
+    "layer": "natal",
+    "claim": "你較難找到長久可靠的後台，自己獨立創業又不容易，要防懷才不遇。",
+    "en": "A lasting, reliable backer is hard for you to find, and going it alone is not easy either, so watch for your talent going unused.",
+    "limit": "原文凡天相坐命看父母宮天梁：最忌天梁與祿存同度又見火鈴。",
+    "sources": [
+      {
+        "id": "wtz.deep.p357.b007",
+        "sha256": "239475d9d3d6a2510fd7634c9b305b21f333a0b666817b78f4ab118a1bec75a8"
+      }
+    ],
+    "status": "draft",
+    "rare": true
+  },
+  {
+    "id": "card.ming.wuxiang.wenqu-taohua",
+    "palace": "命宮",
+    "topic": "處事",
+    "kind": "caveat",
+    "system": 7,
+    "when": {
+      "meets": "武曲",
+      "stars": [
+        "文曲"
+      ],
+      "reach": "same"
+    },
+    "layer": "natal",
+    "claim": "你容易心浮、不安於本業，要靠後天自我約束，才能憑毅力立業。",
+    "en": "You can be restless and unsettled in your work; self-discipline is what lets your grit build a career.",
+    "sources": [
+      {
+        "id": "wtz.deep.p343.b010",
+        "sha256": "b0c73b1afb76660cd815f770080281f3fb3745632e1734eaf20f4f9795e72a39"
+      }
+    ],
+    "status": "needs_atom",
+    "note": "原文要「更見桃花諸曜（天姚尤甚）」，引擎冇天姚、咸池等桃花雜曜。"
+  },
+  {
+    "id": "card.ming.wuxiang.xingji-tong",
+    "palace": "命宮",
+    "topic": "待人",
+    "kind": "claim",
+    "system": 7,
+    "when": {
+      "all": [
+        {
+          "geju": "xingji"
+        },
+        {
+          "star": "天同",
+          "hua": "忌"
+        }
+      ]
+    },
+    "layer": "natal",
+    "claim": "你情緒上的波動和壓力較多，感情上也較容易受挫。",
+    "en": "You carry more emotional swings and pressure than most, and are more easily hurt in matters of the heart.",
+    "limit": "原文「或為感情上的挫敗」，只寫傾向，不寫成事件。",
+    "sources": [
+      {
+        "id": "wtz.deep.p059.b005",
+        "sha256": "3d3977c432d0e12ea1627270e7fdb7ce7158a6070bfdac15dd25cb2158462418"
+      }
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "card.ming.wuxiang.xingji-ju",
+    "palace": "命宮",
+    "topic": "待人",
+    "kind": "claim",
+    "system": 7,
+    "when": {
+      "all": [
+        {
+          "geju": "xingji"
+        },
+        {
+          "star": "巨門",
+          "hua": "忌"
+        }
+      ]
+    },
+    "layer": "natal",
+    "claim": "你容易無端招惹是非口舌。",
+    "en": "You tend to attract gossip and disputes without meaning to.",
+    "sources": [
+      {
+        "id": "wtz.deep.p059.b005",
+        "sha256": "3d3977c432d0e12ea1627270e7fdb7ce7158a6070bfdac15dd25cb2158462418"
+      }
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "card.ming.wuxiang.xingji-lu",
+    "palace": "命宮",
+    "topic": "待人",
+    "kind": "caveat",
+    "system": 7,
+    "when": {
+      "all": [
+        {
+          "geju": "xingji"
+        },
+        {
+          "meets": "天相",
+          "stars": [
+            "祿存"
+          ]
+        }
+      ]
+    },
+    "layer": "natal",
+    "claim": "好在你的處境不至坎坷，這些困擾多停在心裡。",
+    "en": "Fortunately your circumstances do not turn rough; the trouble mostly stays in your head.",
+    "limit": "原文：刑忌夾時唯喜祿存照會府相，則際遇不致坎坷，僅主精神困擾。",
+    "sources": [
+      {
+        "id": "wtz.deep.p059.b005",
+        "sha256": "3d3977c432d0e12ea1627270e7fdb7ce7158a6070bfdac15dd25cb2158462418"
+      }
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "card.ming.wuxiang.xingji-yang",
+    "palace": "命宮",
+    "topic": "格局",
+    "kind": "caveat",
+    "system": 7,
+    "when": {
+      "all": [
+        {
+          "geju": "xingji"
+        },
+        {
+          "meets": "天梁",
+          "stars": [
+            "擎羊"
+          ],
+          "reach": "same"
+        }
+      ]
+    },
+    "layer": "natal",
+    "claim": "你的錢財容易散而難聚，也容易因錢財惹上是非口舌。",
+    "en": "Money tends to scatter rather than gather for you, and it can draw you into disputes.",
+    "limit": "原文：刑忌夾印最嫌天梁與擎羊同度，此時天相必與祿存同度，反主財帛破散難聚；「詞訟」不寫。",
+    "sources": [
+      {
+        "id": "wtz.deep.p357.b005",
+        "sha256": "fd5d1794ecbdaddeb61dbbf8f790b3efd310a62b7b326366f449279914968754"
+      }
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "card.ming.wuxiang.pivot",
+    "palace": "命宮",
+    "topic": "運程",
+    "kind": "caveat",
+    "system": 7,
+    "decades": {
+      "any": [
+        {
+          "all": [
+            {
+              "star": "太陽",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "star": "天梁",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            }
+          ]
+        },
+        {
+          "star": "天機",
+          "in": {
+            "name": "命宮",
+            "layer": "decade"
+          }
+        },
+        {
+          "star": "太陰",
+          "in": {
+            "name": "命宮",
+            "layer": "decade"
+          }
+        }
+      ]
+    },
+    "layer": "natal",
+    "claim": "{decades}這段時間，是你一生運程的關鍵。",
+    "en": "The years {decades} are the turning point of your life course.",
+    "limit": "原文「大運樞紐」：太陽天梁、天機、太陰。只講關鍵，不講吉凶。",
+    "sources": [
+      {
+        "id": "wtz.deep.p344.b001",
+        "sha256": "ed3c102a8bcec490145dfe1635f905a6d36f7a11fdba3b2f1b47ade76022c412"
+      }
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "card.ming.wuxiang.run-match",
+    "palace": "命宮",
+    "topic": "運程",
+    "kind": "advice",
+    "system": 7,
+    "layer": "natal",
+    "claim": "你的好運在於十年的性質與你剛柔相配：本性偏剛，忌再走剛硬的運；本性偏軟，忌再走軟弱的運。",
+    "en": "Your good years come when a decade fits your balance: if you lean hard, avoid adding a hard decade; if you lean soft, avoid a soft one.",
+    "sources": [
+      {
+        "id": "wtz.deep.p060.b006",
+        "sha256": "38528ac64a5dd441d6ca25c4c090a63aa7a3bf287a807d4f0b189c7852f70d0d"
+      },
+      {
+        "id": "wtz.deep.p061.b002",
+        "sha256": "d473bb08fc460d70d559978b7ea2b2fc4a446c838fdf4ef2fa901a3c59f42000"
+      }
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "card.ming.wuxiang.visit-good",
+    "palace": "命宮",
+    "topic": "運程",
+    "kind": "claim",
+    "system": 7,
+    "pole": "剛柔相濟",
+    "when": {
+      "any": [
+        {
+          "all": [
+            {
+              "star": "太陽",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "star": "天梁",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "star": "太陽",
+              "brightness": [
+                "廟",
+                "旺"
+              ]
+            }
+          ]
+        },
+        {
+          "all": [
+            {
+              "star": "七殺",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "meets": "七殺",
+              "stars": [
+                "化祿",
+                "化權",
+                "化科"
+              ]
+            }
+          ]
+        },
+        {
+          "all": [
+            {
+              "star": "紫微",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "star": "紫微",
+              "hua": "科"
+            }
+          ]
+        },
+        {
+          "all": [
+            {
+              "star": "破軍",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "star": "破軍",
+              "hua": "祿"
+            }
+          ]
+        },
+        {
+          "all": [
+            {
+              "star": "太陰",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "star": "太陰",
+              "brightness": [
+                "廟",
+                "旺"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "none": {
+      "any": [
+        {
+          "all": [
+            {
+              "star": "太陽",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "star": "天梁",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "star": "太陽",
+              "hua": "忌"
+            }
+          ]
+        },
+        {
+          "all": [
+            {
+              "star": "七殺",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "not": {
+                "meets": "七殺",
+                "stars": [
+                  "化祿",
+                  "化權",
+                  "化科"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "all": [
+            {
+              "star": "紫微",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "star": "紫微",
+              "hua": "權"
+            }
+          ]
+        }
+      ]
+    },
+    "layer": "decade",
+    "claim": "這十年剛柔相配，正合你沉著剛毅的本色，是穩步取得成功的時候。",
+    "en": "This decade balances hard and soft, matching your steady resolve: a time to build success step by step.",
+    "sources": [
+      {
+        "id": "wtz.deep.p060.b003",
+        "sha256": "874502876af22f48b12c7023f91740d72648ee9eb6d333d7c92f8fc9abd7357d"
+      },
+      {
+        "id": "wtz.deep.p060.b007",
+        "sha256": "b87201d8e059e99ed911ee4c68f8cb7e67a25cd65498de0bd109c9e93555263e"
+      }
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "card.ming.wuxiang.visit-swing",
+    "palace": "命宮",
+    "topic": "運程",
+    "kind": "claim",
+    "system": 7,
+    "pole": "剛柔相濟",
+    "when": {
+      "any": [
+        {
+          "any": [
+            {
+              "all": [
+                {
+                  "star": "太陽",
+                  "in": {
+                    "name": "命宮",
+                    "layer": "decade"
+                  }
+                },
+                {
+                  "star": "天梁",
+                  "in": {
+                    "name": "命宮",
+                    "layer": "decade"
+                  }
+                },
+                {
+                  "star": "太陽",
+                  "hua": "忌"
+                }
+              ]
+            },
+            {
+              "all": [
+                {
+                  "star": "七殺",
+                  "in": {
+                    "name": "命宮",
+                    "layer": "decade"
+                  }
+                },
+                {
+                  "not": {
+                    "meets": "七殺",
+                    "stars": [
+                      "化祿",
+                      "化權",
+                      "化科"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "all": [
+                {
+                  "star": "紫微",
+                  "in": {
+                    "name": "命宮",
+                    "layer": "decade"
+                  }
+                },
+                {
+                  "star": "紫微",
+                  "hua": "權"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "any": [
+            {
+              "all": [
+                {
+                  "star": "天同",
+                  "in": {
+                    "name": "命宮",
+                    "layer": "decade"
+                  }
+                },
+                {
+                  "star": "巨門",
+                  "in": {
+                    "name": "命宮",
+                    "layer": "decade"
+                  }
+                }
+              ]
+            },
+            {
+              "all": [
+                {
+                  "star": "太陽",
+                  "in": {
+                    "name": "命宮",
+                    "layer": "decade"
+                  }
+                },
+                {
+                  "star": "天梁",
+                  "in": {
+                    "name": "命宮",
+                    "layer": "decade"
+                  }
+                },
+                {
+                  "star": "太陽",
+                  "brightness": [
+                    "陷"
+                  ]
+                }
+              ]
+            },
+            {
+              "all": [
+                {
+                  "star": "天機",
+                  "in": {
+                    "name": "命宮",
+                    "layer": "decade"
+                  }
+                },
+                {
+                  "star": "天機",
+                  "hua": "忌"
+                }
+              ]
+            },
+            {
+              "all": [
+                {
+                  "star": "廉貞",
+                  "in": {
+                    "name": "命宮",
+                    "layer": "decade"
+                  }
+                },
+                {
+                  "star": "天府",
+                  "in": {
+                    "name": "命宮",
+                    "layer": "decade"
+                  }
+                },
+                {
+                  "star": "廉貞",
+                  "hua": "忌"
+                }
+              ]
+            },
+            {
+              "all": [
+                {
+                  "star": "太陰",
+                  "in": {
+                    "name": "命宮",
+                    "layer": "decade"
+                  }
+                },
+                {
+                  "star": "太陰",
+                  "brightness": [
+                    "陷"
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "layer": "decade",
+    "claim": "這十年偏剛或偏軟，對你只是一時的挫折或受制，你能在這段時間內靠沉毅把局面扭轉。",
+    "en": "This decade tilts too hard or too soft, but for you it is only a passing setback or constraint, and your steady resolve can turn it around within the period.",
+    "sources": [
+      {
+        "id": "wtz.deep.p060.b007",
+        "sha256": "b87201d8e059e99ed911ee4c68f8cb7e67a25cd65498de0bd109c9e93555263e"
+      }
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "card.ming.wuxiang.visit-hard",
+    "palace": "命宮",
+    "topic": "運程",
+    "kind": "claim",
+    "system": 7,
+    "pole": "偏剛",
+    "when": {
+      "any": [
+        {
+          "all": [
+            {
+              "star": "太陽",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "star": "天梁",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "star": "太陽",
+              "hua": "忌"
+            }
+          ]
+        },
+        {
+          "all": [
+            {
+              "star": "七殺",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "not": {
+                "meets": "七殺",
+                "stars": [
+                  "化祿",
+                  "化權",
+                  "化科"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "all": [
+            {
+              "star": "紫微",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "star": "紫微",
+              "hua": "權"
+            }
+          ]
+        }
+      ]
+    },
+    "layer": "decade",
+    "claim": "這十年剛上加剛，容易多挫折，人際上也多遺憾。",
+    "en": "This decade adds hardness to hardness: setbacks come more easily, and relationships leave more regrets.",
+    "sources": [
+      {
+        "id": "wtz.deep.p060.b004",
+        "sha256": "d2f5f3a1b277f82bdc3be69fdb50c42f56ab5238bea2c743320ac4a37cca23ab"
+      },
+      {
+        "id": "wtz.deep.p060.b006",
+        "sha256": "38528ac64a5dd441d6ca25c4c090a63aa7a3bf287a807d4f0b189c7852f70d0d"
+      }
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "card.ming.wuxiang.visit-soft",
+    "palace": "命宮",
+    "topic": "運程",
+    "kind": "caveat",
+    "system": 7,
+    "when": {
+      "all": [
+        {
+          "any": [
+            {
+              "star": "天相",
+              "between": [
+                "擎羊",
+                "陀羅"
+              ]
+            },
+            {
+              "star": "天相",
+              "between": [
+                "火星",
+                "鈴星"
+              ]
+            },
+            {
+              "star": "天同",
+              "hua": "忌"
+            },
+            {
+              "star": "巨門",
+              "hua": "忌"
+            }
+          ]
+        },
+        {
+          "any": [
+            {
+              "all": [
+                {
+                  "star": "天同",
+                  "in": {
+                    "name": "命宮",
+                    "layer": "decade"
+                  }
+                },
+                {
+                  "star": "巨門",
+                  "in": {
+                    "name": "命宮",
+                    "layer": "decade"
+                  }
+                }
+              ]
+            },
+            {
+              "all": [
+                {
+                  "star": "太陽",
+                  "in": {
+                    "name": "命宮",
+                    "layer": "decade"
+                  }
+                },
+                {
+                  "star": "天梁",
+                  "in": {
+                    "name": "命宮",
+                    "layer": "decade"
+                  }
+                },
+                {
+                  "star": "太陽",
+                  "brightness": [
+                    "陷"
+                  ]
+                }
+              ]
+            },
+            {
+              "all": [
+                {
+                  "star": "天機",
+                  "in": {
+                    "name": "命宮",
+                    "layer": "decade"
+                  }
+                },
+                {
+                  "star": "天機",
+                  "hua": "忌"
+                }
+              ]
+            },
+            {
+              "all": [
+                {
+                  "star": "廉貞",
+                  "in": {
+                    "name": "命宮",
+                    "layer": "decade"
+                  }
+                },
+                {
+                  "star": "天府",
+                  "in": {
+                    "name": "命宮",
+                    "layer": "decade"
+                  }
+                },
+                {
+                  "star": "廉貞",
+                  "hua": "忌"
+                }
+              ]
+            },
+            {
+              "all": [
+                {
+                  "star": "太陰",
+                  "in": {
+                    "name": "命宮",
+                    "layer": "decade"
+                  }
+                },
+                {
+                  "star": "太陰",
+                  "brightness": [
+                    "陷"
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "layer": "decade",
+    "claim": "這十年的環境偏軟，對本來容易受壓的你不利：容易消極退縮，或被人排擠。",
+    "en": "This decade has a soft character, which does not help you when you already bend under pressure: you may withdraw, or be pushed aside.",
+    "limit": "原文「過柔的武相」：天相受羊陀、火鈴或刑忌所夾作過柔論（p.59）；比較軸冇「過柔」一頭，用夾宮條件代替。",
+    "sources": [
+      {
+        "id": "wtz.deep.p060.b005",
+        "sha256": "aa8292360f2ac1be6c8eab312742983ff8d0c8eb1df29cace5062ea1e494aca9"
+      },
+      {
+        "id": "wtz.deep.p060.b006",
+        "sha256": "38528ac64a5dd441d6ca25c4c090a63aa7a3bf287a807d4f0b189c7852f70d0d"
+      }
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "card.ming.wuxiang.year-pivot",
+    "palace": "命宮",
+    "topic": "運程",
+    "kind": "caveat",
+    "system": 7,
+    "when": {
+      "any": [
+        {
+          "star": "七殺",
+          "in": {
+            "name": "命宮",
+            "layer": "annual"
+          }
+        },
+        {
+          "star": "破軍",
+          "in": {
+            "name": "命宮",
+            "layer": "annual"
+          }
+        },
+        {
+          "star": "貪狼",
+          "in": {
+            "name": "命宮",
+            "layer": "annual"
+          }
+        },
+        {
+          "star": "紫微",
+          "in": {
+            "name": "命宮",
+            "layer": "annual"
+          }
+        }
+      ]
+    },
+    "layer": "annual",
+    "claim": "這一年是你運程的轉折點之一，得失對往後影響較大。",
+    "en": "This year is one of the turning points in your fortunes; what you gain or lose now carries further.",
+    "limit": "原文「流年樞紐」：七殺、破軍、貪狼、紫微所在宮垣。只講關鍵，不講吉凶。",
+    "sources": [
+      {
+        "id": "wtz.deep.p344.b001",
+        "sha256": "ed3c102a8bcec490145dfe1635f905a6d36f7a11fdba3b2f1b47ade76022c412"
+      }
+    ],
+    "status": "draft"
+  }
+]

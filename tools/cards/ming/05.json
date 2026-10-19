@@ -1,0 +1,944 @@
+[
+  {
+    "id": "card.ming.tanlang-ziwu.core",
+    "palace": "命宮",
+    "topic": "本質",
+    "kind": "claim",
+    "system": 5,
+    "layer": "natal",
+    "claim": "欲望是你性格的重心；它太高或太低都不好，適中最好。",
+    "en": "Desire sits at the centre of who you are; too much or too little of it does you no good, and the middle is best.",
+    "sources": [
+      {
+        "id": "wtz.deep.p053.b006",
+        "sha256": "2eae85fd88126b7af1f73d7c8957265dc31ba506e71cb2e00d49faab062206b8"
+      },
+      {
+        "id": "wtz.deep.p054.b002",
+        "sha256": "6de81568b11ad0e7e8b8ed78954b952515ad3aac5a02a57eaedd4fbbd6f51645"
+      }
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "card.ming.tanlang-ziwu.qiang",
+    "palace": "命宮",
+    "topic": "本質",
+    "kind": "caveat",
+    "system": 5,
+    "pole": "欲望強",
+    "layer": "natal",
+    "claim": "你欲望偏強，人生觀積極；只是欲望太強時，容易沉迷於不良嗜好。",
+    "en": "Your desires run strong and your outlook is active; when they run too strong, you can sink into bad habits.",
+    "sources": [
+      {
+        "id": "wtz.deep.p053.b008",
+        "sha256": "8a9f6ce248aa11bf63e8cebf2d08e8017e9543b757a33e1d95029725ce1e9b57"
+      },
+      {
+        "id": "wtz.deep.p054.b006",
+        "sha256": "150c0d3035b08c0af8580890cc8e89cdbb3b046fb3ee5cb0e7ac1895f6437109"
+      },
+      {
+        "id": "wtz.deep.p054.b007",
+        "sha256": "44000b0d6a699fee0566e8bc3def9bd9aa8638a83cab021a2f2bb9d81cd01e7b"
+      }
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "card.ming.tanlang-ziwu.dan",
+    "palace": "命宮",
+    "topic": "本質",
+    "kind": "caveat",
+    "system": 5,
+    "pole": "欲望淡",
+    "layer": "natal",
+    "claim": "你欲望偏淡，不愛爭；欲望太低時，甚至一碰到阻力便退縮。",
+    "en": "Your desires run light and you do not like to compete; when they run too low, you may back off at the first resistance.",
+    "sources": [
+      {
+        "id": "wtz.deep.p053.b009",
+        "sha256": "99f30f0f19cfa9c67c52b217f5fec6fd29e5b8d5f6167e915a5d371a4df2d774"
+      }
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "card.ming.tanlang-ziwu.fanshui",
+    "palace": "命宮",
+    "topic": "格局",
+    "kind": "claim",
+    "system": 5,
+    "layer": "natal",
+    "when": {
+      "all": [
+        {
+          "star": "貪狼",
+          "at": [
+            "子"
+          ]
+        },
+        {
+          "meets": "貪狼",
+          "stars": [
+            "擎羊"
+          ],
+          "reach": "same"
+        }
+      ]
+    },
+    "claim": "你情欲較重，容易因感情和享樂誤事。",
+    "en": "Your romantic appetite runs strong, and love and pleasure can lead you astray.",
+    "limit": "子宮貪狼擎羊同度為「泛水桃花」，原文「因色致敗」，寫成風險。",
+    "sources": [
+      {
+        "id": "wtz.deep.p354.b005",
+        "sha256": "433b21ed7859576c1aa2c30757f03895947d9f57cba58cb023f794c36928f92c"
+      },
+      {
+        "id": "wtz.deep.p054.b003",
+        "sha256": "f2ff426d3d533fe2c390c7c908ee49c121a4b4c05a5de75385e133fec31ea00a"
+      }
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "card.ming.tanlang-ziwu.zi-fu",
+    "palace": "命宮",
+    "topic": "格局",
+    "kind": "claim",
+    "system": 5,
+    "layer": "natal",
+    "when": {
+      "all": [
+        {
+          "star": "貪狼",
+          "at": [
+            "子"
+          ]
+        },
+        {
+          "meets": "貪狼",
+          "stars": [
+            "左輔",
+            "右弼",
+            "天魁",
+            "天鉞",
+            "文昌",
+            "文曲",
+            "天刑"
+          ]
+        }
+      ]
+    },
+    "none": {
+      "all": [
+        {
+          "star": "貪狼",
+          "at": [
+            "子"
+          ]
+        },
+        {
+          "meets": "貪狼",
+          "stars": [
+            "擎羊"
+          ],
+          "reach": "same"
+        }
+      ]
+    },
+    "claim": "你屬富局，多在中年後發跡。",
+    "en": "Yours is a wealth-building structure, usually taking off after middle age.",
+    "sources": [
+      {
+        "id": "wtz.deep.p354.b009",
+        "sha256": "ce1e3d884ba189909ae28fd836e03deca9ad155fcf70ca37d046dc5f198dcb34"
+      }
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "card.ming.tanlang-ziwu.muhuo-ji",
+    "palace": "命宮",
+    "topic": "格局",
+    "kind": "claim",
+    "system": 5,
+    "layer": "natal",
+    "when": {
+      "all": [
+        {
+          "star": "貪狼",
+          "at": [
+            "午"
+          ]
+        },
+        {
+          "meets": "貪狼",
+          "stars": [
+            "左輔",
+            "右弼",
+            "天魁",
+            "天鉞",
+            "文昌",
+            "文曲"
+          ]
+        }
+      ]
+    },
+    "none": {
+      "meets": "貪狼",
+      "stars": [
+        "擎羊",
+        "陀羅",
+        "火星",
+        "鈴星",
+        "地空",
+        "地劫",
+        "化忌"
+      ]
+    },
+    "claim": "你的格局好，有機會積聚大財，或在財經界擔當要職。",
+    "en": "Yours is a strong structure, with a chance of great wealth or a senior role in finance.",
+    "limit": "午宮「木火通明」無煞忌見吉。",
+    "sources": [
+      {
+        "id": "wtz.deep.p354.b010",
+        "sha256": "12a327fb1e8d123dc86bdc601e042b56fd63f2dbcfbfb542b7e09360879bd0b2"
+      }
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "card.ming.tanlang-ziwu.muhuo-sha",
+    "palace": "命宮",
+    "topic": "格局",
+    "kind": "claim",
+    "system": 5,
+    "layer": "natal",
+    "when": {
+      "all": [
+        {
+          "star": "貪狼",
+          "at": [
+            "午"
+          ]
+        },
+        {
+          "meets": "貪狼",
+          "stars": [
+            "擎羊",
+            "陀羅",
+            "火星",
+            "鈴星",
+            "地空",
+            "地劫"
+          ]
+        }
+      ]
+    },
+    "claim": "你的財富多屬小康，絕不宜投機。",
+    "en": "Your wealth is likely modest; speculation is not for you.",
+    "sources": [
+      {
+        "id": "wtz.deep.p354.b010",
+        "sha256": "12a327fb1e8d123dc86bdc601e042b56fd63f2dbcfbfb542b7e09360879bd0b2"
+      }
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "card.ming.tanlang-ziwu.muhuo-kong",
+    "palace": "命宮",
+    "topic": "格局",
+    "kind": "caveat",
+    "system": 5,
+    "pole": "欲望強",
+    "layer": "natal",
+    "when": {
+      "all": [
+        {
+          "star": "貪狼",
+          "at": [
+            "午"
+          ]
+        },
+        {
+          "any": [
+            {
+              "star": "貪狼",
+              "hua": "權"
+            },
+            {
+              "all": [
+                {
+                  "star": "貪狼",
+                  "hua": "祿"
+                },
+                {
+                  "meets": "貪狼",
+                  "stars": [
+                    "左輔",
+                    "右弼"
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "claim": "你財祿事業容易亨通，內心卻可能覺得空虛。",
+    "en": "Money and career may flow well for you, while inside you feel empty.",
+    "limit": "木火通明本已物欲強，再見物欲之星。",
+    "sources": [
+      {
+        "id": "wtz.deep.p054.b004",
+        "sha256": "c42fc7c345c6100938786d80259fb6e18655e9c4b804f8d5dd6e711da133b1ac"
+      }
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "card.ming.tanlang-ziwu.tufa",
+    "palace": "命宮",
+    "topic": "格局",
+    "kind": "caveat",
+    "system": 5,
+    "layer": "natal",
+    "when": {
+      "meets": "貪狼",
+      "stars": [
+        "火星",
+        "鈴星"
+      ],
+      "reach": "same"
+    },
+    "none": {
+      "star": "貪狼",
+      "hua": "忌"
+    },
+    "claim": "你的發展往往突然而來。",
+    "en": "Your breaks tend to come suddenly.",
+    "sources": [
+      {
+        "id": "wtz.deep.p353.b013",
+        "sha256": "544d8d10f46e294c59ab02e1fb432968b336a23c7999a521952a9fb9e4e102ce"
+      }
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "card.ming.tanlang-ziwu.baofa",
+    "palace": "命宮",
+    "topic": "格局",
+    "kind": "caveat",
+    "system": 5,
+    "layer": "natal",
+    "when": {
+      "all": [
+        {
+          "meets": "貪狼",
+          "stars": [
+            "火星",
+            "鈴星"
+          ],
+          "reach": "same"
+        },
+        {
+          "star": "貪狼",
+          "hua": "忌"
+        }
+      ]
+    },
+    "claim": "你起落都快：發得急，也跌得急。",
+    "en": "Your rises and falls both come fast: quick gains, quick drops.",
+    "sources": [
+      {
+        "id": "wtz.deep.p353.b014",
+        "sha256": "a034221cdda00ffa004815d838b9f97a864dcc63c29b3bb96422fd6f2a9afe75"
+      }
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "card.ming.tanlang-ziwu.wuyu",
+    "palace": "命宮",
+    "topic": "處事",
+    "kind": "claim",
+    "system": 5,
+    "pole": "欲望強",
+    "layer": "natal",
+    "when": {
+      "any": [
+        {
+          "star": "貪狼",
+          "hua": "權"
+        },
+        {
+          "all": [
+            {
+              "star": "貪狼",
+              "hua": "祿"
+            },
+            {
+              "meets": "貪狼",
+              "stars": [
+                "左輔",
+                "右弼"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "claim": "你的欲望偏向物質：爭取的是財富和實際成果。",
+    "en": "Your drive leans material: what you pursue is wealth and tangible results.",
+    "sources": [
+      {
+        "id": "wtz.deep.p053.b008",
+        "sha256": "8a9f6ce248aa11bf63e8cebf2d08e8017e9543b757a33e1d95029725ce1e9b57"
+      }
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "card.ming.tanlang-ziwu.qingyu",
+    "palace": "命宮",
+    "topic": "處事",
+    "kind": "claim",
+    "system": 5,
+    "pole": "欲望強",
+    "layer": "natal",
+    "when": {
+      "meets": "貪狼",
+      "stars": [
+        "文昌",
+        "文曲"
+      ]
+    },
+    "none": {
+      "any": [
+        {
+          "star": "貪狼",
+          "hua": "權"
+        },
+        {
+          "all": [
+            {
+              "star": "貪狼",
+              "hua": "祿"
+            },
+            {
+              "meets": "貪狼",
+              "stars": [
+                "左輔",
+                "右弼"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "claim": "你的欲望偏向感情：最牽動你的是人與人之間的情分。",
+    "en": "Your drive leans emotional: what moves you most is the bond between people.",
+    "sources": [
+      {
+        "id": "wtz.deep.p053.b008",
+        "sha256": "8a9f6ce248aa11bf63e8cebf2d08e8017e9543b757a33e1d95029725ce1e9b57"
+      }
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "card.ming.tanlang-ziwu.duanzheng",
+    "palace": "命宮",
+    "topic": "處事",
+    "kind": "caveat",
+    "system": 5,
+    "layer": "natal",
+    "when": {
+      "meets": "貪狼",
+      "stars": [
+        "地空",
+        "天刑"
+      ],
+      "reach": "same"
+    },
+    "claim": "你行事端正。",
+    "en": "You conduct yourself with integrity.",
+    "sources": [
+      {
+        "id": "wtz.deep.p354.b004",
+        "sha256": "18db2d67d096beea44919d855fb7287c95e7129dac21358c739f5ea3e75a6d23"
+      }
+    ],
+    "status": "draft",
+    "none": {
+      "all": [
+        {
+          "star": "貪狼",
+          "at": [
+            "子"
+          ]
+        },
+        {
+          "meets": "貪狼",
+          "stars": [
+            "擎羊"
+          ],
+          "reach": "same"
+        }
+      ]
+    },
+    "limit": "原文空曜指地空（地劫同躔反主挫折，不計）。泛水桃花會天刑，天刑不主自律，故排除。"
+  },
+  {
+    "id": "card.ming.tanlang-ziwu.zilv",
+    "palace": "命宮",
+    "topic": "處事",
+    "kind": "caveat",
+    "system": 5,
+    "when": {
+      "meets": "貪狼",
+      "stars": [
+        "天刑"
+      ],
+      "reach": "same"
+    },
+    "none": {
+      "all": [
+        {
+          "star": "貪狼",
+          "at": [
+            "子"
+          ]
+        },
+        {
+          "meets": "貪狼",
+          "stars": [
+            "擎羊"
+          ],
+          "reach": "same"
+        }
+      ]
+    },
+    "layer": "natal",
+    "claim": "你尤其懂得自律。",
+    "en": "You are especially good at self-discipline.",
+    "limit": "原文「躔天刑尤主自律」；泛水桃花會天刑則不主自律，故排除。",
+    "sources": [
+      {
+        "id": "wtz.deep.p354.b004",
+        "sha256": "18db2d67d096beea44919d855fb7287c95e7129dac21358c739f5ea3e75a6d23"
+      },
+      {
+        "id": "wtz.deep.p354.b005",
+        "sha256": "433b21ed7859576c1aa2c30757f03895947d9f57cba58cb023f794c36928f92c"
+      }
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "card.ming.tanlang-ziwu.nianzhi",
+    "palace": "命宮",
+    "topic": "處事",
+    "kind": "caveat",
+    "system": 5,
+    "layer": "natal",
+    "claim": "你物欲較深，要提防貪小便宜和沉迷嗜好。",
+    "en": "Your appetite for things runs deep; watch out for small greed and habits that take hold.",
+    "sources": [
+      {
+        "id": "wtz.deep.p355.b001",
+        "sha256": "4a9e27eafc30144d45760499b9d3032be0411ad29492c6c6488d2ffd07ce67fa"
+      },
+      {
+        "id": "wtz.deep.p053.b007",
+        "sha256": "efe9ee37fafd553c11beaaee806114da73962c82ad902879f999c2d20808b3fe"
+      }
+    ],
+    "status": "needs_atom",
+    "note": "原文以生年地支分：申子辰年生貪狼在子、寅午戌年生貪狼在午為欲望強（「鼠竊」之命）；引擎冇生年地支原子。"
+  },
+  {
+    "id": "card.ming.tanlang-ziwu.jiaoji",
+    "palace": "命宮",
+    "topic": "待人",
+    "kind": "claim",
+    "system": 5,
+    "layer": "natal",
+    "claim": "你擅長交際應酬，場面上的往來做得很好。",
+    "en": "You are good at socialising and handle the give-and-take of public occasions well.",
+    "limit": "原文說其交際傾向「酒色財氣」，這裡不寫。",
+    "sources": [
+      {
+        "id": "wtz.deep.p353.b011",
+        "sha256": "767b12211ac5bae049ad34ba7fd3dea7daef6d98ac30c98358bb97b1c19a5298"
+      }
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "card.ming.tanlang-ziwu.pivot",
+    "palace": "命宮",
+    "topic": "運程",
+    "kind": "claim",
+    "system": 5,
+    "layer": "natal",
+    "decades": {
+      "any": [
+        {
+          "star": "七殺",
+          "in": {
+            "name": "命宮",
+            "layer": "decade"
+          }
+        },
+        {
+          "star": "破軍",
+          "in": {
+            "name": "命宮",
+            "layer": "decade"
+          }
+        },
+        {
+          "star": "太陰",
+          "in": {
+            "name": "命宮",
+            "layer": "decade"
+          }
+        },
+        {
+          "star": "太陽",
+          "in": {
+            "name": "命宮",
+            "layer": "decade"
+          }
+        },
+        {
+          "star": "巨門",
+          "in": {
+            "name": "命宮",
+            "layer": "decade"
+          }
+        },
+        {
+          "star": "紫微",
+          "in": {
+            "name": "命宮",
+            "layer": "decade"
+          }
+        }
+      ]
+    },
+    "claim": "{decades}這幾段時間，是你一生運程的關鍵。",
+    "en": "The years {decades} are the turning points of your life course.",
+    "sources": [
+      {
+        "id": "wtz.deep.p355.b002",
+        "sha256": "a287f1a08ae0c5f938eae414ece4702ed19aa6ef08b1169aa590233f78c5dbea"
+      }
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "card.ming.tanlang-ziwu.dan-xi",
+    "palace": "命宮",
+    "topic": "運程",
+    "kind": "claim",
+    "system": 5,
+    "pole": "欲望淡",
+    "layer": "decade",
+    "when": {
+      "any": [
+        {
+          "all": [
+            {
+              "star": "武曲",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "geju": "caiyin"
+            }
+          ]
+        },
+        {
+          "all": [
+            {
+              "star": "太陽",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "any": [
+                {
+                  "any": [
+                    {
+                      "star": "太陽",
+                      "hua": "科"
+                    },
+                    {
+                      "star": "太陽",
+                      "hua": "科",
+                      "layer": "decade"
+                    }
+                  ]
+                },
+                {
+                  "any": [
+                    {
+                      "star": "天梁",
+                      "hua": "科"
+                    },
+                    {
+                      "star": "天梁",
+                      "hua": "科",
+                      "layer": "decade"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "all": [
+            {
+              "star": "七殺",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "any": [
+                {
+                  "deLu": "七殺",
+                  "layer": "decade"
+                },
+                {
+                  "meets": "七殺",
+                  "stars": [
+                    "化權"
+                  ]
+                },
+                {
+                  "hua": "權",
+                  "in": {
+                    "name": "命宮",
+                    "layer": "decade"
+                  },
+                  "layer": "decade"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "all": [
+            {
+              "star": "破軍",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "any": [
+                {
+                  "star": "破軍",
+                  "hua": "祿"
+                },
+                {
+                  "star": "破軍",
+                  "hua": "祿",
+                  "layer": "decade"
+                },
+                {
+                  "star": "破軍",
+                  "hua": "權"
+                },
+                {
+                  "star": "破軍",
+                  "hua": "權",
+                  "layer": "decade"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "all": [
+            {
+              "star": "廉貞",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "any": [
+                {
+                  "any": [
+                    {
+                      "star": "廉貞",
+                      "hua": "祿"
+                    },
+                    {
+                      "star": "廉貞",
+                      "hua": "祿",
+                      "layer": "decade"
+                    },
+                    {
+                      "star": "廉貞",
+                      "hua": "權"
+                    },
+                    {
+                      "star": "廉貞",
+                      "hua": "權",
+                      "layer": "decade"
+                    },
+                    {
+                      "star": "廉貞",
+                      "hua": "科"
+                    },
+                    {
+                      "star": "廉貞",
+                      "hua": "科",
+                      "layer": "decade"
+                    }
+                  ]
+                },
+                {
+                  "any": [
+                    {
+                      "star": "天府",
+                      "hua": "科"
+                    },
+                    {
+                      "star": "天府",
+                      "hua": "科",
+                      "layer": "decade"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "claim": "這十年的際遇能令你變得積極，有所作為。",
+    "en": "This decade brings circumstances that make you more active and able to achieve.",
+    "limit": "原文「倘若不沉溺於不良嗜好」為前提，條件語言計不到。七殺「見祿權」：得祿，或三方四正見本命化權，或大限化權入大限命宮。",
+    "sources": [
+      {
+        "id": "wtz.deep.p054.b005",
+        "sha256": "b4ab4337b068aa42d8c3ca39294f8a4f0eeb97083378f9c1ed2ce8a405f3ce5a"
+      }
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "card.ming.tanlang-ziwu.qiang-buxi",
+    "palace": "命宮",
+    "topic": "運程",
+    "kind": "claim",
+    "system": 5,
+    "pole": "欲望強",
+    "layer": "decade",
+    "when": {
+      "any": [
+        {
+          "all": [
+            {
+              "star": "巨門",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "any": [
+                {
+                  "star": "巨門",
+                  "hua": "祿"
+                },
+                {
+                  "star": "巨門",
+                  "hua": "祿",
+                  "layer": "decade"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "all": [
+            {
+              "star": "太陽",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "any": [
+                {
+                  "star": "太陽",
+                  "hua": "權"
+                },
+                {
+                  "star": "太陽",
+                  "hua": "權",
+                  "layer": "decade"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "all": [
+            {
+              "star": "天機",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "any": [
+                {
+                  "star": "天機",
+                  "hua": "祿"
+                },
+                {
+                  "star": "天機",
+                  "hua": "祿",
+                  "layer": "decade"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "claim": "這十年再加深你的物欲，際遇未必如意，精神上容易空虛。",
+    "en": "This decade deepens your appetite for things; results may disappoint, and you may feel empty inside.",
+    "limit": "原文對象是「物欲過份深」的貪狼。",
+    "sources": [
+      {
+        "id": "wtz.deep.p054.b006",
+        "sha256": "150c0d3035b08c0af8580890cc8e89cdbb3b046fb3ee5cb0e7ac1895f6437109"
+      }
+    ],
+    "status": "draft"
+  }
+]

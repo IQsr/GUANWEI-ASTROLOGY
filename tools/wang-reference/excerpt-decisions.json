@@ -1,0 +1,4009 @@
+{
+  "schema_version": 1,
+  "reviewed_on": "2026-10-19",
+  "reviewed_pdf_sha256": "513e3d068040efe3684eb3c0e44cf6e447787670bbf5d618f022da2d6c55231b",
+  "scope": "253條舊摘引、現有中文使用記錄與其可見條件；屬文獻支持審核，未驗盤、未核全部英文或引擎評分。",
+  "decisions": [
+    {
+      "ordinal": 1,
+      "verdict": "unused",
+      "evidence_blocks": [
+        "wtz.deep.p291.b004"
+      ],
+      "finding": "原頁首行是庚千，舊摘引以庚干作標題；本句支持本書採天府化科，未掃到直接資料引用。",
+      "recommendation": "只修摘引標題的轉錄標籤，保留原PDF庚千疑字及版本註；不得據此統一各派四化表。正文無現有消費句須改。",
+      "passage_id": "sihua.天府.庚科",
+      "proposed_quote_pages": [
+        291,
+        291
+      ]
+    },
+    {
+      "ordinal": 2,
+      "verdict": "revise_copy",
+      "evidence_blocks": [
+        "wtz.deep.p042.b004",
+        "wtz.deep.p042.b005",
+        "wtz.deep.p042.b006"
+      ],
+      "finding": "引文刪去參閱十四正曜一句而未標節略。原段支持精神／物質兩面，唔支持以兩邊分數相等就斷言缺一樣都不對。",
+      "recommendation": "p.42維持；摘引加節略標記或重新取連續段。plain.lean.平衡改為「需綜合會合星曜，判斷精神與物質傾向」，刪個人需求保證；trine各四化另掛相應分支，不由此一句概括。",
+      "passage_id": "xingxi.1",
+      "proposed_quote_pages": [
+        42,
+        42
+      ]
+    },
+    {
+      "ordinal": 3,
+      "verdict": "revise_copy",
+      "evidence_blocks": [
+        "wtz.deep.p045.b004",
+        "wtz.deep.p045.b005",
+        "wtz.deep.p045.b006",
+        "wtz.deep.p045.b007",
+        "wtz.deep.p046.b007",
+        "wtz.deep.p046.b008"
+      ],
+      "finding": "標題格式差異；原文將順從／叛逆連同所行宮垣分支解釋，唔係所有叛逆者每次都根本轉向。",
+      "recommendation": "標題另存；順從／叛逆改講一般變動幅度，若講根本改變須加「行經喜宜宮垣」；平衡句嘅敢不敢動另列編輯建議，唔掛此引文。",
+      "passage_id": "xingxi.2",
+      "proposed_quote_pages": [
+        45,
+        45
+      ]
+    },
+    {
+      "ordinal": 4,
+      "verdict": "expand_evidence",
+      "evidence_blocks": [
+        "wtz.deep.p047.b010",
+        "wtz.deep.p047.b011",
+        "wtz.deep.p048.b001",
+        "wtz.deep.p048.b002",
+        "wtz.deep.p048.b009",
+        "wtz.deep.p049.b003",
+        "wtz.deep.p049.b004"
+      ],
+      "finding": "比較軸及天府不能解廉貞矛盾可由跨頁正文支持；舊引只一個軸向句，覆蓋唔到忠於故主或原局平衡。",
+      "recommendation": "標題另列，證據擴至p.47–49上述分段；感情lean掛p.48b9，平衡掛p.49b3，不以單句包住整段。情緒／理智分數能否代表原文平衡另核。",
+      "passage_id": "xingxi.3",
+      "proposed_quote_pages": [
+        47,
+        47
+      ]
+    },
+    {
+      "ordinal": 5,
+      "verdict": "revise_copy",
+      "evidence_blocks": [
+        "wtz.deep.p050.b007",
+        "wtz.deep.p050.b008"
+      ],
+      "finding": "收斂較佳但過度不佳有原文；「太放又只剩虛名」及「平衡就是最好的樣子」唔係該段原話，亦將略重收斂改成等量平衡。",
+      "recommendation": "basis改為「太陰以收斂為佳，但不宜過度；須參看同會星曜」，平衡句只寫未判定偏向；發揮名過實須另掛具體條件分支。",
+      "passage_id": "xingxi.4",
+      "proposed_quote_pages": [
+        50,
+        50
+      ]
+    },
+    {
+      "ordinal": 6,
+      "verdict": "revise_copy",
+      "evidence_blocks": [
+        "wtz.deep.p053.b006",
+        "wtz.deep.p053.b007",
+        "wtz.deep.p054.b005",
+        "wtz.deep.p054.b006",
+        "wtz.deep.p054.b007"
+      ],
+      "finding": "欲望強弱仍須分物欲／情欲；欲望淡唔等於不爭、心境平和。",
+      "recommendation": "保留強弱軸，刪plain.lean.欲望淡的「你不爭」及strengthBy的心境平和保證；改為「欲望較弱仍需看嗜好、原局與行運」。",
+      "passage_id": "xingxi.5",
+      "proposed_quote_pages": [
+        53,
+        53
+      ]
+    },
+    {
+      "ordinal": 7,
+      "verdict": "revise_copy",
+      "evidence_blocks": [
+        "wtz.deep.p056.b004",
+        "wtz.deep.p056.b009",
+        "wtz.deep.p056.b010",
+        "wtz.deep.p056.b011"
+      ],
+      "finding": "陰暗／明朗與波折後白手成家有分支；原文冇話明朗必定情緒來得快去得快。",
+      "recommendation": "標題另列；刪明朗lean及summaryBy嘅情緒速度斷語。白手成家另加巨門吉化，引用p.56b10，唔由明朗分數直接推出。",
+      "passage_id": "xingxi.6",
+      "proposed_quote_pages": [
+        56,
+        56
+      ]
+    },
+    {
+      "ordinal": 8,
+      "verdict": "revise_copy",
+      "evidence_blocks": [
+        "wtz.deep.p058.b013",
+        "wtz.deep.p059.b001",
+        "wtz.deep.p059.b002"
+      ],
+      "finding": "剛柔相濟需跨p.58–59；原文亦有過柔，現軸卻把偏剛同剛柔相濟當對稱兩端，另生「壓力大先硬扛」。",
+      "recommendation": "保留剛／柔及調和三種狀態，唔把相濟當一端；刪平衡lean的壓力反應。basis與相關lean擴引p.59並分清原文與建議。",
+      "passage_id": "xingxi.7",
+      "proposed_quote_pages": [
+        58,
+        58
+      ]
+    },
+    {
+      "ordinal": 9,
+      "verdict": "revise_copy",
+      "evidence_blocks": [
+        "wtz.deep.p061.b005",
+        "wtz.deep.p061.b006",
+        "wtz.deep.p061.b007"
+      ],
+      "finding": "祥和／孤忌係原軸，唔能由此保證每次離開都能好好道別；孤忌亦唔等同主動／被動離開二分。",
+      "recommendation": "basis保留「要分祥和或孤忌，參看廟陷、四化及會曜」；主動選擇、好好道別、唔為合群改變自己改列建議或移除來源註。",
+      "passage_id": "xingxi.8",
+      "proposed_quote_pages": [
+        61,
+        61
+      ]
+    },
+    {
+      "ordinal": 10,
+      "verdict": "expand_evidence",
+      "evidence_blocks": [
+        "wtz.deep.p063.b014",
+        "wtz.deep.p064.b001",
+        "wtz.deep.p064.b002",
+        "wtz.deep.p064.b006",
+        "wtz.deep.p064.b007"
+      ],
+      "finding": "標題p.63，摘出辰戌理想／空想句其實p.64，並非同頁連續摘錄；作者明示仲要看福德紫微。",
+      "recommendation": "標題與p.64正文分開記頁；byBranch加「基本比較，仍看廉府及福德紫微」。肯吃苦另掛p.64b2；唔將辰宮直接保證為理想型。",
+      "passage_id": "xingxi.9",
+      "proposed_quote_pages": [
+        63,
+        64
+      ]
+    },
+    {
+      "ordinal": 11,
+      "verdict": "revise_copy",
+      "evidence_blocks": [
+        "wtz.deep.p066.b011",
+        "wtz.deep.p067.b001",
+        "wtz.deep.p067.b002",
+        "wtz.deep.p067.b003"
+      ],
+      "finding": "標題p.66、正文p.67而舊句再截尾；本機PDF p.67首句本身接合生硬。機謀唔必然正道或計劃踏實，仲受陽梁修飾。",
+      "recommendation": "重取p.67完整段並保留疑句標記；basis改「先看同巨明暗，再看陽梁修飾機變／機謀」，刪機謀lean無條件「就是真本事」。大事小事等未有原文的個人化句刪除。",
+      "passage_id": "xingxi.10",
+      "proposed_quote_pages": [
+        66,
+        67
+      ]
+    },
+    {
+      "ordinal": 12,
+      "verdict": "expand_evidence",
+      "evidence_blocks": [
+        "wtz.deep.p070.b005",
+        "wtz.deep.p070.b006",
+        "wtz.deep.p070.b007"
+      ],
+      "finding": "舊摘引標題只寫紫微在丑未，實際係紫微破軍同度；一句軸向未包括隱然革新或人際重排。",
+      "recommendation": "導航標題改紫微破軍坐丑未、原標題另留；動盪／安定分支另取本節對應完整段。未補引前只保留「須分動盪與安定」，唔以平衡分數保證時機成熟先變。",
+      "passage_id": "xingxi.11",
+      "proposed_quote_pages": [
+        70,
+        70
+      ]
+    },
+    {
+      "ordinal": 13,
+      "verdict": "revise_copy",
+      "evidence_blocks": [
+        "wtz.deep.p073.b004",
+        "wtz.deep.p073.b005",
+        "wtz.deep.p073.b006",
+        "wtz.deep.p073.b007"
+      ],
+      "finding": "局面大小唔只係吉星多寡，更有百官朝拱、天府得祿及事業天相性質；「謹慎所以守得穩」亦非必然。",
+      "recommendation": "basis補列原文組合條件，唔只以吉星計數決定；謹慎lean改「小局面嘅謹慎」，刪守得穩、擴張先有退路等未證個人習慣。",
+      "passage_id": "xingxi.12",
+      "proposed_quote_pages": [
+        73,
+        73
+      ]
+    },
+    {
+      "ordinal": 14,
+      "verdict": "expand_evidence",
+      "evidence_blocks": [
+        "wtz.deep.p076.b006",
+        "wtz.deep.p076.b007",
+        "wtz.deep.p076.b008",
+        "wtz.deep.p076.b009"
+      ],
+      "finding": "喜金忌火係該節傳授口訣，作者又提出福德巨門影響；現basis大致有來源但舊引漏咗目標／盲動與作者保留。",
+      "recommendation": "標題分離；擴引p.76b6–9，附作者經驗保留。金火要按本書列星而非自行五行分類；平衡lean嘅「有些事看準」不可當原文人格斷語。",
+      "passage_id": "xingxi.13",
+      "proposed_quote_pages": [
+        76,
+        76
+      ]
+    },
+    {
+      "ordinal": 15,
+      "verdict": "revise_copy",
+      "evidence_blocks": [
+        "wtz.deep.p078.b010",
+        "wtz.deep.p079.b001"
+      ],
+      "finding": "感情／物欲軸有據；現basis「兩者平衡反而最穩」唔能以兩邊權重相等證成，強弱與相互牽制須看完整分支。",
+      "recommendation": "先改「要分感情與物欲，由廉貞、貪狼及配曜判斷」，同時保留p.79削弱對象疑句待核；「最能打動你的是人不是東西」改列編輯比喻或刪來源。",
+      "passage_id": "xingxi.14",
+      "proposed_quote_pages": [
+        78,
+        78
+      ]
+    },
+    {
+      "ordinal": 16,
+      "verdict": "revise_copy",
+      "evidence_blocks": [
+        "wtz.deep.p081.b010",
+        "wtz.deep.p081.b011",
+        "wtz.deep.p082.b001",
+        "wtz.deep.p082.b002",
+        "wtz.deep.p082.b003"
+      ],
+      "finding": "標題p.81、比較句p.82；收斂才華轉化係成石中隱玉格時，唔係所有子午巨門都可以直接成大事。",
+      "recommendation": "引用頁分開；英華內斂lean補祿權吉化、不見煞等成格前提，無前提只講比較軸。平衡lean嘅防人分寸另列建議。",
+      "passage_id": "xingxi.15",
+      "proposed_quote_pages": [
+        81,
+        82
+      ]
+    },
+    {
+      "ordinal": 17,
+      "verdict": "expand_evidence",
+      "evidence_blocks": [
+        "wtz.deep.p084.b013",
+        "wtz.deep.p085.b001",
+        "wtz.deep.p085.b002"
+      ],
+      "finding": "優雅／庸俗及獨立／依附跨頁有據；不能用財蔭／刑忌一項直接決定優雅或庸俗。",
+      "recommendation": "正文擴p.84–85；plain改稱「獨立／依附的相對氣質」，保留原軸對照；「地位與名聲勝一籌」須另掛原分支，勿只引首句。",
+      "passage_id": "xingxi.16",
+      "proposed_quote_pages": [
+        84,
+        84
+      ]
+    },
+    {
+      "ordinal": 18,
+      "verdict": "expand_evidence",
+      "evidence_blocks": [
+        "wtz.deep.p087.b010",
+        "wtz.deep.p087.b011",
+        "wtz.deep.p087.b012",
+        "wtz.deep.p087.b013"
+      ],
+      "finding": "浪漫／原則、純機月同梁結構有據，但悠閒就最能發揮、調和就進退拿捏得住未由一行引文證成。",
+      "recommendation": "標題另列；basis可擴引p.87b10–13；lean先縮成浪漫／原則傾向及其四化條件，悠閒發揮等改列編輯建議，唔假定原局已調和。",
+      "passage_id": "xingxi.17",
+      "proposed_quote_pages": [
+        87,
+        87
+      ]
+    },
+    {
+      "ordinal": 19,
+      "verdict": "revise_copy",
+      "evidence_blocks": [
+        "wtz.deep.p089.b009",
+        "wtz.deep.p089.b010"
+      ],
+      "finding": "決斷／短慮及決斷後補救有據；平衡lean「大事看清、小事憑一時」係新增大小事區分。",
+      "recommendation": "擴引p.89b9–10支持basis；刪平衡lean大小事斷語，改「目前未能判定較偏決斷或短慮」。將財星／將星另掛十四星段。",
+      "passage_id": "xingxi.18",
+      "proposed_quote_pages": [
+        89,
+        89
+      ]
+    },
+    {
+      "ordinal": 20,
+      "verdict": "revise_copy",
+      "evidence_blocks": [
+        "wtz.deep.p092.b001",
+        "wtz.deep.p092.b002",
+        "wtz.deep.p092.b003",
+        "wtz.deep.p092.b004"
+      ],
+      "finding": "標題p.91、正文p.92；被拖累係星曜互涉比喻，唔等於保證不受拖累者付出就收回應。",
+      "recommendation": "補p.92頁及四化／廟陷分支；從容lean改「相對較少受拖累」，刪「付出之後收得到回應」與負擔適中保證。",
+      "passage_id": "xingxi.19",
+      "proposed_quote_pages": [
+        91,
+        92
+      ]
+    },
+    {
+      "ordinal": 21,
+      "verdict": "revise_copy",
+      "evidence_blocks": [
+        "wtz.deep.p094.b009",
+        "wtz.deep.p094.b010"
+      ],
+      "finding": "剛柔軸、為公／謀私及福德同梁有據；「越變化越好機會」另有巨門吉化前提。",
+      "recommendation": "陽剛lean刪越變越好；若保留，另掛p.94–95巨門吉化分支及條件。陰柔軸唔以懂保護自己完全取代原文權變謀私。",
+      "passage_id": "xingxi.20",
+      "proposed_quote_pages": [
+        94,
+        94
+      ]
+    },
+    {
+      "ordinal": 22,
+      "verdict": "revise_copy",
+      "evidence_blocks": [
+        "wtz.deep.p097.b004",
+        "wtz.deep.p097.b005"
+      ],
+      "finding": "主動／被動源於紫府開創守成的衝突；原文未承諾被動者先穩住陣腳就能取回主動權。",
+      "recommendation": "保留可攻可守／進退失據比較；刪被動lean後半復原保證，平衡lean順利敢進亂時等待亦改為未定。",
+      "passage_id": "xingxi.21",
+      "proposed_quote_pages": [
+        97,
+        97
+      ]
+    },
+    {
+      "ordinal": 23,
+      "verdict": "revise_copy",
+      "evidence_blocks": [
+        "wtz.deep.p100.b009",
+        "wtz.deep.p100.b010",
+        "wtz.deep.p100.b011"
+      ],
+      "finding": "本機PDF標題太陽但正文太陰，已看原頁；意志薄弱分感情與物質，現lean統稱心軟而遺失分支。",
+      "recommendation": "導航太陰與原標題太陽並存；意志薄弱lean按祿／忌分感情／物質，不寫全部都心軟；大事站穩小事讓步刪除。",
+      "passage_id": "xingxi.22",
+      "proposed_quote_pages": [
+        100,
+        100
+      ]
+    },
+    {
+      "ordinal": 24,
+      "verdict": "revise_copy",
+      "evidence_blocks": [
+        "wtz.deep.p103.b003",
+        "wtz.deep.p103.b004",
+        "wtz.deep.p103.b005"
+      ],
+      "finding": "舊句刪去純粹帶物色彩而冇標節略；火鈴同度成格嘅機遇唔可以變成每位辰戌貪狼一生必有突發。",
+      "recommendation": "補節略及「火／鈴同度成格」前提；basis改條件句，刪一生必有普遍保證。機會未到先打底可以另列實用建議。",
+      "passage_id": "xingxi.23",
+      "proposed_quote_pages": [
+        103,
+        103
+      ]
+    },
+    {
+      "ordinal": 25,
+      "verdict": "revise_copy",
+      "evidence_blocks": [
+        "wtz.deep.p105.b010",
+        "wtz.deep.p106.b001",
+        "wtz.deep.p106.b002",
+        "wtz.deep.p106.b003"
+      ],
+      "finding": "深沉／衝動軸有據；太陽給口才要入廟及化權祿，衝動型外冷內熱則有巨門化忌分支。",
+      "recommendation": "basis太陽口才補前提及p.106；衝動lean刪無條件外表冷靜。平衡句遇在意的事直接開口無此引據。",
+      "passage_id": "xingxi.24",
+      "proposed_quote_pages": [
+        105,
+        105
+      ]
+    },
+    {
+      "ordinal": 26,
+      "verdict": "expand_evidence",
+      "evidence_blocks": [
+        "wtz.deep.p108.b007",
+        "wtz.deep.p108.b008"
+      ],
+      "finding": "原文剛毅提取為則毅，屬疑字；感情本質與物質環境衝突有據，柔軟係編輯用語唔等於原文脆弱。",
+      "recommendation": "保留原字並標導航剛毅待校；basis可保留，軸映射須記「柔軟≠一般溫柔」，lean具體應付是非得體／順境游刃有餘唔由軸句直接推出。",
+      "passage_id": "xingxi.25",
+      "proposed_quote_pages": [
+        108,
+        108
+      ]
+    },
+    {
+      "ordinal": 27,
+      "verdict": "revise_copy",
+      "evidence_blocks": [
+        "wtz.deep.p110.b014",
+        "wtz.deep.p110.b015"
+      ],
+      "finding": "原文正值／正直近字並存；精明指觀人缺點、律己不同尺，唔係看人看事都很準。",
+      "recommendation": "標題格式另列、保留正值疑字；精明lean改「易留意別人缺點，需用同一標準檢視自己」，刪準確度保證及平衡善變通斷語。",
+      "passage_id": "xingxi.26",
+      "proposed_quote_pages": [
+        110,
+        110
+      ]
+    },
+    {
+      "ordinal": 28,
+      "verdict": "revise_copy",
+      "evidence_blocks": [
+        "wtz.deep.p113.b009",
+        "wtz.deep.p113.b010",
+        "wtz.deep.p113.b017",
+        "wtz.deep.p113.b018"
+      ],
+      "finding": "威權／孤高有據；標準高、擇人嚴及「有號召力但只向少數放戒」係另加心理描述。",
+      "recommendation": "basis擴引p.113對應段；孤高lean縮為「較難令人心服、易顯疏離」，平衡個人交往習慣刪除。",
+      "passage_id": "xingxi.27",
+      "proposed_quote_pages": [
+        113,
+        113
+      ]
+    },
+    {
+      "ordinal": 29,
+      "verdict": "revise_copy",
+      "evidence_blocks": [
+        "wtz.deep.p116.b004",
+        "wtz.deep.p116.b005",
+        "wtz.deep.p116.b011",
+        "wtz.deep.p116.b012"
+      ],
+      "finding": "精神充實／空虛有據，但平衡不是「精神與物質平衡」；原文甚至明講物質足但精神空虛。",
+      "recommendation": "平衡lean刪換維度敘述，改「本條未判定精神充實程度」；充實能白手成家要保留該節判斷及行運條件，不由心情量表推出。",
+      "passage_id": "xingxi.28",
+      "proposed_quote_pages": [
+        116,
+        116
+      ]
+    },
+    {
+      "ordinal": 30,
+      "verdict": "expand_evidence",
+      "evidence_blocks": [
+        "wtz.deep.p119.b009",
+        "wtz.deep.p119.b010"
+      ],
+      "finding": "因循一藝謀生、進取可改際遇有據；具體離開舒適地方及只在值得時拼屬編輯延伸。",
+      "recommendation": "摘引擴至p.119b10支撐basis；lean只保留因循／進取比較，行動建議另列，未判定時唔寫「你肯拼」。",
+      "passage_id": "xingxi.29",
+      "proposed_quote_pages": [
+        119,
+        119
+      ]
+    },
+    {
+      "ordinal": 31,
+      "verdict": "expand_evidence",
+      "evidence_blocks": [
+        "wtz.deep.p123.b003",
+        "wtz.deep.p123.b004",
+        "wtz.deep.p123.b005"
+      ],
+      "finding": "巳積極亥消極只係起點，同段明說吉凶會曜可轉化；現basis所述會曜影響有據但舊引太短。",
+      "recommendation": "擴引p.123b4–5，保留「即使落陷可因朝拱轉積極」；從態度不可直接保證機會前進退，相關lean縮為相對傾向。",
+      "passage_id": "xingxi.30",
+      "proposed_quote_pages": [
+        123,
+        123
+      ]
+    },
+    {
+      "ordinal": 32,
+      "verdict": "expand_evidence",
+      "evidence_blocks": [
+        "wtz.deep.p126.b002",
+        "wtz.deep.p126.b004",
+        "wtz.deep.p126.b005"
+      ],
+      "finding": "舊摘引把本節較長前句重寫成「破軍在此二宮垣」，唔係原文照錄；果敢／顽嚣解說有據。",
+      "recommendation": "重取p.126b4–5連續原文，另存莽撞為編輯詞；刪平衡lean嘅大事有目標／小事興起大小事區分。",
+      "passage_id": "xingxi.31",
+      "proposed_quote_pages": [
+        126,
+        126
+      ]
+    },
+    {
+      "ordinal": 33,
+      "verdict": "expand_evidence",
+      "evidence_blocks": [
+        "wtz.deep.p129.b008",
+        "wtz.deep.p129.b009",
+        "wtz.deep.p130.b001",
+        "wtz.deep.p130.b002",
+        "wtz.deep.p130.b003"
+      ],
+      "finding": "上進／下游、弱垣倚天梁及得祿有據；停滯係編輯簡化，未必代表需要人推先起步。",
+      "recommendation": "擴p.129–130掛實際條件；lean刪起步一定要人推及環境對就上進嘅保證，將後天努力另列建議。",
+      "passage_id": "xingxi.32",
+      "proposed_quote_pages": [
+        129,
+        129
+      ]
+    },
+    {
+      "ordinal": 34,
+      "verdict": "revise_copy",
+      "evidence_blocks": [
+        "wtz.deep.p133.b003",
+        "wtz.deep.p133.b004",
+        "wtz.deep.p133.b005",
+        "wtz.deep.p133.b007",
+        "wtz.deep.p133.b008"
+      ],
+      "finding": "原文情欲包含色欲，現時改成重情重人，語意變成忠於關係；並非純標題差異。",
+      "recommendation": "保留原軸「物欲／情欲」，可用中性語言解釋追求情感或感官滿足，唔改寫成忠誠重情；basis比較主動另掛b7–8。",
+      "passage_id": "xingxi.33",
+      "proposed_quote_pages": [
+        133,
+        133
+      ]
+    },
+    {
+      "ordinal": 35,
+      "verdict": "revise_copy",
+      "evidence_blocks": [
+        "wtz.deep.p136.b003",
+        "wtz.deep.p136.b004",
+        "wtz.deep.p136.b005"
+      ],
+      "finding": "受激發／遭忌有據，原文有奇格例外；現lean「越被逼越有成績」把溫和激發改成無限壓力都有效。",
+      "recommendation": "保留奇格條件；受激發lean改「適度激發下可尋求進展，仍要看原局與行運」，刪越被逼越好及穩守一律最好。",
+      "passage_id": "xingxi.34",
+      "proposed_quote_pages": [
+        136,
+        136
+      ]
+    },
+    {
+      "ordinal": 36,
+      "verdict": "expand_evidence",
+      "evidence_blocks": [
+        "wtz.deep.p138.b009",
+        "wtz.deep.p138.b010",
+        "wtz.deep.p138.b011",
+        "wtz.deep.p139.b001"
+      ],
+      "finding": "最穩、開創／因人成事有據，但原文先限制不為刑忌夾，亦明言難獨立作主；「自己布局靠得住坐得穩」過強。",
+      "recommendation": "basis補不受刑忌夾；開創lean縮為「相對具開創力，仍需配合他人」，唔用源句保證獨立創業穩當。",
+      "passage_id": "xingxi.35",
+      "proposed_quote_pages": [
+        138,
+        138
+      ]
+    },
+    {
+      "ordinal": 37,
+      "verdict": "expand_evidence",
+      "evidence_blocks": [
+        "wtz.deep.p141.b005",
+        "wtz.deep.p141.b008",
+        "wtz.deep.p141.b010",
+        "wtz.deep.p141.b011"
+      ],
+      "finding": "融和／孤克與不同職業取向可由p.141支持，但舊引只軸句；孤獨係編輯詞需保留孤克對照。",
+      "recommendation": "擴引b8、b10並分開人際與職業；平衡不直接保證能帶領一群人，混合性質依b11另列條件。",
+      "passage_id": "xingxi.36",
+      "proposed_quote_pages": [
+        141,
+        141
+      ]
+    },
+    {
+      "ordinal": 38,
+      "verdict": "revise_copy",
+      "evidence_blocks": [
+        "wtz.deep.p144.b003",
+        "wtz.deep.p144.b004",
+        "wtz.deep.p144.b005",
+        "wtz.deep.p144.b006",
+        "wtz.deep.p144.b007",
+        "wtz.deep.p144.b008"
+      ],
+      "finding": "原文明講剛戾係星曜性質而非本人性格；奮發成大業有未宮、諸吉、祿及無煞等格局前提。",
+      "recommendation": "保留「多波折」為體驗摘要但勿作相反人格端；奮發lean刪辛苦最後都變本錢的必然回報，若講成大業須加完整雄宿條件。",
+      "passage_id": "xingxi.37",
+      "proposed_quote_pages": [
+        144,
+        144
+      ]
+    },
+    {
+      "ordinal": 39,
+      "verdict": "expand_evidence",
+      "evidence_blocks": [
+        "wtz.deep.p147.b005",
+        "wtz.deep.p147.b006",
+        "wtz.deep.p147.b008"
+      ],
+      "finding": "豁達／短志與功敗垂成有據；反背唔係每位辰戌天同都成格。",
+      "recommendation": "basis改「辰戌有可成反背的分支」，補成格前提；擴b8支持韌力／半途，刪平衡lean所重視的事必撐到底的保證。",
+      "passage_id": "xingxi.38",
+      "proposed_quote_pages": [
+        147,
+        147
+      ]
+    },
+    {
+      "ordinal": 40,
+      "verdict": "revise_copy",
+      "evidence_blocks": [
+        "wtz.deep.p150.b005",
+        "wtz.deep.p150.b006"
+      ],
+      "finding": "反拗包括逆勢妄作、眼前利益等，唔等同不喜歡跟潮流；現lean淡化為個人風格。",
+      "recommendation": "保留原文適應／反拗軸及可觀察的改變代價；「不喜歡跟潮流」改成「逆勢改變前須核目標與資源」，以建議口吻另列。",
+      "passage_id": "xingxi.39",
+      "proposed_quote_pages": [
+        150,
+        150
+      ]
+    },
+    {
+      "ordinal": 41,
+      "verdict": "expand_evidence",
+      "evidence_blocks": [
+        "wtz.deep.p153.b006",
+        "wtz.deep.p153.b007",
+        "wtz.deep.p153.b015"
+      ],
+      "finding": "沉穩／虛浮及財力支持地位在同頁後段有據，舊引只軸句；平衡lean仍新增場面常先過實力。",
+      "recommendation": "擴引p.153b15支持basis；平衡只標未判定，唔新增行為斷語。沉穩要照b7配曜及祿條件核。",
+      "passage_id": "xingxi.40",
+      "proposed_quote_pages": [
+        153,
+        153
+      ]
+    },
+    {
+      "ordinal": 42,
+      "verdict": "revise_copy",
+      "evidence_blocks": [
+        "wtz.deep.p156.b008",
+        "wtz.deep.p156.b009",
+        "wtz.deep.p156.b012",
+        "wtz.deep.p156.b013",
+        "wtz.deep.p157.b001"
+      ],
+      "finding": "怯懦唔等於一般保守，原文謙和亦保守但可發展；現兩端改名混淆。",
+      "recommendation": "軸保留謙和／怯懦的中性解釋「有原則的保守／因畏懼難改變」，唔以保守作負端；刪謙和lean必定悄悄做大局面保證。",
+      "passage_id": "xingxi.41",
+      "proposed_quote_pages": [
+        156,
+        156
+      ]
+    },
+    {
+      "ordinal": 43,
+      "verdict": "revise_copy",
+      "evidence_blocks": [
+        "wtz.deep.p159.b009",
+        "wtz.deep.p159.b010",
+        "wtz.deep.p159.b011"
+      ],
+      "finding": "理智／情緒軸有據，但未由此證成人哋常找你拿主意，亦唔能由平衡分數斷定兩者調和。",
+      "recommendation": "理智lean縮為「判斷較受理智因素影響」；情緒後嘅決策建議另列。basis吉化只增格局的句須另補本節對應段，唔用首句包住。",
+      "passage_id": "xingxi.42",
+      "proposed_quote_pages": [
+        159,
+        159
+      ]
+    },
+    {
+      "ordinal": 44,
+      "verdict": "revise_copy",
+      "evidence_blocks": [
+        "wtz.deep.p163.b004",
+        "wtz.deep.p163.b005",
+        "wtz.deep.p163.b006"
+      ],
+      "finding": "有情／無情只限紫相比較；現寫重情念舊有始有終係更強關係承諾，亦未保留不能跨星系比較。",
+      "recommendation": "補「只係同星系內相對比較」；重情lean改「相對較重人情，仍看得祿與行運」，刪有始有終保證。標題與正文微小轉錄差異另記。",
+      "passage_id": "xingxi.43",
+      "proposed_quote_pages": [
+        163,
+        163
+      ]
+    },
+    {
+      "ordinal": 45,
+      "verdict": "revise_copy",
+      "evidence_blocks": [
+        "wtz.deep.p166.b008",
+        "wtz.deep.p166.b009",
+        "wtz.deep.p166.b010",
+        "wtz.deep.p166.b011"
+      ],
+      "finding": "原文明示穩定只係巳亥天梁內部相對比較，唔代表比其他星系穩。現「每次重新站穩且更高」冇原文保證。",
+      "recommendation": "穩定lean改「相對較少浮蕩，仍可能有變動」，刪每次站得更高；basis得祿仍多是非亦要補。",
+      "passage_id": "xingxi.44",
+      "proposed_quote_pages": [
+        166,
+        166
+      ]
+    },
+    {
+      "ordinal": 46,
+      "verdict": "revise_copy",
+      "evidence_blocks": [
+        "wtz.deep.p170.b002",
+        "wtz.deep.p170.b003",
+        "wtz.deep.p170.b005"
+      ],
+      "finding": "克忌與焦慮唔係同義；同頁破軍祿分支更講焦慮增加但不影響權威，現兩端將可並存性質對立。",
+      "recommendation": "恢復權威／克忌比較；焦慮另立破軍化祿、廉貞受忌等條件，唔用焦慮分數抵銷權威；頁改p.170，標題仍p.169。",
+      "passage_id": "xingxi.45",
+      "proposed_quote_pages": [
+        169,
+        170
+      ]
+    },
+    {
+      "ordinal": 47,
+      "verdict": "expand_evidence",
+      "evidence_blocks": [
+        "wtz.deep.p172.b010",
+        "wtz.deep.p172.b011",
+        "wtz.deep.p172.b012"
+      ],
+      "finding": "酸贞／廉貞為原檔近字；敏感藝術氣質、踏實重物質基礎可在同頁找回。",
+      "recommendation": "原字留記，摘要重取b10–12；敏感唔代表已具藝術成就，感情與物質一樣重要非比較軸必要結論，lean縮窄。",
+      "passage_id": "xingxi.46",
+      "proposed_quote_pages": [
+        172,
+        172
+      ]
+    },
+    {
+      "ordinal": 48,
+      "verdict": "revise_copy",
+      "evidence_blocks": [
+        "wtz.deep.p175.b008",
+        "wtz.deep.p175.b009"
+      ],
+      "finding": "偏枯唔等於心理偏執；原文調和仍一波三折，唔保證每次轉折有收穫。",
+      "recommendation": "負端改「結構偏枯／配合不足」並解釋，刪偏執人格標籤與每次收穫；basis得祿條件另引用，唔用軸句定全部。",
+      "passage_id": "xingxi.47",
+      "proposed_quote_pages": [
+        175,
+        175
+      ]
+    },
+    {
+      "ordinal": 49,
+      "verdict": "revise_copy",
+      "evidence_blocks": [
+        "wtz.deep.p178.b007",
+        "wtz.deep.p178.b008",
+        "wtz.deep.p178.b010",
+        "wtz.deep.p179.b001"
+      ],
+      "finding": "意志堅強唔係一受壓就更好；原文化權而煞刑並見可反效果，化祿亦要適量刺激。",
+      "recommendation": "lean刪「壓力反而讓你做得更好」，改「承擔與行動仍須按四化及刺激程度判斷」；目標建議另列，唔當原文原因。",
+      "passage_id": "xingxi.48",
+      "proposed_quote_pages": [
+        178,
+        178
+      ]
+    },
+    {
+      "ordinal": 50,
+      "verdict": "revise_copy",
+      "evidence_blocks": [
+        "wtz.deep.p181.b009",
+        "wtz.deep.p181.b010",
+        "wtz.deep.p181.b011",
+        "wtz.deep.p181.b012",
+        "wtz.deep.p182.b001"
+      ],
+      "finding": "僅擅生財與統籌係原軸；不見祿另會只擅積財，不能把「偏於一端」都當同一性質；平衡lean也不代表規模大需分擔。",
+      "recommendation": "分開生財強、儲財強與統籌，統籌補見祿及不見煞空劫條件；刪以等分數保證能開源守財。",
+      "passage_id": "xingxi.49",
+      "proposed_quote_pages": [
+        181,
+        181
+      ]
+    },
+    {
+      "ordinal": 51,
+      "verdict": "expand_evidence",
+      "evidence_blocks": [
+        "wtz.deep.p185.b004",
+        "wtz.deep.p185.b005",
+        "wtz.deep.p185.b006"
+      ],
+      "finding": "標題p.184、正文p.185，曰／日轉錄有別；陰晴不定及陽光解梁孤忌有據。",
+      "recommendation": "頁改成分段定位p.184–185；basis擴p.185b4–6，lean建議傾訴另列，唔由開朗保證人際際遇都明亮。",
+      "passage_id": "xingxi.50",
+      "proposed_quote_pages": [
+        184,
+        185
+      ]
+    },
+    {
+      "ordinal": 52,
+      "verdict": "revise_copy",
+      "evidence_blocks": [
+        "wtz.deep.p188.b007",
+        "wtz.deep.p188.b008"
+      ],
+      "finding": "原情感包括色欲，唔等於一律重人情；寅申基本傾向亦須看配曜，化祿不能單定。",
+      "recommendation": "保留物欲／情感（包括情欲）對照；情感lean改「較重情感或感官滿足，可轉化交際工作」，唔直接稱重人情。補b8保留。",
+      "passage_id": "xingxi.51",
+      "proposed_quote_pages": [
+        188,
+        188
+      ]
+    },
+    {
+      "ordinal": 53,
+      "verdict": "revise_copy",
+      "evidence_blocks": [
+        "wtz.deep.p191.b004",
+        "wtz.deep.p191.b005",
+        "wtz.deep.p191.b006"
+      ],
+      "finding": "浮薄／浮滑／多疑唔只是反應快想法多，現「浮動」抹走原比較的含義；大事穩小事三心兩意亦新增。",
+      "recommendation": "用「穩重／浮薄傾向」導航，讀者句描述心思不定與判斷穩定度，唔作人格定罪；刪平衡lean大小事區分。",
+      "passage_id": "xingxi.52",
+      "proposed_quote_pages": [
+        191,
+        191
+      ]
+    },
+    {
+      "ordinal": 54,
+      "verdict": "revise_copy",
+      "evidence_blocks": [
+        "wtz.deep.p194.b004",
+        "wtz.deep.p194.b005",
+        "wtz.deep.p194.b006"
+      ],
+      "finding": "權威／橫霸係最極端界線，作者明說通常冇咁極端；現強勢lean及平衡一手包辦變確定行為。",
+      "recommendation": "basis補「只比較傾向，非二選一人格」；lean改相對運用權力方式，刪未核的一手包辦；不可由任何化權就判橫霸。",
+      "passage_id": "xingxi.53",
+      "proposed_quote_pages": [
+        194,
+        194
+      ]
+    },
+    {
+      "ordinal": 55,
+      "verdict": "expand_evidence",
+      "evidence_blocks": [
+        "wtz.deep.p198.b001",
+        "wtz.deep.p198.b002",
+        "wtz.deep.p198.b003",
+        "wtz.deep.p198.b004",
+        "wtz.deep.p198.b005"
+      ],
+      "finding": "標題p.197、正文p.198；為己唔等於中性保護自己，廉忌無煞刑私心不重的例外重要。",
+      "recommendation": "擴引p.198分支，保留為公／私利原軸對照與例外；lean避免將所有為己寫成暴起暴落或善保護自己，須逐條件定。",
+      "passage_id": "xingxi.54",
+      "proposed_quote_pages": [
+        197,
+        198
+      ]
+    },
+    {
+      "ordinal": 56,
+      "verdict": "revise_copy",
+      "evidence_blocks": [
+        "wtz.deep.p201.b001",
+        "wtz.deep.p201.b002",
+        "wtz.deep.p201.b003",
+        "wtz.deep.p201.b004"
+      ],
+      "finding": "標題p.200、正文p.201；權術係操作手段，多思慮係另述被夾分支，兩者唔同義。",
+      "recommendation": "軸恢復祥和／權術的中性說明；多思慮另立天相刑忌／羊陀／火鈴相夾條件，唔用一般思慮代表權術。",
+      "passage_id": "xingxi.55",
+      "proposed_quote_pages": [
+        200,
+        201
+      ]
+    },
+    {
+      "ordinal": 57,
+      "verdict": "revise_copy",
+      "evidence_blocks": [
+        "wtz.deep.p203.b009",
+        "wtz.deep.p203.b010",
+        "wtz.deep.p203.b011",
+        "wtz.deep.p203.b012",
+        "wtz.deep.p203.b013"
+      ],
+      "finding": "積極／消極有據，但奮鬥成富貴例子有午宮擎羊等條件；唔係積極型都越後越有成績。",
+      "recommendation": "積極lean改「較能面對磨練，成果仍看配曜與行運」，刪時間愈後愈成功保證；平衡目標有勁未由軸句支持。",
+      "passage_id": "xingxi.56",
+      "proposed_quote_pages": [
+        203,
+        203
+      ]
+    },
+    {
+      "ordinal": 58,
+      "verdict": "expand_evidence",
+      "evidence_blocks": [
+        "wtz.deep.p206.b006",
+        "wtz.deep.p206.b007"
+      ],
+      "finding": "欲望有節制／野心原定義有據，舊引只軸；「進得快守得住」仍係額外成效保證。",
+      "recommendation": "擴引b7及野心定義相鄰段；有度lean只寫有節制嘅積極追求，刪進快守穩。平衡敢想敢要亦改未判定。",
+      "passage_id": "xingxi.57",
+      "proposed_quote_pages": [
+        206,
+        206
+      ]
+    },
+    {
+      "ordinal": 59,
+      "verdict": "revise_copy",
+      "evidence_blocks": [
+        "wtz.deep.p209.b011",
+        "wtz.deep.p209.b012",
+        "wtz.deep.p209.b013",
+        "wtz.deep.p210.b001",
+        "wtz.deep.p210.b002",
+        "wtz.deep.p210.b003"
+      ],
+      "finding": "得助須吉化或成對輔佐朝拱，亦可吉凶交集；現「身邊總有人拉一把」將相對助力寫成恆常保證。",
+      "recommendation": "得助lean改「按會合星曜可較易獲助，程度與時段另看」，刪總有人；孤立換環境必遇賞識亦須另補條件。",
+      "passage_id": "xingxi.58",
+      "proposed_quote_pages": [
+        209,
+        209
+      ]
+    },
+    {
+      "ordinal": 60,
+      "verdict": "expand_evidence",
+      "evidence_blocks": [
+        "wtz.deep.p212.b009",
+        "wtz.deep.p212.b010"
+      ],
+      "finding": "徇私指無原則照顧友情，原文特別分開徇私與私利；現重情面近但容易被讀成純優點。",
+      "recommendation": "擴引p.212b10，明講有無原則地照顧朋友；lean只描述界線，唔把平衡分數寫成必能講理或朋友開口必難拒絕。",
+      "passage_id": "xingxi.59",
+      "proposed_quote_pages": [
+        212,
+        212
+      ]
+    },
+    {
+      "ordinal": 61,
+      "verdict": "revise_copy",
+      "evidence_blocks": [
+        "wtz.deep.p215.b011",
+        "wtz.deep.p215.b012",
+        "wtz.deep.p216.b002",
+        "wtz.deep.p216.b003",
+        "wtz.deep.p216.b004",
+        "wtz.deep.p216.b005",
+        "wtz.deep.p216.b006"
+      ],
+      "finding": "明斷／尖刻、機梁調和有據；「判斷又快又公道」加咗速度與公道，平衡情急話重亦未證。",
+      "recommendation": "basis改「兩曜配合得宜較明斷，失調可過度反應」；刪快與公道必然判斷及平衡情急斷語；具體吉化／煞刑分支分別掛p.216。",
+      "passage_id": "xingxi.60",
+      "proposed_quote_pages": [
+        215,
+        215
+      ]
+    },
+    {
+      "ordinal": 62,
+      "verdict": "expand_evidence",
+      "evidence_blocks": [
+        "wtz.deep.p238.b011",
+        "wtz.deep.p238.b012",
+        "wtz.deep.p238.b013",
+        "wtz.deep.p239.b001",
+        "wtz.deep.p239.b002"
+      ],
+      "finding": "花費支持精神享受有據；交際手段求進展要讀p.238–239，舊摘引只包花費。另有煞刑同會反無收穫例外。",
+      "recommendation": "摘引標題另存；補p.238b13–239b2。文案改「較願為精神與生活享受花費；交際能否帶來進展仍看煞刑等配合」，唔將應酬成果一律化。",
+      "passage_id": "daxian.hua.廉貞.祿",
+      "proposed_quote_pages": [
+        238,
+        238
+      ]
+    },
+    {
+      "ordinal": 63,
+      "verdict": "expand_evidence",
+      "evidence_blocks": [
+        "wtz.deep.p258.b013",
+        "wtz.deep.p258.b014",
+        "wtz.deep.p258.b015",
+        "wtz.deep.p259.b001"
+      ],
+      "finding": "聲勢、別人聽從有相鄰原文；「未把握先別說出口」係建議，唔係首句直譯。",
+      "recommendation": "補p.258–259聲勢與挫敗、想法引起反應的完整段；保留聲勢但加「聲勢不保證改變順利」。建議句獨立標編輯建議。",
+      "passage_id": "daxian.hua.破軍.權",
+      "proposed_quote_pages": [
+        258,
+        258
+      ]
+    },
+    {
+      "ordinal": 64,
+      "verdict": "expand_evidence",
+      "evidence_blocks": [
+        "wtz.deep.p280.b007",
+        "wtz.deep.p280.b008",
+        "wtz.deep.p280.b009"
+      ],
+      "finding": "行業內聲譽、避免張揚、決斷向良好方向增加都在p.280，但現摘引只錄聲譽。",
+      "recommendation": "標題另存、原巳字保留疑字；補b8–9覆蓋後兩分句，毋須將決斷句刪成無根據。",
+      "passage_id": "daxian.hua.武曲.科",
+      "proposed_quote_pages": [
+        280,
+        280
+      ]
+    },
+    {
+      "ordinal": 65,
+      "verdict": "expand_evidence",
+      "evidence_blocks": [
+        "wtz.deep.p297.b011",
+        "wtz.deep.p297.b012",
+        "wtz.deep.p297.b013"
+      ],
+      "finding": "地位與上司摩擦有據；低調少露鋒芒係應對建議，唔係所引段落的結果。",
+      "recommendation": "正文保留「地位、人際與上司關係可能受影響」；建議另欄，不把低調保證順利；引用補人際段並保留原頁疑字。",
+      "passage_id": "daxian.hua.太陽.忌",
+      "proposed_quote_pages": [
+        297,
+        297
+      ]
+    },
+    {
+      "ordinal": 66,
+      "verdict": "expand_evidence",
+      "evidence_blocks": [
+        "wtz.deep.p240.b011",
+        "wtz.deep.p240.b012",
+        "wtz.deep.p240.b013",
+        "wtz.deep.p241.b001",
+        "wtz.deep.p241.b002"
+      ],
+      "finding": "主動機會、策劃奔走、不易保財都找返，後半不在舊p.240摘引。原文唔直接講財來得快。",
+      "recommendation": "頁擴p.240–241，改「較能發掘機會，但財不易長保」，刪「來得快」或另找證據；策劃可保留，原局福德／事業安定條件同列。",
+      "passage_id": "daxian.hua.天機.祿",
+      "proposed_quote_pages": [
+        240,
+        240
+      ]
+    },
+    {
+      "ordinal": 67,
+      "verdict": "expand_evidence",
+      "evidence_blocks": [
+        "wtz.deep.p261.b005",
+        "wtz.deep.p261.b006",
+        "wtz.deep.p261.b007"
+      ],
+      "finding": "本行威信與麻煩來時較知方向同頁有據，並清楚區分本命與大限流年，唔係忽然成為專業人士。",
+      "recommendation": "補b7及時間層說明；現句可保留為本行口碑傾向，不寫成取得專業資格或麻煩必免。",
+      "passage_id": "daxian.hua.天梁.權",
+      "proposed_quote_pages": [
+        261,
+        261
+      ]
+    },
+    {
+      "ordinal": 68,
+      "verdict": "fix_conditions",
+      "evidence_blocks": [
+        "wtz.deep.p282.b004",
+        "wtz.deep.p282.b005",
+        "wtz.deep.p282.b006",
+        "wtz.deep.p282.b010"
+      ],
+      "finding": "名聲與易招妒有據；易令人信服前提是唔屬在野孤君，現四化句只按星及化科，未有此前提。",
+      "recommendation": "補引b5–6、b10；信服句加「非在野孤君結構時」，未能判定孤君就刪該分句，只保留聲望傾向及招妒。",
+      "passage_id": "daxian.hua.紫微.科",
+      "proposed_quote_pages": [
+        282,
+        282
+      ]
+    },
+    {
+      "ordinal": 69,
+      "verdict": "fix_conditions",
+      "evidence_blocks": [
+        "wtz.deep.p299.b013",
+        "wtz.deep.p299.b014",
+        "wtz.deep.p299.b015",
+        "wtz.deep.p299.b016",
+        "wtz.deep.p300.b001"
+      ],
+      "finding": "原文泛稱不利女親而非所有親近者；懷才不遇屬太陰廟旺化忌分支。",
+      "recommendation": "「親近的人」縮為女親關係；才華未被看見另加廟旺前提，唔把落陷分支一概套入。引段擴p.299–300，保留不一定死病的排除說明。",
+      "passage_id": "daxian.hua.太陰.忌",
+      "proposed_quote_pages": [
+        299,
+        299
+      ]
+    },
+    {
+      "ordinal": 70,
+      "verdict": "expand_evidence",
+      "evidence_blocks": [
+        "wtz.deep.p242.b011",
+        "wtz.deep.p242.b012",
+        "wtz.deep.p243.b003",
+        "wtz.deep.p243.b004"
+      ],
+      "finding": "增加財祿、運限較本命佳及耽欲樂都有原段；增加財祿句在p.242而舊引p.243只錄運限比較。",
+      "recommendation": "分段引用p.242–243；「運限見較佳」只限該處對耽欲樂本質的比較，不概括成整張運盤更好。",
+      "passage_id": "daxian.hua.天同.祿",
+      "proposed_quote_pages": [
+        243,
+        243
+      ]
+    },
+    {
+      "ordinal": 71,
+      "verdict": "fix_conditions",
+      "evidence_blocks": [
+        "wtz.deep.p263.b006",
+        "wtz.deep.p263.b008",
+        "wtz.deep.p263.b009",
+        "wtz.deep.p263.b010"
+      ],
+      "finding": "較穩與有效率、意見重視而不主實權有據；原局天機化忌在運限化權另有主動惹變反退的例外。",
+      "recommendation": "擴b6–10；文案補效率不等於成效；判斷層先排原忌轉權分支，再出穩定句，唔只見權就一律向好。",
+      "passage_id": "daxian.hua.天機.權",
+      "proposed_quote_pages": [
+        263,
+        263
+      ]
+    },
+    {
+      "ordinal": 72,
+      "verdict": "expand_evidence",
+      "evidence_blocks": [
+        "wtz.deep.p284.b007",
+        "wtz.deep.p284.b010",
+        "wtz.deep.p284.b011"
+      ],
+      "finding": "考試與研究有據，作品發表更明寫在大運／流年段，舊引未包括。",
+      "recommendation": "同頁補b11，作品發表用運限層引用；毋須因短摘引冇寫發表就判整書不支持，專業國家試額外條件唔擴成人人適用。",
+      "passage_id": "daxian.hua.文昌.科",
+      "proposed_quote_pages": [
+        284,
+        284
+      ]
+    },
+    {
+      "ordinal": 73,
+      "verdict": "expand_evidence",
+      "evidence_blocks": [
+        "wtz.deep.p301.b013",
+        "wtz.deep.p301.b014",
+        "wtz.deep.p301.b015",
+        "wtz.deep.p302.b002"
+      ],
+      "finding": "感情挫折及替人謀事反招怨在p.301–302有據；量力而為係原段警語可改寫建議。",
+      "recommendation": "擴p.301–302並分清感情含六親／男女；刪過度淡化成一般人際不順的泛稱，建議句獨立。",
+      "passage_id": "daxian.hua.廉貞.忌",
+      "proposed_quote_pages": [
+        301,
+        301
+      ]
+    },
+    {
+      "ordinal": 74,
+      "verdict": "fix_conditions",
+      "evidence_blocks": [
+        "wtz.deep.p245.b003",
+        "wtz.deep.p245.b005",
+        "wtz.deep.p245.b006",
+        "wtz.deep.p245.b007",
+        "wtz.deep.p245.b008"
+      ],
+      "finding": "大運較本命佳有據，但落陷無其他配合可只心理富足、不主財豐；兩層互變祿忌又有投資分支。",
+      "recommendation": "財源順遂句加大運與配合條件；若未分廟陷及生年／運限交涉，縮成「本書認為大運化祿較利財源，仍須參看其他星曜」，唔見祿即判順。",
+      "passage_id": "daxian.hua.太陰.祿",
+      "proposed_quote_pages": [
+        245,
+        245
+      ]
+    },
+    {
+      "ordinal": 75,
+      "verdict": "expand_evidence",
+      "evidence_blocks": [
+        "wtz.deep.p265.b005",
+        "wtz.deep.p265.b006",
+        "wtz.deep.p265.b007",
+        "wtz.deep.p265.b008"
+      ],
+      "finding": "開創力、享樂、走捷徑同頁有據；原文首段已說性質難定，要看輔煞雜曜。",
+      "recommendation": "補b6–8，先寫條件性「化權可增加行動力，也可能轉為追求享樂或依附權勢」，目標建議另列。",
+      "passage_id": "daxian.hua.天同.權",
+      "proposed_quote_pages": [
+        265,
+        265
+      ]
+    },
+    {
+      "ordinal": 76,
+      "verdict": "expand_evidence",
+      "evidence_blocks": [
+        "wtz.deep.p284.b013",
+        "wtz.deep.p285.b001",
+        "wtz.deep.p285.b002"
+      ],
+      "finding": "踏實學習、理工術數、只利計劃不利實行有據；學術研究另需昌曲魁鉞，唔應擴張為必有學術成就。",
+      "recommendation": "保留現基本句，補p.284–285分段以免切走限制；「實行靠配合」標轉述原文能力範圍而非保證他人會幫。",
+      "passage_id": "daxian.hua.天機.科",
+      "proposed_quote_pages": [
+        285,
+        285
+      ]
+    },
+    {
+      "ordinal": 77,
+      "verdict": "expand_evidence",
+      "evidence_blocks": [
+        "wtz.deep.p304.b002",
+        "wtz.deep.p304.b004"
+      ],
+      "finding": "是非與求全失望同頁有據；放寬標準反而順係編輯應對，原文唔保證降低要求就轉順。",
+      "recommendation": "補b4；末句改「可留意對完美的執著，避免增加憂煎」，獨立為建議，唔寫改善運勢因果。",
+      "passage_id": "daxian.hua.巨門.忌",
+      "proposed_quote_pages": [
+        304,
+        304
+      ]
+    },
+    {
+      "ordinal": 78,
+      "verdict": "fix_conditions",
+      "evidence_blocks": [
+        "wtz.deep.p247.b006",
+        "wtz.deep.p247.b007",
+        "wtz.deep.p247.b008",
+        "wtz.deep.p247.b009"
+      ],
+      "finding": "應酬進財有據；因色或交際破財另要桃花、羊陀空劫等，唔係所有貪狼祿必玩樂花費增加。",
+      "recommendation": "花費警語改成「若再見桃花或羊陀空劫，須分別留意因色、交際破財」並編碼分支；只留一般應酬收入句時補b6完整來源。",
+      "passage_id": "daxian.hua.貪狼.祿",
+      "proposed_quote_pages": [
+        247,
+        247
+      ]
+    },
+    {
+      "ordinal": 79,
+      "verdict": "expand_evidence",
+      "evidence_blocks": [
+        "wtz.deep.p267.b004"
+      ],
+      "finding": "財權不等於富有及有一筆可運用款項，全部同一段有據；舊引只前半。",
+      "recommendation": "同頁擴至b4完整的財權定義，保留不等於富有；原直栘等疑字作轉錄備註，唔改現句意思。",
+      "passage_id": "daxian.hua.太陰.權",
+      "proposed_quote_pages": [
+        267,
+        267
+      ]
+    },
+    {
+      "ordinal": 80,
+      "verdict": "fix_conditions",
+      "evidence_blocks": [
+        "wtz.deep.p287.b004",
+        "wtz.deep.p287.b005"
+      ],
+      "finding": "關注與招妒有據；名譽地位要廟旺，陷地僅虛名且可受累，現句無此區別。",
+      "recommendation": "補b4–5；名聲分成廟旺／陷地兩支，未有廟陷條件則只講較受注意、亦需留意人際反應。",
+      "passage_id": "daxian.hua.太陽.科",
+      "proposed_quote_pages": [
+        287,
+        287
+      ]
+    },
+    {
+      "ordinal": 81,
+      "verdict": "expand_evidence",
+      "evidence_blocks": [
+        "wtz.deep.p305.b009",
+        "wtz.deep.p305.b010",
+        "wtz.deep.p305.b011",
+        "wtz.deep.p306.b001"
+      ],
+      "finding": "計劃錯延與以不變應萬變可由跨頁原段支持，唔係只有舊摘引機會受阻一句。",
+      "recommendation": "補p.305–306完整續段，保留「遇到風波」範圍；唔將不變應萬變當所有情境的普遍行動命令。",
+      "passage_id": "daxian.hua.天機.忌",
+      "proposed_quote_pages": [
+        305,
+        305
+      ]
+    },
+    {
+      "ordinal": 82,
+      "verdict": "expand_evidence",
+      "evidence_blocks": [
+        "wtz.deep.p249.b005",
+        "wtz.deep.p249.b006"
+      ],
+      "finding": "事業行動與財祿增加有據；必須積蓄嘅強提示原係與四煞同度、以技藝收入等分支。",
+      "recommendation": "補b5–6；一般保留積蓄作編輯建議，若稱原書特別要求則加四煞及靠技藝收入前提；己／巳原標題不靜默校定。",
+      "passage_id": "daxian.hua.武曲.祿",
+      "proposed_quote_pages": [
+        249,
+        249
+      ]
+    },
+    {
+      "ordinal": 83,
+      "verdict": "revise_copy",
+      "evidence_blocks": [
+        "wtz.deep.p269.b008",
+        "wtz.deep.p269.b009"
+      ],
+      "finding": "欲望、競爭及身心勞累有據；「愈遇競爭愈起勁」係加上心理反應，原文只講必須競爭。",
+      "recommendation": "刪愈競爭愈起勁，改「欲望增加，為爭取目標可能更常競爭，也增加身心負擔」；補b9，保留己／巳異字。",
+      "passage_id": "daxian.hua.貪狼.權",
+      "proposed_quote_pages": [
+        269,
+        269
+      ]
+    },
+    {
+      "ordinal": 84,
+      "verdict": "expand_evidence",
+      "evidence_blocks": [
+        "wtz.deep.p289.b005",
+        "wtz.deep.p289.b006",
+        "wtz.deep.p289.b007",
+        "wtz.deep.p289.b008",
+        "wtz.deep.p289.b009"
+      ],
+      "finding": "專業試、領悟觀察及根本解決困擾有據，但舊引僅清貴氣質。",
+      "recommendation": "補p.289b6、b8–9並保留收益未必隨之增加；現從根本著手句可保留作轉述，唔改成現代醫療保證。",
+      "passage_id": "daxian.hua.天梁.科",
+      "proposed_quote_pages": [
+        289,
+        289
+      ]
+    },
+    {
+      "ordinal": 85,
+      "verdict": "expand_evidence",
+      "evidence_blocks": [
+        "wtz.deep.p307.b008",
+        "wtz.deep.p307.b009",
+        "wtz.deep.p307.b010",
+        "wtz.deep.p307.b011",
+        "wtz.deep.p307.b014"
+      ],
+      "finding": "語言、文書契約、感情誤會及金錢風險有明文；舊引只語言。借貸為應用提醒。",
+      "recommendation": "同頁擴引b9–11與b14；簽約借貸另列建議，唔當原文特別列借貸。已／己標題異字保留。",
+      "passage_id": "daxian.hua.文曲.忌",
+      "proposed_quote_pages": [
+        307,
+        307
+      ]
+    },
+    {
+      "ordinal": 86,
+      "verdict": "expand_evidence",
+      "evidence_blocks": [
+        "wtz.deep.p251.b006",
+        "wtz.deep.p251.b007",
+        "wtz.deep.p251.b008"
+      ],
+      "finding": "憑聲望得財、可能名大於利有據；宴客反支出多係落陷例子，唔可暗示人人應酬蝕錢。",
+      "recommendation": "補b7–8；一般應酬開支為建議，若說入不敷支就限定落陷及榮譽宴客例，不以此一句證明所有場合。",
+      "passage_id": "daxian.hua.太陽.祿",
+      "proposed_quote_pages": [
+        251,
+        251
+      ]
+    },
+    {
+      "ordinal": 87,
+      "verdict": "expand_evidence",
+      "evidence_blocks": [
+        "wtz.deep.p271.b010",
+        "wtz.deep.p271.b011"
+      ],
+      "finding": "果敢聲勢、較少顧他人反應、適合財經都在同頁後續，舊摘只錄決斷。",
+      "recommendation": "補b10–11完整段；財經列為原文現代例子，唔把實務所有職種都斷為最好。",
+      "passage_id": "daxian.hua.武曲.權",
+      "proposed_quote_pages": [
+        271,
+        271
+      ]
+    },
+    {
+      "ordinal": 88,
+      "verdict": "revise_copy",
+      "evidence_blocks": [
+        "wtz.deep.p291.b004",
+        "wtz.deep.p291.b005",
+        "wtz.deep.p291.b006",
+        "wtz.deep.p291.b007"
+      ],
+      "finding": "增加信用信譽有明文；本節未見「上級提拔」一般結論，信用唔等於必受提拔。",
+      "recommendation": "刪上級提拔，改「本書以增加信譽概括天府化科」；庚千原字留記，另存庚干導航。天府化科的壬／庚伴隨四化不可混用。",
+      "passage_id": "daxian.hua.天府.科",
+      "proposed_quote_pages": [
+        291,
+        291
+      ]
+    },
+    {
+      "ordinal": 89,
+      "verdict": "fix_conditions",
+      "evidence_blocks": [
+        "wtz.deep.p308.b002",
+        "wtz.deep.p308.b003",
+        "wtz.deep.p308.b004",
+        "wtz.deep.p308.b005"
+      ],
+      "finding": "情緒及感情困擾有據；一生中年艱辛不能見運限忌就變成這十年一定辛勞，落陷及煞刑有另分支。",
+      "recommendation": "補b4–5；刪泛稱「這段時期多辛勞」，或加實際運限宮位及配曜依據，避免把本命生命階段直接搬成十年預報。",
+      "passage_id": "daxian.hua.天同.忌",
+      "proposed_quote_pages": [
+        308,
+        308
+      ]
+    },
+    {
+      "ordinal": 90,
+      "verdict": "expand_evidence",
+      "evidence_blocks": [
+        "wtz.deep.p253.b006",
+        "wtz.deep.p253.b007",
+        "wtz.deep.p253.b008"
+      ],
+      "finding": "口才、教學律師經紀傳播及表現自招是非都有明文，舊摘只行業名。",
+      "recommendation": "補b6–8，銷售標作現代經紀／口舌工作的應用例；保留見煞可破格，唔將職業列舉當精確擇業。",
+      "passage_id": "daxian.hua.巨門.祿",
+      "proposed_quote_pages": [
+        253,
+        253
+      ]
+    },
+    {
+      "ordinal": 91,
+      "verdict": "fix_conditions",
+      "evidence_blocks": [
+        "wtz.deep.p273.b015",
+        "wtz.deep.p274.b001",
+        "wtz.deep.p274.b007",
+        "wtz.deep.p274.b008",
+        "wtz.deep.p274.b010"
+      ],
+      "finding": "地位領導與財隨地位有據；落陷可有職無權，過度擴聲勢係特定宮度分支。",
+      "recommendation": "補p.274廟陷區分；一般句改「可能提高地位，但實權及財祿仍看廟陷與星系」；非午宮唔直接掛午宮聲勢禁忌。",
+      "passage_id": "daxian.hua.太陽.權",
+      "proposed_quote_pages": [
+        273,
+        273
+      ]
+    },
+    {
+      "ordinal": 92,
+      "verdict": "expand_evidence",
+      "evidence_blocks": [
+        "wtz.deep.p293.b007",
+        "wtz.deep.p293.b008",
+        "wtz.deep.p293.b009"
+      ],
+      "finding": "口才取悅與雜學易學同頁有據，但現摘引漏後一句。",
+      "recommendation": "補b9，千／干原標題異字另記；現中文可保留，不擴張為正式學術研究能力。",
+      "passage_id": "daxian.hua.文曲.科",
+      "proposed_quote_pages": [
+        293,
+        293
+      ]
+    },
+    {
+      "ordinal": 93,
+      "verdict": "expand_evidence",
+      "evidence_blocks": [
+        "wtz.deep.p310.b003",
+        "wtz.deep.p310.b004"
+      ],
+      "finding": "文書、考試、契約失誤有據，連帶他人失誤承責亦有明文；擔保借貸係現代應用。",
+      "recommendation": "補b4並將借貸擔保明標編輯提醒；考試／立約可保留，唔把有他人失誤直接證成一定借貸損失。",
+      "passage_id": "daxian.hua.文昌.忌",
+      "proposed_quote_pages": [
+        310,
+        310
+      ]
+    },
+    {
+      "ordinal": 94,
+      "verdict": "expand_evidence",
+      "evidence_blocks": [
+        "wtz.deep.p255.b004",
+        "wtz.deep.p255.b005",
+        "wtz.deep.p255.b006"
+      ],
+      "finding": "煩擾、收費公開服務、不求名及排解拖長有明文；舊引只有最不宜。",
+      "recommendation": "補b4–6，現中文可保留作該節一般轉述；宜留意交友宮原文限制，唔以最不宜作單獨凶判。",
+      "passage_id": "daxian.hua.天梁.祿",
+      "proposed_quote_pages": [
+        255,
+        255
+      ]
+    },
+    {
+      "ordinal": 95,
+      "verdict": "expand_evidence",
+      "evidence_blocks": [
+        "wtz.deep.p275.b012",
+        "wtz.deep.p276.b001",
+        "wtz.deep.p276.b002",
+        "wtz.deep.p276.b003"
+      ],
+      "finding": "實務獨當一面、給上司下屬壓力有跨頁原段；辛勞少人緣是概括而非原摘句。",
+      "recommendation": "補p.275末至276b3，改「較易令人感到壓力」而非固定少人緣；生年與運限交涉另看，唔只見權就保證實權。",
+      "passage_id": "daxian.hua.紫微.權",
+      "proposed_quote_pages": [
+        276,
+        276
+      ]
+    },
+    {
+      "ordinal": 96,
+      "verdict": "expand_evidence",
+      "evidence_blocks": [
+        "wtz.deep.p310.b013",
+        "wtz.deep.p310.b014",
+        "wtz.deep.p310.b015"
+      ],
+      "finding": "周轉預算及感情手段過剛同頁可支持，舊摘只財務首句。",
+      "recommendation": "同頁擴b13–15，保留財務與感情係兩個面向；人息疑字不自行改原文，可在摘要用收入中斷並標校讀。",
+      "passage_id": "daxian.hua.武曲.忌",
+      "proposed_quote_pages": [
+        310,
+        310
+      ]
+    },
+    {
+      "ordinal": 97,
+      "verdict": "expand_evidence",
+      "evidence_blocks": [
+        "wtz.deep.p256.b015",
+        "wtz.deep.p257.b001",
+        "wtz.deep.p257.b002"
+      ],
+      "finding": "變動因得祿較穩有跨頁原段，亦明說不能免一生困境；先想清楚是編輯建議。",
+      "recommendation": "摘引由p.256–257補到實際機制與限制；現較有條件落穩可保留，建議另列，勿改成次次變好無損。",
+      "passage_id": "daxian.hua.破軍.祿",
+      "proposed_quote_pages": [
+        257,
+        257
+      ]
+    },
+    {
+      "ordinal": 98,
+      "verdict": "expand_evidence",
+      "evidence_blocks": [
+        "wtz.deep.p278.b004",
+        "wtz.deep.p278.b005"
+      ],
+      "finding": "說服力及口舌職業有完整同頁原段；舊引尾部帶巨門祿比較但唔含行業列舉。",
+      "recommendation": "補b5，保留影響力為說服力的解釋而非增加實權；行業只作原書例子。",
+      "passage_id": "daxian.hua.巨門.權",
+      "proposed_quote_pages": [
+        278,
+        278
+      ]
+    },
+    {
+      "ordinal": 99,
+      "verdict": "expand_evidence",
+      "evidence_blocks": [
+        "wtz.deep.p295.b006",
+        "wtz.deep.p295.b007",
+        "wtz.deep.p295.b008",
+        "wtz.deep.p295.b011"
+      ],
+      "finding": "文藝修養、廟旺名譽及陷地名較小都有據，才高招妒與運限壓制仍須參看。",
+      "recommendation": "補b7–8，將名氣程度按廟陷區分；欣賞可作才華聲譽轉述，唔保證任何階段必被看見。",
+      "passage_id": "daxian.hua.太陰.科",
+      "proposed_quote_pages": [
+        295,
+        295
+      ]
+    },
+    {
+      "ordinal": 100,
+      "verdict": "expand_evidence",
+      "evidence_blocks": [
+        "wtz.deep.p312.b013",
+        "wtz.deep.p312.b014",
+        "wtz.deep.p313.b003"
+      ],
+      "finding": "失落有據；勞碌收穫不足、事業心而忽略家室在p.313，唔在舊摘「奪愛」。",
+      "recommendation": "頁擴p.312–313，補b3；保留「一般不意味物質損失」界線，唔將收穫不如預期直接寫成破財。",
+      "passage_id": "daxian.hua.貪狼.忌",
+      "proposed_quote_pages": [
+        312,
+        312
+      ]
+    },
+    {
+      "ordinal": 101,
+      "verdict": "metadata_only",
+      "evidence_blocks": [
+        "wtz.deep.p236.b012",
+        "wtz.deep.p237.b001",
+        "wtz.deep.p237.b002"
+      ],
+      "finding": "原句跨頁，疊權易受壓制與現本命權／大限權文案相符；無需以截去前半的p.237單頁作出處。",
+      "recommendation": "lines改[236,237]、保留重會前提；須看祿科相濟及煞曜作修飾，毋須刪現核心句。",
+      "passage_id": "daxian.rule.stack.權",
+      "proposed_quote_pages": [
+        236,
+        237
+      ]
+    },
+    {
+      "ordinal": 102,
+      "verdict": "metadata_only",
+      "evidence_blocks": [
+        "wtz.deep.p340.b010",
+        "wtz.deep.p341.b001"
+      ],
+      "finding": "大運樞紐列表與decade、子午太陽、機陰／天同／巨門相符，差異為跨頁。",
+      "recommendation": "lines改[340,341]，大運只掛大運半段；流年列表另分摘引，避免讓大運讀者見混合清單。",
+      "passage_id": "daxian.pivot.太陽.子午",
+      "proposed_quote_pages": [
+        340,
+        341
+      ]
+    },
+    {
+      "ordinal": 103,
+      "verdict": "hold_source",
+      "evidence_blocks": [
+        "wtz.deep.p348.b013",
+        "wtz.deep.p349.b001"
+      ],
+      "finding": "大運列表與資料相符，但同一跨頁段先後兩次寫流年、列不同清單，本機PDF原圖亦如此。",
+      "recommendation": "頁改[348,349]；大運七殺／天梁／機巨／武府可分摘保存，流年兩清單仍待其他版本校對，唔順手替作者改成大運。",
+      "passage_id": "daxian.pivot.廉貞.寅申",
+      "proposed_quote_pages": [
+        348,
+        349
+      ]
+    },
+    {
+      "ordinal": 104,
+      "verdict": "expand_evidence",
+      "evidence_blocks": [
+        "wtz.deep.p358.b013",
+        "wtz.deep.p359.b001",
+        "wtz.deep.p359.b002"
+      ],
+      "finding": "天相獨坐、見四化為枢紐有據；摘引黏入下一節12天梁，資料只以hua表示樞紐，不表示已核所有夾曜吉凶。",
+      "recommendation": "頁改[358,359]，刪摘引末尾下一節標題；保留獨坐限制，將夾曜敏感另立判斷項，唔以見四化便直接斷吉。",
+      "passage_id": "daxian.pivot.天相",
+      "proposed_quote_pages": [
+        358,
+        359
+      ]
+    },
+    {
+      "ordinal": 105,
+      "verdict": "hold_source",
+      "evidence_blocks": [
+        "wtz.deep.p340.b010",
+        "wtz.deep.p341.b001"
+      ],
+      "finding": "流年巨門、天梁、天同、天相與資料可對，但原PDF「天同二天相」連接字有疑，並有有時取機陰對宮的補充。",
+      "recommendation": "頁改[340,341]；主清單作校讀而非已校定原字，有時借宮條件另存待判，唔把現四項當原文完整且無例外清單。",
+      "passage_id": "daxian.pivot.太陽.子午.年",
+      "proposed_quote_pages": [
+        340,
+        341
+      ]
+    },
+    {
+      "ordinal": 106,
+      "verdict": "hold_source",
+      "evidence_blocks": [
+        "wtz.deep.p348.b013",
+        "wtz.deep.p349.b001"
+      ],
+      "finding": "現年樞紐採第一套殺破狼梁廉，但原頁接著又列七殺梁廉為流年；兩套並列且原圖確認，無法只憑本PDF定唯一清單。",
+      "recommendation": "頁改[348,349]；暫不自動擴大流年預報，兩種讀法與取捨待核，向其他版本求證後先改pivots。",
+      "passage_id": "daxian.pivot.廉貞.寅申.年",
+      "proposed_quote_pages": [
+        348,
+        349
+      ]
+    },
+    {
+      "ordinal": 107,
+      "verdict": "revise_copy",
+      "evidence_blocks": [
+        "wtz.deep.p347.b011",
+        "wtz.deep.p347.b012",
+        "wtz.deep.p347.b013"
+      ],
+      "finding": "舊引拼接兩段並加省略號；plain.summary感情及理想投入有概括依據，life卻新增不公發聲、興趣鑽深、別人跟不上，原段未證。",
+      "recommendation": "引文以兩段分記p.347b11–12；life改「廉貞一節談感情與政治理想的投入，具體表現需看同宮星系」，刪不公平、興趣深度與別人速度比較；plain只保留較貼原意概括。",
+      "passage_id": "life.命宮.廉貞",
+      "proposed_quote_pages": [
+        347,
+        347
+      ]
+    },
+    {
+      "ordinal": 108,
+      "verdict": "revise_copy",
+      "evidence_blocks": [
+        "wtz.deep.p458.b008",
+        "wtz.deep.p458.b009",
+        "wtz.deep.p458.b010",
+        "wtz.deep.p458.b011"
+      ],
+      "finding": "任職、管理查核有據，現life與plain.summary大致相應；lexicon.body另加財務慢穩、少大起落，原段無此保證且有化祿糾紛分支。",
+      "recommendation": "拼接摘引拆段；保留任職及管理查核，會計合規行政標現代職責例子；刪body少大起大落與穩定收入保證。watch未掛逐句來源，唔因同source而當已核。",
+      "passage_id": "life.財帛.天梁",
+      "proposed_quote_pages": [
+        458,
+        458
+      ]
+    },
+    {
+      "ordinal": 109,
+      "verdict": "revise_copy",
+      "evidence_blocks": [
+        "wtz.deep.p502.b007",
+        "wtz.deep.p502.b008",
+        "wtz.deep.p502.b009"
+      ],
+      "finding": "專技起家有據；一般不利出外有特定命宮夾曜例外，lexicon.body「換地方心理成本低、維持接不住」並非此段所述。",
+      "recommendation": "拆段定位p.502b7–9；保留專技與得祿在外立足，刪心理成本／維持能力泛化；life手藝先備可作建議，唔當遷移必吉。",
+      "passage_id": "life.遷移.破軍",
+      "proposed_quote_pages": [
+        502,
+        502
+      ]
+    },
+    {
+      "ordinal": 110,
+      "verdict": "revise_copy",
+      "evidence_blocks": [
+        "wtz.deep.p534.b012",
+        "wtz.deep.p534.b013",
+        "wtz.deep.p535.b003",
+        "wtz.deep.p535.b004",
+        "wtz.deep.p535.b005"
+      ],
+      "finding": "商業色彩及重外表有據；市場品牌銷售管理是編輯職業例，最能發揮及起步猛後勁不足未由王亭之此段證成。body另混全書古文。",
+      "recommendation": "分開全書與本書出處；life改「事業取向可帶商業及形象色彩」，刪最能及起步後勁斷語；plain.summary可縮為商業／氣派，唔把講規格當原書獨立定論。",
+      "passage_id": "life.官祿.廉貞",
+      "proposed_quote_pages": [
+        534,
+        535
+      ]
+    },
+    {
+      "ordinal": 111,
+      "verdict": "fix_conditions",
+      "evidence_blocks": [
+        "wtz.deep.p554.b009",
+        "wtz.deep.p554.b010",
+        "wtz.deep.p554.b011"
+      ],
+      "finding": "舊摘引把入廟、日生加輔曜可自置仍變換與落陷夜生浮動不安拼埋，現句變成每人比別人搬得多、每次不安。",
+      "recommendation": "分入廟／落陷、日／夜與輔曜支；刪比別人多及每次不安，改「太陽田宅需按日夜廟陷判斷自置、變動及不安感」。body跟人走／少精算亦無此來源。",
+      "passage_id": "life.田宅.太陽",
+      "proposed_quote_pages": [
+        554,
+        554
+      ]
+    },
+    {
+      "ordinal": 112,
+      "verdict": "metadata_only",
+      "evidence_blocks": [
+        "wtz.deep.p574.b016",
+        "wtz.deep.p575.b001"
+      ],
+      "finding": "火星同度多不必要思慮與文案吻合；短句剛好跨頁，故匹配需兩頁。",
+      "recommendation": "lines改[574,575]，摘引連前面天府福德主語；為小事費神可留作不必要思慮的轉述。",
+      "passage_id": "deep.福德.天府.4",
+      "proposed_quote_pages": [
+        574,
+        575
+      ]
+    },
+    {
+      "ordinal": 113,
+      "verdict": "expand_evidence",
+      "evidence_blocks": [
+        "wtz.deep.p424.b014",
+        "wtz.deep.p425.b001"
+      ],
+      "finding": "紫相同度或對拱見吉，子女秀發同情仍主觀有據；現topic紫相同宮屬較窄範圍，保留見吉。出處實在子女天相段而非紫微段。",
+      "recommendation": "頁改[424,425]，ref改子女宮天相／紫相分支；無須加回子女人數。通行「見吉」以哪些四化輔曜代理另標工程詮釋，不說原文列咗同一清單。",
+      "passage_id": "deep.子女.紫微.4",
+      "proposed_quote_pages": [
+        424,
+        425
+      ]
+    },
+    {
+      "ordinal": 114,
+      "verdict": "fix_conditions",
+      "evidence_blocks": [
+        "wtz.deep.p046.b013",
+        "wtz.deep.p047.b001"
+      ],
+      "finding": "唔係p.51，真段p.46–47；原文先說順從且煞刑眾多，現條件只有順從加鈴或陀，不能以一顆保證煞刑眾多。",
+      "recommendation": "頁改[46,47]；自滿與停滯分開，先補煞刑眾多判定，或只寫「順從型尤其不宜鈴、陀」作一般提醒，唔以容易一詞代替缺失前提。",
+      "passage_id": "deep.星系02.3",
+      "proposed_quote_pages": [
+        46,
+        47
+      ]
+    },
+    {
+      "ordinal": 115,
+      "verdict": "fix_conditions",
+      "evidence_blocks": [
+        "wtz.deep.p047.b001"
+      ],
+      "finding": "唔係p.51，真頁47；「略見」係數量程度限制，現火或羊且無鈴陀仍可能有其他煞多，未證只略見。",
+      "recommendation": "頁改[47,47]；保留順從，補適量煞的明確定義；未能辨略見先縮成「原書另有略見火羊可激發的條件分支，須再核配曜」。",
+      "passage_id": "deep.星系02.4",
+      "proposed_quote_pages": [
+        47,
+        47
+      ]
+    },
+    {
+      "ordinal": 116,
+      "verdict": "fix_conditions",
+      "evidence_blocks": [
+        "wtz.deep.p047.b002"
+      ],
+      "finding": "唔係p.52，真頁47；羊陀任一加火鈴任一係工程近似，唔等於原文煞刑眾多。福德好與遷移好亦未被條件確認。",
+      "recommendation": "頁改[47,47]；原句改條件性提醒，福德／遷移佳分別保留為若句；煞重代理及欠天刑要標暫用，未經對照不可當原文完整判斷。",
+      "passage_id": "deep.星系02.5",
+      "proposed_quote_pages": [
+        47,
+        47
+      ]
+    },
+    {
+      "ordinal": 117,
+      "verdict": "expand_evidence",
+      "evidence_blocks": [
+        "wtz.deep.p047.b010",
+        "wtz.deep.p047.b011",
+        "wtz.deep.p048.b001",
+        "wtz.deep.p048.b002",
+        "wtz.deep.p048.b009",
+        "wtz.deep.p049.b003"
+      ],
+      "finding": "摘引跨頁且截取係明確段尾，軸與感情理智矛盾有據；runtime basis會掛整個星系plain.basis與兩端句，短引未含天府、忠於故主及平衡。",
+      "recommendation": "頁改[47,48]；另附p.48b2、b9與p.49b3作分句來源，詳見xingxi.3審核；唔只修頁就把整段標核實。",
+      "passage_id": "deep.星系03.1",
+      "proposed_quote_pages": [
+        47,
+        48
+      ]
+    },
+    {
+      "ordinal": 118,
+      "verdict": "metadata_only",
+      "evidence_blocks": [
+        "wtz.deep.p048.b009"
+      ],
+      "finding": "感情較重條件與忠於故主的正文對應；原文太執著感情比現lean更強，讀者句宜保留傾向而不寫永不變。",
+      "recommendation": "頁49改48；「可以一直跟下去」改「較傾向忠於認定的人或機構」，避免把過度執著與普通感情重完全等同。",
+      "passage_id": "deep.星系03.2",
+      "proposed_quote_pages": [
+        48,
+        48
+      ]
+    },
+    {
+      "ordinal": 119,
+      "verdict": "expand_evidence",
+      "evidence_blocks": [
+        "wtz.deep.p049.b003",
+        "wtz.deep.p049.b004"
+      ],
+      "finding": "原局感情理智平衡為良好結構有明文；現lean平衡由程式算出，未等於已證原文所說原局平衡。",
+      "recommendation": "頁50改49；文案可改「若原局感情與理智已調和，書中視為良好結構」；評分與原文平衡映射另驗，唔由來源檢查自動背書。",
+      "passage_id": "deep.星系03.3",
+      "proposed_quote_pages": [
+        49,
+        49
+      ]
+    },
+    {
+      "ordinal": 120,
+      "verdict": "fix_conditions",
+      "evidence_blocks": [
+        "wtz.deep.p048.b009",
+        "wtz.deep.p048.b010"
+      ],
+      "finding": "感情執著者喜忌行運有據；現decade只列太陽、天梁、貪狼等單星，未綁定陽梁吉化／貪狼祿權，文案有條件但不宜把列出那步一概當好運。",
+      "recommendation": "頁49改48；將不宜殺破、喜陽梁吉化、喜貪狼祿權拆成3條結構化環境分支，保留原局感情執著及所行組合；無當期四化時只當閱讀提示。",
+      "passage_id": "deep.星系03.6",
+      "proposed_quote_pages": [
+        48,
+        48
+      ]
+    },
+    {
+      "ordinal": 121,
+      "verdict": "fix_conditions",
+      "evidence_blocks": [
+        "wtz.deep.p054.b005"
+      ],
+      "finding": "原文心志薄弱有改觀前提唔沉不良嗜好、逢奮發大運；現把心志弱映射欲望淡，兩者未被原文定為同一類。",
+      "recommendation": "頁55改54；保留兩個前提，將心志薄弱另存，唔由欲望淡alone觸發；沒有映射證據時改作一般條件說明。",
+      "passage_id": "deep.星系05.3",
+      "proposed_quote_pages": [
+        54,
+        54
+      ]
+    },
+    {
+      "ordinal": 122,
+      "verdict": "expand_evidence",
+      "evidence_blocks": [
+        "wtz.deep.p054.b006"
+      ],
+      "finding": "物欲過深的風險有據，化權偏物欲另由also第05.5支撐；現句已有「過了頭」而唔係所有化權者必如此。",
+      "recommendation": "頁55改54；保留條件性「物欲過深時」，核對also的化權方向後分句掛來源；不得以欲望強自動認定不擇手段。",
+      "passage_id": "deep.星系05.4",
+      "proposed_quote_pages": [
+        54,
+        54
+      ]
+    },
+    {
+      "ordinal": 123,
+      "verdict": "fix_conditions",
+      "evidence_blocks": [
+        "wtz.deep.p054.b005"
+      ],
+      "finding": "喜運清單有明文，但心志弱≠欲望淡；「仍然大有作為」加強原文有所為，且原文需唔沉不良嗜好。",
+      "recommendation": "頁55改54；改「若心志較弱而不沉嗜好，遇所列吉化組合可有所作為」，未驗原局及當期配曜唔直接標大有作為；拆原局與環境條件。",
+      "passage_id": "deep.星系05.6",
+      "proposed_quote_pages": [
+        54,
+        54
+      ]
+    },
+    {
+      "ordinal": 124,
+      "verdict": "fix_conditions",
+      "evidence_blocks": [
+        "wtz.deep.p054.b006",
+        "wtz.deep.p054.b007"
+      ],
+      "finding": "原文限定物欲過深；欲望強可能係情欲，現lean欲望強未能證物欲過深，亦要保留同巨巨祿、陽梁陽權等組合。",
+      "recommendation": "頁55改54；增物欲過深及對應星系四化，天機祿支加不喜太陰忌沖會；只查單星大限不足以出肯定宜忌。",
+      "passage_id": "deep.星系05.7",
+      "proposed_quote_pages": [
+        54,
+        54
+      ]
+    },
+    {
+      "ordinal": 125,
+      "verdict": "metadata_only",
+      "evidence_blocks": [
+        "wtz.deep.p057.b003",
+        "wtz.deep.p057.b004",
+        "wtz.deep.p057.b005"
+      ],
+      "finding": "同巨同坐丑未弱格、對煞忌敏感有明文；借星明珠出海例外不屬現topic同坐規則。",
+      "recommendation": "頁58改57；保留同坐範圍並記借星例外，現核心文意可留；若引擎改借星選題需重核例外。",
+      "passage_id": "deep.星系06.2",
+      "proposed_quote_pages": [
+        57,
+        57
+      ]
+    },
+    {
+      "ordinal": 126,
+      "verdict": "metadata_only",
+      "evidence_blocks": [
+        "wtz.deep.p056.b009"
+      ],
+      "finding": "天同或巨門本宮化忌與各自文案相符，原局同巨丑未由topic已限定。",
+      "recommendation": "頁57改56；兩條各掛同段，保留較下係該星系內比較，唔跨星系排名。",
+      "passage_id": "deep.星系06.5",
+      "proposed_quote_pages": [
+        56,
+        56
+      ]
+    },
+    {
+      "ordinal": 127,
+      "verdict": "metadata_only",
+      "evidence_blocks": [
+        "wtz.deep.p056.b010"
+      ],
+      "finding": "巨門吉化、波折後白手興家有明文，原局同巨由topic限定。",
+      "recommendation": "頁57改56；中文可保留。資料hua含科屬通用列舉而本版本巨門不化科，唔因此自行增四化表。",
+      "passage_id": "deep.星系06.6",
+      "proposed_quote_pages": [
+        56,
+        56
+      ]
+    },
+    {
+      "ordinal": 128,
+      "verdict": "metadata_only",
+      "evidence_blocks": [
+        "wtz.deep.p056.b010"
+      ],
+      "finding": "天同化祿、化權減少陰暗與兩條規則相符。",
+      "recommendation": "頁57改56，將同祿／同權分支各保留，不把減少陰暗等同完全無感情困擾。",
+      "passage_id": "deep.星系06.7",
+      "proposed_quote_pages": [
+        56,
+        56
+      ]
+    },
+    {
+      "ordinal": 129,
+      "verdict": "fix_conditions",
+      "evidence_blocks": [
+        "wtz.deep.p057.b004"
+      ],
+      "finding": "陰損壓制與生意被插手都在擎羊再見昌曲忌等條件下；現只見擎羊，edit靠唔寫必未補缺前提。",
+      "recommendation": "頁58改57；單羊只留「本組不喜羊，同度尤重」；壓制及被奪去另加昌曲忌／陰煞天虛劫煞等同度條件，或暫停該分句。",
+      "passage_id": "deep.星系06.8",
+      "proposed_quote_pages": [
+        57,
+        57
+      ]
+    },
+    {
+      "ordinal": 130,
+      "verdict": "fix_conditions",
+      "evidence_blocks": [
+        "wtz.deep.p057.b004"
+      ],
+      "finding": "例子屬上文複合結構，不能單以擎羊推出生意被搶。原also雖字句準，仍不足以補條件。",
+      "recommendation": "頁58改57；與06.8同改，例子留在完整條件的說明，唔作獨立一般預報。",
+      "passage_id": "deep.星系06.9",
+      "proposed_quote_pages": [
+        57,
+        57
+      ]
+    },
+    {
+      "ordinal": 131,
+      "verdict": "revise_copy",
+      "evidence_blocks": [
+        "wtz.deep.p058.b013",
+        "wtz.deep.p059.b001",
+        "wtz.deep.p059.b002"
+      ],
+      "finding": "跨頁可支持剛柔須調和，但runtime basis連到的星系07仍以偏剛／剛柔相濟作兩端，又加壓力硬扛。",
+      "recommendation": "頁改[58,59]；basis條文本身可保留，連帶plain軸按xingxi.7修正，刪未被引段支持的壓力反應。",
+      "passage_id": "deep.星系07.1",
+      "proposed_quote_pages": [
+        58,
+        59
+      ]
+    },
+    {
+      "ordinal": 132,
+      "verdict": "metadata_only",
+      "evidence_blocks": [
+        "wtz.deep.p061.b008"
+      ],
+      "finding": "卯宮陽梁不見煞忌為祥和，現已查卯與無煞、無忌，文本對應。",
+      "recommendation": "頁62改61；將昌曲最喜的前半保留上下文，但唔誤標成此句額外必要條件。",
+      "passage_id": "deep.星系08.3",
+      "proposed_quote_pages": [
+        61,
+        61
+      ]
+    },
+    {
+      "ordinal": 133,
+      "verdict": "expand_evidence",
+      "evidence_blocks": [
+        "wtz.deep.p061.b009"
+      ],
+      "finding": "落陷太陽化忌加煞刑虛耗的極端案例有據；現酉、陽忌、六煞任一係覆蓋部分星曜範圍的代理。",
+      "recommendation": "頁62改61；讀者句改「孤忌傾向加重」，若保留「最重」須確認原文的複合煞刑虛耗足額；以六煞代理全部星類另記。",
+      "passage_id": "deep.星系08.4",
+      "proposed_quote_pages": [
+        61,
+        61
+      ]
+    },
+    {
+      "ordinal": 134,
+      "verdict": "metadata_only",
+      "evidence_blocks": [
+        "wtz.deep.p061.b011"
+      ],
+      "finding": "天同化忌使陽梁六親及人際疏離，條件與文案相符。",
+      "recommendation": "頁62改61；保留原局陽梁與會照天同忌，六新親轉錄疑字另記。",
+      "passage_id": "deep.星系08.5",
+      "proposed_quote_pages": [
+        61,
+        61
+      ]
+    },
+    {
+      "ordinal": 135,
+      "verdict": "metadata_only",
+      "evidence_blocks": [
+        "wtz.deep.p061.b011"
+      ],
+      "finding": "巨門化忌令陽梁受是非糾紛，條件與文案相符。",
+      "recommendation": "頁62改61，現核心句可保留；唔將一生較易寫成每年一定發生。",
+      "passage_id": "deep.星系08.6",
+      "proposed_quote_pages": [
+        61,
+        61
+      ]
+    },
+    {
+      "ordinal": 136,
+      "verdict": "expand_evidence",
+      "evidence_blocks": [
+        "wtz.deep.p065.b012",
+        "wtz.deep.p066.b001",
+        "wtz.deep.p066.b002",
+        "wtz.deep.p066.b003",
+        "wtz.deep.p066.b004"
+      ],
+      "finding": "積極亦可轉消極有據；同條後半「中和比甚麼重要」承接消極七殺，現無lean前提普及全體。",
+      "recommendation": "頁65改66；頭半保留條件句，末句改「若已呈消極傾向，更宜注意中和」，與09.3一併處理。",
+      "passage_id": "deep.星系09.2",
+      "proposed_quote_pages": [
+        66,
+        66
+      ]
+    },
+    {
+      "ordinal": 137,
+      "verdict": "fix_conditions",
+      "evidence_blocks": [
+        "wtz.deep.p066.b002",
+        "wtz.deep.p066.b003",
+        "wtz.deep.p066.b004"
+      ],
+      "finding": "「這類人」係消極的七殺，唔係全部辰戌七殺；現base無條件把中和最重要用到所有人。",
+      "recommendation": "頁65改66；加消極原局條件或改成「原書對消極分支特別強調中和」，不能由無lean直接落個人結論。",
+      "passage_id": "deep.星系09.3",
+      "proposed_quote_pages": [
+        66,
+        66
+      ]
+    },
+    {
+      "ordinal": 138,
+      "verdict": "metadata_only",
+      "evidence_blocks": [
+        "wtz.deep.p063.b014",
+        "wtz.deep.p064.b001"
+      ],
+      "finding": "空想未必際遇差，文案保留可能性，對應原文。",
+      "recommendation": "正文頁63改64；為完整對照可附[63,64]續句，但摘錄現有句實際位於64，唔改成保證好運。",
+      "passage_id": "deep.星系09.4",
+      "proposed_quote_pages": [
+        64,
+        64
+      ]
+    },
+    {
+      "ordinal": 139,
+      "verdict": "revise_copy",
+      "evidence_blocks": [
+        "wtz.deep.p067.b001",
+        "wtz.deep.p067.b002",
+        "wtz.deep.p067.b003"
+      ],
+      "finding": "原PDF首句本身接合生硬已看圖；basis的機變／機謀比較可定位，整個plain人格延伸另見xingxi.10。",
+      "recommendation": "頁66改67；保留原句疑點，不自行補寫成原書確定句；plain按xingxi.10收窄並加陽梁修飾，無法校定首句時不作逐字校訂。",
+      "passage_id": "deep.星系10.1",
+      "proposed_quote_pages": [
+        67,
+        67
+      ]
+    },
+    {
+      "ordinal": 140,
+      "verdict": "metadata_only",
+      "evidence_blocks": [
+        "wtz.deep.p067.b002"
+      ],
+      "finding": "不純粹機月同梁、弱宮與現base句相符。",
+      "recommendation": "頁66改67；仍限巳亥天機同局，唔外推所有天機為弱。",
+      "passage_id": "deep.星系10.2",
+      "proposed_quote_pages": [
+        67,
+        67
+      ]
+    },
+    {
+      "ordinal": 141,
+      "verdict": "fix_conditions",
+      "evidence_blocks": [
+        "wtz.deep.p073.b006",
+        "wtz.deep.p073.b007"
+      ],
+      "finding": "原文限定僅得祿而欠擴大結構；現只查祿存同宮就分類謹慎，可能同時有良好天相或百官朝拱。",
+      "recommendation": "頁74改73；句改「單有祿存不足以證局面廣大，仍看事業天相及朝拱」，唔以祿存直接把已具廣大條件的盤降成謹慎。",
+      "passage_id": "deep.星系12.3",
+      "proposed_quote_pages": [
+        73,
+        73
+      ]
+    },
+    {
+      "ordinal": 142,
+      "verdict": "fix_conditions",
+      "evidence_blocks": [
+        "wtz.deep.p073.b008"
+      ],
+      "finding": "原文火鈴二曜再會照而成露庫；現star數組在holds是any，一顆火或鈴就觸發，放寬了成格條件。",
+      "recommendation": "頁74改73；先核原文二曜是否需成對同會；未校前以all火、鈴兩項保存較嚴格候選，不讓任一顆直接命名露庫或判佔便宜。",
+      "passage_id": "deep.星系12.4",
+      "proposed_quote_pages": [
+        73,
+        73
+      ]
+    },
+    {
+      "ordinal": 143,
+      "verdict": "metadata_only",
+      "evidence_blocks": [
+        "wtz.deep.p073.b011",
+        "wtz.deep.p074.b001"
+      ],
+      "finding": "對宮武殺同祿存或武曲化祿，與兩條對宮條件對應；正文跨頁。",
+      "recommendation": "頁75改[73,74]；兩分支可保留，需與本節其他空露、天相條件綜合，唔自行當跨規則最高優先權。",
+      "passage_id": "deep.星系12.5",
+      "proposed_quote_pages": [
+        73,
+        74
+      ]
+    },
+    {
+      "ordinal": 144,
+      "verdict": "metadata_only",
+      "evidence_blocks": [
+        "wtz.deep.p074.b001"
+      ],
+      "finding": "對宮武曲忌令局面小而謹慎，與現文相符。",
+      "recommendation": "頁75改74；現文意可保留，格局最多只是對該星系的本質比較。",
+      "passage_id": "deep.星系12.6",
+      "proposed_quote_pages": [
+        74,
+        74
+      ]
+    },
+    {
+      "ordinal": 145,
+      "verdict": "hold_source",
+      "evidence_blocks": [
+        "wtz.deep.p076.b008",
+        "wtz.deep.p076.b009",
+        "wtz.deep.p076.b010"
+      ],
+      "finding": "原句「無論有多屬金／多屬火」程度語意不清，現一顆任一列星便預測早年不順，未證門檻。",
+      "recommendation": "頁77改76；暫不以any一顆作確定條件，保留原句及星表供校讀；早年段先改原書條件說明，待確定數量與作用範圍。",
+      "passage_id": "deep.星系13.4",
+      "proposed_quote_pages": [
+        76,
+        76
+      ]
+    },
+    {
+      "ordinal": 146,
+      "verdict": "hold_source",
+      "evidence_blocks": [
+        "wtz.deep.p076.b007",
+        "wtz.deep.p076.b008",
+        "wtz.deep.p076.b009",
+        "wtz.deep.p076.b010"
+      ],
+      "finding": "金火星表可找回，但只是分類，不能獨立證成一顆便早年不順；作者另提福德巨門參看。",
+      "recommendation": "頁77改76；與13.4同案，分類原樣保存，缺天哭天刑孤寡等標未建模，唔以局部清單冒充完整原判。",
+      "passage_id": "deep.星系13.5",
+      "proposed_quote_pages": [
+        76,
+        76
+      ]
+    },
+    {
+      "ordinal": 147,
+      "verdict": "revise_copy",
+      "evidence_blocks": [
+        "wtz.deep.p080.b002"
+      ],
+      "finding": "原文要比較原局與流曜後性質及平衡轉換；現以lean未定就說哪一頭重「要看行運」，把未判定原局與時期變化混埋。",
+      "recommendation": "頁79改80；改「先定原局感情／物欲，再看運限流曜如何增減或轉化；目前未定者不可直接出傾向結論」。",
+      "passage_id": "deep.星系14.6",
+      "proposed_quote_pages": [
+        80,
+        80
+      ]
+    },
+    {
+      "ordinal": 148,
+      "verdict": "revise_copy",
+      "evidence_blocks": [
+        "wtz.deep.p082.b002",
+        "wtz.deep.p082.b003"
+      ],
+      "finding": "比較軸有據；runtime整段仍可能把未成石中隱玉的巨門寫成收斂才華可成大事。",
+      "recommendation": "頁81改82；軸可保留，plain依xingxi.15加成格條件，疑慮與一般防人分寸不要混作原文已核人格。",
+      "passage_id": "deep.星系15.1",
+      "proposed_quote_pages": [
+        82,
+        82
+      ]
+    },
+    {
+      "ordinal": 149,
+      "verdict": "fix_conditions",
+      "evidence_blocks": [
+        "wtz.deep.p081.b011",
+        "wtz.deep.p082.b001",
+        "wtz.deep.p082.b003"
+      ],
+      "finding": "祿權且不見煞是石中隱玉條件，現只排同宮六煞，未證原文不見煞的作用範圍只限同宮。",
+      "recommendation": "頁改[81,82]；未核範圍前不以同宮無煞自動宣布成格，暫保守核三方四正並標工程選擇；不能只改頁保留確定格名。",
+      "passage_id": "deep.星系15.2",
+      "proposed_quote_pages": [
+        81,
+        82
+      ]
+    },
+    {
+      "ordinal": 150,
+      "verdict": "fix_conditions",
+      "evidence_blocks": [
+        "wtz.deep.p082.b003"
+      ],
+      "finding": "不出鋒頭係石中隱玉分支，also與主規則同一成格缺口，唔係所有內斂巨門通用禁令。",
+      "recommendation": "頁81改82；沿用15.2完整成格條件後先保留此訓示，否則改原書條件說明，唔以also補引掩蓋成格未核。",
+      "passage_id": "deep.星系15.3",
+      "proposed_quote_pages": [
+        82,
+        82
+      ]
+    },
+    {
+      "ordinal": 151,
+      "verdict": "fix_conditions",
+      "evidence_blocks": [
+        "wtz.deep.p084.b002"
+      ],
+      "finding": "原文不為空庫亦不為露庫才有利；現文字只講不空，漏露庫。",
+      "recommendation": "頁83改84；改「若所行天府既不空庫、也不露庫，內斂型可視為收穫運」，兩項另作結構化環境條件，未檢查時只作若句。",
+      "passage_id": "deep.星系15.7",
+      "proposed_quote_pages": [
+        84,
+        84
+      ]
+    },
+    {
+      "ordinal": 152,
+      "verdict": "expand_evidence",
+      "evidence_blocks": [
+        "wtz.deep.p084.b013",
+        "wtz.deep.p085.b001",
+        "wtz.deep.p085.b002"
+      ],
+      "finding": "天相優雅／庸俗與獨立／依附跨頁有據；runtime basis會覆蓋plain氣質及lean，原引未包括地位名聲比較。",
+      "recommendation": "頁改[84,85]；basis及依附可留，地位名聲須另補原節對應段，見xingxi.16；保留財蔭不必優雅、刑忌不必庸俗例外。",
+      "passage_id": "deep.星系16.1",
+      "proposed_quote_pages": [
+        84,
+        85
+      ]
+    },
+    {
+      "ordinal": 153,
+      "verdict": "metadata_only",
+      "evidence_blocks": [
+        "wtz.deep.p091.b006",
+        "wtz.deep.p091.b007"
+      ],
+      "finding": "三個同度星系為重大轉變運限，與當前文案及decade提示對應，唔直接定吉凶。",
+      "recommendation": "頁90改91；原文重視原局決斷／短慮及實際星曜，附註未裁吉凶，毋須改成一律吉運或凶運。",
+      "passage_id": "deep.星系18.4",
+      "proposed_quote_pages": [
+        91,
+        91
+      ]
+    },
+    {
+      "ordinal": 154,
+      "verdict": "revise_copy",
+      "evidence_blocks": [
+        "wtz.deep.p092.b002",
+        "wtz.deep.p092.b003",
+        "wtz.deep.p092.b004"
+      ],
+      "finding": "星曜照顧、拖累比較有據；plain.lean把它寫成實際人際付出有無回報，超出這一段。",
+      "recommendation": "頁91改92；basis星曜互涉可保留，從容改相對少拖累，刪保證付出回報，按xingxi.19拆文案出處。",
+      "passage_id": "deep.星系19.1",
+      "proposed_quote_pages": [
+        92,
+        92
+      ]
+    },
+    {
+      "ordinal": 155,
+      "verdict": "fix_conditions",
+      "evidence_blocks": [
+        "wtz.deep.p092.b003"
+      ],
+      "finding": "辰宮及陽吉化相符，但下一句明說見煞忌則雖入廟亦不佳，現規則未排煞忌就說不怕他人拖累。",
+      "recommendation": "頁91改92；補煞忌修飾及優先分支，或句改「入廟吉化可減輕拖累，但煞忌仍可能破壞」，唔下無條件保證。",
+      "passage_id": "deep.星系19.2",
+      "proposed_quote_pages": [
+        92,
+        92
+      ]
+    },
+    {
+      "ordinal": 156,
+      "verdict": "metadata_only",
+      "evidence_blocks": [
+        "wtz.deep.p094.b012"
+      ],
+      "finding": "對宮巨門忌、不滿環境而換仍際遇不佳，現文案完整保留條件。",
+      "recommendation": "頁95改94，現核心可留；留意原文講原局性質與行運，不能等同每次實際轉工必差。",
+      "passage_id": "deep.星系20.2",
+      "proposed_quote_pages": [
+        94,
+        94
+      ]
+    },
+    {
+      "ordinal": 157,
+      "verdict": "expand_evidence",
+      "evidence_blocks": [
+        "wtz.deep.p094.b013",
+        "wtz.deep.p095.b001"
+      ],
+      "finding": "巨門吉化對計劃與良好際遇有原文，跨頁可定位；原文列科係此PDF版本自身表述，不可據此新增巨門化科。",
+      "recommendation": "頁95改[94,95]；現祿權等實際可得分支可保留，科記為原文疑點／通稱而非更改引擎表的依據。",
+      "passage_id": "deep.星系20.3",
+      "proposed_quote_pages": [
+        94,
+        95
+      ]
+    },
+    {
+      "ordinal": 158,
+      "verdict": "expand_evidence",
+      "evidence_blocks": [
+        "wtz.deep.p095.b010"
+      ],
+      "finding": "基本喜天相有據，但後半另分天相優雅／庸常、陽剛／陰柔；現「基本上都喜歡」容易當任何天相運都利。",
+      "recommendation": "頁96改95；改「一般以天相運為參考，仍須分天相氣質及原局剛柔」，附陰柔遇庸常只宜守舊，唔刪後半限制。",
+      "passage_id": "deep.星系20.7",
+      "proposed_quote_pages": [
+        95,
+        95
+      ]
+    },
+    {
+      "ordinal": 159,
+      "verdict": "revise_copy",
+      "evidence_blocks": [
+        "wtz.deep.p097.b007"
+      ],
+      "finding": "原文比較對象係武曲化科時，現改「比一般大」改咗比較母體。",
+      "recommendation": "頁98改97；改「相較武曲化科的組合，波折較大」，保留紫府仍未必失衡，唔自行引出30歲事件。",
+      "passage_id": "deep.星系21.5",
+      "proposed_quote_pages": [
+        97,
+        97
+      ]
+    },
+    {
+      "ordinal": 160,
+      "verdict": "expand_evidence",
+      "evidence_blocks": [
+        "wtz.deep.p099.b004"
+      ],
+      "finding": "一般利主動紫府有據，原文接著有原武忌／紫權主動太強例外。",
+      "recommendation": "頁98改99；保留一般但補「原局武忌、紫權時另論，勿作力不從心改變」，未排例外不能列為一律有利。",
+      "passage_id": "deep.星系21.9",
+      "proposed_quote_pages": [
+        99,
+        99
+      ]
+    },
+    {
+      "ordinal": 161,
+      "verdict": "expand_evidence",
+      "evidence_blocks": [
+        "wtz.deep.p099.b002"
+      ],
+      "finding": "現句已明寫破軍見羊陀以及被動紫府，與原文徐緩推進、慎選夥伴相符；when未編運限羊陀，僅屬文字條件提醒。",
+      "recommendation": "頁98改99；讀者句可留為「若所行破軍見羊陀」；索引把運限羊陀另存必要條件，未實際查盤前不宣稱該運已成立。",
+      "passage_id": "deep.星系21.10",
+      "proposed_quote_pages": [
+        99,
+        99
+      ]
+    },
+    {
+      "ordinal": 162,
+      "verdict": "fix_conditions",
+      "evidence_blocks": [
+        "wtz.deep.p101.b009",
+        "wtz.deep.p101.b010"
+      ],
+      "finding": "一般武曲運有利堅強太陰有據，但同段明列武曲忌不喜；現句斷「是積極有利」漏忌例外。",
+      "recommendation": "頁102改101；改「武曲運一般較有利，但化忌另論」，判斷層加當期武曲四化，不可只靠原局意志lean。",
+      "passage_id": "deep.星系22.6",
+      "proposed_quote_pages": [
+        101,
+        101
+      ]
+    },
+    {
+      "ordinal": 163,
+      "verdict": "hold_source",
+      "evidence_blocks": [
+        "wtz.deep.p103.b008"
+      ],
+      "finding": "外表從容內心焦躁有原句，但上文「不見四化」範圍未必只貪狼本身；現只排貪狼四化作出推論。",
+      "recommendation": "頁104改103；保留鈴陀兩者會合與前提，待核四化所指範圍，未核時不將本星無化當整段無四化的充分條件。",
+      "passage_id": "deep.星系23.6",
+      "proposed_quote_pages": [
+        103,
+        103
+      ]
+    },
+    {
+      "ordinal": 164,
+      "verdict": "fix_conditions",
+      "evidence_blocks": [
+        "wtz.deep.p104.b009",
+        "wtz.deep.p104.b010"
+      ],
+      "finding": "原句在無吉亦有所為後，立即排武曲化忌並警告煞忌；現無排除而保證有所作為，並把流年例擴作每一步大運。",
+      "recommendation": "頁105改104；先排武忌及煞忌分支；保留「一般喜武曲，流年無吉仍可能有所為」原範圍，唔無條件預報成果。",
+      "passage_id": "deep.星系23.9",
+      "proposed_quote_pages": [
+        104,
+        104
+      ]
+    },
+    {
+      "ordinal": 165,
+      "verdict": "metadata_only",
+      "evidence_blocks": [
+        "wtz.deep.p106.b002"
+      ],
+      "finding": "外表與內心不一樣、不易表面觀察，與現base句對應。",
+      "recommendation": "頁105改106；文意可留作該節描述，唔外推成隱瞞或欺騙的判斷。",
+      "passage_id": "deep.星系24.2",
+      "proposed_quote_pages": [
+        106,
+        106
+      ]
+    },
+    {
+      "ordinal": 166,
+      "verdict": "metadata_only",
+      "evidence_blocks": [
+        "wtz.deep.p106.b001"
+      ],
+      "finding": "巨門化忌與同權機科伴隨下外冷內衝有據；本書丁干配合可成立。",
+      "recommendation": "頁105改106；保留該書同一層四化配合，若跨流年只見巨忌而無同層配合需重核，唔移成無條件星性。",
+      "passage_id": "deep.星系24.4",
+      "proposed_quote_pages": [
+        106,
+        106
+      ]
+    },
+    {
+      "ordinal": 167,
+      "verdict": "metadata_only",
+      "evidence_blocks": [
+        "wtz.deep.p106.b003"
+      ],
+      "finding": "巳巨對亥陽落陷，以及陽再化忌的拖累招怨，兩條前提與原文相符。",
+      "recommendation": "頁105改106；兩分支可留，落陷和忌分清，唔只見太陽便說拖累。",
+      "passage_id": "deep.星系24.5",
+      "proposed_quote_pages": [
+        106,
+        106
+      ]
+    },
+    {
+      "ordinal": 168,
+      "verdict": "metadata_only",
+      "evidence_blocks": [
+        "wtz.deep.p108.b011"
+      ],
+      "finding": "羊同度或對拱、內心脆弱及是非對應，規則at same/opp符合。",
+      "recommendation": "頁109改108；保留內心感受描述，柔軟只是UI別名，索引仍需對照原文脆弱，唔將柔軟一般化。",
+      "passage_id": "deep.星系25.4",
+      "proposed_quote_pages": [
+        108,
+        108
+      ]
+    },
+    {
+      "ordinal": 169,
+      "verdict": "metadata_only",
+      "evidence_blocks": [
+        "wtz.deep.p108.b011",
+        "wtz.deep.p109.b001"
+      ],
+      "finding": "祿存同度或對拱改善情緒、少突破而可因應環境，與文本相符，跨頁。",
+      "recommendation": "頁109改[108,109]；保留少突破限制，不擴張成大成就。",
+      "passage_id": "deep.星系25.5",
+      "proposed_quote_pages": [
+        108,
+        109
+      ]
+    },
+    {
+      "ordinal": 170,
+      "verdict": "expand_evidence",
+      "evidence_blocks": [
+        "wtz.deep.p113.b017"
+      ],
+      "finding": "對宮紫府化科宜威權、紫權反孤高有據；原仆權應保留疑字。科究竟紫或府宜在同書版本條件下讀。",
+      "recommendation": "頁114改113；兩分支可保留相對傾向；若寫「紫微天府化科」勿使人以為兩星同時化科，改「對宮紫府組合中見化科」。",
+      "passage_id": "deep.星系27.4",
+      "proposed_quote_pages": [
+        113,
+        113
+      ]
+    },
+    {
+      "ordinal": 171,
+      "verdict": "metadata_only",
+      "evidence_blocks": [
+        "wtz.deep.p113.b018"
+      ],
+      "finding": "lean孤高、七殺坐命多紛擾與原文相符，刪去性別婚姻延伸唔改所留句含義。",
+      "recommendation": "頁114改113；核心保留，唔把未採性別句補回讀者文案。",
+      "passage_id": "deep.星系27.5",
+      "proposed_quote_pages": [
+        113,
+        113
+      ]
+    },
+    {
+      "ordinal": 172,
+      "verdict": "expand_evidence",
+      "evidence_blocks": [
+        "wtz.deep.p116.b011"
+      ],
+      "finding": "同祿與事業機權同層配合、精神充實有據；無論如何係原文強語，但不能跨層只取同祿失去伴隨機權。",
+      "recommendation": "頁117改116；明記同一套四化與原局卯酉結構，若程式跨層使用要重核；不用單星句作現代精神狀態保證。",
+      "passage_id": "deep.星系28.2",
+      "proposed_quote_pages": [
+        116,
+        116
+      ]
+    },
+    {
+      "ordinal": 173,
+      "verdict": "metadata_only",
+      "evidence_blocks": [
+        "wtz.deep.p116.b012"
+      ],
+      "finding": "同權未必精神充實，現句保留「未必」且未直接判定空虛，符合原段。",
+      "recommendation": "頁117改116，保留需要福德積極與否的參看；不得把物質足當精神一定空虛。",
+      "passage_id": "deep.星系28.3",
+      "proposed_quote_pages": [
+        116,
+        116
+      ]
+    },
+    {
+      "ordinal": 174,
+      "verdict": "metadata_only",
+      "evidence_blocks": [
+        "wtz.deep.p120.b002"
+      ],
+      "finding": "武科、少年不利、一藝自立薄譽與因循，現文基本對應。",
+      "recommendation": "頁119改120；原句好因循苟且的連接需保存轉錄疑點，但不另加外部事實解釋。",
+      "passage_id": "deep.星系29.3",
+      "proposed_quote_pages": [
+        120,
+        120
+      ]
+    },
+    {
+      "ordinal": 175,
+      "verdict": "fix_conditions",
+      "evidence_blocks": [
+        "wtz.deep.p120.b003"
+      ],
+      "finding": "不受煞擾係必要修飾，現僅排同宮六煞；原文未限定煞擾只同宮，而且惠煞字有疑。",
+      "recommendation": "頁119改120；不受煞擾範圍及星類待校，未核前句改「化權有破網進取分支，但需確認未受煞擾」，唔同宮無煞就肯定成立。",
+      "passage_id": "deep.星系29.4",
+      "proposed_quote_pages": [
+        120,
+        120
+      ]
+    },
+    {
+      "ordinal": 176,
+      "verdict": "metadata_only",
+      "evidence_blocks": [
+        "wtz.deep.p120.b004"
+      ],
+      "finding": "武忌且無陀羅同度，反主進取，現when完整保留。",
+      "recommendation": "頁119改120；原文仍較武權運程為次可作修飾，毋須刪核心句。",
+      "passage_id": "deep.星系29.5",
+      "proposed_quote_pages": [
+        120,
+        120
+      ]
+    },
+    {
+      "ordinal": 177,
+      "verdict": "metadata_only",
+      "evidence_blocks": [
+        "wtz.deep.p120.b004"
+      ],
+      "finding": "武忌艱苦及少年不利有明文；再限定有陀屬取較窄子集，唔係由短引推新結果。",
+      "recommendation": "頁119改120；保留較窄適用條件，唔額外斷有陀就有其他災變。",
+      "passage_id": "deep.星系29.6",
+      "proposed_quote_pages": [
+        120,
+        120
+      ]
+    },
+    {
+      "ordinal": 178,
+      "verdict": "metadata_only",
+      "evidence_blocks": [
+        "wtz.deep.p120.b011",
+        "wtz.deep.p120.b012"
+      ],
+      "finding": "破軍為重要運、見吉化吉曜應利用，現文字保留若見吉的限制。",
+      "recommendation": "頁121改120；作有條件行運提示可留，不能由decade=破軍自動認定已見吉。",
+      "passage_id": "deep.星系29.9",
+      "proposed_quote_pages": [
+        120,
+        120
+      ]
+    },
+    {
+      "ordinal": 179,
+      "verdict": "metadata_only",
+      "evidence_blocks": [
+        "wtz.deep.p124.b010",
+        "wtz.deep.p124.b011"
+      ],
+      "finding": "巨門為重要運程有據，現並未將重要等同吉利。",
+      "recommendation": "頁125改124；保留中性重要，吉化及陀羅交疊另立分支。",
+      "passage_id": "deep.星系30.7",
+      "proposed_quote_pages": [
+        124,
+        124
+      ]
+    },
+    {
+      "ordinal": 180,
+      "verdict": "metadata_only",
+      "evidence_blocks": [
+        "wtz.deep.p126.b009"
+      ],
+      "finding": "破軍本宮化祿或權，果敢的兩條前提對應。",
+      "recommendation": "頁127改126；保留果敢傾向，成英星格的額外輔曜條件不要省略後又命名格局。",
+      "passage_id": "deep.星系31.4",
+      "proposed_quote_pages": [
+        126,
+        126
+      ]
+    },
+    {
+      "ordinal": 181,
+      "verdict": "expand_evidence",
+      "evidence_blocks": [
+        "wtz.deep.p130.b001",
+        "wtz.deep.p130.b002",
+        "wtz.deep.p130.b003"
+      ],
+      "finding": "無吉化、煞同躔可屬下游；上一句同祿亦改善本質，現只排本星吉化就下游有漏其他改善因素風險。",
+      "recommendation": "頁129改130；句改「本星無吉化又有煞，是原書列的下游分支，仍要看同祿等扶持」，判斷層合併修飾，唔把本星無化當全盤無吉。",
+      "passage_id": "deep.星系32.5",
+      "proposed_quote_pages": [
+        130,
+        130
+      ]
+    },
+    {
+      "ordinal": 182,
+      "verdict": "revise_copy",
+      "evidence_blocks": [
+        "wtz.deep.p130.b010"
+      ],
+      "finding": "原文巨門所行宮的對宮太陽，未必係本命遷移；現直接稱對面遷移宮有宮位層次混淆。",
+      "recommendation": "頁131改130；改「若所行巨門宮的對宮太陽入廟，且同會吉曜／吉化……」，明記原局上進與運限環境，唔用固定本命遷移代稱。",
+      "passage_id": "deep.星系32.7",
+      "proposed_quote_pages": [
+        130,
+        130
+      ]
+    },
+    {
+      "ordinal": 183,
+      "verdict": "revise_copy",
+      "evidence_blocks": [
+        "wtz.deep.p133.b008"
+      ],
+      "finding": "有煞的紫貪「常常可以」係傾向，現「為了目標你可以不擇手段」直接給讀者道德定性。",
+      "recommendation": "頁134改133；改「若見煞，原書提醒追求目標時須防手段失去界線」，以條件及提醒表述，唔宣布當事人會用任何手段。",
+      "passage_id": "deep.星系33.3",
+      "proposed_quote_pages": [
+        133,
+        133
+      ]
+    },
+    {
+      "ordinal": 184,
+      "verdict": "expand_evidence",
+      "evidence_blocks": [
+        "wtz.deep.p133.b010"
+      ],
+      "finding": "火或鈴同度成火貪鈴貪、因決策得意外財有明文；現未採武貪比較不影響所留句。",
+      "recommendation": "頁134改133；格局對應須逐星說火貪或鈴貪，唔寫成兩星必同時在宮；成果仍應按全段及行運作傾向，唔以查到星保證得財。",
+      "passage_id": "deep.星系33.4",
+      "proposed_quote_pages": [
+        133,
+        133
+      ]
+    },
+    {
+      "ordinal": 185,
+      "verdict": "metadata_only",
+      "evidence_blocks": [
+        "wtz.deep.p136.b015",
+        "wtz.deep.p137.b001"
+      ],
+      "finding": "原局受激發、天梁十年先苦後發的文案與原文對應，跨頁。",
+      "recommendation": "頁137改[136,137]；保留原局受激發及十年範圍，不把流年另段的先困後吉當同樣十年。",
+      "passage_id": "deep.星系34.7",
+      "proposed_quote_pages": [
+        136,
+        137
+      ]
+    },
+    {
+      "ordinal": 186,
+      "verdict": "expand_evidence",
+      "evidence_blocks": [
+        "wtz.deep.p139.b001"
+      ],
+      "finding": "原文喜魁鉞／輔弼同會，現數組任一顆且文案說最得助力，未證成對同會及最高比較。",
+      "recommendation": "頁138改139；先改「有助力的配合」刪最；對星同會需兩顆或可單顆待校，索引保存完整對星條件，未核不把任一單曜當等價。",
+      "passage_id": "deep.星系35.4",
+      "proposed_quote_pages": [
+        139,
+        139
+      ]
+    },
+    {
+      "ordinal": 187,
+      "verdict": "expand_evidence",
+      "evidence_blocks": [
+        "wtz.deep.p141.b008",
+        "wtz.deep.p141.b010"
+      ],
+      "finding": "孤克及融和的人際與職業分支有明文，source與also能合起來支持；孤獨係UI詞而非原文原軸。",
+      "recommendation": "頁142改141；保留兩分支，明記孤克指結構而非單憑主觀孤獨感；原詞與UI映射另存，唔跨星系比較人緣。",
+      "passage_id": "deep.星系36.2",
+      "proposed_quote_pages": [
+        141,
+        141
+      ]
+    },
+    {
+      "ordinal": 188,
+      "verdict": "metadata_only",
+      "evidence_blocks": [
+        "wtz.deep.p141.b010"
+      ],
+      "finding": "職業、管理及領袖描述均在同段；兩條when各限制孤獨／融和。",
+      "recommendation": "頁142改141；與36.2合用，所引職業為作者取向例，唔變成現代職位資格保證。",
+      "passage_id": "deep.星系36.3",
+      "proposed_quote_pages": [
+        141,
+        141
+      ]
+    },
+    {
+      "ordinal": 189,
+      "verdict": "expand_evidence",
+      "evidence_blocks": [
+        "wtz.deep.p141.b005",
+        "wtz.deep.p141.b011"
+      ],
+      "finding": "午宮本帶孤克又融和可對原文兩性並存；lean=平衡是否真有兩性未由原段證成。",
+      "recommendation": "頁142改141；午且融和支可保留相對描述；平衡支先改「若兼具孤克與融和兩種結構」並保存兩項證據，唔將等分數直接當領導人。",
+      "passage_id": "deep.星系36.4",
+      "proposed_quote_pages": [
+        141,
+        141
+      ]
+    },
+    {
+      "ordinal": 190,
+      "verdict": "fix_conditions",
+      "evidence_blocks": [
+        "wtz.deep.p141.b009"
+      ],
+      "finding": "原文最強融和除子科、對祿、輔佐，仲要三台八座恩光天貴台輔封誥等；現edit承認未建模，文案仍說最強。",
+      "recommendation": "頁142改141；未能驗雜曜就刪「最強組合」，改「有助融和的條件之一」；或先實作完整條件再命名最強，唔用一顆輔佐代整組。",
+      "passage_id": "deep.星系36.5",
+      "proposed_quote_pages": [
+        141,
+        141
+      ]
+    },
+    {
+      "ordinal": 191,
+      "verdict": "fix_conditions",
+      "evidence_blocks": [
+        "wtz.deep.p142.b010",
+        "wtz.deep.p142.b011"
+      ],
+      "finding": "機陰運融和者得意後，原文即排煞忌刑耗同會可動蕩，現正面句無例外。",
+      "recommendation": "頁143改142；改「若機陰所行宮無相反煞忌刑耗，融和型較有利」或附完整反分支；先看當期星曜，唔只靠原局lean。",
+      "passage_id": "deep.星系36.7",
+      "proposed_quote_pages": [
+        142,
+        142
+      ]
+    },
+    {
+      "ordinal": 192,
+      "verdict": "metadata_only",
+      "evidence_blocks": [
+        "wtz.deep.p144.b006"
+      ],
+      "finding": "見祿即使吉凶並見亦奮發，與現條件相符；所留句未冒稱成雄宿大業。",
+      "recommendation": "頁145改144；保留見祿及奮發，後續無祿、煞忌不同分支並看。",
+      "passage_id": "deep.星系37.3",
+      "proposed_quote_pages": [
+        144,
+        144
+      ]
+    },
+    {
+      "ordinal": 193,
+      "verdict": "metadata_only",
+      "evidence_blocks": [
+        "wtz.deep.p144.b007"
+      ],
+      "finding": "無祿、雖輔佐仍奮發不足，現when與文意相符。",
+      "recommendation": "頁145改144，毋須把原命造缺陷等貶語加回，亦唔以無祿直接判終身失敗。",
+      "passage_id": "deep.星系37.4",
+      "proposed_quote_pages": [
+        144,
+        144
+      ]
+    },
+    {
+      "ordinal": 194,
+      "verdict": "expand_evidence",
+      "evidence_blocks": [
+        "wtz.deep.p144.b005",
+        "wtz.deep.p144.b009"
+      ],
+      "finding": "武忌加剛戾、貪忌只增頻度不增幅度有據；原文先說剛戾係星曜結構而非本人性格，現「增加你剛戾性質」可誤讀。",
+      "recommendation": "頁145改144；武忌句改「增加星系剛戾的結構傾向，具體影響另看宮位」，保留貪忌頻度／幅度差別，唔用人格標籤替代事件層。",
+      "passage_id": "deep.星系37.6",
+      "proposed_quote_pages": [
+        144,
+        144
+      ]
+    },
+    {
+      "ordinal": 195,
+      "verdict": "metadata_only",
+      "evidence_blocks": [
+        "wtz.deep.p147.b008",
+        "wtz.deep.p147.b013"
+      ],
+      "finding": "羊同度豁達、陀同度短志，短志做事難堅持由同頁b8說明；兩條相符。",
+      "recommendation": "頁148改147；保留同度限制，唔放寬成會照同樣有結論。",
+      "passage_id": "deep.星系38.3",
+      "proposed_quote_pages": [
+        147,
+        147
+      ]
+    },
+    {
+      "ordinal": 196,
+      "verdict": "metadata_only",
+      "evidence_blocks": [
+        "wtz.deep.p147.b011"
+      ],
+      "finding": "機忌可化解波折、陰忌內心痛苦，同宮系統及三合條件對應。",
+      "recommendation": "頁148改147；「過得去」可收窄為「原書視作可化解的波折」，唔變成保證毋須處理。",
+      "passage_id": "deep.星系38.4",
+      "proposed_quote_pages": [
+        147,
+        147
+      ]
+    },
+    {
+      "ordinal": 197,
+      "verdict": "metadata_only",
+      "evidence_blocks": [
+        "wtz.deep.p147.b009"
+      ],
+      "finding": "巨門吉化宜離鄉，原局天同辰戌對宮巨門由topic限定，文案相符。",
+      "recommendation": "頁148改147，保留特定星系而非所有巨門吉化都適宜移居。",
+      "passage_id": "deep.星系38.5",
+      "proposed_quote_pages": [
+        147,
+        147
+      ]
+    },
+    {
+      "ordinal": 198,
+      "verdict": "metadata_only",
+      "evidence_blocks": [
+        "wtz.deep.p150.b011"
+      ],
+      "finding": "武破火或鈴同度、反拗與環境迫使改變有原文。",
+      "recommendation": "頁151改150；文案性格反拗宜解作該節傾向而非人格定罪；實際具體環境仍勿自行補造。",
+      "passage_id": "deep.星系39.4",
+      "proposed_quote_pages": [
+        150,
+        150
+      ]
+    },
+    {
+      "ordinal": 199,
+      "verdict": "expand_evidence",
+      "evidence_blocks": [
+        "wtz.deep.p150.b009"
+      ],
+      "finding": "武忌／廉忌反拗有據；「別人越推越頂」係加上的具體互動，原文只比較星系反拗程度。",
+      "recommendation": "頁151改150；武忌句刪越推越頂，改「此組更易出現反拗傾向」；廉忌最重保留該段比較範圍，唔跨所有格局。",
+      "passage_id": "deep.星系39.6",
+      "proposed_quote_pages": [
+        150,
+        150
+      ]
+    },
+    {
+      "ordinal": 200,
+      "verdict": "expand_evidence",
+      "evidence_blocks": [
+        "wtz.deep.p151.b011",
+        "wtz.deep.p151.b012"
+      ],
+      "finding": "下屬困擾有明文；下一段巨門吉化仍有困擾但可受提拔支援，現只寫不喜容易失去混合結果。",
+      "recommendation": "頁152改151；保留一般困擾，補「若巨門吉化亦可能同時得賞識或後台」，唔用單句不喜裁全步凶運。",
+      "passage_id": "deep.星系39.8",
+      "proposed_quote_pages": [
+        151,
+        151
+      ]
+    },
+    {
+      "ordinal": 201,
+      "verdict": "metadata_only",
+      "evidence_blocks": [
+        "wtz.deep.p153.b015"
+      ],
+      "finding": "沉穩易富、虛浮外華內虛的兩分支均有明文，when保留原局兩型。",
+      "recommendation": "頁154改153；保留易及往往的傾向，唔把來源確認當投資或收入保證。",
+      "passage_id": "deep.星系40.6",
+      "proposed_quote_pages": [
+        153,
+        153
+      ]
+    },
+    {
+      "ordinal": 202,
+      "verdict": "expand_evidence",
+      "evidence_blocks": [
+        "wtz.deep.p156.b013",
+        "wtz.deep.p157.b001"
+      ],
+      "finding": "廉忌因學識不足而怯懦有據，下一續句輔弼可抵消亦已被not輔弼較嚴條件保留。原文學食、大府疑字不可當已校。",
+      "recommendation": "頁改[156,157]；補輔弼抵消句作反證，讀者句「自覺學識不足」屬較溫和轉述；UI保守別名另記不等於一般保守。",
+      "passage_id": "deep.星系41.5",
+      "proposed_quote_pages": [
+        156,
+        157
+      ]
+    },
+    {
+      "ordinal": 203,
+      "verdict": "expand_evidence",
+      "evidence_blocks": [
+        "wtz.deep.p163.b005",
+        "wtz.deep.p163.b006"
+      ],
+      "finding": "武曲祿對紫相有情最有利有據，上一段明說有情只係同星系相對，現「令你有情」容易人格化。",
+      "recommendation": "頁164改163；改「在紫相內部比較，武祿較能增加有情傾向」，加相對範圍，唔跨星系比較誰重情。",
+      "passage_id": "deep.星系43.3",
+      "proposed_quote_pages": [
+        163,
+        163
+      ]
+    },
+    {
+      "ordinal": 204,
+      "verdict": "metadata_only",
+      "evidence_blocks": [
+        "wtz.deep.p163.b007"
+      ],
+      "finding": "廉貞祿令紫相感情較豐富，現文及三合條件對應。",
+      "recommendation": "頁164改163；保留稍為、較的程度，唔擴成對所有人忠誠或長情。",
+      "passage_id": "deep.星系43.4",
+      "proposed_quote_pages": [
+        163,
+        163
+      ]
+    },
+    {
+      "ordinal": 205,
+      "verdict": "metadata_only",
+      "evidence_blocks": [
+        "wtz.deep.p163.b008"
+      ],
+      "finding": "破軍祿只增聲勢不主有情，對宮與原局紫相吻合。",
+      "recommendation": "頁164改163；保留否定，不把得祿一律加到重情方向。",
+      "passage_id": "deep.星系43.5",
+      "proposed_quote_pages": [
+        163,
+        163
+      ]
+    },
+    {
+      "ordinal": 206,
+      "verdict": "metadata_only",
+      "evidence_blocks": [
+        "wtz.deep.p166.b011"
+      ],
+      "finding": "有祿較無祿穩定、仍多是非但可化解，現文保留相對及困擾。",
+      "recommendation": "頁167改166；加穩定只限本星系比較說明，唔寫比其他星系都穩；各祿來源可再細分但無需反轉此句。",
+      "passage_id": "deep.星系44.4",
+      "proposed_quote_pages": [
+        166,
+        166
+      ]
+    },
+    {
+      "ordinal": 207,
+      "verdict": "revise_copy",
+      "evidence_blocks": [
+        "wtz.deep.p170.b002",
+        "wtz.deep.p170.b003",
+        "wtz.deep.p170.b005"
+      ],
+      "finding": "舊引軸權威／克忌在p.170；runtime plain卻用多焦慮作反端，同節明說焦慮增加可不損權威。",
+      "recommendation": "頁169改170；依xingxi.45分開克忌與焦慮，basis及lean唔用同一條軸互相抵銷，唔只改頁就標全文支持。",
+      "passage_id": "deep.星系45.1",
+      "proposed_quote_pages": [
+        170,
+        170
+      ]
+    },
+    {
+      "ordinal": 208,
+      "verdict": "metadata_only",
+      "evidence_blocks": [
+        "wtz.deep.p170.b003"
+      ],
+      "finding": "三合貪狼祿、調和七殺最喜的配合，與原文相符。",
+      "recommendation": "頁169改170；保留原局子午七殺及貪祿，不擴成所有七殺都只需貪祿便成格。",
+      "passage_id": "deep.星系45.5",
+      "proposed_quote_pages": [
+        170,
+        170
+      ]
+    },
+    {
+      "ordinal": 209,
+      "verdict": "metadata_only",
+      "evidence_blocks": [
+        "wtz.deep.p170.b004"
+      ],
+      "finding": "對宮武府武曲祿、天府得祿及威權高格有原文，條件相符。",
+      "recommendation": "頁169改170；保留對宮同組，不作天府自身化祿的新四化。",
+      "passage_id": "deep.星系45.6",
+      "proposed_quote_pages": [
+        170,
+        170
+      ]
+    },
+    {
+      "ordinal": 210,
+      "verdict": "metadata_only",
+      "evidence_blocks": [
+        "wtz.deep.p172.b013"
+      ],
+      "finding": "火星或鈴星同度使廉貞敏感不良的分支有據，現只留自作多情，無額外成格主張。",
+      "recommendation": "頁173改172；保留或的關係，唔把火鈴當必須同時在宮，也毋須加回未採貶語。",
+      "passage_id": "deep.星系46.5",
+      "proposed_quote_pages": [
+        172,
+        172
+      ]
+    },
+    {
+      "ordinal": 211,
+      "verdict": "metadata_only",
+      "evidence_blocks": [
+        "wtz.deep.p179.b001"
+      ],
+      "finding": "天馬或陀羅、即使祿權仍毅力不足的傾向有據；現同宮條件比未明方位的原句窄。",
+      "recommendation": "頁178改179；保持同宮較窄範圍與原意，唔擴張成所有會照也成立。",
+      "passage_id": "deep.星系48.4",
+      "proposed_quote_pages": [
+        179,
+        179
+      ]
+    },
+    {
+      "ordinal": 212,
+      "verdict": "expand_evidence",
+      "evidence_blocks": [
+        "wtz.deep.p180.b014",
+        "wtz.deep.p181.b001",
+        "wtz.deep.p181.b002"
+      ],
+      "finding": "薄弱天同不喜破軍大變有據；下一段破祿又得運限貪祿可轉財源順遂，現句只列不喜漏重要轉化。",
+      "recommendation": "頁改[180,181]；改為一般提醒並附破祿／運貪祿例外；原發女、不失堕疑字保留，唔校成確定字再入規則。",
+      "passage_id": "deep.星系48.8",
+      "proposed_quote_pages": [
+        180,
+        181
+      ]
+    },
+    {
+      "ordinal": 213,
+      "verdict": "fix_conditions",
+      "evidence_blocks": [
+        "wtz.deep.p181.b011",
+        "wtz.deep.p181.b012",
+        "wtz.deep.p182.b001"
+      ],
+      "finding": "原文不見祿包括化祿或祿存，現只排本宮武祿／祿存，冇排三方會祿；「雖不見煞」亦有作用範圍。",
+      "recommendation": "頁改[181,182]；先界定見祿係同宮或會合，未核不可用本宮無祿斷全盤無祿；若有煞另走該節偏枯分支，勿保證仍積財。",
+      "passage_id": "deep.星系49.4",
+      "proposed_quote_pages": [
+        181,
+        182
+      ]
+    },
+    {
+      "ordinal": 214,
+      "verdict": "expand_evidence",
+      "evidence_blocks": [
+        "wtz.deep.p185.b005",
+        "wtz.deep.p185.b006"
+      ],
+      "finding": "開朗／沉鬱軸與陽光解梁孤忌有據，正文實在p.185；runtime人格個人化部分另見xingxi.50。",
+      "recommendation": "頁184改185；plain.basis擴至b6，lean只留相對情緒色彩，傾訴建議分欄，不由軸句證明人人際遇。",
+      "passage_id": "deep.星系50.1",
+      "proposed_quote_pages": [
+        185,
+        185
+      ]
+    },
+    {
+      "ordinal": 215,
+      "verdict": "metadata_only",
+      "evidence_blocks": [
+        "wtz.deep.p191.b009"
+      ],
+      "finding": "機忌浮蕩、巨忌輕薄不宜，兩條本星化忌條件對應。",
+      "recommendation": "頁192改191；浮動為UI詞需保留原詞對照，勿將浮薄全改成反應快的優點。",
+      "passage_id": "deep.星系52.4",
+      "proposed_quote_pages": [
+        191,
+        191
+      ]
+    },
+    {
+      "ordinal": 216,
+      "verdict": "metadata_only",
+      "evidence_blocks": [
+        "wtz.deep.p191.b010"
+      ],
+      "finding": "鈴同度較重、火同度次之，現兩條以無鈴避免火支重疊，對應原文比較。",
+      "recommendation": "頁192改191；保留鈴／火強弱及同度，原赊此忌外等疑字另記。",
+      "passage_id": "deep.星系52.5",
+      "proposed_quote_pages": [
+        191,
+        191
+      ]
+    },
+    {
+      "ordinal": 217,
+      "verdict": "fix_conditions",
+      "evidence_blocks": [
+        "wtz.deep.p191.b011"
+      ],
+      "finding": "酉機巨因太陽得地較利有據，但同段下一句太陽忌又增浮薄；現只查酉就正面裁定。",
+      "recommendation": "頁192改191；補太陽忌反分支或將正句改「一般較利，若太陽化忌另論」，唔以宮支取代四化。",
+      "passage_id": "deep.星系52.6",
+      "proposed_quote_pages": [
+        191,
+        191
+      ]
+    },
+    {
+      "ordinal": 218,
+      "verdict": "fix_conditions",
+      "evidence_blocks": [
+        "wtz.deep.p192.b011",
+        "wtz.deep.p192.b012",
+        "wtz.deep.p193.b001"
+      ],
+      "finding": "穩重型天同運可興家有據，續句「唯天同化忌則為厄運」被截走；現when只有原局穩重。",
+      "recommendation": "頁改[192,193]；天同忌例外必須同列，未查所行宮四化就用若句；不能以往往取代被刪例外。",
+      "passage_id": "deep.星系52.7",
+      "proposed_quote_pages": [
+        192,
+        193
+      ]
+    },
+    {
+      "ordinal": 219,
+      "verdict": "metadata_only",
+      "evidence_blocks": [
+        "wtz.deep.p193.b007",
+        "wtz.deep.p193.b008",
+        "wtz.deep.p193.b009"
+      ],
+      "finding": "原文浮薄機巨遇貪狼重大變化，需貪祿／權避免不吉，現文字已保留這一必要條件。",
+      "recommendation": "頁194改193；保留文字條件，判斷層另存當期貪狼祿權，不可單用decade=貪狼標已轉吉；貪忌另列。",
+      "passage_id": "deep.星系52.8",
+      "proposed_quote_pages": [
+        193,
+        193
+      ]
+    },
+    {
+      "ordinal": 220,
+      "verdict": "revise_copy",
+      "evidence_blocks": [
+        "wtz.deep.p193.b010"
+      ],
+      "finding": "原文一般不宜，現寫最忌，程度加強；借星遷移運唔等於日常搬屋移居。",
+      "recommendation": "頁194改193；兩條「最忌」改「一般不宜」，保留本命卯／酉及所行對宮借星範圍，唔衍生移居禁令。",
+      "passage_id": "deep.星系52.9",
+      "proposed_quote_pages": [
+        193,
+        193
+      ]
+    },
+    {
+      "ordinal": 221,
+      "verdict": "metadata_only",
+      "evidence_blocks": [
+        "wtz.deep.p194.b005",
+        "wtz.deep.p194.b006",
+        "wtz.deep.p195.b001"
+      ],
+      "finding": "紫權無輔佐易霸氣重的負支有據，現未聲稱有權就一定橫霸。",
+      "recommendation": "頁改[194,195]；保留只是傾向比較與通常不極端的說明，唔將原極端界線做人品判定。",
+      "passage_id": "deep.星系53.2",
+      "proposed_quote_pages": [
+        194,
+        195
+      ]
+    },
+    {
+      "ordinal": 222,
+      "verdict": "fix_conditions",
+      "evidence_blocks": [
+        "wtz.deep.p195.b001"
+      ],
+      "finding": "紫權加輔佐可減霸氣，但成權威另需更無刑煞，現漏無刑煞就宣布成為權威；star數組任一也未證整組同會。",
+      "recommendation": "頁194改195；拆成「輔佐會合可減霸氣」與「再無刑煞才論權威」，完整條件未建模時刪成為權威。",
+      "passage_id": "deep.星系53.3",
+      "proposed_quote_pages": [
+        195,
+        195
+      ]
+    },
+    {
+      "ordinal": 223,
+      "verdict": "expand_evidence",
+      "evidence_blocks": [
+        "wtz.deep.p195.b004"
+      ],
+      "finding": "原文限庚干天府科且天府無煞；現以武曲不化忌代理排壬年，屬依本書固定同層四化的工程代理。",
+      "recommendation": "頁194改195；優先明存庚干前提，記代理只限同一套同層四化、不能跨生年與運限；減霸氣可保留，不由此直接把pole權威視為已成權威。",
+      "passage_id": "deep.星系53.5",
+      "proposed_quote_pages": [
+        195,
+        195
+      ]
+    },
+    {
+      "ordinal": 224,
+      "verdict": "expand_evidence",
+      "evidence_blocks": [
+        "wtz.deep.p198.b002",
+        "wtz.deep.p198.b003",
+        "wtz.deep.p198.b004",
+        "wtz.deep.p198.b005"
+      ],
+      "finding": "為公／私利與公職服務有據，runtime plain更有無煞刑私心不重等例外及個人延伸。",
+      "recommendation": "頁197改198；basis可擴引b2–5，依xingxi.54保留原詞映射與例外，不以中性為己完全替代私利，也唔單由軸句包整段lean。",
+      "passage_id": "deep.星系54.1",
+      "proposed_quote_pages": [
+        198,
+        198
+      ]
+    },
+    {
+      "ordinal": 225,
+      "verdict": "metadata_only",
+      "evidence_blocks": [
+        "wtz.deep.p198.b002"
+      ],
+      "finding": "公職、服務性質及開創職責均為原文，原局廉破卯酉由topic限定。",
+      "recommendation": "頁197改198；核心句保留為書中取向，唔當所有公職角色都能由此精準指定。",
+      "passage_id": "deep.星系54.2",
+      "proposed_quote_pages": [
+        198,
+        198
+      ]
+    },
+    {
+      "ordinal": 226,
+      "verdict": "metadata_only",
+      "evidence_blocks": [
+        "wtz.deep.p198.b003"
+      ],
+      "finding": "廉貞本宮化祿、理想高有政見，現「自己的見解」係較窄轉述。",
+      "recommendation": "頁197改198；保留原局限定，唔把有見解推成實際政治成就。",
+      "passage_id": "deep.星系54.3",
+      "proposed_quote_pages": [
+        198,
+        198
+      ]
+    },
+    {
+      "ordinal": 227,
+      "verdict": "expand_evidence",
+      "evidence_blocks": [
+        "wtz.deep.p198.b003",
+        "wtz.deep.p198.b005"
+      ],
+      "finding": "廉忌私利橫發破有據，但b5無煞刑例外已另有override；現override只排六煞，未含天刑。",
+      "recommendation": "頁197改198；須連54.5同看，未建天刑前不能確認無煞刑覆蓋；不要一邊用缺失條件抵消一邊又報一般橫發破。",
+      "passage_id": "deep.星系54.4",
+      "proposed_quote_pages": [
+        198,
+        198
+      ]
+    },
+    {
+      "ordinal": 228,
+      "verdict": "fix_conditions",
+      "evidence_blocks": [
+        "wtz.deep.p198.b005"
+      ],
+      "finding": "無煞刑係原文明示前提，現not只排六煞而缺天刑，無法證無煞刑，卻覆蓋廉忌負支。",
+      "recommendation": "頁197改198；加入天刑等原文範圍後才啟用override；未有資料只寫「若無煞刑，原書另有私心不重分支」，唔直接為當事人免除前支。",
+      "passage_id": "deep.星系54.5",
+      "proposed_quote_pages": [
+        198,
+        198
+      ]
+    },
+    {
+      "ordinal": 229,
+      "verdict": "expand_evidence",
+      "evidence_blocks": [
+        "wtz.deep.p198.b004"
+      ],
+      "finding": "破祿同樣奉公更辛勞有明文，但舊摘引停在辛勞，未錄後一句同樣奉公。",
+      "recommendation": "頁197改198，補完整b4；現中文可留，唔因截句未見奉公就判王書不支持。",
+      "passage_id": "deep.星系54.6",
+      "proposed_quote_pages": [
+        198,
+        198
+      ]
+    },
+    {
+      "ordinal": 230,
+      "verdict": "metadata_only",
+      "evidence_blocks": [
+        "wtz.deep.p199.b005"
+      ],
+      "finding": "為公廉破行武貪有建樹、財祿聲譽俱來有明文；原局為公與所行同度星系文字均保留。",
+      "recommendation": "頁198改199；中文可留作條件轉述，當期武貪吉凶及後段武忌等仍需綜合，唔單憑星名出全運保證。",
+      "passage_id": "deep.星系54.9",
+      "proposed_quote_pages": [
+        199,
+        199
+      ]
+    },
+    {
+      "ordinal": 231,
+      "verdict": "metadata_only",
+      "evidence_blocks": [
+        "wtz.deep.p199.b002",
+        "wtz.deep.p199.b003"
+      ],
+      "finding": "為己／私利廉破遇同陰暴發、吉化保泰較長，現文保留原局及吉星條件。",
+      "recommendation": "頁198改199；補原文忌刑耗轉敗及流年伏患為反分支，唔將發得快作單獨喜訊。",
+      "passage_id": "deep.星系54.10",
+      "proposed_quote_pages": [
+        199,
+        199
+      ]
+    },
+    {
+      "ordinal": 232,
+      "verdict": "revise_copy",
+      "evidence_blocks": [
+        "wtz.deep.p201.b002",
+        "wtz.deep.p201.b003",
+        "wtz.deep.p201.b004"
+      ],
+      "finding": "祥和／權術有據，runtime以多思慮替代權術並沿用原權術結果，混了動機手段與思慮狀態。",
+      "recommendation": "頁200改201；依xingxi.55恢復原軸對照；多思慮另掛天相被夾分支，不共用同一結論。",
+      "passage_id": "deep.星系55.1",
+      "proposed_quote_pages": [
+        201,
+        201
+      ]
+    },
+    {
+      "ordinal": 233,
+      "verdict": "metadata_only",
+      "evidence_blocks": [
+        "wtz.deep.p201.b001"
+      ],
+      "finding": "會權欲星而天府保守性較小，與現base句對應。",
+      "recommendation": "頁200改201；保留相對於其他天府組合，唔擴成個人一定敢冒險。",
+      "passage_id": "deep.星系55.2",
+      "proposed_quote_pages": [
+        201,
+        201
+      ]
+    },
+    {
+      "ordinal": 234,
+      "verdict": "revise_copy",
+      "evidence_blocks": [
+        "wtz.deep.p201.b003",
+        "wtz.deep.p201.b004"
+      ],
+      "finding": "祥和句可留；多思慮規則套用權術者騰挪少得的結果，原文多思慮另有天相兩重相夾條件。",
+      "recommendation": "頁200改201；保留祥和支，權術支按原概念另定；若保留多思慮作名稱，就補天相夾曜條件並用b4相應結果，不能只改label沿用b3。",
+      "passage_id": "deep.星系55.3",
+      "proposed_quote_pages": [
+        201,
+        201
+      ]
+    },
+    {
+      "ordinal": 235,
+      "verdict": "metadata_only",
+      "evidence_blocks": [
+        "wtz.deep.p203.b013"
+      ],
+      "finding": "原局積極再有空曜同度偏空想，現when保留積極及本宮空劫，文案相符。",
+      "recommendation": "頁204改203；空曜完整範圍另存，目前空劫只是可核子集，唔反推無空劫便完全無空想。",
+      "passage_id": "deep.星系56.5",
+      "proposed_quote_pages": [
+        203,
+        203
+      ]
+    },
+    {
+      "ordinal": 236,
+      "verdict": "hold_source",
+      "evidence_blocks": [
+        "wtz.deep.p210.b003",
+        "wtz.deep.p210.b004",
+        "wtz.deep.p210.b005",
+        "wtz.deep.p210.b006"
+      ],
+      "finding": "本機PDF p.210原圖確寫丁干而列太陽化祿，與本書丁干表不一致；同段亦係單獨評巨門及四化配合，現只見巨忌就判不孤立得助。",
+      "recommendation": "頁209改210；暫停口舌求財這條確定推論，保留疑字、四化全組與兩種可能讀法，另版校對前不可把太陽祿改太陰祿當原書已校定，也不能只巨忌便保證得助。",
+      "passage_id": "deep.星系58.4",
+      "proposed_quote_pages": [
+        210,
+        210
+      ]
+    },
+    {
+      "ordinal": 237,
+      "verdict": "metadata_only",
+      "evidence_blocks": [
+        "wtz.deep.p216.b002"
+      ],
+      "finding": "機忌、陰忌、同忌增加失調及過反應，三條各自星及位置符合原文列舉。",
+      "recommendation": "頁215改216；保留傾向與配合天梁前提，唔把尖銳當所有情況的固定人格。",
+      "passage_id": "deep.星系60.2",
+      "proposed_quote_pages": [
+        216,
+        216
+      ]
+    },
+    {
+      "ordinal": 238,
+      "verdict": "expand_evidence",
+      "evidence_blocks": [
+        "wtz.deep.p216.b003"
+      ],
+      "finding": "太陽／巨門忌增加天梁孤克再流尖刻有據；原文列星有借入星系，現在trine要確認looked是否包括借星。",
+      "recommendation": "頁215改216；文字可保留，另記借星查找範圍待引擎對照，來源核對不等於已驗盤觸發完整。",
+      "passage_id": "deep.星系60.3",
+      "proposed_quote_pages": [
+        216,
+        216
+      ]
+    },
+    {
+      "ordinal": 239,
+      "verdict": "expand_evidence",
+      "evidence_blocks": [
+        "wtz.deep.p216.b004"
+      ],
+      "finding": "機、陰、同吉化成明斷有據，現天機吉化係其中一支；列星逗號的各別／並同語法須按本書四化可達組合校讀。",
+      "recommendation": "頁215改216；保留天機吉化的分支讀法並標適用層次，唔擴大為所有吉化同時具備；與相反忌曜分支綜合後再出結論。",
+      "passage_id": "deep.星系60.4",
+      "proposed_quote_pages": [
+        216,
+        216
+      ]
+    },
+    {
+      "ordinal": 240,
+      "verdict": "fix_conditions",
+      "evidence_blocks": [
+        "wtz.deep.p216.b006"
+      ],
+      "finding": "輔佐同會／煞刑並湊是複合狀態；現任一輔佐便調和、羊陀任一加火鈴任一便並湊，均屬工程代理而非原文量化。",
+      "recommendation": "頁215改216；明存對星及煞刑數量未核，未建天刑不能確認完整並湊；暫用「有調和／失調因素」而非已判整體明斷尖刻，另補多曜組合規則。",
+      "passage_id": "deep.星系60.5",
+      "proposed_quote_pages": [
+        216,
+        216
+      ]
+    },
+    {
+      "ordinal": 241,
+      "verdict": "metadata_only",
+      "evidence_blocks": [
+        "wtz.deep.p494.b015",
+        "wtz.deep.p495.b001"
+      ],
+      "finding": "巳亥天府遷移、對宮紫殺紫權、宜遠涉開創，topic與when已限正確原局。",
+      "recommendation": "頁改[494,495]；核心可留，不把後段更多吉曜成僑領自動加上。",
+      "passage_id": "deep.遷移.天府.1",
+      "proposed_quote_pages": [
+        494,
+        495
+      ]
+    },
+    {
+      "ordinal": 242,
+      "verdict": "fix_conditions",
+      "evidence_blocks": [
+        "wtz.deep.p496.b012",
+        "wtz.deep.p497.b001"
+      ],
+      "finding": "原文限定貪狼獨坐遷移，現topic只有貪狼、無alone，可套到廉貪、紫貪等；後續火鈴加煞忌暴敗亦須留。",
+      "recommendation": "頁改[496,497]；補alone=true及同度組合排除；吉化文字具體指貪祿／權或會廉祿，不寫任何吉化都精彩發達，附煞忌例外。",
+      "passage_id": "deep.遷移.貪狼.5",
+      "proposed_quote_pages": [
+        496,
+        497
+      ]
+    },
+    {
+      "ordinal": 243,
+      "verdict": "expand_evidence",
+      "evidence_blocks": [
+        "wtz.deep.p514.b016",
+        "wtz.deep.p515.b001"
+      ],
+      "finding": "原文「除非吉化，否則不主助力」只給必要門檻，未等同一見梁權／科便必交正直無私者；現另排同宮祿存但其他煞曜仍未裁。",
+      "recommendation": "頁改[514,515]；改「梁權／科是原書所列有助力的條件之一，仍看會曜」，唔把必要條件反轉充分；保留朋友／下屬角色。",
+      "passage_id": "deep.僕役.天梁.4",
+      "proposed_quote_pages": [
+        514,
+        515
+      ]
+    },
+    {
+      "ordinal": 244,
+      "verdict": "expand_evidence",
+      "evidence_blocks": [
+        "wtz.deep.p435.b016",
+        "wtz.deep.p436.b001"
+      ],
+      "finding": "紫破財帛發後再妄開創致敗，現守成提醒對應，但「你發了之後」不可讀成已保證會發。",
+      "recommendation": "頁改[435,436]；句改「若發跡後再貿然擴張，原書提醒有敗的風險」，保留紫破而非混紫貪紫殺原因。",
+      "passage_id": "deep.財帛.紫微.3",
+      "proposed_quote_pages": [
+        435,
+        436
+      ]
+    },
+    {
+      "ordinal": 245,
+      "verdict": "metadata_only",
+      "evidence_blocks": [
+        "wtz.deep.p449.b015",
+        "wtz.deep.p450.b001"
+      ],
+      "finding": "不見祿而天府科，在理財投資獲信賴有原文，現when完整保留無祿及科。",
+      "recommendation": "頁改[449,450]，摘引續到信賴完整句；中文核心可留，不作現代理財能力實證或投資保證。",
+      "passage_id": "deep.財帛.天府.6",
+      "proposed_quote_pages": [
+        449,
+        450
+      ]
+    },
+    {
+      "ordinal": 246,
+      "verdict": "fix_conditions",
+      "evidence_blocks": [
+        "wtz.deep.p594.b018",
+        "wtz.deep.p595.b001"
+      ],
+      "finding": "獨坐破軍與上司疏遠有據，但同段輔佐對星可調和，現alone只限主星獨坐、仍可能見輔佐對星。",
+      "recommendation": "頁改[594,595]；補輔佐對星調和分支或改「一般較疏遠，若有輔佐對星可調和」，未排例外唔一律預報換工。",
+      "passage_id": "deep.父母.破軍.5",
+      "proposed_quote_pages": [
+        594,
+        595
+      ]
+    },
+    {
+      "ordinal": 247,
+      "verdict": "metadata_only",
+      "evidence_blocks": [
+        "wtz.deep.p371.b016",
+        "wtz.deep.p372.b001"
+      ],
+      "finding": "兄弟宮巳亥天同、交友廣及擅結交地位較低者，topic與前文匹配；舊摘句本身跨頁。",
+      "recommendation": "頁改[371,372]，摘引加回巳亥天同主語，文意可留但唔泛化成全部天同人際。",
+      "passage_id": "deep.兄弟.天同.7",
+      "proposed_quote_pages": [
+        371,
+        372
+      ]
+    },
+    {
+      "ordinal": 248,
+      "verdict": "fix_conditions",
+      "evidence_blocks": [
+        "wtz.deep.p372.b014",
+        "wtz.deep.p373.b001"
+      ],
+      "finding": "交友廣有據，吉要天府不空露；現見祿就當可正面結論，見祿唔自動排露庫。",
+      "recommendation": "頁改[372,373]；增天府不空且不露，或只留交友廣而另附可能剝削拖累，唔用祿一項裁全局為吉。",
+      "passage_id": "deep.兄弟.廉貞.5",
+      "proposed_quote_pages": [
+        372,
+        373
+      ]
+    },
+    {
+      "ordinal": 249,
+      "verdict": "fix_conditions",
+      "evidence_blocks": [
+        "wtz.deep.p373.b016",
+        "wtz.deep.p373.b017",
+        "wtz.deep.p374.b001"
+      ],
+      "finding": "舊引日生雖見吉仍有缺憾，現完全無日夜／廟陷條件而說和美融洽；凶支亦跨了日夜分支。",
+      "recommendation": "頁改[373,374]，拆夜生入廟、夜生落陷見吉／煞、日生見吉仍缺憾及日生落陷；原資料缺日夜先不出無條件和美句，見煞只保留較概括風險。",
+      "passage_id": "deep.兄弟.太陰.1",
+      "proposed_quote_pages": [
+        373,
+        374
+      ]
+    },
+    {
+      "ordinal": 250,
+      "verdict": "metadata_only",
+      "evidence_blocks": [
+        "wtz.deep.p545.b017",
+        "wtz.deep.p546.b001"
+      ],
+      "finding": "監察審核等且不負行政，branch與plain.summary都對應；watch固執並唔在本次引文支持範圍。",
+      "recommendation": "頁改[545,546]，保留兩個已掛來源的核心句；watch不可因同record source就標已核，原申核等疑字另記。",
+      "passage_id": "deep.官祿.天梁.5",
+      "proposed_quote_pages": [
+        545,
+        546
+      ]
+    },
+    {
+      "ordinal": 251,
+      "verdict": "expand_evidence",
+      "evidence_blocks": [
+        "wtz.deep.p558.b014",
+        "wtz.deep.p559.b001"
+      ],
+      "finding": "本機PDF跨頁明寫見火鈴空劫刑耗則破後自置，無可憑常識補不字；base祖基動搖及自置分支可定位。",
+      "recommendation": "頁改[558,559]，兩條分開掛源；見火鈴或空劫取各子集需保留並列讀法待校，勿擴成全部廉破都一定重置產業，也勿擅改原文否定。",
+      "passage_id": "deep.田宅.廉貞.2",
+      "proposed_quote_pages": [
+        558,
+        559
+      ]
+    },
+    {
+      "ordinal": 252,
+      "verdict": "expand_evidence",
+      "evidence_blocks": [
+        "wtz.deep.p353.b009",
+        "wtz.deep.p353.b011"
+      ],
+      "finding": "主物欲色欲、爭取及交際分屬不連續段，省略號明示有節選；summary物欲強比主物欲稍強，交際並非自動所有社交優勢。",
+      "recommendation": "維持p.353但拆b9／b11兩項來源；改「較重物欲的追求，並帶交際應酬取向」，唔由單星斷欲望已量為強；watch未在這個來源範圍。",
+      "passage_id": "deep.命宮.貪狼.1",
+      "proposed_quote_pages": [
+        353,
+        353
+      ]
+    },
+    {
+      "ordinal": 253,
+      "verdict": "revise_copy",
+      "evidence_blocks": [
+        "wtz.deep.p359.b006",
+        "wtz.deep.p359.b007",
+        "wtz.deep.p359.b008"
+      ],
+      "finding": "原文以荫庇引申刑法與服務專業，唔等於每個天梁命宮讀者遇不公必發聲、遇有難必接。",
+      "recommendation": "維持p.359，拆b6／b8非連續節選；summary改「書中把天梁連到監察、維護規範與服務他人的取向」，不斷言必然助人行為。watch承擔多與不求助另需來源。",
+      "passage_id": "deep.命宮.天梁.1",
+      "proposed_quote_pages": [
+        359,
+        359
+      ]
+    }
+  ],
+  "reviewed_corpus_sha256": "a0143401ed50152094ad28337f0d16aa1a4960fbc8daef085341d9a3161919c8",
+  "reviewed_source_page_text_sha256": "2645293eb5e572b77326bed639369db2d25499af422453f0264c7dd9904b126e",
+  "reviewed_consumer_hashes": {
+    "packages/content/src/branch.ts": "cfbf7d701d97677633514540c64eee32744bef95f42c2f72bef6a140cce64d49",
+    "packages/content/src/branch/caibo/02.json": "896609cfd8cfd73bb00dbf74de141441bda8bc621cda8755c868a0d48575ac2f",
+    "packages/content/src/branch/caibo/41.json": "90618382c8e9e6e97cf08d761edd212afaba6a930e39dd4a8441d9f4fe2be637",
+    "packages/content/src/branch/fude/24.json": "0bfc5f903ef9c3e30cd4b94455c860e50749138488dc2f2e54c7e9d21bbe780b",
+    "packages/content/src/branch/fumu/22.json": "eac221d210521cee458501fac90b32b36b027bc4fc324174d07c778bccb9a21a",
+    "packages/content/src/branch/guanlu/40.json": "49a6905c2d6f2a7bcdbae05580fe3d1762ad7b0d90605ff6d0d9f503fe5c8912",
+    "packages/content/src/branch/jiaoyou/30.json": "a7c2c61326452251a84d555e0a021c1e2f53579745b89258480a44ec20d5b7b0",
+    "packages/content/src/branch/qianyi/26.json": "728e394ffc8e2185291ceea714afbbdc0f88107bb7391e351dd66fb86af288cc",
+    "packages/content/src/branch/qianyi/30.json": "5bd66b6c368dc13d2f264c6145f890b8cd6f1ad357492562caf16d3ebd0654c5",
+    "packages/content/src/branch/tianzhai/23.json": "ae7f13ac7474c21f90a6234f5f0732817aa5b3c231460b297f1c4ef64b845f30",
+    "packages/content/src/branch/tongliang-ming.json": "91ca9e135176fa3dad558dda7837c34c124123f6d645823d78a826fcc9e0a9ef",
+    "packages/content/src/branch/xingxi/02.json": "9e771c124bf452fcd5ff17b50737a14e54c48c95bb830a9aba05be458074cced",
+    "packages/content/src/branch/xingxi/03.json": "cfae5eefa713347565d6a444f8face863232534954556412844442c424f389d8",
+    "packages/content/src/branch/xingxi/05.json": "40b9ead3b20454ddfa399ab30a16fab5aff266a5d10a6abc81cce0ad88add595",
+    "packages/content/src/branch/xingxi/06.json": "a8448b9f1f634fe3970594db1ec0704d6c9a5479646efcfa4cf84b9969bb26d7",
+    "packages/content/src/branch/xingxi/07.json": "bf5904bdcc8c6f2b0f39991a6dc375980f181bb3e1a7dd48ebdc9b8620cd2982",
+    "packages/content/src/branch/xingxi/08.json": "d3c4a5604d82ab75713d457f84a341f9c3f86081be67e31f394b893d075381bb",
+    "packages/content/src/branch/xingxi/09.json": "0094ce9b52808373884f35639a8a9742382c5ad7e394f1ebd65da268bad0d3ce",
+    "packages/content/src/branch/xingxi/10.json": "4625fedaa3d14dadf05ff33d795749b35357c1fd2b69cf84915326da398e5c1e",
+    "packages/content/src/branch/xingxi/12.json": "656cd5760b43244d4e39f518817adbfb811bcfcc7ddcf01bb49b567ad55ad025",
+    "packages/content/src/branch/xingxi/13.json": "9e8d4737cdbd2de273e6a51bc5032a1f6976fe08625ba489f572cfab6d0b19f9",
+    "packages/content/src/branch/xingxi/14.json": "e5fe15fc397ccaebcc775ac166a7dc1fc7e6dccc9350e91eade0d699c839a0db",
+    "packages/content/src/branch/xingxi/15.json": "bbc32be18b76e274c98d82c47dd87819239fee47f4b9a9d285887c4037f7c443",
+    "packages/content/src/branch/xingxi/16.json": "1e7ae739d3e7dba5419b6eafec5b322af08a5b03f99d66f9e17bb9799bbe8dcd",
+    "packages/content/src/branch/xingxi/18.json": "f8c2bdaa93bc903da74cf9d1dc6410a1fddc7172285fb285d632c1f497b7b75b",
+    "packages/content/src/branch/xingxi/19.json": "8f13b8ceec8bc082498910a9db9ae06a28501e8a25c74560bcc1a782a46efe3c",
+    "packages/content/src/branch/xingxi/20.json": "171b90c1b418931e5fdb33ef9ddad9c21cf810557e2f0e61b0348beece2f6aa4",
+    "packages/content/src/branch/xingxi/21.json": "6290509c548f2e603c77eeb33d3f6cc29265b93cee437a4800a167cef135d636",
+    "packages/content/src/branch/xingxi/22.json": "028a943e17d0a1d739928498b828e41acd10081bbe58e6a61d95c0c1bd2176d9",
+    "packages/content/src/branch/xingxi/23.json": "22169b7b436581d9ac36c9726acf69ccaa5402b98915ca295fffa98047f8297e",
+    "packages/content/src/branch/xingxi/24.json": "08aa659f4c87877086f0c6a512a9550198982583fbc7c9734de59954d5101fd4",
+    "packages/content/src/branch/xingxi/25.json": "08d9e08ff41f016b633f2a21825d0f833d28b6faa7a918d11ff08a2a83f1a138",
+    "packages/content/src/branch/xingxi/27.json": "985a903ff65f6c9ca2c12165dbfdc4ba4d71fce2288e98d4a6b471616b587060",
+    "packages/content/src/branch/xingxi/28.json": "8f0b5410b8780c340bbe6ce032a6f7eaa46b9d57a4b02f14004a1e93aac96211",
+    "packages/content/src/branch/xingxi/29.json": "b94a16d4204e87ef91672cd9f876d796bf97a7ed6113c1f0e1da8fbdca7b3fe5",
+    "packages/content/src/branch/xingxi/30.json": "7f3ca8bb39a89d22d787616893f21ce514f4d2b72c4e55bdc2394ca1e4f2305c",
+    "packages/content/src/branch/xingxi/31.json": "ba7b84257f68db10d7e1c56082b307ee08bcd6513c9d54a4b7a900e0f0d49b81",
+    "packages/content/src/branch/xingxi/32.json": "5febc809e78c7305f82fa3622bd0f707e91b6a882289688ff84fd151c75e536c",
+    "packages/content/src/branch/xingxi/33.json": "fc3689420f90c6e91d365d450cabc5289c0b98d1b95c95bbe143a4e3e4267fbe",
+    "packages/content/src/branch/xingxi/34.json": "060cf4903d653caf5431778e024517801fe0e30620b3fc83db6a1fe161095976",
+    "packages/content/src/branch/xingxi/35.json": "c9760a7811f4c8c1d7a349729755792aa5273128cef32a9ffbd80847e84e8911",
+    "packages/content/src/branch/xingxi/36.json": "a9d3f62362cd2e538ad66985a93c3d0061a3727da644614ddbdaaeafb7c4bd3b",
+    "packages/content/src/branch/xingxi/37.json": "f5a9d39fa2562cf0ab1dc8d283493919d5a00139697d94687bbea9ee9a75c993",
+    "packages/content/src/branch/xingxi/38.json": "f411c39b0b67600284251a44e90f523eca89917490b68cbf98484ade7fe2751f",
+    "packages/content/src/branch/xingxi/39.json": "e407bbc21094bceacc9bfa1e950ff30db7474c198daaf0db5a8ea93dc15814ee",
+    "packages/content/src/branch/xingxi/40.json": "6e4bdf1c3bb5958ffbff5558124a65c8182f1374c5d3cd9d2ca28cb766666d22",
+    "packages/content/src/branch/xingxi/41.json": "4e0179a0245b184818bab3f44967bbfd6b4409eebb90f45c28356ca98db13bcd",
+    "packages/content/src/branch/xingxi/43.json": "57d198bb1a41e62f4103eb1d5e8da84a6b0248e1a866272e0cd3dadbdded0502",
+    "packages/content/src/branch/xingxi/44.json": "a3215a8752c504e3427798cc7b8e121c114a9070260ce9b02c2b35ecdcd56d9d",
+    "packages/content/src/branch/xingxi/45.json": "4827dfb003ee7aa84e670fb92fea7ebd4b9e31098b53060ea26c7482d4073aff",
+    "packages/content/src/branch/xingxi/46.json": "651bd92e2ce72af4da1a496001012f6e1acb4b91248f1c3fbb930037778c3c15",
+    "packages/content/src/branch/xingxi/48.json": "b59c594e1c9f4c3af22e2351e5fa3bd59d3e7c08f90f102fe0ffc4dca8754ac7",
+    "packages/content/src/branch/xingxi/49.json": "b4c36743dbd0281d0ca1ee84f8b2be9de9459e2e0ad1462847d13e408a22261c",
+    "packages/content/src/branch/xingxi/50.json": "bdc79d2cac044a90b5b2cbb99cd31124ed060d4366f3d3e36c798a231333e8ed",
+    "packages/content/src/branch/xingxi/52.json": "a2331ebdf1e060919cef955a2040538ecfd29718f35051476cba511959197d50",
+    "packages/content/src/branch/xingxi/53.json": "232fce1432483129fb5b29480f7e25ca3ed6966e3e00d4d2ab759b7c71544418",
+    "packages/content/src/branch/xingxi/54.json": "1e4f3f4401814b9e9633c17104594745c8f773af44d788e38b1e6bb43ff48904",
+    "packages/content/src/branch/xingxi/55.json": "0f0de26ea0007f162eb8c9cf2c05343f2016c17bf11b246d9a7c00231156a482",
+    "packages/content/src/branch/xingxi/56.json": "f1567cf145abba75a2da07864fc4ee04a85b2d4ddd44b41e952dd0391a8e0cb2",
+    "packages/content/src/branch/xingxi/58.json": "38421566dd765d5d65a3cba273a1002256a20c2093f70b8bd99a2ef41f224d1d",
+    "packages/content/src/branch/xingxi/60.json": "24031a3876df49ad6d49a916de4fe09088dc65ab9801b72482121c0df6faf9c9",
+    "packages/content/src/branch/xiongdi/27.json": "9b0e063128f7099921cc621b20f1ea67a42814aebe7f17f6a11ac97d472dd906",
+    "packages/content/src/branch/xiongdi/32.json": "18ca2b5ddb51df5464f2a713fa0b4df7fe9b28a499f409a1083b1a714ca1aaa5",
+    "packages/content/src/branch/xiongdi/36.json": "a29606b8326331d3fea3998eab75cdf32e7fb912f1f5d7ed583fcd7485d4dc23",
+    "packages/content/src/branch/zinv/02.json": "8f7698e80f1d7d4bbf8f4c9800e6f31bc778358672fc1b767ecb74e118367794",
+    "packages/content/src/citation.ts": "9bed45d42fea79ef0554f2c3271a5f0f4cef3a2521b2440a0f4f6d7a73f6ce80",
+    "packages/content/src/daxian.ts": "977e479944960257f4766ee14a37657a644eb3c51beec6fd0aab8e9026e9d1d2",
+    "packages/content/src/daxian/hua.json": "a157483298ad9c7a71fe7e4eda394ec37ccf9e53e727179bf41dbec42ff3d8df",
+    "packages/content/src/daxian/pivots.json": "c9df596a1f85c54c226d0c1cbd900bc18b7407dc8bc9d39f621805e52941b464",
+    "packages/content/src/daxian/rules.json": "9056bf1621f419dc219f51ddc3347220aef80134886b07097b37982638eb7174",
+    "packages/content/src/lexicon/base-c4.json": "17a4f7d14af805c7cd45ef2ba39f46eb2883f7e8c1fde30162f9c1c195af28f6",
+    "packages/content/src/lexicon/base-c5.json": "4153d6c3900a17861bfbe821fed959570d66071d43697b5e84bf3b56fa0198b3",
+    "packages/content/src/life/lines.json": "c7f09f7260b2365c8284620ac13a1b6ce9a86e2da61482836df90a1721443963",
+    "packages/content/src/plain/palace.json": "85355951cbbec514151de369792704c856a1b1f19d39c4591b08a26fd10c5e6f",
+    "packages/content/src/xingxi.ts": "f97c6039da52c41d19ae709f51088d7e02f0910b8aff3947073460032f149cec",
+    "packages/content/src/xingxi/systems.json": "9b0483bad342d4559ff9c6cfbf0df61d40bfa567d1eae30c008820bbba0462d9"
+  },
+  "scope_notes": [
+    "逐項比較原頁／前後段、現有中文引文消費句及明載條件，不是命理效力或命盤實證。",
+    "六十星系重點核 plain.basis、plain.lean（含平衡），及逐項指出的其他中文欄；core/trine/lean舊稿、全部評分rules與英文未整套核驗。",
+    "branch基礎來源會在citation.ts連到星系plain.basis與兩端lean，生成清單會補此間接使用，不把basis只看成沒文案。",
+    "plain/palace的source只為summary背書，watch未因此獲核。",
+    "lean等程式分數對原文格局的映射未驗證；原文條件可支持某句，不等於程式已替某盤判對。",
+    "metadata_only指本次所核核心文意可保留、主要修定位／摘錄格式，仍受共同範圍與逐項修飾所限。",
+    "expand_evidence指已在所列完整上下文找到相應支持，但現摘引不足或需保留修飾；按建議拆分補引，未等於可直接標已核。",
+    "revise_copy／fix_conditions為目前掛源不足以支持原樣文案或觸發條件，按具體缺口刪改；不代表已證全書其他地方絕無相似說法。",
+    "hold_source保留本機PDF歧義；未對其他版本，不能以推測作原文校定。",
+    "來源正文只在忽略tmp；追蹤檔保留摘要、段號、指紋與現有專案文案快照。"
+  ]
+}

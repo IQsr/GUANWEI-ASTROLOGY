@@ -1,0 +1,3038 @@
+[
+  {
+    "id": "card.ming.sha-yinshen.core",
+    "palace": "命宮",
+    "topic": "本質",
+    "kind": "claim",
+    "system": 27,
+    "layer": "natal",
+    "claim": "你不隨便合群，看起來落落寡合，也習慣憑自己的主觀拿主意。",
+    "en": "You do not blend in easily; you can seem aloof, and you are used to making up your own mind.",
+    "limit": "原文分威權、孤高兩頭，兩者表面都不合群。",
+    "sources": [
+      {
+        "id": "wtz.deep.p113.b009",
+        "sha256": "2742b31a02a59acbc85eed3cfbb9369d7f3a056081b0283234f04846c9e3502b"
+      },
+      {
+        "id": "wtz.deep.p113.b010",
+        "sha256": "6eda3ddbb82d16550f72947881e6e0c13a203cd2710455032062ca0a80a8b50e"
+      },
+      {
+        "id": "wtz.deep.p363.b003",
+        "sha256": "b3462b5f20994e537bed99d0a3e6d4ea3022e98b8da490fd0276c4cae3116e3c"
+      }
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "card.ming.sha-yinshen.weiquan",
+    "palace": "命宮",
+    "topic": "本質",
+    "kind": "caveat",
+    "system": 27,
+    "pole": "威權",
+    "layer": "natal",
+    "claim": "你的盤偏威權：你看似不合群，別人卻自然敬重你、服你。",
+    "en": "Your chart leans commanding: you may seem aloof, yet people naturally respect you and follow your lead.",
+    "sources": [
+      {
+        "id": "wtz.deep.p113.b010",
+        "sha256": "6eda3ddbb82d16550f72947881e6e0c13a203cd2710455032062ca0a80a8b50e"
+      },
+      {
+        "id": "wtz.deep.p113.b018",
+        "sha256": "60962c39cdf16b71fc4538e3a69ba2c0f6f9afe9148c4b4e1726edd7a90e7302"
+      }
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "card.ming.sha-yinshen.gugao",
+    "palace": "命宮",
+    "topic": "本質",
+    "kind": "caveat",
+    "system": 27,
+    "pole": "孤高",
+    "layer": "natal",
+    "claim": "你的盤偏孤高：你常主動把距離拉開，別人未必心服，人際上的紛擾也較多。",
+    "en": "Your chart leans aloof: you tend to keep people at a distance, others are not always won over, and friction with people comes more often.",
+    "limit": "原文「孤高則多紛擾」；女命婚姻一層不寫。",
+    "sources": [
+      {
+        "id": "wtz.deep.p113.b010",
+        "sha256": "6eda3ddbb82d16550f72947881e6e0c13a203cd2710455032062ca0a80a8b50e"
+      },
+      {
+        "id": "wtz.deep.p113.b018",
+        "sha256": "60962c39cdf16b71fc4538e3a69ba2c0f6f9afe9148c4b4e1726edd7a90e7302"
+      }
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "card.ming.sha-yinshen.style",
+    "palace": "命宮",
+    "topic": "處事",
+    "kind": "claim",
+    "system": 27,
+    "layer": "natal",
+    "claim": "你主觀強，傾向站到前台去管理、帶頭。",
+    "en": "You hold strong views of your own and tend to step forward to manage and lead.",
+    "sources": [
+      {
+        "id": "wtz.deep.p363.b003",
+        "sha256": "b3462b5f20994e537bed99d0a3e6d4ea3022e98b8da490fd0276c4cae3116e3c"
+      },
+      {
+        "id": "wtz.deep.p361.b010",
+        "sha256": "71c7461944f81912fcdf016763f051cadf137a738954f4bde36739e04f1154b7"
+      }
+    ],
+    "status": "draft",
+    "limit": "原文：天梁轉化為監察，七殺則轉化為管理；七殺上前台。"
+  },
+  {
+    "id": "card.ming.sha-yinshen.changqu",
+    "palace": "命宮",
+    "topic": "處事",
+    "kind": "caveat",
+    "system": 27,
+    "layer": "natal",
+    "when": {
+      "meets": "七殺",
+      "stars": [
+        "文昌",
+        "文曲"
+      ]
+    },
+    "claim": "你聰明，但主觀重，聰明反而容易誤了自己。",
+    "en": "You are clever, but strongly opinionated, and your cleverness can end up working against you.",
+    "limit": "原文「寅申二宮七殺，主人主觀，見昌曲則反而聰明自誤」。p362.b003「只會昌曲而不會其它輔佐」在寅申七殺幾乎不會出現（昌曲與輔弼位置相連），改用寅申專條。",
+    "sources": [
+      {
+        "id": "wtz.deep.p363.b003",
+        "sha256": "b3462b5f20994e537bed99d0a3e6d4ea3022e98b8da490fd0276c4cae3116e3c"
+      }
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "card.ming.sha-yinshen.lucun",
+    "palace": "命宮",
+    "topic": "處事",
+    "kind": "caveat",
+    "system": 27,
+    "layer": "natal",
+    "when": {
+      "meets": "七殺",
+      "stars": [
+        "祿存"
+      ],
+      "reach": "same"
+    },
+    "claim": "你脾氣較和，但主觀更重；宜在現成局面上發展，不宜大改大創。",
+    "en": "You are milder in temper but even more set in your views; build on what is already in place rather than overhauling or starting from scratch.",
+    "limit": "原文：寅申七殺祿存同度，天府得祿存拱照，利守不利攻。",
+    "sources": [
+      {
+        "id": "wtz.deep.p363.b003",
+        "sha256": "b3462b5f20994e537bed99d0a3e6d4ea3022e98b8da490fd0276c4cae3116e3c"
+      },
+      {
+        "id": "wtz.deep.p361.b012",
+        "sha256": "55886d09878d4bdb7a35a4482fd47451c56862c08ed23da4cc9855600c653d43"
+      }
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "card.ming.sha-yinshen.huoling",
+    "palace": "命宮",
+    "topic": "處事",
+    "kind": "caveat",
+    "system": 27,
+    "layer": "natal",
+    "when": {
+      "meets": "七殺",
+      "stars": [
+        "火星",
+        "鈴星"
+      ]
+    },
+    "claim": "你脾氣容易急躁。",
+    "en": "You can be quick-tempered.",
+    "sources": [
+      {
+        "id": "wtz.deep.p363.b004",
+        "sha256": "a78a936d221305cd6cd62c69dd2ee184fc967187c638258e52481aff8207a220"
+      }
+    ],
+    "status": "draft",
+    "limit": "原文「寅申七殺，見火鈴則暴燥」：見＝三方四正。"
+  },
+  {
+    "id": "card.ming.sha-yinshen.tanlu",
+    "palace": "命宮",
+    "topic": "待人",
+    "kind": "claim",
+    "system": 27,
+    "layer": "natal",
+    "when": {
+      "star": "貪狼",
+      "hua": "祿"
+    },
+    "claim": "你與人相處相當隨和。",
+    "en": "You are quite easy-going with people.",
+    "limit": "原文：見貪狼化祿者最為隨和。",
+    "sources": [
+      {
+        "id": "wtz.deep.p113.b011",
+        "sha256": "e40a7bb3b68bb734556ed276fe61f560507b1c10fa34bc5014595d337c728dd3"
+      }
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "card.ming.sha-yinshen.poquan",
+    "palace": "命宮",
+    "topic": "待人",
+    "kind": "claim",
+    "system": 27,
+    "layer": "natal",
+    "when": {
+      "all": [
+        {
+          "star": "破軍",
+          "hua": "權"
+        },
+        {
+          "meets": "七殺",
+          "stars": [
+            "左輔",
+            "右弼",
+            "天魁",
+            "天鉞",
+            "文昌",
+            "文曲"
+          ],
+          "n": 2
+        }
+      ]
+    },
+    "claim": "你擇友很嚴格。",
+    "en": "You are very selective about your friends.",
+    "sources": [
+      {
+        "id": "wtz.deep.p113.b013",
+        "sha256": "705d7e482e2462b44fb3cbc0451464580e2d33f11600e413fb29417a80735f0f"
+      }
+    ],
+    "status": "draft",
+    "limit": "原文「破軍化權，七殺有輔佐諸曜同會…變為嚴格擇友的性質」。"
+  },
+  {
+    "id": "card.ming.sha-yinshen.polu",
+    "palace": "命宮",
+    "topic": "格局",
+    "kind": "claim",
+    "system": 27,
+    "layer": "natal",
+    "when": {
+      "star": "破軍",
+      "hua": "祿"
+    },
+    "claim": "你的富貴往往來自人生一次重大的轉變。",
+    "en": "Your rise in life often comes through one major turning point.",
+    "sources": [
+      {
+        "id": "wtz.deep.p362.b005",
+        "sha256": "0a823ca55e98d396add539ee7235b14cc032744e060e9a58f7cb32388d6b3a03"
+      }
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "card.ming.sha-yinshen.tantlu",
+    "palace": "命宮",
+    "topic": "格局",
+    "kind": "claim",
+    "system": 27,
+    "layer": "natal",
+    "when": {
+      "star": "貪狼",
+      "hua": "祿"
+    },
+    "claim": "你可以興盛發達，但要留意好景未必長久。",
+    "en": "You can prosper, but be aware that good times may not last.",
+    "sources": [
+      {
+        "id": "wtz.deep.p362.b005",
+        "sha256": "0a823ca55e98d396add539ee7235b14cc032744e060e9a58f7cb32388d6b3a03"
+      }
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "card.ming.sha-yinshen.wulu",
+    "palace": "命宮",
+    "topic": "格局",
+    "kind": "claim",
+    "system": 27,
+    "layer": "natal",
+    "when": {
+      "star": "武曲",
+      "hua": "祿"
+    },
+    "claim": "你的格局也算不錯，只是次一等。",
+    "en": "Your prospects are good, if a step below the best.",
+    "sources": [
+      {
+        "id": "wtz.deep.p362.b005",
+        "sha256": "0a823ca55e98d396add539ee7235b14cc032744e060e9a58f7cb32388d6b3a03"
+      }
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "card.ming.sha-yinshen.zike",
+    "palace": "命宮",
+    "system": 27,
+    "status": "draft",
+    "topic": "處事",
+    "kind": "caveat",
+    "layer": "natal",
+    "when": {
+      "star": "紫微",
+      "hua": "科"
+    },
+    "claim": "你的威勢偏向主動進取。",
+    "en": "Your authority leans towards taking the initiative.",
+    "sources": [
+      {
+        "id": "wtz.deep.p363.b002",
+        "sha256": "1afd491972e84798e4ea22e59a8bb429294151683c4e9b781b3e0b40c775df03"
+      }
+    ]
+  },
+  {
+    "id": "card.ming.sha-yinshen.fuke",
+    "palace": "命宮",
+    "system": 27,
+    "status": "draft",
+    "topic": "處事",
+    "kind": "caveat",
+    "layer": "natal",
+    "when": {
+      "star": "天府",
+      "hua": "科"
+    },
+    "claim": "你的威勢偏向守成。",
+    "en": "Your authority leans towards holding and keeping.",
+    "sources": [
+      {
+        "id": "wtz.deep.p363.b002",
+        "sha256": "1afd491972e84798e4ea22e59a8bb429294151683c4e9b781b3e0b40c775df03"
+      }
+    ]
+  },
+  {
+    "id": "card.ming.sha-yinshen.hard",
+    "palace": "命宮",
+    "topic": "運程",
+    "kind": "claim",
+    "system": 27,
+    "layer": "natal",
+    "claim": "你一生必有一段艱苦的時期；腳踏實地捱過去，之後才揚眉吐氣。",
+    "en": "You will go through at least one hard stretch in life; get through it with your feet on the ground, and you will hold your head high afterwards.",
+    "sources": [
+      {
+        "id": "wtz.deep.p361.b011",
+        "sha256": "ab7a25cfdfa6cfdff52ef921e98bee319bf0592767e3c8c45f3fc526c1c7b2ab"
+      },
+      {
+        "id": "wtz.deep.p115.b007",
+        "sha256": "7628214ffc6dc61829f601e60328453b87429d55972f754cb13632846ab53691"
+      }
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "card.ming.sha-yinshen.ziquan",
+    "palace": "命宮",
+    "topic": "運程",
+    "kind": "caveat",
+    "system": 27,
+    "layer": "natal",
+    "when": {
+      "star": "紫微",
+      "hua": "權"
+    },
+    "claim": "你的權力心偏重，運勢轉差時容易一下子受挫。",
+    "en": "Your drive for control runs heavy, and when luck turns you can be knocked back all at once.",
+    "sources": [
+      {
+        "id": "wtz.deep.p361.b009",
+        "sha256": "1c129c20239129b806a38e4a8157784ae84ffad119f3e595345477d690ed85f1"
+      },
+      {
+        "id": "wtz.deep.p363.b002",
+        "sha256": "1afd491972e84798e4ea22e59a8bb429294151683c4e9b781b3e0b40c775df03"
+      }
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "card.ming.sha-yinshen.ziquan-wuji",
+    "palace": "命宮",
+    "system": 27,
+    "status": "draft",
+    "topic": "運程",
+    "kind": "caveat",
+    "layer": "decade",
+    "when": {
+      "all": [
+        {
+          "star": "紫微",
+          "hua": "權"
+        },
+        {
+          "star": "武曲",
+          "in": {
+            "name": "命宮",
+            "layer": "decade"
+          }
+        },
+        {
+          "any": [
+            {
+              "star": "武曲",
+              "hua": "忌"
+            },
+            {
+              "star": "武曲",
+              "hua": "忌",
+              "layer": "decade"
+            }
+          ]
+        }
+      ]
+    },
+    "claim": "這十年恐防一下子受挫。",
+    "en": "This decade, beware of a sudden setback.",
+    "limit": "原文「若遇紫微化權，則權星太重…恐防立生挫敗。尤不喜見武曲化忌之宮垣」。",
+    "sources": [
+      {
+        "id": "wtz.deep.p361.b009",
+        "sha256": "1c129c20239129b806a38e4a8157784ae84ffad119f3e595345477d690ed85f1"
+      }
+    ]
+  },
+  {
+    "id": "card.ming.sha-yinshen.huoyang",
+    "palace": "命宮",
+    "topic": "運程",
+    "kind": "caveat",
+    "system": 27,
+    "layer": "natal",
+    "when": {
+      "all": [
+        {
+          "meets": "七殺",
+          "stars": [
+            "擎羊"
+          ]
+        },
+        {
+          "meets": "七殺",
+          "stars": [
+            "火星"
+          ]
+        }
+      ]
+    },
+    "claim": "挫折反而推動你，你在不斷受挫中仍能進步。",
+    "en": "Setbacks push you forward; you keep improving through them.",
+    "sources": [
+      {
+        "id": "wtz.deep.p362.b002",
+        "sha256": "35cca35dc459e99946f6aabc8765b5952ae351e2b02fa36a1c382efd81c28515"
+      }
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "card.ming.sha-yinshen.lingyang",
+    "palace": "命宮",
+    "topic": "運程",
+    "kind": "caveat",
+    "system": 27,
+    "layer": "natal",
+    "when": {
+      "all": [
+        {
+          "meets": "七殺",
+          "stars": [
+            "擎羊"
+          ]
+        },
+        {
+          "meets": "七殺",
+          "stars": [
+            "鈴星"
+          ]
+        }
+      ]
+    },
+    "claim": "你的銳氣容易被一次次挫折慢慢消磨。",
+    "en": "Your edge can be slowly worn down by repeated setbacks.",
+    "sources": [
+      {
+        "id": "wtz.deep.p362.b002",
+        "sha256": "35cca35dc459e99946f6aabc8765b5952ae351e2b02fa36a1c382efd81c28515"
+      }
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "card.ming.sha-yinshen.pivot",
+    "palace": "命宮",
+    "topic": "運程",
+    "kind": "caveat",
+    "system": 27,
+    "layer": "natal",
+    "decades": {
+      "any": [
+        {
+          "star": "天相",
+          "in": {
+            "name": "命宮",
+            "layer": "decade"
+          }
+        },
+        {
+          "star": "巨門",
+          "in": {
+            "name": "命宮",
+            "layer": "decade"
+          }
+        },
+        {
+          "star": "破軍",
+          "in": {
+            "name": "命宮",
+            "layer": "decade"
+          }
+        },
+        {
+          "star": "太陽",
+          "in": {
+            "name": "命宮",
+            "layer": "decade"
+          }
+        }
+      ]
+    },
+    "claim": "{decades}這幾段時間，是你一生運程的關鍵。",
+    "en": "The years {decades} are the turning points of your life course.",
+    "sources": [
+      {
+        "id": "wtz.deep.p363.b005",
+        "sha256": "6e5a3c9155423916ecf7440c82af3b9a961132071861186eaabe0d2fed6c2291"
+      }
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "card.ming.sha-yinshen.good-weiquan",
+    "palace": "命宮",
+    "topic": "運程",
+    "kind": "claim",
+    "system": 27,
+    "pole": "威權",
+    "layer": "decade",
+    "when": {
+      "any": [
+        {
+          "all": [
+            {
+              "star": "天同",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "star": "天同",
+              "hua": "權"
+            },
+            {
+              "star": "太陰",
+              "hua": "祿"
+            }
+          ]
+        },
+        {
+          "all": [
+            {
+              "star": "天同",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "star": "巨門",
+              "hua": "權"
+            },
+            {
+              "star": "太陰",
+              "hua": "科"
+            }
+          ]
+        },
+        {
+          "all": [
+            {
+              "star": "武曲",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "star": "武曲",
+              "hua": "祿"
+            }
+          ]
+        },
+        {
+          "all": [
+            {
+              "star": "武曲",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "star": "貪狼",
+              "hua": "祿"
+            }
+          ]
+        },
+        {
+          "all": [
+            {
+              "star": "太陽",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "star": "太陽",
+              "brightness": [
+                "廟",
+                "旺"
+              ]
+            },
+            {
+              "meets": "太陽",
+              "stars": [
+                "擎羊",
+                "陀羅",
+                "火星",
+                "鈴星",
+                "地空",
+                "地劫",
+                "化忌"
+              ],
+              "op": "eq",
+              "n": 0
+            }
+          ]
+        },
+        {
+          "all": [
+            {
+              "star": "破軍",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "any": [
+                {
+                  "star": "破軍",
+                  "hua": "祿"
+                },
+                {
+                  "star": "破軍",
+                  "hua": "權"
+                }
+              ]
+            },
+            {
+              "meets": "破軍",
+              "stars": [
+                "擎羊",
+                "陀羅",
+                "火星",
+                "鈴星",
+                "地空",
+                "地劫"
+              ],
+              "op": "eq",
+              "n": 0
+            },
+            {
+              "meets": "破軍",
+              "stars": [
+                "左輔",
+                "右弼",
+                "天魁",
+                "天鉞",
+                "文昌",
+                "文曲"
+              ]
+            }
+          ]
+        },
+        {
+          "all": [
+            {
+              "star": "紫微",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "any": [
+                {
+                  "star": "紫微",
+                  "hua": "科"
+                },
+                {
+                  "star": "天府",
+                  "hua": "科"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "all": [
+            {
+              "star": "太陰",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "any": [
+                {
+                  "star": "太陰",
+                  "hua": "祿"
+                },
+                {
+                  "star": "太陰",
+                  "hua": "權"
+                },
+                {
+                  "star": "太陰",
+                  "hua": "科"
+                }
+              ]
+            },
+            {
+              "meets": "太陰",
+              "stars": [
+                "擎羊",
+                "陀羅",
+                "火星",
+                "鈴星",
+                "地空",
+                "地劫"
+              ],
+              "op": "eq",
+              "n": 0
+            }
+          ]
+        },
+        {
+          "all": [
+            {
+              "star": "貪狼",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "any": [
+                {
+                  "star": "貪狼",
+                  "hua": "祿"
+                },
+                {
+                  "star": "貪狼",
+                  "hua": "權"
+                }
+              ]
+            },
+            {
+              "meets": "貪狼",
+              "stars": [
+                "擎羊",
+                "陀羅",
+                "火星",
+                "鈴星",
+                "地空",
+                "地劫"
+              ],
+              "op": "eq",
+              "n": 0
+            }
+          ]
+        },
+        {
+          "all": [
+            {
+              "star": "天梁",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "star": "天梁",
+              "hua": "科"
+            },
+            {
+              "meets": "天梁",
+              "stars": [
+                "左輔",
+                "右弼",
+                "天魁",
+                "天鉞",
+                "文昌",
+                "文曲"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "none": {
+      "any": [
+        {
+          "all": [
+            {
+              "star": "武曲",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "any": [
+                {
+                  "star": "武曲",
+                  "hua": "祿"
+                },
+                {
+                  "star": "武曲",
+                  "hua": "權"
+                }
+              ]
+            },
+            {
+              "meets": "武曲",
+              "stars": [
+                "擎羊",
+                "陀羅",
+                "火星",
+                "鈴星",
+                "地空",
+                "地劫",
+                "天刑"
+              ],
+              "n": 2
+            }
+          ]
+        },
+        {
+          "all": [
+            {
+              "star": "太陽",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "star": "太陽",
+              "brightness": [
+                "陷",
+                "不"
+              ]
+            },
+            {
+              "meets": "太陽",
+              "stars": [
+                "擎羊",
+                "陀羅",
+                "火星",
+                "鈴星",
+                "地空",
+                "地劫",
+                "天刑"
+              ]
+            }
+          ]
+        },
+        {
+          "all": [
+            {
+              "star": "破軍",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "star": "破軍",
+              "hua": "祿"
+            },
+            {
+              "star": "貪狼",
+              "hua": "忌"
+            },
+            {
+              "meets": "貪狼",
+              "stars": [
+                "擎羊",
+                "陀羅"
+              ]
+            }
+          ]
+        },
+        {
+          "all": [
+            {
+              "star": "天機",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "star": "天機",
+              "hua": "忌"
+            }
+          ]
+        },
+        {
+          "all": [
+            {
+              "star": "天機",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "star": "天機",
+              "hua": "祿"
+            },
+            {
+              "star": "巨門",
+              "hua": "忌",
+              "layer": "decade"
+            }
+          ]
+        },
+        {
+          "all": [
+            {
+              "star": "太陰",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "star": "太陰",
+              "brightness": [
+                "陷",
+                "不"
+              ]
+            },
+            {
+              "star": "太陰",
+              "hua": "忌"
+            }
+          ]
+        },
+        {
+          "all": [
+            {
+              "star": "太陰",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "star": "太陰",
+              "hua": "祿",
+              "layer": "decade"
+            },
+            {
+              "star": "太陽",
+              "hua": "忌"
+            }
+          ]
+        },
+        {
+          "all": [
+            {
+              "star": "巨門",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "any": [
+                {
+                  "star": "巨門",
+                  "hua": "忌"
+                },
+                {
+                  "star": "巨門",
+                  "hua": "忌",
+                  "layer": "decade"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "all": [
+            {
+              "star": "天相",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "geju": "xingji"
+            }
+          ]
+        },
+        {
+          "all": [
+            {
+              "star": "天梁",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "star": "天梁",
+              "hua": "祿"
+            },
+            {
+              "meets": "天梁",
+              "stars": [
+                "擎羊",
+                "陀羅",
+                "火星",
+                "鈴星",
+                "地空",
+                "地劫"
+              ]
+            }
+          ]
+        },
+        {
+          "all": [
+            {
+              "star": "巨門",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "star": "巨門",
+              "hua": "祿"
+            },
+            {
+              "together": [
+                "巨門",
+                "文昌"
+              ]
+            },
+            {
+              "star": "文昌",
+              "hua": "忌"
+            },
+            {
+              "meets": "巨門",
+              "stars": [
+                "天刑"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "claim": "這十年你可以獨當一面、擔起重任。",
+    "en": "This decade you can stand on your own and take on major responsibility.",
+    "limit": "原文列天同化權對太陰化祿、天同會巨門化權太陰化科、武曲化祿、武曲對貪狼化祿、太陽入廟無忌煞、破軍吉化無煞有輔佐、紫府化科、太陰吉化無煞、貪狼祿權無煞、天梁化科有輔佐。",
+    "sources": [
+      {
+        "id": "wtz.deep.p114.b002",
+        "sha256": "2bf2c1021dc0beb841fcd7dd0384a85571a688b5b6ad756146fcfcb1af57a7f9"
+      },
+      {
+        "id": "wtz.deep.p114.b013",
+        "sha256": "8f5b809c818e59cc88f71ecbddc6fcc5fc43cf23e2bf987ceea14e317eddd4f1"
+      }
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "card.ming.sha-yinshen.good-gugao",
+    "palace": "命宮",
+    "topic": "運程",
+    "kind": "claim",
+    "system": 27,
+    "pole": "孤高",
+    "layer": "decade",
+    "when": {
+      "any": [
+        {
+          "all": [
+            {
+              "star": "天同",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "star": "天同",
+              "hua": "權"
+            },
+            {
+              "star": "太陰",
+              "hua": "祿"
+            }
+          ]
+        },
+        {
+          "all": [
+            {
+              "star": "天同",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "star": "巨門",
+              "hua": "權"
+            },
+            {
+              "star": "太陰",
+              "hua": "科"
+            }
+          ]
+        },
+        {
+          "all": [
+            {
+              "star": "武曲",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "star": "武曲",
+              "hua": "祿"
+            }
+          ]
+        },
+        {
+          "all": [
+            {
+              "star": "武曲",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "star": "貪狼",
+              "hua": "祿"
+            }
+          ]
+        },
+        {
+          "all": [
+            {
+              "star": "太陽",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "star": "太陽",
+              "brightness": [
+                "廟",
+                "旺"
+              ]
+            },
+            {
+              "meets": "太陽",
+              "stars": [
+                "擎羊",
+                "陀羅",
+                "火星",
+                "鈴星",
+                "地空",
+                "地劫",
+                "化忌"
+              ],
+              "op": "eq",
+              "n": 0
+            }
+          ]
+        },
+        {
+          "all": [
+            {
+              "star": "破軍",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "any": [
+                {
+                  "star": "破軍",
+                  "hua": "祿"
+                },
+                {
+                  "star": "破軍",
+                  "hua": "權"
+                }
+              ]
+            },
+            {
+              "meets": "破軍",
+              "stars": [
+                "擎羊",
+                "陀羅",
+                "火星",
+                "鈴星",
+                "地空",
+                "地劫"
+              ],
+              "op": "eq",
+              "n": 0
+            },
+            {
+              "meets": "破軍",
+              "stars": [
+                "左輔",
+                "右弼",
+                "天魁",
+                "天鉞",
+                "文昌",
+                "文曲"
+              ]
+            }
+          ]
+        },
+        {
+          "all": [
+            {
+              "star": "紫微",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "any": [
+                {
+                  "star": "紫微",
+                  "hua": "科"
+                },
+                {
+                  "star": "天府",
+                  "hua": "科"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "all": [
+            {
+              "star": "太陰",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "any": [
+                {
+                  "star": "太陰",
+                  "hua": "祿"
+                },
+                {
+                  "star": "太陰",
+                  "hua": "權"
+                },
+                {
+                  "star": "太陰",
+                  "hua": "科"
+                }
+              ]
+            },
+            {
+              "meets": "太陰",
+              "stars": [
+                "擎羊",
+                "陀羅",
+                "火星",
+                "鈴星",
+                "地空",
+                "地劫"
+              ],
+              "op": "eq",
+              "n": 0
+            }
+          ]
+        },
+        {
+          "all": [
+            {
+              "star": "貪狼",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "any": [
+                {
+                  "star": "貪狼",
+                  "hua": "祿"
+                },
+                {
+                  "star": "貪狼",
+                  "hua": "權"
+                }
+              ]
+            },
+            {
+              "meets": "貪狼",
+              "stars": [
+                "擎羊",
+                "陀羅",
+                "火星",
+                "鈴星",
+                "地空",
+                "地劫"
+              ],
+              "op": "eq",
+              "n": 0
+            }
+          ]
+        },
+        {
+          "all": [
+            {
+              "star": "天梁",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "star": "天梁",
+              "hua": "科"
+            },
+            {
+              "meets": "天梁",
+              "stars": [
+                "左輔",
+                "右弼",
+                "天魁",
+                "天鉞",
+                "文昌",
+                "文曲"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "none": {
+      "any": [
+        {
+          "all": [
+            {
+              "star": "武曲",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "any": [
+                {
+                  "star": "武曲",
+                  "hua": "祿"
+                },
+                {
+                  "star": "武曲",
+                  "hua": "權"
+                }
+              ]
+            },
+            {
+              "meets": "武曲",
+              "stars": [
+                "擎羊",
+                "陀羅",
+                "火星",
+                "鈴星",
+                "地空",
+                "地劫",
+                "天刑"
+              ],
+              "n": 2
+            }
+          ]
+        },
+        {
+          "all": [
+            {
+              "star": "太陽",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "star": "太陽",
+              "brightness": [
+                "陷",
+                "不"
+              ]
+            },
+            {
+              "meets": "太陽",
+              "stars": [
+                "擎羊",
+                "陀羅",
+                "火星",
+                "鈴星",
+                "地空",
+                "地劫",
+                "天刑"
+              ]
+            }
+          ]
+        },
+        {
+          "all": [
+            {
+              "star": "破軍",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "star": "破軍",
+              "hua": "祿"
+            },
+            {
+              "star": "貪狼",
+              "hua": "忌"
+            },
+            {
+              "meets": "貪狼",
+              "stars": [
+                "擎羊",
+                "陀羅"
+              ]
+            }
+          ]
+        },
+        {
+          "all": [
+            {
+              "star": "天機",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "star": "天機",
+              "hua": "忌"
+            }
+          ]
+        },
+        {
+          "all": [
+            {
+              "star": "天機",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "star": "天機",
+              "hua": "祿"
+            },
+            {
+              "star": "巨門",
+              "hua": "忌",
+              "layer": "decade"
+            }
+          ]
+        },
+        {
+          "all": [
+            {
+              "star": "太陰",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "star": "太陰",
+              "brightness": [
+                "陷",
+                "不"
+              ]
+            },
+            {
+              "star": "太陰",
+              "hua": "忌"
+            }
+          ]
+        },
+        {
+          "all": [
+            {
+              "star": "太陰",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "star": "太陰",
+              "hua": "祿",
+              "layer": "decade"
+            },
+            {
+              "star": "太陽",
+              "hua": "忌"
+            }
+          ]
+        },
+        {
+          "all": [
+            {
+              "star": "巨門",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "any": [
+                {
+                  "star": "巨門",
+                  "hua": "忌"
+                },
+                {
+                  "star": "巨門",
+                  "hua": "忌",
+                  "layer": "decade"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "all": [
+            {
+              "star": "天相",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "geju": "xingji"
+            }
+          ]
+        },
+        {
+          "all": [
+            {
+              "star": "天梁",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "star": "天梁",
+              "hua": "祿"
+            },
+            {
+              "meets": "天梁",
+              "stars": [
+                "擎羊",
+                "陀羅",
+                "火星",
+                "鈴星",
+                "地空",
+                "地劫"
+              ]
+            }
+          ]
+        },
+        {
+          "all": [
+            {
+              "star": "巨門",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "star": "巨門",
+              "hua": "祿"
+            },
+            {
+              "together": [
+                "巨門",
+                "文昌"
+              ]
+            },
+            {
+              "star": "文昌",
+              "hua": "忌"
+            },
+            {
+              "meets": "巨門",
+              "stars": [
+                "天刑"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "claim": "這十年順遂，但未必因此飛黃騰達。",
+    "en": "This decade goes smoothly, though it will not necessarily lift you to great heights.",
+    "sources": [
+      {
+        "id": "wtz.deep.p114.b014",
+        "sha256": "c332ed6c545d675977200921a766317f4571402063e6713939e3f76e4f2809a2"
+      }
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "card.ming.sha-yinshen.good-gugao-sha",
+    "palace": "命宮",
+    "system": 27,
+    "status": "draft",
+    "topic": "運程",
+    "kind": "caveat",
+    "pole": "孤高",
+    "layer": "decade",
+    "when": {
+      "all": [
+        {
+          "any": [
+            {
+              "all": [
+                {
+                  "star": "天同",
+                  "in": {
+                    "name": "命宮",
+                    "layer": "decade"
+                  }
+                },
+                {
+                  "star": "天同",
+                  "hua": "權"
+                },
+                {
+                  "star": "太陰",
+                  "hua": "祿"
+                }
+              ]
+            },
+            {
+              "all": [
+                {
+                  "star": "天同",
+                  "in": {
+                    "name": "命宮",
+                    "layer": "decade"
+                  }
+                },
+                {
+                  "star": "巨門",
+                  "hua": "權"
+                },
+                {
+                  "star": "太陰",
+                  "hua": "科"
+                }
+              ]
+            },
+            {
+              "all": [
+                {
+                  "star": "武曲",
+                  "in": {
+                    "name": "命宮",
+                    "layer": "decade"
+                  }
+                },
+                {
+                  "star": "武曲",
+                  "hua": "祿"
+                }
+              ]
+            },
+            {
+              "all": [
+                {
+                  "star": "武曲",
+                  "in": {
+                    "name": "命宮",
+                    "layer": "decade"
+                  }
+                },
+                {
+                  "star": "貪狼",
+                  "hua": "祿"
+                }
+              ]
+            },
+            {
+              "all": [
+                {
+                  "star": "太陽",
+                  "in": {
+                    "name": "命宮",
+                    "layer": "decade"
+                  }
+                },
+                {
+                  "star": "太陽",
+                  "brightness": [
+                    "廟",
+                    "旺"
+                  ]
+                },
+                {
+                  "meets": "太陽",
+                  "stars": [
+                    "擎羊",
+                    "陀羅",
+                    "火星",
+                    "鈴星",
+                    "地空",
+                    "地劫",
+                    "化忌"
+                  ],
+                  "op": "eq",
+                  "n": 0
+                }
+              ]
+            },
+            {
+              "all": [
+                {
+                  "star": "破軍",
+                  "in": {
+                    "name": "命宮",
+                    "layer": "decade"
+                  }
+                },
+                {
+                  "any": [
+                    {
+                      "star": "破軍",
+                      "hua": "祿"
+                    },
+                    {
+                      "star": "破軍",
+                      "hua": "權"
+                    }
+                  ]
+                },
+                {
+                  "meets": "破軍",
+                  "stars": [
+                    "擎羊",
+                    "陀羅",
+                    "火星",
+                    "鈴星",
+                    "地空",
+                    "地劫"
+                  ],
+                  "op": "eq",
+                  "n": 0
+                },
+                {
+                  "meets": "破軍",
+                  "stars": [
+                    "左輔",
+                    "右弼",
+                    "天魁",
+                    "天鉞",
+                    "文昌",
+                    "文曲"
+                  ]
+                }
+              ]
+            },
+            {
+              "all": [
+                {
+                  "star": "紫微",
+                  "in": {
+                    "name": "命宮",
+                    "layer": "decade"
+                  }
+                },
+                {
+                  "any": [
+                    {
+                      "star": "紫微",
+                      "hua": "科"
+                    },
+                    {
+                      "star": "天府",
+                      "hua": "科"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "all": [
+                {
+                  "star": "太陰",
+                  "in": {
+                    "name": "命宮",
+                    "layer": "decade"
+                  }
+                },
+                {
+                  "any": [
+                    {
+                      "star": "太陰",
+                      "hua": "祿"
+                    },
+                    {
+                      "star": "太陰",
+                      "hua": "權"
+                    },
+                    {
+                      "star": "太陰",
+                      "hua": "科"
+                    }
+                  ]
+                },
+                {
+                  "meets": "太陰",
+                  "stars": [
+                    "擎羊",
+                    "陀羅",
+                    "火星",
+                    "鈴星",
+                    "地空",
+                    "地劫"
+                  ],
+                  "op": "eq",
+                  "n": 0
+                }
+              ]
+            },
+            {
+              "all": [
+                {
+                  "star": "貪狼",
+                  "in": {
+                    "name": "命宮",
+                    "layer": "decade"
+                  }
+                },
+                {
+                  "any": [
+                    {
+                      "star": "貪狼",
+                      "hua": "祿"
+                    },
+                    {
+                      "star": "貪狼",
+                      "hua": "權"
+                    }
+                  ]
+                },
+                {
+                  "meets": "貪狼",
+                  "stars": [
+                    "擎羊",
+                    "陀羅",
+                    "火星",
+                    "鈴星",
+                    "地空",
+                    "地劫"
+                  ],
+                  "op": "eq",
+                  "n": 0
+                }
+              ]
+            },
+            {
+              "all": [
+                {
+                  "star": "天梁",
+                  "in": {
+                    "name": "命宮",
+                    "layer": "decade"
+                  }
+                },
+                {
+                  "star": "天梁",
+                  "hua": "科"
+                },
+                {
+                  "meets": "天梁",
+                  "stars": [
+                    "左輔",
+                    "右弼",
+                    "天魁",
+                    "天鉞",
+                    "文昌",
+                    "文曲"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "meets": "七殺",
+          "stars": [
+            "擎羊",
+            "陀羅",
+            "火星",
+            "鈴星",
+            "地空",
+            "地劫",
+            "化忌"
+          ]
+        }
+      ]
+    },
+    "none": {
+      "any": [
+        {
+          "all": [
+            {
+              "star": "武曲",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "any": [
+                {
+                  "star": "武曲",
+                  "hua": "祿"
+                },
+                {
+                  "star": "武曲",
+                  "hua": "權"
+                }
+              ]
+            },
+            {
+              "meets": "武曲",
+              "stars": [
+                "擎羊",
+                "陀羅",
+                "火星",
+                "鈴星",
+                "地空",
+                "地劫",
+                "天刑"
+              ],
+              "n": 2
+            }
+          ]
+        },
+        {
+          "all": [
+            {
+              "star": "太陽",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "star": "太陽",
+              "brightness": [
+                "陷",
+                "不"
+              ]
+            },
+            {
+              "meets": "太陽",
+              "stars": [
+                "擎羊",
+                "陀羅",
+                "火星",
+                "鈴星",
+                "地空",
+                "地劫",
+                "天刑"
+              ]
+            }
+          ]
+        },
+        {
+          "all": [
+            {
+              "star": "破軍",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "star": "破軍",
+              "hua": "祿"
+            },
+            {
+              "star": "貪狼",
+              "hua": "忌"
+            },
+            {
+              "meets": "貪狼",
+              "stars": [
+                "擎羊",
+                "陀羅"
+              ]
+            }
+          ]
+        },
+        {
+          "all": [
+            {
+              "star": "天機",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "star": "天機",
+              "hua": "忌"
+            }
+          ]
+        },
+        {
+          "all": [
+            {
+              "star": "天機",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "star": "天機",
+              "hua": "祿"
+            },
+            {
+              "star": "巨門",
+              "hua": "忌",
+              "layer": "decade"
+            }
+          ]
+        },
+        {
+          "all": [
+            {
+              "star": "太陰",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "star": "太陰",
+              "brightness": [
+                "陷",
+                "不"
+              ]
+            },
+            {
+              "star": "太陰",
+              "hua": "忌"
+            }
+          ]
+        },
+        {
+          "all": [
+            {
+              "star": "太陰",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "star": "太陰",
+              "hua": "祿",
+              "layer": "decade"
+            },
+            {
+              "star": "太陽",
+              "hua": "忌"
+            }
+          ]
+        },
+        {
+          "all": [
+            {
+              "star": "巨門",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "any": [
+                {
+                  "star": "巨門",
+                  "hua": "忌"
+                },
+                {
+                  "star": "巨門",
+                  "hua": "忌",
+                  "layer": "decade"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "all": [
+            {
+              "star": "天相",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "geju": "xingji"
+            }
+          ]
+        },
+        {
+          "all": [
+            {
+              "star": "天梁",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "star": "天梁",
+              "hua": "祿"
+            },
+            {
+              "meets": "天梁",
+              "stars": [
+                "擎羊",
+                "陀羅",
+                "火星",
+                "鈴星",
+                "地空",
+                "地劫"
+              ]
+            }
+          ]
+        },
+        {
+          "all": [
+            {
+              "star": "巨門",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "star": "巨門",
+              "hua": "祿"
+            },
+            {
+              "together": [
+                "巨門",
+                "文昌"
+              ]
+            },
+            {
+              "star": "文昌",
+              "hua": "忌"
+            },
+            {
+              "meets": "巨門",
+              "stars": [
+                "天刑"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "claim": "這十年你會先經一番是非紛擾，然後才安定下來。",
+    "en": "This decade you will first go through some disputes and turmoil before things settle.",
+    "limit": "原文「原局有煞忌會合者，則先經是非紛擾然後安定」。",
+    "sources": [
+      {
+        "id": "wtz.deep.p114.b014",
+        "sha256": "c332ed6c545d675977200921a766317f4571402063e6713939e3f76e4f2809a2"
+      }
+    ]
+  },
+  {
+    "id": "card.ming.sha-yinshen.bad-weiquan",
+    "palace": "命宮",
+    "topic": "運程",
+    "kind": "claim",
+    "system": 27,
+    "pole": "威權",
+    "layer": "decade",
+    "when": {
+      "any": [
+        {
+          "all": [
+            {
+              "star": "武曲",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "any": [
+                {
+                  "star": "武曲",
+                  "hua": "祿"
+                },
+                {
+                  "star": "武曲",
+                  "hua": "權"
+                }
+              ]
+            },
+            {
+              "meets": "武曲",
+              "stars": [
+                "擎羊",
+                "陀羅",
+                "火星",
+                "鈴星",
+                "地空",
+                "地劫",
+                "天刑"
+              ],
+              "n": 2
+            }
+          ]
+        },
+        {
+          "all": [
+            {
+              "star": "太陽",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "star": "太陽",
+              "brightness": [
+                "陷",
+                "不"
+              ]
+            },
+            {
+              "meets": "太陽",
+              "stars": [
+                "擎羊",
+                "陀羅",
+                "火星",
+                "鈴星",
+                "地空",
+                "地劫",
+                "天刑"
+              ]
+            }
+          ]
+        },
+        {
+          "all": [
+            {
+              "star": "破軍",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "star": "破軍",
+              "hua": "祿"
+            },
+            {
+              "star": "貪狼",
+              "hua": "忌"
+            },
+            {
+              "meets": "貪狼",
+              "stars": [
+                "擎羊",
+                "陀羅"
+              ]
+            }
+          ]
+        },
+        {
+          "all": [
+            {
+              "star": "天機",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "star": "天機",
+              "hua": "忌"
+            }
+          ]
+        },
+        {
+          "all": [
+            {
+              "star": "天機",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "star": "天機",
+              "hua": "祿"
+            },
+            {
+              "star": "巨門",
+              "hua": "忌",
+              "layer": "decade"
+            }
+          ]
+        },
+        {
+          "all": [
+            {
+              "star": "太陰",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "star": "太陰",
+              "brightness": [
+                "陷",
+                "不"
+              ]
+            },
+            {
+              "star": "太陰",
+              "hua": "忌"
+            }
+          ]
+        },
+        {
+          "all": [
+            {
+              "star": "太陰",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "star": "太陰",
+              "hua": "祿",
+              "layer": "decade"
+            },
+            {
+              "star": "太陽",
+              "hua": "忌"
+            }
+          ]
+        },
+        {
+          "all": [
+            {
+              "star": "巨門",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "any": [
+                {
+                  "star": "巨門",
+                  "hua": "忌"
+                },
+                {
+                  "star": "巨門",
+                  "hua": "忌",
+                  "layer": "decade"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "all": [
+            {
+              "star": "天相",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "geju": "xingji"
+            }
+          ]
+        },
+        {
+          "all": [
+            {
+              "star": "天梁",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "star": "天梁",
+              "hua": "祿"
+            },
+            {
+              "meets": "天梁",
+              "stars": [
+                "擎羊",
+                "陀羅",
+                "火星",
+                "鈴星",
+                "地空",
+                "地劫"
+              ]
+            }
+          ]
+        },
+        {
+          "all": [
+            {
+              "star": "巨門",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "star": "巨門",
+              "hua": "祿"
+            },
+            {
+              "together": [
+                "巨門",
+                "文昌"
+              ]
+            },
+            {
+              "star": "文昌",
+              "hua": "忌"
+            },
+            {
+              "meets": "巨門",
+              "stars": [
+                "天刑"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "claim": "這十年容易陷入困滯；抱隨遇而安之心，阻力反而減少，硬掙扎只會更糟。",
+    "en": "This decade you may get stuck; accept things as they come and resistance eases, while struggling against it only makes it worse.",
+    "limit": "巨門化祿文昌化忌一項原文要「刑耗暗曜」，只計天刑；天同化忌沖流年太陰化忌一項另見 tongji-year。",
+    "sources": [
+      {
+        "id": "wtz.deep.p114.b015",
+        "sha256": "57a67f44602c69c04ac8562c5696c26c9c1d774f6f1fd63a75e4f0b2c7717e57"
+      },
+      {
+        "id": "wtz.deep.p115.b007",
+        "sha256": "7628214ffc6dc61829f601e60328453b87429d55972f754cb13632846ab53691"
+      }
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "card.ming.sha-yinshen.bad-gugao",
+    "palace": "命宮",
+    "topic": "運程",
+    "kind": "claim",
+    "system": 27,
+    "pole": "孤高",
+    "layer": "decade",
+    "when": {
+      "any": [
+        {
+          "all": [
+            {
+              "star": "武曲",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "any": [
+                {
+                  "star": "武曲",
+                  "hua": "祿"
+                },
+                {
+                  "star": "武曲",
+                  "hua": "權"
+                }
+              ]
+            },
+            {
+              "meets": "武曲",
+              "stars": [
+                "擎羊",
+                "陀羅",
+                "火星",
+                "鈴星",
+                "地空",
+                "地劫",
+                "天刑"
+              ],
+              "n": 2
+            }
+          ]
+        },
+        {
+          "all": [
+            {
+              "star": "太陽",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "star": "太陽",
+              "brightness": [
+                "陷",
+                "不"
+              ]
+            },
+            {
+              "meets": "太陽",
+              "stars": [
+                "擎羊",
+                "陀羅",
+                "火星",
+                "鈴星",
+                "地空",
+                "地劫",
+                "天刑"
+              ]
+            }
+          ]
+        },
+        {
+          "all": [
+            {
+              "star": "破軍",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "star": "破軍",
+              "hua": "祿"
+            },
+            {
+              "star": "貪狼",
+              "hua": "忌"
+            },
+            {
+              "meets": "貪狼",
+              "stars": [
+                "擎羊",
+                "陀羅"
+              ]
+            }
+          ]
+        },
+        {
+          "all": [
+            {
+              "star": "天機",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "star": "天機",
+              "hua": "忌"
+            }
+          ]
+        },
+        {
+          "all": [
+            {
+              "star": "天機",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "star": "天機",
+              "hua": "祿"
+            },
+            {
+              "star": "巨門",
+              "hua": "忌",
+              "layer": "decade"
+            }
+          ]
+        },
+        {
+          "all": [
+            {
+              "star": "太陰",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "star": "太陰",
+              "brightness": [
+                "陷",
+                "不"
+              ]
+            },
+            {
+              "star": "太陰",
+              "hua": "忌"
+            }
+          ]
+        },
+        {
+          "all": [
+            {
+              "star": "太陰",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "star": "太陰",
+              "hua": "祿",
+              "layer": "decade"
+            },
+            {
+              "star": "太陽",
+              "hua": "忌"
+            }
+          ]
+        },
+        {
+          "all": [
+            {
+              "star": "巨門",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "any": [
+                {
+                  "star": "巨門",
+                  "hua": "忌"
+                },
+                {
+                  "star": "巨門",
+                  "hua": "忌",
+                  "layer": "decade"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "all": [
+            {
+              "star": "天相",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "geju": "xingji"
+            }
+          ]
+        },
+        {
+          "all": [
+            {
+              "star": "天梁",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "star": "天梁",
+              "hua": "祿"
+            },
+            {
+              "meets": "天梁",
+              "stars": [
+                "擎羊",
+                "陀羅",
+                "火星",
+                "鈴星",
+                "地空",
+                "地劫"
+              ]
+            }
+          ]
+        },
+        {
+          "all": [
+            {
+              "star": "巨門",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "star": "巨門",
+              "hua": "祿"
+            },
+            {
+              "together": [
+                "巨門",
+                "文昌"
+              ]
+            },
+            {
+              "star": "文昌",
+              "hua": "忌"
+            },
+            {
+              "meets": "巨門",
+              "stars": [
+                "天刑"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "claim": "這十年多因人際關係生出逆境。",
+    "en": "This decade, setbacks come mostly through your relationships with people.",
+    "sources": [
+      {
+        "id": "wtz.deep.p115.b009",
+        "sha256": "68ec756189d5dc459642c83d8d50dc38aacc8810134d33212d5508849a3c7ad3"
+      }
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "card.ming.sha-yinshen.tongji-year",
+    "palace": "命宮",
+    "system": 27,
+    "status": "draft",
+    "topic": "運程",
+    "kind": "caveat",
+    "layer": "annual",
+    "when": {
+      "all": [
+        {
+          "star": "天同",
+          "in": {
+            "name": "命宮",
+            "layer": "annual"
+          }
+        },
+        {
+          "star": "天同",
+          "hua": "忌"
+        },
+        {
+          "star": "太陰",
+          "hua": "忌",
+          "layer": "annual"
+        }
+      ]
+    },
+    "claim": "這一年容易陷入困滯；抱隨遇而安之心，阻力反而較少。",
+    "en": "This year you may get stuck; going with the flow keeps the resistance down.",
+    "limit": "原文「天同化忌，沖流年太陰化忌」；威權者困滯，孤高者多因人際生橫逆（p115.b009）；隨遇而安一句原文對所有七殺坐命者講。",
+    "sources": [
+      {
+        "id": "wtz.deep.p114.b015",
+        "sha256": "57a67f44602c69c04ac8562c5696c26c9c1d774f6f1fd63a75e4f0b2c7717e57"
+      },
+      {
+        "id": "wtz.deep.p114.b016",
+        "sha256": "a371e1ae4f41161b2a92928c9c75817757e650f99f0ab58ff9e861146f3cb9d0"
+      },
+      {
+        "id": "wtz.deep.p115.b007",
+        "sha256": "7628214ffc6dc61829f601e60328453b87429d55972f754cb13632846ab53691"
+      }
+    ]
+  },
+  {
+    "id": "card.ming.sha-yinshen.spl-weiquan",
+    "palace": "命宮",
+    "topic": "運程",
+    "kind": "caveat",
+    "system": 27,
+    "pole": "威權",
+    "layer": "decade",
+    "when": {
+      "any": [
+        {
+          "star": "七殺",
+          "in": {
+            "name": "命宮",
+            "layer": "decade"
+          }
+        },
+        {
+          "star": "破軍",
+          "in": {
+            "name": "命宮",
+            "layer": "decade"
+          }
+        },
+        {
+          "star": "貪狼",
+          "in": {
+            "name": "命宮",
+            "layer": "decade"
+          }
+        }
+      ]
+    },
+    "claim": "這十年多有好的變化。",
+    "en": "This decade tends to bring good changes.",
+    "sources": [
+      {
+        "id": "wtz.deep.p114.b013",
+        "sha256": "8f5b809c818e59cc88f71ecbddc6fcc5fc43cf23e2bf987ceea14e317eddd4f1"
+      }
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "card.ming.sha-yinshen.spl-gugao",
+    "palace": "命宮",
+    "topic": "運程",
+    "kind": "caveat",
+    "system": 27,
+    "pole": "孤高",
+    "layer": "decade",
+    "when": {
+      "any": [
+        {
+          "star": "七殺",
+          "in": {
+            "name": "命宮",
+            "layer": "decade"
+          }
+        },
+        {
+          "star": "破軍",
+          "in": {
+            "name": "命宮",
+            "layer": "decade"
+          }
+        },
+        {
+          "star": "貪狼",
+          "in": {
+            "name": "命宮",
+            "layer": "decade"
+          }
+        }
+      ]
+    },
+    "claim": "這十年即使順利，人際上也難免有缺憾。",
+    "en": "Even if this decade goes well, there will be some gaps in your relationships.",
+    "sources": [
+      {
+        "id": "wtz.deep.p114.b014",
+        "sha256": "c332ed6c545d675977200921a766317f4571402063e6713939e3f76e4f2809a2"
+      }
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "card.ming.sha-yinshen.jiju",
+    "palace": "命宮",
+    "topic": "運程",
+    "kind": "caveat",
+    "system": 27,
+    "layer": "decade",
+    "when": {
+      "any": [
+        {
+          "star": "天機",
+          "in": {
+            "name": "命宮",
+            "layer": "decade"
+          }
+        },
+        {
+          "star": "巨門",
+          "in": {
+            "name": "命宮",
+            "layer": "decade"
+          }
+        }
+      ]
+    },
+    "claim": "這十年是你最不宜走的一段運。",
+    "en": "This decade is the stretch least suited to you.",
+    "sources": [
+      {
+        "id": "wtz.deep.p361.b011",
+        "sha256": "ab7a25cfdfa6cfdff52ef921e98bee319bf0592767e3c8c45f3fc526c1c7b2ab"
+      }
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "card.ming.sha-yinshen.kuiyue",
+    "palace": "命宮",
+    "topic": "運程",
+    "kind": "caveat",
+    "system": 27,
+    "layer": "decade",
+    "when": {
+      "any": [
+        {
+          "flow": "天魁",
+          "layer": "decade",
+          "in": {
+            "name": "命宮",
+            "layer": "decade"
+          },
+          "reach": "sanfang"
+        },
+        {
+          "flow": "天鉞",
+          "layer": "decade",
+          "in": {
+            "name": "命宮",
+            "layer": "decade"
+          },
+          "reach": "sanfang"
+        }
+      ]
+    },
+    "claim": "這十年往往是好的轉機。",
+    "en": "This decade often brings a good turn.",
+    "limit": "原文「經行流魁流鉞拱會的宮垣」。",
+    "sources": [
+      {
+        "id": "wtz.deep.p362.b004",
+        "sha256": "7e3d3c21d123bc31a275d1a5ae6b4f0e435a0d8d8abe1e62666093afd90c1afc"
+      }
+    ],
+    "status": "draft"
+  }
+]
