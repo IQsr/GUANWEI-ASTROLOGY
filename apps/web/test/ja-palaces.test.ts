@@ -20,10 +20,10 @@ describe('日文：十二宮章', () => {
       if (!r.ok) continue;
       const drafts = chapterDrafts(bookChapters(r.value, { seed: String(i), year: 2026, solar, place: '香港' }) ?? [], 'ja-test');
       for (const d of drafts.filter((x) => PALACES.includes(x.slug))) {
-        const out = Ja.renderChapter(d.body);
+        const out = Ja.renderChapter(d.reading?.international.text ?? d.body);
         out.missing.forEach((m) => missing.add(m));
         Ja.scanJapanese(out.text).forEach((c) => lint.add(`${c}：${d.slug}`));
-        expect(out.text.split('\n\n'), d.slug).toHaveLength(d.body.split('\n\n').length);
+        expect(out.text.split('\n\n'), d.slug).toHaveLength((d.reading?.international.text ?? d.body).split('\n\n').length);
         expect(Ja.chapterTitleJa(d.title), d.title).toBeTruthy();
       }
     }

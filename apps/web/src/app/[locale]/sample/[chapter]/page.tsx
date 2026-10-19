@@ -13,7 +13,7 @@ import { dialFor } from '@/lib/dial';
 import { chapterHref, chapterParam, contentsHref, neighbours, SAMPLE_BOOK } from '@/lib/journey';
 import { citesFor, localizeMarked, notesFor } from '@/lib/mingshu';
 import { sampleBook } from '@/lib/sample-book';
-import { paragraphs } from '@/lib/suidu';
+import { readingSegments } from '@/lib/chapter-reading';
 import { markBook } from '@/lib/zhu';
 import { displayTitle, englishChapters, isEnglish } from '@/lib/english';
 import { isJapanese, japaneseChapters } from '@/lib/japanese';
@@ -68,7 +68,7 @@ export default async function SampleChapter({ params }: { params: Promise<{ loca
 
   /* 註層：成本書標到呢章為止（同真書一樣，一個術語全書只標一次） */
   const upto = book.drafts.filter((d) => d.ord <= here.ord);
-  const bodies = upto.map((d) => ({ text: d.body, slots: d.slots }));
+  const bodies = upto.map((d) => ({ text: d.body, slots: d.slots, reading: d.reading }));
   const marked = localizeMarked(en
     ? markBook(englishChapters(bodies).map((segments, i) => ({ palace: upto[i]!.title, segments })), 'en')
     : isJapanese(locale)
@@ -76,7 +76,7 @@ export default async function SampleChapter({ params }: { params: Promise<{ loca
       : markBook(
     upto.map((d) => ({
       palace: d.title,
-      segments: paragraphs(d.body, d.slots).map((p) => ({ slot: p.slot ?? '正文', text: p.text })),
+      segments: readingSegments(d.body, d.slots, d.reading),
     })),
   ), locale);
   const mine = marked.at(-1)!;

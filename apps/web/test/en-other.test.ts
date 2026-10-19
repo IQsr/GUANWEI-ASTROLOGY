@@ -24,7 +24,7 @@ describe('英文：宮位章以外嘅章', () => {
       const drafts = chapterDrafts(bookChapters(r.value, { seed: String(i), year: 2026, solar, place: '香港' }) ?? [], 'en-test');
       for (const d of drafts.filter((x) => DONE.includes(x.slug))) {
         seen.add(d.slug);
-        const out = En.renderChapter(d.body);
+        const out = En.renderChapter(d.reading?.international.text ?? d.body);
         out.missing.forEach((m) => missing.add(`${d.slug}：${m}`));
         En.scanEnglish(out.text).forEach((c) => lint.add(`${c}：${d.slug}`));
         expect(En.chapterTitleEn(d.title), d.title).toBeTruthy();

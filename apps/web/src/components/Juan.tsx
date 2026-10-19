@@ -78,7 +78,7 @@ export type Note = {
  * 出處（2026-10-12）：句尾「據」字號撳開。同術語註一樣係展開、唔係浮窗。
  * 書名、頁、節、原文照錄 —— 讀者質疑一句，撳開就見到嗰句由邊度嚟。
  */
-export type CiteNote = { id: string; book: string; page: number; section: string; text: string };
+export type CiteNote = { id: string; book: string; page: number; section: string; text: string; pageConvention?: 'pdf' };
 
 export function Juan({
   segments,
@@ -115,6 +115,7 @@ export function Juan({
           <div key={`${seg.slot}-${i}`} data-slot={seg.slot}>
             {/* 分節記號：取代以前嘅過場句（lib/suidu.ts `sectionBreaks`）。純裝飾，讀屏唔讀。 */}
             {breaks[i] ? <div className="fen-jie" aria-hidden="true" /> : null}
+            {seg.heading ? <h2 className="mb-4 font-serif text-lead tracking-[0.12em] text-ink-2">{seg.heading}</h2> : null}
             <p className="text-body leading-[1.95]">
               {runs.map((run, j) =>
                 run.cite ? (
@@ -160,11 +161,11 @@ export function Juan({
                 {citeList.map((c) => (
                   <div key={c!.id} className="flex flex-col gap-2">
                     <p className="font-sans text-cap tracking-[0.08em] text-ink-3">
-                      {t('citeWhere', { book: c!.book, page: c!.page, section: c!.section })}
+                      {t(c!.pageConvention === 'pdf' ? 'citePdfWhere' : 'citeWhere', { book: c!.book, page: c!.page, section: c!.section })}
                     </p>
-                    <blockquote lang="zh-Hans" className="text-sm leading-[1.9] text-ink-2">
+                    {c!.text ? <blockquote lang="zh-Hans" className="text-sm leading-[1.9] text-ink-2">
                       {t('citeQuote', { text: c!.text })}
-                    </blockquote>
+                    </blockquote> : null}
                   </div>
                 ))}
               </div>

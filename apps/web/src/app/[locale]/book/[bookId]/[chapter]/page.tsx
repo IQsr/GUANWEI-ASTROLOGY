@@ -12,7 +12,7 @@ import { Caikai } from '@/components/Caikai';
 import { Weicai } from '@/components/Weicai';
 import { cutPage } from './cut';
 import { serverIdentity } from '@/lib/identity.server';
-import { paragraphs } from '@/lib/suidu';
+import { readingSegments } from '@/lib/chapter-reading';
 import type { Chart as ZChart } from '@guanwei/ziwei/contract';
 import { chartLayers } from '@/lib/layers.server';
 import { MarkRead } from '@/components/MarkRead';
@@ -135,7 +135,7 @@ export default async function ChapterPage({
    * ⚠ 標註要**成本書**一齊標，但跟捲動高亮只關呢一章事。
    * 所以前面幾章照樣攞返嚟標，段落結構就只有呢一章要（F2）。
    */
-  const bodies = upto.map((c, i) => ({ text: fetched[i]?.text ?? '', slots: fetched[i]?.slots ?? [] }));
+  const bodies = upto.map((c, i) => ({ text: fetched[i]?.text ?? '', slots: fetched[i]?.slots ?? [], reading: fetched[i]?.reading }));
   const marked = localizeMarked(en
     ? markBook(englishChapters(bodies).map((segments, i) => ({ palace: upto[i]!.title, segments })), 'en')
     : isJapanese(locale)
@@ -143,10 +143,7 @@ export default async function ChapterPage({
       : markBook(
     upto.map((c, i) => ({
       palace: c.title,
-      segments: paragraphs(fetched[i]?.text ?? '', fetched[i]?.slots ?? []).map((para) => ({
-        slot: para.slot ?? '正文',
-        text: para.text,
-      })),
+      segments: readingSegments(fetched[i]?.text ?? '', fetched[i]?.slots ?? [], fetched[i]?.reading),
     })),
   ), locale);
   const mine = marked.at(-1);

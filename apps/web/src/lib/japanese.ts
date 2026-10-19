@@ -1,6 +1,7 @@
 import { Ja } from '@guanwei/content';
 import { paragraphs } from '@/lib/suidu';
 import { zhFor } from '@/lib/hans';
+import { internationalBodies } from '@/lib/chapter-reading';
 
 /**
  * 日文閱讀模式（2026-10-15）
@@ -22,8 +23,8 @@ export function japaneseTitle(title: string): string {
 }
 
 /** 由第一章到而家呢章（按次序），回每章嘅段落（同中文段一一對應，格名照用）。 */
-export function japaneseChapters(chs: readonly { text: string; slots: readonly string[] }[]): { slot: string; text: string }[][] {
-  return chs.map((c) => {
+export function japaneseChapters(chs: readonly { text: string; slots: readonly string[]; reading?: unknown }[]): { slot: string; text: string }[][] {
+  return internationalBodies(chs).map((c) => {
     const paras = paragraphs(c.text, c.slots);
     const ja = Ja.renderParagraphs(paras.map((p) => p.text)).paras;
     return paras.map((p, i) => ({ slot: p.slot ?? '正文', text: ja[i] ?? '' }));

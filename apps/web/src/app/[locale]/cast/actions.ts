@@ -3,7 +3,7 @@
 import { ENGINE_VERSION, SCHOOL_PROFILE, cast, castPartial, type Chart, type PartialChart } from '@guanwei/ziwei';
 import { RULE_REGISTRY } from '@guanwei/content';
 import { parseCastRequest, type CastRequest } from '@/lib/luokuan';
-import { bookDraft, keepBook, parseBookFields } from '@/lib/chengshu';
+import { bookDraft, keepBook, parseBookFields, readingContentVersion } from '@/lib/chengshu';
 import { castQuotaLeft, serverChengshu } from '@/lib/chengshu.server';
 import { bookChapters } from '@/lib/mingshu';
 import { getLocale } from 'next-intl/server';
@@ -133,7 +133,7 @@ export async function castChart(raw: unknown): Promise<CastOutcome> {
           payload: chart,
         },
         chapters,
-        contentVersion: RULE_REGISTRY.ref,
+        contentVersion: readingContentVersion(RULE_REGISTRY.ref),
         termsVersion: fields.terms,
       }),
     );
@@ -187,7 +187,7 @@ export async function castChart(raw: unknown): Promise<CastOutcome> {
       subject: subjectOf(req, false),
       chart: null,
       chapters: [],
-      contentVersion: RULE_REGISTRY.ref,
+      contentVersion: readingContentVersion(RULE_REGISTRY.ref),
         termsVersion: fields.terms,
     }),
   );

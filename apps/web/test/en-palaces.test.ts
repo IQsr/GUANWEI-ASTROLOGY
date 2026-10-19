@@ -23,7 +23,7 @@ describe('英文：十二宮章', () => {
       const st = En.newBookState();
       const openers: string[] = [];
       for (const d of drafts.filter((x) => PALACES.includes(x.slug))) {
-        const out = En.renderChapter(d.body, st);
+        const out = En.renderChapter(d.reading?.international.text ?? d.body, st);
         for (const m of out.text.matchAll(OPENERS)) openers.push(m[1]!);
         /* 舊式（翻譯表入面嗰款）唔應該出街 —— 全部經輪換 */
         expect(out.text, d.slug).not.toMatch(/(^|[.] )(The catch: |The cost: |Keep in mind: )/);

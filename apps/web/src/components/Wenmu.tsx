@@ -50,7 +50,7 @@ export function Wenmu({
               {it.sources.map((s) => (
                 <span key={s.id} className="mt-1 block text-cap leading-[1.8] tracking-[0.06em] text-ink-3">
                   <span className="me-2 text-cinnabar">{t('sourceMark')}</span>
-                  {t('source', { book: s.book, page: s.page, section: s.section })}
+                  {t(s.pageConvention === 'pdf' ? 'sourcePdf' : 'source', { book: s.book, page: s.page, section: s.section })}
                 </span>
               ))}
               <span className="mt-3 block text-cap tracking-[0.16em] text-ink-3 group-hover:text-cinnabar">

@@ -1,0 +1,31 @@
+# 命宮展開版接入前端（繁中／簡中）
+
+本次接入新生成命書、示範書及書頁逐句來源。沿用現有書桌版式，新增話題小標、章末「盤面與出處」；情境與編輯建議保留明確標示。沒有已核內容的題目繼續留白，不為前端補回舊結論。
+
+## 成書與讀取
+
+- `chaptersOf()` 使用 `mingWriter: 'cards'`，只替換命宮。其他十一宮、骨架、運限等章沿用原有路徑。
+- `bookChapters()` 同時產生展開版正文與 `reading` 快照，經 `chapterDrafts()`、`create_book()` 保存。版本附 `+ming-expanded-v1`，不重寫舊書，也不在閱讀時依命盤重算。
+- `reading` 包含段落、小標、逐句種類／來源及成書時的英日舊版中文快照。按使用者本輪選擇，英文／日文仍讀原版；不把未接入譯表的新中文交給舊翻譯器。
+- 真書與示範書都經 `readingSegments()` → `markBook()` → `Juan`。正文與快照不一致時不猜來源；舊書沒有快照則繼續使用原有句子索引。
+- 目次問目也按語言選相同版本的首段。新來源顯示 PDF 頁序，與舊 corpus 的出處分開。只保留定位資料，不把忽略目錄內的原書全文帶入產品或假造逐字引文。
+- 編輯情境／建議不掛原書，隨讀時亦不以命盤高亮暗示已發生。虛歲二十四或以下省略成人情境與編輯建議，保留已核解讀。
+
+## 部署順序
+
+1. 先套用 `packages/db/migrations/0010_chapter_reading.sql`。
+2. 再部署前端。migration 只加 nullable `chapters.reading`，不回填舊書；`create_book()` 沿用原有重送、原子性、條款及每小時配額檢查。
+3. 新欄位含正文，沒有 authenticated 的直接 SELECT。`chapter_reading()` 沿用 `chapter_body()` 的所有權／購買檢查。`chapter_leads_v2()` 只開目次原有範圍：首段、引文，加對應版本首段及首段來源。
+4. 驗收 `/sample/命宮`、`/zh-Hans/sample/命宮`，再成一本新書確認存檔快照。舊書打開後應仍為舊正文。
+
+本次只提供 migration 與程式，沒有修改線上資料庫、部署網站或合併分支。若暫時回退前端，可保留新 nullable 欄位及 RPC；不要刪除已保存的閱讀快照。
+
+## 驗證
+
+- web 全套 560 項通過；新增一項「編輯例子撞中舊索引也不掛源」後另跑命宮接入測試。
+- DB 成書、schema、配額、目次及閱讀快照測試通過；檢查匿名／他人／未購章不能取完整快照，重送不改正文。
+- content：新來源定位與原核讀清單、來源 hash、PDF 頁序一致；展開稿抽盤檢查保留。
+- web、content、DB TypeScript 通過；web lint 零錯誤（四個既有警告）；Next production build 通過，278 個靜態頁產生完成。client bundle 掃描沒有內容引擎或密鑰。
+- 實際 production 預覽驗收繁中、簡中、出處註展開及 390px 手機排版。Windows 本機預覽用 `--hostname localhost`，避免綁定 127.0.0.1 與 default locale rewrite 主機名不一致。
+
+全套 web 測試發現舊英文「配合失衡」未收進性質名表，已補同義譯詞；同檔年少讀者測試的 `any` 改成 `BirthInput`，解除既有 lint 阻擋。沒有改動命理判斷或准入清單。

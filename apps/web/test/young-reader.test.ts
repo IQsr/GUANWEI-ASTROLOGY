@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { cast } from '@guanwei/ziwei';
+import { cast, type BirthInput } from '@guanwei/ziwei';
 import { En, Ja, XU_YOUNG, YOUTH_LEAN, YOUTH_LEAN_NOTE } from '@guanwei/content';
 import { bookChapters } from '@/lib/mingshu';
 import { chapterDrafts } from '@/lib/chengshu';
@@ -8,13 +8,13 @@ import { chapterDrafts } from '@/lib/chengshu';
  * 年少讀者（2026-10-16 第二輪審稿 J 盤：虛歲三，第一個大限虛歲四起）。
  * 序加一句提醒；宮位章唔出大人生活場景；未起運嘅這十年點明由幾歲起。
  */
-function book(inp: any, seed: string) {
+function book(inp: BirthInput, seed: string) {
   const r = cast(inp);
   if (!r.ok) throw new Error('cast');
   return bookChapters(r.value, { seed, year: 2026, solar: inp.solar, place: inp.place.label })!;
 }
-const J = { solar: { y: 2024, m: 2, d: 10 }, time: { h: 12, min: 45 }, sex: 'female', tz: 'Asia/Taipei', place: { lng: 121.5654, lat: 25.033, label: '台北' } };
-const ADULT = { solar: { y: 1990, m: 3, d: 21 }, time: { h: 14, min: 20 }, sex: 'female', tz: 'Asia/Hong_Kong', place: { lng: 114.17, lat: 22.32, label: '香港' } };
+const J: BirthInput = { solar: { y: 2024, m: 2, d: 10 }, time: { h: 12, min: 45 }, sex: 'female', tz: 'Asia/Taipei', place: { lng: 121.5654, lat: 25.033, label: '台北' } };
+const ADULT: BirthInput = { solar: { y: 1990, m: 3, d: 21 }, time: { h: 14, min: 20 }, sex: 'female', tz: 'Asia/Hong_Kong', place: { lng: 114.17, lat: 22.32, label: '香港' } };
 const PALACES = ['命宮', '兄弟', '夫妻', '子女', '財帛', '疾厄', '遷移', '僕役', '官祿', '田宅', '福德', '父母'];
 
 describe('年少讀者', () => {
@@ -59,7 +59,7 @@ describe('後生讀者（虛歲十四至二十四）', () => {
     seed = (seed * 1103515245 + 12345) % 2147483648;
     return seed % n;
   };
-  const births = Array.from({ length: 30 }, (_, i) => ({
+  const births = Array.from({ length: 30 }, (_, i): BirthInput => ({
     solar: { y: 2004 + rnd(6), m: 1 + rnd(12), d: 1 + rnd(28) },
     time: { h: rnd(24), min: rnd(60) },
     sex: i % 2 ? 'male' : 'female',
@@ -101,8 +101,8 @@ describe('後生讀者（虛歲十四至二十四）', () => {
     let study = 0;
     for (const { chapters } of books) {
       for (const d of chapterDrafts(chapters, 'x')) {
-        const en = En.renderChapter(d.body);
-        const ja = Ja.renderChapter(d.body);
+        const en = En.renderChapter(d.reading?.international.text ?? d.body);
+        const ja = Ja.renderChapter(d.reading?.international.text ?? d.body);
         expect(en.missing, d.slug).toEqual([]);
         expect(ja.missing, d.slug).toEqual([]);
         expect(en.text, d.slug).not.toMatch(/You lean towards (?:the shadow|passivity|daydreams|aimless movement|recklessness|hollowness|obstinacy|short-sightedness|dominance|self-interest|suspicion|isolation|sharpness|rushing|heaviness):|You tend to stall|sign or commit|and borrowing|with loans/);

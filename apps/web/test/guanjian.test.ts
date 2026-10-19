@@ -53,7 +53,7 @@ describe('關鍵字標記', () => {
 
   it('英文示範書：時間章有記號，月份用農曆加大約西曆月（對住 packages/content 嘅譯法）', () => {
     const book = sampleBook()!;
-    const en = englishChapters(book.drafts.map((d) => ({ text: d.body, slots: d.slots })));
+    const en = englishChapters(book.drafts.map((d) => ({ text: d.body, slots: d.slots, reading: d.reading })));
     const year = en[book.drafts.findIndex((d) => d.slug === '這一年')]!.map((s) => s.text);
     const marks = year.flatMap((p) => keywordMarks(p).map((m) => `${m.kind}:${p.slice(m.start, m.end)}`));
     expect(marks.length).toBeGreaterThan(10);

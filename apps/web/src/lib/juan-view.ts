@@ -40,7 +40,7 @@ export type JuanPort = {
    * 一個未裁開嘅讀者睇得到呢一版有幾多格、係乜嘢格 ——
    * 咁先至係毛邊本，你揸得到本書，只係未裁開。
    */
-  body(bookId: string, slug: string): Promise<{ text: string | null; slots: string[] } | null>;
+  body(bookId: string, slug: string): Promise<{ text: string | null; slots: string[]; reading?: unknown } | null>;
   /**
    * 呢本書嗰張盤（F2：右側細命盤要跟捲動高亮）。
    *
@@ -56,7 +56,7 @@ export type JuanPort = {
   leads(bookId: string): Promise<ChapterLead[]>;
 };
 
-export type ChapterLead = { slug: string; lead: string; quote: string | null };
+export type ChapterLead = { slug: string; lead: string; quote: string | null; internationalLead?: string; citations?: string[] };
 
 export type ContentsView =
   | { kind: 'ok'; title: string | null; chapters: ChapterMeta[]; lastRead: string | null; cut: boolean }
