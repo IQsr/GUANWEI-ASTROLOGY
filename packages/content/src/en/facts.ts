@@ -207,7 +207,7 @@ export function factTemplate(s: string, missing: string[]): string | null {
 const cap1 = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 
 /* ── 三方四正嘅推力：星系兩頭（xingxi/systems.json poles）同盤上證據 ── */
-const POLE_EN: Record<string, string> = {
+export const POLE_EN: Record<string, string> = {
   物質: 'the material', 精神: 'the inner life', 順從: 'going with the flow', 叛逆: 'rebellion', 理智: 'reason', 感情: 'feeling',
   收斂: 'restraint', 發揮: 'display', 欲望強: 'strong desire', 欲望淡: 'light desire', 明朗: 'brightness', 陰暗: 'the shadow',
   偏剛: 'hardness', 剛柔相濟: 'a balance of hard and soft', 祥和: 'peace', 孤獨: 'solitude', 理想: 'real ideals', 空想: 'daydreams',
@@ -238,13 +238,13 @@ function poleEn(zh: string, missing: string[]): string {
   return en ?? `〔${zh}〕`;
 }
 
-const HUA_EN: Record<string, string> = { 祿: 'Abundance', 權: 'Authority', 科: 'Recognition', 忌: 'Obstruction' };
+export const HUA_EN: Record<string, string> = { 祿: 'Abundance', 權: 'Authority', 科: 'Recognition', 忌: 'Obstruction' };
 
 /**
  * 證據清單（xingxi.ts evidence()）：「武曲化祿、紫微同宮見左輔、右弼、命宮在丑」。
  * 證據之間同一條證據入面都用「、」，所以淨係星名嘅一截係上一條嘅延續。
  */
-function evEn(zh: string, missing: string[]): string {
+export function evEn(zh: string, missing: string[]): string {
   const items: string[][] = [];
   for (const t of zh.split('、')) {
     if (star(t) && items.length && !/化.$/.test(items.at(-1)![0]!)) items.at(-1)!.push(t);
