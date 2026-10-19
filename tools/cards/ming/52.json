@@ -1129,12 +1129,36 @@
         {
           "any": [
             {
-              "star": "廉貞",
-              "hua": "祿"
+              "meets": "廉貞",
+              "stars": [
+                "化祿",
+                "化權",
+                "化科"
+              ],
+              "reach": "same"
             },
             {
-              "star": "廉貞",
               "hua": "祿",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              },
+              "layer": "decade"
+            },
+            {
+              "hua": "權",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              },
+              "layer": "decade"
+            },
+            {
+              "hua": "科",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              },
               "layer": "decade"
             }
           ]
@@ -1163,6 +1187,7 @@
         "sha256": "86210dfeb87a6ad9ead144bc8a2fac1945d69bd03b73b06a95d297dd6730d329"
       }
     ],
-    "status": "draft"
+    "status": "draft",
+    "note": "原文「見／會／遇吉化」：讀做同宮（同度）嘅星本命或大限化祿權科（A9，2026-10-19）。"
   }
 ]

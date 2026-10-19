@@ -34,8 +34,9 @@ describe('條件卡：出處同格式', () => {
       }
     expect(bad).toEqual([]);
   });
-  it('偏向寫嘅係嗰個星系條軸嘅一頭，或者「平衡」', () => {
-    const bad = POOL.filter((c) => c.pole && c.pole !== '平衡' && !XINGXI.find((s) => s.n === c.system)!.poles.includes(c.pole)).map((c) => `${c.id}：${c.pole}`);
+  it('偏向寫嘅係嗰個星系條軸嘅一頭，或者「平衡」「無偏」', () => {
+    const ok = (c: (typeof POOL)[number], p: string) => p === '平衡' || p === '無偏' || XINGXI.find((s) => s.n === c.system)!.poles.includes(p);
+    const bad = POOL.filter((c) => c.pole && !(Array.isArray(c.pole) ? c.pole : [c.pole]).every((p) => ok(c, p))).map((c) => `${c.id}：${c.pole}`);
     expect(bad).toEqual([]);
   });
   it('id 唔重複', () => {

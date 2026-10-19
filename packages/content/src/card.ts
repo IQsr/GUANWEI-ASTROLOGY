@@ -41,8 +41,11 @@ export const Card = z
     kind: z.enum(['claim', 'caveat', 'advice']),
     /** 命宮星系（六十星系編號，同 xingxi/systems.json 嘅 n）。 */
     system: z.number().int().min(1).max(60),
-    /** 只適用於呢個偏向（星系比較軸嘅一頭，或者「平衡」：兩頭點票一樣多）；唔寫 = 點都啱。 */
-    pole: z.string().optional(),
+    /**
+     * 只適用於呢個偏向；唔寫 = 點都啱。可以寫星系比較軸嘅一頭、「平衡」（兩頭都有證據而且一樣多，即原文「中和」），
+     * 或者「無偏」（兩頭都冇證據）。原文講「非 X」就寫陣列，例如 ['目標', '平衡', '無偏']。
+     */
+    pole: z.union([z.string(), z.array(z.string()).min(1)]).optional(),
     /** 原文明寫嘅前提。 */
     when: ConditionSchema.optional(),
     /** 原文明寫嘅排除。 */
@@ -114,12 +117,13 @@ function check(cond: Condition | undefined, ctx: { chart: Chart; annual?: Annual
 export function cardsFor(chart: Chart, annual?: AnnualChart, layer: Card['layer'] = 'natal', pool: Card[] = CARDS): Hit[] {
   const x = xingxiOf(chart);
   if (!x) return [];
-  const pole = leanOf(chart, x.system).pole;
+  const lean = leanOf(chart, x.system);
+  const pole = lean.state === 'none' ? '無偏' : lean.pole;
   const ctx = { chart, annual };
   const hits: Hit[] = [];
   for (const card of pool) {
     if (card.status === 'needs_atom' || card.layer !== layer || card.system !== x.system.n) continue;
-    if (card.pole && card.pole !== pole) continue;
+    if (card.pole && !(Array.isArray(card.pole) ? card.pole : [card.pole]).includes(pole)) continue;
     const w = check(card.when, ctx);
     if (w.status !== 'matched') continue;
     if (card.none && evaluate(card.none, ctx).status === 'matched') continue;

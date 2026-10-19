@@ -1814,30 +1814,36 @@
                 {
                   "any": [
                     {
-                      "star": "天機",
-                      "hua": "祿"
+                      "meets": "天機",
+                      "stars": [
+                        "化祿",
+                        "化權",
+                        "化科"
+                      ],
+                      "reach": "same"
                     },
                     {
-                      "star": "天機",
-                      "hua": "權"
-                    },
-                    {
-                      "star": "天機",
-                      "hua": "科"
-                    },
-                    {
-                      "star": "天機",
                       "hua": "祿",
+                      "in": {
+                        "name": "命宮",
+                        "layer": "decade"
+                      },
                       "layer": "decade"
                     },
                     {
-                      "star": "天機",
                       "hua": "權",
+                      "in": {
+                        "name": "命宮",
+                        "layer": "decade"
+                      },
                       "layer": "decade"
                     },
                     {
-                      "star": "天機",
                       "hua": "科",
+                      "in": {
+                        "name": "命宮",
+                        "layer": "decade"
+                      },
                       "layer": "decade"
                     }
                   ]
@@ -1845,21 +1851,36 @@
                 {
                   "any": [
                     {
-                      "star": "巨門",
-                      "hua": "祿"
+                      "meets": "巨門",
+                      "stars": [
+                        "化祿",
+                        "化權",
+                        "化科"
+                      ],
+                      "reach": "same"
                     },
                     {
-                      "star": "巨門",
-                      "hua": "權"
-                    },
-                    {
-                      "star": "巨門",
                       "hua": "祿",
+                      "in": {
+                        "name": "命宮",
+                        "layer": "decade"
+                      },
                       "layer": "decade"
                     },
                     {
-                      "star": "巨門",
                       "hua": "權",
+                      "in": {
+                        "name": "命宮",
+                        "layer": "decade"
+                      },
+                      "layer": "decade"
+                    },
+                    {
+                      "hua": "科",
+                      "in": {
+                        "name": "命宮",
+                        "layer": "decade"
+                      },
                       "layer": "decade"
                     }
                   ]
@@ -1966,7 +1987,8 @@
         "sha256": "295cfeca8d54e663d9a4d1b608498bb9ff5c6b12859b2ee2e47244a433aa2055"
       }
     ],
-    "status": "draft"
+    "status": "draft",
+    "note": "原文「見／會／遇吉化」：讀做同宮（同度）嘅星本命或大限化祿權科（A9，2026-10-19）。"
   },
   {
     "id": "card.ming.qisha-ziwu.d-jiju-w-good",
@@ -2002,30 +2024,36 @@
                 {
                   "any": [
                     {
-                      "star": "天機",
-                      "hua": "祿"
+                      "meets": "天機",
+                      "stars": [
+                        "化祿",
+                        "化權",
+                        "化科"
+                      ],
+                      "reach": "same"
                     },
                     {
-                      "star": "天機",
-                      "hua": "權"
-                    },
-                    {
-                      "star": "天機",
-                      "hua": "科"
-                    },
-                    {
-                      "star": "天機",
                       "hua": "祿",
+                      "in": {
+                        "name": "命宮",
+                        "layer": "decade"
+                      },
                       "layer": "decade"
                     },
                     {
-                      "star": "天機",
                       "hua": "權",
+                      "in": {
+                        "name": "命宮",
+                        "layer": "decade"
+                      },
                       "layer": "decade"
                     },
                     {
-                      "star": "天機",
                       "hua": "科",
+                      "in": {
+                        "name": "命宮",
+                        "layer": "decade"
+                      },
                       "layer": "decade"
                     }
                   ]
@@ -2033,21 +2061,36 @@
                 {
                   "any": [
                     {
-                      "star": "巨門",
-                      "hua": "祿"
+                      "meets": "巨門",
+                      "stars": [
+                        "化祿",
+                        "化權",
+                        "化科"
+                      ],
+                      "reach": "same"
                     },
                     {
-                      "star": "巨門",
-                      "hua": "權"
-                    },
-                    {
-                      "star": "巨門",
                       "hua": "祿",
+                      "in": {
+                        "name": "命宮",
+                        "layer": "decade"
+                      },
                       "layer": "decade"
                     },
                     {
-                      "star": "巨門",
                       "hua": "權",
+                      "in": {
+                        "name": "命宮",
+                        "layer": "decade"
+                      },
+                      "layer": "decade"
+                    },
+                    {
+                      "hua": "科",
+                      "in": {
+                        "name": "命宮",
+                        "layer": "decade"
+                      },
                       "layer": "decade"
                     }
                   ]
@@ -2154,7 +2197,8 @@
         "sha256": "295cfeca8d54e663d9a4d1b608498bb9ff5c6b12859b2ee2e47244a433aa2055"
       }
     ],
-    "status": "draft"
+    "status": "draft",
+    "note": "原文「見／會／遇吉化」：讀做同宮（同度）嘅星本命或大限化祿權科（A9，2026-10-19）。"
   },
   {
     "id": "card.ming.qisha-ziwu.d-zixiang-w",

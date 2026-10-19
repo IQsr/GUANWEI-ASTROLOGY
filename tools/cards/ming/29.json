@@ -748,8 +748,8 @@
         "layer": "decade"
       }
     },
-    "claim": "這十年宜靜守，過份進取容易出大錯。",
-    "en": "This decade, hold steady; pushing too hard can lead to a serious misstep.",
+    "claim": "這十年無論如何都宜靜守。",
+    "en": "This decade, whatever the conditions, you do best to hold steady.",
     "sources": [
       {
         "id": "wtz.deep.p121.b003",
@@ -760,7 +760,38 @@
         "sha256": "a531224c5dc1f617b5b88517323f2b74e616385035eb5b3b3126001f4e2edcc8"
       }
     ],
-    "status": "draft"
+    "status": "draft",
+    "note": "「流年遇此，防因過份進取而生橫破」另開流年卡 moon-jinqu-year（A14）。"
+  },
+  {
+    "id": "card.ming.wu-chenxu.moon-jinqu-year",
+    "palace": "命宮",
+    "topic": "運程",
+    "kind": "claim",
+    "system": 29,
+    "pole": "進取",
+    "layer": "annual",
+    "when": {
+      "star": "太陰",
+      "in": {
+        "name": "命宮",
+        "layer": "annual"
+      }
+    },
+    "claim": "這一年要防因過份進取而突然受挫。",
+    "en": "This year, guard against a sudden setback from pushing too hard.",
+    "sources": [
+      {
+        "id": "wtz.deep.p121.b003",
+        "sha256": "cfbd2a3b9c928b0a3ef784f333d44fbcc2981cb7d6ac2e8fc49c3b58a0514784"
+      },
+      {
+        "id": "wtz.deep.p121.b004",
+        "sha256": "a531224c5dc1f617b5b88517323f2b74e616385035eb5b3b3126001f4e2edcc8"
+      }
+    ],
+    "status": "draft",
+    "note": "原文講流年，移去流年層；原局同大限前提保留（A14，2026-10-19）。"
   },
   {
     "id": "card.ming.wu-chenxu.moon-yinxun-good",

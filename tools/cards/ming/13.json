@@ -959,7 +959,10 @@
     "topic": "運程",
     "kind": "claim",
     "system": 13,
-    "pole": "平衡",
+    "pole": [
+      "平衡",
+      "無偏"
+    ],
     "layer": "decade",
     "when": {
       "all": [
@@ -1213,7 +1216,8 @@
         "sha256": "f065adfd7021780b0033eaa741df79f2257a1a2e7d4819b68310fe2a169c15e7"
       }
     ],
-    "status": "draft"
+    "status": "draft",
+    "note": "原文「非盲動」：兩頭打和同冇偏向都計（A12，2026-10-19）。"
   },
   {
     "id": "card.ming.taiyin-chenxu.visit-zipo-mangdong",
@@ -1522,7 +1526,10 @@
     "topic": "運程",
     "kind": "claim",
     "system": 13,
-    "pole": "平衡",
+    "pole": [
+      "平衡",
+      "無偏"
+    ],
     "layer": "decade",
     "when": {
       "star": "巨門",
@@ -1540,7 +1547,8 @@
         "sha256": "85484d4e5d7b1579b8bc2750a3310e7b1d689b473c3a31eceb4f805183bb74fe"
       }
     ],
-    "status": "draft"
+    "status": "draft",
+    "note": "原文「非盲動」：兩頭打和同冇偏向都計（A12，2026-10-19）。"
   },
   {
     "id": "card.ming.taiyin-chenxu.visit-jumen-mangdong",
@@ -1635,7 +1643,10 @@
     "topic": "運程",
     "kind": "claim",
     "system": 13,
-    "pole": "平衡",
+    "pole": [
+      "平衡",
+      "無偏"
+    ],
     "layer": "decade",
     "when": {
       "all": [
@@ -1676,7 +1687,8 @@
         "sha256": "06dd9735699758ab12bc7ebae847522d50d8a5904dd68a144f0ee0f8a3522b7c"
       }
     ],
-    "status": "draft"
+    "status": "draft",
+    "note": "原文「非盲動」：兩頭打和同冇偏向都計（A12，2026-10-19）。"
   },
   {
     "id": "card.ming.taiyin-chenxu.visit-tianxiang-mangdong",
@@ -1786,7 +1798,10 @@
     "topic": "運程",
     "kind": "claim",
     "system": 13,
-    "pole": "平衡",
+    "pole": [
+      "平衡",
+      "無偏"
+    ],
     "layer": "decade",
     "when": {
       "all": [
@@ -1815,7 +1830,8 @@
         "sha256": "20849f25f46d8f5efa146a911928830fda816d12fbefd791ec0c8a3d5f49aee6"
       }
     ],
-    "status": "draft"
+    "status": "draft",
+    "note": "原文「非盲動」：兩頭打和同冇偏向都計（A12，2026-10-19）。"
   },
   {
     "id": "card.ming.taiyin-chenxu.visit-tongliang-mangdong",

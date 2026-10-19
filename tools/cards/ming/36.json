@@ -882,30 +882,36 @@
         {
           "any": [
             {
-              "star": "太陽",
-              "hua": "祿"
+              "meets": "太陽",
+              "stars": [
+                "化祿",
+                "化權",
+                "化科"
+              ],
+              "reach": "same"
             },
             {
-              "star": "太陽",
               "hua": "祿",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              },
               "layer": "decade"
             },
             {
-              "star": "太陽",
-              "hua": "權"
-            },
-            {
-              "star": "太陽",
               "hua": "權",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              },
               "layer": "decade"
             },
             {
-              "star": "太陽",
-              "hua": "科"
-            },
-            {
-              "star": "太陽",
               "hua": "科",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              },
               "layer": "decade"
             }
           ]
@@ -942,7 +948,8 @@
         "sha256": "ad29261d162198fa1dbbe1e4916e64809087d311de16e3454fc08bf630f24742"
       }
     ],
-    "status": "draft"
+    "status": "draft",
+    "note": "原文「見／會／遇吉化」：讀做同宮（同度）嘅星本命或大限化祿權科（A9，2026-10-19）。"
   },
   {
     "id": "card.ming.tianliang-ziwu.d-taiyang-dim",
@@ -975,30 +982,36 @@
         {
           "any": [
             {
-              "star": "太陽",
-              "hua": "祿"
+              "meets": "太陽",
+              "stars": [
+                "化祿",
+                "化權",
+                "化科"
+              ],
+              "reach": "same"
             },
             {
-              "star": "太陽",
               "hua": "祿",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              },
               "layer": "decade"
             },
             {
-              "star": "太陽",
-              "hua": "權"
-            },
-            {
-              "star": "太陽",
               "hua": "權",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              },
               "layer": "decade"
             },
             {
-              "star": "太陽",
-              "hua": "科"
-            },
-            {
-              "star": "太陽",
               "hua": "科",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              },
               "layer": "decade"
             }
           ]
@@ -1037,7 +1050,8 @@
         "sha256": "ad29261d162198fa1dbbe1e4916e64809087d311de16e3454fc08bf630f24742"
       }
     ],
-    "status": "draft"
+    "status": "draft",
+    "note": "原文「見／會／遇吉化」：讀做同宮（同度）嘅星本命或大限化祿權科（A9，2026-10-19）。"
   },
   {
     "id": "card.ming.tianliang-ziwu.d-taiyang-dim-ji",

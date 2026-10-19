@@ -483,7 +483,7 @@
           "star": "天相",
           "in": {
             "name": "命宮",
-            "layer": "decade"
+            "layer": "annual"
           }
         },
         {
@@ -501,9 +501,9 @@
         }
       ]
     },
-    "layer": "decade",
-    "claim": "這十年的助力不會持久。",
-    "en": "The help you get this decade does not last.",
+    "layer": "annual",
+    "claim": "這一年的助力不會持久。",
+    "en": "The help you get this year does not last.",
     "limit": "原文「雖孤立者亦主得助力，唯不持久」。",
     "sources": [
       {
@@ -511,7 +511,8 @@
         "sha256": "6b38a24dae74340ea854ef69af18de1e8a0bba6c3f61cf99b7c5051fa69b890b"
       }
     ],
-    "status": "draft"
+    "status": "draft",
+    "note": "原文講流年，移去流年層；原局同大限前提保留（A14，2026-10-19）。"
   },
   {
     "id": "card.ming.yangju-yinshen.tx-fuzuo-a",
@@ -1828,30 +1829,36 @@
             {
               "any": [
                 {
-                  "star": "武曲",
-                  "hua": "祿"
+                  "meets": "武曲",
+                  "stars": [
+                    "化祿",
+                    "化權",
+                    "化科"
+                  ],
+                  "reach": "same"
                 },
                 {
-                  "star": "武曲",
-                  "hua": "權"
-                },
-                {
-                  "star": "武曲",
-                  "hua": "科"
-                },
-                {
-                  "star": "武曲",
                   "hua": "祿",
+                  "in": {
+                    "name": "命宮",
+                    "layer": "decade"
+                  },
                   "layer": "decade"
                 },
                 {
-                  "star": "武曲",
                   "hua": "權",
+                  "in": {
+                    "name": "命宮",
+                    "layer": "decade"
+                  },
                   "layer": "decade"
                 },
                 {
-                  "star": "武曲",
                   "hua": "科",
+                  "in": {
+                    "name": "命宮",
+                    "layer": "decade"
+                  },
                   "layer": "decade"
                 }
               ]
@@ -1859,30 +1866,36 @@
             {
               "any": [
                 {
-                  "star": "貪狼",
-                  "hua": "祿"
+                  "meets": "貪狼",
+                  "stars": [
+                    "化祿",
+                    "化權",
+                    "化科"
+                  ],
+                  "reach": "same"
                 },
                 {
-                  "star": "貪狼",
-                  "hua": "權"
-                },
-                {
-                  "star": "貪狼",
-                  "hua": "科"
-                },
-                {
-                  "star": "貪狼",
                   "hua": "祿",
+                  "in": {
+                    "name": "命宮",
+                    "layer": "decade"
+                  },
                   "layer": "decade"
                 },
                 {
-                  "star": "貪狼",
                   "hua": "權",
+                  "in": {
+                    "name": "命宮",
+                    "layer": "decade"
+                  },
                   "layer": "decade"
                 },
                 {
-                  "star": "貪狼",
                   "hua": "科",
+                  "in": {
+                    "name": "命宮",
+                    "layer": "decade"
+                  },
                   "layer": "decade"
                 }
               ]
@@ -1913,6 +1926,7 @@
         "sha256": "91176490b97d7be8d154d500d87dcf93f090192011f3996b6888dd0cea1264b9"
       }
     ],
-    "status": "draft"
+    "status": "draft",
+    "note": "原文「見／會／遇吉化」：讀做同宮（同度）嘅星本命或大限化祿權科（A9，2026-10-19）。"
   }
 ]

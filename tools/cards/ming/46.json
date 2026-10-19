@@ -480,21 +480,36 @@
         {
           "any": [
             {
-              "star": "破軍",
-              "hua": "祿"
+              "meets": "破軍",
+              "stars": [
+                "化祿",
+                "化權",
+                "化科"
+              ],
+              "reach": "same"
             },
             {
-              "star": "破軍",
-              "hua": "權"
-            },
-            {
-              "star": "破軍",
               "hua": "祿",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              },
               "layer": "decade"
             },
             {
-              "star": "破軍",
               "hua": "權",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              },
+              "layer": "decade"
+            },
+            {
+              "hua": "科",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              },
               "layer": "decade"
             }
           ]
@@ -530,7 +545,8 @@
         "sha256": "ea260b60800f90f218accd325de470f937f4a6b6bc8236e495a1a6451de859fb"
       }
     ],
-    "status": "draft"
+    "status": "draft",
+    "note": "原文「見／會／遇吉化」：讀做同宮（同度）嘅星本命或大限化祿權科（A9，2026-10-19）。"
   },
   {
     "id": "card.ming.lianzhen-yinshen.d-pojun-good-advice",
@@ -626,21 +642,36 @@
         {
           "any": [
             {
-              "star": "破軍",
-              "hua": "祿"
+              "meets": "破軍",
+              "stars": [
+                "化祿",
+                "化權",
+                "化科"
+              ],
+              "reach": "same"
             },
             {
-              "star": "破軍",
-              "hua": "權"
-            },
-            {
-              "star": "破軍",
               "hua": "祿",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              },
               "layer": "decade"
             },
             {
-              "star": "破軍",
               "hua": "權",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              },
+              "layer": "decade"
+            },
+            {
+              "hua": "科",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              },
               "layer": "decade"
             }
           ]
@@ -675,7 +706,8 @@
         "sha256": "ea260b60800f90f218accd325de470f937f4a6b6bc8236e495a1a6451de859fb"
       }
     ],
-    "status": "draft"
+    "status": "draft",
+    "note": "原文「見／會／遇吉化」：讀做同宮（同度）嘅星本命或大限化祿權科（A9，2026-10-19）。"
   },
   {
     "id": "card.ming.lianzhen-yinshen.d-tiantong-m",
@@ -735,30 +767,36 @@
         {
           "any": [
             {
-              "star": "天同",
-              "hua": "祿"
+              "meets": "天同",
+              "stars": [
+                "化祿",
+                "化權",
+                "化科"
+              ],
+              "reach": "same"
             },
             {
-              "star": "天同",
-              "hua": "權"
-            },
-            {
-              "star": "天同",
-              "hua": "科"
-            },
-            {
-              "star": "天同",
               "hua": "祿",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              },
               "layer": "decade"
             },
             {
-              "star": "天同",
               "hua": "權",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              },
               "layer": "decade"
             },
             {
-              "star": "天同",
               "hua": "科",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              },
               "layer": "decade"
             }
           ]
@@ -786,7 +824,8 @@
         "sha256": "3f2ed21788d4a98f837e53535fbfe95676502b9850e178c9ab70fdfaa101fb2a"
       }
     ],
-    "status": "draft"
+    "status": "draft",
+    "note": "原文「見／會／遇吉化」：讀做同宮（同度）嘅星本命或大限化祿權科（A9，2026-10-19）。"
   },
   {
     "id": "card.ming.lianzhen-yinshen.d-tiantong-m-ji",

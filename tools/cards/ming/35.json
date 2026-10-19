@@ -798,30 +798,36 @@
             {
               "any": [
                 {
-                  "star": "武曲",
-                  "hua": "祿"
+                  "meets": "武曲",
+                  "stars": [
+                    "化祿",
+                    "化權",
+                    "化科"
+                  ],
+                  "reach": "same"
                 },
                 {
-                  "star": "武曲",
                   "hua": "祿",
+                  "in": {
+                    "name": "命宮",
+                    "layer": "decade"
+                  },
                   "layer": "decade"
                 },
                 {
-                  "star": "武曲",
-                  "hua": "權"
-                },
-                {
-                  "star": "武曲",
                   "hua": "權",
+                  "in": {
+                    "name": "命宮",
+                    "layer": "decade"
+                  },
                   "layer": "decade"
                 },
                 {
-                  "star": "武曲",
-                  "hua": "科"
-                },
-                {
-                  "star": "武曲",
                   "hua": "科",
+                  "in": {
+                    "name": "命宮",
+                    "layer": "decade"
+                  },
                   "layer": "decade"
                 }
               ]
@@ -829,8 +835,13 @@
             {
               "any": [
                 {
-                  "star": "破軍",
-                  "hua": "祿"
+                  "meets": "破軍",
+                  "stars": [
+                    "化祿",
+                    "化權",
+                    "化科"
+                  ],
+                  "reach": "same"
                 },
                 {
                   "star": "破軍",
@@ -839,16 +850,8 @@
                 },
                 {
                   "star": "破軍",
-                  "hua": "權"
-                },
-                {
-                  "star": "破軍",
                   "hua": "權",
                   "layer": "decade"
-                },
-                {
-                  "star": "破軍",
-                  "hua": "科"
                 },
                 {
                   "star": "破軍",
@@ -882,7 +885,8 @@
         "sha256": "4f910eaa5b08ffd2838b53e913c9401f034947ab6ddc823c356ae248de1b3824"
       }
     ],
-    "status": "draft"
+    "status": "draft",
+    "note": "原文「見／會／遇吉化」：讀做同宮（同度）嘅星本命或大限化祿權科（A9，2026-10-19）。"
   },
   {
     "id": "card.ming.tianxiang-sihai.d-wupo-kc",
@@ -917,30 +921,36 @@
         {
           "any": [
             {
-              "star": "武曲",
-              "hua": "祿"
+              "meets": "武曲",
+              "stars": [
+                "化祿",
+                "化權",
+                "化科"
+              ],
+              "reach": "same"
             },
             {
-              "star": "武曲",
               "hua": "祿",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              },
               "layer": "decade"
             },
             {
-              "star": "武曲",
-              "hua": "權"
-            },
-            {
-              "star": "武曲",
               "hua": "權",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              },
               "layer": "decade"
             },
             {
-              "star": "武曲",
-              "hua": "科"
-            },
-            {
-              "star": "武曲",
               "hua": "科",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              },
               "layer": "decade"
             }
           ]
@@ -948,8 +958,13 @@
         {
           "any": [
             {
-              "star": "破軍",
-              "hua": "祿"
+              "meets": "破軍",
+              "stars": [
+                "化祿",
+                "化權",
+                "化科"
+              ],
+              "reach": "same"
             },
             {
               "star": "破軍",
@@ -958,16 +973,8 @@
             },
             {
               "star": "破軍",
-              "hua": "權"
-            },
-            {
-              "star": "破軍",
               "hua": "權",
               "layer": "decade"
-            },
-            {
-              "star": "破軍",
-              "hua": "科"
             },
             {
               "star": "破軍",
@@ -986,7 +993,8 @@
         "sha256": "82f4151de5b06534a99a922e39d366413e9e475ead25aa5cf4dee37086020ca8"
       }
     ],
-    "status": "draft"
+    "status": "draft",
+    "note": "none 嘅吉化同兄弟卡一樣讀同宮（A9）。"
   },
   {
     "id": "card.ming.tianxiang-sihai.d-wupo-yr",
@@ -1021,30 +1029,36 @@
         {
           "any": [
             {
-              "star": "武曲",
-              "hua": "祿"
+              "meets": "武曲",
+              "stars": [
+                "化祿",
+                "化權",
+                "化科"
+              ],
+              "reach": "same"
             },
             {
-              "star": "武曲",
               "hua": "祿",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              },
               "layer": "decade"
             },
             {
-              "star": "武曲",
-              "hua": "權"
-            },
-            {
-              "star": "武曲",
               "hua": "權",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              },
               "layer": "decade"
             },
             {
-              "star": "武曲",
-              "hua": "科"
-            },
-            {
-              "star": "武曲",
               "hua": "科",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              },
               "layer": "decade"
             }
           ]
@@ -1052,8 +1066,13 @@
         {
           "any": [
             {
-              "star": "破軍",
-              "hua": "祿"
+              "meets": "破軍",
+              "stars": [
+                "化祿",
+                "化權",
+                "化科"
+              ],
+              "reach": "same"
             },
             {
               "star": "破軍",
@@ -1062,16 +1081,8 @@
             },
             {
               "star": "破軍",
-              "hua": "權"
-            },
-            {
-              "star": "破軍",
               "hua": "權",
               "layer": "decade"
-            },
-            {
-              "star": "破軍",
-              "hua": "科"
             },
             {
               "star": "破軍",
@@ -1090,7 +1101,8 @@
         "sha256": "82f4151de5b06534a99a922e39d366413e9e475ead25aa5cf4dee37086020ca8"
       }
     ],
-    "status": "draft"
+    "status": "draft",
+    "note": "none 嘅吉化同兄弟卡一樣讀同宮（A9）。"
   },
   {
     "id": "card.ming.tianxiang-sihai.d-wupo-ji-yr",

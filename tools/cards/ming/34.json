@@ -1176,30 +1176,36 @@
         {
           "any": [
             {
-              "star": "天同",
-              "hua": "祿"
+              "meets": "天同",
+              "stars": [
+                "化祿",
+                "化權",
+                "化科"
+              ],
+              "reach": "same"
             },
             {
-              "star": "天同",
               "hua": "祿",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              },
               "layer": "decade"
             },
             {
-              "star": "天同",
-              "hua": "權"
-            },
-            {
-              "star": "天同",
               "hua": "權",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              },
               "layer": "decade"
             },
             {
-              "star": "天同",
-              "hua": "科"
-            },
-            {
-              "star": "天同",
               "hua": "科",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              },
               "layer": "decade"
             }
           ]
@@ -1270,7 +1276,8 @@
       }
     ],
     "status": "draft",
-    "limit": "「輔佐諸曜同度」按類名讀做一粒或以上：兩粒或以上 1500 張盤都唔中（2026-10-19 覆核後保留）。"
+    "limit": "「輔佐諸曜同度」按類名讀做一粒或以上：兩粒或以上 1500 張盤都唔中（2026-10-19 覆核後保留）。",
+    "note": "原文「見／會／遇吉化」：讀做同宮（同度）嘅星本命或大限化祿權科（A9，2026-10-19）。"
   },
   {
     "id": "card.ming.jumen-chenxu.d-tiantong-jifa",
@@ -1412,30 +1419,36 @@
             {
               "any": [
                 {
-                  "star": "武曲",
-                  "hua": "祿"
+                  "meets": "武曲",
+                  "stars": [
+                    "化祿",
+                    "化權",
+                    "化科"
+                  ],
+                  "reach": "same"
                 },
                 {
-                  "star": "武曲",
                   "hua": "祿",
+                  "in": {
+                    "name": "命宮",
+                    "layer": "decade"
+                  },
                   "layer": "decade"
                 },
                 {
-                  "star": "武曲",
-                  "hua": "權"
-                },
-                {
-                  "star": "武曲",
                   "hua": "權",
+                  "in": {
+                    "name": "命宮",
+                    "layer": "decade"
+                  },
                   "layer": "decade"
                 },
                 {
-                  "star": "武曲",
-                  "hua": "科"
-                },
-                {
-                  "star": "武曲",
                   "hua": "科",
+                  "in": {
+                    "name": "命宮",
+                    "layer": "decade"
+                  },
                   "layer": "decade"
                 }
               ]
@@ -1443,8 +1456,13 @@
             {
               "any": [
                 {
-                  "star": "破軍",
-                  "hua": "祿"
+                  "meets": "破軍",
+                  "stars": [
+                    "化祿",
+                    "化權",
+                    "化科"
+                  ],
+                  "reach": "same"
                 },
                 {
                   "star": "破軍",
@@ -1453,16 +1471,8 @@
                 },
                 {
                   "star": "破軍",
-                  "hua": "權"
-                },
-                {
-                  "star": "破軍",
                   "hua": "權",
                   "layer": "decade"
-                },
-                {
-                  "star": "破軍",
-                  "hua": "科"
                 },
                 {
                   "star": "破軍",
@@ -1496,7 +1506,8 @@
         "sha256": "35388ae85d7ae7f66da431a27324a9f10177ce1cd3f3f766cd1dcc9962b050d7"
       }
     ],
-    "status": "draft"
+    "status": "draft",
+    "note": "原文「見／會／遇吉化」：讀做同宮（同度）嘅星本命或大限化祿權科（A9，2026-10-19）。"
   },
   {
     "id": "card.ming.jumen-chenxu.d-wupo-ji",
@@ -1582,17 +1593,38 @@
         {
           "any": [
             {
-              "any": [
-                {
-                  "star": "武曲",
-                  "hua": "科"
-                },
-                {
-                  "star": "武曲",
-                  "hua": "科",
-                  "layer": "decade"
-                }
-              ]
+              "meets": "武曲",
+              "stars": [
+                "化祿",
+                "化權",
+                "化科"
+              ],
+              "reach": "same"
+            },
+            {
+              "star": "武曲",
+              "hua": "祿",
+              "layer": "decade"
+            },
+            {
+              "star": "武曲",
+              "hua": "權",
+              "layer": "decade"
+            },
+            {
+              "star": "武曲",
+              "hua": "科",
+              "layer": "decade"
+            },
+            {
+              "star": "武曲",
+              "hua": "祿",
+              "layer": "annual"
+            },
+            {
+              "star": "武曲",
+              "hua": "權",
+              "layer": "annual"
             },
             {
               "star": "武曲",
@@ -1613,7 +1645,7 @@
       }
     ],
     "status": "draft",
-    "note": "廉貞化忌（丙）與武曲化科（甲）不會同層；武破在陰干宮，大限亦不會出甲丙，故寫成流年層。"
+    "note": "廉貞化忌（丙）與武曲化科（甲）不會同層；武破在陰干宮，大限亦不會出甲丙，故寫成流年層。 原文「見／會／遇吉化」：讀做同宮（同度）嘅星本命或大限化祿權科（A9，2026-10-19）。"
   },
   {
     "id": "card.ming.jumen-chenxu.d-taiyang-bright",

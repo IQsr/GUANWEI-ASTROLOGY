@@ -655,12 +655,36 @@
             {
               "any": [
                 {
-                  "star": "廉貞",
-                  "hua": "祿"
+                  "meets": "廉貞",
+                  "stars": [
+                    "化祿",
+                    "化權",
+                    "化科"
+                  ],
+                  "reach": "same"
                 },
                 {
-                  "star": "廉貞",
                   "hua": "祿",
+                  "in": {
+                    "name": "命宮",
+                    "layer": "decade"
+                  },
+                  "layer": "decade"
+                },
+                {
+                  "hua": "權",
+                  "in": {
+                    "name": "命宮",
+                    "layer": "decade"
+                  },
+                  "layer": "decade"
+                },
+                {
+                  "hua": "科",
+                  "in": {
+                    "name": "命宮",
+                    "layer": "decade"
+                  },
                   "layer": "decade"
                 }
               ]
@@ -668,21 +692,36 @@
             {
               "any": [
                 {
-                  "star": "破軍",
-                  "hua": "祿"
+                  "meets": "破軍",
+                  "stars": [
+                    "化祿",
+                    "化權",
+                    "化科"
+                  ],
+                  "reach": "same"
                 },
                 {
-                  "star": "破軍",
-                  "hua": "權"
-                },
-                {
-                  "star": "破軍",
                   "hua": "祿",
+                  "in": {
+                    "name": "命宮",
+                    "layer": "decade"
+                  },
                   "layer": "decade"
                 },
                 {
-                  "star": "破軍",
                   "hua": "權",
+                  "in": {
+                    "name": "命宮",
+                    "layer": "decade"
+                  },
+                  "layer": "decade"
+                },
+                {
+                  "hua": "科",
+                  "in": {
+                    "name": "命宮",
+                    "layer": "decade"
+                  },
                   "layer": "decade"
                 }
               ]
@@ -700,7 +739,8 @@
         "sha256": "35c6812350f78e4b72205bf4fa8a5f059b5a489d47bd80e3b28ad16f7b901349"
       }
     ],
-    "status": "draft"
+    "status": "draft",
+    "note": "原文「見／會／遇吉化」：讀做同宮（同度）嘅星本命或大限化祿權科（A9，2026-10-19）。"
   },
   {
     "id": "card.ming.jiliang-chenxu.lp-jr",
@@ -735,12 +775,36 @@
             {
               "any": [
                 {
-                  "star": "廉貞",
-                  "hua": "祿"
+                  "meets": "廉貞",
+                  "stars": [
+                    "化祿",
+                    "化權",
+                    "化科"
+                  ],
+                  "reach": "same"
                 },
                 {
-                  "star": "廉貞",
                   "hua": "祿",
+                  "in": {
+                    "name": "命宮",
+                    "layer": "decade"
+                  },
+                  "layer": "decade"
+                },
+                {
+                  "hua": "權",
+                  "in": {
+                    "name": "命宮",
+                    "layer": "decade"
+                  },
+                  "layer": "decade"
+                },
+                {
+                  "hua": "科",
+                  "in": {
+                    "name": "命宮",
+                    "layer": "decade"
+                  },
                   "layer": "decade"
                 }
               ]
@@ -748,21 +812,36 @@
             {
               "any": [
                 {
-                  "star": "破軍",
-                  "hua": "祿"
+                  "meets": "破軍",
+                  "stars": [
+                    "化祿",
+                    "化權",
+                    "化科"
+                  ],
+                  "reach": "same"
                 },
                 {
-                  "star": "破軍",
-                  "hua": "權"
-                },
-                {
-                  "star": "破軍",
                   "hua": "祿",
+                  "in": {
+                    "name": "命宮",
+                    "layer": "decade"
+                  },
                   "layer": "decade"
                 },
                 {
-                  "star": "破軍",
                   "hua": "權",
+                  "in": {
+                    "name": "命宮",
+                    "layer": "decade"
+                  },
+                  "layer": "decade"
+                },
+                {
+                  "hua": "科",
+                  "in": {
+                    "name": "命宮",
+                    "layer": "decade"
+                  },
                   "layer": "decade"
                 }
               ]
@@ -780,7 +859,8 @@
         "sha256": "35c6812350f78e4b72205bf4fa8a5f059b5a489d47bd80e3b28ad16f7b901349"
       }
     ],
-    "status": "draft"
+    "status": "draft",
+    "note": "原文「見／會／遇吉化」：讀做同宮（同度）嘅星本命或大限化祿權科（A9，2026-10-19）。"
   },
   {
     "id": "card.ming.jiliang-chenxu.lp-ji",

@@ -102,40 +102,7 @@
       ]
     },
     "none": {
-      "all": [
-        {
-          "any": [
-            {
-              "star": "巨門",
-              "hua": "祿"
-            },
-            {
-              "star": "巨門",
-              "hua": "權"
-            }
-          ]
-        },
-        {
-          "not": {
-            "meets": "巨門",
-            "stars": [
-              "擎羊",
-              "陀羅",
-              "火星",
-              "鈴星"
-            ]
-          }
-        },
-        {
-          "not": {
-            "meets": "巨門",
-            "stars": [
-              "擎羊"
-            ],
-            "reach": "same"
-          }
-        }
-      ]
+      "geju": "shizhong"
     },
     "claim": "你少了外來的光照，心裡的顧慮較難自然化開。",
     "en": "You lack outside light to lift the shadows, so your worries do not easily dissolve on their own.",
@@ -146,7 +113,8 @@
         "sha256": "4ec502b41fb2958cd9ba96017817a473606da5452d05852b056a4bc01d8fc545"
       }
     ],
-    "status": "draft"
+    "status": "draft",
+    "note": "none 改用 geju shizhong（A5）。"
   },
   {
     "id": "card.ming.jumen-ziwu.geju-shizhong",
@@ -534,6 +502,188 @@
       }
     ],
     "status": "draft"
+  },
+  {
+    "palace": "命宮",
+    "topic": "運程",
+    "kind": "caveat",
+    "system": 15,
+    "layer": "decade",
+    "status": "draft",
+    "id": "card.ming.jumen-ziwu.wulu-kongjie-ji",
+    "when": {
+      "all": [
+        {
+          "any": [
+            {
+              "sanfangOf": {
+                "name": "命宮",
+                "layer": "decade"
+              },
+              "contains": "地空"
+            },
+            {
+              "sanfangOf": {
+                "name": "命宮",
+                "layer": "decade"
+              },
+              "contains": "地劫"
+            }
+          ]
+        },
+        {
+          "any": [
+            {
+              "hua": "忌",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              },
+              "layer": "natal"
+            },
+            {
+              "hua": "忌",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              },
+              "layer": "decade"
+            },
+            {
+              "hua": "忌",
+              "in": {
+                "name": "財帛",
+                "layer": "decade"
+              },
+              "layer": "natal"
+            },
+            {
+              "hua": "忌",
+              "in": {
+                "name": "財帛",
+                "layer": "decade"
+              },
+              "layer": "decade"
+            },
+            {
+              "hua": "忌",
+              "in": {
+                "name": "官祿",
+                "layer": "decade"
+              },
+              "layer": "natal"
+            },
+            {
+              "hua": "忌",
+              "in": {
+                "name": "官祿",
+                "layer": "decade"
+              },
+              "layer": "decade"
+            },
+            {
+              "hua": "忌",
+              "in": {
+                "name": "遷移",
+                "layer": "decade"
+              },
+              "layer": "natal"
+            },
+            {
+              "hua": "忌",
+              "in": {
+                "name": "遷移",
+                "layer": "decade"
+              },
+              "layer": "decade"
+            }
+          ]
+        }
+      ]
+    },
+    "none": {
+      "any": [
+        {
+          "star": "巨門",
+          "hua": "祿"
+        },
+        {
+          "meets": "巨門",
+          "stars": [
+            "祿存"
+          ],
+          "reach": "same"
+        }
+      ]
+    },
+    "claim": "這十年容易破敗。",
+    "en": "This decade things can easily fall apart.",
+    "sources": [
+      {
+        "id": "wtz.deep.p356.b004",
+        "sha256": "71aae946e5a23ef544fe99e9c57264eccb6432d904597a4f6e44f10ccfc9c8ed"
+      }
+    ],
+    "note": "原文：子午巨門無祿，「見空劫化忌（尤忌天機）之年限則主破敗」。空劫同化忌兩樣都要（A10）；無祿＝巨門唔化祿、唔同祿存同度。空劫作獨立限制（A13）。"
+  },
+  {
+    "palace": "命宮",
+    "topic": "運程",
+    "kind": "caveat",
+    "system": 15,
+    "layer": "decade",
+    "status": "draft",
+    "id": "card.ming.jumen-ziwu.lucun-kongjie",
+    "when": {
+      "all": [
+        {
+          "meets": "巨門",
+          "stars": [
+            "祿存"
+          ],
+          "reach": "same"
+        },
+        {
+          "any": [
+            {
+              "sanfangOf": {
+                "name": "命宮",
+                "layer": "decade"
+              },
+              "contains": "地空"
+            },
+            {
+              "sanfangOf": {
+                "name": "命宮",
+                "layer": "decade"
+              },
+              "contains": "地劫"
+            }
+          ]
+        }
+      ]
+    },
+    "none": {
+      "any": [
+        {
+          "star": "巨門",
+          "hua": "祿"
+        },
+        {
+          "star": "巨門",
+          "hua": "權"
+        }
+      ]
+    },
+    "claim": "這十年不是你喜歡的運。",
+    "en": "This is not a decade you take to.",
+    "sources": [
+      {
+        "id": "wtz.deep.p356.b003",
+        "sha256": "1db1284b78c0e18f61e7f06e00f5047468171ef2aecbd908d3ddd8b958f30b72"
+      }
+    ],
+    "note": "原文：子午巨門與祿存同度，「亦不喜空劫躔會之宮垣」。空劫唔計入石中隱玉嘅煞，喺呢度作獨立限制（A13，2026-10-19）。大限命宮三方四正見地空或地劫。"
   },
   {
     "id": "card.ming.jumen-ziwu.pivot-si",
@@ -1216,64 +1366,78 @@
         {
           "any": [
             {
-              "star": "武曲",
-              "hua": "祿",
-              "layer": "natal"
+              "any": [
+                {
+                  "meets": "武曲",
+                  "stars": [
+                    "化祿",
+                    "化權",
+                    "化科"
+                  ],
+                  "reach": "same"
+                },
+                {
+                  "hua": "祿",
+                  "in": {
+                    "name": "命宮",
+                    "layer": "decade"
+                  },
+                  "layer": "decade"
+                },
+                {
+                  "hua": "權",
+                  "in": {
+                    "name": "命宮",
+                    "layer": "decade"
+                  },
+                  "layer": "decade"
+                },
+                {
+                  "hua": "科",
+                  "in": {
+                    "name": "命宮",
+                    "layer": "decade"
+                  },
+                  "layer": "decade"
+                }
+              ]
             },
             {
-              "star": "武曲",
-              "hua": "祿",
-              "layer": "decade"
-            },
-            {
-              "star": "武曲",
-              "hua": "權",
-              "layer": "natal"
-            },
-            {
-              "star": "武曲",
-              "hua": "權",
-              "layer": "decade"
-            },
-            {
-              "star": "武曲",
-              "hua": "科",
-              "layer": "natal"
-            },
-            {
-              "star": "武曲",
-              "hua": "科",
-              "layer": "decade"
-            },
-            {
-              "star": "七殺",
-              "hua": "祿",
-              "layer": "natal"
-            },
-            {
-              "star": "七殺",
-              "hua": "祿",
-              "layer": "decade"
-            },
-            {
-              "star": "七殺",
-              "hua": "權",
-              "layer": "natal"
-            },
-            {
-              "star": "七殺",
-              "hua": "權",
-              "layer": "decade"
-            },
-            {
-              "star": "七殺",
-              "hua": "科",
-              "layer": "natal"
-            },
-            {
-              "star": "七殺",
-              "hua": "科",
-              "layer": "decade"
+              "any": [
+                {
+                  "meets": "七殺",
+                  "stars": [
+                    "化祿",
+                    "化權",
+                    "化科"
+                  ],
+                  "reach": "same"
+                },
+                {
+                  "hua": "祿",
+                  "in": {
+                    "name": "命宮",
+                    "layer": "decade"
+                  },
+                  "layer": "decade"
+                },
+                {
+                  "hua": "權",
+                  "in": {
+                    "name": "命宮",
+                    "layer": "decade"
+                  },
+                  "layer": "decade"
+                },
+                {
+                  "hua": "科",
+                  "in": {
+                    "name": "命宮",
+                    "layer": "decade"
+                  },
+                  "layer": "decade"
+                }
+              ]
             }
           ]
         }
@@ -1300,7 +1464,8 @@
         "sha256": "0f09fa77add256a6415e9cb94db3549c8a25f792684f08b0293acce37902ade5"
       }
     ],
-    "status": "draft"
+    "status": "draft",
+    "note": "原文「見／會／遇吉化」：讀做同宮（同度）嘅星本命或大限化祿權科（A9，2026-10-19）。"
   },
   {
     "id": "card.ming.jumen-ziwu.visit-wusha-ji-yilv",

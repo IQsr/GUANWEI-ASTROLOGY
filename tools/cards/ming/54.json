@@ -682,30 +682,36 @@
                 {
                   "any": [
                     {
-                      "star": "天同",
-                      "hua": "祿"
+                      "meets": "天同",
+                      "stars": [
+                        "化祿",
+                        "化權",
+                        "化科"
+                      ],
+                      "reach": "same"
                     },
                     {
-                      "star": "天同",
-                      "hua": "權"
-                    },
-                    {
-                      "star": "天同",
-                      "hua": "科"
-                    },
-                    {
-                      "star": "天同",
                       "hua": "祿",
+                      "in": {
+                        "name": "命宮",
+                        "layer": "decade"
+                      },
                       "layer": "decade"
                     },
                     {
-                      "star": "天同",
                       "hua": "權",
+                      "in": {
+                        "name": "命宮",
+                        "layer": "decade"
+                      },
                       "layer": "decade"
                     },
                     {
-                      "star": "天同",
                       "hua": "科",
+                      "in": {
+                        "name": "命宮",
+                        "layer": "decade"
+                      },
                       "layer": "decade"
                     }
                   ]
@@ -713,30 +719,36 @@
                 {
                   "any": [
                     {
-                      "star": "太陰",
-                      "hua": "祿"
+                      "meets": "太陰",
+                      "stars": [
+                        "化祿",
+                        "化權",
+                        "化科"
+                      ],
+                      "reach": "same"
                     },
                     {
-                      "star": "太陰",
-                      "hua": "權"
-                    },
-                    {
-                      "star": "太陰",
-                      "hua": "科"
-                    },
-                    {
-                      "star": "太陰",
                       "hua": "祿",
+                      "in": {
+                        "name": "命宮",
+                        "layer": "decade"
+                      },
                       "layer": "decade"
                     },
                     {
-                      "star": "太陰",
                       "hua": "權",
+                      "in": {
+                        "name": "命宮",
+                        "layer": "decade"
+                      },
                       "layer": "decade"
                     },
                     {
-                      "star": "太陰",
                       "hua": "科",
+                      "in": {
+                        "name": "命宮",
+                        "layer": "decade"
+                      },
                       "layer": "decade"
                     }
                   ]
@@ -768,7 +780,8 @@
         "sha256": "ff10d5bc76a58c36fece3a7ef94af6555f51906849de1743432af0d5fdb0271f"
       }
     ],
-    "status": "draft"
+    "status": "draft",
+    "note": "原文「見／會／遇吉化」：讀做同宮（同度）嘅星本命或大限化祿權科（A9，2026-10-19）。"
   },
   {
     "id": "card.ming.lianpo.visit-wutan-wg",
@@ -1777,21 +1790,36 @@
             {
               "any": [
                 {
-                  "star": "紫微",
-                  "hua": "權"
+                  "meets": "紫微",
+                  "stars": [
+                    "化祿",
+                    "化權",
+                    "化科"
+                  ],
+                  "reach": "same"
                 },
                 {
-                  "star": "紫微",
-                  "hua": "科"
-                },
-                {
-                  "star": "紫微",
-                  "hua": "權",
+                  "hua": "祿",
+                  "in": {
+                    "name": "命宮",
+                    "layer": "decade"
+                  },
                   "layer": "decade"
                 },
                 {
-                  "star": "紫微",
+                  "hua": "權",
+                  "in": {
+                    "name": "命宮",
+                    "layer": "decade"
+                  },
+                  "layer": "decade"
+                },
+                {
                   "hua": "科",
+                  "in": {
+                    "name": "命宮",
+                    "layer": "decade"
+                  },
                   "layer": "decade"
                 }
               ]
@@ -1831,7 +1859,8 @@
         "sha256": "3be07cf07338be413ee3d1d6df606d74f61eda37ff15cab948d888ce66ac968b"
       }
     ],
-    "status": "draft"
+    "status": "draft",
+    "note": "原文「見／會／遇吉化」：讀做同宮（同度）嘅星本命或大限化祿權科（A9，2026-10-19）。"
   },
   {
     "id": "card.ming.lianpo.visit-zisha-wg-base",
@@ -1865,21 +1894,36 @@
             {
               "any": [
                 {
-                  "star": "紫微",
-                  "hua": "權"
+                  "meets": "紫微",
+                  "stars": [
+                    "化祿",
+                    "化權",
+                    "化科"
+                  ],
+                  "reach": "same"
                 },
                 {
-                  "star": "紫微",
-                  "hua": "科"
-                },
-                {
-                  "star": "紫微",
-                  "hua": "權",
+                  "hua": "祿",
+                  "in": {
+                    "name": "命宮",
+                    "layer": "decade"
+                  },
                   "layer": "decade"
                 },
                 {
-                  "star": "紫微",
+                  "hua": "權",
+                  "in": {
+                    "name": "命宮",
+                    "layer": "decade"
+                  },
+                  "layer": "decade"
+                },
+                {
                   "hua": "科",
+                  "in": {
+                    "name": "命宮",
+                    "layer": "decade"
+                  },
                   "layer": "decade"
                 }
               ]
@@ -1925,7 +1969,8 @@
         "sha256": "2f30f33148075b9cb7e359eb42ce058dc590a4edf54a55bfd21c2d66bb21aca1"
       }
     ],
-    "status": "draft"
+    "status": "draft",
+    "note": "原文「見／會／遇吉化」：讀做同宮（同度）嘅星本命或大限化祿權科（A9，2026-10-19）。"
   },
   {
     "id": "card.ming.lianpo.visit-zisha-wj",
@@ -1957,21 +2002,36 @@
         {
           "any": [
             {
-              "star": "紫微",
-              "hua": "權"
+              "meets": "紫微",
+              "stars": [
+                "化祿",
+                "化權",
+                "化科"
+              ],
+              "reach": "same"
             },
             {
-              "star": "紫微",
-              "hua": "科"
-            },
-            {
-              "star": "紫微",
-              "hua": "權",
+              "hua": "祿",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              },
               "layer": "decade"
             },
             {
-              "star": "紫微",
+              "hua": "權",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              },
+              "layer": "decade"
+            },
+            {
               "hua": "科",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              },
               "layer": "decade"
             }
           ]
@@ -2002,7 +2062,8 @@
         "sha256": "2f30f33148075b9cb7e359eb42ce058dc590a4edf54a55bfd21c2d66bb21aca1"
       }
     ],
-    "status": "draft"
+    "status": "draft",
+    "note": "原文「見／會／遇吉化」：讀做同宮（同度）嘅星本命或大限化祿權科（A9，2026-10-19）。"
   },
   {
     "id": "card.ming.lianpo.visit-zisha-wj-good",
@@ -2032,21 +2093,36 @@
             {
               "any": [
                 {
-                  "star": "紫微",
-                  "hua": "權"
+                  "meets": "紫微",
+                  "stars": [
+                    "化祿",
+                    "化權",
+                    "化科"
+                  ],
+                  "reach": "same"
                 },
                 {
-                  "star": "紫微",
-                  "hua": "科"
-                },
-                {
-                  "star": "紫微",
-                  "hua": "權",
+                  "hua": "祿",
+                  "in": {
+                    "name": "命宮",
+                    "layer": "decade"
+                  },
                   "layer": "decade"
                 },
                 {
-                  "star": "紫微",
+                  "hua": "權",
+                  "in": {
+                    "name": "命宮",
+                    "layer": "decade"
+                  },
+                  "layer": "decade"
+                },
+                {
                   "hua": "科",
+                  "in": {
+                    "name": "命宮",
+                    "layer": "decade"
+                  },
                   "layer": "decade"
                 }
               ]
@@ -2076,7 +2152,8 @@
         "sha256": "3be07cf07338be413ee3d1d6df606d74f61eda37ff15cab948d888ce66ac968b"
       }
     ],
-    "status": "draft"
+    "status": "draft",
+    "note": "原文「見／會／遇吉化」：讀做同宮（同度）嘅星本命或大限化祿權科（A9，2026-10-19）。"
   },
   {
     "id": "card.ming.lianpo.visit-zisha-wj-sha",

@@ -281,7 +281,7 @@ export function watchFor(x: Xingxi, pole: string): string {
 export function leanOf(
   chart: Chart,
   x: Xingxi,
-): { pole: string; score: Record<string, number>; seen: Record<string, string[]> } {
+): { pole: string; state: 'lean' | 'tie' | 'none'; score: Record<string, number>; seen: Record<string, string[]> } {
   const m = ming(chart)!;
   const four = sanFangPalaces(chart.palaces, m.branch);
   const borrowed = !m.stars.some((s) => MAJOR.has(s.name)) && !!m.borrowsFrom;
@@ -296,5 +296,7 @@ export function leanOf(
   }
   const [a, b] = x.poles;
   const pole = score[a]! > score[b]! ? a : score[b]! > score[a]! ? b : '平衡';
-  return { pole, score, seen };
+  /* A12（2026-10-19）：舊書照用 pole；條件卡分清兩頭打和（tie，原文「中和」）同兩頭都冇證據（none） */
+  const state = pole !== '平衡' ? 'lean' : score[a]! > 0 ? 'tie' : 'none';
+  return { pole, state, score, seen };
 }

@@ -574,7 +574,45 @@
         "sha256": "0330d4862740f9410b18c7b1aed076ceb10dfea4a154daba0ff9678d873f97f3"
       }
     ],
-    "status": "draft"
+    "status": "draft",
+    "note": "原文「利流年不利大運，流年主多意外之喜」，流年見 zitan-hl-year（A14）。"
+  },
+  {
+    "id": "card.ming.jiyue-yinshen.zitan-hl-year",
+    "palace": "命宮",
+    "topic": "運程",
+    "kind": "claim",
+    "system": 42,
+    "when": {
+      "all": [
+        {
+          "star": "紫微",
+          "in": {
+            "name": "命宮",
+            "layer": "annual"
+          }
+        },
+        {
+          "meets": "紫微",
+          "stars": [
+            "火星",
+            "鈴星"
+          ],
+          "reach": "same"
+        }
+      ]
+    },
+    "layer": "annual",
+    "claim": "這一年多意外之喜。",
+    "en": "This year brings many pleasant surprises.",
+    "sources": [
+      {
+        "id": "wtz.deep.p160.b005",
+        "sha256": "0330d4862740f9410b18c7b1aed076ceb10dfea4a154daba0ff9678d873f97f3"
+      }
+    ],
+    "status": "draft",
+    "note": "原文講流年，移去流年層；原局同大限前提保留（A14，2026-10-19）。"
   },
   {
     "id": "card.ming.jiyue-yinshen.zitan-hl-annual",
@@ -1314,30 +1352,36 @@
         {
           "any": [
             {
-              "star": "天同",
-              "hua": "祿"
+              "meets": "天同",
+              "stars": [
+                "化祿",
+                "化權",
+                "化科"
+              ],
+              "reach": "same"
             },
             {
-              "star": "天同",
               "hua": "祿",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              },
               "layer": "decade"
             },
             {
-              "star": "天同",
-              "hua": "權"
-            },
-            {
-              "star": "天同",
               "hua": "權",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              },
               "layer": "decade"
             },
             {
-              "star": "天同",
-              "hua": "科"
-            },
-            {
-              "star": "天同",
               "hua": "科",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              },
               "layer": "decade"
             }
           ]
@@ -1372,7 +1416,8 @@
         "sha256": "aa23137ecefe50303ad500ff5825be076e3408159bd31613f8bdc8eb7e95f2f7"
       }
     ],
-    "status": "draft"
+    "status": "draft",
+    "note": "原文「見／會／遇吉化」：讀做同宮（同度）嘅星本命或大限化祿權科（A9，2026-10-19）。"
   },
   {
     "id": "card.ming.jiyue-yinshen.tong-e",

@@ -986,30 +986,36 @@
         {
           "any": [
             {
-              "star": "天梁",
-              "hua": "祿"
+              "meets": "天梁",
+              "stars": [
+                "化祿",
+                "化權",
+                "化科"
+              ],
+              "reach": "same"
             },
             {
-              "star": "天梁",
-              "hua": "權"
-            },
-            {
-              "star": "天梁",
-              "hua": "科"
-            },
-            {
-              "star": "天梁",
               "hua": "祿",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              },
               "layer": "decade"
             },
             {
-              "star": "天梁",
               "hua": "權",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              },
               "layer": "decade"
             },
             {
-              "star": "天梁",
               "hua": "科",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              },
               "layer": "decade"
             }
           ]
@@ -1037,7 +1043,8 @@
         "sha256": "f2d99bd85a61f17637ae9d94002caf563444b487cd77621b1a1464f2a91fa7d5"
       }
     ],
-    "status": "draft"
+    "status": "draft",
+    "note": "原文「見／會／遇吉化」：讀做同宮（同度）嘅星本命或大限化祿權科（A9，2026-10-19）。"
   },
   {
     "id": "card.ming.tiantong-sihai.d-qisha-r",
@@ -1463,21 +1470,36 @@
         {
           "any": [
             {
-              "star": "貪狼",
-              "hua": "祿"
+              "meets": "貪狼",
+              "stars": [
+                "化祿",
+                "化權",
+                "化科"
+              ],
+              "reach": "same"
             },
             {
-              "star": "貪狼",
-              "hua": "權"
-            },
-            {
-              "star": "貪狼",
               "hua": "祿",
+              "in": {
+                "name": "命宮",
+                "layer": "annual"
+              },
               "layer": "annual"
             },
             {
-              "star": "貪狼",
               "hua": "權",
+              "in": {
+                "name": "命宮",
+                "layer": "annual"
+              },
+              "layer": "annual"
+            },
+            {
+              "hua": "科",
+              "in": {
+                "name": "命宮",
+                "layer": "annual"
+              },
               "layer": "annual"
             }
           ]
@@ -1505,7 +1527,8 @@
         "sha256": "c65b44cfc9aeb365a98543e9747b3e4dcbcb218c16fc4617ff1cd64e761a2ac7"
       }
     ],
-    "status": "draft"
+    "status": "draft",
+    "note": "原文「見／會／遇吉化」：讀做同宮（同度）嘅星本命或大限化祿權科（A9，2026-10-19）。"
   },
   {
     "id": "card.ming.tiantong-sihai.a-zixiang-sha",

@@ -1,5 +1,34 @@
 [
   {
+    "id": "card.ming.liang-chouwei.xiang-year",
+    "palace": "命宮",
+    "topic": "運程",
+    "kind": "advice",
+    "system": 26,
+    "layer": "annual",
+    "when": {
+      "star": "天相",
+      "in": {
+        "name": "命宮",
+        "layer": "annual"
+      }
+    },
+    "claim": "這一年不宜輕易求變，也不宜急進。",
+    "en": "This year, do not rush into change or push ahead too fast.",
+    "sources": [
+      {
+        "id": "wtz.deep.p112.b014",
+        "sha256": "9cbd7724c2f40836ac71cc5fbdbec3453ab5e6753db1ed925b321cfbb1a9f27f"
+      },
+      {
+        "id": "wtz.deep.p113.b001",
+        "sha256": "30915c04cbbaf41bd75484a47f8e8b755246ed542df990af141376c1d40b6609"
+      }
+    ],
+    "status": "draft",
+    "note": "原文講流年，移去流年層；原局同大限前提保留（A14，2026-10-19）。"
+  },
+  {
     "id": "card.ming.liang-chouwei.core",
     "palace": "命宮",
     "topic": "本質",
@@ -850,14 +879,14 @@
     "kind": "claim",
     "system": 26,
     "pole": "精明",
-    "layer": "decade",
+    "layer": "annual",
     "when": {
       "all": [
         {
           "star": "太陽",
           "in": {
             "name": "命宮",
-            "layer": "decade"
+            "layer": "annual"
           }
         },
         {
@@ -873,15 +902,16 @@
         }
       ]
     },
-    "claim": "這十年一般對你不利，容易惹上是非怨言。",
-    "en": "This decade is generally unfavourable for you, with disputes and complaints easily arising.",
+    "claim": "這一年一般對你不利，容易惹上是非怨言。",
+    "en": "This year is generally unfavourable for you, with disputes and complaints easily arising.",
     "sources": [
       {
         "id": "wtz.deep.p111.b009",
         "sha256": "9a12bb81a36d7754b82ccdca6f42d35d57d3d4aa39871909e56b3b4dec97c412"
       }
     ],
-    "status": "draft"
+    "status": "draft",
+    "note": "原文講流年，移去流年層；原局同大限前提保留（A14，2026-10-19）。"
   },
   {
     "id": "card.ming.liang-chouwei.dimsun-money",
@@ -1454,8 +1484,8 @@
         "layer": "decade"
       }
     },
-    "claim": "這十年人際關係多困擾，不宜輕易求變，也不宜急進。",
-    "en": "This decade relationships bring a lot of trouble; do not rush into changes or push ahead too fast.",
+    "claim": "這十年人際關係多困擾。",
+    "en": "This decade brings many troubles in your relationships with people.",
     "sources": [
       {
         "id": "wtz.deep.p112.b014",
@@ -1466,7 +1496,8 @@
         "sha256": "30915c04cbbaf41bd75484a47f8e8b755246ed542df990af141376c1d40b6609"
       }
     ],
-    "status": "draft"
+    "status": "draft",
+    "note": "原文「做於此流年，不宜妄生變化，亦不宜急進」另開流年卡 xiang-year（A14）。"
   },
   {
     "id": "card.ming.liang-chouwei.xiang-jingming-sha",
@@ -1529,8 +1560,8 @@
         "layer": "decade"
       }
     },
-    "claim": "這十年人際上稍有困擾，不宜輕易求變，也不宜急進。",
-    "en": "This decade brings some friction with people; do not rush into changes or push ahead too fast.",
+    "claim": "這十年人際上稍有困擾。",
+    "en": "This decade brings some minor troubles with people.",
     "sources": [
       {
         "id": "wtz.deep.p112.b014",
@@ -1541,6 +1572,7 @@
         "sha256": "30915c04cbbaf41bd75484a47f8e8b755246ed542df990af141376c1d40b6609"
       }
     ],
-    "status": "draft"
+    "status": "draft",
+    "note": "流年建議見 xiang-year（A14）。"
   }
 ]

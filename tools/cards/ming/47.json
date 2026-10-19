@@ -1154,21 +1154,36 @@
         {
           "any": [
             {
-              "star": "貪狼",
-              "hua": "祿"
+              "meets": "貪狼",
+              "stars": [
+                "化祿",
+                "化權",
+                "化科"
+              ],
+              "reach": "same"
             },
             {
-              "star": "貪狼",
-              "hua": "權"
-            },
-            {
-              "star": "貪狼",
               "hua": "祿",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              },
               "layer": "decade"
             },
             {
-              "star": "貪狼",
               "hua": "權",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              },
+              "layer": "decade"
+            },
+            {
+              "hua": "科",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              },
               "layer": "decade"
             }
           ]
@@ -1198,7 +1213,8 @@
         "sha256": "7f9d520d71434d997d833388df9db5d446243e28d717647f62e6b164e7d49b43"
       }
     ],
-    "status": "draft"
+    "status": "draft",
+    "note": "原文「見／會／遇吉化」：讀做同宮（同度）嘅星本命或大限化祿權科（A9，2026-10-19）。"
   },
   {
     "id": "card.ming.pojun-chenxu.d-tanlang-p-ji",

@@ -174,24 +174,22 @@
         {
           "any": [
             {
-              "star": "武曲",
-              "hua": "祿"
+              "meets": "武曲",
+              "stars": [
+                "化祿",
+                "化權",
+                "化科"
+              ],
+              "reach": "same"
             },
             {
-              "star": "武曲",
-              "hua": "權"
-            },
-            {
-              "star": "武曲",
-              "hua": "科"
-            },
-            {
-              "star": "破軍",
-              "hua": "祿"
-            },
-            {
-              "star": "破軍",
-              "hua": "權"
+              "meets": "破軍",
+              "stars": [
+                "化祿",
+                "化權",
+                "化科"
+              ],
+              "reach": "same"
             }
           ]
         },
@@ -218,7 +216,8 @@
         "sha256": "7ea28afc5bcb9e518d8d66796d17672c621191deb1bd840e2bb3209efbfd06ac"
       }
     ],
-    "status": "draft"
+    "status": "draft",
+    "note": "原文「見／會／遇吉化」：讀做同宮（同度）嘅星本命或大限化祿權科（A9，2026-10-19）。"
   },
   {
     "id": "card.ming.wupo-sihai.hezuo",

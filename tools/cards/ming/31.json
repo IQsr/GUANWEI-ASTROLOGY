@@ -1139,30 +1139,36 @@
         {
           "any": [
             {
-              "star": "巨門",
-              "hua": "祿"
+              "meets": "巨門",
+              "stars": [
+                "化祿",
+                "化權",
+                "化科"
+              ],
+              "reach": "same"
             },
             {
-              "star": "巨門",
               "hua": "祿",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              },
               "layer": "decade"
             },
             {
-              "star": "巨門",
-              "hua": "權"
-            },
-            {
-              "star": "巨門",
               "hua": "權",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              },
               "layer": "decade"
             },
             {
-              "star": "巨門",
-              "hua": "科"
-            },
-            {
-              "star": "巨門",
               "hua": "科",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              },
               "layer": "decade"
             }
           ]
@@ -1199,7 +1205,8 @@
         "sha256": "ade88bf21e2e4a0bfbe565ac3ca2ef7d4d0ed6d4f32fbb61ff26f6eccf8ee0e1"
       }
     ],
-    "status": "draft"
+    "status": "draft",
+    "note": "原文「見／會／遇吉化」：讀做同宮（同度）嘅星本命或大限化祿權科（A9，2026-10-19）。"
   },
   {
     "id": "card.ming.pojun-ziwu.d-jumen-ji",
@@ -1293,30 +1300,36 @@
             {
               "any": [
                 {
-                  "star": "巨門",
-                  "hua": "祿"
+                  "meets": "巨門",
+                  "stars": [
+                    "化祿",
+                    "化權",
+                    "化科"
+                  ],
+                  "reach": "same"
                 },
                 {
-                  "star": "巨門",
                   "hua": "祿",
+                  "in": {
+                    "name": "命宮",
+                    "layer": "decade"
+                  },
                   "layer": "decade"
                 },
                 {
-                  "star": "巨門",
-                  "hua": "權"
-                },
-                {
-                  "star": "巨門",
                   "hua": "權",
+                  "in": {
+                    "name": "命宮",
+                    "layer": "decade"
+                  },
                   "layer": "decade"
                 },
                 {
-                  "star": "巨門",
-                  "hua": "科"
-                },
-                {
-                  "star": "巨門",
                   "hua": "科",
+                  "in": {
+                    "name": "命宮",
+                    "layer": "decade"
+                  },
                   "layer": "decade"
                 }
               ]
@@ -1342,7 +1355,8 @@
         "sha256": "e89611904d57bd20629d7b181613eb859d5dfb1c9337a108fe854413fc320eb1"
       }
     ],
-    "status": "draft"
+    "status": "draft",
+    "note": "none 嘅吉化同兄弟卡一樣讀同宮（A9）。"
   },
   {
     "id": "card.ming.pojun-ziwu.d-jumen-sunmiao",
@@ -1589,43 +1603,37 @@
         {
           "any": [
             {
-              "any": [
-                {
-                  "star": "廉貞",
-                  "hua": "祿"
-                },
-                {
-                  "star": "廉貞",
-                  "hua": "祿",
-                  "layer": "annual"
-                }
-              ]
+              "meets": "廉貞",
+              "stars": [
+                "化祿",
+                "化權",
+                "化科"
+              ],
+              "reach": "same"
             },
             {
-              "any": [
-                {
-                  "star": "廉貞",
-                  "hua": "權"
-                },
-                {
-                  "star": "廉貞",
-                  "hua": "權",
-                  "layer": "annual"
-                }
-              ]
+              "hua": "祿",
+              "in": {
+                "name": "命宮",
+                "layer": "annual"
+              },
+              "layer": "annual"
             },
             {
-              "any": [
-                {
-                  "star": "廉貞",
-                  "hua": "科"
-                },
-                {
-                  "star": "廉貞",
-                  "hua": "科",
-                  "layer": "annual"
-                }
-              ]
+              "hua": "權",
+              "in": {
+                "name": "命宮",
+                "layer": "annual"
+              },
+              "layer": "annual"
+            },
+            {
+              "hua": "科",
+              "in": {
+                "name": "命宮",
+                "layer": "annual"
+              },
+              "layer": "annual"
             }
           ]
         },
@@ -1661,7 +1669,8 @@
         "sha256": "9e171cd1d38f1c234f987fb77991a91ad35b993f9904e023526b298dbe74e71d"
       }
     ],
-    "status": "draft"
+    "status": "draft",
+    "note": "原文「見／會／遇吉化」：讀做同宮（同度）嘅星本命或大限化祿權科（A9，2026-10-19）。"
   },
   {
     "id": "card.ming.pojun-ziwu.d-tianliang",

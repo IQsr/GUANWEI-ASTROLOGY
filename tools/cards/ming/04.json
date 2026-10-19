@@ -1319,14 +1319,14 @@
     "kind": "claim",
     "system": 4,
     "pole": "發揮",
-    "layer": "decade",
+    "layer": "annual",
     "when": {
       "all": [
         {
           "star": "武曲",
           "in": {
             "name": "命宮",
-            "layer": "decade"
+            "layer": "annual"
           }
         },
         {
@@ -1335,7 +1335,7 @@
         {
           "sanfangOf": {
             "name": "命宮",
-            "layer": "decade"
+            "layer": "annual"
           },
           "count": "benefic",
           "op": "gte",
@@ -1343,8 +1343,8 @@
         }
       ]
     },
-    "claim": "這十年你容易受上司賞識提拔，只是行事要受人約束。",
-    "en": "This decade superiors may notice and promote you, though you will have to work within their control.",
+    "claim": "這一年你容易受上司賞識提拔，只是行事要受人約束。",
+    "en": "This year superiors may notice and promote you, though you will have to work within their control.",
     "limit": "原文舉流年為例，這裡用於大限；「輔佐諸曜吉會」當大限命宮三方四正見輔佐兩粒或以上。",
     "sources": [
       {
@@ -1356,6 +1356,7 @@
         "sha256": "31742f5587b0e2b8bd8a753e249b9863b29db967efdb882d13e8a8ff9b80b22d"
       }
     ],
-    "status": "draft"
+    "status": "draft",
+    "note": "原文講流年，移去流年層；原局同大限前提保留（A14，2026-10-19）。"
   }
 ]

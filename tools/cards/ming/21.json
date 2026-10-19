@@ -1268,7 +1268,54 @@
         "sha256": "1b7607f54cb95310b2c9a5e393fc7530098509b53bb8977616e59313d3223f4a"
       }
     ],
-    "status": "draft"
+    "status": "draft",
+    "note": "原文「倘流年經行天梁的宮度，有煞忌來會，主明升暗降」另開流年卡 visit-tianliang-year（A14）。"
+  },
+  {
+    "id": "card.ming.zifu-yinshen.visit-tianliang-year",
+    "palace": "命宮",
+    "topic": "運程",
+    "kind": "caveat",
+    "system": 21,
+    "layer": "annual",
+    "when": {
+      "all": [
+        {
+          "star": "天梁",
+          "in": {
+            "name": "命宮",
+            "layer": "annual"
+          }
+        },
+        {
+          "meets": "天梁",
+          "stars": [
+            "擎羊",
+            "陀羅",
+            "火星",
+            "鈴星",
+            "地空",
+            "地劫"
+          ]
+        },
+        {
+          "meets": "天梁",
+          "stars": [
+            "化忌"
+          ]
+        }
+      ]
+    },
+    "claim": "這一年容易表面上升，實際的權力反而減少。",
+    "en": "This year you may rise in title while your real authority shrinks.",
+    "sources": [
+      {
+        "id": "wtz.deep.p099.b007",
+        "sha256": "1b7607f54cb95310b2c9a5e393fc7530098509b53bb8977616e59313d3223f4a"
+      }
+    ],
+    "status": "draft",
+    "note": "原文講流年，移去流年層；原局同大限前提保留（A14，2026-10-19）。"
   },
   {
     "id": "card.ming.zifu-yinshen.visit-tianliang-sun",

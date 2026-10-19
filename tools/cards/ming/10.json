@@ -1307,28 +1307,22 @@
         {
           "any": [
             {
-              "star": "天同",
-              "hua": "祿"
+              "meets": "天同",
+              "stars": [
+                "化祿",
+                "化權",
+                "化科"
+              ],
+              "reach": "same"
             },
             {
-              "star": "天同",
-              "hua": "權"
-            },
-            {
-              "star": "天同",
-              "hua": "科"
-            },
-            {
-              "star": "巨門",
-              "hua": "祿"
-            },
-            {
-              "star": "巨門",
-              "hua": "權"
-            },
-            {
-              "star": "巨門",
-              "hua": "科"
+              "meets": "巨門",
+              "stars": [
+                "化祿",
+                "化權",
+                "化科"
+              ],
+              "reach": "same"
             }
           ]
         }
@@ -1352,7 +1346,8 @@
         "sha256": "d6f2be012e1686d3749ec711d5f847d7afa8608d9d4098d6683312ffe267959a"
       }
     ],
-    "status": "draft"
+    "status": "draft",
+    "note": "原文「見／會／遇吉化」：讀做同宮（同度）嘅星本命或大限化祿權科（A9，2026-10-19）。"
   },
   {
     "id": "card.ming.tianji-sihai.visit-tj-shifei",
@@ -1392,28 +1387,22 @@
         {
           "any": [
             {
-              "star": "天同",
-              "hua": "祿"
+              "meets": "天同",
+              "stars": [
+                "化祿",
+                "化權",
+                "化科"
+              ],
+              "reach": "same"
             },
             {
-              "star": "天同",
-              "hua": "權"
-            },
-            {
-              "star": "天同",
-              "hua": "科"
-            },
-            {
-              "star": "巨門",
-              "hua": "祿"
-            },
-            {
-              "star": "巨門",
-              "hua": "權"
-            },
-            {
-              "star": "巨門",
-              "hua": "科"
+              "meets": "巨門",
+              "stars": [
+                "化祿",
+                "化權",
+                "化科"
+              ],
+              "reach": "same"
             }
           ]
         }
@@ -1428,7 +1417,8 @@
         "sha256": "f9d28558803e05af73b15a79a47bfb459a055eb57eefa7f079ebd43cf11fa3dc"
       }
     ],
-    "status": "draft"
+    "status": "draft",
+    "note": "原文「見／會／遇吉化」：讀做同宮（同度）嘅星本命或大限化祿權科（A9，2026-10-19）。"
   },
   {
     "id": "card.ming.tianji-sihai.visit-lf-jibian",
