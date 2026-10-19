@@ -70,8 +70,9 @@ export const Card = z
     /**
      * draft：寫好未覆核；reviewed：第二個人對過原頁；
      * needs_atom：原文條件（例如「在野孤君」「空庫露庫」）條件語言未寫得出，暫時唔出。
+     * hold：原文有疑問（疑字、前後矛盾）待核，暫時唔出；note 要講明原因。
      */
-    status: z.enum(['draft', 'reviewed', 'needs_atom']),
+    status: z.enum(['draft', 'reviewed', 'needs_atom', 'hold']),
     note: z.string().optional(),
   })
   .superRefine((c, ctx) => {
@@ -112,7 +113,7 @@ function check(cond: Condition | undefined, ctx: { chart: Chart; annual?: Annual
  * 呢張盤命宮命中邊啲卡。
  *
  * 次序：星系 → 偏向 → 前提 → 排除。前提要成立（not_applicable 當唔成立：冇流年資料就唔講流年）。
- * 只出 status 唔係 needs_atom 嘅卡。
+ * 只出 status 唔係 needs_atom／hold 嘅卡。
  */
 export function cardsFor(chart: Chart, annual?: AnnualChart, layer: Card['layer'] = 'natal', pool: Card[] = CARDS): Hit[] {
   const x = xingxiOf(chart);
@@ -122,7 +123,7 @@ export function cardsFor(chart: Chart, annual?: AnnualChart, layer: Card['layer'
   const ctx = { chart, annual };
   const hits: Hit[] = [];
   for (const card of pool) {
-    if (card.status === 'needs_atom' || card.layer !== layer || card.system !== x.system.n) continue;
+    if (card.status === 'needs_atom' || card.status === 'hold' || card.layer !== layer || card.system !== x.system.n) continue;
     if (card.pole && !(Array.isArray(card.pole) ? card.pole : [card.pole]).includes(pole)) continue;
     const w = check(card.when, ctx);
     if (w.status !== 'matched') continue;

@@ -2683,5 +2683,62 @@
       }
     ],
     "status": "draft"
+  },
+  {
+    "palace": "命宮",
+    "topic": "運程",
+    "kind": "claim",
+    "system": 45,
+    "layer": "natal",
+    "status": "draft",
+    "id": "card.ming.qisha-ziwu.pojun-lu-zhuanbian",
+    "when": {
+      "star": "破軍",
+      "hua": "祿"
+    },
+    "claim": "你一生往往要經過一次重大轉變，然後取得成就。",
+    "en": "Your life often turns on one major change, after which you achieve.",
+    "sources": [
+      {
+        "id": "wtz.deep.p362.b005",
+        "sha256": "0a823ca55e98d396add539ee7235b14cc032744e060e9a58f7cb32388d6b3a03"
+      }
+    ],
+    "note": "B11：同 pojun-lu（p170.b005 焦慮、艱苦）並存：成就機遇同精神負擔兩面。p170／p362「最喜」排名唔一致，唔做排序。 成雄宿乾元格嘅盤由 xiongsu-fa 講發跡時機，呢張唔出。",
+    "none": {
+      "all": [
+        {
+          "star": "七殺",
+          "at": [
+            "午"
+          ]
+        },
+        {
+          "meets": "七殺",
+          "stars": [
+            "左輔",
+            "右弼",
+            "文昌",
+            "文曲",
+            "天魁",
+            "天鉞",
+            "化祿",
+            "化權",
+            "化科",
+            "祿存"
+          ]
+        },
+        {
+          "not": {
+            "meets": "七殺",
+            "stars": [
+              "火星",
+              "鈴星"
+            ],
+            "reach": "same"
+          }
+        }
+      ]
+    }
   }
 ]

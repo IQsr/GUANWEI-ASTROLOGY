@@ -5616,8 +5616,8 @@
         "sha256": "b47c6e25dd9aec879fe2ab61f4cfc4a5d14bab45592cdfb8a0a3ab5eed1053d2"
       }
     ],
-    "status": "draft",
-    "note": "疑點：p.50 星系節說巳宮太陰無論日夜生均為收斂（wtz.deep.p050.b011），命宮章 p.353 卻說巳宮「落陷，發散太過」（wtz.deep.p353.b005），兩處相反，待人手拍板。本卡只取「多缺憾」，不講收斂或發散。"
+    "status": "hold",
+    "note": "疑點：p.50 星系節說巳宮太陰無論日夜生均為收斂（wtz.deep.p050.b011），命宮章 p.353 卻說巳宮「落陷，發散太過」（wtz.deep.p353.b005），兩處相反，待人手拍板。本卡只取「多缺憾」，不講收斂或發散。 B1（2026-10-19）：巳宮收斂（p050.b011）同巳宮發散太過（p353.b005）有張力，未有依據話講緊唔同意思；「多缺憾」太籠統，暫停。系統偏向亦唔再單憑巳宮投收斂。"
   },
   {
     "id": "card.ming.taiyin-sihai.lian-lu",
@@ -7985,7 +7985,8 @@
         "sha256": "553b855fdc2d6be13444d045e511341221c536426f0f5f0366e8a133d6332c5a"
       }
     ],
-    "status": "draft"
+    "status": "hold",
+    "note": "B16：天同化祿同天機化權必然配套，唔可以當兩份獨立證據；「會科權吉化」範圍同層次未核清，暫停「必有隱痛／已免隱痛」兩種確定句。"
   },
   {
     "id": "card.ming.tongju-chouwei.yinsun",
@@ -8075,7 +8076,8 @@
         "sha256": "553b855fdc2d6be13444d045e511341221c536426f0f5f0366e8a133d6332c5a"
       }
     ],
-    "status": "draft"
+    "status": "hold",
+    "note": "B16：天同化祿同天機化權必然配套，唔可以當兩份獨立證據；「會科權吉化」範圍同層次未核清，暫停「必有隱痛／已免隱痛」兩種確定句。"
   },
   {
     "id": "card.ming.tongju-chouwei.huoling",
@@ -14621,6 +14623,55 @@
     "status": "draft"
   },
   {
+    "palace": "命宮",
+    "topic": "運程",
+    "kind": "caveat",
+    "system": 9,
+    "layer": "decade",
+    "status": "draft",
+    "id": "card.ming.qisha-chenxu.visit-tianji-plain",
+    "when": {
+      "star": "天機",
+      "in": {
+        "name": "命宮",
+        "layer": "decade"
+      }
+    },
+    "none": {
+      "any": [
+        {
+          "any": [
+            {
+              "star": "天機",
+              "hua": "祿"
+            },
+            {
+              "star": "天機",
+              "hua": "權"
+            },
+            {
+              "star": "天機",
+              "hua": "科"
+            }
+          ]
+        },
+        {
+          "star": "天機",
+          "hua": "忌"
+        }
+      ]
+    },
+    "claim": "這十年是對你較不利的運程。",
+    "en": "This decade is among the less favourable for you.",
+    "sources": [
+      {
+        "id": "wtz.deep.p361.b011",
+        "sha256": "ab7a25cfdfa6cfdff52ef921e98bee319bf0592767e3c8c45f3fc526c1c7b2ab"
+      }
+    ],
+    "note": "B3：p361.b011「天機、巨門二曜坐守之宮度，七殺最不宜行」。天機吉化（有利）同天機化忌見刑煞（不利）另有 p065.b011 專卡，呢度只出兩樣都唔係嘅情況。"
+  },
+  {
     "id": "card.ming.tianji-sihai.core",
     "palace": "命宮",
     "topic": "本質",
@@ -18403,6 +18454,39 @@
     "status": "draft"
   },
   {
+    "palace": "命宮",
+    "topic": "運程",
+    "kind": "caveat",
+    "system": 11,
+    "layer": "decade",
+    "status": "draft",
+    "id": "card.ming.zipo.visit-tianfu-lu-renqing",
+    "when": {
+      "all": [
+        {
+          "star": "天府",
+          "in": {
+            "name": "命宮",
+            "layer": "decade"
+          }
+        },
+        {
+          "deLu": "天府",
+          "layer": "decade"
+        }
+      ]
+    },
+    "claim": "這十年要留意，錢財上的得失容易牽動人情。",
+    "en": "This decade, watch how gains and losses of money can strain your relationships.",
+    "sources": [
+      {
+        "id": "wtz.deep.p335.b010",
+        "sha256": "e9532c637357ac8f57ece5c3a82b18213fa0ed0ebf3f491ef0a3c85664136478"
+      }
+    ],
+    "note": "B4：p335.b010「天府得祿，則僅主因財失義」作獨立提醒，同 visit-tianfu-lu（p072.b001 安定）並存，唔互相抵銷；讀者文字唔判「失義」。"
+  },
+  {
     "id": "card.ming.tianfu-maoyou.core",
     "palace": "命宮",
     "topic": "本質",
@@ -19655,8 +19739,8 @@
       ]
     },
     "layer": "decade",
-    "claim": "這十年容易有名無實，忙了一場卻得不到相應的回報。",
-    "en": "This decade can bring a title without substance: busy, yet without matching returns.",
+    "claim": "這十年處境一般有利，但要見祿才有實際收穫。",
+    "en": "This decade generally favours you, but real gains come only with Lu.",
     "sources": [
       {
         "id": "wtz.deep.p074.b005",
@@ -19665,9 +19749,14 @@
       {
         "id": "wtz.deep.p074.b008",
         "sha256": "7b584059ac86dd868c7b01f10f9a84ecb34d5657caf8f473caf947af75272351"
+      },
+      {
+        "id": "wtz.deep.p350.b003",
+        "sha256": "3c9b6c2202d4da751cae8813ebb7faab3cbd1b037f18ba4a7cfa47d47084521f"
       }
     ],
-    "status": "draft"
+    "status": "draft",
+    "note": "B5：太陽一般有利（p350.b003），入廟而無祿則無實益（p074.b008）。"
   },
   {
     "id": "card.ming.tianfu-maoyou.visit-tyang-lu",
@@ -20401,6 +20490,106 @@
       }
     ],
     "status": "draft"
+  },
+  {
+    "palace": "命宮",
+    "topic": "運程",
+    "kind": "claim",
+    "system": 12,
+    "layer": "annual",
+    "status": "draft",
+    "id": "card.ming.tianfu-maoyou.tl-year-dev",
+    "when": {
+      "all": [
+        {
+          "star": "天同",
+          "in": {
+            "name": "命宮",
+            "layer": "annual"
+          }
+        },
+        {
+          "star": "天梁",
+          "in": {
+            "name": "命宮",
+            "layer": "annual"
+          }
+        },
+        {
+          "any": [
+            {
+              "all": [
+                {
+                  "star": "紫微",
+                  "in": {
+                    "name": "命宮",
+                    "layer": "decade"
+                  }
+                },
+                {
+                  "star": "破軍",
+                  "in": {
+                    "name": "命宮",
+                    "layer": "decade"
+                  }
+                }
+              ]
+            },
+            {
+              "all": [
+                {
+                  "star": "巨門",
+                  "in": {
+                    "name": "命宮",
+                    "layer": "decade"
+                  }
+                },
+                {
+                  "any": [
+                    {
+                      "star": "巨門",
+                      "hua": "祿"
+                    },
+                    {
+                      "star": "巨門",
+                      "hua": "權"
+                    },
+                    {
+                      "star": "巨門",
+                      "hua": "祿",
+                      "layer": "decade"
+                    },
+                    {
+                      "star": "巨門",
+                      "hua": "權",
+                      "layer": "decade"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sanfangOf": {
+            "name": "命宮",
+            "layer": "annual"
+          },
+          "count": "benefic",
+          "op": "gte",
+          "n": 1
+        }
+      ]
+    },
+    "claim": "這一年可以打下事業的根基。",
+    "en": "This year you can lay the groundwork for your career.",
+    "sources": [
+      {
+        "id": "wtz.deep.p075.b002",
+        "sha256": "681379732e2a9784aa67dfeb5ad707d9f7764c64ae0214a62ae2eec214bf4694"
+      }
+    ],
+    "note": "B5：p075.b002 例外：大運紫破守命或巨門化祿權守命，流年同梁又見吉會，先成根本性發展。"
   },
   {
     "id": "card.ming.taiyin-chenxu.core",
@@ -64052,7 +64241,7 @@
       }
     ],
     "status": "draft",
-    "note": "p345.b004（天同通論）說天同一般喜行七殺宮限，稍見吉、三方得祿即奮發；p119.b003（本星系）說七殺守垣一般不利天同。此處以得祿與否分開兩張，要人拍板。",
+    "note": "p345.b004（天同通論）說天同一般喜行七殺宮限，稍見吉、三方得祿即奮發；p119.b003（本星系）說七殺守垣一般不利天同。此處以得祿與否分開兩張，要人拍板。 B2：p345.b004 前提係七殺宮限稍見吉曜、三方得祿、原局煞忌刑耗唔重，三樣都寫咗；同 sha-nolu 互斥。",
     "limit": "原文「除非原局煞忌刑耗重重…稍見吉曜，且於三方四正得祿」；重重當天同三方四正三粒或以上煞忌刑（大耗引擎冇）。"
   },
   {
@@ -64104,15 +64293,16 @@
         }
       ]
     },
-    "claim": "這十年一般對你不利，愈貪享受愈吃虧。",
-    "en": "This decade generally works against you; the more you chase comfort, the more it costs you.",
+    "claim": "這十年一般對你不利。",
+    "en": "This decade generally does not favour you.",
     "sources": [
       {
         "id": "wtz.deep.p119.b003",
         "sha256": "01e9929f942d0a4e1542539aef17c5e975eb20eb7b7d6bbd927729bab7336a28"
       }
     ],
-    "status": "draft"
+    "status": "draft",
+    "limit": "原文「少年愈享受的天同，至此愈為不利」：盤面睇唔到少年享受程度，唔寫入讀者文字（B2）。"
   },
   {
     "id": "card.ming.tong-maoyou.sha-ziquan",
@@ -73633,29 +73823,67 @@
     "none": {
       "any": [
         {
-          "all": [
+          "any": [
             {
-              "star": "巨門",
-              "at": [
-                "辰"
-              ]
-            },
-            {
-              "star": "巨門",
-              "hua": "祿"
-            },
-            {
-              "any": [
+              "all": [
                 {
-                  "together": [
-                    "巨門",
-                    "文昌"
+                  "star": "巨門",
+                  "at": [
+                    "辰"
                   ]
                 },
                 {
-                  "star": "文昌",
+                  "star": "巨門",
+                  "hua": "祿"
+                },
+                {
+                  "any": [
+                    {
+                      "together": [
+                        "巨門",
+                        "文昌"
+                      ]
+                    },
+                    {
+                      "star": "文昌",
+                      "at": [
+                        "戌"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "all": [
+                {
+                  "star": "巨門",
                   "at": [
                     "戌"
+                  ]
+                },
+                {
+                  "any": [
+                    {
+                      "star": "巨門",
+                      "hua": "權"
+                    },
+                    {
+                      "all": [
+                        {
+                          "star": "巨門",
+                          "hua": "祿"
+                        },
+                        {
+                          "not": {
+                            "meets": "巨門",
+                            "stars": [
+                              "文昌"
+                            ]
+                          }
+                        }
+                      ]
+                    }
                   ]
                 }
               ]
@@ -73671,27 +73899,13 @@
               ]
             },
             {
-              "any": [
-                {
-                  "star": "巨門",
-                  "hua": "權"
-                },
-                {
-                  "all": [
-                    {
-                      "star": "巨門",
-                      "hua": "祿"
-                    },
-                    {
-                      "not": {
-                        "meets": "巨門",
-                        "stars": [
-                          "文昌"
-                        ]
-                      }
-                    }
-                  ]
-                }
+              "star": "巨門",
+              "hua": "祿"
+            },
+            {
+              "meets": "巨門",
+              "stars": [
+                "文昌"
               ]
             }
           ]
@@ -73712,7 +73926,7 @@
       }
     ],
     "status": "draft",
-    "note": "none 同 qige 嘅奇格條件一致（A5）。"
+    "note": "none 同 qige 嘅奇格條件一致（A5）。 B6：戌宮巨門化祿而三方四正見文昌（辛年文昌化忌），p136.b003 同 p356.b008 真係重疊，暫停判斷，奇格同一般不利都唔出。"
   },
   {
     "id": "card.ming.jumen-chenxu.jifa",
@@ -73855,7 +74069,7 @@
       }
     ],
     "status": "draft",
-    "note": "p136.b003 話戌宮辛年都係奇格，p356.b008 話戌宮反不宜見文昌化忌；按 A5 取完整條件，辛年戌宮要唔見文昌先算。"
+    "note": "p136.b003 話戌宮辛年都係奇格，p356.b008 話戌宮反不宜見文昌化忌；按 A5 取完整條件，辛年戌宮要唔見文昌先算。 B6：重疊部分（戌宮化祿見文昌忌）暫停，唔一律跟 p136。"
   },
   {
     "id": "card.ming.jumen-chenxu.xiage",
@@ -74165,33 +74379,171 @@
     "system": 34,
     "layer": "natal",
     "decades": {
-      "any": [
+      "all": [
         {
-          "star": "天相",
-          "in": {
-            "name": "命宮",
-            "layer": "decade"
-          }
+          "any": [
+            {
+              "star": "天相",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "star": "天梁",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "star": "天同",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "all": [
+                {
+                  "star": "天府",
+                  "in": {
+                    "name": "命宮",
+                    "layer": "decade"
+                  }
+                },
+                {
+                  "any": [
+                    {
+                      "not": {
+                        "any": [
+                          {
+                            "deLu": "天府",
+                            "layer": "decade"
+                          },
+                          {
+                            "any": [
+                              {
+                                "star": "天府",
+                                "hua": "祿"
+                              },
+                              {
+                                "star": "天府",
+                                "hua": "權"
+                              },
+                              {
+                                "star": "天府",
+                                "hua": "科"
+                              },
+                              {
+                                "star": "天府",
+                                "hua": "祿",
+                                "layer": "decade"
+                              },
+                              {
+                                "star": "天府",
+                                "hua": "權",
+                                "layer": "decade"
+                              },
+                              {
+                                "star": "天府",
+                                "hua": "科",
+                                "layer": "decade"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "geju": "xingji"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
         },
         {
-          "star": "天梁",
-          "in": {
-            "name": "命宮",
-            "layer": "decade"
-          }
-        },
-        {
-          "star": "天同",
-          "in": {
-            "name": "命宮",
-            "layer": "decade"
-          }
-        },
-        {
-          "star": "天府",
-          "in": {
-            "name": "命宮",
-            "layer": "decade"
+          "not": {
+            "any": [
+              {
+                "sanfangOf": {
+                  "name": "命宮",
+                  "layer": "decade"
+                },
+                "contains": "祿存"
+              },
+              {
+                "flow": "祿存",
+                "layer": "decade",
+                "in": {
+                  "name": "命宮",
+                  "layer": "decade"
+                },
+                "reach": "sanfang"
+              },
+              {
+                "hua": "祿",
+                "in": {
+                  "name": "命宮",
+                  "layer": "decade"
+                }
+              },
+              {
+                "hua": "祿",
+                "in": {
+                  "name": "命宮",
+                  "layer": "decade"
+                },
+                "layer": "decade"
+              },
+              {
+                "hua": "祿",
+                "in": {
+                  "name": "財帛",
+                  "layer": "decade"
+                }
+              },
+              {
+                "hua": "祿",
+                "in": {
+                  "name": "財帛",
+                  "layer": "decade"
+                },
+                "layer": "decade"
+              },
+              {
+                "hua": "祿",
+                "in": {
+                  "name": "官祿",
+                  "layer": "decade"
+                }
+              },
+              {
+                "hua": "祿",
+                "in": {
+                  "name": "官祿",
+                  "layer": "decade"
+                },
+                "layer": "decade"
+              },
+              {
+                "hua": "祿",
+                "in": {
+                  "name": "遷移",
+                  "layer": "decade"
+                }
+              },
+              {
+                "hua": "祿",
+                "in": {
+                  "name": "遷移",
+                  "layer": "decade"
+                },
+                "layer": "decade"
+              }
+            ]
           }
         }
       ]
@@ -74205,7 +74557,8 @@
       }
     ],
     "status": "draft",
-    "note": "p356.b006 說不宜行天府；但 p137.b009 說天府見祿為佳運，p356.b007 說辰宮奇格行天府發跡。待人手判斷是否保留天府。"
+    "note": "p356.b006 說不宜行天府；但 p137.b009 說天府見祿為佳運，p356.b007 說辰宮奇格行天府發跡。待人手判斷是否保留天府。",
+    "limit": "一般限制＋具體例外（B7）：p356.b006 不宜行天相、天梁、天同、天府；但見祿存化祿可解（同段），天府見祿或吉化係佳運（p137.b009，遭忌者要唔會刑忌夾天相）。"
   },
   {
     "id": "card.ming.jumen-chenxu.lu-decades",
@@ -75850,7 +76203,8 @@
         "sha256": "14177ca1796c69bbeddc6401c141f9a70eaf684e9e85624c7660e3df9320ada2"
       }
     ],
-    "status": "draft"
+    "status": "hold",
+    "note": "B8：p138 財印／刑忌兩段幾乎重複，祿照天府嘅解釋亦唔順，唔似只錯一個字；暫停由可疑段推出判斷，未證實應校成邊個字。財蔭夾跟 p357.b003（caiyin 卡）。"
   },
   {
     "id": "card.ming.tianxiang-sihai.caiyin",
@@ -97234,6 +97588,63 @@
     "status": "draft"
   },
   {
+    "palace": "命宮",
+    "topic": "運程",
+    "kind": "claim",
+    "system": 45,
+    "layer": "natal",
+    "status": "draft",
+    "id": "card.ming.qisha-ziwu.pojun-lu-zhuanbian",
+    "when": {
+      "star": "破軍",
+      "hua": "祿"
+    },
+    "claim": "你一生往往要經過一次重大轉變，然後取得成就。",
+    "en": "Your life often turns on one major change, after which you achieve.",
+    "sources": [
+      {
+        "id": "wtz.deep.p362.b005",
+        "sha256": "0a823ca55e98d396add539ee7235b14cc032744e060e9a58f7cb32388d6b3a03"
+      }
+    ],
+    "note": "B11：同 pojun-lu（p170.b005 焦慮、艱苦）並存：成就機遇同精神負擔兩面。p170／p362「最喜」排名唔一致，唔做排序。 成雄宿乾元格嘅盤由 xiongsu-fa 講發跡時機，呢張唔出。",
+    "none": {
+      "all": [
+        {
+          "star": "七殺",
+          "at": [
+            "午"
+          ]
+        },
+        {
+          "meets": "七殺",
+          "stars": [
+            "左輔",
+            "右弼",
+            "文昌",
+            "文曲",
+            "天魁",
+            "天鉞",
+            "化祿",
+            "化權",
+            "化科",
+            "祿存"
+          ]
+        },
+        {
+          "not": {
+            "meets": "七殺",
+            "stars": [
+              "火星",
+              "鈴星"
+            ],
+            "reach": "same"
+          }
+        }
+      ]
+    }
+  },
+  {
     "id": "card.ming.lianzhen-yinshen.core",
     "palace": "命宮",
     "topic": "本質",
@@ -110089,6 +110500,48 @@
     "note": "原文「見／會／遇吉化」：讀做同宮（同度）嘅星本命或大限化祿權科（A9，2026-10-19）。"
   },
   {
+    "palace": "命宮",
+    "topic": "本質",
+    "kind": "caveat",
+    "system": 52,
+    "layer": "natal",
+    "status": "draft",
+    "id": "card.ming.jiju-maoyou.taiyang-dedi",
+    "when": {
+      "all": [
+        {
+          "sanfangOf": {
+            "name": "命宮"
+          },
+          "contains": "太陽"
+        },
+        {
+          "star": "太陽",
+          "brightness": [
+            "廟",
+            "旺",
+            "得"
+          ]
+        },
+        {
+          "not": {
+            "star": "太陽",
+            "hua": "忌"
+          }
+        }
+      ]
+    },
+    "claim": "你浮躁的一面較易收斂。",
+    "en": "Your restless streak is easier to rein in.",
+    "sources": [
+      {
+        "id": "wtz.deep.p191.b011",
+        "sha256": "210db5ca55186052ff0435630119aac34fd00aedd66e8d27722592bf2fcf9186"
+      }
+    ],
+    "note": "B9：只作局部修飾「減浮薄」（p191.b011 三合太陽得地）；唔做整體卯酉排名（p356.b001 講卯優於酉喺富貴條件附近）。"
+  },
+  {
     "id": "card.ming.zisha.core",
     "palace": "命宮",
     "topic": "本質",
@@ -111361,7 +111814,8 @@
         "sha256": "cbf74cde079b777f2fa85f490ca3038e488462b8faa7fe693da4ed3fb3493f8d"
       }
     ],
-    "status": "draft"
+    "status": "draft",
+    "note": "B10：p196.b013 比 p337.b009 具體，按本質分支；偏向未定唔出。"
   },
   {
     "id": "card.ming.zisha.visit-juyang-qs-shen",
@@ -114325,7 +114779,8 @@
           ]
         }
       ]
-    }
+    },
+    "note": "B12：祿存只作修飾，「氣魄不大」唔等於冇財富成就；富貴雙全要 p351.b007 嘅完整配置（geju-good）。"
   },
   {
     "id": "card.ming.tianfu-sihai.tiba",
@@ -117998,7 +118453,8 @@
         "sha256": "e3dfcb72204ad65fab82a7a2966f9f6c2c3033c5c52c793b012044de9e107c09"
       }
     ],
-    "status": "draft"
+    "status": "draft",
+    "note": "B13：積極程度、情緒穩定、成格吉利係唔同面向；p345.b007 成馬頭帶箭嘅午宮較佳，不成格嘅午宮不如子宮。唔寫午宮全面優於子宮。"
   },
   {
     "id": "card.ming.tongyin-ziwu.taohua",
@@ -120844,7 +121300,77 @@
         "sha256": "63dac894d313662ce4bfdcb4eed3af48d5cad2bea0921612b2debf0370764489"
       }
     ],
-    "status": "draft"
+    "status": "draft",
+    "note": "B14：同 tf-full／tf-kong 並存，財務面同發展面分開。"
+  },
+  {
+    "palace": "命宮",
+    "topic": "運程",
+    "kind": "caveat",
+    "system": 56,
+    "layer": "decade",
+    "status": "draft",
+    "id": "card.ming.tongyin-ziwu.tf-caiyin",
+    "when": {
+      "all": [
+        {
+          "star": "天府",
+          "in": {
+            "name": "命宮",
+            "layer": "decade"
+          }
+        },
+        {
+          "any": [
+            {
+              "meets": "天府",
+              "stars": [
+                "化祿",
+                "化權",
+                "化科"
+              ],
+              "reach": "same"
+            },
+            {
+              "hua": "祿",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              },
+              "layer": "decade"
+            },
+            {
+              "hua": "權",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              },
+              "layer": "decade"
+            },
+            {
+              "hua": "科",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              },
+              "layer": "decade"
+            }
+          ]
+        },
+        {
+          "geju": "caiyin"
+        }
+      ]
+    },
+    "claim": "這十年可以享受福蔭，但同時暗中有損耗。",
+    "en": "This decade you can enjoy good fortune, though it quietly costs you too.",
+    "sources": [
+      {
+        "id": "wtz.deep.p205.b012",
+        "sha256": "bd0dbf8c31a6b21fdd95030dd778ed7dff9cd9581fb4f48eeeb7a27e7720d1a4"
+      }
+    ],
+    "note": "B14：保留整組（p205.b011 一般停滯、b012 享福暗耗、b013 按空露同積極消極分）。財務有獲唔等於開創順暢。見吉化按 A9 讀同宮。"
   },
   {
     "id": "card.ming.wutan-chouwei.core",
@@ -121220,7 +121746,8 @@
         "sha256": "0d4cac7d76b754795d21cbc7c38245ad34b7bab1c060fb6980e8b9578cdc1e6e"
       }
     ],
-    "status": "draft"
+    "status": "draft",
+    "note": "B15：武貪專段做主要樞紐；p355.b002 通則另存補充，唔判通則錯。"
   },
   {
     "id": "card.ming.wutan-chouwei.yj-yd",
@@ -123509,6 +124036,71 @@
     ],
     "status": "draft",
     "limit": "「見忌星」當流年命宮三方四正見本命化忌，或流年化忌入流年命財官遷。"
+  },
+  {
+    "palace": "命宮",
+    "topic": "運程",
+    "kind": "caveat",
+    "system": 57,
+    "layer": "annual",
+    "status": "draft",
+    "id": "card.ming.wutan-chouwei.pivot-year",
+    "when": {
+      "any": [
+        {
+          "star": "天府",
+          "in": {
+            "name": "命宮",
+            "layer": "annual"
+          }
+        },
+        {
+          "all": [
+            {
+              "star": "廉貞",
+              "in": {
+                "name": "命宮",
+                "layer": "annual"
+              }
+            },
+            {
+              "star": "破軍",
+              "in": {
+                "name": "命宮",
+                "layer": "annual"
+              }
+            }
+          ]
+        },
+        {
+          "all": [
+            {
+              "star": "天機",
+              "in": {
+                "name": "命宮",
+                "layer": "annual"
+              }
+            },
+            {
+              "star": "天梁",
+              "in": {
+                "name": "命宮",
+                "layer": "annual"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "claim": "這一年是你運程的轉折點之一。",
+    "en": "This year is one of the turning points in your fortunes.",
+    "sources": [
+      {
+        "id": "wtz.deep.p343.b006",
+        "sha256": "52c80deb7e5830bbb5035da228aa3a40fff8f2ecf5d2c5718fb7927cc46c2991"
+      }
+    ],
+    "note": "B15：p343.b006 流年樞紐，同 pivot（p343.b005 人生樞紐）分開；p355.b002 貪狼通則作補充，唔併入。"
   },
   {
     "id": "card.ming.yangju-yinshen.core",

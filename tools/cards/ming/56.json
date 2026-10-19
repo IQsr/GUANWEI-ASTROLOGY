@@ -304,7 +304,8 @@
         "sha256": "e3dfcb72204ad65fab82a7a2966f9f6c2c3033c5c52c793b012044de9e107c09"
       }
     ],
-    "status": "draft"
+    "status": "draft",
+    "note": "B13：積極程度、情緒穩定、成格吉利係唔同面向；p345.b007 成馬頭帶箭嘅午宮較佳，不成格嘅午宮不如子宮。唔寫午宮全面優於子宮。"
   },
   {
     "id": "card.ming.tongyin-ziwu.taohua",
@@ -3150,6 +3151,76 @@
         "sha256": "63dac894d313662ce4bfdcb4eed3af48d5cad2bea0921612b2debf0370764489"
       }
     ],
-    "status": "draft"
+    "status": "draft",
+    "note": "B14：同 tf-full／tf-kong 並存，財務面同發展面分開。"
+  },
+  {
+    "palace": "命宮",
+    "topic": "運程",
+    "kind": "caveat",
+    "system": 56,
+    "layer": "decade",
+    "status": "draft",
+    "id": "card.ming.tongyin-ziwu.tf-caiyin",
+    "when": {
+      "all": [
+        {
+          "star": "天府",
+          "in": {
+            "name": "命宮",
+            "layer": "decade"
+          }
+        },
+        {
+          "any": [
+            {
+              "meets": "天府",
+              "stars": [
+                "化祿",
+                "化權",
+                "化科"
+              ],
+              "reach": "same"
+            },
+            {
+              "hua": "祿",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              },
+              "layer": "decade"
+            },
+            {
+              "hua": "權",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              },
+              "layer": "decade"
+            },
+            {
+              "hua": "科",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              },
+              "layer": "decade"
+            }
+          ]
+        },
+        {
+          "geju": "caiyin"
+        }
+      ]
+    },
+    "claim": "這十年可以享受福蔭，但同時暗中有損耗。",
+    "en": "This decade you can enjoy good fortune, though it quietly costs you too.",
+    "sources": [
+      {
+        "id": "wtz.deep.p205.b012",
+        "sha256": "bd0dbf8c31a6b21fdd95030dd778ed7dff9cd9581fb4f48eeeb7a27e7720d1a4"
+      }
+    ],
+    "note": "B14：保留整組（p205.b011 一般停滯、b012 享福暗耗、b013 按空露同積極消極分）。財務有獲唔等於開創順暢。見吉化按 A9 讀同宮。"
   }
 ]

@@ -109,7 +109,7 @@ describe('條件卡：一個話題一把聲', () => {
     }
     if (process.env.CARD_STATS) writeFileSync(resolve(process.env.CARD_STATS), JSON.stringify({ seen, bad }, null, 1));
     expect([...new Set(bad.map((b) => b.replace(/ 盤\d+ \d+/, '')))]).toEqual([]);
-    const never = POOL.filter((c) => c.status !== 'needs_atom' && !c.rare && !seen[c.id]).map((c) => c.id);
+    const never = POOL.filter((c) => c.status !== 'needs_atom' && c.status !== 'hold' && !c.rare && !seen[c.id]).map((c) => c.id);
     expect(never, '抽樣盤一次都唔中：條件寫錯，或者真係罕見（標 rare: true）').toEqual([]);
   });
 });

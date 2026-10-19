@@ -1901,5 +1901,38 @@
       }
     ],
     "status": "draft"
+  },
+  {
+    "palace": "命宮",
+    "topic": "運程",
+    "kind": "caveat",
+    "system": 11,
+    "layer": "decade",
+    "status": "draft",
+    "id": "card.ming.zipo.visit-tianfu-lu-renqing",
+    "when": {
+      "all": [
+        {
+          "star": "天府",
+          "in": {
+            "name": "命宮",
+            "layer": "decade"
+          }
+        },
+        {
+          "deLu": "天府",
+          "layer": "decade"
+        }
+      ]
+    },
+    "claim": "這十年要留意，錢財上的得失容易牽動人情。",
+    "en": "This decade, watch how gains and losses of money can strain your relationships.",
+    "sources": [
+      {
+        "id": "wtz.deep.p335.b010",
+        "sha256": "e9532c637357ac8f57ece5c3a82b18213fa0ed0ebf3f491ef0a3c85664136478"
+      }
+    ],
+    "note": "B4：p335.b010「天府得祿，則僅主因財失義」作獨立提醒，同 visit-tianfu-lu（p072.b001 安定）並存，唔互相抵銷；讀者文字唔判「失義」。"
   }
 ]

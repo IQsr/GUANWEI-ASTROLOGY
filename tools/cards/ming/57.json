@@ -373,7 +373,8 @@
         "sha256": "0d4cac7d76b754795d21cbc7c38245ad34b7bab1c060fb6980e8b9578cdc1e6e"
       }
     ],
-    "status": "draft"
+    "status": "draft",
+    "note": "B15：武貪專段做主要樞紐；p355.b002 通則另存補充，唔判通則錯。"
   },
   {
     "id": "card.ming.wutan-chouwei.yj-yd",
@@ -2662,5 +2663,70 @@
     ],
     "status": "draft",
     "limit": "「見忌星」當流年命宮三方四正見本命化忌，或流年化忌入流年命財官遷。"
+  },
+  {
+    "palace": "命宮",
+    "topic": "運程",
+    "kind": "caveat",
+    "system": 57,
+    "layer": "annual",
+    "status": "draft",
+    "id": "card.ming.wutan-chouwei.pivot-year",
+    "when": {
+      "any": [
+        {
+          "star": "天府",
+          "in": {
+            "name": "命宮",
+            "layer": "annual"
+          }
+        },
+        {
+          "all": [
+            {
+              "star": "廉貞",
+              "in": {
+                "name": "命宮",
+                "layer": "annual"
+              }
+            },
+            {
+              "star": "破軍",
+              "in": {
+                "name": "命宮",
+                "layer": "annual"
+              }
+            }
+          ]
+        },
+        {
+          "all": [
+            {
+              "star": "天機",
+              "in": {
+                "name": "命宮",
+                "layer": "annual"
+              }
+            },
+            {
+              "star": "天梁",
+              "in": {
+                "name": "命宮",
+                "layer": "annual"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "claim": "這一年是你運程的轉折點之一。",
+    "en": "This year is one of the turning points in your fortunes.",
+    "sources": [
+      {
+        "id": "wtz.deep.p343.b006",
+        "sha256": "52c80deb7e5830bbb5035da228aa3a40fff8f2ecf5d2c5718fb7927cc46c2991"
+      }
+    ],
+    "note": "B15：p343.b006 流年樞紐，同 pivot（p343.b005 人生樞紐）分開；p355.b002 貪狼通則作補充，唔併入。"
   }
 ]

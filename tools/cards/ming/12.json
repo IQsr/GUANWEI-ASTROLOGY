@@ -1252,8 +1252,8 @@
       ]
     },
     "layer": "decade",
-    "claim": "這十年容易有名無實，忙了一場卻得不到相應的回報。",
-    "en": "This decade can bring a title without substance: busy, yet without matching returns.",
+    "claim": "這十年處境一般有利，但要見祿才有實際收穫。",
+    "en": "This decade generally favours you, but real gains come only with Lu.",
     "sources": [
       {
         "id": "wtz.deep.p074.b005",
@@ -1262,9 +1262,14 @@
       {
         "id": "wtz.deep.p074.b008",
         "sha256": "7b584059ac86dd868c7b01f10f9a84ecb34d5657caf8f473caf947af75272351"
+      },
+      {
+        "id": "wtz.deep.p350.b003",
+        "sha256": "3c9b6c2202d4da751cae8813ebb7faab3cbd1b037f18ba4a7cfa47d47084521f"
       }
     ],
-    "status": "draft"
+    "status": "draft",
+    "note": "B5：太陽一般有利（p350.b003），入廟而無祿則無實益（p074.b008）。"
   },
   {
     "id": "card.ming.tianfu-maoyou.visit-tyang-lu",
@@ -1998,5 +2003,105 @@
       }
     ],
     "status": "draft"
+  },
+  {
+    "palace": "命宮",
+    "topic": "運程",
+    "kind": "claim",
+    "system": 12,
+    "layer": "annual",
+    "status": "draft",
+    "id": "card.ming.tianfu-maoyou.tl-year-dev",
+    "when": {
+      "all": [
+        {
+          "star": "天同",
+          "in": {
+            "name": "命宮",
+            "layer": "annual"
+          }
+        },
+        {
+          "star": "天梁",
+          "in": {
+            "name": "命宮",
+            "layer": "annual"
+          }
+        },
+        {
+          "any": [
+            {
+              "all": [
+                {
+                  "star": "紫微",
+                  "in": {
+                    "name": "命宮",
+                    "layer": "decade"
+                  }
+                },
+                {
+                  "star": "破軍",
+                  "in": {
+                    "name": "命宮",
+                    "layer": "decade"
+                  }
+                }
+              ]
+            },
+            {
+              "all": [
+                {
+                  "star": "巨門",
+                  "in": {
+                    "name": "命宮",
+                    "layer": "decade"
+                  }
+                },
+                {
+                  "any": [
+                    {
+                      "star": "巨門",
+                      "hua": "祿"
+                    },
+                    {
+                      "star": "巨門",
+                      "hua": "權"
+                    },
+                    {
+                      "star": "巨門",
+                      "hua": "祿",
+                      "layer": "decade"
+                    },
+                    {
+                      "star": "巨門",
+                      "hua": "權",
+                      "layer": "decade"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sanfangOf": {
+            "name": "命宮",
+            "layer": "annual"
+          },
+          "count": "benefic",
+          "op": "gte",
+          "n": 1
+        }
+      ]
+    },
+    "claim": "這一年可以打下事業的根基。",
+    "en": "This year you can lay the groundwork for your career.",
+    "sources": [
+      {
+        "id": "wtz.deep.p075.b002",
+        "sha256": "681379732e2a9784aa67dfeb5ad707d9f7764c64ae0214a62ae2eec214bf4694"
+      }
+    ],
+    "note": "B5：p075.b002 例外：大運紫破守命或巨門化祿權守命，流年同梁又見吉會，先成根本性發展。"
   }
 ]

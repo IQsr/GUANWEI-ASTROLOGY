@@ -9,29 +9,67 @@
     "none": {
       "any": [
         {
-          "all": [
+          "any": [
             {
-              "star": "巨門",
-              "at": [
-                "辰"
-              ]
-            },
-            {
-              "star": "巨門",
-              "hua": "祿"
-            },
-            {
-              "any": [
+              "all": [
                 {
-                  "together": [
-                    "巨門",
-                    "文昌"
+                  "star": "巨門",
+                  "at": [
+                    "辰"
                   ]
                 },
                 {
-                  "star": "文昌",
+                  "star": "巨門",
+                  "hua": "祿"
+                },
+                {
+                  "any": [
+                    {
+                      "together": [
+                        "巨門",
+                        "文昌"
+                      ]
+                    },
+                    {
+                      "star": "文昌",
+                      "at": [
+                        "戌"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "all": [
+                {
+                  "star": "巨門",
                   "at": [
                     "戌"
+                  ]
+                },
+                {
+                  "any": [
+                    {
+                      "star": "巨門",
+                      "hua": "權"
+                    },
+                    {
+                      "all": [
+                        {
+                          "star": "巨門",
+                          "hua": "祿"
+                        },
+                        {
+                          "not": {
+                            "meets": "巨門",
+                            "stars": [
+                              "文昌"
+                            ]
+                          }
+                        }
+                      ]
+                    }
                   ]
                 }
               ]
@@ -47,27 +85,13 @@
               ]
             },
             {
-              "any": [
-                {
-                  "star": "巨門",
-                  "hua": "權"
-                },
-                {
-                  "all": [
-                    {
-                      "star": "巨門",
-                      "hua": "祿"
-                    },
-                    {
-                      "not": {
-                        "meets": "巨門",
-                        "stars": [
-                          "文昌"
-                        ]
-                      }
-                    }
-                  ]
-                }
+              "star": "巨門",
+              "hua": "祿"
+            },
+            {
+              "meets": "巨門",
+              "stars": [
+                "文昌"
               ]
             }
           ]
@@ -88,7 +112,7 @@
       }
     ],
     "status": "draft",
-    "note": "none 同 qige 嘅奇格條件一致（A5）。"
+    "note": "none 同 qige 嘅奇格條件一致（A5）。 B6：戌宮巨門化祿而三方四正見文昌（辛年文昌化忌），p136.b003 同 p356.b008 真係重疊，暫停判斷，奇格同一般不利都唔出。"
   },
   {
     "id": "card.ming.jumen-chenxu.jifa",
@@ -231,7 +255,7 @@
       }
     ],
     "status": "draft",
-    "note": "p136.b003 話戌宮辛年都係奇格，p356.b008 話戌宮反不宜見文昌化忌；按 A5 取完整條件，辛年戌宮要唔見文昌先算。"
+    "note": "p136.b003 話戌宮辛年都係奇格，p356.b008 話戌宮反不宜見文昌化忌；按 A5 取完整條件，辛年戌宮要唔見文昌先算。 B6：重疊部分（戌宮化祿見文昌忌）暫停，唔一律跟 p136。"
   },
   {
     "id": "card.ming.jumen-chenxu.xiage",
@@ -541,33 +565,171 @@
     "system": 34,
     "layer": "natal",
     "decades": {
-      "any": [
+      "all": [
         {
-          "star": "天相",
-          "in": {
-            "name": "命宮",
-            "layer": "decade"
-          }
+          "any": [
+            {
+              "star": "天相",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "star": "天梁",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "star": "天同",
+              "in": {
+                "name": "命宮",
+                "layer": "decade"
+              }
+            },
+            {
+              "all": [
+                {
+                  "star": "天府",
+                  "in": {
+                    "name": "命宮",
+                    "layer": "decade"
+                  }
+                },
+                {
+                  "any": [
+                    {
+                      "not": {
+                        "any": [
+                          {
+                            "deLu": "天府",
+                            "layer": "decade"
+                          },
+                          {
+                            "any": [
+                              {
+                                "star": "天府",
+                                "hua": "祿"
+                              },
+                              {
+                                "star": "天府",
+                                "hua": "權"
+                              },
+                              {
+                                "star": "天府",
+                                "hua": "科"
+                              },
+                              {
+                                "star": "天府",
+                                "hua": "祿",
+                                "layer": "decade"
+                              },
+                              {
+                                "star": "天府",
+                                "hua": "權",
+                                "layer": "decade"
+                              },
+                              {
+                                "star": "天府",
+                                "hua": "科",
+                                "layer": "decade"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "geju": "xingji"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
         },
         {
-          "star": "天梁",
-          "in": {
-            "name": "命宮",
-            "layer": "decade"
-          }
-        },
-        {
-          "star": "天同",
-          "in": {
-            "name": "命宮",
-            "layer": "decade"
-          }
-        },
-        {
-          "star": "天府",
-          "in": {
-            "name": "命宮",
-            "layer": "decade"
+          "not": {
+            "any": [
+              {
+                "sanfangOf": {
+                  "name": "命宮",
+                  "layer": "decade"
+                },
+                "contains": "祿存"
+              },
+              {
+                "flow": "祿存",
+                "layer": "decade",
+                "in": {
+                  "name": "命宮",
+                  "layer": "decade"
+                },
+                "reach": "sanfang"
+              },
+              {
+                "hua": "祿",
+                "in": {
+                  "name": "命宮",
+                  "layer": "decade"
+                }
+              },
+              {
+                "hua": "祿",
+                "in": {
+                  "name": "命宮",
+                  "layer": "decade"
+                },
+                "layer": "decade"
+              },
+              {
+                "hua": "祿",
+                "in": {
+                  "name": "財帛",
+                  "layer": "decade"
+                }
+              },
+              {
+                "hua": "祿",
+                "in": {
+                  "name": "財帛",
+                  "layer": "decade"
+                },
+                "layer": "decade"
+              },
+              {
+                "hua": "祿",
+                "in": {
+                  "name": "官祿",
+                  "layer": "decade"
+                }
+              },
+              {
+                "hua": "祿",
+                "in": {
+                  "name": "官祿",
+                  "layer": "decade"
+                },
+                "layer": "decade"
+              },
+              {
+                "hua": "祿",
+                "in": {
+                  "name": "遷移",
+                  "layer": "decade"
+                }
+              },
+              {
+                "hua": "祿",
+                "in": {
+                  "name": "遷移",
+                  "layer": "decade"
+                },
+                "layer": "decade"
+              }
+            ]
           }
         }
       ]
@@ -581,7 +743,8 @@
       }
     ],
     "status": "draft",
-    "note": "p356.b006 說不宜行天府；但 p137.b009 說天府見祿為佳運，p356.b007 說辰宮奇格行天府發跡。待人手判斷是否保留天府。"
+    "note": "p356.b006 說不宜行天府；但 p137.b009 說天府見祿為佳運，p356.b007 說辰宮奇格行天府發跡。待人手判斷是否保留天府。",
+    "limit": "一般限制＋具體例外（B7）：p356.b006 不宜行天相、天梁、天同、天府；但見祿存化祿可解（同段），天府見祿或吉化係佳運（p137.b009，遭忌者要唔會刑忌夾天相）。"
   },
   {
     "id": "card.ming.jumen-chenxu.lu-decades",

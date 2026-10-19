@@ -2016,5 +2016,54 @@
       }
     ],
     "status": "draft"
+  },
+  {
+    "palace": "命宮",
+    "topic": "運程",
+    "kind": "caveat",
+    "system": 9,
+    "layer": "decade",
+    "status": "draft",
+    "id": "card.ming.qisha-chenxu.visit-tianji-plain",
+    "when": {
+      "star": "天機",
+      "in": {
+        "name": "命宮",
+        "layer": "decade"
+      }
+    },
+    "none": {
+      "any": [
+        {
+          "any": [
+            {
+              "star": "天機",
+              "hua": "祿"
+            },
+            {
+              "star": "天機",
+              "hua": "權"
+            },
+            {
+              "star": "天機",
+              "hua": "科"
+            }
+          ]
+        },
+        {
+          "star": "天機",
+          "hua": "忌"
+        }
+      ]
+    },
+    "claim": "這十年是對你較不利的運程。",
+    "en": "This decade is among the less favourable for you.",
+    "sources": [
+      {
+        "id": "wtz.deep.p361.b011",
+        "sha256": "ab7a25cfdfa6cfdff52ef921e98bee319bf0592767e3c8c45f3fc526c1c7b2ab"
+      }
+    ],
+    "note": "B3：p361.b011「天機、巨門二曜坐守之宮度，七殺最不宜行」。天機吉化（有利）同天機化忌見刑煞（不利）另有 p065.b011 專卡，呢度只出兩樣都唔係嘅情況。"
   }
 ]

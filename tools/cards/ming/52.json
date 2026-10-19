@@ -1189,5 +1189,47 @@
     ],
     "status": "draft",
     "note": "原文「見／會／遇吉化」：讀做同宮（同度）嘅星本命或大限化祿權科（A9，2026-10-19）。"
+  },
+  {
+    "palace": "命宮",
+    "topic": "本質",
+    "kind": "caveat",
+    "system": 52,
+    "layer": "natal",
+    "status": "draft",
+    "id": "card.ming.jiju-maoyou.taiyang-dedi",
+    "when": {
+      "all": [
+        {
+          "sanfangOf": {
+            "name": "命宮"
+          },
+          "contains": "太陽"
+        },
+        {
+          "star": "太陽",
+          "brightness": [
+            "廟",
+            "旺",
+            "得"
+          ]
+        },
+        {
+          "not": {
+            "star": "太陽",
+            "hua": "忌"
+          }
+        }
+      ]
+    },
+    "claim": "你浮躁的一面較易收斂。",
+    "en": "Your restless streak is easier to rein in.",
+    "sources": [
+      {
+        "id": "wtz.deep.p191.b011",
+        "sha256": "210db5ca55186052ff0435630119aac34fd00aedd66e8d27722592bf2fcf9186"
+      }
+    ],
+    "note": "B9：只作局部修飾「減浮薄」（p191.b011 三合太陽得地）；唔做整體卯酉排名（p356.b001 講卯優於酉喺富貴條件附近）。"
   }
 ]

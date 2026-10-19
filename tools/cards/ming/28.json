@@ -1758,7 +1758,7 @@
       }
     ],
     "status": "draft",
-    "note": "p345.b004（天同通論）說天同一般喜行七殺宮限，稍見吉、三方得祿即奮發；p119.b003（本星系）說七殺守垣一般不利天同。此處以得祿與否分開兩張，要人拍板。",
+    "note": "p345.b004（天同通論）說天同一般喜行七殺宮限，稍見吉、三方得祿即奮發；p119.b003（本星系）說七殺守垣一般不利天同。此處以得祿與否分開兩張，要人拍板。 B2：p345.b004 前提係七殺宮限稍見吉曜、三方得祿、原局煞忌刑耗唔重，三樣都寫咗；同 sha-nolu 互斥。",
     "limit": "原文「除非原局煞忌刑耗重重…稍見吉曜，且於三方四正得祿」；重重當天同三方四正三粒或以上煞忌刑（大耗引擎冇）。"
   },
   {
@@ -1810,15 +1810,16 @@
         }
       ]
     },
-    "claim": "這十年一般對你不利，愈貪享受愈吃虧。",
-    "en": "This decade generally works against you; the more you chase comfort, the more it costs you.",
+    "claim": "這十年一般對你不利。",
+    "en": "This decade generally does not favour you.",
     "sources": [
       {
         "id": "wtz.deep.p119.b003",
         "sha256": "01e9929f942d0a4e1542539aef17c5e975eb20eb7b7d6bbd927729bab7336a28"
       }
     ],
-    "status": "draft"
+    "status": "draft",
+    "limit": "原文「少年愈享受的天同，至此愈為不利」：盤面睇唔到少年享受程度，唔寫入讀者文字（B2）。"
   },
   {
     "id": "card.ming.tong-maoyou.sha-ziquan",
