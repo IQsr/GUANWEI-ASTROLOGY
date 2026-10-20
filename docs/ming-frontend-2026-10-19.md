@@ -40,4 +40,4 @@
 
 ## 合併前 CI 檢查
 
-GitHub runner 同時執行資料庫 WASM 與排盤測試時，Vitest 曾在斷言全部通過後出現 worker 回報逾時。根目錄測試改為逐個 workspace 執行，保留各套測試及原有逾時限制，避免兩套大量運算同時爭用 runner 資源。
+GitHub runner 同時執行資料庫 WASM 與排盤測試時，Vitest 曾在斷言全部通過後出現 worker 回報逾時。本機亦出現多 worker 競爭令抽盤測試超時。根目錄測試改為逐個 workspace 執行，每套最多兩個 worker，保留全部測試及原有逾時限制，避免大量運算爭用資源。

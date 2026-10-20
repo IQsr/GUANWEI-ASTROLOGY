@@ -13,7 +13,7 @@
     "start": "pnpm --filter @guanwei/web start",
     "lint": "pnpm --filter @guanwei/web lint",
     "typecheck": "pnpm -r typecheck",
-    "test": "pnpm -r --workspace-concurrency=1 test"
+    "test": "pnpm -r --workspace-concurrency=1 test --maxWorkers=2"
   },
   "devDependencies": {
     "typescript": "^5.9.2"
