@@ -4,6 +4,8 @@ import { paragraphs } from '@/lib/suidu';
 /** 成書時保存的閱讀資料；舊書沒有這欄，不從命盤重算正文。 */
 export type ChapterReading = {
   format: 'ming-expanded-v1';
+  /** 段落快照的格式不變；另記新書所用的寫作層版本，舊書沒有此欄亦可讀。 */
+  writer?: 'sentence-backed-v1';
   segments: {
     slot: string;
     text: string;
@@ -19,6 +21,7 @@ export function readingOf(value: unknown, text: string): ChapterReading | null {
   if (!value || typeof value !== 'object') return null;
   const r = value as Partial<ChapterReading>;
   if (r.format !== 'ming-expanded-v1' || !Array.isArray(r.segments) || !r.international) return null;
+  if (r.writer !== undefined && r.writer !== 'sentence-backed-v1') return null;
   if (typeof r.international.text !== 'string' || !Array.isArray(r.international.slots) || !r.international.slots.every((s) => typeof s === 'string')) return null;
   if (!r.segments.every((s) => s && typeof s.slot === 'string' && typeof s.text === 'string'
     && (s.heading === undefined || typeof s.heading === 'string')

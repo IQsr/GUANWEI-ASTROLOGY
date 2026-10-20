@@ -9,6 +9,7 @@ import { huaClauseEn } from './en/time';
 import { XINGXI } from './xingxi';
 import { adultOf } from './youth';
 import mingLocations from './cards/ming-source-locations.json';
+import { backedSource } from './ming-backed-sources';
 
 /* ───────────────────────────────────────────────────────────
  * 出處註（2026-10-12 · Issac：「人哋 challenge 我哋，要講得出喺邊本書、邊一頁、邊一節」）
@@ -55,6 +56,12 @@ const AUTHOR = '王亭之';
 const BOOK = '中州派紫微斗數深造講義';
 
 export function citation(id: string): Citation | null {
+  const backed = backedSource(id);
+  if (backed) return {
+    id, author: AUTHOR, authorEn: 'Wang Tingzhi', book: BOOK,
+    bookEn: 'Advanced Lectures on Zhongzhou School Zi Wei Dou Shu',
+    page: backed.page, section: backed.section, text: backed.excerpt, pageConvention: 'pdf', excerpt: true,
+  };
   const locator = (mingLocations.locations as Record<string, { page: number; section: string; excerpt: string[] }>)[id];
   if (locator) return {
     id, author: AUTHOR, authorEn: 'Wang Tingzhi', book: BOOK,

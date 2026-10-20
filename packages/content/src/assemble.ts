@@ -113,6 +113,8 @@ export type MingSlot = '因為' | '留意' | '做法' | '展開' | '情境';
 export type SegmentStatement = MingStatement;
 
 export type Segment = {
+  /** 逐句稿的已編寫小節標題，不以宮位或星系編號臨時拼字。 */
+  heading?: string;
   slot: ChapterSlot | '過場' | MingSlot;
   text: string;
   /** 新命宮章：呢段屬邊個話題（本質、格局⋯）。舊章冇。 */
@@ -864,6 +866,7 @@ export function mingChapterOf(old: Chapter, m: MingChapter): Chapter {
         text: x.zh,
         en: x.en,
         topic: s.topic,
+        ...(x.heading ? { heading: x.heading } : {}),
         source_id: source_ids.join('+') || s.conclusion.card,
         source_ids,
         citations,

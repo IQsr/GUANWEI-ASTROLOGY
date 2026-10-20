@@ -28,10 +28,10 @@ describe('繁簡命宮展開版：生成 → 存檔 → 書頁', () => {
     const ask = buildAsks(enriched, 'zh-Hant')[0]!;
     expect(ask.answer).toBe(lead.lead);
     expect(ask.detail).toBe(ming.reading!.segments[1]!.text);
-    expect(ask.detail).toBe('把理由想清楚與內心是否接受，是兩個需要一起照顧的部分。先讓兩邊都有說明的空間，再決定可以採取的下一步，讓分析與感受互相補充。');
-    expect(ask.sources).toHaveLength(3);
+    expect(ask.detail).toContain('三方會天梁與天同');
+    expect(ask.sources).toHaveLength(2);
     expect(visibleSources(ask.sources)).toHaveLength(1);
-    expect(ask.sources).toHaveLength(3);
+    expect(ask.sources).toHaveLength(2);
     expect(buildAsks(enriched, 'zh-Hans')[0]!.detail).toBe(hans(ask.detail!));
     expect(buildAsks(leadsFromBodies(drafts), 'zh-Hant')[0]!.detail).toBe(ask.detail);
     for (const locale of ['en', 'ja']) expect(buildAsks(enriched, locale)[0]!.detail).toBeUndefined();
@@ -48,7 +48,8 @@ describe('繁簡命宮展開版：生成 → 存檔 → 書頁', () => {
   });
 
   it('正文用真實展開稿，段落、逐句資料及版本一同存下', () => {
-    expect(ming.content_version).toBe('rules@test+ming-expanded-v1');
+    expect(ming.content_version).toBe('rules@test+ming-expanded-v1+sentence-backed-v1');
+    expect(ming.reading!.writer).toBe('sentence-backed-v1');
     expect(readingOf(ming.reading, ming.body)).toEqual(ming.reading);
     expect(ming.slots).toContain('展開');
     const actual = writeMing(chart).sections.flatMap((s) => s.parts).filter((p) => p.part !== '因為').map((p) => p.zh);
@@ -72,7 +73,7 @@ describe('繁簡命宮展開版：生成 → 存檔 → 書頁', () => {
       expect(n.excerpt).toBe(true);
     }
     const editorial = marked[0]!.segments.filter((s) => ['情境', '做法'].includes(s.slot));
-    expect(editorial.length).toBeGreaterThan(0);
+    expect(editorial).toHaveLength(0);
     for (const s of editorial) expect(s.runs.some((r) => r.cite)).toBe(false);
   });
 
@@ -95,6 +96,19 @@ describe('繁簡命宮展開版：生成 → 存檔 → 書頁', () => {
   it('舊書照讀存檔原文；新資料與正文不符時不掛錯來源', () => {
     const old = '你的命宮坐紫微。';
     expect(readingSegments(old, ['開場'])).toEqual([{ slot: '開場', text: old }]);
+    const saved = {
+      format: 'ming-expanded-v1' as const,
+      segments: [{ slot: '結論', text: old, statements: [
+        { text: old, en: '', kind: 'interpretation' as const, source_ids: ['saved-card'], citations: ['deep.星系01.1'] },
+      ] }],
+      international: { text: 'Saved English text.', slots: ['結論'] },
+    };
+    const before = JSON.stringify(saved);
+    expect(readingOf(saved, old)).toEqual(saved);
+    expect(readingSegments(old, ['結論'], saved)).toEqual(saved.segments);
+    chapterDrafts(sources, readingContentVersion('new-version'));
+    expect(JSON.stringify(saved)).toBe(before);
+    expect(readingOf({ ...saved, writer: 'unknown-future-version' }, old)).toBeNull();
     expect(readingOf(ming.reading, ming.body + '改動')).toBeNull();
     const bad = markBook([{ palace: '命宮', segments: readingSegments(ming.body + '改動', ming.slots, ming.reading) }]);
     expect(bad[0]!.segments.flatMap((s) => s.runs).some((r) => r.cite)).toBe(false);

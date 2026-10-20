@@ -212,12 +212,12 @@ try {
   });
   check('個盤唔俾頁頂導覽遮住', hidden !== null && hidden <= 0, `遮住 ${hidden}px`);
 
-  // 新命宮：編輯情境及建議不能暗示盤上已發生，解讀與依據仍亮本宮。
-  for (const slot of ['結論', '展開', '情境', '做法', '因為']) {
+  // 逐句核讀稿只出解讀及盤面依據，不補沒有原段支持的生活情境／建議。
+  check('新稿沒有編輯填充段', await wide.locator('.suidu [data-slot="情境"], .suidu [data-slot="做法"]').count() === 0, '仍有情境或做法段');
+  for (const slot of ['結論', '展開', '因為']) {
     const state = await atSlot(slot);
-    const expected = ['情境', '做法'].includes(slot) ? 0 : 1;
     check(`新版捲到${slot}`, state.at === slot, JSON.stringify(state));
-    check(`新版${slot}高亮`, state.self === expected && state.san === 0, JSON.stringify(state));
+    check(`新版${slot}高亮`, state.self === 1 && state.san === 0, JSON.stringify(state));
   }
 
   // 舊命宮存檔仍是原有段落；保留原有本宮／三方四正／章尾驗收。
