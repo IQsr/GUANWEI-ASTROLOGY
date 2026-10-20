@@ -412,7 +412,7 @@
       "readAll": "讀〈{title}〉全章",
       "sourceMark": "據",
       "source": "{book}，第 {page} 頁 · {section}",
-      "sourcePdf": "{book}，PDF 第 {page} 頁 · {section}",
+      "sourceSection": "{book} · {section}",
       "q": {
         "ming": {
           "ask": "我是怎樣的人？",
@@ -452,7 +452,8 @@
     "citeAria": "看這句的出處",
     "citeWhere": "出處：{book}，第 {page} 頁 · {section}",
     "citeQuote": "原文：「{text}」",
-    "citePdfWhere": "出處：{book}，PDF 第 {page} 頁 · {section}"
+    "citeSectionWhere": "出處：{book} · {section}",
+    "citeExcerpt": "原文節錄：「{text}」"
   },
   "weicai": {
     "notYet": "這一頁還沒有裁開。",

@@ -409,7 +409,7 @@
       "readAll": "Read “{title}” in full",
       "sourceMark": "src",
       "source": "{book}, p. {page} · {section}",
-      "sourcePdf": "{book}, PDF p. {page} · {section}",
+      "sourceSection": "{book} · {section}",
       "q": {
         "ming": {
           "ask": "What kind of person am I?",
@@ -449,7 +449,8 @@
     "citeAria": "Show where this sentence comes from",
     "citeWhere": "Source: {book}, p. {page} · {section}",
     "citeQuote": "Original text (Chinese): 「{text}」",
-    "citePdfWhere": "Source: {book}, PDF p. {page} · {section}"
+    "citeSectionWhere": "Source: {book} · {section}",
+    "citeExcerpt": "Short excerpt (Chinese): 「{text}」"
   },
   "weicai": {
     "notYet": "This page has not been cut open yet.",

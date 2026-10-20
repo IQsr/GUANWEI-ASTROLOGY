@@ -42,7 +42,9 @@ describe('繁簡命宮展開版：生成 → 存檔 → 書頁', () => {
       expect(n.page).toBeGreaterThan(0);
       expect(n.pageConvention).toBe('pdf');
       expect(n.section).not.toBe('');
-      expect(n.text).toBe(''); // 只掛已核定位，不捏造逐字引文。
+      expect(n.text.length).toBeGreaterThan(0);
+      expect(n.text.length).toBeLessThanOrEqual(150);
+      expect(n.excerpt).toBe(true);
     }
     const editorial = marked[0]!.segments.filter((s) => ['情境', '做法'].includes(s.slot));
     expect(editorial.length).toBeGreaterThan(0);

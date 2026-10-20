@@ -121,6 +121,7 @@ export function citesFor(marked: MarkedChapter[], locale = 'zh-Hant'): Record<st
       section: zhFor(locale, c.section),
       text: c.text,
       ...(c.pageConvention ? { pageConvention: c.pageConvention } : {}),
+      ...(c.excerpt ? { excerpt: true } : {}),
     };
   }
   return out;

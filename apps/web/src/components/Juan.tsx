@@ -78,7 +78,7 @@ export type Note = {
  * 出處（2026-10-12）：句尾「據」字號撳開。同術語註一樣係展開、唔係浮窗。
  * 書名、頁、節、原文照錄 —— 讀者質疑一句，撳開就見到嗰句由邊度嚟。
  */
-export type CiteNote = { id: string; book: string; page: number; section: string; text: string; pageConvention?: 'pdf' };
+export type CiteNote = { id: string; book: string; page: number; section: string; text: string; pageConvention?: 'pdf'; excerpt?: boolean };
 
 export function Juan({
   segments,
@@ -161,10 +161,10 @@ export function Juan({
                 {citeList.map((c) => (
                   <div key={c!.id} className="flex flex-col gap-2">
                     <p className="font-sans text-cap tracking-[0.08em] text-ink-3">
-                      {t(c!.pageConvention === 'pdf' ? 'citePdfWhere' : 'citeWhere', { book: c!.book, page: c!.page, section: c!.section })}
+                      {t(c!.pageConvention === 'pdf' ? 'citeSectionWhere' : 'citeWhere', { book: c!.book, page: c!.page, section: c!.section })}
                     </p>
                     {c!.text ? <blockquote lang="zh-Hans" className="text-sm leading-[1.9] text-ink-2">
-                      {t('citeQuote', { text: c!.text })}
+                      {t(c!.excerpt ? 'citeExcerpt' : 'citeQuote', { text: c!.text })}
                     </blockquote> : null}
                   </div>
                 ))}

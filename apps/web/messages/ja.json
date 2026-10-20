@@ -412,7 +412,7 @@
       "readAll": "〈{title}〉を全章読む",
       "sourceMark": "拠",
       "source": "{book}、{page} 頁 · {section}",
-      "sourcePdf": "{book}、PDF {page} 頁 · {section}",
+      "sourceSection": "{book} · {section}",
       "q": {
         "ming": {
           "ask": "わたしはどんな人？",
@@ -452,7 +452,8 @@
     "citeAria": "この一文の出典を見る",
     "citeWhere": "出典：{book}、{page} 頁 · {section}",
     "citeQuote": "原文：「{text}」",
-    "citePdfWhere": "出典：{book}、PDF {page} 頁 · {section}"
+    "citeSectionWhere": "出典：{book} · {section}",
+    "citeExcerpt": "原文抜粋：「{text}」"
   },
   "weicai": {
     "notYet": "この頁はまだ切り開かれていません。",
