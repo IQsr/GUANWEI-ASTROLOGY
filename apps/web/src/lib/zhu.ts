@@ -1,5 +1,6 @@
 import { LEXICON, LEXICON_EN, citeOf, type LexiconEntry } from '@guanwei/content';
 import { slugOf } from '@/lib/lexicon';
+import type { MingStatement } from '@guanwei/content';
 
 /**
  * 註層：術語點喺邊（工單 F1 · 內容系統 §4 · 架構 §2）
@@ -63,9 +64,9 @@ export function termIndex(): Term[] {
  */
 export type Run = { text: string; term?: Term; cite?: string[] };
 
-export type MarkedSegment = { slot: string; runs: Run[] };
+export type MarkedSegment = { slot: string; runs: Run[]; heading?: string };
 
-export type ChapterInput = { palace: string; segments: { slot: string; text: string }[] };
+export type ChapterInput = { palace: string; segments: { slot: string; text: string; heading?: string; statements?: MingStatement[] }[] };
 
 export type MarkedChapter = { palace: string; segments: MarkedSegment[] };
 
@@ -140,8 +141,19 @@ export function markBook(chapters: ChapterInput[], lang: 'zh' | 'en' | 'ja' = 'z
     palace: ch.palace,
     segments: ch.segments.map((seg) => {
       const runs: Run[] = [];
+      let cursor = 0;
+      const spans = seg.statements?.flatMap((l) => {
+        const start = seg.text.indexOf(l.text, cursor);
+        if (!l.text || start < 0) return [];
+        cursor = start + l.text.length;
+        return [{ start, end: cursor, citations: l.kind === 'editorial-example' || l.kind === 'editorial-advice' ? [] : l.citations }];
+      });
+      let offset = 0;
       for (const sentence of split(seg.text)) {
-        const cite = lang === 'ja' ? null : citeOf(sentence, lang);
+        const end = offset + sentence.length;
+        const explicit = spans?.filter((s) => s.start < end && s.end > offset).flatMap((s) => s.citations);
+        const cite = lang === 'ja' ? null : explicit !== undefined ? [...new Set(explicit)] : citeOf(sentence, lang);
+        offset = end;
         const hit = firstTerm(sentence, terms, used);
         if (!hit) {
           runs.push({ text: sentence });
@@ -152,7 +164,7 @@ export function markBook(chapters: ChapterInput[], lang: 'zh' | 'en' | 'ja' = 'z
           runs.push({ text: sentence.slice(hit.at, end), term: hit.term });
           if (end < sentence.length) runs.push({ text: sentence.slice(end) });
         }
-        if (cite) {
+        if (cite?.length) {
           /* 字號貼住句號：英文句尾嘅空格移去字號後面 */
           const last = runs[runs.length - 1]!;
           const gap = /\s+$/.exec(last.text)?.[0] ?? '';
@@ -161,7 +173,7 @@ export function markBook(chapters: ChapterInput[], lang: 'zh' | 'en' | 'ja' = 'z
           if (gap) runs.push({ text: gap });
         }
       }
-      return { slot: seg.slot, runs };
+      return { slot: seg.slot, runs, ...(seg.heading ? { heading: seg.heading } : {}) };
     }),
   }));
 }

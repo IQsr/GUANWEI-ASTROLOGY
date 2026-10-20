@@ -70,6 +70,16 @@ export function serverChengshu(): ChengshuPort {
  * 問唔到（DB 有事）都回 null：唔好因為限額查唔到就擋晒所有人 —— `create_book()` 入面仲有一道閘。
  */
 export async function castQuotaLeft(): Promise<number | null> {
+  try {
+    return await readCastQuota();
+  } catch {
+    // 未配置連線或 auth transport 失敗，同 RPC 失敗一樣只代表預查未知。
+    console.error('[chengshu] 查唔到成書限額');
+    return null;
+  }
+}
+
+async function readCastQuota(): Promise<number | null> {
   const sb = supabaseServer();
   const { data: auth } = await sb.auth.getUser();
   if (!auth.user) return null;

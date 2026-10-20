@@ -15,10 +15,10 @@ const ming = drafts.find((d) => d.slug === '命宮')!;
 
 describe('英文試做：示範盤命宮', () => {
   it('每一句都譯到（冇漏中文）', () => {
-    const out = En.renderChapter(ming.body);
+    const out = En.renderChapter(ming.reading?.international.text ?? ming.body);
     expect(out.missing).toEqual([]);
     expect(out.text).not.toMatch(/[一-鿿]/);
-    expect(out.text.split('\n\n')).toHaveLength(ming.slots.length);
+    expect(out.text.split('\n\n')).toHaveLength((ming.reading?.international.slots ?? ming.slots).length);
     console.log(`EN ${En.chapterTitleEn(ming.title)}\n${out.text}`);
   });
 

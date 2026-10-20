@@ -24,6 +24,7 @@ import { hrefOf, slugOf, textOf } from '@/lib/lexicon';
 import { markBook, type MarkedChapter } from '@/lib/zhu';
 import { hans, isHans, zhFor } from '@/lib/hans';
 import type { CiteNote, Note } from '@/components/Juan';
+import type { ChapterReading } from '@/lib/chapter-reading';
 
 /**
  * 由一張盤砌一本命書（工單 F1）
@@ -119,6 +120,8 @@ export function citesFor(marked: MarkedChapter[], locale = 'zh-Hant'): Record<st
       page: c.page,
       section: zhFor(locale, c.section),
       text: c.text,
+      ...(c.pageConvention ? { pageConvention: c.pageConvention } : {}),
+      ...(c.excerpt ? { excerpt: true } : {}),
     };
   }
   return out;
@@ -132,7 +135,7 @@ export function localizeMarked(marked: MarkedChapter[], locale: string): MarkedC
   if (!isHans(locale)) return marked;
   return marked.map((c) => ({
     ...c,
-    segments: c.segments.map((s) => ({ ...s, runs: s.runs.map((r) => ({ ...r, text: hans(r.text) })) })),
+    segments: c.segments.map((s) => ({ ...s, ...(s.heading ? { heading: hans(s.heading) } : {}), runs: s.runs.map((r) => ({ ...r, text: hans(r.text) })) })),
   }));
 }
 
@@ -142,7 +145,7 @@ export function buildJuan(raw: Chapter[], chart: ZChart): Juan {
   const marked = markBook(
     chapters.map((c) => ({
       palace: c.palace,
-      segments: c.segments.map((s) => ({ slot: s.slot, text: s.text })),
+      segments: c.segments.map((s) => ({ slot: s.slot, text: s.text, statements: s.statements })),
     })),
   );
   return { chapters, marked, notes: notesFor(marked), chart };
@@ -161,7 +164,7 @@ export function buildJuan(raw: Chapter[], chart: ZChart): Juan {
  */
 export function chaptersOf(
   chart: ZChart,
-  opts: { seed: string; year: number },
+  opts: { seed: string; year: number; mingWriter?: 'legacy' | 'cards' },
 ): Chapter[] | null {
   const a = annual(chart, opts.year);
   if (!a.ok) return null;
@@ -174,7 +177,7 @@ export function chaptersOf(
     { chartId: opts.seed, layer: 'natal' },
   );
 
-  return inReadingOrder(assembleAll(chart, byTopic, { seed: opts.seed }));
+  return inReadingOrder(assembleAll(chart, byTopic, { seed: opts.seed, mingWriter: opts.mingWriter ?? 'cards' }));
 }
 
 /**
@@ -191,7 +194,7 @@ export function chaptersOf(
 export function bookChapters(
   chart: ZChart,
   opts: { seed: string; year: number; solar: { y: number; m: number; d: number }; place: string },
-): { slug: string; title?: string; text: string; slots: string[] }[] | null {
+): { slug: string; title?: string; text: string; slots: string[]; reading?: ChapterReading }[] | null {
   const palaces = chaptersOf(chart, { seed: opts.seed, year: opts.year });
   if (!palaces) return null;
 
@@ -232,11 +235,16 @@ export function bookChapters(
    * （同事、伴侶、投資⋯）。序有一句提醒（content `XU_YOUNG`）。
    */
   const young = isYoungReader(chart, opts.year);
+  const youth = isYouthReader(chart, opts.year);
+  // 成人情境及編輯建議不套在年少讀者身上；已核本命解讀仍保留。
+  const ageSafe = palaces.map((c) => c.palace !== '命宮' || !youth ? c : {
+    ...c, segments: c.segments.filter((s) => !s.statements?.some((l) => l.kind === 'editorial-example' || l.kind === 'editorial-advice')),
+  });
   const [ming, ...rest] = (young
-    ? palaces.map((c) => ({ ...c, segments: c.segments.filter((s) => s.slot !== '生活') }))
-    : palaces);
+    ? ageSafe.map((c) => ({ ...c, segments: c.segments.filter((s) => s.slot !== '生活') }))
+    : ageSafe);
 
-  type Part = { slug: string; title?: string; segments: { slot: string; text: string }[] };
+  type Part = { slug: string; title?: string; segments: { slot: string; text: string; topic?: string; statements?: import('@guanwei/content').MingStatement[] }[] };
   const parts: Part[] = [
     { slug: xu.slug, title: xu.title, segments: xu.segments },
     ...(ming ? [{ slug: ming.palace, segments: ming.segments }] : []),
@@ -253,7 +261,22 @@ export function bookChapters(
    * 骨架重嘅偏向名換輕啲（content `youthPass`）。只改呢度砌出嚟嘅字，內容庫唔郁。
    */
   const finished = isYouthReader(chart, opts.year) ? youthPass(parts) : parts;
-  return finished.map((p) => ({ slug: p.slug, ...(p.title ? { title: p.title } : {}), ...body(p.segments) }));
+  // 英日尚未切換；保存同一成書時刻的舊版，不在讀取時重算。
+  const oldMing = chaptersOf(chart, { seed: opts.seed, year: opts.year, mingWriter: 'legacy' })?.find((c) => c.palace === '命宮');
+  const oldParts: Part[] = oldMing ? [{ slug: '命宮', segments: oldMing.segments.filter((s) => !young || s.slot !== '生活') }] : [];
+  const international = (youth ? youthPass(oldParts) : oldParts)[0];
+  return finished.map((p) => {
+    if (p.slug !== '命宮' || !international) return { slug: p.slug, ...(p.title ? { title: p.title } : {}), ...body(p.segments) };
+    const seen = new Set<string>();
+    let evidence = false;
+    const segments = p.segments.map((s) => {
+      const heading = s.slot === '因為' ? (evidence ? undefined : '盤面與出處') : s.topic && !seen.has(s.topic) ? s.topic : undefined;
+      if (s.slot === '因為') evidence = true;
+      if (s.topic) seen.add(s.topic);
+      return { ...s, ...(heading ? { heading } : {}) };
+    });
+    return { slug: p.slug, ...body(segments), reading: { format: 'ming-expanded-v1' as const, segments, international: body(international.segments) } };
+  });
 }
 
 /**
@@ -264,7 +287,7 @@ export function bookChapters(
  * 『一本書』嘅承諾包括『佢唔會自己變』」。
  * 呢度即時砌係因為佢係**樣板**；真書由 `chapters` 嗰張表讀返（G5）。
  */
-export function demoJuan(): Juan | null {
+export function demoJuan(opts: { mingWriter?: 'legacy' | 'cards' } = {}): Juan | null {
   const r = cast({
     solar: { y: 1996, m: 6, d: 16 },
     time: { h: 8, min: 30 },
@@ -274,6 +297,6 @@ export function demoJuan(): Juan | null {
   });
   if (!r.ok) return null;
 
-  const chapters = chaptersOf(r.value, { seed: 'demo', year: 2026 });
+  const chapters = chaptersOf(r.value, { seed: 'demo', year: 2026, ...opts });
   return chapters ? buildJuan(chapters, r.value) : null;
 }

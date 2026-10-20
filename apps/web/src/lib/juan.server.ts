@@ -70,7 +70,7 @@ export function serverJuan(): JuanPort {
       if (!(await signedIn(sb))) return null;
       const { data: row, error } = await sb
         .from('chapters')
-        .select('id, slots')
+        .select('id, slots, content_version')
         .eq('book_id', bookId)
         .eq('slug', slug)
         .maybeSingle();
@@ -80,7 +80,13 @@ export function serverJuan(): JuanPort {
       /* ⚠ 正文一定要行 `chapter_body()`；`slots` 就直接 select 得到（0006）。 */
       const { data, error: bodyError } = await sb.rpc('chapter_body', { p_chapter: row.id });
       if (bodyError) throw bodyError;
-      return { text: (data as string | null) ?? null, slots: (row.slots as string[]) ?? [] };
+      let reading: unknown;
+      if (data !== null && String(row.content_version).includes('+ming-expanded-v1') && slug === '命宮') {
+        const result = await sb.rpc('chapter_reading', { p_chapter: row.id });
+        if (result.error) throw result.error;
+        reading = result.data;
+      }
+      return { text: (data as string | null) ?? null, slots: (row.slots as string[]) ?? [], ...(reading ? { reading } : {}) };
     },
 
     async chart(bookId) {
@@ -102,12 +108,14 @@ export function serverJuan(): JuanPort {
       const sb = supabaseServer();
       if (!(await signedIn(sb))) return [];
       /* ⚠ 只開第一段同一句引文（0008）；全章正文照舊行 `chapter_body()` */
-      const { data, error } = await sb.rpc('chapter_leads', { p_book: bookId });
+      const { data, error } = await sb.rpc('chapter_leads_v2', { p_book: bookId });
       if (error) throw error;
-      return ((data ?? []) as { slug: string; lead: string | null; quote: string | null }[]).map((r) => ({
+      return ((data ?? []) as { slug: string; lead: string | null; quote: string | null; international_lead: string | null; citations: string[] | null }[]).map((r) => ({
         slug: r.slug,
         lead: r.lead ?? '',
         quote: r.quote ?? null,
+        ...(r.international_lead != null ? { internationalLead: r.international_lead } : {}),
+        ...(r.citations != null ? { citations: r.citations } : {}),
       }));
     },
   };

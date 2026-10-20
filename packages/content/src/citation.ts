@@ -8,6 +8,7 @@ import { tmSentence } from './en/render';
 import { huaClauseEn } from './en/time';
 import { XINGXI } from './xingxi';
 import { adultOf } from './youth';
+import mingLocations from './cards/ming-source-locations.json';
 
 /* ───────────────────────────────────────────────────────────
  * 出處註（2026-10-12 · Issac：「人哋 challenge 我哋，要講得出喺邊本書、邊一頁、邊一節」）
@@ -33,6 +34,9 @@ import { adultOf } from './youth';
  * ─────────────────────────────────────────────────────────── */
 
 export type Citation = {
+  pageConvention?: 'pdf';
+  /** 已核短節錄；省略處以「……」標示，不補成原文。 */
+  excerpt?: boolean;
   /** 語料庫 passage id */
   id: string;
   author: string;
@@ -51,6 +55,12 @@ const AUTHOR = '王亭之';
 const BOOK = '中州派紫微斗數深造講義';
 
 export function citation(id: string): Citation | null {
+  const locator = (mingLocations.locations as Record<string, { page: number; section: string; excerpt: string[] }>)[id];
+  if (locator) return {
+    id, author: AUTHOR, authorEn: 'Wang Tingzhi', book: BOOK,
+    bookEn: 'Advanced Lectures on Zhongzhou School Zi Wei Dou Shu',
+    page: locator.page, section: locator.section, text: locator.excerpt.join('……'), pageConvention: 'pdf', excerpt: true,
+  };
   const p = CORPUS.zhongzhou?.passages[id] as { chapter?: string; ref?: string; lines?: [number, number]; text: string } | undefined;
   if (!p || !p.lines) return null;
   return {

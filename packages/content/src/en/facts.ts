@@ -224,6 +224,7 @@ export const POLE_EN: Record<string, string> = {
   沉穩: 'steadiness', 虛浮: 'hollowness', 謙和: 'modesty', 保守: 'caution', 情緒: 'emotion', 重情: 'warmth', 決絕: 'finality',
   穩定: 'stability', 浮蕩: 'restlessness', 多焦慮: 'anxiety', 敏感: 'sensitivity', 踏實: 'groundedness', 調和: 'balance',
   偏執: 'obstinacy', 偏枯: 'imbalance', 統籌: 'overseeing the whole', 偏於一端: 'one end', 開朗: 'openness', 沉鬱: 'heaviness', 情感: 'feeling',
+  配合失衡: 'imbalance',
   穩重: 'steadiness', 浮動: 'restlessness', 權威: 'authority', 強勢: 'dominance', 為公: 'the public good', 為己: 'self-interest',
   多思慮: 'overthinking', 有度: 'restraint', 野心: 'ambition', 得助: 'finding help', 孤立: 'isolation', 有原則: 'principle',
   重情面: 'sentiment', 明斷: 'clear judgement', 尖銳: 'sharpness',

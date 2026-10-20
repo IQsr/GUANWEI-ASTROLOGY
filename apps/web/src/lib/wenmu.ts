@@ -3,6 +3,7 @@ import { englishChapters, isEnglish } from '@/lib/english';
 import { isJapanese, japaneseChapters } from '@/lib/japanese';
 import { zhFor } from '@/lib/hans';
 import type { ChapterLead } from '@/lib/juan-view';
+import { readingOf } from '@/lib/chapter-reading';
 
 /**
  * 目次問目「你想知甚麼」（2026-10-14）
@@ -36,7 +37,7 @@ export type AskItem = {
   sources: AskSource[];
 };
 
-export type AskSource = { id: string; book: string; page: number; section: string };
+export type AskSource = { id: string; book: string; page: number; section: string; pageConvention?: 'pdf' };
 
 /** 讀者見到嘅第一段：拎走粗體記號，唔要空白答案 */
 function clean(s: string): string {
@@ -49,15 +50,15 @@ function clean(s: string): string {
  * 一律用中文原段配（`citeOf` 嘅中文索引最齊；出處係同一段原文，同讀者用乜語言無關），
  * 再按 locale 寫書名同節名 —— 同 `mingshu.ts` `citesFor()` 一樣嘅寫法。
  */
-function sourcesOf(lead: string, locale: string): AskSource[] {
+function sourcesOf(lead: string, locale: string, citations?: string[]): AskSource[] {
   const sentences = lead.match(/[^。！？]*[。！？]|[^。！？]+$/g) ?? [];
-  const ids = [...new Set(sentences.flatMap((s) => citeOf(s.trim()) ?? []))];
+  const ids = [...new Set(citations ?? sentences.flatMap((s) => citeOf(s.trim()) ?? []))];
   return ids.flatMap((id) => {
     const c = citation(id);
     if (!c) return [];
     const book = isEnglish(locale) ? `${c.authorEn}, ${c.bookEn} (${c.book})` : isJapanese(locale) ? `${c.author}《${c.book}》` : zhFor(locale, `${c.author}《${c.book}》`);
     const section = isJapanese(locale) || isEnglish(locale) ? c.section : zhFor(locale, c.section);
-    return [{ id, book, page: c.page, section }];
+    return [{ id, book, page: c.page, section, ...(c.pageConvention ? { pageConvention: c.pageConvention } : {}) }];
   });
 }
 
@@ -67,7 +68,9 @@ function sourcesOf(lead: string, locale: string): AskSource[] {
  * 英文：用同一個 `englishChapters()` 逐章譯第一段（同閱讀頁一樣嘅譯法）。
  */
 export function buildAsks(leads: readonly ChapterLead[], locale: string): AskItem[] {
-  const bySlug = new Map(leads.map((l) => [l.slug, l]));
+  const international = isEnglish(locale) || isJapanese(locale);
+  const bySlug = new Map(leads.map((l) => [l.slug, international && l.internationalLead !== undefined
+    ? { ...l, lead: l.internationalLead, citations: undefined } : l]));
   const picked = ASKS.flatMap((a) => {
     const l = bySlug.get(a.slug);
     return l && clean(l.lead) !== '' ? [{ ...a, lead: l }] : [];
@@ -88,7 +91,7 @@ export function buildAsks(leads: readonly ChapterLead[], locale: string): AskIte
     slug: p.slug,
     answer: zhFor(locale, clean(p.lead.lead)),
     quote: p.lead.quote ? zhFor(locale, p.lead.quote) : null,
-    sources: sourcesOf(clean(p.lead.lead), locale),
+    sources: sourcesOf(clean(p.lead.lead), locale, p.lead.citations),
   }));
 }
 
@@ -99,10 +102,14 @@ export function buildAsks(leads: readonly ChapterLead[], locale: string): AskIte
 export const QUOTE_RE = /《[^》]+》[^「」。，；：！？、\n]{0,12}「[^」]+」/;
 
 /** 示範書：成本書喺 build 嗰陣計好，直接由正文切第一段同第一句引文（同 0009 嘅 SQL 一樣切法） */
-export function leadsFromBodies(drafts: readonly { slug: string; body: string }[]): ChapterLead[] {
-  return drafts.map((d) => ({
-    slug: d.slug,
-    lead: d.body.split('\n\n')[0] ?? '',
-    quote: d.body.match(QUOTE_RE)?.[0] ?? null,
-  }));
+export function leadsFromBodies(drafts: readonly { slug: string; body: string; reading?: unknown }[]): ChapterLead[] {
+  return drafts.map((d) => {
+    const r = readingOf(d.reading, d.body);
+    return {
+      slug: d.slug,
+      lead: d.body.split('\n\n')[0] ?? '',
+      quote: d.body.match(QUOTE_RE)?.[0] ?? null,
+      ...(r ? { internationalLead: r.international.text.split('\n\n')[0] ?? '', citations: [...new Set(r.segments[0]?.statements?.flatMap((l) => l.citations) ?? [])] } : {}),
+    };
+  });
 }

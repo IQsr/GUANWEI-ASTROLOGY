@@ -110,6 +110,8 @@ export const ChapterRow = z.object({
    * 呢一版有幾多格、係乜嘢格，但讀唔到入面寫乜。咁先至係毛邊本。
    */
   slots: z.array(z.string()),
+  /** 完整閱讀快照，只能經有正文權限的 chapter_reading() 取得。 */
+  reading: z.record(z.string(), z.unknown()).nullable(),
 });
 
 export const EntitlementRow = z.object({

@@ -20,7 +20,7 @@ describe('日文：宮位章以外嘅章', () => {
       if (!r.ok) continue;
       const drafts = chapterDrafts(bookChapters(r.value, { seed: String(i), year: 2026, solar, place: '香港' }) ?? [], 'ja-test');
       for (const d of drafts.filter((x) => !PALACES.includes(x.slug))) {
-        const out = Ja.renderChapter(d.body);
+        const out = Ja.renderChapter(d.reading?.international.text ?? d.body);
         out.missing.forEach((m) => missing.add(`${d.slug}｜${m}`));
         Ja.scanJapanese(out.text).forEach((c) => lint.add(`${c}：${d.slug}`));
         expect(Ja.chapterTitleJa(d.title), d.title).toBeTruthy();

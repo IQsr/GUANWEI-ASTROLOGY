@@ -1,5 +1,9 @@
 import { MARK } from '@/lib/site';
 import { LEGAL_VERSION } from '@/lib/legal';
+import type { ChapterReading } from '@/lib/chapter-reading';
+
+export const MING_READING_VERSION = 'ming-expanded-v1';
+export const readingContentVersion = (rulesRef: string) => `${rulesRef}+${MING_READING_VERSION}`;
 
 /**
  * 成書：六幕行完之後留低嘅嘢（工單 G5 · 架構 §5）
@@ -38,6 +42,7 @@ export type ChapterDraft = {
    */
   slots: string[];
   content_version: string;
+  reading?: ChapterReading;
 };
 
 export type SubjectDraft = {
@@ -125,6 +130,7 @@ export type ChapterSource = {
   text: string;
   /** 每一段嘅格名，數目要同 `text` 嘅段數一樣。 */
   slots?: readonly string[];
+  reading?: ChapterReading;
 };
 
 /**
@@ -148,6 +154,7 @@ export function chapterDrafts(
     body: c.text,
     slots: [...(c.slots ?? [])],
     content_version: contentVersion,
+    ...(c.reading ? { reading: c.reading } : {}),
   }));
 }
 

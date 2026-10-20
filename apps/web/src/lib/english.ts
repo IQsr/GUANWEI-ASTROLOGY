@@ -2,6 +2,7 @@ import { En } from '@guanwei/content';
 import { paragraphs } from '@/lib/suidu';
 import { zhFor } from '@/lib/hans';
 import { isJapanese, japaneseTitle } from '@/lib/japanese';
+import { internationalBodies } from '@/lib/chapter-reading';
 
 /**
  * 英文閱讀模式（2026-10-05）
@@ -28,9 +29,9 @@ export function displayTitle(title: string, locale: string): string {
 }
 
 /** 由第一章到而家呢章（按次序），回每章嘅段落（同中文段一一對應，格名照用）。 */
-export function englishChapters(chs: readonly { text: string; slots: readonly string[] }[]): { slot: string; text: string }[][] {
+export function englishChapters(chs: readonly { text: string; slots: readonly string[]; reading?: unknown }[]): { slot: string; text: string }[][] {
   const st = En.newBookState();
-  return chs.map((c) => {
+  return internationalBodies(chs).map((c) => {
     const paras = paragraphs(c.text, c.slots);
     const en = En.renderParagraphs(
       paras.map((p) => p.text),

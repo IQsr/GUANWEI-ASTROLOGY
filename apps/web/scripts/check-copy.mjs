@@ -45,6 +45,9 @@ const ALLOWED = {
   'components/Feiye.tsx': '扉頁生辰（「庚午年　二月廿五　未時」）：書嘅內容，同序章生辰一樣寫中文；英文版行另一條路（拼音）',
   'lib/chart-labels.ts': '命盤英文標籤（2026-10-05）：中文星名、宮名、干支係對照表嘅 key（資料鍵），值係英文',
   'lib/english.ts': '英文閱讀模式：段落格名預設「正文」（資料鍵）',
+  'lib/japanese.ts': '日文閱讀模式：段落格名及中文存檔書名的轉譯對照鍵；輸出由日文內容譯層提供',
+  'lib/chapter-reading.ts': '存檔段落格名預設「正文」（資料鍵，不直接顯示）',
+  'lib/juan.server.ts': '命宮章 slug，用來選取成書時的閱讀快照（資料鍵）',
   'lib/lexicon.ts': '英文出處（2026-10-05）：《全書》卷名、篇名係對照表嘅 key（語料資料），值係英文書目',
   'lib/legal-text.ts': '條款及私隱政策全文：中英各一份，有版本號（LEGAL_VERSION）嘅文件內容，唔係介面字',
   'lib/legal.ts': '營運者名稱等未定嘅〔方括號〕假值（placeholder，測試守住，定咗真值就改）',
@@ -61,7 +64,6 @@ const ALLOWED = {
   'lib/luokuan.ts': '出生地嘅中文名（交畀引擎、寫落書）同中文日期寫法；畫面上嘅地名喺 messages',
   'app/[locale]/cast/actions.ts': '序嘅 slug「序」（內容資料）',
   'app/[locale]/book/[bookId]/[chapter]/page.tsx': '段落格名預設「正文」（資料鍵）',
-  'app/[locale]/sample/[chapter]/page.tsx': '同真書一章一樣：段落格名預設「正文」、墨綠頁章 slug（資料鍵）',
 
   'lib/hans.ts': '簡體：OpenCC 之後嘅修正規則（藉→借、锺→钟、星叙→星敘），係轉換資料唔係介面字',
   'lib/hans-zi.ts': '簡體（2026-10-08）：命盤詞彙繁 → 簡逐字對照表（資料，test/hans.test.ts 對住 OpenCC 核）',
