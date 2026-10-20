@@ -25,6 +25,7 @@ import { markBook, type MarkedChapter } from '@/lib/zhu';
 import { hans, isHans, zhFor } from '@/lib/hans';
 import type { CiteNote, Note } from '@/components/Juan';
 import type { ChapterReading } from '@/lib/chapter-reading';
+import { localizedMing } from '@/lib/ming-international';
 
 /**
  * 由一張盤砌一本命書（工單 F1）
@@ -116,7 +117,7 @@ export function citesFor(marked: MarkedChapter[], locale = 'zh-Hant'): Record<st
     if (!c) continue;
     out[id] = {
       id,
-      book: locale === 'en' ? `${c.authorEn}, ${c.bookEn} (${c.book})` : zhFor(locale, `${c.author}《${c.book}》`),
+      book: locale === 'en' ? `${c.authorEn}, ${c.bookEn} (${c.book})` : locale === 'ja' ? `${c.author}『${c.book.replace('斗數', '斗数')}』` : zhFor(locale, `${c.author}《${c.book}》`),
       page: c.page,
       section: zhFor(locale, c.section),
       text: c.text,
@@ -275,7 +276,8 @@ export function bookChapters(
       if (s.topic) seen.add(s.topic);
       return { ...s, ...(heading ? { heading } : {}) };
     });
-    return { slug: p.slug, ...body(segments), reading: { format: 'ming-expanded-v1' as const, writer: 'sentence-backed-v1' as const, segments, international: body(international.segments) } };
+    const reading: ChapterReading = { format: 'ming-expanded-v1', writer: 'sentence-backed-v1', segments, international: body(international.segments) };
+    return { slug: p.slug, ...body(segments), reading: { ...reading, localized: localizedMing(reading) } };
   });
 }
 

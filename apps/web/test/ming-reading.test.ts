@@ -34,7 +34,7 @@ describe('繁簡命宮展開版：生成 → 存檔 → 書頁', () => {
     expect(ask.sources).toHaveLength(2);
     expect(buildAsks(enriched, 'zh-Hans')[0]!.detail).toBe(hans(ask.detail!));
     expect(buildAsks(leadsFromBodies(drafts), 'zh-Hant')[0]!.detail).toBe(ask.detail);
-    for (const locale of ['en', 'ja']) expect(buildAsks(enriched, locale)[0]!.detail).toBeUndefined();
+    for (const locale of ['en', 'ja']) expect(buildAsks(enriched, locale)[0]!.detail).toBeDefined();
     expect(withMingDetail([lead], null)).toEqual([lead]);
     expect(withMingDetail([lead], { text: ming.body + '錯配', reading: ming.reading })).toEqual([lead]);
     const paid = { ...lead, slug: '財帛' };
@@ -48,7 +48,7 @@ describe('繁簡命宮展開版：生成 → 存檔 → 書頁', () => {
   });
 
   it('正文用真實展開稿，段落、逐句資料及版本一同存下', () => {
-    expect(ming.content_version).toBe('rules@test+ming-expanded-v1+sentence-backed-v1');
+    expect(ming.content_version).toBe('rules@test+ming-expanded-v1+sentence-backed-v1+ming-translations-v1');
     expect(ming.reading!.writer).toBe('sentence-backed-v1');
     expect(readingOf(ming.reading, ming.body)).toEqual(ming.reading);
     expect(ming.slots).toContain('展開');
@@ -115,13 +115,13 @@ describe('繁簡命宮展開版：生成 → 存檔 → 書頁', () => {
     expect(readingOf({ format: 'ming-expanded-v1', segments: [null], international: {} }, '')).toBeNull();
   });
 
-  it('英日沿用成書時保存的舊版，目次與正文一致並可譯出', () => {
+  it('英日接通存檔逐句展開稿，目次與正文一致；較舊稿仍按保存版本讀', () => {
     const chs = drafts.map((d) => ({ text: d.body, slots: d.slots, reading: d.reading }));
     const i = drafts.indexOf(ming);
     const legacy = ming.reading!.international;
     expect(legacy.text).not.toBe(ming.body);
     for (const translated of [englishChapters(chs)[i]!, japaneseChapters(chs)[i]!]) {
-      expect(translated.map((s) => s.slot)).toEqual(legacy.slots);
+      expect(translated.map((s) => s.slot)).toEqual(ming.slots);
       expect(translated.map((s) => s.text).join('')).not.toContain('〔');
     }
     const leads = leadsFromBodies(drafts);
@@ -129,6 +129,11 @@ describe('繁簡命宮展開版：生成 → 存檔 → 書頁', () => {
     expect(zh.answer).toBe(ming.body.split('\n\n')[0]);
     expect(zh.sources.length).toBeGreaterThan(0);
     expect(buildAsks(leads, 'en').find((a) => a.slug === '命宮')!.answer).toBe(englishChapters(chs)[i]![0]!.text);
+    const old = { text: ming.body, slots: ming.slots, reading: { ...ming.reading, writer: undefined, localized: undefined } };
+    for (const translated of [englishChapters([old])[0]!, japaneseChapters([old])[0]!]) {
+      expect(translated.map((s) => s.slot)).toEqual(legacy.slots);
+      expect(translated.map((s) => s.text).join('')).not.toContain('〔');
+    }
   });
 
   it('年少讀者不套成人情境與建議；隨讀高亮分清解讀與編輯段', () => {

@@ -132,7 +132,7 @@ function firstTerm(
  * 二、**一句最多標一個**。兩點喺同一句，讀者要停兩次。
  */
 export function markBook(chapters: ChapterInput[], lang: 'zh' | 'en' | 'ja' = 'zh'): MarkedChapter[] {
-  /* 日文（2026-10-15）：藏經閣未有日文，唔標術語；出處索引係中英文句，日文冇字號 */
+  /* 日文未有詞條庫，不標術語；已保存的逐句來源可照常顯示，不猜中文句索引。 */
   const terms = lang === 'en' ? termIndexEn() : lang === 'ja' ? [] : termIndex();
   const split = lang === 'en' ? sentencesEn : sentences;
   const used = new Set<string>();
@@ -152,7 +152,7 @@ export function markBook(chapters: ChapterInput[], lang: 'zh' | 'en' | 'ja' = 'z
       for (const sentence of split(seg.text)) {
         const end = offset + sentence.length;
         const explicit = spans?.filter((s) => s.start < end && s.end > offset).flatMap((s) => s.citations);
-        const cite = lang === 'ja' ? null : explicit !== undefined ? [...new Set(explicit)] : citeOf(sentence, lang);
+        const cite = explicit !== undefined ? [...new Set(explicit)] : lang === 'ja' ? null : citeOf(sentence, lang);
         offset = end;
         const hit = firstTerm(sentence, terms, used);
         if (!hit) {

@@ -16,7 +16,7 @@ describe('英文閱讀模式', () => {
 
   it('示範書每章段數、格名同中文一樣', () => {
     book.drafts.forEach((d, i) => {
-      const zh = paragraphs(d.reading?.international.text ?? d.body, d.reading?.international.slots ?? d.slots);
+      const zh = d.reading?.localized ? d.reading.segments : paragraphs(d.reading?.international.text ?? d.body, d.reading?.international.slots ?? d.slots);
       /* 2026-10-14：英文序章多一段閱讀說明（slot「閱讀」），其餘一一對應 */
       const mine = en[i]!.filter((s) => s.slot !== '閱讀');
       expect(mine.length, d.slug).toBe(zh.length);

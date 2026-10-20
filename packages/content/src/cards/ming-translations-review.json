@@ -1,0 +1,7 @@
+{
+  "reviewed_on": "2026-10-20",
+  "scope": "translations of the 254 approved sentences only; no new rules, poles or flow activation",
+  "base_sha256": "a79eaa116827e566370285241fc0213d21aec2f04c810e65727702e68a2d31a1",
+  "translations_sha256": "855486440c0f5de3867a553663a503b1b41b53fe27904db50382d9963bfd0c09",
+  "method": "Compared every translation with the approved Chinese sentence; retained qualifiers, negative conditions, star names and layer boundaries. Source quotations stay in their original Chinese."
+}

@@ -4,6 +4,7 @@ import { isJapanese, japaneseChapters } from '@/lib/japanese';
 import { zhFor } from '@/lib/hans';
 import type { ChapterLead } from '@/lib/juan-view';
 import { readingOf } from '@/lib/chapter-reading';
+import { internationalMing } from '@/lib/ming-international';
 
 /**
  * 目次問目「你想知甚麼」（2026-10-14）
@@ -69,7 +70,7 @@ function sourcesOf(lead: string, locale: string, citations?: string[]): AskSourc
   return ids.flatMap((id) => {
     const c = citation(id);
     if (!c) return [];
-    const book = isEnglish(locale) ? `${c.authorEn}, ${c.bookEn} (${c.book})` : isJapanese(locale) ? `${c.author}《${c.book}》` : zhFor(locale, `${c.author}《${c.book}》`);
+    const book = isEnglish(locale) ? `${c.authorEn}, ${c.bookEn} (${c.book})` : isJapanese(locale) ? `${c.author}『${c.book.replace('斗數', '斗数')}』` : zhFor(locale, `${c.author}《${c.book}》`);
     const section = isJapanese(locale) || isEnglish(locale) ? c.section : zhFor(locale, c.section);
     return [{ id, book, page: c.page, section, ...(c.pageConvention ? { pageConvention: c.pageConvention } : {}) }];
   });
@@ -92,12 +93,18 @@ export function buildAsks(leads: readonly ChapterLead[], locale: string): AskIte
 
   if (isEnglish(locale)) {
     const en = englishChapters(picked.map((p) => ({ text: clean(p.lead.lead), slots: [] })));
-    return picked.map((p, i) => ({ key: p.key, slug: p.slug, answer: en[i]?.[0]?.text ?? '', quote: null, sources: sourcesOf(clean(p.lead.lead), locale) }));
+    return picked.map((p, i) => {
+      const local = p.lead.localized?.en;
+      return { key: p.key, slug: p.slug, answer: local?.answer ?? en[i]?.[0]?.text ?? '', ...(local?.detail ? { detail: local.detail } : {}), quote: null, sources: sourcesOf(clean(p.lead.lead), locale, local?.citations) };
+    });
   }
   /* 日文（2026-10-15）：同閱讀頁一樣逐句譯；引文係中文原句，唔出 */
   if (isJapanese(locale)) {
     const ja = japaneseChapters(picked.map((p) => ({ text: clean(p.lead.lead), slots: [] })));
-    return picked.map((p, i) => ({ key: p.key, slug: p.slug, answer: ja[i]?.[0]?.text ?? '', quote: null, sources: sourcesOf(clean(p.lead.lead), locale) }));
+    return picked.map((p, i) => {
+      const local = p.lead.localized?.ja;
+      return { key: p.key, slug: p.slug, answer: local?.answer ?? ja[i]?.[0]?.text ?? '', ...(local?.detail ? { detail: local.detail } : {}), quote: null, sources: sourcesOf(clean(p.lead.lead), locale, local?.citations) };
+    });
   }
   return picked.map((p) => ({
     key: p.key,
@@ -121,9 +128,16 @@ export function withMingDetail(leads: readonly ChapterLead[], chapter: { text: s
   const first = r?.segments[0];
   const detail = r?.segments[1];
   if (!first || detail?.slot !== '展開') return [...leads];
+  const localized: ChapterLead['localized'] = {};
+  for (const locale of ['en', 'ja'] as const) {
+    const segments = internationalMing({ text: chapter!.text!, reading: chapter!.reading }, locale);
+    if (segments?.[0]) localized[locale] = { answer: segments[0].text, ...(segments[1] ? { detail: segments[1].text } : {}),
+      citations: [...new Set(segments.slice(0, 2).flatMap((s) => s.statements?.flatMap((l) => l.citations) ?? []))] };
+  }
   return leads.map((l) => l.slug === '命宮' && l.lead === first.text ? {
     ...l,
     detail: detail.text,
+    ...(Object.keys(localized).length ? { localized } : {}),
     citations: [...new Set([...(l.citations ?? first.statements?.flatMap((s) => s.citations) ?? []),
       ...(detail.statements?.flatMap((s) => s.citations) ?? [])])],
   } : l);

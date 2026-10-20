@@ -6,7 +6,8 @@
   "type": "module",
   "exports": {
     ".": "./src/index.ts",
-    "./ming-version": "./src/ming-version.ts"
+    "./ming-version": "./src/ming-version.ts",
+    "./ming-translations": "./src/ming-translations.ts"
   },
   "scripts": {
     "test": "vitest run",

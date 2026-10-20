@@ -13,8 +13,14 @@ import { chapterDrafts, readingContentVersion } from '@/lib/chengshu';
 import { readingSegments } from '@/lib/chapter-reading';
 import { chartLayers } from '@/lib/layers.server';
 import { zhFor } from '@/lib/hans';
+import { englishChapters } from '@/lib/english';
+import { japaneseChapters } from '@/lib/japanese';
+import { displayTitle } from '@/lib/english';
 
-export const metadata: Metadata = { title: '命宮逐句依據 · 多盤預覽', robots: { index: false, follow: false } };
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params;
+  return { title: locale === 'en' ? 'Life Palace · Expanded reading preview' : locale === 'ja' ? '命宮 · 一文ごとの出典付きプレビュー' : '命宮逐句依據 · 多盤預覽', robots: { index: false, follow: false } };
+}
 export function generateStaticParams() { return routing.locales.map((locale) => ({ locale })); }
 
 // 全部為虛構生辰；本頁只有生辰選擇，不保存任何命宮專用文案。
@@ -42,20 +48,32 @@ export default async function BackedMingPreview({ params, searchParams }: {
   if (!chapters) return null;
   const draft = chapterDrafts(chapters, readingContentVersion('preview')).find((c) => c.slug === '命宮');
   if (!draft) return null;
-  const marked = localizeMarked(markBook([{ palace: '命宮', segments: readingSegments(draft.body, draft.slots, draft.reading) }]), locale);
+  const input = { text: draft.body, slots: draft.slots, reading: draft.reading };
+  const segments = locale === 'en' ? englishChapters([input])[0]! : locale === 'ja' ? japaneseChapters([input])[0]! : readingSegments(draft.body, draft.slots, draft.reading);
+  const marked = localizeMarked(markBook([{ palace: '命宮', segments }], locale === 'en' || locale === 'ja' ? locale : 'zh'), locale);
   const z = (s: string) => zhFor(locale, s);
+  const labels: Record<string, { en: string; ja: string }> = {
+    tongliang: { en: 'Tian Tong–Tian Liang · sample', ja: '天同・天梁 · 見本' },
+    borrowed: { en: 'Tian Ji–Tai Yin · borrowed stars', ja: '天機・太陰 · 借星' },
+    pojun: { en: 'Po Jun · renewal and continuity', ja: '破軍 · 刷新と継承' },
+    tanlang: { en: 'Tan Lang · unverified branches omitted', ja: '貪狼 · 未確認の判断は保留' },
+    jiliang: { en: 'Tian Ji–Tian Liang · sensitivity and principle', ja: '天機・天梁 · 感受性と原則' },
+  };
+  const label = (c: typeof selected) => locale === 'en' || locale === 'ja' ? labels[c.key]![locale] : z(c.label);
+  const previewNote = locale === 'en' ? 'Sentence-backed writing · fictional birth details' : locale === 'ja' ? '一文ごとの出典付き · 架空の出生情報によるプレビュー' : z('逐句依據寫作層 · 虛構生辰預覽');
+  const heldNote = locale === 'en' ? 'Unverified personal leanings, configurations and timing remain omitted; sentence-level sources do not activate those branches.' : locale === 'ja' ? '個人の傾向、格局、運期について未確認の判断は保留しています。一文ごとの出典があっても、それらの分岐が確認済みになるわけではありません。' : z('本命偏向、格局或運程未核實的部分繼續留白；逐句來源不等於這些分支已經放行。');
   return <main className="juan tai shuzhuo-tai ye-ink">
     <NightScene variant="table" />
-    <Juanshou back={{ href: '/sample', label: z('示範命書') }} />
-    <nav aria-label={z('預覽命盤')} className="banxin mb-6 flex flex-wrap gap-x-6 gap-y-3 text-cap text-ink-2">
-      {CASES.map((c) => <Link key={c.key} href={`/tokens/ming-backed?case=${c.key}`} className="lian" aria-current={c.key === selected.key ? 'page' : undefined}>{z(c.label)}</Link>)}
+    <Juanshou back={{ href: '/sample', label: locale === 'en' ? 'Sample book' : locale === 'ja' ? '見本の命書' : z('示範命書') }} />
+    <nav aria-label={locale === 'en' ? 'Preview charts' : locale === 'ja' ? '命盤のプレビュー' : z('預覽命盤')} className="banxin mb-6 flex flex-wrap gap-x-6 gap-y-3 text-cap text-ink-2">
+      {CASES.map((c) => <Link key={c.key} href={`/tokens/ming-backed?case=${c.key}`} className="lian" aria-current={c.key === selected.key ? 'page' : undefined}>{label(c)}</Link>)}
     </nav>
     <BookSpread chart={chart} layers={chartLayers(chart, 2026)} palace="命宮" follow
-      top={<div><p className="font-serif text-lead text-ink-2">{z(selected.label)}</p><p className="mt-2 text-cap text-ink-3">{z('逐句依據寫作層 · 虛構生辰預覽')}</p></div>}>
-      <h1 className="mb-8 font-serif text-h2 tracking-[0.16em]">{z('一 · 命宮')}</h1>
+      top={<div><p className="font-serif text-lead text-ink-2">{label(selected)}</p><p className="mt-2 text-cap text-ink-3">{previewNote}</p></div>}>
+      <h1 className="mb-8 font-serif text-h2 tracking-[0.16em]">{displayTitle('一 · 命宮', locale)}</h1>
       <Juan segments={marked[0]!.segments} notes={notesFor(marked, locale)} cites={citesFor(marked, locale)} />
-      {!draft.body ? <p className="text-body leading-[1.95]">{z('這張盤的已核條件未足以出稿，命宮暫留空白。')}</p> : null}
-      <p className="mt-10 text-cap leading-[1.9] text-ink-3">{z('本命偏向、格局或運程未核實的部分繼續留白；逐句來源不等於這些分支已經放行。')}</p>
+      {!segments.length ? <p className="text-body leading-[1.95]">{locale === 'en' ? 'The verified material is insufficient for this reading, so the Life Palace is left blank.' : locale === 'ja' ? '確認済みの内容だけでは本文を整えられないため、命宮は空欄にしています。' : z('這張盤的已核條件未足以出稿，命宮暫留空白。')}</p> : null}
+      <p className="mt-10 text-cap leading-[1.9] text-ink-3">{heldNote}</p>
     </BookSpread>
   </main>;
 }
