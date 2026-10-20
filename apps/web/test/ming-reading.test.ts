@@ -8,7 +8,7 @@ import { markBook } from '@/lib/zhu';
 import { englishChapters } from '@/lib/english';
 import { japaneseChapters } from '@/lib/japanese';
 import { hans } from '@/lib/hans';
-import { buildAsks, leadsFromBodies } from '@/lib/wenmu';
+import { buildAsks, leadsFromBodies, visibleSources, withMingDetail } from '@/lib/wenmu';
 import { focusOf } from '@/lib/suidu';
 
 const solar = { y: 1984, m: 8, d: 16 };
@@ -22,6 +22,31 @@ const ming = drafts.find((d) => d.slug === '命宮')!;
 const marked = markBook([{ palace: '命宮', segments: readingSegments(ming.body, ming.slots, ming.reading) }]);
 
 describe('繁簡命宮展開版：生成 → 存檔 → 書頁', () => {
+  it('目次保留原句，再接存檔的首段展開；同章出處只顯示一次而引用記錄不丟失', () => {
+    const lead = { slug: '命宮', lead: ming.body.split('\n\n')[0]!, quote: null };
+    const enriched = withMingDetail([lead], { text: ming.body, reading: ming.reading });
+    const ask = buildAsks(enriched, 'zh-Hant')[0]!;
+    expect(ask.answer).toBe(lead.lead);
+    expect(ask.detail).toBe(ming.reading!.segments[1]!.text);
+    expect(ask.detail).toBe('把理由想清楚與內心是否接受，是兩個需要一起照顧的部分。先讓兩邊都有說明的空間，再決定可以採取的下一步，讓分析與感受互相補充。');
+    expect(ask.sources).toHaveLength(3);
+    expect(visibleSources(ask.sources)).toHaveLength(1);
+    expect(ask.sources).toHaveLength(3);
+    expect(buildAsks(enriched, 'zh-Hans')[0]!.detail).toBe(hans(ask.detail!));
+    expect(buildAsks(leadsFromBodies(drafts), 'zh-Hant')[0]!.detail).toBe(ask.detail);
+    for (const locale of ['en', 'ja']) expect(buildAsks(enriched, locale)[0]!.detail).toBeUndefined();
+    expect(withMingDetail([lead], null)).toEqual([lead]);
+    expect(withMingDetail([lead], { text: ming.body + '錯配', reading: ming.reading })).toEqual([lead]);
+    const paid = { ...lead, slug: '財帛' };
+    expect(withMingDetail([paid], { text: ming.body, reading: ming.reading })).toEqual([paid]);
+  });
+
+  it('同名出處若顯示不同原書頁碼或章節，仍分開保留', () => {
+    const source = { id: 'a', book: '書', section: '節', page: 1 };
+    expect(visibleSources([source, { ...source, id: 'b', page: 2 }, { ...source, id: 'c' }])).toHaveLength(2);
+    expect(visibleSources([{ ...source, pageConvention: 'pdf' }, { ...source, id: 'b', section: '另一節', pageConvention: 'pdf' }])).toHaveLength(2);
+  });
+
   it('正文用真實展開稿，段落、逐句資料及版本一同存下', () => {
     expect(ming.content_version).toBe('rules@test+ming-expanded-v1');
     expect(readingOf(ming.reading, ming.body)).toEqual(ming.reading);
