@@ -244,7 +244,7 @@ export function bookChapters(
     ? ageSafe.map((c) => ({ ...c, segments: c.segments.filter((s) => s.slot !== '生活') }))
     : ageSafe);
 
-  type Part = { slug: string; title?: string; segments: { slot: string; text: string; topic?: string; statements?: import('@guanwei/content').MingStatement[] }[] };
+  type Part = { slug: string; title?: string; segments: { slot: string; text: string; topic?: string; heading?: string; statements?: import('@guanwei/content').MingStatement[] }[] };
   const parts: Part[] = [
     { slug: xu.slug, title: xu.title, segments: xu.segments },
     ...(ming ? [{ slug: ming.palace, segments: ming.segments }] : []),
@@ -270,12 +270,12 @@ export function bookChapters(
     const seen = new Set<string>();
     let evidence = false;
     const segments = p.segments.map((s) => {
-      const heading = s.slot === '因為' ? (evidence ? undefined : '盤面與出處') : s.topic && !seen.has(s.topic) ? s.topic : undefined;
+      const heading = s.heading ?? (s.slot === '因為' ? (evidence ? undefined : '盤面與出處') : s.topic && !seen.has(s.topic) ? s.topic : undefined);
       if (s.slot === '因為') evidence = true;
       if (s.topic) seen.add(s.topic);
       return { ...s, ...(heading ? { heading } : {}) };
     });
-    return { slug: p.slug, ...body(segments), reading: { format: 'ming-expanded-v1' as const, segments, international: body(international.segments) } };
+    return { slug: p.slug, ...body(segments), reading: { format: 'ming-expanded-v1' as const, writer: 'sentence-backed-v1' as const, segments, international: body(international.segments) } };
   });
 }
 

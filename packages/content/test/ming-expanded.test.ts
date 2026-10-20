@@ -67,13 +67,14 @@ describe('展開稿：其他命盤同樣走實際寫作層', () => {
       const s = m.sections.find((s) => s.topic === '本質')!;
       expect(s.heading).toEqual(PROSE_PROFILES.find((p) => p.system === n)!.title);
       expect(s.parts.some((p) => p.part === '展開')).toBe(true);
-      expect(s.parts.some((p) => p.part === '情境')).toBe(true);
-      expect(s.parts.some((p) => p.part === '做法')).toBe(true);
+      expect(s.parts.some((p) => p.part === '情境')).toBe(false);
+      expect(s.parts.filter((p) => p.part !== '因為').every((p) => p.statements?.every((l) => l.kind === 'interpretation' && l.citations.length === 1))).toBe(true);
       expect(s.text.zh).not.toContain('盤面依據');
       expect(m.text.zh.indexOf('盤面依據')).toBeGreaterThan(m.text.zh.indexOf(s.text.zh));
       expect(m.text.zh).not.toContain('來自命宮這組星本身');
       expect(m.text.zh).not.toContain('因為你的命宮');
-      expect(scanPlain(s.conclusion.zh, `${n}`, { leadsWithConclusion: true })).toEqual([]);
+      // 2026-10-20：已驗收的文獻解讀可說明比較軸與判讀條件，不能硬改成未核個人定論。
+      expect(scanPlain(s.conclusion.zh, `${n}`).filter((h) => h.code !== 'P1')).toEqual([]);
     }
   });
 
@@ -122,10 +123,8 @@ describe('展開稿：其他命盤同樣走實際寫作層', () => {
     expect(m.text.zh).not.toMatch(/你屬富局|欲望偏淡|不愛爭|這十年的際遇能令/);
     expect(m.omitted?.some((o) => o.card === 'card.ming.tanlang-ziwu.zi-fu')).toBe(true);
     expect(mingFlow(r.value, 2026)).toEqual({ decade: null, annual: null });
-    const conduct = m.sections.find((s) => s.topic === '處事')!;
-    expect(conduct.mode).toBe('caution');
-    expect(conduct.conclusion.kind).toBe('caveat');
-    expect(conduct.parts[0]!.part).toBe('留意');
+    expect(m.sections.find((s) => s.topic === '處事')).toBeUndefined();
+    expect(m.omitted?.some((o) => o.card === 'card.ming.tanlang-ziwu.duanzheng')).toBe(true);
   });
 
   it('cards 開關預設用展開稿；依據最後、逐句種類仍保留，其他十一宮不變', () => {
@@ -139,7 +138,7 @@ describe('展開稿：其他命盤同樣走實際寫作層', () => {
     const ming = cards.find((c) => c.palace === '命宮')!;
     expect(ming.text).toBe(ming.segments.map((s) => s.text).join('\n\n'));
     expect(ming.segments.some((s) => s.slot === '展開')).toBe(true);
-    expect(ming.segments.some((s) => s.statements?.some((l) => l.kind === 'editorial-example'))).toBe(true);
+    expect(ming.segments.some((s) => s.statements?.some((l) => l.kind === 'editorial-example'))).toBe(false);
     const firstEvidence = ming.segments.findIndex((s) => s.slot === '因為');
     if (firstEvidence >= 0) expect(ming.segments.slice(firstEvidence).every((s) => s.slot === '因為')).toBe(true);
     expect(writeMing(chart)).toEqual(writeMing(chart));

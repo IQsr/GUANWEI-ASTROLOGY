@@ -1,7 +1,7 @@
 /**
  * 命宮寫作層（新架構試點，2026-10-19，見 docs/architecture-v2-plan-2026-10-19.md §2.3、§5）
  *
- * 預設展開稿：命中卡再過獨立核讀閘 → 主判斷／可獨立提醒 → 展開 → 明示情境與編輯建議。
+ * 預設展開稿：命中卡再過原卡與逐句核讀雙閘 → 逐句展開，每句配對其原段短註。
  * 盤面依據另列章末；未核或核讀輸入已改，一律留白。compact 保留短版對照及回歸用途。
  *
  * 本命章（`writeMing`）只寫本命層。大限、流年層另外由 `mingDecade`／`mingYear` 出，
@@ -19,8 +19,9 @@ import { num } from './steps';
 import { leanOf, xingxiOf, type Xingxi } from './xingxi';
 import { evEn, HUA_EN, POLE_EN } from './en/facts';
 import { BRANCH_EN, PALACE_EN, cap, listEn, star as starEn } from './en/terms';
-import { PROSE_PROFILES, EDITORIAL_THEMES, isProseReviewed, type Bilingual } from './ming-prose';
-import { EXTRA_PROSE } from './ming-prose-extra';
+import { PROSE_PROFILES, isProseReviewed, type Bilingual } from './ming-prose';
+import { backedLines, backedCiteId } from './ming-backed';
+export { MING_WRITER_VERSION } from './ming-backed';
 
 export type MingTopic = (typeof MING_TOPICS)[number];
 export type MingStyle = 'expanded' | 'compact';
@@ -60,7 +61,7 @@ export type MingSection = {
   /** 原文段落 id（去重）。 */
   citations: string[];
   /** 排好嘅四格（留意、做法冇就唔出）。 */
-  parts: { part: '結論' | '展開' | '情境' | '因為' | '留意' | '做法'; zh: string; en: string; statements?: MingStatement[] }[];
+  parts: { part: '結論' | '展開' | '情境' | '因為' | '留意' | '做法'; zh: string; en: string; heading?: string; statements?: MingStatement[] }[];
   text: { zh: string; en: string };
 };
 
@@ -586,12 +587,12 @@ export function writeMing(chart: Chart, opts: MingWriteOptions = {}): MingChapte
   const x = xingxiOf(chart);
   if (!x) return { style, palace: '命宮', system: null, sections: [], text: { zh: '', en: '' } };
   const candidates = cardsFor(chart, undefined, 'natal', opts.pool);
-  const hits = style === 'expanded' ? candidates.filter((h) => isProseReviewed(h.card)) : candidates;
+  const hits = style === 'expanded' ? candidates.filter((h) => isProseReviewed(h.card) && backedLines(h.card)) : candidates;
   const cx: Ctx = { chart, x, said: new Set(), lead: systemReason(chart, x) };
   const sections = MING_TOPICS.map((t) => style === 'expanded' ? expandedSection(t, hits, cx) : section(t, 'natal', hits, cx)).filter((s): s is MingSection => !!s);
   return {
     style,
-    ...(style === 'expanded' ? { omitted: candidates.filter((h) => !isProseReviewed(h.card)).map((h) => ({ card: h.card.id, reason: 'not_reviewed_or_changed' as const })) } : {}),
+    ...(style === 'expanded' ? { omitted: candidates.filter((h) => !isProseReviewed(h.card) || !backedLines(h.card)).map((h) => ({ card: h.card.id, reason: 'not_reviewed_or_changed' as const })) } : {}),
     palace: '命宮',
     system: { n: x.system.n, name: x.system.name, borrowed: x.borrowed },
     sections,
@@ -638,55 +639,37 @@ function flowSection(chart: Chart, a: AnnualChart, layer: 'decade' | 'annual', l
   return section('運程', layer, hits, { chart, annual: a, x, said: new Set(), lead });
 }
 
-/** 已核判斷 → 編輯展開 → 明示情境／建議；盤面依據另列，沒有後備「因為」。 */
+/** 已核卡及逐句稿雙重放行；主文每句獨立掛源，盤面事實另列，不替編輯延伸補據。 */
 function expandedSection(topic: MingTopic, hits: Hit[], cx: Ctx): MingSection | null {
   const mine = hits.filter((h) => h.card.topic === topic);
-  const primary = mine.find((h) => h.card.kind === 'claim') ?? mine.find((h) => EXTRA_PROSE[h.card.id]?.standalone);
+  const primary = mine.find((h) => h.card.kind === 'claim');
   if (!primary) return null;
-  // 沒有已核主判斷時，只有明確核為可獨立成立的提醒能另出，不能把任意 caveat 頂上。
   const selected = [primary, ...mine.filter((h) => h !== primary && h.card.kind !== 'claim')];
   const s = section(topic, 'natal', selected, cx);
   if (!s) return null;
   const profile = topic === '本質' ? PROSE_PROFILES.find((p) => p.system === cx.x.system.n) : undefined;
-  const extra = EXTRA_PROSE[primary.card.id];
-  if (!profile && !extra) return null;
-  const theme = topic === '本質' ? EDITORIAL_THEMES[profile!.theme]
-    : topic === '待人' ? EDITORIAL_THEMES.boundaries
-    : topic === '處事' ? EDITORIAL_THEMES.planning : undefined;
-  const mode = primary.card.kind === 'claim' ? 'assessment' : primary.card.kind === 'caveat' ? 'caution' : 'guidance';
-  const lead = profile?.lead ?? extra?.lead ?? { zh: s.conclusion.zh, en: s.conclusion.en };
-  const heading = profile?.title ?? { zh: topic, en: MING_TOPIC_EN[topic] };
   const parts: MingSection['parts'] = [];
-  const push = (part: MingSection['parts'][number]['part'], text: Bilingual, kind: MingStatement['kind'], ids: string[], citations: string[], label?: Bilingual) => {
-    if (kind === 'editorial-example' || kind === 'editorial-advice') {
-      const said = cx.proseSaid ??= new Set();
-      if (said.has(text.zh)) return;
-      said.add(text.zh);
+  for (const hit of selected) {
+    const lines = backedLines(hit.card);
+    if (!lines) continue;
+    for (const [i, line] of lines.entries()) {
+      const slot = parts.length === 0 ? '結論' : hit === primary || i > 0 ? '展開' : '留意';
+      const statements: MingStatement[] = [{ text: line.zh, en: line.en, kind: 'interpretation',
+        source_ids: [hit.card.id], citations: [backedCiteId(hit.card.id, i)] }];
+      parts.push({ part: slot, zh: line.zh, en: line.en, ...('heading' in line ? { heading: String(line.heading) } : {}), statements });
     }
-    const statements = [{ text: text.zh, en: text.en, kind, source_ids: ids, citations }];
-    parts.push({ part, zh: (label?.zh ?? '') + text.zh, en: (label?.en ?? '') + text.en, statements });
-  };
-  push(mode === 'caution' ? '留意' : mode === 'guidance' ? '做法' : '結論', lead, 'interpretation', [primary.card.id], s.conclusion.sources);
-  const explanation = profile?.explanation ?? extra!.explanation;
-  push('展開', explanation, 'editorial-explanation', [primary.card.id], s.conclusion.sources);
-  for (const line of [...s.caveats, ...s.advice]) {
-    const branch = EXTRA_PROSE[line.card];
-    push(line.card === s.conclusion.card ? '展開' : '留意', { zh: line.zh, en: line.en }, 'interpretation', [line.card], line.sources);
-    if (branch) push('展開', branch.explanation, 'editorial-explanation', [line.card], line.sources);
   }
-  if (theme) {
-    push('情境', theme.example, 'editorial-example', [primary.card.id], [], { zh: '情境例子：', en: 'Illustrative situation: ' });
-    push('做法', theme.advice, 'editorial-advice', [primary.card.id], [], { zh: '給你的做法：', en: 'A practical step: ' });
-    push('做法', theme.reflection, 'editorial-advice', [primary.card.id], []);
-  }
+  if (!parts.length) return null;
+  const body = [...parts];
   const reasons = s.reasons.filter((r) => !Object.values(FALLBACK).some((f) => f.zh === r.zh));
   if (reasons.length) parts.push({
-    part: '因為',
-    zh: `${topic}：${endZh(reasons.map((r) => r.zh).join('；'))}`,
+    part: '因為', zh: `${topic}：${endZh(reasons.map((r) => r.zh).join('；'))}`,
     en: `${MING_TOPIC_EN[topic]}: ${endEn(reasons.map((r) => r.en).join('; '))}`,
-    statements: reasons.map((r) => ({ text: r.zh, en: r.en, kind: 'evidence', source_ids: r.source_ids ?? [], citations: r.citations ?? [] })),
+    // 這是實盤條件的核對記錄，文獻不會包含讀者的出生盤，不冒充原文支持。
+    statements: reasons.map((r) => ({ text: r.zh, en: r.en, kind: 'evidence', source_ids: r.source_ids ?? [], citations: [] })),
   });
-  const body = parts.filter((p) => p.part !== '因為');
-  return { ...s, mode, heading, conclusion: { ...s.conclusion, ...lead }, reasons, parts,
-    text: { zh: body.map((p) => p.zh).join('\n\n'), en: body.map((p) => p.en).join('\n\n') } };
+  return { ...s, mode: 'assessment', ...(profile ? { heading: profile.title } : {}),
+    conclusion: { ...s.conclusion, zh: body[0]!.zh, en: body[0]!.en, sources: body[0]!.statements![0]!.citations },
+    citations: [...new Set(body.flatMap((p) => p.statements!.flatMap((l) => l.citations)))],
+    reasons, parts, text: { zh: body.map((p) => p.zh).join('\n\n'), en: body.map((p) => p.en).join('\n\n') } };
 }

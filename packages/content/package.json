@@ -5,7 +5,8 @@
   "description": "觀微內容 schema、lint 同規則庫（工單 C1、C2）",
   "type": "module",
   "exports": {
-    ".": "./src/index.ts"
+    ".": "./src/index.ts",
+    "./ming-version": "./src/ming-version.ts"
   },
   "scripts": {
     "test": "vitest run",
