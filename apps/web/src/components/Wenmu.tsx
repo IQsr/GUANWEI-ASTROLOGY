@@ -1,12 +1,12 @@
 import { useTranslations } from 'next-intl';
 import { PageTurnLink } from '@/components/PageTurnLink';
 import { chapterHref } from '@/lib/journey';
-import type { AskItem } from '@/lib/wenmu';
+import { visibleSources, type AskItem } from '@/lib/wenmu';
 
 /**
  * 目次問目「你想知甚麼」（2026-10-14 · 樣板 `/tokens/zhuti` 揀咗詳細版）
  *
- * 問題（讀者講法）→ 宮名 ＋ 白話副題 → 該章第一段 → 《…》一句 → 第一段出處 → 讀全章。
+ * 問題 → 宮名與副題 → 第一段（命宮可補短解讀）→ 引文與合併出處 → 讀全章。
  * 書嘅樣：細線分題，冇圓角卡、冇陰影、冇分數（試讀回饋：唔要 app 嘅樣）。
  * 純 props；資料由 `buildAsks()` 砌好先傳入嚟。
  */
@@ -38,6 +38,7 @@ export function Wenmu({
               </h3>
               <span className="mt-1 block text-cap tracking-[0.16em] text-ink-3">{t(`q.${it.key}.sub`)}</span>
               <span className="mt-3 block font-serif text-body leading-[1.95] text-ink-2">{it.answer}</span>
+              {it.detail ? <span className="mt-2 block font-serif text-body leading-[1.95] text-ink-2">{it.detail}</span> : null}
               {it.quote ? (
                 <span className="mt-2 block font-serif text-sm leading-[1.9] text-ink-3">
                   <span className="me-2 text-cinnabar" aria-hidden="true">
@@ -47,7 +48,7 @@ export function Wenmu({
                 </span>
               ) : null}
               {/* 第一段嘅出處（2026-10-18 · A2）：同閱讀頁「據」一樣，書名、頁、節 */}
-              {it.sources.map((s) => (
+              {visibleSources(it.sources).map((s) => (
                 <span key={s.id} className="mt-1 block text-cap leading-[1.8] tracking-[0.06em] text-ink-3">
                   <span className="me-2 text-cinnabar">{t('sourceMark')}</span>
                   {t(s.pageConvention === 'pdf' ? 'sourceSection' : 'source', { book: s.book, page: s.page, section: s.section })}

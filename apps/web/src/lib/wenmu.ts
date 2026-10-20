@@ -10,7 +10,7 @@ import { readingOf } from '@/lib/chapter-reading';
  *
  * 讀者入嚟問嘅係「我財運點」「我感情點」，唔係「財帛宮講乜」（競品拆解：
  * docs/compare-three-way-1990-05-15.md）。所以目次頂加六題，每題答案**直接攞該章第一段**，
- * 再跟一句《…》引文 —— 唔另外寫、冇分數、冇吉凶標籤。想知點解，入章讀。
+ * 再跟一句《…》引文。免費命宮可另接已存檔的首段展開；不另外作判斷。
  *
  * ⚠ 問題同副題係介面文案：`messages` 嘅 `book.asks.q.<key>`。呢度淨係記邊題對邊章。
  * ⚠ 未買嘅深度章都出第一段：Issac 2026-10-14 拍板；DB 只開第一段（0008 `chapter_leads()`）。
@@ -31,6 +31,8 @@ export type AskItem = {
   slug: string;
   /** 該章第一段（已按 locale 轉好） */
   answer: string;
+  /** 免費命宮：從已存檔的展開稿取一小段，原句保留。 */
+  detail?: string;
   /** 第一句《…》引文；英文版唔出（引文喺譯文入面已經變咗講法，抽唔返原句） */
   quote: string | null;
   /** 第一段嘅出處註（2026-10-18 · A2）：同閱讀頁「據」一樣嘅書名、頁、節；冇就空 */
@@ -38,6 +40,17 @@ export type AskItem = {
 };
 
 export type AskSource = { id: string; book: string; page: number; section: string; pageConvention?: 'pdf' };
+
+/** 只合併讀者眼前相同的出處；原始 sources 和逐句引用 ID 不動。 */
+export function visibleSources(sources: readonly AskSource[]): AskSource[] {
+  const seen = new Set<string>();
+  return sources.filter((s) => {
+    const key = JSON.stringify([s.book, s.section, s.pageConvention ?? '', s.pageConvention === 'pdf' ? null : s.page]);
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
+}
 
 /** 讀者見到嘅第一段：拎走粗體記號，唔要空白答案 */
 function clean(s: string): string {
@@ -90,6 +103,7 @@ export function buildAsks(leads: readonly ChapterLead[], locale: string): AskIte
     key: p.key,
     slug: p.slug,
     answer: zhFor(locale, clean(p.lead.lead)),
+    ...(p.slug === '命宮' && p.lead.detail ? { detail: zhFor(locale, clean(p.lead.detail)) } : {}),
     quote: p.lead.quote ? zhFor(locale, p.lead.quote) : null,
     sources: sourcesOf(clean(p.lead.lead), locale, p.lead.citations),
   }));
@@ -101,15 +115,30 @@ export function buildAsks(leads: readonly ChapterLead[], locale: string): AskIte
  */
 export const QUOTE_RE = /《[^》]+》[^「」。，；：！？、\n]{0,12}「[^」]+」/;
 
-/** 示範書：成本書喺 build 嗰陣計好，直接由正文切第一段同第一句引文（同 0009 嘅 SQL 一樣切法） */
+/** 只讀免費命宮的成書快照；舊書或資料錯配不重算，也不擴大深度章預覽。 */
+export function withMingDetail(leads: readonly ChapterLead[], chapter: { text: string | null; reading?: unknown } | null): ChapterLead[] {
+  const r = chapter?.text ? readingOf(chapter.reading, chapter.text) : null;
+  const first = r?.segments[0];
+  const detail = r?.segments[1];
+  if (!first || detail?.slot !== '展開') return [...leads];
+  return leads.map((l) => l.slug === '命宮' && l.lead === first.text ? {
+    ...l,
+    detail: detail.text,
+    citations: [...new Set([...(l.citations ?? first.statements?.flatMap((s) => s.citations) ?? []),
+      ...(detail.statements?.flatMap((s) => s.citations) ?? [])])],
+  } : l);
+}
+
+/** 示範書：由正文切第一段、第一句引文，免費命宮另取存檔展開段。 */
 export function leadsFromBodies(drafts: readonly { slug: string; body: string; reading?: unknown }[]): ChapterLead[] {
-  return drafts.map((d) => {
+  return drafts.flatMap((d) => {
     const r = readingOf(d.reading, d.body);
-    return {
+    const lead = {
       slug: d.slug,
       lead: d.body.split('\n\n')[0] ?? '',
       quote: d.body.match(QUOTE_RE)?.[0] ?? null,
       ...(r ? { internationalLead: r.international.text.split('\n\n')[0] ?? '', citations: [...new Set(r.segments[0]?.statements?.flatMap((l) => l.citations) ?? [])] } : {}),
     };
+    return d.slug === '命宮' ? withMingDetail([lead], { text: d.body, reading: d.reading }) : [lead];
   });
 }
