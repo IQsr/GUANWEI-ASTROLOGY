@@ -1,0 +1,1310 @@
+{
+  "version": "ming-translations-v1",
+  "base_writer": "sentence-backed-v1",
+  "entries": {
+    "ming.backed:card.ming.ziwei-ziwu.core:0": {
+      "zh": "讀紫微獨坐的性質，精神需要與物質生活怎樣平衡，是理解這一組性質的重點。",
+      "en": "For Zi Wei alone, the balance between inner needs and material life is central to understanding this pattern.",
+      "ja": "紫微が単独で入る配置を読むときは、心の充足と物質的な暮らしをどう両立させるかが、この組み合わせを理解する要点になります。"
+    },
+    "ming.backed:card.ming.ziwei-ziwu.core:1": {
+      "zh": "精神的一面包括自己的好惡、消遣與愛好，也包括作決定時的主觀判斷。",
+      "en": "Its inner side includes preferences, interests and the personal judgement behind decisions.",
+      "ja": "心の側面には、自分の好み、趣味や楽しみのほか、物事を決めるときの主観的な判断も含まれます。"
+    },
+    "ming.backed:card.ming.ziwei-ziwu.core:2": {
+      "zh": "物質的一面則包括生活享受、領導與組織能力，與內在愛好是不同的著力處。",
+      "en": "Its material side includes comfort, leadership and organisation, distinct from personal interests.",
+      "ja": "物質の側面には、暮らしの楽しみや、人を率い、物事を組織する力が含まれ、内面的な好みとは力の向かう先が異なります。"
+    },
+    "ming.backed:card.ming.ziwei-ziwu.core:3": {
+      "zh": "會合的星曜可以加強、削弱或轉化其中一面，因此兩方面的比例仍要連同整體配合去看。",
+      "en": "The accompanying stars can strengthen, weaken or transform either side, so their balance depends on the full combination.",
+      "ja": "会合する星は、どちらかの側面を強めたり弱めたり、性質を変えたりするため、両者の比重は配置全体と合わせて見る必要があります。"
+    },
+    "ming.backed:card.ming.pojun-yinshen.core:0": {
+      "zh": "讀破軍在寅申的命宮，要留意面對改變時的反抗與順應，兩者是這組性質的重要分野。",
+      "en": "For Po Jun in Yin or Shen, resistance and accommodation in the face of change are an important distinction.",
+      "ja": "寅・申の破軍を読むときは、変化に抵抗するか、状況に合わせるかという違いが、この配置の性質を分ける重要な点になります。"
+    },
+    "ming.backed:card.ming.pojun-yinshen.core:1": {
+      "zh": "原書將較強的反抗性，連到較大的變動幅度；順應性較強，變動幅度則較小。",
+      "en": "The source links stronger resistance with larger changes and stronger accommodation with smaller changes.",
+      "ja": "原著では、抵抗する性質が強いほど変動の幅が大きく、状況に合わせる性質が強いほど、その幅は小さいと説明されています。"
+    },
+    "ming.backed:card.ming.pojun-yinshen.core:2": {
+      "zh": "所謂馬鞍形，是上升、回落後再上升的反覆形態，不能只取其中一次上升來理解整段發展。",
+      "en": "The saddle image describes a rise, a setback and a renewed rise, rather than an uninterrupted ascent.",
+      "ja": "鞍の形という比喩は、上昇したあとに下がり、再び上昇する動きを表し、一度の上昇だけでは全体の歩みを捉えられません。"
+    },
+    "ming.backed:card.ming.pojun-yinshen.core:3": {
+      "zh": "同樣是這組星，轉換工作與長期留在同一機構都可能出現，差別在於起落的幅度。",
+      "en": "Both frequent job changes and a long stay with one organisation can occur; the distinction concerns the scale of change.",
+      "ja": "同じ配置でも、仕事を変える場合と、ひとつの組織に長く勤める場合の両方があり、その違いは浮き沈みの幅にあります。"
+    },
+    "ming.backed:card.ming.lianfu-chenxu.core:0": {
+      "zh": "廉貞天府這組命宮，要同時看感情與理智的衝突，以及兩者調和的可能。",
+      "en": "Lian Zhen with Tian Fu calls for attention to both conflict and reconciliation between feeling and reason.",
+      "ja": "廉貞・天府の組み合わせでは、感情と理性の衝突だけでなく、両者が調和する可能性も合わせて見ていきます。"
+    },
+    "ming.backed:card.ming.lianfu-chenxu.core:1": {
+      "zh": "廉貞本身已帶感情與理智兩面的矛盾，因此不能只把這個組合讀成重情或冷靜其中一種。",
+      "en": "Lian Zhen already combines conflicting emotional and rational qualities; neither side alone describes the pattern.",
+      "ja": "廉貞そのものに感情と理性の矛盾があるため、この配置を情に厚いか冷静かの一方だけで捉えることはできません。"
+    },
+    "ming.backed:card.ming.lianfu-chenxu.core:2": {
+      "zh": "天府同宮雖偏重理智，卻也傾向維持現狀與既有人際關係，不一定能替感情與理智定向。",
+      "en": "Tian Fu favours reason but also preserves existing arrangements and relationships, so it does not necessarily settle the direction.",
+      "ja": "同じ宮の天府は理性を重んじる一方、現状や人間関係を維持しようともするため、感情と理性の方向を必ずしも定められるわけではありません。"
+    },
+    "ming.backed:card.ming.lianfu-chenxu.core:3": {
+      "zh": "外在關係維持下來，與內心矛盾已獲解決，是兩件不同的事；原書並沒有把守住現狀當成調和。",
+      "en": "Preserving an arrangement differs from resolving the inner conflict; maintaining the status quo is not itself reconciliation.",
+      "ja": "外側の関係を保つことと、内側の矛盾が解けることは別であり、原著も現状維持をそのまま調和とは見なしていません。"
+    },
+    "ming.backed:card.ming.taiyin-sihai.core:0": {
+      "zh": "太陰在巳亥的命宮，閱讀重點是收斂與表現的分寸，而不是單以安靜或外向定性。",
+      "en": "For Tai Yin in Si or Hai, the focus is the balance of reserve and expression, rather than quietness or openness alone.",
+      "ja": "巳・亥の太陰では、内に収めることと表現することの加減が要点であり、静かか社交的かだけで性質を決めることはできません。"
+    },
+    "ming.backed:card.ming.taiyin-sihai.core:1": {
+      "zh": "收斂仍需要適度表現，兩者配合後，才是原書所說的英華內斂。",
+      "en": "Reserve still needs a suitable measure of expression to become the contained brilliance described in the source.",
+      "ja": "内に収めるだけでなく、適度に表現することも伴って初めて、原著のいう、優れたものを内に秘めた状態になります。"
+    },
+    "ming.backed:card.ming.taiyin-sihai.core:2": {
+      "zh": "表現過多也有限制，原書特別分開有名聲與有實質收穫，兩者不一定相同。",
+      "en": "Excessive display has limits: reputation and substantial achievement are distinguished in the source.",
+      "ja": "表現が過剰な場合にも限界があり、原著では、名声を得ることと実質的な成果を得ることを区別しています。"
+    },
+    "ming.backed:card.ming.taiyin-sihai.core:3": {
+      "zh": "較理想的結構是收斂略重而表現適度，是否達到這種配合，仍須核對會合的星曜。",
+      "en": "The preferred structure is slightly greater reserve with suitable expression; the accompanying stars determine whether that balance holds.",
+      "ja": "望ましいのは内に収める側がやや強く、表現が適度に伴う配置ですが、その釣り合いがあるかは会合する星の確認が必要です。"
+    },
+    "ming.backed:card.ming.tanlang-ziwu.core:0": {
+      "zh": "貪狼在子午的命宮，以欲望與追求為重點，先要分清強弱，再看所追求的內容。",
+      "en": "Tan Lang in Zi or Wu is read through desire: first its strength, then what it seeks.",
+      "ja": "子・午の貪狼では、欲求と追求が中心となり、まず強さを分けて見たうえで、何を求めているのかを読みます。"
+    },
+    "ming.backed:card.ming.tanlang-ziwu.core:1": {
+      "zh": "物質欲望與情感欲望是不同方向，即使都表現為追求，也不能合成同一種需要。",
+      "en": "Material desire and emotional desire point in different directions and should not be treated as one need.",
+      "ja": "物質的な欲求と感情面の欲求は向かう先が異なり、どちらも何かを求める姿でも、ひとつの欲求にまとめることはできません。"
+    },
+    "ming.backed:card.ming.tanlang-ziwu.core:2": {
+      "zh": "原書並不以欲望越強越好，過高與過低都有不足，重點在中和。",
+      "en": "The source does not prefer ever stronger desire; both excess and deficiency have limits, and balance matters.",
+      "ja": "原著は欲求が強いほどよいとはせず、強すぎても弱すぎても不足があり、中和を重視しています。"
+    },
+    "ming.backed:card.ming.tanlang-ziwu.core:3": {
+      "zh": "中和也要看是哪一面的配合，情感與物質的份量可能不同，不能只用一個總體強弱概括。",
+      "en": "Balance also has a direction: emotional and material desires can differ, so one overall strength label is insufficient.",
+      "ja": "中和についても、感情面と物質面のどちらがどう釣り合うかを見る必要があり、全体として強いか弱いかだけでは捉えられません。"
+    },
+    "ming.backed:card.ming.tongju-chouwei.core:0": {
+      "zh": "天同巨門在丑未的命宮，要留意情緒與感情中較不明朗的一面，以及它有多深。",
+      "en": "Tian Tong with Ju Men in Chou or Wei calls for attention to the less clear side of feeling and its degree.",
+      "ja": "丑・未の天同・巨門では、気分や感情の見通しにくい面と、その深さに目を向けます。"
+    },
+    "ming.backed:card.ming.tongju-chouwei.core:1": {
+      "zh": "天同帶情緒性，巨門帶暗曜性，兩者同宮，才形成原書在這裡討論的感情底色。",
+      "en": "The emotional quality of Tian Tong and the obscuring quality of Ju Men together form the basis of this discussion.",
+      "ja": "天同の感情的な性質と、巨門の物事を見えにくくする性質が同じ宮にあることで、原著がここで述べる感情の基調が生まれます。"
+    },
+    "ming.backed:card.ming.tongju-chouwei.core:2": {
+      "zh": "原書還要連同借會的太陽天梁判斷，不能只看命宮兩星，就把不明朗的程度下定論。",
+      "en": "The source also considers the borrowed Tai Yang–Tian Liang combination; the two Life Palace stars alone do not fix the degree.",
+      "ja": "原著は借りて会合する太陽・天梁も合わせて判断しており、命宮の二星だけで不明朗さの程度を決めてはいません。"
+    },
+    "ming.backed:card.ming.tongju-chouwei.core:3": {
+      "zh": "光明的會照也可能使這種性質轉為明朗，所以它不是對每個人都一樣深的固定標籤。",
+      "en": "A sufficiently bright supporting combination can change the quality towards clarity; its depth is not a fixed label for everyone.",
+      "ja": "明るさをもたらす会照によって性質が明朗な方向へ変わる場合もあるため、誰にも同じ深さで当てはまる固定的な特徴ではありません。"
+    },
+    "ming.backed:card.ming.wuxiang.core:0": {
+      "zh": "武曲天相這組命宮，重點在剛柔如何配合，兩者需要放在一起理解。",
+      "en": "Wu Qu with Tian Xiang is read through how firmness and softness work together.",
+      "ja": "武曲・天相では、剛と柔がどう働き合うかが要点であり、両者を合わせて理解する必要があります。"
+    },
+    "ming.backed:card.ming.wuxiang.core:1": {
+      "zh": "武曲偏剛、天相偏柔，是這組星的兩個起點，同宮不等於已經自然調和。",
+      "en": "Wu Qu contributes firmness and Tian Xiang softness; sharing a palace does not itself establish harmony.",
+      "ja": "武曲は剛、天相は柔に傾くことが出発点ですが、同じ宮にあるだけで自然に調和するわけではありません。"
+    },
+    "ming.backed:card.ming.wuxiang.core:2": {
+      "zh": "原書所取的是剛柔互濟，過剛與過柔都可能帶來不足，不能只把其中一面當成長處。",
+      "en": "The source values mutual balance; either excessive firmness or excessive softness can create weaknesses.",
+      "ja": "原著が重視するのは剛柔が補い合うことであり、剛にも柔にも偏りすぎれば不足が生じるため、一方だけを長所とはできません。"
+    },
+    "ming.backed:card.ming.wuxiang.core:3": {
+      "zh": "在剛柔相濟的前提下，原書才進一步談沉著剛毅與克服環境，這些好處有其條件。",
+      "en": "Only with that balance does the source discuss steadiness and overcoming circumstances; these benefits have a condition.",
+      "ja": "剛柔が補い合うことを前提として、原著は落ち着きや意志の強さ、環境を乗り越える力を述べており、その長所には条件があります。"
+    },
+    "ming.backed:card.ming.yangliang.core:0": {
+      "zh": "太陽天梁的命宮，要分清祥和與孤忌，兩種性質對人生轉折的意味不同。",
+      "en": "Tai Yang with Tian Liang distinguishes a harmonious quality from an isolating one; their implications differ.",
+      "ja": "太陽・天梁では、穏やかに調和する性質と、孤立や制約につながる性質を分けて見る必要があり、人生の転機に持つ意味も異なります。"
+    },
+    "ming.backed:card.ming.yangliang.core:1": {
+      "zh": "原書以別離作為這組星的一個主題，但別離本身仍需要再看具體性質。",
+      "en": "Separation is one theme in the source, but the nature of that separation still needs examination.",
+      "ja": "原著は別離をこの組み合わせのひとつの主題としていますが、どのような別離かは、さらに性質を見分ける必要があります。"
+    },
+    "ming.backed:card.ming.yangliang.core:2": {
+      "zh": "同樣是離鄉，到外地求學與迫於環境離開，就代表不同的處境與選擇。",
+      "en": "Leaving home to study elsewhere differs from being forced to leave by circumstances.",
+      "ja": "同じ故郷を離れることでも、進学のために外へ出る場合と、環境に迫られて離れる場合とでは、状況も選択も異なります。"
+    },
+    "ming.backed:card.ming.yangliang.core:3": {
+      "zh": "所以，變動不能一概算成失去；原書用這個例子，正是為了分開相似表面下的不同經驗。",
+      "en": "Change should not automatically be treated as loss; the example distinguishes different experiences beneath a similar outward event.",
+      "ja": "そのため、変化を一律に喪失とは見なせず、原著のこの例も、似た出来事の内側にある経験の違いを示しています。"
+    },
+    "ming.backed:card.ming.qisha-chenxu.core:0": {
+      "zh": "七殺在辰戌的命宮，重點是理想與空想的分別，要連同現實條件看。",
+      "en": "For Qi Sha in Chen or Xu, the distinction between ideals and wishful thinking needs to be considered alongside real circumstances.",
+      "ja": "辰・戌の七殺では、理想と空想の違いを、現実の条件と合わせて見ることが要点になります。"
+    },
+    "ming.backed:card.ming.qisha-chenxu.core:1": {
+      "zh": "有理想不一定就遇上較好的環境，理想太高而現實不配合，也會形成落差。",
+      "en": "An ideal does not guarantee favourable circumstances; a high ideal without practical support can create a gap.",
+      "ja": "理想があっても恵まれた環境に出会えるとは限らず、理想が高く現実が伴わなければ、隔たりも生まれます。"
+    },
+    "ming.backed:card.ming.qisha-chenxu.core:2": {
+      "zh": "七殺雖常被看作變化的樞紐，原書仍提醒，不能因此忽略它消極的一面。",
+      "en": "Although Qi Sha is associated with change, the source cautions against overlooking its less active side.",
+      "ja": "七殺は変化の要となる星とされますが、原著は、その消極的な側面を見落とさないようにも注意しています。"
+    },
+    "ming.backed:card.ming.qisha-chenxu.core:3": {
+      "zh": "理想未實現，或因空想而不滿現狀，都可能使勁力轉弱，不能只以有沒有目標判斷整體走向。",
+      "en": "An unrealised ideal or dissatisfaction rooted in wishful thinking can weaken momentum, so the presence of a goal alone does not determine the overall direction.",
+      "ja": "理想が実現しないことや、空想から現状に不満を抱くことのどちらも勢いを弱める場合があり、目標の有無だけで全体の方向は決められません。"
+    },
+    "ming.backed:card.ming.tianji-sihai.core:0": {
+      "zh": "天機在巳亥的命宮，要分清靈活機變，與有計劃的謀劃，兩者並不相同。",
+      "en": "Tian Ji in Si or Hai distinguishes quick adaptation from planned strategy.",
+      "ja": "巳・亥の天機では、その場に応じた機敏な対応と、計画に基づく構想を分けて見ていきます。"
+    },
+    "ming.backed:card.ming.tianji-sihai.core:1": {
+      "zh": "原書把有計劃的一面寫得較踏實，因此反應快，與安排能否持續，是不同層次。",
+      "en": "The source describes planned action as more grounded; quick responses and sustainable arrangements are different matters.",
+      "ja": "原著は計画性のある側をより着実なものとしており、反応の速さと、取り組みを持続できるかは別の問題です。"
+    },
+    "ming.backed:card.ming.tianji-sihai.core:2": {
+      "zh": "這組天機仍要看天同巨門的配合，原書特別重視它對命宮本質的影響。",
+      "en": "The Tian Tong–Ju Men combination is particularly important to the character of this Tian Ji pattern.",
+      "ja": "この天機の配置では天同・巨門との関係も見る必要があり、原著は命宮の性質に及ぼすその影響を重視しています。"
+    },
+    "ming.backed:card.ming.tianji-sihai.core:3": {
+      "zh": "天同巨門的明朗與陰暗會改變天機的表現，所以同一個機變，也可能有不同的內在底色。",
+      "en": "Clarity or obscurity in Tian Tong–Ju Men changes how Tian Ji is expressed; similar adaptability can have different underlying qualities.",
+      "ja": "天同・巨門の明朗さや不明朗さによって天機の表れ方も変わるため、同じ機敏さでも内側の基調は異なる場合があります。"
+    },
+    "ming.backed:card.ming.zipo.core:0": {
+      "zh": "紫微破軍這組命宮，閱讀重點在動盪與安定，要看改變以甚麼方式發生。",
+      "en": "Zi Wei with Po Jun concerns the difference between upheaval and stability in the way change occurs.",
+      "ja": "紫微・破軍では、変化がどのように起こるかに目を向け、動揺と安定の違いを読みます。"
+    },
+    "ming.backed:card.ming.zipo.core:1": {
+      "zh": "這一組本身已有較強的反叛性，與破軍在寅申獨坐、仍須分辨反抗與順應的情況不同。",
+      "en": "This combination already has a stronger rebellious quality, unlike Po Jun alone in Yin or Shen where resistance and accommodation remain to be distinguished.",
+      "ja": "この組み合わせはもともと反発する性質が比較的強く、抵抗と順応をさらに見分ける寅・申の破軍単独の配置とは異なります。"
+    },
+    "ming.backed:card.ming.zipo.core:2": {
+      "zh": "反叛也可以是開創力，因為更新往往包含去舊，不能只看它破壞原有安排的一面。",
+      "en": "Rebellion can also express initiative, since renewal involves replacing the old; disruption is only one side.",
+      "ja": "古いものを改めることは新たに切り開く力にもなるため、反発を、既存の仕組みを壊す面だけで捉えることはできません。"
+    },
+    "ming.backed:card.ming.zipo.core:3": {
+      "zh": "動盪式的更新會牽動較大的人際變化，安定式的更新則可能外表平靜，內裡已換成新的局面。",
+      "en": "Unsettled renewal can transform relationships, while stable renewal may look calm despite substantial internal change.",
+      "ja": "動揺を伴う刷新では人間関係も大きく変わり、安定した刷新では、外からは静かに見えても内側が新しくなっている場合があります。"
+    },
+    "ming.backed:card.ming.tianfu-maoyou.core:0": {
+      "zh": "天府在卯酉的命宮，安定與保守是重要底色，但保守之中仍有不同的局面。",
+      "en": "Tian Fu in Mao or You has a stable, conservative basis, within which the scale can differ.",
+      "ja": "卯・酉の天府には安定と保守を重んじる基調がありますが、保守的な姿の内側にも異なるあり方があります。"
+    },
+    "ming.backed:card.ming.tianfu-maoyou.core:1": {
+      "zh": "原書把這一點連到三方四正不會紫微，較少受到紫微干擾，天府的保守性便較完整。",
+      "en": "The source links this to the absence of Zi Wei in the four directions, leaving Tian Fu's conservative quality more intact.",
+      "ja": "原著は、三方四正に紫微がなく、その影響を受けにくいことから、天府の保守性が比較的そのまま表れると説明しています。"
+    },
+    "ming.backed:card.ming.tianfu-maoyou.core:2": {
+      "zh": "持重可以是能掌握較大局面的沉穩，也可以只是處處小心，兩者不能混為一談。",
+      "en": "Steadiness can mean managing a broad situation or merely being cautious over small details; the two are distinct.",
+      "ja": "慎重さには、大きな局面を掌握できる落ち着きと、何事にも細かく用心する姿の両方があり、同じものとはできません。"
+    },
+    "ming.backed:card.ming.tianfu-maoyou.core:3": {
+      "zh": "要分清兩者，還須看百官朝拱與助曜的配合，不能只憑天府坐命就推定事業規模。",
+      "en": "The supporting stars and the configuration known as the Hundred Officials Paying Court still need to be considered; Tian Fu alone does not establish the scale of a career.",
+      "ja": "両者を見分けるには百官朝拱や補佐の星との関係も必要であり、天府が命宮にあるだけで事業の規模は決められません。"
+    },
+    "ming.backed:card.ming.taiyin-chenxu.core:0": {
+      "zh": "太陰在辰戌的命宮，重點在動向是否有目標，同樣用力，方向可以帶來不同結果。",
+      "en": "Tai Yin in Chen or Xu concerns whether action has a purpose; effort in different directions can have different results.",
+      "ja": "辰・戌の太陰では、行動に目標があるかが要点となり、同じように力を注いでも、方向によって結果は異なり得ます。"
+    },
+    "ming.backed:card.ming.taiyin-chenxu.core:1": {
+      "zh": "原書以天羅地網作比喻，有目的的行動可以找到出口，盲動則可能愈動愈受牽制。",
+      "en": "Using the net image, the source distinguishes purposeful movement towards an opening from movement that becomes further entangled.",
+      "ja": "原著は天羅地網という網の比喩を使い、目的のある行動なら出口を見いだせても、やみくもに動くと、さらに絡め取られる場合があると説明しています。"
+    },
+    "ming.backed:card.ming.taiyin-chenxu.core:2": {
+      "zh": "辰宮與戌宮也不能完全等同，原書先比較相對的太陽，再討論太陰的明暗。",
+      "en": "Chen and Xu are not treated as identical; the source first compares the opposing Tai Yang before discussing Tai Yin's brightness.",
+      "ja": "辰宮と戌宮も全く同じには扱わず、原著はまず向かいの太陽を比較してから、太陰の明暗を論じています。"
+    },
+    "ming.backed:card.ming.taiyin-chenxu.core:3": {
+      "zh": "原段除提到配曜五行，亦特別補充福德宮巨門的影響，因此判斷方向仍須合看，不能單取一項。",
+      "en": "Besides the accompanying stars' elements, the author adds Ju Men in the Wellbeing Palace, so the direction is not determined from one factor alone.",
+      "ja": "原文は会合する星の五行だけでなく、福徳宮の巨門の影響も補っており、方向を判断する際は一項目だけを取り出せません。"
+    },
+    "ming.backed:card.ming.liantan-sihai.core:0": {
+      "zh": "廉貞貪狼這組命宮，要分清感情與物欲，兩者都是追求，所指的需要卻不同。",
+      "en": "Lian Zhen with Tan Lang distinguishes feeling from material desire, which concern different needs.",
+      "ja": "廉貞・貪狼では、感情と物質的な欲求を分けて見ていき、どちらも何かを求める姿でも、その必要としているものは異なります。"
+    },
+    "ming.backed:card.ming.liantan-sihai.core:1": {
+      "zh": "廉貞偏重感情，貪狼偏重物欲，哪一面受到加強，仍要看四化與會合的星曜。",
+      "en": "Lian Zhen emphasises feeling and Tan Lang material desire; transformations and accompanying stars determine which is strengthened.",
+      "ja": "廉貞は感情、貪狼は物欲を重んじる側に傾きますが、どちらが強まるかは四化や会合する星によって変わります。"
+    },
+    "ming.backed:card.ming.liantan-sihai.core:2": {
+      "zh": "感情與物欲同時增強時，原書又提出福德宮的支持，要看能否有自己的主張。",
+      "en": "When both are strengthened, the source also considers support from the Wellbeing Palace and the ability to keep one's own direction.",
+      "ja": "両方が強まる場合、原著は福徳宮からの支えも挙げ、自分の考えを保てるかを見ています。"
+    },
+    "ming.backed:card.ming.liantan-sihai.core:3": {
+      "zh": "同樣的外在機會，偏重感情與偏重物欲的人，可能顧此失彼，因此不能只按一方面的好處下結論。",
+      "en": "Under similar circumstances, a strong emphasis on either feeling or material pursuit can neglect the other; one benefit does not settle the whole assessment.",
+      "ja": "同じ外的な機会でも、感情と物欲のどちらに重きを置くかによって他方がおろそかになる場合があり、一面の利点だけでは結論を出せません。"
+    },
+    "ming.backed:card.ming.jumen-ziwu.core:0": {
+      "zh": "巨門在子午的命宮，內斂才華與內心疑忌只有一線之差，外表安靜未必就能分清。",
+      "en": "Ju Men in Zi or Wu distinguishes contained ability from inner suspicion, which can look similarly quiet.",
+      "ja": "子・午の巨門では、才能を内に収めることと内心の疑い深さが紙一重であり、外から静かに見えるだけでは見分けられません。"
+    },
+    "ming.backed:card.ming.jumen-ziwu.core:1": {
+      "zh": "巨門帶遮蔽的性質，在石中隱玉的條件下，這一面才轉成收斂自己的才華。",
+      "en": "Its obscuring quality turns towards containing one's own ability under the conditions of the Hidden Jade configuration.",
+      "ja": "巨門には覆い隠す性質があり、石中隠玉の条件が整うことで、それが自分の才能を内に収める性質へと転じます。"
+    },
+    "ming.backed:card.ming.jumen-ziwu.core:2": {
+      "zh": "石中隱玉有見祿權吉化而不見煞的前提，不能只見巨門，就把內斂直接寫成佳格。",
+      "en": "The Hidden Jade configuration requires auspicious transformations, including Abundance and Authority, without malefic interference; Ju Men alone does not establish that outcome.",
+      "ja": "石中隠玉には化禄・化権などの吉化があり、煞を見ないという前提があるため、巨門があるだけで内向きの姿をよい格局とはできません。"
+    },
+    "ming.backed:card.ming.jumen-ziwu.core:3": {
+      "zh": "煞曜同度，尤其擎羊，在原文中會使收斂才華轉為疑忌；這項提醒有明確的會合前提。",
+      "en": "The source gives malefics sharing the palace, particularly Qing Yang, as a condition that can turn contained ability towards suspicion.",
+      "ja": "原文では、煞、とりわけ擎羊が同じ宮にあると、才能を内に収める性質が疑い深さへ転じるとされ、この注意には会合の条件があります。"
+    },
+    "ming.backed:card.ming.tianxiang-chouwei.core:0": {
+      "zh": "天相在丑未的命宮，要看輔佐之中的獨立性，這是理解其氣質的重要分別。",
+      "en": "Tian Xiang in Chou or Wei concerns whether independence remains within a supporting role.",
+      "ja": "丑・未の天相では、人を補佐する立場のなかに独立性を保てるかが、性質を理解する重要な違いになります。"
+    },
+    "ming.backed:card.ming.tianxiang-chouwei.core:1": {
+      "zh": "原書所說的幕僚氣質，不只關乎能不能配合別人，還包括會否逐漸失去自己的位置。",
+      "en": "The staff or adviser quality concerns not only cooperation but whether one's independent position is retained.",
+      "ja": "原著のいう参謀の気質は、人に協力できるかだけでなく、次第に自分の立場を失わないかにも関わります。"
+    },
+    "ming.backed:card.ming.tianxiang-chouwei.core:2": {
+      "zh": "財蔭夾印未必就能定為優雅，刑忌夾印亦未必就是庸俗，格名不能代替完整的性質判斷。",
+      "en": "Wealth and Protection Flanking the Seal does not necessarily mean refinement, nor does Punishment and Obstruction Flanking the Seal necessarily mean vulgarity; a configuration name cannot replace a full assessment.",
+      "ja": "財蔭夾印だから必ず優雅、刑忌夾印だから必ず俗っぽいとは限らず、格局の名前だけでは性質全体を判断できません。"
+    },
+    "ming.backed:card.ming.tianxiang-chouwei.core:3": {
+      "zh": "原書甚至用不肯隨波逐流說明其中的反例，因此保有獨特立場與表面的處境，需要分開理解。",
+      "en": "The source uses refusal to follow the crowd as a counterexample, separating a distinct position from outward circumstances.",
+      "ja": "原著は周囲に流されることを拒む姿も反例として挙げており、独自の立場を持つことと、外側の状況は分けて理解する必要があります。"
+    },
+    "ming.backed:card.ming.tongliang-yinshen.core:0": {
+      "zh": "天同天梁在寅申同宮，對宮沒有主星，會天機與太陰，構成機月同梁的組合。",
+      "en": "Tian Tong and Tian Liang share Yin or Shen, with no major star in the opposite palace, and meet Tian Ji and Tai Yin to form the Ji Yue Tong Liang configuration.",
+      "ja": "天同・天梁が寅か申で同宮し、向かいの宮には主星がなく、天機・太陰と会合して機月同梁の組み合わせを成します。"
+    },
+    "ming.backed:card.ming.tongliang-yinshen.core:1": {
+      "zh": "相較於以天機、太陰為命宮的機月同梁，王亭之把天同、天梁守命的這一組寫得較穩定。",
+      "en": "Wang Tingzhi describes this Tian Tong–Tian Liang configuration as more stable than the related Ji Yue Tong Liang configuration with Tian Ji and Tai Yin in the Life Palace.",
+      "ja": "王亭之は、同じ機月同梁でも、天機・太陰が命宮に入る配置より、天同・天梁が命宮に入るこの配置を比較的安定したものと説明しています。"
+    },
+    "ming.backed:card.ming.tongliang-yinshen.core:2": {
+      "zh": "讀這一組星的性格，要分清重情趣、帶浪漫的一面，與講原則、重紀律的一面；兩者有明顯分別。",
+      "en": "Its character is read through the distinction between enjoyment or romance and principles or discipline.",
+      "ja": "この組み合わせの性格を読む際は、情趣やロマンを重んじる面と、原則や規律を重んじる面を分けて捉える必要があり、両者には明確な違いがあります。"
+    },
+    "ming.backed:card.ming.tongliang-yinshen.core:3": {
+      "zh": "這個分野會影響去留與進退，因此同樣是天同天梁，面對取捨時所看重的事情也可以不同。",
+      "en": "That distinction affects decisions to stay or leave, so the same pair does not imply identical priorities.",
+      "ja": "この違いは、とどまるか離れるか、進むか退くかにも関わるため、同じ天同・天梁でも、選択の際に重んじるものは異なり得ます。"
+    },
+    "ming.backed:card.ming.tongliang-yinshen.core:4": {
+      "zh": "天同主情緒，天梁主原則，兩者同宮，感受與標準之間仍難免有矛盾。",
+      "en": "Tian Tong concerns emotion and Tian Liang principle, so sharing a palace still allows conflict between feeling and standards.",
+      "ja": "天同は感情、天梁は原則を表し、同じ宮にあっても、気持ちと判断の基準とのあいだに矛盾が生じることはあります。"
+    },
+    "ming.backed:card.ming.tongliang-yinshen.core:5": {
+      "zh": "結構較穩定，並不表示內在就沒有衝突；原書把穩定與矛盾放在同一段講，兩面都要保留。",
+      "en": "Structural stability does not remove inner conflict; both qualities appear in the same source passage.",
+      "ja": "構造が比較的安定していても内面の衝突がなくなるわけではなく、原著も同じ段落で両方を述べているため、どちらも残して読む必要があります。"
+    },
+    "ming.backed:card.ming.tongliang-yinshen.core:6": {
+      "zh": "不過，情趣與原則也有調和的可能，這個組合並不只得兩邊互相拉扯一種樣貌。",
+      "en": "Enjoyment and principle can also be reconciled; conflict is not the only form of this combination.",
+      "ja": "一方、情趣と原則が調和する可能性もあり、この組み合わせの姿は、両者が引っ張り合うものだけではありません。"
+    },
+    "ming.backed:card.ming.tongliang-yinshen.core:7": {
+      "zh": "要看兩邊如何配合，還須連同會合的輔佐、煞曜、四化與雜曜一起判斷，不能只取其中一面就定下整體性格。",
+      "en": "How the two sides work together also depends on supporting stars, malefics, the four transformations and miscellaneous stars; one side alone cannot determine the whole character.",
+      "ja": "両者の関係は、会合する補佐の星、煞、四化、雑曜も合わせて判断する必要があり、一方だけで性格全体を決めることはできません。"
+    },
+    "ming.backed:card.ming.tongliang-yinshen.core:8": {
+      "zh": "原書談天同天梁與輔弼、昌曲同度時，便特別提到浪漫色彩與原則紀律可以調和；這種調和有其配合條件。",
+      "en": "When Tian Tong and Tian Liang share their palace with Zuo Fu and You Bi or Wen Chang and Wen Qu, the source describes a possible reconciliation of romance with principle and discipline; that reconciliation has accompanying conditions.",
+      "ja": "原著は天同・天梁に左輔・右弼や文昌・文曲が同宮する場合、ロマンと原則・規律が調和し得ると述べており、その調和には配置の条件があります。"
+    },
+    "ming.backed:card.ming.wusha-maoyou.core:0": {
+      "zh": "武曲七殺這組命宮，要分清決斷與短慮，明快的外表未必已經說明判斷是否周全。",
+      "en": "Wu Qu with Qi Sha calls for a distinction between decisiveness and hasty judgement; a brisk manner does not establish whether a decision is well considered.",
+      "ja": "武曲・七殺では、決断力と思慮の浅さを分けて見る必要があり、きびきびした様子だけでは、判断が十分に考えられたものかは分かりません。"
+    },
+    "ming.backed:card.ming.wusha-maoyou.core:1": {
+      "zh": "考慮不足時也可以很快作決定，原書以後來常須補救，說明這種表象的限制。",
+      "en": "A quick decision can still be poorly considered; repeated later repairs illustrate the limit of the outward appearance.",
+      "ja": "十分に考えなくても素早く決めることはでき、原著は、あとから繰り返し補う必要が生じることを、その見かけの限界として示しています。"
+    },
+    "ming.backed:card.ming.wusha-maoyou.core:2": {
+      "zh": "真正的決斷較能留有餘地，短慮則容易連帶影響對人的態度，兩者不只差在速度。",
+      "en": "Decisiveness leaves room to manoeuvre, while hasty judgement can also affect how others are treated; the difference is not simply speed.",
+      "ja": "決断力のある側には余地を残しやすく、思慮の浅い側は人への接し方にも影響しやすいため、違いは速さだけではありません。"
+    },
+    "ming.backed:card.ming.wusha-maoyou.core:3": {
+      "zh": "原書把得祿、輔弼與煞曜的配合列為分辨條件，決斷與短慮並非只由主星決定。",
+      "en": "The source uses access to Abundance, Zuo Fu and You Bi, and malefic influences as distinguishing conditions; the major stars alone do not establish decisiveness or hasty judgement.",
+      "ja": "原著は得禄、左輔・右弼、煞との関係を見分ける条件として挙げており、決断力と思慮の浅さは主星だけでは決まりません。"
+    },
+    "ming.backed:card.ming.taiyang-chenxu.core:0": {
+      "zh": "太陽在辰戌的命宮，要看照顧周遭時有沒有受到拖累，付出與負荷需要一起理解。",
+      "en": "Tai Yang in Chen or Xu concerns whether supporting the surrounding stars becomes a burden.",
+      "ja": "辰・戌の太陽では、周囲を支えることで負担を抱えていないかに目を向け、与える力と背負う重さを合わせて理解します。"
+    },
+    "ming.backed:card.ming.taiyang-chenxu.core:1": {
+      "zh": "在這個組合裡，原書分別談到照料巨門、天梁與太陰，所以不能只把太陽看成單獨發揮。",
+      "en": "The source discusses its roles towards Ju Men, Tian Liang and Tai Yin; Tai Yang is not read in isolation.",
+      "ja": "この配置について原著は巨門・天梁・太陰をそれぞれ照らし支える役割を論じており、太陽だけが独立して働くとは見ていません。"
+    },
+    "ming.backed:card.ming.taiyang-chenxu.core:2": {
+      "zh": "太陽本身即使入廟，仍要看吉化與煞忌的配合，不能只由亮度就保證負擔已經減輕。",
+      "en": "Even a bright Tai Yang still requires the transformations and accompanying influences to be considered; brightness alone does not settle the burden.",
+      "ja": "太陽が入廟していても、吉化や煞・忌との関係を見る必要があり、明るさだけで負担が軽いとは保証できません。"
+    },
+    "ming.backed:card.ming.taiyang-chenxu.core:3": {
+      "zh": "原書將這些會合用來看現實環境，因此能否承擔與周遭是否需要照顧，是連在一起的兩部分。",
+      "en": "These combinations are used to assess the surrounding circumstances, connecting capacity with the demands placed upon it.",
+      "ja": "原著はこうした会合から現実の環境を見ているため、支える力があるかと、周囲が支えを必要としているかは、つながった二つの側面です。"
+    },
+    "ming.backed:card.ming.tianji-ziwu.core:0": {
+      "zh": "天機在子午的命宮，要看剛柔的分別，這裡談的不只是行動快慢，更包括計劃的取向。",
+      "en": "Tian Ji in Zi or Wu distinguishes firmness and softness, including the orientation of planning rather than speed alone.",
+      "ja": "子・午の天機では剛と柔を分けて見ますが、ここで扱うのは行動の速さだけでなく、計画が何を目指すかという違いです。"
+    },
+    "ming.backed:card.ming.tianji-ziwu.core:1": {
+      "zh": "原書把陽剛的一面連到為公的機變與計劃，把陰柔的一面連到為自己打算的權變。",
+      "en": "The source links the firmer side with planning for a wider purpose and the softer side with manoeuvring for personal interests.",
+      "ja": "原著は、剛の側を広い目的のために考えることへ、柔の側を自分のために状況に応じて立ち回ることへ結びつけています。"
+    },
+    "ming.backed:card.ming.tianji-ziwu.core:2": {
+      "zh": "福德宮的天同天梁是影響這個分野的關鍵，不能只見天機，就替你定下公私取向。",
+      "en": "Tian Tong and Tian Liang in the Wellbeing Palace are important to this distinction; Tian Ji alone does not decide it.",
+      "ja": "福徳宮の天同・天梁はこの違いを左右する鍵であり、天機だけで公私のどちらを重んじるかは決められません。"
+    },
+    "ming.backed:card.ming.tianji-ziwu.core:3": {
+      "zh": "同一組會合之中，原書仍細分四化帶來的差別，因此剛柔需要保留完整條件再判斷。",
+      "en": "The source further distinguishes transformations within the combination, so the full conditions must remain part of the assessment.",
+      "ja": "同じ会合のなかでも原著は四化による違いを分けているため、剛柔の判断には条件全体を残しておく必要があります。"
+    },
+    "ming.backed:card.ming.zifu-yinshen.core:0": {
+      "zh": "紫微天府這組命宮，要分清主動與被動，兩者影響的是進退能否由自己掌握。",
+      "en": "Zi Wei with Tian Fu distinguishes initiative from passivity in the ability to direct one's response.",
+      "ja": "紫微・天府では能動と受動を分けて見ていき、その違いは、進退を自分で選べるかに関わります。"
+    },
+    "ming.backed:card.ming.zifu-yinshen.core:1": {
+      "zh": "紫微擅開創、天府擅守成，兩星同宮，開展與維持便需要互相配合。",
+      "en": "Zi Wei contributes initiative and Tian Fu preservation; starting and sustaining therefore need coordination.",
+      "ja": "紫微は新たに切り開くこと、天府は既存のものを守ることを得意とし、同じ宮では始める力と維持する力の連携が必要になります。"
+    },
+    "ming.backed:card.ming.zifu-yinshen.core:2": {
+      "zh": "兩面平衡時可以可攻可守，若偏了一邊，卻可能想進而不敢進，想退又不肯退。",
+      "en": "Balance allows either advance or consolidation; imbalance can mean wanting to advance without daring, or wanting to retreat without accepting it.",
+      "ja": "両者が釣り合えば進むことも守ることもできますが、偏ると、進みたいのに踏み出せず、退きたいのに退く気にもなれない場合があります。"
+    },
+    "ming.backed:card.ming.zifu-yinshen.core:3": {
+      "zh": "這種進退互相牽制，才是原書所說被動的一個來源，不能只把守成或開創各自當成好壞標籤。",
+      "en": "This mutual constraint is one source of passivity in the passage; initiative and preservation are not separate labels of good and bad.",
+      "ja": "こうして進退が互いを縛ることが、原著のいう受動性の一因であり、守ることと切り開くことを、それぞれ単独で良否の印にはできません。"
+    },
+    "ming.backed:card.ming.taiyin-maoyou.core:0": {
+      "zh": "太陰在卯酉的命宮，閱讀重點是意志的堅定與薄弱，要看能否承受自己的選擇。",
+      "en": "Tai Yin in Mao or You concerns strength or weakness of resolve and the choices it sustains.",
+      "ja": "卯・酉の太陰では意志の強さと弱さが要点となり、自分の選択を支え続けられるかを見ます。"
+    },
+    "ming.backed:card.ming.taiyin-maoyou.core:1": {
+      "zh": "這個分野是原文讀卯酉太陰的方法，不能只憑太陰一個星名，就假定每個人的意志都一樣。",
+      "en": "This distinction guides the source assessment; the star name alone does not imply equal resolve in every person.",
+      "ja": "これは原著が卯・酉の太陰を読む際の区別であり、太陰という星名だけで、誰もが同じ意志の強さを持つとは想定できません。"
+    },
+    "ming.backed:card.ming.taiyin-maoyou.core:2": {
+      "zh": "感情上的意志與物質上的意志亦有分別，不能只用一個意志強弱，概括所有事情。",
+      "en": "Resolve in emotional and material matters is distinguished, so one general strength label cannot cover every situation.",
+      "ja": "感情面での意志と物質面での意志にも違いがあるため、ひとつの強弱の評価で全ての物事をまとめることはできません。"
+    },
+    "ming.backed:card.ming.taiyin-maoyou.core:3": {
+      "zh": "原段還分開不同四化的影響，是否符合這些分支，須逐項核對後才作個人判斷。",
+      "en": "The passage also separates different transformations; their branch conditions must be checked before making a personal assessment.",
+      "ja": "原文は四化ごとの影響も分けており、それぞれの条件に合うかを確認してから、個人について判断する必要があります。"
+    },
+    "ming.backed:card.ming.tanlang-chenxu.core:0": {
+      "zh": "貪狼在辰戌的命宮，要分清堅忍與躁進，同樣想向前，步伐與時機可以很不同。",
+      "en": "Tan Lang in Chen or Xu distinguishes persistence from haste, even when both aim to move forward.",
+      "ja": "辰・戌の貪狼では粘り強さと性急さを分けて見ていき、同じく前進を望んでも、歩み方や時機の選び方は大きく異なり得ます。"
+    },
+    "ming.backed:card.ming.tanlang-chenxu.core:1": {
+      "zh": "原書特別留意機遇尚未來到的階段，過早急進可能先耗損日後所需的基礎。",
+      "en": "The source gives particular attention to the time before an opportunity: haste can erode the foundation needed later.",
+      "ja": "原著は機会がまだ来ていない段階に特に注意を向けており、早すぎる前進は、あとで必要になる土台を先に消耗させる場合があります。"
+    },
+    "ming.backed:card.ming.tanlang-chenxu.core:2": {
+      "zh": "即使談到突發的機會，原書也沒有只寫上升的一面，急進還會影響發展之後能否維持。",
+      "en": "Even when discussing sudden opportunity, the source keeps its later sustainability in view rather than describing ascent alone.",
+      "ja": "突然の機会についても原著は上昇面だけを述べず、性急さが、その後の発展を維持できるかにも関わるとしています。"
+    },
+    "ming.backed:card.ming.tanlang-chenxu.core:3": {
+      "zh": "原書把破軍化權、化祿來會，列為增加堅忍之性的一項配合，也保留武曲化權增加堅忍的一面。",
+      "en": "The source describes meeting Po Jun transformed to Authority or Abundance as strengthening persistence, and also retains this contribution from Wu Qu transformed to Authority.",
+      "ja": "原著は破軍の化権・化禄との会合を粘り強さを増す配置として挙げ、武曲の化権にも同じく粘り強さを増す働きを認めています。"
+    },
+    "ming.backed:card.ming.jumen-sihai.core:0": {
+      "zh": "巨門在巳亥的命宮，外表與內心未必一致，單看表面很難理解整體性格。",
+      "en": "For Ju Men in Si or Hai, outward appearance and inner experience may differ, so surface observation does not give a full picture of character.",
+      "ja": "巳・亥の巨門では外見と内心が一致するとは限らず、表面だけで性格全体を理解することは難しくなります。"
+    },
+    "ming.backed:card.ming.jumen-sihai.core:1": {
+      "zh": "原書在這裡分辨深沉與衝動，但深沉仍有感情色彩，衝動也仍有理智的一面。",
+      "en": "The source distinguishes inward reserve from impulsiveness, while retaining feeling within the reserved side and reason within the impulsive side.",
+      "ja": "原著はここで内に深く秘める性質と衝動性を分けていますが、前者にも感情があり、後者にも理性の面が残ります。"
+    },
+    "ming.backed:card.ming.jumen-sihai.core:2": {
+      "zh": "例如原段寫到外表冷靜而內心衝動的情況，正好說明安靜不等於感受平穩。",
+      "en": "One conditional example describes a calm exterior with an impulsive interior, illustrating why quietness does not itself establish inner calm.",
+      "ja": "原文が挙げる、外は冷静でも内心は衝動的という例は、静かに見えることと感情が安定していることが同じでないと示しています。"
+    },
+    "ming.backed:card.ming.jumen-sihai.core:3": {
+      "zh": "太陽的會照會影響口才、提拔與環境，卻未必改變深沉或衝動的本性，兩個層次需要分開。",
+      "en": "The meeting Tai Yang can affect eloquence, opportunities for advancement and circumstances, without necessarily changing the reserved or impulsive underlying quality; these are separate levels of assessment.",
+      "ja": "太陽の会照は話す力、引き立てや環境に影響しても、内に秘める性質や衝動性を必ずしも変えるわけではなく、両者は分けて見る必要があります。"
+    },
+    "ming.backed:card.ming.lianxiang.core:0": {
+      "zh": "廉貞天相這組命宮，要留意面對環境時的剛毅與脆弱，而不是只看表面是否溫和。",
+      "en": "Lian Zhen with Tian Xiang concerns resilience or fragility in meeting circumstances, rather than surface gentleness alone.",
+      "ja": "廉貞・天相では環境に向き合う際の強さともろさに目を向け、表面が穏やかかどうかだけでは判断しません。"
+    },
+    "ming.backed:card.ming.lianxiang.core:1": {
+      "zh": "這一組本身帶較深的感情色彩，三方卻多物質性星曜，因此感受與外間環境容易形成落差。",
+      "en": "The pair has a strong emotional quality while the trine is material in character, creating a possible mismatch with surrounding conditions.",
+      "ja": "この二星には比較的深い感情の色合いがありますが、三方には物質的な性質の星が多く、内心と外の環境に隔たりが生じやすくなります。"
+    },
+    "ming.backed:card.ming.lianxiang.core:2": {
+      "zh": "原書在這個前提下談適應力，所以需要同時理解內心所重視的事，與現實帶來的要求。",
+      "en": "Adaptation is discussed on that basis, connecting what matters inwardly with the demands of circumstances.",
+      "ja": "原著はこの前提で適応力を論じており、心のなかで大切にしているものと、現実が求めるものを合わせて理解する必要があります。"
+    },
+    "ming.backed:card.ming.lianxiang.core:3": {
+      "zh": "子午的廉貞天相比卯酉的廉貞破軍氣較和，這是星系之間的比較，不等於任何環境都不會令你困擾。",
+      "en": "Lian Zhen with Tian Xiang in Zi or Wu is described as gentler than Lian Zhen with Po Jun in Mao or You; this comparison does not imply that every environment will be free of strain.",
+      "ja": "子・午の廉貞・天相は卯・酉の廉貞・破軍より穏やかとされますが、これは配置同士の比較であり、どんな環境でも困らないという意味ではありません。"
+    },
+    "ming.backed:card.ming.liang-chouwei.core:0": {
+      "zh": "天梁在丑未的命宮，要分清正直與精明，兩者都可能善於看事，尺度卻不一樣。",
+      "en": "Tian Liang in Chou or Wei distinguishes integrity from shrewdness; both may observe well, but apply different standards.",
+      "ja": "丑・未の天梁では誠実さと抜け目なさを分けて見ていき、どちらも物事をよく見ていても、用いる基準は異なります。"
+    },
+    "ming.backed:card.ming.liang-chouwei.core:1": {
+      "zh": "正直是以原則待人，也用同一把尺要求自己，重點在於標準能否一致。",
+      "en": "Integrity applies principles both to others and to oneself, with consistency at its centre.",
+      "ja": "誠実な側は原則を人に向けるだけでなく、自分にも同じ物差しを使い、その基準が一貫しているかが要点になります。"
+    },
+    "ming.backed:card.ming.liang-chouwei.core:2": {
+      "zh": "精明則可能只看見別人的缺點，對自己採用不同尺度，因此觀察敏銳未必就等於公允。",
+      "en": "Shrewdness can notice others' faults while using a different standard for oneself; sharp observation is not necessarily fairness.",
+      "ja": "抜け目ない側は人の欠点ばかりを見て、自分には別の基準を使う場合があるため、観察の鋭さがそのまま公正さを意味するわけではありません。"
+    },
+    "ming.backed:card.ming.liang-chouwei.core:3": {
+      "zh": "原書把天梁寫成偏重精神而非物質的星，這份側重仍須與具體的會合條件一起理解。",
+      "en": "The source gives Tian Liang a spiritual rather than material emphasis, to be considered with the actual accompanying combination.",
+      "ja": "原著は天梁を物質より精神を重んじる星としており、その比重も、具体的に会合する星の条件と合わせて理解する必要があります。"
+    },
+    "ming.backed:card.ming.sha-yinshen.core:0": {
+      "zh": "七殺在寅申的命宮，要分清孤高與威權，外表不合群未必已經說明內在的力量。",
+      "en": "Qi Sha in Yin or Shen distinguishes aloofness from authority; an unsociable appearance alone does not establish either.",
+      "ja": "寅・申の七殺では孤高と威厳を分けて見ていき、人と群れない様子だけでは、その内側の力は分かりません。"
+    },
+    "ming.backed:card.ming.sha-yinshen.core:1": {
+      "zh": "孤高可能看來像威權，卻未必令人心服；有威權者也可以不隨眾，兩者表面有相似之處。",
+      "en": "Aloofness can resemble authority without earning respect, while genuine authority can also stand apart from the crowd.",
+      "ja": "孤高な姿は威厳に見えても人を心服させるとは限らず、威厳のある人も周囲に流されないことがあるため、表面は似る場合があります。"
+    },
+    "ming.backed:card.ming.sha-yinshen.core:2": {
+      "zh": "原書另提寅申七殺的主觀性，但仍要求詳看福德宮與夫妻宮，不能只由一個形容便定下品性。",
+      "en": "The source also notes subjectivity, but requires attention to the Fortune and Partnership palaces before assessing character.",
+      "ja": "原著は寅・申の七殺の主観性にも触れますが、福徳宮と夫妻宮の詳しい検討を求めており、ひとつの形容だけで人柄は決められません。"
+    },
+    "ming.backed:card.ming.sha-yinshen.core:3": {
+      "zh": "有沒有祿、所會是哪一種祿，原書仍有分別，所以孤高的減輕也不是只用一個總體吉凶來說明。",
+      "en": "The source distinguishes both the presence and the type of Abundance, so the moderation of aloofness is not explained by one overall favourable label.",
+      "ja": "禄の有無だけでなく、どの禄と会うかも原著は区別しており、孤高な性質の和らぎを、全体として吉か凶かだけでは説明していません。"
+    },
+    "ming.backed:card.ming.tong-maoyou.core:0": {
+      "zh": "天同在卯酉的命宮，精神生活是否充實，是理解這組性質的重要線索。",
+      "en": "For Tian Tong in Mao or You, the fullness of inner life is an important distinction.",
+      "ja": "卯・酉の天同では、精神生活が充実しているかが、この配置の性質を理解する重要な手がかりになります。"
+    },
+    "ming.backed:card.ming.tong-maoyou.core:1": {
+      "zh": "原書把精神空虛列作需要留意的缺點，並把白手成家的情況連到精神充實的前提。",
+      "en": "The source flags inner emptiness as a weakness and connects the example of building independently with inner fulfilment.",
+      "ja": "原著は心の空虚さを注意すべき弱点とし、自力で生活の基盤を築く場合についても、精神的な充実という前提に結びつけています。"
+    },
+    "ming.backed:card.ming.tong-maoyou.core:2": {
+      "zh": "這裡的重點是精神充實與否對發展的影響，不是只由天同坐命就替你判定會有甚麼成就。",
+      "en": "The point is how that quality affects development, rather than deriving a specific achievement from Tian Tong alone.",
+      "ja": "ここでの要点は精神的な充実が発展にどう関わるかであり、天同が命宮にあるだけで、あなたの到達する成果を決めることではありません。"
+    },
+    "ming.backed:card.ming.tong-maoyou.core:3": {
+      "zh": "煞曜同度與火鈴、空劫會照，是原段進一步談精神空虛時所附的條件，並非只有天同坐命一項。",
+      "en": "Malefics sharing the palace, and the meeting of Huo Xing, Ling Xing, Di Kong and Di Jie, are conditions retained in the passage on inner emptiness; Tian Tong alone is not the condition.",
+      "ja": "原文が心の空虚さをさらに論じる際には、煞の同宮や火星・鈴星、地空・地劫の会照という条件があり、天同が命宮にあることだけではありません。"
+    },
+    "ming.backed:card.ming.wu-chenxu.core:0": {
+      "zh": "武曲在辰戌的命宮，要看因循與進取，兩者影響的是怎樣回應受限的處境。",
+      "en": "Wu Qu in Chen or Xu distinguishes habitual acceptance from initiative in responding to constraints.",
+      "ja": "辰・戌の武曲では、これまでのやり方にとどまるか、前進を図るかの違いが、制約への向き合い方に関わります。"
+    },
+    "ming.backed:card.ming.wu-chenxu.core:1": {
+      "zh": "原書用天羅地網說明剛強受到壓抑，這時是否願意奮鬥，便成為重要的分野。",
+      "en": "The source uses the net image for constrained strength, making the willingness to strive an important distinction.",
+      "ja": "原著は天羅地網の比喩で強さが抑えられる状況を説明しており、そこで努力を続けようとするかが重要な違いになります。"
+    },
+    "ming.backed:card.ming.wu-chenxu.core:2": {
+      "zh": "因循的一面偏向憑一技維生，進取的一面則可能帶來發展，同一組星並不只得一種走法。",
+      "en": "The accepting side relies on an existing skill, while initiative can enable development; the pattern does not prescribe one path.",
+      "ja": "従来のやり方にとどまる側はひとつの技能で生計を立て、前進する側には発展の可能性があるため、この配置の歩み方はひとつではありません。"
+    },
+    "ming.backed:card.ming.wu-chenxu.core:3": {
+      "zh": "原書連得祿也保留可能因循的提醒，因此條件不能只按表面吉凶來理解。",
+      "en": "Even abundance is accompanied by a caution about habitual acceptance, so conditions cannot be read through a simple favourable label.",
+      "ja": "原著は得禄の場合にも従来のやり方にとどまる可能性を残しており、条件を表面的な吉凶だけで読むことはできません。"
+    },
+    "ming.backed:card.ming.yang-sihai.core:0": {
+      "zh": "太陽在巳亥的命宮，要看積極與消極，宮位的明暗只是起點，還有星曜會合帶來的改變。",
+      "en": "Tai Yang in Si or Hai concerns active and passive qualities; palace brightness is a starting point, not the whole assessment.",
+      "ja": "巳・亥の太陽では積極性と消極性を見ますが、宮位の明暗は出発点であり、星の会合による変化もあります。"
+    },
+    "ming.backed:card.ming.yang-sihai.core:1": {
+      "zh": "原書保留落陷仍可積極、入廟亦可轉為消極的情況，所以不能只用一個位置替你定性。",
+      "en": "The source allows an active dim Tai Yang and a passive bright one; position alone does not fix the quality.",
+      "ja": "原著は落陥しても積極的な場合と、入廟しても消極的になる場合を残しており、ひとつの位置だけで性質は決まりません。"
+    },
+    "ming.backed:card.ming.yang-sihai.core:2": {
+      "zh": "積極的一面利於進取，也較有抵抗逆境的能力，這些好處仍以本質積極為前提。",
+      "en": "The active quality supports initiative and resistance to adversity, with that quality remaining a necessary premise.",
+      "ja": "積極的な側は前進しやすく、逆境に抵抗する力もありますが、その長所には、もともとの性質が積極的であるという前提があります。"
+    },
+    "ming.backed:card.ming.yang-sihai.core:3": {
+      "zh": "原書仍把本質與後來所行環境分開討論，不由本命的一個標籤就替整段人生下結論。",
+      "en": "The source distinguishes the natal quality from later circumstances, rather than settling an entire life through one natal label.",
+      "ja": "原著は生来の性質と、のちに巡る環境を分けて論じており、本命のひとつの特徴だけで人生全体の結論は出していません。"
+    },
+    "ming.backed:card.ming.pojun-ziwu.core:0": {
+      "zh": "破軍在子午的命宮，要分清頑囂與果敢，改變現狀並不自動等於有建設。",
+      "en": "For Po Jun in Zi or Wu, destructive wilfulness and courage need to be distinguished; changing the status quo is not necessarily constructive.",
+      "ja": "子・午の破軍では、むやみに壊そうとする性質と果敢さを分けて見ていき、現状を変えることが、そのまま建設的な働きになるとは限りません。"
+    },
+    "ming.backed:card.ming.pojun-ziwu.core:1": {
+      "zh": "原書所說的頑囂，是破壞力較大而創造力較弱，行動未必有清楚目的。",
+      "en": "The source describes wilfulness as having more power to destroy than to create, with actions that may lack a clear purpose.",
+      "ja": "原著がいう頑囂とは、壊す力に比べて作り出す力が弱く、行動にも明確な目的が伴わない場合がある性質です。"
+    },
+    "ming.backed:card.ming.pojun-ziwu.core:2": {
+      "zh": "果敢則是在環境非變不可時能採取行動，而且改變有其人生目標，不一定主動求變。",
+      "en": "Courage, by contrast, means acting when circumstances require change, with a purpose in life, rather than necessarily seeking change for its own sake.",
+      "ja": "果敢な側は、環境上変えざるを得ないときに行動でき、変化には人生上の目標があり、必ずしも自ら変化を求めるわけではありません。"
+    },
+    "ming.backed:card.ming.pojun-ziwu.core:3": {
+      "zh": "因此，敢不敢動只是表面，為甚麼而變、變向何處，才是這段原文保留的重要分別。",
+      "en": "The willingness to act is only the surface; why things change, and in which direction, are the important distinctions retained in this passage.",
+      "ja": "そのため、動く勇気があるかは表面であり、何のために、どこへ向かって変えるかが、この原文の重視する違いになります。"
+    },
+    "ming.backed:card.ming.tianji-chouwei.core:0": {
+      "zh": "天機在丑未的命宮，要看上進與下游的分別，助力是否到位是其中一條線索。",
+      "en": "Tian Ji in Chou or Wei distinguishes constructive progress from decline, with support forming one important clue.",
+      "ja": "丑・未の天機では、向上する方向と下り坂へ向かう方向を分けて見ていき、支えが届いているかがひとつの手がかりになります。"
+    },
+    "ming.backed:card.ming.tianji-chouwei.core:1": {
+      "zh": "原書把這兩宮視為天機較弱的位置，並特別提到其他星曜的扶持，不能只看本宮便下結論。",
+      "en": "The source describes these as weaker placements for Tian Ji and emphasises support from other stars.",
+      "ja": "原著はこの二宮を天機が比較的弱い位置とし、他の星による支えを特に挙げているため、命宮だけで結論は出せません。"
+    },
+    "ming.backed:card.ming.tianji-chouwei.core:2": {
+      "zh": "對宮天梁的吉化吉會，正是原段說明外來助力時的一個有條件例子，而非一律需要離鄉的判斷。",
+      "en": "The opposing Tian Liang with favourable combinations is a conditional example of support, not a universal instruction to leave home.",
+      "ja": "向かいの天梁の吉化や吉星との会合は、原文が外からの助力を説明する条件付きの例であり、誰もが故郷を離れるべきという判断ではありません。"
+    },
+    "ming.backed:card.ming.tianji-chouwei.core:3": {
+      "zh": "原書把得祿列為上進的關鍵條件，即使先看見天機較弱的位置，也不能跳過會合支持的分別。",
+      "en": "Abundance is a key condition for progress in the source; the weaker placement does not remove the distinction made by supporting combinations.",
+      "ja": "原著は得禄を向上の鍵となる条件とし、天機の弱い位置が先に目に入っても、会合による支えの違いを省くことはできません。"
+    },
+    "ming.backed:card.ming.zitan.core:0": {
+      "zh": "紫微貪狼這組命宮，要分清物質追求與情感欲望，兩者都屬欲望，內容卻不同。",
+      "en": "Zi Wei with Tan Lang distinguishes material pursuit from emotional desire.",
+      "ja": "紫微・貪狼では、物質的な追求と感情的な欲求を分けて見ていき、どちらも欲求であっても、求める内容は異なります。"
+    },
+    "ming.backed:card.ming.zitan.core:1": {
+      "zh": "這個欲望主題並非只來自命宮，三方的武曲破軍也帶物質性色彩，要連同會合一起理解。",
+      "en": "The theme is not confined to the Life Palace; Wu Qu with Po Jun in the trine also contributes a material quality.",
+      "ja": "この欲求の主題は命宮だけから来るのではなく、三方の武曲・破軍にも物質的な性質があり、会合全体と合わせて理解する必要があります。"
+    },
+    "ming.backed:card.ming.zitan.core:2": {
+      "zh": "原書比較紫微獨坐與紫微貪狼同宮，特別指出後者帶較多修飾與周旋的意味。",
+      "en": "Comparing Zi Wei alone with the pair, the source gives the latter more scope for presentation and social manoeuvring.",
+      "ja": "原著は紫微単独と紫微・貪狼の同宮を比較し、後者には、見せ方を整えたり人との間で立ち回ったりする意味合いがより強いと述べています。"
+    },
+    "ming.backed:card.ming.zitan.core:3": {
+      "zh": "紫微獨坐較重領導與決斷，紫微貪狼較重主動爭取，這是兩組之間的比較，不能只按強弱排高低。",
+      "en": "Zi Wei alone is compared through leadership and judgement, and the pair through initiative; these are different qualities rather than one ranking.",
+      "ja": "紫微単独では人を率いる力や決断、紫微・貪狼では自ら働きかけて得ることに重きがあり、二つの比較を、単なる強弱の順位にはできません。"
+    },
+    "ming.backed:card.ming.jumen-chenxu.core:0": {
+      "zh": "巨門在辰戌的命宮，要看受到激發，還是受到牽制，不能把所有阻力視為同一種經驗。",
+      "en": "Ju Men in Chen or Xu distinguishes being stimulated from being obstructed; not every pressure has the same meaning.",
+      "ja": "辰・戌の巨門では、刺激を受けて力を発揮するか、抑えられるかを分けて見ていき、全ての抵抗を同じ経験とは扱いません。"
+    },
+    "ming.backed:card.ming.jumen-chenxu.core:1": {
+      "zh": "原書所喜的是溫和刺激，說明推動力與壓力太重之間，需要保留分寸。",
+      "en": "The source favours moderate stimulation, retaining a distinction between impetus and excessive pressure.",
+      "ja": "原著がよいとするのは穏やかな刺激であり、背中を押す力と、重すぎる圧力のあいだには加減が必要です。"
+    },
+    "ming.backed:card.ming.jumen-chenxu.core:2": {
+      "zh": "原段亦分辨不同煞曜與吉曜的配合，不是見到一點刺激，就能一概說有利。",
+      "en": "The passage distinguishes different malefics and supporting stars; stimulation is not unconditionally beneficial.",
+      "ja": "原文は煞や吉星の組み合わせも区別しており、少し刺激があるだけで、一律によいとはしていません。"
+    },
+    "ming.backed:card.ming.jumen-chenxu.core:3": {
+      "zh": "太陽的明暗也要合看，尤其在受到牽制的情況下，命宮本身以外的支持更不能省略。",
+      "en": "Tai Yang's brightness is also considered, particularly for the obstructed branch; support outside the Life Palace still matters.",
+      "ja": "太陽の明暗も合わせて見ており、とりわけ抑えられる場合には、命宮の外からの支えも省くことはできません。"
+    },
+    "ming.backed:card.ming.tianxiang-sihai.core:0": {
+      "zh": "天相在巳亥的命宮，要分清開創力與因人成事，兩者都可能參與把事情做成，著力處卻不同。",
+      "en": "Tian Xiang in Si or Hai distinguishes initiative from achieving through others, two different ways of contributing.",
+      "ja": "巳・亥の天相では、自ら切り開く力と人の力を借りて成し遂げることを分けて見ていき、どちらも物事を進めても、力の置きどころは異なります。"
+    },
+    "ming.backed:card.ming.tianxiang-sihai.core:1": {
+      "zh": "原書把這組星寫得較平穩，也有堅忍與開創的一面，但同時保留不為刑忌所夾的條件。",
+      "en": "The source describes this pattern as relatively steady, persistent and enterprising, while retaining the condition that it is not Punishment and Obstruction Flanking the Seal.",
+      "ja": "原著はこの配置を比較的安定し、粘り強さや開拓性もあるとしますが、同時に刑忌夾印にならないという条件を残しています。"
+    },
+    "ming.backed:card.ming.tianxiang-sihai.core:2": {
+      "zh": "天相本身的獨立性仍是限制，因此能配合局面，與能否獨自作主，不能當成同一件事。",
+      "en": "Independence remains a limitation; contributing within a situation differs from directing it alone.",
+      "ja": "天相自体の独立性にはなお限界があるため、状況に合わせて力を添えることと、独力で主導できることは同じではありません。"
+    },
+    "ming.backed:card.ming.tianxiang-sihai.core:3": {
+      "zh": "這一段的長處與限制需要一起讀，不能只留下平穩的形容，便替你確定所有發展都順利。",
+      "en": "The strengths and limitations belong together; the word steady does not guarantee uniformly favourable development.",
+      "ja": "この段落の長所と限界は合わせて読む必要があり、安定という形容だけで、全ての展開が順調と決めることはできません。"
+    },
+    "ming.backed:card.ming.tianliang-ziwu.core:0": {
+      "zh": "天梁在子午的命宮，要分清孤克與融和，兩種性質會帶來不同的相處與發展方式。",
+      "en": "Tian Liang in Zi or Wu distinguishes an isolating quality from an integrating one.",
+      "ja": "子・午の天梁では、孤立や厳しさに向かう性質と、人と融和する性質を分けて見ていき、関わり方や発展の仕方も異なります。"
+    },
+    "ming.backed:card.ming.tianliang-ziwu.core:1": {
+      "zh": "原書以蔭庇來解釋天梁，這份支持偏重精神而非物質，是理解它的另一個起點。",
+      "en": "The source explains Tian Liang through protection and support, with an emphasis on the spiritual rather than material side.",
+      "ja": "原著は天梁を庇護する働きから説明し、その支えは物質より精神に重きがあることを、もうひとつの出発点としています。"
+    },
+    "ming.backed:card.ming.tianliang-ziwu.core:2": {
+      "zh": "孤克的一面與融和的一面，在原書中對應不同的工作性質，不能只由星名便替你指定職業。",
+      "en": "The two qualities correspond to different kinds of work in the source; the star name alone does not prescribe an occupation.",
+      "ja": "原著では両者の性質が異なる仕事のあり方に対応しますが、星名だけで、あなたの職業を指定することはできません。"
+    },
+    "ming.backed:card.ming.tianliang-ziwu.core:3": {
+      "zh": "兩種力量也可能同時存在，原書保留兼具孤克與融和的情況，因此不是只能二選一。",
+      "en": "The source also allows both qualities together, so the distinction is not an exclusive either-or label.",
+      "ja": "二つの力が同時に存在する場合も原著は残しており、必ずどちらか一方を選ぶ区別ではありません。"
+    },
+    "ming.backed:card.ming.liansha-chouwei.core:0": {
+      "zh": "廉貞七殺這組命宮，要分清奮發與剛戾，原書討論的是星系性質，並非先替人貼上脾氣標籤。",
+      "en": "Lian Zhen with Qi Sha distinguishes striving from a harsh quality of the configuration, rather than immediately labelling a person's temperament.",
+      "ja": "廉貞・七殺では奮起する性質と剛戾を分けて見ますが、原著が論じるのは星の配置の性質であり、最初から人の気性を決めつけるものではありません。"
+    },
+    "ming.backed:card.ming.liansha-chouwei.core:1": {
+      "zh": "剛戾在這裡指星曜結構，原文特別說明，不等於本人的氣質，實際表現還須詳看十二宮。",
+      "en": "Here harshness describes the stellar structure, explicitly not personal temperament; its expression requires all twelve palaces.",
+      "ja": "ここでいう剛戾は星の構成の激しさを指し、本人の気質とは同じでないことが明記され、実際の表れ方には十二宮全体の検討が必要です。"
+    },
+    "ming.backed:card.ming.liansha-chouwei.core:2": {
+      "zh": "得祿是原書論奮發的重要條件，即使吉凶星曜並見，也要先保留這個前提。",
+      "en": "Abundance is an important condition for the striving branch, including combinations containing both favourable and adverse stars.",
+      "ja": "得禄は原著が奮起を論じる重要な条件であり、吉星と凶星が共にある場合にも、この前提を残して読む必要があります。"
+    },
+    "ming.backed:card.ming.liansha-chouwei.core:3": {
+      "zh": "原段對無祿而有助曜的情況仍有保留，得到扶持與具備完整的奮發結構，不是同一個判斷。",
+      "en": "The source remains qualified about assistance without abundance; support and the full striving structure are not the same assessment.",
+      "ja": "禄がなく補佐の星がある場合にも原文は留保を置いており、支えがあることと、奮起する構成が十分に整うことは同じ判断ではありません。"
+    },
+    "ming.backed:card.ming.tiantong-chenxu.core:0": {
+      "zh": "天同在辰戌的命宮，要分清豁達與短志，兩者對後續發展的影響並不相同。",
+      "en": "Tian Tong in Chen or Xu distinguishes broad-minded resilience from limited resolve, with different consequences for development.",
+      "ja": "辰・戌の天同では、おおらかさと志の続きにくさを分けて見ていき、その後の発展への影響も同じではありません。"
+    },
+    "ming.backed:card.ming.tiantong-chenxu.core:1": {
+      "zh": "豁達的一面韌力較強，短志的一面則容易在稍有進展後停步，重點在能否延續下去。",
+      "en": "The resilient side sustains effort, while limited resolve may stop after a small advance; continuity matters.",
+      "ja": "おおらかな側は粘り強く、志の続きにくい側は少し進むと立ち止まりやすいため、努力を続けられるかが要点になります。"
+    },
+    "ming.backed:card.ming.tiantong-chenxu.core:2": {
+      "zh": "天同化祿未必就等於豁達，原書仍附有昌曲與桃花諸曜的配合條件。",
+      "en": "Tian Tong transformed to Abundance does not automatically mean resilience; the source also retains conditions involving Wen Chang, Wen Qu and the romance stars.",
+      "ja": "天同の化禄がそのままおおらかさを意味するわけではなく、原著は文昌・文曲や桃花の星との組み合わせも条件にしています。"
+    },
+    "ming.backed:card.ming.tiantong-chenxu.core:3": {
+      "zh": "天同化忌也未必就是短志，尚須核對火鈴與吉曜，因此不能只用一個四化下判斷。",
+      "en": "Tian Tong transformed to Obstruction does not automatically mean limited resolve either; Huo Xing, Ling Xing and auspicious stars still need checking, so one transformation alone does not settle the assessment.",
+      "ja": "天同の化忌も、そのまま志の弱さを意味せず、火星・鈴星や吉星の確認が必要なため、一つの四化だけでは判断できません。"
+    },
+    "ming.backed:card.ming.wupo-sihai.core:0": {
+      "zh": "武曲破軍這組命宮，要看適應環境與反拗的分別，同樣想改變，與環境的關係可以不同。",
+      "en": "Wu Qu with Po Jun distinguishes adaptation from resistance in its relationship to circumstances.",
+      "ja": "武曲・破軍では環境に適応することと反発することを分けて見ていき、同じく変化を求めても、環境との関係は異なる場合があります。"
+    },
+    "ming.backed:card.ming.wupo-sihai.core:1": {
+      "zh": "適應的一面，不只在順境能開創，環境不利時也懂得運用現有條件。",
+      "en": "The adaptive side can act not only in favourable conditions but also make use of adverse circumstances.",
+      "ja": "適応する側は、順境で切り開くだけでなく、不利な環境でも、今ある条件を生かすことができます。"
+    },
+    "ming.backed:card.ming.wupo-sihai.core:2": {
+      "zh": "反拗的一面則可能在順境中仍急於改動，追求過高的理想，反而使原有條件接不上。",
+      "en": "The resistant side may seek unnecessary change even in favourable circumstances, pursuing an ideal the situation cannot sustain.",
+      "ja": "反発する側は順境でも変化を急ぎ、高すぎる理想を追うことで、かえって既存の条件がついていかなくなる場合があります。"
+    },
+    "ming.backed:card.ming.wupo-sihai.core:3": {
+      "zh": "原書亦保留環境迫人改動的情況，不能把每次轉變都簡化成個人任性，仍要看主動與被動的分別。",
+      "en": "The source also allows circumstances that force change, so not every transition is reduced to personal wilfulness.",
+      "ja": "原著は環境に変化を迫られる場合も残しており、転換を全て個人の身勝手さには還元せず、自発的か受動的かを見分ける必要があります。"
+    },
+    "ming.backed:card.ming.taiyang-ziwu.core:0": {
+      "zh": "太陽在子午的命宮，要分清虛浮與沉穩，外在的聲勢未必已經說明內裡的基礎。",
+      "en": "Tai Yang in Zi or Wu distinguishes showiness from solidity; an impressive exterior does not establish the underlying foundation.",
+      "ja": "子・午の太陽では、見かけの華やかさと内実の確かさを分けて見ていき、外からの勢いだけでは、その土台は分かりません。"
+    },
+    "ming.backed:card.ming.taiyang-ziwu.core:1": {
+      "zh": "沉穩的一面，有財力支持社會地位；虛浮的一面則可能只有表面風光，兩者不能只憑名聲分辨。",
+      "en": "The solid branch has resources supporting its standing, while the showy branch may have appearance without substance.",
+      "ja": "確かな側には社会的な立場を支える財力がありますが、華やかに見えるだけの側もあるため、名声だけで両者を見分けることはできません。"
+    },
+    "ming.backed:card.ming.taiyang-ziwu.core:2": {
+      "zh": "即使太陽在午入廟，原書仍保留虛浮的可能，並要求助曜與得祿等配合才談沉穩。",
+      "en": "Even a bright Tai Yang in Wu can be showy; the source requires support and abundance before describing solidity.",
+      "ja": "午宮で太陽が入廟していても、原著は見かけだけになる可能性を残し、補佐の星や得禄などが伴って初めて内実の確かさを論じています。"
+    },
+    "ming.backed:card.ming.taiyang-ziwu.core:3": {
+      "zh": "所以，外在位置與實際支撐需要分開；表面風光與內裡穩固，是原書在這裡保留的差別。",
+      "en": "Outward position and actual support remain distinct; impressive appearance and a solid foundation are the difference retained in the source.",
+      "ja": "そのため、外側の立場と実際の支えは別に見る必要があり、表の華やかさと内側の安定が、原著がここで残す違いです。"
+    },
+    "ming.backed:card.ming.tianfu-chouwei.core:0": {
+      "zh": "天府在丑未的命宮，要看謙和與怯懦的分別，表面小心，內裡可能有不同的原則。",
+      "en": "Tian Fu in Chou or Wei distinguishes modesty from timidity, which can share a cautious appearance.",
+      "ja": "丑・未の天府では謙虚さと臆病さを分けて見ていき、同じく用心深く見えても、内側の原則は異なる場合があります。"
+    },
+    "ming.backed:card.ming.tianfu-chouwei.core:1": {
+      "zh": "謙和的一面不露棱角，卻仍有原則，也能因應環境發展，不必表現得轟烈。",
+      "en": "The modest side can retain principles and develop with circumstances without a conspicuous display.",
+      "ja": "謙虚な側は角を立てず、それでも原則を持ち、環境に応じて発展できるため、必ずしも派手に振る舞う必要はありません。"
+    },
+    "ming.backed:card.ming.tianfu-chouwei.core:2": {
+      "zh": "怯懦的一面則不敢改變，表面像謹慎，實際卻可能失去原則，因此兩者不能混為一談。",
+      "en": "The timid side does not dare to change and can lose its principles beneath a cautious appearance; it is not the same as modesty.",
+      "ja": "臆病な側は変える勇気がなく、慎重に見えても実際には原則を失う場合があるため、両者を同じものとはできません。"
+    },
+    "ming.backed:card.ming.tianfu-chouwei.core:3": {
+      "zh": "原書亦保留宮位基本性質被會合星曜改變的例外，所以不只按丑或未就替你定下謙和或怯懦。",
+      "en": "The source allows accompanying stars to change the basic placement, rather than assigning modesty or timidity from Chou or Wei alone.",
+      "ja": "原著は宮位の基本的な性質が会合する星によって変わる例外も残しており、丑か未かだけで謙虚さや臆病さを決めてはいません。"
+    },
+    "ming.backed:card.ming.jiyue-yinshen.core:0": {
+      "zh": "讀天機太陰這一組星，重點在理智與情緒如何配合，而不是只看想得多或感受深其中一面。",
+      "en": "Tian Ji with Tai Yin is read through the relationship between reason and emotion, rather than either side alone.",
+      "ja": "天機・太陰の組み合わせでは、理性と感情がどう働き合うかが要点であり、考えることか感じることの一方だけでは捉えられません。"
+    },
+    "ming.backed:card.ming.jiyue-yinshen.core:1": {
+      "zh": "這組星在寅申同宮，三方會天梁與天同，所以原書將兩顆會合星的作用一併納入。",
+      "en": "The pair in Yin or Shen meets Tian Liang and Tian Tong in the trine, and the source considers both influences.",
+      "ja": "この二星は寅か申で同宮し、三方に天梁と天同が会合するため、原著は両方の星の作用を合わせて見ています。"
+    },
+    "ming.backed:card.ming.jiyue-yinshen.core:2": {
+      "zh": "天梁在這裡偏重理智，原書還指出宮位與四化會再加強這一面，並非只憑主星就能定出份量。",
+      "en": "Tian Liang contributes reason here, and the source describes placement and transformations as further strengthening it; the major star alone does not establish its weight.",
+      "ja": "ここでの天梁は理性を重んじ、原著は宮位や四化がさらにその面を強めると述べており、主星だけで比重は決められません。"
+    },
+    "ming.backed:card.ming.jiyue-yinshen.core:3": {
+      "zh": "天同則偏重情緒，但感情色彩加重後如何表現，原段仍細分不同四化的情況。",
+      "en": "Tian Tong contributes emotion, while the passage distinguishes how different transformations change its expression.",
+      "ja": "天同は感情を重んじますが、感情の色合いが強まったあとにどう表れるかは、原文でも四化ごとに区別されています。"
+    },
+    "ming.backed:card.ming.jiyue-yinshen.core:4": {
+      "zh": "昌曲雖可加強情緒，在理智過重時卻又可用來調和，因此同一配曜不能脫離整體強弱來看。",
+      "en": "Wen Chang and Wen Qu can strengthen emotion, yet can also balance excessive reason; the same accompanying stars need to be read in relation to the overall balance.",
+      "ja": "文昌・文曲は感情を強める一方、理性が強すぎるときには調和にも働くため、同じ会合する星でも、全体の強弱から切り離しては読めません。"
+    },
+    "ming.backed:card.ming.jiyue-yinshen.core:5": {
+      "zh": "輔弼、魁鉞加強理智，在情緒太過時亦可參與調和，原書保留的是兩面互相配合的條件。",
+      "en": "Zuo Fu, You Bi, Tian Kui and Tian Yue strengthen reason and can also help balance excessive emotion; the source retains the conditions governing both sides.",
+      "ja": "左輔・右弼、天魁・天鉞は理性を強め、感情が過剰な場合には調和にも関わり、原著は両面の組み合わさる条件を残しています。"
+    },
+    "ming.backed:card.ming.zixiang.core:0": {
+      "zh": "紫微天相這組命宮，要分清有情與無情，但這是同一組星內部的比較，並非替所有人排定感情深淺。",
+      "en": "Zi Wei with Tian Xiang distinguishes feeling from emotional withdrawal within this configuration, not through one universal ranking.",
+      "ja": "紫微・天相では情のある性質と無情に見える性質を分けて見ますが、同じ配置内での比較であり、全員の感情の深さを順位づけるものではありません。"
+    },
+    "ming.backed:card.ming.zixiang.core:1": {
+      "zh": "原書特別提醒，不同星系所說的有情，程度未必相同，所以同一個形容不能跨組合直接套用。",
+      "en": "The source cautions that the degree of feeling differs across configurations, so the same label is not directly transferable.",
+      "ja": "原著は、異なる配置でいう情の深さが同じとは限らないと注意しており、同じ形容を別の組み合わせへそのまま移すことはできません。"
+    },
+    "ming.backed:card.ming.zixiang.core:2": {
+      "zh": "有時斷然放手，是付出後得不到應有回應，而非一開始就沒有感情，這兩種經驗需要分開。",
+      "en": "An abrupt break can follow unreturned commitment rather than an initial lack of feeling; those experiences are distinct.",
+      "ja": "きっぱり手を放すのも、尽くしたあとに相応の応答がなかった場合があり、初めから情がなかったこととは分けて理解する必要があります。"
+    },
+    "ming.backed:card.ming.zixiang.core:3": {
+      "zh": "因此，原書所說無情並不一定等於薄情，不能只由一個決絕的結果，倒推全部相處過程。",
+      "en": "Withdrawal does not necessarily mean shallow feeling; one final break does not establish the whole preceding relationship.",
+      "ja": "そのため、原著のいう無情は必ずしも薄情ではなく、決別というひとつの結末から、それ以前の関係全てを逆算することはできません。"
+    },
+    "ming.backed:card.ming.tianliang-sihai.core:0": {
+      "zh": "天梁在巳亥的命宮，要看浮蕩與穩定，但這裡的穩定，是同一組星內部的相對比較。",
+      "en": "Tian Liang in Si or Hai distinguishes unsettledness from stability, with stability used as a relative comparison within the pair of placements.",
+      "ja": "巳・亥の天梁では落ち着かなさと安定を見ますが、ここでの安定は、同じ配置の内側での相対的な比較です。"
+    },
+    "ming.backed:card.ming.tianliang-sihai.core:1": {
+      "zh": "原書先交代會合多帶動盪，天梁本身亦在落陷的位置，所以要連同整個組合理解。",
+      "en": "The source begins with changeable surrounding combinations and Tian Liang's dim placement, requiring the whole structure to be considered.",
+      "ja": "原著はまず、会合に変動の性質が多く、天梁自体も落陥していると述べており、配置全体として理解する必要があります。"
+    },
+    "ming.backed:card.ming.tianliang-sihai.core:2": {
+      "zh": "即使屬於相對穩定的一面，原段仍保留較浮蕩的底色，不能把相對較穩寫成絕對安定。",
+      "en": "Even the relatively stable side retains an unsettled basis; relative stability is not absolute constancy.",
+      "ja": "比較的安定した側でも、原文はなお落ち着かなさの基調を残しているため、相対的な安定を、絶対に変わらない安定とはできません。"
+    },
+    "ming.backed:card.ming.tianliang-sihai.core:3": {
+      "zh": "所謂浮蕩，不只指離鄉等際遇，也指波動的幅度，因此事件種類與變化程度需要分開。",
+      "en": "Unsettledness concerns both events such as leaving home and the magnitude of fluctuation; event type and degree differ.",
+      "ja": "落ち着かなさとは、故郷を離れるなどの出来事だけでなく、変動の幅も指すため、出来事の種類と変化の程度は分けて見ます。"
+    },
+    "ming.backed:card.ming.qisha-ziwu.core:0": {
+      "zh": "七殺在子午的命宮，要分清權威與克忌，力量的用途與受限的方式，都需要保留條件。",
+      "en": "Qi Sha in Zi or Wu distinguishes authority from adverse constraint, with conditions determining how its strength is expressed.",
+      "ja": "子・午の七殺では権威と不利な制約を分けて見ていき、力の使い道にも、制約の受け方にも条件を残す必要があります。"
+    },
+    "ming.backed:card.ming.qisha-ziwu.core:1": {
+      "zh": "原書雖將子午七殺作相對較強的結構，仍分午宮見吉與子宮煞曜會聚等情況，不能只取強格兩字。",
+      "en": "Although the source describes Qi Sha in Zi or Wu as relatively strong, it distinguishes auspicious stars in Wu from concentrations of malefics in Zi; the strength label cannot be taken on its own.",
+      "ja": "原著は子・午の七殺を比較的強い構成としつつ、午宮の吉星との会合と、子宮の煞の集中などを分けており、強いという評価だけは取り出せません。"
+    },
+    "ming.backed:card.ming.qisha-ziwu.core:2": {
+      "zh": "談到艱辛與後來的發展時，原書也強調腳踏實地度過過程，不是只寫最後的收穫。",
+      "en": "When discussing hardship and later development, the source emphasises the grounded process rather than the final result alone.",
+      "ja": "苦労とのちの発展についても、原著は地に足をつけて過程を歩むことを重んじ、最後の成果だけを述べてはいません。"
+    },
+    "ming.backed:card.ming.qisha-ziwu.core:3": {
+      "zh": "得祿是原段用來調和七殺的重要條件，尤其貪狼化祿，還會連帶調和福德宮廉貞的性質。",
+      "en": "Abundance moderates Qi Sha in the passage; Tan Lang transformed to Abundance also moderates Lian Zhen in the Wellbeing Palace.",
+      "ja": "得禄は原文で七殺を調和させる重要な条件とされ、とりわけ貪狼の化禄は、福徳宮の廉貞の性質も合わせて調和させます。"
+    },
+    "ming.backed:card.ming.lianzhen-yinshen.core:0": {
+      "zh": "廉貞在寅申的命宮，要分清敏感與踏實，這是兩種不同的著力方式。",
+      "en": "For Lian Zhen in Yin or Shen, sensitivity and a grounded, practical approach are two different ways of directing attention.",
+      "ja": "寅・申の廉貞では繊細さと実際性を分けて見ていき、両者は力の向け方が異なります。"
+    },
+    "ming.backed:card.ming.lianzhen-yinshen.core:1": {
+      "zh": "敏感的一面帶藝術氣質，重視精神生活，原書亦列出會加強這種性質的配曜。",
+      "en": "The sensitive side has an artistic quality and values inner life, with accompanying stars able to strengthen it.",
+      "ja": "繊細な側には芸術的な気質があり、精神生活を重んじ、原著はその性質を強める会合する星も挙げています。"
+    },
+    "ming.backed:card.ming.lianzhen-yinshen.core:2": {
+      "zh": "踏實的一面也可以重視精神生活，卻會以物質享受作基礎，不能只按是否有精神追求來區分。",
+      "en": "The grounded side can also value inner life while basing it on material comforts; inner interests alone do not distinguish the two.",
+      "ja": "実際的な側も精神生活を重んじ得ますが、物質的な楽しみを土台にするため、精神的な関心の有無だけでは両者を区別できません。"
+    },
+    "ming.backed:card.ming.lianzhen-yinshen.core:3": {
+      "zh": "配曜還可能使敏感帶來困擾，所以同一種細緻感受，不宜離開整體條件就一概說成長處。",
+      "en": "Accompanying stars can also make sensitivity troublesome, so it should not be called a strength without the surrounding conditions.",
+      "ja": "会合する星によっては繊細さが悩みをもたらす場合もあり、細やかに感じ取る力を、全体の条件から切り離して一律に長所とはできません。"
+    },
+    "ming.backed:card.ming.pojun-chenxu.core:0": {
+      "zh": "破軍在辰戌的命宮，要分清偏枯與調和，原書在這個受限結構之中，仍保留兩種不同的性質。",
+      "en": "Po Jun in Chen or Xu distinguishes an imbalanced quality from a moderated one within a constrained structure.",
+      "ja": "辰・戌の破軍では偏りと調和を分けて見ていき、原著は制約のあるこの構成にも、二つの異なる性質を残しています。"
+    },
+    "ming.backed:card.ming.pojun-chenxu.core:1": {
+      "zh": "調和的一面，原書仍保留一波三折的提醒，因此調和不等於所有事情都平直無阻。",
+      "en": "Even the moderated branch retains the prospect of complications, so moderation is not described as an entirely smooth course.",
+      "ja": "調和する側についても原著は紆余曲折への注意を残しており、調和が全ての物事の順調さを意味するわけではありません。"
+    },
+    "ming.backed:card.ming.pojun-chenxu.core:2": {
+      "zh": "得祿是原文列出的重要前提，不能只見一兩顆助曜，就跳過這個條件作完整的好壞判斷。",
+      "en": "Abundance is a stated premise; one or two supporting stars do not replace it.",
+      "ja": "得禄は原文の重要な前提であり、補佐の星が一つ二つあるだけで、その条件を飛ばして全体の良否を判断することはできません。"
+    },
+    "ming.backed:card.ming.pojun-chenxu.core:3": {
+      "zh": "原段對無祿而有助曜的情況仍有保留，因此一般的扶持，與已經形成調和，仍是兩個層次。",
+      "en": "The passage remains qualified about support without abundance, separating ordinary assistance from established moderation.",
+      "ja": "禄がなく補佐の星がある場合にも原文は留保を置いており、一般的な支えがあることと、調和が整ったことは、なお別の段階です。"
+    },
+    "ming.backed:card.ming.tiantong-sihai.core:0": {
+      "zh": "天同在巳亥的命宮，要看意志的薄弱與堅強，同樣的安樂或刺激，作用未必相同。",
+      "en": "Tian Tong in Si or Hai distinguishes weak and strong resolve; comfort and stimulation can have different effects.",
+      "ja": "巳・亥の天同では意志の弱さと強さを見ていき、同じ安楽や刺激でも、その働きは同じとは限りません。"
+    },
+    "ming.backed:card.ming.tiantong-sihai.core:1": {
+      "zh": "原書以精神型來解釋天同，適當激發可能帶來奮發，不能只把刺激當成壞事。",
+      "en": "The source explains Tian Tong as inward in character, with stimulation sometimes enabling effort rather than only causing difficulty.",
+      "ja": "原著は天同を精神面に重きを置く星として説明し、適度な刺激が奮起につながる場合もあるため、刺激を悪いものとだけは見ていません。"
+    },
+    "ming.backed:card.ming.tiantong-sihai.core:2": {
+      "zh": "助曜聚集也未必全是好處，原段保留可能形成依賴的一面，所以支持的份量仍要合看。",
+      "en": "An assembly of supportive stars is not unconditionally beneficial; the passage also retains the possibility of dependency.",
+      "ja": "補佐の星が集まることも利点ばかりではなく、原文は依存につながる可能性も残しているため、支えの量を全体と合わせて見る必要があります。"
+    },
+    "ming.backed:card.ming.tiantong-sihai.core:3": {
+      "zh": "論意志時，原書還要求得祿與適量煞曜等配合，因此不能只見一項便把你定為堅強或薄弱。",
+      "en": "The assessment of resolve retains the combination of abundance and measured adverse influences, rather than one factor alone.",
+      "ja": "意志を論じる際には、原著は得禄や適量の煞などの組み合わせも求めており、一項目だけで強いか弱いかを決めることはできません。"
+    },
+    "ming.backed:card.ming.wufu.core:0": {
+      "zh": "武曲天府這組命宮，要分清生財與儲財，兩者同屬財務能力，卻需要不同的力量。",
+      "en": "Wu Qu with Tian Fu calls for a distinction between earning money and retaining it; both are financial abilities, but they draw on different strengths.",
+      "ja": "武曲・天府では財を生む力と蓄える力を分けて見ていき、どちらも財務の力であっても、必要な働きは異なります。"
+    },
+    "ming.backed:card.ming.wufu.core:1": {
+      "zh": "武曲主行動，偏向生財；天府主府庫，偏向儲存，所以取得與保存不能當成同一件事。",
+      "en": "Wu Qu is associated with action and earning money, while Tian Fu is associated with a treasury and storage, so acquiring and preserving are different capacities.",
+      "ja": "武曲は行動から財を生む側に、天府は府庫として蓄える側に傾くため、得ることと保つことは同じではありません。"
+    },
+    "ming.backed:card.ming.wufu.core:2": {
+      "zh": "原書把理財寫成同時包括生財與儲存，並把它連到行動與領導力的配合。",
+      "en": "Financial management in the source includes both earning and retaining money, connecting action with leadership.",
+      "ja": "原著のいう財を管理する力には、生むことと蓄えることの両方が含まれ、それを行動力と人を率いる力の連携に結びつけています。"
+    },
+    "ming.backed:card.ming.wufu.core:3": {
+      "zh": "即使兩星同宮，仍未必已經擅長儲財，還須保留得祿與不見煞曜、尤其空劫等條件。",
+      "en": "Even with both stars sharing the palace, an ability to retain wealth is not established without further conditions, including access to Abundance and the absence of malefics, particularly Di Kong and Di Jie.",
+      "ja": "二星が同宮しても、すでに蓄財が得意とは限らず、得禄や、煞、とりわけ地空・地劫を見ないことなどの条件を残す必要があります。"
+    },
+    "ming.backed:card.ming.riyue.core:0": {
+      "zh": "太陽太陰在丑未的命宮，要分清開朗與沉鬱，外在的光度與內在的感受需要一併理解。",
+      "en": "For Tai Yang and Tai Yin in Chou or Wei, openness and a subdued outlook need to be distinguished, considering outward brightness alongside inner feeling.",
+      "ja": "丑・未の太陽・太陰では明朗さと沈みがちな性質を分けて見ていき、外側の明るさと内面の感じ方を合わせて理解します。"
+    },
+    "ming.backed:card.ming.riyue.core:1": {
+      "zh": "原書把太陽能否化解天梁的孤忌，連到這個分野，不能只按日月兩星的名字作判斷。",
+      "en": "The distinction is linked to whether Tai Yang can moderate Tian Liang's isolating quality, rather than the names of the two stars alone.",
+      "ja": "原著は、太陽が天梁の孤立や制約の性質を和らげられるかにこの違いを結びつけており、日月という星名だけでは判断していません。"
+    },
+    "ming.backed:card.ming.riyue.core:2": {
+      "zh": "介乎兩者之間，還可能呈現時明時暗，所以原文沒有只保留截然分開的兩種面貌。",
+      "en": "The source also allows an intermediate, changing expression instead of only two sharply separated states.",
+      "ja": "両者のあいだでは、明るくなったり暗くなったりする姿もあるため、原文は明確に分かれた二つの状態だけを残してはいません。"
+    },
+    "ming.backed:card.ming.riyue.core:3": {
+      "zh": "太陰吉化與太陽吉化的作用亦不相同，減少收斂，與增加開朗，不能不分條件地視為一樣。",
+      "en": "Favourable transformations of Tai Yin and Tai Yang have different roles; reduced reserve is not unconditionally the same as increased openness.",
+      "ja": "太陰と太陽の吉化の働きも異なり、内に収まる性質が弱まることと、明朗さが増すことは、条件を分けずに同じものとはできません。"
+    },
+    "ming.backed:card.ming.tanlang-yinshen.core:0": {
+      "zh": "貪狼在寅申的命宮，以欲望為主要題目，物質追求與情感追求需要分開看。",
+      "en": "Tan Lang in Yin or Shen is read through desire, distinguishing material and emotional pursuit.",
+      "ja": "寅・申の貪狼では欲求が中心の主題となり、物質的な追求と感情的な追求を分けて見ます。"
+    },
+    "ming.backed:card.ming.tanlang-yinshen.core:1": {
+      "zh": "物欲較強的一面，原書連到較多奮鬥；情感欲望較強的一面，也可能轉成事業上的交際能力。",
+      "en": "The source connects stronger material desire with greater effort, while stronger emotional desire can also be redirected into social skills at work.",
+      "ja": "原著は、物欲の強い側をより多くの努力に結びつける一方、感情的な欲求の強い側も、仕事上の社交の力へ転じ得るとしています。"
+    },
+    "ming.backed:card.ming.tanlang-yinshen.core:2": {
+      "zh": "因此，兩種欲望的內容不同，不宜只因偏向情感，就直接判成不利發展。",
+      "en": "The directions differ, and emotional desire is not automatically judged unfavourable to development.",
+      "ja": "両者は求める内容が異なるため、感情寄りというだけで、その後の発展に不利とは判断できません。"
+    },
+    "ming.backed:card.ming.tanlang-yinshen.core:3": {
+      "zh": "原書明說貪狼化祿不能直接界定情感或物質，仍須看同會諸曜，這也是判斷欲望內容的重要限制。",
+      "en": "The source explicitly states that Tan Lang transformed to Abundance does not by itself establish whether desire is emotional or material; the accompanying stars still need to be considered.",
+      "ja": "原著は、貪狼の化禄だけで感情と物質のどちらに向くかは決められないと明記し、共に会合する星を見ることを重要な限界としています。"
+    },
+    "ming.backed:card.ming.jiju-maoyou.core:0": {
+      "zh": "天機巨門這組命宮，要分清穩重與浮薄，思路與表現相近，發展卻可以有很大分別。",
+      "en": "Tian Ji with Ju Men distinguishes steadiness from superficiality, which can lead to different development.",
+      "ja": "天機・巨門では落ち着きと軽薄さを分けて見ていき、考え方や表れ方が似ていても、発展は大きく異なる場合があります。"
+    },
+    "ming.backed:card.ming.jiju-maoyou.core:1": {
+      "zh": "原書把浮滑與多疑列為這組需要留意的缺點，並同時交代吉化、吉曜可減輕的條件。",
+      "en": "The source flags glibness and suspicion while retaining the condition that favourable transformations and stars can reduce them.",
+      "ja": "原著は浮つきや疑い深さをこの配置の注意点とし、同時に吉化や吉星によって和らぐ条件も述べています。"
+    },
+    "ming.backed:card.ming.jiju-maoyou.core:2": {
+      "zh": "古訣所說的高成就與破蕩，分別指向不同本質，不能把其中一句不分條件地套到所有人。",
+      "en": "The contrasting classical descriptions concern different underlying qualities, not unconditional outcomes for everyone.",
+      "ja": "古訣の高い達成と破綻という対照的な記述は、異なる本質に対応するため、片方だけを無条件に全員へ当てはめることはできません。"
+    },
+    "ming.backed:card.ming.jiju-maoyou.core:3": {
+      "zh": "即使同樣見祿權，原段仍細分星曜的連動，所以不能只按一個吉化就推定已經穩重。",
+      "en": "Even with Abundance and Authority, the passage distinguishes linked stellar changes, so one auspicious transformation alone does not establish steadiness.",
+      "ja": "同じく化禄・化権があっても、原文は星同士の連動をさらに分けており、ひとつの吉化だけで、すでに落ち着きがあるとは決められません。"
+    },
+    "ming.backed:card.ming.zisha.core:0": {
+      "zh": "紫微七殺這組命宮，要分清權威與橫霸，但原書說的兩端，是用來比較傾向，不是人人都如此極端。",
+      "en": "Zi Wei with Qi Sha distinguishes authority from domination, while explicitly treating the extremes as a comparison of tendencies.",
+      "ja": "紫微・七殺では権威と横暴さを分けて見ますが、原著の両端は傾向を比べるためのもので、誰もがそこまで極端という意味ではありません。"
+    },
+    "ming.backed:card.ming.zisha.core:1": {
+      "zh": "這組星的會合較強烈，原文形容好壞有時只差一線，因此更要保留完整條件。",
+      "en": "This is an intense combination, and the source describes a fine line between favourable and unfavourable outcomes, making the full conditions especially important.",
+      "ja": "この配置の会合は強烈で、原文は良否が紙一重になる場合もあると述べており、条件全体を残すことが、より重要になります。"
+    },
+    "ming.backed:card.ming.zisha.core:2": {
+      "zh": "紫微七殺本身已有權力性質，再加重權力，未必就更有利，亦可能走向過度。",
+      "en": "The pair already has a power-related quality, so further intensification is not necessarily beneficial.",
+      "ja": "紫微・七殺にはすでに権力の性質があるため、さらに権力を強めても、必ずしも有利にはならず、過剰へ向かう場合もあります。"
+    },
+    "ming.backed:card.ming.zisha.core:3": {
+      "zh": "權威與橫霸談的是力量怎樣運用，原書亦保留多數人只是傾向上的差別，不把極端形容當成個人定論。",
+      "en": "Authority and domination concern how power is used, with most people described through relative tendencies rather than extreme labels.",
+      "ja": "権威と横暴さは力をどう用いるかの違いであり、原著も多くの人では傾向上の差にとどまるとし、極端な形容を個人の定論にはしていません。"
+    },
+    "ming.backed:card.ming.lianpo.core:0": {
+      "zh": "廉貞破軍這組命宮，以服務與開創為重要題目，閱讀重點在奉公與私利的分別。",
+      "en": "Lian Zhen with Po Jun concerns service and initiative, distinguishing a public purpose from personal gain.",
+      "ja": "廉貞・破軍では奉仕と開拓が重要な主題となり、公のために尽くすことと私益を求めることの違いを読みます。"
+    },
+    "ming.backed:card.ming.lianpo.core:1": {
+      "zh": "原書把服務寫成性質，把開創寫成職責，因此能否開新局，還要連同所服務的目的去理解。",
+      "en": "The source distinguishes service as its nature from initiative as its responsibility, connecting new work with its purpose.",
+      "ja": "原著は奉仕を性質、開拓を責務としており、新しい局面を作れるかも、何に奉仕するのかという目的と合わせて理解する必要があります。"
+    },
+    "ming.backed:card.ming.lianpo.core:2": {
+      "zh": "原文亦提到這組星的創造力，但巧思巧藝另有配曜與排除條件，不能只憑主星就替你加上全部長處。",
+      "en": "Creativity is also noted, while ingenuity and craft retain separate accompanying and exclusion conditions.",
+      "ja": "原文はこの配置の創造力にも触れますが、巧みな発想や技芸には別の会合や除外条件があり、主星だけで全ての長所を付け加えることはできません。"
+    },
+    "ming.backed:card.ming.lianpo.core:3": {
+      "zh": "原書另以廉貞的化祿與化忌，分開談理想與私利，所以這兩種動機各有其配合條件。",
+      "en": "The source discusses ideals and personal gain separately through Lian Zhen transformed to Abundance or Obstruction, retaining the accompanying conditions for each motivation.",
+      "ja": "原著は廉貞の化禄と化忌から理想と私益を分けて論じており、この二つの動機にも、それぞれ配置の条件があります。"
+    },
+    "ming.backed:card.ming.tianfu-sihai.core:0": {
+      "zh": "天府在巳亥的命宮，仍有守成的底色，但會合的權力與欲望星，令保守性較小。",
+      "en": "Tian Fu in Si or Hai retains a preserving basis, while meeting stars of power and desire makes it less conservative.",
+      "ja": "巳・亥の天府にも既存のものを守る基調はありますが、権力や欲求を表す星と会合することで、保守性は比較的弱まります。"
+    },
+    "ming.backed:card.ming.tianfu-sihai.core:1": {
+      "zh": "對宮紫微七殺與會合的武曲貪狼，都要放進這個組合理解，不能只按天府一星看成純粹守舊。",
+      "en": "The opposing Zi Wei–Qi Sha and the meeting Wu Qu–Tan Lang belong in the assessment; Tian Fu alone is not treated as pure conservatism.",
+      "ja": "向かいの紫微・七殺と、会合する武曲・貪狼も合わせて読む必要があり、天府一星だけで、ひたすら現状を守る配置とは見なせません。"
+    },
+    "ming.backed:card.ming.tianfu-sihai.core:2": {
+      "zh": "原書在這裡分辨祥和與權術，這是進一步要核對的性質，而不是只按有進取心便判好壞。",
+      "en": "The source distinguishes harmony from manipulation, rather than judging initiative alone as good or bad.",
+      "ja": "原著はここで穏やかさと権謀を分けて見ており、さらに確認すべき性質があるため、進取の気持ちだけで良否は決めていません。"
+    },
+    "ming.backed:card.ming.tianfu-sihai.core:3": {
+      "zh": "因此，守住已有的安排與受到進取力量牽動，可以同時是這一組的閱讀線索，仍須看整體配合。",
+      "en": "Preserving an arrangement and being affected by initiative can both be relevant to this combination; the whole relationship matters.",
+      "ja": "そのため、既存の仕組みを保つことと、進取の力に動かされることは、どちらもこの配置の手がかりとなり得ますが、全体の組み合わせを見る必要があります。"
+    },
+    "ming.backed:card.ming.tongyin-ziwu.core:0": {
+      "zh": "天同太陰這組命宮，要分清積極與消極，古人以志高與志卑來形容這個分野。",
+      "en": "Tian Tong with Tai Yin distinguishes active from passive qualities, traditionally described through the level of aspiration.",
+      "ja": "天同・太陰では積極性と消極性を分けて見ていき、古人はこの違いを、志の高さと低さで表しました。"
+    },
+    "ming.backed:card.ming.tongyin-ziwu.core:1": {
+      "zh": "子宮與午宮的基本性質並不相同，原書連擎羊同度也分開論，不能只見相同配曜便一概套用。",
+      "en": "Zi and Wu are treated differently, including the role of Qing Yang; the same accompanying star does not imply the same assessment.",
+      "ja": "子の宮と午の宮の基本的な性質は異なり、原著は擎羊の同宮も分けて論じているため、同じ会合する星があっても一律には当てはめられません。"
+    },
+    "ming.backed:card.ming.tongyin-ziwu.core:2": {
+      "zh": "午宮所論的馬頭帶劍，帶有奮鬥與考驗的條件，不是只要見到格名就省略過程。",
+      "en": "The Horse with a Sword configuration discussed in Wu includes effort and trials; its name does not allow the process to be left out.",
+      "ja": "午宮で論じる馬頭帯剣には努力と試練の条件が伴い、格局の名前があるだけで、その過程を省けるわけではありません。"
+    },
+    "ming.backed:card.ming.tongyin-ziwu.core:3": {
+      "zh": "原書還保留四化會改變本質與格局是否成立的限制，志向的分野需要和這些條件一起理解。",
+      "en": "Transformations can alter both the underlying quality and whether the configuration holds; aspiration is assessed alongside those conditions.",
+      "ja": "原著は四化が本質や格局の成否を変えるという限界も残しており、志の違いも、これらの条件と合わせて理解する必要があります。"
+    },
+    "ming.backed:card.ming.wutan-chouwei.core:0": {
+      "zh": "武曲貪狼這組命宮，要分清欲望與野心，兩者都積極，對他人的影響卻不同。",
+      "en": "Wu Qu with Tan Lang distinguishes desire from ambition, both active but different in their effects on others.",
+      "ja": "武曲・貪狼では欲求と野心を分けて見ていき、どちらも積極的ですが、他者への影響は異なります。"
+    },
+    "ming.backed:card.ming.wutan-chouwei.core:1": {
+      "zh": "積極而有節制、不傷害別人的追求，原書視為可以鞭策人生的力量。",
+      "en": "The source treats restrained pursuit that does not harm others as a motivating force.",
+      "ja": "節度があり、他者を傷つけない積極的な追求を、原著は人生を前へ進める力と見ています。"
+    },
+    "ming.backed:card.ming.wutan-chouwei.core:2": {
+      "zh": "野心的一面則可能為個人目標犧牲他人的利益，因此不能只用成就大小分辨兩者。",
+      "en": "Ambition can sacrifice others' interests for personal goals, so achievement alone does not distinguish the qualities.",
+      "ja": "野心の側は、個人の目標のために他者の利益を犠牲にする場合があるため、達成の大きさだけでは両者を見分けられません。"
+    },
+    "ming.backed:card.ming.wutan-chouwei.core:3": {
+      "zh": "原段把武曲貪狼與紫微七殺、廉貞破軍比較，指出力量同樣強烈，程度仍有差別。",
+      "en": "The source compares Wu Qu–Tan Lang with Zi Wei–Qi Sha and Lian Zhen–Po Jun, distinguishing the degree of an intense quality.",
+      "ja": "原文は武曲・貪狼を紫微・七殺、廉貞・破軍と比較し、いずれも力は強烈でも、その程度には違いがあると指摘しています。"
+    },
+    "ming.backed:card.ming.yangju-yinshen.core:0": {
+      "zh": "太陽巨門這組命宮，要分清得助與孤立，外來支持是否接得上，是重要的閱讀線索。",
+      "en": "Tai Yang with Ju Men distinguishes support from isolation, with access to assistance forming an important clue.",
+      "ja": "太陽・巨門では助けを得られることと孤立を分けて見ていき、外からの支えが届くかが重要な手がかりになります。"
+    },
+    "ming.backed:card.ming.yangju-yinshen.core:1": {
+      "zh": "原書先交代三方要借星安宮，再討論這組的助力，不能把命宮兩星當成已經自足的結構。",
+      "en": "The source first notes borrowed stars in the trine before discussing support; the Life Palace pair is not assessed as self-sufficient.",
+      "ja": "原著はまず三方に借星が必要なことを説明してから、この配置の助力を論じており、命宮の二星だけで完結する構造とは見ていません。"
+    },
+    "ming.backed:card.ming.yangju-yinshen.core:2": {
+      "zh": "孤立在這裡與整體星曜結構相連，原文以外鄉人作比喻，但不等於每個人都必須離開出生地。",
+      "en": "Isolation is linked to the whole structure and illustrated through the outsider image, not a universal requirement to leave one's birthplace.",
+      "ja": "ここでの孤立は星の構造全体に結びつき、原文はよそから来た人にたとえますが、誰もが出生地を離れる必要があるという意味ではありません。"
+    },
+    "ming.backed:card.ming.yangju-yinshen.core:3": {
+      "zh": "寅申太陽的光度可用來看際遇，原書卻明說，不能由此直接定出本質，處境與性質需要分開。",
+      "en": "The source uses brightness for circumstances but explicitly not to settle the underlying quality; the two levels remain distinct.",
+      "ja": "寅・申の太陽の明るさは境遇を見る材料になりますが、原著はそれだけで本質を決められないと明記し、状況と性質を分けています。"
+    },
+    "ming.backed:card.ming.tianxiang-maoyou.core:0": {
+      "zh": "天相在卯酉的命宮，要分清正直與徇私，重視友情，與是否保有原則，是不同的問題。",
+      "en": "Tian Xiang in Mao or You distinguishes integrity from favouritism, separating friendship from the retention of principles.",
+      "ja": "卯・酉の天相では誠実さと身びいきを分けて見ていき、友情を大切にすることと、原則を保てるかは別の問題です。"
+    },
+    "ming.backed:card.ming.tianxiang-maoyou.core:1": {
+      "zh": "徇私未必只為自己的利益，也可能是無原則地照顧友情，原書特別將兩者分開。",
+      "en": "Favouritism need not concern personal gain; it can mean unprincipled protection of a friendship.",
+      "ja": "身びいきは必ずしも自分の利益のためとは限らず、原則を欠いたまま友人をかばう場合もあり、原著は両者を区別しています。"
+    },
+    "ming.backed:card.ming.tianxiang-maoyou.core:2": {
+      "zh": "正直的一面仍可以照顧友誼，但有自己的準則，不會因一概遷就而令彼此走錯方向。",
+      "en": "Integrity can retain care for a friendship while keeping standards, rather than following every request.",
+      "ja": "誠実な側も友情を大切にしますが、自分の基準があり、何でも受け入れることで互いを誤った方向へ進ませることはありません。"
+    },
+    "ming.backed:card.ming.tianxiang-maoyou.core:3": {
+      "zh": "天府帶來的謹慎保守，與對宮星曜的影響仍要合看，因此不能只憑溫和或講義氣便斷整體品性。",
+      "en": "Tian Fu's caution and the opposing stars both remain relevant, rather than deciding character from gentleness or loyalty alone.",
+      "ja": "天府がもたらす慎重さや保守性と、向かいの星の影響も合わせて見る必要があり、穏やかさや義理堅さだけで人柄全体は決められません。"
+    },
+    "ming.backed:card.ming.jiliang-chenxu.core:0": {
+      "zh": "天機天梁這組命宮，要分清尖刻與明斷，反應敏銳，與判斷是否恰當，需要分開理解。",
+      "en": "Tian Ji with Tian Liang distinguishes sharpness from clear judgement; sensitivity and sound assessment are different matters.",
+      "ja": "天機・天梁では辛辣さと明晰な判断を分けて見ていき、反応の鋭さと、判断が適切かどうかは別に理解する必要があります。"
+    },
+    "ming.backed:card.ming.jiliang-chenxu.core:1": {
+      "zh": "天機偏敏感變動，天梁偏原則紀律，兩股力量調和，原書才進一步談明斷。",
+      "en": "Tian Ji contributes sensitivity and change, and Tian Liang principle and discipline; their balance is the premise for clear judgement.",
+      "ja": "天機は敏感さや変動、天梁は原則や規律に傾き、原著は二つの力の調和を前提として、さらに明晰な判断を論じています。"
+    },
+    "ming.backed:card.ming.jiliang-chenxu.core:2": {
+      "zh": "因此，單有敏感或單有原則，都未足以替代兩者配合，平衡是這一段的重要條件。",
+      "en": "Neither sensitivity nor principle alone replaces their coordination; balance is an important condition in the passage.",
+      "ja": "そのため、敏感さだけでも原則だけでも、両者の連携に代わるものにはならず、釣り合いがこの段落の重要な条件になります。"
+    },
+    "ming.backed:card.ming.jiliang-chenxu.core:3": {
+      "zh": "三方的天同太陰與太陽巨門，也分別牽動這兩個方向，所以不能只在命宮內看兩星強弱。",
+      "en": "Tian Tong–Tai Yin and Tai Yang–Ju Men in the trine affect the two directions, so the assessment extends beyond the Life Palace pair.",
+      "ja": "三方の天同・太陰と太陽・巨門もそれぞれの方向に関わるため、命宮の二星の強弱だけで読むことはできません。"
+    },
+    "ming.backed:card.ming.tanlang-ziwu.jiaoji:0": {
+      "zh": "你有交際應酬的一面，原書將它連到對物質的爭取，不是泛指所有形式的雅興往來。",
+      "en": "Social exchange is one side of this pattern; the source connects it to material pursuit rather than every form of cultural companionship.",
+      "ja": "あなたには社交や付き合いに力を注ぐ面があり、原著はそれを物質的なものを得る働きに結びつけており、趣味の交流全般を指しているわけではありません。"
+    },
+    "ming.backed:card.ming.jumen-sihai.si:0": {
+      "zh": "在這個見祿的分支，原書著重勤儉累積，而不是只看巨門坐命就一概談財富。",
+      "en": "In this branch with access to Abundance, the source emphasises thrift and sustained effort, rather than inferring wealth from Ju Men in the Life Palace alone.",
+      "ja": "この禄を見る分岐では、原著は勤勉さと倹約による蓄積を重視しており、巨門が命宮にあるだけで、一律に富を論じているわけではありません。"
+    },
+    "ming.backed:card.ming.jumen-sihai.si:1": {
+      "zh": "原段先說巳宮巨門對宮太陽無力，再把見祿列為條件，因此不能把這一段讀成整組星無條件有利。",
+      "en": "The passage first notes the weak opposing Tai Yang and then requires abundance; the configuration is not unconditionally favourable.",
+      "ja": "原文はまず巳宮の巨門に対して向かいの太陽の力が弱いと述べ、続いて禄を見ることを条件とするため、この配置全体が無条件に有利とは読めません。"
+    },
+    "ming.backed:card.ming.pojun-ziwu.newold:0": {
+      "zh": "你有繼舊換新、兼顧不同工作的處事特點，開展與承接是這一面的兩個部分。",
+      "en": "Your way of working can combine renewal with several roles, connecting development with continuity.",
+      "ja": "あなたには古いものを新しく改め、複数の仕事を担う性質があり、切り開くことと、それまでのものを受け継ぐことが、その二つの側面です。"
+    },
+    "ming.backed:card.ming.pojun-ziwu.newold:1": {
+      "zh": "原書另外把化祿後新事業由舊事業而來、同時經營列作一層，所以承接與持續並行的條件仍要分清。",
+      "en": "The source separately describes Po Jun transformed to Abundance bringing a new venture out of an existing one, with both operated together; continuity and ongoing parallel operation retain distinct conditions.",
+      "ja": "原著はさらに、化禄によって古い事業から新しい事業が生まれ、両方を同時に営む場合を別の段階としており、継承と継続的な並行経営の条件は分ける必要があります。"
+    },
+    "ming.backed:card.ming.pojun-ziwu.selfmade:0": {
+      "zh": "自行開創不一定要推倒全部基礎，原書亦保留借長輩餘力、再作改革的做法。",
+      "en": "Starting something yourself does not have to mean discarding every foundation; the source also allows drawing on support from elders and making changes from there.",
+      "ja": "自ら切り開くことは、全ての土台を壊すこととは限らず、原著も、年長者の残した力を借り、そこから改革するあり方を残しています。"
+    },
+    "ming.backed:card.ming.pojun-ziwu.yuqi:0": {
+      "zh": "這裡不肯將就的一面，原書以寧為玉碎、不為瓦全來形容，並同時提醒它有耗散的性質。",
+      "en": "The source describes this unwillingness to settle as choosing a break over a compromise, while also noting a tendency towards depletion.",
+      "ja": "ここでの妥協しない性質を、原著は「瓦全より玉砕を選ぶ」という言葉で表し、同時に消耗や散逸を伴う性質にも注意を向けています。"
+    }
+  },
+  "headings": {
+    "本質": {
+      "en": "Who you are",
+      "ja": "性質の読み方"
+    },
+    "處事": {
+      "en": "How you approach things",
+      "ja": "物事への向き合い方"
+    },
+    "待人": {
+      "en": "How you relate to people",
+      "ja": "人との関わり方"
+    },
+    "格局": {
+      "en": "The configuration and its conditions",
+      "ja": "格局とその条件"
+    },
+    "盤面與底色": {
+      "en": "The pattern and its foundations",
+      "ja": "星の配置と基本の性質"
+    },
+    "情趣與原則怎樣相遇": {
+      "en": "Where enjoyment meets principle",
+      "ja": "情趣と原則の交わり"
+    },
+    "調和的可能與條件": {
+      "en": "The possibility and conditions of balance",
+      "ja": "調和の可能性と条件"
+    },
+    "盤面與出處": {
+      "en": "What the chart shows",
+      "ja": "命盤上の根拠"
+    }
+  }
+}

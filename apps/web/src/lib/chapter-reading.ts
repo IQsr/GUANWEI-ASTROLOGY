@@ -12,8 +12,10 @@ export type ChapterReading = {
     heading?: string;
     statements?: MingStatement[];
   }[];
-  /** 英日今輪仍讀原有版本，亦於成書時鎖定。 */
+  /** 舊版英日正文快照，沒有逐句核讀資料的書繼續讀此欄。 */
   international: { text: string; slots: string[] };
+  /** 新書逐句譯文快照；來源 ID 與中文同一組。 */
+  localized?: { version: 'ming-translations-v1'; en: ChapterReading['segments']; ja: ChapterReading['segments'] };
 };
 
 /** 只接受與存檔正文逐段一致的註資料，避免資料錯配後掛錯來源。 */
@@ -28,6 +30,20 @@ export function readingOf(value: unknown, text: string): ChapterReading | null {
     && (s.statements === undefined || (Array.isArray(s.statements) && s.statements.every((l) =>
       l && typeof l === 'object' && typeof l.text === 'string' && Array.isArray(l.citations) && l.citations.every((id) => typeof id === 'string')))))) return null;
   if (r.segments.map((s) => s.text).join('\n\n') !== text) return null;
+  if (r.localized) {
+    if (r.localized.version !== 'ming-translations-v1') return null;
+    for (const lang of ['en', 'ja'] as const) {
+      const localized = r.localized[lang];
+      if (!Array.isArray(localized) || localized.length !== r.segments.length) return null;
+      if (!localized.every((s, i) => s && s.slot === r.segments![i]!.slot && typeof s.text === 'string'
+        && (s.heading === undefined || typeof s.heading === 'string') && Array.isArray(s.statements)
+        && s.statements.length === r.segments![i]!.statements?.length
+        && s.statements.every((l, j) => l && typeof l === 'object' && typeof l.text === 'string' && s.text.includes(l.text)
+          && l.kind === r.segments![i]!.statements![j]!.kind
+          && JSON.stringify(l.citations) === JSON.stringify(r.segments![i]!.statements![j]!.citations)
+          && JSON.stringify(l.source_ids) === JSON.stringify(r.segments![i]!.statements![j]!.source_ids)))) return null;
+    }
+  }
   return r as ChapterReading;
 }
 

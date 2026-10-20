@@ -47,6 +47,7 @@ const ALLOWED = {
   'lib/english.ts': '英文閱讀模式：段落格名預設「正文」（資料鍵）',
   'lib/japanese.ts': '日文閱讀模式：段落格名及中文存檔書名的轉譯對照鍵；輸出由日文內容譯層提供',
   'lib/chapter-reading.ts': '存檔段落格名預設「正文」（資料鍵，不直接顯示）',
+  'lib/ming-international.ts': '命宮逐句快照的段落格名與話題分隔符（資料鍵）；譯文及盤面句在 content 翻譯層',
   'lib/juan.server.ts': '命宮章 slug，用來選取成書時的閱讀快照（資料鍵）',
   'lib/lexicon.ts': '英文出處（2026-10-05）：《全書》卷名、篇名係對照表嘅 key（語料資料），值係英文書目',
   'lib/legal-text.ts': '條款及私隱政策全文：中英各一份，有版本號（LEGAL_VERSION）嘅文件內容，唔係介面字',

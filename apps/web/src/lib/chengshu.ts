@@ -1,10 +1,10 @@
 import { MARK } from '@/lib/site';
 import { LEGAL_VERSION } from '@/lib/legal';
 import type { ChapterReading } from '@/lib/chapter-reading';
-import { MING_WRITER_VERSION } from '@guanwei/content/ming-version';
+import { MING_WRITER_VERSION, MING_TRANSLATION_VERSION } from '@guanwei/content/ming-version';
 
 export const MING_READING_VERSION = 'ming-expanded-v1';
-export const readingContentVersion = (rulesRef: string) => `${rulesRef}+${MING_READING_VERSION}+${MING_WRITER_VERSION}`;
+export const readingContentVersion = (rulesRef: string) => `${rulesRef}+${MING_READING_VERSION}+${MING_WRITER_VERSION}+${MING_TRANSLATION_VERSION}`;
 
 /**
  * 成書：六幕行完之後留低嘅嘢（工單 G5 · 架構 §5）

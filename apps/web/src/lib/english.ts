@@ -3,11 +3,13 @@ import { paragraphs } from '@/lib/suidu';
 import { zhFor } from '@/lib/hans';
 import { isJapanese, japaneseTitle } from '@/lib/japanese';
 import { internationalBodies } from '@/lib/chapter-reading';
+import { internationalMing } from '@/lib/ming-international';
+import type { ChapterReading } from '@/lib/chapter-reading';
 
 /**
  * 英文閱讀模式（2026-10-05）
  *
- * 書存喺 DB 嘅係中文（R-008：成書嗰陣鎖死）。英文唔另外存，讀嗰陣由中文逐句譯
+ * 書存喺 DB 嘅中文鎖定（R-008）；逐句命宮另保存英日快照，舊章讀嗰陣由中文逐句譯
  * （`@guanwei/content` 嘅 En）—— 同一本書永遠對得返同一份中文。
  *
  * ⚠ 要由第一章譯到而家呢章，用同一個 BookState：轉接語成本書輪流用，
@@ -29,9 +31,11 @@ export function displayTitle(title: string, locale: string): string {
 }
 
 /** 由第一章到而家呢章（按次序），回每章嘅段落（同中文段一一對應，格名照用）。 */
-export function englishChapters(chs: readonly { text: string; slots: readonly string[]; reading?: unknown }[]): { slot: string; text: string }[][] {
+export function englishChapters(chs: readonly { text: string; slots: readonly string[]; reading?: unknown }[]): ChapterReading['segments'][] {
   const st = En.newBookState();
-  return internationalBodies(chs).map((c) => {
+  return internationalBodies(chs).map((c, i) => {
+    const ming = internationalMing(chs[i]!, 'en');
+    if (ming !== null) return ming;
     const paras = paragraphs(c.text, c.slots);
     const en = En.renderParagraphs(
       paras.map((p) => p.text),

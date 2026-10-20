@@ -56,7 +56,9 @@ export type JuanPort = {
   leads(bookId: string): Promise<ChapterLead[]>;
 };
 
-export type ChapterLead = { slug: string; lead: string; quote: string | null; internationalLead?: string; citations?: string[]; detail?: string };
+export type ChapterLead = { slug: string; lead: string; quote: string | null; internationalLead?: string; citations?: string[]; detail?: string;
+  localized?: Partial<Record<'en' | 'ja', { answer: string; detail?: string; citations: string[] }>>;
+};
 
 export type ContentsView =
   | { kind: 'ok'; title: string | null; chapters: ChapterMeta[]; lastRead: string | null; cut: boolean }
