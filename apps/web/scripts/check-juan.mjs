@@ -88,10 +88,8 @@ try {
   await page.evaluate(() => document.fonts.ready);
 
   const before = await page.evaluate(() => {
-    const ps = [...document.querySelectorAll('.shu-nei p')];
-    const root = document.querySelector('.shu-nei');
-    // 量正文內的位置，避免點擊自動捲頁／scroll anchoring 改變 viewport 座標。
-    return ps.length > 1 && root ? ps[ps.length - 1].getBoundingClientRect().top - root.getBoundingClientRect().top + root.scrollTop : null;
+    // 註內也有 p；不能重新揀「最後一個 p」而比較兩個不同節點。
+    return document.querySelector('.shu-nei .wen')?.getBoundingClientRect().height ?? null;
   });
 
   await page.locator('.zhu').first().click();
@@ -101,13 +99,11 @@ try {
     const el = document.querySelector('.zhu-ceng');
     if (!el) return null;
     const cs = getComputedStyle(el);
-    const ps = [...document.querySelectorAll('.shu-nei p')];
-    const root = document.querySelector('.shu-nei');
     return {
       position: cs.position,
       zIndex: cs.zIndex,
       link: el.querySelector('a')?.getAttribute('href') ?? null,
-      lastTop: ps.length > 1 && root ? ps[ps.length - 1].getBoundingClientRect().top - root.getBoundingClientRect().top + root.scrollTop : null,
+      bodyHeight: document.querySelector('.shu-nei .wen')?.getBoundingClientRect().height ?? null,
       text: el.textContent.length,
     };
   });
@@ -117,9 +113,7 @@ try {
     check('註層冇 z-index', note.zIndex === 'auto', note.zIndex);
     check('註層有字', note.text > 40, `${note.text} 個字`);
     check('註層尾連去藏經閣', (note.link ?? '').includes('/lexicon/'), note.link ?? '冇連結');
-    if (before !== null && note.lastTop !== null) {
-      check('下面嗰段被推低，唔係被蓋住', note.lastTop > before, `${before} → ${note.lastTop}`);
-    }
+    check('註層展開增加正文高度，唔係蓋住正文', before !== null && note.bodyHeight !== null && note.bodyHeight > before, `${before} → ${note.bodyHeight}`);
   }
 
   /* ── 四、撳過個點退色，但唔消失 ───────────────────── */
