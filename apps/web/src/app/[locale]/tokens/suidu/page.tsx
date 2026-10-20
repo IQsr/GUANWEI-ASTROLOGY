@@ -27,11 +27,13 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 };
 
-export default async function SuiduDemoPage({ params }: { params: Promise<{ locale: string }> }) {
+export default async function SuiduDemoPage({ params, searchParams }: { params: Promise<{ locale: string }>; searchParams: Promise<{ writer?: string }> }) {
   const { locale } = await params;
   setRequestLocale(locale);
 
-  const juan = demoJuan();
+  // 內部驗收另保留舊命宮，確認舊存檔段落的跟讀行為。
+  const requested = await searchParams;
+  const juan = demoJuan({ mingWriter: requested.writer === 'legacy' ? 'legacy' : 'cards' });
   if (!juan) {
     return (
       <main className="juan banxin">

@@ -11,6 +11,8 @@
  *   字體用系統宋體；顏色抄 globals.css 嘅墨綠同燙金（品牌色，唔跟日夜讀轉）。
  * ⚠ 回 503 加 Retry-After：搜尋器當係暫時閂門，唔會將頁面除名。
  */
+import copy from '../../messages/maintenance.json';
+
 export function maintenanceOn(): boolean {
   return process.env.MAINTENANCE_MODE === '1';
 }
@@ -32,7 +34,7 @@ const HTML = `<!doctype html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>星敘 · 暫時閉門</title>
+<title>${copy.title}</title>
 <meta name="robots" content="noindex">
 <style>
   :root { --jade:#16251f; --jade-2:#1f332a; --gilt:#c9ad74; --gilt-2:rgb(201 173 116 / .72); --rule:rgb(201 173 116 / .28); }
@@ -66,11 +68,11 @@ const HTML = `<!doctype html>
 </div>
 <main>
   <div class="en-mark">STELLOGUE</div>
-  <h1>星敘</h1>
+  <h1>${copy.brand}</h1>
   <hr>
-  <p>書齋暫時閉門整理，稍後再開。</p>
-  <p class="sub">你之前存下的書都在，不會遺失。</p>
-  <p class="en">We're tidying up the study and will reopen soon.<br>Your saved books are safe.</p>
+  <p>${copy.zh.closed}</p>
+  <p class="sub">${copy.zh.saved}</p>
+  <p class="en">${copy.en.closed}<br>${copy.en.saved}</p>
 </main>
 </body>
 </html>`;

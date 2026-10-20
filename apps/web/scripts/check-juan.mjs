@@ -149,7 +149,7 @@ try {
   await wide.waitForTimeout(900);
 
   const atSlot = async (slot) => {
-    await wide.evaluate((s) => {
+    const found = await wide.evaluate((s) => {
       const el = [...document.querySelectorAll('.suidu [data-slot]')].find(
         (e) => e.dataset.slot === s,
       );
@@ -163,7 +163,9 @@ try {
        * 就跟嗰段」，所以要捲到真係壓住。
        */
       if (el) window.scrollBy(0, el.getBoundingClientRect().top - window.innerHeight / 3 + 8);
+      return Boolean(el);
     }, slot);
+    check(`段落存在：${slot}`, found, '沒有這個段落，不能當成捲動驗收');
     await wide.waitForTimeout(700);
     return wide.evaluate(() => ({
       /* ⚠ 連「而家跟緊邊一格」一齊攞 —— 捲唔到位嘅話要睇得出係捲唔到，
@@ -212,6 +214,17 @@ try {
   });
   check('個盤唔俾頁頂導覽遮住', hidden !== null && hidden <= 0, `遮住 ${hidden}px`);
 
+  // 新命宮：編輯情境及建議不能暗示盤上已發生，解讀與依據仍亮本宮。
+  for (const slot of ['結論', '展開', '情境', '做法', '因為']) {
+    const state = await atSlot(slot);
+    const expected = ['情境', '做法'].includes(slot) ? 0 : 1;
+    check(`新版捲到${slot}`, state.at === slot, JSON.stringify(state));
+    check(`新版${slot}高亮`, state.self === expected && state.san === 0, JSON.stringify(state));
+  }
+
+  // 舊命宮存檔仍是原有段落；保留原有本宮／三方四正／章尾驗收。
+  await wide.goto(`${BASE}/tokens/suidu?writer=legacy`, { waitUntil: 'domcontentloaded' });
+  await wide.waitForTimeout(900);
   const kai = await atSlot('開場');
   check('捲到開場', kai.at === '開場', `跟緊「${kai.at}」`);
   check('開場亮本宮', kai.self === 1 && kai.san === 0, JSON.stringify(kai));
@@ -220,9 +233,11 @@ try {
   check('捲到牽動', qian.at === '牽動', `跟緊「${qian.at}」`);
   check('牽動連三方四正一齊亮', qian.self === 1 && qian.san === 3, JSON.stringify(qian));
 
-  /* ⚠ 過場係一道橋，唔換題目 —— 佢唔可以熄個盤（視覺 §2 靜）。 */
-  const guo = await atSlot('過場');
-  check('過場唔熄個盤', guo.self === 1, JSON.stringify(guo));
+  /* 舊存檔可能有過場；新版沒有這一段，不能用沒捲動當成通過。 */
+  if (await wide.locator('.suidu [data-slot="過場"]').count()) {
+    const guo = await atSlot('過場');
+    check('過場唔熄個盤', guo.self === 1, JSON.stringify(guo));
+  }
 
   /*
    * ⚠ 留白句係「交返畀讀者」嗰一句（內容 §5）。

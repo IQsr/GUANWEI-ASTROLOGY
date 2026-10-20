@@ -287,7 +287,7 @@ export function bookChapters(
  * 『一本書』嘅承諾包括『佢唔會自己變』」。
  * 呢度即時砌係因為佢係**樣板**；真書由 `chapters` 嗰張表讀返（G5）。
  */
-export function demoJuan(): Juan | null {
+export function demoJuan(opts: { mingWriter?: 'legacy' | 'cards' } = {}): Juan | null {
   const r = cast({
     solar: { y: 1996, m: 6, d: 16 },
     time: { h: 8, min: 30 },
@@ -297,6 +297,6 @@ export function demoJuan(): Juan | null {
   });
   if (!r.ok) return null;
 
-  const chapters = chaptersOf(r.value, { seed: 'demo', year: 2026 });
+  const chapters = chaptersOf(r.value, { seed: 'demo', year: 2026, ...opts });
   return chapters ? buildJuan(chapters, r.value) : null;
 }
