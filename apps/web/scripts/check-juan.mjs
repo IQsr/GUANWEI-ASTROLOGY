@@ -85,10 +85,13 @@ try {
    */
   await page.locator('.shu-wrap li button').first().click();
   await page.waitForTimeout(300);
+  await page.evaluate(() => document.fonts.ready);
 
   const before = await page.evaluate(() => {
     const ps = [...document.querySelectorAll('.shu-nei p')];
-    return ps.length > 1 ? ps[ps.length - 1].getBoundingClientRect().top : null;
+    const root = document.querySelector('.shu-nei');
+    // 量正文內的位置，避免點擊自動捲頁／scroll anchoring 改變 viewport 座標。
+    return ps.length > 1 && root ? ps[ps.length - 1].getBoundingClientRect().top - root.getBoundingClientRect().top + root.scrollTop : null;
   });
 
   await page.locator('.zhu').first().click();
@@ -99,11 +102,12 @@ try {
     if (!el) return null;
     const cs = getComputedStyle(el);
     const ps = [...document.querySelectorAll('.shu-nei p')];
+    const root = document.querySelector('.shu-nei');
     return {
       position: cs.position,
       zIndex: cs.zIndex,
       link: el.querySelector('a')?.getAttribute('href') ?? null,
-      lastTop: ps.length > 1 ? ps[ps.length - 1].getBoundingClientRect().top : null,
+      lastTop: ps.length > 1 && root ? ps[ps.length - 1].getBoundingClientRect().top - root.getBoundingClientRect().top + root.scrollTop : null,
       text: el.textContent.length,
     };
   });
