@@ -1,0 +1,6 @@
+{
+  "zh-Hant": { "title": "暫時未能開啟這一頁", "body": "連線暫時未完成。請稍後再試。", "retry": "重新開啟" },
+  "zh-Hans": { "title": "暂时未能打开这一页", "body": "连接暂时未完成。请稍后再试。", "retry": "重新打开" },
+  "en": { "title": "This page could not be opened just now", "body": "The connection could not finish. Please try again shortly.", "retry": "Try again" },
+  "ja": { "title": "ただいま、このページを開けません", "body": "接続が完了しませんでした。少し待ってから、もう一度お試しください。", "retry": "もう一度開く" }
+}

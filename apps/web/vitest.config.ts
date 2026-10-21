@@ -13,5 +13,10 @@ export default defineConfig({
       'server-only': fileURLToPath(new URL('./test/stubs/server-only.ts', import.meta.url)),
     },
   },
-  test: { include: ['test/**/*.test.ts'] },
+  test: {
+    include: ['test/**/*.test.ts'],
+    // Resolve next-intl's extensionless next/server import through Vite when
+    // exercising the real middleware outside Next's bundler.
+    server: { deps: { inline: ['next-intl'] } },
+  },
 });

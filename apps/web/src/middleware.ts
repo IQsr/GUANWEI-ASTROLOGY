@@ -1,10 +1,10 @@
 import { NextResponse, type NextRequest } from 'next/server';
 import createMiddleware from 'next-intl/middleware';
-import { createServerClient } from '@supabase/ssr';
 import { routing } from './i18n/routing';
 import { LEXICON_LOCALE, isLexiconLocale } from './lib/lexicon-locale';
-import { parsePublicEnv } from './lib/env';
 import { maintenanceOn, maintenanceResponse } from './lib/maintenance';
+import { refreshSession } from './lib/session-refresh';
+import { sessionUnavailable } from './lib/session-unavailable';
 
 const intl = createMiddleware(routing);
 
@@ -70,29 +70,6 @@ function isPrivate(pathname: string): boolean {
  *   二、response —— 寫返落瀏覽器。
  * 以前淨係寫二，頁面照讀舊 cookie：refresh token 只用得一次，第二次換唔到就變 anon（書架 401）。
  */
-async function refreshSession(req: NextRequest): Promise<{ name: string; value: string; options: object }[]> {
-  const env = parsePublicEnv({
-    url: process.env.NEXT_PUBLIC_SUPABASE_URL,
-    anonKey: process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
-  });
-  if (!env.ok) return [];
-
-  const changed: { name: string; value: string; options: object }[] = [];
-  const supabase = createServerClient(env.value.url, env.value.anonKey, {
-    cookies: {
-      getAll: () => req.cookies.getAll(),
-      setAll: (list) => {
-        for (const { name, value, options } of list) {
-          req.cookies.set(name, value);
-          changed.push({ name, value, options: options ?? {} });
-        }
-      },
-    },
-  });
-  await supabase.auth.getUser();
-  return changed;
-}
-
 export default async function middleware(req: NextRequest) {
   if (maintenanceOn()) return maintenanceResponse();
 
@@ -115,9 +92,15 @@ export default async function middleware(req: NextRequest) {
     );
   }
 
-  const changed = isPrivate(pathname) ? await refreshSession(req) : [];
+  const refreshed = isPrivate(pathname) ? await refreshSession(req) : { ok: true as const, cookies: [] };
+  if (!refreshed.ok) return sessionUnavailable(req);
   const res = intl(req);
-  for (const { name, value, options } of changed) res.cookies.set(name, value, options);
+  for (const { name, value, options } of refreshed.cookies) res.cookies.set(name, value, options);
+  if (refreshed.cookies.length) {
+    res.headers.set('cache-control', 'private, no-store');
+    res.headers.set('pragma', 'no-cache');
+    res.headers.set('expires', '0');
+  }
   return res;
 }
 
