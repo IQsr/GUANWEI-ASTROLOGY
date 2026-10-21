@@ -85,7 +85,7 @@ export default async function BookPage({
   const ahead = first ? await port.body(bookId, first.slug).catch(() => null) : null;
   /* 目次問目：每章第一段（未買嘅深度章都有，DB 只開第一段 · 0008）。撈唔到就唔出嗰節 */
   const leads = view.kind === 'ok' ? await port.leads(bookId).catch(() => []) : [];
-  const ming = view.kind === 'ok' && (locale === 'zh-Hant' || locale === 'zh-Hans')
+  const ming = view.kind === 'ok'
     ? first?.slug === LIFE_PALACE ? ahead : await port.body(bookId, LIFE_PALACE).catch(() => null)
     : null;
   const asks = buildAsks(withMingDetail(leads, ming), locale);
