@@ -1,6 +1,7 @@
 import 'server-only';
 import { supabaseServer } from '@/lib/supabase.server';
 import type { ChapterMeta, JuanPort } from '@/lib/juan-view';
+import { PALACE_READER_SLUGS, PALACE_READER_VERSION } from '@guanwei/content/ming-version';
 
 /**
  * 命書嘅真 adapter（工單 F1）
@@ -81,7 +82,9 @@ export function serverJuan(): JuanPort {
       const { data, error: bodyError } = await sb.rpc('chapter_body', { p_chapter: row.id });
       if (bodyError) throw bodyError;
       let reading: unknown;
-      const savedReading = slug === '命宮' || (slug === '性格的骨架' && String(row.content_version).includes('+reader-backed-v1'));
+      const version = String(row.content_version);
+      const savedPalace = PALACE_READER_SLUGS.some((name) => name === slug) && version.includes(`+${PALACE_READER_VERSION}+`);
+      const savedReading = slug === '命宮' || (slug === '性格的骨架' && version.includes('+reader-backed-v1')) || savedPalace;
       if (data !== null && String(row.content_version).includes('+ming-expanded-v1') && savedReading) {
         const result = await sb.rpc('chapter_reading', { p_chapter: row.id });
         if (result.error) throw result.error;

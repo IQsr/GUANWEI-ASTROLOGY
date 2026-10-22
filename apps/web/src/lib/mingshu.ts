@@ -16,6 +16,7 @@ import {
   isYouthReader,
   youthPass,
   freeMingReading,
+  palaceReading,
   LEXICON,
   type Chapter,
 } from '@guanwei/content';
@@ -286,12 +287,12 @@ export function bookChapters(
   });
   // 六十星系繁簡閱讀稿；英日保存同一成書時刻的完整原版。
   const revised = freeMingReading(chart, opts.year);
-  if (!revised) return originals;
   return originals.map((p) => {
-    const segments = p.slug === '命宮' ? revised.ming : p.slug === '性格的骨架' ? revised.bone : null;
+    const isMing = p.slug === '命宮' || p.slug === '性格的骨架';
+    const segments = p.slug === '命宮' ? revised?.ming : p.slug === '性格的骨架' ? revised?.bone : palaceReading(chart, p.slug, opts.year);
     if (!segments) return p;
     const internationalSnapshot = { text: p.text, slots: p.slots, ...('reading' in p && p.reading ? { reading: p.reading } : {}) };
-    const reading: ChapterReading = { format: 'ming-expanded-v1', writer: 'reader-backed-v1', segments,
+    const reading: ChapterReading = { format: 'ming-expanded-v1', writer: isMing ? 'reader-backed-v1' : 'palace-reader-v1', segments,
       international: { text: p.text, slots: p.slots }, internationalSnapshot };
     return { ...p, ...body(segments), reading };
   });

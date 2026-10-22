@@ -45,7 +45,13 @@ describe('年少讀者', () => {
   it('大人嘅書唔受影響', () => {
     const a = book(ADULT, 'adult');
     expect(a.find((c) => c.slug === '序')!.slots).not.toContain('年少');
-    expect(a.filter((x) => PALACES.includes(x.slug)).some((c) => c.slots.includes('生活'))).toBe(true);
+    const revised = a.filter((c) => c.reading?.writer === 'palace-reader-v1');
+    expect(revised).toHaveLength(11);
+    for (const c of revised) {
+      expect(c.reading!.segments.at(-1)!.statements?.[0]?.kind).toBe('editorial-advice');
+      expect(c.reading!.segments.at(-1)!.text).not.toContain('你仍在成長');
+    }
+    expect(revised.find((c) => c.slug === '官祿')!.text).toContain('比較兩份工作');
   });
 });
 

@@ -5,7 +5,7 @@ import { paragraphs } from '@/lib/suidu';
 export type ChapterReading = {
   format: 'ming-expanded-v1';
   /** 段落快照的格式不變；另記新書所用的寫作層版本，舊書沒有此欄亦可讀。 */
-  writer?: 'sentence-backed-v1' | 'reader-backed-v1';
+  writer?: 'sentence-backed-v1' | 'reader-backed-v1' | 'palace-reader-v1';
   segments: {
     slot: string;
     text: string;
@@ -26,7 +26,7 @@ export function readingOf(value: unknown, text: string): ChapterReading | null {
   if (!value || typeof value !== 'object') return null;
   const r = value as Partial<ChapterReading>;
   if (r.format !== 'ming-expanded-v1' || !Array.isArray(r.segments) || !r.international) return null;
-  if (r.writer !== undefined && r.writer !== 'sentence-backed-v1' && r.writer !== 'reader-backed-v1') return null;
+  if (r.writer !== undefined && r.writer !== 'sentence-backed-v1' && r.writer !== 'reader-backed-v1' && r.writer !== 'palace-reader-v1') return null;
   if (typeof r.international.text !== 'string' || !Array.isArray(r.international.slots) || !r.international.slots.every((s) => typeof s === 'string')) return null;
   if (!r.segments.every((s) => s && typeof s.slot === 'string' && typeof s.text === 'string'
     && (s.heading === undefined || typeof s.heading === 'string')
@@ -34,12 +34,12 @@ export function readingOf(value: unknown, text: string): ChapterReading | null {
     && (s.statements === undefined || (Array.isArray(s.statements) && s.statements.every((l) =>
       l && typeof l === 'object' && typeof l.text === 'string' && Array.isArray(l.citations) && l.citations.every((id) => typeof id === 'string')))))) return null;
   if (r.segments.map((s) => s.text).join('\n\n') !== text) return null;
-  if (r.writer === 'reader-backed-v1') {
+  if (r.writer === 'reader-backed-v1' || r.writer === 'palace-reader-v1') {
     const original = r.internationalSnapshot;
     if (!original || typeof original.text !== 'string' || !Array.isArray(original.slots)
       || !original.slots.every((s) => typeof s === 'string')) return null;
     // 只准一層既有快照；拒絕循環或不明版本，避免遞迴及混稿。
-    if (original.reading && (original.reading.writer === 'reader-backed-v1' || !readingOf(original.reading, original.text))) return null;
+    if (original.reading && (original.reading.writer === 'reader-backed-v1' || original.reading.writer === 'palace-reader-v1' || !readingOf(original.reading, original.text))) return null;
     if (r.international.text !== original.text || JSON.stringify(r.international.slots) !== JSON.stringify(original.slots)) return null;
   }
   if (r.localized) {

@@ -12,6 +12,7 @@ import mingLocations from './cards/ming-source-locations.json';
 import { backedSource } from './ming-backed-sources';
 import { freeMingSource } from './free-ming-sources';
 import { systemReadingSource } from './free-ming-systems-sources';
+import { palaceReadingSource } from './palace-reader';
 
 /* ───────────────────────────────────────────────────────────
  * 出處註（2026-10-12 · Issac：「人哋 challenge 我哋，要講得出喺邊本書、邊一頁、邊一節」）
@@ -62,7 +63,7 @@ const AUTHOR = '王亭之';
 const BOOK = '中州派紫微斗數深造講義';
 
 export function citation(id: string): Citation | null {
-  const backed = backedSource(id) ?? freeMingSource(id) ?? systemReadingSource(id);
+  const backed = backedSource(id) ?? freeMingSource(id) ?? systemReadingSource(id) ?? palaceReadingSource(id);
   if (backed) {
     const pages = 'quotePages' in backed ? backed.quotePages as number[] : undefined;
     const sourceNote = 'sourceNote' in backed ? backed.sourceNote as string : undefined;

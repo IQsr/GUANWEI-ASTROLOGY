@@ -32,6 +32,7 @@ export * from './xingxi-chapters';
 export * from './card';
 export * from './ming-writer';
 export * from './free-ming-reader';
+export * from './palace-reader';
 export * from './palace-plain';
 export * from './plain-variant';
 export * from './shen';
