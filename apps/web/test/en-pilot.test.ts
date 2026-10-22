@@ -12,13 +12,15 @@ const r = cast({ solar: { y: 1990, m: 3, d: 21 }, time: { h: 14, min: 20 }, tz: 
 const chs = r.ok ? bookChapters(r.value, { seed: 'sample', year: 2026, solar: { y: 1990, m: 3, d: 21 }, place: '香港' }) ?? [] : [];
 const drafts = chapterDrafts(chs, 'sample');
 const ming = drafts.find((d) => d.slug === '命宮')!;
+const previous = ming.reading?.internationalSnapshot;
+const source = previous?.reading?.international ?? previous ?? ming.reading?.international ?? { text: ming.body, slots: ming.slots };
 
 describe('英文試做：示範盤命宮', () => {
   it('每一句都譯到（冇漏中文）', () => {
-    const out = En.renderChapter(ming.reading?.international.text ?? ming.body);
+    const out = En.renderChapter(source.text);
     expect(out.missing).toEqual([]);
     expect(out.text).not.toMatch(/[一-鿿]/);
-    expect(out.text.split('\n\n')).toHaveLength((ming.reading?.international.slots ?? ming.slots).length);
+    expect(out.text.split('\n\n')).toHaveLength(source.slots.length);
     console.log(`EN ${En.chapterTitleEn(ming.title)}\n${out.text}`);
   });
 
