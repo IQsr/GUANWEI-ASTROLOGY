@@ -35,7 +35,14 @@ it('六十星系與借星的成書、序列化、英日書頁保留每句同一�
     if (!result.ok) continue;
     const ming = writeMing(result.value);
     if (!ming.system || !ming.sections.length || seen.has(ming.system.n)) continue;
-    const chapter = bookChapters(result.value, { seed: 'international', year: 2026, solar, place: '香港' })!.find((c) => c.slug === '命宮')!;
+    const fresh = bookChapters(result.value, { seed: 'international', year: 2026, solar, place: '香港' })!.find((c) => c.slug === '命宮')!;
+    // 繁簡先修訂的三組，英日仍須逐字保持其成書快照，不能拿新中文猜譯。
+    const chapter = fresh.reading?.writer === 'reader-backed-v1' ? fresh.reading.internationalSnapshot! : fresh;
+    expect(readingOf(fresh.reading, fresh.text)).not.toBeNull();
+    if (fresh.reading?.writer === 'reader-backed-v1') {
+      expect(englishChapters([fresh])).toEqual(englishChapters([chapter]));
+      expect(japaneseChapters([fresh])).toEqual(japaneseChapters([chapter]));
+    }
     const reading = JSON.parse(JSON.stringify(chapter.reading));
     expect(readingOf(reading, chapter.text), `system ${ming.system.n}`).not.toBeNull();
     expect(reading.localized, `system ${ming.system.n}`).toBeDefined();

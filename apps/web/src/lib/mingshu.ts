@@ -15,6 +15,7 @@ import {
   isYoungReader,
   isYouthReader,
   youthPass,
+  freeMingReading,
   LEXICON,
   type Chapter,
 } from '@guanwei/content';
@@ -121,6 +122,8 @@ export function citesFor(marked: MarkedChapter[], locale = 'zh-Hant'): Record<st
       page: c.page,
       section: zhFor(locale, c.section),
       text: c.text,
+      ...(c.pageEnd ? { pageEnd: c.pageEnd } : {}),
+      ...(c.sourceNote ? { sourceNote: zhFor(locale, c.sourceNote) } : {}),
       ...(c.pageConvention ? { pageConvention: c.pageConvention } : {}),
       ...(c.excerpt ? { excerpt: true } : {}),
     };
@@ -136,7 +139,9 @@ export function localizeMarked(marked: MarkedChapter[], locale: string): MarkedC
   if (!isHans(locale)) return marked;
   return marked.map((c) => ({
     ...c,
-    segments: c.segments.map((s) => ({ ...s, ...(s.heading ? { heading: hans(s.heading) } : {}), runs: s.runs.map((r) => ({ ...r, text: hans(r.text) })) })),
+    segments: c.segments.map((s) => ({ ...s, ...(s.heading ? { heading: hans(s.heading) } : {}),
+      ...(s.referenceConditions ? { referenceConditions: s.referenceConditions.map(hans) } : {}),
+      runs: s.runs.map((r) => ({ ...r, text: hans(r.text) })) })),
   }));
 }
 
@@ -266,7 +271,7 @@ export function bookChapters(
   const oldMing = chaptersOf(chart, { seed: opts.seed, year: opts.year, mingWriter: 'legacy' })?.find((c) => c.palace === '命宮');
   const oldParts: Part[] = oldMing ? [{ slug: '命宮', segments: oldMing.segments.filter((s) => !young || s.slot !== '生活') }] : [];
   const international = (youth ? youthPass(oldParts) : oldParts)[0];
-  return finished.map((p) => {
+  const originals = finished.map((p) => {
     if (p.slug !== '命宮' || !international) return { slug: p.slug, ...(p.title ? { title: p.title } : {}), ...body(p.segments) };
     const seen = new Set<string>();
     let evidence = false;
@@ -278,6 +283,17 @@ export function bookChapters(
     });
     const reading: ChapterReading = { format: 'ming-expanded-v1', writer: 'sentence-backed-v1', segments, international: body(international.segments) };
     return { slug: p.slug, ...body(segments), reading: { ...reading, localized: localizedMing(reading) } };
+  });
+  // 六十星系繁簡閱讀稿；英日保存同一成書時刻的完整原版。
+  const revised = freeMingReading(chart, opts.year);
+  if (!revised) return originals;
+  return originals.map((p) => {
+    const segments = p.slug === '命宮' ? revised.ming : p.slug === '性格的骨架' ? revised.bone : null;
+    if (!segments) return p;
+    const internationalSnapshot = { text: p.text, slots: p.slots, ...('reading' in p && p.reading ? { reading: p.reading } : {}) };
+    const reading: ChapterReading = { format: 'ming-expanded-v1', writer: 'reader-backed-v1', segments,
+      international: { text: p.text, slots: p.slots }, internationalSnapshot };
+    return { ...p, ...body(segments), reading };
   });
 }
 

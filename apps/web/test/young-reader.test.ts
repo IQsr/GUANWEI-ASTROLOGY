@@ -78,7 +78,8 @@ describe('後生讀者（虛歲十四至二十四）', () => {
         for (const harsh of Object.keys(YOUTH_LEAN)) expect(p, p).not.toContain(`偏向${harsh}`);
       }
       for (const c of chapters.filter((x) => x.slug === '這十年' || x.slug === '這一年')) expect(c.text).not.toMatch(/簽字、承諾|大額支出和借貸|借貸、合作/);
-      expect(chapters.find((c) => c.slug === '性格的骨架')!.text).toContain(YOUTH_LEAN_NOTE);
+      const bone = chapters.find((c) => c.slug === '性格的骨架')!;
+      expect(bone.text).toContain(bone.reading?.writer === 'reader-backed-v1' ? '你現在仍在成長' : YOUTH_LEAN_NOTE);
     }
   });
 
@@ -101,8 +102,10 @@ describe('後生讀者（虛歲十四至二十四）', () => {
     let study = 0;
     for (const { chapters } of books) {
       for (const d of chapterDrafts(chapters, 'x')) {
-        const en = En.renderChapter(d.reading?.international.text ?? d.body);
-        const ja = Ja.renderChapter(d.reading?.international.text ?? d.body);
+        const previous = d.reading?.internationalSnapshot;
+        const original = previous?.reading?.international.text ?? previous?.text ?? d.reading?.international.text ?? d.body;
+        const en = En.renderChapter(original);
+        const ja = Ja.renderChapter(original);
         expect(en.missing, d.slug).toEqual([]);
         expect(ja.missing, d.slug).toEqual([]);
         expect(en.text, d.slug).not.toMatch(/You lean towards (?:the shadow|passivity|daydreams|aimless movement|recklessness|hollowness|obstinacy|short-sightedness|dominance|self-interest|suspicion|isolation|sharpness|rushing|heaviness):|You tend to stall|sign or commit|and borrowing|with loans/);

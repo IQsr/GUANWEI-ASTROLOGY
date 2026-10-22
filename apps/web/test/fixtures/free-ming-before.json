@@ -1,0 +1,1415 @@
+[
+  {
+    "id": "TL",
+    "input": {
+      "solar": {
+        "y": 1990,
+        "m": 3,
+        "d": 21
+      },
+      "time": {
+        "h": 14,
+        "min": 20
+      },
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      },
+      "sex": "female"
+    },
+    "saved": [
+      {
+        "slug": "命宮",
+        "text": "天同天梁在寅申同宮，對宮沒有主星，會天機與太陰，構成機月同梁的組合。\n\n相較於以天機、太陰為命宮的機月同梁，王亭之把天同、天梁守命的這一組寫得較穩定。\n\n讀這一組星的性格，要分清重情趣、帶浪漫的一面，與講原則、重紀律的一面；兩者有明顯分別。\n\n這個分野會影響去留與進退，因此同樣是天同天梁，面對取捨時所看重的事情也可以不同。\n\n天同主情緒，天梁主原則，兩者同宮，感受與標準之間仍難免有矛盾。\n\n結構較穩定，並不表示內在就沒有衝突；原書把穩定與矛盾放在同一段講，兩面都要保留。\n\n不過，情趣與原則也有調和的可能，這個組合並不只得兩邊互相拉扯一種樣貌。\n\n要看兩邊如何配合，還須連同會合的輔佐、煞曜、四化與雜曜一起判斷，不能只取其中一面就定下整體性格。\n\n原書談天同天梁與輔弼、昌曲同度時，便特別提到浪漫色彩與原則紀律可以調和；這種調和有其配合條件。\n\n本質：你的命宮是天同、天梁同坐申宮。",
+        "slots": [
+          "結論",
+          "展開",
+          "展開",
+          "展開",
+          "展開",
+          "展開",
+          "展開",
+          "展開",
+          "展開",
+          "因為"
+        ],
+        "reading": {
+          "format": "ming-expanded-v1",
+          "writer": "sentence-backed-v1",
+          "segments": [
+            {
+              "slot": "結論",
+              "text": "天同天梁在寅申同宮，對宮沒有主星，會天機與太陰，構成機月同梁的組合。",
+              "en": "Tian Tong and Tian Liang share Yin or Shen, with an empty opposing palace and Tian Ji and Tai Yin in the trine.",
+              "topic": "本質",
+              "heading": "盤面與底色",
+              "source_id": "card.ming.tongliang-yinshen.core",
+              "source_ids": [
+                "card.ming.tongliang-yinshen.core"
+              ],
+              "citations": [
+                "ming.backed:card.ming.tongliang-yinshen.core:0"
+              ],
+              "statements": [
+                {
+                  "text": "天同天梁在寅申同宮，對宮沒有主星，會天機與太陰，構成機月同梁的組合。",
+                  "en": "Tian Tong and Tian Liang share Yin or Shen, with an empty opposing palace and Tian Ji and Tai Yin in the trine.",
+                  "kind": "interpretation",
+                  "source_ids": [
+                    "card.ming.tongliang-yinshen.core"
+                  ],
+                  "citations": [
+                    "ming.backed:card.ming.tongliang-yinshen.core:0"
+                  ]
+                }
+              ],
+              "rule_ids": []
+            },
+            {
+              "slot": "展開",
+              "text": "相較於以天機、太陰為命宮的機月同梁，王亭之把天同、天梁守命的這一組寫得較穩定。",
+              "en": "The source describes this configuration as more stable than the related configuration headed by Tian Ji and Tai Yin.",
+              "topic": "本質",
+              "source_id": "card.ming.tongliang-yinshen.core",
+              "source_ids": [
+                "card.ming.tongliang-yinshen.core"
+              ],
+              "citations": [
+                "ming.backed:card.ming.tongliang-yinshen.core:1"
+              ],
+              "statements": [
+                {
+                  "text": "相較於以天機、太陰為命宮的機月同梁，王亭之把天同、天梁守命的這一組寫得較穩定。",
+                  "en": "The source describes this configuration as more stable than the related configuration headed by Tian Ji and Tai Yin.",
+                  "kind": "interpretation",
+                  "source_ids": [
+                    "card.ming.tongliang-yinshen.core"
+                  ],
+                  "citations": [
+                    "ming.backed:card.ming.tongliang-yinshen.core:1"
+                  ]
+                }
+              ],
+              "rule_ids": []
+            },
+            {
+              "slot": "展開",
+              "text": "讀這一組星的性格，要分清重情趣、帶浪漫的一面，與講原則、重紀律的一面；兩者有明顯分別。",
+              "en": "Its character is read through the distinction between enjoyment or romance and principles or discipline.",
+              "topic": "本質",
+              "heading": "情趣與原則怎樣相遇",
+              "source_id": "card.ming.tongliang-yinshen.core",
+              "source_ids": [
+                "card.ming.tongliang-yinshen.core"
+              ],
+              "citations": [
+                "ming.backed:card.ming.tongliang-yinshen.core:2"
+              ],
+              "statements": [
+                {
+                  "text": "讀這一組星的性格，要分清重情趣、帶浪漫的一面，與講原則、重紀律的一面；兩者有明顯分別。",
+                  "en": "Its character is read through the distinction between enjoyment or romance and principles or discipline.",
+                  "kind": "interpretation",
+                  "source_ids": [
+                    "card.ming.tongliang-yinshen.core"
+                  ],
+                  "citations": [
+                    "ming.backed:card.ming.tongliang-yinshen.core:2"
+                  ]
+                }
+              ],
+              "rule_ids": []
+            },
+            {
+              "slot": "展開",
+              "text": "這個分野會影響去留與進退，因此同樣是天同天梁，面對取捨時所看重的事情也可以不同。",
+              "en": "That distinction affects decisions to stay or leave, so the same pair does not imply identical priorities.",
+              "topic": "本質",
+              "source_id": "card.ming.tongliang-yinshen.core",
+              "source_ids": [
+                "card.ming.tongliang-yinshen.core"
+              ],
+              "citations": [
+                "ming.backed:card.ming.tongliang-yinshen.core:3"
+              ],
+              "statements": [
+                {
+                  "text": "這個分野會影響去留與進退，因此同樣是天同天梁，面對取捨時所看重的事情也可以不同。",
+                  "en": "That distinction affects decisions to stay or leave, so the same pair does not imply identical priorities.",
+                  "kind": "interpretation",
+                  "source_ids": [
+                    "card.ming.tongliang-yinshen.core"
+                  ],
+                  "citations": [
+                    "ming.backed:card.ming.tongliang-yinshen.core:3"
+                  ]
+                }
+              ],
+              "rule_ids": []
+            },
+            {
+              "slot": "展開",
+              "text": "天同主情緒，天梁主原則，兩者同宮，感受與標準之間仍難免有矛盾。",
+              "en": "Tian Tong concerns emotion and Tian Liang principle, so sharing a palace still allows conflict between feeling and standards.",
+              "topic": "本質",
+              "source_id": "card.ming.tongliang-yinshen.core",
+              "source_ids": [
+                "card.ming.tongliang-yinshen.core"
+              ],
+              "citations": [
+                "ming.backed:card.ming.tongliang-yinshen.core:4"
+              ],
+              "statements": [
+                {
+                  "text": "天同主情緒，天梁主原則，兩者同宮，感受與標準之間仍難免有矛盾。",
+                  "en": "Tian Tong concerns emotion and Tian Liang principle, so sharing a palace still allows conflict between feeling and standards.",
+                  "kind": "interpretation",
+                  "source_ids": [
+                    "card.ming.tongliang-yinshen.core"
+                  ],
+                  "citations": [
+                    "ming.backed:card.ming.tongliang-yinshen.core:4"
+                  ]
+                }
+              ],
+              "rule_ids": []
+            },
+            {
+              "slot": "展開",
+              "text": "結構較穩定，並不表示內在就沒有衝突；原書把穩定與矛盾放在同一段講，兩面都要保留。",
+              "en": "Structural stability does not remove inner conflict; both qualities appear in the same source passage.",
+              "topic": "本質",
+              "source_id": "card.ming.tongliang-yinshen.core",
+              "source_ids": [
+                "card.ming.tongliang-yinshen.core"
+              ],
+              "citations": [
+                "ming.backed:card.ming.tongliang-yinshen.core:5"
+              ],
+              "statements": [
+                {
+                  "text": "結構較穩定，並不表示內在就沒有衝突；原書把穩定與矛盾放在同一段講，兩面都要保留。",
+                  "en": "Structural stability does not remove inner conflict; both qualities appear in the same source passage.",
+                  "kind": "interpretation",
+                  "source_ids": [
+                    "card.ming.tongliang-yinshen.core"
+                  ],
+                  "citations": [
+                    "ming.backed:card.ming.tongliang-yinshen.core:5"
+                  ]
+                }
+              ],
+              "rule_ids": []
+            },
+            {
+              "slot": "展開",
+              "text": "不過，情趣與原則也有調和的可能，這個組合並不只得兩邊互相拉扯一種樣貌。",
+              "en": "Enjoyment and principle can also be reconciled; conflict is not the only form of this combination.",
+              "topic": "本質",
+              "heading": "調和的可能與條件",
+              "source_id": "card.ming.tongliang-yinshen.core",
+              "source_ids": [
+                "card.ming.tongliang-yinshen.core"
+              ],
+              "citations": [
+                "ming.backed:card.ming.tongliang-yinshen.core:6"
+              ],
+              "statements": [
+                {
+                  "text": "不過，情趣與原則也有調和的可能，這個組合並不只得兩邊互相拉扯一種樣貌。",
+                  "en": "Enjoyment and principle can also be reconciled; conflict is not the only form of this combination.",
+                  "kind": "interpretation",
+                  "source_ids": [
+                    "card.ming.tongliang-yinshen.core"
+                  ],
+                  "citations": [
+                    "ming.backed:card.ming.tongliang-yinshen.core:6"
+                  ]
+                }
+              ],
+              "rule_ids": []
+            },
+            {
+              "slot": "展開",
+              "text": "要看兩邊如何配合，還須連同會合的輔佐、煞曜、四化與雜曜一起判斷，不能只取其中一面就定下整體性格。",
+              "en": "Their relationship depends on supporting stars, malefics, transformations and other accompanying stars, rather than one side alone.",
+              "topic": "本質",
+              "source_id": "card.ming.tongliang-yinshen.core",
+              "source_ids": [
+                "card.ming.tongliang-yinshen.core"
+              ],
+              "citations": [
+                "ming.backed:card.ming.tongliang-yinshen.core:7"
+              ],
+              "statements": [
+                {
+                  "text": "要看兩邊如何配合，還須連同會合的輔佐、煞曜、四化與雜曜一起判斷，不能只取其中一面就定下整體性格。",
+                  "en": "Their relationship depends on supporting stars, malefics, transformations and other accompanying stars, rather than one side alone.",
+                  "kind": "interpretation",
+                  "source_ids": [
+                    "card.ming.tongliang-yinshen.core"
+                  ],
+                  "citations": [
+                    "ming.backed:card.ming.tongliang-yinshen.core:7"
+                  ]
+                }
+              ],
+              "rule_ids": []
+            },
+            {
+              "slot": "展開",
+              "text": "原書談天同天梁與輔弼、昌曲同度時，便特別提到浪漫色彩與原則紀律可以調和；這種調和有其配合條件。",
+              "en": "The source gives Tian Tong and Tian Liang with the assistants and literary stars sharing their palace as a conditional example of reconciliation.",
+              "topic": "本質",
+              "source_id": "card.ming.tongliang-yinshen.core",
+              "source_ids": [
+                "card.ming.tongliang-yinshen.core"
+              ],
+              "citations": [
+                "ming.backed:card.ming.tongliang-yinshen.core:8"
+              ],
+              "statements": [
+                {
+                  "text": "原書談天同天梁與輔弼、昌曲同度時，便特別提到浪漫色彩與原則紀律可以調和；這種調和有其配合條件。",
+                  "en": "The source gives Tian Tong and Tian Liang with the assistants and literary stars sharing their palace as a conditional example of reconciliation.",
+                  "kind": "interpretation",
+                  "source_ids": [
+                    "card.ming.tongliang-yinshen.core"
+                  ],
+                  "citations": [
+                    "ming.backed:card.ming.tongliang-yinshen.core:8"
+                  ]
+                }
+              ],
+              "rule_ids": []
+            },
+            {
+              "slot": "因為",
+              "text": "本質：你的命宮是天同、天梁同坐申宮。",
+              "en": "Who you are: your Life Palace holds Tian Tong and Tian Liang in the Shen position.",
+              "topic": "本質",
+              "source_id": "card.ming.tongliang-yinshen.core",
+              "source_ids": [],
+              "citations": [],
+              "statements": [
+                {
+                  "text": "你的命宮是天同、天梁同坐申宮",
+                  "en": "your Life Palace holds Tian Tong and Tian Liang in the Shen position",
+                  "kind": "evidence",
+                  "source_ids": [],
+                  "citations": []
+                }
+              ],
+              "rule_ids": [],
+              "heading": "盤面與出處"
+            }
+          ],
+          "international": {
+            "text": "你平日和緩、不爭先，但遇到不公或有人有難，就會站出來。要留意的是，你想安頓下來，舒服的條件卻常常湊不齊，事情容易拖著。\n\n你的命宮坐天同、天梁。\n\n天同的課題不在苦，在動力——舒服本身會削弱移動的理由。所以你往往能力不差而起步偏晚，需要一點外來的推力才離開已經夠好的位置。有一點壓力，對你反而是好事。天梁在命的基調是出面，遇到不公會說話，遇到有難的人會接。它有一套自己認定的標準，而且相當堅持。天同化忌，想安頓而安頓不下，舒服的條件恰好最缺。它的形狀是拖而不是痛。\n\n加上火星同宮，性急，起手快；熱度來得猛，退得也快。\n\n平日在團隊裡你隨和好相處，很少搶位置；可是看見有人受委屈、事情不合理，你會第一個開口，事後還替人收拾。",
+            "slots": [
+              "結論",
+              "開場",
+              "結構",
+              "擾動",
+              "生活"
+            ]
+          },
+          "localized": {
+            "version": "ming-translations-v1",
+            "en": [
+              {
+                "slot": "結論",
+                "text": "Tian Tong and Tian Liang share Yin or Shen, with no major star in the opposite palace, and meet Tian Ji and Tai Yin to form the Ji Yue Tong Liang configuration.",
+                "heading": "The pattern and its foundations",
+                "statements": [
+                  {
+                    "text": "Tian Tong and Tian Liang share Yin or Shen, with no major star in the opposite palace, and meet Tian Ji and Tai Yin to form the Ji Yue Tong Liang configuration.",
+                    "en": "Tian Tong and Tian Liang share Yin or Shen, with no major star in the opposite palace, and meet Tian Ji and Tai Yin to form the Ji Yue Tong Liang configuration.",
+                    "kind": "interpretation",
+                    "source_ids": [
+                      "card.ming.tongliang-yinshen.core"
+                    ],
+                    "citations": [
+                      "ming.backed:card.ming.tongliang-yinshen.core:0"
+                    ]
+                  }
+                ]
+              },
+              {
+                "slot": "展開",
+                "text": "Wang Tingzhi describes this Tian Tong–Tian Liang configuration as more stable than the related Ji Yue Tong Liang configuration with Tian Ji and Tai Yin in the Life Palace.",
+                "statements": [
+                  {
+                    "text": "Wang Tingzhi describes this Tian Tong–Tian Liang configuration as more stable than the related Ji Yue Tong Liang configuration with Tian Ji and Tai Yin in the Life Palace.",
+                    "en": "Wang Tingzhi describes this Tian Tong–Tian Liang configuration as more stable than the related Ji Yue Tong Liang configuration with Tian Ji and Tai Yin in the Life Palace.",
+                    "kind": "interpretation",
+                    "source_ids": [
+                      "card.ming.tongliang-yinshen.core"
+                    ],
+                    "citations": [
+                      "ming.backed:card.ming.tongliang-yinshen.core:1"
+                    ]
+                  }
+                ]
+              },
+              {
+                "slot": "展開",
+                "text": "Its character is read through the distinction between enjoyment or romance and principles or discipline.",
+                "heading": "Where enjoyment meets principle",
+                "statements": [
+                  {
+                    "text": "Its character is read through the distinction between enjoyment or romance and principles or discipline.",
+                    "en": "Its character is read through the distinction between enjoyment or romance and principles or discipline.",
+                    "kind": "interpretation",
+                    "source_ids": [
+                      "card.ming.tongliang-yinshen.core"
+                    ],
+                    "citations": [
+                      "ming.backed:card.ming.tongliang-yinshen.core:2"
+                    ]
+                  }
+                ]
+              },
+              {
+                "slot": "展開",
+                "text": "That distinction affects decisions to stay or leave, so the same pair does not imply identical priorities.",
+                "statements": [
+                  {
+                    "text": "That distinction affects decisions to stay or leave, so the same pair does not imply identical priorities.",
+                    "en": "That distinction affects decisions to stay or leave, so the same pair does not imply identical priorities.",
+                    "kind": "interpretation",
+                    "source_ids": [
+                      "card.ming.tongliang-yinshen.core"
+                    ],
+                    "citations": [
+                      "ming.backed:card.ming.tongliang-yinshen.core:3"
+                    ]
+                  }
+                ]
+              },
+              {
+                "slot": "展開",
+                "text": "Tian Tong concerns emotion and Tian Liang principle, so sharing a palace still allows conflict between feeling and standards.",
+                "statements": [
+                  {
+                    "text": "Tian Tong concerns emotion and Tian Liang principle, so sharing a palace still allows conflict between feeling and standards.",
+                    "en": "Tian Tong concerns emotion and Tian Liang principle, so sharing a palace still allows conflict between feeling and standards.",
+                    "kind": "interpretation",
+                    "source_ids": [
+                      "card.ming.tongliang-yinshen.core"
+                    ],
+                    "citations": [
+                      "ming.backed:card.ming.tongliang-yinshen.core:4"
+                    ]
+                  }
+                ]
+              },
+              {
+                "slot": "展開",
+                "text": "Structural stability does not remove inner conflict; both qualities appear in the same source passage.",
+                "statements": [
+                  {
+                    "text": "Structural stability does not remove inner conflict; both qualities appear in the same source passage.",
+                    "en": "Structural stability does not remove inner conflict; both qualities appear in the same source passage.",
+                    "kind": "interpretation",
+                    "source_ids": [
+                      "card.ming.tongliang-yinshen.core"
+                    ],
+                    "citations": [
+                      "ming.backed:card.ming.tongliang-yinshen.core:5"
+                    ]
+                  }
+                ]
+              },
+              {
+                "slot": "展開",
+                "text": "Enjoyment and principle can also be reconciled; conflict is not the only form of this combination.",
+                "heading": "The possibility and conditions of balance",
+                "statements": [
+                  {
+                    "text": "Enjoyment and principle can also be reconciled; conflict is not the only form of this combination.",
+                    "en": "Enjoyment and principle can also be reconciled; conflict is not the only form of this combination.",
+                    "kind": "interpretation",
+                    "source_ids": [
+                      "card.ming.tongliang-yinshen.core"
+                    ],
+                    "citations": [
+                      "ming.backed:card.ming.tongliang-yinshen.core:6"
+                    ]
+                  }
+                ]
+              },
+              {
+                "slot": "展開",
+                "text": "How the two sides work together also depends on supporting stars, malefics, the four transformations and miscellaneous stars; one side alone cannot determine the whole character.",
+                "statements": [
+                  {
+                    "text": "How the two sides work together also depends on supporting stars, malefics, the four transformations and miscellaneous stars; one side alone cannot determine the whole character.",
+                    "en": "How the two sides work together also depends on supporting stars, malefics, the four transformations and miscellaneous stars; one side alone cannot determine the whole character.",
+                    "kind": "interpretation",
+                    "source_ids": [
+                      "card.ming.tongliang-yinshen.core"
+                    ],
+                    "citations": [
+                      "ming.backed:card.ming.tongliang-yinshen.core:7"
+                    ]
+                  }
+                ]
+              },
+              {
+                "slot": "展開",
+                "text": "When Tian Tong and Tian Liang share their palace with Zuo Fu and You Bi or Wen Chang and Wen Qu, the source describes a possible reconciliation of romance with principle and discipline; that reconciliation has accompanying conditions.",
+                "statements": [
+                  {
+                    "text": "When Tian Tong and Tian Liang share their palace with Zuo Fu and You Bi or Wen Chang and Wen Qu, the source describes a possible reconciliation of romance with principle and discipline; that reconciliation has accompanying conditions.",
+                    "en": "When Tian Tong and Tian Liang share their palace with Zuo Fu and You Bi or Wen Chang and Wen Qu, the source describes a possible reconciliation of romance with principle and discipline; that reconciliation has accompanying conditions.",
+                    "kind": "interpretation",
+                    "source_ids": [
+                      "card.ming.tongliang-yinshen.core"
+                    ],
+                    "citations": [
+                      "ming.backed:card.ming.tongliang-yinshen.core:8"
+                    ]
+                  }
+                ]
+              },
+              {
+                "slot": "因為",
+                "text": "Who you are: your Life Palace holds Tian Tong and Tian Liang in the Shen position.",
+                "heading": "What the chart shows",
+                "statements": [
+                  {
+                    "text": "your Life Palace holds Tian Tong and Tian Liang in the Shen position",
+                    "en": "your Life Palace holds Tian Tong and Tian Liang in the Shen position",
+                    "kind": "evidence",
+                    "source_ids": [],
+                    "citations": []
+                  }
+                ]
+              }
+            ],
+            "ja": [
+              {
+                "slot": "結論",
+                "text": "天同・天梁が寅か申で同宮し、向かいの宮には主星がなく、天機・太陰と会合して機月同梁の組み合わせを成します。",
+                "heading": "星の配置と基本の性質",
+                "statements": [
+                  {
+                    "text": "天同・天梁が寅か申で同宮し、向かいの宮には主星がなく、天機・太陰と会合して機月同梁の組み合わせを成します。",
+                    "en": "Tian Tong and Tian Liang share Yin or Shen, with an empty opposing palace and Tian Ji and Tai Yin in the trine.",
+                    "kind": "interpretation",
+                    "source_ids": [
+                      "card.ming.tongliang-yinshen.core"
+                    ],
+                    "citations": [
+                      "ming.backed:card.ming.tongliang-yinshen.core:0"
+                    ]
+                  }
+                ]
+              },
+              {
+                "slot": "展開",
+                "text": "王亭之は、同じ機月同梁でも、天機・太陰が命宮に入る配置より、天同・天梁が命宮に入るこの配置を比較的安定したものと説明しています。",
+                "statements": [
+                  {
+                    "text": "王亭之は、同じ機月同梁でも、天機・太陰が命宮に入る配置より、天同・天梁が命宮に入るこの配置を比較的安定したものと説明しています。",
+                    "en": "The source describes this configuration as more stable than the related configuration headed by Tian Ji and Tai Yin.",
+                    "kind": "interpretation",
+                    "source_ids": [
+                      "card.ming.tongliang-yinshen.core"
+                    ],
+                    "citations": [
+                      "ming.backed:card.ming.tongliang-yinshen.core:1"
+                    ]
+                  }
+                ]
+              },
+              {
+                "slot": "展開",
+                "text": "この組み合わせの性格を読む際は、情趣やロマンを重んじる面と、原則や規律を重んじる面を分けて捉える必要があり、両者には明確な違いがあります。",
+                "heading": "情趣と原則の交わり",
+                "statements": [
+                  {
+                    "text": "この組み合わせの性格を読む際は、情趣やロマンを重んじる面と、原則や規律を重んじる面を分けて捉える必要があり、両者には明確な違いがあります。",
+                    "en": "Its character is read through the distinction between enjoyment or romance and principles or discipline.",
+                    "kind": "interpretation",
+                    "source_ids": [
+                      "card.ming.tongliang-yinshen.core"
+                    ],
+                    "citations": [
+                      "ming.backed:card.ming.tongliang-yinshen.core:2"
+                    ]
+                  }
+                ]
+              },
+              {
+                "slot": "展開",
+                "text": "この違いは、とどまるか離れるか、進むか退くかにも関わるため、同じ天同・天梁でも、選択の際に重んじるものは異なり得ます。",
+                "statements": [
+                  {
+                    "text": "この違いは、とどまるか離れるか、進むか退くかにも関わるため、同じ天同・天梁でも、選択の際に重んじるものは異なり得ます。",
+                    "en": "That distinction affects decisions to stay or leave, so the same pair does not imply identical priorities.",
+                    "kind": "interpretation",
+                    "source_ids": [
+                      "card.ming.tongliang-yinshen.core"
+                    ],
+                    "citations": [
+                      "ming.backed:card.ming.tongliang-yinshen.core:3"
+                    ]
+                  }
+                ]
+              },
+              {
+                "slot": "展開",
+                "text": "天同は感情、天梁は原則を表し、同じ宮にあっても、気持ちと判断の基準とのあいだに矛盾が生じることはあります。",
+                "statements": [
+                  {
+                    "text": "天同は感情、天梁は原則を表し、同じ宮にあっても、気持ちと判断の基準とのあいだに矛盾が生じることはあります。",
+                    "en": "Tian Tong concerns emotion and Tian Liang principle, so sharing a palace still allows conflict between feeling and standards.",
+                    "kind": "interpretation",
+                    "source_ids": [
+                      "card.ming.tongliang-yinshen.core"
+                    ],
+                    "citations": [
+                      "ming.backed:card.ming.tongliang-yinshen.core:4"
+                    ]
+                  }
+                ]
+              },
+              {
+                "slot": "展開",
+                "text": "構造が比較的安定していても内面の衝突がなくなるわけではなく、原著も同じ段落で両方を述べているため、どちらも残して読む必要があります。",
+                "statements": [
+                  {
+                    "text": "構造が比較的安定していても内面の衝突がなくなるわけではなく、原著も同じ段落で両方を述べているため、どちらも残して読む必要があります。",
+                    "en": "Structural stability does not remove inner conflict; both qualities appear in the same source passage.",
+                    "kind": "interpretation",
+                    "source_ids": [
+                      "card.ming.tongliang-yinshen.core"
+                    ],
+                    "citations": [
+                      "ming.backed:card.ming.tongliang-yinshen.core:5"
+                    ]
+                  }
+                ]
+              },
+              {
+                "slot": "展開",
+                "text": "一方、情趣と原則が調和する可能性もあり、この組み合わせの姿は、両者が引っ張り合うものだけではありません。",
+                "heading": "調和の可能性と条件",
+                "statements": [
+                  {
+                    "text": "一方、情趣と原則が調和する可能性もあり、この組み合わせの姿は、両者が引っ張り合うものだけではありません。",
+                    "en": "Enjoyment and principle can also be reconciled; conflict is not the only form of this combination.",
+                    "kind": "interpretation",
+                    "source_ids": [
+                      "card.ming.tongliang-yinshen.core"
+                    ],
+                    "citations": [
+                      "ming.backed:card.ming.tongliang-yinshen.core:6"
+                    ]
+                  }
+                ]
+              },
+              {
+                "slot": "展開",
+                "text": "両者の関係は、会合する補佐の星、煞、四化、雑曜も合わせて判断する必要があり、一方だけで性格全体を決めることはできません。",
+                "statements": [
+                  {
+                    "text": "両者の関係は、会合する補佐の星、煞、四化、雑曜も合わせて判断する必要があり、一方だけで性格全体を決めることはできません。",
+                    "en": "Their relationship depends on supporting stars, malefics, transformations and other accompanying stars, rather than one side alone.",
+                    "kind": "interpretation",
+                    "source_ids": [
+                      "card.ming.tongliang-yinshen.core"
+                    ],
+                    "citations": [
+                      "ming.backed:card.ming.tongliang-yinshen.core:7"
+                    ]
+                  }
+                ]
+              },
+              {
+                "slot": "展開",
+                "text": "原著は天同・天梁に左輔・右弼や文昌・文曲が同宮する場合、ロマンと原則・規律が調和し得ると述べており、その調和には配置の条件があります。",
+                "statements": [
+                  {
+                    "text": "原著は天同・天梁に左輔・右弼や文昌・文曲が同宮する場合、ロマンと原則・規律が調和し得ると述べており、その調和には配置の条件があります。",
+                    "en": "The source gives Tian Tong and Tian Liang with the assistants and literary stars sharing their palace as a conditional example of reconciliation.",
+                    "kind": "interpretation",
+                    "source_ids": [
+                      "card.ming.tongliang-yinshen.core"
+                    ],
+                    "citations": [
+                      "ming.backed:card.ming.tongliang-yinshen.core:8"
+                    ]
+                  }
+                ]
+              },
+              {
+                "slot": "因為",
+                "text": "性質：あなたの命宮は申の宮にあり、天同・天梁が入っています。",
+                "heading": "命盤上の根拠",
+                "statements": [
+                  {
+                    "text": "あなたの命宮は申の宮にあり、天同・天梁が入っています",
+                    "en": "your Life Palace holds Tian Tong and Tian Liang in the Shen position",
+                    "kind": "evidence",
+                    "source_ids": [],
+                    "citations": []
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "slug": "性格的骨架",
+        "title": "性格的骨架",
+        "text": "你在生活情趣和原則紀律之間來回拉扯，兩邊都放不下，也不容易調和。你的天同化忌，兩旁又有擎羊、陀羅相夾，這是這組星最難兩面兼顧的結構。\n\n你的命宮在申，坐天同、天梁。天同天梁同宮，財帛宮、官祿宮是天機、太陰，成為純粹的機月同梁格局。天同帶浪漫，天梁講原則，你偏向哪一邊，對你的去留出處影響很大。\n\n你的天同化忌雖有祿存配合，同宮卻有煞星：你不容易安於一份工作，時常有變動，要安定下來得多花力氣。這組星遇上天馬：你的理想會走得比實際快，計劃要落到具體的一步。\n\n骨架是天生的，長成怎樣的人，看你怎樣用它；用在對的地方，同一副骨架就是長處。",
+        "slots": [
+          "偏向",
+          "骨架",
+          "細讀",
+          "留白"
+        ]
+      }
+    ],
+    "seed": "sample"
+  },
+  {
+    "id": "A",
+    "input": {
+      "solar": {
+        "y": 1992,
+        "m": 9,
+        "d": 12
+      },
+      "time": {
+        "h": 19,
+        "min": 41
+      },
+      "sex": "male",
+      "tz": "Australia/Sydney",
+      "place": {
+        "lng": 151.2093,
+        "lat": -33.8688,
+        "label": "悉尼"
+      }
+    },
+    "saved": [
+      {
+        "slug": "命宮",
+        "text": "天府在巳亥的命宮，仍有守成的底色，但會合的權力與欲望星，令保守性較小。\n\n對宮紫微七殺與會合的武曲貪狼，都要放進這個組合理解，不能只按天府一星看成純粹守舊。\n\n原書在這裡分辨祥和與權術，這是進一步要核對的性質，而不是只按有進取心便判好壞。\n\n因此，守住已有的安排與受到進取力量牽動，可以同時是這一組的閱讀線索，仍須看整體配合。\n\n本質：你的命宮是天府坐亥宮。",
+        "slots": [
+          "結論",
+          "展開",
+          "展開",
+          "展開",
+          "因為"
+        ],
+        "reading": {
+          "format": "ming-expanded-v1",
+          "writer": "sentence-backed-v1",
+          "segments": [
+            {
+              "slot": "結論",
+              "text": "天府在巳亥的命宮，仍有守成的底色，但會合的權力與欲望星，令保守性較小。",
+              "en": "Tian Fu in Si or Hai retains a preserving basis, while meeting stars of power and desire makes it less conservative.",
+              "topic": "本質",
+              "source_id": "card.ming.tianfu-sihai.core",
+              "source_ids": [
+                "card.ming.tianfu-sihai.core"
+              ],
+              "citations": [
+                "ming.backed:card.ming.tianfu-sihai.core:0"
+              ],
+              "statements": [
+                {
+                  "text": "天府在巳亥的命宮，仍有守成的底色，但會合的權力與欲望星，令保守性較小。",
+                  "en": "Tian Fu in Si or Hai retains a preserving basis, while meeting stars of power and desire makes it less conservative.",
+                  "kind": "interpretation",
+                  "source_ids": [
+                    "card.ming.tianfu-sihai.core"
+                  ],
+                  "citations": [
+                    "ming.backed:card.ming.tianfu-sihai.core:0"
+                  ]
+                }
+              ],
+              "rule_ids": [],
+              "heading": "本質"
+            },
+            {
+              "slot": "展開",
+              "text": "對宮紫微七殺與會合的武曲貪狼，都要放進這個組合理解，不能只按天府一星看成純粹守舊。",
+              "en": "The opposing Zi Wei–Qi Sha and the meeting Wu Qu–Tan Lang belong in the assessment; Tian Fu alone is not treated as pure conservatism.",
+              "topic": "本質",
+              "source_id": "card.ming.tianfu-sihai.core",
+              "source_ids": [
+                "card.ming.tianfu-sihai.core"
+              ],
+              "citations": [
+                "ming.backed:card.ming.tianfu-sihai.core:1"
+              ],
+              "statements": [
+                {
+                  "text": "對宮紫微七殺與會合的武曲貪狼，都要放進這個組合理解，不能只按天府一星看成純粹守舊。",
+                  "en": "The opposing Zi Wei–Qi Sha and the meeting Wu Qu–Tan Lang belong in the assessment; Tian Fu alone is not treated as pure conservatism.",
+                  "kind": "interpretation",
+                  "source_ids": [
+                    "card.ming.tianfu-sihai.core"
+                  ],
+                  "citations": [
+                    "ming.backed:card.ming.tianfu-sihai.core:1"
+                  ]
+                }
+              ],
+              "rule_ids": []
+            },
+            {
+              "slot": "展開",
+              "text": "原書在這裡分辨祥和與權術，這是進一步要核對的性質，而不是只按有進取心便判好壞。",
+              "en": "The source distinguishes harmony from manipulation, rather than judging initiative alone as good or bad.",
+              "topic": "本質",
+              "source_id": "card.ming.tianfu-sihai.core",
+              "source_ids": [
+                "card.ming.tianfu-sihai.core"
+              ],
+              "citations": [
+                "ming.backed:card.ming.tianfu-sihai.core:2"
+              ],
+              "statements": [
+                {
+                  "text": "原書在這裡分辨祥和與權術，這是進一步要核對的性質，而不是只按有進取心便判好壞。",
+                  "en": "The source distinguishes harmony from manipulation, rather than judging initiative alone as good or bad.",
+                  "kind": "interpretation",
+                  "source_ids": [
+                    "card.ming.tianfu-sihai.core"
+                  ],
+                  "citations": [
+                    "ming.backed:card.ming.tianfu-sihai.core:2"
+                  ]
+                }
+              ],
+              "rule_ids": []
+            },
+            {
+              "slot": "展開",
+              "text": "因此，守住已有的安排與受到進取力量牽動，可以同時是這一組的閱讀線索，仍須看整體配合。",
+              "en": "Preserving an arrangement and being affected by initiative can both be relevant to this combination; the whole relationship matters.",
+              "topic": "本質",
+              "source_id": "card.ming.tianfu-sihai.core",
+              "source_ids": [
+                "card.ming.tianfu-sihai.core"
+              ],
+              "citations": [
+                "ming.backed:card.ming.tianfu-sihai.core:3"
+              ],
+              "statements": [
+                {
+                  "text": "因此，守住已有的安排與受到進取力量牽動，可以同時是這一組的閱讀線索，仍須看整體配合。",
+                  "en": "Preserving an arrangement and being affected by initiative can both be relevant to this combination; the whole relationship matters.",
+                  "kind": "interpretation",
+                  "source_ids": [
+                    "card.ming.tianfu-sihai.core"
+                  ],
+                  "citations": [
+                    "ming.backed:card.ming.tianfu-sihai.core:3"
+                  ]
+                }
+              ],
+              "rule_ids": []
+            },
+            {
+              "slot": "因為",
+              "text": "本質：你的命宮是天府坐亥宮。",
+              "en": "Who you are: your Life Palace holds Tian Fu in the Hai position.",
+              "topic": "本質",
+              "source_id": "card.ming.tianfu-sihai.core",
+              "source_ids": [],
+              "citations": [],
+              "statements": [
+                {
+                  "text": "你的命宮是天府坐亥宮",
+                  "en": "your Life Palace holds Tian Fu in the Hai position",
+                  "kind": "evidence",
+                  "source_ids": [],
+                  "citations": []
+                }
+              ],
+              "rule_ids": [],
+              "heading": "盤面與出處"
+            }
+          ],
+          "international": {
+            "text": "你擅長守成，把已有的局面守穩，比開創更合你。要留意的是，你在需要當機立斷的場合，會顯得慢半拍。\n\n你的命宮坐天府。《全書》形容天府坐命「心性溫和」，而天府的溫和是有底的那種。\n\n天府的基調是先把底盤做穩再談其他，不冒進、不空手承諾，對風險的容忍度偏低。與紫微的差別在於，紫微在意事情做得體面，天府在意事情不要出缺口——一個向前，一個向下紮。穩與保守是同一種性質，處境不同評價就不同。守成仍然可靠，但餘裕不多：做事會比平時保守，也比平時更在意有沒有退路可走。天府化科，守成被整理成制度，穩定有了名目。天府只有這一化，所以它出現時份量不輕。\n\n你想推一件事的時候，通常不必從最基本的地方開始鋪，起步比別人省力。\n\n在工作上，你最擅長把已有的局面管好、守穩；要你從零開創，或者站在最前面指揮一大群人，就不是你最自在的位置。",
+            "slots": [
+              "結論",
+              "開場",
+              "結構",
+              "牽動",
+              "生活"
+            ]
+          },
+          "localized": {
+            "version": "ming-translations-v1",
+            "en": [
+              {
+                "slot": "結論",
+                "text": "Tian Fu in Si or Hai retains a preserving basis, while meeting stars of power and desire makes it less conservative.",
+                "heading": "Who you are",
+                "statements": [
+                  {
+                    "text": "Tian Fu in Si or Hai retains a preserving basis, while meeting stars of power and desire makes it less conservative.",
+                    "en": "Tian Fu in Si or Hai retains a preserving basis, while meeting stars of power and desire makes it less conservative.",
+                    "kind": "interpretation",
+                    "source_ids": [
+                      "card.ming.tianfu-sihai.core"
+                    ],
+                    "citations": [
+                      "ming.backed:card.ming.tianfu-sihai.core:0"
+                    ]
+                  }
+                ]
+              },
+              {
+                "slot": "展開",
+                "text": "The opposing Zi Wei–Qi Sha and the meeting Wu Qu–Tan Lang belong in the assessment; Tian Fu alone is not treated as pure conservatism.",
+                "statements": [
+                  {
+                    "text": "The opposing Zi Wei–Qi Sha and the meeting Wu Qu–Tan Lang belong in the assessment; Tian Fu alone is not treated as pure conservatism.",
+                    "en": "The opposing Zi Wei–Qi Sha and the meeting Wu Qu–Tan Lang belong in the assessment; Tian Fu alone is not treated as pure conservatism.",
+                    "kind": "interpretation",
+                    "source_ids": [
+                      "card.ming.tianfu-sihai.core"
+                    ],
+                    "citations": [
+                      "ming.backed:card.ming.tianfu-sihai.core:1"
+                    ]
+                  }
+                ]
+              },
+              {
+                "slot": "展開",
+                "text": "The source distinguishes harmony from manipulation, rather than judging initiative alone as good or bad.",
+                "statements": [
+                  {
+                    "text": "The source distinguishes harmony from manipulation, rather than judging initiative alone as good or bad.",
+                    "en": "The source distinguishes harmony from manipulation, rather than judging initiative alone as good or bad.",
+                    "kind": "interpretation",
+                    "source_ids": [
+                      "card.ming.tianfu-sihai.core"
+                    ],
+                    "citations": [
+                      "ming.backed:card.ming.tianfu-sihai.core:2"
+                    ]
+                  }
+                ]
+              },
+              {
+                "slot": "展開",
+                "text": "Preserving an arrangement and being affected by initiative can both be relevant to this combination; the whole relationship matters.",
+                "statements": [
+                  {
+                    "text": "Preserving an arrangement and being affected by initiative can both be relevant to this combination; the whole relationship matters.",
+                    "en": "Preserving an arrangement and being affected by initiative can both be relevant to this combination; the whole relationship matters.",
+                    "kind": "interpretation",
+                    "source_ids": [
+                      "card.ming.tianfu-sihai.core"
+                    ],
+                    "citations": [
+                      "ming.backed:card.ming.tianfu-sihai.core:3"
+                    ]
+                  }
+                ]
+              },
+              {
+                "slot": "因為",
+                "text": "Who you are: your Life Palace holds Tian Fu in the Hai position.",
+                "heading": "What the chart shows",
+                "statements": [
+                  {
+                    "text": "your Life Palace holds Tian Fu in the Hai position",
+                    "en": "your Life Palace holds Tian Fu in the Hai position",
+                    "kind": "evidence",
+                    "source_ids": [],
+                    "citations": []
+                  }
+                ]
+              }
+            ],
+            "ja": [
+              {
+                "slot": "結論",
+                "text": "巳・亥の天府にも既存のものを守る基調はありますが、権力や欲求を表す星と会合することで、保守性は比較的弱まります。",
+                "heading": "性質の読み方",
+                "statements": [
+                  {
+                    "text": "巳・亥の天府にも既存のものを守る基調はありますが、権力や欲求を表す星と会合することで、保守性は比較的弱まります。",
+                    "en": "Tian Fu in Si or Hai retains a preserving basis, while meeting stars of power and desire makes it less conservative.",
+                    "kind": "interpretation",
+                    "source_ids": [
+                      "card.ming.tianfu-sihai.core"
+                    ],
+                    "citations": [
+                      "ming.backed:card.ming.tianfu-sihai.core:0"
+                    ]
+                  }
+                ]
+              },
+              {
+                "slot": "展開",
+                "text": "向かいの紫微・七殺と、会合する武曲・貪狼も合わせて読む必要があり、天府一星だけで、ひたすら現状を守る配置とは見なせません。",
+                "statements": [
+                  {
+                    "text": "向かいの紫微・七殺と、会合する武曲・貪狼も合わせて読む必要があり、天府一星だけで、ひたすら現状を守る配置とは見なせません。",
+                    "en": "The opposing Zi Wei–Qi Sha and the meeting Wu Qu–Tan Lang belong in the assessment; Tian Fu alone is not treated as pure conservatism.",
+                    "kind": "interpretation",
+                    "source_ids": [
+                      "card.ming.tianfu-sihai.core"
+                    ],
+                    "citations": [
+                      "ming.backed:card.ming.tianfu-sihai.core:1"
+                    ]
+                  }
+                ]
+              },
+              {
+                "slot": "展開",
+                "text": "原著はここで穏やかさと権謀を分けて見ており、さらに確認すべき性質があるため、進取の気持ちだけで良否は決めていません。",
+                "statements": [
+                  {
+                    "text": "原著はここで穏やかさと権謀を分けて見ており、さらに確認すべき性質があるため、進取の気持ちだけで良否は決めていません。",
+                    "en": "The source distinguishes harmony from manipulation, rather than judging initiative alone as good or bad.",
+                    "kind": "interpretation",
+                    "source_ids": [
+                      "card.ming.tianfu-sihai.core"
+                    ],
+                    "citations": [
+                      "ming.backed:card.ming.tianfu-sihai.core:2"
+                    ]
+                  }
+                ]
+              },
+              {
+                "slot": "展開",
+                "text": "そのため、既存の仕組みを保つことと、進取の力に動かされることは、どちらもこの配置の手がかりとなり得ますが、全体の組み合わせを見る必要があります。",
+                "statements": [
+                  {
+                    "text": "そのため、既存の仕組みを保つことと、進取の力に動かされることは、どちらもこの配置の手がかりとなり得ますが、全体の組み合わせを見る必要があります。",
+                    "en": "Preserving an arrangement and being affected by initiative can both be relevant to this combination; the whole relationship matters.",
+                    "kind": "interpretation",
+                    "source_ids": [
+                      "card.ming.tianfu-sihai.core"
+                    ],
+                    "citations": [
+                      "ming.backed:card.ming.tianfu-sihai.core:3"
+                    ]
+                  }
+                ]
+              },
+              {
+                "slot": "因為",
+                "text": "性質：あなたの命宮は亥の宮にあり、天府が入っています。",
+                "heading": "命盤上の根拠",
+                "statements": [
+                  {
+                    "text": "あなたの命宮は亥の宮にあり、天府が入っています",
+                    "en": "your Life Palace holds Tian Fu in the Hai position",
+                    "kind": "evidence",
+                    "source_ids": [],
+                    "citations": []
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "slug": "性格的骨架",
+        "title": "性格的骨架",
+        "text": "你偏向祥和：你腳踏實地、看得遠，事業在不知不覺之間做大。\n\n你的命宮在亥，坐天府。天府在亥對著紫微七殺，財帛宮、官祿宮多是權力與欲望之星，所以保守性較小。祥和的不知不覺已建立事功；多思慮的騰挪變化多，所得卻未必多。\n\n說你偏向祥和，是因為你的盤上有三方四正會左輔、右弼、天魁、天鉞、天府同宮見左輔；偏向多思慮的，你的盤上沒有。\n\n所會的多是權力和欲望之星，你的天府保守性較小。祥和的天府，表面看不出重大建樹，其實不知不覺間已建立事功，心境安定。你的天府與祿存同宮，雖祥和，氣魄卻不大。\n\n你的長處是踏實、看得遠。\n\n骨架是天生的，長成怎樣的人，看你怎樣用它；用在對的地方，同一副骨架就是長處。",
+        "slots": [
+          "偏向",
+          "骨架",
+          "推力",
+          "細讀",
+          "長處",
+          "留白"
+        ]
+      }
+    ],
+    "seed": "trilingual-review-2026-10-21-A"
+  },
+  {
+    "id": "C",
+    "input": {
+      "solar": {
+        "y": 2012,
+        "m": 4,
+        "d": 20
+      },
+      "time": {
+        "h": 13,
+        "min": 29
+      },
+      "sex": "female",
+      "tz": "America/New_York",
+      "place": {
+        "lng": -74.006,
+        "lat": 40.7128,
+        "label": "紐約"
+      }
+    },
+    "saved": [
+      {
+        "slug": "命宮",
+        "text": "天機天梁這組命宮，要分清尖刻與明斷，反應敏銳，與判斷是否恰當，需要分開理解。\n\n天機偏敏感變動，天梁偏原則紀律，兩股力量調和，原書才進一步談明斷。\n\n因此，單有敏感或單有原則，都未足以替代兩者配合，平衡是這一段的重要條件。\n\n三方的天同太陰與太陽巨門，也分別牽動這兩個方向，所以不能只在命宮內看兩星強弱。\n\n本質：你的命宮是天機、天梁同坐戌宮。",
+        "slots": [
+          "結論",
+          "展開",
+          "展開",
+          "展開",
+          "因為"
+        ],
+        "reading": {
+          "format": "ming-expanded-v1",
+          "writer": "sentence-backed-v1",
+          "segments": [
+            {
+              "slot": "結論",
+              "text": "天機天梁這組命宮，要分清尖刻與明斷，反應敏銳，與判斷是否恰當，需要分開理解。",
+              "en": "Tian Ji with Tian Liang distinguishes sharpness from clear judgement; sensitivity and sound assessment are different matters.",
+              "topic": "本質",
+              "source_id": "card.ming.jiliang-chenxu.core",
+              "source_ids": [
+                "card.ming.jiliang-chenxu.core"
+              ],
+              "citations": [
+                "ming.backed:card.ming.jiliang-chenxu.core:0"
+              ],
+              "statements": [
+                {
+                  "text": "天機天梁這組命宮，要分清尖刻與明斷，反應敏銳，與判斷是否恰當，需要分開理解。",
+                  "en": "Tian Ji with Tian Liang distinguishes sharpness from clear judgement; sensitivity and sound assessment are different matters.",
+                  "kind": "interpretation",
+                  "source_ids": [
+                    "card.ming.jiliang-chenxu.core"
+                  ],
+                  "citations": [
+                    "ming.backed:card.ming.jiliang-chenxu.core:0"
+                  ]
+                }
+              ],
+              "rule_ids": [],
+              "heading": "本質"
+            },
+            {
+              "slot": "展開",
+              "text": "天機偏敏感變動，天梁偏原則紀律，兩股力量調和，原書才進一步談明斷。",
+              "en": "Tian Ji contributes sensitivity and change, and Tian Liang principle and discipline; their balance is the premise for clear judgement.",
+              "topic": "本質",
+              "source_id": "card.ming.jiliang-chenxu.core",
+              "source_ids": [
+                "card.ming.jiliang-chenxu.core"
+              ],
+              "citations": [
+                "ming.backed:card.ming.jiliang-chenxu.core:1"
+              ],
+              "statements": [
+                {
+                  "text": "天機偏敏感變動，天梁偏原則紀律，兩股力量調和，原書才進一步談明斷。",
+                  "en": "Tian Ji contributes sensitivity and change, and Tian Liang principle and discipline; their balance is the premise for clear judgement.",
+                  "kind": "interpretation",
+                  "source_ids": [
+                    "card.ming.jiliang-chenxu.core"
+                  ],
+                  "citations": [
+                    "ming.backed:card.ming.jiliang-chenxu.core:1"
+                  ]
+                }
+              ],
+              "rule_ids": []
+            },
+            {
+              "slot": "展開",
+              "text": "因此，單有敏感或單有原則，都未足以替代兩者配合，平衡是這一段的重要條件。",
+              "en": "Neither sensitivity nor principle alone replaces their coordination; balance is an important condition in the passage.",
+              "topic": "本質",
+              "source_id": "card.ming.jiliang-chenxu.core",
+              "source_ids": [
+                "card.ming.jiliang-chenxu.core"
+              ],
+              "citations": [
+                "ming.backed:card.ming.jiliang-chenxu.core:2"
+              ],
+              "statements": [
+                {
+                  "text": "因此，單有敏感或單有原則，都未足以替代兩者配合，平衡是這一段的重要條件。",
+                  "en": "Neither sensitivity nor principle alone replaces their coordination; balance is an important condition in the passage.",
+                  "kind": "interpretation",
+                  "source_ids": [
+                    "card.ming.jiliang-chenxu.core"
+                  ],
+                  "citations": [
+                    "ming.backed:card.ming.jiliang-chenxu.core:2"
+                  ]
+                }
+              ],
+              "rule_ids": []
+            },
+            {
+              "slot": "展開",
+              "text": "三方的天同太陰與太陽巨門，也分別牽動這兩個方向，所以不能只在命宮內看兩星強弱。",
+              "en": "Tian Tong–Tai Yin and Tai Yang–Ju Men in the trine affect the two directions, so the assessment extends beyond the Life Palace pair.",
+              "topic": "本質",
+              "source_id": "card.ming.jiliang-chenxu.core",
+              "source_ids": [
+                "card.ming.jiliang-chenxu.core"
+              ],
+              "citations": [
+                "ming.backed:card.ming.jiliang-chenxu.core:3"
+              ],
+              "statements": [
+                {
+                  "text": "三方的天同太陰與太陽巨門，也分別牽動這兩個方向，所以不能只在命宮內看兩星強弱。",
+                  "en": "Tian Tong–Tai Yin and Tai Yang–Ju Men in the trine affect the two directions, so the assessment extends beyond the Life Palace pair.",
+                  "kind": "interpretation",
+                  "source_ids": [
+                    "card.ming.jiliang-chenxu.core"
+                  ],
+                  "citations": [
+                    "ming.backed:card.ming.jiliang-chenxu.core:3"
+                  ]
+                }
+              ],
+              "rule_ids": []
+            },
+            {
+              "slot": "因為",
+              "text": "本質：你的命宮是天機、天梁同坐戌宮。",
+              "en": "Who you are: your Life Palace holds Tian Ji and Tian Liang in the Xu position.",
+              "topic": "本質",
+              "source_id": "card.ming.jiliang-chenxu.core",
+              "source_ids": [],
+              "citations": [],
+              "statements": [
+                {
+                  "text": "你的命宮是天機、天梁同坐戌宮",
+                  "en": "your Life Palace holds Tian Ji and Tian Liang in the Xu position",
+                  "kind": "evidence",
+                  "source_ids": [],
+                  "citations": []
+                }
+              ],
+              "rule_ids": [],
+              "heading": "盤面與出處"
+            }
+          ],
+          "international": {
+            "text": "你腦筋轉得快，遇到阻力先想別的路，而不是硬推。要留意的是，你繞得開阻力，也容易繞開需要待久的事。\n\n你的命宮坐天機、天梁。\n\n天機遇阻先轉，使它靈活、學得快、少與人正面相撞，也使它不容易在一件事上待夠久。《全書》另有一句「在廟旺有力，陷地無力」：你的表現，很看環境配不配合。轉得動，但要時間；倉促之下它的方案未必比直來直往好。天梁在命的基調是出面，遇到不公會說話，遇到有難的人會接。它有一套自己認定的標準，而且相當堅持。天梁化祿，庇護有了資源，接得住人也養得起。它讓承擔不再是純付出。肯擔的人這時候擔得起。\n\n加上陀羅同宮，事情在心裡轉得久，進退之間反覆。它讓判斷慢下來。\n\n你想推一件事的時候，通常不必從最基本的地方開始鋪，起步比別人省力。\n\n工作卡在某個流程時，你會先換個做法、找另一個人問，或者調一調次序；學新軟件、新規則，你也比身邊的人快上手。",
+            "slots": [
+              "結論",
+              "開場",
+              "結構",
+              "擾動",
+              "牽動",
+              "生活"
+            ]
+          },
+          "localized": {
+            "version": "ming-translations-v1",
+            "en": [
+              {
+                "slot": "結論",
+                "text": "Tian Ji with Tian Liang distinguishes sharpness from clear judgement; sensitivity and sound assessment are different matters.",
+                "heading": "Who you are",
+                "statements": [
+                  {
+                    "text": "Tian Ji with Tian Liang distinguishes sharpness from clear judgement; sensitivity and sound assessment are different matters.",
+                    "en": "Tian Ji with Tian Liang distinguishes sharpness from clear judgement; sensitivity and sound assessment are different matters.",
+                    "kind": "interpretation",
+                    "source_ids": [
+                      "card.ming.jiliang-chenxu.core"
+                    ],
+                    "citations": [
+                      "ming.backed:card.ming.jiliang-chenxu.core:0"
+                    ]
+                  }
+                ]
+              },
+              {
+                "slot": "展開",
+                "text": "Tian Ji contributes sensitivity and change, and Tian Liang principle and discipline; their balance is the premise for clear judgement.",
+                "statements": [
+                  {
+                    "text": "Tian Ji contributes sensitivity and change, and Tian Liang principle and discipline; their balance is the premise for clear judgement.",
+                    "en": "Tian Ji contributes sensitivity and change, and Tian Liang principle and discipline; their balance is the premise for clear judgement.",
+                    "kind": "interpretation",
+                    "source_ids": [
+                      "card.ming.jiliang-chenxu.core"
+                    ],
+                    "citations": [
+                      "ming.backed:card.ming.jiliang-chenxu.core:1"
+                    ]
+                  }
+                ]
+              },
+              {
+                "slot": "展開",
+                "text": "Neither sensitivity nor principle alone replaces their coordination; balance is an important condition in the passage.",
+                "statements": [
+                  {
+                    "text": "Neither sensitivity nor principle alone replaces their coordination; balance is an important condition in the passage.",
+                    "en": "Neither sensitivity nor principle alone replaces their coordination; balance is an important condition in the passage.",
+                    "kind": "interpretation",
+                    "source_ids": [
+                      "card.ming.jiliang-chenxu.core"
+                    ],
+                    "citations": [
+                      "ming.backed:card.ming.jiliang-chenxu.core:2"
+                    ]
+                  }
+                ]
+              },
+              {
+                "slot": "展開",
+                "text": "Tian Tong–Tai Yin and Tai Yang–Ju Men in the trine affect the two directions, so the assessment extends beyond the Life Palace pair.",
+                "statements": [
+                  {
+                    "text": "Tian Tong–Tai Yin and Tai Yang–Ju Men in the trine affect the two directions, so the assessment extends beyond the Life Palace pair.",
+                    "en": "Tian Tong–Tai Yin and Tai Yang–Ju Men in the trine affect the two directions, so the assessment extends beyond the Life Palace pair.",
+                    "kind": "interpretation",
+                    "source_ids": [
+                      "card.ming.jiliang-chenxu.core"
+                    ],
+                    "citations": [
+                      "ming.backed:card.ming.jiliang-chenxu.core:3"
+                    ]
+                  }
+                ]
+              },
+              {
+                "slot": "因為",
+                "text": "Who you are: your Life Palace holds Tian Ji and Tian Liang in the Xu position.",
+                "heading": "What the chart shows",
+                "statements": [
+                  {
+                    "text": "your Life Palace holds Tian Ji and Tian Liang in the Xu position",
+                    "en": "your Life Palace holds Tian Ji and Tian Liang in the Xu position",
+                    "kind": "evidence",
+                    "source_ids": [],
+                    "citations": []
+                  }
+                ]
+              }
+            ],
+            "ja": [
+              {
+                "slot": "結論",
+                "text": "天機・天梁では辛辣さと明晰な判断を分けて見ていき、反応の鋭さと、判断が適切かどうかは別に理解する必要があります。",
+                "heading": "性質の読み方",
+                "statements": [
+                  {
+                    "text": "天機・天梁では辛辣さと明晰な判断を分けて見ていき、反応の鋭さと、判断が適切かどうかは別に理解する必要があります。",
+                    "en": "Tian Ji with Tian Liang distinguishes sharpness from clear judgement; sensitivity and sound assessment are different matters.",
+                    "kind": "interpretation",
+                    "source_ids": [
+                      "card.ming.jiliang-chenxu.core"
+                    ],
+                    "citations": [
+                      "ming.backed:card.ming.jiliang-chenxu.core:0"
+                    ]
+                  }
+                ]
+              },
+              {
+                "slot": "展開",
+                "text": "天機は敏感さや変動、天梁は原則や規律に傾き、原著は二つの力の調和を前提として、さらに明晰な判断を論じています。",
+                "statements": [
+                  {
+                    "text": "天機は敏感さや変動、天梁は原則や規律に傾き、原著は二つの力の調和を前提として、さらに明晰な判断を論じています。",
+                    "en": "Tian Ji contributes sensitivity and change, and Tian Liang principle and discipline; their balance is the premise for clear judgement.",
+                    "kind": "interpretation",
+                    "source_ids": [
+                      "card.ming.jiliang-chenxu.core"
+                    ],
+                    "citations": [
+                      "ming.backed:card.ming.jiliang-chenxu.core:1"
+                    ]
+                  }
+                ]
+              },
+              {
+                "slot": "展開",
+                "text": "そのため、敏感さだけでも原則だけでも、両者の連携に代わるものにはならず、釣り合いがこの段落の重要な条件になります。",
+                "statements": [
+                  {
+                    "text": "そのため、敏感さだけでも原則だけでも、両者の連携に代わるものにはならず、釣り合いがこの段落の重要な条件になります。",
+                    "en": "Neither sensitivity nor principle alone replaces their coordination; balance is an important condition in the passage.",
+                    "kind": "interpretation",
+                    "source_ids": [
+                      "card.ming.jiliang-chenxu.core"
+                    ],
+                    "citations": [
+                      "ming.backed:card.ming.jiliang-chenxu.core:2"
+                    ]
+                  }
+                ]
+              },
+              {
+                "slot": "展開",
+                "text": "三方の天同・太陰と太陽・巨門もそれぞれの方向に関わるため、命宮の二星の強弱だけで読むことはできません。",
+                "statements": [
+                  {
+                    "text": "三方の天同・太陰と太陽・巨門もそれぞれの方向に関わるため、命宮の二星の強弱だけで読むことはできません。",
+                    "en": "Tian Tong–Tai Yin and Tai Yang–Ju Men in the trine affect the two directions, so the assessment extends beyond the Life Palace pair.",
+                    "kind": "interpretation",
+                    "source_ids": [
+                      "card.ming.jiliang-chenxu.core"
+                    ],
+                    "citations": [
+                      "ming.backed:card.ming.jiliang-chenxu.core:3"
+                    ]
+                  }
+                ]
+              },
+              {
+                "slot": "因為",
+                "text": "性質：あなたの命宮は戌の宮にあり、天機・天梁が入っています。",
+                "heading": "命盤上の根拠",
+                "statements": [
+                  {
+                    "text": "あなたの命宮は戌の宮にあり、天機・天梁が入っています",
+                    "en": "your Life Palace holds Tian Ji and Tian Liang in the Xu position",
+                    "kind": "evidence",
+                    "source_ids": [],
+                    "citations": []
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "slug": "性格的骨架",
+        "title": "性格的骨架",
+        "text": "你多數時候判斷公道，只是情急時話會說得重一點。你還年輕，這裡說的是盤上的傾向，不是定局；路怎樣走，仍然在你。\n\n你的命宮在戌，坐天機、天梁。天機代表敏感和變動，天梁代表原則和紀律，兩顆星同宮。兩股力量平衡，判斷就又快又公道；失衡時，容易反應過度，說話尖銳。\n\n兩邊在你的盤上都有根據：偏向明斷的是三方四正會左輔、文昌、文曲，偏向直言的是命宮見陀羅。\n\n有左輔、文昌、文曲會合，你機梁的性質得以調和。煞星並湊，你機梁的性質互相衝突，容易變得尖刻。天同太陰所在的那一步運，直接影響你的性格：能調和天機天梁兩面的，就是吉運；加深矛盾的，往往就是壞運。這一步在虛歲四十四至五十三歲。\n\n你的長處是判斷快，問題往往一眼就看出來。\n\n骨架是天生的，長成怎樣的人，看你怎樣用它；用在對的地方，同一副骨架就是長處。",
+        "slots": [
+          "偏向",
+          "骨架",
+          "推力",
+          "細讀",
+          "長處",
+          "留白"
+        ]
+      }
+    ],
+    "seed": "trilingual-review-2026-10-21-C"
+  }
+]

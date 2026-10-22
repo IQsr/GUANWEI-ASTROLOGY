@@ -81,7 +81,8 @@ export function serverJuan(): JuanPort {
       const { data, error: bodyError } = await sb.rpc('chapter_body', { p_chapter: row.id });
       if (bodyError) throw bodyError;
       let reading: unknown;
-      if (data !== null && String(row.content_version).includes('+ming-expanded-v1') && slug === '命宮') {
+      const savedReading = slug === '命宮' || (slug === '性格的骨架' && String(row.content_version).includes('+reader-backed-v1'));
+      if (data !== null && String(row.content_version).includes('+ming-expanded-v1') && savedReading) {
         const result = await sb.rpc('chapter_reading', { p_chapter: row.id });
         if (result.error) throw result.error;
         reading = result.data;

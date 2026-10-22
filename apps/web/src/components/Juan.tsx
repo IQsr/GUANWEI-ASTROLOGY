@@ -7,6 +7,7 @@ import type { MarkedSegment } from '@/lib/zhu';
 import { sectionBreaks } from '@/lib/suidu';
 import { keywordMarks, type MarkKind } from '@/lib/guanjian';
 import type { Run } from '@/lib/zhu';
+import { paragraphCitations, uniqueReferences } from '@/lib/paragraph-citations';
 
 type MarkedRun = Run & { mark?: MarkKind };
 
@@ -75,10 +76,10 @@ export type Note = {
 };
 
 /**
- * 出處（2026-10-12）：句尾「據」字號撳開。同術語註一樣係展開、唔係浮窗。
- * 書名、頁、節、原文照錄 —— 讀者質疑一句，撳開就見到嗰句由邊度嚟。
+ * 每段一個「據」：展開段內去重後的出處、原文及已保存的適用條件。
+ * 逐句來源對應仍留在 runs；只合併顯示，不改寫舊書或猜補缺少的條件。
  */
-export type CiteNote = { id: string; book: string; page: number; section: string; text: string; pageConvention?: 'pdf'; excerpt?: boolean };
+export type CiteNote = { id: string; book: string; page: number; pageEnd?: number; section: string; text: string; pageConvention?: 'pdf'; excerpt?: boolean; sourceNote?: string };
 
 export function Juan({
   segments,
@@ -101,11 +102,11 @@ export function Juan({
       {segments.map((seg, i) => {
         const shown = seg.runs.find((r) => r.term && open === r.term.id)?.term;
         const note = shown ? notes[shown.id] : undefined;
-        /* 出處嘅 key 帶住段號同 run 號：同一個出處喺兩段都撳得開，唔會兩段一齊開 */
-        /* 關鍵字記號（lib/guanjian.ts）；出處嘅 run 號跟切開之後嘅 */
-        const runs = withMarks(seg.runs);
-        const citeOpen = runs.findIndex((r, j) => r.cite && open === `cite:${i}:${j}`);
-        const citeList = citeOpen >= 0 ? runs[citeOpen]!.cite!.map((id) => cites[id]).filter(Boolean) : [];
+        const paragraph = paragraphCitations(seg.runs);
+        const runs = withMarks(paragraph.runs);
+        const citeKey = `cite:${i}`;
+        const references = uniqueReferences(paragraph.citations.map((id) => cites[id]).filter((c): c is CiteNote => Boolean(c)));
+        const citeList = open === citeKey ? references : [];
 
         return (
           /*
@@ -118,18 +119,7 @@ export function Juan({
             {seg.heading ? <h2 className="mb-4 font-serif text-lead tracking-[0.12em] text-ink-2">{seg.heading}</h2> : null}
             <p className="text-body leading-[1.95]">
               {runs.map((run, j) =>
-                run.cite ? (
-                  <button
-                    key={j}
-                    type="button"
-                    className="ju"
-                    aria-expanded={open === `cite:${i}:${j}`}
-                    aria-label={t('citeAria')}
-                    onClick={() => setOpen((cur) => (cur === `cite:${i}:${j}` ? null : `cite:${i}:${j}`))}
-                  >
-                    {t('citeMark')}
-                  </button>
-                ) : run.term ? (
+                run.term ? (
                   <Guan key={j} kind={run.mark}>
                   <button
                     key={j}
@@ -154,18 +144,30 @@ export function Juan({
                   <span key={j}>{run.text}</span>
                 ),
               )}
+              {references.length ? <button
+                type="button"
+                className="ju"
+                aria-expanded={open === citeKey}
+                aria-label={t('citeParagraphAria')}
+                onClick={() => setOpen((cur) => (cur === citeKey ? null : citeKey))}
+              >{t('citeMark')}</button> : null}
             </p>
 
             {citeList.length ? (
               <div className="zhu-ceng flex flex-col gap-5">
+                {seg.referenceConditions?.length ? <div className="flex flex-col gap-2">
+                  <p className="font-sans text-cap tracking-[0.08em] text-ink-3">{t('citeConditions')}</p>
+                  {seg.referenceConditions.map((condition, k) => <p key={k} className="text-sm leading-[1.9] text-ink-2">{condition}</p>)}
+                </div> : null}
                 {citeList.map((c) => (
                   <div key={c!.id} className="flex flex-col gap-2">
                     <p className="font-sans text-cap tracking-[0.08em] text-ink-3">
-                      {t(c!.pageConvention === 'pdf' ? 'citeSectionWhere' : 'citeWhere', { book: c!.book, page: c!.page, section: c!.section })}
+                      {t(c!.pageConvention === 'pdf' ? 'citePdfWhere' : 'citeWhere', { book: c!.book, page: c!.pageEnd ? `${c!.page}–${c!.pageEnd}` : c!.page, section: c!.section })}
                     </p>
                     {c!.text ? <blockquote lang="zh-Hans" className="text-sm leading-[1.9] text-ink-2">
                       {t(c!.excerpt ? 'citeExcerpt' : 'citeQuote', { text: c!.text })}
                     </blockquote> : null}
+                    {c!.sourceNote ? <p className="text-sm leading-[1.9] text-ink-2">{c!.sourceNote}</p> : null}
                   </div>
                 ))}
               </div>

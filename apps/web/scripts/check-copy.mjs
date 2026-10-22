@@ -36,6 +36,7 @@ const EXEMPT_PATTERNS = [
 
 /** 逐個檔豁免。每個都要一句原因。 */
 const ALLOWED = {
+  'app/[locale]/preview/free-ming/[[...parts]]/page.tsx': '合成盤本機閱讀預覽；僅 development 且明確開關啟用，正式模式回404，不向正式讀者提供',
   /* ── 內容資料：會交畀引擎、寫落本書，唔跟讀者語言轉 ── */
   'components/Chart.tsx': '命盤：地支同宮位嘅格位（內容資料）',
   'components/Suidu.tsx': '隨讀：段落格名「開場」係資料鍵，唔顯示',

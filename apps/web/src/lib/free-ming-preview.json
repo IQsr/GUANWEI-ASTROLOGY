@@ -1,0 +1,1730 @@
+[
+  {
+    "n": 1,
+    "name": "紫微獨坐子午",
+    "borrowed": false,
+    "input": {
+      "solar": {
+        "y": 1954,
+        "m": 6,
+        "d": 26
+      },
+      "time": {
+        "h": 1,
+        "min": 19
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-1-natal"
+  },
+  {
+    "n": 2,
+    "name": "破軍獨坐寅申",
+    "borrowed": false,
+    "input": {
+      "solar": {
+        "y": 1995,
+        "m": 1,
+        "d": 20
+      },
+      "time": {
+        "h": 10,
+        "min": 7
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-2-natal"
+  },
+  {
+    "n": 3,
+    "name": "廉貞天府坐辰戌",
+    "borrowed": false,
+    "input": {
+      "solar": {
+        "y": 1990,
+        "m": 6,
+        "d": 27
+      },
+      "time": {
+        "h": 5,
+        "min": 21
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-3-natal"
+  },
+  {
+    "n": 4,
+    "name": "太陰獨坐巳亥",
+    "borrowed": false,
+    "input": {
+      "solar": {
+        "y": 2009,
+        "m": 8,
+        "d": 21
+      },
+      "time": {
+        "h": 18,
+        "min": 28
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-4-natal"
+  },
+  {
+    "n": 5,
+    "name": "貪狼獨坐子午",
+    "borrowed": false,
+    "input": {
+      "solar": {
+        "y": 1950,
+        "m": 10,
+        "d": 6
+      },
+      "time": {
+        "h": 7,
+        "min": 44
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-5-natal"
+  },
+  {
+    "n": 6,
+    "name": "天同巨門坐丑未",
+    "borrowed": false,
+    "input": {
+      "solar": {
+        "y": 1974,
+        "m": 11,
+        "d": 24
+      },
+      "time": {
+        "h": 19,
+        "min": 58
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-6-natal"
+  },
+  {
+    "n": 7,
+    "name": "武曲天相坐寅申",
+    "borrowed": false,
+    "input": {
+      "solar": {
+        "y": 1983,
+        "m": 10,
+        "d": 16
+      },
+      "time": {
+        "h": 16,
+        "min": 33
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-7-natal"
+  },
+  {
+    "n": 8,
+    "name": "太陽天梁坐卯酉",
+    "borrowed": false,
+    "input": {
+      "solar": {
+        "y": 1999,
+        "m": 12,
+        "d": 9
+      },
+      "time": {
+        "h": 18,
+        "min": 33
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-8-natal"
+  },
+  {
+    "n": 9,
+    "name": "七殺獨坐辰戌",
+    "borrowed": false,
+    "input": {
+      "solar": {
+        "y": 1958,
+        "m": 1,
+        "d": 21
+      },
+      "time": {
+        "h": 18,
+        "min": 37
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-9-natal"
+  },
+  {
+    "n": 10,
+    "name": "天機獨坐巳亥",
+    "borrowed": false,
+    "input": {
+      "solar": {
+        "y": 1962,
+        "m": 4,
+        "d": 9
+      },
+      "time": {
+        "h": 12,
+        "min": 15
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-10-natal"
+  },
+  {
+    "n": 11,
+    "name": "紫微破軍坐丑未",
+    "borrowed": false,
+    "input": {
+      "solar": {
+        "y": 1994,
+        "m": 7,
+        "d": 3
+      },
+      "time": {
+        "h": 11,
+        "min": 22
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-11-natal"
+  },
+  {
+    "n": 12,
+    "name": "天府獨坐卯酉",
+    "borrowed": false,
+    "input": {
+      "solar": {
+        "y": 2010,
+        "m": 12,
+        "d": 18
+      },
+      "time": {
+        "h": 6,
+        "min": 15
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-12-natal"
+  },
+  {
+    "n": 13,
+    "name": "太陰獨坐辰戌",
+    "borrowed": false,
+    "input": {
+      "solar": {
+        "y": 1966,
+        "m": 12,
+        "d": 6
+      },
+      "time": {
+        "h": 14,
+        "min": 32
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-13-natal"
+  },
+  {
+    "n": 14,
+    "name": "廉貞貪狼坐巳亥",
+    "borrowed": false,
+    "input": {
+      "solar": {
+        "y": 1986,
+        "m": 4,
+        "d": 18
+      },
+      "time": {
+        "h": 9,
+        "min": 40
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-14-natal"
+  },
+  {
+    "n": 15,
+    "name": "巨門獨坐子午",
+    "borrowed": false,
+    "input": {
+      "solar": {
+        "y": 1988,
+        "m": 5,
+        "d": 9
+      },
+      "time": {
+        "h": 8,
+        "min": 50
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-15-natal"
+  },
+  {
+    "n": 16,
+    "name": "天相獨坐丑未",
+    "borrowed": false,
+    "input": {
+      "solar": {
+        "y": 1960,
+        "m": 12,
+        "d": 19
+      },
+      "time": {
+        "h": 9,
+        "min": 48
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-16-natal"
+  },
+  {
+    "n": 17,
+    "name": "天同天梁坐寅申",
+    "borrowed": false,
+    "input": {
+      "solar": {
+        "y": 1963,
+        "m": 11,
+        "d": 28
+      },
+      "time": {
+        "h": 17,
+        "min": 56
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-17-natal"
+  },
+  {
+    "n": 18,
+    "name": "武曲七殺坐卯酉",
+    "borrowed": false,
+    "input": {
+      "solar": {
+        "y": 1987,
+        "m": 9,
+        "d": 26
+      },
+      "time": {
+        "h": 0,
+        "min": 23
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-18-natal"
+  },
+  {
+    "n": 19,
+    "name": "太陽獨坐辰戌",
+    "borrowed": false,
+    "input": {
+      "solar": {
+        "y": 1958,
+        "m": 7,
+        "d": 11
+      },
+      "time": {
+        "h": 17,
+        "min": 8
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-19-natal"
+  },
+  {
+    "n": 20,
+    "name": "天機獨坐子午",
+    "borrowed": false,
+    "input": {
+      "solar": {
+        "y": 1980,
+        "m": 2,
+        "d": 25
+      },
+      "time": {
+        "h": 17,
+        "min": 21
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-20-natal"
+  },
+  {
+    "n": 21,
+    "name": "紫微天府坐寅申",
+    "borrowed": false,
+    "input": {
+      "solar": {
+        "y": 1974,
+        "m": 3,
+        "d": 14
+      },
+      "time": {
+        "h": 3,
+        "min": 20
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-21-natal"
+  },
+  {
+    "n": 22,
+    "name": "太陰獨坐卯酉",
+    "borrowed": false,
+    "input": {
+      "solar": {
+        "y": 1997,
+        "m": 8,
+        "d": 13
+      },
+      "time": {
+        "h": 23,
+        "min": 27
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-22-natal"
+  },
+  {
+    "n": 23,
+    "name": "貪狼獨坐辰戌",
+    "borrowed": false,
+    "input": {
+      "solar": {
+        "y": 1960,
+        "m": 8,
+        "d": 28
+      },
+      "time": {
+        "h": 8,
+        "min": 49
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-23-natal"
+  },
+  {
+    "n": 24,
+    "name": "巨門獨坐巳亥",
+    "borrowed": false,
+    "input": {
+      "solar": {
+        "y": 1977,
+        "m": 3,
+        "d": 10
+      },
+      "time": {
+        "h": 18,
+        "min": 9
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-24-natal"
+  },
+  {
+    "n": 25,
+    "name": "廉貞天相坐子午",
+    "borrowed": false,
+    "input": {
+      "solar": {
+        "y": 1987,
+        "m": 6,
+        "d": 16
+      },
+      "time": {
+        "h": 13,
+        "min": 6
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-25-natal"
+  },
+  {
+    "n": 26,
+    "name": "天梁獨坐丑未",
+    "borrowed": false,
+    "input": {
+      "solar": {
+        "y": 1961,
+        "m": 10,
+        "d": 20
+      },
+      "time": {
+        "h": 19,
+        "min": 27
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-26-natal"
+  },
+  {
+    "n": 27,
+    "name": "七殺獨坐寅申",
+    "borrowed": false,
+    "input": {
+      "solar": {
+        "y": 1964,
+        "m": 1,
+        "d": 19
+      },
+      "time": {
+        "h": 10,
+        "min": 9
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-27-natal"
+  },
+  {
+    "n": 28,
+    "name": "天同獨坐卯酉",
+    "borrowed": false,
+    "input": {
+      "solar": {
+        "y": 1988,
+        "m": 1,
+        "d": 23
+      },
+      "time": {
+        "h": 8,
+        "min": 37
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-28-natal"
+  },
+  {
+    "n": 29,
+    "name": "武曲獨坐辰戌",
+    "borrowed": false,
+    "input": {
+      "solar": {
+        "y": 1999,
+        "m": 5,
+        "d": 8
+      },
+      "time": {
+        "h": 23,
+        "min": 32
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-29-natal"
+  },
+  {
+    "n": 30,
+    "name": "太陽獨坐巳亥",
+    "borrowed": false,
+    "input": {
+      "solar": {
+        "y": 2012,
+        "m": 6,
+        "d": 2
+      },
+      "time": {
+        "h": 11,
+        "min": 27
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-30-natal"
+  },
+  {
+    "n": 31,
+    "name": "破軍獨坐子午",
+    "borrowed": false,
+    "input": {
+      "solar": {
+        "y": 1996,
+        "m": 1,
+        "d": 13
+      },
+      "time": {
+        "h": 13,
+        "min": 11
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-31-natal"
+  },
+  {
+    "n": 32,
+    "name": "天機獨坐丑未",
+    "borrowed": false,
+    "input": {
+      "solar": {
+        "y": 1970,
+        "m": 9,
+        "d": 13
+      },
+      "time": {
+        "h": 6,
+        "min": 17
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-32-natal"
+  },
+  {
+    "n": 33,
+    "name": "紫微貪狼坐卯酉",
+    "borrowed": false,
+    "input": {
+      "solar": {
+        "y": 1968,
+        "m": 3,
+        "d": 2
+      },
+      "time": {
+        "h": 0,
+        "min": 56
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-33-natal"
+  },
+  {
+    "n": 34,
+    "name": "巨門獨坐辰戌",
+    "borrowed": false,
+    "input": {
+      "solar": {
+        "y": 1998,
+        "m": 1,
+        "d": 20
+      },
+      "time": {
+        "h": 7,
+        "min": 9
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-34-natal"
+  },
+  {
+    "n": 35,
+    "name": "天相獨坐巳亥",
+    "borrowed": false,
+    "input": {
+      "solar": {
+        "y": 1978,
+        "m": 2,
+        "d": 4
+      },
+      "time": {
+        "h": 16,
+        "min": 59
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-35-natal"
+  },
+  {
+    "n": 36,
+    "name": "天梁獨坐子午",
+    "borrowed": false,
+    "input": {
+      "solar": {
+        "y": 1996,
+        "m": 7,
+        "d": 26
+      },
+      "time": {
+        "h": 3,
+        "min": 18
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-36-natal"
+  },
+  {
+    "n": 37,
+    "name": "廉貞七殺坐丑未",
+    "borrowed": false,
+    "input": {
+      "solar": {
+        "y": 1952,
+        "m": 5,
+        "d": 9
+      },
+      "time": {
+        "h": 9,
+        "min": 0
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-37-natal"
+  },
+  {
+    "n": 38,
+    "name": "天同獨坐辰戌",
+    "borrowed": false,
+    "input": {
+      "solar": {
+        "y": 1986,
+        "m": 12,
+        "d": 7
+      },
+      "time": {
+        "h": 3,
+        "min": 41
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-38-natal"
+  },
+  {
+    "n": 39,
+    "name": "武曲破軍坐巳亥",
+    "borrowed": false,
+    "input": {
+      "solar": {
+        "y": 1983,
+        "m": 3,
+        "d": 12
+      },
+      "time": {
+        "h": 7,
+        "min": 11
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-39-natal"
+  },
+  {
+    "n": 40,
+    "name": "太陽獨坐子午",
+    "borrowed": false,
+    "input": {
+      "solar": {
+        "y": 1966,
+        "m": 7,
+        "d": 2
+      },
+      "time": {
+        "h": 13,
+        "min": 45
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-40-natal"
+  },
+  {
+    "n": 41,
+    "name": "天府獨坐丑未",
+    "borrowed": false,
+    "input": {
+      "solar": {
+        "y": 2000,
+        "m": 6,
+        "d": 27
+      },
+      "time": {
+        "h": 21,
+        "min": 59
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-41-natal"
+  },
+  {
+    "n": 42,
+    "name": "天機太陰坐寅申",
+    "borrowed": false,
+    "input": {
+      "solar": {
+        "y": 1991,
+        "m": 6,
+        "d": 12
+      },
+      "time": {
+        "h": 19,
+        "min": 39
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-42-natal"
+  },
+  {
+    "n": 43,
+    "name": "紫微天相坐辰戌",
+    "borrowed": false,
+    "input": {
+      "solar": {
+        "y": 1958,
+        "m": 10,
+        "d": 9
+      },
+      "time": {
+        "h": 10,
+        "min": 44
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-43-natal"
+  },
+  {
+    "n": 44,
+    "name": "天梁獨坐巳亥",
+    "borrowed": false,
+    "input": {
+      "solar": {
+        "y": 2005,
+        "m": 6,
+        "d": 27
+      },
+      "time": {
+        "h": 1,
+        "min": 38
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-44-natal"
+  },
+  {
+    "n": 45,
+    "name": "七殺獨坐子午",
+    "borrowed": false,
+    "input": {
+      "solar": {
+        "y": 1984,
+        "m": 8,
+        "d": 11
+      },
+      "time": {
+        "h": 3,
+        "min": 32
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-45-natal"
+  },
+  {
+    "n": 46,
+    "name": "廉貞獨坐寅申",
+    "borrowed": false,
+    "input": {
+      "solar": {
+        "y": 2003,
+        "m": 5,
+        "d": 9
+      },
+      "time": {
+        "h": 17,
+        "min": 31
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-46-natal"
+  },
+  {
+    "n": 47,
+    "name": "破軍獨坐辰戌",
+    "borrowed": false,
+    "input": {
+      "solar": {
+        "y": 2004,
+        "m": 11,
+        "d": 9
+      },
+      "time": {
+        "h": 13,
+        "min": 1
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-47-natal"
+  },
+  {
+    "n": 48,
+    "name": "天同獨坐巳亥",
+    "borrowed": false,
+    "input": {
+      "solar": {
+        "y": 1968,
+        "m": 11,
+        "d": 25
+      },
+      "time": {
+        "h": 0,
+        "min": 29
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-48-natal"
+  },
+  {
+    "n": 49,
+    "name": "武曲天府坐子午",
+    "borrowed": false,
+    "input": {
+      "solar": {
+        "y": 1992,
+        "m": 11,
+        "d": 12
+      },
+      "time": {
+        "h": 10,
+        "min": 48
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-49-natal"
+  },
+  {
+    "n": 50,
+    "name": "太陰太陽坐丑未",
+    "borrowed": false,
+    "input": {
+      "solar": {
+        "y": 1975,
+        "m": 4,
+        "d": 10
+      },
+      "time": {
+        "h": 17,
+        "min": 6
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-50-natal"
+  },
+  {
+    "n": 51,
+    "name": "貪狼獨坐寅申",
+    "borrowed": false,
+    "input": {
+      "solar": {
+        "y": 1956,
+        "m": 1,
+        "d": 1
+      },
+      "time": {
+        "h": 9,
+        "min": 22
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-51-natal"
+  },
+  {
+    "n": 52,
+    "name": "天機巨門坐卯酉",
+    "borrowed": false,
+    "input": {
+      "solar": {
+        "y": 1970,
+        "m": 6,
+        "d": 18
+      },
+      "time": {
+        "h": 7,
+        "min": 4
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-52-natal"
+  },
+  {
+    "n": 53,
+    "name": "紫微七殺坐巳亥",
+    "borrowed": false,
+    "input": {
+      "solar": {
+        "y": 1980,
+        "m": 5,
+        "d": 9
+      },
+      "time": {
+        "h": 22,
+        "min": 50
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-53-natal"
+  },
+  {
+    "n": 54,
+    "name": "廉貞破軍坐卯酉",
+    "borrowed": false,
+    "input": {
+      "solar": {
+        "y": 2001,
+        "m": 10,
+        "d": 15
+      },
+      "time": {
+        "h": 23,
+        "min": 45
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-54-natal"
+  },
+  {
+    "n": 55,
+    "name": "天府獨坐巳亥",
+    "borrowed": false,
+    "input": {
+      "solar": {
+        "y": 1970,
+        "m": 6,
+        "d": 11
+      },
+      "time": {
+        "h": 15,
+        "min": 4
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-55-natal"
+  },
+  {
+    "n": 56,
+    "name": "天同太陰坐子午",
+    "borrowed": false,
+    "input": {
+      "solar": {
+        "y": 2013,
+        "m": 7,
+        "d": 10
+      },
+      "time": {
+        "h": 3,
+        "min": 12
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-56-natal"
+  },
+  {
+    "n": 57,
+    "name": "武曲貪狼坐丑未",
+    "borrowed": false,
+    "input": {
+      "solar": {
+        "y": 1991,
+        "m": 4,
+        "d": 8
+      },
+      "time": {
+        "h": 5,
+        "min": 4
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-57-natal"
+  },
+  {
+    "n": 58,
+    "name": "太陽巨門坐寅申",
+    "borrowed": false,
+    "input": {
+      "solar": {
+        "y": 2002,
+        "m": 8,
+        "d": 10
+      },
+      "time": {
+        "h": 23,
+        "min": 58
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-58-natal"
+  },
+  {
+    "n": 59,
+    "name": "天相獨坐卯酉",
+    "borrowed": false,
+    "input": {
+      "solar": {
+        "y": 1987,
+        "m": 12,
+        "d": 15
+      },
+      "time": {
+        "h": 16,
+        "min": 43
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-59-natal"
+  },
+  {
+    "n": 60,
+    "name": "天機天梁坐辰戌",
+    "borrowed": false,
+    "input": {
+      "solar": {
+        "y": 2008,
+        "m": 10,
+        "d": 22
+      },
+      "time": {
+        "h": 12,
+        "min": 59
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-60-natal"
+  },
+  {
+    "n": 6,
+    "name": "天同巨門坐丑未",
+    "borrowed": true,
+    "input": {
+      "solar": {
+        "y": 1971,
+        "m": 1,
+        "d": 6
+      },
+      "time": {
+        "h": 0,
+        "min": 8
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-6-borrowed"
+  },
+  {
+    "n": 8,
+    "name": "太陽天梁坐卯酉",
+    "borrowed": true,
+    "input": {
+      "solar": {
+        "y": 1984,
+        "m": 7,
+        "d": 21
+      },
+      "time": {
+        "h": 21,
+        "min": 10
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-8-borrowed"
+  },
+  {
+    "n": 14,
+    "name": "廉貞貪狼坐巳亥",
+    "borrowed": true,
+    "input": {
+      "solar": {
+        "y": 2005,
+        "m": 12,
+        "d": 4
+      },
+      "time": {
+        "h": 1,
+        "min": 35
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-14-borrowed"
+  },
+  {
+    "n": 17,
+    "name": "天同天梁坐寅申",
+    "borrowed": true,
+    "input": {
+      "solar": {
+        "y": 1988,
+        "m": 4,
+        "d": 6
+      },
+      "time": {
+        "h": 14,
+        "min": 22
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-17-borrowed"
+  },
+  {
+    "n": 33,
+    "name": "紫微貪狼坐卯酉",
+    "borrowed": true,
+    "input": {
+      "solar": {
+        "y": 2010,
+        "m": 7,
+        "d": 15
+      },
+      "time": {
+        "h": 19,
+        "min": 59
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-33-borrowed"
+  },
+  {
+    "n": 42,
+    "name": "天機太陰坐寅申",
+    "borrowed": true,
+    "input": {
+      "solar": {
+        "y": 2010,
+        "m": 11,
+        "d": 4
+      },
+      "time": {
+        "h": 16,
+        "min": 37
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-42-borrowed"
+  },
+  {
+    "n": 50,
+    "name": "太陰太陽坐丑未",
+    "borrowed": true,
+    "input": {
+      "solar": {
+        "y": 1959,
+        "m": 11,
+        "d": 3
+      },
+      "time": {
+        "h": 8,
+        "min": 49
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-50-borrowed"
+  },
+  {
+    "n": 52,
+    "name": "天機巨門坐卯酉",
+    "borrowed": true,
+    "input": {
+      "solar": {
+        "y": 1990,
+        "m": 11,
+        "d": 22
+      },
+      "time": {
+        "h": 4,
+        "min": 5
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-52-borrowed"
+  },
+  {
+    "n": 56,
+    "name": "天同太陰坐子午",
+    "borrowed": true,
+    "input": {
+      "solar": {
+        "y": 1978,
+        "m": 4,
+        "d": 7
+      },
+      "time": {
+        "h": 8,
+        "min": 46
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-56-borrowed"
+  },
+  {
+    "n": 57,
+    "name": "武曲貪狼坐丑未",
+    "borrowed": true,
+    "input": {
+      "solar": {
+        "y": 1950,
+        "m": 3,
+        "d": 21
+      },
+      "time": {
+        "h": 15,
+        "min": 32
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-57-borrowed"
+  },
+  {
+    "n": 58,
+    "name": "太陽巨門坐寅申",
+    "borrowed": true,
+    "input": {
+      "solar": {
+        "y": 2001,
+        "m": 10,
+        "d": 10
+      },
+      "time": {
+        "h": 3,
+        "min": 0
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-58-borrowed"
+  },
+  {
+    "n": 60,
+    "name": "天機天梁坐辰戌",
+    "borrowed": true,
+    "input": {
+      "solar": {
+        "y": 1974,
+        "m": 12,
+        "d": 5
+      },
+      "time": {
+        "h": 14,
+        "min": 46
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-60-borrowed"
+  }
+]

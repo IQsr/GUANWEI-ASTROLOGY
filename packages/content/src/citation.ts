@@ -10,6 +10,8 @@ import { XINGXI } from './xingxi';
 import { adultOf } from './youth';
 import mingLocations from './cards/ming-source-locations.json';
 import { backedSource } from './ming-backed-sources';
+import { freeMingSource } from './free-ming-sources';
+import { systemReadingSource } from './free-ming-systems-sources';
 
 /* ───────────────────────────────────────────────────────────
  * 出處註（2026-10-12 · Issac：「人哋 challenge 我哋，要講得出喺邊本書、邊一頁、邊一節」）
@@ -35,6 +37,10 @@ import { backedSource } from './ming-backed-sources';
  * ─────────────────────────────────────────────────────────── */
 
 export type Citation = {
+  /** 完整語意跨頁時，page / pageEnd 為節錄的起訖 PDF 頁序。 */
+  pageEnd?: number;
+  /** 編輯校讀說明，與原文分開顯示。 */
+  sourceNote?: string;
   pageConvention?: 'pdf';
   /** 已核短節錄；省略處以「……」標示，不補成原文。 */
   excerpt?: boolean;
@@ -56,12 +62,19 @@ const AUTHOR = '王亭之';
 const BOOK = '中州派紫微斗數深造講義';
 
 export function citation(id: string): Citation | null {
-  const backed = backedSource(id);
-  if (backed) return {
-    id, author: AUTHOR, authorEn: 'Wang Tingzhi', book: BOOK,
-    bookEn: 'Advanced Lectures on Zhongzhou School Zi Wei Dou Shu',
-    page: backed.page, section: backed.section, text: backed.excerpt, pageConvention: 'pdf', excerpt: true,
-  };
+  const backed = backedSource(id) ?? freeMingSource(id) ?? systemReadingSource(id);
+  if (backed) {
+    const pages = 'quotePages' in backed ? backed.quotePages as number[] : undefined;
+    const sourceNote = 'sourceNote' in backed ? backed.sourceNote as string : undefined;
+    return {
+      id, author: AUTHOR, authorEn: 'Wang Tingzhi', book: BOOK,
+      bookEn: 'Advanced Lectures on Zhongzhou School Zi Wei Dou Shu',
+      page: pages?.[0] ?? backed.page,
+      ...(pages && pages[1]! > pages[0]! ? { pageEnd: pages[1] } : {}),
+      ...(sourceNote ? { sourceNote } : {}),
+      section: backed.section, text: backed.excerpt, pageConvention: 'pdf', excerpt: true,
+    };
+  }
   const locator = (mingLocations.locations as Record<string, { page: number; section: string; excerpt: string[] }>)[id];
   if (locator) return {
     id, author: AUTHOR, authorEn: 'Wang Tingzhi', book: BOOK,

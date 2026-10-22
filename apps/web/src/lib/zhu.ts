@@ -64,9 +64,9 @@ export function termIndex(): Term[] {
  */
 export type Run = { text: string; term?: Term; cite?: string[] };
 
-export type MarkedSegment = { slot: string; runs: Run[]; heading?: string };
+export type MarkedSegment = { slot: string; runs: Run[]; heading?: string; referenceConditions?: string[] };
 
-export type ChapterInput = { palace: string; segments: { slot: string; text: string; heading?: string; statements?: MingStatement[] }[] };
+export type ChapterInput = { palace: string; segments: { slot: string; text: string; heading?: string; statements?: MingStatement[]; referenceConditions?: string[] }[] };
 
 export type MarkedChapter = { palace: string; segments: MarkedSegment[] };
 
@@ -173,7 +173,8 @@ export function markBook(chapters: ChapterInput[], lang: 'zh' | 'en' | 'ja' = 'z
           if (gap) runs.push({ text: gap });
         }
       }
-      return { slot: seg.slot, runs, ...(seg.heading ? { heading: seg.heading } : {}) };
+      return { slot: seg.slot, runs, ...(seg.heading ? { heading: seg.heading } : {}),
+        ...(seg.referenceConditions?.length ? { referenceConditions: [...seg.referenceConditions] } : {}) };
     }),
   }));
 }
