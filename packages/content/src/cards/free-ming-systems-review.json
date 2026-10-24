@@ -3,7 +3,7 @@
   "scope": "57組實坐命宮與骨架共同主題、25項明確單項修飾、實際借星命宮的共同主題；三組既有實坐專用分支保留，不重新認證全部定極規則或英日新譯。",
   "review_document": "docs/free-ming-all-systems-2026-10-22.md",
   "data_sha256": "19b47c9876897330fd660ccbe10ab3ccfa005d5fcfddd9b0d16005bd31e275f1",
-  "selector_sha256": "758725353866412ab65edc86a9354a802ccc6c552bacf585c445d2a55f0ab878",
+  "selector_sha256": "1600adabfab054819497c33b128d4467ec41ee2c47e86a9e2c4e4b310c145423",
   "sections": [
     {
       "n": 1,
@@ -1562,5 +1562,6 @@
     "review_document": "docs/free-ming-reference-context-2026-10-22.md",
     "audit": "free-ming-reference-audit.json",
     "scope": "逐項重讀原段與消費文案，補齊否定、例外及跨頁句；校讀說明與原文分開，不重認證舊規則。"
-  }
+  },
+  "engine_query_review": "docs/engine-p0-2026-10-23.md"
 }

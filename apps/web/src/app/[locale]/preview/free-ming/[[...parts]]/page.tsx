@@ -50,8 +50,8 @@ export default async function FreeMingPreview({ params }: { params: Promise<{ lo
     <main className="juan tai">
       <Juanshou back={{ href: `${root}/tongliang/ming`, label: zhFor(locale, '回到先行三組') }} />
       <div className="banxin">
-        <h1 className="font-serif text-h2 tracking-[0.12em]">{zhFor(locale, '十二宮・命宮與骨架新稿')}</h1>
-        <p className="mt-4 text-sm leading-[1.9] text-ink-2">{zhFor(locale, '本機預覽，未部署。以下均為合成命盤；每段最多一個「據」，展開可讀出處、原文與條件。')}</p>
+        <h1 className="font-serif text-h2 tracking-[0.12em]">{zhFor(locale, '十二宮閱讀預覽・敘事稿')}</h1>
+        <p className="mt-4 text-sm leading-[1.9] text-ink-2">{zhFor(locale, '本機預覽，未部署。以下均為合成命盤；每宮一段直接建議，明示「編輯建議」。每段最多一個「據」，展開可讀出處、原文、條件與例外。')}</p>
         <nav aria-label="其餘十一宮" className="mt-6 flex flex-wrap gap-5 text-sm">
           {chapters.slice(2).map((c) => <Link key={c.key} className="lian" href={`${root}/tongliang/${c.key}`}>{zhFor(locale, c.slug)}</Link>)}
         </nav>
@@ -65,6 +65,8 @@ export default async function FreeMingPreview({ params }: { params: Promise<{ lo
                 <span className="flex gap-5 text-sm">
                   <Link className="lian" href={`${root}/${key}/ming`}>{zhFor(locale, '命宮')}</Link>
                   <Link className="lian" href={`${root}/${key}/bone`}>{zhFor(locale, '骨架')}</Link>
+                  <Link className="lian" href={`${root}/${key}/spouse`}>{zhFor(locale, '夫妻')}</Link>
+                  <Link className="lian" href={`${root}/${key}/property`}>{zhFor(locale, '田宅')}</Link>
                 </span>
               </li>;
             })}
@@ -79,7 +81,7 @@ export default async function FreeMingPreview({ params }: { params: Promise<{ lo
   const result = cast(group.birth);
   if (!result.ok) notFound();
   const year = 2026;
-  const sources = bookChapters(result.value, { seed: group.seed, year, solar: group.birth.solar, place: group.birth.place.label });
+  const sources = bookChapters(result.value, { seed: group.seed, year, solar: group.birth.solar, place: group.birth.place.label, birthSex:group.birth.sex, crossPalaceReading:['tongliang','tianfu','jiliang'].includes(group.key) });
   if (!sources) notFound();
   const drafts = chapterDrafts(sources, group.seed);
   const here = drafts.find((d) => d.slug === chapter.slug);

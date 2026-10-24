@@ -1,4 +1,5 @@
-import { sanFangPalaces, type Chart } from '@guanwei/ziwei';
+import { sanFangPalaces, queryNatalStar, lookupNatalStar, type Sihua, type Chart } from '@guanwei/ziwei';
+import { evaluate } from './condition';
 import { xingxiOf } from './xingxi';
 import { isYouthReader } from './youth';
 import type { MingStatement } from './ming-writer';
@@ -46,13 +47,15 @@ export function systemMingReading(chart: Chart, year: number): { ming: FreeReadi
   const four = sanFangPalaces(chart.palaces, m.branch);
   const modifiers = x.borrowed ? [] : profile.signals.filter((s) => {
     const ps = s.where === 'same' ? [m] : four;
-    if (!ps.some((p) => p.stars.some((star) => star.name === s.star && star.sihua === s.hua))) return false;
+    if (evaluate({ all: [{ star: s.star, at: ps.map((p) => p.branch) }, { star: s.star, hua: s.hua as Sihua }] }, { chart }).status !== 'matched') return false;
     // 「單見」只在四方皆實坐、另星確實不在四方時使用；借會不拿來猜缺曜。
     if (s.requiresAbsent?.length && (four.some((p) => p.borrowsFrom)
-      || four.some((p) => p.stars.some((star) => s.requiresAbsent!.includes(star.name))))) return false;
+      || s.requiresAbsent.some((name) => queryNatalStar(chart, name, { branches: four.map((p) => p.branch) }).status !== 'absent'))) return false;
     return true;
   }).map((s): FreeReadingSegment => {
-    const palace = four.find((p) => p.stars.some((star) => star.name === s.star && star.sihua === s.hua))!;
+    const position = lookupNatalStar(chart, s.star);
+    if (position.status !== 'available') throw Error('Matched modifier lost its native placement');
+    const palace = four.find((p) => p.branch === position.branch)!;
     const palaceLabel = palace.name.endsWith('宮') ? palace.name : `${palace.name}宮`;
     const fact = `本盤${palaceLabel}有${s.star}化${s.hua}。`;
     return { slot: '展開', heading: '本盤可確認的修飾', text: fact + s.text,

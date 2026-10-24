@@ -1,0 +1,209 @@
+{
+  "date": "2026-10-24",
+  "scope": "P1 first cross-palace pilot: three families, natal 命官財福, explicitly enabled; no writer activation",
+  "previous_audit_bindings": {
+    "engine-p1a-review.json": {
+      "packages/content/package.json": "1e63fb8bc2b73df7ee4bfb2b970ac3039bb47917cb6ba50b22344ceb710e5156"
+    },
+    "engine-p1b-review.json": {
+      "packages/content/package.json": "1e63fb8bc2b73df7ee4bfb2b970ac3039bb47917cb6ba50b22344ceb710e5156"
+    },
+    "pre-commit-fixture-types": {
+      "apps/web/test/engine-p0.test.ts": "2d11b6d5f461f3a4cf3862051736d6c5386b71cc9a5135c68a1b3c0460f02c55"
+    }
+  },
+  "renewal_basis": "Only package export added. All three P1a and all three P1b complete report SHA256 values verified unchanged before renewing that single package parent binding. No prior source/condition semantics altered.",
+  "parents": {
+    "packages/content/package.json": "441a419b18a2de2e2cc389653c62b0d54bf2f81587cab7e984d0ce7bf81dcd83",
+    "packages/content/src/engine-p1-cross.ts": "4d83e5cc3be09638e9648129937eaeaf9bb14ddb7d2deb690748f135abb322e8",
+    "packages/content/src/cards/engine-p1-cross-rules.json": "9f4c21b20ffb9a8ee33228997e5709f36601a7f8720d374f208ae5ad818d63d3",
+    "packages/content/test/engine-p1-cross.test.ts": "3c95a8d2806bfd82595851fae90ff4f738647bf0ad4a3c43ebd0ea2e12b294b0",
+    "packages/content/src/engine-p1a.ts": "fdbf2729415f978ca8c4b2977e06c3155ec8b1b3279e6f8cc9197c5436bfe7fb",
+    "packages/content/src/engine-p1b.ts": "51c9001916ebbfdf657456bd94799ae989ba44cddffc09418f58bfb5e7046fe1",
+    "packages/content/src/pilot-analysis.ts": "fac16efc111736eea1f1af2f570909dc621e12e60a22445f1648a64e74121688",
+    "packages/content/src/condition.ts": "18968b82fd6bf8435a3646612f1a22f9a62fe76444425d35dce257f9b535f847",
+    "packages/ziwei/src/chart/star-query.ts": "c5fb7dde7973beb0ed1daad731008b99db135555ec2a43f94240740f96124798",
+    "packages/ziwei/src/chart/sanfang.ts": "06990ffa7ed3bb39e27742851ebec09609830760fb3e057b0bd54b8f7f80f2be",
+    "packages/ziwei/src/chart/major-stars.ts": "63e43df38719ba9244558494c835c94b9c71b842e43f4c47be4c3e1a2187fbe5",
+    "tools/wang-reference/deep-index.json": "225e030d33c39563d7122fea7c0f8ed5776fcc09d18f719fa4cbc915ccd61703",
+    "apps/web/test/engine-p0.test.ts": "b20fcee878d186947c96ed09f2eefa094cc9f78e6062be92e0be2ac01fc199c9",
+    "apps/web/src/lib/free-ming-preview.json": "18dacef35e624cca7dd0bc798c8f22e266494045554edeac298c3f3d3482166e",
+    "apps/web/test/fixtures/palace-before.json": "683ca7824ed040ae5fa0e6fcfcc9d1d83ebcfb07b200ae6627a9f82f8b7ba0da",
+    "docs/engine-p1-cross-2026-10-24.md": "b9d3d15b88c7923efe8e420346d02d26a5d272601f9f0708b6afe23381ae47df"
+  },
+  "samples": [
+    {
+      "id": "TL",
+      "report_sha256": "5c9131a3f86c9647059230917d202d6f409b71cbcdfdab3ec9dd1530c9454461",
+      "p1a_sha256": "4a1fc53f8b131c00cdea690724259eab604d01f454dae418dfa20c30b1eb0acf",
+      "p1b_sha256": "a276fa0ba661996e1222aee60613aec042c6b9164fc563baddc43dea07fe6c8a",
+      "results": [
+        {
+          "id": "tl-four-frame",
+          "status": "supported"
+        },
+        {
+          "id": "tl-work-changing",
+          "status": "supported"
+        },
+        {
+          "id": "tl-design-same-palace",
+          "status": "not_supported"
+        },
+        {
+          "id": "tl-wealth-planning",
+          "status": "supported"
+        },
+        {
+          "id": "tl-wealth-tongji",
+          "status": "supported"
+        },
+        {
+          "id": "tl-wealth-yanglu",
+          "status": "supported"
+        },
+        {
+          "id": "tl-rest-active",
+          "status": "supported"
+        },
+        {
+          "id": "tl-rest-day-branch",
+          "status": "pending"
+        }
+      ],
+      "threads": [
+        {
+          "id": "tl-work-money",
+          "status": "supported"
+        },
+        {
+          "id": "tl-money-rest",
+          "status": "supported"
+        }
+      ]
+    },
+    {
+      "id": "A",
+      "report_sha256": "c9d3911a15eba673437937fcdb4939586e6a8148f5d64987c827f6f48d366959",
+      "p1a_sha256": "2b8f6bcf124f975f688ea3524e799d3feaa5222e2dbee4c79cced62cb7cc38cc",
+      "p1b_sha256": "b01d2e8b89afed3fb8ef9fe4893c52682d72616d9d55f56c80a2d86e1e461827",
+      "results": [
+        {
+          "id": "tf-store",
+          "status": "supported"
+        },
+        {
+          "id": "tf-career-role",
+          "status": "supported"
+        },
+        {
+          "id": "tf-career-ke",
+          "status": "supported"
+        },
+        {
+          "id": "tf-career-authority",
+          "status": "not_supported"
+        },
+        {
+          "id": "tf-wealth-reference",
+          "status": "supported"
+        },
+        {
+          "id": "tf-rest-wuji",
+          "status": "supported"
+        },
+        {
+          "id": "tf-rest-wutan",
+          "status": "supported"
+        },
+        {
+          "id": "tf-ren-ke-balance",
+          "status": "pending"
+        }
+      ],
+      "threads": [
+        {
+          "id": "tf-role-resources",
+          "status": "not_supported"
+        },
+        {
+          "id": "tf-role-tech",
+          "status": "supported"
+        },
+        {
+          "id": "tf-money-satisfaction",
+          "status": "supported"
+        }
+      ]
+    },
+    {
+      "id": "C",
+      "report_sha256": "56699abd312275be263f08543170da01aba792d20cf407ca1243ea46e9249400",
+      "p1a_sha256": "b67e91a4db44ff368b6e9f811d3706e53507f1ee199e12a13b6f8426dbe51cc2",
+      "p1b_sha256": "a471d90316e3d2ac8669677f9b1a63900fdae1d96b7443e7f91a16dbc9773530",
+      "results": [
+        {
+          "id": "jl-four-frame",
+          "status": "supported"
+        },
+        {
+          "id": "jl-career-reference",
+          "status": "supported"
+        },
+        {
+          "id": "jl-career-yanglu",
+          "status": "not_supported"
+        },
+        {
+          "id": "jl-wealth-tongyin",
+          "status": "supported"
+        },
+        {
+          "id": "jl-wealth-assistant",
+          "status": "supported"
+        },
+        {
+          "id": "jl-wealth-distant",
+          "status": "not_supported"
+        },
+        {
+          "id": "jl-rest-labor",
+          "status": "supported"
+        },
+        {
+          "id": "jl-rest-opposite",
+          "status": "supported"
+        },
+        {
+          "id": "jl-rest-art",
+          "status": "supported"
+        }
+      ],
+      "threads": [
+        {
+          "id": "jl-work-value",
+          "status": "supported"
+        },
+        {
+          "id": "jl-resources-rest",
+          "status": "supported"
+        }
+      ]
+    }
+  ],
+  "decisions": [
+    "Only native facts are counted; reference edges keep origin IDs, original hua and original companion positions.",
+    "Empty-palace reference requires all fourteen major-star placements, unique twelve-palace layout, explicit opposite borrowing marker, nonempty native origin, and exact source major set.",
+    "Synthesis is editorial, source-bound and emitted only when every prerequisite is supported. Missing input remains pending.",
+    "天府 sample 紫微權 is not in 官祿四正: authority card and its thread excluded, not silently accepted from family label.",
+    "機梁 sample has 官祿天馬 but no 財帛祿存同度: remote-wealth branch excluded. 陽巨無祿 branch excluded.",
+    "日夜、輔佐眾多、調和 and previous 明斷/尖刻 gates remain unresolved rather than assigned arbitrary star counts.",
+    "福德空宮同陰 has structural/財福對讀 scope only; not falsely cited as a sample-specific original-book judgment.",
+    "Original pages452,545,571 visually checked; unresolved text retained in source issue notes, not silently repaired."
+  ],
+  "fixture_type_review": {
+    "date": "2026-10-24",
+    "change": "Replace explicit any fixture callbacks with a BirthInput-based SnapshotFixture reader. Optional ids default to empty only for the same TL/A/C membership filter; no fixture, assertion, chart or product code changed.",
+    "validation": "Web typecheck and all four engine-p0 regression tests pass; all 75 exact chart/book/palace snapshots and three complete P1a/P1b/cross unchanged-output checks pass."
+  }
+}

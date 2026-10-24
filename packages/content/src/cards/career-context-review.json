@@ -1,0 +1,33 @@
+{
+  "date": "2026-10-23",
+  "scope": "空宮借陽巨官祿第二段解說；PDF472太陰段原頁疑字註",
+  "before": "巨門化忌仍可能把唇舌用在工作，太陽化忌則更重排難解紛；職業名稱只是原書舉例。",
+  "source_sections": [
+    "deep.career.太陽",
+    "deep.career.巨門",
+    "deep.health.太陰"
+  ],
+  "direct_block": "wtz.deep.p528.b008",
+  "page_note_block": "wtz.deep.p472.b005",
+  "pdf_sha256": "513e3d068040efe3684eb3c0e44cf6e447787670bbf5d618f022da2d6c55231b",
+  "visual_check": "已看原始root tmp/wang-reference/deep/independent-review-472.png 的完整原頁，原頁確實寫太阳属阴火。",
+  "policy": "保留原始來源、引文、條件、例外和既有讀稿；借宮解說只限官祿空宮且對宮寅申實坐陽巨，絕不將對宮四化配曜搬成本宮。",
+  "release": "local only; no push or deploy",
+  "verified_fixture": "C：官祿寅宮無主星、借對宮申陽巨；對宮兩星無本命四化；年少建議維持報告／小組討論。",
+  "verification": {
+    "tests": "web54+content25共79項相關測試通過；72盤936章原來源及條件保留、完整原文逐字不變，新增借星與實坐反例、472頁疑字及繁簡快照核對。",
+    "static": "web/content typecheck與production build通過；build lint只見3項既有Yindao警告。",
+    "ui": "機梁官祿正文及第二據、天府疾厄第一與第二據均實際展開；每頁據數[1,1,0]；原化忌分支及無四煞刑耗例外仍在；疾厄疑字註繁簡均可讀。",
+    "preview": "http://localhost:3101/preview/free-ming/jiliang/career",
+    "release": "no commit/push/deploy"
+  },
+  "parents": {
+    "packages/content/src/cards/palace-narrative.json": "7701495cb668369e7ffb4c0c77b4b44392d96d5daeae90b23d921a04acd35e08",
+    "packages/content/src/palace-residual-context.ts": "8f4e50a38ba31f9aa8c05533ba8e0b8b870d7cccfa600475ca197dee353bf43f",
+    "packages/content/src/palace-quote-review.ts": "4715e0ee121a3dcc2150dd0ba84cc977eeaba3646ab7a881e5fd9876761fc2a8",
+    "packages/content/src/cards/reading-focus.json": "d335d1bd7c69d501a402f68266ad1f6b021508c69eedaff8da11eff37a259b6a",
+    "packages/content/src/ming-version.ts": "c1f66447de7bb82636ff7152c192cbd6af255aeab5f24259bec4180e534c1b64",
+    "apps/web/test/career-context.test.ts": "5dbe084666a054311a2882fe0510fc3455ca06170f9b1012629d4b54313797c9"
+  },
+  "protected_reader_check": "既有palace-narrative parents逐項重算仍吻合；原始核讀指紋未刷新。"
+}

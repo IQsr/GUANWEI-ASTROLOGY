@@ -1,3 +1,5 @@
+import {crossPalaceSource} from './cross-palace-sources';
+import { locatedQuoteParts, type QuotePart } from './palace-quote-review';
 import { BRANCH_TOPICS, slotPattern, stripOr } from './branch';
 import { DAXIAN_HUA, DAXIAN_PIVOTS, LOOKBACK_EVENTS, firstClause, pivotWhyPattern } from './daxian';
 import { CORPUS } from './lexicon';
@@ -38,6 +40,8 @@ import { palaceReadingSource } from './palace-reader';
  * ─────────────────────────────────────────────────────────── */
 
 export type Citation = {
+  /** Complete, individually located raw paragraphs; page-reading notes stay outside the quote. */
+  quoteParts?: QuotePart[];
   /** 完整語意跨頁時，page / pageEnd 為節錄的起訖 PDF 頁序。 */
   pageEnd?: number;
   /** 編輯校讀說明，與原文分開顯示。 */
@@ -63,11 +67,13 @@ const AUTHOR = '王亭之';
 const BOOK = '中州派紫微斗數深造講義';
 
 export function citation(id: string): Citation | null {
-  const backed = backedSource(id) ?? freeMingSource(id) ?? systemReadingSource(id) ?? palaceReadingSource(id);
+  const backed = crossPalaceSource(id) ?? backedSource(id) ?? freeMingSource(id) ?? systemReadingSource(id) ?? palaceReadingSource(id);
   if (backed) {
     const pages = 'quotePages' in backed ? backed.quotePages as number[] : undefined;
     const sourceNote = 'sourceNote' in backed ? backed.sourceNote as string : undefined;
+    const quoteParts = locatedQuoteParts(backed);
     return {
+      ...(quoteParts ? {quoteParts} : {}),
       id, author: AUTHOR, authorEn: 'Wang Tingzhi', book: BOOK,
       bookEn: 'Advanced Lectures on Zhongzhou School Zi Wei Dou Shu',
       page: pages?.[0] ?? backed.page,

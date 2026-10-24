@@ -1,0 +1,60 @@
+{
+  "date": "2026-10-23",
+  "scope": "只補天府樣本父母第二段，依實坐同陰、羊火同宮及兩主星無本命四化呈現；建議沿用已核communication。",
+  "entry": "parents-天同+太陰-子午-follow",
+  "before": {
+    "original": "支持不能抹去分歧，分歧也不能直接推成關係終結。正文沒有由太陰化忌預告父母存亡，亦不把同陰一律當成受寵。",
+    "prose": "支持不能抹去分歧，分歧也不能直接推成關係終結。",
+    "relocated": [
+      "正文沒有由太陰化忌預告父母存亡，亦不把同陰一律當成受寵。"
+    ]
+  },
+  "after": {
+    "original": "支持不能抹去分歧，分歧也不能直接推成關係終結。正文沒有由太陰化忌預告父母存亡，亦不把同陰一律當成受寵。",
+    "prose": "支持不能抹去分歧，分歧也不能直接推成關係終結。",
+    "relocated": [
+      "正文沒有由太陰化忌預告父母存亡，亦不把同陰一律當成受寵。"
+    ],
+    "context": "tongyin-parents"
+  },
+  "fixture": {
+    "id": "A",
+    "parents_branch": "子",
+    "own": [
+      "天同旺",
+      "太陰廟",
+      "文昌",
+      "擎羊",
+      "火星"
+    ],
+    "own_major_hua": [],
+    "trine": [
+      "辰宮天機、天梁化祿"
+    ],
+    "opposite": "午宮空宮；不搬借入主星"
+  },
+  "source_sections": [
+    "deep.parents.天同",
+    "deep.parents.太陰"
+  ],
+  "supporting_blocks": [
+    "wtz.deep.p587.b009",
+    "wtz.deep.p587.b010"
+  ],
+  "pdf_sha256": "513e3d068040efe3684eb3c0e44cf6e447787670bbf5d618f022da2d6c55231b",
+  "reading": "完整讀PDF587–588天同、590–591太陰及跨頁原文；星系條文優先，不將單星廟陷說法直接抵銷星系修飾，不以煞曜數量判煞重，不定義未核的吉化範圍。",
+  "advice": "正文解說關心、認同、要求與安排的分別；既有成人／少年建議承接一次談一件事、把需要說具體、確認要求與下一步。建議不加星曜判斷。",
+  "unchanged": "原始來源JSON、原文、索引、所有來源ID、條件與例外不變；不新增引用，不改其他盤的已核分支。",
+  "parents": {
+    "packages/content/src/cards/palace-narrative.json": "d99d30ddb3ba44572b252669b51e5a520874873f1b83739d8041370c3549d51b",
+    "packages/content/src/palace-residual-context.ts": "8575f1d14d6751bedf80f150c19dae634258b8b50f8e3adcd93bd588e68b1855",
+    "packages/content/src/palace-advice.ts": "461f6f3ae92eda5db866f93d0b906d083c7b3acf515a0ce5442035a015f4fb0a",
+    "packages/content/src/cards/palace-advice.json": "271b649df8b64efedecc273e99ed313a9e713f583c12db784af910c703ec7652"
+  },
+  "verification": {
+    "tests": "39項相關測試通過，包含本宮／三方移位、借星、主星帶四化、成人／少年建議、936章來源條件保留。",
+    "build": "內容typecheck與網站production build通過；編譯只有既有Yindao警告。",
+    "ui": "實讀天府父母新段落，展開第二段據，原文否定與例外仍在；正文每段一據，建議不掛原書引用。",
+    "preview": "本機3101，未push、未部署。"
+  }
+}

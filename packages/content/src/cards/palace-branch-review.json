@@ -1,0 +1,75 @@
+{
+  "date": "2026-10-23",
+  "scope": "疾厄同陰實坐與借星適用分支、僕役子女語氣、福德原頁疑字與逐完整原段顯示去重；不改原頁或抽取全文。",
+  "changes": {
+    "health-天同+太陰-子午-follow": {
+      "before": {
+        "original": "原文含調治語句，但正文沒有轉成個人治療建議。兩星同宮、借入參照與運限觸發仍分開保存。",
+        "prose": "若有火鈴同度，原書轉談濕火與四肢痛楚；若太陰化忌，則沿陰虛虧損展開。這是同陰主線下兩種不同的配合。",
+        "heading": "火鈴同度與太陰化忌，各自另開一支"
+      },
+      "after": {
+        "original": "原文含調治語句，但正文沒有轉成個人治療建議。兩星同宮、借入參照與運限觸發仍分開保存。",
+        "prose": "若有火鈴同度，原書轉談濕火與四肢痛楚；若太陰化忌，則沿陰虛虧損展開。這是同陰主線下兩種不同的配合。",
+        "heading": "同陰的基本取象，與另外的配合",
+        "relocated": [
+          "原文含調治語句，但正文沒有轉成個人治療建議。"
+        ],
+        "context": "tongyin-health"
+      }
+    },
+    "friends-破軍+紫微-丑未-base": {
+      "before": {
+        "original": "紫微、破軍同宮，原書見輔佐的一支仍保留得力下屬另謀發展的修飾。這章要看有人能做事之後，能否把知識、分工與交接留下。",
+        "prose": "紫微、破軍同宮，原書見輔佐的一支仍保留得力下屬另謀發展的修飾。要緊的是有人能做事之後，能否把知識、分工與交接留下。"
+      },
+      "after": {
+        "original": "紫微、破軍同宮，原書見輔佐的一支仍保留得力下屬另謀發展的修飾。這章要看有人能做事之後，能否把知識、分工與交接留下。",
+        "prose": "紫微、破軍同宮，原書談輔佐吉曜帶來的助力時，亦指出得力的人可能另謀發展。有人能做事之後，知識、分工與交接能否留下，便成為這一宮的重點。",
+        "relocated": []
+      }
+    },
+    "children-太陽+巨門-寅申-follow": {
+      "before": {
+        "original": "可以看對方能否把理由說完整，以及你是否容許他提出不同意見。才華與兩人相處須各自觀察，沒有由化忌就推晚輩品格不佳。",
+        "prose": "要留意對方能否把理由說完整，以及你是否容許他提出不同意見。才華與兩人相處須各自觀察，沒有由化忌就推晚輩品格不佳。"
+      },
+      "after": {
+        "original": "可以看對方能否把理由說完整，以及你是否容許他提出不同意見。才華與兩人相處須各自觀察，沒有由化忌就推晚輩品格不佳。",
+        "prose": "要留意對方能否把理由說完整，以及你是否容許他提出不同意見。才華是否能發揮，與彼此能否好好相處，是兩件事；讓對方表達自己的想法，才較容易看清他的能力與需要。",
+        "relocated": [
+          "太陽、巨門同宮，原書在巨門化忌又會吉化時仍以「口舌生財」論；煞忌刑曜齊集另論，不能單由化忌判斷晚輩品格。"
+        ]
+      }
+    }
+  },
+  "source_sections": [
+    "deep.health.天同",
+    "deep.health.太陰",
+    "deep.children.太陽",
+    "deep.friends.紫微",
+    "deep.wellbeing.武曲"
+  ],
+  "pdf_sha256": "513e3d068040efe3684eb3c0e44cf6e447787670bbf5d618f022da2d6c55231b",
+  "visual_page_review": {
+    "page": 571,
+    "result": "命中疑字在渲染原頁亦可見，未臆改。頁571及小節跨頁前後文完整核讀。",
+    "notes": "packages/content/src/palace-quote-review.ts"
+  },
+  "quotes": "兩組來源ID、原抽取文字、全部完整原段、條件、例外照存；同一據只合併相同書名、block ID、頁碼、原文與校讀註的段落。沒有以字詞相似刪重。",
+  "parents": {
+    "packages/content/src/cards/palace-narrative.json": "17ddd1c237512607e40cdb490c32b3ad07ea78f93d01cd49ee3799bc24d5b5ab",
+    "packages/content/src/palace-residual-context.ts": "ea69cf6a9dae66f74794144fac5098b564aebd3061b2f1381f8278df3ee7b236",
+    "packages/content/src/palace-quote-review.ts": "350e06d04ee0b6788a0eb2ec1bc6debc789863cb519a2c50abdf76ff0f5f6cd0",
+    "packages/content/src/citation.ts": "11e81b0e679e9c4862ebc361c986abdb729b5770b4aa5d628406d04e8d14f79f",
+    "apps/web/src/lib/reference-presentation.ts": "7c355b0c7b896cf08a5ac545c906407f25572baebccb15296c96e2eaac44e4aa",
+    "apps/web/src/components/Juan.tsx": "02ff4325012e5eacd99517d1dcc0d3f2a1d24dc4c1b958a3893932ae75191d2c",
+    "apps/web/src/lib/mingshu.ts": "13d92b3998c37e3bb5a4e80084cd458ad4c72a1b527a6637d7e89309c1592885"
+  },
+  "verification": {
+    "tests": "20項內容檢查及43項網站測試通過；其後重跑受影響的8項通過。",
+    "static": "content/web typecheck、web lint與production build通過；lint只有4項既有警告。",
+    "ui": "四個改動章節實際核對；疾厄條件可展開，福德兩組引文十個獨特完整原段、重複三段只列一次，原頁疑字註獨立顯示；繁簡均正常。",
+    "release": "只開本機3101預覽，未push、未部署。"
+  }
+}

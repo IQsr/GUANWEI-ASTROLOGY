@@ -1,3 +1,4 @@
+import { setTestHuas } from './helpers/chart-mutations';
 import { createHash } from 'node:crypto';
 import { readFileSync } from 'node:fs';
 import { expect, it } from 'vitest';
@@ -46,13 +47,13 @@ it('太陰單項四化修飾只看實際同宮星與指定四化，不以另一�
   }
   expect(found).toBeDefined();
   const moon = found!.palaces.find((p) => p.name === '命宮')!.stars.find((s) => s.name === '太陰')!;
-  moon.sihua = '忌';
+  setTestHuas(found!, { 太陰: '忌' });
   const selected = (c: typeof found) => freeMingReading(c!, 2026)!.ming.flatMap((p) => p.statements).flatMap((s) => s.source_ids);
   const signal = profile.signals.find((s) => s.hua === '忌')!.id;
   expect(selected(found)).toContain(signal);
-  moon.sihua = undefined;
+  setTestHuas(found!, { 太陰: null, 天機: '忌' });
   const four = sanFangPalaces(found!.palaces, found!.palaces.find((p) => p.name === '命宮')!.branch);
-  four.flatMap((p) => p.stars).find((s) => s.name === '天機')!.sihua = '忌';
+  // The alternative hua is already assigned to 天機, with four-hua coverage preserved.
   expect(selected(found)).not.toContain(signal);
 });
 

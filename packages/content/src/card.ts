@@ -127,7 +127,7 @@ export function cardsFor(chart: Chart, annual?: AnnualChart, layer: Card['layer'
     if (card.pole && !(Array.isArray(card.pole) ? card.pole : [card.pole]).includes(pole)) continue;
     const w = check(card.when, ctx);
     if (w.status !== 'matched') continue;
-    if (card.none && evaluate(card.none, ctx).status === 'matched') continue;
+    if (card.none && evaluate(card.none, ctx).status !== 'unmatched') continue;
     if (card.decades) {
       const ds = decadesFor(chart, card.decades);
       if (!ds.length) continue;

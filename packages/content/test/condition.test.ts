@@ -106,7 +106,7 @@ describe('原子', () => {
     const zi = palaceOfStar('紫微');
     const withZi = zi.stars.filter((s) => s.name !== '紫微')[0];
     if (withZi) expect(run({ together: ['紫微', withZi.name] }).status).toBe('matched');
-    expect(run({ together: ['紫微', '__唔存在嘅星__'] }).status).toBe('unmatched');
+    expect(run({ together: ['紫微', '__唔存在嘅星__'] }).status).toBe('not_applicable');
 
     const opp = CHART.palaces.find((p) => {
       const i = CHART.palaces.indexOf(p);
@@ -150,7 +150,7 @@ describe('組合子', () => {
   it('not：中變唔中', () => {
     const p = palaceOfStar('紫微');
     expect(run({ not: { star: '紫微', in: { name: p.name } } }).status).toBe('unmatched');
-    expect(run({ not: { star: '__冇__', in: { name: p.name } } }).status).toBe('matched');
+    expect(run({ not: { star: '__冇__', in: { name: p.name } } }).status).toBe('not_applicable');
   });
 });
 
@@ -178,7 +178,9 @@ describe('⚠「查唔到」唔准變成「冇」', () => {
    * 如果當成 unmatched，就等於話「兩樣都冇」—— 但第二樣根本冇查過。
    */
   it('any：一條 unmatched 一條 not_applicable → not_applicable', () => {
-    const r = run({ any: [{ star: '__冇__', in: { name: '命宮' } }, annualCond] }, NATAL);
+    const p = palaceOfStar('紫微');
+    const wrong = CHART.palaces.find((q) => q.name !== p.name)!;
+    const r = run({ any: [{ star: '紫微', in: { name: wrong.name } }, annualCond] }, NATAL);
     expect(r.status).toBe('not_applicable');
     if (r.status === 'not_applicable') expect(r.reason).toContain('流年');
   });

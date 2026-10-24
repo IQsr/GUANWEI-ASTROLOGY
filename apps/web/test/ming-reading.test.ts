@@ -51,7 +51,7 @@ describe('保留的逐句版快照：生成 → 存檔 → 書頁（新閱讀稿
   });
 
   it('正文用真實展開稿，段落、逐句資料及版本一同存下', () => {
-    expect(ming.content_version).toBe('rules@test+ming-expanded-v1+sentence-backed-v1+ming-translations-v1+reader-backed-v1+palace-reader-v1+content-2026-10-22-palace-readings');
+    expect(ming.content_version).toBe('rules@test+ming-expanded-v1+sentence-backed-v1+ming-translations-v1+reader-backed-v1+palace-reader-v1+content-2026-10-23-career-context');
     expect(ming.reading!.writer).toBe('sentence-backed-v1');
     expect(readingOf(ming.reading, ming.body)).toEqual(ming.reading);
     expect(ming.slots).toContain('展開');

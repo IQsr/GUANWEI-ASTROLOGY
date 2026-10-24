@@ -1,0 +1,113 @@
+{
+  "date": "2026-10-23",
+  "scope": "機梁命宮／骨架閱讀主軸、陽巨子女去重、經核原段置前。",
+  "source_sections": [
+    "deep.system.60",
+    "deep.children.太陽",
+    "deep.health.天同",
+    "deep.health.太陰",
+    "deep.wellbeing.武曲",
+    "deep.friends.紫微"
+  ],
+  "source_integrity": "原始free-ming-reading、free-ming-reader、palace-remaining、palace-focused及索引完全不改；可選來源定位型別獨立在呈現層，原分支與語意核讀指紋維持不變。",
+  "jiliang_entries": [
+    "JL-M2",
+    "JL-M4",
+    "JL-B1",
+    "JL-B2",
+    "JL-B3"
+  ],
+  "children_before": "要留意對方能否把理由說完整，以及你是否容許他提出不同意見。才華是否能發揮，與彼此能否好好相處，是兩件事；讓對方表達自己的想法，才較容易看清他的能力與需要。",
+  "direct_blocks": {
+    "JL-M1": [
+      "wtz.deep.p215.b012"
+    ],
+    "JL-M2": [
+      "wtz.deep.p215.b012",
+      "wtz.deep.p216.b006"
+    ],
+    "JL-G2": [
+      "wtz.deep.p215.b012"
+    ],
+    "JL-B1": [
+      "wtz.deep.p215.b010",
+      "wtz.deep.p215.b013",
+      "wtz.deep.p216.b001"
+    ],
+    "JL-B2": [
+      "wtz.deep.p215.b012",
+      "wtz.deep.p216.b006"
+    ],
+    "JL-GB": [
+      "wtz.deep.p215.b012",
+      "wtz.deep.p216.b006"
+    ],
+    "JL-B3": [
+      "wtz.deep.p217.b003"
+    ],
+    "JL-TJ": [
+      "wtz.deep.p216.b002"
+    ],
+    "health-天同+太陰-子午-base": [
+      "wtz.deep.p470.b003",
+      "wtz.deep.p470.b004"
+    ],
+    "health-天同+太陰-子午-follow": [
+      "wtz.deep.p470.b003",
+      "wtz.deep.p470.b004"
+    ],
+    "children-太陽+巨門-寅申-base": [
+      "wtz.deep.p411.b003",
+      "wtz.deep.p411.b005"
+    ],
+    "children-太陽+巨門-寅申-follow": [
+      "wtz.deep.p411.b003"
+    ],
+    "wellbeing-武曲+貪狼-丑未-base": [
+      "wtz.deep.p571.b002",
+      "wtz.deep.p572.b003"
+    ],
+    "wellbeing-武曲+貪狼-丑未-follow": [
+      "wtz.deep.p571.b002",
+      "wtz.deep.p572.b003"
+    ],
+    "wellbeing-武曲+貪狼-丑未-follow-context-fact": [
+      "wtz.deep.p571.b003",
+      "wtz.deep.p571.b004"
+    ],
+    "friends-破軍+紫微-丑未-base": [
+      "wtz.deep.p504.b009"
+    ],
+    "friends-破軍+紫微-丑未-follow": [
+      "wtz.deep.p504.b009"
+    ],
+    "parents-天同+太陰-子午-base": [
+      "wtz.deep.p587.b009",
+      "wtz.deep.p587.b010"
+    ],
+    "parents-天同+太陰-子午-follow": [
+      "wtz.deep.p587.b009",
+      "wtz.deep.p587.b010"
+    ]
+  },
+  "direct_policy": "只用明列block ID；完整跨頁原段不可拆成半句；未有核讀對應者保留既有引文。不把原文分支的條件等同本盤已成立。",
+  "parents": {
+    "packages/content/src/cards/reading-focus.json": "f54a1db63f74d354f994f266c1712c5b0ccb223ff71fbdf1a7014942ab47e96d",
+    "packages/content/src/reading-focus.ts": "a0867056df173bdcbcea33faff02be2db2400212549c69ec4b4e457909e32f3b",
+    "packages/content/src/palace-narrative.ts": "bd41b4d85fce56f105ad4291ac59410a13fb636f3dced84473f1d768f6432da1",
+    "packages/content/src/palace-quote-review.ts": "1e82252cc975696a7b4bb2814a083cb3ec484ac1b4a20a867a1b7cc2cd8b7a23",
+    "apps/web/src/lib/reference-presentation.ts": "c5163c792b0626ca8a7a82ad8930731bab4770fc623d0b538c8ee08d7f3da47b",
+    "apps/web/src/components/Juan.tsx": "2b3c5e42b30d9164d392c0a1f9cb11a82cfb15cac2126807e37a3eab1b78f47d",
+    "apps/web/src/lib/chapter-reading.ts": "720d101fec00c6935cf7eaf06cb6e2c9f8e24812cab6d2fda0362796327978b4",
+    "apps/web/src/lib/zhu.ts": "f2b04302a9a20fb7cbddebb3624a2a53197aebeb5e3322d4fffc6d9ba95bd544",
+    "packages/content/src/citation.ts": "48511fe84cc7581a126f5a32d3588e1e5e93fff7ab25c38c267b040a1ba3c7e9"
+  },
+  "pdf_sha256": "513e3d068040efe3684eb3c0e44cf6e447787670bbf5d618f022da2d6c55231b",
+  "verification": {
+    "tests": "70項相關測試通過；原始free-ming-reader核讀指紋維持原值，全部有定位引文分段後文字完整，72盤936章原來源與條件保留。",
+    "static": "web/content typecheck、web lint與production build通過；lint只見4項既有警告。",
+    "ui": "機梁命宮、骨架及其跨頁直接依據、天府子女繁簡、武貪福德長據均實際核對；同一段仍只一個據，直接原段在條件前，其他原文完整列後。",
+    "scope": "正文只改已列機梁段落與陽巨子女第二段；直接依據僅採明列核讀對應，未核項不自動挑原段。",
+    "release": "本機3101預覽，未push、未部署。"
+  }
+}

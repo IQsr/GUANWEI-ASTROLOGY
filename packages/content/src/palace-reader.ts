@@ -1,4 +1,7 @@
-import { sanFangPalaces, type Chart, type Palace } from '@guanwei/ziwei';
+import { remainingPalaceReading, remainingPalaceSource } from './palace-remaining';
+import { focusedPalaceReading, focusedPalaceSource } from './palace-focused';
+import { sanFangPalaces, queryNatalStar, type Chart, type Palace } from '@guanwei/ziwei';
+import { evaluate } from './condition';
 import { isYouthReader } from './youth';
 import type { FreeReadingSegment } from './free-ming-reader';
 import type { MingStatement } from './ming-writer';
@@ -17,11 +20,15 @@ const line = (text: string, kind: MingStatement['kind'], id: string, sources: st
 /** 新引用命名空間不覆寫舊書所用摘引。 */
 export const palaceReadingCiteId = (id: string) => `palace.reading.v1:${id}`;
 const sources = new Map(Object.entries(data.sources).map(([id, source]) => [palaceReadingCiteId(id), source]));
-export const palaceReadingSource = (id: string) => sources.get(id) ?? null;
+export const palaceReadingSource = (id: string) => sources.get(id) ?? focusedPalaceSource(id) ?? remainingPalaceSource(id);
 export const PALACE_READER_PALACES = data.palaces.map((p) => p.palace);
 
 /** 成書時寫入；主題段不冒充整組個人分支，明確細分只用已核條件。 */
 export function palaceReading(chart: Chart, palace: string, year: number): FreeReadingSegment[] | null {
+  const focused = focusedPalaceReading(chart, palace, year);
+  if (focused) return focused;
+  const remaining = remainingPalaceReading(chart, palace, year);
+  if (remaining) return remaining;
   const entry = entries.get(palace);
   const p = chart.palaces.find((q) => q.name === palace);
   if (!entry || !p) return null;
@@ -65,10 +72,10 @@ export function palaceReading(chart: Chart, palace: string, year: number): FreeR
   if (!borrowed && names.length === 1 && palace === '財帛' && names[0] === '太陰' && ['辰', '戌'].includes(p.branch)) {
     const four = sanFangPalaces(chart.palaces, p.branch);
     const actual = four.filter((q) => !q.borrowsFrom);
-    const sun = four.find((q) => q.branch !== p.branch && q.stars.some((s) => s.name === '太陽'));
+    const sun = four.find((q) => q.branch !== p.branch && queryNatalStar(chart, '太陽', { branch: q.branch }).status === 'present');
     // 辰戌結構要求太陽實坐對宮，不能僅憑四方搜尋到太陽。
-    const oppSun = sun?.name === '福德' && !sun.borrowsFrom && sun.stars.some((s) => s.name === '太陽' && s.sihua === '祿');
-    const tongJi = actual.find((q) => q.stars.some((s) => s.name === '天同' && s.sihua === '忌'));
+    const oppSun = sun?.name === '福德' && !sun.borrowsFrom && evaluate({ all: [{ star: '太陽', in: { name: sun.name } }, { star: '太陽', hua: '祿' }] }, { chart }).status === 'matched';
+    const tongJi = actual.find((q) => evaluate({ all: [{ star: '天同', in: { name: q.name } }, { star: '天同', hua: '忌' }] }, { chart }).status === 'matched');
     out = [segment('wealth-taiyin-base', '先分清規劃與累積',
       '太陰在財帛章，原書重點是計劃、運用與累積，並用投資計劃者和執行者作區分。這是在說求財性質，未能直接證明你平日喜歡儲錢。',
       [data.special['wealth-taiyin-base']], ['廟陷與日夜會改變求財負荷；經手的錢不等於全部屬於自己。'], fact)];

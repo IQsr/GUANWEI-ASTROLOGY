@@ -1,4 +1,5 @@
-import { BRANCHES, sanFangPalaces, type Chart, type Palace } from '@guanwei/ziwei';
+import { BRANCHES, sanFangPalaces, queryNatalStar, type Chart, type Palace } from '@guanwei/ziwei';
+import { evaluate, type Condition } from './condition';
 import { xingxiOf } from './xingxi';
 import { isYouthReader } from './youth';
 import type { MingStatement } from './ming-writer';
@@ -9,8 +10,6 @@ import { systemMingReading } from './free-ming-systems';
 export type FreeReadingSegment = { slot: string; text: string; heading?: string; referenceConditions?: string[]; statements: MingStatement[] };
 type Row = { zh: string; kind: MingStatement['kind']; heading?: string | null; sources: string[]; referenceConditions?: string[]; adult_only?: boolean; youth_only?: boolean };
 const entries = data.entries as Record<string, Row>;
-const has = (p: Palace | undefined, name: string, hua?: string) => Boolean(p?.stars.some((s) => s.name === name && (!hua || s.sihua === hua)));
-const all = (ps: Palace[], names: string[]) => names.every((n) => ps.some((p) => has(p, n)));
 const harsh = ['擎羊', '陀羅', '火星', '鈴星'];
 
 /**
@@ -26,6 +25,10 @@ export function freeMingReading(chart: Chart, year: number): { ming: FreeReading
   const at = (offset: number) => chart.palaces.find((p) => p.branch === BRANCHES[(BRANCHES.indexOf(m.branch) + offset + 12) % 12]);
   const four = sanFangPalaces(chart.palaces, m.branch);
   const youth = isYouthReader(chart, year);
+  const has = (p: Palace | undefined, name: string, hua?: string) => Boolean(p && evaluate({ all: [
+    { star: name, in: { name: p.name } }, ...(hua ? [{ star: name, hua } as Condition] : []),
+  ] }, { chart }).status === 'matched');
+  const all = (ps: Palace[], names: string[]) => names.every((name) => queryNatalStar(chart, name, { branches: ps.map((p) => p.branch) }).status === 'present');
   const row = (id: string, slot: string): FreeReadingSegment | null => {
     const r = entries[id];
     if (!r) throw new Error(`Missing reviewed reading: ${id}`);
@@ -67,13 +70,13 @@ export function freeMingReading(chart: Chart, year: number): { ming: FreeReading
     // 壬干亥府祿存：兩對輔佐齊會及無再夾火鈴，是本次人手核讀的窄分支。
     // 原書「眾多」未改成通用計票閾值；不把其他盤自動判為相反一極。
     const pairs = all(four, ['左輔', '右弼', '天魁', '天鉞']);
-    const fireClamp = (has(at(-1), '火星') && has(at(1), '鈴星')) || (has(at(-1), '鈴星') && has(at(1), '火星'));
+    const fireClamp = evaluate({ jia: '天府', sides: [['火星'], ['鈴星']] }, { chart });
     const wealth = chart.palaces.find((p) => p.name === '財帛');
     const borrowed = wealth?.borrowsFrom ? chart.palaces.find((p) => p.branch === wealth.borrowsFrom) : undefined;
     const qualified = chart.ganzhi.year[0] === '壬' && m.branch === '亥' && has(m, '天府', '科') && has(m, '祿存')
       && pairs && has(m, '左輔') && has(chart.palaces.find((p) => p.name === '官祿'), '右弼')
       && has(chart.palaces.find((p) => p.name === '官祿'), '天魁') && has(at(6), '天鉞')
-      && !fireClamp && !four.some((p) => harsh.some((s) => has(p, s))) && has(borrowed, '武曲', '忌');
+      && fireClamp.status === 'unmatched' && harsh.every((name) => queryNatalStar(chart, name, { branches: four.map((p) => p.branch) }).status === 'absent') && has(borrowed, '武曲', '忌');
     return {
       ming: rows([[qualified ? 'TF-M1' : 'TF-G1', '結論'], [qualified ? 'TF-M2' : 'TF-G2', '展開'], ['TF-M4', '情境'], ['TF-M5', '做法']]),
       bone: [fact(), ...rows(qualified

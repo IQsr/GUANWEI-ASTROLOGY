@@ -9,3 +9,7 @@ export * from './annual';
 export * from './liuyao';
 export * from './monthly';
 export * from './xiaoxian';
+
+export * from './star-query';
+export * from './p1a-stars';
+export * from './p1b-stars';

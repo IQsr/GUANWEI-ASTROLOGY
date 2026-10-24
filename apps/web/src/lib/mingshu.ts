@@ -1,4 +1,5 @@
 import 'server-only';
+import {withCrossPalaceReading,analyzeCrossPalaces} from '@/lib/cross-palace-chapters';
 import {
   citation,
   RULE_REGISTRY,
@@ -17,6 +18,9 @@ import {
   youthPass,
   freeMingReading,
   palaceReading,
+  withPalaceAdvice,
+  palaceNarrative,
+  readerReferenceLanguage,
   LEXICON,
   type Chapter,
 } from '@guanwei/content';
@@ -121,10 +125,11 @@ export function citesFor(marked: MarkedChapter[], locale = 'zh-Hant'): Record<st
       id,
       book: locale === 'en' ? `${c.authorEn}, ${c.bookEn} (${c.book})` : locale === 'ja' ? `${c.author}『${c.book.replace('斗數', '斗数')}』` : zhFor(locale, `${c.author}《${c.book}》`),
       page: c.page,
-      section: zhFor(locale, c.section),
+      section: zhFor(locale, readerReferenceLanguage(c.section)),
       text: c.text,
+      ...(c.quoteParts ? {quoteParts:c.quoteParts.map((part) => ({...part,...(part.note ? {note:zhFor(locale,part.note)} : {})}))} : {}),
       ...(c.pageEnd ? { pageEnd: c.pageEnd } : {}),
-      ...(c.sourceNote ? { sourceNote: zhFor(locale, c.sourceNote) } : {}),
+      ...(c.sourceNote ? { sourceNote: zhFor(locale, readerReferenceLanguage(c.sourceNote)) } : {}),
       ...(c.pageConvention ? { pageConvention: c.pageConvention } : {}),
       ...(c.excerpt ? { excerpt: true } : {}),
     };
@@ -142,6 +147,7 @@ export function localizeMarked(marked: MarkedChapter[], locale: string): MarkedC
     ...c,
     segments: c.segments.map((s) => ({ ...s, ...(s.heading ? { heading: hans(s.heading) } : {}),
       ...(s.referenceConditions ? { referenceConditions: s.referenceConditions.map(hans) } : {}),
+      ...(s.referenceApplicability ? { referenceApplicability: s.referenceApplicability.map(hans) } : {}),
       runs: s.runs.map((r) => ({ ...r, text: hans(r.text) })) })),
   }));
 }
@@ -200,7 +206,7 @@ export function chaptersOf(
  */
 export function bookChapters(
   chart: ZChart,
-  opts: { seed: string; year: number; solar: { y: number; m: number; d: number }; place: string },
+  opts: { seed: string; year: number; solar: { y: number; m: number; d: number }; place: string; crossPalaceReading?: boolean; birthSex?: 'male'|'female' },
 ): { slug: string; title?: string; text: string; slots: string[]; reading?: ChapterReading }[] | null {
   const palaces = chaptersOf(chart, { seed: opts.seed, year: opts.year });
   if (!palaces) return null;
@@ -287,10 +293,14 @@ export function bookChapters(
   });
   // 六十星系繁簡閱讀稿；英日保存同一成書時刻的完整原版。
   const revised = freeMingReading(chart, opts.year);
+  const cross = opts.crossPalaceReading ? analyzeCrossPalaces(chart,{birthSex:opts.birthSex}) : null;
   return originals.map((p) => {
     const isMing = p.slug === '命宮' || p.slug === '性格的骨架';
-    const segments = p.slug === '命宮' ? revised?.ming : p.slug === '性格的骨架' ? revised?.bone : palaceReading(chart, p.slug, opts.year);
-    if (!segments) return p;
+    const selected = p.slug === '命宮' ? revised?.ming : p.slug === '性格的骨架' ? revised?.bone : palaceReading(chart, p.slug, opts.year);
+    if (!selected) return p;
+    const baseSegments = withPalaceAdvice(chart, p.slug, opts.year, palaceNarrative(chart, p.slug, opts.year, selected));
+    const segments = (cross ? withCrossPalaceReading(chart,p.slug,opts.year,baseSegments,cross) : baseSegments)
+      .map((row) => ({ ...row, ...(row.referenceConditions ? { referenceConditions: row.referenceConditions.map(readerReferenceLanguage) } : {}) }));
     const internationalSnapshot = { text: p.text, slots: p.slots, ...('reading' in p && p.reading ? { reading: p.reading } : {}) };
     const reading: ChapterReading = { format: 'ming-expanded-v1', writer: isMing ? 'reader-backed-v1' : 'palace-reader-v1', segments,
       international: { text: p.text, slots: p.slots }, internationalSnapshot };

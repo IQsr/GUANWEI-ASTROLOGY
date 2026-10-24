@@ -11,6 +11,8 @@ export type ChapterReading = {
     text: string;
     heading?: string;
     referenceConditions?: string[];
+    referenceFocus?: string[];
+    referenceApplicability?: string[];
     statements?: MingStatement[];
   }[];
   /** 舊版英日正文快照，沒有逐句核讀資料的書繼續讀此欄。 */
@@ -31,6 +33,8 @@ export function readingOf(value: unknown, text: string): ChapterReading | null {
   if (!r.segments.every((s) => s && typeof s.slot === 'string' && typeof s.text === 'string'
     && (s.heading === undefined || typeof s.heading === 'string')
     && (s.referenceConditions === undefined || (Array.isArray(s.referenceConditions) && s.referenceConditions.every((c) => typeof c === 'string')))
+    && (s.referenceApplicability === undefined || (Array.isArray(s.referenceApplicability) && s.referenceApplicability.every((c) => typeof c === 'string')))
+    && (s.referenceFocus === undefined || (Array.isArray(s.referenceFocus) && s.referenceFocus.every((id) => typeof id === 'string')))
     && (s.statements === undefined || (Array.isArray(s.statements) && s.statements.every((l) =>
       l && typeof l === 'object' && typeof l.text === 'string' && Array.isArray(l.citations) && l.citations.every((id) => typeof id === 'string')))))) return null;
   if (r.segments.map((s) => s.text).join('\n\n') !== text) return null;

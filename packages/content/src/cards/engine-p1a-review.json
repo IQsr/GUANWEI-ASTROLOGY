@@ -1,0 +1,715 @@
+{
+  "date": "2026-10-23",
+  "scope": "P1a: 11 derived stars; 18 source-bound pilot cards; no production-copy activation",
+  "activation": "explicit p1a query catalogue and @guanwei/content/engine-p1a subpath only; default P0 writer paths retained",
+  "versions": {
+    "cast": "0.4.0",
+    "query": "natal-star-query-v2-p1a",
+    "placement": "minor-p1a-v1",
+    "condition": "condition-query-v2+p1a-v1",
+    "analysis": "engine-p1a-analysis-v1"
+  },
+  "previous_audit_bindings": {
+    "palace-narrative.json": {
+      "packages/content/src/condition.ts": "b5f63be73d8b75d661d713923411d848656625228f26c5343bec2d9d176d6b8a",
+      "packages/ziwei/src/chart/star-query.ts": "8d2383f525f4e9240d9fcbf01f3e876162f271181109affed7926f1ae7dcf0e9"
+    },
+    "ming-reviewed.json": {
+      "packages/content/src/condition.ts": "b5f63be73d8b75d661d713923411d848656625228f26c5343bec2d9d176d6b8a",
+      "packages/ziwei/src/chart/star-query.ts": "8d2383f525f4e9240d9fcbf01f3e876162f271181109affed7926f1ae7dcf0e9"
+    },
+    "engine-p0-review.json": {
+      "packages/content/src/condition.ts": "b5f63be73d8b75d661d713923411d848656625228f26c5343bec2d9d176d6b8a",
+      "packages/ziwei/src/chart/star-query.ts": "8d2383f525f4e9240d9fcbf01f3e876162f271181109affed7926f1ae7dcf0e9",
+      "packages/ziwei/src/chart/index.ts": "5570fef090c6523856ce6122879ed8fab460f9e261e7e0d0b9edfe1b86877170"
+    },
+    "palace-coherence-review.json": {
+      "packages/content/src/cards/palace-narrative.json": "a19667bbdc08a87754cd01f06788fbd383de112f065d8a9dcfa8ace989e171dc"
+    }
+  },
+  "renewal_basis": {
+    "books": {
+      "fixtures": 75,
+      "chart_differences": 0,
+      "palace_reader_differences": 0,
+      "book_differences": 0,
+      "before": "apps/web/test/fixtures/engine-p0-before.json"
+    },
+    "palace_rules": {
+      "fixtures": 72,
+      "rules": 83,
+      "checks": 5976,
+      "differences": 0
+    },
+    "unknown_semantics": "New implemented stars remain unknown/not-enabled under P0. P1b stars remain unknown/not-implemented even in P1a. Negation never converts either to confirmed absence."
+  },
+  "witness": {
+    "charts": 21,
+    "new_stars": 11,
+    "position_checks": 231,
+    "differences": 0,
+    "settings": "Witness comparison uses documented D-002 fixed UTC+8 and D-006 next-day late-Zi option; product defaults remain same-day. 三臺/臺輔 witness labels map explicitly to 三台/台輔 only in the comparison."
+  },
+  "source_policy": "Initial chapter 7 transcription for placement; Deep PDF for interpretation. Source verification not promoted. Full extracts and adjacent context retained only in ignored tmp/wang-reference/p1a/read-sources.json.",
+  "samples": [
+    {
+      "id": "TL",
+      "report_sha256": "4a1fc53f8b131c00cdea690724259eab604d01f454dae418dfa20c30b1eb0acf",
+      "family": "tongliang",
+      "new_positions": [
+        {
+          "star": "天空",
+          "branch": "未",
+          "palace": "兄弟"
+        },
+        {
+          "star": "天才",
+          "branch": "寅",
+          "palace": "遷移"
+        },
+        {
+          "star": "華蓋",
+          "branch": "戌",
+          "palace": "福德"
+        },
+        {
+          "star": "龍池",
+          "branch": "戌",
+          "palace": "福德"
+        },
+        {
+          "star": "鳳閣",
+          "branch": "辰",
+          "palace": "財帛"
+        },
+        {
+          "star": "三台",
+          "branch": "巳",
+          "palace": "子女"
+        },
+        {
+          "star": "八座",
+          "branch": "酉",
+          "palace": "父母"
+        },
+        {
+          "star": "恩光",
+          "branch": "寅",
+          "palace": "遷移"
+        },
+        {
+          "star": "天貴",
+          "branch": "戌",
+          "palace": "福德"
+        },
+        {
+          "star": "台輔",
+          "branch": "丑",
+          "palace": "僕役"
+        },
+        {
+          "star": "封誥",
+          "branch": "酉",
+          "palace": "父母"
+        }
+      ],
+      "results": [
+        {
+          "id": "paired-taizuo-ming",
+          "status": "not_supported",
+          "sourceIds": [
+            "wtz.deep.p317.b008",
+            "wtz.deep.p317.b009",
+            "wtz.deep.p317.b010",
+            "wtz.deep.p317.b011"
+          ]
+        },
+        {
+          "id": "paired-engui-ming",
+          "status": "not_supported",
+          "sourceIds": [
+            "wtz.deep.p318.b009",
+            "wtz.deep.p318.b010",
+            "wtz.deep.p318.b011",
+            "wtz.deep.p318.b012",
+            "wtz.deep.p318.b013",
+            "wtz.deep.p318.b014",
+            "wtz.deep.p318.b015"
+          ]
+        },
+        {
+          "id": "paired-taifeng-ming",
+          "status": "not_supported",
+          "sourceIds": [
+            "wtz.deep.p319.b008",
+            "wtz.deep.p319.b009",
+            "wtz.deep.p319.b010",
+            "wtz.deep.p319.b011",
+            "wtz.deep.p318.b015"
+          ]
+        },
+        {
+          "id": "paired-longfeng-ming",
+          "status": "not_supported",
+          "sourceIds": [
+            "wtz.deep.p317.b013",
+            "wtz.deep.p317.b014",
+            "wtz.deep.p317.b015",
+            "wtz.deep.p317.b016",
+            "wtz.deep.p317.b017",
+            "wtz.deep.p317.b018",
+            "wtz.deep.p318.b001"
+          ]
+        },
+        {
+          "id": "paired-longfeng-wellbeing",
+          "status": "supported",
+          "sourceIds": [
+            "wtz.deep.p317.b013",
+            "wtz.deep.p317.b014",
+            "wtz.deep.p317.b016",
+            "wtz.deep.p565.b006",
+            "wtz.deep.p565.b007",
+            "wtz.deep.p565.b010"
+          ]
+        },
+        {
+          "id": "huagai-wellbeing",
+          "status": "supported",
+          "sourceIds": [
+            "wtz.deep.p318.b017",
+            "wtz.deep.p321.b008",
+            "wtz.deep.p321.b009",
+            "wtz.deep.p321.b010",
+            "wtz.deep.p321.b011",
+            "wtz.deep.p321.b012",
+            "wtz.deep.p565.b010"
+          ]
+        },
+        {
+          "id": "tongliang-new-principle",
+          "status": "not_supported",
+          "sourceIds": [
+            "wtz.deep.p087.b011",
+            "wtz.deep.p087.b012",
+            "wtz.deep.p087.b013",
+            "wtz.deep.p087.b014",
+            "wtz.deep.p088.b001",
+            "wtz.deep.p088.b002"
+          ]
+        },
+        {
+          "id": "tongliang-clamped-ji",
+          "status": "supported",
+          "sourceIds": [
+            "wtz.deep.p087.b014",
+            "wtz.deep.p088.b001",
+            "wtz.deep.p088.b002"
+          ]
+        },
+        {
+          "id": "ming-tianliang-tiankong",
+          "status": "not_supported",
+          "sourceIds": [
+            "wtz.deep.p322.b002",
+            "wtz.deep.p322.b003",
+            "wtz.deep.p322.b004",
+            "wtz.deep.p322.b005",
+            "wtz.deep.p322.b006",
+            "wtz.deep.p322.b007",
+            "wtz.deep.p322.b008"
+          ]
+        },
+        {
+          "id": "single-taifu-ming",
+          "status": "not_supported",
+          "sourceIds": [
+            "wtz.deep.p318.b015",
+            "wtz.deep.p319.b008",
+            "wtz.deep.p319.b009",
+            "wtz.deep.p319.b010",
+            "wtz.deep.p319.b011"
+          ]
+        },
+        {
+          "id": "single-fenggao-ming",
+          "status": "not_supported",
+          "sourceIds": [
+            "wtz.deep.p318.b015",
+            "wtz.deep.p319.b008",
+            "wtz.deep.p319.b009",
+            "wtz.deep.p319.b010",
+            "wtz.deep.p319.b011"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "A",
+      "report_sha256": "2b8f6bcf124f975f688ea3524e799d3feaa5222e2dbee4c79cced62cb7cc38cc",
+      "family": "tianfu",
+      "new_positions": [
+        {
+          "star": "天空",
+          "branch": "酉",
+          "palace": "夫妻"
+        },
+        {
+          "star": "天才",
+          "branch": "未",
+          "palace": "財帛"
+        },
+        {
+          "star": "華蓋",
+          "branch": "辰",
+          "palace": "僕役"
+        },
+        {
+          "star": "龍池",
+          "branch": "子",
+          "palace": "父母"
+        },
+        {
+          "star": "鳳閣",
+          "branch": "寅",
+          "palace": "田宅"
+        },
+        {
+          "star": "三台",
+          "branch": "寅",
+          "palace": "田宅"
+        },
+        {
+          "star": "八座",
+          "branch": "子",
+          "palace": "父母"
+        },
+        {
+          "star": "恩光",
+          "branch": "寅",
+          "palace": "田宅"
+        },
+        {
+          "star": "天貴",
+          "branch": "辰",
+          "palace": "僕役"
+        },
+        {
+          "star": "台輔",
+          "branch": "辰",
+          "palace": "僕役"
+        },
+        {
+          "star": "封誥",
+          "branch": "子",
+          "palace": "父母"
+        }
+      ],
+      "results": [
+        {
+          "id": "paired-taizuo-ming",
+          "status": "not_supported",
+          "sourceIds": [
+            "wtz.deep.p317.b008",
+            "wtz.deep.p317.b009",
+            "wtz.deep.p317.b010",
+            "wtz.deep.p317.b011"
+          ]
+        },
+        {
+          "id": "paired-engui-ming",
+          "status": "not_supported",
+          "sourceIds": [
+            "wtz.deep.p318.b009",
+            "wtz.deep.p318.b010",
+            "wtz.deep.p318.b011",
+            "wtz.deep.p318.b012",
+            "wtz.deep.p318.b013",
+            "wtz.deep.p318.b014",
+            "wtz.deep.p318.b015"
+          ]
+        },
+        {
+          "id": "paired-taifeng-ming",
+          "status": "not_supported",
+          "sourceIds": [
+            "wtz.deep.p319.b008",
+            "wtz.deep.p319.b009",
+            "wtz.deep.p319.b010",
+            "wtz.deep.p319.b011",
+            "wtz.deep.p318.b015"
+          ]
+        },
+        {
+          "id": "paired-longfeng-ming",
+          "status": "not_supported",
+          "sourceIds": [
+            "wtz.deep.p317.b013",
+            "wtz.deep.p317.b014",
+            "wtz.deep.p317.b015",
+            "wtz.deep.p317.b016",
+            "wtz.deep.p317.b017",
+            "wtz.deep.p317.b018",
+            "wtz.deep.p318.b001"
+          ]
+        },
+        {
+          "id": "paired-longfeng-wellbeing",
+          "status": "not_supported",
+          "sourceIds": [
+            "wtz.deep.p317.b013",
+            "wtz.deep.p317.b014",
+            "wtz.deep.p317.b016",
+            "wtz.deep.p565.b006",
+            "wtz.deep.p565.b007",
+            "wtz.deep.p565.b010"
+          ]
+        },
+        {
+          "id": "huagai-wellbeing",
+          "status": "not_supported",
+          "sourceIds": [
+            "wtz.deep.p318.b017",
+            "wtz.deep.p321.b008",
+            "wtz.deep.p321.b009",
+            "wtz.deep.p321.b010",
+            "wtz.deep.p321.b011",
+            "wtz.deep.p321.b012",
+            "wtz.deep.p565.b010"
+          ]
+        },
+        {
+          "id": "tianfu-kongku",
+          "status": "not_supported",
+          "sourceIds": [
+            "wtz.deep.p020.b003",
+            "wtz.deep.p020.b004",
+            "wtz.deep.p020.b005",
+            "wtz.deep.p020.b006",
+            "wtz.deep.p020.b007",
+            "wtz.deep.p020.b008",
+            "wtz.deep.p020.b009",
+            "wtz.deep.p322.b008"
+          ]
+        },
+        {
+          "id": "tianfu-xiang-yangtuo",
+          "status": "not_supported",
+          "sourceIds": [
+            "wtz.deep.p020.b004",
+            "wtz.deep.p020.b005",
+            "wtz.deep.p201.b004",
+            "wtz.deep.p201.b005",
+            "wtz.deep.p201.b007",
+            "wtz.deep.p201.b008"
+          ]
+        },
+        {
+          "id": "tianfu-xiang-firebell",
+          "status": "not_supported",
+          "sourceIds": [
+            "wtz.deep.p020.b004",
+            "wtz.deep.p020.b005",
+            "wtz.deep.p201.b004",
+            "wtz.deep.p201.b005",
+            "wtz.deep.p201.b007",
+            "wtz.deep.p201.b008"
+          ]
+        },
+        {
+          "id": "tianfu-ren-ke",
+          "status": "pending",
+          "sourceIds": [
+            "wtz.deep.p201.b001",
+            "wtz.deep.p201.b004",
+            "wtz.deep.p201.b005",
+            "wtz.deep.p201.b006",
+            "wtz.deep.p201.b007",
+            "wtz.deep.p201.b008",
+            "wtz.deep.p201.b009",
+            "wtz.deep.p020.b004"
+          ]
+        },
+        {
+          "id": "single-taifu-ming",
+          "status": "not_supported",
+          "sourceIds": [
+            "wtz.deep.p318.b015",
+            "wtz.deep.p319.b008",
+            "wtz.deep.p319.b009",
+            "wtz.deep.p319.b010",
+            "wtz.deep.p319.b011"
+          ]
+        },
+        {
+          "id": "single-fenggao-ming",
+          "status": "not_supported",
+          "sourceIds": [
+            "wtz.deep.p318.b015",
+            "wtz.deep.p319.b008",
+            "wtz.deep.p319.b009",
+            "wtz.deep.p319.b010",
+            "wtz.deep.p319.b011"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "C",
+      "report_sha256": "b67e91a4db44ff368b6e9f811d3706e53507f1ee199e12a13b6f8426dbe51cc2",
+      "family": "jiliang",
+      "new_positions": [
+        {
+          "star": "天空",
+          "branch": "巳",
+          "palace": "疾厄"
+        },
+        {
+          "star": "天才",
+          "branch": "寅",
+          "palace": "官祿"
+        },
+        {
+          "star": "華蓋",
+          "branch": "辰",
+          "palace": "遷移"
+        },
+        {
+          "star": "龍池",
+          "branch": "申",
+          "palace": "夫妻"
+        },
+        {
+          "star": "鳳閣",
+          "branch": "午",
+          "palace": "財帛"
+        },
+        {
+          "star": "三台",
+          "branch": "亥",
+          "palace": "父母"
+        },
+        {
+          "star": "八座",
+          "branch": "卯",
+          "palace": "僕役"
+        },
+        {
+          "star": "恩光",
+          "branch": "申",
+          "palace": "夫妻"
+        },
+        {
+          "star": "天貴",
+          "branch": "寅",
+          "palace": "官祿"
+        },
+        {
+          "star": "台輔",
+          "branch": "子",
+          "palace": "福德"
+        },
+        {
+          "star": "封誥",
+          "branch": "申",
+          "palace": "夫妻"
+        }
+      ],
+      "results": [
+        {
+          "id": "paired-taizuo-ming",
+          "status": "not_supported",
+          "sourceIds": [
+            "wtz.deep.p317.b008",
+            "wtz.deep.p317.b009",
+            "wtz.deep.p317.b010",
+            "wtz.deep.p317.b011"
+          ]
+        },
+        {
+          "id": "paired-engui-ming",
+          "status": "not_supported",
+          "sourceIds": [
+            "wtz.deep.p318.b009",
+            "wtz.deep.p318.b010",
+            "wtz.deep.p318.b011",
+            "wtz.deep.p318.b012",
+            "wtz.deep.p318.b013",
+            "wtz.deep.p318.b014",
+            "wtz.deep.p318.b015"
+          ]
+        },
+        {
+          "id": "paired-taifeng-ming",
+          "status": "not_supported",
+          "sourceIds": [
+            "wtz.deep.p319.b008",
+            "wtz.deep.p319.b009",
+            "wtz.deep.p319.b010",
+            "wtz.deep.p319.b011",
+            "wtz.deep.p318.b015"
+          ]
+        },
+        {
+          "id": "paired-longfeng-ming",
+          "status": "not_supported",
+          "sourceIds": [
+            "wtz.deep.p317.b013",
+            "wtz.deep.p317.b014",
+            "wtz.deep.p317.b015",
+            "wtz.deep.p317.b016",
+            "wtz.deep.p317.b017",
+            "wtz.deep.p317.b018",
+            "wtz.deep.p318.b001"
+          ]
+        },
+        {
+          "id": "paired-longfeng-wellbeing",
+          "status": "supported",
+          "sourceIds": [
+            "wtz.deep.p317.b013",
+            "wtz.deep.p317.b014",
+            "wtz.deep.p317.b016",
+            "wtz.deep.p565.b006",
+            "wtz.deep.p565.b007",
+            "wtz.deep.p565.b010"
+          ]
+        },
+        {
+          "id": "huagai-wellbeing",
+          "status": "not_supported",
+          "sourceIds": [
+            "wtz.deep.p318.b017",
+            "wtz.deep.p321.b008",
+            "wtz.deep.p321.b009",
+            "wtz.deep.p321.b010",
+            "wtz.deep.p321.b011",
+            "wtz.deep.p321.b012",
+            "wtz.deep.p565.b010"
+          ]
+        },
+        {
+          "id": "jiliang-talent-same",
+          "status": "not_supported",
+          "sourceIds": [
+            "wtz.deep.p318.b017",
+            "wtz.deep.p318.b018",
+            "wtz.deep.p215.b012",
+            "wtz.deep.p215.b013",
+            "wtz.deep.p216.b001",
+            "wtz.deep.p216.b002",
+            "wtz.deep.p216.b003",
+            "wtz.deep.p216.b004",
+            "wtz.deep.p216.b005",
+            "wtz.deep.p216.b006",
+            "wtz.deep.p216.b007"
+          ]
+        },
+        {
+          "id": "jiliang-mingduan-talent",
+          "status": "pending",
+          "sourceIds": [
+            "wtz.deep.p215.b011",
+            "wtz.deep.p215.b012",
+            "wtz.deep.p215.b013",
+            "wtz.deep.p216.b001",
+            "wtz.deep.p216.b002",
+            "wtz.deep.p216.b003",
+            "wtz.deep.p216.b004",
+            "wtz.deep.p216.b005",
+            "wtz.deep.p216.b006",
+            "wtz.deep.p216.b007"
+          ]
+        },
+        {
+          "id": "ming-tianliang-tiankong",
+          "status": "not_supported",
+          "sourceIds": [
+            "wtz.deep.p322.b002",
+            "wtz.deep.p322.b003",
+            "wtz.deep.p322.b004",
+            "wtz.deep.p322.b005",
+            "wtz.deep.p322.b006",
+            "wtz.deep.p322.b007",
+            "wtz.deep.p322.b008"
+          ]
+        },
+        {
+          "id": "ming-tianji-tiankong",
+          "status": "not_supported",
+          "sourceIds": [
+            "wtz.deep.p322.b002",
+            "wtz.deep.p322.b003",
+            "wtz.deep.p322.b004",
+            "wtz.deep.p322.b005",
+            "wtz.deep.p322.b006",
+            "wtz.deep.p322.b007",
+            "wtz.deep.p322.b008"
+          ]
+        },
+        {
+          "id": "single-taifu-ming",
+          "status": "not_supported",
+          "sourceIds": [
+            "wtz.deep.p318.b015",
+            "wtz.deep.p319.b008",
+            "wtz.deep.p319.b009",
+            "wtz.deep.p319.b010",
+            "wtz.deep.p319.b011"
+          ]
+        },
+        {
+          "id": "single-fenggao-ming",
+          "status": "not_supported",
+          "sourceIds": [
+            "wtz.deep.p318.b015",
+            "wtz.deep.p319.b008",
+            "wtz.deep.p319.b009",
+            "wtz.deep.p319.b010",
+            "wtz.deep.p319.b011"
+          ]
+        }
+      ]
+    }
+  ],
+  "parents": {
+    "packages/content/src/condition.ts": "18968b82fd6bf8435a3646612f1a22f9a62fe76444425d35dce257f9b535f847",
+    "packages/ziwei/src/chart/star-query.ts": "c5fb7dde7973beb0ed1daad731008b99db135555ec2a43f94240740f96124798",
+    "packages/ziwei/src/chart/index.ts": "4963fe64ec00846d0c0e2e7ba78ce1a60f168c3abeac3a6d2baa792020e98e5a",
+    "packages/ziwei/src/chart/p1a-stars.ts": "ea779cc34accdddf1c77b1ce3ed213333506622dddb78c22efc4a14853526de5",
+    "packages/content/src/engine-p1a.ts": "fdbf2729415f978ca8c4b2977e06c3155ec8b1b3279e6f8cc9197c5436bfe7fb",
+    "packages/content/src/cards/engine-p1a-rules.json": "62c6075b7fa3b55edbbc484779942706d281a3dd209243941ae1fb301fdb8bf5",
+    "packages/content/package.json": "441a419b18a2de2e2cc389653c62b0d54bf2f81587cab7e984d0ce7bf81dcd83",
+    "packages/ziwei/src/chart/p1b-stars.ts": "22a4400b045455591424edafa84586a9c620590bd71afe97cb8af1794a9c9d86",
+    "packages/content/src/pilot-analysis.ts": "fac16efc111736eea1f1af2f570909dc621e12e60a22445f1648a64e74121688"
+  },
+  "release": "no commit/push/merge/deploy; no website text changes",
+  "verified_date": "2026-10-24",
+  "verification": {
+    "ziwei": {
+      "passed": 333,
+      "skipped": 1,
+      "command": "pnpm --filter @guanwei/ziwei test -- --maxWorkers 3"
+    },
+    "content": {
+      "passed": 560,
+      "skipped": 5,
+      "unhandled_errors": 0,
+      "command": "pnpm --filter @guanwei/content exec vitest run --maxWorkers 2 --testTimeout 20000"
+    },
+    "web_writer_isolation": {
+      "passed": 2,
+      "fixtures": 75,
+      "command": "pnpm --filter @guanwei/web exec vitest run test/engine-p0.test.ts"
+    },
+    "typechecks": [
+      "@guanwei/ziwei",
+      "@guanwei/content",
+      "@guanwei/web"
+    ],
+    "runner_note": "First concurrent run passed 560 assertions but failed on worker RPC timeout. Fixture discovery now yields every 64 attempts, preserving deterministic seed/order/100 charts per system/all years/all assertions. Full content run then passed with no unhandled errors; no ignore-unhandled-errors or test-count reduction.",
+    "git_diff_check": "passed",
+    "website_copy": "75 chart/palace/book snapshots and three analysis-then-writer snapshots unchanged"
+  },
+  "p1b_extension_review": "docs/engine-p1b-2026-10-24.md"
+}
