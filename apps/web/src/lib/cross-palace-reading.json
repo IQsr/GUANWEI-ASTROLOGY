@@ -970,5 +970,53 @@
     "palace.reading.v1:wtz.deep.p565.b006+3": "cross.reading.v1:located-14",
     "palace.reading.v1:wtz.deep.p576.b007+5": "cross.reading.v1:located-15"
   },
-  "source_scope": "new-book preview only; existing saved reading and international snapshots are preserved"
+  "source_scope": "new-book preview only; existing saved reading and international snapshots are preserved",
+  "presentation": {
+    "palaces": {
+      "ming": "命宮",
+      "career": "官祿",
+      "wealth": "財帛",
+      "wellbeing": "福德"
+    },
+    "noteReplacements": [
+      [
+        "本批",
+        "這段解讀"
+      ],
+      [
+        "啟用",
+        "採用"
+      ],
+      [
+        "可執行校核",
+        "逐項確認"
+      ],
+      [
+        "可執行定義",
+        "逐項判明的條件"
+      ],
+      [
+        "可執行",
+        "逐項確認的"
+      ],
+      [
+        "fact ID",
+        "原位紀錄"
+      ]
+    ],
+    "hua": "化",
+    "starSeparator": "、",
+    "palaceSeparator": "；",
+    "native": "實坐",
+    "emptyBorrow": "空宮，借",
+    "possessive": "的",
+    "asReference": "作參照",
+    "slots": [
+      "結論",
+      "細讀"
+    ],
+    "scopePrefix": "本盤",
+    "fullStop": "。",
+    "method": "這段將已列明的本命宮位連讀；原書各段與編輯綜合解說分開理解。"
+  }
 }

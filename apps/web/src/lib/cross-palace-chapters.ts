@@ -6,13 +6,12 @@ import type {ChapterReading} from './chapter-reading';
 import data from './cross-palace-reading.json';
 
 export const CROSS_READING_VERSION='cross-palace-reading-v1';
+const copy=data.presentation;
 export type CrossAnalysis=ReturnType<typeof analyzeCrossPalaces>;
 type Segment=ChapterReading['segments'][number];
 const union=<T,>(items:T[])=>[...new Set(items)];
 const sourced=(s:Segment)=>s.statements?.some((l)=>l.citations.length)??false;
-const readerNote=(s:string)=>readerReferenceLanguage(referenceEditorialWording(s))
-  .replaceAll('本批','這段解讀').replaceAll('啟用','採用').replaceAll('可執行校核','逐項確認')
-  .replaceAll('可執行定義','逐項判明的條件').replaceAll('可執行','逐項確認的').replaceAll('fact ID','原位紀錄');
+const readerNote=(s:string)=>copy.noteReplacements.reduce((text,[before,after])=>text.replaceAll(before!,after!),readerReferenceLanguage(referenceEditorialWording(s)));
 
 /** Called only while creating the explicitly selected preview; saved chapters are never recalculated. */
 export function withCrossPalaceReading(chart:Chart,palace:string,year:number,input:Segment[],analysis:CrossAnalysis):Segment[]{
@@ -27,7 +26,7 @@ export function withCrossPalaceReading(chart:Chart,palace:string,year:number,inp
   const inherited=union(entry.parts.flatMap((p)=>p.inherit));
   if(inherited.some((i)=>!sourceRows[i]))return input;
   const frame=(name:string)=>analysis.frames.find((f)=>f.palace===name)!;
-  const values:Record<string,string>={ming:frame('命宮').branch!,career:frame('官祿').branch!,wealth:frame('財帛').branch!,wellbeing:frame('福德').branch!,careerOrigin:frame('官祿').reference?.origin?.branch??''};
+  const values:Record<string,string>={ming:frame(copy.palaces.ming).branch!,career:frame(copy.palaces.career).branch!,wealth:frame(copy.palaces.wealth).branch!,wellbeing:frame(copy.palaces.wellbeing).branch!,careerOrigin:frame(copy.palaces.career).reference?.origin?.branch??''};
   const fill=(s:string)=>s.replace(/\{([^}]+)\}/g,(_,key:string)=>{if(!(key in values))throw Error(`Unknown cross-reading token: ${key}`);return values[key]!;});
   const aliases=data.citationAliases as Record<string,string>;
   const rows:Segment[]=entry.parts.map((part,i)=>{
@@ -37,12 +36,12 @@ export function withCrossPalaceReading(chart:Chart,palace:string,year:number,inp
     const statements:MingStatement[]=[{text,en:'',kind:'editorial-explanation',source_ids:[`cross.reading.${entry.id}.${i}`,...union(old.flatMap((s)=>s.statements?.flatMap((l)=>l.source_ids)??[]))],citations}];
     const applicable=union(rules.flatMap((r)=>r.palaces)).map((name)=>{
       const f=frame(name);
-      const majors=f.nativeMajors.map((m)=>`${m.star}${m.hua?`化${m.hua}`:''}`).join('、');
-      return majors?`${name}${f.branch}實坐${majors}`:`${name}${f.branch}空宮，借${f.reference?.origin?.palace}${f.reference?.origin?.branch}的${f.reference?.majors.map((m)=>m.star).join('、')}作參照`;
-    }).join('；');
-    return {slot:i===0?'結論':'細讀',heading:part.heading,text,statements,
+      const majors=f.nativeMajors.map((m)=>`${m.star}${m.hua?`${copy.hua}${m.hua}`:''}`).join(copy.starSeparator);
+      return majors?`${name}${f.branch}${copy.native}${majors}`:`${name}${f.branch}${copy.emptyBorrow}${f.reference?.origin?.palace}${f.reference?.origin?.branch}${copy.possessive}${f.reference?.majors.map((m)=>m.star).join(copy.starSeparator)}${copy.asReference}`;
+    }).join(copy.palaceSeparator);
+    return {slot:copy.slots[i===0?0:1]!,heading:part.heading,text,statements,
       referenceFocus:[...part.referenceFocus],
-      referenceApplicability:[`本盤${applicable}。`,...part.notes.map(fill),'這段將已列明的本命宮位連讀；原書各段與編輯綜合解說分開理解。'],
+      referenceApplicability:[`${copy.scopePrefix}${applicable}${copy.fullStop}`,...part.notes.map(fill),copy.method],
       referenceConditions:union([...old.flatMap((s)=>s.referenceConditions??[]),...old.flatMap((s)=>s.referenceApplicability??[]),
         ...rules.flatMap((r)=>[...r.conditions,...r.exceptions]),...part.notes.map(fill)]).map(readerNote)};
   });
