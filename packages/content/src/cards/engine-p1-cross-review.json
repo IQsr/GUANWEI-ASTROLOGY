@@ -26,7 +26,7 @@
     "packages/ziwei/src/chart/sanfang.ts": "06990ffa7ed3bb39e27742851ebec09609830760fb3e057b0bd54b8f7f80f2be",
     "packages/ziwei/src/chart/major-stars.ts": "63e43df38719ba9244558494c835c94b9c71b842e43f4c47be4c3e1a2187fbe5",
     "tools/wang-reference/deep-index.json": "0e1b0d35997e77e81f24755bfc7e174dfd378007d3cc4b64f853dab6bd1dfae8",
-    "apps/web/test/engine-p0.test.ts": "b20fcee878d186947c96ed09f2eefa094cc9f78e6062be92e0be2ac01fc199c9",
+    "apps/web/test/engine-p0.test.ts": "c7285a48b2c54df7a6b64015cb53868fb51b4800762f0c998bef3c77858867d1",
     "apps/web/src/lib/free-ming-preview.json": "18dacef35e624cca7dd0bc798c8f22e266494045554edeac298c3f3d3482166e",
     "apps/web/test/fixtures/palace-before.json": "683ca7824ed040ae5fa0e6fcfcc9d1d83ebcfb07b200ae6627a9f82f8b7ba0da",
     "docs/engine-p1-cross-2026-10-24.md": "b9d3d15b88c7923efe8e420346d02d26a5d272601f9f0708b6afe23381ae47df"
@@ -217,5 +217,11 @@
     "previous_deep_index_sha256": "e8792871ec1986602c550dc9d289279e62735bc04100f9c219d33506e33fb0e1",
     "basis": "Complete deep-index payload excluding input_hashes compared identical. New twelve-step source excerpts only; no change to cross-palace source identities, rules, conditions or reports. Existing complete-report checksum tests rerun.",
     "report": "docs/life-steps-repair-2026-10-24.md"
+  },
+  "life_steps_ci_expectation_review": {
+    "date": "2026-10-24",
+    "previous_engine_p0_test_sha256": "b20fcee878d186947c96ed09f2eefa094cc9f78e6062be92e0be2ac01fc199c9",
+    "basis": "Re-executed immutable PR base dac9a00 with all workspace package aliases bound to that base: all 75 historical chart/palace/full-book hashes and all 3 cross-copy hashes match unchanged original fixtures. Current complete chapter objects match except 十二步 and five explicitly validated companion chapter key-sentence consequences of already reviewed shared rules. Existing full-book hashes remain unchanged; helper validates each companion transformation before historical restoration. P1a/P1b/cross experiments now also compare current book before/after analysis. No product or rule code changed in this CI fix.",
+    "report": "docs/life-steps-ci-audit-2026-10-24.md"
   }
 }

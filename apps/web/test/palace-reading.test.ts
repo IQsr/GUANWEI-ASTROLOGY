@@ -33,9 +33,10 @@ it('十一宮新正文存完整原版快照；英日與舊書逐字相同，免�
     expect(JSON.stringify(b.before)).toBe(frozen);
     expect(b.now.find((c) => c.slug === '命宮')?.reading?.writer).toBe('reader-backed-v1');
     expect(b.now.find((c) => c.slug === '性格的骨架')?.reading?.writer).toBe('reader-backed-v1');
-    for (const c of b.now.filter((p) => !PALACE_READER_SLUGS.some((s) => s === p.slug) && !['命宮', '性格的骨架'].includes(p.slug))) {
+    for (const c of b.now.filter((p) => !PALACE_READER_SLUGS.some((s) => s === p.slug) && !['命宮', '性格的骨架', '一生十二步'].includes(p.slug))) {
       expect(c.text).toBe(b.before.find((p) => p.slug === c.slug)!.text);
     }
+    expect(b.now.find((c) => c.slug === '一生十二步')?.reading?.writer).toBe('life-steps-reader-v2');
     for (const d of chapterDrafts(b.now, readingContentVersion('test'))) if (PALACE_READER_SLUGS.some((p) => p === d.slug)) {
       expect(d.reading?.writer).toBe('palace-reader-v1');
       expect(d.body).toBe(d.reading!.segments.map((s) => s.text).join('\n\n'));
