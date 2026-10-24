@@ -1,3 +1,4 @@
+import {lifeStepsReading} from './life-steps-reading';
 import 'server-only';
 import {withCrossPalaceReading,analyzeCrossPalaces} from '@/lib/cross-palace-chapters';
 import {
@@ -279,6 +280,10 @@ export function bookChapters(
   const oldParts: Part[] = oldMing ? [{ slug: '命宮', segments: oldMing.segments.filter((s) => !young || s.slot !== '生活') }] : [];
   const international = (youth ? youthPass(oldParts) : oldParts)[0];
   const originals = finished.map((p) => {
+    if(p.slug==='一生十二步'){
+      const reading=lifeStepsReading(p.segments);
+      return {slug:p.slug,...(p.title?{title:p.title}:{}),...body(p.segments),reading};
+    }
     if (p.slug !== '命宮' || !international) return { slug: p.slug, ...(p.title ? { title: p.title } : {}), ...body(p.segments) };
     const seen = new Set<string>();
     let evidence = false;

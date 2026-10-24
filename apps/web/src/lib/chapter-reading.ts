@@ -5,11 +5,13 @@ import { paragraphs } from '@/lib/suidu';
 export type ChapterReading = {
   format: 'ming-expanded-v1';
   /** 段落快照的格式不變；另記新書所用的寫作層版本，舊書沒有此欄亦可讀。 */
-  writer?: 'sentence-backed-v1' | 'reader-backed-v1' | 'palace-reader-v1';
+  writer?: 'life-steps-reader-v2' | 'sentence-backed-v1' | 'reader-backed-v1' | 'palace-reader-v1';
   segments: {
     slot: string;
     text: string;
     heading?: string;
+    /** Display choice only; the saved source identities and conditions remain available internally. */
+    referenceDisplay?: 'hidden';
     referenceConditions?: string[];
     referenceFocus?: string[];
     referenceApplicability?: string[];
@@ -28,10 +30,11 @@ export function readingOf(value: unknown, text: string): ChapterReading | null {
   if (!value || typeof value !== 'object') return null;
   const r = value as Partial<ChapterReading>;
   if (r.format !== 'ming-expanded-v1' || !Array.isArray(r.segments) || !r.international) return null;
-  if (r.writer !== undefined && r.writer !== 'sentence-backed-v1' && r.writer !== 'reader-backed-v1' && r.writer !== 'palace-reader-v1') return null;
+  if (r.writer !== undefined && r.writer !== 'life-steps-reader-v2' && r.writer !== 'sentence-backed-v1' && r.writer !== 'reader-backed-v1' && r.writer !== 'palace-reader-v1') return null;
   if (typeof r.international.text !== 'string' || !Array.isArray(r.international.slots) || !r.international.slots.every((s) => typeof s === 'string')) return null;
   if (!r.segments.every((s) => s && typeof s.slot === 'string' && typeof s.text === 'string'
     && (s.heading === undefined || typeof s.heading === 'string')
+    && (s.referenceDisplay === undefined || s.referenceDisplay === 'hidden')
     && (s.referenceConditions === undefined || (Array.isArray(s.referenceConditions) && s.referenceConditions.every((c) => typeof c === 'string')))
     && (s.referenceApplicability === undefined || (Array.isArray(s.referenceApplicability) && s.referenceApplicability.every((c) => typeof c === 'string')))
     && (s.referenceFocus === undefined || (Array.isArray(s.referenceFocus) && s.referenceFocus.every((id) => typeof id === 'string')))
@@ -52,6 +55,7 @@ export function readingOf(value: unknown, text: string): ChapterReading | null {
       const localized = r.localized[lang];
       if (!Array.isArray(localized) || localized.length !== r.segments.length) return null;
       if (!localized.every((s, i) => s && s.slot === r.segments![i]!.slot && typeof s.text === 'string'
+        && s.referenceDisplay === r.segments![i]!.referenceDisplay
         && (s.heading === undefined || typeof s.heading === 'string') && Array.isArray(s.statements)
         && s.statements.length === r.segments![i]!.statements?.length
         && s.statements.every((l, j) => l && typeof l === 'object' && typeof l.text === 'string' && s.text.includes(l.text)

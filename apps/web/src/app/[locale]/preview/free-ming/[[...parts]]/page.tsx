@@ -36,7 +36,7 @@ const groups: { key: string; label: string; seed: string; birth: BirthInput }[] 
   ...allCases.map((c) => ({ key: `system-${String(c.n).padStart(2, '0')}${c.borrowed ? '-borrowed' : ''}`,
     label: `${c.name}${c.borrowed ? '（借星）' : ''}`, seed: c.seed, birth: c.input as BirthInput })),
 ];
-const chapters = [{ key: 'ming', slug: '命宮' }, { key: 'bone', slug: '性格的骨架' },
+const chapters = [{ key: 'ming', slug: '命宮' }, { key: 'bone', slug: '性格的骨架' }, {key:'steps',slug:'一生十二步'},
   ...[['siblings', '兄弟'], ['spouse', '夫妻'], ['children', '子女'], ['wealth', '財帛'], ['health', '疾厄'],
     ['travel', '遷移'], ['friends', '僕役'], ['career', '官祿'], ['property', '田宅'], ['wellbeing', '福德'], ['parents', '父母']]
     .map(([key, slug]) => ({ key: key!, slug: slug! }))];

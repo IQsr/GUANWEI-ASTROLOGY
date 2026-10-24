@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { cast } from '@guanwei/ziwei';
 import { annual } from '@guanwei/ziwei';
-import { LOOKBACK_EVENTS, decadeChapter, lookBack, lookBackEvent, lifeStepsChapter } from '../src/daxian';
+import { LOOKBACK_EVENTS, decadeChapter, lookBack, lookBackEvent, lifeStepsChapter,lookBackSegments } from '../src/daxian';
 import { yearChapter } from '../src/liunian';
 import { scanForbidden } from '../src/lint';
 import { scanPlain } from '../src/plain';
@@ -54,17 +54,11 @@ describe('回看過去', () => {
     }
   });
 
-  it('講得實：年份有干支，每年都有「像是」嘅例子或者換大限（2026-10-04 試讀回饋）', () => {
-    for (const c of CHARTS) {
-      const s = lookBack(c, 2026);
-      if (!s) continue;
-      expect(s.text).not.toMatch(/年前後/);
-      for (const line of s.text.split(/(?=[〇一二三四五六七八九]{4}年（)/).slice(1)) {
-        expect(line, line).toMatch(/^[〇一二三四五六七八九]{4}年（[甲乙丙丁戊己庚辛壬癸][子丑寅卯辰巳午未申酉戌亥]年，/);
-        /* 身體、出行、是非、錢嗰幾句本身已經係具體情況，唔使再「像是」 */
-        const ev = LOOKBACK_EVENTS.some((e) => line.includes(e.text));
-        if (!ev && /[祿忌]|較|轉機/.test(line) && !/關鍵的一年。/.test(line)) expect(line, line).toMatch(/像是/);
-      }
+  it('每個回看年份有干支、大限上下文與可核四化，沒有把生活例子當往事',()=>{
+    for(const c of CHARTS)for(const s of lookBackSegments(c,2026)){
+      expect(s.text).toMatch(/^[〇一二三四五六七八九]{4}年（[甲乙丙丁戊己庚辛壬癸][子丑寅卯辰巳午未申酉戌亥]年，/);
+      expect(s.text).toContain('大限');expect(s.text).toContain('當年的');
+      expect(s.text).not.toContain('像是');
     }
   });
 
@@ -107,10 +101,14 @@ describe('回看過去', () => {
       }
     });
 
-    it('唔係人人都有（約四成半，2026-10-04 加感情同新條件之後），亦唔係冇人有', () => {
-      const hit = CHARTS.filter((c) => LOOKBACK_EVENTS.some((e) => lookBack(c, 2026)?.text.includes(e.text))).length / CHARTS.length;
-      expect(hit).toBeGreaterThan(0.25);
-      expect(hit).toBeLessThan(0.55);
+    it('新回看不再以事件命中比例作門檻，逐年來源及條件必須完整',()=>{
+      for(const c of CHARTS)for(const s of lookBackSegments(c,2026)){
+        expect(s.referenceConditions?.join('')).toContain('不是按事件吉凶計分');
+        for(const statement of s.statements??[]){
+          if(statement.kind==='interpretation')expect(statement.citations.length).toBeGreaterThan(0);
+          if(statement.kind==='editorial-advice')expect(statement.citations).toEqual([]);
+        }
+      }
     });
 
     it('唔講將來：這十年、這一年都冇呢幾句', () => {

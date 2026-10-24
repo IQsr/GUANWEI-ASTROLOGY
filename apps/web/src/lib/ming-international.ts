@@ -45,12 +45,13 @@ export function internationalMing(chapter: { text: string; reading?: unknown }, 
   const reading = readingOf(chapter.reading, chapter.text);
   if (!reading) {
     const saved = chapter.reading as { writer?: unknown } | undefined;
-    return saved?.writer === 'sentence-backed-v1' || saved?.writer === 'reader-backed-v1' || saved?.writer === 'palace-reader-v1' ? [] : null;
+    return saved?.writer === 'life-steps-reader-v2' || saved?.writer === 'sentence-backed-v1' || saved?.writer === 'reader-backed-v1' || saved?.writer === 'palace-reader-v1' ? [] : null;
   }
   if (reading.writer === 'reader-backed-v1' || reading.writer === 'palace-reader-v1') {
     const original = reading.internationalSnapshot!;
     return original.reading ? internationalMing(original, locale) : null;
   }
+  if(reading.writer==='life-steps-reader-v2')return reading.localized?.[locale]??null;
   if (reading.writer !== 'sentence-backed-v1') return null;
   return reading.localized?.[locale] ?? translateMing(reading, locale);
 }

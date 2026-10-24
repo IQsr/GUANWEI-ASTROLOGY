@@ -118,7 +118,17 @@ def clean_page(text, page):
 def source_uses(passages):
     uses = defaultdict(list)
     dangling = []
-    files = sorted(p for p in SRC.rglob("*.json") if "sources" not in p.relative_to(SRC).parts)
+    # This review manifest binds deep-index.json, which in turn binds this index.
+    # It contains report checksums, not source passages; hashing it here creates a cycle.
+    report_manifest = SRC / "cards/engine-p1-cross-review.json"
+    if report_manifest.exists():
+        def has_source_reference(value):
+            if isinstance(value, dict):
+                return "passage_id" in value or "passage" in value or any(has_source_reference(v) for v in value.values())
+            return isinstance(value, list) and any(has_source_reference(v) for v in value)
+        if has_source_reference(load(report_manifest)):
+            raise ValueError("跨宮審核manifest不能承載來源條文；請放回rules資料，避免索引循環。")
+    files = sorted(p for p in SRC.rglob("*.json") if "sources" not in p.relative_to(SRC).parts and p != report_manifest)
     def walk(obj, file, pointer="", record=None, conditions=None):
         if isinstance(obj, dict):
             if "id" in obj or "n" in obj:
@@ -347,7 +357,7 @@ def query_forms(q):
 
 def fresh_warnings(index):
     changed = [p for p, h in index["input_hashes"].items() if not (ROOT / p).exists() or sha(ROOT / p) != h]
-    current = {p.relative_to(ROOT).as_posix() for p in SRC.rglob("*.json") if "sources" not in p.relative_to(SRC).parts}
+    current = {p.relative_to(ROOT).as_posix() for p in source_uses({})[2]}
     changed += sorted(current - set(index["input_hashes"]))
     warnings = ["索引輸入已變，先重新build：" + ", ".join(changed)] if changed else []
     cache = CACHE / "library.json"

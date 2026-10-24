@@ -666,7 +666,8 @@
    "corpus": "zhongzhou",
    "passage_id": "daxian.pivot.同陰.吉",
    "quote": "为年运的枢纽"
-  }
+  },
+  "requiresJi": true
  },
  {
   "id": "dx.pivot.同巨",
@@ -862,7 +863,8 @@
    "corpus": "zhongzhou",
    "passage_id": "daxian.pivot.廉貞.寅申",
    "quote": "为大运枢纽"
-  }
+  },
+  "pendingSource": true
  },
  {
   "id": "dx.pivot.廉府",
@@ -960,7 +962,8 @@
    "corpus": "zhongzhou",
    "passage_id": "daxian.pivot.天府.丑未",
    "quote": "为流年、大运之枢纽"
-  }
+  },
+  "includeLu": true
  },
  {
   "id": "dx.pivot.天府.卯酉",
@@ -1049,7 +1052,8 @@
    "corpus": "zhongzhou",
    "passage_id": "daxian.pivot.太陰.卯酉",
    "quote": "为大运流年之枢纽"
-  }
+  },
+  "unresolvedTianji": true
  },
  {
   "id": "dx.pivot.太陰.辰戌",
@@ -1243,7 +1247,8 @@
    "corpus": "zhongzhou",
    "passage_id": "daxian.pivot.七殺.辰戌",
    "quote": "为大运流年之枢纽"
-  }
+  },
+  "includeOpposite": true
  },
  {
   "id": "dx.pivot.破軍.寅申",
@@ -1466,7 +1471,8 @@
    "corpus": "zhongzhou",
    "passage_id": "daxian.pivot.太陽.子午.年",
    "quote": "为流年之枢纽"
-  }
+  },
+  "pendingSource": true
  },
  {
   "id": "dx.pivot.武府.年",
@@ -1770,7 +1776,8 @@
    "corpus": "zhongzhou",
    "passage_id": "daxian.pivot.廉貞.寅申.年",
    "quote": "为流年枢纽"
-  }
+  },
+  "pendingSource": true
  },
  {
   "id": "dx.pivot.廉破.年",

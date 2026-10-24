@@ -1,3 +1,6 @@
+import {LIFE_STEPS_VOICE} from './life-steps-voice';
+import {lifeStepsCite,lifeStepsSource} from './life-steps-sources';
+import type {MingStatement} from './ming-writer';
 import { z } from 'zod';
 import { resolveClashes } from './clash';
 import { annual, flowStars, sanFangPalaces, sihuaOfStem, tianxingBranch, type AnnualChart, type Branch, type Chart, type Palace, type Sihua } from '@guanwei/ziwei';
@@ -72,7 +75,7 @@ export const DAXIAN_HUA = z.array(Hua).parse(huaRaw);
 /*
  * 回看過去：身體、出行、是非、錢、感情（2026-10-04，Issac：試讀嘅人最在意「講中過去」）
  *
- * 條件全部跟《深造講義》（`daxian/events.json`，每條帶原文同頁數）。只講過去年份，寫法婉轉：
+ * 舊事件詞庫只供既有書稿索引；新章只採下方已核完整條件的分支，不用舊數值門檻。
  * 唔講病名、手術、死傷、官非、破財呢啲字，只講「身體要付出的多」「出入要小心」⋯
  * ⚠ 唔用喺將來嘅年份（這一年、這十年）：講過去係印證，講將來係嚇人。
  */
@@ -103,6 +106,7 @@ const Pivot = z
     branches: z.array(z.string()).nullable(),
     cond: z.enum(['forward', 'backward', 'sha', 'nosha', 'stem:丙', 'notstem:丙', 'hua']).nullable(),
     pivots: z.array(z.array(z.string()).min(1)),
+    pendingSource:z.boolean().optional(), includeOpposite: z.boolean().optional(), includeLu: z.boolean().optional(), requiresJi: z.boolean().optional(), unresolvedTianji: z.boolean().optional(),
     source: Source,
   })
   .superRefine((x, ctx) => {
@@ -125,7 +129,7 @@ const SHA4 = ['擎羊', '陀羅', '火星', '鈴星'];
 export function pivotRule(
   chart: Chart,
   scope: 'decade' | 'year',
-): { isPivot: (p: Palace) => boolean; source: string; rule: (typeof DAXIAN_PIVOTS)[number] } | null {
+): { isPivot: (p: Palace, period?:AnnualChart) => boolean; source: string; rule: (typeof DAXIAN_PIVOTS)[number] } | null {
   const ming = chart.palaces.find((p) => p.name === '命宮');
   if (!ming || chart.decadals.length < 2) return null;
   let stars = majors(ming);
@@ -151,13 +155,25 @@ export function pivotRule(
       (r.scope === scope || r.scope === 'both') &&
       [...r.ming].sort().join('·') === key &&
       (!r.branches || r.branches.includes(branch)) &&
-      ok(r.cond),
+      ok(r.cond) && (!r.requiresJi || sanFangPalaces(chart.palaces, ming.branch).some((p)=>p.stars.some((s)=>['左輔','右弼','文昌','文曲','天魁','天鉞'].includes(s.name)||['祿','權','科'].includes(s.sihua??'')))),
   );
   if (!rule) return null;
-  const isPivot = (p: Palace) =>
-    rule.cond === 'hua' ? p.stars.some((s) => s.sihua) : rule.pivots.some((g) => pivotHit(g, p));
+  const unresolvedFanbei=Boolean(rule.unresolvedTianji&&branch==='卯');
+  const isPivot = (p: Palace,period?:AnnualChart) => {
+    if(rule.pendingSource)return false;
+    const scopeHua=period?[...(period.sihua.decadal??[]),...(scope==='year'?period.sihua.annual:[])]:[];
+    const scopeLu=period?[period.liuyao.decadal,...(scope==='year'?[period.liuyao.annual]:[])].filter(Boolean):[];
+    if(rule.cond==='hua')return p.stars.some((s)=>s.sihua)||scopeHua.some((h)=>h.branch===p.branch);
+    const groups=rule.pivots.filter((g)=>!unresolvedFanbei||!g.includes('天機'));
+    if(groups.some((g)=>pivotHit(g,p)))return true;
+    if(rule.includeLu&&(p.stars.some((s)=>s.name==='祿存'||s.sihua==='祿')||scopeHua.some((h)=>h.branch===p.branch&&h.hua==='祿')||scopeLu.some((f)=>f?.祿存===p.branch)))return true;
+    if(rule.includeOpposite){const opposite=chart.palaces.find((q)=>q.branch===oppositeBranch(p.branch));return Boolean(opposite&&groups.some((g)=>pivotHit(g,opposite)));}
+    return false;
+  };
   return { isPivot, source: rule.source.passage_id, rule };
 }
+const oppositeBranch=(b:Branch):Branch=>('子丑寅卯辰巳午未申酉戌亥'[(
+  '子丑寅卯辰巳午未申酉戌亥'.indexOf(b)+6)%12] as Branch);
 const pivotNames = (p: Palace) => p.stars.filter((s) => s.kind === 'major' || s.name === '文昌' || s.name === '文曲').map((s) => s.name);
 const pivotHit = (g: string[], p: Palace) => g.every((s) => pivotNames(p).includes(s));
 
@@ -173,7 +189,7 @@ const PIVOT_COND: Partial<Record<NonNullable<(typeof DAXIAN_PIVOTS)[number]['con
   backward: '，大限逆行',
   /* 2026-10-18 · 後生讀者抽樣 C12：「三方四正見煞」讀者唔識，改白話；舊句（R-008）見 `PIVOT_COND_OLD` */
   sha: '，命宮和相關的幾個宮位見到煞星',
-  nosha: '，命宮和相關的幾個宮位都沒有煞星',
+  nosha: '，命宮和相關的幾個宮位都沒有煞星，並見吉曜或吉化',
   'stem:丙': '，丙年生',
 };
 /** 舊書嘅寫法，出處註照認 */
@@ -184,9 +200,12 @@ const WHY_TAIL = '：這樣的命盤，行到';
 
 function pivotWhy(chart: Chart, rule: (typeof DAXIAN_PIVOTS)[number], keyPalaces: Palace[]): string {
   const ming = chart.palaces.find((p) => p.name === '命宮')!;
+  const unresolvedFanbei=Boolean(rule.unresolvedTianji&&(majors(ming).length?ming.branch:ming.borrowsFrom)==='卯');
   const groups =
-    rule.cond === 'hua' ? ['有化祿、化權、化科或化忌'] : rule.pivots.filter((g) => keyPalaces.some((p) => pivotHit(g, p))).map(pivotGroup);
-  return `你的命宮在${ming.branch}，${starsOf(chart, ming)}${PIVOT_COND[rule.cond ?? 'hua'] ?? ''}${WHY_TAIL}${orList(groups)}的大限，就是一生的轉折點。`;
+    rule.cond === 'hua' ? ['有化祿、化權、化科或化忌'] : rule.pivots.filter((g) => (!unresolvedFanbei||!g.includes('天機')) && keyPalaces.some((p) => pivotHit(g, p)||(rule.includeOpposite&&pivotHit(g,chart.palaces.find((q)=>q.branch===oppositeBranch(p.branch))!)))).map(pivotGroup);
+  if(rule.includeOpposite)groups.push('上述星系的對拱宮垣');
+  if(rule.includeLu)groups.push('祿存與化祿所在宮垣');
+  return `你的命宮在${ming.branch}，${starsOf(chart, ming)}${PIVOT_COND[rule.cond ?? 'hua'] ?? ''}${WHY_TAIL}${orList(groups)}的大限，是原書列出的關鍵宮垣。`;
 }
 
 /** 認返「關鍵大限點解」嗰句係邊條規則寫嘅（出處註用）：星、命宮地支、條件都要對 */
@@ -196,7 +215,7 @@ export function pivotWhyPattern(rule: (typeof DAXIAN_PIVOTS)[number]): RegExp {
   const stars = rule.ming.length === 2 ? `(?:${rule.ming.join('、')}|${[...rule.ming].reverse().join('、')})` : rule.ming[0]!;
   const own = rule.branches ? `[${rule.branches.join('')}]` : '.';
   const borrowed = rule.branches ? `[${rule.branches.map(opp).join('')}]` : '.';
-  const conds = [PIVOT_COND[rule.cond ?? 'hua'] ?? '', PIVOT_COND_OLD[rule.cond ?? 'hua']].filter((x): x is string => x !== undefined);
+  const conds = [PIVOT_COND[rule.cond ?? 'hua'] ?? '', PIVOT_COND_OLD[rule.cond ?? 'hua'],...(rule.cond==='nosha'?['，命宮和相關的幾個宮位都沒有煞星']:[])].filter((x): x is string => x !== undefined);
   return new RegExp(`^你的命宮在(?:${own}，坐${stars}|${borrowed}，沒有主星，借對面宮位的${stars})(?:${conds.join('|')})${WHY_TAIL}`);
 }
 
@@ -204,7 +223,7 @@ export function pivotWhyPattern(rule: (typeof DAXIAN_PIVOTS)[number]): RegExp {
 export function pivotSteps(chart: Chart): { steps: number[]; source: string | null; rule: (typeof DAXIAN_PIVOTS)[number] | null } {
   const r = pivotRule(chart, 'decade');
   if (!r) return { steps: [], source: null, rule: null };
-  const steps = chart.decadals.filter((d) => r.isPivot(chart.palaces.find((x) => x.branch === d.branch)!)).map((d) => d.index);
+  const steps = chart.decadals.filter((d) => r.isPivot(chart.palaces.find((x) => x.branch === d.branch)!,(()=>{const a=annual(chart,chart.lunar.y+d.fromAge-1);return a.ok?a.value:undefined;})())).map((d) => d.index);
   return { steps, source: r.source, rule: r.rule };
 }
 export const DAXIAN_RULES = RulesDoc.parse(rulesRaw);
@@ -222,7 +241,7 @@ for (const t of Object.values(DAXIAN_FRAMES)) {
 export const STEPS_SLUG = '一生十二步';
 export const DECADE_SLUG = '這十年';
 
-export type DaxianSegment = { slot: string; text: string; source_id: string | null; rule_ids: string[]; /** 建議段：給你的話用嘅一句撮要（唔入正文） */ brief?: string };
+export type DaxianSegment = { slot: string; text: string; source_id: string | null; rule_ids: string[]; /** 建議段：給你的話用嘅一句撮要（唔入正文） */ brief?: string; statements?:MingStatement[]; heading?:string; referenceConditions?:string[]; referenceApplicability?:string[]; referenceFocus?:string[] };
 type Out = { slug: string; title: string; segments: DaxianSegment[] } | null;
 
 const DIGITS = ['〇', '一', '二', '三', '四', '五', '六', '七', '八', '九'] as const;
@@ -545,278 +564,103 @@ function decadeAt(chart: Chart, year: number) {
 }
 
 /* ── 一生十二步（免費） ─────────────────────────────── */
-/* ── 回看過去（2026-10-02 · 免費章）──────────────────────
- *
- * 讀者先喺免費章見到「對得上」嘅過去，之後嘅講法先容易接受（Issac）。
- *
- * ⚠ 唔講事件、唔講病、唔講意外。說服力嚟自「具體」（年份 × 方面，由張盤計出嚟、人人唔同），
- *    唔係嚟自模糊得人人都中嘅暗示 —— 嗰種係巴納姆，`barnum.test.ts` 防嘅就係佢。
- * ⚠ 引擎未有流羊流陀，推唔到事件細節；所以只講「呢方面變動較多／有轉機」。
- *
- * 依據：
- *   一、流年四化係嗰段時期嘅環境（p.235「大運及流年四化所形成的，乃屬各時期的環境」）
- *   二、流年樞紐（下篇宮垣論・命宮，`pivotRule(chart, 'year')`）
- *   三、換大限 —— 新一個大限即係新一段環境
- *
- * 揀年：虛歲十八至去年，訊號最強嘅最多三年，年與年之間最少隔三年，按時間排。
- */
-/*
- * 2026-10-04（試讀回饋：「講返之前嗰件事」最深刻，想講得實啲）：
- *   每方面加生活上常見嘅例子（「像是⋯」），年份講死（加干支、唔再寫「前後」），
- *   同一年化祿化忌落唔同方面就兩樣都講。
- * ⚠ 底線照舊：例子只係嗰方面常見嘅樣子，唔講病、意外、官非、離婚、生死（測試攔住）。
- *   疾厄只講作息同疲累，唔講身體出事。
- */
-type Area = { gist: string; eg: string };
-const JI_AREA: Record<string, Area> = {
-  命宮: { gist: '你自己的狀態起伏較大', eg: '像是對自己的方向沒把握，想法反反覆覆' },
-  兄弟: { gist: '朋輩之間的事比較費心', eg: '像是和兄弟姊妹、同學或合伙人有爭拗，或者要替他們分擔' },
-  夫妻: { gist: '感情上牽掛較多，容易有摩擦', eg: '像是吵得比平時多、聚少離多，或者一段關係走到要做決定的時候' },
-  子女: { gist: '後輩或手上的作品比較費心', eg: '像是為子女或下屬操心，或者自己的作品、計劃遲遲未有成果' },
-  財帛: { gist: '錢方面支出或周轉比較吃緊', eg: '像是有一筆大開支、收入一時不穩，或者借出去的錢收不回' },
-  疾厄: { gist: '身心負荷較重，容易覺得累', eg: '像是長時間加班、作息被打亂，總覺得睡不夠' },
-  遷移: { gist: '在外奔走較多，環境變化大', eg: '像是常要出差、搬到新的城市，或者在外面遇到的事不如預期' },
-  僕役: { gist: '人際來往比較費心', eg: '像是朋友之間有誤會、被人拖累，或者團隊裡的人事比較麻煩' },
-  官祿: { gist: '工作上變動較多，事情不容易照計劃走', eg: '像是轉工、換部門或換上司，或者手上的項目推倒重來' },
-  田宅: { gist: '住處或家裡的事變動較多', eg: '像是搬屋、裝修，或者家裡有事要你分心處理' },
-  福德: { gist: '心事較多，不容易靜下來', eg: '像是心裡有放不下的事，夜裡想個不停' },
-  父母: { gist: '和長輩或上司之間要交代的事較多', eg: '像是和父母意見不合、和上司關係緊張，或者要替長輩處理事情' },
-};
-const LU_AREA: Record<string, Area> = {
-  命宮: { gist: '你自己的狀態比較順', eg: '像是做事特別順手，或者開始了一件後來證明值得的事' },
-  兄弟: { gist: '朋輩之間比較得力', eg: '像是得到兄弟姊妹、同學或合伙人幫忙' },
-  夫妻: { gist: '感情上比較順', eg: '像是遇到合拍的人、關係穩定下來，或者一起計劃將來' },
-  子女: { gist: '後輩或手上的作品有起色', eg: '像是子女或下屬帶來好消息，或者自己的作品有了成果' },
-  財帛: { gist: '錢方面有轉機', eg: '像是加薪、有額外收入，或者一筆錢的安排做對了' },
-  疾厄: { gist: '身心比較鬆得下來', eg: '像是作息回到正軌，整個人比之前輕鬆' },
-  遷移: { gist: '在外的機會較多', eg: '像是出外工作、讀書或旅行帶來機會' },
-  僕役: { gist: '人際上有助力', eg: '像是認識到後來幫得上忙的人' },
-  官祿: { gist: '工作上有轉機', eg: '像是升職、轉到更合適的工作，或者手上的事得到認可' },
-  田宅: { gist: '住處或家裡的事有好的安排', eg: '像是搬到更合適的地方、置業，或者家裡的事安頓下來' },
-  福德: { gist: '心境比較安穩', eg: '像是心情安定，有時間做自己喜歡的事' },
-  父母: { gist: '和長輩或上司之間比較順', eg: '像是得到長輩或上司提攜' },
-};
-/**
- * 後生讀者（2026-10-13 · 讀者 feedback：「後生啲嘅讀者覺得回看太短」）：
- * 以前由虛歲十八先揀，廿幾歲嘅人得一兩年。而家由十二歲（中學）起，
- * 十二至十七歲用讀書年代嘅例子；夫妻、子女、財帛、疾厄嗰幾方面嗰個年紀唔講（冇得對、亦唔應該講）；
- * 錢、感情、身體、出行、是非嗰幾條書上嘅條件（`lookBackEvent`）亦唔用喺十八歲之前。
- * 十八至二十四歲：工作、錢兩方面換做讀書、第一份工、兼職嘅講法。
- */
-export const LOOKBACK_FROM_AGE = 12;
-/*
- * 年紀用實歲（2026-10-18 · 十八歲讀者抽樣）：以前全部用虛歲，虛歲比實歲大一至兩歲 ——
- * 虛歲十二（實歲十）已經寫「升中」，虛歲十八（實歲十六）已經用大人嘅感情例子。
- * 有國曆出生年就用「嗰年減出生年」（嗰年生日之後嘅歲數，對讀書階段夠準）；冇就用虛歲減一。
- * 書入面顯示照寫虛歲（全書一律虛歲），只係揀講法嘅界線用實歲。
- */
-const realAgeIn = (y: number, nominalAge: number, born?: number) => (born !== undefined ? y - born : nominalAge - 1);
-const TEEN_JI: Record<string, Area> = {
-  命宮: { gist: '你自己的狀態起伏較大', eg: '像是對自己沒信心，心情時好時壞' },
-  兄弟: { gist: '和同學朋友之間比較費心', eg: '像是和要好的同學鬧翻，或者在班上覺得格格不入' },
-  僕役: { gist: '和同學朋友之間比較費心', eg: '像是和要好的同學鬧翻，或者在班上覺得格格不入' },
-  遷移: { gist: '身邊的環境變化大', eg: '像是轉校、搬到新的地方，要重新適應' },
-  官祿: { gist: '讀書上比較吃力', eg: '像是成績起伏、考試壓力大，或者對要讀的科目提不起勁' },
-  田宅: { gist: '住處或家裡的事變動較多', eg: '像是搬屋，或者家裡的安排改變了你的日常' },
-  福德: { gist: '心事較多，不容易靜下來', eg: '像是有心事不知道跟誰講' },
-  父母: { gist: '和父母或老師之間要磨合的事較多', eg: '像是和父母意見不合，或者和老師相處不來' },
-};
-const TEEN_LU: Record<string, Area> = {
-  命宮: { gist: '你自己的狀態比較順', eg: '像是做事特別有信心，或者找到自己真正喜歡的東西' },
-  兄弟: { gist: '和同學朋友之間比較順', eg: '像是交到後來一直來往的好朋友' },
-  僕役: { gist: '和同學朋友之間比較順', eg: '像是交到後來一直來往的好朋友' },
-  遷移: { gist: '外出的機會較多', eg: '像是參加交流、旅行或課外活動，眼界打開了' },
-  官祿: { gist: '讀書上有起色', eg: '像是成績進步、考進想讀的學校，或者某一科突然開竅' },
-  田宅: { gist: '住處或家裡的事安頓下來', eg: '像是搬到更舒服的地方，或者家裡的安排讓你更自在' },
-  福德: { gist: '心境比較安穩', eg: '像是有了自己的興趣，玩得開心' },
-  父母: { gist: '和父母或老師之間比較順', eg: '像是得到老師賞識，或者家人支持你的決定' },
-};
-const YOUNG_JI: Record<string, Area> = {
-  官祿: { gist: '讀書或工作上變動較多，事情不容易照計劃走', eg: '像是轉科、找工作不順，或者第一份工做得不開心' },
-  財帛: { gist: '錢方面比較吃緊', eg: '像是生活費緊張，或者兼職收入不穩' },
-  疾厄: { gist: '身心負荷較重，容易覺得累', eg: '像是趕功課、溫習或工作到夜深，作息被打亂，總覺得睡不夠' },
-};
-const YOUNG_LU: Record<string, Area> = {
-  官祿: { gist: '讀書或工作上有轉機', eg: '像是考進想讀的學系，或者找到合心意的第一份工' },
-  財帛: { gist: '錢方面有轉機', eg: '像是兼職或第一份工的收入不錯，或者拿到獎學金' },
-};
-/** 按嗰年嘅虛歲揀方面講法；十八歲前冇嗰方面就回 undefined（唔講）。 */
-function areaAt(palace: string | null | undefined, age: number, kind: '忌' | '祿'): Area | undefined {
-  if (!palace) return undefined;
-  const adult = kind === '忌' ? JI_AREA : LU_AREA;
-  if (age < 18) return (kind === '忌' ? TEEN_JI : TEEN_LU)[palace];
-  if (age <= 24) return (kind === '忌' ? YOUNG_JI : YOUNG_LU)[palace] ?? adult[palace];
-  return adult[palace];
-}
+/** Reviewed past dates: ages select the language, never imply an event happened. */
+export const LOOKBACK_FROM_AGE=12;
+const realAgeIn=(year:number,nominalAge:number,born?:number)=>born===undefined?nominalAge-1:year-born;
 
-/** 換大限嗰年：按年紀（實歲）舉例 */
-const turnEg = (age: number) =>
-  age <= 12
-    ? '像是升中、轉校或換了一班同學'
-    : age < 18
-      ? '像是轉校、分班、選科或換了一班同學'
-    : age <= 24
-      ? '像是升學、畢業或出來工作'
-      : age <= 40
-        ? '像是轉工、轉行、搬屋或成家'
-        : '像是工作崗位、住處或家庭角色有了變化';
-
-const NATAL_SHA = ['擎羊', '陀羅', '火星', '鈴星'];
-
-/**
- * 某一年有冇中書入面身體、出行、是非、錢、感情嘅條件（逐條見 `daxian/events.json` 嘅 rules）。
- * 一年最多一樣，次序：身體 → 出行 → 是非 → 錢 → 感情。
- *
- * 羊陀迭并（本命羊陀同流年羊陀同宮）、迭忌（流年化忌同本命或大限化忌同宮）唔單獨成立 ——
- * 試過：單獨用嘅話八成幾讀者都中。書入面都係疊埋講（「四煞並照，而且羊陀迭并」p.153），
- * 所以當做加多一粒煞，而且只用喺出行、感情（書入面同出事一齊講嗰兩類）。
- */
-export function lookBackEvent(chart: Chart, A: AnnualChart): (typeof LOOKBACK_EVENTS)[number] | null {
-  const xing = tianxingBranch(chart);
-  const flows = [A.liuyao.annual, A.liuyao.decadal].filter((f): f is NonNullable<typeof f> => Boolean(f));
-  const natalAt = (b: Branch, names: string[]) =>
-    chart.palaces.find((p) => p.branch === b)!.stars.filter((s) => names.includes(s.name)).length;
-  const ji = A.sihua.annual.find((h) => h.hua === '忌');
-  const jiB = ji?.branch ?? null;
-  const natalJi = A.sihua.natal.find((h) => h.hua === '忌')?.branch ?? null;
-  const decJi = A.sihua.decadal?.find((h) => h.hua === '忌')?.branch ?? null;
-  /* 羊陀迭并、迭忌：各當多一粒煞 */
-  const diebing = (b: Branch) => natalAt(b, ['擎羊', '陀羅']) > 0 && (A.liuyao.annual.擎羊 === b || A.liuyao.annual.陀羅 === b);
-  const dieji = (b: Branch) => b === jiB && (b === natalJi || b === decJi);
-  /* 煞刑：本命四煞 ＋ 流年、大限嘅流羊流陀 ＋ 天刑 */
-  const sha = (b: Branch) =>
-    natalAt(b, NATAL_SHA) + flows.reduce((n, f) => n + (f.擎羊 === b ? 1 : 0) + (f.陀羅 === b ? 1 : 0), 0) + (xing === b ? 1 : 0);
-  /* 出事嘅煞：再加迭并、迭忌。書入面呢兩樣係同意外、出事一齊講（p.153、p.386），所以淨係出行、感情用 */
-  const shaX = (b: Branch) => sha(b) + (diebing(b) ? 1 : 0) + (dieji(b) ? 1 : 0);
-  /* 流羊流陀（流年或大限）：書推運限嘅例子差唔多都有 */
-  const flow = (b: Branch) => flows.some((f) => f.擎羊 === b || f.陀羅 === b);
-  const yang = (b: Branch) => natalAt(b, ['擎羊']) > 0 || flows.some((f) => f.擎羊 === b);
-  const at = (name: string) => A.overlay.find((o) => o.annual === name)?.branch ?? null;
-  const jiIn = (...names: string[]) => Boolean(ji?.annualPalace && names.includes(ji.annualPalace));
-  const ev = (kind: string) => LOOKBACK_EVENTS.find((e) => e.kind === kind)!;
-  const m = A.mingGong;
-
-  /* 身體 */
-  if (jiB && at('疾厄') === jiB && sha(jiB) >= 2 && flow(jiB)) return ev('身體');
-  /* 出行：流年命宮煞重；遷移宮化忌見煞 */
-  if (shaX(m) >= 3 && yang(m) && jiIn('命宮', '遷移', '疾厄')) return ev('出行');
-  if (jiB && jiIn('遷移') && shaX(jiB) >= 3 && flow(jiB)) return ev('出行');
-  /* 是非：太陽、巨門化忌見刑；化忌、擎羊、天刑同宮 */
-  if (jiB && ji && ['太陽', '巨門'].includes(ji.star) && jiIn('命宮', '官祿', '遷移') && (yang(jiB) || xing === jiB)) return ev('是非');
-  if (jiB && jiIn('命宮', '官祿', '遷移') && yang(jiB) && xing === jiB) return ev('是非');
-  /* 錢：太陰化忌、武曲化忌、羊陀夾忌、空劫加化忌 */
-  if (jiB && ji?.star === '太陰' && jiIn('財帛', '命宮', '田宅') && sha(jiB) >= 1 && flow(jiB)) return ev('錢');
-  if (jiB && ji?.star === '武曲' && jiIn('財帛', '命宮') && sha(jiB) >= 2 && flow(jiB)) return ev('錢');
-  /* 羊陀夾忌：書講嘅係「羊陀夾武曲之忌」（p.12、p.76 例子都係武曲），唔推廣去其他星 */
-  if (jiB && ji?.star === '武曲' && jiIn('命宮', '財帛') && A.liuyao.annual.祿存 === jiB) return ev('錢');
-  if (jiB && jiIn('財帛') && natalAt(jiB, ['地空', '地劫']) > 0 && sha(jiB) >= 1 && flow(jiB)) return ev('錢');
-  /* 感情 */
-  if (jiB && jiIn('夫妻') && shaX(jiB) >= 3 && flow(jiB)) return ev('感情');
+// Reviewed retrospective rules: every returned event has its own complete source gate.
+export function lookBackEvent(chart:Chart,A:AnnualChart):(typeof LOOKBACK_EVENTS)[number]|null {
+  const palace=chart.palaces.find((p)=>p.branch===A.mingGong)!;
+  const annualJi=A.sihua.annual.find((h)=>h.hua==='忌');
+  const hits=(names:string[])=>names.every((n)=>palace.stars.some((s)=>s.name===n&&s.kind==='major'));
+  // p.12: use actual flanking Yang/Tuo, not a weighted count of overlapping malefics.
+  if(annualJi?.star==='武曲'&&annualJi.branch&&['命宮','財帛'].includes(annualJi.annualPalace??'')){
+    const target=annualJi.branch;
+    const branches='子丑寅卯辰巳午未申酉戌亥';const i=branches.indexOf(target);
+    const adjacent=[branches[(i+11)%12],branches[(i+1)%12]];
+    const natalYang=chart.palaces.find((p)=>p.stars.some((s)=>s.name==='擎羊'))?.branch;
+    const natalTuo=chart.palaces.find((p)=>p.stars.some((s)=>s.name==='陀羅'))?.branch;
+    const candidates=[{name:'本命',yang:natalYang,tuo:natalTuo},
+      {name:'大限',yang:A.liuyao.decadal?.擎羊,tuo:A.liuyao.decadal?.陀羅},
+      {name:'流年',yang:A.liuyao.annual.擎羊,tuo:A.liuyao.annual.陀羅}];
+    const flank=candidates.find((f)=>f.yang&&f.tuo&&f.yang!==f.tuo&&adjacent.includes(f.yang)&&adjacent.includes(f.tuo));
+    if(flank){const e=LOOKBACK_EVENTS.find((e)=>e.kind==='錢')!;return {...e,
+      rules:[`流年武曲化忌在${palaceLabel(annualJi.annualPalace!)}，由${flank.name}擎羊、陀羅在兩鄰宮相夾；同宮煞數或疊忌不能代替相夾。原文另說不一定代表事業失敗，可能是投入超過負荷。`],
+      text:'投入與周轉是這一年值得回看的重點，承擔是否超過手上資源，會影響往後怎樣接續',
+      sources:[{corpus:'zhongzhou',passage_id:'huigu.yangtuo.jiaji',quote:'亦不一定代表事业失败'}]};}
+  }
+  // p.29 is about a period Life Palace containing Ju Men, not any palace with Ju Men Ji.
+  if(hits(['巨門'])&&annualJi?.star==='巨門'&&annualJi.branch===A.mingGong){
+    const sf=sanFangPalaces(chart.palaces,A.mingGong);const branches=new Set(sf.map((p)=>p.branch));
+    const sunRelief=sf.some((p)=>p.stars.some((s)=>s.name==='太陽'&&['廟','旺'].includes(s.brightness??'')));
+    const hua=[...A.sihua.natal,...(A.sihua.decadal??[]),...A.sihua.annual];
+    const luQuan=hua.some((h)=>h.branch&&branches.has(h.branch)&&['祿','權'].includes(h.hua))
+      ||sf.some((p)=>p.stars.some((s)=>s.name==='祿存'))||[A.liuyao.annual,A.liuyao.decadal].some((f)=>f&&branches.has(f.祿存));
+    const sha=sf.some((p)=>p.stars.some((s)=>SHA4.includes(s.name)))||[A.liuyao.annual,A.liuyao.decadal].some((f)=>f&&(branches.has(f.擎羊)||branches.has(f.陀羅)));
+    if(!sunRelief&&!luQuan&&sha){const e=LOOKBACK_EVENTS.find((e)=>e.kind==='是非')!;return {...e,rules:['本年命宮逢巨門化忌，相關宮位見煞；已核原局、大限與流年的權祿及祿存，未見該範圍權祿，亦無廟旺太陽化解。原文見諸吉及吉化的相反分支仍須並讀。'],sources:[{corpus:'zhongzhou',passage_id:'huigu.jumen',quote:'大限流年命宫逢巨门'}]};}
+  }
   return null;
 }
 
-export function lookBack(chart: Chart, year: number, solarBorn?: number): DaxianSegment | null {
-  const born = chart.lunar.y;
-  const pivot = pivotRule(chart, 'year');
-  const keySteps = pivotSteps(chart).steps;
-  type Cand = { y: number; gz: string; age: number; score: number; key: boolean; event: string | null; parts: string[]; sources: string[]; areas: string[] };
-  const cands: Cand[] = [];
-  for (let y = born + LOOKBACK_FROM_AGE - 1; y < year; y++) {
-    const r = annual(chart, y);
-    if (!r.ok) continue;
-    const A = r.value;
-    const age = realAgeIn(y, A.nominalAge, solarBorn);
-    if (age < LOOKBACK_FROM_AGE) continue;
-    const parts: string[] = [];
-    const sources: string[] = [];
-    let score = 0;
-    const turn = chart.decadals.find((d) => d.fromAge === A.nominalAge);
-    /*
-     * 走進關鍵大限嗰年（2026-10-18）：講明係開頭講嗰步，回看同十二步先扣得埋。
-     * 多一分：同分嘅年份入面優先揀佢，呢度係成章最直接嘅連接。
-     */
-    const keyTurn = Boolean(turn && keySteps.includes(turn.index));
-    if (turn) {
-      parts.push(`你走進第${num(turn.index)}個大限，${keyTurn ? '正是開頭說的關鍵大限，' : ''}生活的重心換了方向，${turnEg(age)}`);
-      score += keyTurn ? 3 : 2;
-    }
-    const ji = A.sihua.annual.find((h) => h.hua === '忌');
-    const lu = A.sihua.annual.find((h) => h.hua === '祿');
-    const jiA = areaAt(ji?.annualPalace, age, '忌');
-    /* 心情、身心、自己嗰三方面一吃緊一順利，讀落自相矛盾（「心事較多⋯同一年身心鬆得下來」）：唔並講 */
-    const MOOD = ['命宮', '福德', '疾厄'];
-    const clash = Boolean(ji?.annualPalace && lu?.annualPalace && MOOD.includes(ji.annualPalace) && MOOD.includes(lu.annualPalace));
-    const luA = lu?.annualPalace && lu.annualPalace !== ji?.annualPalace && !clash ? areaAt(lu.annualPalace, age, '祿') : undefined;
-    /*
-     * 書入面身體、出行、是非、錢嘅條件（一本書最多兩年，見下面）。
-     * 佢講嘅就係呢年化忌嘅事，所以中咗就唔再出化忌嗰方面嘅句，免得同一件事講兩次。
-     */
-    const event = age >= 18 ? lookBackEvent(chart, A) : null;
-    if (event) {
-      parts.push(event.text);
-      sources.push(...event.sources.map((x) => x.passage_id));
-      score += 3;
-      if (luA) parts.push(`同一年，${luA.gist}，${luA.eg}`);
-    } else if (jiA) {
-      /* 換大限嗰年已經有一組例子：方面只講一句，唔好兩串「像是」 */
-      parts.push(turn ? jiA.gist : `${jiA.gist}，${jiA.eg}`);
-      sources.push('huigu.env');
-      score += ['官祿', '夫妻', '田宅', '遷移', '財帛', '疾厄'].includes(ji!.annualPalace!) ? 2 : 1;
-      /* 每年多講少少（2026-10-13）：順嗰方面都舉例；換大限嗰年已經有一組例子，唔好再加 */
-      if (luA) parts.push(turn ? `同一年，${luA.gist}` : `同一年，${luA.gist}，${luA.eg}`);
-    } else if (luA) {
-      parts.push(turn ? luA.gist : `${luA.gist}，${luA.eg}`);
-      sources.push('huigu.env');
-      score += 1;
-    }
-    const mp = chart.palaces.find((p) => p.branch === A.mingGong);
-    const key = Boolean(pivot && mp && pivot.isPivot(mp));
-    if (key) {
-      sources.push(pivot!.source);
-      score += 3;
-    }
-    /*
-     * 2026-10-18 · 後生讀者抽樣 C13：淨係「是你命盤裡關鍵的一年」、冇講那年有乜嘅，唔列 —— 讀者冇嘢對。
-     * C14：記低講咗邊方面（化忌、化祿嗰句），揀年份時同一句只講一次。
-     */
-    /* 用講出嚟嘅字比：後生讀者兄弟、僕役兩宮都講「和同學朋友之間比較費心」 */
-    const areas = [...(!event && jiA ? [jiA.gist] : []), ...(luA ? [luA.gist] : [])];
-    if (score >= 3 && parts.length) cands.push({ y, gz: `${A.ganzhi[0]}${A.ganzhi[1]}`, age: A.nominalAge, score, key, event: event?.id ?? null, parts, sources, areas });
+/** Past dates are selected as reading examples, never as evidence that an event happened. */
+export function lookBackSegments(chart:Chart,year:number,solarBorn?:number):DaxianSegment[]{
+  const pivot=pivotRule(chart,'year'),keys=pivotSteps(chart).steps;
+  const rows:{year:number;A:AnnualChart;turn:Chart['decadals'][number]|undefined;key:boolean;event:ReturnType<typeof lookBackEvent>}[]=[];
+  for(let y=chart.lunar.y+LOOKBACK_FROM_AGE-1;y<year;y++){
+    const result=annual(chart,y);if(!result.ok)continue;const A=result.value;
+    if(realAgeIn(y,A.nominalAge,solarBorn)<LOOKBACK_FROM_AGE)continue;
+    const turn=chart.decadals.find((d)=>d.fromAge===A.nominalAge);
+    const p=chart.palaces.find((p)=>p.branch===A.mingGong)!;
+    const key=Boolean(pivot?.isPivot(p,A));
+    const event=realAgeIn(y,A.nominalAge,solarBorn)>=18?lookBackEvent(chart,A):null;
+    if(turn||key||event)rows.push({year:y,A,turn,key,event});
   }
-  const picked: Cand[] = [];
-  for (const c of [...cands].sort((a, b) => b.score - a.score || b.y - a.y)) {
-    if (picked.length >= 3) break;
-    /* 後生讀者（寫書時虛歲三十以下）走過嘅年份少：年份之間隔兩年就得 */
-    if (picked.some((p) => Math.abs(p.y - c.y) < (year - born < 30 ? 2 : 3))) continue;
-    /* 身體、出行、是非、錢一本書最多講兩年 —— 三年都係難關，讀落似咒 */
-    if (c.event && picked.filter((p) => p.event).length >= 2) continue;
-    /* 同一類（例如兩年都係是非）只講一次：同一句出兩次，讀落似模板 */
-    if (c.event && picked.some((p) => p.event === c.event)) continue;
-    /* 兩年都係「和同學朋友之間比較費心」：同一句只講一次 */
-    if (c.areas.some((a) => picked.some((p) => p.areas.includes(a)))) continue;
-    picked.push(c);
-  }
-  if (!picked.length) return null;
-  picked.sort((a, b) => a.y - b.y);
-  /* 「是你命盤裡的關鍵年份」第二次起改講「同樣是」，唔好連講三次 */
-  let keySeen = false;
-  const lines = picked.map((c) => {
-    let head = '';
-    if (c.key) {
-      head = keySeen ? '同樣是關鍵的一年' : '是你命盤裡關鍵的一年';
-      keySeen = true;
+  // Most recent examples with different Life Palace branches; include a decade boundary when available.
+  const latest=[...rows].reverse();const selected:typeof rows=[];
+  const boundary=latest.find((r)=>r.turn);if(boundary)selected.push(boundary);
+  for(const r of latest){if(selected.length>=3)break;if(selected.some((s)=>s.year===r.year||Math.abs(s.year-r.year)<3||s.A.mingGong===r.A.mingGong))continue;selected.push(r);}
+  return selected.sort((a,b)=>a.year-b.year).map((r)=>{
+    const {A,turn,key,event}=r,p=chart.palaces.find((p)=>p.branch===A.mingGong)!;
+    const prefix=`${yearCN(r.year)}年（${A.ganzhi.join('')}年，你虛歲${num(A.nominalAge)}），`;
+    const lines:MingStatement[]=[];
+    const add=(text:string,ids:string[]=[],kind:MingStatement['kind']='evidence')=>lines.push({text,en:'',kind,source_ids:ids,citations:ids.map(lifeStepsCite)});
+    add(prefix+(turn?`你走進第${num(turn.index)}個大限，${keys.includes(turn.index)?'也是你人生較重要的一步，':''}${starsOf(chart,chart.palaces.find((p)=>p.branch===turn.branch)!)}。`:`你在第${num(A.decadal!.index)}個大限之內，流年命宮在${p.branch}，${starsOf(chart,p)}。`));
+    if(turn)add(`這一年的命宮在${p.branch}，${starsOf(chart,p)}。`);
+
+    const ji=A.sihua.annual.find((h)=>h.hua==='忌'),lu=A.sihua.annual.find((h)=>h.hua==='祿');
+    if(ji&&lu)add(`當年的${lu.star}化祿在${palaceLabel(lu.annualPalace!)}，${ji.star}化忌在${palaceLabel(ji.annualPalace!)}。`,['method']);
+    // These two general four-transformation interactions are stated explicitly at PDF236.
+    const natal=new Map(A.sihua.natal.map((h)=>[h.star,h.hua]));
+    const interaction=A.sihua.annual.map((h)=>({h,rule:DAXIAN_RULES.rules.find((r)=>['dx.rule.lu_to_ji','dx.rule.ji_to_lu'].includes(r.id)&&r.natal===natal.get(h.star)&&r.decade===h.hua)})).find((r)=>r.rule);
+    if(interaction?.rule)add(interaction.rule.text.replace('{star}',interaction.h.star).replace('這十年','這一年'),['method'],'interpretation');
+    if(event)add(event.text+'。',event.sources.map((s)=>s.passage_id),'interpretation');
+    if(key){lines[0]!.source_ids.push(pivot!.source);lines[0]!.citations.push(lifeStepsCite(pivot!.source));}
+    const young=realAgeIn(r.year,A.nominalAge,solarBorn)<18;
+    // Only use the newly reviewed meanings below; other combinations keep their chart facts.
+    // The advice is stored separately from source-supported interpretation even when read continuously.
+    const focus:MingStatement[]=[];
+    const focusLine=(key:keyof typeof LIFE_STEPS_VOICE,ids:string[]=[],kind:MingStatement['kind']='editorial-explanation')=>focus.push({text:LIFE_STEPS_VOICE[key].zh,en:LIFE_STEPS_VOICE[key].en,kind,source_ids:ids,citations:ids.map(lifeStepsCite)});
+    if(young)focusLine('study',[],'editorial-advice');
+    else if(interaction?.rule?.id==='dx.rule.lu_to_ji')focusLine('resources',['method']);
+    else if(interaction?.rule?.id==='dx.rule.ji_to_lu')focusLine('opening',['method']);
+    else if(ji?.star==='天機'&&ji.annualPalace==='福德')focusLine('planning',['voice.tianji.ji']);
+    else if(ji?.star==='文昌')focusLine('documents',['voice.wenchang.ji']);
+    else if(lu?.star==='天機'){
+      focusLine('initiative',['voice.tianji.lu']);
+      if(ji?.annualPalace==='僕役')focusLine('team',[],'editorial-advice');
+      else if(ji?.annualPalace==='疾厄')focusLine('pace',[],'editorial-advice');
     }
-    const body = c.parts.join('；');
-    const text = head ? `${head}${body ? `，${body}` : ''}` : body;
-    return `${yearCN(c.y)}年（${c.gz}年，你虛歲${num(c.age)}），${text}。`;
+    // Keep the date and stage first, then explain the focus before the supporting star positions.
+    lines.splice(1,0,...focus);
+    const ids=[...new Set(lines.flatMap((l)=>l.citations))];
+    return {slot:'回看',heading:`${yearCN(r.year)}年`,text:lines.map((l)=>l.text).join(''),statements:lines,source_id:ids.join('+')||null,rule_ids:[],
+      referenceFocus:ids.flatMap((id)=>lifeStepsSource(id)?.quoteSpans.filter((span)=>!id.endsWith(':method')||span.id===(interaction?.rule?.id==='dx.rule.lu_to_ji'?'wtz.deep.p236.b002':interaction?'wtz.deep.p236.b003':'wtz.deep.p235.b005')).map((span)=>span.id)??[]),
+      referenceApplicability:[`本盤當年為${A.ganzhi.join('')}，流年命宮在${p.branch}；${A.decadal?`所處大限為第${num(A.decadal.index)}步（虛歲${num(A.decadal.fromAge)}至${num(A.decadal.toAge)}歲）`:'尚未起大限'}。`,...(key?[`本命${starsOf(chart,chart.palaces.find((p)=>p.name==='命宮')!)}；本年行到該星系原文列明的樞紐宮垣。`]:[]),...(event?.rules??[])],
+      referenceConditions:['年份取自已走過的大限交界及可確認的樞紐宮垣，最多列三個不同宮位的近年例子；不是按事件吉凶計分，也不是完整的重要年份名單。','四化先看星曜與原局、大限的交會，再分具體得失；只見某宮有祿或忌，尚不足以確定生活事件。','生活上的整理與做法屬編輯解說或建議，不表示曾發生某件往事。天機祿只取主動策劃的方向，未推為獲利；天機忌只在本年福德落點解說計劃與思慮，未套疾病分支；文昌忌只取文件及責任核對，未推為實際損失。',...(event?[`本段判讀只採${event.sources.map((s)=>s.passage_id==='huigu.jumen'?'巨門原段的完整限制':'武曲羊陀夾忌的周轉限制').join('、')}；其餘星系案例不套入。`]:[])]};
   });
-  return {
-    slot: '回看',
-    text: `回看你走過的路，${lines.join('')}這幾年，對你來說是不是有過轉折？對不上的，就當那一年的訊號沒有落在你身上。`,
-    source_id: [...new Set(picked.flatMap((c) => c.sources))].join('+') || null,
-    rule_ids: [],
-  };
 }
+/** Compatibility for callers that need one segment; the chapter uses the separate dated paragraphs. */
+export function lookBack(chart:Chart,year:number,solarBorn?:number):DaxianSegment|null{return lookBackSegments(chart,year,solarBorn)[0]??null;}
 
 /**
  * 一生十二步只列到虛歲九十歲左右起步嗰幾步（2026-10-02）。
@@ -836,15 +680,14 @@ export function lifeStepsChapter(input: { chart: Chart; year: number; solar?: { 
     ? `你的大限由虛歲${num(first.fromAge)}歲起，每十年換一步；寫這本書時（${yearCN(year)}年），你走到第${num(at.d.index)}步。`
     : `你的大限由虛歲${num(first.fromAge)}歲起，每十年換一步；寫這本書時（${yearCN(year)}年），你還未起步。`;
   const shown = chart.decadals.filter((d) => d.fromAge < STEPS_UNTIL_AGE);
-  /* 回看過去：讀者見到對得上嘅年份，之後嘅講法先容易接受 */
-  const back = lookBack(chart, year, input.solar?.y);
+  /* 先按本盤列出可核對的過去年份，不把生活例子當成已發生的事。 */
+  const back = lookBackSegments(chart, year, input.solar?.y);
   const rest = chart.decadals.find((d) => d.fromAge >= STEPS_UNTIL_AGE);
   const pv = pivotSteps(chart);
   const keySteps = pv.steps.filter((n) => shown.some((d) => d.index === n));
   const keyPalaces = keySteps.map((n) => chart.palaces.find((p) => p.branch === chart.decadals.find((d) => d.index === n)!.branch)!);
   const keyLine = keySteps.length
-    ? `你命盤裡的關鍵大限是${keySteps.map((n) => `第${num(n)}步`).join('、')}：${keySteps.length === 1 ? '這一步' : '這幾步'}的得失，對你一生影響特別大。` +
-      pivotWhy(chart, pv.rule!, keyPalaces)
+    ? `你命盤裡的關鍵大限是${keySteps.map((n) => `第${num(n)}步`).join('、')}：${keySteps.length === 1 ? '這一步' : '這幾步'}前後的選擇與安排，值得多留一份心。`
     : '';
   const steps: DaxianSegment[] = shown.map((d) => {
     const p = chart.palaces.find((x) => x.branch === d.branch)!;
@@ -860,8 +703,15 @@ export function lifeStepsChapter(input: { chart: Chart; year: number; solar?: { 
     slug: STEPS_SLUG,
     title: STEPS_SLUG,
     segments: [
-      { slot: '結論', text: lead + keyLine, source_id: keySteps.length ? pv.source : null, rule_ids: [] },
-      ...(back ? [back] : []),
+      { slot: '結論', text: lead + keyLine, source_id: keySteps.length ? pv.source : null, rule_ids: [],
+        statements:[{text:lead+keyLine,en:'',kind:'evidence',source_ids:pv.source?[pv.source]:[],citations:pv.source?[lifeStepsCite(pv.source)]:[]}],
+        referenceApplicability:keySteps.length?[pivotWhy(chart,pv.rule!,keyPalaces)]:[],
+        referenceConditions:[...(pv.rule?.pendingSource?['這組原文有跨頁重複或疑字，尚未釐清的樞紐分支暫不列為已確認；未列不等於確定沒有作用。']:[]),'關鍵大限按本命星系及順逆、配曜條件選出；樞紐本身不等於吉凶，仍須連同該限四化及原局判斷。',
+          ...(pv.rule?.requiresJi?['本盤同陰的吉支另核見吉曜或吉化，不能以沒有四煞代替見吉。']:[]),
+          ...(pv.rule?.includeOpposite?['本盤除原星系所在宮垣，也列入原書明說的對拱宮垣；對拱不等於把原宮星曜移入本宮。']:[]),
+          ...(pv.rule?.includeLu?['本盤加列原局及該限祿存、化祿所在宮垣；流年另核當年四化，不能因有祿便當成吉限。']:[]),
+          ...(pv.rule?.unresolvedTianji&&(chart.palaces.find((p)=>p.name==='命宮')!.borrowsFrom??chart.mingGong)==='卯'?['原文反背用詞有分歧；目前只標不受分歧影響的巨門、廉相、七殺。天機一支待釐清，不硬判為有或沒有。']:[])] },
+      ...back,
       ...steps,
       ...(rest ? [{ slot: '步', text: `之後的大限從虛歲${num(rest.fromAge)}歲起，這裡不再細列。`, source_id: null, rule_ids: [] }] : []),
       { slot: '留白', text: DAXIAN_FRAMES.stepsClose, source_id: null, rule_ids: [] },
