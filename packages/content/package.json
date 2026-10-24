@@ -7,7 +7,10 @@
   "exports": {
     ".": "./src/index.ts",
     "./ming-version": "./src/ming-version.ts",
-    "./ming-translations": "./src/ming-translations.ts"
+    "./ming-translations": "./src/ming-translations.ts",
+    "./engine-p1a": "./src/engine-p1a.ts",
+    "./engine-p1b": "./src/engine-p1b.ts",
+    "./engine-p1-cross": "./src/engine-p1-cross.ts"
   },
   "scripts": {
     "test": "vitest run",

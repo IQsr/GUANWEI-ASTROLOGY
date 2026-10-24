@@ -1,0 +1,56 @@
+{
+  "date": "2026-10-23",
+  "scope": "集中處理獨立評閱指出的四個正文段落及官祿未收尾句；引據只在顯示時去除重複註記，不改原文。",
+  "changes": {
+    "wealth-武曲+貪狼-丑未-follow": {
+      "before": "火鈴同度與吉化、空劫、化忌有不同配合，不能只寫突然發財。尤其祿權又遇文曲化忌的支，仍要保留進出兩面。",
+      "after": "武貪這一宮要把開拓財源、維持場面的投入，以及最後留下的餘額一起看。社交可以帶來機會，時間與支出也同時需要安排；經手金額增加，與真正累積成果，是兩個不同的環節。"
+    },
+    "parents-七殺+紫微-巳亥-follow": {
+      "before": "廉祿、破權、武科的配合要一起核，紫微化科又未必較少主觀。",
+      "after": "紫殺這裡先把責任與照顧，和感情是否融洽分開。支持落實在甚麼地方、對方有甚麼要求，以及自己的需要能否被理解，都是相處中需要各自觀察的部分。"
+    },
+    "friends-破軍+紫微-丑未-follow": {
+      "before": "人離開與關係變壞並不相同。",
+      "after": "這一宮要把當下有人能做事，與這份助力能維持多久分開。原書在見輔佐的一支，仍提醒得力的人可能另謀發展；人員更換之後，已有的知識、分工與進度能否留下，才看得出幫助能否延續。離開可以只是工作安排改變，不能直接當成交情轉壞。"
+    },
+    "wellbeing-武曲+貪狼-丑未-follow": {
+      "before": "興趣的種類與自己的行為仍是兩回事。",
+      "after": "這一宮要分清喜歡一項享受，與投入之後是否真正滿足。外在條件可以讓人有更多選擇，卻未必自然帶來長久樂趣；哪些活動做完仍覺得值得，哪些只是很快又想要更多，是武貪這裡需要理解的分別。"
+    },
+    "career-tianji-ziwu-load": {
+      "before": "這張盤的工作主題，還有持續經營這一面：",
+      "after": "這張盤的工作重點亦包括轉變後的持續經營。"
+    }
+  },
+  "source_sections": [
+    "deep.wealth.武曲",
+    "deep.parents.紫微",
+    "deep.friends.紫微",
+    "deep.wellbeing.武曲"
+  ],
+  "new_contexts": {
+    "parents": "本宮紫殺，按三方四正實際是否見齊廉祿、破權、武科分開敘述；未齊不套融洽支。",
+    "wellbeing": "本宮實坐武貪且武曲本命化忌，補引既有wellbeing-武曲完整原段；借星不採此支。",
+    "wealth": "借武貪只讀共同主題，不把對宮火鈴或四化搬入。"
+  },
+  "additional_citation": {
+    "id": "palace.remaining.v1:wellbeing-武曲",
+    "blocks": [
+      "wtz.deep.p571.b002",
+      "wtz.deep.p571.b003",
+      "wtz.deep.p571.b004",
+      "wtz.deep.p571.b005",
+      "wtz.deep.p571.b006",
+      "wtz.deep.p571.b007",
+      "wtz.deep.p571.b008",
+      "wtz.deep.p571.b009"
+    ]
+  },
+  "parents": {
+    "packages/content/src/cards/palace-narrative.json": "b450e0c17397ad83405fe818eeea8fffb6f2594103277c10e9549d1bab057a02",
+    "packages/content/src/palace-residual-context.ts": "4523ada118436114f02d329d7259ae57f9041093fa75208291cdb9230b0041ae",
+    "packages/content/src/reader-reference-language.ts": "e5e61782de484838bd33927fde4ba13a98e42956a7bb074d053c40a0305363e9",
+    "apps/web/src/lib/reference-presentation.ts": "b343efe38cd8f3c390bd4492dc0f9293680b88d0299841bd28325ccc1ef1982b"
+  }
+}

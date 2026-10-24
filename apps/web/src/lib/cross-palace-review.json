@@ -1,0 +1,786 @@
+{
+  "date": "2026-10-24",
+  "version": "cross-palace-preview-review-v1",
+  "activation": "explicit crossPalaceReading option; enabled only for three named development-preview groups; not deployed",
+  "parents": {
+    "apps/web/src/lib/cross-palace-chapters.ts": "0d36005c38f676299087266afb18da05372c1d53459c7f63de43b70f93825b5f",
+    "apps/web/src/lib/cross-palace-reading.json": "cf5d1c9659bda994c2687d79e218053eec7a6186138878cd4a6a2755f0b63430",
+    "apps/web/src/lib/mingshu.ts": "135b9d31fe55817b0c2bc2ac96bc51ca222a8fc5afe2afef634695b07caad035",
+    "apps/web/src/app/[locale]/preview/free-ming/[[...parts]]/page.tsx": "0d8eba30ae3900fdcd2c03415d48f728f29a621c70ebc64a852af5b15a51ccbe",
+    "apps/web/test/cross-palace-reading.test.ts": "42f3fe7255c41707128aed6aa6e9f28503e833c81956a83f26169596efa6a7b8",
+    "packages/content/src/cross-palace-sources.ts": "7ce455b7f1dc4a710ec677f4b17a1e9b14573751e70fa78bd80ed78961450cab",
+    "packages/content/src/cards/cross-palace-sources.json": "5834b54e8a8085dc59890377ac1214040cf3fcbaf1625016800633ee4b92f3b4",
+    "packages/content/src/citation.ts": "bd120f297fa28f688424b0e17a11fb791d6f4ebcf33a9eb0c321601c8799b3d7",
+    "packages/content/src/engine-p1-cross.ts": "4d83e5cc3be09638e9648129937eaeaf9bb14ddb7d2deb690748f135abb322e8",
+    "packages/content/src/cards/engine-p1-cross-rules.json": "9f4c21b20ffb9a8ee33228997e5709f36601a7f8720d374f208ae5ad818d63d3",
+    "packages/content/src/cards/free-ming-reading.json": "0049b02d3a0fa0ce6f79551557f569e275e4dc9fd57946b3c47a5814c7b0e158",
+    "packages/content/src/cards/palace-readings.json": "002099c16cffd88c3e1480af75ad1746ab130167425296c3bd4fc7b21bb95ff3",
+    "packages/content/src/cards/palace-remaining.json": "1bb829d1f02a48d1bb479fb10fd474691cdc00c966859f7222fb2539bc25aba0",
+    "tools/wang-reference/deep-index.json": "225e030d33c39563d7122fea7c0f8ed5776fcc09d18f719fa4cbc915ccd61703",
+    "docs/cross-palace-preview-2026-10-24.md": "567bae71804e94268e89060daffb1577b82ccb62fb18bde411ad4de8f64919fe"
+  },
+  "historical_review_bindings_preserved": {
+    "packages/content/src/cards/palace-branch-review.json": {
+      "packages/content/src/citation.ts": "11e81b0e679e9c4862ebc361c986abdb729b5770b4aa5d628406d04e8d14f79f",
+      "apps/web/src/lib/mingshu.ts": "13d92b3998c37e3bb5a4e80084cd458ad4c72a1b527a6637d7e89309c1592885"
+    },
+    "packages/content/src/cards/reading-focus-review.json": {
+      "packages/content/src/citation.ts": "48511fe84cc7581a126f5a32d3588e1e5e93fff7ab25c38c267b040a1ba3c7e9"
+    },
+    "packages/content/src/cards/wealth-follow-review.json": {
+      "apps/web/src/lib/mingshu.ts": "2db789a63c0e06d1fcb30d10da241196339f10915304ad30c70ddc96ca7f3683"
+    }
+  },
+  "verification": {
+    "web_full": {
+      "files": 65,
+      "passed": 639,
+      "failed": 0
+    },
+    "content_targeted": {
+      "files": 7,
+      "passed": 49,
+      "failed": 0
+    },
+    "typecheck": [
+      "ziwei",
+      "content",
+      "web"
+    ],
+    "git_diff_check": "passed",
+    "legacy_books": {
+      "fixtures": 75,
+      "differences": 0
+    },
+    "generic_input_checks": 72,
+    "browser_checks": [
+      {
+        "group": "tongliang",
+        "chapter": "ming",
+        "source_mark_per_sourced_paragraph": 1,
+        "applicability": true,
+        "direct_original": true,
+        "conditions_and_exceptions": true,
+        "full_context": true
+      },
+      {
+        "group": "tongliang",
+        "chapter": "career",
+        "source_mark_per_sourced_paragraph": 1,
+        "applicability": true,
+        "direct_original": true,
+        "conditions_and_exceptions": true,
+        "full_context": true
+      },
+      {
+        "group": "tongliang",
+        "chapter": "wealth",
+        "source_mark_per_sourced_paragraph": 1,
+        "applicability": true,
+        "direct_original": true,
+        "conditions_and_exceptions": true,
+        "full_context": true
+      },
+      {
+        "group": "tongliang",
+        "chapter": "wellbeing",
+        "source_mark_per_sourced_paragraph": 1,
+        "applicability": true,
+        "direct_original": true,
+        "conditions_and_exceptions": true,
+        "full_context": true
+      },
+      {
+        "group": "tianfu",
+        "chapter": "ming",
+        "source_mark_per_sourced_paragraph": 1,
+        "applicability": true,
+        "direct_original": true,
+        "conditions_and_exceptions": true,
+        "full_context": true
+      },
+      {
+        "group": "tianfu",
+        "chapter": "career",
+        "source_mark_per_sourced_paragraph": 1,
+        "applicability": true,
+        "direct_original": true,
+        "conditions_and_exceptions": true,
+        "full_context": true
+      },
+      {
+        "group": "tianfu",
+        "chapter": "wealth",
+        "source_mark_per_sourced_paragraph": 1,
+        "applicability": true,
+        "direct_original": true,
+        "conditions_and_exceptions": true,
+        "full_context": true
+      },
+      {
+        "group": "tianfu",
+        "chapter": "wellbeing",
+        "source_mark_per_sourced_paragraph": 1,
+        "applicability": true,
+        "direct_original": true,
+        "conditions_and_exceptions": true,
+        "full_context": true
+      },
+      {
+        "group": "jiliang",
+        "chapter": "ming",
+        "source_mark_per_sourced_paragraph": 1,
+        "applicability": true,
+        "direct_original": true,
+        "conditions_and_exceptions": true,
+        "full_context": true
+      },
+      {
+        "group": "jiliang",
+        "chapter": "career",
+        "source_mark_per_sourced_paragraph": 1,
+        "applicability": true,
+        "direct_original": true,
+        "conditions_and_exceptions": true,
+        "full_context": true
+      },
+      {
+        "group": "jiliang",
+        "chapter": "wealth",
+        "source_mark_per_sourced_paragraph": 1,
+        "applicability": true,
+        "direct_original": true,
+        "conditions_and_exceptions": true,
+        "full_context": true
+      },
+      {
+        "group": "jiliang",
+        "chapter": "wellbeing",
+        "source_mark_per_sourced_paragraph": 1,
+        "applicability": true,
+        "direct_original": true,
+        "conditions_and_exceptions": true,
+        "full_context": true
+      }
+    ]
+  },
+  "reviewed_chapters": [
+    {
+      "id": "tongliang-命宮",
+      "requires": [
+        "tl-four-frame",
+        "tl-wealth-tongji",
+        "tl-wealth-yanglu",
+        "tl-work-changing",
+        "tl-rest-active"
+      ],
+      "requiredPrior": [
+        "tongliang-clamped-ji"
+      ],
+      "nativeNoHua": [],
+      "parts": [
+        {
+          "heading": "想守住的原則，也要容得下感受",
+          "ruleIds": [
+            "tl-four-frame"
+          ],
+          "inherit": [
+            0
+          ],
+          "referenceFocus": [
+            "wtz.deep.p087.b011",
+            "wtz.deep.p087.b012",
+            "wtz.deep.p087.b013",
+            "wtz.deep.p087.b014",
+            "wtz.deep.p088.b001"
+          ]
+        },
+        {
+          "heading": "把取捨接到工作與累積",
+          "ruleIds": [
+            "tl-work-changing",
+            "tl-wealth-planning",
+            "tl-wealth-tongji",
+            "tl-rest-active"
+          ],
+          "inherit": [
+            1,
+            2
+          ],
+          "referenceFocus": [
+            "wtz.deep.p523.b004",
+            "wtz.deep.p452.b010",
+            "wtz.deep.p565.b009"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tongliang-官祿",
+      "requires": [
+        "tl-four-frame",
+        "tl-wealth-tongji",
+        "tl-wealth-yanglu",
+        "tl-work-changing",
+        "tl-rest-active"
+      ],
+      "requiredPrior": [
+        "tongliang-clamped-ji"
+      ],
+      "nativeNoHua": [],
+      "parts": [
+        {
+          "heading": "變動之中，事情仍要有人接住",
+          "ruleIds": [
+            "tl-work-changing"
+          ],
+          "inherit": [
+            0
+          ],
+          "referenceFocus": [
+            "wtz.deep.p522.b005",
+            "wtz.deep.p522.b006",
+            "wtz.deep.p522.b011",
+            "wtz.deep.p523.b004"
+          ]
+        },
+        {
+          "heading": "工作上的應變，要接到財的累積",
+          "ruleIds": [
+            "tl-wealth-tongji",
+            "tl-wealth-yanglu"
+          ],
+          "inherit": [
+            1
+          ],
+          "referenceFocus": [
+            "wtz.deep.p452.b009",
+            "wtz.deep.p452.b010",
+            "wtz.deep.p523.b004"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tongliang-財帛",
+      "requires": [
+        "tl-four-frame",
+        "tl-wealth-tongji",
+        "tl-wealth-yanglu",
+        "tl-work-changing",
+        "tl-rest-active"
+      ],
+      "requiredPrior": [
+        "tongliang-clamped-ji"
+      ],
+      "nativeNoHua": [],
+      "parts": [
+        {
+          "heading": "靠計劃累積，也先看工作位置",
+          "ruleIds": [
+            "tl-wealth-planning",
+            "tl-wealth-yanglu"
+          ],
+          "inherit": [
+            0
+          ],
+          "referenceFocus": [
+            "wtz.deep.p451.b009",
+            "wtz.deep.p451.b010",
+            "wtz.deep.p451.b011",
+            "wtz.deep.p452.b009"
+          ]
+        },
+        {
+          "heading": "財路打開，投入的心力仍要算進去",
+          "ruleIds": [
+            "tl-work-changing",
+            "tl-wealth-tongji"
+          ],
+          "inherit": [
+            1
+          ],
+          "referenceFocus": [
+            "wtz.deep.p523.b004",
+            "wtz.deep.p452.b010"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tongliang-福德",
+      "requires": [
+        "tl-four-frame",
+        "tl-wealth-tongji",
+        "tl-wealth-yanglu",
+        "tl-work-changing",
+        "tl-rest-active"
+      ],
+      "requiredPrior": [
+        "tongliang-clamped-ji"
+      ],
+      "nativeNoHua": [],
+      "parts": [
+        {
+          "heading": "取得進展，與內心放得下分開看",
+          "ruleIds": [
+            "tl-rest-active",
+            "tl-wealth-yanglu",
+            "tl-wealth-tongji"
+          ],
+          "inherit": [
+            0
+          ],
+          "referenceFocus": [
+            "wtz.deep.p569.b011",
+            "wtz.deep.p565.b009",
+            "wtz.deep.p452.b009",
+            "wtz.deep.p452.b010"
+          ]
+        },
+        {
+          "heading": "另有可以投入的精神生活",
+          "ruleIds": [
+            "tl-four-frame"
+          ],
+          "inherit": [
+            1
+          ],
+          "referenceFocus": [
+            "wtz.deep.p565.b010",
+            "wtz.deep.p317.b013",
+            "wtz.deep.p317.b014",
+            "wtz.deep.p318.b017",
+            "wtz.deep.p321.b008",
+            "wtz.deep.p321.b009",
+            "wtz.deep.p321.b010",
+            "wtz.deep.p321.b011",
+            "wtz.deep.p321.b012"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tianfu-命宮",
+      "requires": [
+        "tf-store",
+        "tf-career-role",
+        "tf-career-ke",
+        "tf-wealth-reference",
+        "tf-rest-wuji",
+        "tf-rest-wutan"
+      ],
+      "requiredPrior": [],
+      "nativeNoHua": [],
+      "parts": [
+        {
+          "heading": "有資源可管，與格局已定分開看",
+          "ruleIds": [
+            "tf-store",
+            "tf-rest-wuji"
+          ],
+          "inherit": [
+            0
+          ],
+          "referenceFocus": [
+            "wtz.deep.p020.b003",
+            "wtz.deep.p020.b004",
+            "wtz.deep.p020.b005",
+            "wtz.deep.p201.b007",
+            "wtz.deep.p201.b008"
+          ]
+        },
+        {
+          "heading": "管理資源，還要看怎樣承擔與享用",
+          "ruleIds": [
+            "tf-career-role",
+            "tf-wealth-reference",
+            "tf-rest-wuji"
+          ],
+          "inherit": [
+            1
+          ],
+          "referenceFocus": [
+            "wtz.deep.p545.b005",
+            "wtz.deep.p201.b001",
+            "wtz.deep.p571.b003",
+            "wtz.deep.p571.b004"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tianfu-官祿",
+      "requires": [
+        "tf-store",
+        "tf-career-role",
+        "tf-career-ke",
+        "tf-wealth-reference",
+        "tf-rest-wuji",
+        "tf-rest-wutan"
+      ],
+      "requiredPrior": [],
+      "nativeNoHua": [],
+      "parts": [
+        {
+          "heading": "受託的責任，要有資源接得住",
+          "ruleIds": [
+            "tf-store",
+            "tf-career-role"
+          ],
+          "inherit": [
+            0
+          ],
+          "referenceFocus": [
+            "wtz.deep.p020.b003",
+            "wtz.deep.p020.b004",
+            "wtz.deep.p544.b008",
+            "wtz.deep.p545.b005",
+            "wtz.deep.p545.b009"
+          ]
+        },
+        {
+          "heading": "府科連天相，工作方向再具體一層",
+          "ruleIds": [
+            "tf-career-ke"
+          ],
+          "inherit": [
+            1
+          ],
+          "referenceFocus": [
+            "wtz.deep.p545.b010",
+            "wtz.deep.p545.b015"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tianfu-財帛",
+      "requires": [
+        "tf-store",
+        "tf-career-role",
+        "tf-career-ke",
+        "tf-wealth-reference",
+        "tf-rest-wuji",
+        "tf-rest-wutan"
+      ],
+      "requiredPrior": [],
+      "nativeNoHua": [],
+      "parts": [
+        {
+          "heading": "借福德武貪，先分清求財與追求",
+          "ruleIds": [
+            "tf-wealth-reference"
+          ],
+          "inherit": [
+            0
+          ],
+          "referenceFocus": [
+            "wtz.deep.p201.b001",
+            "wtz.deep.p429.b008",
+            "wtz.deep.p430.b008"
+          ]
+        },
+        {
+          "heading": "累積得下來，亦要看追求會否隨之增加",
+          "ruleIds": [
+            "tf-store",
+            "tf-rest-wuji",
+            "tf-rest-wutan"
+          ],
+          "inherit": [
+            1
+          ],
+          "referenceFocus": [
+            "wtz.deep.p430.b009",
+            "wtz.deep.p571.b003",
+            "wtz.deep.p571.b004",
+            "wtz.deep.p572.b003"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tianfu-福德",
+      "requires": [
+        "tf-store",
+        "tf-career-role",
+        "tf-career-ke",
+        "tf-wealth-reference",
+        "tf-rest-wuji",
+        "tf-rest-wutan"
+      ],
+      "requiredPrior": [],
+      "nativeNoHua": [],
+      "parts": [
+        {
+          "heading": "物質追求，與精神享用連得很近",
+          "ruleIds": [
+            "tf-store",
+            "tf-rest-wuji",
+            "tf-rest-wutan"
+          ],
+          "inherit": [
+            0
+          ],
+          "referenceFocus": [
+            "wtz.deep.p565.b006",
+            "wtz.deep.p565.b007",
+            "wtz.deep.p571.b003",
+            "wtz.deep.p572.b003"
+          ]
+        },
+        {
+          "heading": "讓已有成果，也有被享用的時候",
+          "ruleIds": [
+            "tf-wealth-reference",
+            "tf-rest-wuji"
+          ],
+          "inherit": [
+            1
+          ],
+          "referenceFocus": [
+            "wtz.deep.p571.b003",
+            "wtz.deep.p571.b004",
+            "wtz.deep.p429.b008"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "jiliang-命宮",
+      "requires": [
+        "jl-four-frame",
+        "jl-career-reference",
+        "jl-wealth-tongyin",
+        "jl-wealth-assistant",
+        "jl-rest-opposite",
+        "jl-rest-labor",
+        "jl-rest-art"
+      ],
+      "requiredPrior": [
+        "tianfu-star-tiantong-same"
+      ],
+      "nativeNoHua": [
+        "天同",
+        "太陰"
+      ],
+      "parts": [
+        {
+          "heading": "察覺變化，再說清判斷的根據",
+          "ruleIds": [
+            "jl-four-frame"
+          ],
+          "inherit": [
+            0
+          ],
+          "referenceFocus": [
+            "wtz.deep.p215.b011",
+            "wtz.deep.p215.b012",
+            "wtz.deep.p215.b013",
+            "wtz.deep.p216.b001",
+            "wtz.deep.p216.b002"
+          ]
+        },
+        {
+          "heading": "判斷怎樣接到表達、資源與餘裕",
+          "ruleIds": [
+            "jl-career-reference",
+            "jl-wealth-tongyin",
+            "jl-rest-labor",
+            "jl-rest-opposite"
+          ],
+          "inherit": [
+            1
+          ],
+          "referenceFocus": [
+            "wtz.deep.p528.b008",
+            "wtz.deep.p445.b011",
+            "wtz.deep.p451.b009",
+            "wtz.deep.p565.b009"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "jiliang-官祿",
+      "requires": [
+        "jl-four-frame",
+        "jl-career-reference",
+        "jl-wealth-tongyin",
+        "jl-wealth-assistant",
+        "jl-rest-opposite",
+        "jl-rest-labor",
+        "jl-rest-art"
+      ],
+      "requiredPrior": [
+        "tianfu-star-tiantong-same"
+      ],
+      "nativeNoHua": [
+        "天同",
+        "太陰"
+      ],
+      "parts": [
+        {
+          "heading": "借陽巨，看怎樣把事情講清楚",
+          "ruleIds": [
+            "jl-career-reference"
+          ],
+          "inherit": [
+            0
+          ],
+          "referenceFocus": [
+            "wtz.deep.p215.b010",
+            "wtz.deep.p528.b008",
+            "wtz.deep.p528.b010",
+            "wtz.deep.p528.b011",
+            "wtz.deep.p528.b012",
+            "wtz.deep.p528.b013"
+          ]
+        },
+        {
+          "heading": "表達是方式，提供甚麼價值是另一題",
+          "ruleIds": [
+            "jl-four-frame",
+            "jl-career-reference",
+            "jl-wealth-tongyin"
+          ],
+          "inherit": [
+            1
+          ],
+          "referenceFocus": [
+            "wtz.deep.p528.b008",
+            "wtz.deep.p445.b011",
+            "wtz.deep.p451.b010"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "jiliang-財帛",
+      "requires": [
+        "jl-four-frame",
+        "jl-career-reference",
+        "jl-wealth-tongyin",
+        "jl-wealth-assistant",
+        "jl-rest-opposite",
+        "jl-rest-labor",
+        "jl-rest-art"
+      ],
+      "requiredPrior": [
+        "tianfu-star-tiantong-same"
+      ],
+      "nativeNoHua": [
+        "天同",
+        "太陰"
+      ],
+      "parts": [
+        {
+          "heading": "財源的取向，與可用的助力",
+          "ruleIds": [
+            "jl-wealth-tongyin",
+            "jl-wealth-assistant"
+          ],
+          "inherit": [
+            0
+          ],
+          "referenceFocus": [
+            "wtz.deep.p445.b011",
+            "wtz.deep.p445.b012",
+            "wtz.deep.p445.b013",
+            "wtz.deep.p431.b005",
+            "wtz.deep.p319.b013",
+            "wtz.deep.p319.b014",
+            "wtz.deep.p319.b015"
+          ]
+        },
+        {
+          "heading": "工作如何做，與所得如何安排接起來",
+          "ruleIds": [
+            "jl-career-reference",
+            "jl-wealth-tongyin",
+            "jl-rest-opposite",
+            "jl-rest-labor"
+          ],
+          "inherit": [
+            1
+          ],
+          "referenceFocus": [
+            "wtz.deep.p528.b008",
+            "wtz.deep.p445.b011",
+            "wtz.deep.p429.b008",
+            "wtz.deep.p565.b009"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "jiliang-福德",
+      "requires": [
+        "jl-four-frame",
+        "jl-career-reference",
+        "jl-wealth-tongyin",
+        "jl-wealth-assistant",
+        "jl-rest-opposite",
+        "jl-rest-labor",
+        "jl-rest-art"
+      ],
+      "requiredPrior": [
+        "tianfu-star-tiantong-same"
+      ],
+      "nativeNoHua": [
+        "天同",
+        "太陰"
+      ],
+      "parts": [
+        {
+          "heading": "借同陰，仍要看福德本宮的忙勞",
+          "ruleIds": [
+            "jl-rest-opposite",
+            "jl-rest-labor",
+            "jl-wealth-tongyin"
+          ],
+          "inherit": [
+            0
+          ],
+          "referenceFocus": [
+            "wtz.deep.p429.b008",
+            "wtz.deep.p565.b006",
+            "wtz.deep.p565.b007",
+            "wtz.deep.p565.b009"
+          ]
+        },
+        {
+          "heading": "精神上的投入，可以另有來源",
+          "ruleIds": [
+            "jl-rest-art",
+            "jl-rest-opposite"
+          ],
+          "inherit": [
+            1
+          ],
+          "referenceFocus": [
+            "wtz.deep.p565.b010",
+            "wtz.deep.p317.b013",
+            "wtz.deep.p317.b014"
+          ]
+        }
+      ]
+    }
+  ],
+  "source_review": {
+    "pdf_sha256": "513e3d068040efe3684eb3c0e44cf6e447787670bbf5d618f022da2d6c55231b",
+    "new_source_bundles": 4,
+    "located_legacy_aliases": 15,
+    "retained_quote_text": "all aliases preserve legacy citation text byte for byte; spans verified against indexed original-block SHA256; direct/context presentation retains every paragraph",
+    "source_note_change": "Versioned aliases clarify PDF452 b009 ambiguity; no speculative 月祿 branch adopted. Previous note retained as metadata; original quote characters and legacy citation IDs untouched.",
+    "reviewed_source_scope": "three complete system sections, relevant full wealth/career/wellbeing sections and neighbours, plus 龍鳳、天才、華蓋、天官天福 original sections. No source-index or guide change."
+  },
+  "limits": [
+    "Only supported native prerequisites select these chapter drafts; source of borrowed majors remains explicit, native hua/helpers never relocated.",
+    "Day/night, reviewed 廟陷, 輔佐眾多 and 明斷/尖刻 unresolved gates remain unresolved.",
+    "Unrelated chapters, bone chapter, saved books and original international snapshots are not replaced.",
+    "Editorial advice is marked separately and does not pretend to quote the book.",
+    "No database write, push, merge or deployment performed."
+  ]
+}

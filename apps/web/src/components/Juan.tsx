@@ -8,6 +8,7 @@ import { sectionBreaks } from '@/lib/suidu';
 import { keywordMarks, type MarkKind } from '@/lib/guanjian';
 import type { Run } from '@/lib/zhu';
 import { paragraphCitations, uniqueReferences } from '@/lib/paragraph-citations';
+import { referencePresentation, type ReferenceQuotePart } from '@/lib/reference-presentation';
 
 type MarkedRun = Run & { mark?: MarkKind };
 
@@ -79,7 +80,7 @@ export type Note = {
  * 每段一個「據」：展開段內去重後的出處、原文及已保存的適用條件。
  * 逐句來源對應仍留在 runs；只合併顯示，不改寫舊書或猜補缺少的條件。
  */
-export type CiteNote = { id: string; book: string; page: number; pageEnd?: number; section: string; text: string; pageConvention?: 'pdf'; excerpt?: boolean; sourceNote?: string };
+export type CiteNote = { quoteParts?: ReferenceQuotePart[]; id: string; book: string; page: number; pageEnd?: number; section: string; text: string; pageConvention?: 'pdf'; excerpt?: boolean; sourceNote?: string };
 
 export function Juan({
   segments,
@@ -97,6 +98,23 @@ export function Juan({
 
   const breaks = sectionBreaks(segments.map((s) => s.slot));
 
+  const quoteText=(c:CiteNote)=>c.quoteParts ? c.quoteParts.map((part)=>part.text).join('\n……\n') : c.text;
+  const renderReference=(c:CiteNote & {sharedQuoteCount?:number})=>{
+    const text=quoteText(c);
+    if(!text && !c.sourceNote)return null;
+    const pages=c.quoteParts?.length ? c.quoteParts.flatMap((part)=>[part.page,part.pageEnd??part.page]) : [c.page,c.pageEnd??c.page];
+    const first=Math.min(...pages), last=Math.max(...pages);
+    return <div key={c.id} className="flex flex-col gap-2">
+      {text ? <p className="font-sans text-cap tracking-[0.08em] text-ink-3">
+        {t(c.pageConvention==='pdf'?'citePdfWhere':'citeWhere',{book:c.book,page:last>first?`${first}–${last}`:first,section:c.section})}
+      </p> : null}
+      {text ? <blockquote lang="zh-Hans" className="text-sm leading-[1.9] text-ink-2">{t(c.excerpt?'citeExcerpt':'citeQuote',{text})}</blockquote> : null}
+      {c.quoteParts?.filter((part)=>part.note).map((part)=><p key={part.id} className="text-sm leading-[1.9] text-ink-2">{part.note}</p>)}
+      {c.sourceNote ? <p className="text-sm leading-[1.9] text-ink-2">{c.sourceNote}</p> : null}
+    </div>;
+  };
+
+
   return (
     <div className="wen flex flex-col gap-6">
       {segments.map((seg, i) => {
@@ -106,7 +124,8 @@ export function Juan({
         const runs = withMarks(paragraph.runs);
         const citeKey = `cite:${i}`;
         const references = uniqueReferences(paragraph.citations.map((id) => cites[id]).filter((c): c is CiteNote => Boolean(c)));
-        const citeList = open === citeKey ? references : [];
+        const panel = referencePresentation(seg.referenceConditions ?? [], references, seg.referenceFocus ?? [], seg.referenceApplicability ?? []);
+        const citeList = open === citeKey ? panel.references : [];
 
         return (
           /*
@@ -155,21 +174,20 @@ export function Juan({
 
             {citeList.length ? (
               <div className="zhu-ceng flex flex-col gap-5">
-                {seg.referenceConditions?.length ? <div className="flex flex-col gap-2">
+                {panel.applicability.length ? <section className="flex flex-col gap-2" aria-label={t('citeApplicability')}>
+                  <p className="font-sans text-cap tracking-[0.08em] text-ink-3">{t('citeApplicability')}</p>
+                  {panel.applicability.map((condition,k) => <p key={k} className="text-sm leading-[1.9] text-ink-2">{condition}</p>)}
+                </section> : null}
+                {panel.directReferences.length ? <section className="flex flex-col gap-4" aria-label={t('citeDirect')}>
+                  <p className="font-sans text-cap tracking-[0.08em] text-ink-3">{t('citeDirect')}</p>
+                  {panel.directReferences.map(renderReference)}
+                </section> : null}
+                {panel.conditions.length ? <div className="flex flex-col gap-2">
                   <p className="font-sans text-cap tracking-[0.08em] text-ink-3">{t('citeConditions')}</p>
-                  {seg.referenceConditions.map((condition, k) => <p key={k} className="text-sm leading-[1.9] text-ink-2">{condition}</p>)}
+                  {panel.conditions.map((condition, k) => <p key={k} className="text-sm leading-[1.9] text-ink-2">{condition}</p>)}
                 </div> : null}
-                {citeList.map((c) => (
-                  <div key={c!.id} className="flex flex-col gap-2">
-                    <p className="font-sans text-cap tracking-[0.08em] text-ink-3">
-                      {t(c!.pageConvention === 'pdf' ? 'citePdfWhere' : 'citeWhere', { book: c!.book, page: c!.pageEnd ? `${c!.page}–${c!.pageEnd}` : c!.page, section: c!.section })}
-                    </p>
-                    {c!.text ? <blockquote lang="zh-Hans" className="text-sm leading-[1.9] text-ink-2">
-                      {t(c!.excerpt ? 'citeExcerpt' : 'citeQuote', { text: c!.text })}
-                    </blockquote> : null}
-                    {c!.sourceNote ? <p className="text-sm leading-[1.9] text-ink-2">{c!.sourceNote}</p> : null}
-                  </div>
-                ))}
+                {panel.directReferences.length && citeList.some((c)=>Boolean(quoteText(c))) ? <p className="font-sans text-cap tracking-[0.08em] text-ink-3">{t('citeContext')}</p> : null}
+                {citeList.map(renderReference)}
               </div>
             ) : null}
 

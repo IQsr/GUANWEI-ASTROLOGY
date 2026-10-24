@@ -17,8 +17,8 @@
  * 所以呢度**冇 eval、冇 new Function、冇字串運算式**。
  * 條件語言細得滯就加原子，唔准開後門。
  */
-import type { AnnualChart, Branch, Brightness, Chart, PalaceName, Sihua } from '@guanwei/ziwei';
-import { BRANCHES, overlayAt, sanFangPalaces, tianxingBranch } from '@guanwei/ziwei';
+import type { NatalQueryOptions, AnnualChart, Branch, Brightness, Chart, PalaceName, Sihua } from '@guanwei/ziwei';
+import { BRANCHES, overlayAt, sanFangPalaces, lookupNatalStar, queryNatalStar, natalSihuaCoverage, MAJOR_STARS } from '@guanwei/ziwei';
 
 /** 時間層。同 schema.ts 嘅 TimeLayer 對齊。 */
 export type Layer = 'natal' | 'decade' | 'annual';
@@ -136,6 +136,8 @@ export type Binding = {
 
 export type EvalContext = {
   chart: Chart;
+  /** Experimental catalogue is opt-in; existing writers retain their pinned P0 query behaviour. */
+  natalQuery?: NatalQueryOptions;
   /** 冇流年就淨係行得到 natal 層。 */
   annual?: AnnualChart;
 };
@@ -189,14 +191,35 @@ function bind(branch: string, ctx: EvalContext, over: Partial<Binding> & { note:
   };
 }
 
+// Memoization belongs to a single synchronous evaluation, never to the caller's mutable chart/context.
+const STAR_CACHE = Symbol('evaluation-stars');
+const HUA_CACHE = Symbol('evaluation-hua');
+type InternalContext = EvalContext & {
+  [STAR_CACHE]?: Map<string, ReturnType<typeof lookupNatalStar>>;
+  [HUA_CACHE]?: Map<Layer, ReturnType<typeof readHuaAt>>;
+};
+function positionOf(star: string, ctx: InternalContext) {
+  const cached = ctx[STAR_CACHE]?.get(star);
+  if (cached) return cached;
+  const result = lookupNatalStar(ctx.chart, star, ctx.natalQuery);
+  ctx[STAR_CACHE]?.set(star, result);
+  return result;
+}
+function huaAt(layer: Layer, ctx: InternalContext): ReturnType<typeof readHuaAt> {
+  const cached = ctx[HUA_CACHE]?.get(layer);
+  if (cached) return cached;
+  const result = readHuaAt(layer, ctx);
+  ctx[HUA_CACHE]?.set(layer, result);
+  return result;
+}
+
 /** 某層四化：邊粒星化乜。 */
-function huaAt(layer: Layer, ctx: EvalContext): { rows: { star: string; hua: Sihua }[] } | { missing: string } {
+function readHuaAt(layer: Layer, ctx: EvalContext): { rows: { star: string; hua: Sihua }[] } | { missing: string } {
   if (layer === 'natal') {
-    const rows: { star: string; hua: Sihua }[] = [];
-    for (const p of ctx.chart.palaces) {
-      for (const s of p.stars) if (s.sihua) rows.push({ star: s.name, hua: s.sihua });
-    }
-    return { rows };
+    const coverage = natalSihuaCoverage(ctx.chart);
+    return coverage.status === 'unknown'
+      ? { missing: '本命四化紀錄缺失、重複或星位未明，不能當成沒有四化' }
+      : { rows: coverage.rows.map(({ star, hua }) => ({ star, hua })) };
   }
   if (!ctx.annual) return { missing: '冇流年資料' };
   const src = layer === 'annual' ? ctx.annual.sihua.annual : ctx.annual.sihua.decadal;
@@ -205,40 +228,65 @@ function huaAt(layer: Layer, ctx: EvalContext): { rows: { star: string; hua: Sih
 }
 
 function starBranch(star: string, ctx: EvalContext): string | null {
-  /* 天刑唔落 palaces[].stars（liuyao.ts），2026-10-19 條件卡要用，喺呢度補 */
-  if (star === '天刑') return tianxingBranch(ctx.chart);
-  return ctx.chart.palaces.find((p) => p.stars.some((s) => s.name === star))?.branch ?? null;
+  const result = positionOf(star, ctx);
+  return result.status === 'available' ? result.branch : null;
+}
+
+export const CONDITION_QUERY_VERSION = 'condition-query-v2';
+export const P1A_CONDITION_VERSION = 'condition-query-v2+p1a-v1';
+export const P1B_CONDITION_VERSION = 'condition-query-v2+p1b-v1';
+
+/** Exact threshold logic with an interval for not-yet-known stars. */
+function countPass(min: number, max: number, op: CountOp, n: number): boolean | null {
+  if (op === 'gte') return min >= n ? true : max < n ? false : null;
+  if (op === 'lte') return max <= n ? true : min > n ? false : null;
+  return min === max && min === n ? true : n < min || n > max ? false : null;
+}
+
+/** Check anchors before evaluating their geometry; an unknown position is never a negative fact. */
+function anchorNames(cond: Condition): string[] {
+  if ('together' in cond) return cond.together;
+  if ('opposite' in cond) return cond.opposite;
+  if ('between' in cond) return [cond.star, ...cond.between];
+  if ('star' in cond) return [cond.star];
+  if ('contains' in cond) return [cond.contains];
+  if ('meets' in cond) return [cond.meets];
+  if ('jia' in cond) return [cond.jia];
+  if ('deLu' in cond) return [cond.deLu];
+  return [];
 }
 
 const LAYER_ZH: Record<Layer, string> = { natal: '本命', decade: '大限', annual: '流年' };
 
+/** Shared three-state composition for conditions and their palace adapter. */
+export function combineEvaluations(op: 'all' | 'any', results: EvalResult[]): EvalResult {
+  const bindings: Binding[] = [];
+  let missing: string | null = null;
+  let hit = false;
+  for (const r of results) {
+    if (r.status === 'not_applicable') { missing ??= r.reason; continue; }
+    if (op === 'all' && r.status === 'unmatched') return { status: 'unmatched' };
+    if (r.status === 'matched') { hit = true; bindings.push(...r.bindings); }
+  }
+  if (op === 'any' && hit) return { status: 'matched', bindings };
+  if (missing) return { status: 'not_applicable', reason: missing };
+  return op === 'all' ? { status: 'matched', bindings } : { status: 'unmatched' };
+}
+
 /** 行一條條件。純函數 —— 同一個 (cond, ctx) 永遠出同一個結果。 */
-export function evaluate(cond: Condition, ctx: EvalContext): EvalResult {
-  /* ── 組合子 ── */
+export function evaluate(cond: Condition, context: EvalContext): EvalResult {
+  const inherited = context as InternalContext;
+  const ctx: InternalContext = inherited[STAR_CACHE] ? inherited : { ...context, [STAR_CACHE]: new Map(), [HUA_CACHE]: new Map() };
   if ('all' in cond) {
-    const bindings: Binding[] = [];
-    for (const c of cond.all) {
-      const r = evaluate(c, ctx);
-      if (r.status === 'not_applicable') return r;
-      if (r.status === 'unmatched') return { status: 'unmatched' };
-      bindings.push(...r.bindings);
+    const results: EvalResult[] = [];
+    for (const child of cond.all) {
+      const result = evaluate(child, ctx);
+      results.push(result);
+      if (result.status === 'unmatched') break; // false is decisive even after an unknown child
     }
-    return { status: 'matched', bindings };
+    return combineEvaluations('all', results);
   }
-  if ('any' in cond) {
-    const bindings: Binding[] = [];
-    let hit = false;
-    let na: string | null = null;
-    for (const c of cond.any) {
-      const r = evaluate(c, ctx);
-      if (r.status === 'not_applicable') { na ??= r.reason; continue; }
-      /* 2026-10-19：`not` 命中冇 binding，以前用 bindings.length 判斷會當咗唔中（空庫一直只計地空） */
-      if (r.status === 'matched') { hit = true; bindings.push(...r.bindings); }
-    }
-    if (hit) return { status: 'matched', bindings };
-    // 全部唔中，但有部分查唔到 → 唔可以話「冇」
-    return na ? { status: 'not_applicable', reason: na } : { status: 'unmatched' };
-  }
+  if ('any' in cond) return combineEvaluations('any', cond.any.map((c) => evaluate(c, ctx)));
   if ('not' in cond) {
     const r = evaluate(cond.not, ctx);
     if (r.status === 'not_applicable') return r;
@@ -248,6 +296,15 @@ export function evaluate(cond: Condition, ctx: EvalContext): EvalResult {
   }
 
   /* ── 原子 ── */
+  if (('meets' in cond && cond.stars.some((s) => HUA_WORD.test(s)))
+    || ('jia' in cond && cond.sides.flat().some((s) => HUA_WORD.test(s))) || 'deLu' in cond) {
+    const hua = huaAt('natal', ctx);
+    if ('missing' in hua) return { status: 'not_applicable', reason: hua.missing };
+  }
+  for (const star of anchorNames(cond)) {
+    const position = positionOf(star, ctx);
+    if (position.status === 'unknown') return { status: 'not_applicable', reason: position.reason };
+  }
   if ('shenIn' in cond) {
     const b = branchOfPalace(cond.shenIn, ctx);
     if ('missing' in b) return { status: 'not_applicable', reason: b.missing };
@@ -267,7 +324,9 @@ export function evaluate(cond: Condition, ctx: EvalContext): EvalResult {
     const b = branchOfPalace(cond.empty, ctx);
     if ('missing' in b) return { status: 'not_applicable', reason: b.missing };
     const p = ctx.chart.palaces.find((q) => q.branch === b.branch)!;
-    if (p.stars.some((s) => s.kind === 'major')) return { status: 'unmatched' };
+    const positions = MAJOR_STARS.map((star) => positionOf(star, ctx));
+    if (positions.some((r) => r.status === 'available' && r.branch === b.branch)) return { status: 'unmatched' };
+    if (positions.some((r) => r.status === 'unknown')) return { status: 'not_applicable', reason: '主星安星紀錄未齊，不能確認空宮' };
     return {
       status: 'matched',
       bindings: [bind(b.branch, ctx, {
@@ -315,8 +374,8 @@ export function evaluate(cond: Condition, ctx: EvalContext): EvalResult {
     const ba = starBranch(a, ctx);
     const bb = starBranch(b, ctx);
     if (!ba || !bb) return { status: 'unmatched' };
-    const ia = ctx.chart.palaces.findIndex((p) => p.branch === ba);
-    const ib = ctx.chart.palaces.findIndex((p) => p.branch === bb);
+    const ia = BRANCHES.indexOf(ba as Branch);
+    const ib = BRANCHES.indexOf(bb as Branch);
     if ((((ia - ib) % 12) + 12) % 12 !== 6) return { status: 'unmatched' };
     return {
       status: 'matched',
@@ -333,8 +392,9 @@ export function evaluate(cond: Condition, ctx: EvalContext): EvalResult {
     const layer = cond.sanfangOf.layer ?? 'natal';
     const four = sanFangPalaces(ctx.chart.palaces, b.branch as never);
     if ('contains' in cond) {
-      const tx = cond.contains === '天刑' ? tianxingBranch(ctx.chart) : null;
-      const hit = four.find((p) => (tx ? p.branch === tx : p.stars.some((s) => s.name === cond.contains)));
+      const position = queryNatalStar(ctx.chart, cond.contains, { branch: b.branch as Branch, reach: 'sanfang' }, ctx.natalQuery);
+      if (position.status === 'unknown') return { status: 'not_applicable', reason: position.reason };
+      const hit = position.status === 'present' ? four.find((p) => p.branch === position.branch) : null;
       if (!hit) return { status: 'unmatched' };
       return {
         status: 'matched',
@@ -350,11 +410,13 @@ export function evaluate(cond: Condition, ctx: EvalContext): EvalResult {
     for (const p of four) {
       for (const s of p.stars) {
         const ok = want === null ? s.kind === 'major' : want.has(s.name);
-        if (ok) found.push({ branch: p.branch, star: s.name });
+        if (ok && positionOf(s.name, ctx).status === 'available') found.push({ branch: p.branch, star: s.name });
       }
     }
     const n = found.length;
-    const pass = cond.op === 'gte' ? n >= cond.n : cond.op === 'lte' ? n <= cond.n : n === cond.n;
+    const missing = [...(want ?? MAJOR_STARS)].filter((star) => positionOf(star, ctx).status === 'unknown');
+    const pass = countPass(n, n + missing.length, cond.op, cond.n);
+    if (pass === null) return { status: 'not_applicable', reason: `星曜覆蓋不足：${missing.join('、')}` };
     if (!pass) return { status: 'unmatched' };
     return {
       status: 'matched',
@@ -370,10 +432,12 @@ export function evaluate(cond: Condition, ctx: EvalContext): EvalResult {
     const b = branchOfPalace(cond.brightnessIn, ctx);
     if ('missing' in b) return { status: 'not_applicable', reason: b.missing };
     const p = ctx.chart.palaces.find((q) => q.branch === b.branch)!;
-    const majors = p.stars.filter((s) => s.kind === 'major');
-    if (majors.length === 0) return { status: 'unmatched' };
+    const positions = MAJOR_STARS.map((star) => positionOf(star, ctx));
+    const majors = p.stars.filter((s) => s.kind === 'major' && positions.some((r) => r.status === 'available' && r.star === s.name));
+    if (majors.length === 0) return evaluate({ not: { empty: cond.brightnessIn } }, ctx);
     const hit = majors.filter((s) => s.brightness && cond.levels.includes(s.brightness));
-    if (hit.length === 0) return { status: 'unmatched' };
+    if (hit.length === 0) return majors.some((s) => !s.brightness) || positions.some((r) => r.status === 'unknown')
+      ? { status: 'not_applicable', reason: '本宮主星廟旺資料未齊' } : { status: 'unmatched' };
     const layer = cond.brightnessIn.layer ?? 'natal';
     return {
       status: 'matched',
@@ -385,9 +449,10 @@ export function evaluate(cond: Condition, ctx: EvalContext): EvalResult {
   }
 
   if ('brightness' in cond) {
-    const p = ctx.chart.palaces.find((q) => q.stars.some((s) => s.name === cond.star));
-    const s = p?.stars.find((x) => x.name === cond.star);
-    if (!p || !s) return { status: 'unmatched' };
+    const position = positionOf(cond.star, ctx);
+    if (position.status === 'unknown') return { status: 'not_applicable', reason: position.reason };
+    const p = { branch: position.branch };
+    const s = position.placement;
     if (!s.brightness) return { status: 'not_applicable', reason: `${cond.star} 冇廟旺資料` };
     if (!cond.brightness.includes(s.brightness)) return { status: 'unmatched' };
     return {
@@ -418,6 +483,10 @@ export function evaluate(cond: Condition, ctx: EvalContext): EvalResult {
     if ('missing' in rows) return { status: 'not_applicable', reason: rows.missing };
     const b = branchOfPalace(cond.in, ctx);
     if ('missing' in b) return { status: 'not_applicable', reason: b.missing };
+    for (const row of rows.rows.filter((r) => r.hua === cond.hua)) {
+      const position = positionOf(row.star, ctx);
+      if (position.status === 'unknown') return { status: 'not_applicable', reason: position.reason };
+    }
     const star = rows.rows.find((r) => r.hua === cond.hua && starBranch(r.star, ctx) === b.branch);
     if (!star) return { status: 'unmatched' };
     return {
@@ -454,10 +523,20 @@ export function evaluate(cond: Condition, ctx: EvalContext): EvalResult {
     if (!at) return { status: 'unmatched' };
     type P = Chart['palaces'][number];
     const [l, r] = neighbours(at).map((b) => ctx.chart.palaces.find((p) => p.branch === b)!) as [P, P];
+    if (!l || !r) return { status: 'not_applicable', reason: '左右鄰宮資料不足' };
     const [a, b] = cond.sides;
-    const pair = (x: P, y: P): [P, P] | null => (seenIn(x, a, ctx).length && seenIn(y, b, ctx).length ? [x, y] : null);
-    const got = pair(l, r) ?? pair(r, l);
-    if (!got) return { status: 'unmatched' };
+    const side = (p: P, names: string[]) => {
+      if (seenIn(p, names, ctx).length) return true;
+      return names.some((w) => !HUA_WORD.test(w) && positionOf(w, ctx).status === 'unknown') ? null : false;
+    };
+    const pair = (x: P, y: P): boolean | null => {
+      const left = side(x, a), right = side(y, b);
+      return left === false || right === false ? false : left === null || right === null ? null : true;
+    };
+    const forward = pair(l, r), reverse = pair(r, l);
+    const got: [P, P] | null = forward === true ? [l, r] : reverse === true ? [r, l] : null;
+    if (!got) return forward === null || reverse === null
+      ? { status: 'not_applicable', reason: '夾宮所需星曜尚未完整安入或資料不足' } : { status: 'unmatched' };
     return {
       status: 'matched',
       bindings: [
@@ -483,8 +562,9 @@ export function evaluate(cond: Condition, ctx: EvalContext): EvalResult {
   // { star, in }
   const b = branchOfPalace(cond.in, ctx);
   if ('missing' in b) return { status: 'not_applicable', reason: b.missing };
-  const p = ctx.chart.palaces.find((q) => q.branch === b.branch)!;
-  if (!p.stars.some((s) => s.name === cond.star)) return { status: 'unmatched' };
+  const position = queryNatalStar(ctx.chart, cond.star, { branch: b.branch as Branch }, ctx.natalQuery);
+  if (position.status === 'unknown') return { status: 'not_applicable', reason: position.reason };
+  if (position.status === 'absent') return { status: 'unmatched' };
   const layer = cond.in.layer ?? 'natal';
   return {
     status: 'matched',
@@ -518,9 +598,7 @@ function seenIn(p: Chart['palaces'][number], want: string[], ctx: EvalContext): 
     const h = HUA_WORD.exec(w);
     const ok = h
       ? p.stars.some((s) => s.sihua === h[1])
-      : w === '天刑'
-        ? tianxingBranch(ctx.chart) === p.branch
-        : p.stars.some((s) => s.name === w);
+      : queryNatalStar(ctx.chart, w, { branch: p.branch }, ctx.natalQuery).status === 'present';
     if (ok) out.push(w);
   }
   return out;
@@ -538,7 +616,9 @@ function evalMeets(
   const n = found.length;
   const op = cond.op ?? 'gte';
   const k = cond.n ?? 1;
-  const pass = op === 'gte' ? n >= k : op === 'lte' ? n <= k : n === k;
+  const missing = [...new Set(cond.stars)].filter((w) => !HUA_WORD.test(w) && positionOf(w, ctx).status === 'unknown');
+  const pass = countPass(n, n + missing.length, op, k);
+  if (pass === null) return { status: 'not_applicable', reason: `會照所需星曜未齊：${missing.join('、')}` };
   if (!pass) return { status: 'unmatched' };
   const where = reach === 'same' ? '同度' : reach === 'jia' ? '相夾' : '三方四正';
   if (found.length === 0) {
@@ -583,7 +663,7 @@ function evalDeLu(star: string, layer: Layer, ctx: EvalContext): EvalResult {
   const branches = new Set<string>(four.map((p) => p.branch));
   const bindings: Binding[] = [];
   for (const p of four) {
-    if (p.stars.some((s) => s.name === '祿存')) bindings.push(bind(p.branch, ctx, { star: '祿存', note: `${star}（${at}）會祿存（${p.branch}）` }));
+    if (queryNatalStar(ctx.chart, '祿存', { branch: p.branch }, ctx.natalQuery).status === 'present') bindings.push(bind(p.branch, ctx, { star: '祿存', note: `${star}（${at}）會祿存（${p.branch}）` }));
     for (const s of p.stars) if (s.sihua === '祿') bindings.push(bind(p.branch, ctx, { star: s.name, hua: '祿', note: `${star}（${at}）會${s.name}化祿（${p.branch}）` }));
   }
   if (layer !== 'natal') {
@@ -597,6 +677,10 @@ function evalDeLu(star: string, layer: Layer, ctx: EvalContext): EvalResult {
     }
     const set = layer === 'annual' ? ctx.annual!.liuyao.annual : ctx.annual!.liuyao.decadal;
     if (set && branches.has(set.祿存)) bindings.push(bind(set.祿存, ctx, { layer, note: `${star}（${at}）會${LAYER_ZH[layer]}流祿（${set.祿存}）` }));
+  }
+  if (!bindings.length) {
+    const lu = lookupNatalStar(ctx.chart, '祿存');
+    if (lu.status === 'unknown') return { status: 'not_applicable', reason: lu.reason };
   }
   return bindings.length ? { status: 'matched', bindings } : { status: 'unmatched' };
 }

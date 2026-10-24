@@ -1,0 +1,1329 @@
+{
+  "date": "2026-10-23",
+  "scope": "P0 native star query and coverage only; no interpretation/copy changes",
+  "versions": {
+    "cast": "0.4.0",
+    "query": "natal-star-query-v1",
+    "condition": "condition-query-v2"
+  },
+  "previous_inputs": {
+    "packages/content/src/palace-focused.ts": "6d9226b5faf222679f5cb2c5278f305b0181a52f73d2957b02e55fbe7732dae8",
+    "packages/content/src/palace-remaining.ts": "db04574e35d6fea6de71d9de0ae603265354f6aac74395e81facf6bbd84d940b",
+    "packages/content/src/free-ming-reader.ts": "dea2e522edf8216ee0c7af3e60f015f25de107c5fd1ac006b548a1868e3c18ac",
+    "packages/content/src/free-ming-systems.ts": "758725353866412ab65edc86a9354a802ccc6c552bacf585c445d2a55f0ab878",
+    "packages/content/src/palace-reader.ts": "5bae68ed423a751ed8f3c266302cf610d32eff081429e34f2c6435638ba58806",
+    "packages/content/src/condition.ts": "f6df3b749a07cd31f5632ad15c13e68605a5c45936fdbeb081a9157224b3644c"
+  },
+  "renewal_basis": {
+    "palaces": {
+      "charts": 72,
+      "rules": 83,
+      "comparisons": 5976,
+      "differences": 0,
+      "fields": [
+        "matched",
+        "facts",
+        "checks"
+      ]
+    },
+    "books": {
+      "fixtures": 75,
+      "chart_differences": 0,
+      "book_differences": 0,
+      "palace_reader_differences": 0,
+      "before": "apps/web/test/fixtures/engine-p0-before.json"
+    },
+    "reviewed_cards": {
+      "charts": 1072,
+      "systems": 60,
+      "reviewedCards": 71,
+      "checks": 453,
+      "previousEvaluatorSha256": "f6df3b749a07cd31f5632ad15c13e68605a5c45936fdbeb081a9157224b3644c",
+      "differences": []
+    }
+  },
+  "policy": "Only code dependency hashes renewed after semantic comparisons. All book prose, quotations, source keys, source fingerprints, conditions and exceptions retained. Existing geju approximations are not promoted to complete book rules.",
+  "samples": [
+    {
+      "id": "TL",
+      "engineVersion": "0.4.0",
+      "schoolProfile": "zhongzhou-v1@a66bb0b376cc914f",
+      "checks": [
+        {
+          "star": "天刑",
+          "branch": "戌",
+          "palace": "福德",
+          "source": {
+            "queryVersion": "natal-star-query-v1",
+            "engineVersion": "0.4.0",
+            "schoolProfile": "zhongzhou-v1@a66bb0b376cc914f",
+            "method": "liuyao-natal-v1",
+            "references": [
+              "wtz.initial.07.p0163",
+              "wtz.initial.07.p0164"
+            ],
+            "verification": "transcription-not-original-collated"
+          },
+          "results": [
+            {
+              "query": "palace",
+              "condition": {
+                "star": "天刑",
+                "in": {
+                  "name": "福德"
+                }
+              },
+              "before": "unmatched",
+              "after": "matched"
+            },
+            {
+              "query": "branch",
+              "condition": {
+                "star": "天刑",
+                "at": [
+                  "戌"
+                ]
+              },
+              "before": "matched",
+              "after": "matched"
+            },
+            {
+              "query": "sanfang",
+              "condition": {
+                "sanfangOf": {
+                  "name": "福德"
+                },
+                "contains": "天刑"
+              },
+              "before": "matched",
+              "after": "matched"
+            },
+            {
+              "query": "meets",
+              "condition": {
+                "meets": "天刑",
+                "stars": [
+                  "天刑"
+                ],
+                "reach": "same"
+              },
+              "before": "matched",
+              "after": "matched"
+            }
+          ]
+        },
+        {
+          "star": "天姚",
+          "branch": "寅",
+          "palace": "遷移",
+          "source": {
+            "queryVersion": "natal-star-query-v1",
+            "engineVersion": "0.4.0",
+            "schoolProfile": "zhongzhou-v1@a66bb0b376cc914f",
+            "method": "liuyao-natal-v1",
+            "references": [
+              "wtz.initial.07.p0163",
+              "wtz.initial.07.p0164"
+            ],
+            "verification": "transcription-not-original-collated"
+          },
+          "results": [
+            {
+              "query": "palace",
+              "condition": {
+                "star": "天姚",
+                "in": {
+                  "name": "遷移"
+                }
+              },
+              "before": "unmatched",
+              "after": "matched"
+            },
+            {
+              "query": "branch",
+              "condition": {
+                "star": "天姚",
+                "at": [
+                  "寅"
+                ]
+              },
+              "before": "unmatched",
+              "after": "matched"
+            },
+            {
+              "query": "sanfang",
+              "condition": {
+                "sanfangOf": {
+                  "name": "遷移"
+                },
+                "contains": "天姚"
+              },
+              "before": "unmatched",
+              "after": "matched"
+            },
+            {
+              "query": "meets",
+              "condition": {
+                "meets": "天姚",
+                "stars": [
+                  "天姚"
+                ],
+                "reach": "same"
+              },
+              "before": "unmatched",
+              "after": "matched"
+            }
+          ]
+        },
+        {
+          "star": "紅鸞",
+          "branch": "酉",
+          "palace": "父母",
+          "source": {
+            "queryVersion": "natal-star-query-v1",
+            "engineVersion": "0.4.0",
+            "schoolProfile": "zhongzhou-v1@a66bb0b376cc914f",
+            "method": "liuyao-natal-v1",
+            "references": [
+              "wtz.initial.07.p0126",
+              "wtz.initial.07.p0127",
+              "wtz.initial.07.p0128",
+              "wtz.initial.07.p0129",
+              "wtz.initial.07.p0130"
+            ],
+            "verification": "transcription-not-original-collated"
+          },
+          "results": [
+            {
+              "query": "palace",
+              "condition": {
+                "star": "紅鸞",
+                "in": {
+                  "name": "父母"
+                }
+              },
+              "before": "unmatched",
+              "after": "matched"
+            },
+            {
+              "query": "branch",
+              "condition": {
+                "star": "紅鸞",
+                "at": [
+                  "酉"
+                ]
+              },
+              "before": "unmatched",
+              "after": "matched"
+            },
+            {
+              "query": "sanfang",
+              "condition": {
+                "sanfangOf": {
+                  "name": "父母"
+                },
+                "contains": "紅鸞"
+              },
+              "before": "unmatched",
+              "after": "matched"
+            },
+            {
+              "query": "meets",
+              "condition": {
+                "meets": "紅鸞",
+                "stars": [
+                  "紅鸞"
+                ],
+                "reach": "same"
+              },
+              "before": "unmatched",
+              "after": "matched"
+            }
+          ]
+        },
+        {
+          "star": "天喜",
+          "branch": "卯",
+          "palace": "疾厄",
+          "source": {
+            "queryVersion": "natal-star-query-v1",
+            "engineVersion": "0.4.0",
+            "schoolProfile": "zhongzhou-v1@a66bb0b376cc914f",
+            "method": "liuyao-natal-v1",
+            "references": [
+              "wtz.initial.07.p0126",
+              "wtz.initial.07.p0127",
+              "wtz.initial.07.p0128",
+              "wtz.initial.07.p0129",
+              "wtz.initial.07.p0130"
+            ],
+            "verification": "transcription-not-original-collated"
+          },
+          "results": [
+            {
+              "query": "palace",
+              "condition": {
+                "star": "天喜",
+                "in": {
+                  "name": "疾厄"
+                }
+              },
+              "before": "unmatched",
+              "after": "matched"
+            },
+            {
+              "query": "branch",
+              "condition": {
+                "star": "天喜",
+                "at": [
+                  "卯"
+                ]
+              },
+              "before": "unmatched",
+              "after": "matched"
+            },
+            {
+              "query": "sanfang",
+              "condition": {
+                "sanfangOf": {
+                  "name": "疾厄"
+                },
+                "contains": "天喜"
+              },
+              "before": "unmatched",
+              "after": "matched"
+            },
+            {
+              "query": "meets",
+              "condition": {
+                "meets": "天喜",
+                "stars": [
+                  "天喜"
+                ],
+                "reach": "same"
+              },
+              "before": "unmatched",
+              "after": "matched"
+            }
+          ]
+        },
+        {
+          "star": "咸池",
+          "branch": "卯",
+          "palace": "疾厄",
+          "source": {
+            "queryVersion": "natal-star-query-v1",
+            "engineVersion": "0.4.0",
+            "schoolProfile": "zhongzhou-v1@a66bb0b376cc914f",
+            "method": "liuyao-natal-v1",
+            "references": [
+              "wtz.initial.07.p0147",
+              "wtz.initial.07.p0148",
+              "wtz.initial.07.p0149",
+              "wtz.initial.07.p0150"
+            ],
+            "verification": "transcription-not-original-collated"
+          },
+          "results": [
+            {
+              "query": "palace",
+              "condition": {
+                "star": "咸池",
+                "in": {
+                  "name": "疾厄"
+                }
+              },
+              "before": "unmatched",
+              "after": "matched"
+            },
+            {
+              "query": "branch",
+              "condition": {
+                "star": "咸池",
+                "at": [
+                  "卯"
+                ]
+              },
+              "before": "unmatched",
+              "after": "matched"
+            },
+            {
+              "query": "sanfang",
+              "condition": {
+                "sanfangOf": {
+                  "name": "疾厄"
+                },
+                "contains": "咸池"
+              },
+              "before": "unmatched",
+              "after": "matched"
+            },
+            {
+              "query": "meets",
+              "condition": {
+                "meets": "咸池",
+                "stars": [
+                  "咸池"
+                ],
+                "reach": "same"
+              },
+              "before": "unmatched",
+              "after": "matched"
+            }
+          ]
+        }
+      ],
+      "notImplemented": {
+        "condition": {
+          "not": {
+            "star": "天才",
+            "in": {
+              "name": "命宮"
+            }
+          }
+        },
+        "before": "matched",
+        "after": "not_applicable"
+      },
+      "actualAbsence": {
+        "condition": {
+          "not": {
+            "star": "天刑",
+            "in": {
+              "name": "命宮"
+            }
+          }
+        },
+        "before": "matched",
+        "after": "matched",
+        "query": {
+          "status": "absent",
+          "star": "天刑",
+          "branch": "戌",
+          "palace": "福德",
+          "placement": {
+            "name": "天刑",
+            "kind": "aux"
+          },
+          "source": {
+            "queryVersion": "natal-star-query-v1",
+            "engineVersion": "0.4.0",
+            "schoolProfile": "zhongzhou-v1@a66bb0b376cc914f",
+            "method": "liuyao-natal-v1",
+            "references": [
+              "wtz.initial.07.p0163",
+              "wtz.initial.07.p0164"
+            ],
+            "verification": "transcription-not-original-collated"
+          },
+          "scope": [
+            "申"
+          ]
+        }
+      },
+      "tables": {
+        "brightness": {
+          "status": "available",
+          "verification": "two-implementations",
+          "originalBookTable": "not-collated",
+          "levels": [
+            "廟",
+            "旺",
+            "得",
+            "利",
+            "平",
+            "不",
+            "陷"
+          ]
+        },
+        "sihua": {
+          "status": "available",
+          "verification": "primary-text-partial",
+          "school": "三合／中州（王亭之）"
+        },
+        "dayNight": {
+          "status": "not-implemented",
+          "reason": "原書所用日夜判準尚未實作，不由鐘面時間代填"
+        }
+      }
+    },
+    {
+      "id": "A",
+      "engineVersion": "0.4.0",
+      "schoolProfile": "zhongzhou-v1@a66bb0b376cc914f",
+      "checks": [
+        {
+          "star": "天刑",
+          "branch": "辰",
+          "palace": "僕役",
+          "source": {
+            "queryVersion": "natal-star-query-v1",
+            "engineVersion": "0.4.0",
+            "schoolProfile": "zhongzhou-v1@a66bb0b376cc914f",
+            "method": "liuyao-natal-v1",
+            "references": [
+              "wtz.initial.07.p0163",
+              "wtz.initial.07.p0164"
+            ],
+            "verification": "transcription-not-original-collated"
+          },
+          "results": [
+            {
+              "query": "palace",
+              "condition": {
+                "star": "天刑",
+                "in": {
+                  "name": "僕役"
+                }
+              },
+              "before": "unmatched",
+              "after": "matched"
+            },
+            {
+              "query": "branch",
+              "condition": {
+                "star": "天刑",
+                "at": [
+                  "辰"
+                ]
+              },
+              "before": "matched",
+              "after": "matched"
+            },
+            {
+              "query": "sanfang",
+              "condition": {
+                "sanfangOf": {
+                  "name": "僕役"
+                },
+                "contains": "天刑"
+              },
+              "before": "matched",
+              "after": "matched"
+            },
+            {
+              "query": "meets",
+              "condition": {
+                "meets": "天刑",
+                "stars": [
+                  "天刑"
+                ],
+                "reach": "same"
+              },
+              "before": "matched",
+              "after": "matched"
+            }
+          ]
+        },
+        {
+          "star": "天姚",
+          "branch": "申",
+          "palace": "子女",
+          "source": {
+            "queryVersion": "natal-star-query-v1",
+            "engineVersion": "0.4.0",
+            "schoolProfile": "zhongzhou-v1@a66bb0b376cc914f",
+            "method": "liuyao-natal-v1",
+            "references": [
+              "wtz.initial.07.p0163",
+              "wtz.initial.07.p0164"
+            ],
+            "verification": "transcription-not-original-collated"
+          },
+          "results": [
+            {
+              "query": "palace",
+              "condition": {
+                "star": "天姚",
+                "in": {
+                  "name": "子女"
+                }
+              },
+              "before": "unmatched",
+              "after": "matched"
+            },
+            {
+              "query": "branch",
+              "condition": {
+                "star": "天姚",
+                "at": [
+                  "申"
+                ]
+              },
+              "before": "unmatched",
+              "after": "matched"
+            },
+            {
+              "query": "sanfang",
+              "condition": {
+                "sanfangOf": {
+                  "name": "子女"
+                },
+                "contains": "天姚"
+              },
+              "before": "unmatched",
+              "after": "matched"
+            },
+            {
+              "query": "meets",
+              "condition": {
+                "meets": "天姚",
+                "stars": [
+                  "天姚"
+                ],
+                "reach": "same"
+              },
+              "before": "unmatched",
+              "after": "matched"
+            }
+          ]
+        },
+        {
+          "star": "紅鸞",
+          "branch": "未",
+          "palace": "財帛",
+          "source": {
+            "queryVersion": "natal-star-query-v1",
+            "engineVersion": "0.4.0",
+            "schoolProfile": "zhongzhou-v1@a66bb0b376cc914f",
+            "method": "liuyao-natal-v1",
+            "references": [
+              "wtz.initial.07.p0126",
+              "wtz.initial.07.p0127",
+              "wtz.initial.07.p0128",
+              "wtz.initial.07.p0129",
+              "wtz.initial.07.p0130"
+            ],
+            "verification": "transcription-not-original-collated"
+          },
+          "results": [
+            {
+              "query": "palace",
+              "condition": {
+                "star": "紅鸞",
+                "in": {
+                  "name": "財帛"
+                }
+              },
+              "before": "unmatched",
+              "after": "matched"
+            },
+            {
+              "query": "branch",
+              "condition": {
+                "star": "紅鸞",
+                "at": [
+                  "未"
+                ]
+              },
+              "before": "unmatched",
+              "after": "matched"
+            },
+            {
+              "query": "sanfang",
+              "condition": {
+                "sanfangOf": {
+                  "name": "財帛"
+                },
+                "contains": "紅鸞"
+              },
+              "before": "unmatched",
+              "after": "matched"
+            },
+            {
+              "query": "meets",
+              "condition": {
+                "meets": "紅鸞",
+                "stars": [
+                  "紅鸞"
+                ],
+                "reach": "same"
+              },
+              "before": "unmatched",
+              "after": "matched"
+            }
+          ]
+        },
+        {
+          "star": "天喜",
+          "branch": "丑",
+          "palace": "福德",
+          "source": {
+            "queryVersion": "natal-star-query-v1",
+            "engineVersion": "0.4.0",
+            "schoolProfile": "zhongzhou-v1@a66bb0b376cc914f",
+            "method": "liuyao-natal-v1",
+            "references": [
+              "wtz.initial.07.p0126",
+              "wtz.initial.07.p0127",
+              "wtz.initial.07.p0128",
+              "wtz.initial.07.p0129",
+              "wtz.initial.07.p0130"
+            ],
+            "verification": "transcription-not-original-collated"
+          },
+          "results": [
+            {
+              "query": "palace",
+              "condition": {
+                "star": "天喜",
+                "in": {
+                  "name": "福德"
+                }
+              },
+              "before": "unmatched",
+              "after": "matched"
+            },
+            {
+              "query": "branch",
+              "condition": {
+                "star": "天喜",
+                "at": [
+                  "丑"
+                ]
+              },
+              "before": "unmatched",
+              "after": "matched"
+            },
+            {
+              "query": "sanfang",
+              "condition": {
+                "sanfangOf": {
+                  "name": "福德"
+                },
+                "contains": "天喜"
+              },
+              "before": "unmatched",
+              "after": "matched"
+            },
+            {
+              "query": "meets",
+              "condition": {
+                "meets": "天喜",
+                "stars": [
+                  "天喜"
+                ],
+                "reach": "same"
+              },
+              "before": "unmatched",
+              "after": "matched"
+            }
+          ]
+        },
+        {
+          "star": "咸池",
+          "branch": "酉",
+          "palace": "夫妻",
+          "source": {
+            "queryVersion": "natal-star-query-v1",
+            "engineVersion": "0.4.0",
+            "schoolProfile": "zhongzhou-v1@a66bb0b376cc914f",
+            "method": "liuyao-natal-v1",
+            "references": [
+              "wtz.initial.07.p0147",
+              "wtz.initial.07.p0148",
+              "wtz.initial.07.p0149",
+              "wtz.initial.07.p0150"
+            ],
+            "verification": "transcription-not-original-collated"
+          },
+          "results": [
+            {
+              "query": "palace",
+              "condition": {
+                "star": "咸池",
+                "in": {
+                  "name": "夫妻"
+                }
+              },
+              "before": "unmatched",
+              "after": "matched"
+            },
+            {
+              "query": "branch",
+              "condition": {
+                "star": "咸池",
+                "at": [
+                  "酉"
+                ]
+              },
+              "before": "unmatched",
+              "after": "matched"
+            },
+            {
+              "query": "sanfang",
+              "condition": {
+                "sanfangOf": {
+                  "name": "夫妻"
+                },
+                "contains": "咸池"
+              },
+              "before": "unmatched",
+              "after": "matched"
+            },
+            {
+              "query": "meets",
+              "condition": {
+                "meets": "咸池",
+                "stars": [
+                  "咸池"
+                ],
+                "reach": "same"
+              },
+              "before": "unmatched",
+              "after": "matched"
+            }
+          ]
+        }
+      ],
+      "notImplemented": {
+        "condition": {
+          "not": {
+            "star": "天才",
+            "in": {
+              "name": "命宮"
+            }
+          }
+        },
+        "before": "matched",
+        "after": "not_applicable"
+      },
+      "actualAbsence": {
+        "condition": {
+          "not": {
+            "star": "天刑",
+            "in": {
+              "name": "命宮"
+            }
+          }
+        },
+        "before": "matched",
+        "after": "matched",
+        "query": {
+          "status": "absent",
+          "star": "天刑",
+          "branch": "辰",
+          "palace": "僕役",
+          "placement": {
+            "name": "天刑",
+            "kind": "aux"
+          },
+          "source": {
+            "queryVersion": "natal-star-query-v1",
+            "engineVersion": "0.4.0",
+            "schoolProfile": "zhongzhou-v1@a66bb0b376cc914f",
+            "method": "liuyao-natal-v1",
+            "references": [
+              "wtz.initial.07.p0163",
+              "wtz.initial.07.p0164"
+            ],
+            "verification": "transcription-not-original-collated"
+          },
+          "scope": [
+            "亥"
+          ]
+        }
+      },
+      "tables": {
+        "brightness": {
+          "status": "available",
+          "verification": "two-implementations",
+          "originalBookTable": "not-collated",
+          "levels": [
+            "廟",
+            "旺",
+            "得",
+            "利",
+            "平",
+            "不",
+            "陷"
+          ]
+        },
+        "sihua": {
+          "status": "available",
+          "verification": "primary-text-partial",
+          "school": "三合／中州（王亭之）"
+        },
+        "dayNight": {
+          "status": "not-implemented",
+          "reason": "原書所用日夜判準尚未實作，不由鐘面時間代填"
+        }
+      }
+    },
+    {
+      "id": "C",
+      "engineVersion": "0.4.0",
+      "schoolProfile": "zhongzhou-v1@a66bb0b376cc914f",
+      "checks": [
+        {
+          "star": "天刑",
+          "branch": "亥",
+          "palace": "父母",
+          "source": {
+            "queryVersion": "natal-star-query-v1",
+            "engineVersion": "0.4.0",
+            "schoolProfile": "zhongzhou-v1@a66bb0b376cc914f",
+            "method": "liuyao-natal-v1",
+            "references": [
+              "wtz.initial.07.p0163",
+              "wtz.initial.07.p0164"
+            ],
+            "verification": "transcription-not-original-collated"
+          },
+          "results": [
+            {
+              "query": "palace",
+              "condition": {
+                "star": "天刑",
+                "in": {
+                  "name": "父母"
+                }
+              },
+              "before": "unmatched",
+              "after": "matched"
+            },
+            {
+              "query": "branch",
+              "condition": {
+                "star": "天刑",
+                "at": [
+                  "亥"
+                ]
+              },
+              "before": "matched",
+              "after": "matched"
+            },
+            {
+              "query": "sanfang",
+              "condition": {
+                "sanfangOf": {
+                  "name": "父母"
+                },
+                "contains": "天刑"
+              },
+              "before": "matched",
+              "after": "matched"
+            },
+            {
+              "query": "meets",
+              "condition": {
+                "meets": "天刑",
+                "stars": [
+                  "天刑"
+                ],
+                "reach": "same"
+              },
+              "before": "matched",
+              "after": "matched"
+            }
+          ]
+        },
+        {
+          "star": "天姚",
+          "branch": "卯",
+          "palace": "僕役",
+          "source": {
+            "queryVersion": "natal-star-query-v1",
+            "engineVersion": "0.4.0",
+            "schoolProfile": "zhongzhou-v1@a66bb0b376cc914f",
+            "method": "liuyao-natal-v1",
+            "references": [
+              "wtz.initial.07.p0163",
+              "wtz.initial.07.p0164"
+            ],
+            "verification": "transcription-not-original-collated"
+          },
+          "results": [
+            {
+              "query": "palace",
+              "condition": {
+                "star": "天姚",
+                "in": {
+                  "name": "僕役"
+                }
+              },
+              "before": "unmatched",
+              "after": "matched"
+            },
+            {
+              "query": "branch",
+              "condition": {
+                "star": "天姚",
+                "at": [
+                  "卯"
+                ]
+              },
+              "before": "unmatched",
+              "after": "matched"
+            },
+            {
+              "query": "sanfang",
+              "condition": {
+                "sanfangOf": {
+                  "name": "僕役"
+                },
+                "contains": "天姚"
+              },
+              "before": "unmatched",
+              "after": "matched"
+            },
+            {
+              "query": "meets",
+              "condition": {
+                "meets": "天姚",
+                "stars": [
+                  "天姚"
+                ],
+                "reach": "same"
+              },
+              "before": "unmatched",
+              "after": "matched"
+            }
+          ]
+        },
+        {
+          "star": "紅鸞",
+          "branch": "亥",
+          "palace": "父母",
+          "source": {
+            "queryVersion": "natal-star-query-v1",
+            "engineVersion": "0.4.0",
+            "schoolProfile": "zhongzhou-v1@a66bb0b376cc914f",
+            "method": "liuyao-natal-v1",
+            "references": [
+              "wtz.initial.07.p0126",
+              "wtz.initial.07.p0127",
+              "wtz.initial.07.p0128",
+              "wtz.initial.07.p0129",
+              "wtz.initial.07.p0130"
+            ],
+            "verification": "transcription-not-original-collated"
+          },
+          "results": [
+            {
+              "query": "palace",
+              "condition": {
+                "star": "紅鸞",
+                "in": {
+                  "name": "父母"
+                }
+              },
+              "before": "unmatched",
+              "after": "matched"
+            },
+            {
+              "query": "branch",
+              "condition": {
+                "star": "紅鸞",
+                "at": [
+                  "亥"
+                ]
+              },
+              "before": "unmatched",
+              "after": "matched"
+            },
+            {
+              "query": "sanfang",
+              "condition": {
+                "sanfangOf": {
+                  "name": "父母"
+                },
+                "contains": "紅鸞"
+              },
+              "before": "unmatched",
+              "after": "matched"
+            },
+            {
+              "query": "meets",
+              "condition": {
+                "meets": "紅鸞",
+                "stars": [
+                  "紅鸞"
+                ],
+                "reach": "same"
+              },
+              "before": "unmatched",
+              "after": "matched"
+            }
+          ]
+        },
+        {
+          "star": "天喜",
+          "branch": "巳",
+          "palace": "疾厄",
+          "source": {
+            "queryVersion": "natal-star-query-v1",
+            "engineVersion": "0.4.0",
+            "schoolProfile": "zhongzhou-v1@a66bb0b376cc914f",
+            "method": "liuyao-natal-v1",
+            "references": [
+              "wtz.initial.07.p0126",
+              "wtz.initial.07.p0127",
+              "wtz.initial.07.p0128",
+              "wtz.initial.07.p0129",
+              "wtz.initial.07.p0130"
+            ],
+            "verification": "transcription-not-original-collated"
+          },
+          "results": [
+            {
+              "query": "palace",
+              "condition": {
+                "star": "天喜",
+                "in": {
+                  "name": "疾厄"
+                }
+              },
+              "before": "unmatched",
+              "after": "matched"
+            },
+            {
+              "query": "branch",
+              "condition": {
+                "star": "天喜",
+                "at": [
+                  "巳"
+                ]
+              },
+              "before": "unmatched",
+              "after": "matched"
+            },
+            {
+              "query": "sanfang",
+              "condition": {
+                "sanfangOf": {
+                  "name": "疾厄"
+                },
+                "contains": "天喜"
+              },
+              "before": "unmatched",
+              "after": "matched"
+            },
+            {
+              "query": "meets",
+              "condition": {
+                "meets": "天喜",
+                "stars": [
+                  "天喜"
+                ],
+                "reach": "same"
+              },
+              "before": "unmatched",
+              "after": "matched"
+            }
+          ]
+        },
+        {
+          "star": "咸池",
+          "branch": "酉",
+          "palace": "兄弟",
+          "source": {
+            "queryVersion": "natal-star-query-v1",
+            "engineVersion": "0.4.0",
+            "schoolProfile": "zhongzhou-v1@a66bb0b376cc914f",
+            "method": "liuyao-natal-v1",
+            "references": [
+              "wtz.initial.07.p0147",
+              "wtz.initial.07.p0148",
+              "wtz.initial.07.p0149",
+              "wtz.initial.07.p0150"
+            ],
+            "verification": "transcription-not-original-collated"
+          },
+          "results": [
+            {
+              "query": "palace",
+              "condition": {
+                "star": "咸池",
+                "in": {
+                  "name": "兄弟"
+                }
+              },
+              "before": "unmatched",
+              "after": "matched"
+            },
+            {
+              "query": "branch",
+              "condition": {
+                "star": "咸池",
+                "at": [
+                  "酉"
+                ]
+              },
+              "before": "unmatched",
+              "after": "matched"
+            },
+            {
+              "query": "sanfang",
+              "condition": {
+                "sanfangOf": {
+                  "name": "兄弟"
+                },
+                "contains": "咸池"
+              },
+              "before": "unmatched",
+              "after": "matched"
+            },
+            {
+              "query": "meets",
+              "condition": {
+                "meets": "咸池",
+                "stars": [
+                  "咸池"
+                ],
+                "reach": "same"
+              },
+              "before": "unmatched",
+              "after": "matched"
+            }
+          ]
+        }
+      ],
+      "notImplemented": {
+        "condition": {
+          "not": {
+            "star": "天才",
+            "in": {
+              "name": "命宮"
+            }
+          }
+        },
+        "before": "matched",
+        "after": "not_applicable"
+      },
+      "actualAbsence": {
+        "condition": {
+          "not": {
+            "star": "天刑",
+            "in": {
+              "name": "命宮"
+            }
+          }
+        },
+        "before": "matched",
+        "after": "matched",
+        "query": {
+          "status": "absent",
+          "star": "天刑",
+          "branch": "亥",
+          "palace": "父母",
+          "placement": {
+            "name": "天刑",
+            "kind": "aux"
+          },
+          "source": {
+            "queryVersion": "natal-star-query-v1",
+            "engineVersion": "0.4.0",
+            "schoolProfile": "zhongzhou-v1@a66bb0b376cc914f",
+            "method": "liuyao-natal-v1",
+            "references": [
+              "wtz.initial.07.p0163",
+              "wtz.initial.07.p0164"
+            ],
+            "verification": "transcription-not-original-collated"
+          },
+          "scope": [
+            "戌"
+          ]
+        }
+      },
+      "tables": {
+        "brightness": {
+          "status": "available",
+          "verification": "two-implementations",
+          "originalBookTable": "not-collated",
+          "levels": [
+            "廟",
+            "旺",
+            "得",
+            "利",
+            "平",
+            "不",
+            "陷"
+          ]
+        },
+        "sihua": {
+          "status": "available",
+          "verification": "primary-text-partial",
+          "school": "三合／中州（王亭之）"
+        },
+        "dayNight": {
+          "status": "not-implemented",
+          "reason": "原書所用日夜判準尚未實作，不由鐘面時間代填"
+        }
+      }
+    }
+  ],
+  "parents": {
+    "packages/content/src/palace-focused.ts": "45b3553f0df8844dc3c56c0b1daed49f2b118f401f8929c8321c1d7d4c6a050e",
+    "packages/content/src/palace-remaining.ts": "d73654dc9f0fcc1a71eeba242dd46f9ca704d8c702ae30f5cb024947e9d5a14f",
+    "packages/content/src/free-ming-reader.ts": "fe256718bc84b345730149f359091a0c8eb9fac23c0dd67799cfab88487e63c9",
+    "packages/content/src/free-ming-systems.ts": "1600adabfab054819497c33b128d4467ec41ee2c47e86a9e2c4e4b310c145423",
+    "packages/content/src/palace-reader.ts": "dc1f394354c1995be4d679257c6f171edf7d8d2f9af535274214ebee4d7c16ea",
+    "packages/content/src/palace-predicate.ts": "75ba53d622c6a41dd3ba913d36c4bbbe3002bda8d59d30957cd04a3b22296629",
+    "packages/content/src/condition.ts": "18968b82fd6bf8435a3646612f1a22f9a62fe76444425d35dce257f9b535f847",
+    "packages/ziwei/src/chart/star-query.ts": "c5fb7dde7973beb0ed1daad731008b99db135555ec2a43f94240740f96124798",
+    "packages/content/src/rule.ts": "330e5414808d8aef3a80178d07aac45ce20f62d6267ea26c4d90b6cb48341f21",
+    "packages/content/src/card.ts": "ee60882ec400d4d8136ec2f3e486adf8937723d05e27220bfe9e6c5e949f92d4",
+    "packages/ziwei/src/chart/index.ts": "4963fe64ec00846d0c0e2e7ba78ce1a60f168c3abeac3a6d2baa792020e98e5a",
+    "packages/ziwei/src/chart/p1a-stars.ts": "ea779cc34accdddf1c77b1ce3ed213333506622dddb78c22efc4a14853526de5",
+    "packages/ziwei/src/chart/p1b-stars.ts": "22a4400b045455591424edafa84586a9c620590bd71afe97cb8af1794a9c9d86"
+  },
+  "release": "local only; no push, merge or deploy",
+  "previous_audit_bindings": {
+    "palace-focused-review.json": {
+      "reader_sha256": "6d9226b5faf222679f5cb2c5278f305b0181a52f73d2957b02e55fbe7732dae8"
+    },
+    "palace-remaining-review.json": {
+      "reader_sha256": "db04574e35d6fea6de71d9de0ae603265354f6aac74395e81facf6bbd84d940b"
+    },
+    "free-ming-reading-review.json": {
+      "selector_sha256": "dea2e522edf8216ee0c7af3e60f015f25de107c5fd1ac006b548a1868e3c18ac"
+    },
+    "free-ming-systems-review.json": {
+      "selector_sha256": "758725353866412ab65edc86a9354a802ccc6c552bacf585c445d2a55f0ab878"
+    },
+    "palace-coherence-review.json": {
+      "parents": {
+        "packages/content/src/cards/palace-narrative.json": "7701495cb668369e7ffb4c0c77b4b44392d96d5daeae90b23d921a04acd35e08"
+      }
+    }
+  },
+  "fixture_repairs": "Existing hypothetical branch fixtures now keep twelve unique branches, avoid duplicate star records and fill all four hua slots. Missing and conflicting inputs are separately tested as unknown.",
+  "validation": {
+    "engine": {
+      "passed": 324,
+      "skipped": 1
+    },
+    "content": {
+      "passed": 549,
+      "skipped": 5,
+      "exit_code": 0,
+      "unhandled_errors": 0,
+      "card_sample_per_system": 100,
+      "card_years": [
+        2000,
+        2099
+      ]
+    },
+    "web_related": {
+      "passed": 55
+    },
+    "typecheck": [
+      "ziwei",
+      "content",
+      "web"
+    ],
+    "production_build": "passed locally; 3 existing Yindao eslint-disable warnings",
+    "preview": {
+      "port": 3101,
+      "tongliang": 200,
+      "tianfu": 200,
+      "jiliang": 200
+    },
+    "no_copy_change": "75 pre-change chart, palace-reader and complete-book fingerprints unchanged",
+    "harness": "Yield between complete chart checks to keep worker RPC responsive; no sample/assertion reduction."
+  },
+  "p1a_extension_review": "docs/engine-p1a-2026-10-23.md",
+  "p1b_extension_review": "docs/engine-p1b-2026-10-24.md"
+}

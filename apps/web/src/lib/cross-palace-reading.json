@@ -1,0 +1,1022 @@
+{
+  "version": "cross-palace-reading-v1",
+  "pdf_sha256": "513e3d068040efe3684eb3c0e44cf6e447787670bbf5d618f022da2d6c55231b",
+  "entries": [
+    {
+      "id": "tongliang-命宮",
+      "family": "tongliang",
+      "palace": "命宮",
+      "requires": [
+        "tl-four-frame",
+        "tl-wealth-tongji",
+        "tl-wealth-yanglu",
+        "tl-work-changing",
+        "tl-rest-active"
+      ],
+      "parts": [
+        {
+          "heading": "想守住的原則，也要容得下感受",
+          "text": "你的命宮在{ming}，天同、天梁同宮，天同化忌又有羊陀相夾。生活裡想要的情趣，與自己不願放下的標準，容易成為兩股互相牽制的力量；遇到去留與取捨，單用重感情或重原則其中一面，未能說清這份來回。",
+          "ruleIds": [
+            "tl-four-frame"
+          ],
+          "inherit": [
+            0
+          ],
+          "referenceFocus": [
+            "wtz.deep.p087.b011",
+            "wtz.deep.p087.b012",
+            "wtz.deep.p087.b013",
+            "wtz.deep.p087.b014",
+            "wtz.deep.p088.b001"
+          ],
+          "citations": [
+            "cross.reading.v1:method",
+            "free.systems.v1:wtz.deep.p087.b010",
+            "free.reading.v1:wtz.deep.p087.b011",
+            "free.reading.v1:wtz.deep.p087.b012",
+            "free.reading.v1:wtz.deep.p087.b013",
+            "free.reading.v1:wtz.deep.p087.b014"
+          ],
+          "notes": [],
+          "priorRequired": []
+        },
+        {
+          "heading": "把取捨接到工作與累積",
+          "text": "這份取捨放到工作與求財，還有具體的用力之處：官祿天機對巨門，事情要反覆思量、隨情況調整；財帛太陰要靠計劃累積，又會到命宮天同忌，求財也要投入心力。懂得安排，與事情做起來是否省力，是兩回事。福德太陽有追求，亦要另看取得成果之後，自己是否真的得到休息。",
+          "ruleIds": [
+            "tl-work-changing",
+            "tl-wealth-planning",
+            "tl-wealth-tongji",
+            "tl-rest-active"
+          ],
+          "inherit": [
+            1,
+            2
+          ],
+          "referenceFocus": [
+            "wtz.deep.p523.b004",
+            "wtz.deep.p452.b010",
+            "wtz.deep.p565.b009"
+          ],
+          "citations": [
+            "cross.reading.v1:method",
+            "palace.reading.v1:wtz.deep.p522.b005+3",
+            "palace.reading.v1:wtz.deep.p522.b005+7",
+            "palace.reading.v1:wtz.deep.p523.b004",
+            "palace.reading.v1:wtz.deep.p451.b009+5",
+            "palace.reading.v1:wtz.deep.p452.b008+3",
+            "palace.remaining.v1:wellbeing-太陽",
+            "palace.reading.v1:wtz.deep.p565.b006+3",
+            "palace.remaining.v1:wellbeing-scope"
+          ],
+          "notes": [
+            "同一筆命宮天同忌同時參與命宮與財帛的解讀，並非兩項獨立的負面結果。"
+          ],
+          "priorRequired": []
+        }
+      ],
+      "advice": "遇到取捨時，先分清自己想守住的是原則，還是某一種做法。做法可以調整，也替調整之後的跟進與休息留位置，別把每次多花心力都當作自己做得不夠。",
+      "requiredPrior": [
+        "tongliang-clamped-ji"
+      ],
+      "nativeNoHua": []
+    },
+    {
+      "id": "tongliang-官祿",
+      "family": "tongliang",
+      "palace": "官祿",
+      "requires": [
+        "tl-four-frame",
+        "tl-wealth-tongji",
+        "tl-wealth-yanglu",
+        "tl-work-changing",
+        "tl-rest-active"
+      ],
+      "parts": [
+        {
+          "heading": "變動之中，事情仍要有人接住",
+          "text": "你的官祿宮在{career}，天機獨坐，對宮巨門。工作的重點在回應不同要求、處理變化，轉變之後仍要費心經營；一份工作的日常內容，比職稱更能說明這項性質。原書所說的變動，也可以是客戶、任務和環境經常不同，並非每次都要離開原來的工作。",
+          "ruleIds": [
+            "tl-work-changing"
+          ],
+          "inherit": [
+            0
+          ],
+          "referenceFocus": [
+            "wtz.deep.p522.b005",
+            "wtz.deep.p522.b006",
+            "wtz.deep.p522.b011",
+            "wtz.deep.p523.b004"
+          ],
+          "citations": [
+            "cross.reading.v1:method",
+            "palace.reading.v1:wtz.deep.p522.b005+3",
+            "palace.reading.v1:wtz.deep.p522.b005+7",
+            "palace.reading.v1:wtz.deep.p523.b004"
+          ],
+          "notes": [],
+          "priorRequired": []
+        },
+        {
+          "heading": "工作上的應變，要接到財的累積",
+          "text": "命宮天同忌會到財帛太陰，求財要勞心勞力；這使官祿的應變不只是一項優點，還包括調整以後怎樣維持交付、承擔後續責任。財帛太陰對太陽祿，又有先建立位置、再發展財路的次序。工作逐步累積起來，與每次變動都從零開創，應當分開衡量。",
+          "ruleIds": [
+            "tl-wealth-tongji",
+            "tl-wealth-yanglu"
+          ],
+          "inherit": [
+            1
+          ],
+          "referenceFocus": [
+            "wtz.deep.p452.b009",
+            "wtz.deep.p452.b010",
+            "wtz.deep.p523.b004"
+          ],
+          "citations": [
+            "cross.reading.v1:method",
+            "palace.reading.v1:wtz.deep.p452.b008+3",
+            "palace.reading.v1:wtz.deep.p523.b004"
+          ],
+          "notes": [
+            "太陽祿實坐福德，並非官祿天機化祿；天同忌亦沒有改寫成天機忌。"
+          ],
+          "priorRequired": []
+        }
+      ],
+      "advice": "比較工作時，問清楚變動由誰承接、計劃由誰落實，以及自己能否跟進交付。把已做成的方法留下來，再決定下一步怎樣調整，讓每次應變都能累積經驗。",
+      "requiredPrior": [
+        "tongliang-clamped-ji"
+      ],
+      "nativeNoHua": []
+    },
+    {
+      "id": "tongliang-財帛",
+      "family": "tongliang",
+      "palace": "財帛",
+      "requires": [
+        "tl-four-frame",
+        "tl-wealth-tongji",
+        "tl-wealth-yanglu",
+        "tl-work-changing",
+        "tl-rest-active"
+      ],
+      "parts": [
+        {
+          "heading": "靠計劃累積，也先看工作位置",
+          "text": "你的財帛宮在{wealth}，太陰坐守，求財重點在計劃、運用與積聚。對宮福德太陽化祿，原書把先建立地位、再發展財源列為一般次序。放在這張盤，先在工作中累積位置與資源，再看財路怎樣拓展，比只盯着一時收入更能接上全局。",
+          "ruleIds": [
+            "tl-wealth-planning",
+            "tl-wealth-yanglu"
+          ],
+          "inherit": [
+            0
+          ],
+          "referenceFocus": [
+            "wtz.deep.p451.b009",
+            "wtz.deep.p451.b010",
+            "wtz.deep.p451.b011",
+            "wtz.deep.p452.b009"
+          ],
+          "citations": [
+            "cross.reading.v1:method",
+            "palace.reading.v1:wtz.deep.p451.b009+5",
+            "palace.reading.v1:wtz.deep.p452.b008+3"
+          ],
+          "notes": [
+            "第452頁月祿句的「宮而後貴」原頁字形存疑，未按猜改文字採用月祿分支；本段採可辨的太陽祿句。"
+          ],
+          "priorRequired": []
+        },
+        {
+          "heading": "財路打開，投入的心力仍要算進去",
+          "text": "官祿天機對巨門，工作要隨情況應變；命宮天同忌又會財帛太陰，原書明列勞心勞力求財。財路有發展與投入是否輕省，可以同時有不同答案。收入、經手的資源，以及花過心力後真正留下的成果，需要分開看。",
+          "ruleIds": [
+            "tl-work-changing",
+            "tl-wealth-tongji"
+          ],
+          "inherit": [
+            1
+          ],
+          "referenceFocus": [
+            "wtz.deep.p523.b004",
+            "wtz.deep.p452.b010"
+          ],
+          "citations": [
+            "cross.reading.v1:method",
+            "palace.reading.v1:wtz.deep.p522.b005+3",
+            "palace.reading.v1:wtz.deep.p522.b005+7",
+            "palace.reading.v1:wtz.deep.p523.b004",
+            "palace.reading.v1:wtz.deep.p452.b008+3"
+          ],
+          "notes": [],
+          "priorRequired": []
+        }
+      ],
+      "advice": "衡量一項收入時，把需要持續付出的時間、成本與後續責任一起算進去。先確認原有安排接得住，再增加新的承擔，讓財路的發展能留下成果。",
+      "requiredPrior": [
+        "tongliang-clamped-ji"
+      ],
+      "nativeNoHua": []
+    },
+    {
+      "id": "tongliang-福德",
+      "family": "tongliang",
+      "palace": "福德",
+      "requires": [
+        "tl-four-frame",
+        "tl-wealth-tongji",
+        "tl-wealth-yanglu",
+        "tl-work-changing",
+        "tl-rest-active"
+      ],
+      "parts": [
+        {
+          "heading": "取得進展，與內心放得下分開看",
+          "text": "你的福德宮在{wellbeing}，太陽化祿，鈴星亦在本宮。太陽帶活動與追求，鈴星又添了心神難以安定的一面；工作或財路有了進展，未必就容易停下。連着官祿的應變與求財的投入看，這一宮要問的，是忙過之後是否真的有滿足，而不只是還有多少事情可以完成。",
+          "ruleIds": [
+            "tl-rest-active",
+            "tl-wealth-yanglu",
+            "tl-wealth-tongji"
+          ],
+          "inherit": [
+            0
+          ],
+          "referenceFocus": [
+            "wtz.deep.p569.b011",
+            "wtz.deep.p565.b009",
+            "wtz.deep.p452.b009",
+            "wtz.deep.p452.b010"
+          ],
+          "citations": [
+            "cross.reading.v1:method",
+            "palace.remaining.v1:wellbeing-太陽",
+            "palace.reading.v1:wtz.deep.p565.b006+3",
+            "palace.remaining.v1:wellbeing-scope",
+            "palace.reading.v1:wtz.deep.p452.b008+3"
+          ],
+          "notes": [],
+          "priorRequired": []
+        },
+        {
+          "heading": "另有可以投入的精神生活",
+          "text": "福德有龍池、華蓋，又有鳳閣會照，文藝、思想與興趣是這張盤另一條精神投入的線索。它可以與工作的成績並存，卻不必每次都拿來衡量產出。做一件自己願意投入的事，與再追下一個目標，是兩種不同的滿足。",
+          "ruleIds": [
+            "tl-four-frame"
+          ],
+          "inherit": [
+            1
+          ],
+          "referenceFocus": [
+            "wtz.deep.p565.b010",
+            "wtz.deep.p317.b013",
+            "wtz.deep.p317.b014",
+            "wtz.deep.p318.b017",
+            "wtz.deep.p321.b008",
+            "wtz.deep.p321.b009",
+            "wtz.deep.p321.b010",
+            "wtz.deep.p321.b011",
+            "wtz.deep.p321.b012"
+          ],
+          "citations": [
+            "cross.reading.v1:method",
+            "free.systems.v1:wtz.deep.p087.b010",
+            "free.reading.v1:wtz.deep.p087.b011",
+            "free.reading.v1:wtz.deep.p087.b012",
+            "free.reading.v1:wtz.deep.p087.b013",
+            "palace.remaining.v1:wellbeing-scope",
+            "cross.reading.v1:arts"
+          ],
+          "notes": [
+            "龍鳳實際成對會福德，華蓋實坐福德；這些趣味線索不抵銷同忌夾忌，也不保證藝術專業。"
+          ],
+          "priorRequired": [
+            "paired-longfeng-wellbeing",
+            "huagai-wellbeing"
+          ]
+        }
+      ],
+      "advice": "替沒有交付要求的興趣留一段時間。忙碌暫停時，把下一步記好，再讓自己離開工作的衡量方式，留意甚麼活動做完後真正覺得舒展。",
+      "requiredPrior": [
+        "tongliang-clamped-ji"
+      ],
+      "nativeNoHua": []
+    },
+    {
+      "id": "tianfu-命宮",
+      "family": "tianfu",
+      "palace": "命宮",
+      "requires": [
+        "tf-store",
+        "tf-career-role",
+        "tf-career-ke",
+        "tf-wealth-reference",
+        "tf-rest-wuji",
+        "tf-rest-wutan"
+      ],
+      "parts": [
+        {
+          "heading": "有資源可管，與格局已定分開看",
+          "text": "你的命宮在{ming}，天府化科、祿存同宮，有支持管理與累積資源的條件。這份支持可以逐步形成成果；但有庫藏、能累積，與局面能做多大，仍是不同的判斷。壬科又同時會武曲忌，不能只憑府科有祿便概括整張盤的本質。",
+          "ruleIds": [
+            "tf-store",
+            "tf-rest-wuji"
+          ],
+          "inherit": [
+            0
+          ],
+          "referenceFocus": [
+            "wtz.deep.p020.b003",
+            "wtz.deep.p020.b004",
+            "wtz.deep.p020.b005",
+            "wtz.deep.p201.b007",
+            "wtz.deep.p201.b008"
+          ],
+          "citations": [
+            "cross.reading.v1:method",
+            "cross.reading.v1:fu-store",
+            "palace.reading.v1:wtz.deep.p430.b009+8",
+            "palace.remaining.v1:wellbeing-武曲+貪狼",
+            "palace.remaining.v1:wellbeing-武曲",
+            "palace.remaining.v1:wellbeing-武曲+破軍",
+            "palace.reading.v1:wtz.deep.p565.b006+3",
+            "free.reading.v1:wtz.deep.p201.b007",
+            "free.reading.v1:wtz.deep.p201.b008"
+          ],
+          "notes": [
+            "壬科的輔佐眾多與整體調和仍須合看；這段沒有把星曜數量換成固定門檻，亦沒有直接選定祥和或權術。"
+          ],
+          "priorRequired": []
+        },
+        {
+          "heading": "管理資源，還要看怎樣承擔與享用",
+          "text": "官祿天相把命宮的資源支持接成受託、協調與執行的責任；財帛則借福德武貪，求財的動力與享用追求連得很近。武曲忌實在福德，提醒這張盤要分開三件事：管理到多少、願意承擔多少，以及已有成果能否帶來滿足。",
+          "ruleIds": [
+            "tf-career-role",
+            "tf-wealth-reference",
+            "tf-rest-wuji"
+          ],
+          "inherit": [
+            1
+          ],
+          "referenceFocus": [
+            "wtz.deep.p545.b005",
+            "wtz.deep.p201.b001",
+            "wtz.deep.p571.b003",
+            "wtz.deep.p571.b004"
+          ],
+          "citations": [
+            "cross.reading.v1:method",
+            "palace.reading.v1:wtz.deep.p544.b008+8",
+            "free.reading.v1:wtz.deep.p201.b001",
+            "palace.reading.v1:wtz.deep.p429.b008+4",
+            "palace.reading.v1:wtz.deep.p430.b008+8",
+            "palace.remaining.v1:wellbeing-武曲+貪狼",
+            "palace.remaining.v1:wellbeing-武曲",
+            "palace.remaining.v1:wellbeing-武曲+破軍",
+            "palace.reading.v1:wtz.deep.p565.b006+3"
+          ],
+          "notes": [],
+          "priorRequired": []
+        }
+      ],
+      "advice": "擴大承擔前，先確認自己可調動的資源與可作的決定。也替已有成果訂一個完成的尺度，讓累積不只是繼續增加下一個目標。",
+      "requiredPrior": [],
+      "nativeNoHua": [],
+      "requiredYearStem": "壬"
+    },
+    {
+      "id": "tianfu-官祿",
+      "family": "tianfu",
+      "palace": "官祿",
+      "requires": [
+        "tf-store",
+        "tf-career-role",
+        "tf-career-ke",
+        "tf-wealth-reference",
+        "tf-rest-wuji",
+        "tf-rest-wutan"
+      ],
+      "parts": [
+        {
+          "heading": "受託的責任，要有資源接得住",
+          "text": "你的官祿宮在{career}，天相坐守，重點是受託、協調與體系內的責任。命宮天府與祿存同宮，提供資源管理的支持；工作上承接多少事情，仍要連同能調動多少資源、擁有多少權限一起看。負責把事情做好，與名義上站在最高位置，是不同的工作要求。",
+          "ruleIds": [
+            "tf-store",
+            "tf-career-role"
+          ],
+          "inherit": [
+            0
+          ],
+          "referenceFocus": [
+            "wtz.deep.p020.b003",
+            "wtz.deep.p020.b004",
+            "wtz.deep.p544.b008",
+            "wtz.deep.p545.b005",
+            "wtz.deep.p545.b009"
+          ],
+          "citations": [
+            "cross.reading.v1:method",
+            "cross.reading.v1:fu-store",
+            "palace.reading.v1:wtz.deep.p430.b009+8",
+            "palace.reading.v1:wtz.deep.p544.b008+8"
+          ],
+          "notes": [],
+          "priorRequired": []
+        },
+        {
+          "heading": "府科連天相，工作方向再具體一層",
+          "text": "卯宮天相連到命宮有祿的天府科，原書另列工程技術的工作方向。因此，這張盤不只可談一般管理，還可看較重技術、規範與可核對成果的工作性質。前一段的受託與協調，也就有了更具體的內容：怎樣把資源安排成能夠落實的成果。",
+          "ruleIds": [
+            "tf-career-ke"
+          ],
+          "inherit": [
+            1
+          ],
+          "referenceFocus": [
+            "wtz.deep.p545.b010",
+            "wtz.deep.p545.b015"
+          ],
+          "citations": [
+            "cross.reading.v1:method",
+            "cross.reading.v1:fu-store",
+            "free.reading.v1:wtz.deep.p201.b008",
+            "palace.remaining.v1:career-天相",
+            "palace.reading.v1:wtz.deep.p544.b008+8"
+          ],
+          "notes": [
+            "工程技術是原書的工作性質線索，不承諾資格、職稱或成果。紫微權在遷移，沒有會官祿；本盤不採天相會紫微權的權大於利分支。廉貞本身亦未化祿，不把原引廉祿開創句當作本盤已有。"
+          ],
+          "priorRequired": []
+        }
+      ],
+      "advice": "接下工作前，把責任、決定權、資源與成果標準談清楚。評估一個機會時，也看看它能否讓技術與經驗逐步累積，而不只是增加要協調的事情。",
+      "requiredPrior": [],
+      "nativeNoHua": [],
+      "requiredYearStem": "壬"
+    },
+    {
+      "id": "tianfu-財帛",
+      "family": "tianfu",
+      "palace": "財帛",
+      "requires": [
+        "tf-store",
+        "tf-career-role",
+        "tf-career-ke",
+        "tf-wealth-reference",
+        "tf-rest-wuji",
+        "tf-rest-wutan"
+      ],
+      "parts": [
+        {
+          "heading": "財源的規模，與可用的餘額分開看",
+          "text": "你的財帛宮在{wealth}，借福德的武曲、貪狼作參照。這張盤看財，重點在開拓所得之後，還有多少能真正留給自己運用。財源的規模、維持工作與往來的投入，以及最後留下的成果，要分開衡量；所見的收入數字，未必就是手上可用的餘額。",
+          "ruleIds": [
+            "tf-wealth-reference"
+          ],
+          "inherit": [
+            0
+          ],
+          "referenceFocus": [
+            "wtz.deep.p201.b001",
+            "wtz.deep.p429.b008",
+            "wtz.deep.p430.b008"
+          ],
+          "citations": [
+            "cross.reading.v1:method",
+            "free.reading.v1:wtz.deep.p201.b001",
+            "palace.reading.v1:wtz.deep.p429.b008+4",
+            "palace.reading.v1:wtz.deep.p430.b008+8"
+          ],
+          "notes": [
+            "本盤財帛{wealth}沒有實坐主星，借對宮福德{wellbeing}的武曲、貪狼作參照。武曲忌實坐福德；兩宮連讀使用同一組原位資料，不另算一次財帛本宮武忌。"
+          ],
+          "priorRequired": []
+        },
+        {
+          "heading": "累積得下來，亦要看追求會否隨之增加",
+          "text": "命宮天府有祿，偏重管理與積累資源；福德武貪、武曲忌，則把注意力帶到財富追求與精神享用。財源拓展之後，時間、應酬與後續責任也可能增加。這一宮既看得到多少，也要看為維持所得付出多少，以及已有成果是否真正可供享用。",
+          "ruleIds": [
+            "tf-store",
+            "tf-rest-wuji",
+            "tf-rest-wutan"
+          ],
+          "inherit": [
+            1
+          ],
+          "referenceFocus": [
+            "wtz.deep.p430.b009",
+            "wtz.deep.p571.b003",
+            "wtz.deep.p571.b004",
+            "wtz.deep.p572.b003"
+          ],
+          "citations": [
+            "cross.reading.v1:method",
+            "cross.reading.v1:fu-store",
+            "palace.reading.v1:wtz.deep.p430.b009+8",
+            "palace.remaining.v1:wellbeing-武曲+貪狼",
+            "palace.remaining.v1:wellbeing-武曲",
+            "palace.remaining.v1:wellbeing-武曲+破軍",
+            "palace.reading.v1:wtz.deep.p565.b006+3",
+            "palace.reading.v1:wtz.deep.p576.b007+5"
+          ],
+          "notes": [],
+          "priorRequired": []
+        }
+      ],
+      "advice": "把所得、維持財源的成本與真正能留下的餘額分開。新增一項投入前，先問自己它是補足實際需要，還是只讓追求的目標繼續增加。",
+      "requiredPrior": [],
+      "nativeNoHua": [],
+      "requiredYearStem": "壬"
+    },
+    {
+      "id": "tianfu-福德",
+      "family": "tianfu",
+      "palace": "福德",
+      "requires": [
+        "tf-store",
+        "tf-career-role",
+        "tf-career-ke",
+        "tf-wealth-reference",
+        "tf-rest-wuji",
+        "tf-rest-wutan"
+      ],
+      "parts": [
+        {
+          "heading": "物質追求，與精神享用連得很近",
+          "text": "你的福德宮在{wellbeing}，武曲、貪狼同宮，武曲化忌。這一支把追求財富與精神享受連在一起；命宮天府有祿，支持資源的管理與累積，卻不能直接回答心裡何時覺得足夠。擁有得更多，與得到更多滿足，可以是不同的進度。",
+          "ruleIds": [
+            "tf-store",
+            "tf-rest-wuji",
+            "tf-rest-wutan"
+          ],
+          "inherit": [
+            0
+          ],
+          "referenceFocus": [
+            "wtz.deep.p565.b006",
+            "wtz.deep.p565.b007",
+            "wtz.deep.p571.b003",
+            "wtz.deep.p572.b003"
+          ],
+          "citations": [
+            "cross.reading.v1:method",
+            "cross.reading.v1:fu-store",
+            "palace.reading.v1:wtz.deep.p430.b009+8",
+            "palace.remaining.v1:wellbeing-武曲+貪狼",
+            "palace.remaining.v1:wellbeing-武曲",
+            "palace.remaining.v1:wellbeing-武曲+破軍",
+            "palace.reading.v1:wtz.deep.p565.b006+3",
+            "palace.reading.v1:wtz.deep.p576.b007+5"
+          ],
+          "notes": [],
+          "priorRequired": []
+        },
+        {
+          "heading": "讓已有成果，也有被享用的時候",
+          "text": "財帛空宮正是借這組武貪，求財方向與內心追求並不是兩條分開的線。這張盤較值得留意的，是成果出現之後，自己能否享用它，還是很快又把注意力移到下一個目標。喜歡一項活動、願意投入，與投入之後仍有樂趣，要逐層分清。",
+          "ruleIds": [
+            "tf-wealth-reference",
+            "tf-rest-wuji"
+          ],
+          "inherit": [
+            1
+          ],
+          "referenceFocus": [
+            "wtz.deep.p571.b003",
+            "wtz.deep.p571.b004",
+            "wtz.deep.p429.b008"
+          ],
+          "citations": [
+            "cross.reading.v1:method",
+            "free.reading.v1:wtz.deep.p201.b001",
+            "palace.reading.v1:wtz.deep.p429.b008+4",
+            "palace.reading.v1:wtz.deep.p430.b008+8",
+            "palace.remaining.v1:wellbeing-武曲+貪狼",
+            "palace.remaining.v1:wellbeing-武曲",
+            "palace.remaining.v1:wellbeing-武曲+破軍",
+            "palace.reading.v1:wtz.deep.p565.b006+3"
+          ],
+          "notes": [],
+          "priorRequired": []
+        }
+      ],
+      "advice": "替自己喜歡的活動留時間與預算，也替一個目標訂下完成的尺度。成果出現時，讓它有被使用和享受的時候，不急着把休息填成另一項追求。",
+      "requiredPrior": [],
+      "nativeNoHua": [],
+      "requiredYearStem": "壬"
+    },
+    {
+      "id": "jiliang-命宮",
+      "family": "jiliang",
+      "palace": "命宮",
+      "requires": [
+        "jl-four-frame",
+        "jl-career-reference",
+        "jl-wealth-tongyin",
+        "jl-wealth-assistant",
+        "jl-rest-opposite",
+        "jl-rest-labor",
+        "jl-rest-art"
+      ],
+      "parts": [
+        {
+          "heading": "察覺變化，再說清判斷的根據",
+          "text": "你的命宮在{ming}，天機、天梁同宮，把對變化的敏感與對原則的重視放在一起。看見新情況之後，還要分清哪些是已知、哪些仍是推測，再說明自己憑甚麼作判斷。這是本盤可以確定的閱讀重點；輔佐與煞曜同時出現，未足以直接選定明斷或尖刻的一端。",
+          "ruleIds": [
+            "jl-four-frame"
+          ],
+          "inherit": [
+            0
+          ],
+          "referenceFocus": [
+            "wtz.deep.p215.b011",
+            "wtz.deep.p215.b012",
+            "wtz.deep.p215.b013",
+            "wtz.deep.p216.b001",
+            "wtz.deep.p216.b002"
+          ],
+          "citations": [
+            "cross.reading.v1:method",
+            "free.reading.v1:wtz.deep.p215.b010",
+            "free.reading.v1:wtz.deep.p215.b011",
+            "free.reading.v1:wtz.deep.p215.b012",
+            "free.reading.v1:wtz.deep.p215.b013",
+            "free.reading.v1:wtz.deep.p216.b002"
+          ],
+          "notes": [],
+          "priorRequired": []
+        },
+        {
+          "heading": "判斷怎樣接到表達、資源與餘裕",
+          "text": "官祿空宮借陽巨，將來的工作性質可參照表達、解說與對外事務；財帛同陰另講計劃、累積與享用需求。把事情想清楚、讓別人聽明白，以及最後形成甚麼價值，並不是同一步。福德本宮又有擎羊，精神上的餘裕也要另看，不能由同陰的享用取向便說成自然安樂。",
+          "ruleIds": [
+            "jl-career-reference",
+            "jl-wealth-tongyin",
+            "jl-rest-labor",
+            "jl-rest-opposite"
+          ],
+          "inherit": [
+            1
+          ],
+          "referenceFocus": [
+            "wtz.deep.p528.b008",
+            "wtz.deep.p445.b011",
+            "wtz.deep.p451.b009",
+            "wtz.deep.p565.b009"
+          ],
+          "citations": [
+            "cross.reading.v1:method",
+            "free.reading.v1:wtz.deep.p215.b010",
+            "palace.remaining.v1:career-太陽+巨門",
+            "palace.reading.v1:wtz.deep.p542.b015+7",
+            "palace.remaining.v1:wealth-天同",
+            "palace.remaining.v1:wealth-天同+太陰",
+            "palace.reading.v1:wtz.deep.p451.b009+5",
+            "palace.reading.v1:wtz.deep.p565.b006+3",
+            "palace.reading.v1:wtz.deep.p429.b008+4"
+          ],
+          "notes": [],
+          "priorRequired": []
+        }
+      ],
+      "advice": "作判斷前，把資料、推測與結論分開。練習將理由說明白，也留意對方真正需要知道甚麼；有新資料時再調整，不必急着替自己定一個性格標籤。",
+      "requiredPrior": [
+        "tianfu-star-tiantong-same"
+      ],
+      "nativeNoHua": [
+        "天同",
+        "太陰"
+      ],
+      "youthAdvice": "作判斷前，把已知道的事與猜測分開。做報告或小組討論時，練習把理由說明白，聽到新資料再調整；也替功課以外的興趣留一點空間。"
+    },
+    {
+      "id": "jiliang-官祿",
+      "family": "jiliang",
+      "palace": "官祿",
+      "requires": [
+        "jl-four-frame",
+        "jl-career-reference",
+        "jl-wealth-tongyin",
+        "jl-wealth-assistant",
+        "jl-rest-opposite",
+        "jl-rest-labor",
+        "jl-rest-art"
+      ],
+      "parts": [
+        {
+          "heading": "借陽巨，看怎樣把事情講清楚",
+          "text": "你的官祿宮在{career}，本宮沒有主星，借對宮夫妻{careerOrigin}的太陽、巨門作參照。原書的基本性質是口舌、不同背景與對外事務；將來看工作方向，可以先看它是否需要說明、交涉與連接不同要求，再考慮職業名稱。現在做報告或小組討論，也可用來理解表達與推進事情的分別。",
+          "ruleIds": [
+            "jl-career-reference"
+          ],
+          "inherit": [
+            0
+          ],
+          "referenceFocus": [
+            "wtz.deep.p215.b010",
+            "wtz.deep.p528.b008",
+            "wtz.deep.p528.b010",
+            "wtz.deep.p528.b011",
+            "wtz.deep.p528.b012",
+            "wtz.deep.p528.b013"
+          ],
+          "citations": [
+            "cross.reading.v1:method",
+            "free.reading.v1:wtz.deep.p215.b010",
+            "palace.remaining.v1:career-太陽+巨門",
+            "palace.reading.v1:wtz.deep.p542.b015+7"
+          ],
+          "notes": [],
+          "priorRequired": []
+        },
+        {
+          "heading": "表達是方式，提供甚麼價值是另一題",
+          "text": "命宮機梁要把觀察接到有根據的判斷，官祿陽巨參照則把判斷帶到對外表達；財帛同陰另講可被享用的需求、計劃與安排。三宮一起讀，重點便不只是說得多不多，而是說明之後，能否讓別人理解事情、知道下一步。將來看工作方向時，可以把說明的方式，與最後提供的內容一起衡量。",
+          "ruleIds": [
+            "jl-four-frame",
+            "jl-career-reference",
+            "jl-wealth-tongyin"
+          ],
+          "inherit": [
+            1
+          ],
+          "referenceFocus": [
+            "wtz.deep.p528.b008",
+            "wtz.deep.p445.b011",
+            "wtz.deep.p451.b010"
+          ],
+          "citations": [
+            "cross.reading.v1:method",
+            "free.reading.v1:wtz.deep.p215.b010",
+            "free.reading.v1:wtz.deep.p215.b011",
+            "free.reading.v1:wtz.deep.p215.b012",
+            "free.reading.v1:wtz.deep.p215.b013",
+            "free.reading.v1:wtz.deep.p216.b002",
+            "palace.remaining.v1:career-太陽+巨門",
+            "palace.reading.v1:wtz.deep.p542.b015+7",
+            "palace.remaining.v1:wealth-天同",
+            "palace.remaining.v1:wealth-天同+太陰",
+            "palace.reading.v1:wtz.deep.p451.b009+5"
+          ],
+          "notes": [
+            "官祿天馬並不足以採用遠域求財；原文還要求同陰財帛與祿存同度，本盤祿存不在財帛。"
+          ],
+          "priorRequired": []
+        }
+      ],
+      "advice": "說明事情前，先整理問題、理由與希望達到的結果。確認對方聽懂了哪一部分，再補充真正缺少的資料，讓表達能接到事情的下一步。",
+      "requiredPrior": [
+        "tianfu-star-tiantong-same"
+      ],
+      "nativeNoHua": [
+        "天同",
+        "太陰"
+      ],
+      "youthAdvice": "做報告或小組討論時，先整理問題、理由和結論，再說給別人聽。聽到不同意見，就找出哪一點需要補資料，練習讓大家知道下一步怎樣做。"
+    },
+    {
+      "id": "jiliang-財帛",
+      "family": "jiliang",
+      "palace": "財帛",
+      "requires": [
+        "jl-four-frame",
+        "jl-career-reference",
+        "jl-wealth-tongyin",
+        "jl-wealth-assistant",
+        "jl-rest-opposite",
+        "jl-rest-labor",
+        "jl-rest-art"
+      ],
+      "parts": [
+        {
+          "heading": "財源的取向，與可用的助力",
+          "text": "你的財帛宮在{wealth}，天同、太陰同宮，兩星本身都沒有本命四化。這組可從享受性質的需求、計劃與累積去理解；左輔與天福亦在財帛，分別補助力與享用的一面。取得資源、資源已有甚麼用途，以及最後能留下多少，仍是三件不同的事。",
+          "ruleIds": [
+            "jl-wealth-tongyin",
+            "jl-wealth-assistant"
+          ],
+          "inherit": [
+            0
+          ],
+          "referenceFocus": [
+            "wtz.deep.p445.b011",
+            "wtz.deep.p445.b012",
+            "wtz.deep.p445.b013",
+            "wtz.deep.p431.b005",
+            "wtz.deep.p319.b013",
+            "wtz.deep.p319.b014",
+            "wtz.deep.p319.b015"
+          ],
+          "citations": [
+            "cross.reading.v1:method",
+            "palace.remaining.v1:wealth-天同",
+            "palace.remaining.v1:wealth-天同+太陰",
+            "palace.reading.v1:wtz.deep.p451.b009+5",
+            "palace.remaining.v1:wealth-scope",
+            "cross.reading.v1:guanfuboth"
+          ],
+          "notes": [
+            "同陰無本命四化；天福與天同實坐同度的支持屬財帛，不移成福德同度。"
+          ],
+          "priorRequired": [
+            "tianfu-star-tiantong-same"
+          ]
+        },
+        {
+          "heading": "工作如何做，與所得如何安排接起來",
+          "text": "官祿借陽巨，提供表達、解說與對外事務的參照；財帛同陰則要看這些工作最後回應甚麼需求、資源如何安排。福德空宮與財帛相對，本宮擎羊的多勞也須保留：有東西可以享用，與自己是否有時間、心力享用，是兩回事。",
+          "ruleIds": [
+            "jl-career-reference",
+            "jl-wealth-tongyin",
+            "jl-rest-opposite",
+            "jl-rest-labor"
+          ],
+          "inherit": [
+            1
+          ],
+          "referenceFocus": [
+            "wtz.deep.p528.b008",
+            "wtz.deep.p445.b011",
+            "wtz.deep.p429.b008",
+            "wtz.deep.p565.b009"
+          ],
+          "citations": [
+            "cross.reading.v1:method",
+            "free.reading.v1:wtz.deep.p215.b010",
+            "palace.remaining.v1:career-太陽+巨門",
+            "palace.reading.v1:wtz.deep.p542.b015+7",
+            "palace.remaining.v1:wealth-天同",
+            "palace.remaining.v1:wealth-天同+太陰",
+            "palace.reading.v1:wtz.deep.p451.b009+5",
+            "palace.reading.v1:wtz.deep.p429.b008+4",
+            "palace.reading.v1:wtz.deep.p565.b006+3"
+          ],
+          "notes": [
+            "本盤官祿有天馬，但財帛無祿存同度，不採遠域求財支線；兩主星沒有化祿，亦不套原文化祿的意外財源分支。"
+          ],
+          "priorRequired": []
+        }
+      ],
+      "advice": "把收到、已有用途與能留下的錢分開，也把維持這些安排需要的時間算進去。取得資源之後，先照顧原有需要，再決定新增的花費。",
+      "requiredPrior": [
+        "tianfu-star-tiantong-same"
+      ],
+      "nativeNoHua": [
+        "天同",
+        "太陰"
+      ],
+      "youthAdvice": "把零用錢、已答應要付的費用與能留下的錢分開。多了一筆可用的錢，先看看原有安排，也替真正喜歡的活動保留時間，別只增加新的花費。"
+    },
+    {
+      "id": "jiliang-福德",
+      "family": "jiliang",
+      "palace": "福德",
+      "requires": [
+        "jl-four-frame",
+        "jl-career-reference",
+        "jl-wealth-tongyin",
+        "jl-wealth-assistant",
+        "jl-rest-opposite",
+        "jl-rest-labor",
+        "jl-rest-art"
+      ],
+      "parts": [
+        {
+          "heading": "借同陰，仍要看福德本宮的忙勞",
+          "text": "你的福德宮在{wellbeing}，本宮沒有主星，借對宮財帛{wealth}的天同、太陰作參照；擎羊仍實坐福德。財帛同陰帶來享用與安排資源的取向，卻不能因此省去本宮多勞的一層。有條件享用，與是否有餘裕享用，須一起看。",
+          "ruleIds": [
+            "jl-rest-opposite",
+            "jl-rest-labor",
+            "jl-wealth-tongyin"
+          ],
+          "inherit": [
+            0
+          ],
+          "referenceFocus": [
+            "wtz.deep.p429.b008",
+            "wtz.deep.p565.b006",
+            "wtz.deep.p565.b007",
+            "wtz.deep.p565.b009"
+          ],
+          "citations": [
+            "cross.reading.v1:method",
+            "free.reading.v1:wtz.deep.p215.b010",
+            "palace.reading.v1:wtz.deep.p429.b008+4",
+            "palace.reading.v1:wtz.deep.p565.b006+3",
+            "palace.remaining.v1:wealth-天同",
+            "palace.remaining.v1:wealth-天同+太陰",
+            "palace.reading.v1:wtz.deep.p451.b009+5"
+          ],
+          "notes": [],
+          "priorRequired": []
+        },
+        {
+          "heading": "精神上的投入，可以另有來源",
+          "text": "龍池、鳳閣實際會福德，文化、藝術與趣味是另一條精神投入的線索。財帛天福與天同同度，講的是資源與享用的一面；龍鳳會福，則補充你願意把注意力放在哪些興趣上。休息不只看擁有多少，也看做過一件事之後，是否重新有了心力與樂趣。",
+          "ruleIds": [
+            "jl-rest-art",
+            "jl-rest-opposite"
+          ],
+          "inherit": [
+            1
+          ],
+          "referenceFocus": [
+            "wtz.deep.p565.b010",
+            "wtz.deep.p317.b013",
+            "wtz.deep.p317.b014"
+          ],
+          "citations": [
+            "cross.reading.v1:method",
+            "palace.remaining.v1:wellbeing-scope",
+            "free.reading.v1:wtz.deep.p215.b010",
+            "palace.reading.v1:wtz.deep.p429.b008+4",
+            "palace.reading.v1:wtz.deep.p565.b006+3",
+            "cross.reading.v1:arts"
+          ],
+          "notes": [
+            "天福與左輔仍在財帛原位，不當作福德本宮同度；文藝趣味不是智商或專業保證。"
+          ],
+          "priorRequired": [
+            "paired-longfeng-wellbeing"
+          ]
+        }
+      ],
+      "advice": "留意哪些活動做完後真正舒展，再為它們留一段不用交付成果的時間。安排休息時，也把尚未完成的事情記下，讓自己暫時不必一直掛念。",
+      "requiredPrior": [
+        "tianfu-star-tiantong-same"
+      ],
+      "nativeNoHua": [
+        "天同",
+        "太陰"
+      ],
+      "youthAdvice": "留意哪些活動做完後真正開心，再替它們安排時間。也替睡眠、功課與安靜獨處留位置，讓喜歡的事帶來心力，而不是再多一份要完成的功課。"
+    }
+  ],
+  "citationAliases": {
+    "palace.reading.v1:wtz.deep.p429.b008+4": "cross.reading.v1:located-01",
+    "palace.reading.v1:wtz.deep.p430.b008+8": "cross.reading.v1:located-02",
+    "palace.reading.v1:wtz.deep.p430.b009+8": "cross.reading.v1:located-03",
+    "palace.reading.v1:wtz.deep.p432.b010": "cross.reading.v1:located-04",
+    "palace.reading.v1:wtz.deep.p451.b009+5": "cross.reading.v1:located-05",
+    "palace.reading.v1:wtz.deep.p452.b008+3": "cross.reading.v1:located-06",
+    "palace.reading.v1:wtz.deep.p517.b002+4": "cross.reading.v1:located-07",
+    "palace.reading.v1:wtz.deep.p522.b005+3": "cross.reading.v1:located-08",
+    "palace.reading.v1:wtz.deep.p522.b005+7": "cross.reading.v1:located-09",
+    "palace.reading.v1:wtz.deep.p523.b004": "cross.reading.v1:located-10",
+    "palace.reading.v1:wtz.deep.p523.b005+2": "cross.reading.v1:located-11",
+    "palace.reading.v1:wtz.deep.p542.b015+7": "cross.reading.v1:located-12",
+    "palace.reading.v1:wtz.deep.p544.b008+8": "cross.reading.v1:located-13",
+    "palace.reading.v1:wtz.deep.p565.b006+3": "cross.reading.v1:located-14",
+    "palace.reading.v1:wtz.deep.p576.b007+5": "cross.reading.v1:located-15"
+  },
+  "source_scope": "new-book preview only; existing saved reading and international snapshots are preserved",
+  "presentation": {
+    "palaces": {
+      "ming": "命宮",
+      "career": "官祿",
+      "wealth": "財帛",
+      "wellbeing": "福德"
+    },
+    "noteReplacements": [
+      [
+        "本批",
+        "這段解讀"
+      ],
+      [
+        "啟用",
+        "採用"
+      ],
+      [
+        "可執行校核",
+        "逐項確認"
+      ],
+      [
+        "可執行定義",
+        "逐項判明的條件"
+      ],
+      [
+        "可執行",
+        "逐項確認的"
+      ],
+      [
+        "fact ID",
+        "原位紀錄"
+      ]
+    ],
+    "hua": "化",
+    "starSeparator": "、",
+    "palaceSeparator": "；",
+    "native": "實坐",
+    "emptyBorrow": "空宮，借",
+    "possessive": "的",
+    "asReference": "作參照",
+    "slots": [
+      "結論",
+      "細讀"
+    ],
+    "scopePrefix": "本盤",
+    "fullStop": "。",
+    "method": "這段將已列明的本命宮位連讀；原書各段與編輯綜合解說分開理解。"
+  }
+}

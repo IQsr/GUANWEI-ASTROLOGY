@@ -1,0 +1,905 @@
+{
+  "version": "engine-p1b-rules-v1",
+  "activation": "experimental-only",
+  "layer": "natal",
+  "pdf_sha256": "513e3d068040efe3684eb3c0e44cf6e447787670bbf5d618f022da2d6c55231b",
+  "rules": [
+    {
+      "id": "tongliang-yinsha",
+      "groups": [
+        "tongliang"
+      ],
+      "title": "同梁陰煞會命的原則修飾",
+      "when": {
+        "sanfangOf": {
+          "name": "命宮"
+        },
+        "contains": "陰煞"
+      },
+      "sources": [
+        "wtz.deep.p087.b011",
+        "wtz.deep.p087.b012",
+        "wtz.deep.p087.b013",
+        "wtz.deep.p087.b014",
+        "wtz.deep.p088.b001",
+        "wtz.deep.p088.b002",
+        "wtz.deep.p088.b003"
+      ],
+      "conditions": [
+        "本命同梁在寅申，指定星曜須實際會命；會照與本宮同度分開列證。",
+        "原文這項列在原則一端，仍須並讀浪漫修飾及同忌羊陀夾。"
+      ],
+      "exceptions": [
+        "不能由一項修飾選定整體本質，亦不能把兩端因素同見當成已調和。",
+        "後文經行運限的反應另有本質、吉煞與時間前提，不作本命事件結論。"
+      ],
+      "explanation": "陰煞會入本盤同梁命宮，是原書原則一端的新增修飾；保留它實際由哪一宮會入，不將原有夾忌結構抹掉。"
+    },
+    {
+      "id": "tongliang-tianxu",
+      "groups": [
+        "tongliang"
+      ],
+      "title": "同梁天虛會命的原則修飾",
+      "when": {
+        "sanfangOf": {
+          "name": "命宮"
+        },
+        "contains": "天虛"
+      },
+      "sources": [
+        "wtz.deep.p087.b011",
+        "wtz.deep.p087.b012",
+        "wtz.deep.p087.b013",
+        "wtz.deep.p087.b014",
+        "wtz.deep.p088.b001",
+        "wtz.deep.p088.b002",
+        "wtz.deep.p088.b003"
+      ],
+      "conditions": [
+        "本命同梁在寅申，指定星曜須實際會命；會照與本宮同度分開列證。",
+        "原文這項列在原則一端，仍須並讀浪漫修飾及同忌羊陀夾。"
+      ],
+      "exceptions": [
+        "不能由一項修飾選定整體本質，亦不能把兩端因素同見當成已調和。",
+        "後文經行運限的反應另有本質、吉煞與時間前提，不作本命事件結論。"
+      ],
+      "explanation": "天虛會入本盤同梁命宮，是原書原則一端的新增修飾；保留它實際由哪一宮會入，不將原有夾忌結構抹掉。"
+    },
+    {
+      "id": "jiliang-sharp-yinsha",
+      "groups": [
+        "jiliang"
+      ],
+      "title": "機梁陰煞同度與尖刻前提",
+      "when": {
+        "star": "陰煞",
+        "in": {
+          "name": "命宮"
+        }
+      },
+      "sources": [
+        "wtz.deep.p215.b010",
+        "wtz.deep.p215.b011",
+        "wtz.deep.p215.b012",
+        "wtz.deep.p215.b013",
+        "wtz.deep.p216.b001",
+        "wtz.deep.p216.b002",
+        "wtz.deep.p216.b003",
+        "wtz.deep.p216.b004",
+        "wtz.deep.p216.b005",
+        "wtz.deep.p216.b006",
+        "wtz.deep.p216.b007",
+        "wtz.deep.p321.b005",
+        "wtz.deep.p321.b006",
+        "wtz.deep.p321.b007"
+      ],
+      "conditions": [
+        "先核陰煞是否在本命機梁同宮，會照不能代替同度。",
+        "先已有尖刻本質，再見指定雜曜同度，才採增加該性的修飾；位置成立不是本質成立。"
+      ],
+      "exceptions": [
+        "不以新雜曜數量選尖刻，不以沒有此項同度反推出已屬明斷。",
+        "天傷按初階及深造傷使章所列陰陽男女安法固定在僕役或疾厄；不為命中機梁原段而搬進本命命宮，其他層次留待另核。",
+        "明斷者才曜支仍另核先決條件；支持與牽制均保留，不互相抵銷。"
+      ],
+      "explanation": "陰煞同度的位置前提已成立，但「尖刻者」本質仍須先按機梁、同陰、陽巨及輔煞四化整局核定；本項留作有條件的牽制。",
+      "gates": [
+        {
+          "kind": "manual",
+          "id": "jiliang-sharp-nature",
+          "description": "原文先有尖刻本質；本批不從單一雜曜或顆數反推，亦未把明斷前提取消。"
+        }
+      ]
+    },
+    {
+      "id": "jiliang-sharp-tianxu",
+      "groups": [
+        "jiliang"
+      ],
+      "title": "機梁天虛同度與尖刻前提",
+      "when": {
+        "star": "天虛",
+        "in": {
+          "name": "命宮"
+        }
+      },
+      "sources": [
+        "wtz.deep.p215.b010",
+        "wtz.deep.p215.b011",
+        "wtz.deep.p215.b012",
+        "wtz.deep.p215.b013",
+        "wtz.deep.p216.b001",
+        "wtz.deep.p216.b002",
+        "wtz.deep.p216.b003",
+        "wtz.deep.p216.b004",
+        "wtz.deep.p216.b005",
+        "wtz.deep.p216.b006",
+        "wtz.deep.p216.b007",
+        "wtz.deep.p316.b010",
+        "wtz.deep.p316.b011",
+        "wtz.deep.p316.b012",
+        "wtz.deep.p316.b013",
+        "wtz.deep.p316.b014"
+      ],
+      "conditions": [
+        "先核天虛是否在本命機梁同宮，會照不能代替同度。",
+        "先已有尖刻本質，再見指定雜曜同度，才採增加該性的修飾；位置成立不是本質成立。"
+      ],
+      "exceptions": [
+        "不以新雜曜數量選尖刻，不以沒有此項同度反推出已屬明斷。",
+        "天傷按初階及深造傷使章所列陰陽男女安法固定在僕役或疾厄；不為命中機梁原段而搬進本命命宮，其他層次留待另核。",
+        "明斷者才曜支仍另核先決條件；支持與牽制均保留，不互相抵銷。"
+      ],
+      "explanation": "天虛同度的位置前提已成立，但「尖刻者」本質仍須先按機梁、同陰、陽巨及輔煞四化整局核定；本項留作有條件的牽制。",
+      "gates": [
+        {
+          "kind": "manual",
+          "id": "jiliang-sharp-nature",
+          "description": "原文先有尖刻本質；本批不從單一雜曜或顆數反推，亦未把明斷前提取消。"
+        }
+      ]
+    },
+    {
+      "id": "jiliang-sharp-tianshang",
+      "groups": [
+        "jiliang"
+      ],
+      "title": "機梁天傷同度與尖刻前提",
+      "when": {
+        "star": "天傷",
+        "in": {
+          "name": "命宮"
+        }
+      },
+      "sources": [
+        "wtz.deep.p215.b010",
+        "wtz.deep.p215.b011",
+        "wtz.deep.p215.b012",
+        "wtz.deep.p215.b013",
+        "wtz.deep.p216.b001",
+        "wtz.deep.p216.b002",
+        "wtz.deep.p216.b003",
+        "wtz.deep.p216.b004",
+        "wtz.deep.p216.b005",
+        "wtz.deep.p216.b006",
+        "wtz.deep.p216.b007",
+        "wtz.deep.p315.b002",
+        "wtz.deep.p315.b003",
+        "wtz.deep.p315.b004",
+        "wtz.deep.p315.b005",
+        "wtz.deep.p315.b006",
+        "wtz.deep.p315.b007",
+        "wtz.deep.p315.b008"
+      ],
+      "conditions": [
+        "先核天傷是否在本命機梁同宮，會照不能代替同度。",
+        "先已有尖刻本質，再見指定雜曜同度，才採增加該性的修飾；位置成立不是本質成立。"
+      ],
+      "exceptions": [
+        "不以新雜曜數量選尖刻，不以沒有此項同度反推出已屬明斷。",
+        "天傷按初階及深造傷使章所列陰陽男女安法固定在僕役或疾厄；不為命中機梁原段而搬進本命命宮，其他層次留待另核。",
+        "明斷者才曜支仍另核先決條件；支持與牽制均保留，不互相抵銷。"
+      ],
+      "explanation": "天傷同度的位置前提已成立，但「尖刻者」本質仍須先按機梁、同陰、陽巨及輔煞四化整局核定；本項留作有條件的牽制。",
+      "gates": [
+        {
+          "kind": "manual",
+          "id": "jiliang-sharp-nature",
+          "description": "原文先有尖刻本質；本批不從單一雜曜或顆數反推，亦未把明斷前提取消。"
+        }
+      ]
+    },
+    {
+      "id": "jiliang-sharp-tianxing",
+      "groups": [
+        "jiliang"
+      ],
+      "title": "機梁天刑同度與尖刻前提",
+      "when": {
+        "star": "天刑",
+        "in": {
+          "name": "命宮"
+        }
+      },
+      "sources": [
+        "wtz.deep.p215.b010",
+        "wtz.deep.p215.b011",
+        "wtz.deep.p215.b012",
+        "wtz.deep.p215.b013",
+        "wtz.deep.p216.b001",
+        "wtz.deep.p216.b002",
+        "wtz.deep.p216.b003",
+        "wtz.deep.p216.b004",
+        "wtz.deep.p216.b005",
+        "wtz.deep.p216.b006",
+        "wtz.deep.p216.b007"
+      ],
+      "conditions": [
+        "先核天刑是否在本命機梁同宮，會照不能代替同度。",
+        "先已有尖刻本質，再見指定雜曜同度，才採增加該性的修飾；位置成立不是本質成立。"
+      ],
+      "exceptions": [
+        "不以新雜曜數量選尖刻，不以沒有此項同度反推出已屬明斷。",
+        "天傷按初階及深造傷使章所列陰陽男女安法固定在僕役或疾厄；不為命中機梁原段而搬進本命命宮，其他層次留待另核。",
+        "明斷者才曜支仍另核先決條件；支持與牽制均保留，不互相抵銷。"
+      ],
+      "explanation": "天刑同度的位置前提已成立，但「尖刻者」本質仍須先按機梁、同陰、陽巨及輔煞四化整局核定；本項留作有條件的牽制。",
+      "gates": [
+        {
+          "kind": "manual",
+          "id": "jiliang-sharp-nature",
+          "description": "原文先有尖刻本質；本批不從單一雜曜或顆數反推，亦未把明斷前提取消。"
+        }
+      ]
+    },
+    {
+      "id": "tianfu-friends-jiliang-modifiers",
+      "groups": [
+        "tianfu"
+      ],
+      "title": "天府盤僕役機梁的同度修飾",
+      "when": {
+        "all": [
+          {
+            "star": "天機",
+            "in": {
+              "name": "僕役"
+            }
+          },
+          {
+            "star": "天梁",
+            "in": {
+              "name": "僕役"
+            }
+          },
+          {
+            "any": [
+              {
+                "star": "陰煞",
+                "in": {
+                  "name": "僕役"
+                }
+              },
+              {
+                "star": "天虛",
+                "in": {
+                  "name": "僕役"
+                }
+              },
+              {
+                "star": "天傷",
+                "in": {
+                  "name": "僕役"
+                }
+              },
+              {
+                "star": "天刑",
+                "in": {
+                  "name": "僕役"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "sources": [
+        "wtz.deep.p215.b010",
+        "wtz.deep.p215.b011",
+        "wtz.deep.p215.b012",
+        "wtz.deep.p215.b013",
+        "wtz.deep.p216.b001",
+        "wtz.deep.p216.b002",
+        "wtz.deep.p216.b003",
+        "wtz.deep.p216.b004",
+        "wtz.deep.p216.b005",
+        "wtz.deep.p216.b006",
+        "wtz.deep.p216.b007",
+        "wtz.deep.p218.b001",
+        "wtz.deep.p218.b002",
+        "wtz.deep.p218.b003",
+        "wtz.deep.p218.b004",
+        "wtz.deep.p218.b005",
+        "wtz.deep.p218.b006",
+        "wtz.deep.p315.b002",
+        "wtz.deep.p315.b003",
+        "wtz.deep.p315.b004",
+        "wtz.deep.p315.b005",
+        "wtz.deep.p315.b006",
+        "wtz.deep.p315.b007",
+        "wtz.deep.p315.b008"
+      ],
+      "conditions": [
+        "先確認僕役實坐機梁，再核陰煞、天虛、天傷、天刑各項同度；四項是逐項檢查，並非必須四曜齊集。",
+        "主語是本章一般下屬及帶下屬性質的朋友，不把其宮內修飾直接移作命宮天府本人。"
+      ],
+      "exceptions": [
+        "216頁仍先有尖刻本質；218頁個案有天梁祿、羊陀、昌而無曲及運限條件，不能因同為壬年府亥便照抄個案結局。",
+        "天使未實作；315頁傷使相夾、限流沖起、小限而非流年命宮等事件分支未由單一天傷推定。"
+      ],
+      "explanation": "僕役機梁已有指定同度雜曜，可補人際角色的牽制資料；是否增加原有偏性仍按該宮整組本質核定，不據此判本人或朋友的人品。",
+      "gates": [
+        {
+          "kind": "manual",
+          "id": "friends-jiliang-nature",
+          "description": "須按僕役機梁原有本質及角色核定；不能由天傷或天刑同度便直接斷尖刻或套218頁事件。"
+        }
+      ]
+    },
+    {
+      "id": "tianguan-tianliang-same",
+      "groups": [
+        "tongliang",
+        "tianfu",
+        "jiliang"
+      ],
+      "title": "天官與天梁實坐同度",
+      "when": {
+        "together": [
+          "天官",
+          "天梁"
+        ]
+      },
+      "sources": [
+        "wtz.deep.p319.b012",
+        "wtz.deep.p319.b013",
+        "wtz.deep.p319.b014",
+        "wtz.deep.p319.b015"
+      ],
+      "conditions": [
+        "天官與天梁須有同一本命實坐宮位；天官單見、會照或借入不代替同度。",
+        "原書這一項偏聲望清貴，先依binding交代在哪一宮，不與天福的享受性混寫。"
+      ],
+      "exceptions": [
+        "不由清貴保證職位、財富或整局已定；新吉曜不取消其他成立的煞忌牽制。",
+        "319.b012提取標題作天宫，按b013正文及原頁連讀定位天官；b014的司字照留來源疑點，不另造星名或門檻。"
+      ],
+      "explanation": "天官與天梁在本盤同度，可以補聲望、清貴這一項修飾；它與陰煞、天虛等牽制各有前提，不互相相減選定本質。"
+    },
+    {
+      "id": "tianfu-star-tiantong-same",
+      "groups": [
+        "tongliang",
+        "tianfu",
+        "jiliang"
+      ],
+      "title": "天福與天同實坐同度",
+      "when": {
+        "together": [
+          "天福",
+          "天同"
+        ]
+      },
+      "sources": [
+        "wtz.deep.p319.b012",
+        "wtz.deep.p319.b013",
+        "wtz.deep.p319.b014",
+        "wtz.deep.p319.b015"
+      ],
+      "conditions": [
+        "天福與天同必須同一本命實坐宮位；空宮借天同時，本宮天福不因此成為與天同實坐同度。",
+        "按原文保留福厚享受這一修飾，宮位主語由原位binding交代。"
+      ],
+      "exceptions": [
+        "不是天福一星便主全部順遂；不把享受性寫成收入、資產或健康保證。",
+        "319.b015福德同福、身宮天官是額外整組條件，不由本項同度便判家世。"
+      ],
+      "explanation": "天福與天同同度，新增的是對享用、滿足一面的修飾；它不等同已能保證財富或所有人生範疇。"
+    },
+    {
+      "id": "tongfu-wellbeing-guan-body",
+      "groups": [
+        "tongliang",
+        "tianfu",
+        "jiliang"
+      ],
+      "title": "福德同福與身宮天官整組核對",
+      "when": {
+        "all": [
+          {
+            "star": "天同",
+            "in": {
+              "name": "福德"
+            }
+          },
+          {
+            "star": "天福",
+            "in": {
+              "name": "福德"
+            }
+          },
+          {
+            "any": [
+              {
+                "all": [
+                  {
+                    "shenIn": {
+                      "name": "命宮"
+                    }
+                  },
+                  {
+                    "star": "天官",
+                    "in": {
+                      "name": "命宮"
+                    }
+                  }
+                ]
+              },
+              {
+                "all": [
+                  {
+                    "shenIn": {
+                      "name": "夫妻"
+                    }
+                  },
+                  {
+                    "star": "天官",
+                    "in": {
+                      "name": "夫妻"
+                    }
+                  }
+                ]
+              },
+              {
+                "all": [
+                  {
+                    "shenIn": {
+                      "name": "財帛"
+                    }
+                  },
+                  {
+                    "star": "天官",
+                    "in": {
+                      "name": "財帛"
+                    }
+                  }
+                ]
+              },
+              {
+                "all": [
+                  {
+                    "shenIn": {
+                      "name": "遷移"
+                    }
+                  },
+                  {
+                    "star": "天官",
+                    "in": {
+                      "name": "遷移"
+                    }
+                  }
+                ]
+              },
+              {
+                "all": [
+                  {
+                    "shenIn": {
+                      "name": "官祿"
+                    }
+                  },
+                  {
+                    "star": "天官",
+                    "in": {
+                      "name": "官祿"
+                    }
+                  }
+                ]
+              },
+              {
+                "all": [
+                  {
+                    "shenIn": {
+                      "name": "福德"
+                    }
+                  },
+                  {
+                    "star": "天官",
+                    "in": {
+                      "name": "福德"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "sources": [
+        "wtz.deep.p319.b012",
+        "wtz.deep.p319.b013",
+        "wtz.deep.p319.b014",
+        "wtz.deep.p319.b015"
+      ],
+      "conditions": [
+        "福德須同有天同、天福，且身宮所在處須有天官；三項前提逐項核對。",
+        "原文還以星曜組合吉與不吉分支，不從兩個星名跳過整組判別。"
+      ],
+      "exceptions": [
+        "保留原文家世對照的定位，沒有把它當讀者家境已知事實；本輪不輸出家世、階級或祖業保證。",
+        "單一天福天同同度，或單見天官，皆不足替代完整前提。"
+      ],
+      "explanation": "三項位置前提已齊，仍須分清原文整組吉凶及對象；此處保留條件，不替讀者補寫未提供的家庭背景。",
+      "gates": [
+        {
+          "kind": "manual",
+          "id": "whole-configuration-and-family-scope",
+          "description": "原書另須分整組吉凶，且涉及家世主語；本批未將其轉成讀者家境結論。"
+        }
+      ]
+    },
+    {
+      "id": "tianxu-wealth",
+      "groups": [
+        "tongliang",
+        "tianfu",
+        "jiliang"
+      ],
+      "title": "天虛須實坐財帛才採財帛支",
+      "when": {
+        "star": "天虛",
+        "in": {
+          "name": "財帛"
+        }
+      },
+      "sources": [
+        "wtz.deep.p316.b010",
+        "wtz.deep.p316.b011",
+        "wtz.deep.p316.b012",
+        "wtz.deep.p316.b013",
+        "wtz.deep.p316.b014"
+      ],
+      "conditions": [
+        "本條指定天虛實坐財帛；會照、天虛在命宮或田宅，均不等同財帛實坐。",
+        "本命位置核對保留原文物質性與物質缺乏的傳統判語；不將它改述為已知感受，亦不把傳統判語當作實際收支資料。"
+      ],
+      "exceptions": [
+        "316.b013另有卯申、祿存或化祿同度且正曜財氣旺的分支；不可只見天虛就單向推缺財，該完整分支尚未建立。",
+        "天哭仍未實作，不把哭虛兩曜揉成一星；疾厄支、兄弟天同哭虛支有各自宮位及配合，不移來本條。"
+      ],
+      "explanation": "天虛實坐財帛的位置前提成立，原書這項修飾仍須連正曜與祿等分歧閱讀，未足單獨推定實際財務結果。",
+      "gates": [
+        {
+          "kind": "manual",
+          "id": "tianxu-wealth-lu-context",
+          "description": "尚須核卯申、同度祿及正曜財氣旺的例外，不能只以天虛位置判實際缺財。"
+        }
+      ]
+    },
+    {
+      "id": "yinsha-wellbeing",
+      "groups": [
+        "tongliang",
+        "tianfu",
+        "jiliang"
+      ],
+      "title": "福德陰煞的屈潛修飾",
+      "when": {
+        "star": "陰煞",
+        "in": {
+          "name": "福德"
+        }
+      },
+      "sources": [
+        "wtz.deep.p565.b006",
+        "wtz.deep.p565.b007",
+        "wtz.deep.p565.b009",
+        "wtz.deep.p565.b010",
+        "wtz.deep.p566.b003",
+        "wtz.deep.p566.b004",
+        "wtz.deep.p566.b005"
+      ],
+      "conditions": [
+        "本條只核陰煞實坐福德；原文566.b004把它列在屈潛一面，仍要求與浮露諸曜交參。",
+        "主語是精神生活，不能由單一星位定外向內向或心理狀態。"
+      ],
+      "exceptions": [
+        "集中一偏與運限推算另有整組條件，未以一顆陰煞就當集中一偏。",
+        "321頁的田宅廉貞、命宮敏感同度等不同主語及舊式事件句未移作本條。"
+      ],
+      "explanation": "陰煞在福德提供較內斂、未必表露的閱讀線索；仍與本宮及會照的文藝、才曜等位置並列，不推心理診斷或人格類型。"
+    }
+  ],
+  "prior_rule_overrides": {
+    "tongliang-new-principle": {
+      "exceptions": [
+        "天同祿權、科文及桃花等浪漫修飾仍須並讀；見兩面因素不等於調和已成立。",
+        "本批陰煞、天虛已有獨立位置核對卡；P1a原有對星充分條件不因此擴寫成已覆蓋全部原則分支。"
+      ]
+    },
+    "jiliang-mingduan-talent": {
+      "exceptions": [
+        "天梁化祿不是科／權；昌曲同會也不能抹去其他輔煞與原文所要求的平衡。",
+        "陰煞、天虛、天傷、天刑同度在本批逐項核對，仍先有尖刻本質；不能由才曜與牽制並見便當已調和。"
+      ]
+    }
+  },
+  "sources": {
+    "wtz.deep.p087.b010": {
+      "page": 87,
+      "section": "天同天梁坐寅申",
+      "sha256": "c57f6253aeb45f7a4a3a76d8bdef1309eccb1bd02ece6e11c97fa2b4205c784a"
+    },
+    "wtz.deep.p087.b011": {
+      "page": 87,
+      "section": "天同天梁坐寅申",
+      "sha256": "1c615ee9866d1a87da0f308edc8d9878ec9491e1035ca949ba0e86da28658607"
+    },
+    "wtz.deep.p087.b012": {
+      "page": 87,
+      "section": "天同天梁坐寅申",
+      "sha256": "3c82addcdad0514a07edf41bb2324af9f45d22dc181f94d98bc451afa63f62b2"
+    },
+    "wtz.deep.p087.b013": {
+      "page": 87,
+      "section": "天同天梁坐寅申",
+      "sha256": "62574d10550460975cb80178c1e435bb3d1134146b6a6df8d060488965943f3d"
+    },
+    "wtz.deep.p087.b014": {
+      "page": 87,
+      "section": "天同天梁坐寅申",
+      "sha256": "4a6a6747b07a20d25489575ced88651f0228dfec06fc323f56cb334252631875"
+    },
+    "wtz.deep.p088.b001": {
+      "page": 88,
+      "section": "天同天梁坐寅申",
+      "sha256": "1bdf3b1fc8a39026733425526000c4c9c500f7af097aabe67261813da70d0ac4"
+    },
+    "wtz.deep.p088.b002": {
+      "page": 88,
+      "section": "天同天梁坐寅申",
+      "sha256": "44ebb9dd04e40149b94a3737825e73f4ec6b4b4b7b116cd2fa3d709a1122a1f5"
+    },
+    "wtz.deep.p088.b003": {
+      "page": 88,
+      "section": "天同天梁坐寅申",
+      "sha256": "e7fa50dd39d871212df69e9df16724bfeb1043baf566f7bd3f25997f7981f9bc"
+    },
+    "wtz.deep.p201.b001": {
+      "page": 201,
+      "section": "天府獨坐巳亥",
+      "sha256": "f72716edda230df4ca577fb6bd766028e37cef2ac5a11c004977be9e4d03fba4"
+    },
+    "wtz.deep.p215.b010": {
+      "page": 215,
+      "section": "天機天梁坐辰戌",
+      "sha256": "f33d3a6dcd46a337aa63bd13d581cf574cba61ad6b366f5eaf650a0e49294cfe"
+    },
+    "wtz.deep.p215.b011": {
+      "page": 215,
+      "section": "天機天梁坐辰戌",
+      "sha256": "3313c7e8117131eba015a449d9ed31b6a37182f08a674578ee9807ae3c3c9040"
+    },
+    "wtz.deep.p215.b012": {
+      "page": 215,
+      "section": "天機天梁坐辰戌",
+      "sha256": "342ad1e8aa003a4539e50833135d56afc09334ae09d022dd0ccbf4cb3f2f96ea"
+    },
+    "wtz.deep.p215.b013": {
+      "page": 215,
+      "section": "天機天梁坐辰戌",
+      "sha256": "7d35f97fa889b3bbe1ab568431c2ccb17cb44fe24a3f74c4a980f6c0ad047947"
+    },
+    "wtz.deep.p216.b001": {
+      "page": 216,
+      "section": "天機天梁坐辰戌",
+      "sha256": "2d2b007e78c42c753356b68912206a47e76a4b6346c24ef5846aab7dd1f4e40e"
+    },
+    "wtz.deep.p216.b002": {
+      "page": 216,
+      "section": "天機天梁坐辰戌",
+      "sha256": "ac9117d35838e3492ec79b014f7002637cc6d0dd7408c5f58f68576a86134ce7"
+    },
+    "wtz.deep.p216.b003": {
+      "page": 216,
+      "section": "天機天梁坐辰戌",
+      "sha256": "b6022d3d5330b511f85686027d20d669fc2b284936cd660faec25387e5a61aea"
+    },
+    "wtz.deep.p216.b004": {
+      "page": 216,
+      "section": "天機天梁坐辰戌",
+      "sha256": "9d3fd55757533211fa1244a5bf3c7321c3014f664d228c4185e5cd68025e55db"
+    },
+    "wtz.deep.p216.b005": {
+      "page": 216,
+      "section": "天機天梁坐辰戌",
+      "sha256": "3c345555f3e4ff32dcb49c74f781440c423f0803c7fcc19a97afa979dcf935a4"
+    },
+    "wtz.deep.p216.b006": {
+      "page": 216,
+      "section": "天機天梁坐辰戌",
+      "sha256": "d3ee9efa349838bd7d6b1439233e3247b45a5adba2fa514bf8e668ba41fcd2e7"
+    },
+    "wtz.deep.p216.b007": {
+      "page": 216,
+      "section": "天機天梁坐辰戌",
+      "sha256": "1a7f7605b4e9980126429d58fa9bc542b64bb54ecb68f2b8b1a7afb1660be4f3"
+    },
+    "wtz.deep.p218.b001": {
+      "page": 218,
+      "section": "天機天梁坐辰戌",
+      "sha256": "287f4372a9b9150fc8c5cf125371528c6ae42a04d36a5d9bb833d3b9496461cb"
+    },
+    "wtz.deep.p218.b002": {
+      "page": 218,
+      "section": "天機天梁坐辰戌",
+      "sha256": "e7bf2b23e76ff3c5b4bb855439a32443523f8a36212d796776e4233532874e8f"
+    },
+    "wtz.deep.p218.b003": {
+      "page": 218,
+      "section": "天機天梁坐辰戌",
+      "sha256": "84b03d80783afa9582f37b06670c2dbd87ce879cbe8a617ec2391ad395c4d0d3"
+    },
+    "wtz.deep.p218.b004": {
+      "page": 218,
+      "section": "天機天梁坐辰戌",
+      "sha256": "d83fe169a9e9aabcb6b4fad6f5378c2af1e4b3573517af3424ff36dc422c36a5"
+    },
+    "wtz.deep.p218.b005": {
+      "page": 218,
+      "section": "天機天梁坐辰戌",
+      "sha256": "7821309ab0df8e991c88f1ee9f0292cad738d3d48edab9e3d9d029b0dbc87c55"
+    },
+    "wtz.deep.p218.b006": {
+      "page": 218,
+      "section": "天機天梁坐辰戌",
+      "sha256": "792478d85de4d6f2cea8dbd227a118e9f735b70b1d9c294b87c2c45ea4c02a1f"
+    },
+    "wtz.deep.p315.b002": {
+      "page": 315,
+      "section": "天傷天使",
+      "sha256": "cb1cd18c68ac37f8449c4f22c5ad8f08bc1498c9c761983c1f14426f487a6394"
+    },
+    "wtz.deep.p315.b003": {
+      "page": 315,
+      "section": "天傷天使",
+      "sha256": "10471bb67a7ff6d98c83e1f328aba9820db2338facb6ad9577369fdaeb23816a"
+    },
+    "wtz.deep.p315.b004": {
+      "page": 315,
+      "section": "天傷天使",
+      "sha256": "9f95762738d17742bb1b67d86001abffccfc5e6cc932fb68d86de821d8ccc601"
+    },
+    "wtz.deep.p315.b005": {
+      "page": 315,
+      "section": "天傷天使",
+      "sha256": "94864741ff8f13344669fbbdeb92f4991777035f2e8ef3542e7815a9621deea3"
+    },
+    "wtz.deep.p315.b006": {
+      "page": 315,
+      "section": "天傷天使",
+      "sha256": "94507c3ca8efbc8a534e0558b1fc1cd7a1152a65c5c385a0d7adfcc61bf42c22"
+    },
+    "wtz.deep.p315.b007": {
+      "page": 315,
+      "section": "天傷天使",
+      "sha256": "df5275656ba614ed5b5f17d4a535efd94384efaf0adf36ed3b4000af72f377b4"
+    },
+    "wtz.deep.p315.b008": {
+      "page": 315,
+      "section": "天傷天使",
+      "sha256": "027cfc344ff809d661273cf4c5587ed1c36040b8a6101cae56d514bb3d2a42bd"
+    },
+    "wtz.deep.p316.b010": {
+      "page": 316,
+      "section": "天哭天虛",
+      "sha256": "23c29886847894a18273f88f0197e88796ee4e149665f8d41c7969126656b8d3"
+    },
+    "wtz.deep.p316.b011": {
+      "page": 316,
+      "section": "天哭天虛",
+      "sha256": "0613adb41d8cc21115ef3724f6cdd24539787d60ecc9d3c22aae017f66080370"
+    },
+    "wtz.deep.p316.b012": {
+      "page": 316,
+      "section": "天哭天虛",
+      "sha256": "6d8ec7f35fcd4cdcc60482489a4d0e212655c180ea777bba5c12a574a183cd78"
+    },
+    "wtz.deep.p316.b013": {
+      "page": 316,
+      "section": "天哭天虛",
+      "sha256": "39c556164badabb111256058439339264450a16c78d7b339928d34c629bd783c"
+    },
+    "wtz.deep.p316.b014": {
+      "page": 316,
+      "section": "天哭天虛",
+      "sha256": "ad2b9cd742974682ae319bca3b899b2fcd6339dc0037f335361e00eee530e078"
+    },
+    "wtz.deep.p319.b012": {
+      "page": 319,
+      "section": "天官天福",
+      "sha256": "5b372dd8475d43b828dc0c124e7986adbaa2f2c21d6abf3c47a720aa2f4600e2"
+    },
+    "wtz.deep.p319.b013": {
+      "page": 319,
+      "section": "天官天福",
+      "sha256": "b95b0c674096456ad009c7b30c0c4535f9a28ea3453bc18a1808792573c951c1"
+    },
+    "wtz.deep.p319.b014": {
+      "page": 319,
+      "section": "天官天福",
+      "sha256": "3fa8e0a5fd58cdba39cce995f12d166fba3d59743f8f4a8057cb98bf5d4eb50f"
+    },
+    "wtz.deep.p319.b015": {
+      "page": 319,
+      "section": "天官天福",
+      "sha256": "a3c827d7ec193ae7d5d8e048187e6b3a2a916c519b7641761328ad6164e869f6"
+    },
+    "wtz.deep.p321.b005": {
+      "page": 321,
+      "section": "陰煞",
+      "sha256": "f9e376ec3da6d8c6d86701fe16b9ece2248deb20b09024e4c9123a760f44e4d6"
+    },
+    "wtz.deep.p321.b006": {
+      "page": 321,
+      "section": "陰煞",
+      "sha256": "2805c96695a6c88913ae4d89fab70f85a58de736b16450b7438f2e71797d12c0"
+    },
+    "wtz.deep.p321.b007": {
+      "page": 321,
+      "section": "陰煞",
+      "sha256": "0ee157d43806ae2fbd6d6d9585715039699a81037d3904b9eb5f035f4fe59778"
+    },
+    "wtz.deep.p565.b006": {
+      "page": 565,
+      "section": "福德宮・篇首",
+      "sha256": "565df420f92168a6823d811daf282fc615a7e29fd574ea3de6670737ea7b56bf"
+    },
+    "wtz.deep.p565.b007": {
+      "page": 565,
+      "section": "福德宮・篇首",
+      "sha256": "3701a6d22e92eb9b995af25b2907f90859b77157ce2991a6d6df05820641dd2c"
+    },
+    "wtz.deep.p565.b009": {
+      "page": 565,
+      "section": "福德宮・篇首",
+      "sha256": "9a0b2a6d36285e0d33e337608b018c1bef90d5d625f4ab91510d1a774b52154b"
+    },
+    "wtz.deep.p565.b010": {
+      "page": 565,
+      "section": "福德宮・篇首",
+      "sha256": "cb243eb23cda7fb49b7418e2c0780797e1db204e4b53defaf1b2b962b6ba9461"
+    },
+    "wtz.deep.p566.b003": {
+      "page": 566,
+      "section": "福德宮・篇首",
+      "sha256": "223e22e118cce0c9498ec1f1c107dd498ea3cf7266018136e1624ad816a63e71"
+    },
+    "wtz.deep.p566.b004": {
+      "page": 566,
+      "section": "福德宮・篇首",
+      "sha256": "cbc3debdaca17ab96f89cb925c9341db578b71400758165c71e79475d2d69dfb"
+    },
+    "wtz.deep.p566.b005": {
+      "page": 566,
+      "section": "福德宮・篇首",
+      "sha256": "21160df0e4ab087282b707b367fb46276d3176548dafa64a72c00f16d6c82aa8"
+    }
+  },
+  "scope_notes": [
+    "只擴充本命試點；P0與P1a查詢版本、舊盤及網站writer仍保留原樣。",
+    "天傷需明確birthSex；缺少則未知，不由大限或樣本名逆推。",
+    "天傷只安僕役或疾厄；機梁同度原段按原文字保存，未擅改為會照或移星湊前提。",
+    "天官天福與陰煞天虛各保留支持、牽制及前提；不以吉煞數量選本質。",
+    "天哭、天使、其他P2/P3星仍未實作；已計算而未在指定宮位，不等於全盤沒有。"
+  ]
+}

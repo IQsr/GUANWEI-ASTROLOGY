@@ -1,0 +1,43 @@
+{
+  "date": "2026-10-23",
+  "scope": "機梁財帛補實、紫破僕役去重、同陰疾厄及武貪化忌福德先列本盤適用範圍",
+  "source_sections": [
+    "deep.wealth.天同",
+    "deep.wealth.太陰",
+    "deep.friends.紫微",
+    "deep.health.天同",
+    "deep.wellbeing.武曲",
+    "deep.wellbeing.貪狼"
+  ],
+  "before": {
+    "wealth-天同+太陰-子午-follow": "天同與太陰的祿、權、忌不能合成同一種結果。",
+    "friends-破軍+紫微-丑未-base": "紫微、破軍同宮，原書談輔佐吉曜帶來的助力時，亦指出得力的人可能另謀發展。有人能做事之後，知識、分工與交接能否留下，便成為這一宮的重點。",
+    "friends-破軍+紫微-丑未-follow": "這一宮要把當下有人能做事，與這份助力能維持多久分開。原書在見輔佐的一支，仍提醒得力的人可能另謀發展；人員更換之後，已有的知識、分工與進度能否留下，才看得出幫助能否延續。離開可以只是工作安排改變，不能直接當成交情轉壞。"
+  },
+  "policy": "不改原始判斷選段、來源原文或既有條件；本盤適用範圍為獨立可選快照欄；無本命四化解說只限本宮實坐同陰且兩星無四化。",
+  "deployment": "local only; no push or deploy",
+  "verified_fixtures": {
+    "C": "午宮同陰實坐財帛；天同、太陰無本命四化；左輔同宮；建議使用零用錢情境。",
+    "TL": "丑宮紫破實坐僕役，天魁同宮；正文談當下助力與能否長靠，交接留在編輯建議。",
+    "A": "丑宮武貪實坐福德，武曲忌、地空；午宮疾厄空宮借子宮同陰。"
+  },
+  "pdf_sha256": "513e3d068040efe3684eb3c0e44cf6e447787670bbf5d618f022da2d6c55231b",
+  "verification": {
+    "tests": "web 51、content 25，合共76項通過；包括72盤936章的原來源與條件保留、完整原文逐字不變、無四化及實坐／借星反例。",
+    "static": "web/content typecheck、production build通過；lint 0 errors、4項既有warnings。",
+    "ui": "機梁財帛、同梁僕役、天府福德及疾厄實際展開核對；每頁據數[1,1,0]；福德疾厄範圍先於原文；疾厄簡體轉換亦核。",
+    "preview": "http://localhost:3101/preview/free-ming/jiliang/wealth",
+    "release": "no commit/push/deploy"
+  },
+  "parents": {
+    "packages/content/src/cards/palace-narrative.json": "c8e4a758123613552638048fab25911a6805fed5cfc2903eba81da1b37a91be1",
+    "packages/content/src/palace-residual-context.ts": "084c93ddf2ac8aa22747e098a1437d7941ffa522b519663db78a7ba9d062ceab",
+    "packages/content/src/reading-focus.ts": "58465efd88cac5948544a8c980eb9262ff5cb7eb1f0956ca95ba89066173cbae",
+    "packages/content/src/cards/reading-focus.json": "63f594b30610ea8015407d60a80fb960549dac4d988e6729ea37d0bf4d3ff84f",
+    "apps/web/src/components/Juan.tsx": "a926ff9c8c5d01f8e6a35ff46e7a3eb770ed3a60312c54c9d046c9e297b5d26d",
+    "apps/web/src/lib/chapter-reading.ts": "be8f147330f3e93162afd5379f145990068fee07bae8e9c2fbb02018e44ee663",
+    "apps/web/src/lib/zhu.ts": "166d961ca326a46a1856f1ffb3e97cee299903814b4d3082d9b4ab704f7b9c0e",
+    "apps/web/src/lib/mingshu.ts": "2db789a63c0e06d1fcb30d10da241196339f10915304ad30c70ddc96ca7f3683"
+  },
+  "protected_reader_check": "palace-narrative既有parents逐一重算仍吻合，未刷新原始核讀指紋。"
+}

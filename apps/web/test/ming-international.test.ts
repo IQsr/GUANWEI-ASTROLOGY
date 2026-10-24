@@ -89,7 +89,8 @@ it('六十星系與借星的成書、序列化、英日書頁保留每句同一�
   }
   expect(seen.size).toBe(60);
   expect(borrowed).toBe(true);
-});
+// Full sixty-system serialization and both language renderers exceed 5s on shared CI runners.
+}, 20000);
 
 it('日文只採用明確逐句引用，舊句、編輯例子與盤面不冒充原書', () => {
   const text = 'あなたの命宮には天機があります。';

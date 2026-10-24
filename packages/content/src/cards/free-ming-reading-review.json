@@ -3,7 +3,7 @@
   "scope": "三組繁簡命宮及骨架；原段、條件與編輯身份逐項核讀；不認證舊點票或英日新譯文",
   "review_document": "docs/free-ming-reading-audit-2026-10-22.md",
   "data_sha256": "0049b02d3a0fa0ce6f79551557f569e275e4dc9fd57946b3c47a5814c7b0e158",
-  "selector_sha256": "dea2e522edf8216ee0c7af3e60f015f25de107c5fd1ac006b548a1868e3c18ac",
+  "selector_sha256": "fe256718bc84b345730149f359091a0c8eb9fac23c0dd67799cfab88487e63c9",
   "selector_review": "已對PDF 309頁b002–b003重核：原書允許祿存同度或對拱，但同宮專用文案只在祿存與火星均同宮時選用。",
   "paragraph_conditions_review": "2026-10-22：連讀第17、55、60節，及p016、p309、p346相關前後文；27段條件摘要保留本命／運限、同度／會照／相夾、四化與未定範圍，沒有新增定性規則。",
   "all_systems_routing_review": "三組實坐內部分支不變；新增其餘57組及借星路由，其資料與選段另由 free-ming-systems-review.json 綁定。",
@@ -11,5 +11,6 @@
     "review_document": "docs/free-ming-reference-context-2026-10-22.md",
     "audit": "free-ming-reference-audit.json",
     "scope": "逐項重讀原段與消費文案，補齊否定、例外及跨頁句；校讀說明與原文分開，不重認證舊規則。"
-  }
+  },
+  "engine_query_review": "docs/engine-p0-2026-10-23.md"
 }

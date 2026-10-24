@@ -268,6 +268,7 @@ export function runRule(rule: Rule, ctx: EvalContext, schoolProfileId: string): 
 
   if (rule.exclude) {
     const e = evaluate(rule.exclude, ctx);
+    if (e.status === 'not_applicable') return { status: 'not_applicable', rule, reason: `排除條件未能核實：${e.reason}` };
     if (e.status === 'matched') {
       return { status: 'excluded', rule, reason: '排除條件成立' };
     }

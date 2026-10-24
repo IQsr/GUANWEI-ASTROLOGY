@@ -64,9 +64,9 @@ export function termIndex(): Term[] {
  */
 export type Run = { text: string; term?: Term; cite?: string[] };
 
-export type MarkedSegment = { slot: string; runs: Run[]; heading?: string; referenceConditions?: string[] };
+export type MarkedSegment = { slot: string; runs: Run[]; heading?: string; referenceConditions?: string[]; referenceFocus?: string[]; referenceApplicability?: string[] };
 
-export type ChapterInput = { palace: string; segments: { slot: string; text: string; heading?: string; statements?: MingStatement[]; referenceConditions?: string[] }[] };
+export type ChapterInput = { palace: string; segments: { slot: string; text: string; heading?: string; statements?: MingStatement[]; referenceConditions?: string[]; referenceFocus?: string[]; referenceApplicability?: string[] }[] };
 
 export type MarkedChapter = { palace: string; segments: MarkedSegment[] };
 
@@ -174,7 +174,9 @@ export function markBook(chapters: ChapterInput[], lang: 'zh' | 'en' | 'ja' = 'z
         }
       }
       return { slot: seg.slot, runs, ...(seg.heading ? { heading: seg.heading } : {}),
-        ...(seg.referenceConditions?.length ? { referenceConditions: [...seg.referenceConditions] } : {}) };
+        ...(seg.referenceConditions?.length ? { referenceConditions: [...seg.referenceConditions] } : {}),
+          ...(seg.referenceFocus?.length ? {referenceFocus:[...seg.referenceFocus]} : {}),
+          ...(seg.referenceApplicability?.length ? {referenceApplicability:[...seg.referenceApplicability]} : {}) };
     }),
   }));
 }

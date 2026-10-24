@@ -1,0 +1,1907 @@
+{
+  "version": "engine-p1-cross-rules-v1",
+  "date": "2026-10-24",
+  "pdf_sha256": "513e3d068040efe3684eb3c0e44cf6e447787670bbf5d618f022da2d6c55231b",
+  "rules": [
+    {
+      "id": "tl-four-frame",
+      "groups": [
+        "tongliang"
+      ],
+      "title": "同梁的取捨、天機的工作、太陰的財與太陽的福",
+      "palaces": [
+        "命宮",
+        "官祿",
+        "財帛",
+        "福德"
+      ],
+      "role": "basis",
+      "when": {
+        "all": [
+          {
+            "star": "天同",
+            "in": {
+              "name": "命宮"
+            }
+          },
+          {
+            "star": "天梁",
+            "in": {
+              "name": "命宮"
+            }
+          },
+          {
+            "star": "天同",
+            "at": [
+              "寅",
+              "申"
+            ]
+          },
+          {
+            "star": "天機",
+            "in": {
+              "name": "官祿"
+            }
+          },
+          {
+            "star": "太陰",
+            "in": {
+              "name": "財帛"
+            }
+          },
+          {
+            "star": "太陽",
+            "in": {
+              "name": "福德"
+            }
+          }
+        ]
+      },
+      "sources": [
+        "wtz.deep.p087.b010",
+        "wtz.deep.p087.b011",
+        "wtz.deep.p087.b012",
+        "wtz.deep.p087.b013"
+      ],
+      "explanation": "同梁的感受與原則放在命宮看；實際工作另看天機的應變，財帛看太陰的計劃與積聚，福德再看太陽的活動與精神追求。四宮各有角色，不能用一個性格詞概括全盤。",
+      "conditions": [
+        "同梁實坐寅申命宮，官祿天機、財帛太陰、福德太陽均須實坐。"
+      ],
+      "exceptions": [
+        "浪漫與原則的偏向仍須配曜、四化及調和；本條不選定任一極端。"
+      ]
+    },
+    {
+      "id": "tl-work-changing",
+      "groups": [
+        "tongliang"
+      ],
+      "title": "官祿天機對巨門：變動與費心機",
+      "palaces": [
+        "命宮",
+        "官祿",
+        "財帛"
+      ],
+      "role": "basis",
+      "when": {
+        "all": [
+          {
+            "star": "天機",
+            "in": {
+              "name": "官祿"
+            }
+          },
+          {
+            "star": "天機",
+            "at": [
+              "子",
+              "午"
+            ]
+          },
+          {
+            "opposite": [
+              "天機",
+              "巨門"
+            ]
+          }
+        ]
+      },
+      "sources": [
+        "wtz.deep.p522.b005",
+        "wtz.deep.p522.b006",
+        "wtz.deep.p522.b011",
+        "wtz.deep.p523.b004"
+      ],
+      "explanation": "工作較多變動，要隨問題、客戶或任務調整；子午天機對巨門又加上費心機的一面。這是在講工作如何進行，未等於已確定職稱或一定轉工。",
+      "conditions": [
+        "天機實坐子午官祿，與巨門相對。"
+      ],
+      "exceptions": [
+        "吉曜吉化可修飾前途；化祿亦不把多變完全消去。流動客戶與任務只是原書職業性質的解說。"
+      ]
+    },
+    {
+      "id": "tl-design-same-palace",
+      "groups": [
+        "tongliang"
+      ],
+      "title": "規劃設計專長另查同度條件",
+      "palaces": [
+        "官祿"
+      ],
+      "role": "branch",
+      "when": {
+        "all": [
+          {
+            "star": "天機",
+            "in": {
+              "name": "官祿"
+            }
+          },
+          {
+            "meets": "天機",
+            "stars": [
+              "文昌",
+              "文曲",
+              "天才"
+            ],
+            "reach": "same"
+          }
+        ]
+      },
+      "sources": [
+        "wtz.deep.p523.b003"
+      ],
+      "explanation": "官祿天機同度昌曲或天才，才有這一條規劃設計的專門支持。",
+      "conditions": [
+        "天機守官祿；昌曲或天才須同度，會照不代替同度。"
+      ],
+      "exceptions": [
+        "沒有這項組合不等於不能從事設計，只代表本條未提供專門支持。"
+      ]
+    },
+    {
+      "id": "tl-wealth-planning",
+      "groups": [
+        "tongliang"
+      ],
+      "title": "財帛太陰：用計劃累積，與福德對讀",
+      "palaces": [
+        "官祿",
+        "財帛",
+        "福德"
+      ],
+      "role": "basis",
+      "when": {
+        "all": [
+          {
+            "star": "太陰",
+            "in": {
+              "name": "財帛"
+            }
+          },
+          {
+            "star": "太陰",
+            "at": [
+              "辰",
+              "戌"
+            ]
+          },
+          {
+            "star": "太陽",
+            "in": {
+              "name": "福德"
+            }
+          },
+          {
+            "opposite": [
+              "太陰",
+              "太陽"
+            ]
+          }
+        ]
+      },
+      "sources": [
+        "wtz.deep.p451.b009",
+        "wtz.deep.p451.b010",
+        "wtz.deep.p451.b011",
+        "wtz.deep.p452.b008"
+      ],
+      "explanation": "這裡的求財重點在計劃、安排與累積，不是只看一次收入高低。太陰在財、太陽在福相對，也要分開資源怎樣累積，與本人怎樣追求和享用。",
+      "conditions": [
+        "太陰實坐辰戌財帛，對宮福德太陽。"
+      ],
+      "exceptions": [
+        "辰戌有別；廟陷、日夜及祿權科等原書分支未全部啟用，不能由本條直接定富貴。"
+      ]
+    },
+    {
+      "id": "tl-wealth-tongji",
+      "groups": [
+        "tongliang"
+      ],
+      "title": "同忌會財帛太陰：求財的耗力",
+      "palaces": [
+        "命宮",
+        "官祿",
+        "財帛"
+      ],
+      "role": "modifier",
+      "when": {
+        "all": [
+          {
+            "all": [
+              {
+                "star": "太陰",
+                "in": {
+                  "name": "財帛"
+                }
+              },
+              {
+                "star": "太陰",
+                "at": [
+                  "辰",
+                  "戌"
+                ]
+              },
+              {
+                "star": "太陽",
+                "in": {
+                  "name": "福德"
+                }
+              },
+              {
+                "opposite": [
+                  "太陰",
+                  "太陽"
+                ]
+              }
+            ]
+          },
+          {
+            "star": "天同",
+            "in": {
+              "name": "命宮"
+            }
+          },
+          {
+            "star": "天同",
+            "hua": "忌"
+          },
+          {
+            "sanfangOf": {
+              "name": "財帛"
+            },
+            "contains": "天同"
+          }
+        ]
+      },
+      "sources": [
+        "wtz.deep.p452.b008",
+        "wtz.deep.p452.b009",
+        "wtz.deep.p452.b010"
+      ],
+      "explanation": "命宮天同忌會到辰戌太陰財帛，原書對這支講的是勞心勞力求財。跟官祿天機連讀，重點便是工作要反覆應變，財的累積也要投入心力；不能只寫成懂規劃就自然輕鬆得財。",
+      "conditions": [
+        "財帛為辰戌太陰；天同本命化忌，且實際會照財帛。"
+      ],
+      "exceptions": [
+        "天機忌的奔波、太陽忌的是非是另外兩支；不把天同忌搬成天機忌或太陰忌。"
+      ]
+    },
+    {
+      "id": "tl-wealth-yanglu",
+      "groups": [
+        "tongliang"
+      ],
+      "title": "福德陽祿對財：先建立位置，再談財路",
+      "palaces": [
+        "財帛",
+        "福德"
+      ],
+      "role": "modifier",
+      "when": {
+        "all": [
+          {
+            "all": [
+              {
+                "star": "太陰",
+                "in": {
+                  "name": "財帛"
+                }
+              },
+              {
+                "star": "太陰",
+                "at": [
+                  "辰",
+                  "戌"
+                ]
+              },
+              {
+                "star": "太陽",
+                "in": {
+                  "name": "福德"
+                }
+              },
+              {
+                "opposite": [
+                  "太陰",
+                  "太陽"
+                ]
+              }
+            ]
+          },
+          {
+            "star": "太陽",
+            "hua": "祿"
+          }
+        ]
+      },
+      "sources": [
+        "wtz.deep.p452.b009",
+        "wtz.deep.p452.b010"
+      ],
+      "explanation": "辰戌太陰會太陽祿，原書把先建立地位、再發展財源列為一個次序。放回本盤，是先在工作中累積位置與資源再談財路；同忌帶來的耗力仍然存在。",
+      "conditions": [
+        "財帛辰戌太陰，對宮太陽本命化祿。"
+      ],
+      "exceptions": [
+        "任職後自創是原書一般取向，不是創業指令、時間預測或保證發財；不能把陽祿當作太陰化祿。"
+      ]
+    },
+    {
+      "id": "tl-rest-active",
+      "groups": [
+        "tongliang"
+      ],
+      "title": "福德太陽與鈴星：有追求不等於容易停下",
+      "palaces": [
+        "命宮",
+        "財帛",
+        "福德"
+      ],
+      "role": "modifier",
+      "when": {
+        "all": [
+          {
+            "star": "太陽",
+            "in": {
+              "name": "福德"
+            }
+          },
+          {
+            "star": "鈴星",
+            "in": {
+              "name": "福德"
+            }
+          }
+        ]
+      },
+      "sources": [
+        "wtz.deep.p569.b011",
+        "wtz.deep.p565.b009",
+        "wtz.deep.p565.b010"
+      ],
+      "explanation": "福德太陽偏向活動與追求，鈴星又令心神較難安定。連着求財的投入看，這盤要分清做得有成績，與內心是否真的得到休息；藝術趣味另可作精神投入的方向。",
+      "conditions": [
+        "太陽、鈴星實坐福德；藝術方向須另核昌曲龍鳳等配曜，不由此條保證。"
+      ],
+      "exceptions": [
+        "不是疾病、焦慮症或實際情緒的診斷；廟陷、日夜、配曜仍會修飾。"
+      ]
+    },
+    {
+      "id": "tl-rest-day-branch",
+      "groups": [
+        "tongliang"
+      ],
+      "title": "太陽福德較安靜的分支仍缺日夜前提",
+      "palaces": [
+        "福德"
+      ],
+      "role": "branch",
+      "when": {
+        "star": "太陽",
+        "in": {
+          "name": "福德"
+        }
+      },
+      "sources": [
+        "wtz.deep.p569.b011",
+        "wtz.deep.p570.b002",
+        "wtz.deep.p570.b003"
+      ],
+      "explanation": "日生及輔弼台座等會合條件要另行核實，未能由太陽祿便說成安靜有福。",
+      "conditions": [
+        "原文分日生夜生及輔弼台座會合。"
+      ],
+      "exceptions": [
+        "目前沒有已校勘的日夜判讀輸入；不拿出生鐘點自行代替。"
+      ],
+      "gates": [
+        {
+          "kind": "manual",
+          "id": "reviewed-day-night-and-assistants",
+          "description": "日夜前提與原文配曜組合尚未完成可執行校核"
+        }
+      ]
+    },
+    {
+      "id": "tf-store",
+      "groups": [
+        "tianfu"
+      ],
+      "title": "命宮天府有祿：資源管理與守成的基礎",
+      "palaces": [
+        "命宮",
+        "官祿",
+        "財帛"
+      ],
+      "role": "basis",
+      "when": {
+        "all": [
+          {
+            "star": "天府",
+            "in": {
+              "name": "命宮"
+            }
+          },
+          {
+            "star": "天府",
+            "at": [
+              "巳",
+              "亥"
+            ]
+          },
+          {
+            "any": [
+              {
+                "together": [
+                  "天府",
+                  "祿存"
+                ]
+              },
+              {
+                "star": "天府",
+                "hua": "祿"
+              }
+            ]
+          }
+        ]
+      },
+      "sources": [
+        "wtz.deep.p020.b003",
+        "wtz.deep.p020.b004",
+        "wtz.deep.p020.b005",
+        "wtz.deep.p430.b009"
+      ],
+      "explanation": "命宮天府有祿，先有可用的庫藏支持；它較直接講理財、儲財與管理資源，不能等同每次都能生出新財。官祿天相要回頭看這個府庫，才看得清責任背後有甚麼資源。",
+      "conditions": [
+        "天府實坐巳亥命宮，祿存同度或天府化祿；本批採可明確定位的保守有祿條件。"
+      ],
+      "exceptions": [
+        "相的夾宮、煞忌與露庫另核；有祿支持不是對全部格局已作充盈且無牽制的判定。"
+      ]
+    },
+    {
+      "id": "tf-career-role",
+      "groups": [
+        "tianfu"
+      ],
+      "title": "官祿天相回看命宮府庫",
+      "palaces": [
+        "命宮",
+        "官祿",
+        "財帛"
+      ],
+      "role": "basis",
+      "when": {
+        "all": [
+          {
+            "star": "天相",
+            "in": {
+              "name": "官祿"
+            }
+          },
+          {
+            "star": "天相",
+            "at": [
+              "卯",
+              "酉"
+            ]
+          },
+          {
+            "star": "天府",
+            "in": {
+              "name": "命宮"
+            }
+          }
+        ]
+      },
+      "sources": [
+        "wtz.deep.p544.b008",
+        "wtz.deep.p545.b005",
+        "wtz.deep.p545.b009",
+        "wtz.deep.p545.b015"
+      ],
+      "explanation": "官祿天相的重點是受託、協調與承擔權責；有職權亦要看背後的資源。跟命宮天府連讀，比籠統說穩定更具體：一邊管理庫藏，一邊在組織中把事情接住和執行。",
+      "conditions": [
+        "天相實坐卯酉官祿，天府實坐命宮；財的成色仍須府所會合星曜。"
+      ],
+      "exceptions": [
+        "副貳是原書職務性質，不是現代職稱上限；不能直接斷定某人做不了最高負責人。"
+      ]
+    },
+    {
+      "id": "tf-career-ke",
+      "groups": [
+        "tianfu"
+      ],
+      "title": "有祿府科連官祿天相：技術性工作的線索",
+      "palaces": [
+        "命宮",
+        "官祿",
+        "財帛"
+      ],
+      "role": "modifier",
+      "when": {
+        "all": [
+          {
+            "all": [
+              {
+                "star": "天相",
+                "in": {
+                  "name": "官祿"
+                }
+              },
+              {
+                "star": "天相",
+                "at": [
+                  "卯",
+                  "酉"
+                ]
+              },
+              {
+                "star": "天府",
+                "in": {
+                  "name": "命宮"
+                }
+              }
+            ]
+          },
+          {
+            "all": [
+              {
+                "star": "天府",
+                "in": {
+                  "name": "命宮"
+                }
+              },
+              {
+                "star": "天府",
+                "at": [
+                  "巳",
+                  "亥"
+                ]
+              },
+              {
+                "any": [
+                  {
+                    "together": [
+                      "天府",
+                      "祿存"
+                    ]
+                  },
+                  {
+                    "star": "天府",
+                    "hua": "祿"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "star": "天府",
+            "hua": "科"
+          }
+        ]
+      },
+      "sources": [
+        "wtz.deep.p020.b003",
+        "wtz.deep.p201.b008",
+        "wtz.deep.p545.b010"
+      ],
+      "explanation": "卯酉天相遇有祿的天府化科，原書把工程技術列作工作性質的方向。這使本盤的受託管理可以再收窄到較重技術、規範與可核對成果的工作線索，並非只剩空泛的管理兩字。",
+      "conditions": [
+        "卯酉天相官祿；命宮天府具本批有祿位置，且本命化科。"
+      ],
+      "exceptions": [
+        "只列工作性質線索，不承諾資格、能力或職業成果；壬科伴武忌與輔佐眾多的整體評價仍另核，不由本條定祥和。"
+      ]
+    },
+    {
+      "id": "tf-career-authority",
+      "groups": [
+        "tianfu"
+      ],
+      "title": "官祿天相會紫微權：權責與實得分開",
+      "palaces": [
+        "命宮",
+        "官祿",
+        "財帛"
+      ],
+      "role": "modifier",
+      "when": {
+        "all": [
+          {
+            "all": [
+              {
+                "star": "天相",
+                "in": {
+                  "name": "官祿"
+                }
+              },
+              {
+                "star": "天相",
+                "at": [
+                  "卯",
+                  "酉"
+                ]
+              },
+              {
+                "star": "天府",
+                "in": {
+                  "name": "命宮"
+                }
+              }
+            ]
+          },
+          {
+            "star": "紫微",
+            "hua": "權"
+          },
+          {
+            "sanfangOf": {
+              "name": "官祿"
+            },
+            "contains": "紫微"
+          }
+        ]
+      },
+      "sources": [
+        "wtz.deep.p544.b014",
+        "wtz.deep.p545.b005"
+      ],
+      "explanation": "天相官祿會紫微權，原書提醒名與權可重於直接財利；所以職權、責任與最後實得要分開看，不能把職位當作收入或滿足的同義詞。",
+      "conditions": [
+        "天相官祿，實際會照本命紫微權。"
+      ],
+      "exceptions": [
+        "見煞另有弄權與挫折的修飾；本條不指當事人正在弄權或已發生事件。"
+      ]
+    },
+    {
+      "id": "tf-wealth-reference",
+      "groups": [
+        "tianfu"
+      ],
+      "title": "財帛空宮借福德武貪：同一來源的兩面",
+      "palaces": [
+        "命宮",
+        "財帛",
+        "福德"
+      ],
+      "role": "basis",
+      "when": {
+        "all": [
+          {
+            "empty": {
+              "name": "財帛"
+            }
+          },
+          {
+            "star": "武曲",
+            "in": {
+              "name": "福德"
+            }
+          },
+          {
+            "star": "貪狼",
+            "in": {
+              "name": "福德"
+            }
+          }
+        ]
+      },
+      "sources": [
+        "wtz.deep.p201.b001",
+        "wtz.deep.p429.b008",
+        "wtz.deep.p430.b008"
+      ],
+      "explanation": "財帛沒有實坐主星，借對宮福德的武貪作求財性質參照。兩宮共用同一組主星來源，宜一起看追求資源的動力與實際求財方式，不能算成兩次獨立命中。",
+      "conditions": [
+        "財帛空宮，借宮標記指向福德；武曲貪狼實坐福德。"
+      ],
+      "exceptions": [
+        "武曲忌與配曜仍在福德；未把原生財帛武貪的所有富貴、暴發或破敗分支移入。"
+      ],
+      "borrow": {
+        "target": "財帛",
+        "origin": "福德",
+        "stars": [
+          "武曲",
+          "貪狼"
+        ]
+      }
+    },
+    {
+      "id": "tf-rest-wuji",
+      "groups": [
+        "tianfu"
+      ],
+      "title": "武曲忌在福德：有資源與知足是兩題",
+      "palaces": [
+        "命宮",
+        "財帛",
+        "福德"
+      ],
+      "role": "modifier",
+      "when": {
+        "all": [
+          {
+            "star": "武曲",
+            "in": {
+              "name": "福德"
+            }
+          },
+          {
+            "star": "武曲",
+            "hua": "忌"
+          }
+        ]
+      },
+      "sources": [
+        "wtz.deep.p571.b002",
+        "wtz.deep.p571.b003",
+        "wtz.deep.p571.b004",
+        "wtz.deep.p565.b006",
+        "wtz.deep.p565.b007"
+      ],
+      "explanation": "武曲忌落福德，原書的關注是追求財富如何牽動精神享受。命宮有庫藏支持，不代表就容易滿足；連讀要講清管理到資源與心裡覺得足夠，可以是兩回事。",
+      "conditions": [
+        "武曲實坐福德而本命化忌。"
+      ],
+      "exceptions": [
+        "見煞及另見天月刑虛陰大耗的句子還有附加條件與命疾互核；本條不作疾病、癖好或道德標籤。原頁571疑字保留定位，未把疑字製成新規則。"
+      ]
+    },
+    {
+      "id": "tf-rest-wutan",
+      "groups": [
+        "tianfu"
+      ],
+      "title": "福德武貪：物質追求須與實得分開",
+      "palaces": [
+        "財帛",
+        "福德"
+      ],
+      "role": "modifier",
+      "when": {
+        "all": [
+          {
+            "star": "武曲",
+            "in": {
+              "name": "福德"
+            }
+          },
+          {
+            "star": "貪狼",
+            "in": {
+              "name": "福德"
+            }
+          }
+        ]
+      },
+      "sources": [
+        "wtz.deep.p572.b003",
+        "wtz.deep.p576.b007"
+      ],
+      "explanation": "武貪在福德把注意力帶向可感受、可享用的成果；與財帛連讀，重點是賺取與享用之間怎樣銜接，而不是只有一個有錢或沒錢的結論。",
+      "conditions": [
+        "武曲貪狼須實坐福德。"
+      ],
+      "exceptions": [
+        "桃花、科文等另有分支；不能由武貪或單見天喜就斷定具體嗜好與行為。"
+      ]
+    },
+    {
+      "id": "tf-ren-ke-balance",
+      "groups": [
+        "tianfu"
+      ],
+      "title": "壬科與武忌的調和不能省略輔佐前提",
+      "palaces": [
+        "命宮",
+        "財帛",
+        "福德"
+      ],
+      "role": "branch",
+      "when": {
+        "all": [
+          {
+            "all": [
+              {
+                "star": "天府",
+                "in": {
+                  "name": "命宮"
+                }
+              },
+              {
+                "star": "天府",
+                "at": [
+                  "巳",
+                  "亥"
+                ]
+              },
+              {
+                "any": [
+                  {
+                    "together": [
+                      "天府",
+                      "祿存"
+                    ]
+                  },
+                  {
+                    "star": "天府",
+                    "hua": "祿"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "star": "天府",
+            "hua": "科"
+          },
+          {
+            "star": "武曲",
+            "in": {
+              "name": "福德"
+            }
+          },
+          {
+            "star": "武曲",
+            "hua": "忌"
+          }
+        ]
+      },
+      "sources": [
+        "wtz.deep.p201.b007",
+        "wtz.deep.p201.b008",
+        "wtz.deep.p201.b009"
+      ],
+      "explanation": "壬年天府科與武曲忌並見，原書的整體調和仍需要輔佐眾多等條件；這層暫留待核，不能只憑府科便定為祥和。",
+      "conditions": [
+        "壬年、天府科、武曲忌及府庫配曜須連核。"
+      ],
+      "exceptions": [
+        "不與庚年府科混用；眾多未被武斷換成固定星數。"
+      ],
+      "gates": [
+        {
+          "kind": "year-stem",
+          "value": "壬"
+        },
+        {
+          "kind": "manual",
+          "id": "ren-ke-assistants-abundant",
+          "description": "原書輔佐眾多及整體調和尚未完成可執行定義"
+        }
+      ]
+    },
+    {
+      "id": "jl-four-frame",
+      "groups": [
+        "jiliang"
+      ],
+      "title": "機梁與財帛同陰、官祿陽巨的結構",
+      "palaces": [
+        "命宮",
+        "官祿",
+        "財帛"
+      ],
+      "role": "basis",
+      "when": {
+        "all": [
+          {
+            "star": "天機",
+            "in": {
+              "name": "命宮"
+            }
+          },
+          {
+            "star": "天梁",
+            "in": {
+              "name": "命宮"
+            }
+          },
+          {
+            "star": "天機",
+            "at": [
+              "辰",
+              "戌"
+            ]
+          },
+          {
+            "star": "天同",
+            "in": {
+              "name": "財帛"
+            }
+          },
+          {
+            "star": "太陰",
+            "in": {
+              "name": "財帛"
+            }
+          },
+          {
+            "empty": {
+              "name": "官祿"
+            }
+          }
+        ]
+      },
+      "sources": [
+        "wtz.deep.p215.b010",
+        "wtz.deep.p215.b011",
+        "wtz.deep.p215.b012",
+        "wtz.deep.p216.b001",
+        "wtz.deep.p216.b002"
+      ],
+      "explanation": "機梁的機敏與原則要合看；財帛同陰另講資源與享用的取向，官祿則借陽巨看工作性質。這個結構可以確定，敏感或明斷的兩極仍不能硬選一邊。",
+      "conditions": [
+        "辰戌機梁實坐命宮、同陰實坐財帛、官祿空宮。"
+      ],
+      "exceptions": [
+        "機、同、月化忌與煞刑、吉化、配曜會改變調和；這裡沒有替尖刻或明斷補造前提。"
+      ]
+    },
+    {
+      "id": "jl-career-reference",
+      "groups": [
+        "jiliang"
+      ],
+      "title": "官祿借夫妻陽巨：表達與對外工作的參照",
+      "palaces": [
+        "命宮",
+        "官祿",
+        "財帛"
+      ],
+      "role": "basis",
+      "when": {
+        "all": [
+          {
+            "empty": {
+              "name": "官祿"
+            }
+          },
+          {
+            "star": "太陽",
+            "in": {
+              "name": "夫妻"
+            }
+          },
+          {
+            "star": "巨門",
+            "in": {
+              "name": "夫妻"
+            }
+          }
+        ]
+      },
+      "sources": [
+        "wtz.deep.p215.b010",
+        "wtz.deep.p528.b008",
+        "wtz.deep.p528.b010",
+        "wtz.deep.p528.b011",
+        "wtz.deep.p543.b001"
+      ],
+      "explanation": "官祿空宮借夫妻的陽巨，工作性質可參照表達、解說與對外溝通。這跟財帛同陰的計劃與享用分開：前者講用甚麼方式做事，後者講資源落在哪一類需求與安排。",
+      "conditions": [
+        "官祿空宮，明確借對宮夫妻實坐太陽巨門；按借星結構作工作性質參照。"
+      ],
+      "exceptions": [
+        "陽巨的吉化、輔佐與廟陷分支另核；右弼、火星仍在夫妻原位，不算官祿本宮同度。異族或遠域只是原書的條件方向，不直接斷外國職業。"
+      ],
+      "borrow": {
+        "target": "官祿",
+        "origin": "夫妻",
+        "stars": [
+          "太陽",
+          "巨門"
+        ]
+      }
+    },
+    {
+      "id": "jl-career-yanglu",
+      "groups": [
+        "jiliang"
+      ],
+      "title": "陽巨化祿的特定發展支線另查",
+      "palaces": [
+        "官祿"
+      ],
+      "role": "branch",
+      "when": {
+        "all": [
+          {
+            "empty": {
+              "name": "官祿"
+            }
+          },
+          {
+            "star": "太陽",
+            "in": {
+              "name": "夫妻"
+            }
+          },
+          {
+            "star": "巨門",
+            "in": {
+              "name": "夫妻"
+            }
+          },
+          {
+            "any": [
+              {
+                "star": "太陽",
+                "hua": "祿"
+              },
+              {
+                "star": "巨門",
+                "hua": "祿"
+              }
+            ]
+          }
+        ]
+      },
+      "sources": [
+        "wtz.deep.p528.b010",
+        "wtz.deep.p528.b011",
+        "wtz.deep.p528.b012",
+        "wtz.deep.p528.b013"
+      ],
+      "explanation": "陽巨吉化的專門發展支線，須先有相應本命化祿，再逐支核輔佐、廟陷與工作性質。",
+      "conditions": [
+        "借安來源陽巨須有太陽祿或巨門祿；不是任見陽巨便採用。"
+      ],
+      "exceptions": [
+        "本條只辨識吉化入口，未自動產生外交、成名或異族財的結果。"
+      ],
+      "borrow": {
+        "target": "官祿",
+        "origin": "夫妻",
+        "stars": [
+          "太陽",
+          "巨門"
+        ]
+      }
+    },
+    {
+      "id": "jl-wealth-tongyin",
+      "groups": [
+        "jiliang"
+      ],
+      "title": "同陰財帛：把資源用在可享用的價值",
+      "palaces": [
+        "命宮",
+        "官祿",
+        "財帛"
+      ],
+      "role": "basis",
+      "when": {
+        "all": [
+          {
+            "star": "天同",
+            "in": {
+              "name": "財帛"
+            }
+          },
+          {
+            "star": "太陰",
+            "in": {
+              "name": "財帛"
+            }
+          },
+          {
+            "star": "天同",
+            "at": [
+              "子",
+              "午"
+            ]
+          }
+        ]
+      },
+      "sources": [
+        "wtz.deep.p445.b011",
+        "wtz.deep.p445.b012",
+        "wtz.deep.p445.b013",
+        "wtz.deep.p451.b009",
+        "wtz.deep.p451.b010",
+        "wtz.deep.p451.b011"
+      ],
+      "explanation": "財帛同陰可從享受性質的需求、計劃與累積去看求財方向；工作即使偏向表達與對外，財路仍要問最後提供甚麼可被享用的價值，而不是只憑口才便說能得財。",
+      "conditions": [
+        "同陰實坐子午財帛。"
+      ],
+      "exceptions": [
+        "化祿、化忌、桃花科文及子午有各別分支；不得由一般性質直接推定財源大小、意外財或固定行業。"
+      ]
+    },
+    {
+      "id": "jl-wealth-assistant",
+      "groups": [
+        "jiliang"
+      ],
+      "title": "財帛左輔：助力落在求財一面",
+      "palaces": [
+        "命宮",
+        "財帛",
+        "福德"
+      ],
+      "role": "modifier",
+      "when": {
+        "all": [
+          {
+            "star": "天同",
+            "in": {
+              "name": "財帛"
+            }
+          },
+          {
+            "star": "太陰",
+            "in": {
+              "name": "財帛"
+            }
+          },
+          {
+            "star": "左輔",
+            "in": {
+              "name": "財帛"
+            }
+          }
+        ]
+      },
+      "sources": [
+        "wtz.deep.p431.b005"
+      ],
+      "explanation": "財帛本宮有左輔，可把助力這條線放回求財安排理解；這比把全盤籠統說成有貴人更清楚，也不等於福德已同度左輔。",
+      "conditions": [
+        "左輔實坐同陰財帛。"
+      ],
+      "exceptions": [
+        "輔弼助力、魁鉞機會與昌曲名譽是不同類型；一顆左輔不保證每次有人代勞或帶來收入。"
+      ]
+    },
+    {
+      "id": "jl-wealth-distant",
+      "groups": [
+        "jiliang"
+      ],
+      "title": "遠域求財須祿存同度加官祿天馬",
+      "palaces": [
+        "官祿",
+        "財帛"
+      ],
+      "role": "branch",
+      "when": {
+        "all": [
+          {
+            "star": "天同",
+            "in": {
+              "name": "財帛"
+            }
+          },
+          {
+            "star": "太陰",
+            "in": {
+              "name": "財帛"
+            }
+          },
+          {
+            "star": "祿存",
+            "in": {
+              "name": "財帛"
+            }
+          },
+          {
+            "star": "天馬",
+            "in": {
+              "name": "官祿"
+            }
+          }
+        ]
+      },
+      "sources": [
+        "wtz.deep.p445.b013"
+      ],
+      "explanation": "同陰財帛與祿存同度，再有官祿天馬，才進入這條遠域求財的原書分支。",
+      "conditions": [
+        "祿存須在同陰財帛同度，並且天馬在官祿；兩者缺一不可。"
+      ],
+      "exceptions": [
+        "只有官祿天馬不足以支持；本命結構仍不提供遠行年份或實際財運保證。"
+      ]
+    },
+    {
+      "id": "jl-rest-labor",
+      "groups": [
+        "jiliang"
+      ],
+      "title": "福德本宮羊：精神享用不能只照抄對宮",
+      "palaces": [
+        "命宮",
+        "財帛",
+        "福德"
+      ],
+      "role": "modifier",
+      "when": {
+        "all": [
+          {
+            "empty": {
+              "name": "福德"
+            }
+          },
+          {
+            "star": "擎羊",
+            "in": {
+              "name": "福德"
+            }
+          }
+        ]
+      },
+      "sources": [
+        "wtz.deep.p565.b009",
+        "wtz.deep.p429.b008",
+        "wtz.deep.p565.b006",
+        "wtz.deep.p565.b007"
+      ],
+      "explanation": "福德雖然空宮，本宮擎羊仍有多勞這一層。財帛同陰可以講資源與享受取向，但不能因此說內心必然安樂；享用得來的東西，與是否有餘裕享用，要分開看。",
+      "conditions": [
+        "福德無實坐主星，擎羊實坐本宮。"
+      ],
+      "exceptions": [
+        "多勞是原書性質提示，不作精神疾病或現況診斷；空宮的配曜不因借主星而消失。"
+      ]
+    },
+    {
+      "id": "jl-rest-opposite",
+      "groups": [
+        "jiliang"
+      ],
+      "title": "福德空宮與財帛同陰相對：保留參照原位",
+      "palaces": [
+        "財帛",
+        "福德"
+      ],
+      "role": "basis",
+      "when": {
+        "all": [
+          {
+            "empty": {
+              "name": "福德"
+            }
+          },
+          {
+            "star": "天同",
+            "in": {
+              "name": "財帛"
+            }
+          },
+          {
+            "star": "太陰",
+            "in": {
+              "name": "財帛"
+            }
+          }
+        ]
+      },
+      "sources": [
+        "wtz.deep.p215.b010",
+        "wtz.deep.p429.b008",
+        "wtz.deep.p565.b006",
+        "wtz.deep.p565.b007"
+      ],
+      "explanation": "福德空宮的對宮是實坐同陰的財帛：可對讀資源與享用的關係，不能把財帛的主星與配曜直接改記成福德實坐。",
+      "conditions": [
+        "空福德借宮標記指向財帛同陰；借宮幾何由排盤契約核對，財福對讀由原書總論支持。"
+      ],
+      "exceptions": [
+        "215頁只支持機梁三合原有同陰結構，不是假稱原書有本樣本福德空宮專斷；未啟用福德同陰所有同度分支。"
+      ],
+      "borrow": {
+        "target": "福德",
+        "origin": "財帛",
+        "stars": [
+          "天同",
+          "太陰"
+        ]
+      }
+    },
+    {
+      "id": "jl-rest-art",
+      "groups": [
+        "jiliang"
+      ],
+      "title": "龍鳳會福：精神投入另有可讀線索",
+      "palaces": [
+        "命宮",
+        "財帛",
+        "福德"
+      ],
+      "role": "modifier",
+      "when": {
+        "all": [
+          {
+            "sanfangOf": {
+              "name": "福德"
+            },
+            "contains": "龍池"
+          },
+          {
+            "sanfangOf": {
+              "name": "福德"
+            },
+            "contains": "鳳閣"
+          }
+        ]
+      },
+      "sources": [
+        "wtz.deep.p565.b010"
+      ],
+      "explanation": "龍池鳳閣實際會福德，可增加文化、藝術趣味這類精神投入的線索。它是在補充滿足的來源，與財帛天福同天同的物質享用支持分開。",
+      "conditions": [
+        "龍池、鳳閣均實際在福德三方四正；本條以成對條件收窄一般總論。"
+      ],
+      "exceptions": [
+        "不測量智商、不保證藝術專業；不可把財帛左輔、天福移成福德同度。"
+      ]
+    }
+  ],
+  "threads": [
+    {
+      "id": "tl-work-money",
+      "family": "tongliang",
+      "title": "為何懂計劃，求財仍然費心",
+      "palaces": [
+        "命宮",
+        "官祿",
+        "財帛",
+        "福德"
+      ],
+      "requires": [
+        "tl-four-frame",
+        "tl-work-changing",
+        "tl-wealth-planning",
+        "tl-wealth-tongji"
+      ],
+      "reading": "同梁命宮先看感受與原則怎樣拿捏；落到工作，官祿天機對巨門，要應付變動與反覆思量；落到財帛，太陰要靠計劃累積，又確實會到命宮天同忌。這盤可以講清的，便是應變與累積都要花心力，而不是只寫懂規劃、有原則兩個優點。",
+      "exceptions": [
+        "這是四宮對讀的編輯綜合，並非原書有一句對本樣本的完整判詞；不預測轉工、收入或人生事件。"
+      ],
+      "sources": [
+        "wtz.deep.p004.b005",
+        "wtz.deep.p429.b008",
+        "wtz.deep.p517.b002",
+        "wtz.deep.p565.b007"
+      ]
+    },
+    {
+      "id": "tl-money-rest",
+      "family": "tongliang",
+      "title": "建立位置與得到休息是兩個進度",
+      "palaces": [
+        "官祿",
+        "財帛",
+        "福德"
+      ],
+      "requires": [
+        "tl-wealth-yanglu",
+        "tl-wealth-tongji",
+        "tl-rest-active"
+      ],
+      "reading": "財帛太陰會福德太陽祿，求財的次序可偏向先建立工作位置，再發展財路；但同忌會財，福德又有鈴星，不能把它讀成順勢就輕鬆。多做了一步、取得了一項成果，與心裡真的放得下，仍須分開理解。",
+      "exceptions": [
+        "原書任職再自創屬一般取向；是否創業與何時行動，還要看本批未處理的運限、其他宮位及現實條件。"
+      ],
+      "sources": [
+        "wtz.deep.p004.b005",
+        "wtz.deep.p429.b008",
+        "wtz.deep.p517.b002",
+        "wtz.deep.p565.b007"
+      ]
+    },
+    {
+      "id": "tf-role-resources",
+      "family": "tianfu",
+      "title": "管理資源與承擔權責接起來",
+      "palaces": [
+        "命宮",
+        "官祿",
+        "財帛"
+      ],
+      "requires": [
+        "tf-store",
+        "tf-career-role",
+        "tf-career-authority"
+      ],
+      "reading": "天府命宮有祿，是資源與庫藏的支持；官祿天相把它接成受託、協調與執行的責任。再會紫微權，職權與承擔可能比直接財利更突出，所以宜把能管理多少、承擔多少與最後實得分開講。",
+      "exceptions": [
+        "有祿不抹去夾宮、煞忌及整體格局牽制；職位高低、實際收入未由這幾條確定。"
+      ],
+      "sources": [
+        "wtz.deep.p004.b005",
+        "wtz.deep.p429.b008",
+        "wtz.deep.p517.b002",
+        "wtz.deep.p565.b007"
+      ]
+    },
+    {
+      "id": "tf-role-tech",
+      "family": "tianfu",
+      "title": "工作方向可以收窄到甚麼程度",
+      "palaces": [
+        "命宮",
+        "官祿"
+      ],
+      "requires": [
+        "tf-store",
+        "tf-career-role",
+        "tf-career-ke"
+      ],
+      "reading": "這盤不只可講穩定管理：卯宮天相連到命宮有祿的天府科，原書另有工程技術方向。可讀作在組織與資源管理中，較重技術、規範及可核對成果的工作線索；至於是否成為工程師、能走多遠，這一層仍未替現實作答。",
+      "exceptions": [
+        "此段是工作性質的編輯解說；原文工程技術取向不直接等同任何現代職稱。壬科輔佐眾多的總體調和仍未定。"
+      ],
+      "sources": [
+        "wtz.deep.p004.b005",
+        "wtz.deep.p429.b008",
+        "wtz.deep.p517.b002",
+        "wtz.deep.p565.b007"
+      ]
+    },
+    {
+      "id": "tf-money-satisfaction",
+      "family": "tianfu",
+      "title": "有庫可管，為何仍要另看滿足",
+      "palaces": [
+        "命宮",
+        "財帛",
+        "福德"
+      ],
+      "requires": [
+        "tf-store",
+        "tf-wealth-reference",
+        "tf-rest-wuji",
+        "tf-rest-wutan"
+      ],
+      "reading": "命宮天府有祿，講的是有資源支持管理與累積；財帛空宮借福德武貪，講求財的動力與享用追求連得很近。武曲忌實在福德，重點便轉到怎樣衡量足夠：擁有資源、追求更多與得到滿足，可以是三個不同的進度。",
+      "exceptions": [
+        "只用同一筆福德武曲忌作來源，沒有另外製造財帛本宮武忌；不推破產、疾病、實際消費行為或道德評價。"
+      ],
+      "sources": [
+        "wtz.deep.p004.b005",
+        "wtz.deep.p429.b008",
+        "wtz.deep.p517.b002",
+        "wtz.deep.p565.b007"
+      ]
+    },
+    {
+      "id": "jl-work-value",
+      "family": "jiliang",
+      "title": "表達是工作方式，同陰是求財取向",
+      "palaces": [
+        "命宮",
+        "官祿",
+        "財帛"
+      ],
+      "requires": [
+        "jl-four-frame",
+        "jl-career-reference",
+        "jl-wealth-tongyin",
+        "jl-wealth-assistant"
+      ],
+      "reading": "機梁命宮的機敏與原則，落到官祿是借陽巨的表達、解說與對外工作參照；落到財帛則是同陰的計劃、累積與享受性質需求，另有左輔助力。可以多講清的是如何把判斷說明白，再把它放進別人實際需要和願意使用的價值裡，並非一見陽巨就斷某種職業或靠口才必然得財。",
+      "exceptions": [
+        "現有樣本仍年少，這是本命工作與求財性質的示範，並非已發生的職場經歷或求職建議。"
+      ],
+      "sources": [
+        "wtz.deep.p004.b005",
+        "wtz.deep.p429.b008",
+        "wtz.deep.p517.b002",
+        "wtz.deep.p565.b007"
+      ]
+    },
+    {
+      "id": "jl-resources-rest",
+      "family": "jiliang",
+      "title": "可以享用，不等於自然有餘裕",
+      "palaces": [
+        "財帛",
+        "福德"
+      ],
+      "requires": [
+        "jl-wealth-tongyin",
+        "jl-rest-opposite",
+        "jl-rest-labor",
+        "jl-rest-art"
+      ],
+      "reading": "同陰實在財帛，福德空宮與它相對，資源和享用確實要一起看；但福德本宮擎羊的多勞不能省去。龍鳳會福又添了文化藝術趣味的線索，因此可分開講物質上的可享用、精神上的投入與是否有餘裕，而不是把整章收成安樂有福。",
+      "exceptions": [
+        "福德同陰只是對宮參照，財帛天福、左輔未搬入；未套用福德同陰所有同度及疾患分支。"
+      ],
+      "sources": [
+        "wtz.deep.p004.b005",
+        "wtz.deep.p429.b008",
+        "wtz.deep.p517.b002",
+        "wtz.deep.p565.b007"
+      ]
+    }
+  ],
+  "sources": {
+    "wtz.deep.p004.b005": {
+      "page": 4,
+      "section": "星曜論前言與十四正曜・篇首",
+      "sha256": "76c6485ab141484aa4b794f89893cc9e1f2eee87aebc64d7faedbce7cad441c5"
+    },
+    "wtz.deep.p020.b003": {
+      "page": 20,
+      "section": "天府",
+      "sha256": "c585896d0e691681da7ef01a5881a45de638ff93db8ea51f427e12de1ae26fa9"
+    },
+    "wtz.deep.p020.b004": {
+      "page": 20,
+      "section": "天府",
+      "sha256": "9be596fccb8841dd1f1164431531c68292169cc9eb86e47e5d9ed66c04611439"
+    },
+    "wtz.deep.p020.b005": {
+      "page": 20,
+      "section": "天府",
+      "sha256": "25fe1bd9a77562bb5632d47fcdb608bbedb9f43c7538318ea0626a155d1e26c2"
+    },
+    "wtz.deep.p087.b010": {
+      "page": 87,
+      "section": "天同天梁坐寅申",
+      "sha256": "c57f6253aeb45f7a4a3a76d8bdef1309eccb1bd02ece6e11c97fa2b4205c784a"
+    },
+    "wtz.deep.p087.b011": {
+      "page": 87,
+      "section": "天同天梁坐寅申",
+      "sha256": "1c615ee9866d1a87da0f308edc8d9878ec9491e1035ca949ba0e86da28658607"
+    },
+    "wtz.deep.p087.b012": {
+      "page": 87,
+      "section": "天同天梁坐寅申",
+      "sha256": "3c82addcdad0514a07edf41bb2324af9f45d22dc181f94d98bc451afa63f62b2"
+    },
+    "wtz.deep.p087.b013": {
+      "page": 87,
+      "section": "天同天梁坐寅申",
+      "sha256": "62574d10550460975cb80178c1e435bb3d1134146b6a6df8d060488965943f3d"
+    },
+    "wtz.deep.p201.b001": {
+      "page": 201,
+      "section": "天府獨坐巳亥",
+      "sha256": "f72716edda230df4ca577fb6bd766028e37cef2ac5a11c004977be9e4d03fba4"
+    },
+    "wtz.deep.p201.b007": {
+      "page": 201,
+      "section": "天府獨坐巳亥",
+      "sha256": "3a1be4e6ee30dc39d93e79a79b3ca5c6eb168d964f33ea064c7b623f69f69ce6"
+    },
+    "wtz.deep.p201.b008": {
+      "page": 201,
+      "section": "天府獨坐巳亥",
+      "sha256": "3a2a94833d4d3ed241189f9021d8f29473ca648e9d12191bf74d7ae32f7ae5dc"
+    },
+    "wtz.deep.p201.b009": {
+      "page": 201,
+      "section": "天府獨坐巳亥",
+      "sha256": "57187d541bd3d96c3388aca23eb2d1643f32e0c5ae95ec750a0f41798b43a6cd"
+    },
+    "wtz.deep.p215.b010": {
+      "page": 215,
+      "section": "天機天梁坐辰戌",
+      "sha256": "f33d3a6dcd46a337aa63bd13d581cf574cba61ad6b366f5eaf650a0e49294cfe"
+    },
+    "wtz.deep.p215.b011": {
+      "page": 215,
+      "section": "天機天梁坐辰戌",
+      "sha256": "3313c7e8117131eba015a449d9ed31b6a37182f08a674578ee9807ae3c3c9040"
+    },
+    "wtz.deep.p215.b012": {
+      "page": 215,
+      "section": "天機天梁坐辰戌",
+      "sha256": "342ad1e8aa003a4539e50833135d56afc09334ae09d022dd0ccbf4cb3f2f96ea"
+    },
+    "wtz.deep.p216.b001": {
+      "page": 216,
+      "section": "天機天梁坐辰戌",
+      "sha256": "2d2b007e78c42c753356b68912206a47e76a4b6346c24ef5846aab7dd1f4e40e"
+    },
+    "wtz.deep.p216.b002": {
+      "page": 216,
+      "section": "天機天梁坐辰戌",
+      "sha256": "ac9117d35838e3492ec79b014f7002637cc6d0dd7408c5f58f68576a86134ce7"
+    },
+    "wtz.deep.p429.b008": {
+      "page": 429,
+      "section": "財帛宮・篇首",
+      "sha256": "310fa7983c941a54c11029d01641766b62d1b6baee6f082a80503a6acf49d66e"
+    },
+    "wtz.deep.p430.b008": {
+      "page": 430,
+      "section": "財帛宮・篇首",
+      "sha256": "1eedee8fa3e639502da24c46aa9df4f8d7eddc6a46f4756dfe63d9b3325d593c"
+    },
+    "wtz.deep.p430.b009": {
+      "page": 430,
+      "section": "財帛宮・篇首",
+      "sha256": "0e23583a8ff50f7620b2250bf48f594a41195f6979c97c208da8851650f469ed"
+    },
+    "wtz.deep.p431.b005": {
+      "page": 431,
+      "section": "財帛宮・篇首",
+      "sha256": "711a10f5764a07df6d0aa8ee127373937e10a731bb9180a786c011f287beb91b"
+    },
+    "wtz.deep.p445.b011": {
+      "page": 445,
+      "section": "天同",
+      "sha256": "1b2f819ee55ec0e10fcb56d843a3a40ac20eaa8ced64e27941a315161f6e4c86"
+    },
+    "wtz.deep.p445.b012": {
+      "page": 445,
+      "section": "天同",
+      "sha256": "951473b1a1267f2a32a4ae488416b4e2ca18d59dfa831448a45d07b43f5bf7c3"
+    },
+    "wtz.deep.p445.b013": {
+      "page": 445,
+      "section": "天同",
+      "sha256": "18ad81151236a356767a1298580fba092061bc5d414ff1bedc6829be31ef30c7"
+    },
+    "wtz.deep.p451.b009": {
+      "page": 451,
+      "section": "太陰",
+      "sha256": "661c4f7eabd91494f3373ddce468e40bfba83792b747ec3c1c62ae8a578d4880"
+    },
+    "wtz.deep.p451.b010": {
+      "page": 451,
+      "section": "太陰",
+      "sha256": "9a9574aa7a1500c9bd096cde209efba7c09d7dbd00b4fde08659e035f105a715"
+    },
+    "wtz.deep.p451.b011": {
+      "page": 451,
+      "section": "太陰",
+      "sha256": "0df3f402732de72577191ea82730d5b37b410adad2b8de0cd25e6eb8675941b9"
+    },
+    "wtz.deep.p452.b008": {
+      "page": 452,
+      "section": "太陰",
+      "sha256": "9bd5fef8e9950e1a72d500714449ac9e7484f04e20bc7ea13a6a727ffb19eaa7"
+    },
+    "wtz.deep.p452.b009": {
+      "page": 452,
+      "section": "太陰",
+      "sha256": "740d9b9a91efb041fec0b42d05479b65cc7047280824497a5e8a7e2975ddbb4a"
+    },
+    "wtz.deep.p452.b010": {
+      "page": 452,
+      "section": "太陰",
+      "sha256": "b4ac9b36691087cd9896dbd78ea406bf1b8408b5b5a6ede9b1da66e136f96350"
+    },
+    "wtz.deep.p517.b002": {
+      "page": 517,
+      "section": "事業宮（官祿宮）・篇首",
+      "sha256": "c4ecf8cae024c5b060afbb87e48f42f4219095705759ea9241a8295be2b9966e"
+    },
+    "wtz.deep.p522.b005": {
+      "page": 522,
+      "section": "天機",
+      "sha256": "4ddbaaf03a3d3b366561c6be8c26267057f00dbf0f948d840efb17dd2e870fc4"
+    },
+    "wtz.deep.p522.b006": {
+      "page": 522,
+      "section": "天機",
+      "sha256": "cfb5b2e0c6f9c0281ec21abf6174e9b0c29e14e88b181cd30e56530af8265d7c"
+    },
+    "wtz.deep.p522.b011": {
+      "page": 522,
+      "section": "天機",
+      "sha256": "e5785757f7734db34297918ea6194ca6148f54afd3ecff3e9b2d0050de3067b1"
+    },
+    "wtz.deep.p523.b003": {
+      "page": 523,
+      "section": "天機",
+      "sha256": "3ce7d95e1a73d1f15d75c144b4f20b64146c13f2fbd01f29154d0428b5f9f031"
+    },
+    "wtz.deep.p523.b004": {
+      "page": 523,
+      "section": "天機",
+      "sha256": "5bd44d2a35d21f511fb2da022a8238364818acf92a5d4c63164239b4d5f40a6a"
+    },
+    "wtz.deep.p528.b008": {
+      "page": 528,
+      "section": "太陽",
+      "sha256": "bd5f75c42a358719e56555e5833c00dc5df91bedf6ebd1cf45c4f5ffeb085c17"
+    },
+    "wtz.deep.p528.b010": {
+      "page": 528,
+      "section": "太陽",
+      "sha256": "46e0da9c1b4341b68f5a806b6a779201584473d302742fb2b6d98142103a7143"
+    },
+    "wtz.deep.p528.b011": {
+      "page": 528,
+      "section": "太陽",
+      "sha256": "11e7a54af1830036cc44c7a1073cdea682a5df869e59ce1cdbf1c1762840a192"
+    },
+    "wtz.deep.p528.b012": {
+      "page": 528,
+      "section": "太陽",
+      "sha256": "f7033f99d389a682b2132e25f29bfb95150125306c1c5e7119bf7cd1ee8556ad"
+    },
+    "wtz.deep.p528.b013": {
+      "page": 528,
+      "section": "太陽",
+      "sha256": "0b302a3f30abd1adaf63cba59b1872b2d8bd7d1e810dfc16fb725dcab8d9ad54"
+    },
+    "wtz.deep.p543.b001": {
+      "page": 543,
+      "section": "巨門〔原提取標題為臣門，待核字形〕",
+      "sha256": "c54e021591a39be1a2bfbd0442611835ea8127b37b46a25397e5c8604dec63a8"
+    },
+    "wtz.deep.p544.b008": {
+      "page": 544,
+      "section": "天相",
+      "sha256": "bd75365c27a22f8a74e6c8afe7335f7540861c0ee97cb6a2060828ef1bc057f5"
+    },
+    "wtz.deep.p544.b014": {
+      "page": 544,
+      "section": "天相",
+      "sha256": "28ecdb1169b013acd057c5dd2e10e16803588274ee5b29eeb8919a2d4c7cf456"
+    },
+    "wtz.deep.p545.b005": {
+      "page": 545,
+      "section": "天相",
+      "sha256": "acaa019295cb4a22f79947148f26b2eae8530798af9a67538243dc9df95db9fd"
+    },
+    "wtz.deep.p545.b009": {
+      "page": 545,
+      "section": "天相",
+      "sha256": "81bd8e0f20f352be337285c79c8923d6504a9636ceb71fda197c9ff781d575bf"
+    },
+    "wtz.deep.p545.b010": {
+      "page": 545,
+      "section": "天相",
+      "sha256": "d5e478d86ae1865b80991eb07bc02af242848b81a103984cc560d6ed145e2b71"
+    },
+    "wtz.deep.p545.b015": {
+      "page": 545,
+      "section": "天相",
+      "sha256": "96c777752851ad343f634ee23a625dbf9b428a497395f7b42dae307482e72618"
+    },
+    "wtz.deep.p565.b006": {
+      "page": 565,
+      "section": "福德宮・篇首",
+      "sha256": "565df420f92168a6823d811daf282fc615a7e29fd574ea3de6670737ea7b56bf"
+    },
+    "wtz.deep.p565.b007": {
+      "page": 565,
+      "section": "福德宮・篇首",
+      "sha256": "3701a6d22e92eb9b995af25b2907f90859b77157ce2991a6d6df05820641dd2c"
+    },
+    "wtz.deep.p565.b009": {
+      "page": 565,
+      "section": "福德宮・篇首",
+      "sha256": "9a0b2a6d36285e0d33e337608b018c1bef90d5d625f4ab91510d1a774b52154b"
+    },
+    "wtz.deep.p565.b010": {
+      "page": 565,
+      "section": "福德宮・篇首",
+      "sha256": "cb243eb23cda7fb49b7418e2c0780797e1db204e4b53defaf1b2b962b6ba9461"
+    },
+    "wtz.deep.p569.b011": {
+      "page": 569,
+      "section": "太陽",
+      "sha256": "9394fe9599c7b028918f40cfc86ce38beae5c4e981b7a71f531eddbfe26edcc6"
+    },
+    "wtz.deep.p570.b002": {
+      "page": 570,
+      "section": "太陽",
+      "sha256": "daf096aa585d76a5546a8ef3b0336cc06a2b6b3a2417fd4a9a7827e4d0ec34a8"
+    },
+    "wtz.deep.p570.b003": {
+      "page": 570,
+      "section": "太陽",
+      "sha256": "d27abdbcc3201e81915dc8f6dee64b73681b2f35cb036ee59cd78e1fdb5a6d34"
+    },
+    "wtz.deep.p571.b002": {
+      "page": 571,
+      "section": "武曲",
+      "sha256": "92fa334503a51ac0cc7f8da3a342c1c06e8dcadebc57fa8cf658d84b301ad4ee"
+    },
+    "wtz.deep.p571.b003": {
+      "page": 571,
+      "section": "武曲",
+      "sha256": "f780e8536b567e1dc582f50129920ef32bac49d099eabc050b817d4225b8c9ec"
+    },
+    "wtz.deep.p571.b004": {
+      "page": 571,
+      "section": "武曲",
+      "sha256": "9db78daf676adcdddffb2ec8944f82bc08fc21d028549d2076b9d790864b5443"
+    },
+    "wtz.deep.p572.b003": {
+      "page": 572,
+      "section": "武曲",
+      "sha256": "d4f0268f332ce4ce9b95bdda828b929a00086fc240134d5a9237d1f5313ad8ec"
+    },
+    "wtz.deep.p576.b007": {
+      "page": 576,
+      "section": "貪狼",
+      "sha256": "6059001d5e2aea27247ab611ce5960511053c8548db9ec90f8bd12a0630a67ce"
+    }
+  },
+  "source_review": {
+    "method": "full related sections and neighbouring pages read; conditions manually selected, not keyword tags",
+    "sections": [
+      "deep.system.17",
+      "deep.system.55",
+      "deep.system.60",
+      "deep.wealth.intro",
+      "deep.wealth.太陰",
+      "deep.wealth.天同",
+      "deep.wealth.武曲",
+      "deep.wealth.貪狼",
+      "deep.career.intro",
+      "deep.career.天機",
+      "deep.career.天相",
+      "deep.career.太陽",
+      "deep.career.巨門",
+      "deep.wellbeing.intro",
+      "deep.wellbeing.太陽",
+      "deep.wellbeing.武曲",
+      "deep.wellbeing.貪狼",
+      "deep.wellbeing.天同",
+      "deep.wellbeing.太陰",
+      "page-4",
+      "page-20"
+    ],
+    "original_pages_viewed": [
+      452,
+      545,
+      571
+    ],
+    "issues": [
+      {
+        "source": "wtz.deep.p452.b009",
+        "note": "原頁亦見主宮而後貴；未默改為富，月祿分支未啟用。陽祿先貴而後富及任企業然後自創的句子可辨。"
+      },
+      {
+        "source": "wtz.deep.p571.b002",
+        "note": "原頁有福建省德宮的文字異常，按小節標題確認範圍為武曲福德；不以疑字另立規則。"
+      },
+      {
+        "source": "wtz.deep.p571.b003",
+        "note": "原頁仍有追求、富屋貧人及末句等疑字／異形；只採可辨的福德武曲化忌與追求財富影響精神享用，見煞、另見諸曜及命疾互核的前提保留，不輸出疾病或人格斷語。"
+      }
+    ]
+  },
+  "scope_notes": [
+    "只供同梁寅申、天府巳亥、機梁辰戌四宮本命試點；並非全盤總斷或完成全部P1。",
+    "原書定位／字詞吻合、盤上條件成立與語意支持分開；原文仍只存忽略的來源快取，這裡不另複製全文。",
+    "借宮只建立有來源的參照，原位星曜、四化及配曜的事實ID不增加；沒有吉煞點票或分數。",
+    "眾多、調和、日夜與原書廟陷等未核前保持待核；未實作星曜不是確認沒有。",
+    "跨宮正文是附原書來源與必要條件的編輯綜合，不假稱原文逐字判詞。",
+    "未納入夫妻互讀結論、田宅財產、大限流年或天地人盤變化；不推定事件、職稱、收入、醫療或投資結果。",
+    "網站與全書 writer 未接入本模組；P0、P1a、P1b輸出保持原版本。"
+  ]
+}

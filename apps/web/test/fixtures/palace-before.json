@@ -1,0 +1,2827 @@
+[
+  {
+    "id": "TL",
+    "input": {
+      "solar": {
+        "y": 1990,
+        "m": 3,
+        "d": 21
+      },
+      "time": {
+        "h": 14,
+        "min": 20
+      },
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      },
+      "sex": "female"
+    },
+    "seed": "sample",
+    "baseline": "a2e801464465dbef1a8a0bfd8e7d21e1085519bc",
+    "saved": [
+      {
+        "slug": "序",
+        "title": "序 · 你的命盤",
+        "text": "你出生的那一刻，在這裡換算成一張命盤。十二宮的位置由此定下，往後每一章，都從這張盤讀起。\n\n國曆一九九〇年三月二十一日，未時，生於香港。農曆庚午年二月廿五。\n\n五行局是水二局。命宮在申，身宮在戌。十二宮由此定位，往後每一章各讀其中一宮。\n\n這張盤依中州派（王亭之）的算法排出。出生時間已按出生地經度，校正為真太陽時。\n\n這張盤是屬於你的底圖，一生不變。往後翻開的每一章，讀的都是你自己。",
+        "slots": [
+          "章首",
+          "生辰",
+          "盤面",
+          "體系",
+          "留白"
+        ]
+      },
+      {
+        "slug": "命宮",
+        "text": "對你來說，生活裡的情趣與自己認定的原則，容易成為兩股互相牽制的力量。想照顧感受時，標準仍放不下；回到標準時，感受又未必能安頓。遇到去留與取捨，這種來回尤其值得留意。\n\n你的盤有天同化忌、羊陀相夾的特殊配合，這裡更需要留意兩邊難以兼顧的情況。單用重情趣或重紀律其中一面，未能說清這份拉扯。\n\n發展上，你的天同化忌與祿存同宮，又有火星同宮，按這組條件，工作與發展方向較容易反覆變動，安定受到牽動。祿存這項配合，要連同煞曜一起讀，不能單獨當作發展平穩的保證。\n\n例如一個安排原本令人期待，實行時卻碰到你不願讓步的原則，可以先分開寫下：你想保留哪一份感受、哪一條標準，以及目前能夠調整的部分。這是幫助理解的編輯例子，並不表示你曾經遇過這件事。\n\n接下來的「性格的骨架」，會交代這個判斷用了哪些盤面條件，以及哪些一般說法不能直接套進你的盤。",
+        "slots": [
+          "結論",
+          "展開",
+          "展開",
+          "情境",
+          "做法"
+        ],
+        "reading": {
+          "format": "ming-expanded-v1",
+          "writer": "reader-backed-v1",
+          "segments": [
+            {
+              "slot": "結論",
+              "text": "對你來說，生活裡的情趣與自己認定的原則，容易成為兩股互相牽制的力量。想照顧感受時，標準仍放不下；回到標準時，感受又未必能安頓。遇到去留與取捨，這種來回尤其值得留意。",
+              "heading": "想要的生活，與不願放下的原則",
+              "referenceConditions": [
+                "本命天同、天梁同坐寅申，天同化忌，且羊陀在前後兩宮相夾。",
+                "特殊相夾條件須優先保留；不能只按一般情趣或原則的偏向定性，也不能視為兩者已調和。"
+              ],
+              "statements": [
+                {
+                  "text": "對你來說，生活裡的情趣與自己認定的原則，容易成為兩股互相牽制的力量。想照顧感受時，標準仍放不下；回到標準時，感受又未必能安頓。遇到去留與取捨，這種來回尤其值得留意。",
+                  "en": "",
+                  "kind": "editorial-explanation",
+                  "source_ids": [
+                    "TL-M1"
+                  ],
+                  "citations": [
+                    "free.reading.v1:wtz.deep.p087.b011",
+                    "free.reading.v1:wtz.deep.p087.b014",
+                    "free.reading.v1:wtz.deep.p346.b006"
+                  ]
+                }
+              ]
+            },
+            {
+              "slot": "展開",
+              "text": "你的盤有天同化忌、羊陀相夾的特殊配合，這裡更需要留意兩邊難以兼顧的情況。單用重情趣或重紀律其中一面，未能說清這份拉扯。",
+              "heading": "這張盤，需要多看一層反覆",
+              "referenceConditions": [
+                "本命天同、天梁同坐寅申，天同化忌，且羊陀在前後兩宮相夾。",
+                "特殊相夾條件須優先保留；不能只按一般情趣或原則的偏向定性，也不能視為兩者已調和。"
+              ],
+              "statements": [
+                {
+                  "text": "你的盤有天同化忌、羊陀相夾的特殊配合，這裡更需要留意兩邊難以兼顧的情況。單用重情趣或重紀律其中一面，未能說清這份拉扯。",
+                  "en": "",
+                  "kind": "interpretation",
+                  "source_ids": [
+                    "TL-M2"
+                  ],
+                  "citations": [
+                    "free.reading.v1:wtz.deep.p087.b012",
+                    "free.reading.v1:wtz.deep.p087.b013",
+                    "free.reading.v1:wtz.deep.p087.b014"
+                  ]
+                }
+              ]
+            },
+            {
+              "slot": "展開",
+              "text": "發展上，你的天同化忌與祿存同宮，又有火星同宮，按這組條件，工作與發展方向較容易反覆變動，安定受到牽動。祿存這項配合，要連同煞曜一起讀，不能單獨當作發展平穩的保證。",
+              "referenceConditions": [
+                "本段採用本命同梁、天同化忌，祿存與火星均在命宮同度的分支。",
+                "原書先要求祿存同度或對拱，再分是否有火鈴空劫同度；本盤有火星，不能取無煞分支，也不預告必然換工作。"
+              ],
+              "statements": [
+                {
+                  "text": "發展上，你的天同化忌與祿存同宮，又有火星同宮，按這組條件，工作與發展方向較容易反覆變動，安定受到牽動。祿存這項配合，要連同煞曜一起讀，不能單獨當作發展平穩的保證。",
+                  "en": "",
+                  "kind": "interpretation",
+                  "source_ids": [
+                    "TL-M3"
+                  ],
+                  "citations": [
+                    "free.reading.v1:wtz.deep.p309.b002",
+                    "free.reading.v1:wtz.deep.p309.b003",
+                    "free.reading.v1:wtz.deep.p016.b006",
+                    "free.reading.v1:wtz.deep.p016.b007"
+                  ]
+                }
+              ]
+            },
+            {
+              "slot": "情境",
+              "text": "例如一個安排原本令人期待，實行時卻碰到你不願讓步的原則，可以先分開寫下：你想保留哪一份感受、哪一條標準，以及目前能夠調整的部分。這是幫助理解的編輯例子，並不表示你曾經遇過這件事。",
+              "heading": "可以怎樣對照生活",
+              "statements": [
+                {
+                  "text": "例如一個安排原本令人期待，實行時卻碰到你不願讓步的原則，可以先分開寫下：你想保留哪一份感受、哪一條標準，以及目前能夠調整的部分。這是幫助理解的編輯例子，並不表示你曾經遇過這件事。",
+                  "en": "",
+                  "kind": "editorial-example",
+                  "source_ids": [
+                    "TL-M4"
+                  ],
+                  "citations": []
+                }
+              ]
+            },
+            {
+              "slot": "做法",
+              "text": "接下來的「性格的骨架」，會交代這個判斷用了哪些盤面條件，以及哪些一般說法不能直接套進你的盤。",
+              "statements": [
+                {
+                  "text": "接下來的「性格的骨架」，會交代這個判斷用了哪些盤面條件，以及哪些一般說法不能直接套進你的盤。",
+                  "en": "",
+                  "kind": "editorial-advice",
+                  "source_ids": [
+                    "TL-M5"
+                  ],
+                  "citations": []
+                }
+              ]
+            }
+          ],
+          "international": {
+            "text": "天同天梁在寅申同宮，對宮沒有主星，會天機與太陰，構成機月同梁的組合。\n\n相較於以天機、太陰為命宮的機月同梁，王亭之把天同、天梁守命的這一組寫得較穩定。\n\n讀這一組星的性格，要分清重情趣、帶浪漫的一面，與講原則、重紀律的一面；兩者有明顯分別。\n\n這個分野會影響去留與進退，因此同樣是天同天梁，面對取捨時所看重的事情也可以不同。\n\n天同主情緒，天梁主原則，兩者同宮，感受與標準之間仍難免有矛盾。\n\n結構較穩定，並不表示內在就沒有衝突；原書把穩定與矛盾放在同一段講，兩面都要保留。\n\n不過，情趣與原則也有調和的可能，這個組合並不只得兩邊互相拉扯一種樣貌。\n\n要看兩邊如何配合，還須連同會合的輔佐、煞曜、四化與雜曜一起判斷，不能只取其中一面就定下整體性格。\n\n原書談天同天梁與輔弼、昌曲同度時，便特別提到浪漫色彩與原則紀律可以調和；這種調和有其配合條件。\n\n本質：你的命宮是天同、天梁同坐申宮。",
+            "slots": [
+              "結論",
+              "展開",
+              "展開",
+              "展開",
+              "展開",
+              "展開",
+              "展開",
+              "展開",
+              "展開",
+              "因為"
+            ]
+          },
+          "internationalSnapshot": {
+            "text": "天同天梁在寅申同宮，對宮沒有主星，會天機與太陰，構成機月同梁的組合。\n\n相較於以天機、太陰為命宮的機月同梁，王亭之把天同、天梁守命的這一組寫得較穩定。\n\n讀這一組星的性格，要分清重情趣、帶浪漫的一面，與講原則、重紀律的一面；兩者有明顯分別。\n\n這個分野會影響去留與進退，因此同樣是天同天梁，面對取捨時所看重的事情也可以不同。\n\n天同主情緒，天梁主原則，兩者同宮，感受與標準之間仍難免有矛盾。\n\n結構較穩定，並不表示內在就沒有衝突；原書把穩定與矛盾放在同一段講，兩面都要保留。\n\n不過，情趣與原則也有調和的可能，這個組合並不只得兩邊互相拉扯一種樣貌。\n\n要看兩邊如何配合，還須連同會合的輔佐、煞曜、四化與雜曜一起判斷，不能只取其中一面就定下整體性格。\n\n原書談天同天梁與輔弼、昌曲同度時，便特別提到浪漫色彩與原則紀律可以調和；這種調和有其配合條件。\n\n本質：你的命宮是天同、天梁同坐申宮。",
+            "slots": [
+              "結論",
+              "展開",
+              "展開",
+              "展開",
+              "展開",
+              "展開",
+              "展開",
+              "展開",
+              "展開",
+              "因為"
+            ],
+            "reading": {
+              "format": "ming-expanded-v1",
+              "writer": "sentence-backed-v1",
+              "segments": [
+                {
+                  "slot": "結論",
+                  "text": "天同天梁在寅申同宮，對宮沒有主星，會天機與太陰，構成機月同梁的組合。",
+                  "en": "Tian Tong and Tian Liang share Yin or Shen, with an empty opposing palace and Tian Ji and Tai Yin in the trine.",
+                  "topic": "本質",
+                  "heading": "盤面與底色",
+                  "source_id": "card.ming.tongliang-yinshen.core",
+                  "source_ids": [
+                    "card.ming.tongliang-yinshen.core"
+                  ],
+                  "citations": [
+                    "ming.backed:card.ming.tongliang-yinshen.core:0"
+                  ],
+                  "statements": [
+                    {
+                      "text": "天同天梁在寅申同宮，對宮沒有主星，會天機與太陰，構成機月同梁的組合。",
+                      "en": "Tian Tong and Tian Liang share Yin or Shen, with an empty opposing palace and Tian Ji and Tai Yin in the trine.",
+                      "kind": "interpretation",
+                      "source_ids": [
+                        "card.ming.tongliang-yinshen.core"
+                      ],
+                      "citations": [
+                        "ming.backed:card.ming.tongliang-yinshen.core:0"
+                      ]
+                    }
+                  ],
+                  "rule_ids": []
+                },
+                {
+                  "slot": "展開",
+                  "text": "相較於以天機、太陰為命宮的機月同梁，王亭之把天同、天梁守命的這一組寫得較穩定。",
+                  "en": "The source describes this configuration as more stable than the related configuration headed by Tian Ji and Tai Yin.",
+                  "topic": "本質",
+                  "source_id": "card.ming.tongliang-yinshen.core",
+                  "source_ids": [
+                    "card.ming.tongliang-yinshen.core"
+                  ],
+                  "citations": [
+                    "ming.backed:card.ming.tongliang-yinshen.core:1"
+                  ],
+                  "statements": [
+                    {
+                      "text": "相較於以天機、太陰為命宮的機月同梁，王亭之把天同、天梁守命的這一組寫得較穩定。",
+                      "en": "The source describes this configuration as more stable than the related configuration headed by Tian Ji and Tai Yin.",
+                      "kind": "interpretation",
+                      "source_ids": [
+                        "card.ming.tongliang-yinshen.core"
+                      ],
+                      "citations": [
+                        "ming.backed:card.ming.tongliang-yinshen.core:1"
+                      ]
+                    }
+                  ],
+                  "rule_ids": []
+                },
+                {
+                  "slot": "展開",
+                  "text": "讀這一組星的性格，要分清重情趣、帶浪漫的一面，與講原則、重紀律的一面；兩者有明顯分別。",
+                  "en": "Its character is read through the distinction between enjoyment or romance and principles or discipline.",
+                  "topic": "本質",
+                  "heading": "情趣與原則怎樣相遇",
+                  "source_id": "card.ming.tongliang-yinshen.core",
+                  "source_ids": [
+                    "card.ming.tongliang-yinshen.core"
+                  ],
+                  "citations": [
+                    "ming.backed:card.ming.tongliang-yinshen.core:2"
+                  ],
+                  "statements": [
+                    {
+                      "text": "讀這一組星的性格，要分清重情趣、帶浪漫的一面，與講原則、重紀律的一面；兩者有明顯分別。",
+                      "en": "Its character is read through the distinction between enjoyment or romance and principles or discipline.",
+                      "kind": "interpretation",
+                      "source_ids": [
+                        "card.ming.tongliang-yinshen.core"
+                      ],
+                      "citations": [
+                        "ming.backed:card.ming.tongliang-yinshen.core:2"
+                      ]
+                    }
+                  ],
+                  "rule_ids": []
+                },
+                {
+                  "slot": "展開",
+                  "text": "這個分野會影響去留與進退，因此同樣是天同天梁，面對取捨時所看重的事情也可以不同。",
+                  "en": "That distinction affects decisions to stay or leave, so the same pair does not imply identical priorities.",
+                  "topic": "本質",
+                  "source_id": "card.ming.tongliang-yinshen.core",
+                  "source_ids": [
+                    "card.ming.tongliang-yinshen.core"
+                  ],
+                  "citations": [
+                    "ming.backed:card.ming.tongliang-yinshen.core:3"
+                  ],
+                  "statements": [
+                    {
+                      "text": "這個分野會影響去留與進退，因此同樣是天同天梁，面對取捨時所看重的事情也可以不同。",
+                      "en": "That distinction affects decisions to stay or leave, so the same pair does not imply identical priorities.",
+                      "kind": "interpretation",
+                      "source_ids": [
+                        "card.ming.tongliang-yinshen.core"
+                      ],
+                      "citations": [
+                        "ming.backed:card.ming.tongliang-yinshen.core:3"
+                      ]
+                    }
+                  ],
+                  "rule_ids": []
+                },
+                {
+                  "slot": "展開",
+                  "text": "天同主情緒，天梁主原則，兩者同宮，感受與標準之間仍難免有矛盾。",
+                  "en": "Tian Tong concerns emotion and Tian Liang principle, so sharing a palace still allows conflict between feeling and standards.",
+                  "topic": "本質",
+                  "source_id": "card.ming.tongliang-yinshen.core",
+                  "source_ids": [
+                    "card.ming.tongliang-yinshen.core"
+                  ],
+                  "citations": [
+                    "ming.backed:card.ming.tongliang-yinshen.core:4"
+                  ],
+                  "statements": [
+                    {
+                      "text": "天同主情緒，天梁主原則，兩者同宮，感受與標準之間仍難免有矛盾。",
+                      "en": "Tian Tong concerns emotion and Tian Liang principle, so sharing a palace still allows conflict between feeling and standards.",
+                      "kind": "interpretation",
+                      "source_ids": [
+                        "card.ming.tongliang-yinshen.core"
+                      ],
+                      "citations": [
+                        "ming.backed:card.ming.tongliang-yinshen.core:4"
+                      ]
+                    }
+                  ],
+                  "rule_ids": []
+                },
+                {
+                  "slot": "展開",
+                  "text": "結構較穩定，並不表示內在就沒有衝突；原書把穩定與矛盾放在同一段講，兩面都要保留。",
+                  "en": "Structural stability does not remove inner conflict; both qualities appear in the same source passage.",
+                  "topic": "本質",
+                  "source_id": "card.ming.tongliang-yinshen.core",
+                  "source_ids": [
+                    "card.ming.tongliang-yinshen.core"
+                  ],
+                  "citations": [
+                    "ming.backed:card.ming.tongliang-yinshen.core:5"
+                  ],
+                  "statements": [
+                    {
+                      "text": "結構較穩定，並不表示內在就沒有衝突；原書把穩定與矛盾放在同一段講，兩面都要保留。",
+                      "en": "Structural stability does not remove inner conflict; both qualities appear in the same source passage.",
+                      "kind": "interpretation",
+                      "source_ids": [
+                        "card.ming.tongliang-yinshen.core"
+                      ],
+                      "citations": [
+                        "ming.backed:card.ming.tongliang-yinshen.core:5"
+                      ]
+                    }
+                  ],
+                  "rule_ids": []
+                },
+                {
+                  "slot": "展開",
+                  "text": "不過，情趣與原則也有調和的可能，這個組合並不只得兩邊互相拉扯一種樣貌。",
+                  "en": "Enjoyment and principle can also be reconciled; conflict is not the only form of this combination.",
+                  "topic": "本質",
+                  "heading": "調和的可能與條件",
+                  "source_id": "card.ming.tongliang-yinshen.core",
+                  "source_ids": [
+                    "card.ming.tongliang-yinshen.core"
+                  ],
+                  "citations": [
+                    "ming.backed:card.ming.tongliang-yinshen.core:6"
+                  ],
+                  "statements": [
+                    {
+                      "text": "不過，情趣與原則也有調和的可能，這個組合並不只得兩邊互相拉扯一種樣貌。",
+                      "en": "Enjoyment and principle can also be reconciled; conflict is not the only form of this combination.",
+                      "kind": "interpretation",
+                      "source_ids": [
+                        "card.ming.tongliang-yinshen.core"
+                      ],
+                      "citations": [
+                        "ming.backed:card.ming.tongliang-yinshen.core:6"
+                      ]
+                    }
+                  ],
+                  "rule_ids": []
+                },
+                {
+                  "slot": "展開",
+                  "text": "要看兩邊如何配合，還須連同會合的輔佐、煞曜、四化與雜曜一起判斷，不能只取其中一面就定下整體性格。",
+                  "en": "Their relationship depends on supporting stars, malefics, transformations and other accompanying stars, rather than one side alone.",
+                  "topic": "本質",
+                  "source_id": "card.ming.tongliang-yinshen.core",
+                  "source_ids": [
+                    "card.ming.tongliang-yinshen.core"
+                  ],
+                  "citations": [
+                    "ming.backed:card.ming.tongliang-yinshen.core:7"
+                  ],
+                  "statements": [
+                    {
+                      "text": "要看兩邊如何配合，還須連同會合的輔佐、煞曜、四化與雜曜一起判斷，不能只取其中一面就定下整體性格。",
+                      "en": "Their relationship depends on supporting stars, malefics, transformations and other accompanying stars, rather than one side alone.",
+                      "kind": "interpretation",
+                      "source_ids": [
+                        "card.ming.tongliang-yinshen.core"
+                      ],
+                      "citations": [
+                        "ming.backed:card.ming.tongliang-yinshen.core:7"
+                      ]
+                    }
+                  ],
+                  "rule_ids": []
+                },
+                {
+                  "slot": "展開",
+                  "text": "原書談天同天梁與輔弼、昌曲同度時，便特別提到浪漫色彩與原則紀律可以調和；這種調和有其配合條件。",
+                  "en": "The source gives Tian Tong and Tian Liang with the assistants and literary stars sharing their palace as a conditional example of reconciliation.",
+                  "topic": "本質",
+                  "source_id": "card.ming.tongliang-yinshen.core",
+                  "source_ids": [
+                    "card.ming.tongliang-yinshen.core"
+                  ],
+                  "citations": [
+                    "ming.backed:card.ming.tongliang-yinshen.core:8"
+                  ],
+                  "statements": [
+                    {
+                      "text": "原書談天同天梁與輔弼、昌曲同度時，便特別提到浪漫色彩與原則紀律可以調和；這種調和有其配合條件。",
+                      "en": "The source gives Tian Tong and Tian Liang with the assistants and literary stars sharing their palace as a conditional example of reconciliation.",
+                      "kind": "interpretation",
+                      "source_ids": [
+                        "card.ming.tongliang-yinshen.core"
+                      ],
+                      "citations": [
+                        "ming.backed:card.ming.tongliang-yinshen.core:8"
+                      ]
+                    }
+                  ],
+                  "rule_ids": []
+                },
+                {
+                  "slot": "因為",
+                  "text": "本質：你的命宮是天同、天梁同坐申宮。",
+                  "en": "Who you are: your Life Palace holds Tian Tong and Tian Liang in the Shen position.",
+                  "topic": "本質",
+                  "source_id": "card.ming.tongliang-yinshen.core",
+                  "source_ids": [],
+                  "citations": [],
+                  "statements": [
+                    {
+                      "text": "你的命宮是天同、天梁同坐申宮",
+                      "en": "your Life Palace holds Tian Tong and Tian Liang in the Shen position",
+                      "kind": "evidence",
+                      "source_ids": [],
+                      "citations": []
+                    }
+                  ],
+                  "rule_ids": [],
+                  "heading": "盤面與出處"
+                }
+              ],
+              "international": {
+                "text": "你平日和緩、不爭先，但遇到不公或有人有難，就會站出來。要留意的是，你想安頓下來，舒服的條件卻常常湊不齊，事情容易拖著。\n\n你的命宮坐天同、天梁。\n\n天同的課題不在苦，在動力——舒服本身會削弱移動的理由。所以你往往能力不差而起步偏晚，需要一點外來的推力才離開已經夠好的位置。有一點壓力，對你反而是好事。天梁在命的基調是出面，遇到不公會說話，遇到有難的人會接。它有一套自己認定的標準，而且相當堅持。天同化忌，想安頓而安頓不下，舒服的條件恰好最缺。它的形狀是拖而不是痛。\n\n加上火星同宮，性急，起手快；熱度來得猛，退得也快。\n\n平日在團隊裡你隨和好相處，很少搶位置；可是看見有人受委屈、事情不合理，你會第一個開口，事後還替人收拾。",
+                "slots": [
+                  "結論",
+                  "開場",
+                  "結構",
+                  "擾動",
+                  "生活"
+                ]
+              },
+              "localized": {
+                "version": "ming-translations-v1",
+                "en": [
+                  {
+                    "slot": "結論",
+                    "text": "Tian Tong and Tian Liang share Yin or Shen, with no major star in the opposite palace, and meet Tian Ji and Tai Yin to form the Ji Yue Tong Liang configuration.",
+                    "heading": "The pattern and its foundations",
+                    "statements": [
+                      {
+                        "text": "Tian Tong and Tian Liang share Yin or Shen, with no major star in the opposite palace, and meet Tian Ji and Tai Yin to form the Ji Yue Tong Liang configuration.",
+                        "en": "Tian Tong and Tian Liang share Yin or Shen, with no major star in the opposite palace, and meet Tian Ji and Tai Yin to form the Ji Yue Tong Liang configuration.",
+                        "kind": "interpretation",
+                        "source_ids": [
+                          "card.ming.tongliang-yinshen.core"
+                        ],
+                        "citations": [
+                          "ming.backed:card.ming.tongliang-yinshen.core:0"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "slot": "展開",
+                    "text": "Wang Tingzhi describes this Tian Tong–Tian Liang configuration as more stable than the related Ji Yue Tong Liang configuration with Tian Ji and Tai Yin in the Life Palace.",
+                    "statements": [
+                      {
+                        "text": "Wang Tingzhi describes this Tian Tong–Tian Liang configuration as more stable than the related Ji Yue Tong Liang configuration with Tian Ji and Tai Yin in the Life Palace.",
+                        "en": "Wang Tingzhi describes this Tian Tong–Tian Liang configuration as more stable than the related Ji Yue Tong Liang configuration with Tian Ji and Tai Yin in the Life Palace.",
+                        "kind": "interpretation",
+                        "source_ids": [
+                          "card.ming.tongliang-yinshen.core"
+                        ],
+                        "citations": [
+                          "ming.backed:card.ming.tongliang-yinshen.core:1"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "slot": "展開",
+                    "text": "Its character is read through the distinction between enjoyment or romance and principles or discipline.",
+                    "heading": "Where enjoyment meets principle",
+                    "statements": [
+                      {
+                        "text": "Its character is read through the distinction between enjoyment or romance and principles or discipline.",
+                        "en": "Its character is read through the distinction between enjoyment or romance and principles or discipline.",
+                        "kind": "interpretation",
+                        "source_ids": [
+                          "card.ming.tongliang-yinshen.core"
+                        ],
+                        "citations": [
+                          "ming.backed:card.ming.tongliang-yinshen.core:2"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "slot": "展開",
+                    "text": "That distinction affects decisions to stay or leave, so the same pair does not imply identical priorities.",
+                    "statements": [
+                      {
+                        "text": "That distinction affects decisions to stay or leave, so the same pair does not imply identical priorities.",
+                        "en": "That distinction affects decisions to stay or leave, so the same pair does not imply identical priorities.",
+                        "kind": "interpretation",
+                        "source_ids": [
+                          "card.ming.tongliang-yinshen.core"
+                        ],
+                        "citations": [
+                          "ming.backed:card.ming.tongliang-yinshen.core:3"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "slot": "展開",
+                    "text": "Tian Tong concerns emotion and Tian Liang principle, so sharing a palace still allows conflict between feeling and standards.",
+                    "statements": [
+                      {
+                        "text": "Tian Tong concerns emotion and Tian Liang principle, so sharing a palace still allows conflict between feeling and standards.",
+                        "en": "Tian Tong concerns emotion and Tian Liang principle, so sharing a palace still allows conflict between feeling and standards.",
+                        "kind": "interpretation",
+                        "source_ids": [
+                          "card.ming.tongliang-yinshen.core"
+                        ],
+                        "citations": [
+                          "ming.backed:card.ming.tongliang-yinshen.core:4"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "slot": "展開",
+                    "text": "Structural stability does not remove inner conflict; both qualities appear in the same source passage.",
+                    "statements": [
+                      {
+                        "text": "Structural stability does not remove inner conflict; both qualities appear in the same source passage.",
+                        "en": "Structural stability does not remove inner conflict; both qualities appear in the same source passage.",
+                        "kind": "interpretation",
+                        "source_ids": [
+                          "card.ming.tongliang-yinshen.core"
+                        ],
+                        "citations": [
+                          "ming.backed:card.ming.tongliang-yinshen.core:5"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "slot": "展開",
+                    "text": "Enjoyment and principle can also be reconciled; conflict is not the only form of this combination.",
+                    "heading": "The possibility and conditions of balance",
+                    "statements": [
+                      {
+                        "text": "Enjoyment and principle can also be reconciled; conflict is not the only form of this combination.",
+                        "en": "Enjoyment and principle can also be reconciled; conflict is not the only form of this combination.",
+                        "kind": "interpretation",
+                        "source_ids": [
+                          "card.ming.tongliang-yinshen.core"
+                        ],
+                        "citations": [
+                          "ming.backed:card.ming.tongliang-yinshen.core:6"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "slot": "展開",
+                    "text": "How the two sides work together also depends on supporting stars, malefics, the four transformations and miscellaneous stars; one side alone cannot determine the whole character.",
+                    "statements": [
+                      {
+                        "text": "How the two sides work together also depends on supporting stars, malefics, the four transformations and miscellaneous stars; one side alone cannot determine the whole character.",
+                        "en": "How the two sides work together also depends on supporting stars, malefics, the four transformations and miscellaneous stars; one side alone cannot determine the whole character.",
+                        "kind": "interpretation",
+                        "source_ids": [
+                          "card.ming.tongliang-yinshen.core"
+                        ],
+                        "citations": [
+                          "ming.backed:card.ming.tongliang-yinshen.core:7"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "slot": "展開",
+                    "text": "When Tian Tong and Tian Liang share their palace with Zuo Fu and You Bi or Wen Chang and Wen Qu, the source describes a possible reconciliation of romance with principle and discipline; that reconciliation has accompanying conditions.",
+                    "statements": [
+                      {
+                        "text": "When Tian Tong and Tian Liang share their palace with Zuo Fu and You Bi or Wen Chang and Wen Qu, the source describes a possible reconciliation of romance with principle and discipline; that reconciliation has accompanying conditions.",
+                        "en": "When Tian Tong and Tian Liang share their palace with Zuo Fu and You Bi or Wen Chang and Wen Qu, the source describes a possible reconciliation of romance with principle and discipline; that reconciliation has accompanying conditions.",
+                        "kind": "interpretation",
+                        "source_ids": [
+                          "card.ming.tongliang-yinshen.core"
+                        ],
+                        "citations": [
+                          "ming.backed:card.ming.tongliang-yinshen.core:8"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "slot": "因為",
+                    "text": "Who you are: your Life Palace holds Tian Tong and Tian Liang in the Shen position.",
+                    "heading": "What the chart shows",
+                    "statements": [
+                      {
+                        "text": "your Life Palace holds Tian Tong and Tian Liang in the Shen position",
+                        "en": "your Life Palace holds Tian Tong and Tian Liang in the Shen position",
+                        "kind": "evidence",
+                        "source_ids": [],
+                        "citations": []
+                      }
+                    ]
+                  }
+                ],
+                "ja": [
+                  {
+                    "slot": "結論",
+                    "text": "天同・天梁が寅か申で同宮し、向かいの宮には主星がなく、天機・太陰と会合して機月同梁の組み合わせを成します。",
+                    "heading": "星の配置と基本の性質",
+                    "statements": [
+                      {
+                        "text": "天同・天梁が寅か申で同宮し、向かいの宮には主星がなく、天機・太陰と会合して機月同梁の組み合わせを成します。",
+                        "en": "Tian Tong and Tian Liang share Yin or Shen, with an empty opposing palace and Tian Ji and Tai Yin in the trine.",
+                        "kind": "interpretation",
+                        "source_ids": [
+                          "card.ming.tongliang-yinshen.core"
+                        ],
+                        "citations": [
+                          "ming.backed:card.ming.tongliang-yinshen.core:0"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "slot": "展開",
+                    "text": "王亭之は、同じ機月同梁でも、天機・太陰が命宮に入る配置より、天同・天梁が命宮に入るこの配置を比較的安定したものと説明しています。",
+                    "statements": [
+                      {
+                        "text": "王亭之は、同じ機月同梁でも、天機・太陰が命宮に入る配置より、天同・天梁が命宮に入るこの配置を比較的安定したものと説明しています。",
+                        "en": "The source describes this configuration as more stable than the related configuration headed by Tian Ji and Tai Yin.",
+                        "kind": "interpretation",
+                        "source_ids": [
+                          "card.ming.tongliang-yinshen.core"
+                        ],
+                        "citations": [
+                          "ming.backed:card.ming.tongliang-yinshen.core:1"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "slot": "展開",
+                    "text": "この組み合わせの性格を読む際は、情趣やロマンを重んじる面と、原則や規律を重んじる面を分けて捉える必要があり、両者には明確な違いがあります。",
+                    "heading": "情趣と原則の交わり",
+                    "statements": [
+                      {
+                        "text": "この組み合わせの性格を読む際は、情趣やロマンを重んじる面と、原則や規律を重んじる面を分けて捉える必要があり、両者には明確な違いがあります。",
+                        "en": "Its character is read through the distinction between enjoyment or romance and principles or discipline.",
+                        "kind": "interpretation",
+                        "source_ids": [
+                          "card.ming.tongliang-yinshen.core"
+                        ],
+                        "citations": [
+                          "ming.backed:card.ming.tongliang-yinshen.core:2"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "slot": "展開",
+                    "text": "この違いは、とどまるか離れるか、進むか退くかにも関わるため、同じ天同・天梁でも、選択の際に重んじるものは異なり得ます。",
+                    "statements": [
+                      {
+                        "text": "この違いは、とどまるか離れるか、進むか退くかにも関わるため、同じ天同・天梁でも、選択の際に重んじるものは異なり得ます。",
+                        "en": "That distinction affects decisions to stay or leave, so the same pair does not imply identical priorities.",
+                        "kind": "interpretation",
+                        "source_ids": [
+                          "card.ming.tongliang-yinshen.core"
+                        ],
+                        "citations": [
+                          "ming.backed:card.ming.tongliang-yinshen.core:3"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "slot": "展開",
+                    "text": "天同は感情、天梁は原則を表し、同じ宮にあっても、気持ちと判断の基準とのあいだに矛盾が生じることはあります。",
+                    "statements": [
+                      {
+                        "text": "天同は感情、天梁は原則を表し、同じ宮にあっても、気持ちと判断の基準とのあいだに矛盾が生じることはあります。",
+                        "en": "Tian Tong concerns emotion and Tian Liang principle, so sharing a palace still allows conflict between feeling and standards.",
+                        "kind": "interpretation",
+                        "source_ids": [
+                          "card.ming.tongliang-yinshen.core"
+                        ],
+                        "citations": [
+                          "ming.backed:card.ming.tongliang-yinshen.core:4"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "slot": "展開",
+                    "text": "構造が比較的安定していても内面の衝突がなくなるわけではなく、原著も同じ段落で両方を述べているため、どちらも残して読む必要があります。",
+                    "statements": [
+                      {
+                        "text": "構造が比較的安定していても内面の衝突がなくなるわけではなく、原著も同じ段落で両方を述べているため、どちらも残して読む必要があります。",
+                        "en": "Structural stability does not remove inner conflict; both qualities appear in the same source passage.",
+                        "kind": "interpretation",
+                        "source_ids": [
+                          "card.ming.tongliang-yinshen.core"
+                        ],
+                        "citations": [
+                          "ming.backed:card.ming.tongliang-yinshen.core:5"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "slot": "展開",
+                    "text": "一方、情趣と原則が調和する可能性もあり、この組み合わせの姿は、両者が引っ張り合うものだけではありません。",
+                    "heading": "調和の可能性と条件",
+                    "statements": [
+                      {
+                        "text": "一方、情趣と原則が調和する可能性もあり、この組み合わせの姿は、両者が引っ張り合うものだけではありません。",
+                        "en": "Enjoyment and principle can also be reconciled; conflict is not the only form of this combination.",
+                        "kind": "interpretation",
+                        "source_ids": [
+                          "card.ming.tongliang-yinshen.core"
+                        ],
+                        "citations": [
+                          "ming.backed:card.ming.tongliang-yinshen.core:6"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "slot": "展開",
+                    "text": "両者の関係は、会合する補佐の星、煞、四化、雑曜も合わせて判断する必要があり、一方だけで性格全体を決めることはできません。",
+                    "statements": [
+                      {
+                        "text": "両者の関係は、会合する補佐の星、煞、四化、雑曜も合わせて判断する必要があり、一方だけで性格全体を決めることはできません。",
+                        "en": "Their relationship depends on supporting stars, malefics, transformations and other accompanying stars, rather than one side alone.",
+                        "kind": "interpretation",
+                        "source_ids": [
+                          "card.ming.tongliang-yinshen.core"
+                        ],
+                        "citations": [
+                          "ming.backed:card.ming.tongliang-yinshen.core:7"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "slot": "展開",
+                    "text": "原著は天同・天梁に左輔・右弼や文昌・文曲が同宮する場合、ロマンと原則・規律が調和し得ると述べており、その調和には配置の条件があります。",
+                    "statements": [
+                      {
+                        "text": "原著は天同・天梁に左輔・右弼や文昌・文曲が同宮する場合、ロマンと原則・規律が調和し得ると述べており、その調和には配置の条件があります。",
+                        "en": "The source gives Tian Tong and Tian Liang with the assistants and literary stars sharing their palace as a conditional example of reconciliation.",
+                        "kind": "interpretation",
+                        "source_ids": [
+                          "card.ming.tongliang-yinshen.core"
+                        ],
+                        "citations": [
+                          "ming.backed:card.ming.tongliang-yinshen.core:8"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "slot": "因為",
+                    "text": "性質：あなたの命宮は申の宮にあり、天同・天梁が入っています。",
+                    "heading": "命盤上の根拠",
+                    "statements": [
+                      {
+                        "text": "あなたの命宮は申の宮にあり、天同・天梁が入っています",
+                        "en": "your Life Palace holds Tian Tong and Tian Liang in the Shen position",
+                        "kind": "evidence",
+                        "source_ids": [],
+                        "citations": []
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          }
+        }
+      },
+      {
+        "slug": "性格的骨架",
+        "title": "性格的骨架",
+        "text": "你的命宮是天同、天梁同坐申宮。\n\n你的命宮在申，天同、天梁同宮；天同化忌，前後兩宮分別有陀羅與擎羊。這組相夾的條件，在原書中有獨立說明，涉及情趣與原則之間的徘徊。即使同宮的火星帶出較重的原則性，仍要保留這組特殊條件所指的拉扯。\n\n祿存、火星都在你的命宮。原書另論同梁天同化忌時，先要求祿存同度或對拱，再分有沒有火鈴空劫同度；你有火星同宮，不能使用「無火鈴空劫」那一支的結論。前章提到發展易反覆，依據就在這裡。\n\n你的命宮亦有天馬。原書在同梁與天馬的配合中，另提醒理想與實際脫節的傾向。這項修飾與前面的感受、原則拉扯分開保留，不把它們合成一個固定人格標籤。\n\n若你正考慮一個新方向，可以先試行其中一小部分，再核對時間、資源與自己願意承擔的代價。這是編輯提出的觀察方法，不是命盤替你決定去留。",
+        "slots": [
+          "因為",
+          "骨架",
+          "骨架",
+          "骨架",
+          "做法"
+        ],
+        "reading": {
+          "format": "ming-expanded-v1",
+          "writer": "reader-backed-v1",
+          "segments": [
+            {
+              "slot": "因為",
+              "text": "你的命宮是天同、天梁同坐申宮。",
+              "heading": "盤面依據",
+              "statements": [
+                {
+                  "text": "你的命宮是天同、天梁同坐申宮。",
+                  "en": "",
+                  "kind": "evidence",
+                  "source_ids": [],
+                  "citations": []
+                }
+              ]
+            },
+            {
+              "slot": "骨架",
+              "text": "你的命宮在申，天同、天梁同宮；天同化忌，前後兩宮分別有陀羅與擎羊。這組相夾的條件，在原書中有獨立說明，涉及情趣與原則之間的徘徊。即使同宮的火星帶出較重的原則性，仍要保留這組特殊條件所指的拉扯。",
+              "heading": "為甚麼這裡先看拉扯",
+              "referenceConditions": [
+                "本命同梁在寅申、天同化忌、羊陀相夾，且火星同宮。",
+                "火星所帶的原則性與夾忌的特殊拉扯合讀，不以其中一項覆蓋另一項。"
+              ],
+              "statements": [
+                {
+                  "text": "你的命宮在申，天同、天梁同宮；天同化忌，前後兩宮分別有陀羅與擎羊。這組相夾的條件，在原書中有獨立說明，涉及情趣與原則之間的徘徊。即使同宮的火星帶出較重的原則性，仍要保留這組特殊條件所指的拉扯。",
+                  "en": "",
+                  "kind": "interpretation",
+                  "source_ids": [
+                    "TL-B1"
+                  ],
+                  "citations": [
+                    "free.reading.v1:wtz.deep.p087.b012",
+                    "free.reading.v1:wtz.deep.p087.b014"
+                  ]
+                }
+              ]
+            },
+            {
+              "slot": "骨架",
+              "text": "祿存、火星都在你的命宮。原書另論同梁天同化忌時，先要求祿存同度或對拱，再分有沒有火鈴空劫同度；你有火星同宮，不能使用「無火鈴空劫」那一支的結論。前章提到發展易反覆，依據就在這裡。",
+              "heading": "祿存與火星要一起看",
+              "referenceConditions": [
+                "本段採用本命同梁、天同化忌，祿存與火星均在命宮同度的分支。",
+                "原書先要求祿存同度或對拱，再分是否有火鈴空劫同度；本盤有火星，不能取無煞分支，也不預告必然換工作。"
+              ],
+              "statements": [
+                {
+                  "text": "祿存、火星都在你的命宮。原書另論同梁天同化忌時，先要求祿存同度或對拱，再分有沒有火鈴空劫同度；你有火星同宮，不能使用「無火鈴空劫」那一支的結論。前章提到發展易反覆，依據就在這裡。",
+                  "en": "",
+                  "kind": "interpretation",
+                  "source_ids": [
+                    "TL-B2"
+                  ],
+                  "citations": [
+                    "free.reading.v1:wtz.deep.p309.b002",
+                    "free.reading.v1:wtz.deep.p309.b003"
+                  ]
+                }
+              ]
+            },
+            {
+              "slot": "骨架",
+              "text": "你的命宮亦有天馬。原書在同梁與天馬的配合中，另提醒理想與實際脫節的傾向。這項修飾與前面的感受、原則拉扯分開保留，不把它們合成一個固定人格標籤。",
+              "heading": "理想還需要實際安排承接",
+              "referenceConditions": [
+                "本命天同天梁同度，且天馬實際在命宮同度。",
+                "只保留理想與實際的修飾，不由此推定固定人格或具體事件。"
+              ],
+              "statements": [
+                {
+                  "text": "你的命宮亦有天馬。原書在同梁與天馬的配合中，另提醒理想與實際脫節的傾向。這項修飾與前面的感受、原則拉扯分開保留，不把它們合成一個固定人格標籤。",
+                  "en": "",
+                  "kind": "interpretation",
+                  "source_ids": [
+                    "TL-B3"
+                  ],
+                  "citations": [
+                    "free.reading.v1:wtz.deep.p016.b002"
+                  ]
+                }
+              ]
+            },
+            {
+              "slot": "做法",
+              "text": "若你正考慮一個新方向，可以先試行其中一小部分，再核對時間、資源與自己願意承擔的代價。這是編輯提出的觀察方法，不是命盤替你決定去留。",
+              "statements": [
+                {
+                  "text": "若你正考慮一個新方向，可以先試行其中一小部分，再核對時間、資源與自己願意承擔的代價。這是編輯提出的觀察方法，不是命盤替你決定去留。",
+                  "en": "",
+                  "kind": "editorial-advice",
+                  "source_ids": [
+                    "TL-B4"
+                  ],
+                  "citations": []
+                }
+              ]
+            }
+          ],
+          "international": {
+            "text": "你在生活情趣和原則紀律之間來回拉扯，兩邊都放不下，也不容易調和。你的天同化忌，兩旁又有擎羊、陀羅相夾，這是這組星最難兩面兼顧的結構。\n\n你的命宮在申，坐天同、天梁。天同天梁同宮，財帛宮、官祿宮是天機、太陰，成為純粹的機月同梁格局。天同帶浪漫，天梁講原則，你偏向哪一邊，對你的去留出處影響很大。\n\n你的天同化忌雖有祿存配合，同宮卻有煞星：你不容易安於一份工作，時常有變動，要安定下來得多花力氣。這組星遇上天馬：你的理想會走得比實際快，計劃要落到具體的一步。\n\n骨架是天生的，長成怎樣的人，看你怎樣用它；用在對的地方，同一副骨架就是長處。",
+            "slots": [
+              "偏向",
+              "骨架",
+              "細讀",
+              "留白"
+            ]
+          },
+          "internationalSnapshot": {
+            "text": "你在生活情趣和原則紀律之間來回拉扯，兩邊都放不下，也不容易調和。你的天同化忌，兩旁又有擎羊、陀羅相夾，這是這組星最難兩面兼顧的結構。\n\n你的命宮在申，坐天同、天梁。天同天梁同宮，財帛宮、官祿宮是天機、太陰，成為純粹的機月同梁格局。天同帶浪漫，天梁講原則，你偏向哪一邊，對你的去留出處影響很大。\n\n你的天同化忌雖有祿存配合，同宮卻有煞星：你不容易安於一份工作，時常有變動，要安定下來得多花力氣。這組星遇上天馬：你的理想會走得比實際快，計劃要落到具體的一步。\n\n骨架是天生的，長成怎樣的人，看你怎樣用它；用在對的地方，同一副骨架就是長處。",
+            "slots": [
+              "偏向",
+              "骨架",
+              "細讀",
+              "留白"
+            ]
+          }
+        }
+      },
+      {
+        "slug": "身宮與五行局",
+        "title": "身宮與五行局",
+        "text": "你把力氣放在內在：安不安頓，比做成了甚麼更影響你的狀態。\n\n你的身宮落在福德宮，坐太陽。你的身宮有化祿：你用力的地方比較順，付出容易有回報。\n\n你是水二局。大限由虛歲二歲起，每十年一步。寫這本書時（二〇二六年），你虛歲三十七，正行第四個大限（三十二至四十一歲），落在子女宮，坐廉貞、貪狼。下一個大限從虛歲四十二歲開始，轉到財帛宮。\n\n身宮所在，就是你這些年最用力的地方；力氣用在這裡，最容易見到回報。",
+        "slots": [
+          "身宮",
+          "身宮星",
+          "五行局",
+          "留白"
+        ]
+      },
+      {
+        "slug": "一生十二步",
+        "title": "一生十二步",
+        "text": "你的大限由虛歲二歲起，每十年換一步；寫這本書時（二〇二六年），你走到第四步。你命盤裡的關鍵大限是第三步、第五步：這幾步的得失，對你一生影響特別大。你的命宮在申，坐天同、天梁：這樣的命盤，行到巨門或太陰的大限，就是一生的轉折點。\n\n回看你走過的路，二〇〇二年（壬午年，你虛歲十三），是你命盤裡關鍵的一年，住處或家裡的事變動較多，像是搬屋，或者家裡的安排改變了你的日常；同一年，心境比較安穩，像是有了自己的興趣，玩得開心。二〇一四年（甲午年，你虛歲二十五），同樣是關鍵的一年，這一年較容易捲入是非爭拗，可能有些事要靠白紙黑字、找人評理才解決；同一年，朋輩之間比較得力，像是得到兄弟姊妹、同學或合伙人幫忙。二〇二四年（甲辰年，你虛歲三十五），同樣是關鍵的一年，出入、出行是這一年盤上要小心的一環，行程上可能有過波折；同一年，和長輩或上司之間比較順，像是得到長輩或上司提攜。這幾年，對你來說是不是有過轉折？對不上的，就當那一年的訊號沒有落在你身上。\n\n第一步　二至十一歲　命宮，坐天同、天梁。\n\n第二步　十二至二十一歲　兄弟宮，坐天相。\n\n第三步　二十二至三十一歲　夫妻宮，坐巨門。　關鍵大限。\n\n第四步　三十二至四十一歲　子女宮，坐廉貞、貪狼。　寫這本書時，你在這一步。\n\n第五步　四十二至五十一歲　財帛宮，坐太陰。　關鍵大限。\n\n第六步　五十二至六十一歲　疾厄宮，坐天府。\n\n第七步　六十二至七十一歲　遷移宮，沒有主星，借對面宮位的天同、天梁。\n\n第八步　七十二至八十一歲　僕役宮，坐紫微、破軍。\n\n第九步　八十二至九十一歲　官祿宮，坐天機。\n\n之後的大限從虛歲九十二歲起，這裡不再細列。\n\n十二步是一條路的形狀，走得快慢、走向哪裡，仍然在你；關鍵的幾步，值得提早準備。",
+        "slots": [
+          "結論",
+          "回看",
+          "步",
+          "步",
+          "步",
+          "步",
+          "步",
+          "步",
+          "步",
+          "步",
+          "步",
+          "步",
+          "留白"
+        ]
+      },
+      {
+        "slug": "這十年",
+        "title": "這十年",
+        "text": "這十年，你的口才變成本錢；感情上容易有誤會。寫這本書時（二〇二六年），你虛歲三十七，正行第四個大限（三十二至四十一歲）。\n\n這個大限落在你的子女宮，坐廉貞、貪狼，宮干是辛。這十年裡，你偏向物欲：你重實際、重享受，目標具體，也肯為它出力。\n\n這十年的官祿宮坐武曲、七殺。工作上，你利於做財經一類的工作，講結果、講數字的位置最合你。\n\n這十年的財帛宮坐紫微、破軍。你的財源大多充足，錢卻不易存得住。\n\n這十年的夫妻宮坐天府，文昌化忌。感情上，這十年要多留神。你在感情裡是調和的一方，關係裡的不順會因你而緩和。不過，感情上容易有誤會，或有心事說不出口；有話早點講清楚。\n\n這十年的福德宮坐天相。心境上，你要事情各就各位、沒有亂，才安心。\n\n這十年，巨門化祿落在父母宮、太陽化權落在僕役宮、文曲化科落在遷移宮、文昌化忌落在夫妻宮。巨門化祿，你的口才變成本錢，利於教學、法律、銷售、傳播；太想表現自己，反而容易惹是非。太陽化權，你的地位和領導力會提高；收入隨地位而來，不會突然增加；不宜過份擴張聲勢。文曲化科，你的口才和學雜學的能力增加，容易以言詞取悅別人。文昌化忌，你的文書、考試和合約容易出錯，替人擔保或借貸要特別小心。\n\n這十年最順的是和長輩、上司之間的事，力氣放在這裡，最容易見到回報。關於感情，決定之前多花一點時間，簽字、承諾之前多問一句。\n\n下一個大限從虛歲四十二歲開始，轉到財帛宮，坐太陰；那十年太陽化祿、天同化忌。\n\n環境只是背景；這十年要做成甚麼、做到哪一步，始終由你自己決定。",
+        "slots": [
+          "結論",
+          "大限",
+          "工作",
+          "錢",
+          "感情",
+          "心境",
+          "四化",
+          "建議",
+          "下一步",
+          "留白"
+        ]
+      },
+      {
+        "slug": "這一年",
+        "title": "這一年",
+        "text": "這一年，你的心情比較寬鬆，只是同時有阻滯；你的感情和人際容易有挫折。寫這本書的二〇二六年是丙午年，你虛歲三十七。這一年是你命盤裡的關鍵年份之一，今年的得失，影響會比一般年份深。\n\n這一年的流年命宮在午，落在你本命的夫妻宮，也就是這十年大限的父母宮，坐巨門。這一年裡，你懂得收斂，也懂得防人，分寸在於何時放下戒心。\n\n這一年的官祿宮坐太陽。工作上，你在行內容易有名聲和號召力，對外、對人的位置最合你。\n\n這一年的財帛宮沒有主星，借對面宮位的天同、天梁。你賺錢適合走帶享受性質的行業，例如讓人放鬆、享受的生意。\n\n這一年的夫妻宮坐太陰。你在感情裡擅長維持：安排日常，接住情緒。\n\n這一年的福德宮坐天同、天梁，天同化祿。心境上，這一年比較順。你的精神生活豐足，一點音樂、一段閒時就能讓你滿足。你的心情比較寬鬆，懂得享受生活，也較容易感到滿足。\n\n這一年，天同化祿落在福德宮、天機化權落在遷移宮、文昌化科落在子女宮、廉貞化忌落在兄弟宮。天同化祿，你的財祿有增加的機會，而且在運限見到比在本命更好；留意別因安逸而少了進取。天機化權，你的想法較穩定，也更有效率，意見容易被採納，但實權未必在你手上。文昌化科，你利於考試、進修和寫作，作品容易有發表的機會。廉貞化忌，你的感情和人際容易有挫折，替人出力也可能反招怨言；量力而為，別勉強。\n\n天同在你本命化忌，這一年卻化祿：原來不利的地方，這段時期可能轉為有利。\n\n這一年最順的是自己的興趣和心境，力氣放在這裡，最容易見到回報。關於和兄弟、朋輩合作的事，決定之前多花一點時間，急著要答覆的事，先放一晚。\n\n按農曆逐月來看，這一年起落較明顯的月份如下。二月：作息容易上軌道。四月：和晚輩相處愉快。五月：感情上多些體諒，少些計較。七月：整體多些阻滯，凡事穩一點。其餘月份，盤上沒有突出的起落，照平常的步調安排就好。\n\n二〇二七年是丁未年，流年命宮轉到未，落在你本命的兄弟宮，坐天相；那一年太陰化祿、巨門化忌。\n\n一年很快過去。把力氣放在順的地方，對要留神的事慢一步，就是這一年最實在的做法。",
+        "slots": [
+          "結論",
+          "流年",
+          "工作",
+          "錢",
+          "感情",
+          "心境",
+          "四化",
+          "互動",
+          "建議",
+          "逐月",
+          "明年",
+          "留白"
+        ]
+      },
+      {
+        "slug": "兄弟",
+        "text": "你在朋友之間是協調的那一個，讓場面不至於難看。而且你兩邊都不得罪，別人也看不清你真正站哪一邊。\n\n你的兄弟宮坐天相。\n\n天相居中協調，使它在群體裡舒服，也使它少有鮮明的立場。\n\n加上陀羅同宮，平輩之間的芥蒂不容易散，過去的事會一直帶著。舊事翻得出來，而且記得細節。\n\n你和平輩相處的方式照舊，只是要找人商量或者並肩做一件事，起手的門檻比較低。\n\n朋友之間有矛盾時，你常常是兩邊傳話、找台階的人；群組裡有人吵起來，你會先把話題引開。",
+        "slots": [
+          "結論",
+          "開場",
+          "結構",
+          "擾動",
+          "牽動",
+          "生活"
+        ]
+      },
+      {
+        "slug": "夫妻",
+        "text": "你和伴侶之間容易為小事爭論，就算關係好也一樣。而且你的在意常以質疑出現，對方接收到的往往只有質疑。\n\n你的夫妻宮坐巨門。\n\n在親密關係裡，巨門要把事情講清楚，不喜歡含糊帶過。巨門要講清楚，使關係少有積壓的誤會，也使日常摩擦頻率偏高——因為不是每件事都需要講清楚。\n\n即使盤面吉，你和伴侶之間也多無謂的爭吵。\n\n加上地劫同宮，關係裡投入的部分不容易被看見；你付出了甚麼，可以說出來。\n\n伴侶說的話有含糊的地方，你會追問到底；你是想了解，對方聽起來卻像被質問，先說「我在意」再問，效果會好很多。",
+        "slots": [
+          "結論",
+          "開場",
+          "結構",
+          "細讀",
+          "擾動",
+          "生活"
+        ]
+      },
+      {
+        "slug": "子女",
+        "text": "你和後輩相處和好，彼此投契。只是你一時要求到位，一時又興趣轉了，對方容易跟不上你的節奏。\n\n你的子女宮坐廉貞、貪狼。\n\n培養人的時候，廉貞投入極深，也把自己的原則整套交出去。對後輩或自己的作品，它要求到位、要求認真，不接受敷衍。降低期待，比降低標準更難。貪狼這樣帶人，啟發性強，也容易缺乏持續，它自己的興趣一轉，帶著的那件事就停在半路。\n\n廉貞在子女宮，一般兩代感情濃厚，有隔膜也能互相諒解。貪狼見左輔、右弼、天魁，你和子女兩代和好，相處融洽。\n\n你在培育一件事或一個人的時候，手上可用的東西比較多，不必事事親力親為。\n\n你會帶孩子或後輩去試新的興趣，也會認真要求對方做好；開了頭的事陪對方走完一段，比不斷開新的更有用。",
+        "slots": [
+          "結論",
+          "開場",
+          "結構",
+          "細讀",
+          "牽動",
+          "生活"
+        ]
+      },
+      {
+        "slug": "財帛",
+        "text": "你對錢是慢慢積：小額、長期、不聲張。要留意的是，你最怕的不是錢少，是突然的支出。\n\n你的財帛宮坐太陰。\n\n《全書》寫「入廟富足倉箱，陷宮成敗不聚」，核心在聚與不聚。它對開銷敏感，對突然的支出尤其不安。它怕的不是少，是突然。\n\n地空在財帛宮，財帛容易突然有挫折性的變化。\n\n你習慣小額、長期地儲錢：定期存款、按月供款、為某個目標開一個戶口；突如其來的大額開支最讓你不安，預留一筆應急錢很重要。",
+        "slots": [
+          "結論",
+          "開場",
+          "結構",
+          "細讀",
+          "生活"
+        ]
+      },
+      {
+        "slug": "疾厄",
+        "text": "你的疲累來自長期的警覺，平靜時也在防備。不過，你需要一段確定甚麼都不用準備的時間。\n\n你的疾厄宮坐天府。\n\n《全書》寫「天府災少臨災有救」：你應付狀況有自己的一套，但這不等於身體不會累。天府的消耗來自警覺，它習慣預先想好萬一，於是即使風平浪靜也在維持一份防備。這種長期低度的緊張不劇烈，卻不容易間斷。對你而言，真正的休息不是停下來，而是有一段時間確定不需要準備什麼。有底比有閒更能讓你鬆下來。天府化科，守成被整理成制度，穩定有了名目。天府只有這一化，所以它出現時份量不輕。\n\n你手上通常留得住一點餘力，不至於所有事情同時壓到底。\n\n就算事情順利，你心裡也在預備最壞的情況；把保險、備用金、後備方案準備好，你反而能真正放鬆。\n\n此章不涉醫療判斷。",
+        "slots": [
+          "結論",
+          "開場",
+          "結構",
+          "牽動",
+          "生活",
+          "留白"
+        ]
+      },
+      {
+        "slug": "遷移",
+        "text": "你出門在外大多是有福的，日子過得比在家順心。但你一去就留下，留下的理由多半是習慣，不是判斷。\n\n你的遷移宮沒有主星，借對面命宮的天同、天梁來讀。\n\n天同在陌生環境裡討人喜歡，態度軟、不帶攻擊性，別人願意幫它一把。\n\n天同換環境的阻力小，融入得快。難處在於融入之後——新的舒適區一旦成形，它又不太願意再動。融入的容易與離開的困難，其實是同一種性質。天梁在陌生環境往往遇到願意提攜它的人，原因不難理解，它可靠、講原則，不會給人添麻煩。它在外的適應不靠圓滑，靠的是讓人放心。\n\n天同化忌，你出門在外時多擔心、放不下。天梁在遷移宮，你一般出外得人蔭庇。\n\n和人相處或許不難，真正花時間的，是離開熟悉的地方之後，重新架起你自己的生活節奏。\n\n你到了外地往往遇到願意幫你的人，旅行、外派都容易過得順心；在新地方安頓好了，也要定期問自己想不想再往前走。",
+        "slots": [
+          "結論",
+          "開場",
+          "開場",
+          "結構",
+          "細讀",
+          "牽動",
+          "生活"
+        ]
+      },
+      {
+        "slug": "僕役",
+        "text": "你在朋友之間自然被推到中心，大家尊重你、依賴你。只是你給得出方向，未必給得出親近，深交因此不多。\n\n你的僕役宮坐紫微、破軍。\n\n紫微的人脈通常不薄，深交卻不多。群體給你位置，未必給你親近，這個落差本身就是消耗。破軍在群體裡是帶頭改變的那一個，提得出新做法，也承擔得起反對。這使它有一批跟隨的人，同時有一批被它衝撞過的人。\n\n紫微破軍見左輔、右弼、天魁、天鉞，得力的下屬容易另謀發展，所以你常覺得助力不足。\n\n人群裡的來往相對通，要接上一條線、找到一個人，路徑比較短。\n\n在公司或朋友圈裡，大家常找你拿主意、做決定；尊重你的人多，能跟你說心事的人少，偶爾主動約一兩個人單獨吃飯。",
+        "slots": [
+          "結論",
+          "開場",
+          "結構",
+          "細讀",
+          "牽動",
+          "生活"
+        ]
+      },
+      {
+        "slug": "官祿",
+        "text": "你適合帶變動性質的工作，擅長在變化裡找空間。要留意的是，轉變對你不難，難在每次轉變之後都要重新經營。\n\n你的官祿宮坐天機。\n\n天機做事靠拆解與變通，把難題切開、找替代路徑，在限制裡找空間。需要應變、設計或者另闢路徑的位置，最用得著這份本事。\n\n你的工作較常變動，形式不容易長期固定。你的天機獨坐子，對宮是巨門：就算條件好，工作也要花不少心思經營；比起從零開創，你較適合在已有的架構裡發揮。官祿宮的三方四正見天同化忌、火星、地空、地劫，工作容易受外在環境牽動，常要奔波勞累。在子宮，這份經營的辛苦往往更重，也容易招惹是非。\n\n要做成一件事，你往往得先把一堆不相干的雜事擺平，才輪到正題。\n\n項目制、兼職、換崗位，在你的工作裡都不出奇；替自己保留一份穩定的收入來源，變動時會從容得多。",
+        "slots": [
+          "結論",
+          "開場",
+          "結構",
+          "細讀",
+          "牽動",
+          "生活"
+        ]
+      },
+      {
+        "slug": "田宅",
+        "text": "你對住處要合乎自己的規格，寧可推倒重來也不將就。不過，你每一次改造都要投入不少成本。\n\n你的田宅宮沒有主星，借對面子女宮的廉貞、貪狼來讀。\n\n改造的成本高，但對廉貞而言那筆錢花得值。\n\n貪狼對居所的態度偏向可換，它不把某個地方當作終點，也容易因為新的機會而搬動。空間對它的意義是可能性——這裡能不能做點什麼，比住不住得舒服更要緊。\n\n廉貞貪狼見左輔、天鉞，你有祖業，只是不易守。貪狼主散不主聚，你的產業不容易聚攏，遇上變數就容易生事端。\n\n日常住處和家裡的事多半順手，你要安頓下來阻力比較小；這和家產守不守得住是兩回事。\n\n你對住處的格局和氛圍很講究，搬進去之前常常想改一改間隔、燈光和擺設；裝修的預算，最好預先定好上限。",
+        "slots": [
+          "結論",
+          "開場",
+          "開場",
+          "結構",
+          "細讀",
+          "牽動",
+          "生活"
+        ]
+      },
+      {
+        "slug": "福德",
+        "text": "你好動，完全空下來反而不安，要有事可做才自在。而且你做了很多卻沒人看見時，最容易耗損。\n\n你的福德宮坐太陽。\n\n你的安定不來自清閒，而來自有事可做、有人可顧。完全空下來時，太陽反而不安。太陽的精神狀態與忙碌程度的關係跟多數人相反，適度的負荷反而讓它站得穩。真正令它耗損的不是事情多，是事情做了卻沒有人看見，或者對象根本不需要。被需要，是你最實在的安定來源。太陽化祿，付出接得回回應，照出去的地方真的亮起來。它讓太陽的給予不再是空轉。\n\n太陽在福德宮，你好動不好靜，很難閒下來。太陽光熱不足，你容易招惹是非口舌，心裡也煩躁不寧。\n\n加上鈴星同宮，心事不外露，安靜並不代表已經放下。\n\n想靜下來之前，你往往要先把手上幾件事放好，心才放得下。\n\n你的自尊心強，做了事希望被看見、被肯定；空閒時你寧願幫人、做義工、辦活動，也不想一個人閒著。",
+        "slots": [
+          "結論",
+          "開場",
+          "結構",
+          "細讀",
+          "擾動",
+          "牽動",
+          "生活"
+        ]
+      },
+      {
+        "slug": "父母",
+        "text": "你和長輩緣分較淡，很早便各走各的路。而且你的立場清楚，衝突也來得快。\n\n你的父母宮坐武曲、七殺。\n\n武曲直來直往，使關係裡的立場清楚，也使衝突來得快。它對規則的態度同樣直接——合理就遵守，不合理就繞過去，較少花時間在程序上與人周旋。七殺不服軟，也不擅長迂迴——認為不對就不配合，而且不會花時間解釋。七殺不服軟，使和長輩的關係緊張而清楚。武曲化權，決斷有了授權，敢下手也下得了手。要留意剛加上權容易過猛。方向對就推得遠，方向錯就撞得重。\n\n七殺見擎羊，你和父母有代溝，和上司也容易不和。七殺會到武曲化權、天府化科，你得到父母蔭庇之力。七殺在父母宮，你與父母的關係較疏遠。\n\n和長輩、上司之間要交代一件事，你的路徑比較直接，不必繞圈。\n\n你和上司、長輩相處直來直往，覺得不對就說；遞交報告、處理文件時，多花一點時間在程序上，能省下不少麻煩。",
+        "slots": [
+          "結論",
+          "開場",
+          "結構",
+          "細讀",
+          "牽動",
+          "生活"
+        ]
+      },
+      {
+        "slug": "給你的話",
+        "title": "給你的話",
+        "text": "你在生活情趣和原則紀律之間來回拉扯，兩邊都放不下，也不容易調和。最可以倚仗的一點：你適合帶變動性質的工作，擅長在變化裡找空間。最要記住的一點：你想安頓下來，舒服的條件卻常常湊不齊，事情容易拖著。\n\n其他可以倚仗的：一、心境上，你好動，完全空下來反而不安，要有事可做才自在。二、你對錢是慢慢積：小額、長期、不聲張。三、你出門在外大多是有福的，日子過得比在家順心。\n\n其他要記住的：一、感情上，你的在意常以質疑出現，對方接收到的往往只有質疑。二、朋友圈裡，你給得出方向，未必給得出親近，深交因此不多。三、你選擇工作和環境時，先想清楚自己要悠閒還是要進取。\n\n時間上，這十年，力氣放在和長輩、上司之間的事，感情慢一步；這一年，力氣放在自己的興趣和心境，和兄弟、朋輩合作的事慢一步。\n\n命書寫的是一張底圖。往後的路怎樣走，仍然在你；需要的時候，再翻回來看看。",
+        "slots": [
+          "結論",
+          "長處",
+          "留意",
+          "時間",
+          "留白"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "A",
+    "input": {
+      "solar": {
+        "y": 1992,
+        "m": 9,
+        "d": 12
+      },
+      "time": {
+        "h": 19,
+        "min": 41
+      },
+      "sex": "male",
+      "tz": "Australia/Sydney",
+      "place": {
+        "lng": 151.2093,
+        "lat": -33.8688,
+        "label": "悉尼"
+      }
+    },
+    "seed": "trilingual-review-2026-10-21-A",
+    "baseline": "a2e801464465dbef1a8a0bfd8e7d21e1085519bc",
+    "saved": [
+      {
+        "slug": "序",
+        "title": "序 · 你的命盤",
+        "text": "你出生的那一刻，在這裡換算成一張命盤。十二宮的位置由此定下，往後每一章，都從這張盤讀起。\n\n國曆一九九二年九月十二日，戌時，生於悉尼。農曆壬申年八月十六。\n\n五行局是金四局。命宮在亥，身宮在未。十二宮由此定位，往後每一章各讀其中一宮。\n\n這張盤依中州派（王亭之）的算法排出。出生時間已按出生地經度，校正為真太陽時。\n\n這張盤是屬於你的底圖，一生不變。往後翻開的每一章，讀的都是你自己。",
+        "slots": [
+          "章首",
+          "生辰",
+          "盤面",
+          "體系",
+          "留白"
+        ]
+      },
+      {
+        "slug": "命宮",
+        "text": "你這張盤有支持踏實累積的配合。發展未必靠顯眼的大動作，較值得留意的是，已有的事情怎樣逐漸形成成果。不過，能累積與能把局面做得很大，是兩個不同的判斷。\n\n你的盤有兩對輔佐星會合，支持較祥和、踏實的一面；天府與祿存同宮，又帶來氣魄較小的限制。這兩項配合一起讀，便能分清：支持你累積成果的條件，未足以判定發展規模。至於壬年天府化科另有的配合前提，下一章會再交代。\n\n例如手上一項事情已經做出成果，下一步準備擴大，可以分開核對：已有甚麼累積、需要新增多少承擔、自己是否願意接住。這是編輯例子，用來分清累積與擴張，並非推定你的工作或財務現況。\n\n接下來的「性格的骨架」，會把支持這個方向的配合與仍須保留的限制分開說明。",
+        "slots": [
+          "結論",
+          "展開",
+          "情境",
+          "做法"
+        ],
+        "reading": {
+          "format": "ming-expanded-v1",
+          "writer": "reader-backed-v1",
+          "segments": [
+            {
+              "slot": "結論",
+              "text": "你這張盤有支持踏實累積的配合。發展未必靠顯眼的大動作，較值得留意的是，已有的事情怎樣逐漸形成成果。不過，能累積與能把局面做得很大，是兩個不同的判斷。",
+              "heading": "累積的力量，與擴張的尺度",
+              "referenceConditions": [
+                "本段採用壬年亥宮天府化科、祿存同宮，左輔同宮、官祿見右弼及天魁、對宮見天鉞；財帛無主星，借福德的武曲化忌、貪狼。",
+                "本盤無火鈴再夾命，命宮三方四正無羊陀火鈴同會；支持踏實與祿存同宮的氣魄限制合讀，不將輔佐數量當通用門檻，也不判定事業規模。"
+              ],
+              "statements": [
+                {
+                  "text": "你這張盤有支持踏實累積的配合。發展未必靠顯眼的大動作，較值得留意的是，已有的事情怎樣逐漸形成成果。不過，能累積與能把局面做得很大，是兩個不同的判斷。",
+                  "en": "",
+                  "kind": "editorial-explanation",
+                  "source_ids": [
+                    "TF-M1"
+                  ],
+                  "citations": [
+                    "free.reading.v1:wtz.deep.p201.b003",
+                    "free.reading.v1:wtz.deep.p201.b005",
+                    "free.reading.v1:wtz.deep.p201.b007",
+                    "free.reading.v1:wtz.deep.p201.b008"
+                  ]
+                }
+              ]
+            },
+            {
+              "slot": "展開",
+              "text": "你的盤有兩對輔佐星會合，支持較祥和、踏實的一面；天府與祿存同宮，又帶來氣魄較小的限制。這兩項配合一起讀，便能分清：支持你累積成果的條件，未足以判定發展規模。至於壬年天府化科另有的配合前提，下一章會再交代。",
+              "heading": "踏實之中，仍有規模的限制",
+              "referenceConditions": [
+                "本段採用壬年亥宮天府化科、祿存同宮，左輔同宮、官祿見右弼及天魁、對宮見天鉞；財帛無主星，借福德的武曲化忌、貪狼。",
+                "本盤無火鈴再夾命，命宮三方四正無羊陀火鈴同會；支持踏實與祿存同宮的氣魄限制合讀，不將輔佐數量當通用門檻，也不判定事業規模。"
+              ],
+              "statements": [
+                {
+                  "text": "你的盤有兩對輔佐星會合，支持較祥和、踏實的一面；天府與祿存同宮，又帶來氣魄較小的限制。這兩項配合一起讀，便能分清：支持你累積成果的條件，未足以判定發展規模。至於壬年天府化科另有的配合前提，下一章會再交代。",
+                  "en": "",
+                  "kind": "interpretation",
+                  "source_ids": [
+                    "TF-M2"
+                  ],
+                  "citations": [
+                    "free.reading.v1:wtz.deep.p201.b003",
+                    "free.reading.v1:wtz.deep.p201.b005",
+                    "free.reading.v1:wtz.deep.p201.b007",
+                    "free.reading.v1:wtz.deep.p201.b008"
+                  ]
+                }
+              ]
+            },
+            {
+              "slot": "情境",
+              "text": "例如手上一項事情已經做出成果，下一步準備擴大，可以分開核對：已有甚麼累積、需要新增多少承擔、自己是否願意接住。這是編輯例子，用來分清累積與擴張，並非推定你的工作或財務現況。",
+              "heading": "可以怎樣對照生活",
+              "statements": [
+                {
+                  "text": "例如手上一項事情已經做出成果，下一步準備擴大，可以分開核對：已有甚麼累積、需要新增多少承擔、自己是否願意接住。這是編輯例子，用來分清累積與擴張，並非推定你的工作或財務現況。",
+                  "en": "",
+                  "kind": "editorial-example",
+                  "source_ids": [
+                    "TF-M4"
+                  ],
+                  "citations": []
+                }
+              ]
+            },
+            {
+              "slot": "做法",
+              "text": "接下來的「性格的骨架」，會把支持這個方向的配合與仍須保留的限制分開說明。",
+              "statements": [
+                {
+                  "text": "接下來的「性格的骨架」，會把支持這個方向的配合與仍須保留的限制分開說明。",
+                  "en": "",
+                  "kind": "editorial-advice",
+                  "source_ids": [
+                    "TF-M5"
+                  ],
+                  "citations": []
+                }
+              ]
+            }
+          ],
+          "international": {
+            "text": "天府在巳亥的命宮，仍有守成的底色，但會合的權力與欲望星，令保守性較小。\n\n對宮紫微七殺與會合的武曲貪狼，都要放進這個組合理解，不能只按天府一星看成純粹守舊。\n\n原書在這裡分辨祥和與權術，這是進一步要核對的性質，而不是只按有進取心便判好壞。\n\n因此，守住已有的安排與受到進取力量牽動，可以同時是這一組的閱讀線索，仍須看整體配合。\n\n本質：你的命宮是天府坐亥宮。",
+            "slots": [
+              "結論",
+              "展開",
+              "展開",
+              "展開",
+              "因為"
+            ]
+          },
+          "internationalSnapshot": {
+            "text": "天府在巳亥的命宮，仍有守成的底色，但會合的權力與欲望星，令保守性較小。\n\n對宮紫微七殺與會合的武曲貪狼，都要放進這個組合理解，不能只按天府一星看成純粹守舊。\n\n原書在這裡分辨祥和與權術，這是進一步要核對的性質，而不是只按有進取心便判好壞。\n\n因此，守住已有的安排與受到進取力量牽動，可以同時是這一組的閱讀線索，仍須看整體配合。\n\n本質：你的命宮是天府坐亥宮。",
+            "slots": [
+              "結論",
+              "展開",
+              "展開",
+              "展開",
+              "因為"
+            ],
+            "reading": {
+              "format": "ming-expanded-v1",
+              "writer": "sentence-backed-v1",
+              "segments": [
+                {
+                  "slot": "結論",
+                  "text": "天府在巳亥的命宮，仍有守成的底色，但會合的權力與欲望星，令保守性較小。",
+                  "en": "Tian Fu in Si or Hai retains a preserving basis, while meeting stars of power and desire makes it less conservative.",
+                  "topic": "本質",
+                  "source_id": "card.ming.tianfu-sihai.core",
+                  "source_ids": [
+                    "card.ming.tianfu-sihai.core"
+                  ],
+                  "citations": [
+                    "ming.backed:card.ming.tianfu-sihai.core:0"
+                  ],
+                  "statements": [
+                    {
+                      "text": "天府在巳亥的命宮，仍有守成的底色，但會合的權力與欲望星，令保守性較小。",
+                      "en": "Tian Fu in Si or Hai retains a preserving basis, while meeting stars of power and desire makes it less conservative.",
+                      "kind": "interpretation",
+                      "source_ids": [
+                        "card.ming.tianfu-sihai.core"
+                      ],
+                      "citations": [
+                        "ming.backed:card.ming.tianfu-sihai.core:0"
+                      ]
+                    }
+                  ],
+                  "rule_ids": [],
+                  "heading": "本質"
+                },
+                {
+                  "slot": "展開",
+                  "text": "對宮紫微七殺與會合的武曲貪狼，都要放進這個組合理解，不能只按天府一星看成純粹守舊。",
+                  "en": "The opposing Zi Wei–Qi Sha and the meeting Wu Qu–Tan Lang belong in the assessment; Tian Fu alone is not treated as pure conservatism.",
+                  "topic": "本質",
+                  "source_id": "card.ming.tianfu-sihai.core",
+                  "source_ids": [
+                    "card.ming.tianfu-sihai.core"
+                  ],
+                  "citations": [
+                    "ming.backed:card.ming.tianfu-sihai.core:1"
+                  ],
+                  "statements": [
+                    {
+                      "text": "對宮紫微七殺與會合的武曲貪狼，都要放進這個組合理解，不能只按天府一星看成純粹守舊。",
+                      "en": "The opposing Zi Wei–Qi Sha and the meeting Wu Qu–Tan Lang belong in the assessment; Tian Fu alone is not treated as pure conservatism.",
+                      "kind": "interpretation",
+                      "source_ids": [
+                        "card.ming.tianfu-sihai.core"
+                      ],
+                      "citations": [
+                        "ming.backed:card.ming.tianfu-sihai.core:1"
+                      ]
+                    }
+                  ],
+                  "rule_ids": []
+                },
+                {
+                  "slot": "展開",
+                  "text": "原書在這裡分辨祥和與權術，這是進一步要核對的性質，而不是只按有進取心便判好壞。",
+                  "en": "The source distinguishes harmony from manipulation, rather than judging initiative alone as good or bad.",
+                  "topic": "本質",
+                  "source_id": "card.ming.tianfu-sihai.core",
+                  "source_ids": [
+                    "card.ming.tianfu-sihai.core"
+                  ],
+                  "citations": [
+                    "ming.backed:card.ming.tianfu-sihai.core:2"
+                  ],
+                  "statements": [
+                    {
+                      "text": "原書在這裡分辨祥和與權術，這是進一步要核對的性質，而不是只按有進取心便判好壞。",
+                      "en": "The source distinguishes harmony from manipulation, rather than judging initiative alone as good or bad.",
+                      "kind": "interpretation",
+                      "source_ids": [
+                        "card.ming.tianfu-sihai.core"
+                      ],
+                      "citations": [
+                        "ming.backed:card.ming.tianfu-sihai.core:2"
+                      ]
+                    }
+                  ],
+                  "rule_ids": []
+                },
+                {
+                  "slot": "展開",
+                  "text": "因此，守住已有的安排與受到進取力量牽動，可以同時是這一組的閱讀線索，仍須看整體配合。",
+                  "en": "Preserving an arrangement and being affected by initiative can both be relevant to this combination; the whole relationship matters.",
+                  "topic": "本質",
+                  "source_id": "card.ming.tianfu-sihai.core",
+                  "source_ids": [
+                    "card.ming.tianfu-sihai.core"
+                  ],
+                  "citations": [
+                    "ming.backed:card.ming.tianfu-sihai.core:3"
+                  ],
+                  "statements": [
+                    {
+                      "text": "因此，守住已有的安排與受到進取力量牽動，可以同時是這一組的閱讀線索，仍須看整體配合。",
+                      "en": "Preserving an arrangement and being affected by initiative can both be relevant to this combination; the whole relationship matters.",
+                      "kind": "interpretation",
+                      "source_ids": [
+                        "card.ming.tianfu-sihai.core"
+                      ],
+                      "citations": [
+                        "ming.backed:card.ming.tianfu-sihai.core:3"
+                      ]
+                    }
+                  ],
+                  "rule_ids": []
+                },
+                {
+                  "slot": "因為",
+                  "text": "本質：你的命宮是天府坐亥宮。",
+                  "en": "Who you are: your Life Palace holds Tian Fu in the Hai position.",
+                  "topic": "本質",
+                  "source_id": "card.ming.tianfu-sihai.core",
+                  "source_ids": [],
+                  "citations": [],
+                  "statements": [
+                    {
+                      "text": "你的命宮是天府坐亥宮",
+                      "en": "your Life Palace holds Tian Fu in the Hai position",
+                      "kind": "evidence",
+                      "source_ids": [],
+                      "citations": []
+                    }
+                  ],
+                  "rule_ids": [],
+                  "heading": "盤面與出處"
+                }
+              ],
+              "international": {
+                "text": "你擅長守成，把已有的局面守穩，比開創更合你。要留意的是，你在需要當機立斷的場合，會顯得慢半拍。\n\n你的命宮坐天府。《全書》形容天府坐命「心性溫和」，而天府的溫和是有底的那種。\n\n天府的基調是先把底盤做穩再談其他，不冒進、不空手承諾，對風險的容忍度偏低。與紫微的差別在於，紫微在意事情做得體面，天府在意事情不要出缺口——一個向前，一個向下紮。穩與保守是同一種性質，處境不同評價就不同。守成仍然可靠，但餘裕不多：做事會比平時保守，也比平時更在意有沒有退路可走。天府化科，守成被整理成制度，穩定有了名目。天府只有這一化，所以它出現時份量不輕。\n\n你想推一件事的時候，通常不必從最基本的地方開始鋪，起步比別人省力。\n\n在工作上，你最擅長把已有的局面管好、守穩；要你從零開創，或者站在最前面指揮一大群人，就不是你最自在的位置。",
+                "slots": [
+                  "結論",
+                  "開場",
+                  "結構",
+                  "牽動",
+                  "生活"
+                ]
+              },
+              "localized": {
+                "version": "ming-translations-v1",
+                "en": [
+                  {
+                    "slot": "結論",
+                    "text": "Tian Fu in Si or Hai retains a preserving basis, while meeting stars of power and desire makes it less conservative.",
+                    "heading": "Who you are",
+                    "statements": [
+                      {
+                        "text": "Tian Fu in Si or Hai retains a preserving basis, while meeting stars of power and desire makes it less conservative.",
+                        "en": "Tian Fu in Si or Hai retains a preserving basis, while meeting stars of power and desire makes it less conservative.",
+                        "kind": "interpretation",
+                        "source_ids": [
+                          "card.ming.tianfu-sihai.core"
+                        ],
+                        "citations": [
+                          "ming.backed:card.ming.tianfu-sihai.core:0"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "slot": "展開",
+                    "text": "The opposing Zi Wei–Qi Sha and the meeting Wu Qu–Tan Lang belong in the assessment; Tian Fu alone is not treated as pure conservatism.",
+                    "statements": [
+                      {
+                        "text": "The opposing Zi Wei–Qi Sha and the meeting Wu Qu–Tan Lang belong in the assessment; Tian Fu alone is not treated as pure conservatism.",
+                        "en": "The opposing Zi Wei–Qi Sha and the meeting Wu Qu–Tan Lang belong in the assessment; Tian Fu alone is not treated as pure conservatism.",
+                        "kind": "interpretation",
+                        "source_ids": [
+                          "card.ming.tianfu-sihai.core"
+                        ],
+                        "citations": [
+                          "ming.backed:card.ming.tianfu-sihai.core:1"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "slot": "展開",
+                    "text": "The source distinguishes harmony from manipulation, rather than judging initiative alone as good or bad.",
+                    "statements": [
+                      {
+                        "text": "The source distinguishes harmony from manipulation, rather than judging initiative alone as good or bad.",
+                        "en": "The source distinguishes harmony from manipulation, rather than judging initiative alone as good or bad.",
+                        "kind": "interpretation",
+                        "source_ids": [
+                          "card.ming.tianfu-sihai.core"
+                        ],
+                        "citations": [
+                          "ming.backed:card.ming.tianfu-sihai.core:2"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "slot": "展開",
+                    "text": "Preserving an arrangement and being affected by initiative can both be relevant to this combination; the whole relationship matters.",
+                    "statements": [
+                      {
+                        "text": "Preserving an arrangement and being affected by initiative can both be relevant to this combination; the whole relationship matters.",
+                        "en": "Preserving an arrangement and being affected by initiative can both be relevant to this combination; the whole relationship matters.",
+                        "kind": "interpretation",
+                        "source_ids": [
+                          "card.ming.tianfu-sihai.core"
+                        ],
+                        "citations": [
+                          "ming.backed:card.ming.tianfu-sihai.core:3"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "slot": "因為",
+                    "text": "Who you are: your Life Palace holds Tian Fu in the Hai position.",
+                    "heading": "What the chart shows",
+                    "statements": [
+                      {
+                        "text": "your Life Palace holds Tian Fu in the Hai position",
+                        "en": "your Life Palace holds Tian Fu in the Hai position",
+                        "kind": "evidence",
+                        "source_ids": [],
+                        "citations": []
+                      }
+                    ]
+                  }
+                ],
+                "ja": [
+                  {
+                    "slot": "結論",
+                    "text": "巳・亥の天府にも既存のものを守る基調はありますが、権力や欲求を表す星と会合することで、保守性は比較的弱まります。",
+                    "heading": "性質の読み方",
+                    "statements": [
+                      {
+                        "text": "巳・亥の天府にも既存のものを守る基調はありますが、権力や欲求を表す星と会合することで、保守性は比較的弱まります。",
+                        "en": "Tian Fu in Si or Hai retains a preserving basis, while meeting stars of power and desire makes it less conservative.",
+                        "kind": "interpretation",
+                        "source_ids": [
+                          "card.ming.tianfu-sihai.core"
+                        ],
+                        "citations": [
+                          "ming.backed:card.ming.tianfu-sihai.core:0"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "slot": "展開",
+                    "text": "向かいの紫微・七殺と、会合する武曲・貪狼も合わせて読む必要があり、天府一星だけで、ひたすら現状を守る配置とは見なせません。",
+                    "statements": [
+                      {
+                        "text": "向かいの紫微・七殺と、会合する武曲・貪狼も合わせて読む必要があり、天府一星だけで、ひたすら現状を守る配置とは見なせません。",
+                        "en": "The opposing Zi Wei–Qi Sha and the meeting Wu Qu–Tan Lang belong in the assessment; Tian Fu alone is not treated as pure conservatism.",
+                        "kind": "interpretation",
+                        "source_ids": [
+                          "card.ming.tianfu-sihai.core"
+                        ],
+                        "citations": [
+                          "ming.backed:card.ming.tianfu-sihai.core:1"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "slot": "展開",
+                    "text": "原著はここで穏やかさと権謀を分けて見ており、さらに確認すべき性質があるため、進取の気持ちだけで良否は決めていません。",
+                    "statements": [
+                      {
+                        "text": "原著はここで穏やかさと権謀を分けて見ており、さらに確認すべき性質があるため、進取の気持ちだけで良否は決めていません。",
+                        "en": "The source distinguishes harmony from manipulation, rather than judging initiative alone as good or bad.",
+                        "kind": "interpretation",
+                        "source_ids": [
+                          "card.ming.tianfu-sihai.core"
+                        ],
+                        "citations": [
+                          "ming.backed:card.ming.tianfu-sihai.core:2"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "slot": "展開",
+                    "text": "そのため、既存の仕組みを保つことと、進取の力に動かされることは、どちらもこの配置の手がかりとなり得ますが、全体の組み合わせを見る必要があります。",
+                    "statements": [
+                      {
+                        "text": "そのため、既存の仕組みを保つことと、進取の力に動かされることは、どちらもこの配置の手がかりとなり得ますが、全体の組み合わせを見る必要があります。",
+                        "en": "Preserving an arrangement and being affected by initiative can both be relevant to this combination; the whole relationship matters.",
+                        "kind": "interpretation",
+                        "source_ids": [
+                          "card.ming.tianfu-sihai.core"
+                        ],
+                        "citations": [
+                          "ming.backed:card.ming.tianfu-sihai.core:3"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "slot": "因為",
+                    "text": "性質：あなたの命宮は亥の宮にあり、天府が入っています。",
+                    "heading": "命盤上の根拠",
+                    "statements": [
+                      {
+                        "text": "あなたの命宮は亥の宮にあり、天府が入っています",
+                        "en": "your Life Palace holds Tian Fu in the Hai position",
+                        "kind": "evidence",
+                        "source_ids": [],
+                        "citations": []
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          }
+        }
+      },
+      {
+        "slug": "性格的骨架",
+        "title": "性格的骨架",
+        "text": "你的命宮是天府坐亥宮。\n\n你的命宮在亥，天府化科與左輔、祿存同宮；官祿宮有右弼、天魁，對宮有天鉞。左輔右弼、天魁天鉞會合，是支持較祥和、踏實方向的重要依據。\n\n你這張盤的武曲化忌在福德宮，財帛宮無主星，借對宮武曲貪狼來讀。原書論壬年天府在亥、祿存同宮時，明確要求連同武曲化忌及輔佐眾多同會核對。你的盤既有武曲化忌這項修飾，也有兩對輔佐會合，不能省略其中一邊。\n\n原書另把天府與祿存同宮寫成：即使較祥和，氣魄仍較小。這項限制與支持踏實的輔佐因素同時保留。前章講的是累積方式，並未把你將來的事業規模定下來，也不推定你已經建立了甚麼事業。\n\n原書的祥和與權術，是一組性質的區分；多思多慮則另見於天相受相夾影響的段落。它們所指的事情不同，不能直接互換，也不能用來推定你平常有沒有多想或擔憂。",
+        "slots": [
+          "因為",
+          "骨架",
+          "骨架",
+          "骨架",
+          "骨架"
+        ],
+        "reading": {
+          "format": "ming-expanded-v1",
+          "writer": "reader-backed-v1",
+          "segments": [
+            {
+              "slot": "因為",
+              "text": "你的命宮是天府坐亥宮。",
+              "heading": "盤面依據",
+              "statements": [
+                {
+                  "text": "你的命宮是天府坐亥宮。",
+                  "en": "",
+                  "kind": "evidence",
+                  "source_ids": [],
+                  "citations": []
+                }
+              ]
+            },
+            {
+              "slot": "骨架",
+              "text": "你的命宮在亥，天府化科與左輔、祿存同宮；官祿宮有右弼、天魁，對宮有天鉞。左輔右弼、天魁天鉞會合，是支持較祥和、踏實方向的重要依據。",
+              "heading": "輔佐配合支持甚麼",
+              "referenceConditions": [
+                "本段採用壬年亥宮天府化科、祿存同宮，左輔同宮、官祿見右弼及天魁、對宮見天鉞；財帛無主星，借福德的武曲化忌、貪狼。",
+                "本盤無火鈴再夾命，命宮三方四正無羊陀火鈴同會；支持踏實與祿存同宮的氣魄限制合讀，不將輔佐數量當通用門檻，也不判定事業規模。"
+              ],
+              "statements": [
+                {
+                  "text": "你的命宮在亥，天府化科與左輔、祿存同宮；官祿宮有右弼、天魁，對宮有天鉞。左輔右弼、天魁天鉞會合，是支持較祥和、踏實方向的重要依據。",
+                  "en": "",
+                  "kind": "interpretation",
+                  "source_ids": [
+                    "TF-B1"
+                  ],
+                  "citations": [
+                    "free.reading.v1:wtz.deep.p201.b005",
+                    "free.reading.v1:wtz.deep.p201.b008"
+                  ]
+                }
+              ]
+            },
+            {
+              "slot": "骨架",
+              "text": "你這張盤的武曲化忌在福德宮，財帛宮無主星，借對宮武曲貪狼來讀。原書論壬年天府在亥、祿存同宮時，明確要求連同武曲化忌及輔佐眾多同會核對。你的盤既有武曲化忌這項修飾，也有兩對輔佐會合，不能省略其中一邊。",
+              "heading": "壬年條件不能省略",
+              "referenceConditions": [
+                "本段採用壬年亥宮天府化科、祿存同宮，左輔同宮、官祿見右弼及天魁、對宮見天鉞；財帛無主星，借福德的武曲化忌、貪狼。",
+                "本盤無火鈴再夾命，命宮三方四正無羊陀火鈴同會；支持踏實與祿存同宮的氣魄限制合讀，不將輔佐數量當通用門檻，也不判定事業規模。"
+              ],
+              "statements": [
+                {
+                  "text": "你這張盤的武曲化忌在福德宮，財帛宮無主星，借對宮武曲貪狼來讀。原書論壬年天府在亥、祿存同宮時，明確要求連同武曲化忌及輔佐眾多同會核對。你的盤既有武曲化忌這項修飾，也有兩對輔佐會合，不能省略其中一邊。",
+                  "en": "",
+                  "kind": "interpretation",
+                  "source_ids": [
+                    "TF-B2"
+                  ],
+                  "citations": [
+                    "free.reading.v1:wtz.deep.p201.b001",
+                    "free.reading.v1:wtz.deep.p201.b008",
+                    "free.reading.v1:wtz.deep.p201.b009"
+                  ]
+                }
+              ]
+            },
+            {
+              "slot": "骨架",
+              "text": "原書另把天府與祿存同宮寫成：即使較祥和，氣魄仍較小。這項限制與支持踏實的輔佐因素同時保留。前章講的是累積方式，並未把你將來的事業規模定下來，也不推定你已經建立了甚麼事業。",
+              "heading": "保留氣魄與規模的限制",
+              "referenceConditions": [
+                "本段採用壬年亥宮天府化科、祿存同宮，左輔同宮、官祿見右弼及天魁、對宮見天鉞；財帛無主星，借福德的武曲化忌、貪狼。",
+                "本盤無火鈴再夾命，命宮三方四正無羊陀火鈴同會；支持踏實與祿存同宮的氣魄限制合讀，不將輔佐數量當通用門檻，也不判定事業規模。"
+              ],
+              "statements": [
+                {
+                  "text": "原書另把天府與祿存同宮寫成：即使較祥和，氣魄仍較小。這項限制與支持踏實的輔佐因素同時保留。前章講的是累積方式，並未把你將來的事業規模定下來，也不推定你已經建立了甚麼事業。",
+                  "en": "",
+                  "kind": "interpretation",
+                  "source_ids": [
+                    "TF-B3"
+                  ],
+                  "citations": [
+                    "free.reading.v1:wtz.deep.p201.b003",
+                    "free.reading.v1:wtz.deep.p201.b007",
+                    "free.reading.v1:wtz.deep.p201.b008"
+                  ]
+                }
+              ]
+            },
+            {
+              "slot": "骨架",
+              "text": "原書的祥和與權術，是一組性質的區分；多思多慮則另見於天相受相夾影響的段落。它們所指的事情不同，不能直接互換，也不能用來推定你平常有沒有多想或擔憂。",
+              "heading": "「多思慮」另有條件",
+              "referenceConditions": [
+                "本段區分天府性質與天相受夾的不同條文，沒有據此替本盤新增性格結論。",
+                "多思慮的相關條文要核對天相受刑忌、羊陀或火鈴相夾及兩重相夾的修飾，不能把同宮當成相夾，也不能與權術互換。"
+              ],
+              "statements": [
+                {
+                  "text": "原書的祥和與權術，是一組性質的區分；多思多慮則另見於天相受相夾影響的段落。它們所指的事情不同，不能直接互換，也不能用來推定你平常有沒有多想或擔憂。",
+                  "en": "",
+                  "kind": "editorial-explanation",
+                  "source_ids": [
+                    "TF-B4"
+                  ],
+                  "citations": [
+                    "free.reading.v1:wtz.deep.p201.b002",
+                    "free.reading.v1:wtz.deep.p201.b003",
+                    "free.reading.v1:wtz.deep.p201.b004"
+                  ]
+                }
+              ]
+            }
+          ],
+          "international": {
+            "text": "你偏向祥和：你腳踏實地、看得遠，事業在不知不覺之間做大。\n\n你的命宮在亥，坐天府。天府在亥對著紫微七殺，財帛宮、官祿宮多是權力與欲望之星，所以保守性較小。祥和的不知不覺已建立事功；多思慮的騰挪變化多，所得卻未必多。\n\n說你偏向祥和，是因為你的盤上有三方四正會左輔、右弼、天魁、天鉞、天府同宮見左輔；偏向多思慮的，你的盤上沒有。\n\n所會的多是權力和欲望之星，你的天府保守性較小。祥和的天府，表面看不出重大建樹，其實不知不覺間已建立事功，心境安定。你的天府與祿存同宮，雖祥和，氣魄卻不大。\n\n你的長處是踏實、看得遠。\n\n骨架是天生的，長成怎樣的人，看你怎樣用它；用在對的地方，同一副骨架就是長處。",
+            "slots": [
+              "偏向",
+              "骨架",
+              "推力",
+              "細讀",
+              "長處",
+              "留白"
+            ]
+          },
+          "internationalSnapshot": {
+            "text": "你偏向祥和：你腳踏實地、看得遠，事業在不知不覺之間做大。\n\n你的命宮在亥，坐天府。天府在亥對著紫微七殺，財帛宮、官祿宮多是權力與欲望之星，所以保守性較小。祥和的不知不覺已建立事功；多思慮的騰挪變化多，所得卻未必多。\n\n說你偏向祥和，是因為你的盤上有三方四正會左輔、右弼、天魁、天鉞、天府同宮見左輔；偏向多思慮的，你的盤上沒有。\n\n所會的多是權力和欲望之星，你的天府保守性較小。祥和的天府，表面看不出重大建樹，其實不知不覺間已建立事功，心境安定。你的天府與祿存同宮，雖祥和，氣魄卻不大。\n\n你的長處是踏實、看得遠。\n\n骨架是天生的，長成怎樣的人，看你怎樣用它；用在對的地方，同一副骨架就是長處。",
+            "slots": [
+              "偏向",
+              "骨架",
+              "推力",
+              "細讀",
+              "長處",
+              "留白"
+            ]
+          }
+        }
+      },
+      {
+        "slug": "身宮與五行局",
+        "title": "身宮與五行局",
+        "text": "你把力氣放在資源上：處理實際的東西，是你安放自己的方式。\n\n你的身宮落在財帛宮，宮內沒有主星，借對面福德宮的武曲、貪狼來看。\n\n你是金四局。大限由虛歲四歲起，每十年一步。寫這本書時（二〇二六年），你虛歲三十五，正行第四個大限（三十四至四十三歲），落在田宅宮，坐太陽、巨門。下一個大限從虛歲四十四歲開始，轉到官祿宮。\n\n身宮所在，就是你這些年最用力的地方；力氣用在這裡，最容易見到回報。",
+        "slots": [
+          "身宮",
+          "身宮星",
+          "五行局",
+          "留白"
+        ]
+      },
+      {
+        "slug": "一生十二步",
+        "title": "一生十二步",
+        "text": "你的大限由虛歲四歲起，每十年換一步；寫這本書時（二〇二六年），你走到第四步。你命盤裡的關鍵大限是第三步、第五步、第七步：這幾步的得失，對你一生影響特別大。你的命宮在亥，坐天府：這樣的命盤，行到武曲貪狼同宮、天相或紫微七殺同宮的大限，就是一生的轉折點。\n\n回看你走過的路，二〇一三年（癸巳年，你虛歲二十二），是你命盤裡關鍵的一年，可能有一筆錢走得比預期多，事後回想，當時可以多留一手；同一年，讀書或工作上有轉機，像是考進想讀的學系，或者找到合心意的第一份工。二〇二一年（辛丑年，你虛歲三十），同樣是關鍵的一年，朋輩之間的事比較費心，像是和兄弟姊妹、同學或合伙人有爭拗，或者要替他們分擔；同一年，和長輩或上司之間比較順，像是得到長輩或上司提攜。二〇二五年（乙巳年，你虛歲三十四），同樣是關鍵的一年，你走進第四個大限，生活的重心換了方向，像是轉工、轉行、搬屋或成家；身體是這一年盤上的主題，要付出的可能比平時多，或者曾經需要放慢步調；同一年，朋輩之間比較得力，像是得到兄弟姊妹、同學或合伙人幫忙。這幾年，對你來說是不是有過轉折？對不上的，就當那一年的訊號沒有落在你身上。\n\n第一步　四至十三歲　命宮，坐天府。\n\n第二步　十四至二十三歲　父母宮，坐天同、太陰。\n\n第三步　二十四至三十三歲　福德宮，坐武曲、貪狼。　關鍵大限。\n\n第四步　三十四至四十三歲　田宅宮，坐太陽、巨門。　寫這本書時，你在這一步。\n\n第五步　四十四至五十三歲　官祿宮，坐天相。　關鍵大限。\n\n第六步　五十四至六十三歲　僕役宮，坐天機、天梁。\n\n第七步　六十四至七十三歲　遷移宮，坐紫微、七殺。　關鍵大限。\n\n第八步　七十四至八十三歲　疾厄宮，沒有主星，借對面宮位的天同、太陰。\n\n第九步　八十四至九十三歲　財帛宮，沒有主星，借對面宮位的武曲、貪狼。\n\n之後的大限從虛歲九十四歲起，這裡不再細列。\n\n十二步是一條路的形狀，走得快慢、走向哪裡，仍然在你；關鍵的幾步，值得提早準備。",
+        "slots": [
+          "結論",
+          "回看",
+          "步",
+          "步",
+          "步",
+          "步",
+          "步",
+          "步",
+          "步",
+          "步",
+          "步",
+          "步",
+          "留白"
+        ]
+      },
+      {
+        "slug": "這十年",
+        "title": "這十年",
+        "text": "這十年，你的心情比較寬鬆；你的財務容易周轉不靈或超出預算。寫這本書時（二〇二六年），你虛歲三十五，正行第四個大限（三十四至四十三歲）。\n\n這個大限落在你的田宅宮，坐太陽、巨門，宮干是壬。這十年裡，你偏向孤立：多半要靠自己打天下，換一個環境，更容易遇到賞識你的人。\n\n這十年的官祿宮沒有主星，借對面宮位的天同、太陰。工作上，你適合帶美感或享受色彩的工作，讓人舒服的行業最合你。\n\n這十年的財帛宮沒有主星，借對面宮位的天機、天梁。你靠腦筋賺錢：看機會、找縫隙，把不對盤的東西接起來。\n\n這十年的夫妻宮坐天同、太陰。你在感情裡求安穩多於求熱烈，願意遷就。\n\n這十年的福德宮坐天機、天梁，天梁化祿。心境上，這十年比較順。你思慮多、興趣也多，腦子很難真正停下來。你的心情比較寬鬆，懂得享受生活，也較容易感到滿足。\n\n這十年，天梁化祿落在福德宮、紫微化權落在田宅宮、天府化科落在子女宮、武曲化忌落在兄弟宮。天梁化祿，你容易被捲入別人的麻煩，處理起來拖得較長；適合做收費公開的專業服務，不宜追求名氣。紫微化權，你手上有實權，能獨當一面，但容易給人壓力，辛勞而少人緣。天府化科，你的信用和信譽會增加，容易得到別人信任和上級提拔。武曲化忌，你的財務容易周轉不靈或超出預算；處理問題手段別太硬，感情上尤其如此。\n\n天梁在你本命化祿，這十年又化祿，兩者疊在一起，財祿的意義大為加強。紫微在你本命化權，這十年又化權：權力疊得太重，反而容易招來壓制。\n\n這十年最順的是自己的興趣和心境，力氣放在這裡，最容易見到回報。關於和兄弟、朋輩合作的事，決定之前多花一點時間，簽字、承諾之前多問一句。\n\n下一個大限從虛歲四十四歲開始，轉到官祿宮，坐天相；那十年破軍化祿、貪狼化忌。\n\n環境只是背景；這十年要做成甚麼、做到哪一步，始終由你自己決定。",
+        "slots": [
+          "結論",
+          "大限",
+          "工作",
+          "錢",
+          "感情",
+          "心境",
+          "四化",
+          "互動",
+          "建議",
+          "下一步",
+          "留白"
+        ]
+      },
+      {
+        "slug": "這一年",
+        "title": "這一年",
+        "text": "這一年，你的財祿有增加的機會；你的感情和人際容易有挫折。寫這本書的二〇二六年是丙午年，你虛歲三十五。\n\n這一年的流年命宮在午，落在你本命的疾厄宮，也就是這十年大限的官祿宮，沒有主星，借對面宮位的天同、太陰。這一年裡，你偏向消極：你容易安於舒適，要給自己一個看得見的目標，才會起勁。\n\n這一年的官祿宮沒有主星，借對面宮位的天機、天梁。你做事擅長變通找路，但底線是守規矩、分清是非。\n\n這一年的財帛宮坐太陽、巨門。你的錢多半跟著地位和名聲來，先有位置，才有收入。\n\n這一年的夫妻宮坐天機、天梁，天機化權。感情上，這一年有發揮的空間，也要多扛一點。你在感情裡想得多、調整得快，願意為對方改變做法。不過，感情裡你比較主導，記得留空間給對方，別變成一個人作主。\n\n這一年的福德宮沒有主星，借對面宮位的太陽、巨門。心境上，你好動，完全空下來反而不安，要有事可做才自在。\n\n這一年，天同化祿落在遷移宮、天機化權落在夫妻宮、文昌化科落在遷移宮、廉貞化忌落在田宅宮。天同化祿，你的財祿有增加的機會，而且在運限見到比在本命更好；留意別因安逸而少了進取。天機化權，你的想法較穩定，也更有效率，意見容易被採納，但實權未必在你手上。文昌化科，你利於考試、進修和寫作，作品容易有發表的機會。廉貞化忌，你的感情和人際容易有挫折，替人出力也可能反招怨言；量力而為，別勉強。\n\n這一年的四化，沒有碰到你大限或本命的四化，不會再疊加額外的起落；今年就看上面流年四化本身落在哪裡。\n\n這一年最順的是外面的機會，力氣放在這裡，最容易見到回報。關於家裡的事，決定之前多花一點時間，急著要答覆的事，先放一晚。\n\n按農曆逐月來看，這一年起落較明顯的月份如下。正月：家裡的開支先做好預算。三月：同事、朋友幫得上手。四月：出外上順逆並見，順的地方把握，卡住的地方別硬推。七月：和晚輩相處愉快。九月：和兄弟姊妹、朋友相處融洽。其餘月份，盤上沒有突出的起落，照平常的步調安排就好。\n\n二〇二七年是丁未年，流年命宮轉到未，落在你本命的財帛宮，沒有主星，借對面宮位的武曲、貪狼；那一年太陰化祿、巨門化忌。\n\n一年很快過去。把力氣放在順的地方，對要留神的事慢一步，就是這一年最實在的做法。",
+        "slots": [
+          "結論",
+          "流年",
+          "工作",
+          "錢",
+          "感情",
+          "心境",
+          "四化",
+          "互動",
+          "建議",
+          "逐月",
+          "明年",
+          "留白"
+        ]
+      },
+      {
+        "slug": "兄弟",
+        "text": "你在朋友之間常常是居中傳話、調停的那一個。不過，你知道所有人的狀況，自己的事卻常常沒有人接。\n\n你的兄弟宮沒有主星，借對面僕役宮的天機、天梁來讀。\n\n在平輩之間，天機是居中的那一個——傳話、調停、把兩邊接上。\n\n天機居中牽線，使它在群體裡不可或缺，也使它長期站在別人的事情中間。居中的位置給它分量，也讓它少了一個可以靠的人。在平輩之間，天梁是被依靠的那一個。朋友有難第一個想到它，而它很少推。天梁被依靠，使它在群體裡有分量，也使關係長期不對等——它知道所有人的難處，而它自己的事很少對人講。\n\n天機天梁在兄弟宮，你身邊有能言善辯的朋友。見天梁化祿，你的朋友中有肯直言規勸的諍友。天梁帶孤剋之性，即使見吉，你也不宜與人合作；除非合作者完全退居幕後，做你的後台。\n\n加上陀羅同宮，平輩之間的芥蒂不容易散，過去的事會一直帶著。舊事翻得出來，而且記得細節。\n\n這一組星形成善蔭朝綱：轉圜的餘地和照顧他人的傾向並存。意思是你手上通常留得住一條路，但那條路多數也留給了別人。\n\n朋友吵架時，兩邊都會來找你訴苦；群組裡的大小事你往往最清楚，卻很少有人問你最近過得怎樣。",
+        "slots": [
+          "結論",
+          "開場",
+          "開場",
+          "結構",
+          "細讀",
+          "擾動",
+          "牽動",
+          "生活"
+        ]
+      },
+      {
+        "slug": "夫妻",
+        "text": "你們之間容易不和，相處要多費心思。不過，你心裡的界線，最好事先說明，別等對方自己猜。\n\n你的夫妻宮坐廉貞、破軍。\n\n廉貞的投入使關係強烈，也使落差特別刺眼。它對界線敏感，被越界時反應激烈；而它自己認定的界線未必事先說明。在親密關係裡，破軍投入時全力以赴，遇到僵局則傾向於整個拆掉重談，而不是慢慢修。破軍拆掉重談，使關係少有拖延的暗傷，也使波動比一般大。\n\n即使見吉，兩人也容易不和，關係要多花心力經營。廉貞在夫妻宮，與年齡相差較大的伴侶，你比較合得來。你婚前多波折；就算破軍化祿也一樣。你在感情裡有想駕馭伴侶的傾向。\n\n加上地劫同宮，關係裡投入的部分不容易被看見；你付出了甚麼，可以說出來。\n\n感情裡你還是你，只是要談的事，比較容易找到合適的時機開口。\n\n你對伴侶的回應很在意：訊息回得慢、答應的事忘了，你都會放在心上；你介意的地方，最好直接說給對方聽。",
+        "slots": [
+          "結論",
+          "開場",
+          "結構",
+          "細讀",
+          "擾動",
+          "牽動",
+          "生活"
+        ]
+      },
+      {
+        "slug": "子女",
+        "text": "你對後輩給得多，願意花時間、給資源、替對方開路。只是你放手讓對方走一段彎路，是最難卻最有用的一課。\n\n你的子女宮沒有主星，借對面田宅宮的太陽、巨門來讀。\n\n太陽這樣照顧人，使後輩受惠，也容易讓對方長期站在被照的位置上，較少自己摸索。\n\n培養人的時候，巨門教的是怎麼想，而不是怎麼做——問問題、拆前提、不接受「大家都這樣」。巨門教怎麼想，對後輩相當有價值，也容易讓對方覺得被挑剔。\n\n太陽巨門見文昌、文曲，你帶的子女或後輩多聰敏機智。太陽巨門在子女宮，子女有辯才，也有學外語、方言的能力；用同樣的方法看晚輩、親信，就能知人善用。巨門得祿，你和子女之間的疏離會減少。\n\n加上鈴星同宮，對後輩的期待不明說，落差出現時反應會偏大。\n\n你在培育一件事或一個人的時候，中途要處理的變數比較多，放手的時機不容易剛好。\n\n你願意為孩子或後輩花時間、花錢，報興趣班、介紹機會都不吝嗇；讓對方自己碰一次壁，也是一種給予。",
+        "slots": [
+          "結論",
+          "開場",
+          "開場",
+          "結構",
+          "細讀",
+          "擾動",
+          "牽動",
+          "生活"
+        ]
+      },
+      {
+        "slug": "財帛",
+        "text": "你求財靠行動，懂得以錢賺錢，很少安於只拿一份薪水。要留意的是，你願意承擔風險，也要算清楚承擔得起多少。\n\n你的財帛宮沒有主星，借對面福德宮的武曲、貪狼來讀。\n\n武曲本就是財帛主，這是它最順的一格。\n\n《全書》寫「豐足化吉有巨萬家資」：錢是你最順手的一環。武曲處理資源是主動經營，想定了就下手，不為小錢反覆。它對數字有感覺，也願意承擔相應的風險。你對數字有感覺，這是值得好好運用的長處。貪狼賺取資源跟著機會走，看到就撲上去，看不到就閒著。它容易把賺到的再投回下一個想要的東西，於是帳面的起伏比實際能力大。\n\n你的官祿宮星曜吉利，財帛宮卻不吉利：事業可以做大，但錢財不易聚，宜受雇或與人合夥，不宜獨立經營。武曲貪狼在財帛宮，你一般會得到偏財。貪狼會到地空，你不宜投機，穩穩地賺比快錢好。你出手闊綽大方，心裡卻精於盤算計較。\n\n資源的來路相對通，要張羅一件事的時候，可調動的東西比較多。\n\n你對數字敏感，也懂得以錢生錢：投資、做生意、自己做生意，都比單靠一份薪水更合你的性格。",
+        "slots": [
+          "結論",
+          "開場",
+          "開場",
+          "結構",
+          "細讀",
+          "牽動",
+          "生活"
+        ]
+      },
+      {
+        "slug": "疾厄",
+        "text": "你的疲累不來自壓力大，而來自壓力遲遲不處理。不過，你把不舒服的事提早攤開，比學會休息更有用。\n\n你的疾厄宮沒有主星，借對面父母宮的天同、太陰來讀。\n\n你的消耗來得慢、發現得遲，疲勞多半在事情已經拖成大事之後才顯出來。\n\n對天同有用的不是學會休息，是把事情提早攤開。太陰的耗損來自承接——把別人的情緒、家裡的雜務、沒人處理的細節一一收起來。這種消耗隱形，因為每一件都很小，而且多半沒有人知道是你在做。\n\n你常常同時扛著幾件事，想喘口氣，空檔卻很難連成一段。\n\n讓你心煩的事，你常常先放著不處理，結果越積越多；每星期找一個時間把擱著的事清一清，你會睡得比較好。\n\n此章不涉醫療判斷。",
+        "slots": [
+          "結論",
+          "開場",
+          "開場",
+          "結構",
+          "牽動",
+          "生活",
+          "留白"
+        ]
+      },
+      {
+        "slug": "遷移",
+        "text": "在外面，你宜憑一己之力打開局面。但你習慣自己硬闖，卻不擅長開口求助，孤身時容易吃力。\n\n你的遷移宮坐紫微、七殺。\n\n《全書》記「紫微同左右出外貴人扶持發福」：你在外的表現，很看有沒有人同行。紫微在陌生場合不擅長主動求助，卻又習慣站在被看見的位置，於是有人引介時相當順利，孤身一人時則容易顯得拘謹。外部條件對你的影響，大於它自身的強弱。七殺在外面比在原地有力，陌生環境沒有包袱，也沒有人替它決定該怎麼做。它在外開局快，適應靠的是硬碰硬而不是討好。紫微化權，主導的姿態有了實際的支點，說出來的話開始算數。要留意權帶來的是責任而不是地位。\n\n紫微七殺在遷移宮，出外為人敬畏，在外能建立事功。紫微在遷移宮得眾星拱照，宜遷移：在外有人提攜，也有助力。紫微化權，你在外只宜憑自己的力量打開局面。\n\n出差、外派或到新公司，你很快就能開局；有熟人引介時事情更順，一個人去陌生地方時，先主動認識一兩個可以問事的人。",
+        "slots": [
+          "結論",
+          "開場",
+          "結構",
+          "細讀",
+          "生活"
+        ]
+      },
+      {
+        "slug": "僕役",
+        "text": "你結識的朋友來自四方八面，但大多來來去去，常在更換。而且你的人脈廣而輕，沉澱下來的關係未必多。\n\n你的僕役宮坐天機、天梁。\n\n天機在群體裡靠的是消息與接點，它知道誰認識誰、哪條路走得通，於是成為關鍵的中間人。中間人的位置消耗的是時間與記性，而這兩樣都不會被記錄。天梁在群體裡是主持公道的那一個，願意出面、願意說難聽的話，也願意替人善後。天梁出面主持公道，使它受敬重，卻不一定受親近——因為原則明確的人，別人不太敢在你面前鬆懈。天梁化祿，庇護有了資源，接得住人也養得起。它讓承擔不再是純付出。肯擔的人這時候擔得起。\n\n天機天梁見天梁化祿，可得年長可靠的朋友，或年長得力的親信。天機在僕役宮，結識各方面的朋友，但也時時更換。\n\n在人群裡，誰親誰疏不容易一次劃清，你的交情要慢慢看。\n\n你身邊的同事、下屬和朋友常常在換，認識的人很多，留得下來的不多；大家打聽消息時，第一個想到的是你。",
+        "slots": [
+          "結論",
+          "開場",
+          "結構",
+          "細讀",
+          "牽動",
+          "生活"
+        ]
+      },
+      {
+        "slug": "官祿",
+        "text": "你做副手或執行者最得心應手，不必去爭名義上的第一位。要留意的是，你在需要從零定規則的位置上，會使不上力。\n\n你的官祿宮坐天相。\n\n天相照著規格辦事，對制度既用得好，也守得住。\n\n從商最宜做商品代理；任職則適合做跨國機構的地區主管。天相在官祿宮，無論處甚麼位置，名義上都不宜佔最高的位置，做副手最好。\n\n你要推一件事，願意接手、肯幫忙的人通常找得到。\n\n在職場上，你做副手、執行者，或者一個部門、一個地區的負責人，往往比坐最高的位置更得心應手；站到最高處，壓力和攻擊會一起來。",
+        "slots": [
+          "結論",
+          "開場",
+          "結構",
+          "細讀",
+          "牽動",
+          "生活"
+        ]
+      },
+      {
+        "slug": "田宅",
+        "text": "你的住處不容易長期固定，搬家、換環境都比別人多。而且你安頓的節奏常跟著人走，較少長遠的計劃。\n\n你的田宅宮坐太陽、巨門。\n\n《全書》寫「入廟得祖業，初旺未平」：入廟的太陽，有祖業可以承接，起步的勢頭旺。安置的節奏多半跟著人走而不是跟著計畫走，它也較少為長期持有做精算。對住的地方，巨門在意的是條件講不講得清——合約、界線、權責。它願意為一個地方花力氣研究，也容易因為細節不清而反覆，兩者是同一種認真。\n\n太陽光熱充足，你有祖業，只是不容易守住，任職的機構也容易變更。\n\n搬家、轉公司、換辦公室，你都比別人多經歷幾次，每次搬完總有一陣浮動不安；與其要求一次到位，不如每次安頓下來先給自己一點時間適應。",
+        "slots": [
+          "結論",
+          "開場",
+          "結構",
+          "細讀",
+          "生活"
+        ]
+      },
+      {
+        "slug": "福德",
+        "text": "你的安心多半建立在物質的基礎上，生活有保障，心才放得下。但心境上你想做而做不成的事，容易積成一股悶氣。\n\n你的福德宮坐武曲、貪狼。\n\n《全書》寫「勞心費力，入廟安然享福」：你辛苦，也懂得享受辛苦換來的東西。武曲的安定來自事情在推進——只要有進度，它就不覺得累。真正令它不安的是停滯，等待、拖延、懸而未決的事，比工作量本身更消耗它。停滯比工作量更消耗它，所以推到有結論往往比放下更有效。貪狼的精神狀態與獲得無關，與期待有關。問它缺什麼，不如問它在等什麼——後者才答得出來。福德與財帛正對，一個講內在滿足，一個講外在資源。武曲化忌，決斷卡住，想做而做不成，或者做成了代價超出預期。它的形狀是硬碰硬。\n\n武曲是財星，在福德宮，精神享受要以物質享受為基礎。貪狼在福德宮，你容易醉心於一種嗜好。\n\n加上地空同宮，心裡常有一塊懸著的地方，說不清楚在缺什麼。\n\n你休息時也在想下一步：數字、計劃、進度；把大事拆成小段，每天完成一段，晚上會睡得安穩些。",
+        "slots": [
+          "結論",
+          "開場",
+          "結構",
+          "細讀",
+          "擾動",
+          "生活"
+        ]
+      },
+      {
+        "slug": "父母",
+        "text": "你在上司手下容易感到壓力，關係因此緊張。而且你忍得太久，到做不下去那一刻，轉變會很徹底。\n\n你的父母宮坐天同、太陰。\n\n天同不違逆，使關係融洽，也使它在被安排的時候不容易說不。它照做，很少質疑，直到某件事真的做不下去為止；而到那一刻，它的轉變往往比任何人都徹底。因為它不是不介意，只是忍了太久。太陰傾向於順著來——不正面衝突、不公開反對、把不同意見放在心裡慢慢處理。太陰順著來，使關係表面和睦，也使真正的距離不容易被察覺。\n\n同宮有擎羊，你容易受上司壓力，以致不和。天同與火星同宮，你工作上常常換上司。太陰與擎羊同宮，你和母親的緣份較淺。\n\n與權威、與長輩之間要交代的事情比較多，規矩和自己的判斷不總是同一個方向。\n\n你和父母、上司的關係融洽，長輩和上司安排甚麼，你多半照做；覺得不合理時早一點說，比忍到受不了才爆發好。",
+        "slots": [
+          "結論",
+          "開場",
+          "結構",
+          "細讀",
+          "牽動",
+          "生活"
+        ]
+      },
+      {
+        "slug": "給你的話",
+        "title": "給你的話",
+        "text": "你表面看不出大動作，其實不知不覺已經建立了事業。最可以倚仗的一點：工作上，你做副手或執行者最得心應手，不必去爭名義上的第一位。最要記住的一點：你在需要當機立斷的場合，會顯得慢半拍。\n\n其他可以倚仗的：一、你的長處是踏實、看得遠。二、你結識的朋友來自四方八面，但大多來來去去，常在更換。三、錢方面，你求財靠行動，懂得以錢賺錢，很少安於只拿一份薪水。\n\n其他要記住的：一、心境上你想做而做不成的事，容易積成一股悶氣。二、感情上，你心裡的界線，最好事先說明，別等對方自己猜。三、你穩得住，機會來時也要敢動一步。\n\n時間上，這十年，力氣放在自己的興趣和心境，和兄弟、朋輩合作的事慢一步；這一年，力氣放在外面的機會，家裡的事慢一步。\n\n命書寫的是一張底圖。往後的路怎樣走，仍然在你；需要的時候，再翻回來看看。",
+        "slots": [
+          "結論",
+          "長處",
+          "留意",
+          "時間",
+          "留白"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "C",
+    "input": {
+      "solar": {
+        "y": 2012,
+        "m": 4,
+        "d": 20
+      },
+      "time": {
+        "h": 13,
+        "min": 29
+      },
+      "sex": "female",
+      "tz": "America/New_York",
+      "place": {
+        "lng": -74.006,
+        "lat": 40.7128,
+        "label": "紐約"
+      }
+    },
+    "seed": "trilingual-review-2026-10-21-C",
+    "baseline": "a2e801464465dbef1a8a0bfd8e7d21e1085519bc",
+    "saved": [
+      {
+        "slug": "序",
+        "title": "序 · 你的命盤",
+        "text": "你出生的那一刻，在這裡換算成一張命盤。十二宮的位置由此定下，往後每一章，都從這張盤讀起。\n\n國曆二〇一二年四月二十日，午時，生於紐約。農曆壬辰年三月三十。\n\n五行局是金四局。命宮在戌，身宮在戌。十二宮由此定位，往後每一章各讀其中一宮。\n\n這張盤依中州派（王亭之）的算法排出。出生時間已按出生地經度，校正為真太陽時。\n\n這張盤是屬於你的底圖，一生不變。往後翻開的每一章，讀的都是你自己。",
+        "slots": [
+          "章首",
+          "生辰",
+          "盤面",
+          "體系",
+          "留白"
+        ]
+      },
+      {
+        "slug": "命宮",
+        "text": "你這組命宮，把對變化的敏感與對原則的重視放在一起。兩者配合得宜，較能形成清楚的判斷；互相牽動而失調時，反應可能變得過度，表達也容易尖刻。\n\n你的盤同時見到有助配合的因素和增加衝突的因素。這裡先保留兩者，不把你定成明斷或尖刻的一類；兩邊同時存在，也未足以說它們已經調和。\n\n例如同學提出另一種做法時，可以先分開想：你留意到甚麼新情況？你擔心哪一條原則被忽略？再試著先說觀察，後說判斷。這是編輯提供的理解練習，不表示你曾與同學爭執，也不拿你的回答替命盤補判。\n\n接下來的「性格的骨架」，會列出本盤有哪些配合，以及為甚麼這裡先保留未定。",
+        "slots": [
+          "結論",
+          "展開",
+          "情境",
+          "做法"
+        ],
+        "reading": {
+          "format": "ming-expanded-v1",
+          "writer": "reader-backed-v1",
+          "segments": [
+            {
+              "slot": "結論",
+              "text": "你這組命宮，把對變化的敏感與對原則的重視放在一起。兩者配合得宜，較能形成清楚的判斷；互相牽動而失調時，反應可能變得過度，表達也容易尖刻。",
+              "heading": "察覺變化，也在意原則",
+              "referenceConditions": [
+                "本命天機天梁同坐辰戌；敏感與原則能否調和，須連三合星系及輔佐煞化一起看。",
+                "一般性質比較不是已調和的結論；不將一顆輔星或兩類訊號相加抵銷作為充分條件。"
+              ],
+              "statements": [
+                {
+                  "text": "你這組命宮，把對變化的敏感與對原則的重視放在一起。兩者配合得宜，較能形成清楚的判斷；互相牽動而失調時，反應可能變得過度，表達也容易尖刻。",
+                  "en": "",
+                  "kind": "editorial-explanation",
+                  "source_ids": [
+                    "JL-M1"
+                  ],
+                  "citations": [
+                    "free.reading.v1:wtz.deep.p215.b011",
+                    "free.reading.v1:wtz.deep.p215.b012",
+                    "free.reading.v1:wtz.deep.p216.b002",
+                    "free.reading.v1:wtz.deep.p216.b006"
+                  ]
+                }
+              ]
+            },
+            {
+              "slot": "展開",
+              "text": "你的盤同時見到有助配合的因素和增加衝突的因素。這裡先保留兩者，不把你定成明斷或尖刻的一類；兩邊同時存在，也未足以說它們已經調和。",
+              "heading": "這張盤先保留兩種因素",
+              "referenceConditions": [
+                "本盤戌宮機梁、天梁化祿，文曲陀羅同宮；對宮文昌鈴星，財帛同陰左輔，官祿空宮借對宮太陽巨門及配曜。",
+                "輔佐與煞曜因素同時保留；天梁化祿不等同原文的化科、化權條件，暫不判定整體明斷、尖刻或已調和。"
+              ],
+              "statements": [
+                {
+                  "text": "你的盤同時見到有助配合的因素和增加衝突的因素。這裡先保留兩者，不把你定成明斷或尖刻的一類；兩邊同時存在，也未足以說它們已經調和。",
+                  "en": "",
+                  "kind": "interpretation",
+                  "source_ids": [
+                    "JL-M2"
+                  ],
+                  "citations": [
+                    "free.reading.v1:wtz.deep.p215.b012",
+                    "free.reading.v1:wtz.deep.p216.b006"
+                  ]
+                }
+              ]
+            },
+            {
+              "slot": "情境",
+              "text": "例如同學提出另一種做法時，可以先分開想：你留意到甚麼新情況？你擔心哪一條原則被忽略？再試著先說觀察，後說判斷。這是編輯提供的理解練習，不表示你曾與同學爭執，也不拿你的回答替命盤補判。",
+              "heading": "可以怎樣對照生活",
+              "statements": [
+                {
+                  "text": "例如同學提出另一種做法時，可以先分開想：你留意到甚麼新情況？你擔心哪一條原則被忽略？再試著先說觀察，後說判斷。這是編輯提供的理解練習，不表示你曾與同學爭執，也不拿你的回答替命盤補判。",
+                  "en": "",
+                  "kind": "editorial-example",
+                  "source_ids": [
+                    "JL-M3"
+                  ],
+                  "citations": []
+                }
+              ]
+            },
+            {
+              "slot": "做法",
+              "text": "接下來的「性格的骨架」，會列出本盤有哪些配合，以及為甚麼這裡先保留未定。",
+              "statements": [
+                {
+                  "text": "接下來的「性格的骨架」，會列出本盤有哪些配合，以及為甚麼這裡先保留未定。",
+                  "en": "",
+                  "kind": "editorial-advice",
+                  "source_ids": [
+                    "JL-M4"
+                  ],
+                  "citations": []
+                }
+              ]
+            }
+          ],
+          "international": {
+            "text": "天機天梁這組命宮，要分清尖刻與明斷，反應敏銳，與判斷是否恰當，需要分開理解。\n\n天機偏敏感變動，天梁偏原則紀律，兩股力量調和，原書才進一步談明斷。\n\n因此，單有敏感或單有原則，都未足以替代兩者配合，平衡是這一段的重要條件。\n\n三方的天同太陰與太陽巨門，也分別牽動這兩個方向，所以不能只在命宮內看兩星強弱。\n\n本質：你的命宮是天機、天梁同坐戌宮。",
+            "slots": [
+              "結論",
+              "展開",
+              "展開",
+              "展開",
+              "因為"
+            ]
+          },
+          "internationalSnapshot": {
+            "text": "天機天梁這組命宮，要分清尖刻與明斷，反應敏銳，與判斷是否恰當，需要分開理解。\n\n天機偏敏感變動，天梁偏原則紀律，兩股力量調和，原書才進一步談明斷。\n\n因此，單有敏感或單有原則，都未足以替代兩者配合，平衡是這一段的重要條件。\n\n三方的天同太陰與太陽巨門，也分別牽動這兩個方向，所以不能只在命宮內看兩星強弱。\n\n本質：你的命宮是天機、天梁同坐戌宮。",
+            "slots": [
+              "結論",
+              "展開",
+              "展開",
+              "展開",
+              "因為"
+            ],
+            "reading": {
+              "format": "ming-expanded-v1",
+              "writer": "sentence-backed-v1",
+              "segments": [
+                {
+                  "slot": "結論",
+                  "text": "天機天梁這組命宮，要分清尖刻與明斷，反應敏銳，與判斷是否恰當，需要分開理解。",
+                  "en": "Tian Ji with Tian Liang distinguishes sharpness from clear judgement; sensitivity and sound assessment are different matters.",
+                  "topic": "本質",
+                  "source_id": "card.ming.jiliang-chenxu.core",
+                  "source_ids": [
+                    "card.ming.jiliang-chenxu.core"
+                  ],
+                  "citations": [
+                    "ming.backed:card.ming.jiliang-chenxu.core:0"
+                  ],
+                  "statements": [
+                    {
+                      "text": "天機天梁這組命宮，要分清尖刻與明斷，反應敏銳，與判斷是否恰當，需要分開理解。",
+                      "en": "Tian Ji with Tian Liang distinguishes sharpness from clear judgement; sensitivity and sound assessment are different matters.",
+                      "kind": "interpretation",
+                      "source_ids": [
+                        "card.ming.jiliang-chenxu.core"
+                      ],
+                      "citations": [
+                        "ming.backed:card.ming.jiliang-chenxu.core:0"
+                      ]
+                    }
+                  ],
+                  "rule_ids": [],
+                  "heading": "本質"
+                },
+                {
+                  "slot": "展開",
+                  "text": "天機偏敏感變動，天梁偏原則紀律，兩股力量調和，原書才進一步談明斷。",
+                  "en": "Tian Ji contributes sensitivity and change, and Tian Liang principle and discipline; their balance is the premise for clear judgement.",
+                  "topic": "本質",
+                  "source_id": "card.ming.jiliang-chenxu.core",
+                  "source_ids": [
+                    "card.ming.jiliang-chenxu.core"
+                  ],
+                  "citations": [
+                    "ming.backed:card.ming.jiliang-chenxu.core:1"
+                  ],
+                  "statements": [
+                    {
+                      "text": "天機偏敏感變動，天梁偏原則紀律，兩股力量調和，原書才進一步談明斷。",
+                      "en": "Tian Ji contributes sensitivity and change, and Tian Liang principle and discipline; their balance is the premise for clear judgement.",
+                      "kind": "interpretation",
+                      "source_ids": [
+                        "card.ming.jiliang-chenxu.core"
+                      ],
+                      "citations": [
+                        "ming.backed:card.ming.jiliang-chenxu.core:1"
+                      ]
+                    }
+                  ],
+                  "rule_ids": []
+                },
+                {
+                  "slot": "展開",
+                  "text": "因此，單有敏感或單有原則，都未足以替代兩者配合，平衡是這一段的重要條件。",
+                  "en": "Neither sensitivity nor principle alone replaces their coordination; balance is an important condition in the passage.",
+                  "topic": "本質",
+                  "source_id": "card.ming.jiliang-chenxu.core",
+                  "source_ids": [
+                    "card.ming.jiliang-chenxu.core"
+                  ],
+                  "citations": [
+                    "ming.backed:card.ming.jiliang-chenxu.core:2"
+                  ],
+                  "statements": [
+                    {
+                      "text": "因此，單有敏感或單有原則，都未足以替代兩者配合，平衡是這一段的重要條件。",
+                      "en": "Neither sensitivity nor principle alone replaces their coordination; balance is an important condition in the passage.",
+                      "kind": "interpretation",
+                      "source_ids": [
+                        "card.ming.jiliang-chenxu.core"
+                      ],
+                      "citations": [
+                        "ming.backed:card.ming.jiliang-chenxu.core:2"
+                      ]
+                    }
+                  ],
+                  "rule_ids": []
+                },
+                {
+                  "slot": "展開",
+                  "text": "三方的天同太陰與太陽巨門，也分別牽動這兩個方向，所以不能只在命宮內看兩星強弱。",
+                  "en": "Tian Tong–Tai Yin and Tai Yang–Ju Men in the trine affect the two directions, so the assessment extends beyond the Life Palace pair.",
+                  "topic": "本質",
+                  "source_id": "card.ming.jiliang-chenxu.core",
+                  "source_ids": [
+                    "card.ming.jiliang-chenxu.core"
+                  ],
+                  "citations": [
+                    "ming.backed:card.ming.jiliang-chenxu.core:3"
+                  ],
+                  "statements": [
+                    {
+                      "text": "三方的天同太陰與太陽巨門，也分別牽動這兩個方向，所以不能只在命宮內看兩星強弱。",
+                      "en": "Tian Tong–Tai Yin and Tai Yang–Ju Men in the trine affect the two directions, so the assessment extends beyond the Life Palace pair.",
+                      "kind": "interpretation",
+                      "source_ids": [
+                        "card.ming.jiliang-chenxu.core"
+                      ],
+                      "citations": [
+                        "ming.backed:card.ming.jiliang-chenxu.core:3"
+                      ]
+                    }
+                  ],
+                  "rule_ids": []
+                },
+                {
+                  "slot": "因為",
+                  "text": "本質：你的命宮是天機、天梁同坐戌宮。",
+                  "en": "Who you are: your Life Palace holds Tian Ji and Tian Liang in the Xu position.",
+                  "topic": "本質",
+                  "source_id": "card.ming.jiliang-chenxu.core",
+                  "source_ids": [],
+                  "citations": [],
+                  "statements": [
+                    {
+                      "text": "你的命宮是天機、天梁同坐戌宮",
+                      "en": "your Life Palace holds Tian Ji and Tian Liang in the Xu position",
+                      "kind": "evidence",
+                      "source_ids": [],
+                      "citations": []
+                    }
+                  ],
+                  "rule_ids": [],
+                  "heading": "盤面與出處"
+                }
+              ],
+              "international": {
+                "text": "你腦筋轉得快，遇到阻力先想別的路，而不是硬推。要留意的是，你繞得開阻力，也容易繞開需要待久的事。\n\n你的命宮坐天機、天梁。\n\n天機遇阻先轉，使它靈活、學得快、少與人正面相撞，也使它不容易在一件事上待夠久。《全書》另有一句「在廟旺有力，陷地無力」：你的表現，很看環境配不配合。轉得動，但要時間；倉促之下它的方案未必比直來直往好。天梁在命的基調是出面，遇到不公會說話，遇到有難的人會接。它有一套自己認定的標準，而且相當堅持。天梁化祿，庇護有了資源，接得住人也養得起。它讓承擔不再是純付出。肯擔的人這時候擔得起。\n\n加上陀羅同宮，事情在心裡轉得久，進退之間反覆。它讓判斷慢下來。\n\n你想推一件事的時候，通常不必從最基本的地方開始鋪，起步比別人省力。\n\n工作卡在某個流程時，你會先換個做法、找另一個人問，或者調一調次序；學新軟件、新規則，你也比身邊的人快上手。",
+                "slots": [
+                  "結論",
+                  "開場",
+                  "結構",
+                  "擾動",
+                  "牽動",
+                  "生活"
+                ]
+              },
+              "localized": {
+                "version": "ming-translations-v1",
+                "en": [
+                  {
+                    "slot": "結論",
+                    "text": "Tian Ji with Tian Liang distinguishes sharpness from clear judgement; sensitivity and sound assessment are different matters.",
+                    "heading": "Who you are",
+                    "statements": [
+                      {
+                        "text": "Tian Ji with Tian Liang distinguishes sharpness from clear judgement; sensitivity and sound assessment are different matters.",
+                        "en": "Tian Ji with Tian Liang distinguishes sharpness from clear judgement; sensitivity and sound assessment are different matters.",
+                        "kind": "interpretation",
+                        "source_ids": [
+                          "card.ming.jiliang-chenxu.core"
+                        ],
+                        "citations": [
+                          "ming.backed:card.ming.jiliang-chenxu.core:0"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "slot": "展開",
+                    "text": "Tian Ji contributes sensitivity and change, and Tian Liang principle and discipline; their balance is the premise for clear judgement.",
+                    "statements": [
+                      {
+                        "text": "Tian Ji contributes sensitivity and change, and Tian Liang principle and discipline; their balance is the premise for clear judgement.",
+                        "en": "Tian Ji contributes sensitivity and change, and Tian Liang principle and discipline; their balance is the premise for clear judgement.",
+                        "kind": "interpretation",
+                        "source_ids": [
+                          "card.ming.jiliang-chenxu.core"
+                        ],
+                        "citations": [
+                          "ming.backed:card.ming.jiliang-chenxu.core:1"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "slot": "展開",
+                    "text": "Neither sensitivity nor principle alone replaces their coordination; balance is an important condition in the passage.",
+                    "statements": [
+                      {
+                        "text": "Neither sensitivity nor principle alone replaces their coordination; balance is an important condition in the passage.",
+                        "en": "Neither sensitivity nor principle alone replaces their coordination; balance is an important condition in the passage.",
+                        "kind": "interpretation",
+                        "source_ids": [
+                          "card.ming.jiliang-chenxu.core"
+                        ],
+                        "citations": [
+                          "ming.backed:card.ming.jiliang-chenxu.core:2"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "slot": "展開",
+                    "text": "Tian Tong–Tai Yin and Tai Yang–Ju Men in the trine affect the two directions, so the assessment extends beyond the Life Palace pair.",
+                    "statements": [
+                      {
+                        "text": "Tian Tong–Tai Yin and Tai Yang–Ju Men in the trine affect the two directions, so the assessment extends beyond the Life Palace pair.",
+                        "en": "Tian Tong–Tai Yin and Tai Yang–Ju Men in the trine affect the two directions, so the assessment extends beyond the Life Palace pair.",
+                        "kind": "interpretation",
+                        "source_ids": [
+                          "card.ming.jiliang-chenxu.core"
+                        ],
+                        "citations": [
+                          "ming.backed:card.ming.jiliang-chenxu.core:3"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "slot": "因為",
+                    "text": "Who you are: your Life Palace holds Tian Ji and Tian Liang in the Xu position.",
+                    "heading": "What the chart shows",
+                    "statements": [
+                      {
+                        "text": "your Life Palace holds Tian Ji and Tian Liang in the Xu position",
+                        "en": "your Life Palace holds Tian Ji and Tian Liang in the Xu position",
+                        "kind": "evidence",
+                        "source_ids": [],
+                        "citations": []
+                      }
+                    ]
+                  }
+                ],
+                "ja": [
+                  {
+                    "slot": "結論",
+                    "text": "天機・天梁では辛辣さと明晰な判断を分けて見ていき、反応の鋭さと、判断が適切かどうかは別に理解する必要があります。",
+                    "heading": "性質の読み方",
+                    "statements": [
+                      {
+                        "text": "天機・天梁では辛辣さと明晰な判断を分けて見ていき、反応の鋭さと、判断が適切かどうかは別に理解する必要があります。",
+                        "en": "Tian Ji with Tian Liang distinguishes sharpness from clear judgement; sensitivity and sound assessment are different matters.",
+                        "kind": "interpretation",
+                        "source_ids": [
+                          "card.ming.jiliang-chenxu.core"
+                        ],
+                        "citations": [
+                          "ming.backed:card.ming.jiliang-chenxu.core:0"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "slot": "展開",
+                    "text": "天機は敏感さや変動、天梁は原則や規律に傾き、原著は二つの力の調和を前提として、さらに明晰な判断を論じています。",
+                    "statements": [
+                      {
+                        "text": "天機は敏感さや変動、天梁は原則や規律に傾き、原著は二つの力の調和を前提として、さらに明晰な判断を論じています。",
+                        "en": "Tian Ji contributes sensitivity and change, and Tian Liang principle and discipline; their balance is the premise for clear judgement.",
+                        "kind": "interpretation",
+                        "source_ids": [
+                          "card.ming.jiliang-chenxu.core"
+                        ],
+                        "citations": [
+                          "ming.backed:card.ming.jiliang-chenxu.core:1"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "slot": "展開",
+                    "text": "そのため、敏感さだけでも原則だけでも、両者の連携に代わるものにはならず、釣り合いがこの段落の重要な条件になります。",
+                    "statements": [
+                      {
+                        "text": "そのため、敏感さだけでも原則だけでも、両者の連携に代わるものにはならず、釣り合いがこの段落の重要な条件になります。",
+                        "en": "Neither sensitivity nor principle alone replaces their coordination; balance is an important condition in the passage.",
+                        "kind": "interpretation",
+                        "source_ids": [
+                          "card.ming.jiliang-chenxu.core"
+                        ],
+                        "citations": [
+                          "ming.backed:card.ming.jiliang-chenxu.core:2"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "slot": "展開",
+                    "text": "三方の天同・太陰と太陽・巨門もそれぞれの方向に関わるため、命宮の二星の強弱だけで読むことはできません。",
+                    "statements": [
+                      {
+                        "text": "三方の天同・太陰と太陽・巨門もそれぞれの方向に関わるため、命宮の二星の強弱だけで読むことはできません。",
+                        "en": "Tian Tong–Tai Yin and Tai Yang–Ju Men in the trine affect the two directions, so the assessment extends beyond the Life Palace pair.",
+                        "kind": "interpretation",
+                        "source_ids": [
+                          "card.ming.jiliang-chenxu.core"
+                        ],
+                        "citations": [
+                          "ming.backed:card.ming.jiliang-chenxu.core:3"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "slot": "因為",
+                    "text": "性質：あなたの命宮は戌の宮にあり、天機・天梁が入っています。",
+                    "heading": "命盤上の根拠",
+                    "statements": [
+                      {
+                        "text": "あなたの命宮は戌の宮にあり、天機・天梁が入っています",
+                        "en": "your Life Palace holds Tian Ji and Tian Liang in the Xu position",
+                        "kind": "evidence",
+                        "source_ids": [],
+                        "citations": []
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          }
+        }
+      },
+      {
+        "slug": "性格的骨架",
+        "title": "性格的骨架",
+        "text": "你的命宮是天機、天梁同坐戌宮。\n\n你的命宮在戌，坐天機、天梁；文曲與陀羅同宮。會合的星曜中有文昌、左輔等輔佐星，也有鈴星；官祿宮無主星，另借對宮太陽巨門及其配曜來看。這些是本盤的配合資料，不能只挑其中一組替整體定性。\n\n原書要求看敏感與原則能否調和，並另論輔佐同會與煞刑並湊。你的盤同時有兩類配合，不能直接互相抵銷。是否調和，仍須看整體配合；這裡先列出相反因素，暫不據此認定你的整體性格。\n\n原書談到經行天同太陰的運限時，仍要核對原局與當時的四化、煞曜，如何加強調和或引起衝突。這屬於另一個時間層次，不能只按將來經行哪一宮，便認定那十年是好是壞。\n\n你現在仍在成長，可以先觀察自己在不同情境中的反應，不必把一次表達當成固定性格。若章中的描述不像你，也可以記下不適用的情況。這是閱讀方法，不是另一條命理判斷。",
+        "slots": [
+          "因為",
+          "骨架",
+          "骨架",
+          "骨架",
+          "做法"
+        ],
+        "reading": {
+          "format": "ming-expanded-v1",
+          "writer": "reader-backed-v1",
+          "segments": [
+            {
+              "slot": "因為",
+              "text": "你的命宮是天機、天梁同坐戌宮。",
+              "heading": "盤面依據",
+              "statements": [
+                {
+                  "text": "你的命宮是天機、天梁同坐戌宮。",
+                  "en": "",
+                  "kind": "evidence",
+                  "source_ids": [],
+                  "citations": []
+                }
+              ]
+            },
+            {
+              "slot": "骨架",
+              "text": "你的命宮在戌，坐天機、天梁；文曲與陀羅同宮。會合的星曜中有文昌、左輔等輔佐星，也有鈴星；官祿宮無主星，另借對宮太陽巨門及其配曜來看。這些是本盤的配合資料，不能只挑其中一組替整體定性。",
+              "heading": "本盤有哪些不同方向的因素",
+              "referenceConditions": [
+                "本盤戌宮機梁、天梁化祿，文曲陀羅同宮；對宮文昌鈴星，財帛同陰左輔，官祿空宮借對宮太陽巨門及配曜。",
+                "輔佐與煞曜因素同時保留；天梁化祿不等同原文的化科、化權條件，暫不判定整體明斷、尖刻或已調和。"
+              ],
+              "statements": [
+                {
+                  "text": "你的命宮在戌，坐天機、天梁；文曲與陀羅同宮。會合的星曜中有文昌、左輔等輔佐星，也有鈴星；官祿宮無主星，另借對宮太陽巨門及其配曜來看。這些是本盤的配合資料，不能只挑其中一組替整體定性。",
+                  "en": "",
+                  "kind": "interpretation",
+                  "source_ids": [
+                    "JL-B1"
+                  ],
+                  "citations": [
+                    "free.reading.v1:wtz.deep.p215.b010",
+                    "free.reading.v1:wtz.deep.p215.b013",
+                    "free.reading.v1:wtz.deep.p216.b001",
+                    "free.reading.v1:wtz.deep.p216.b006"
+                  ]
+                }
+              ]
+            },
+            {
+              "slot": "骨架",
+              "text": "原書要求看敏感與原則能否調和，並另論輔佐同會與煞刑並湊。你的盤同時有兩類配合，不能直接互相抵銷。是否調和，仍須看整體配合；這裡先列出相反因素，暫不據此認定你的整體性格。",
+              "heading": "兩邊都有，不等於已經調和",
+              "referenceConditions": [
+                "本盤戌宮機梁、天梁化祿，文曲陀羅同宮；對宮文昌鈴星，財帛同陰左輔，官祿空宮借對宮太陽巨門及配曜。",
+                "輔佐與煞曜因素同時保留；天梁化祿不等同原文的化科、化權條件，暫不判定整體明斷、尖刻或已調和。"
+              ],
+              "statements": [
+                {
+                  "text": "原書要求看敏感與原則能否調和，並另論輔佐同會與煞刑並湊。你的盤同時有兩類配合，不能直接互相抵銷。是否調和，仍須看整體配合；這裡先列出相反因素，暫不據此認定你的整體性格。",
+                  "en": "",
+                  "kind": "editorial-explanation",
+                  "source_ids": [
+                    "JL-B2"
+                  ],
+                  "citations": [
+                    "free.reading.v1:wtz.deep.p215.b012",
+                    "free.reading.v1:wtz.deep.p216.b006"
+                  ]
+                }
+              ]
+            },
+            {
+              "slot": "骨架",
+              "text": "原書談到經行天同太陰的運限時，仍要核對原局與當時的四化、煞曜，如何加強調和或引起衝突。這屬於另一個時間層次，不能只按將來經行哪一宮，便認定那十年是好是壞。",
+              "heading": "本命與將來的運限分開讀",
+              "referenceConditions": [
+                "此段只說明機梁經行天同太陰時的判讀前提，屬大限或流年層次。",
+                "須把原局與當時流化、流煞合讀，不能只按將來經行哪一宮判那十年吉凶；此段沒有作運限預測。"
+              ],
+              "statements": [
+                {
+                  "text": "原書談到經行天同太陰的運限時，仍要核對原局與當時的四化、煞曜，如何加強調和或引起衝突。這屬於另一個時間層次，不能只按將來經行哪一宮，便認定那十年是好是壞。",
+                  "en": "",
+                  "kind": "interpretation",
+                  "source_ids": [
+                    "JL-B3"
+                  ],
+                  "citations": [
+                    "free.reading.v1:wtz.deep.p217.b003",
+                    "free.reading.v1:wtz.deep.p217.b004",
+                    "free.reading.v1:wtz.deep.p217.b005",
+                    "free.reading.v1:wtz.deep.p217.b006"
+                  ]
+                }
+              ]
+            },
+            {
+              "slot": "做法",
+              "text": "你現在仍在成長，可以先觀察自己在不同情境中的反應，不必把一次表達當成固定性格。若章中的描述不像你，也可以記下不適用的情況。這是閱讀方法，不是另一條命理判斷。",
+              "statements": [
+                {
+                  "text": "你現在仍在成長，可以先觀察自己在不同情境中的反應，不必把一次表達當成固定性格。若章中的描述不像你，也可以記下不適用的情況。這是閱讀方法，不是另一條命理判斷。",
+                  "en": "",
+                  "kind": "editorial-advice",
+                  "source_ids": [
+                    "JL-B4"
+                  ],
+                  "citations": []
+                }
+              ]
+            }
+          ],
+          "international": {
+            "text": "你多數時候判斷公道，只是情急時話會說得重一點。你還年輕，這裡說的是盤上的傾向，不是定局；路怎樣走，仍然在你。\n\n你的命宮在戌，坐天機、天梁。天機代表敏感和變動，天梁代表原則和紀律，兩顆星同宮。兩股力量平衡，判斷就又快又公道；失衡時，容易反應過度，說話尖銳。\n\n兩邊在你的盤上都有根據：偏向明斷的是三方四正會左輔、文昌、文曲，偏向直言的是命宮見陀羅。\n\n有左輔、文昌、文曲會合，你機梁的性質得以調和。煞星並湊，你機梁的性質互相衝突，容易變得尖刻。天同太陰所在的那一步運，直接影響你的性格：能調和天機天梁兩面的，就是吉運；加深矛盾的，往往就是壞運。這一步在虛歲四十四至五十三歲。\n\n你的長處是判斷快，問題往往一眼就看出來。\n\n骨架是天生的，長成怎樣的人，看你怎樣用它；用在對的地方，同一副骨架就是長處。",
+            "slots": [
+              "偏向",
+              "骨架",
+              "推力",
+              "細讀",
+              "長處",
+              "留白"
+            ]
+          },
+          "internationalSnapshot": {
+            "text": "你多數時候判斷公道，只是情急時話會說得重一點。你還年輕，這裡說的是盤上的傾向，不是定局；路怎樣走，仍然在你。\n\n你的命宮在戌，坐天機、天梁。天機代表敏感和變動，天梁代表原則和紀律，兩顆星同宮。兩股力量平衡，判斷就又快又公道；失衡時，容易反應過度，說話尖銳。\n\n兩邊在你的盤上都有根據：偏向明斷的是三方四正會左輔、文昌、文曲，偏向直言的是命宮見陀羅。\n\n有左輔、文昌、文曲會合，你機梁的性質得以調和。煞星並湊，你機梁的性質互相衝突，容易變得尖刻。天同太陰所在的那一步運，直接影響你的性格：能調和天機天梁兩面的，就是吉運；加深矛盾的，往往就是壞運。這一步在虛歲四十四至五十三歲。\n\n你的長處是判斷快，問題往往一眼就看出來。\n\n骨架是天生的，長成怎樣的人，看你怎樣用它；用在對的地方，同一副骨架就是長處。",
+            "slots": [
+              "偏向",
+              "骨架",
+              "推力",
+              "細讀",
+              "長處",
+              "留白"
+            ]
+          }
+        }
+      },
+      {
+        "slug": "身宮與五行局",
+        "title": "身宮與五行局",
+        "text": "你花力氣的方向，通常就是別人形容你的那個方向：先天的基調和後天著力的地方在同一處。\n\n你的身宮和命宮在同一宮，坐天機、天梁。你的身宮坐天機，又會天梁：你肯下功夫鑽研，往往練得出一門隨身的本事。你的身宮坐天梁：你身上有一份庇蔭，遇到難處，往往有人伸手。你的身宮有化祿：你用力的地方比較順，付出容易有回報。\n\n你是金四局。大限由虛歲四歲起，每十年一步。寫這本書時（二〇二六年），你虛歲十五，正行第二個大限（十四至二十三歲），落在兄弟宮，坐天相。下一個大限從虛歲二十四歲開始，轉到夫妻宮。\n\n身宮所在，就是你這些年最用力的地方；力氣用在這裡，最容易見到回報。",
+        "slots": [
+          "身宮",
+          "身宮星",
+          "五行局",
+          "留白"
+        ]
+      },
+      {
+        "slug": "一生十二步",
+        "title": "一生十二步",
+        "text": "你的大限由虛歲四歲起，每十年換一步；寫這本書時（二〇二六年），你走到第二步。你命盤裡的關鍵大限是第四步：這一步的得失，對你一生影響特別大。你的命宮在戌，坐天機、天梁：這樣的命盤，行到武曲貪狼同宮的大限，就是一生的轉折點。\n\n回看你走過的路，二〇二五年（乙巳年，你虛歲十四），你走進第二個大限，生活的重心換了方向，像是轉校、分班、選科或換了一班同學；和父母或老師之間要磨合的事較多；同一年，和同學朋友之間比較順。這幾年，對你來說是不是有過轉折？對不上的，就當那一年的訊號沒有落在你身上。\n\n第一步　四至十三歲　命宮，坐天機、天梁。\n\n第二步　十四至二十三歲　兄弟宮，坐天相。　寫這本書時，你在這一步。\n\n第三步　二十四至三十三歲　夫妻宮，坐太陽、巨門。\n\n第四步　三十四至四十三歲　子女宮，坐武曲、貪狼。　關鍵大限。\n\n第五步　四十四至五十三歲　財帛宮，坐天同、太陰。\n\n第六步　五十四至六十三歲　疾厄宮，坐天府。\n\n第七步　六十四至七十三歲　遷移宮，沒有主星，借對面宮位的天機、天梁。\n\n第八步　七十四至八十三歲　僕役宮，坐廉貞、破軍。\n\n第九步　八十四至九十三歲　官祿宮，沒有主星，借對面宮位的太陽、巨門。\n\n之後的大限從虛歲九十四歲起，這裡不再細列。\n\n十二步是一條路的形狀，走得快慢、走向哪裡，仍然在你；關鍵的幾步，值得提早準備。",
+        "slots": [
+          "結論",
+          "回看",
+          "步",
+          "步",
+          "步",
+          "步",
+          "步",
+          "步",
+          "步",
+          "步",
+          "步",
+          "步",
+          "留白"
+        ]
+      },
+      {
+        "slug": "這十年",
+        "title": "這十年",
+        "text": "這十年，感情上比較甜；你說話和文書容易出錯。寫這本書時（二〇二六年），你虛歲十五，正行第二個大限（十四至二十三歲）。\n\n這個大限落在你的兄弟宮，坐天相，宮干是己。這十年裡，你重情，也講道理，只是朋友開口時較難說不。\n\n這十年的官祿宮沒有主星，借對面宮位的武曲、貪狼。讀書和打工上，你利於做財經一類的工作，講結果、講數字的位置最合你。\n\n這十年的財帛宮坐天府。你懂得存錢、管錢，長處在守得住，而不在一下子致富。\n\n這十年的夫妻宮坐武曲、貪狼，武曲化祿、貪狼化權。感情上，這十年比較順，也有發揮的空間，也要多扛一點。你在感情裡用做事表達在意：解決問題、承擔開支。如果你有伴侶，感情上比較甜，容易遇到合拍的人，或和伴侶相處更融洽。感情裡你比較主導，記得留空間給對方，別變成一個人作主。\n\n這十年的福德宮坐紫微、七殺。心境上，你主觀很強，事情要照自己的意思才安心，也因此容易自尋煩惱。\n\n這十年，武曲化祿落在夫妻宮、貪狼化權落在夫妻宮、天梁化科落在父母宮、文曲化忌落在父母宮。武曲化祿，你適合主動做事、開創局面，財祿較有機會隨事業擴大；也要記得留一份積蓄。貪狼化權，你的欲望和競爭心都變強，愈遇競爭愈起勁，身心也會跟著勞累。天梁化科，你的判斷和觀察力較能發揮，有利專業考試；遇到難題，較能從根本著手。文曲化忌，你說話和文書容易出錯，簽約、借貸要格外小心；感情上也容易有誤會。\n\n武曲在你本命化忌，這十年卻化祿：原來不利的地方，這段時期可能轉為有利。\n\n這十年最順的是感情，力氣放在這裡，最容易見到回報。關於和長輩、上司之間的事，決定之前多花一點時間，答應別人之前多問一句。\n\n下一個大限從虛歲二十四歲開始，轉到夫妻宮，坐太陽、巨門；那十年貪狼化祿、天機化忌。\n\n環境只是背景；這十年要做成甚麼、做到哪一步，始終由你自己決定。",
+        "slots": [
+          "結論",
+          "大限",
+          "工作",
+          "錢",
+          "感情",
+          "心境",
+          "四化",
+          "互動",
+          "建議",
+          "下一步",
+          "留白"
+        ]
+      },
+      {
+        "slug": "這一年",
+        "title": "這一年",
+        "text": "這一年，你的財祿有增加的機會；你的感情和人際容易有挫折。寫這本書的二〇二六年是丙午年，你虛歲十五。你還年少，下面講的是這一年身邊的環境。\n\n這一年的流年命宮在午，落在你本命的財帛宮，也就是這十年大限的子女宮，坐天同、太陰。這一年裡，你偏向積極：你志向高，經過奮鬥之後，越往後越有成績。\n\n這一年的官祿宮坐天機、天梁，天機化權。讀書和打工上，這一年有發揮的空間，也要多扛一點。你做事擅長變通找路，但底線是守規矩、分清是非。你的想法較穩定，也更有效率，意見容易被採納，但實權未必在你手上。\n\n這一年的財帛宮沒有主星，借對面宮位的太陽、巨門。你的錢多半跟著地位和名聲來，先有位置，才有收入。\n\n這一年的夫妻宮沒有主星，借對面宮位的天機、天梁，文昌化科。感情上，這一年容易得到認可。你在感情裡想得多、調整得快，願意為對方改變做法。如果你有伴侶，感情上相處有禮，你們的關係容易得到身邊的人認同。\n\n這一年的福德宮坐太陽、巨門。心境上，你好動，完全空下來反而不安，要有事可做才自在。\n\n這一年，天同化祿落在命宮、文昌化科落在夫妻宮、廉貞化忌落在子女宮。天同化祿，你的財祿有增加的機會，而且在運限見到比在本命更好；留意別因安逸而少了進取。文昌化科，你利於考試、進修和寫作，作品容易有發表的機會。廉貞化忌，你的感情和人際容易有挫折，替人出力也可能反招怨言；量力而為，別勉強。\n\n這一年的四化，沒有碰到你大限或本命的四化，不會再疊加額外的起落；今年就看上面流年四化本身落在哪裡。\n\n這一年最順的是自己的計劃，力氣放在這裡，最容易見到回報。關於後輩和手上的作品，決定之前多花一點時間，急著要答覆的事，先放一晚。\n\n按農曆逐月來看，這一年起落較明顯的月份如下。二月：同事、朋友幫得上手。七月：感情上順逆並見，順的地方把握，卡住的地方別硬推。八月：兄弟朋友之間上順逆並見，順的地方把握，卡住的地方別硬推。其餘月份，盤上沒有突出的起落，照平常的步調安排就好。\n\n二〇二七年是丁未年，流年命宮轉到未，落在你本命的子女宮，坐武曲、貪狼；那一年太陰化祿、巨門化忌。這也是你命盤裡的關鍵年份。\n\n一年很快過去。把力氣放在順的地方，對要留神的事慢一步，就是這一年最實在的做法。",
+        "slots": [
+          "結論",
+          "流年",
+          "工作",
+          "錢",
+          "感情",
+          "心境",
+          "四化",
+          "互動",
+          "建議",
+          "逐月",
+          "明年",
+          "留白"
+        ]
+      },
+      {
+        "slug": "兄弟",
+        "text": "你跟兄弟朋友往來，常有不順。而且你兩邊都不得罪，別人也看不清你真正站哪一邊。\n\n你的兄弟宮坐天相。\n\n天相居中協調，使它在群體裡舒服，也使它少有鮮明的立場。\n\n天相會到武曲化忌，你和兄弟朋友之間多不順。\n\n朋友之間有矛盾時，你常常是兩邊傳話、找台階的人；群組裡有人吵起來，你會先把話題引開。",
+        "slots": [
+          "結論",
+          "開場",
+          "結構",
+          "細讀",
+          "生活"
+        ]
+      },
+      {
+        "slug": "夫妻",
+        "text": "你在感情裡用照顧表達心意，遇到含糊的事又一定要問清楚。但你照顧得多卻少講自己，開口時又多是追問，對方只聽到質疑。\n\n你的夫妻宮坐太陽、巨門。\n\n安排、打點、擋在前面，這些都做得自然；而把自己的需要說出口則相對困難。太陽的關係裡容易出現一種不平衡——一方持續供給，另一方卻不清楚對方要什麼。巨門要講清楚，使關係少有積壓的誤會，也使日常摩擦頻率偏高——因為不是每件事都需要講清楚。\n\n同宮有火星：起初感情深厚，日子久了容易針鋒相對。即使盤面吉，你和伴侶之間也多無謂的爭吵。\n\n親密關係裡需要交代的事情比較多，節奏也容易被外面的事情打斷。\n\n你會替伴侶安排好大小事，卻很少說自己想要甚麼；真要談時，先說「我在意」，再問清楚，比直接追問好得多。",
+        "slots": [
+          "結論",
+          "開場",
+          "結構",
+          "細讀",
+          "牽動",
+          "生活"
+        ]
+      },
+      {
+        "slug": "子女",
+        "text": "你和後輩相處和好，彼此投契。只是帶後輩時你定下的事容易卡住，硬推只會更費力。\n\n你的子女宮坐武曲、貪狼。\n\n對後輩或自己在做的事，武曲期待對方跟得上節奏，跟不上時傾向於直接接手而不是等。結果是事情做成了，對方卻沒有經歷過自己撐住的那一段。放慢，對你是最難的調整。等對方自己撐住那一段，比替對方做完更有價值。培養人的時候，貪狼把好玩的東西帶給對方——新的領域、新的玩法、不設限的嘗試。貪狼這樣帶人，啟發性強，也容易缺乏持續，它自己的興趣一轉，帶著的那件事就停在半路。武曲化忌，決斷卡住，想做而做不成，或者做成了代價超出預期。它的形狀是硬碰硬。\n\n武曲在子女宮，追隨你的後輩較少。說到將來的子女，貪狼見天魁，你和子女兩代和好，相處融洽。\n\n將來，你會帶孩子或後輩去試新的運動、課程，喜歡看對方一起投入；開了頭的事，給對方多一點時間做完，比再開一樣新的更好。",
+        "slots": [
+          "結論",
+          "開場",
+          "結構",
+          "細讀",
+          "生活"
+        ]
+      },
+      {
+        "slug": "財帛",
+        "text": "你賺錢適合走帶享受性質的行業，例如讓人放鬆、享受的生意。要留意的是，你很少替自己的財務定目標，累積多半要靠時間。\n\n你的財帛宮坐天同、太陰。\n\n《全書》寫「白手生財晚發」：財富多半靠自己慢慢建立，來得比別人晚。天同處理資源偏向夠用就好，不積極追求，也不特別節省，錢多的時候花得舒服，緊的時候忍得住。它較少為財務設定目標，於是累積多半是自然形成而不是計劃出來的。它不追求，也就不焦慮；代價是真正影響它的，往往是有沒有人替它設過一個目標。太陰處理資源是慢慢積，小額、長期、不聲張，而且傾向於留給具體的用途，而不是泛泛儲蓄。它對開銷敏感，對突然的支出尤其不安。\n\n天同太陰同在財帛宮，是天同各組合中最利財源的一組。見左輔，可以憑別人的助力生財，也可以考慮自己經營。見文曲，主要是增加聲譽；也可能憑文藝或學術生財。\n\n將來，你適合做讓人舒服、享受的行業，例如餐飲、旅遊、設計、生活用品；替自己定一個具體的儲蓄目標，錢才不會在舒服的日子裡慢慢花掉。",
+        "slots": [
+          "結論",
+          "開場",
+          "結構",
+          "細讀",
+          "生活"
+        ]
+      },
+      {
+        "slug": "疾厄",
+        "text": "你的疲累來自長期的警覺，平靜時也在防備。不過，你需要一段確定甚麼都不用準備的時間。\n\n你的疾厄宮坐天府。\n\n《全書》寫「天府災少臨災有救」：你應付狀況有自己的一套，但這不等於身體不會累。天府的消耗來自警覺，它習慣預先想好萬一，於是即使風平浪靜也在維持一份防備。這種長期低度的緊張不劇烈，卻不容易間斷。對你而言，真正的休息不是停下來，而是有一段時間確定不需要準備什麼。有底比有閒更能讓你鬆下來。天府化科，守成被整理成制度，穩定有了名目。天府只有這一化，所以它出現時份量不輕。\n\n加上地空同宮，耗損來自想得多而做得少的那種空轉。再加上地劫，耗損來自反覆重來，做好的又要再做一次。\n\n就算事情順利，你心裡也在預備最壞的情況；把保險、備用金、後備方案準備好，你反而能真正放鬆。\n\n此章不涉醫療判斷。",
+        "slots": [
+          "結論",
+          "開場",
+          "結構",
+          "擾動",
+          "生活",
+          "留白"
+        ]
+      },
+      {
+        "slug": "遷移",
+        "text": "你出外比守在原地有利，新環境往往讓你更順。但你待在固定的地方太久，機變會轉成挑剔和不安。\n\n你的遷移宮沒有主星，借對面命宮的天機、天梁來讀。\n\n天機讓你多半動得比別人頻密，也比別人更快適應新的規矩與人事。\n\n天機換環境的門檻低，重新開始對它不算成本。天梁在陌生環境往往遇到願意提攜它的人，原因不難理解，它可靠、講原則，不會給人添麻煩。它在外的適應不靠圓滑，靠的是讓人放心。\n\n天機天梁見天梁化祿、右弼，你在外機遇多，只是不安定。同宮有鈴星，你出外奔忙，不安一地。天機在遷移宮，利出門離鄉發展；不一定離鄉定居，也可能是經常要離家的工作，或常轉工轉業。同宮有鈴星，漂泊的意味較大，遷移後仍會一遷再遷。\n\n和人相處或許不難，真正花時間的，是離開熟悉的地方之後，重新架起你自己的生活節奏。\n\n將來，你適合到外地讀書、工作或長期出差，離開熟悉的地方反而更有發揮；新環境裡的規矩和人事，你很快就摸得清。",
+        "slots": [
+          "結論",
+          "開場",
+          "開場",
+          "結構",
+          "細讀",
+          "牽動",
+          "生活"
+        ]
+      },
+      {
+        "slug": "僕役",
+        "text": "你交遊廣闊，但交情多停在表面，深交不多。而且你不做和稀泥的角色，人際的邊界也因此很硬。\n\n你的僕役宮坐廉貞、破軍。\n\n廉貞在群體裡靠的是立場與原則，認同它的人非常靠攏，不認同的則明顯疏遠。廉貞的人際網路輪廓清楚而邊界分明。破軍在群體裡是帶頭改變的那一個，提得出新做法，也承擔得起反對。這使它有一批跟隨的人，同時有一批被它衝撞過的人。\n\n廉貞見天魁，你交遊廣闊，下屬眾多而且有助力。廉貞在僕役宮，交遊廣闊；只是帶的感情較表面，深交不多。同宮有天魁，你才得到朋友或下屬的助力。\n\n你交遊廣，但立場分明：認同你的人很快成為好友，不認同的就漸漸疏遠；在工作上偶爾留一點中間地帶，路會更寬。",
+        "slots": [
+          "結論",
+          "開場",
+          "結構",
+          "細讀",
+          "生活"
+        ]
+      },
+      {
+        "slug": "官祿",
+        "text": "你在行內容易有名聲和號召力，對外、對人的位置最合你。要留意的是，你推得動事情，未必收得了尾。\n\n你的官祿宮沒有主星，借對面夫妻宮的太陽、巨門來讀。\n\n太陽做事習慣站到前面去，對外、對人、可見度高的位置最合它用；需要長期埋頭、成果不外顯的位置則容易消磨。\n\n太陽擅長把事情推動起來，未必擅長把事情收尾。它推得動，未必收得尾，這一點值得在安排分工時考慮。巨門做事先質疑再執行，它不接受不清楚的指令，也不願意做自己講不通的事——這是原則，也是限制。\n\n太陽巨門在官祿宮，工作的性質離不開口才、外地或外國，以及對外的事務。太陽見左輔、右弼，你工作上可以少些奔波勞碌。太陽主貴，在官祿宮很合適：順的話在行內有名聲，不順也有號召力。\n\n你要推一件事，願意接手、肯幫忙的人通常找得到。\n\n將來，你適合接觸面廣、需要對外的工作，例如公關、傳播、銷售、社會服務；一生換幾份工作不出奇，只要每份都讓你站到人前。",
+        "slots": [
+          "結論",
+          "開場",
+          "開場",
+          "結構",
+          "細讀",
+          "牽動",
+          "生活"
+        ]
+      },
+      {
+        "slug": "田宅",
+        "text": "你適合在財經相關的機構工作。不過，你決斷快，也要給住得舒服留一點位置。\n\n你的田宅宮沒有主星，借對面子女宮的武曲、貪狼來讀。\n\n夠用、划算、將來處理得掉，這幾樣比住得舒服更能說服武曲。\n\n武曲在安置上決斷快、猶豫少，也較少為了感覺付出溢價。貪狼對居所的態度偏向可換，它不把某個地方當作終點，也容易因為新的機會而搬動。空間對它的意義是可能性——這裡能不能做點什麼，比住不住得舒服更要緊。\n\n武曲在田宅宮，你宜在財經機構服務。\n\n你對家的安排，多半跟著你想照顧、想培養的人和事走，例如為了家人或手上的作品調整住處。\n\n將來，買房或租房時，你看的是實用和划算：交通、面積、將來好不好轉手；看房時別只看數字，也把住起來舒不舒服算進去。",
+        "slots": [
+          "結論",
+          "開場",
+          "開場",
+          "結構",
+          "細讀",
+          "牽動",
+          "生活"
+        ]
+      },
+      {
+        "slug": "福德",
+        "text": "你的精神生活豐足，一點音樂、一段閒時就能讓你滿足。但你容易滿足，也就不太想離開已經夠好的位置。\n\n你的福德宮沒有主星，借對面財帛宮的天同、太陰來讀。\n\n天同本就是福德主，這是它的本位。\n\n你的安定門檻低——不需要成就，不需要被肯定，有一段沒有人催的時間就夠。難處在另一邊，門檻低也意味著離開舒服狀態的動機弱。所以它的精神狀態通常穩定，而長期的不滿往往不是痛苦，是一種說不出來的停滯感。太陰要有一段沒有人要求你的時間，才把白天收起來的東西放下。缺了這段時間，即使外在順利，內裡也會持續積壓。\n\n天同見文昌，你享受生活的方式高雅，有品味。天同在福德宮，精神生活豐足，尤其喜愛音樂；但不一定代表物質生活充裕。太陰性靜，在福德宮，你喜歡寧靜；就算環境熱鬧，也能鬧中取靜，只是競爭心不強。\n\n加上擎羊同宮，心裡的事擺不久，不是解決就是切掉。不留過夜，是它的處理方式。\n\n想靜下來之前，你往往要先把手上幾件事放好，心才放得下。\n\n你很懂得享受生活：聽音樂、看劇、慢慢吃一頓飯就很滿足；太舒服的時候，記得給自己一個小目標，日子才不會一成不變。",
+        "slots": [
+          "結論",
+          "開場",
+          "開場",
+          "結構",
+          "細讀",
+          "擾動",
+          "牽動",
+          "生活"
+        ]
+      },
+      {
+        "slug": "父母",
+        "text": "你對長輩和上司客氣，但不盲從，心裡保留自己的意見。不過，你表面順從而心裡不同意時，最好找機會說出來。\n\n你的父母宮坐紫微、七殺。\n\n紫微傾向於尊重制度，同時也傾向於認為自己的判斷同樣站得住——於是對長輩與上級多半客氣而不盲從。表面順從、實際保留意見，是你和長輩常見的相處模式。文書與正式程序上，你通常做得相當周到。七殺不服軟，也不擅長迂迴——認為不對就不配合，而且不會花時間解釋。七殺不服軟，使和長輩的關係緊張而清楚。紫微化權，主導的姿態有了實際的支點，說出來的話開始算數。要留意權帶來的是責任而不是地位。\n\n紫微七殺在父母宮，父母有責任心，無論甚麼情形都會呵護你。紫微不得眾星拱照，父母較主觀，習慣下命令；同樣可以看你和上司的關係：上司慣於發號施令，要懂得調和。紫微在父母宮，你的父母有權威，在家說了算。七殺會紫微化權，你的父母成見很深，不易被說服。\n\n你的父母或上司多半有權威、有主見；你表面客氣，心裡卻有自己的看法，意見不同時，找個合適的場合好好說出來。",
+        "slots": [
+          "結論",
+          "開場",
+          "結構",
+          "細讀",
+          "生活"
+        ]
+      },
+      {
+        "slug": "給你的話",
+        "title": "給你的話",
+        "text": "你反應快、看得準，也有自己的原則。最可以倚仗的一點：工作上，你在行內容易有名聲和號召力，對外、對人的位置最合你。最要記住的一點：你繞得開阻力，也容易繞開需要待久的事。\n\n其他可以倚仗的：一、你的長處是判斷快，問題往往一眼就看出來。二、你賺錢適合走帶享受性質的行業，例如讓人放鬆、享受的生意。三、在外時，你出外比守在原地有利，新環境往往讓你更順。\n\n其他要記住的：一、帶後輩時你定下的事容易卡住，硬推只會更費力。二、感情上，你照顧得多卻少講自己，開口時又多是追問，對方只聽到質疑。三、你看得出問題，說出口時要留點餘地。\n\n時間上，這十年，力氣放在感情，和長輩、上司之間的事慢一步；這一年，力氣放在自己的計劃，後輩和手上的作品慢一步。\n\n命書寫的是一張底圖。往後的路怎樣走，仍然在你；需要的時候，再翻回來看看。",
+        "slots": [
+          "結論",
+          "長處",
+          "留意",
+          "時間",
+          "留白"
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,109 @@
+{
+  "date": "2026-10-24",
+  "version": "cross-reference-polish-review-v1",
+  "scope": "One Tianfu wealth body paragraph; reader-facing editorial notes and exact display deduplication. No push/deployment.",
+  "supersedes_for_changed_files": "cross-palace-review.json remains the historical integration review; this record binds the subsequent polish.",
+  "parents": {
+    "apps/web/src/lib/cross-palace-chapters.ts": "aea8c01df3051558fd72c88c95f855849a2826fe0c96eb35d60cd4bd056fa73a",
+    "apps/web/src/lib/cross-palace-reading.json": "36db07381640fabb5d8ddf553f35a58416c3b4651d4fb32ef92958183bedbd89",
+    "apps/web/src/lib/cross-reference-language.ts": "fc8ec817c2941f68fac02407ce84d3ac5eb8adb8aabab45c853d0cf437d1b1cc",
+    "apps/web/src/lib/cross-reference-language.json": "64cc8c538d32445e6266ce12fc2f95d77a86c001e99bab6a73f7742de00136b4",
+    "apps/web/src/lib/reference-presentation.ts": "feed8ca100066fa9ac9cebf7d16ffbe299f532f2354973f2053e430c4db6ba2a",
+    "apps/web/src/components/Juan.tsx": "edd10add2c2a48d1c6a19a23456af09001db61ad0633ad9be0380051ea5dfa1c",
+    "apps/web/test/cross-palace-reading.test.ts": "8e7fcee6698f83c478b7ab9cfb75c0d0b54731c4d2671214a07b12b51405e0e5",
+    "apps/web/test/reference-presentation.test.ts": "81711de9e7786fdb021c6cce79c58e6c5e8346c3465edc7d8c8a59fe60028838"
+  },
+  "source_hash_convention": "UTF-8 text normalized to LF, matching the historical integration review; current parent hashes above use raw bytes.",
+  "source_rule_and_index_hashes_unchanged": {
+    "packages/content/src/cross-palace-sources.ts": "7ce455b7f1dc4a710ec677f4b17a1e9b14573751e70fa78bd80ed78961450cab",
+    "packages/content/src/cards/cross-palace-sources.json": "5834b54e8a8085dc59890377ac1214040cf3fcbaf1625016800633ee4b92f3b4",
+    "packages/content/src/citation.ts": "bd120f297fa28f688424b0e17a11fb791d6f4ebcf33a9eb0c321601c8799b3d7",
+    "packages/content/src/engine-p1-cross.ts": "4d83e5cc3be09638e9648129937eaeaf9bb14ddb7d2deb690748f135abb322e8",
+    "packages/content/src/cards/engine-p1-cross-rules.json": "9f4c21b20ffb9a8ee33228997e5709f36601a7f8720d374f208ae5ad818d63d3",
+    "packages/content/src/cards/free-ming-reading.json": "0049b02d3a0fa0ce6f79551557f569e275e4dc9fd57946b3c47a5814c7b0e158",
+    "packages/content/src/cards/palace-readings.json": "002099c16cffd88c3e1480af75ad1746ab130167425296c3bd4fc7b21bb95ff3",
+    "packages/content/src/cards/palace-remaining.json": "1bb829d1f02a48d1bb479fb10fd474691cdc00c966859f7222fb2539bc25aba0",
+    "tools/wang-reference/deep-index.json": "225e030d33c39563d7122fea7c0f8ed5776fcc09d18f719fa4cbc915ccd61703"
+  },
+  "draft_comparison": "Only tianfu-財帛 part 0 heading/text/notes differ from the pre-polish draft; gates, citations, focus, other chapters and advice are identical.",
+  "preservation": "Raw quote text, parts, page and block identities,疑字 notes, polarity and palace-specific conditions are preserved. Only exact editorial strings normalized. Only exact complete condition duplicates suppressed against applicability; no fuzzy condition merging.",
+  "verification": {
+    "web_full": {
+      "files": 65,
+      "passed": 641,
+      "failed": 0
+    },
+    "final_wording_targeted": {
+      "files": 2,
+      "passed": 13,
+      "failed": 0
+    },
+    "web_typecheck": "passed",
+    "default_books": {
+      "fixtures": 75,
+      "differences": 0
+    },
+    "browser": [
+      {
+        "path": "tongliang/ming",
+        "paragraph": 1,
+        "source": true,
+        "scope": true,
+        "conditions": true,
+        "internalWords": [],
+        "mergeNotice": false,
+        "unfilled": false
+      },
+      {
+        "path": "tongliang/ming",
+        "paragraph": 2,
+        "source": true,
+        "scope": true,
+        "conditions": true,
+        "internalWords": [],
+        "mergeNotice": false,
+        "unfilled": false
+      },
+      {
+        "path": "tianfu/wealth",
+        "paragraph": 1,
+        "source": true,
+        "scope": true,
+        "conditions": true,
+        "internalWords": [],
+        "mergeNotice": false,
+        "unfilled": false
+      },
+      {
+        "path": "tianfu/wealth",
+        "paragraph": 2,
+        "source": true,
+        "scope": true,
+        "conditions": true,
+        "internalWords": [],
+        "mergeNotice": false,
+        "unfilled": false
+      },
+      {
+        "path": "jiliang/wellbeing",
+        "paragraph": 1,
+        "source": true,
+        "scope": true,
+        "conditions": true,
+        "internalWords": [],
+        "mergeNotice": false,
+        "unfilled": false
+      },
+      {
+        "path": "jiliang/wellbeing",
+        "paragraph": 2,
+        "source": true,
+        "scope": true,
+        "conditions": true,
+        "internalWords": [],
+        "mergeNotice": false,
+        "unfilled": false
+      }
+    ]
+  }
+}

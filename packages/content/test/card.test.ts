@@ -67,9 +67,11 @@ const rnd = (n: number) => {
 
 /** 每個有卡嘅星系抽盤（預設 100 張；CARD_SAMPLE 可以加大，例如 300 全面掃） */
 const SAMPLE = Number(process.env.CARD_SAMPLE ?? 100);
-function chartsBySystem(systems: Set<number>): Map<number, Chart[]> {
+async function chartsBySystem(systems: Set<number>): Promise<Map<number, Chart[]>> {
   const out = new Map<number, Chart[]>([...systems].map((n) => [n, []]));
   for (let i = 0; i < 2000 * SAMPLE && [...out.values()].some((v) => v.length < SAMPLE); i++) {
+    // Yield during fixture discovery too; keep the same seed, inputs and sample size.
+    if (i % 64 === 0) await new Promise<void>((resolve) => setImmediate(resolve));
     const r = cast({
       solar: { y: 1950 + rnd(60), m: 1 + rnd(12), d: 1 + rnd(28) },
       time: { h: rnd(24), min: rnd(60) },
@@ -85,13 +87,13 @@ function chartsBySystem(systems: Set<number>): Map<number, Chart[]> {
 }
 
 describe('條件卡：一個話題一把聲', () => {
-  it('同一張盤、同一層、同一個話題，最多一張結論卡；每張卡最少中一次', { timeout: 600_000 }, () => {
+  it('同一張盤、同一層、同一個話題，最多一張結論卡；每張卡最少中一次', { timeout: 600_000 }, async () => {
     const seen: Record<string, number> = {};
     const bad: string[] = [];
-    const bySystem = chartsBySystem(new Set(POOL.map((c) => c.system)));
+    const bySystem = await chartsBySystem(new Set(POOL.map((c) => c.system)));
     for (const [n, charts] of bySystem) {
       const pool = POOL.filter((c) => c.system === n);
-      for (const [i, chart] of charts.entries())
+      for (const [i, chart] of charts.entries()) {
         for (let year = 2000; year < 2100; year += 1) {
           const a = annual(chart, year);
           if (!a.ok) continue;
@@ -106,6 +108,9 @@ describe('條件卡：一個話題一把聲', () => {
             }
           }
         }
+        // Keep Vitest worker RPC responsive without reducing any chart/year checks.
+        await new Promise<void>((resolve) => setImmediate(resolve));
+      }
     }
     if (process.env.CARD_STATS) writeFileSync(resolve(process.env.CARD_STATS), JSON.stringify({ seen, bad }, null, 1));
     expect([...new Set(bad.map((b) => b.replace(/ 盤\d+ \d+/, '')))]).toEqual([]);

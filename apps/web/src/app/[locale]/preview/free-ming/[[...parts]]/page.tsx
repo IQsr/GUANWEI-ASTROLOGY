@@ -18,7 +18,7 @@ import allCases from '@/lib/free-ming-preview.json';
 
 // 本機開發預覽：正式模式或未明確開啟時一律404，不接線上命書與帳戶。
 export const dynamic = 'force-dynamic';
-export const metadata: Metadata = { title: '六十星系新稿・本機預覽', robots: { index: false, follow: false } };
+export const metadata: Metadata = { title: '十二宮新稿・本機預覽', robots: { index: false, follow: false } };
 const root = '/preview/free-ming';
 const groups: { key: string; label: string; seed: string; birth: BirthInput }[] = [
   { key: 'tongliang', label: '同梁寅申', seed: 'sample', birth: {
@@ -36,7 +36,10 @@ const groups: { key: string; label: string; seed: string; birth: BirthInput }[] 
   ...allCases.map((c) => ({ key: `system-${String(c.n).padStart(2, '0')}${c.borrowed ? '-borrowed' : ''}`,
     label: `${c.name}${c.borrowed ? '（借星）' : ''}`, seed: c.seed, birth: c.input as BirthInput })),
 ];
-const chapters = [{ key: 'ming', slug: '命宮' }, { key: 'bone', slug: '性格的骨架' }];
+const chapters = [{ key: 'ming', slug: '命宮' }, { key: 'bone', slug: '性格的骨架' },
+  ...[['siblings', '兄弟'], ['spouse', '夫妻'], ['children', '子女'], ['wealth', '財帛'], ['health', '疾厄'],
+    ['travel', '遷移'], ['friends', '僕役'], ['career', '官祿'], ['property', '田宅'], ['wellbeing', '福德'], ['parents', '父母']]
+    .map(([key, slug]) => ({ key: key!, slug: slug! }))];
 
 export default async function FreeMingPreview({ params }: { params: Promise<{ locale: string; parts?: string[] }> }) {
   if (process.env.NODE_ENV !== 'development' || process.env.GUANWEI_READING_PREVIEW !== '1') notFound();
@@ -47,8 +50,11 @@ export default async function FreeMingPreview({ params }: { params: Promise<{ lo
     <main className="juan tai">
       <Juanshou back={{ href: `${root}/tongliang/ming`, label: zhFor(locale, '回到先行三組') }} />
       <div className="banxin">
-        <h1 className="font-serif text-h2 tracking-[0.12em]">{zhFor(locale, '六十星系・命宮與骨架新稿')}</h1>
-        <p className="mt-4 text-sm leading-[1.9] text-ink-2">{zhFor(locale, '本機預覽，未部署。以下均為合成命盤；每段最多一個「據」，展開可讀出處、原文與條件。')}</p>
+        <h1 className="font-serif text-h2 tracking-[0.12em]">{zhFor(locale, '十二宮閱讀預覽・敘事稿')}</h1>
+        <p className="mt-4 text-sm leading-[1.9] text-ink-2">{zhFor(locale, '本機預覽，未部署。以下均為合成命盤；每宮一段直接建議，明示「編輯建議」。每段最多一個「據」，展開可讀出處、原文、條件與例外。')}</p>
+        <nav aria-label="其餘十一宮" className="mt-6 flex flex-wrap gap-5 text-sm">
+          {chapters.slice(2).map((c) => <Link key={c.key} className="lian" href={`${root}/tongliang/${c.key}`}>{zhFor(locale, c.slug)}</Link>)}
+        </nav>
         {['實坐', '借星'].map((kind) => <section key={kind} className="mt-10">
           <h2 className="font-serif text-lead tracking-[0.12em]">{zhFor(locale, kind)}</h2>
           <ul className="mt-5 flex flex-col gap-4">
@@ -59,6 +65,8 @@ export default async function FreeMingPreview({ params }: { params: Promise<{ lo
                 <span className="flex gap-5 text-sm">
                   <Link className="lian" href={`${root}/${key}/ming`}>{zhFor(locale, '命宮')}</Link>
                   <Link className="lian" href={`${root}/${key}/bone`}>{zhFor(locale, '骨架')}</Link>
+                  <Link className="lian" href={`${root}/${key}/spouse`}>{zhFor(locale, '夫妻')}</Link>
+                  <Link className="lian" href={`${root}/${key}/property`}>{zhFor(locale, '田宅')}</Link>
                 </span>
               </li>;
             })}
@@ -73,7 +81,7 @@ export default async function FreeMingPreview({ params }: { params: Promise<{ lo
   const result = cast(group.birth);
   if (!result.ok) notFound();
   const year = 2026;
-  const sources = bookChapters(result.value, { seed: group.seed, year, solar: group.birth.solar, place: group.birth.place.label });
+  const sources = bookChapters(result.value, { seed: group.seed, year, solar: group.birth.solar, place: group.birth.place.label, birthSex:group.birth.sex, crossPalaceReading:['tongliang','tianfu','jiliang'].includes(group.key) });
   if (!sources) notFound();
   const drafts = chapterDrafts(sources, group.seed);
   const here = drafts.find((d) => d.slug === chapter.slug);
@@ -81,8 +89,8 @@ export default async function FreeMingPreview({ params }: { params: Promise<{ lo
   const marked = localizeMarked(markBook(drafts.filter((d) => d.ord <= here.ord).map((d) => ({
     palace: d.title, segments: readingSegments(d.body, d.slots, d.reading),
   }))), locale);
-  const other = chapters.find((c) => c.key !== chapter.key)!;
-  const turn = { href: `${root}/${group.key}/${other.key}`, label: zhFor(locale, other.slug) };
+  const index = chapters.indexOf(chapter);
+  const turn = (i: number) => { const c = chapters[i]; return c ? { href: `${root}/${group.key}/${c.key}`, label: zhFor(locale, c.slug) } : null; };
 
   return (
     <main className="juan tai shuzhuo-tai ye-ink">
@@ -95,7 +103,7 @@ export default async function FreeMingPreview({ params }: { params: Promise<{ lo
       } />
       <BookSpread key={`${group.key}/${chapter.key}`} chart={result.value} layers={chartLayers(result.value, year)}
         palace={here.slug} palaceLabel={zhFor(locale, here.slug)} follow
-        prev={chapter.key === 'bone' ? turn : null} next={chapter.key === 'ming' ? turn : null}
+        prev={turn(index - 1)} next={turn(index + 1)}
         top={<div>
           <p className="font-serif text-lead tracking-[0.16em] text-ink-2">{zhFor(locale, group.label)}</p>
           <nav aria-label="選擇章節" className="mt-4 flex flex-wrap gap-5 text-sm">
