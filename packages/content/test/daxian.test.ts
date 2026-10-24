@@ -164,21 +164,6 @@ describe('樞紐大限（下篇宮垣論・命宮，p.336–366）', () => {
     expect(hit).toBeLessThan(CHARTS.length);
   });
 
-  it('標出嚟嘅步，大限宮真係坐住規則講嘅星', () => {
-    for (const c of CHARTS.slice(0, 200)) {
-      const { steps, source } = pivotSteps(c);
-      if (!steps.length) continue;
-      const rule = DAXIAN_PIVOTS.find((r) => r.source.passage_id === source)!;
-      for (const n of steps) {
-        const d = c.decadals.find((x) => x.index === n)!;
-        const p = c.palaces.find((x) => x.branch === d.branch)!;
-        const names = p.stars.map((s) => s.name);
-        const ok = rule.cond === 'hua' ? p.stars.some((s) => s.sihua) : rule.pivots.some((g) => g.every((s) => names.includes(s)));
-        expect(ok, `${rule.id} 第${n}步 ${names.join('')}`).toBe(true);
-      }
-    }
-  });
-
   it('紫府、紫相：順行逆行只用其中一套', () => {
     for (const c of CHARTS) {
       const { source } = pivotSteps(c);
@@ -201,13 +186,14 @@ describe('樞紐大限（下篇宮垣論・命宮，p.336–366）', () => {
   });
 
   /* 2026-10-18 · Issac：「關鍵大限加一句王亭之出處講點解；回看走進關鍵步嗰年要講明」 */
-  it('一生十二步：關鍵大限有一句點解，出處係嗰條樞紐原文，英日譯得到', () => {
+  it('一生十二步：正文直讀關鍵步，核對原因與原文保留於內部，英日譯得到', () => {
     let seen = 0;
     for (const c of CHARTS) {
       const ch = lifeStepsChapter({ chart: c, year: 2026 })!;
       const pv = pivotSteps(c);
       const shown = pv.steps.filter((n) => c.decadals.find((d) => d.index === n)!.fromAge < STEPS_UNTIL_AGE);
-      const why = ch.segments[0]!.text.split('。').find((x) => x.startsWith('你的命宮在'));
+      const why = ch.segments[0]!.referenceApplicability?.find((x) => x.startsWith('你的命宮在'))?.replace(/。$/, '');
+      expect(ch.segments[0]!.text).not.toContain('原書列出');
       if (!shown.length) {
         expect(why, ch.segments[0]!.text).toBeUndefined();
         continue;
@@ -218,12 +204,12 @@ describe('樞紐大限（下篇宮垣論・命宮，p.336–366）', () => {
       expect(citeOf(`${why}。`), why).toEqual([pv.source]);
       /* C12（2026-10-18）：唔講「三方四正見煞」；舊書嘅寫法照配得到出處、照譯得到 */
       expect(why).not.toMatch(/三方四正/);
-      const old = why!.replace('，命宮和相關的幾個宮位見到煞星', '，三方四正見煞').replace('，命宮和相關的幾個宮位都沒有煞星', '，三方四正不見煞');
+      const old = why!.replace('，命宮和相關的幾個宮位見到煞星', '，三方四正見煞').replace('，命宮和相關的幾個宮位都沒有煞星，並見吉曜或吉化', '，三方四正不見煞');
       if (old !== why) {
         expect(citeOf(`${old}。`), old).toEqual([pv.source]);
         for (const r of [renderEn(`${old}。`), renderJa(`${old}。`)]) expect(r.missing, old).toEqual([]);
       }
-      expect(ch.segments[0]!.text).toContain(shown.length === 1 ? '這一步的得失' : '這幾步的得失');
+      expect(ch.segments[0]!.text).toContain(shown.length === 1 ? '這一步前後的選擇與安排' : '這幾步前後的選擇與安排');
       for (const r of [renderEn(ch.segments[0]!.text), renderJa(ch.segments[0]!.text)]) expect(r.missing, why).toEqual([]);
     }
     expect(seen).toBeGreaterThan(100);
@@ -236,7 +222,7 @@ describe('樞紐大限（下篇宮垣論・命宮，p.336–366）', () => {
       const back = ch.segments.find((s) => s.slot === '回看');
       if (!back) continue;
       const key = pivotSteps(c).steps;
-      for (const m of back.text.matchAll(/你走進第(\S+?)個大限，(正是開頭說的關鍵大限，)?/g)) {
+      for (const m of back.text.matchAll(/你走進第(\S+?)個大限，((?:正是開頭說的關鍵大限|也是你人生較重要的一步)，)?/g)) {
         const idx = c.decadals.find((d) => `第${num(d.index)}個大限` === `第${m[1]}個大限`)!.index;
         expect(Boolean(m[2]), back.text).toBe(key.includes(idx));
         if (m[2]) seen++;

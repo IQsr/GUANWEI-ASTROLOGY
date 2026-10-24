@@ -89,19 +89,26 @@ describe('後生讀者（虛歲十四至二十四）', () => {
     }
   });
 
-  it('回看：升中只講實歲十二嗰年，十八歲前唔用大人例子', () => {
-    let seen = 0;
+  it('回看：逐段核實歲與過去年份，十八歲前不用成人事件或責任', () => {
+    let seen=0, minors=0;
     for (const { b, chapters } of books) {
-      const back = paras(chapters).find((p) => p.startsWith('回看你走過的路'));
-      if (!back) continue;
-      for (const m of back.matchAll(/([〇一二三四五六七八九]{4})年（[^）]+）([^。]+)/g)) {
-        const real = yearOf(m[1]!) - b.solar.y;
-        if (m[2]!.includes('升中')) expect(real, m[0]).toBeLessThanOrEqual(12);
-        if (real < 18) expect(m[2], m[0]).not.toMatch(/一起計劃將來|第一份工|兼職/);
+      const chapter=chapters.find(c=>c.slug==='一生十二步')!;
+      expect(chapter.reading?.writer).toBe('life-steps-reader-v2');
+      for(const segment of chapter.reading!.segments.filter(s=>s.slot==='回看')){
+        const date=/^([〇一二三四五六七八九]{4})年（[^）]+）/.exec(segment.text);
+        expect(date,segment.text).not.toBeNull();
+        const year=yearOf(date![1]!),real=year-b.solar.y;
+        expect(year).toBeLessThan(2026);expect(real).toBeGreaterThanOrEqual(12);
+        if(segment.text.includes('升中'))expect(real,segment.text).toBeLessThanOrEqual(12);
+        if(real<18){
+          minors++;
+          expect(segment.text).not.toMatch(/一起計劃將來|第一份工|兼職|借貸|擔保|簽約|上司/);
+          expect(segment.statements?.some(s=>s.kind==='editorial-advice')).toBe(true);
+        }
         seen++;
       }
     }
-    expect(seen).toBeGreaterThan(20);
+    expect(seen).toBeGreaterThan(20);expect(minors).toBeGreaterThan(0);
   });
 
   it('英文、日文照譯得到，而且用後生講法（唔係換返大人原句）', () => {

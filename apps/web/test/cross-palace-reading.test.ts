@@ -1,3 +1,4 @@
+import {withHistoricalLifeSteps} from './helpers/life-steps-legacy';
 import copyBaseline from './fixtures/cross-copy-before.json';
 import {referenceEditorialWording} from '@/lib/cross-reference-language';
 import {it,expect} from 'vitest';
@@ -121,6 +122,6 @@ it('all preview drafts name existing analysis prerequisites and reviewed source 
  for(const e of raw.entries)for(const p of e.parts)for(const id of p.citations)expect(citation(id),id).not.toBeNull();
 });
 
-it('template extraction keeps all three complete preview books byte for byte',()=>{
- for(const row of copyBaseline)expect(createHash('sha256').update(JSON.stringify(book(row.id))).digest('hex'),row.id).toBe(row.hash);
+it('historical complete cross books remain exact outside reviewed life-step/key changes',()=>{
+ for(const row of copyBaseline)expect(createHash('sha256').update(JSON.stringify(withHistoricalLifeSteps(book(row.id),row.id))).digest('hex'),row.id).toBe(row.hash);
 });

@@ -1,3 +1,4 @@
+import {lifeVoiceTranslation} from '../life-steps-voice';
 import rulesRaw from '../daxian/rules.json';
 import { LIUYUE, LIUYUE_FLAT, LIUYUE_LEAD, LIUYUE_REST, MONTH_CN, mixedText } from '../liuyue';
 import { KUIYUE_TEXT } from '../kuiyue';
@@ -74,6 +75,7 @@ function huaList(zh: string, missing: string[]): { text: string; many: boolean }
 const n = (zh: string) => cnNum(zh);
 
 const PIVOT_COND_EN: Record<string, string> = {
+  '，命宮和相關的幾個宮位都沒有煞星，並見吉曜或吉化': ', with no malefics and with benefic stars or favourable transformations',
   '，大限順行': ', with your stages moving forward',
   '，大限逆行': ', with your stages moving backward',
   '，命宮和相關的幾個宮位見到煞星': ', with malefic stars in your Life Palace and the palaces linked to it',
@@ -84,8 +86,10 @@ const PIVOT_COND_EN: Record<string, string> = {
 };
 /** 「太陽太陰同宮或七殺」→ Tai Yang and Tai Yin together, or Qi Sha */
 function pivotGroupsEn(zh: string, missing: string[]): string {
-  if (zh === '有化祿、化權、化科或化忌') return 'a star turning to Abundance, Authority, Recognition or Obstruction';
+  if (zh === '有化祿、化權、化科或化忌'||zh === '會照化祿、化權、化科或化忌') return 'a star turning to Abundance, Authority, Recognition or Obstruction';
   const items = zh.replace(/或/g, '、').split('、').map((g) => {
+    if(g==='上述星系的對拱宮垣')return 'the palaces opposite those star systems';
+    if(g==='祿存與化祿所在宮垣')return 'Lu Cun or a star turning to Abundance';
     const pair = /^(\S{2})(\S{2})同宮$/.exec(g);
     return pair ? `${starsEn(pair[1]!, missing)} and ${starsEn(pair[2]!, missing)} together` : starsEn(g, missing);
   });
@@ -252,7 +256,7 @@ const GIST_EN: Record<string, string> = {
 };
 
 function lookPart(zh: string, missing: string[]): string {
-  let m = /^你走進第(\S+?)個大限，(正是開頭說的關鍵大限，)?生活的重心換了方向，(.+)$/.exec(zh);
+  let m = /^你走進第(\S+?)個大限，((?:正是開頭說的關鍵大限|也是你人生較重要的一步)，)?生活的重心換了方向，(.+)$/.exec(zh);
   if (m && n(m[1]!) && TURN_EG[m[3]!]) {
     const key = m[2] ? ' (the key stage named at the start)' : '';
     return `you entered your ${ordinalWord(n(m[1]!)!)} ten-year stage${key}, and the centre of your life shifted, ${TURN_EG[m[3]!]}`;
@@ -392,7 +396,32 @@ const PLURAL_AREA = new Set(['錢', '朋輩', '後輩', '長輩關係']);
 /** 四化分句嘅英文（出處索引用：citation.ts 要用英文分句對英文第一段） */
 export const huaClauseEn = (zh: string): string | undefined => HUA_CLAUSE_EN[zh];
 
+const REVIEWED_LIFE_TEXT:Record<string,string>={
+  "回看提示：可以回顧交界前後，留意哪些責任繼續承擔，哪些選擇從這裡開始改變。": "Consider the stages on either side of this boundary: which responsibilities continued, and which choices began to change here.",
+  "這一年行到原書為你這組命宮列出的樞紐宮位。": "This year reached a pivot palace listed in the source for your natal star system.",
+  "回看提示：可以留意當時怎樣選擇學習方向、適應身邊的安排，哪些做法後來仍然用得上。": "Looking back, consider how you chose your studies and adapted to the arrangements around you, and which approaches remained useful later.",
+  "回看提示：可以留意工作方向、分工與承擔怎樣取捨，哪些選擇延續到下一階段。": "Looking back, consider the choices you made about work, responsibilities and division of duties, and which carried into the next stage.",
+  "回看提示：可以留意投入與收入怎樣安排，哪些承擔值得延續，哪些需要重新分配。": "Looking back, consider how you balanced commitments and income, which responsibilities were worth continuing, and which needed reallocating.",
+  "回看提示：可以留意關係裡怎樣協調期望、安排相處，哪些共識延續到後來。": "Looking back, consider how you aligned expectations and made time for each other, and which shared understandings lasted.",
+  "回看提示：可以留意在外發展、接觸新環境時怎樣作選擇，哪些安排對後來較有幫助。": "Looking back, consider how you chose opportunities away from home or in new surroundings, and which arrangements helped later.",
+  "回看提示：可以留意當時怎樣分配時間與心力，哪些選擇延續到下一階段。": "Looking back, consider how you allocated time and energy, and which choices carried into the next stage.",
+  "投入與周轉是這一年值得回看的重點，承擔是否超過手上資源，會影響往後怎樣接續。": "Commitments and cash flow are worth reviewing for this year: whether responsibilities exceeded available resources affected how plans could continue."
+};
+
 export function timeTemplate(s: string, missing: string[], h: TimeHelpers): string | null {
+  const voice=lifeVoiceTranslation(s,'en');
+  if(voice)return voice;
+  if(REVIEWED_LIFE_TEXT[s])return REVIEWED_LIFE_TEXT[s]!;
+  const lifeSeat=/^這一年的命宮在(\S)，(.+)。$/.exec(s);
+  if(lifeSeat)return `That year's Life Palace was in ${BRANCH_EN[lifeSeat[1]!]??lifeSeat[1]}${seat(lifeSeat[2]!,missing)}.`;
+  let revised=/^(\S+?)年（(\S)(\S)年，你虛歲(\S+?)），你在第(\S+?)個大限之內，流年命宮在(\S)，(.+)。$/.exec(s);
+  if(revised)return `In ${n(revised[1]!)}, aged ${agePoint(n(revised[4]!)!)}, you were in stage ${n(revised[5]!)}; the annual Life Palace was in ${BRANCH_EN[revised[6]!]??revised[6]}${seat(revised[7]!,missing)}.`;
+  revised=/^(\S+?)年（(\S)(\S)年，你虛歲(\S+?)），你走進第(\S+?)個大限，((?:正是開頭說的關鍵大限|也是你人生較重要的一步)，)?(.+)。$/.exec(s);
+  if(revised)return `In ${n(revised[1]!)}, aged ${agePoint(n(revised[4]!)!)}, you entered stage ${n(revised[5]!)}${revised[6]?', one of the key stages noted above':''}${seat(revised[7]!,missing)}.`;
+  revised=/^當年的(\S{2})化祿在(\S+宮)，(\S{2})化忌在(\S+宮)。$/.exec(s);
+  if(revised)return `That year's ${starsEn(revised[1]!,missing)} turned to Abundance in the ${pal(revised[2]!,missing)}, while ${starsEn(revised[3]!,missing)} turned to Obstruction in the ${pal(revised[4]!,missing)}.`;
+  revised=/^你命盤裡(?:已可確認)?的關鍵大限是(.+)：這(?:幾|一)步(?:值得連同前後兩步一起細讀|前後的選擇與安排，值得多留一份心)。$/.exec(s);
+  if(revised)return `The key stages in your chart are ${revised[1]!.split('、').map((x)=>n(x.slice(1,-1))).join(', ')}; consider the choices and arrangements on either side together.`;
   if (KUIYUE_EN[s]) return KUIYUE_EN[s]!;
   const month = liuyueEn(s);
   if (month) return month;
@@ -422,9 +451,9 @@ export function timeTemplate(s: string, missing: string[], h: TimeHelpers): stri
     return `Step ${n(m[1]!)} — ${ageRange(n(m[2]!)!, n(m[3]!)!)} — your ${pal(m[4]!, missing)}${seat(m[5]!, missing)}.`;
   }
   /* 關鍵大限點解（daxian.ts pivotWhy，2026-10-18） */
-  m = /^你的命宮在(\S)，(坐[^：，]+|沒有主星，借對面宮位的[^：，]+)((?:，[^：]+)?)：這樣的命盤，行到(.+)的大限，就是一生的轉折點。$/.exec(s);
+  m = /^你的命宮在(\S)，(坐[^：，]+|沒有主星，借對面宮位的[^：，]+)((?:，[^：]+)?)：這樣的命盤，行到(.+)的大限，(?:就是一生的轉折點|是原書列出的關鍵宮垣)。$/.exec(s);
   if (m && BRANCH_EN[m[1]!] && (!m[3] || PIVOT_COND_EN[m[3]])) {
-    return `Your Life Palace sits in ${BRANCH_EN[m[1]!]}${seat(m[2]!, missing)}${m[3] ? PIVOT_COND_EN[m[3]] : ''}: in a chart like this, the ten-year stages holding ${pivotGroupsEn(m[4]!, missing)} are the turning points of a life.`;
+    return `Your Life Palace sits in ${BRANCH_EN[m[1]!]}${seat(m[2]!, missing)}${m[3] ? PIVOT_COND_EN[m[3]] : ''}: in a chart like this, the ten-year stages holding ${pivotGroupsEn(m[4]!, missing)} ${s.endsWith('是原書列出的關鍵宮垣。')?'are pivot palaces listed in the source':'are the turning points of a life'}.`;
   }
   if (s === '關鍵大限。') return 'A key stage.';
   if (s === '寫這本書時，你在這一步。') return 'You were on this step when this book was written.';

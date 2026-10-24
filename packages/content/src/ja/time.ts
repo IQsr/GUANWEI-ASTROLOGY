@@ -1,3 +1,4 @@
+import {lifeVoiceTranslation} from '../life-steps-voice';
 import rulesRaw from '../daxian/rules.json';
 import { LIUYUE, LIUYUE_FLAT, LIUYUE_LEAD, LIUYUE_REST, MONTH_CN, mixedText } from '../liuyue';
 import { KUIYUE_TEXT } from '../kuiyue';
@@ -21,6 +22,7 @@ const HUA: Record<string, string> = { 祿: '化禄', 權: '化権', 科: '化科
 const isBranch = (x: string) => x.length === 1 && BRANCHES.includes(x);
 
 const PIVOT_COND_JA: Record<string, string> = {
+  '，命宮和相關的幾個宮位都沒有煞星，並見吉曜或吉化': '命宮と関連する宮に煞星がなく、吉曜または吉化を見ます',
   '，大限順行': '大限は順行します',
   '，大限逆行': '大限は逆行します',
   '，命宮和相關的幾個宮位見到煞星': '命宮とそれに関わる宮に煞星が入っています',
@@ -31,8 +33,10 @@ const PIVOT_COND_JA: Record<string, string> = {
 };
 /** 「太陽太陰同宮或七殺」→「太陽と太陰が同宮する、または七殺」 */
 function pivotGroupsJa(zh: string, missing: string[]): string {
-  if (zh === '有化祿、化權、化科或化忌') return '化禄・化権・化科・化忌のいずれかがある';
+  if (zh === '有化祿、化權、化科或化忌'||zh === '會照化祿、化權、化科或化忌') return '化禄・化権・化科・化忌のいずれかがある';
   const items = zh.replace(/或/g, '、').split('、').map((g) => {
+    if(g==='上述星系的對拱宮垣')return 'これらの星系に対向する宮';
+    if(g==='祿存與化祿所在宮垣')return '禄存・化禄のある宮';
     const pair = /^(\S{2})(\S{2})同宮$/.exec(g);
     return pair ? `${starsJa(pair[1]!, missing)}と${starsJa(pair[2]!, missing)}が同宮する` : starsJa(g, missing);
   });
@@ -285,7 +289,7 @@ const GIST_JA: Record<string, string> = {
 };
 
 function lookPart(zh: string, missing: string[]): string {
-  let m = /^你走進第(\S+?)個大限，(正是開頭說的關鍵大限，)?生活的重心換了方向，(.+)$/.exec(zh);
+  let m = /^你走進第(\S+?)個大限，((?:正是開頭說的關鍵大限|也是你人生較重要的一步)，)?生活的重心換了方向，(.+)$/.exec(zh);
   if (m && n(m[1]!) && TURN_EG[m[3]!]) {
     const key = m[2] ? '（冒頭で挙げた大切な大限です）' : '';
     return `${kanjiNum(n(m[1]!)!)}番目の大限${key}に入り、暮らしの重心の向きが変わりました。${TURN_EG[m[3]!]}です`;
@@ -373,7 +377,32 @@ const KUIYUE_JA: Record<string, string> = {
   [KUIYUE_TEXT.year]: 'この一年は、引き立ててくれる人と機会の助けがあります。今年の天魁・天鉞が、ちょうどあなたの本命の天魁・天鉞と重なるので、才知を発揮する場が見つかりやすく、それによって転機が訪れることもよくあります。',
 };
 
+const REVIEWED_LIFE_TEXT:Record<string,string>={
+  "回看提示：可以回顧交界前後，留意哪些責任繼續承擔，哪些選擇從這裡開始改變。": "交界の前後の大限を合わせて見て、続けて担った責任と、ここから変わり始めた選択を振り返ってみてください。",
+  "這一年行到原書為你這組命宮列出的樞紐宮位。": "この年は、原書があなたの本命星系について挙げる枢要の宮に当たります。",
+  "回看提示：可以留意當時怎樣選擇學習方向、適應身邊的安排，哪些做法後來仍然用得上。": "振り返る際は、学ぶ方向をどう選び、周囲の段取りにどう適応し、後にも役立った方法は何かを考えてみてください。",
+  "回看提示：可以留意工作方向、分工與承擔怎樣取捨，哪些選擇延續到下一階段。": "仕事の方向、役割分担、責任をどう選び、その選択が次の段階へどう続いたかを振り返ってみてください。",
+  "回看提示：可以留意投入與收入怎樣安排，哪些承擔值得延續，哪些需要重新分配。": "投入と収入をどう配分し、どの負担を続け、どれを見直す必要があったかを振り返ってみてください。",
+  "回看提示：可以留意關係裡怎樣協調期望、安排相處，哪些共識延續到後來。": "関係の中で期待をどう調整し、共に過ごす時間をどう整え、どの合意が後にも続いたかを振り返ってみてください。",
+  "回看提示：可以留意在外發展、接觸新環境時怎樣作選擇，哪些安排對後來較有幫助。": "外での発展や新しい環境に向けてどう選び、どの段取りが後に役立ったかを振り返ってみてください。",
+  "回看提示：可以留意當時怎樣分配時間與心力，哪些選擇延續到下一階段。": "時間と気力をどう配分し、どの選択が次の段階へ続いたかを振り返ってみてください。",
+  "投入與周轉是這一年值得回看的重點，承擔是否超過手上資源，會影響往後怎樣接續。": "この年を振り返る際は投入と資金繰りに注目してください。負担が手元の資源を超えていなかったかが、計画の継続に関わります。"
+};
+
 export function timeTemplate(s: string, missing: string[], h: TimeHelpers): string | null {
+  const voice=lifeVoiceTranslation(s,'ja');
+  if(voice)return voice;
+  if(REVIEWED_LIFE_TEXT[s])return REVIEWED_LIFE_TEXT[s]!;
+  const lifeSeat=/^這一年的命宮在(\S)，(.+)。$/.exec(s);
+  if(lifeSeat)return `その年の命宮は${lifeSeat[1]}${seat(lifeSeat[2]!,missing)}。`;
+  let revised=/^(\S+?)年（(\S)(\S)年，你虛歲(\S+?)），你在第(\S+?)個大限之內，流年命宮在(\S)，(.+)。$/.exec(s);
+  if(revised)return `${n(revised[1]!)}年（数え${n(revised[4]!)}歳）は第${n(revised[5]!)}大限の中にあり、流年命宮は${revised[6]}${seat(revised[7]!,missing)}。`;
+  revised=/^(\S+?)年（(\S)(\S)年，你虛歲(\S+?)），你走進第(\S+?)個大限，((?:正是開頭說的關鍵大限|也是你人生較重要的一步)，)?(.+)。$/.exec(s);
+  if(revised)return `${n(revised[1]!)}年（数え${n(revised[4]!)}歳）に第${n(revised[5]!)}大限へ入りました${revised[6]?'。冒頭に挙げた重要な大限です':''}${seat(revised[7]!,missing)}。`;
+  revised=/^當年的(\S{2})化祿在(\S+宮)，(\S{2})化忌在(\S+宮)。$/.exec(s);
+  if(revised)return `その年は${starsJa(revised[1]!,missing)}が${pal(revised[2]!,missing)}で化禄に、${starsJa(revised[3]!,missing)}が${pal(revised[4]!,missing)}で化忌になりました。`;
+  revised=/^你命盤裡(?:已可確認)?的關鍵大限是(.+)：這(?:幾|一)步(?:值得連同前後兩步一起細讀|前後的選擇與安排，值得多留一份心)。$/.exec(s);
+  if(revised)return `命盤から確認できる重要な大限は${revised[1]!.split('、').map((x)=>n(x.slice(1,-1))).join('・')}番目です。前後の大限と合わせて読んでください。`;
   if (KUIYUE_JA[s]) return KUIYUE_JA[s]!;
   const month = liuyueJa(s);
   if (month) return month;
@@ -401,9 +430,9 @@ export function timeTemplate(s: string, missing: string[], h: TimeHelpers): stri
     return `第${kanjiNum(n(m[1]!)!)}段階　${kazoeRange(n(m[2]!)!, n(m[3]!)!)}　${pal(m[4]!, missing)}${seat(m[5]!, missing)}。`;
   }
   /* 關鍵大限點解（daxian.ts pivotWhy，2026-10-18） */
-  m = /^你的命宮在(\S)，(坐[^：，]+|沒有主星，借對面宮位的[^：，]+)((?:，[^：]+)?)：這樣的命盤，行到(.+)的大限，就是一生的轉折點。$/.exec(s);
+  m = /^你的命宮在(\S)，(坐[^：，]+|沒有主星，借對面宮位的[^：，]+)((?:，[^：]+)?)：這樣的命盤，行到(.+)的大限，(?:就是一生的轉折點|是原書列出的關鍵宮垣)。$/.exec(s);
   if (m && isBranch(m[1]!) && (!m[3] || PIVOT_COND_JA[m[3]])) {
-    return `あなたの命宮は${m[1]}${seat(m[2]!, missing)}${m[3] ? `。${PIVOT_COND_JA[m[3]]}` : ''}。このような命盤では、${pivotGroupsJa(m[4]!, missing)}の大限が、人生の転機になります。`;
+    return `あなたの命宮は${m[1]}${seat(m[2]!, missing)}${m[3] ? `。${PIVOT_COND_JA[m[3]]}` : ''}。このような命盤では、${pivotGroupsJa(m[4]!, missing)}の大限が、${s.endsWith('是原書列出的關鍵宮垣。')?'原書が挙げる枢要の宮です':'人生の転機になります'}。`;
   }
   if (s === '關鍵大限。') return '大切な大限です。';
   if (s === '寫這本書時，你在這一步。') return 'この本を書いた時点で、あなたはこの段階にいました。';

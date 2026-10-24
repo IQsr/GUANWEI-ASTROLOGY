@@ -3982,10 +3982,10 @@
     "packages/content/src/branch/xiongdi/32.json": "18ca2b5ddb51df5464f2a713fa0b4df7fe9b28a499f409a1083b1a714ca1aaa5",
     "packages/content/src/branch/xiongdi/36.json": "a29606b8326331d3fea3998eab75cdf32e7fb912f1f5d7ed583fcd7485d4dc23",
     "packages/content/src/branch/zinv/02.json": "8f7698e80f1d7d4bbf8f4c9800e6f31bc778358672fc1b767ecb74e118367794",
-    "packages/content/src/citation.ts": "9bed45d42fea79ef0554f2c3271a5f0f4cef3a2521b2440a0f4f6d7a73f6ce80",
-    "packages/content/src/daxian.ts": "977e479944960257f4766ee14a37657a644eb3c51beec6fd0aab8e9026e9d1d2",
+    "packages/content/src/citation.ts": "d24ac8796c4e32b9cd7eb382ec24a6cd66b8988951a8c2296267d54b89a2f5b7",
+    "packages/content/src/daxian.ts": "7c3db9744a86bf8cebd53ed2b2814d83ec13cbbbcd8cf027821afd2cef3ddcc3",
     "packages/content/src/daxian/hua.json": "a157483298ad9c7a71fe7e4eda394ec37ccf9e53e727179bf41dbec42ff3d8df",
-    "packages/content/src/daxian/pivots.json": "c9df596a1f85c54c226d0c1cbd900bc18b7407dc8bc9d39f621805e52941b464",
+    "packages/content/src/daxian/pivots.json": "08bbd9739f4576b327e970068f9c6c2b2f99531fc50d0e336e2311efb6d44eee",
     "packages/content/src/daxian/rules.json": "9056bf1621f419dc219f51ddc3347220aef80134886b07097b37982638eb7174",
     "packages/content/src/lexicon/base-c4.json": "17a4f7d14af805c7cd45ef2ba39f46eb2883f7e8c1fde30162f9c1c195af28f6",
     "packages/content/src/lexicon/base-c5.json": "4153d6c3900a17861bfbe821fed959570d66071d43697b5e84bf3b56fa0198b3",
@@ -4005,5 +4005,31 @@
     "revise_copy／fix_conditions為目前掛源不足以支持原樣文案或觸發條件，按具體缺口刪改；不代表已證全書其他地方絕無相似說法。",
     "hold_source保留本機PDF歧義；未對其他版本，不能以推測作原文校定。",
     "來源正文只在忽略tmp；追蹤檔保留摘要、段號、指紋與現有專案文案快照。"
+  ],
+  "followup_reviews": [
+    {
+      "reviewed_on": "2026-10-24",
+      "scope": "一生十二步修訂後重新核對 citation.ts、daxian.ts、pivots.json 消費路徑；舊253項裁定不宣稱已全部修復。",
+      "report": "docs/life-steps-repair-2026-10-24.md",
+      "findings": [
+        "新引用只接受 life.steps.v2 命名空間，舊 passage 與原文未改；新增完整原段另保存。",
+        "這十年正文及四化規則消費部分逐字未變，原有相關40項裁定繼續有效於原範圍。",
+        "本次補七殺對拱、天府祿曜、同陰見吉及天相限流四化；卯宮太陰反背仍保留分歧。",
+        "廉貞寅申大限／流年及太陽子午流年原檔待核分支停用已確認樞紐標示，未刷新指紋便宣稱解決疑字。"
+      ],
+      "quote_spans_verified": 135
+    },
+    {
+      "reviewed_on": "2026-10-24",
+      "scope": "一生十二步正文語氣修訂；不改這十年及舊253項裁定。",
+      "report": "docs/life-steps-repair-2026-10-24.md",
+      "quote_spans_verified": 159,
+      "findings": [
+        "天機乙祿讀PDF240–241及相鄰頁，只取主動策劃，未保證財利；戊忌讀305–306，只在本年福德解說計劃與思慮。",
+        "文昌辛忌讀310全文及相鄰頁，保存他人要求／失誤的責任限制與末段詳星曜會合，不斷定實際損失。",
+        "祿轉忌與忌轉祿沿用既核PDF236條件，少年只給學習安排建議；選年及事件閘未改。",
+        "關鍵大限原因移到內部適用資料，完整原文、條件、例外及原頁疑字保留；這十年消費部分與HEAD逐字相同。"
+      ]
+    }
   ]
 }

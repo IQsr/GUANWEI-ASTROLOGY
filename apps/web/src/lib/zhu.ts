@@ -66,7 +66,7 @@ export type Run = { text: string; term?: Term; cite?: string[] };
 
 export type MarkedSegment = { slot: string; runs: Run[]; heading?: string; referenceConditions?: string[]; referenceFocus?: string[]; referenceApplicability?: string[] };
 
-export type ChapterInput = { palace: string; segments: { slot: string; text: string; heading?: string; statements?: MingStatement[]; referenceConditions?: string[]; referenceFocus?: string[]; referenceApplicability?: string[] }[] };
+export type ChapterInput = { palace: string; segments: { slot: string; text: string; heading?: string; referenceDisplay?: 'hidden'; statements?: MingStatement[]; referenceConditions?: string[]; referenceFocus?: string[]; referenceApplicability?: string[] }[] };
 
 export type MarkedChapter = { palace: string; segments: MarkedSegment[] };
 
@@ -141,6 +141,7 @@ export function markBook(chapters: ChapterInput[], lang: 'zh' | 'en' | 'ja' = 'z
     palace: ch.palace,
     segments: ch.segments.map((seg) => {
       const runs: Run[] = [];
+      const referencesHidden = seg.referenceDisplay === 'hidden';
       let cursor = 0;
       const spans = seg.statements?.flatMap((l) => {
         const start = seg.text.indexOf(l.text, cursor);
@@ -152,7 +153,7 @@ export function markBook(chapters: ChapterInput[], lang: 'zh' | 'en' | 'ja' = 'z
       for (const sentence of split(seg.text)) {
         const end = offset + sentence.length;
         const explicit = spans?.filter((s) => s.start < end && s.end > offset).flatMap((s) => s.citations);
-        const cite = explicit !== undefined ? [...new Set(explicit)] : lang === 'ja' ? null : citeOf(sentence, lang);
+        const cite = referencesHidden ? null : explicit !== undefined ? [...new Set(explicit)] : lang === 'ja' ? null : citeOf(sentence, lang);
         offset = end;
         const hit = firstTerm(sentence, terms, used);
         if (!hit) {
@@ -174,9 +175,9 @@ export function markBook(chapters: ChapterInput[], lang: 'zh' | 'en' | 'ja' = 'z
         }
       }
       return { slot: seg.slot, runs, ...(seg.heading ? { heading: seg.heading } : {}),
-        ...(seg.referenceConditions?.length ? { referenceConditions: [...seg.referenceConditions] } : {}),
-          ...(seg.referenceFocus?.length ? {referenceFocus:[...seg.referenceFocus]} : {}),
-          ...(seg.referenceApplicability?.length ? {referenceApplicability:[...seg.referenceApplicability]} : {}) };
+        ...(!referencesHidden && seg.referenceConditions?.length ? { referenceConditions: [...seg.referenceConditions] } : {}),
+          ...(!referencesHidden && seg.referenceFocus?.length ? {referenceFocus:[...seg.referenceFocus]} : {}),
+          ...(!referencesHidden && seg.referenceApplicability?.length ? {referenceApplicability:[...seg.referenceApplicability]} : {}) };
     }),
   }));
 }
