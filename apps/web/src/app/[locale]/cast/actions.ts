@@ -5,7 +5,7 @@ import { RULE_REGISTRY } from '@guanwei/content';
 import { parseCastRequest, type CastRequest } from '@/lib/luokuan';
 import { bookDraft, keepBook, parseBookFields, readingContentVersion } from '@/lib/chengshu';
 import { castQuotaLeft, serverChengshu } from '@/lib/chengshu.server';
-import { bookChapters } from '@/lib/mingshu';
+import { createBookChapters } from '@/lib/mingshu';
 import { getLocale } from 'next-intl/server';
 import { hans, isHans } from '@/lib/hans';
 import { englishChapters, englishTitle, isEnglish } from '@/lib/english';
@@ -111,11 +111,13 @@ export async function castChart(raw: unknown): Promise<CastOutcome> {
     const chart = result.value;
 
     /* 正文用本書個 token 做 seed —— 重生成出返嚟係同一本書（C8b 可重現）。 */
-    const chapters = bookChapters(chart, {
+    const chapters = createBookChapters(chart, {
       seed: fields.token,
       year: new Date().getFullYear(),
       solar: req.solar,
       place: req.place.label,
+      birthSex: req.sex,
+      birthInput: {...base,time:req.time,options:{timeBasis:req.timeBasis}},
     });
     if (!chapters) {
       return { ok: false, code: 'NOT_IMPLEMENTED', message: 'NOT_IMPLEMENTED' };

@@ -1,0 +1,137 @@
+[
+  {
+    "id": "A",
+    "input": {
+      "solar": {
+        "y": 1965,
+        "m": 6,
+        "d": 25
+      },
+      "time": {
+        "h": 7,
+        "min": 59
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "system": {
+      "n": 54,
+      "name": "廉貞破軍坐卯酉",
+      "borrowed": false
+    },
+    "seed": "random-five-4093653209-0"
+  },
+  {
+    "id": "B",
+    "input": {
+      "solar": {
+        "y": 1986,
+        "m": 8,
+        "d": 26
+      },
+      "time": {
+        "h": 4,
+        "min": 4
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "system": {
+      "n": 45,
+      "name": "七殺獨坐子午",
+      "borrowed": false
+    },
+    "seed": "random-five-4093653209-1"
+  },
+  {
+    "id": "C",
+    "input": {
+      "solar": {
+        "y": 1956,
+        "m": 10,
+        "d": 24
+      },
+      "time": {
+        "h": 2,
+        "min": 17
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "system": {
+      "n": 28,
+      "name": "天同獨坐卯酉",
+      "borrowed": false
+    },
+    "seed": "random-five-4093653209-2"
+  },
+  {
+    "id": "D",
+    "input": {
+      "solar": {
+        "y": 1957,
+        "m": 9,
+        "d": 16
+      },
+      "time": {
+        "h": 4,
+        "min": 3
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "system": {
+      "n": 21,
+      "name": "紫微天府坐寅申",
+      "borrowed": false
+    },
+    "seed": "random-five-4093653209-3"
+  },
+  {
+    "id": "E",
+    "input": {
+      "solar": {
+        "y": 1988,
+        "m": 4,
+        "d": 14
+      },
+      "time": {
+        "h": 20,
+        "min": 12
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "system": {
+      "n": 39,
+      "name": "武曲破軍坐巳亥",
+      "borrowed": false
+    },
+    "seed": "random-five-4093653209-4"
+  }
+]

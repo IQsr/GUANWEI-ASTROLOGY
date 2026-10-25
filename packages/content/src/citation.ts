@@ -1,3 +1,4 @@
+import {bookP1Source} from './book-p1-sources';
 import {lifeStepsSource} from './life-steps-sources';
 import {crossPalaceSource} from './cross-palace-sources';
 import { locatedQuoteParts, type QuotePart } from './palace-quote-review';
@@ -68,7 +69,7 @@ const AUTHOR = '王亭之';
 const BOOK = '中州派紫微斗數深造講義';
 
 export function citation(id: string): Citation | null {
-  const backed = lifeStepsSource(id) ?? crossPalaceSource(id) ?? backedSource(id) ?? freeMingSource(id) ?? systemReadingSource(id) ?? palaceReadingSource(id);
+  const backed = bookP1Source(id) ?? lifeStepsSource(id) ?? crossPalaceSource(id) ?? backedSource(id) ?? freeMingSource(id) ?? systemReadingSource(id) ?? palaceReadingSource(id);
   if (backed) {
     const pages = 'quotePages' in backed ? backed.quotePages as number[] : undefined;
     const sourceNote = 'sourceNote' in backed ? backed.sourceNote as string : undefined;

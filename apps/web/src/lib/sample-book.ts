@@ -1,7 +1,7 @@
 import 'server-only';
 import { cast } from '@guanwei/ziwei';
 import type { Chart as ZChart } from '@guanwei/ziwei/contract';
-import { bookChapters } from '@/lib/mingshu';
+import { createBookChapters } from '@/lib/mingshu';
 import { chapterDrafts, type ChapterDraft } from '@/lib/chengshu';
 import { chartLayers } from '@/lib/layers.server';
 import type { ChartLayers } from '@/lib/layers';
@@ -42,7 +42,7 @@ export function sampleBook(): SampleBook | null {
   if (!r.ok) return null;
   /* 寫書嗰年 = build 嗰年（同真書一樣：寫低嗰年就唔變） */
   const year = new Date().getFullYear();
-  const sources = bookChapters(r.value, { seed: SAMPLE_BOOK, year, solar: BIRTH.solar, place: BIRTH.place.label });
+  const sources = createBookChapters(r.value, { seed: SAMPLE_BOOK, year, solar: BIRTH.solar, place: BIRTH.place.label, birthSex: BIRTH.sex, birthInput: BIRTH });
   if (!sources) return null;
   const drafts = chapterDrafts(sources, SAMPLE_BOOK);
   memo = {

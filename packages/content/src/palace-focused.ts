@@ -2,6 +2,8 @@ import { oppositeBranch, type Chart, type Palace } from '@guanwei/ziwei';
 import type { FreeReadingSegment } from './free-ming-reader';
 import type { MingStatement } from './ming-writer';
 import { isYouthReader } from './youth';
+import type {AnalysisRecorder} from './analysis-record';
+import { palaceRuleReference } from './palace-rule-reference';
 import raw from './cards/palace-focused.json';
 
 import { evaluatePalacePredicate as evaluate, type PalacePredicate as Predicate } from './palace-predicate';
@@ -17,7 +19,7 @@ const citeId = (id: string) => `palace.focused.v1:${id}`;
 const sourceMap = new Map(Object.entries(data.sources).map(([id, s]) => [citeId(id), s]));
 export const focusedPalaceSource = (id: string) => sourceMap.get(id) ?? null;
 
-export function focusedPalaceReading(chart: Chart, palace: string, year: number): FreeReadingSegment[] | null {
+export function focusedPalaceReading(chart: Chart, palace: string, year: number, separateRuleReferences = false, recorder?: AnalysisRecorder): FreeReadingSegment[] | null {
   if (!['夫妻', '田宅'].includes(palace)) return null;
   const p = chart.palaces.find((q) => q.name === palace);
   if (!p) return null;
@@ -35,6 +37,7 @@ export function focusedPalaceReading(chart: Chart, palace: string, year: number)
   const reviewed = borrowed ? [] : applicable.map((rule) => ({ rule, evaluated: evaluate(rule.when, chart, p) }));
   const selected = reviewed.filter((r) => r.evaluated.matched).sort((a, b) => b.rule.priority - a.rule.priority).slice(0, 2);
   const youth = isYouthReader(chart, year);
+  recorder?.palace({palace,profile,borrowed,namespace:'palace.focused.v1',rules:applicable.map(rule=>({rule,evaluated:reviewed.find(r=>r.rule===rule)?.evaluated,selected:selected.some(r=>r.rule===rule)}))});
   const shared = [fact,
     borrowed ? '以下只參照原書實坐篇的組合主題；未把對宮的四化、配曜、夾宮及三方條件搬成本宮已成立。對宮實坐宮支與本宮宮支分開保存。'
       : '本宮實坐組合與宮支已核；修飾按下列實際位置選段，未以兩條單星說法相加或吉煞數量判定。',
@@ -50,12 +53,14 @@ export function focusedPalaceReading(chart: Chart, palace: string, year: number)
   };
   const result = [make(`${profile.id}-base`, profile.heading,
     borrowed ? `這裡參照的是原書實坐${names.join('、')}一組的主題：${profile.text}借入參照仍須保留範圍，以上不是本宮已成立的個人分支。` : profile.text,
-    [...new Set([...profile.sources, ...reviewed.filter((r) => r.evaluated.matched && !selected.includes(r)).flatMap((r) => r.rule.sources)])],
+    [...new Set([...profile.sources, ...reviewed.filter((r) => separateRuleReferences || (r.evaluated.matched && !selected.includes(r))).flatMap((r) => r.rule.sources)])],
     borrowed ? [`參照原節實坐宮支${origin.branch}，沒有將其宮支分支當成本宮${p.branch}。`] :
-      reviewed.map(({ rule, evaluated }) => `${rule.heading}：${evaluated.matched ? selected.some((s) => s.rule.id === rule.id) ? '符合本輪已核前提，正文採用' : '符合本輪已核前提，受篇幅排序未另起正文段；不可視為已被其他支抵銷' : '未符合本輪全部已核前提，未採其個人分支'}。${evaluated.checks.join('')}`), fact)];
+      reviewed.map(({ rule, evaluated }) => separateRuleReferences
+        ? palaceRuleReference(rule, evaluated, selected.some((s) => s.rule.id === rule.id))
+        : `${rule.heading}：${evaluated.matched ? selected.some((s) => s.rule.id === rule.id) ? '符合本輪已核前提，正文採用' : '符合本輪已核前提，受篇幅排序未另起正文段；不可視為已被其他支抵銷' : '未符合本輪全部已核前提，未採其個人分支'}。${evaluated.checks.join('')}`), fact)];
   for (const { rule, evaluated } of selected) {
     const positions = evaluated.facts.length ? `本盤${evaluated.facts.join('；')}。` : '';
-    result.push(make(rule.id, rule.heading, positions + rule.text, rule.sources, [...evaluated.checks, ...rule.conditions]));
+    result.push(make(rule.id, rule.heading, positions + rule.text, rule.sources, separateRuleReferences ? [palaceRuleReference(rule, evaluated, true)] : [...evaluated.checks, ...rule.conditions]));
   }
   const follow = make(`${profile.id}-follow`, profile.followHeading, profile.follow,
     [...profile.sources, ...(palace === '田宅' ? ['property-scope'] : [])]);

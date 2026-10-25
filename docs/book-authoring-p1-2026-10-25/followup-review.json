@@ -1,0 +1,83 @@
+{
+  "version": "book-p1-reading-v2",
+  "date": "2026-10-25",
+  "scope": [
+    "廉忌收結的現段適用範圍與其他章節背景分離",
+    "同祿命宮、官祿、建議、收結分工減重",
+    "據的繁簡編輯語氣"
+  ],
+  "unchanged_rule_and_quote_hashes": {
+    "packages/content/src/book-p1.ts": "243935c4f0bb1f63cb3e14a87c7718d69c849563d5874661e55a58eac6e61706",
+    "packages/content/src/cards/book-p1-sources.json": "3c46b8dc800e09eb1600b897e2efc17301213232a8a73c07f435e1562c623a30"
+  },
+  "preservation": [
+    "原出處ID與原段字詞不改；24段來源指紋檢查通過",
+    "舊財帛、福德條件與例外保存於referenceBackground；與現段相同條件只列一次",
+    "背景引用於claim標comparison，不當成現段直接支持",
+    "同祿官祿與收結同時連TONG_JI及已支持career-ji-quan，沒有重算規則",
+    "英日原版快照及舊書不重算"
+  ],
+  "validation": {
+    "targeted_tests": "passed; final wording revision: 3 files / 17 tests, including 192-book scope and independent positive / negative cases",
+    "full_web": "passed; 74 files / 686 tests before final two display-only phrase replacements; affected targeted suite repeated after",
+    "content_sources": "passed; 2 tests, all 24 original block hashes unchanged",
+    "typecheck": "passed; final Next build",
+    "lint": "passed; no errors, existing warnings only",
+    "build": "passed; final build 286 static pages",
+    "verify": "passed; final pnpm verify, all 14 checks including copy and 62 Hans pages",
+    "browser": {
+      "pages": [
+        "random-b/epilogue",
+        "random-c/ming",
+        "random-c/career",
+        "random-c/epilogue"
+      ],
+      "status": "passed; one source toggle per sourced paragraph, direct evidence and chapter background visibly separate, scope and exceptions retained",
+      "direct_support": "career PDF522.b007; ending PDF116.b011 and PDF522.b007",
+      "screenshot": "local staging tmp/p1-followup/preview-background.png"
+    }
+  },
+  "pushed": false,
+  "deployed": false,
+  "reference_cleanup": {
+    "date": "2026-10-25",
+    "scope": [
+      "同祿官祿與收結的機祿內部紀錄改為原頁重複句註，繁簡均套用",
+      "廉忌背景的頁碼提示只在同書引文出處已完整涵蓋時隱去",
+      "引文出處按實際頁碼列出，非連續頁不顯示成連續範圍"
+    ],
+    "preserved": [
+      "成書正文、建議、原始條件、來源ID與原文資料均不改",
+      "引用疑字註與限制不經頁碼清理；不同書籍或缺少頁碼保留原提示"
+    ],
+    "tests": "passed; 3 files / 13 tests",
+    "typecheck": "passed",
+    "lint": "passed; modified TS/TSX and tests",
+    "build": "passed; 286 static pages",
+    "copy_and_hans": "passed; 62 Hans pages",
+    "browser": "passed; random-b/epilogue background and random-c/career / epilogue expanded",
+    "pushed": false,
+    "deployed": false
+  },
+  "reference_labels_cleanup": {
+    "date": "2026-10-25",
+    "scope": [
+      "同書引文完整涵蓋的純頁碼提示，非背景長據亦按相同準則省略",
+      "出處顯示只合併相鄰重複宮名；原始section及引用資料不改"
+    ],
+    "validation": {
+      "tests": "3 files / 14 tests passed",
+      "typecheck": "passed",
+      "lint": "passed; modified TS/TSX and tests",
+      "browser": "passed; random-c/career and epilogue, random-b/epilogue with references expanded",
+      "build": "not repeated for this display-only follow-up; preceding build result retained separately"
+    },
+    "preserved": [
+      "quote text, IDs, quote-part notes, original source notes and conditions",
+      "book boundaries, uncovered page locators, doubt and exception notes",
+      "paragraph text, advice, decision cards, international book snapshots"
+    ],
+    "pushed": false,
+    "deployed": false
+  }
+}

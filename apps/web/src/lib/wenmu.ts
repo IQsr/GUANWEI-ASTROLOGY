@@ -127,7 +127,9 @@ export function withMingDetail(leads: readonly ChapterLead[], chapter: { text: s
   const r = chapter?.text ? readingOf(chapter.reading, chapter.text) : null;
   const first = r?.segments[0];
   const detail = r?.segments[1];
-  if (!first || detail?.slot !== '展開') return [...leads];
+  const crossDetail = r?.writer === 'reader-backed-v1' && detail?.slot === '細讀'
+    && detail.statements?.some((line) => line.source_ids.some((id) => id.startsWith('cross.reading.')));
+  if (!first || (detail?.slot !== '展開' && !crossDetail)) return [...leads];
   const localized: ChapterLead['localized'] = {};
   for (const locale of ['en', 'ja'] as const) {
     const segments = internationalMing({ text: chapter!.text!, reading: chapter!.reading }, locale);
@@ -146,7 +148,8 @@ export function withMingDetail(leads: readonly ChapterLead[], chapter: { text: s
 /** 示範書：由正文切第一段、第一句引文，免費命宮另取存檔展開段。 */
 export function leadsFromBodies(drafts: readonly { slug: string; body: string; reading?: unknown }[]): ChapterLead[] {
   return drafts.flatMap((d) => {
-    const r = readingOf(d.reading, d.body);
+    const saved = readingOf(d.reading, d.body);
+    const r = saved?.legacyPresentation ? null : saved;
     const lead = {
       slug: d.slug,
       lead: d.body.split('\n\n')[0] ?? '',

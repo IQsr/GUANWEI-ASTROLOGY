@@ -1,11 +1,16 @@
+import {isChapterAnalysis,type ChapterAnalysis} from '@guanwei/content/analysis-contract';
 import type { MingStatement } from '@guanwei/content';
 import { paragraphs } from '@/lib/suidu';
 
 /** 成書時保存的閱讀資料；舊書沒有這欄，不從命盤重算正文。 */
 export type ChapterReading = {
   format: 'ming-expanded-v1';
+  /** Versioned, chapter-scoped creation trace. Never inferred when an old book is read. */
+  analysis?: ChapterAnalysis;
+  /** Metadata wrapper for an unchanged legacy chapter: keep its implicit citation lookup. */
+  legacyPresentation?: true;
   /** 段落快照的格式不變；另記新書所用的寫作層版本，舊書沒有此欄亦可讀。 */
-  writer?: 'life-steps-reader-v2' | 'sentence-backed-v1' | 'reader-backed-v1' | 'palace-reader-v1';
+  writer?: 'epilogue-reader-v1' | 'life-steps-reader-v2' | 'sentence-backed-v1' | 'reader-backed-v1' | 'palace-reader-v1';
   segments: {
     slot: string;
     text: string;
@@ -15,6 +20,9 @@ export type ChapterReading = {
     referenceConditions?: string[];
     referenceFocus?: string[];
     referenceApplicability?: string[];
+    referenceBackground?: import('./reference-presentation').ReferenceBackground[];
+    /** Explicit producer links; reading never infers decisions from wording. */
+    analysisLinks?: {decisionIds:string[];upstreamFocusIds?:string[];references?: import('@guanwei/content/analysis-contract').ClaimLink['references']};
     statements?: MingStatement[];
   }[];
   /** 舊版英日正文快照，沒有逐句核讀資料的書繼續讀此欄。 */
@@ -30,23 +38,32 @@ export function readingOf(value: unknown, text: string): ChapterReading | null {
   if (!value || typeof value !== 'object') return null;
   const r = value as Partial<ChapterReading>;
   if (r.format !== 'ming-expanded-v1' || !Array.isArray(r.segments) || !r.international) return null;
-  if (r.writer !== undefined && r.writer !== 'life-steps-reader-v2' && r.writer !== 'sentence-backed-v1' && r.writer !== 'reader-backed-v1' && r.writer !== 'palace-reader-v1') return null;
+  if (r.writer !== undefined && r.writer !== 'epilogue-reader-v1' && r.writer !== 'life-steps-reader-v2' && r.writer !== 'sentence-backed-v1' && r.writer !== 'reader-backed-v1' && r.writer !== 'palace-reader-v1') return null;
   if (typeof r.international.text !== 'string' || !Array.isArray(r.international.slots) || !r.international.slots.every((s) => typeof s === 'string')) return null;
   if (!r.segments.every((s) => s && typeof s.slot === 'string' && typeof s.text === 'string'
+    && (s.analysisLinks === undefined || (Array.isArray(s.analysisLinks.decisionIds) && s.analysisLinks.decisionIds.every(id=>typeof id==='string') && (s.analysisLinks.upstreamFocusIds===undefined || Array.isArray(s.analysisLinks.upstreamFocusIds) && s.analysisLinks.upstreamFocusIds.every(id=>typeof id==='string'))))
     && (s.heading === undefined || typeof s.heading === 'string')
     && (s.referenceDisplay === undefined || s.referenceDisplay === 'hidden')
     && (s.referenceConditions === undefined || (Array.isArray(s.referenceConditions) && s.referenceConditions.every((c) => typeof c === 'string')))
     && (s.referenceApplicability === undefined || (Array.isArray(s.referenceApplicability) && s.referenceApplicability.every((c) => typeof c === 'string')))
+    && (s.referenceBackground === undefined || (Array.isArray(s.referenceBackground) && s.referenceBackground.every(g=>g&&typeof g.label==='string'&&typeof g.description==='string'&&Array.isArray(g.conditions)&&g.conditions.every(c=>typeof c==='string')&&Array.isArray(g.citationIds)&&g.citationIds.every(id=>typeof id==='string'&&Array.isArray(s.statements)&&s.statements.some(l=>l&&Array.isArray(l.citations)&&l.citations.includes(id))))))
     && (s.referenceFocus === undefined || (Array.isArray(s.referenceFocus) && s.referenceFocus.every((id) => typeof id === 'string')))
     && (s.statements === undefined || (Array.isArray(s.statements) && s.statements.every((l) =>
       l && typeof l === 'object' && typeof l.text === 'string' && Array.isArray(l.citations) && l.citations.every((id) => typeof id === 'string')))))) return null;
   if (r.segments.map((s) => s.text).join('\n\n') !== text) return null;
-  if (r.writer === 'reader-backed-v1' || r.writer === 'palace-reader-v1') {
+  if(r.analysis && r.segments.some((s,i)=>s.analysisLinks?.references?.some(ref=>!r.analysis!.claims.filter(c=>c.segment===i).every(c=>c.references.some(saved=>JSON.stringify(saved)===JSON.stringify(ref))))))return null;
+  if(r.analysis && r.segments.some((s,i)=>s.analysisLinks && r.analysis!.claims.filter(c=>c.segment===i).some(c=>JSON.stringify(c.decisionIds)!==JSON.stringify(s.analysisLinks!.decisionIds))))return null;
+  if (r.legacyPresentation !== undefined && (r.legacyPresentation !== true || !r.analysis || r.writer !== undefined)) return null;
+  if (r.analysis !== undefined && (!isChapterAnalysis(r.analysis) || r.analysis.claims.some(c=>c.segment>=r.segments!.length
+    || c.statement!==null && (!r.segments![c.segment]!.statements?.[c.statement]
+      || JSON.stringify(c.sourceIds)!==JSON.stringify(r.segments![c.segment]!.statements![c.statement]!.source_ids)
+      || JSON.stringify(c.citationIds)!==JSON.stringify(r.segments![c.segment]!.statements![c.statement]!.citations))))) return null;
+  if (r.writer === 'reader-backed-v1' || r.writer === 'palace-reader-v1' || r.writer === 'epilogue-reader-v1') {
     const original = r.internationalSnapshot;
     if (!original || typeof original.text !== 'string' || !Array.isArray(original.slots)
       || !original.slots.every((s) => typeof s === 'string')) return null;
     // 只准一層既有快照；拒絕循環或不明版本，避免遞迴及混稿。
-    if (original.reading && (original.reading.writer === 'reader-backed-v1' || original.reading.writer === 'palace-reader-v1' || !readingOf(original.reading, original.text))) return null;
+    if (original.reading && (original.reading.writer === 'reader-backed-v1' || original.reading.writer === 'palace-reader-v1' || original.reading.writer === 'epilogue-reader-v1' || !readingOf(original.reading, original.text))) return null;
     if (r.international.text !== original.text || JSON.stringify(r.international.slots) !== JSON.stringify(original.slots)) return null;
   }
   if (r.localized) {
@@ -71,8 +88,9 @@ export function internationalBodies(chs: readonly { text: string; slots: readonl
   return chs.map((c) => readingOf(c.reading, c.text)?.international ?? c);
 }
 
-export function readingSegments(text: string, slots: readonly string[], reading?: unknown) {
+export function readingSegments(text: string, slots: readonly string[], reading?: unknown): ChapterReading['segments'] {
   const r = readingOf(reading, text);
+  if(r?.legacyPresentation)return paragraphs(text,slots).map(p=>({slot:p.slot??'正文',text:p.text}));
   return r?.segments ?? paragraphs(text, slots).map((p) => ({
     slot: p.slot ?? '正文', text: p.text,
     // 有資料卻對不上正文時，不用舊句索引猜新稿的來源。

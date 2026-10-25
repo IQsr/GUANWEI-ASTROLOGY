@@ -1,0 +1,354 @@
+[
+  {
+    "id": "P0H01",
+    "seed": "authoring-p0-holdout-1",
+    "input": {
+      "solar": {
+        "y": 2005,
+        "m": 2,
+        "d": 27
+      },
+      "time": {
+        "h": 16,
+        "min": 31
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    }
+  },
+  {
+    "id": "P0H02",
+    "seed": "authoring-p0-holdout-2",
+    "input": {
+      "solar": {
+        "y": 2003,
+        "m": 6,
+        "d": 25
+      },
+      "time": {
+        "h": 13,
+        "min": 43
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    }
+  },
+  {
+    "id": "P0H03",
+    "seed": "authoring-p0-holdout-3",
+    "input": {
+      "solar": {
+        "y": 2021,
+        "m": 9,
+        "d": 14
+      },
+      "time": {
+        "h": 22,
+        "min": 35
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    }
+  },
+  {
+    "id": "P0H04",
+    "seed": "authoring-p0-holdout-4",
+    "input": {
+      "solar": {
+        "y": 2018,
+        "m": 4,
+        "d": 23
+      },
+      "time": {
+        "h": 2,
+        "min": 46
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    }
+  },
+  {
+    "id": "P0H05",
+    "seed": "authoring-p0-holdout-5",
+    "input": {
+      "solar": {
+        "y": 1997,
+        "m": 10,
+        "d": 3
+      },
+      "time": {
+        "h": 11,
+        "min": 25
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    }
+  },
+  {
+    "id": "P0H06",
+    "seed": "authoring-p0-holdout-6",
+    "input": {
+      "solar": {
+        "y": 2019,
+        "m": 10,
+        "d": 10
+      },
+      "time": {
+        "h": 18,
+        "min": 30
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    }
+  },
+  {
+    "id": "P0H07",
+    "seed": "authoring-p0-holdout-7",
+    "input": {
+      "solar": {
+        "y": 1958,
+        "m": 4,
+        "d": 13
+      },
+      "time": {
+        "h": 3,
+        "min": 37
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    }
+  },
+  {
+    "id": "P0H08",
+    "seed": "authoring-p0-holdout-8",
+    "input": {
+      "solar": {
+        "y": 1955,
+        "m": 8,
+        "d": 7
+      },
+      "time": {
+        "h": 7,
+        "min": 38
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    }
+  },
+  {
+    "id": "P0H09",
+    "seed": "authoring-p0-holdout-9",
+    "input": {
+      "solar": {
+        "y": 1959,
+        "m": 7,
+        "d": 21
+      },
+      "time": {
+        "h": 15,
+        "min": 48
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    }
+  },
+  {
+    "id": "P0H10",
+    "seed": "authoring-p0-holdout-10",
+    "input": {
+      "solar": {
+        "y": 1955,
+        "m": 11,
+        "d": 9
+      },
+      "time": {
+        "h": 16,
+        "min": 21
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    }
+  },
+  {
+    "id": "P0H11",
+    "seed": "authoring-p0-holdout-11",
+    "input": {
+      "solar": {
+        "y": 1982,
+        "m": 6,
+        "d": 19
+      },
+      "time": {
+        "h": 21,
+        "min": 32
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    }
+  },
+  {
+    "id": "P0H12",
+    "seed": "authoring-p0-holdout-12",
+    "input": {
+      "solar": {
+        "y": 1942,
+        "m": 12,
+        "d": 9
+      },
+      "time": {
+        "h": 15,
+        "min": 7
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    }
+  },
+  {
+    "id": "P0H13",
+    "seed": "authoring-p0-holdout-13",
+    "input": {
+      "solar": {
+        "y": 1981,
+        "m": 10,
+        "d": 24
+      },
+      "time": {
+        "h": 4,
+        "min": 49
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    }
+  },
+  {
+    "id": "P0H14",
+    "seed": "authoring-p0-holdout-14",
+    "input": {
+      "solar": {
+        "y": 1972,
+        "m": 3,
+        "d": 24
+      },
+      "time": {
+        "h": 3,
+        "min": 10
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    }
+  },
+  {
+    "id": "P0H15",
+    "seed": "authoring-p0-holdout-15",
+    "input": {
+      "solar": {
+        "y": 1957,
+        "m": 2,
+        "d": 21
+      },
+      "time": {
+        "h": 21,
+        "min": 28
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    }
+  },
+  {
+    "id": "P0H16",
+    "seed": "authoring-p0-holdout-16",
+    "input": {
+      "solar": {
+        "y": 1973,
+        "m": 3,
+        "d": 21
+      },
+      "time": {
+        "h": 11,
+        "min": 32
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    }
+  }
+]

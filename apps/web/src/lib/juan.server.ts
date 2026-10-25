@@ -1,4 +1,6 @@
 import 'server-only';
+import {BOOK_ANALYSIS_VERSION} from '@guanwei/content/analysis-contract';
+import {EPILOGUE_READER_VERSION} from './reader-release';
 import { supabaseServer } from '@/lib/supabase.server';
 import type { ChapterMeta, JuanPort } from '@/lib/juan-view';
 import { PALACE_READER_SLUGS, PALACE_READER_VERSION } from '@guanwei/content/ming-version';
@@ -84,7 +86,8 @@ export function serverJuan(): JuanPort {
       let reading: unknown;
       const version = String(row.content_version);
       const savedPalace = PALACE_READER_SLUGS.some((name) => name === slug) && version.includes(`+${PALACE_READER_VERSION}+`);
-      const savedReading = slug === '命宮' || (slug === '性格的骨架' && version.includes('+reader-backed-v1')) || savedPalace;
+      const savedEpilogue = slug === '給你的話' && version.split('+').includes(EPILOGUE_READER_VERSION);
+      const savedReading = version.split('+').includes(BOOK_ANALYSIS_VERSION) || savedEpilogue || slug === '命宮' || (slug === '性格的骨架' && version.includes('+reader-backed-v1')) || savedPalace;
       if (data !== null && String(row.content_version).includes('+ming-expanded-v1') && savedReading) {
         const result = await sb.rpc('chapter_reading', { p_chapter: row.id });
         if (result.error) throw result.error;

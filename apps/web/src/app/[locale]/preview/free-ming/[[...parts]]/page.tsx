@@ -10,11 +10,12 @@ import { Juanshou } from '@/components/Juanshou';
 import { NightScene } from '@/components/NightScene';
 import { chapterDrafts } from '@/lib/chengshu';
 import { readingSegments } from '@/lib/chapter-reading';
-import { bookChapters, citesFor, localizeMarked, notesFor } from '@/lib/mingshu';
+import { createBookChapters, citesFor, localizeMarked, notesFor } from '@/lib/mingshu';
 import { chartLayers } from '@/lib/layers.server';
 import { markBook } from '@/lib/zhu';
 import { zhFor } from '@/lib/hans';
 import allCases from '@/lib/free-ming-preview.json';
+import randomFive from '@/lib/random-five-preview.json';
 
 // 本機開發預覽：正式模式或未明確開啟時一律404，不接線上命書與帳戶。
 export const dynamic = 'force-dynamic';
@@ -33,10 +34,11 @@ const groups: { key: string; label: string; seed: string; birth: BirthInput }[] 
     solar: { y: 2012, m: 4, d: 20 }, time: { h: 13, min: 29 }, sex: 'female',
     tz: 'America/New_York', place: { lng: -74.006, lat: 40.7128, label: '紐約' },
   } },
+  ...randomFive.map(c=>({key:`random-${c.id.toLowerCase()}`,label:`抽查${c.id}・${c.system.name}`,seed:c.seed,birth:c.input as BirthInput})),
   ...allCases.map((c) => ({ key: `system-${String(c.n).padStart(2, '0')}${c.borrowed ? '-borrowed' : ''}`,
     label: `${c.name}${c.borrowed ? '（借星）' : ''}`, seed: c.seed, birth: c.input as BirthInput })),
 ];
-const chapters = [{ key: 'ming', slug: '命宮' }, { key: 'bone', slug: '性格的骨架' }, {key:'steps',slug:'一生十二步'},
+const chapters = [{ key: 'ming', slug: '命宮' }, { key: 'bone', slug: '性格的骨架' }, {key:'steps',slug:'一生十二步'}, {key:'epilogue',slug:'給你的話'},
   ...[['siblings', '兄弟'], ['spouse', '夫妻'], ['children', '子女'], ['wealth', '財帛'], ['health', '疾厄'],
     ['travel', '遷移'], ['friends', '僕役'], ['career', '官祿'], ['property', '田宅'], ['wellbeing', '福德'], ['parents', '父母']]
     .map(([key, slug]) => ({ key: key!, slug: slug! }))];
@@ -55,6 +57,7 @@ export default async function FreeMingPreview({ params }: { params: Promise<{ lo
         <nav aria-label="其餘十一宮" className="mt-6 flex flex-wrap gap-5 text-sm">
           {chapters.slice(2).map((c) => <Link key={c.key} className="lian" href={`${root}/tongliang/${c.key}`}>{zhFor(locale, c.slug)}</Link>)}
         </nav>
+        <section className="mt-10"><h2 className="font-serif text-lead">五盤抽查・正文與收結</h2><nav className="mt-4 flex flex-wrap gap-5">{randomFive.map(c=><Link key={c.id} className="lian" href={`${root}/random-${c.id.toLowerCase()}/epilogue`}>{`抽查${c.id}・${c.system.name}`}</Link>)}</nav></section>
         {['實坐', '借星'].map((kind) => <section key={kind} className="mt-10">
           <h2 className="font-serif text-lead tracking-[0.12em]">{zhFor(locale, kind)}</h2>
           <ul className="mt-5 flex flex-col gap-4">
@@ -81,7 +84,7 @@ export default async function FreeMingPreview({ params }: { params: Promise<{ lo
   const result = cast(group.birth);
   if (!result.ok) notFound();
   const year = 2026;
-  const sources = bookChapters(result.value, { seed: group.seed, year, solar: group.birth.solar, place: group.birth.place.label, birthSex:group.birth.sex, crossPalaceReading:['tongliang','tianfu','jiliang'].includes(group.key) });
+  const sources = createBookChapters(result.value, { seed: group.seed, year, solar: group.birth.solar, place: group.birth.place.label, birthSex:group.birth.sex, birthInput:group.birth });
   if (!sources) notFound();
   const drafts = chapterDrafts(sources, group.seed);
   const here = drafts.find((d) => d.slug === chapter.slug);
@@ -97,7 +100,7 @@ export default async function FreeMingPreview({ params }: { params: Promise<{ lo
       <NightScene variant="table" />
       <Juanshou back={{ href: root, label: zhFor(locale, '全部星系・本機預覽・未部署') }} aside={
         <nav aria-label="選擇閱讀組別" className="flex flex-wrap gap-x-5 gap-y-2">
-          {groups.slice(0, 3).map((g) => <Link key={g.key} href={`${root}/${g.key}/${chapter.key}`} aria-current={g.key === group.key ? 'page' : undefined}
+          {groups.slice(0, 8).map((g) => <Link key={g.key} href={`${root}/${g.key}/${chapter.key}`} aria-current={g.key === group.key ? 'page' : undefined}
             className="lian text-cap tracking-[0.12em]">{zhFor(locale, g.label)}</Link>)}
         </nav>
       } />

@@ -64,9 +64,9 @@ export function termIndex(): Term[] {
  */
 export type Run = { text: string; term?: Term; cite?: string[] };
 
-export type MarkedSegment = { slot: string; runs: Run[]; heading?: string; referenceConditions?: string[]; referenceFocus?: string[]; referenceApplicability?: string[] };
+export type MarkedSegment = { slot: string; runs: Run[]; heading?: string; referenceConditions?: string[]; referenceFocus?: string[]; referenceApplicability?: string[]; referenceBackground?: import('./reference-presentation').ReferenceBackground[] };
 
-export type ChapterInput = { palace: string; segments: { slot: string; text: string; heading?: string; referenceDisplay?: 'hidden'; statements?: MingStatement[]; referenceConditions?: string[]; referenceFocus?: string[]; referenceApplicability?: string[] }[] };
+export type ChapterInput = { palace: string; segments: { slot: string; text: string; heading?: string; referenceDisplay?: 'hidden'; statements?: MingStatement[]; referenceConditions?: string[]; referenceFocus?: string[]; referenceApplicability?: string[]; referenceBackground?: import('./reference-presentation').ReferenceBackground[] }[] };
 
 export type MarkedChapter = { palace: string; segments: MarkedSegment[] };
 
@@ -177,7 +177,8 @@ export function markBook(chapters: ChapterInput[], lang: 'zh' | 'en' | 'ja' = 'z
       return { slot: seg.slot, runs, ...(seg.heading ? { heading: seg.heading } : {}),
         ...(!referencesHidden && seg.referenceConditions?.length ? { referenceConditions: [...seg.referenceConditions] } : {}),
           ...(!referencesHidden && seg.referenceFocus?.length ? {referenceFocus:[...seg.referenceFocus]} : {}),
-          ...(!referencesHidden && seg.referenceApplicability?.length ? {referenceApplicability:[...seg.referenceApplicability]} : {}) };
+          ...(!referencesHidden && seg.referenceApplicability?.length ? {referenceApplicability:[...seg.referenceApplicability]} : {}),
+          ...(!referencesHidden && seg.referenceBackground?.length ? {referenceBackground:structuredClone(seg.referenceBackground)} : {}) };
     }),
   }));
 }
