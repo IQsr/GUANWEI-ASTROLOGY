@@ -1,6 +1,6 @@
 import {referenceEditorialWording} from '@/lib/cross-reference-language';
 import { expect, it } from 'vitest';
-import { referenceNoteSentences, referencePresentation } from '@/lib/reference-presentation';
+import { referenceConditionParts, referenceNoteSentences, referencePresentation } from '@/lib/reference-presentation';
 
 it('相同條件與來源註記只顯示一次，否定、例外及不同頁碼仍完整可見', () => {
   const condition = '採見空劫，不把三方當空劫夾；並不預告必分手。';
@@ -63,4 +63,29 @@ it('頂部適用範圍已交代的完整條件不在下方重列，其他分支�
   expect(panel.conditions).toEqual(['本宮若見甲，才採用。','對宮若無甲，不採用。']);
   expect(panel.references[0]!.sourceNote).toBe('先看星系，再連讀各宮。另有日夜前提。');
   expect({conditions,refs}).toEqual(before);
+});
+
+
+it('規則要求的標籤不令相同來源註記重複；本盤結果與原文仍分開保留',()=>{
+ const limit='只限同宮；會照不能代替。',actual='核對本宮火星：未見所列配合。';
+ const conditions=[`配合分支。規則要求與限制：${limit}本盤核對結果：${actual}適用判斷：不套用。`];
+ const refs=[{book:'原書',text:limit,sourceNote:limit,quoteParts:[{id:'p1',page:1,text:limit}]}];
+ const before=structuredClone({conditions,refs}),panel=referencePresentation(conditions,refs);
+ expect(panel.conditions).toEqual(conditions);expect(panel.references[0]!.sourceNote).toBeUndefined();
+ expect(panel.references[0]!.text).toBe(limit);expect(panel.references[0]!.quoteParts).toEqual(refs[0]!.quoteParts);
+ expect({conditions,refs}).toEqual(before);
+});
+
+
+it('繁簡條件均分行呈現規則、本盤及判斷，每字與先後次序保留，普通限制不改',()=>{
+ for(const text of [
+  '分支。規則要求與限制：本宮須有天相；會照不能代替同度。本盤核對結果：未見。適用判斷：不套用。',
+  '分支。规则要求与限制：本宫须有天相；会照不能代替同度。本盘核对结果：未见。适用判断：不套用。',
+ ]){
+  const parts=referenceConditionParts(text);expect(parts).toHaveLength(4);
+  expect(parts.map(p=>p.label+p.text).join('')).toBe(text);
+  expect(parts.slice(1).every(p=>p.label.length>0)).toBe(true);
+ }
+ const text='只有同宮才符合；未確認不等於沒有。';
+ expect(referenceConditionParts(text)).toEqual([{label:'',text}]);
 });

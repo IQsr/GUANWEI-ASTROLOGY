@@ -3,7 +3,7 @@
   "reviewed_on": "2026-10-22",
   "pdf_sha256": "513e3d068040efe3684eb3c0e44cf6e447787670bbf5d618f022da2d6c55231b",
   "data_sha256": "15aa6c42f29c593f78a0323e90eb0adfb0e62b90474be355266587ba055e8d65",
-  "reader_sha256": "45b3553f0df8844dc3c56c0b1daed49f2b118f401f8929c8321c1d7d4c6a050e",
+  "reader_sha256": "10b8c0001d81fb0c8f79a48fb16e24ca06cc8412a02f4cf9c899e18d1ae4dd5c",
   "review_scope": "夫妻、田宅各60組實坐星系／宮支主題，以及逐條明示的配曜修飾；不是原引擎全分支校勘，不把路徑覆蓋冒充全部個人推論已驗證。",
   "method": "已逐頁讀夫妻377–404與田宅551–565及相鄰原文；保存本命與運限差別、必要條件、否定及例外。原檔疑字不建立新規則；廟陷日夜、府庫、朝拱及未收雜曜不猜判。",
   "profiles": [
@@ -2944,5 +2944,19 @@
       "decision": "按實際位置核必要前提，正文收窄成閱讀重點；未符合不反推相反結果"
     }
   ],
-  "engine_query_review": "docs/engine-p0-2026-10-23.md"
+  "engine_query_review": "docs/engine-p0-2026-10-23.md",
+  "reference_formatter_sha256": "2e240cc52bad3010c7eef5810063794a8c82ed501739ddda8b14c9b81e7bc9b5",
+  "reference_format_review": {
+    "reviewed_on": "2026-10-25",
+    "scope": "只重排參照說明：規則要求與限制、本盤核對結果、適用判斷分開標示；判斷前提、選段次序及原文資料不變。新格式只由新成書入口啟用，歷史生成器與舊書快照保持原狀；列出的規則要求一併帶回該規則的原文引用。",
+    "validation": "72盤逐項對照原規則條件與實際核對結果；匹配、未匹配及資料未齊分開；既有完整引段、跨頁及條件綁定測試重新執行。",
+    "source_spot_check": "紫府樣本官祿廉相分支重讀深造PDF543–544頁，會廉貞化祿及享受開創利益的額外條件繼續分開保留；其他規則未改內容。"
+  },
+  "shared_record_review": {
+    "date": "2026-10-25",
+    "scope": "P0共用紀錄adapter；既有判斷器、正常選稿排序、正文、條件及原文資料不變。專用財官稿的普通候選僅補記核對結果，不轉成正文。",
+    "previous_reader_sha256": "00567cc69ca11cf720f9fbb23a9a545f40daf8aeb1fd94e4e981bb55ab7109a5",
+    "normal_path_equivalence_sha256": "00567cc69ca11cf720f9fbb23a9a545f40daf8aeb1fd94e4e981bb55ab7109a5",
+    "verification": "移除新增的observer入口、紀錄呼叫及專用稿記錄分支後，與修改前讀取器逐位元雜湊相同；另以176書及1728宮位固定矩陣核對實際正文、據、選中及未符結果。"
+  }
 }

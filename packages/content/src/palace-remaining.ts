@@ -2,6 +2,8 @@ import { oppositeBranch, type Chart, type Palace } from '@guanwei/ziwei';
 import type { FreeReadingSegment } from './free-ming-reader';
 import type { MingStatement } from './ming-writer';
 import { isYouthReader } from './youth';
+import type {AnalysisRecorder} from './analysis-record';
+import { palaceRuleReference } from './palace-rule-reference';
 import raw from './cards/palace-remaining.json';
 
 import { evaluatePalacePredicate as evaluate, type PalacePredicate as Predicate } from './palace-predicate';
@@ -28,10 +30,11 @@ function approvedSample(palace: string, p: Palace): boolean {
     || (palace === '官祿' && names[0] === '天機' && ['子', '午'].includes(p.branch)));
 }
 
-export function remainingPalaceReading(chart: Chart, palace: string, year: number): FreeReadingSegment[] | null {
+export function remainingPalaceReading(chart: Chart, palace: string, year: number, separateRuleReferences = false, recorder?: AnalysisRecorder): FreeReadingSegment[] | null {
   if (!data.palaces.includes(palace)) return null;
   const p = chart.palaces.find((q) => q.name === palace);
-  if (!p || approvedSample(palace, p)) return null;
+  if (!p || (approvedSample(palace, p) && !recorder)) return null;
+  const retainedReader=approvedSample(palace,p)?'approved specific reader retained; generic candidate cards recorded without changing prose':undefined;
   const borrowed = !major(p).length;
   const origin = borrowed ? chart.palaces.find((q) => q.branch === oppositeBranch(p.branch)) : p;
   if (!origin) throw Error(`Missing opposite palace: ${palace}`);
@@ -48,7 +51,9 @@ export function remainingPalaceReading(chart: Chart, palace: string, year: numbe
     ? names.includes(k.slice(4)) : keyOf(k.split('+')) === key));
   const reviewed = borrowed ? [] : applicable.map((rule) => ({ rule, evaluated: evaluate(rule.when, chart, p) }));
   const matched = reviewed.filter((r) => r.evaluated.matched).sort((a, b) => b.rule.priority - a.rule.priority);
-  const selected = matched.slice(0, 2);
+  const selected = retainedReader ? [] : matched.slice(0, 2);
+  recorder?.palace({palace,profile,borrowed,namespace:'palace.remaining.v1',retainedReader,rules:applicable.map(rule=>({rule,evaluated:reviewed.find(r=>r.rule===rule)?.evaluated,selected:selected.some(r=>r.rule===rule)}))});
+  if(retainedReader)return null;
   const shared = [fact, borrowed
     ? '以下只參照原書實坐組合的主題；未把對宮的四化、配曜、夾宮及三方條件搬成本宮已成立，亦未把對宮宮支當成本宮宮支。'
     : '本宮主星組合與宮支已確認；以下四化及配曜按實際同宮、對照與三方位置核對。星曜數量不能代替完整格局的條件。',
@@ -61,14 +66,16 @@ export function remainingPalaceReading(chart: Chart, palace: string, year: numbe
     statements: [...(prefix ? [{ text: prefix, en: '', kind: 'evidence' as const, source_ids: [`${id}-fact`], citations: [] }] : []),
       { text, en: '', kind, source_ids: [id], citations: refs.map(citeId) }],
   });
-  const checks = reviewed.map(({ rule, evaluated }) => `${rule.heading}：${evaluated.matched
-    ? selected.some((s) => s.rule.id === rule.id) ? '符合本輪已核前提，正文採用' : '符合本輪已核前提，受篇幅排序未另起段，並非被抵銷'
-    : '未符合本輪全部前提，未採此個人分支'}。${evaluated.checks.join('')}${rule.conditions.join('；')}`);
+  const checks = reviewed.map(({ rule, evaluated }) => separateRuleReferences
+    ? palaceRuleReference(rule, evaluated, selected.some((s) => s.rule.id === rule.id))
+    : `${rule.heading}：${evaluated.matched
+      ? selected.some((s) => s.rule.id === rule.id) ? '符合本輪已核前提，正文採用' : '符合本輪已核前提，受篇幅排序未另起段，並非被抵銷'
+      : '未符合本輪全部前提，未採此個人分支'}。${evaluated.checks.join('')}${rule.conditions.join('；')}`);
   const result = [make(`${profile.id}-base`, profile.heading,
     borrowed ? `這裡參照原書實坐${names.join('、')}的組合主題：${profile.text}以上不是本宮已成立的個人分支。` : profile.text,
-    [...new Set([...profile.sources, ...matched.filter((r) => !selected.includes(r)).flatMap((r) => r.rule.sources)])], checks, fact)];
+    [...new Set([...profile.sources, ...(separateRuleReferences ? reviewed : matched.filter((r) => !selected.includes(r))).flatMap((r) => r.rule.sources)])], checks, fact)];
   for (const { rule, evaluated } of selected) result.push(make(rule.id, rule.heading,
-    `${evaluated.facts.length ? `本盤${evaluated.facts.join('；')}。` : ''}${rule.text}`, rule.sources, [...evaluated.checks, ...rule.conditions]));
+    `${evaluated.facts.length ? `本盤${evaluated.facts.join('；')}。` : ''}${rule.text}`, rule.sources, separateRuleReferences ? [palaceRuleReference(rule, evaluated, true)] : [...evaluated.checks, ...rule.conditions]));
   result.push(make(`${profile.id}-follow`, profile.followHeading, profile.follow, profile.sources, [], '', 'editorial-explanation'));
   // Always retain chapter scope: it separates actual relationships, money, work and health.
   result.push(make(`${palace}-remaining-scope`, '這章的閱讀範圍', boundary.text, boundary.sources, boundary.conditions, '', 'editorial-explanation'));

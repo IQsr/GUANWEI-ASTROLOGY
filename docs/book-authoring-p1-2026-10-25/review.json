@@ -1,0 +1,80 @@
+{
+  "version": "book-p1-conditions-v1",
+  "reviewed": "2026-10-25",
+  "cases": 192,
+  "card_decisions": 384,
+  "supported": 2,
+  "not_supported": 382,
+  "changed": [
+    {
+      "id": "RB",
+      "changed": [
+        "福德",
+        "給你的話"
+      ]
+    },
+    {
+      "id": "RC",
+      "changed": [
+        "命宮",
+        "性格的骨架",
+        "官祿",
+        "給你的話"
+      ]
+    }
+  ],
+  "original_pdf_sha256": "513e3d068040efe3684eb3c0e44cf6e447787670bbf5d618f022da2d6c55231b",
+  "hashes": {
+    "packages/content/src/book-p1.ts": "243935c4f0bb1f63cb3e14a87c7718d69c849563d5874661e55a58eac6e61706",
+    "packages/content/src/cards/book-p1-sources.json": "3c46b8dc800e09eb1600b897e2efc17301213232a8a73c07f435e1562c623a30",
+    "apps/web/src/lib/book-p1-reading.ts": "e7fc9964accc6ebb938f188697cd4f8f4db40f5512a4bd30f7969214d4992dd1",
+    "apps/web/src/lib/book-p1-reading.json": "eb5defe4a89484f86abf622f44b65b8d3bd10bfeb85d6a68e55fb841bdd50284"
+  },
+  "verification": {
+    "web_full": {
+      "files": 73,
+      "tests": 682,
+      "status": "passed"
+    },
+    "additional_negative_creation_flow": "passed",
+    "complete_original_quote_blocks": 24,
+    "new_source_tests": 2,
+    "build": "passed",
+    "typecheck": "passed",
+    "lint": {
+      "errors": 0,
+      "existing_warnings": 4
+    },
+    "final_verify": {
+      "status": "passed",
+      "checks": 14,
+      "client_chunks_scanned": 59,
+      "hans_pages_scanned": 62
+    },
+    "browser": {
+      "status": "passed",
+      "pages": [
+        "random-b/wellbeing",
+        "random-b/epilogue",
+        "random-c/ming",
+        "random-c/bone",
+        "random-c/career",
+        "random-c/epilogue"
+      ],
+      "direct_reference_panels": [
+        "PDF574.b001",
+        "PDF116.b011"
+      ],
+      "one_reference_per_sourced_paragraph": true,
+      "local_port": 3101,
+      "preview_only": true
+    }
+  },
+  "boundaries": [
+    "科文僅文昌本命化科同度已核子集；其他成員未定，不作無科文判定",
+    "廉貞限獨坐寅申福德；其他同宮主星另核",
+    "同祿機權只讀本命，不移用經行句",
+    "國際版保留原版快照",
+    "沒有push或部署"
+  ]
+}

@@ -1,10 +1,12 @@
+import {BOOK_ANALYSIS_VERSION} from '@guanwei/content/analysis-contract';
 import { MARK } from '@/lib/site';
+import {CURRENT_READER_RELEASE,EPILOGUE_READER_VERSION,BOOK_P1_READER_VERSION} from './reader-release';
 import { LEGAL_VERSION } from '@/lib/legal';
 import type { ChapterReading } from '@/lib/chapter-reading';
 import { CONTENT_REVISION, MING_WRITER_VERSION, MING_TRANSLATION_VERSION, FREE_MING_READER_VERSION, PALACE_READER_VERSION } from '@guanwei/content/ming-version';
 
 export const MING_READING_VERSION = 'ming-expanded-v1';
-export const readingContentVersion = (rulesRef: string) => `${rulesRef}+${MING_READING_VERSION}+${MING_WRITER_VERSION}+${MING_TRANSLATION_VERSION}+${FREE_MING_READER_VERSION}+${PALACE_READER_VERSION}+${CONTENT_REVISION}`;
+export const readingContentVersion = (rulesRef: string) => `${rulesRef}+${MING_READING_VERSION}+${MING_WRITER_VERSION}+${MING_TRANSLATION_VERSION}+${FREE_MING_READER_VERSION}+${PALACE_READER_VERSION}+${CONTENT_REVISION}+${CURRENT_READER_RELEASE}+${EPILOGUE_READER_VERSION}+${BOOK_ANALYSIS_VERSION}+${BOOK_P1_READER_VERSION}`;
 
 /**
  * 成書：六幕行完之後留低嘅嘢（工單 G5 · 架構 §5）

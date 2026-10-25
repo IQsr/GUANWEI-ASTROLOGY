@@ -1,0 +1,5282 @@
+[
+  {
+    "id": "S01N",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 1954,
+        "m": 6,
+        "d": 26
+      },
+      "time": {
+        "h": 1,
+        "min": 19
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-1-natal",
+    "bookYear": 2026,
+    "system": 1,
+    "name": "紫微獨坐子午",
+    "mingBorrowed": false,
+    "mingBranch": "午",
+    "age": 73,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S02N",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 1995,
+        "m": 1,
+        "d": 20
+      },
+      "time": {
+        "h": 10,
+        "min": 7
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-2-natal",
+    "bookYear": 2026,
+    "system": 2,
+    "name": "破軍獨坐寅申",
+    "mingBorrowed": false,
+    "mingBranch": "申",
+    "age": 33,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S03N",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 1990,
+        "m": 6,
+        "d": 27
+      },
+      "time": {
+        "h": 5,
+        "min": 21
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-3-natal",
+    "bookYear": 2026,
+    "system": 3,
+    "name": "廉貞天府坐辰戌",
+    "mingBorrowed": false,
+    "mingBranch": "辰",
+    "age": 37,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S04N",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 2009,
+        "m": 8,
+        "d": 21
+      },
+      "time": {
+        "h": 18,
+        "min": 28
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-4-natal",
+    "bookYear": 2026,
+    "system": 4,
+    "name": "太陰獨坐巳亥",
+    "mingBorrowed": false,
+    "mingBranch": "亥",
+    "age": 18,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S05N",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 1950,
+        "m": 10,
+        "d": 6
+      },
+      "time": {
+        "h": 7,
+        "min": 44
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-5-natal",
+    "bookYear": 2026,
+    "system": 5,
+    "name": "貪狼獨坐子午",
+    "mingBorrowed": false,
+    "mingBranch": "午",
+    "age": 77,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S06N",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 1974,
+        "m": 11,
+        "d": 24
+      },
+      "time": {
+        "h": 19,
+        "min": 58
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-6-natal",
+    "bookYear": 2026,
+    "system": 6,
+    "name": "天同巨門坐丑未",
+    "mingBorrowed": false,
+    "mingBranch": "丑",
+    "age": 53,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S07N",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 1983,
+        "m": 10,
+        "d": 16
+      },
+      "time": {
+        "h": 16,
+        "min": 33
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-7-natal",
+    "bookYear": 2026,
+    "system": 7,
+    "name": "武曲天相坐寅申",
+    "mingBorrowed": false,
+    "mingBranch": "寅",
+    "age": 44,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S08N",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 1999,
+        "m": 12,
+        "d": 9
+      },
+      "time": {
+        "h": 18,
+        "min": 33
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-8-natal",
+    "bookYear": 2026,
+    "system": 8,
+    "name": "太陽天梁坐卯酉",
+    "mingBorrowed": false,
+    "mingBranch": "卯",
+    "age": 28,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S09N",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 1958,
+        "m": 1,
+        "d": 21
+      },
+      "time": {
+        "h": 18,
+        "min": 37
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-9-natal",
+    "bookYear": 2026,
+    "system": 9,
+    "name": "七殺獨坐辰戌",
+    "mingBorrowed": false,
+    "mingBranch": "辰",
+    "age": 70,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S10N",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 1962,
+        "m": 4,
+        "d": 9
+      },
+      "time": {
+        "h": 12,
+        "min": 15
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-10-natal",
+    "bookYear": 2026,
+    "system": 10,
+    "name": "天機獨坐巳亥",
+    "mingBorrowed": false,
+    "mingBranch": "亥",
+    "age": 65,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S11N",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 1994,
+        "m": 7,
+        "d": 3
+      },
+      "time": {
+        "h": 11,
+        "min": 22
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-11-natal",
+    "bookYear": 2026,
+    "system": 11,
+    "name": "紫微破軍坐丑未",
+    "mingBorrowed": false,
+    "mingBranch": "丑",
+    "age": 33,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S12N",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 2010,
+        "m": 12,
+        "d": 18
+      },
+      "time": {
+        "h": 6,
+        "min": 15
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-12-natal",
+    "bookYear": 2026,
+    "system": 12,
+    "name": "天府獨坐卯酉",
+    "mingBorrowed": false,
+    "mingBranch": "酉",
+    "age": 17,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S13N",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 1966,
+        "m": 12,
+        "d": 6
+      },
+      "time": {
+        "h": 14,
+        "min": 32
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-13-natal",
+    "bookYear": 2026,
+    "system": 13,
+    "name": "太陰獨坐辰戌",
+    "mingBorrowed": false,
+    "mingBranch": "辰",
+    "age": 61,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S14N",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 1986,
+        "m": 4,
+        "d": 18
+      },
+      "time": {
+        "h": 9,
+        "min": 40
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-14-natal",
+    "bookYear": 2026,
+    "system": 14,
+    "name": "廉貞貪狼坐巳亥",
+    "mingBorrowed": false,
+    "mingBranch": "亥",
+    "age": 41,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S15N",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 1988,
+        "m": 5,
+        "d": 9
+      },
+      "time": {
+        "h": 8,
+        "min": 50
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-15-natal",
+    "bookYear": 2026,
+    "system": 15,
+    "name": "巨門獨坐子午",
+    "mingBorrowed": false,
+    "mingBranch": "子",
+    "age": 39,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S16N",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 1960,
+        "m": 12,
+        "d": 19
+      },
+      "time": {
+        "h": 9,
+        "min": 48
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-16-natal",
+    "bookYear": 2026,
+    "system": 16,
+    "name": "天相獨坐丑未",
+    "mingBorrowed": false,
+    "mingBranch": "未",
+    "age": 67,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S17N",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 1963,
+        "m": 11,
+        "d": 28
+      },
+      "time": {
+        "h": 17,
+        "min": 56
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-17-natal",
+    "bookYear": 2026,
+    "system": 17,
+    "name": "天同天梁坐寅申",
+    "mingBorrowed": false,
+    "mingBranch": "寅",
+    "age": 64,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S18N",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 1987,
+        "m": 9,
+        "d": 26
+      },
+      "time": {
+        "h": 0,
+        "min": 23
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-18-natal",
+    "bookYear": 2026,
+    "system": 18,
+    "name": "武曲七殺坐卯酉",
+    "mingBorrowed": false,
+    "mingBranch": "酉",
+    "age": 40,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S19N",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 1958,
+        "m": 7,
+        "d": 11
+      },
+      "time": {
+        "h": 17,
+        "min": 8
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-19-natal",
+    "bookYear": 2026,
+    "system": 19,
+    "name": "太陽獨坐辰戌",
+    "mingBorrowed": false,
+    "mingBranch": "戌",
+    "age": 69,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S20N",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 1980,
+        "m": 2,
+        "d": 25
+      },
+      "time": {
+        "h": 17,
+        "min": 21
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-20-natal",
+    "bookYear": 2026,
+    "system": 20,
+    "name": "天機獨坐子午",
+    "mingBorrowed": false,
+    "mingBranch": "午",
+    "age": 47,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S21N",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 1974,
+        "m": 3,
+        "d": 14
+      },
+      "time": {
+        "h": 3,
+        "min": 20
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-21-natal",
+    "bookYear": 2026,
+    "system": 21,
+    "name": "紫微天府坐寅申",
+    "mingBorrowed": false,
+    "mingBranch": "寅",
+    "age": 53,
+    "closingMode": "paired-editorial-synthesis"
+  },
+  {
+    "id": "S22N",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 1997,
+        "m": 8,
+        "d": 13
+      },
+      "time": {
+        "h": 23,
+        "min": 27
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-22-natal",
+    "bookYear": 2026,
+    "system": 22,
+    "name": "太陰獨坐卯酉",
+    "mingBorrowed": false,
+    "mingBranch": "酉",
+    "age": 30,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S23N",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 1960,
+        "m": 8,
+        "d": 28
+      },
+      "time": {
+        "h": 8,
+        "min": 49
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-23-natal",
+    "bookYear": 2026,
+    "system": 23,
+    "name": "貪狼獨坐辰戌",
+    "mingBorrowed": false,
+    "mingBranch": "辰",
+    "age": 67,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S24N",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 1977,
+        "m": 3,
+        "d": 10
+      },
+      "time": {
+        "h": 18,
+        "min": 9
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-24-natal",
+    "bookYear": 2026,
+    "system": 24,
+    "name": "巨門獨坐巳亥",
+    "mingBorrowed": false,
+    "mingBranch": "巳",
+    "age": 50,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S25N",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 1987,
+        "m": 6,
+        "d": 16
+      },
+      "time": {
+        "h": 13,
+        "min": 6
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-25-natal",
+    "bookYear": 2026,
+    "system": 25,
+    "name": "廉貞天相坐子午",
+    "mingBorrowed": false,
+    "mingBranch": "子",
+    "age": 40,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S26N",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 1961,
+        "m": 10,
+        "d": 20
+      },
+      "time": {
+        "h": 19,
+        "min": 27
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-26-natal",
+    "bookYear": 2026,
+    "system": 26,
+    "name": "天梁獨坐丑未",
+    "mingBorrowed": false,
+    "mingBranch": "丑",
+    "age": 66,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S27N",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 1964,
+        "m": 1,
+        "d": 19
+      },
+      "time": {
+        "h": 10,
+        "min": 9
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-27-natal",
+    "bookYear": 2026,
+    "system": 27,
+    "name": "七殺獨坐寅申",
+    "mingBorrowed": false,
+    "mingBranch": "申",
+    "age": 64,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S28N",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 1988,
+        "m": 1,
+        "d": 23
+      },
+      "time": {
+        "h": 8,
+        "min": 37
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-28-natal",
+    "bookYear": 2026,
+    "system": 28,
+    "name": "天同獨坐卯酉",
+    "mingBorrowed": false,
+    "mingBranch": "酉",
+    "age": 40,
+    "closingMode": "paired-editorial-synthesis"
+  },
+  {
+    "id": "S29N",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 1999,
+        "m": 5,
+        "d": 8
+      },
+      "time": {
+        "h": 23,
+        "min": 32
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-29-natal",
+    "bookYear": 2026,
+    "system": 29,
+    "name": "武曲獨坐辰戌",
+    "mingBorrowed": false,
+    "mingBranch": "辰",
+    "age": 28,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S30N",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 2012,
+        "m": 6,
+        "d": 2
+      },
+      "time": {
+        "h": 11,
+        "min": 27
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-30-natal",
+    "bookYear": 2026,
+    "system": 30,
+    "name": "太陽獨坐巳亥",
+    "mingBorrowed": false,
+    "mingBranch": "亥",
+    "age": 15,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S31N",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 1996,
+        "m": 1,
+        "d": 13
+      },
+      "time": {
+        "h": 13,
+        "min": 11
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-31-natal",
+    "bookYear": 2026,
+    "system": 31,
+    "name": "破軍獨坐子午",
+    "mingBorrowed": false,
+    "mingBranch": "午",
+    "age": 32,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S32N",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 1970,
+        "m": 9,
+        "d": 13
+      },
+      "time": {
+        "h": 6,
+        "min": 17
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-32-natal",
+    "bookYear": 2026,
+    "system": 32,
+    "name": "天機獨坐丑未",
+    "mingBorrowed": false,
+    "mingBranch": "未",
+    "age": 57,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S33N",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 1968,
+        "m": 3,
+        "d": 2
+      },
+      "time": {
+        "h": 0,
+        "min": 56
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-33-natal",
+    "bookYear": 2026,
+    "system": 33,
+    "name": "紫微貪狼坐卯酉",
+    "mingBorrowed": false,
+    "mingBranch": "卯",
+    "age": 59,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S34N",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 1998,
+        "m": 1,
+        "d": 20
+      },
+      "time": {
+        "h": 7,
+        "min": 9
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-34-natal",
+    "bookYear": 2026,
+    "system": 34,
+    "name": "巨門獨坐辰戌",
+    "mingBorrowed": false,
+    "mingBranch": "戌",
+    "age": 30,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S35N",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 1978,
+        "m": 2,
+        "d": 4
+      },
+      "time": {
+        "h": 16,
+        "min": 59
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-35-natal",
+    "bookYear": 2026,
+    "system": 35,
+    "name": "天相獨坐巳亥",
+    "mingBorrowed": false,
+    "mingBranch": "巳",
+    "age": 50,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S36N",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 1996,
+        "m": 7,
+        "d": 26
+      },
+      "time": {
+        "h": 3,
+        "min": 18
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-36-natal",
+    "bookYear": 2026,
+    "system": 36,
+    "name": "天梁獨坐子午",
+    "mingBorrowed": false,
+    "mingBranch": "午",
+    "age": 31,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S37N",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 1952,
+        "m": 5,
+        "d": 9
+      },
+      "time": {
+        "h": 9,
+        "min": 0
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-37-natal",
+    "bookYear": 2026,
+    "system": 37,
+    "name": "廉貞七殺坐丑未",
+    "mingBorrowed": false,
+    "mingBranch": "丑",
+    "age": 75,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S38N",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 1986,
+        "m": 12,
+        "d": 7
+      },
+      "time": {
+        "h": 3,
+        "min": 41
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-38-natal",
+    "bookYear": 2026,
+    "system": 38,
+    "name": "天同獨坐辰戌",
+    "mingBorrowed": false,
+    "mingBranch": "戌",
+    "age": 41,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S39N",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 1983,
+        "m": 3,
+        "d": 12
+      },
+      "time": {
+        "h": 7,
+        "min": 11
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-39-natal",
+    "bookYear": 2026,
+    "system": 39,
+    "name": "武曲破軍坐巳亥",
+    "mingBorrowed": false,
+    "mingBranch": "亥",
+    "age": 44,
+    "closingMode": "paired-editorial-synthesis"
+  },
+  {
+    "id": "S40N",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 1966,
+        "m": 7,
+        "d": 2
+      },
+      "time": {
+        "h": 13,
+        "min": 45
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-40-natal",
+    "bookYear": 2026,
+    "system": 40,
+    "name": "太陽獨坐子午",
+    "mingBorrowed": false,
+    "mingBranch": "子",
+    "age": 61,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S41N",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 2000,
+        "m": 6,
+        "d": 27
+      },
+      "time": {
+        "h": 21,
+        "min": 59
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-41-natal",
+    "bookYear": 2026,
+    "system": 41,
+    "name": "天府獨坐丑未",
+    "mingBorrowed": false,
+    "mingBranch": "未",
+    "age": 27,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S42N",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 1991,
+        "m": 6,
+        "d": 12
+      },
+      "time": {
+        "h": 19,
+        "min": 39
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-42-natal",
+    "bookYear": 2026,
+    "system": 42,
+    "name": "天機太陰坐寅申",
+    "mingBorrowed": false,
+    "mingBranch": "申",
+    "age": 36,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S43N",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 1958,
+        "m": 10,
+        "d": 9
+      },
+      "time": {
+        "h": 10,
+        "min": 44
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-43-natal",
+    "bookYear": 2026,
+    "system": 43,
+    "name": "紫微天相坐辰戌",
+    "mingBorrowed": false,
+    "mingBranch": "辰",
+    "age": 69,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S44N",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 2005,
+        "m": 6,
+        "d": 27
+      },
+      "time": {
+        "h": 1,
+        "min": 38
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-44-natal",
+    "bookYear": 2026,
+    "system": 44,
+    "name": "天梁獨坐巳亥",
+    "mingBorrowed": false,
+    "mingBranch": "巳",
+    "age": 22,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S45N",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 1984,
+        "m": 8,
+        "d": 11
+      },
+      "time": {
+        "h": 3,
+        "min": 32
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-45-natal",
+    "bookYear": 2026,
+    "system": 45,
+    "name": "七殺獨坐子午",
+    "mingBorrowed": false,
+    "mingBranch": "午",
+    "age": 43,
+    "closingMode": "paired-editorial-synthesis"
+  },
+  {
+    "id": "S46N",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 2003,
+        "m": 5,
+        "d": 9
+      },
+      "time": {
+        "h": 17,
+        "min": 31
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-46-natal",
+    "bookYear": 2026,
+    "system": 46,
+    "name": "廉貞獨坐寅申",
+    "mingBorrowed": false,
+    "mingBranch": "申",
+    "age": 24,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S47N",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 2004,
+        "m": 11,
+        "d": 9
+      },
+      "time": {
+        "h": 13,
+        "min": 1
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-47-natal",
+    "bookYear": 2026,
+    "system": 47,
+    "name": "破軍獨坐辰戌",
+    "mingBorrowed": false,
+    "mingBranch": "辰",
+    "age": 23,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S48N",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 1968,
+        "m": 11,
+        "d": 25
+      },
+      "time": {
+        "h": 0,
+        "min": 29
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-48-natal",
+    "bookYear": 2026,
+    "system": 48,
+    "name": "天同獨坐巳亥",
+    "mingBorrowed": false,
+    "mingBranch": "亥",
+    "age": 59,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S49N",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 1992,
+        "m": 11,
+        "d": 12
+      },
+      "time": {
+        "h": 10,
+        "min": 48
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-49-natal",
+    "bookYear": 2026,
+    "system": 49,
+    "name": "武曲天府坐子午",
+    "mingBorrowed": false,
+    "mingBranch": "午",
+    "age": 35,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S50N",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 1975,
+        "m": 4,
+        "d": 10
+      },
+      "time": {
+        "h": 17,
+        "min": 6
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-50-natal",
+    "bookYear": 2026,
+    "system": 50,
+    "name": "太陰太陽坐丑未",
+    "mingBorrowed": false,
+    "mingBranch": "未",
+    "age": 52,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S51N",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 1956,
+        "m": 1,
+        "d": 1
+      },
+      "time": {
+        "h": 9,
+        "min": 22
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-51-natal",
+    "bookYear": 2026,
+    "system": 51,
+    "name": "貪狼獨坐寅申",
+    "mingBorrowed": false,
+    "mingBranch": "申",
+    "age": 72,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S52N",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 1970,
+        "m": 6,
+        "d": 18
+      },
+      "time": {
+        "h": 7,
+        "min": 4
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-52-natal",
+    "bookYear": 2026,
+    "system": 52,
+    "name": "天機巨門坐卯酉",
+    "mingBorrowed": false,
+    "mingBranch": "卯",
+    "age": 57,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S53N",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 1980,
+        "m": 5,
+        "d": 9
+      },
+      "time": {
+        "h": 22,
+        "min": 50
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-53-natal",
+    "bookYear": 2026,
+    "system": 53,
+    "name": "紫微七殺坐巳亥",
+    "mingBorrowed": false,
+    "mingBranch": "巳",
+    "age": 47,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S54N",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 2001,
+        "m": 10,
+        "d": 15
+      },
+      "time": {
+        "h": 23,
+        "min": 45
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-54-natal",
+    "bookYear": 2026,
+    "system": 54,
+    "name": "廉貞破軍坐卯酉",
+    "mingBorrowed": false,
+    "mingBranch": "酉",
+    "age": 26,
+    "closingMode": "paired-editorial-synthesis"
+  },
+  {
+    "id": "S55N",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 1970,
+        "m": 6,
+        "d": 11
+      },
+      "time": {
+        "h": 15,
+        "min": 4
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-55-natal",
+    "bookYear": 2026,
+    "system": 55,
+    "name": "天府獨坐巳亥",
+    "mingBorrowed": false,
+    "mingBranch": "亥",
+    "age": 57,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S56N",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 2013,
+        "m": 7,
+        "d": 10
+      },
+      "time": {
+        "h": 3,
+        "min": 12
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-56-natal",
+    "bookYear": 2026,
+    "system": 56,
+    "name": "天同太陰坐子午",
+    "mingBorrowed": false,
+    "mingBranch": "午",
+    "age": 14,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S57N",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 1991,
+        "m": 4,
+        "d": 8
+      },
+      "time": {
+        "h": 5,
+        "min": 4
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-57-natal",
+    "bookYear": 2026,
+    "system": 57,
+    "name": "武曲貪狼坐丑未",
+    "mingBorrowed": false,
+    "mingBranch": "丑",
+    "age": 36,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S58N",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 2002,
+        "m": 8,
+        "d": 10
+      },
+      "time": {
+        "h": 23,
+        "min": 58
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-58-natal",
+    "bookYear": 2026,
+    "system": 58,
+    "name": "太陽巨門坐寅申",
+    "mingBorrowed": false,
+    "mingBranch": "申",
+    "age": 25,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S59N",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 1987,
+        "m": 12,
+        "d": 15
+      },
+      "time": {
+        "h": 16,
+        "min": 43
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-59-natal",
+    "bookYear": 2026,
+    "system": 59,
+    "name": "天相獨坐卯酉",
+    "mingBorrowed": false,
+    "mingBranch": "卯",
+    "age": 40,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S60N",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 2008,
+        "m": 10,
+        "d": 22
+      },
+      "time": {
+        "h": 12,
+        "min": 59
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-60-natal",
+    "bookYear": 2026,
+    "system": 60,
+    "name": "天機天梁坐辰戌",
+    "mingBorrowed": false,
+    "mingBranch": "辰",
+    "age": 19,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S06B",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 1971,
+        "m": 1,
+        "d": 6
+      },
+      "time": {
+        "h": 0,
+        "min": 8
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-6-borrowed",
+    "bookYear": 2026,
+    "system": 6,
+    "name": "天同巨門坐丑未",
+    "mingBorrowed": true,
+    "mingBranch": "丑",
+    "age": 57,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S08B",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 1984,
+        "m": 7,
+        "d": 21
+      },
+      "time": {
+        "h": 21,
+        "min": 10
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-8-borrowed",
+    "bookYear": 2026,
+    "system": 8,
+    "name": "太陽天梁坐卯酉",
+    "mingBorrowed": true,
+    "mingBranch": "酉",
+    "age": 43,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S14B",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 2005,
+        "m": 12,
+        "d": 4
+      },
+      "time": {
+        "h": 1,
+        "min": 35
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-14-borrowed",
+    "bookYear": 2026,
+    "system": 14,
+    "name": "廉貞貪狼坐巳亥",
+    "mingBorrowed": true,
+    "mingBranch": "亥",
+    "age": 22,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S17B",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 1988,
+        "m": 4,
+        "d": 6
+      },
+      "time": {
+        "h": 14,
+        "min": 22
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-17-borrowed",
+    "bookYear": 2026,
+    "system": 17,
+    "name": "天同天梁坐寅申",
+    "mingBorrowed": true,
+    "mingBranch": "申",
+    "age": 39,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S33B",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 2010,
+        "m": 7,
+        "d": 15
+      },
+      "time": {
+        "h": 19,
+        "min": 59
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-33-borrowed",
+    "bookYear": 2026,
+    "system": 33,
+    "name": "紫微貪狼坐卯酉",
+    "mingBorrowed": true,
+    "mingBranch": "酉",
+    "age": 17,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S42B",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 2010,
+        "m": 11,
+        "d": 4
+      },
+      "time": {
+        "h": 16,
+        "min": 37
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-42-borrowed",
+    "bookYear": 2026,
+    "system": 42,
+    "name": "天機太陰坐寅申",
+    "mingBorrowed": true,
+    "mingBranch": "寅",
+    "age": 17,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S50B",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 1959,
+        "m": 11,
+        "d": 3
+      },
+      "time": {
+        "h": 8,
+        "min": 49
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-50-borrowed",
+    "bookYear": 2026,
+    "system": 50,
+    "name": "太陰太陽坐丑未",
+    "mingBorrowed": true,
+    "mingBranch": "未",
+    "age": 68,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S52B",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 1990,
+        "m": 11,
+        "d": 22
+      },
+      "time": {
+        "h": 4,
+        "min": 5
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-52-borrowed",
+    "bookYear": 2026,
+    "system": 52,
+    "name": "天機巨門坐卯酉",
+    "mingBorrowed": true,
+    "mingBranch": "酉",
+    "age": 37,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S56B",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 1978,
+        "m": 4,
+        "d": 7
+      },
+      "time": {
+        "h": 8,
+        "min": 46
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-56-borrowed",
+    "bookYear": 2026,
+    "system": 56,
+    "name": "天同太陰坐子午",
+    "mingBorrowed": true,
+    "mingBranch": "子",
+    "age": 49,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S57B",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 1950,
+        "m": 3,
+        "d": 21
+      },
+      "time": {
+        "h": 15,
+        "min": 32
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-57-borrowed",
+    "bookYear": 2026,
+    "system": 57,
+    "name": "武曲貪狼坐丑未",
+    "mingBorrowed": true,
+    "mingBranch": "未",
+    "age": 77,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S58B",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 2001,
+        "m": 10,
+        "d": 10
+      },
+      "time": {
+        "h": 3,
+        "min": 0
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-58-borrowed",
+    "bookYear": 2026,
+    "system": 58,
+    "name": "太陽巨門坐寅申",
+    "mingBorrowed": true,
+    "mingBranch": "申",
+    "age": 26,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S60B",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 1974,
+        "m": 12,
+        "d": 5
+      },
+      "time": {
+        "h": 14,
+        "min": 46
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "free-ming-system-60-borrowed",
+    "bookYear": 2026,
+    "system": 60,
+    "name": "天機天梁坐辰戌",
+    "mingBorrowed": true,
+    "mingBranch": "辰",
+    "age": 53,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S20NP",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 1996,
+        "m": 7,
+        "d": 27
+      },
+      "time": {
+        "h": 13,
+        "min": 35
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "audit-paired-2",
+    "bookYear": 2026,
+    "system": 20,
+    "name": "天機獨坐子午",
+    "mingBorrowed": false,
+    "mingBranch": "子",
+    "age": 31,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S54NP",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 2001,
+        "m": 10,
+        "d": 8
+      },
+      "time": {
+        "h": 11,
+        "min": 35
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "audit-paired-8",
+    "bookYear": 2026,
+    "system": 54,
+    "name": "廉貞破軍坐卯酉",
+    "mingBorrowed": false,
+    "mingBranch": "卯",
+    "age": 26,
+    "closingMode": "paired-editorial-synthesis"
+  },
+  {
+    "id": "S43NP",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 2023,
+        "m": 6,
+        "d": 5
+      },
+      "time": {
+        "h": 15,
+        "min": 21
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "audit-paired-10",
+    "bookYear": 2026,
+    "system": 43,
+    "name": "紫微天相坐辰戌",
+    "mingBorrowed": false,
+    "mingBranch": "戌",
+    "age": 4,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S33NP",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 2003,
+        "m": 3,
+        "d": 26
+      },
+      "time": {
+        "h": 11,
+        "min": 40
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "audit-paired-11",
+    "bookYear": 2026,
+    "system": 33,
+    "name": "紫微貪狼坐卯酉",
+    "mingBorrowed": false,
+    "mingBranch": "酉",
+    "age": 24,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S14BP",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 2004,
+        "m": 8,
+        "d": 25
+      },
+      "time": {
+        "h": 7,
+        "min": 7
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "audit-paired-12",
+    "bookYear": 2026,
+    "system": 14,
+    "name": "廉貞貪狼坐巳亥",
+    "mingBorrowed": true,
+    "mingBranch": "巳",
+    "age": 23,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S30NP",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 1984,
+        "m": 5,
+        "d": 13
+      },
+      "time": {
+        "h": 1,
+        "min": 19
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "audit-paired-14",
+    "bookYear": 2026,
+    "system": 30,
+    "name": "太陽獨坐巳亥",
+    "mingBorrowed": false,
+    "mingBranch": "巳",
+    "age": 43,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S56BP",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 2000,
+        "m": 4,
+        "d": 16
+      },
+      "time": {
+        "h": 20,
+        "min": 53
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "audit-paired-15",
+    "bookYear": 2026,
+    "system": 56,
+    "name": "天同太陰坐子午",
+    "mingBorrowed": true,
+    "mingBranch": "午",
+    "age": 27,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S49NP",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 1953,
+        "m": 8,
+        "d": 21
+      },
+      "time": {
+        "h": 16,
+        "min": 45
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "audit-paired-16",
+    "bookYear": 2026,
+    "system": 49,
+    "name": "武曲天府坐子午",
+    "mingBorrowed": false,
+    "mingBranch": "子",
+    "age": 74,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S42NP",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 1953,
+        "m": 12,
+        "d": 9
+      },
+      "time": {
+        "h": 19,
+        "min": 21
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "audit-paired-17",
+    "bookYear": 2026,
+    "system": 42,
+    "name": "天機太陰坐寅申",
+    "mingBorrowed": false,
+    "mingBranch": "寅",
+    "age": 74,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S06BP",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 1945,
+        "m": 3,
+        "d": 1
+      },
+      "time": {
+        "h": 16,
+        "min": 27
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "audit-paired-19",
+    "bookYear": 2026,
+    "system": 6,
+    "name": "天同巨門坐丑未",
+    "mingBorrowed": true,
+    "mingBranch": "未",
+    "age": 82,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S44NP",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 1958,
+        "m": 8,
+        "d": 3
+      },
+      "time": {
+        "h": 16,
+        "min": 30
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "audit-paired-24",
+    "bookYear": 2026,
+    "system": 44,
+    "name": "天梁獨坐巳亥",
+    "mingBorrowed": false,
+    "mingBranch": "亥",
+    "age": 69,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S34NP",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 1966,
+        "m": 11,
+        "d": 10
+      },
+      "time": {
+        "h": 11,
+        "min": 25
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "audit-paired-25",
+    "bookYear": 2026,
+    "system": 34,
+    "name": "巨門獨坐辰戌",
+    "mingBorrowed": false,
+    "mingBranch": "辰",
+    "age": 61,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S21NP",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 1942,
+        "m": 2,
+        "d": 13
+      },
+      "time": {
+        "h": 10,
+        "min": 48
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "audit-paired-26",
+    "bookYear": 2026,
+    "system": 21,
+    "name": "紫微天府坐寅申",
+    "mingBorrowed": false,
+    "mingBranch": "申",
+    "age": 86,
+    "closingMode": "paired-editorial-synthesis"
+  },
+  {
+    "id": "S03NP",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 2021,
+        "m": 12,
+        "d": 10
+      },
+      "time": {
+        "h": 3,
+        "min": 34
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "audit-paired-28",
+    "bookYear": 2026,
+    "system": 3,
+    "name": "廉貞天府坐辰戌",
+    "mingBorrowed": false,
+    "mingBranch": "戌",
+    "age": 6,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S18NP",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 1955,
+        "m": 1,
+        "d": 1
+      },
+      "time": {
+        "h": 20,
+        "min": 25
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "audit-paired-35",
+    "bookYear": 2026,
+    "system": 18,
+    "name": "武曲七殺坐卯酉",
+    "mingBorrowed": false,
+    "mingBranch": "卯",
+    "age": 73,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S24NP",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 1941,
+        "m": 5,
+        "d": 8
+      },
+      "time": {
+        "h": 13,
+        "min": 13
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "audit-paired-38",
+    "bookYear": 2026,
+    "system": 24,
+    "name": "巨門獨坐巳亥",
+    "mingBorrowed": false,
+    "mingBranch": "亥",
+    "age": 86,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S04NP",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 1941,
+        "m": 3,
+        "d": 19
+      },
+      "time": {
+        "h": 19,
+        "min": 33
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "audit-paired-39",
+    "bookYear": 2026,
+    "system": 4,
+    "name": "太陰獨坐巳亥",
+    "mingBorrowed": false,
+    "mingBranch": "巳",
+    "age": 86,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S32NP",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 1955,
+        "m": 2,
+        "d": 27
+      },
+      "time": {
+        "h": 3,
+        "min": 47
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "audit-paired-41",
+    "bookYear": 2026,
+    "system": 32,
+    "name": "天機獨坐丑未",
+    "mingBorrowed": false,
+    "mingBranch": "丑",
+    "age": 72,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S37NP",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 1991,
+        "m": 12,
+        "d": 13
+      },
+      "time": {
+        "h": 10,
+        "min": 1
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "audit-paired-42",
+    "bookYear": 2026,
+    "system": 37,
+    "name": "廉貞七殺坐丑未",
+    "mingBorrowed": false,
+    "mingBranch": "未",
+    "age": 36,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S39NP",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 1960,
+        "m": 8,
+        "d": 14
+      },
+      "time": {
+        "h": 6,
+        "min": 45
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "audit-paired-43",
+    "bookYear": 2026,
+    "system": 39,
+    "name": "武曲破軍坐巳亥",
+    "mingBorrowed": false,
+    "mingBranch": "巳",
+    "age": 67,
+    "closingMode": "paired-editorial-synthesis"
+  },
+  {
+    "id": "S58BP",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 2000,
+        "m": 9,
+        "d": 23
+      },
+      "time": {
+        "h": 13,
+        "min": 59
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "audit-paired-45",
+    "bookYear": 2026,
+    "system": 58,
+    "name": "太陽巨門坐寅申",
+    "mingBorrowed": true,
+    "mingBranch": "寅",
+    "age": 27,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S58NP",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 1970,
+        "m": 2,
+        "d": 5
+      },
+      "time": {
+        "h": 23,
+        "min": 8
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "audit-paired-49",
+    "bookYear": 2026,
+    "system": 58,
+    "name": "太陽巨門坐寅申",
+    "mingBorrowed": false,
+    "mingBranch": "寅",
+    "age": 58,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S48NP",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 2004,
+        "m": 9,
+        "d": 3
+      },
+      "time": {
+        "h": 6,
+        "min": 28
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "audit-paired-50",
+    "bookYear": 2026,
+    "system": 48,
+    "name": "天同獨坐巳亥",
+    "mingBorrowed": false,
+    "mingBranch": "巳",
+    "age": 23,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S47NP",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 1987,
+        "m": 8,
+        "d": 15
+      },
+      "time": {
+        "h": 21,
+        "min": 28
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "audit-paired-51",
+    "bookYear": 2026,
+    "system": 47,
+    "name": "破軍獨坐辰戌",
+    "mingBorrowed": false,
+    "mingBranch": "戌",
+    "age": 40,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S50BP",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 1948,
+        "m": 9,
+        "d": 28
+      },
+      "time": {
+        "h": 16,
+        "min": 54
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "audit-paired-53",
+    "bookYear": 2026,
+    "system": 50,
+    "name": "太陰太陽坐丑未",
+    "mingBorrowed": true,
+    "mingBranch": "丑",
+    "age": 79,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S57NP",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 1959,
+        "m": 4,
+        "d": 3
+      },
+      "time": {
+        "h": 16,
+        "min": 29
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "audit-paired-54",
+    "bookYear": 2026,
+    "system": 57,
+    "name": "武曲貪狼坐丑未",
+    "mingBorrowed": false,
+    "mingBranch": "未",
+    "age": 68,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S22NP",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 1976,
+        "m": 6,
+        "d": 2
+      },
+      "time": {
+        "h": 6,
+        "min": 54
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "audit-paired-55",
+    "bookYear": 2026,
+    "system": 22,
+    "name": "太陰獨坐卯酉",
+    "mingBorrowed": false,
+    "mingBranch": "卯",
+    "age": 51,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S05NP",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 1981,
+        "m": 12,
+        "d": 24
+      },
+      "time": {
+        "h": 0,
+        "min": 52
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "audit-paired-57",
+    "bookYear": 2026,
+    "system": 5,
+    "name": "貪狼獨坐子午",
+    "mingBorrowed": false,
+    "mingBranch": "子",
+    "age": 46,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S51NP",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 1945,
+        "m": 12,
+        "d": 19
+      },
+      "time": {
+        "h": 20,
+        "min": 49
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "audit-paired-60",
+    "bookYear": 2026,
+    "system": 51,
+    "name": "貪狼獨坐寅申",
+    "mingBorrowed": false,
+    "mingBranch": "寅",
+    "age": 82,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S50NP",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 2006,
+        "m": 3,
+        "d": 2
+      },
+      "time": {
+        "h": 3,
+        "min": 55
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "audit-paired-63",
+    "bookYear": 2026,
+    "system": 50,
+    "name": "太陰太陽坐丑未",
+    "mingBorrowed": false,
+    "mingBranch": "丑",
+    "age": 21,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S41NP",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 1960,
+        "m": 1,
+        "d": 27
+      },
+      "time": {
+        "h": 0,
+        "min": 52
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "audit-paired-68",
+    "bookYear": 2026,
+    "system": 41,
+    "name": "天府獨坐丑未",
+    "mingBorrowed": false,
+    "mingBranch": "丑",
+    "age": 68,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S13NP",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 1976,
+        "m": 10,
+        "d": 3
+      },
+      "time": {
+        "h": 23,
+        "min": 32
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "audit-paired-70",
+    "bookYear": 2026,
+    "system": 13,
+    "name": "太陰獨坐辰戌",
+    "mingBorrowed": false,
+    "mingBranch": "戌",
+    "age": 51,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S60BP",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 1940,
+        "m": 2,
+        "d": 6
+      },
+      "time": {
+        "h": 5,
+        "min": 53
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "audit-paired-78",
+    "bookYear": 2026,
+    "system": 60,
+    "name": "天機天梁坐辰戌",
+    "mingBorrowed": true,
+    "mingBranch": "戌",
+    "age": 88,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S14NP",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 2008,
+        "m": 1,
+        "d": 22
+      },
+      "time": {
+        "h": 17,
+        "min": 33
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "audit-paired-86",
+    "bookYear": 2026,
+    "system": 14,
+    "name": "廉貞貪狼坐巳亥",
+    "mingBorrowed": false,
+    "mingBranch": "巳",
+    "age": 20,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S38NP",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 1967,
+        "m": 8,
+        "d": 25
+      },
+      "time": {
+        "h": 10,
+        "min": 16
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "audit-paired-88",
+    "bookYear": 2026,
+    "system": 38,
+    "name": "天同獨坐辰戌",
+    "mingBorrowed": false,
+    "mingBranch": "辰",
+    "age": 60,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S26NP",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 2016,
+        "m": 12,
+        "d": 5
+      },
+      "time": {
+        "h": 10,
+        "min": 37
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "audit-paired-90",
+    "bookYear": 2026,
+    "system": 26,
+    "name": "天梁獨坐丑未",
+    "mingBorrowed": false,
+    "mingBranch": "未",
+    "age": 11,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S29NP",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 2004,
+        "m": 8,
+        "d": 26
+      },
+      "time": {
+        "h": 19,
+        "min": 28
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "audit-paired-92",
+    "bookYear": 2026,
+    "system": 29,
+    "name": "武曲獨坐辰戌",
+    "mingBorrowed": false,
+    "mingBranch": "戌",
+    "age": 23,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S10NP",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 1982,
+        "m": 8,
+        "d": 20
+      },
+      "time": {
+        "h": 6,
+        "min": 53
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "audit-paired-102",
+    "bookYear": 2026,
+    "system": 10,
+    "name": "天機獨坐巳亥",
+    "mingBorrowed": false,
+    "mingBranch": "巳",
+    "age": 45,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S23NP",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 1991,
+        "m": 7,
+        "d": 4
+      },
+      "time": {
+        "h": 15,
+        "min": 51
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "audit-paired-105",
+    "bookYear": 2026,
+    "system": 23,
+    "name": "貪狼獨坐辰戌",
+    "mingBorrowed": false,
+    "mingBranch": "戌",
+    "age": 36,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S08BP",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 2022,
+        "m": 12,
+        "d": 27
+      },
+      "time": {
+        "h": 19,
+        "min": 40
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "audit-paired-109",
+    "bookYear": 2026,
+    "system": 8,
+    "name": "太陽天梁坐卯酉",
+    "mingBorrowed": true,
+    "mingBranch": "卯",
+    "age": 5,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S02NP",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 1983,
+        "m": 6,
+        "d": 3
+      },
+      "time": {
+        "h": 5,
+        "min": 23
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "audit-paired-117",
+    "bookYear": 2026,
+    "system": 2,
+    "name": "破軍獨坐寅申",
+    "mingBorrowed": false,
+    "mingBranch": "寅",
+    "age": 44,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S42BP",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 1945,
+        "m": 9,
+        "d": 4
+      },
+      "time": {
+        "h": 2,
+        "min": 9
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "audit-paired-124",
+    "bookYear": 2026,
+    "system": 42,
+    "name": "天機太陰坐寅申",
+    "mingBorrowed": true,
+    "mingBranch": "申",
+    "age": 82,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S28NP",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 1985,
+        "m": 6,
+        "d": 28
+      },
+      "time": {
+        "h": 7,
+        "min": 0
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "audit-paired-126",
+    "bookYear": 2026,
+    "system": 28,
+    "name": "天同獨坐卯酉",
+    "mingBorrowed": false,
+    "mingBranch": "卯",
+    "age": 42,
+    "closingMode": "paired-editorial-synthesis"
+  },
+  {
+    "id": "S01NP",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 1946,
+        "m": 3,
+        "d": 10
+      },
+      "time": {
+        "h": 5,
+        "min": 57
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "audit-paired-128",
+    "bookYear": 2026,
+    "system": 1,
+    "name": "紫微獨坐子午",
+    "mingBorrowed": false,
+    "mingBranch": "子",
+    "age": 81,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S16NP",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 1990,
+        "m": 4,
+        "d": 3
+      },
+      "time": {
+        "h": 6,
+        "min": 18
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "audit-paired-140",
+    "bookYear": 2026,
+    "system": 16,
+    "name": "天相獨坐丑未",
+    "mingBorrowed": false,
+    "mingBranch": "丑",
+    "age": 37,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S27NP",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 1989,
+        "m": 9,
+        "d": 13
+      },
+      "time": {
+        "h": 15,
+        "min": 18
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "audit-paired-142",
+    "bookYear": 2026,
+    "system": 27,
+    "name": "七殺獨坐寅申",
+    "mingBorrowed": false,
+    "mingBranch": "寅",
+    "age": 38,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S08NP",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 1955,
+        "m": 9,
+        "d": 9
+      },
+      "time": {
+        "h": 22,
+        "min": 43
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "audit-paired-143",
+    "bookYear": 2026,
+    "system": 8,
+    "name": "太陽天梁坐卯酉",
+    "mingBorrowed": false,
+    "mingBranch": "酉",
+    "age": 72,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S53NP",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 2009,
+        "m": 8,
+        "d": 22
+      },
+      "time": {
+        "h": 17,
+        "min": 30
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "audit-paired-148",
+    "bookYear": 2026,
+    "system": 53,
+    "name": "紫微七殺坐巳亥",
+    "mingBorrowed": false,
+    "mingBranch": "亥",
+    "age": 18,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S56NP",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 1945,
+        "m": 12,
+        "d": 28
+      },
+      "time": {
+        "h": 23,
+        "min": 54
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "audit-paired-154",
+    "bookYear": 2026,
+    "system": 56,
+    "name": "天同太陰坐子午",
+    "mingBorrowed": false,
+    "mingBranch": "子",
+    "age": 82,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S11NP",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 1999,
+        "m": 10,
+        "d": 14
+      },
+      "time": {
+        "h": 6,
+        "min": 9
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "audit-paired-155",
+    "bookYear": 2026,
+    "system": 11,
+    "name": "紫微破軍坐丑未",
+    "mingBorrowed": false,
+    "mingBranch": "未",
+    "age": 28,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S60NP",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 1964,
+        "m": 7,
+        "d": 21
+      },
+      "time": {
+        "h": 19,
+        "min": 24
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "audit-paired-157",
+    "bookYear": 2026,
+    "system": 60,
+    "name": "天機天梁坐辰戌",
+    "mingBorrowed": false,
+    "mingBranch": "戌",
+    "age": 63,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S25NP",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 1997,
+        "m": 6,
+        "d": 1
+      },
+      "time": {
+        "h": 21,
+        "min": 21
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "audit-paired-159",
+    "bookYear": 2026,
+    "system": 25,
+    "name": "廉貞天相坐子午",
+    "mingBorrowed": false,
+    "mingBranch": "午",
+    "age": 30,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S52NP",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 1968,
+        "m": 3,
+        "d": 17
+      },
+      "time": {
+        "h": 13,
+        "min": 3
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "audit-paired-180",
+    "bookYear": 2026,
+    "system": 52,
+    "name": "天機巨門坐卯酉",
+    "mingBorrowed": false,
+    "mingBranch": "酉",
+    "age": 59,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S36NP",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 1957,
+        "m": 6,
+        "d": 13
+      },
+      "time": {
+        "h": 13,
+        "min": 55
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "audit-paired-184",
+    "bookYear": 2026,
+    "system": 36,
+    "name": "天梁獨坐子午",
+    "mingBorrowed": false,
+    "mingBranch": "子",
+    "age": 70,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S59NP",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 1951,
+        "m": 3,
+        "d": 20
+      },
+      "time": {
+        "h": 13,
+        "min": 1
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "audit-paired-198",
+    "bookYear": 2026,
+    "system": 59,
+    "name": "天相獨坐卯酉",
+    "mingBorrowed": false,
+    "mingBranch": "酉",
+    "age": 76,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S07NP",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 1965,
+        "m": 5,
+        "d": 23
+      },
+      "time": {
+        "h": 18,
+        "min": 45
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "audit-paired-204",
+    "bookYear": 2026,
+    "system": 7,
+    "name": "武曲天相坐寅申",
+    "mingBorrowed": false,
+    "mingBranch": "申",
+    "age": 62,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S46NP",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 2000,
+        "m": 10,
+        "d": 18
+      },
+      "time": {
+        "h": 16,
+        "min": 18
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "audit-paired-213",
+    "bookYear": 2026,
+    "system": 46,
+    "name": "廉貞獨坐寅申",
+    "mingBorrowed": false,
+    "mingBranch": "寅",
+    "age": 27,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S06NP",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 1947,
+        "m": 11,
+        "d": 4
+      },
+      "time": {
+        "h": 6,
+        "min": 37
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "audit-paired-215",
+    "bookYear": 2026,
+    "system": 6,
+    "name": "天同巨門坐丑未",
+    "mingBorrowed": false,
+    "mingBranch": "未",
+    "age": 80,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S40NP",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 2008,
+        "m": 3,
+        "d": 8
+      },
+      "time": {
+        "h": 19,
+        "min": 29
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "audit-paired-229",
+    "bookYear": 2026,
+    "system": 40,
+    "name": "太陽獨坐子午",
+    "mingBorrowed": false,
+    "mingBranch": "午",
+    "age": 19,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S12NP",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 1994,
+        "m": 3,
+        "d": 6
+      },
+      "time": {
+        "h": 22,
+        "min": 15
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "audit-paired-254",
+    "bookYear": 2026,
+    "system": 12,
+    "name": "天府獨坐卯酉",
+    "mingBorrowed": false,
+    "mingBranch": "卯",
+    "age": 33,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S45NP",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 1955,
+        "m": 6,
+        "d": 26
+      },
+      "time": {
+        "h": 12,
+        "min": 26
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "audit-paired-264",
+    "bookYear": 2026,
+    "system": 45,
+    "name": "七殺獨坐子午",
+    "mingBorrowed": false,
+    "mingBranch": "子",
+    "age": 72,
+    "closingMode": "paired-editorial-synthesis"
+  },
+  {
+    "id": "S52BP",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 1981,
+        "m": 11,
+        "d": 23
+      },
+      "time": {
+        "h": 15,
+        "min": 14
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "audit-paired-277",
+    "bookYear": 2026,
+    "system": 52,
+    "name": "天機巨門坐卯酉",
+    "mingBorrowed": true,
+    "mingBranch": "卯",
+    "age": 46,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S19NP",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 1980,
+        "m": 5,
+        "d": 12
+      },
+      "time": {
+        "h": 0,
+        "min": 18
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "audit-paired-292",
+    "bookYear": 2026,
+    "system": 19,
+    "name": "太陽獨坐辰戌",
+    "mingBorrowed": false,
+    "mingBranch": "辰",
+    "age": 47,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S57BP",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 1985,
+        "m": 3,
+        "d": 23
+      },
+      "time": {
+        "h": 4,
+        "min": 12
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "audit-paired-323",
+    "bookYear": 2026,
+    "system": 57,
+    "name": "武曲貪狼坐丑未",
+    "mingBorrowed": true,
+    "mingBranch": "丑",
+    "age": 42,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S17NP",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 2021,
+        "m": 8,
+        "d": 13
+      },
+      "time": {
+        "h": 0,
+        "min": 1
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "audit-paired-336",
+    "bookYear": 2026,
+    "system": 17,
+    "name": "天同天梁坐寅申",
+    "mingBorrowed": false,
+    "mingBranch": "申",
+    "age": 6,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S31NP",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 1941,
+        "m": 11,
+        "d": 27
+      },
+      "time": {
+        "h": 22,
+        "min": 32
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "audit-paired-377",
+    "bookYear": 2026,
+    "system": 31,
+    "name": "破軍獨坐子午",
+    "mingBorrowed": false,
+    "mingBranch": "子",
+    "age": 86,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S55NP",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 1963,
+        "m": 9,
+        "d": 19
+      },
+      "time": {
+        "h": 9,
+        "min": 10
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "audit-paired-412",
+    "bookYear": 2026,
+    "system": 55,
+    "name": "天府獨坐巳亥",
+    "mingBorrowed": false,
+    "mingBranch": "巳",
+    "age": 64,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S17BP",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 1980,
+        "m": 10,
+        "d": 12
+      },
+      "time": {
+        "h": 16,
+        "min": 9
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "audit-paired-428",
+    "bookYear": 2026,
+    "system": 17,
+    "name": "天同天梁坐寅申",
+    "mingBorrowed": true,
+    "mingBranch": "寅",
+    "age": 47,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S15NP",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 1954,
+        "m": 11,
+        "d": 28
+      },
+      "time": {
+        "h": 11,
+        "min": 42
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "audit-paired-472",
+    "bookYear": 2026,
+    "system": 15,
+    "name": "巨門獨坐子午",
+    "mingBorrowed": false,
+    "mingBranch": "午",
+    "age": 73,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S33BP",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 1991,
+        "m": 12,
+        "d": 1
+      },
+      "time": {
+        "h": 16,
+        "min": 3
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "audit-paired-473",
+    "bookYear": 2026,
+    "system": 33,
+    "name": "紫微貪狼坐卯酉",
+    "mingBorrowed": true,
+    "mingBranch": "卯",
+    "age": 36,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S09NP",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 2018,
+        "m": 10,
+        "d": 1
+      },
+      "time": {
+        "h": 21,
+        "min": 31
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "audit-paired-548",
+    "bookYear": 2026,
+    "system": 9,
+    "name": "七殺獨坐辰戌",
+    "mingBorrowed": false,
+    "mingBranch": "戌",
+    "age": 9,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "S35NP",
+    "cohort": "structure-144",
+    "input": {
+      "solar": {
+        "y": 1964,
+        "m": 7,
+        "d": 9
+      },
+      "time": {
+        "h": 17,
+        "min": 47
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "audit-paired-881",
+    "bookYear": 2026,
+    "system": 35,
+    "name": "天相獨坐巳亥",
+    "mingBorrowed": false,
+    "mingBranch": "亥",
+    "age": 63,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "RA",
+    "cohort": "reviewed-eight",
+    "input": {
+      "solar": {
+        "y": 1965,
+        "m": 6,
+        "d": 25
+      },
+      "time": {
+        "h": 7,
+        "min": 59
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "random-five-4093653209-0",
+    "bookYear": 2026,
+    "system": 54,
+    "name": "廉貞破軍坐卯酉",
+    "mingBorrowed": false,
+    "mingBranch": "卯",
+    "age": 62,
+    "closingMode": "paired-editorial-synthesis"
+  },
+  {
+    "id": "RB",
+    "cohort": "reviewed-eight",
+    "input": {
+      "solar": {
+        "y": 1986,
+        "m": 8,
+        "d": 26
+      },
+      "time": {
+        "h": 4,
+        "min": 4
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "random-five-4093653209-1",
+    "bookYear": 2026,
+    "system": 45,
+    "name": "七殺獨坐子午",
+    "mingBorrowed": false,
+    "mingBranch": "午",
+    "age": 41,
+    "closingMode": "paired-editorial-synthesis"
+  },
+  {
+    "id": "RC",
+    "cohort": "reviewed-eight",
+    "input": {
+      "solar": {
+        "y": 1956,
+        "m": 10,
+        "d": 24
+      },
+      "time": {
+        "h": 2,
+        "min": 17
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "random-five-4093653209-2",
+    "bookYear": 2026,
+    "system": 28,
+    "name": "天同獨坐卯酉",
+    "mingBorrowed": false,
+    "mingBranch": "酉",
+    "age": 71,
+    "closingMode": "paired-editorial-synthesis"
+  },
+  {
+    "id": "RD",
+    "cohort": "reviewed-eight",
+    "input": {
+      "solar": {
+        "y": 1957,
+        "m": 9,
+        "d": 16
+      },
+      "time": {
+        "h": 4,
+        "min": 3
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "random-five-4093653209-3",
+    "bookYear": 2026,
+    "system": 21,
+    "name": "紫微天府坐寅申",
+    "mingBorrowed": false,
+    "mingBranch": "申",
+    "age": 70,
+    "closingMode": "paired-editorial-synthesis"
+  },
+  {
+    "id": "RE",
+    "cohort": "reviewed-eight",
+    "input": {
+      "solar": {
+        "y": 1988,
+        "m": 4,
+        "d": 14
+      },
+      "time": {
+        "h": 20,
+        "min": 12
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "random-five-4093653209-4",
+    "bookYear": 2026,
+    "system": 39,
+    "name": "武曲破軍坐巳亥",
+    "mingBorrowed": false,
+    "mingBranch": "巳",
+    "age": 39,
+    "closingMode": "paired-editorial-synthesis"
+  },
+  {
+    "id": "TL",
+    "cohort": "reviewed-eight",
+    "input": {
+      "solar": {
+        "y": 1990,
+        "m": 3,
+        "d": 21
+      },
+      "time": {
+        "h": 14,
+        "min": 20
+      },
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      },
+      "sex": "female"
+    },
+    "seed": "sample",
+    "bookYear": 2026,
+    "system": 17,
+    "name": "天同天梁坐寅申",
+    "mingBorrowed": false,
+    "mingBranch": "申",
+    "age": 37,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "TF",
+    "cohort": "reviewed-eight",
+    "input": {
+      "solar": {
+        "y": 1992,
+        "m": 9,
+        "d": 12
+      },
+      "time": {
+        "h": 19,
+        "min": 41
+      },
+      "sex": "male",
+      "tz": "Australia/Sydney",
+      "place": {
+        "lng": 151.2093,
+        "lat": -33.8688,
+        "label": "悉尼"
+      }
+    },
+    "seed": "trilingual-review-2026-10-21-A",
+    "bookYear": 2026,
+    "system": 55,
+    "name": "天府獨坐巳亥",
+    "mingBorrowed": false,
+    "mingBranch": "亥",
+    "age": 35,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "JL",
+    "cohort": "reviewed-eight",
+    "input": {
+      "solar": {
+        "y": 2012,
+        "m": 4,
+        "d": 20
+      },
+      "time": {
+        "h": 13,
+        "min": 29
+      },
+      "sex": "female",
+      "tz": "America/New_York",
+      "place": {
+        "lng": -74.006,
+        "lat": 40.7128,
+        "label": "紐約"
+      }
+    },
+    "seed": "trilingual-review-2026-10-21-C",
+    "bookYear": 2026,
+    "system": 60,
+    "name": "天機天梁坐辰戌",
+    "mingBorrowed": false,
+    "mingBranch": "戌",
+    "age": 15,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "N01",
+    "cohort": "new-24",
+    "input": {
+      "solar": {
+        "y": 1983,
+        "m": 7,
+        "d": 7
+      },
+      "time": {
+        "h": 4,
+        "min": 53
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "authoring-audit-new-1",
+    "bookYear": 2026,
+    "system": 43,
+    "name": "紫微天相坐辰戌",
+    "mingBorrowed": false,
+    "mingBranch": "辰",
+    "age": 44,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "N02",
+    "cohort": "new-24",
+    "input": {
+      "solar": {
+        "y": 1982,
+        "m": 9,
+        "d": 16
+      },
+      "time": {
+        "h": 22,
+        "min": 30
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "authoring-audit-new-2",
+    "bookYear": 2026,
+    "system": 8,
+    "name": "太陽天梁坐卯酉",
+    "mingBorrowed": true,
+    "mingBranch": "酉",
+    "age": 45,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "N03",
+    "cohort": "new-24",
+    "input": {
+      "solar": {
+        "y": 1993,
+        "m": 7,
+        "d": 16
+      },
+      "time": {
+        "h": 12,
+        "min": 1
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "authoring-audit-new-3",
+    "bookYear": 2026,
+    "system": 15,
+    "name": "巨門獨坐子午",
+    "mingBorrowed": false,
+    "mingBranch": "子",
+    "age": 34,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "N04",
+    "cohort": "new-24",
+    "input": {
+      "solar": {
+        "y": 1993,
+        "m": 2,
+        "d": 6
+      },
+      "time": {
+        "h": 16,
+        "min": 43
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "authoring-audit-new-4",
+    "bookYear": 2026,
+    "system": 15,
+    "name": "巨門獨坐子午",
+    "mingBorrowed": false,
+    "mingBranch": "午",
+    "age": 34,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "N05",
+    "cohort": "new-24",
+    "input": {
+      "solar": {
+        "y": 1963,
+        "m": 9,
+        "d": 7
+      },
+      "time": {
+        "h": 23,
+        "min": 58
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "authoring-audit-new-5",
+    "bookYear": 2026,
+    "system": 12,
+    "name": "天府獨坐卯酉",
+    "mingBorrowed": false,
+    "mingBranch": "酉",
+    "age": 64,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "N06",
+    "cohort": "new-24",
+    "input": {
+      "solar": {
+        "y": 2017,
+        "m": 1,
+        "d": 12
+      },
+      "time": {
+        "h": 0,
+        "min": 7
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "authoring-audit-new-6",
+    "bookYear": 2026,
+    "system": 41,
+    "name": "天府獨坐丑未",
+    "mingBorrowed": false,
+    "mingBranch": "丑",
+    "age": 11,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "N07",
+    "cohort": "new-24",
+    "input": {
+      "solar": {
+        "y": 1998,
+        "m": 4,
+        "d": 25
+      },
+      "time": {
+        "h": 12,
+        "min": 21
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "authoring-audit-new-7",
+    "bookYear": 2026,
+    "system": 38,
+    "name": "天同獨坐辰戌",
+    "mingBorrowed": false,
+    "mingBranch": "戌",
+    "age": 29,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "N08",
+    "cohort": "new-24",
+    "input": {
+      "solar": {
+        "y": 1962,
+        "m": 3,
+        "d": 14
+      },
+      "time": {
+        "h": 8,
+        "min": 46
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "authoring-audit-new-8",
+    "bookYear": 2026,
+    "system": 14,
+    "name": "廉貞貪狼坐巳亥",
+    "mingBorrowed": true,
+    "mingBranch": "亥",
+    "age": 65,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "N09",
+    "cohort": "new-24",
+    "input": {
+      "solar": {
+        "y": 1975,
+        "m": 7,
+        "d": 14
+      },
+      "time": {
+        "h": 9,
+        "min": 32
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "authoring-audit-new-9",
+    "bookYear": 2026,
+    "system": 18,
+    "name": "武曲七殺坐卯酉",
+    "mingBorrowed": false,
+    "mingBranch": "卯",
+    "age": 52,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "N10",
+    "cohort": "new-24",
+    "input": {
+      "solar": {
+        "y": 1951,
+        "m": 11,
+        "d": 26
+      },
+      "time": {
+        "h": 13,
+        "min": 12
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "authoring-audit-new-10",
+    "bookYear": 2026,
+    "system": 34,
+    "name": "巨門獨坐辰戌",
+    "mingBorrowed": false,
+    "mingBranch": "辰",
+    "age": 76,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "N11",
+    "cohort": "new-24",
+    "input": {
+      "solar": {
+        "y": 1969,
+        "m": 5,
+        "d": 13
+      },
+      "time": {
+        "h": 13,
+        "min": 57
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "authoring-audit-new-11",
+    "bookYear": 2026,
+    "system": 38,
+    "name": "天同獨坐辰戌",
+    "mingBorrowed": false,
+    "mingBranch": "戌",
+    "age": 58,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "N12",
+    "cohort": "new-24",
+    "input": {
+      "solar": {
+        "y": 1966,
+        "m": 9,
+        "d": 13
+      },
+      "time": {
+        "h": 18,
+        "min": 11
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "authoring-audit-new-12",
+    "bookYear": 2026,
+    "system": 5,
+    "name": "貪狼獨坐子午",
+    "mingBorrowed": false,
+    "mingBranch": "子",
+    "age": 61,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "N13",
+    "cohort": "new-24",
+    "input": {
+      "solar": {
+        "y": 1956,
+        "m": 6,
+        "d": 15
+      },
+      "time": {
+        "h": 8,
+        "min": 23
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "authoring-audit-new-13",
+    "bookYear": 2026,
+    "system": 8,
+    "name": "太陽天梁坐卯酉",
+    "mingBorrowed": false,
+    "mingBranch": "卯",
+    "age": 71,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "N14",
+    "cohort": "new-24",
+    "input": {
+      "solar": {
+        "y": 1957,
+        "m": 7,
+        "d": 3
+      },
+      "time": {
+        "h": 20,
+        "min": 36
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "authoring-audit-new-14",
+    "bookYear": 2026,
+    "system": 12,
+    "name": "天府獨坐卯酉",
+    "mingBorrowed": false,
+    "mingBranch": "酉",
+    "age": 70,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "N15",
+    "cohort": "new-24",
+    "input": {
+      "solar": {
+        "y": 1991,
+        "m": 8,
+        "d": 10
+      },
+      "time": {
+        "h": 9,
+        "min": 1
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "authoring-audit-new-15",
+    "bookYear": 2026,
+    "system": 13,
+    "name": "太陰獨坐辰戌",
+    "mingBorrowed": false,
+    "mingBranch": "辰",
+    "age": 36,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "N16",
+    "cohort": "new-24",
+    "input": {
+      "solar": {
+        "y": 1984,
+        "m": 1,
+        "d": 8
+      },
+      "time": {
+        "h": 7,
+        "min": 33
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "authoring-audit-new-16",
+    "bookYear": 2026,
+    "system": 33,
+    "name": "紫微貪狼坐卯酉",
+    "mingBorrowed": true,
+    "mingBranch": "酉",
+    "age": 44,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "N17",
+    "cohort": "new-24",
+    "input": {
+      "solar": {
+        "y": 1983,
+        "m": 2,
+        "d": 15
+      },
+      "time": {
+        "h": 20,
+        "min": 59
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "authoring-audit-new-17",
+    "bookYear": 2026,
+    "system": 43,
+    "name": "紫微天相坐辰戌",
+    "mingBorrowed": false,
+    "mingBranch": "辰",
+    "age": 44,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "N18",
+    "cohort": "new-24",
+    "input": {
+      "solar": {
+        "y": 2022,
+        "m": 7,
+        "d": 28
+      },
+      "time": {
+        "h": 8,
+        "min": 17
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "authoring-audit-new-18",
+    "bookYear": 2026,
+    "system": 54,
+    "name": "廉貞破軍坐卯酉",
+    "mingBorrowed": false,
+    "mingBranch": "卯",
+    "age": 5,
+    "closingMode": "paired-editorial-synthesis"
+  },
+  {
+    "id": "N19",
+    "cohort": "new-24",
+    "input": {
+      "solar": {
+        "y": 2009,
+        "m": 11,
+        "d": 7
+      },
+      "time": {
+        "h": 3,
+        "min": 7
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "authoring-audit-new-19",
+    "bookYear": 2026,
+    "system": 52,
+    "name": "天機巨門坐卯酉",
+    "mingBorrowed": true,
+    "mingBranch": "酉",
+    "age": 18,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "N20",
+    "cohort": "new-24",
+    "input": {
+      "solar": {
+        "y": 1954,
+        "m": 6,
+        "d": 3
+      },
+      "time": {
+        "h": 1,
+        "min": 2
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "authoring-audit-new-20",
+    "bookYear": 2026,
+    "system": 56,
+    "name": "天同太陰坐子午",
+    "mingBorrowed": false,
+    "mingBranch": "午",
+    "age": 73,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "N21",
+    "cohort": "new-24",
+    "input": {
+      "solar": {
+        "y": 1994,
+        "m": 3,
+        "d": 2
+      },
+      "time": {
+        "h": 22,
+        "min": 50
+      },
+      "sex": "female",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "authoring-audit-new-21",
+    "bookYear": 2026,
+    "system": 22,
+    "name": "太陰獨坐卯酉",
+    "mingBorrowed": false,
+    "mingBranch": "卯",
+    "age": 33,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "N22",
+    "cohort": "new-24",
+    "input": {
+      "solar": {
+        "y": 2011,
+        "m": 3,
+        "d": 21
+      },
+      "time": {
+        "h": 6,
+        "min": 37
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "authoring-audit-new-22",
+    "bookYear": 2026,
+    "system": 31,
+    "name": "破軍獨坐子午",
+    "mingBorrowed": false,
+    "mingBranch": "子",
+    "age": 16,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "N23",
+    "cohort": "new-24",
+    "input": {
+      "solar": {
+        "y": 2010,
+        "m": 3,
+        "d": 23
+      },
+      "time": {
+        "h": 6,
+        "min": 21
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "authoring-audit-new-23",
+    "bookYear": 2026,
+    "system": 15,
+    "name": "巨門獨坐子午",
+    "mingBorrowed": false,
+    "mingBranch": "子",
+    "age": 17,
+    "closingMode": "selected-paragraph-fallback"
+  },
+  {
+    "id": "N24",
+    "cohort": "new-24",
+    "input": {
+      "solar": {
+        "y": 1975,
+        "m": 9,
+        "d": 13
+      },
+      "time": {
+        "h": 3,
+        "min": 14
+      },
+      "sex": "male",
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      }
+    },
+    "seed": "authoring-audit-new-24",
+    "bookYear": 2026,
+    "system": 58,
+    "name": "太陽巨門坐寅申",
+    "mingBorrowed": true,
+    "mingBranch": "申",
+    "age": 52,
+    "closingMode": "selected-paragraph-fallback"
+  }
+]

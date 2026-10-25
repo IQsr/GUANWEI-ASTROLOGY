@@ -1,5 +1,8 @@
 'use client';
 
+import { referencePageLabel } from '@/lib/reference-pages';
+import { referenceSectionLabel } from '@/lib/cross-reference-language';
+
 import { useTranslations } from 'next-intl';
 import { useState } from 'react';
 import { Link } from '@/i18n/navigation';
@@ -8,7 +11,7 @@ import { sectionBreaks } from '@/lib/suidu';
 import { keywordMarks, type MarkKind } from '@/lib/guanjian';
 import type { Run } from '@/lib/zhu';
 import { paragraphCitations, uniqueReferences } from '@/lib/paragraph-citations';
-import { referencePresentation, type ReferenceQuotePart } from '@/lib/reference-presentation';
+import { referencePresentation, referenceConditionParts, type ReferenceQuotePart } from '@/lib/reference-presentation';
 
 type MarkedRun = Run & { mark?: MarkKind };
 
@@ -102,11 +105,10 @@ export function Juan({
   const renderReference=(c:CiteNote & {sharedQuoteCount?:number})=>{
     const text=quoteText(c);
     if(!text && !c.sourceNote)return null;
-    const pages=c.quoteParts?.length ? c.quoteParts.flatMap((part)=>[part.page,part.pageEnd??part.page]) : [c.page,c.pageEnd??c.page];
-    const first=Math.min(...pages), last=Math.max(...pages);
+    const page=referencePageLabel(c.quoteParts?.length ? c.quoteParts : [c]);
     return <div key={c.id} className="flex flex-col gap-2">
       {text ? <p className="font-sans text-cap tracking-[0.08em] text-ink-3">
-        {t(c.pageConvention==='pdf'?'citePdfWhere':'citeWhere',{book:c.book,page:last>first?`${first}–${last}`:first,section:c.section})}
+        {t(c.pageConvention==='pdf'?'citePdfWhere':'citeWhere',{book:c.book,page,section:referenceSectionLabel(c.section)})}
       </p> : null}
       {text ? <blockquote lang="zh-Hans" className="text-sm leading-[1.9] text-ink-2">{t(c.excerpt?'citeExcerpt':'citeQuote',{text})}</blockquote> : null}
       {c.quoteParts?.filter((part)=>part.note).map((part)=><p key={part.id} className="text-sm leading-[1.9] text-ink-2">{part.note}</p>)}
@@ -124,7 +126,7 @@ export function Juan({
         const runs = withMarks(paragraph.runs);
         const citeKey = `cite:${i}`;
         const references = uniqueReferences(paragraph.citations.map((id) => cites[id]).filter((c): c is CiteNote => Boolean(c)));
-        const panel = referencePresentation(seg.referenceConditions ?? [], references, seg.referenceFocus ?? [], seg.referenceApplicability ?? []);
+        const panel = referencePresentation(seg.referenceConditions ?? [], references, seg.referenceFocus ?? [], seg.referenceApplicability ?? [], seg.referenceBackground ?? []);
         const citeList = open === citeKey ? panel.references : [];
 
         return (
@@ -184,10 +186,20 @@ export function Juan({
                 </section> : null}
                 {panel.conditions.length ? <div className="flex flex-col gap-2">
                   <p className="font-sans text-cap tracking-[0.08em] text-ink-3">{t('citeConditions')}</p>
-                  {panel.conditions.map((condition, k) => <p key={k} className="text-sm leading-[1.9] text-ink-2">{condition}</p>)}
+                  {panel.conditions.map((condition, k) => <div key={k} className="flex flex-col gap-1">
+                    {referenceConditionParts(condition).map((part,j)=><p key={j} className="text-sm leading-[1.9] text-ink-2">
+                      {part.label ? <span className="font-medium">{part.label}</span> : null}{part.text}
+                    </p>)}
+                  </div>)}
                 </div> : null}
                 {panel.directReferences.length && citeList.some((c)=>Boolean(quoteText(c))) ? <p className="font-sans text-cap tracking-[0.08em] text-ink-3">{t('citeContext')}</p> : null}
                 {citeList.map(renderReference)}
+                {panel.backgrounds.map((group,k)=><section key={k} className="flex flex-col gap-4 border-t border-ink/10 pt-4" aria-label={group.label}>
+                  <p className="font-sans text-cap tracking-[0.08em] text-ink-3">{group.label}</p>
+                  <p className="text-sm leading-[1.9] text-ink-2">{group.description}</p>
+                  {group.conditions.map((condition,j)=><div key={j} className="flex flex-col gap-1">{referenceConditionParts(condition).map((part,n)=><p key={n} className="text-sm leading-[1.9] text-ink-2">{part.label ? <span className="font-medium">{part.label}</span> : null}{part.text}</p>)}</div>)}
+                  {group.references.map(renderReference)}
+                </section>)}
               </div>
             ) : null}
 

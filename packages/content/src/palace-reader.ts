@@ -1,3 +1,4 @@
+import type {AnalysisRecorder} from './analysis-record';
 import { remainingPalaceReading, remainingPalaceSource } from './palace-remaining';
 import { focusedPalaceReading, focusedPalaceSource } from './palace-focused';
 import { sanFangPalaces, queryNatalStar, type Chart, type Palace } from '@guanwei/ziwei';
@@ -24,10 +25,10 @@ export const palaceReadingSource = (id: string) => sources.get(id) ?? focusedPal
 export const PALACE_READER_PALACES = data.palaces.map((p) => p.palace);
 
 /** 成書時寫入；主題段不冒充整組個人分支，明確細分只用已核條件。 */
-export function palaceReading(chart: Chart, palace: string, year: number): FreeReadingSegment[] | null {
-  const focused = focusedPalaceReading(chart, palace, year);
+export function palaceReading(chart: Chart, palace: string, year: number, separateRuleReferences = false, recorder?: AnalysisRecorder): FreeReadingSegment[] | null {
+  const focused = focusedPalaceReading(chart, palace, year, separateRuleReferences, recorder);
   if (focused) return focused;
-  const remaining = remainingPalaceReading(chart, palace, year);
+  const remaining = remainingPalaceReading(chart, palace, year, separateRuleReferences, recorder);
   if (remaining) return remaining;
   const entry = entries.get(palace);
   const p = chart.palaces.find((q) => q.name === palace);

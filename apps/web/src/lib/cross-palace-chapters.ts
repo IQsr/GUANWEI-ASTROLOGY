@@ -13,7 +13,7 @@ const union=<T,>(items:T[])=>[...new Set(items)];
 const sourced=(s:Segment)=>s.statements?.some((l)=>l.citations.length)??false;
 const readerNote=(s:string)=>copy.noteReplacements.reduce((text,[before,after])=>text.replaceAll(before!,after!),readerReferenceLanguage(referenceEditorialWording(s)));
 
-/** Called only while creating the explicitly selected preview; saved chapters are never recalculated. */
+/** Selected while creating new books; all source/condition gates remain required. Saved chapters are never recalculated. */
 export function withCrossPalaceReading(chart:Chart,palace:string,year:number,input:Segment[],analysis:CrossAnalysis):Segment[]{
   if(analysis.integrity.status!=='matched')return input;
   const entry=data.entries.find((e)=>e.family===analysis.family&&e.palace===palace);

@@ -1,4 +1,11 @@
+import {BookAnalysis} from '@guanwei/content/analysis-record';
+import {attachBookAnalysis,collectCrossDecisions} from './book-analysis';
+import {collectBookP1Decisions} from '@guanwei/content/analysis-record';
+import {withBookP1Chapters,withBookP1Epilogue} from './book-p1-reading';
+import type {BirthInput} from '@guanwei/ziwei';
+import type {CrossAnalysis} from './cross-palace-chapters';
 import {lifeStepsReading} from './life-steps-reading';
+import {alignReviewedChapters,withReadingEpilogue} from './epilogue-reading';
 import 'server-only';
 import {withCrossPalaceReading,analyzeCrossPalaces} from '@/lib/cross-palace-chapters';
 import {
@@ -149,6 +156,7 @@ export function localizeMarked(marked: MarkedChapter[], locale: string): MarkedC
     segments: c.segments.map((s) => ({ ...s, ...(s.heading ? { heading: hans(s.heading) } : {}),
       ...(s.referenceConditions ? { referenceConditions: s.referenceConditions.map(hans) } : {}),
       ...(s.referenceApplicability ? { referenceApplicability: s.referenceApplicability.map(hans) } : {}),
+      ...(s.referenceBackground ? {referenceBackground:s.referenceBackground.map(g=>({...g,label:hans(g.label),description:hans(g.description),conditions:g.conditions.map(hans)}))} : {}),
       runs: s.runs.map((r) => ({ ...r, text: hans(r.text) })) })),
   }));
 }
@@ -207,7 +215,7 @@ export function chaptersOf(
  */
 export function bookChapters(
   chart: ZChart,
-  opts: { seed: string; year: number; solar: { y: number; m: number; d: number }; place: string; crossPalaceReading?: boolean; birthSex?: 'male'|'female' },
+  opts: { seed: string; year: number; solar: { y: number; m: number; d: number }; place: string; crossPalaceReading?: boolean; separateRuleReferences?: boolean; birthSex?: 'male'|'female'; birthInput?:BirthInput; analysisRecorder?:BookAnalysis; crossAnalysis?:CrossAnalysis },
 ): { slug: string; title?: string; text: string; slots: string[]; reading?: ChapterReading }[] | null {
   const palaces = chaptersOf(chart, { seed: opts.seed, year: opts.year });
   if (!palaces) return null;
@@ -298,10 +306,10 @@ export function bookChapters(
   });
   // 六十星系繁簡閱讀稿；英日保存同一成書時刻的完整原版。
   const revised = freeMingReading(chart, opts.year);
-  const cross = opts.crossPalaceReading ? analyzeCrossPalaces(chart,{birthSex:opts.birthSex}) : null;
+  const cross = opts.crossPalaceReading ? opts.crossAnalysis ?? analyzeCrossPalaces(chart,{birthSex:opts.birthSex}) : null;
   return originals.map((p) => {
     const isMing = p.slug === '命宮' || p.slug === '性格的骨架';
-    const selected = p.slug === '命宮' ? revised?.ming : p.slug === '性格的骨架' ? revised?.bone : palaceReading(chart, p.slug, opts.year);
+    const selected = p.slug === '命宮' ? revised?.ming : p.slug === '性格的骨架' ? revised?.bone : palaceReading(chart, p.slug, opts.year, opts.separateRuleReferences, opts.analysisRecorder);
     if (!selected) return p;
     const baseSegments = withPalaceAdvice(chart, p.slug, opts.year, palaceNarrative(chart, p.slug, opts.year, selected));
     const segments = (cross ? withCrossPalaceReading(chart,p.slug,opts.year,baseSegments,cross) : baseSegments)
@@ -311,6 +319,20 @@ export function bookChapters(
       international: { text: p.text, slots: p.slots }, internationalSnapshot };
     return { ...p, ...body(segments), reading };
   });
+}
+
+/** New-book entry shared by production casting, the public sample and local previews.
+ * The baseline builder stays available for exact historical regression comparisons.
+ * Existing saved books are read from their snapshots and never call this function.
+ */
+export function createBookChapters(chart:ZChart,opts:Omit<Parameters<typeof bookChapters>[1],'crossPalaceReading'|'separateRuleReferences'|'analysisRecorder'|'crossAnalysis'>){
+ const birthSex=opts.birthSex??opts.birthInput?.sex;
+ const cross=analyzeCrossPalaces(chart,{birthSex});
+ const ledger=new BookAnalysis(chart,{...opts,birthSex},cross.facts.map(f=>f.position));
+ collectCrossDecisions(ledger,cross);
+ const p1=collectBookP1Decisions(ledger);
+ const book=bookChapters(chart,{...opts,birthSex,crossPalaceReading:true,separateRuleReferences:true,analysisRecorder:ledger,crossAnalysis:cross});
+ return book?attachBookAnalysis(chart,withBookP1Epilogue(withReadingEpilogue(chart,withBookP1Chapters(alignReviewedChapters(chart,book),p1,ledger.decisions)),p1,ledger.decisions),ledger):null;
 }
 
 /**

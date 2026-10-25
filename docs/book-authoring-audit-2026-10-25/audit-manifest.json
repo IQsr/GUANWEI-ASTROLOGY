@@ -1,0 +1,54 @@
+{
+  "date": "2026-10-25",
+  "scope": "planning-and-inventory-only; no product edits",
+  "baseCommit": "182d9048304bcd10fefe81ba8875b40c323dea11",
+  "branch": "codex/cross-palace-production",
+  "bookYear": 2026,
+  "structuralSampling": {
+    "existingFixtures": 72,
+    "newOppositeBranchCases": 72,
+    "searchSeedHex": "61b00c25",
+    "draws": 881,
+    "selection": "only missing legal system / native-or-borrowed / branch; not score or prose quality"
+  },
+  "newSampling": {
+    "seed": 20261025,
+    "count": 24,
+    "years": "1950–2024",
+    "day": "1–28",
+    "timezone": "Asia/Hong_Kong",
+    "distinctSystems": 18,
+    "youthCount": 5,
+    "status": "new audit samples; no longer unseen holdout after this inventory"
+  },
+  "counts": {
+    "localProfileSlots": 720,
+    "structuralCases": 144,
+    "palaceRows": 1728,
+    "nativePalaceRows": 1440,
+    "borrowedPalaceRows": 288,
+    "reviewedCases": 8,
+    "newCases": 24,
+    "totalBooks": 176,
+    "chapterRecords": 3344,
+    "chaptersWithRichCitationIds": 2639,
+    "distinctResolvedCitations": 1139,
+    "unresolvedRichCitations": 0,
+    "exactDuplicateAdviceParagraphs": 0
+  },
+  "sourceReview": "global methods, palace scopes and named gaps reread; not a line-by-line semantic certification of 720 cells",
+  "sourceFingerprint": "513e3d068040efe3684eb3c0e44cf6e447787670bbf5d618f022da2d6c55231b",
+  "productFingerprints": {
+    "apps/web/src/lib/mingshu.ts": "5b519d341cd8993f96e4534d98b3ed809a7a14090720ff73b958c27a22180109",
+    "apps/web/src/lib/epilogue-reading.ts": "5767aecda2eeca4b31f7c4389c294b254696928087adc58e4af6a4113acdb508",
+    "apps/web/src/lib/cross-palace-reading.json": "bca37e98ec2747e21cbdbc25d4afaac74e4f7feeb313787aefa5c60bf0d1d524",
+    "packages/content/src/cards/free-ming-systems.json": "b03467776dccc20b9ca204a1565a3446294a6f7e9782971335de7b4af53d47b1",
+    "packages/content/src/cards/palace-focused.json": "f47a4e4d5bf59de873a32c0e502866c17622e1c69ba2b43d36e52fa17560bcc1",
+    "packages/content/src/cards/palace-remaining.json": "a4fe92fdbccaa68d2a70a7c6e5ad01a420684a15f16673f3e9063ad71b665fbd",
+    "packages/content/src/cards/engine-p1a-rules.json": "41d10d7d28631f4c3d698e54f93b6badce7d42ea98d718c1b07e6d2a3862a51d",
+    "packages/content/src/cards/engine-p1b-rules.json": "28d1f1ab922eb101a3471094e93036e5e6c31f31a06823aec1c599af039dd3aa",
+    "packages/content/src/cards/engine-p1-cross-rules.json": "569d6947526bfb4f913cb105d0555c2b17745a978d659dea251f654c97179e08"
+  },
+  "temporaryProbe": "tmp/systematic-book-audit-2026-10-25/inventory.test.ts",
+  "matrixCodesAre": "coverage observations or manual-review candidates; not automatic astrology error verdicts"
+}

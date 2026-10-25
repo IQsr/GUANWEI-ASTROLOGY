@@ -1,0 +1,127 @@
+{
+  "date": "2026-10-25",
+  "scope": "P0共用紀錄及上一批已核參照格式的相容性重新綁定；保留修改前審核值，不更新規則、原文、樣本結果或完整分析報告hash。",
+  "evidence": {
+    "head_reader_default": {
+      "books": 176,
+      "palaceReadings": 1936,
+      "changedLegacyTextReferencesConditions": 0
+    },
+    "pre_p0_whole_book": {
+      "books": 176,
+      "unchangedChapters": 3344,
+      "changedProseOrReferenceSnapshots": 0,
+      "maxBookJsonBytes": 1090325,
+      "meanBookJsonBytes": 717958
+    },
+    "package": "刪除兩個新增export後，整份package.json語意與HEAD完全相同",
+    "rules": "現有docs/rules.md以HEAD全文作前綴；只附加R-010，既有流派／安星決定未改",
+    "conditions": "83條predicate的72盤三態結果、facts與checks既有測試通過；unknown／borrow／time反例仍保存",
+    "reports": "三組P1a／P1b／跨宮完整report_sha256原值保留，重新綁定後須通過原測試，不可刷新報告"
+  },
+  "audits": [
+    {
+      "audit": "packages/content/src/cards/engine-p0-review.json",
+      "rebindings": [
+        {
+          "path": "packages/content/src/palace-focused.ts",
+          "reviewed_before_sha256": "45b3553f0df8844dc3c56c0b1daed49f2b118f401f8929c8321c1d7d4c6a050e",
+          "revalidated_after_sha256": "10b8c0001d81fb0c8f79a48fb16e24ca06cc8412a02f4cf9c899e18d1ae4dd5c",
+          "reason": "exact default-reader equivalence + pre-P0 whole-book equivalence"
+        },
+        {
+          "path": "packages/content/src/palace-remaining.ts",
+          "reviewed_before_sha256": "d73654dc9f0fcc1a71eeba242dd46f9ca704d8c702ae30f5cb024947e9d5a14f",
+          "revalidated_after_sha256": "0e0c1e8a05a282e2fae446e69a75b15c0a5af79a89724b50b5b68b4c418c7e24",
+          "reason": "exact default-reader equivalence + pre-P0 whole-book equivalence"
+        },
+        {
+          "path": "packages/content/src/palace-reader.ts",
+          "reviewed_before_sha256": "dc1f394354c1995be4d679257c6f171edf7d8d2f9af535274214ebee4d7c16ea",
+          "revalidated_after_sha256": "37acd8b041e530ba7dffe93f345a33413260809a2aa00578dd9d015ef6dd96fd",
+          "reason": "exact default-reader equivalence + pre-P0 whole-book equivalence"
+        }
+      ],
+      "all_other_fields_unchanged_sha256": "e4cc56566a7ad833d6483c42c901ad09239726985fc816a21ddadc9a946bb0c7"
+    },
+    {
+      "audit": "packages/content/src/cards/engine-p1a-review.json",
+      "rebindings": [
+        {
+          "path": "packages/content/package.json",
+          "reviewed_before_sha256": "441a419b18a2de2e2cc389653c62b0d54bf2f81587cab7e984d0ce7bf81dcd83",
+          "revalidated_after_sha256": "41d4820c7c6fa10a8ecd6dc768400ded0cfd94220a6df470fe473de8ba4e73aa",
+          "reason": "two additive exports only"
+        }
+      ],
+      "all_other_fields_unchanged_sha256": "7a4f4e565cde8d2a678aaa31e51145efe61177fec76d712f149257165b90bde8"
+    },
+    {
+      "audit": "packages/content/src/cards/engine-p1b-review.json",
+      "rebindings": [
+        {
+          "path": "packages/content/package.json",
+          "reviewed_before_sha256": "441a419b18a2de2e2cc389653c62b0d54bf2f81587cab7e984d0ce7bf81dcd83",
+          "revalidated_after_sha256": "41d4820c7c6fa10a8ecd6dc768400ded0cfd94220a6df470fe473de8ba4e73aa",
+          "reason": "two additive exports only"
+        },
+        {
+          "path": "docs/rules.md",
+          "reviewed_before_sha256": "b36da2cc9a50998aafd16dcd9f4fda52cc6c4f5d59f7f1be74da522c4618d0c6",
+          "revalidated_after_sha256": "f218a0b6cc09c802d6e152e15bdfa5a52c1ff6992f3cc454aacb6b93227cad12",
+          "reason": "R-010 appended; all previous rule decisions byte-identical"
+        }
+      ],
+      "all_other_fields_unchanged_sha256": "90b402167eb9732ab78064cb44bcf6285f44be051629e4681d6cb2a2c86b34e4"
+    },
+    {
+      "audit": "packages/content/src/cards/engine-p1-cross-review.json",
+      "rebindings": [
+        {
+          "path": "packages/content/package.json",
+          "reviewed_before_sha256": "441a419b18a2de2e2cc389653c62b0d54bf2f81587cab7e984d0ce7bf81dcd83",
+          "revalidated_after_sha256": "41d4820c7c6fa10a8ecd6dc768400ded0cfd94220a6df470fe473de8ba4e73aa",
+          "reason": "two additive exports only"
+        }
+      ],
+      "all_other_fields_unchanged_sha256": "649f489fa87193fd44ac4a98521ac29541533eb468ba0019fe6db6b2782406fe"
+    },
+    {
+      "audit": "packages/content/src/cards/palace-narrative.json",
+      "rebindings": [
+        {
+          "path": "packages/content/src/palace-reader.ts",
+          "reviewed_before_sha256": "dc1f394354c1995be4d679257c6f171edf7d8d2f9af535274214ebee4d7c16ea",
+          "revalidated_after_sha256": "37acd8b041e530ba7dffe93f345a33413260809a2aa00578dd9d015ef6dd96fd",
+          "reason": "exact default-reader equivalence + pre-P0 whole-book equivalence"
+        },
+        {
+          "path": "packages/content/src/palace-focused.ts",
+          "reviewed_before_sha256": "45b3553f0df8844dc3c56c0b1daed49f2b118f401f8929c8321c1d7d4c6a050e",
+          "revalidated_after_sha256": "10b8c0001d81fb0c8f79a48fb16e24ca06cc8412a02f4cf9c899e18d1ae4dd5c",
+          "reason": "exact default-reader equivalence + pre-P0 whole-book equivalence"
+        },
+        {
+          "path": "packages/content/src/palace-remaining.ts",
+          "reviewed_before_sha256": "d73654dc9f0fcc1a71eeba242dd46f9ca704d8c702ae30f5cb024947e9d5a14f",
+          "revalidated_after_sha256": "0e0c1e8a05a282e2fae446e69a75b15c0a5af79a89724b50b5b68b4c418c7e24",
+          "reason": "exact default-reader equivalence + pre-P0 whole-book equivalence"
+        }
+      ],
+      "all_other_fields_unchanged_sha256": "541c62ff4677034bb85d3ee2e84bca7f5ba41b782265888f99e453a37a011e53"
+    },
+    {
+      "audit": "packages/content/src/cards/palace-coherence-review.json",
+      "rebindings": [
+        {
+          "path": "packages/content/src/cards/palace-narrative.json",
+          "reviewed_before_sha256": "1c42581dd8f4966db23b3b88d680a86a7d42505c34228674e66a0030892411df",
+          "revalidated_after_sha256": "9402702a57958fddaa4a3149918c9820fdfc297f2c6c8d1a1e09ae404bf5dfa9",
+          "reason": "舊審核前值與HEAD相同；本輪逐項核對所有prose_changes仍精確吻合，176書3344章與本輪修改前相同。只重新綁定後續原已核改動及P0 metadata；原文、條件及改稿裁定不變。"
+        }
+      ],
+      "verified_prose_changes": 174,
+      "all_other_fields_unchanged_sha256": "d6770e741a7c4c6c21699fc119e2b2647c7a6a1a9f75b60dfe88dbfa3b71e214"
+    }
+  ]
+}
