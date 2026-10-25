@@ -25,6 +25,7 @@ import {
   isYouthReader,
   youthPass,
   freeMingReading,
+  withConditionalBranches,
   palaceReading,
   withPalaceAdvice,
   palaceNarrative,
@@ -215,7 +216,7 @@ export function chaptersOf(
  */
 export function bookChapters(
   chart: ZChart,
-  opts: { seed: string; year: number; solar: { y: number; m: number; d: number }; place: string; crossPalaceReading?: boolean; separateRuleReferences?: boolean; birthSex?: 'male'|'female'; birthInput?:BirthInput; analysisRecorder?:BookAnalysis; crossAnalysis?:CrossAnalysis },
+  opts: { seed: string; year: number; solar: { y: number; m: number; d: number }; place: string; crossPalaceReading?: boolean; separateRuleReferences?: boolean; birthSex?: 'male'|'female'; birthInput?:BirthInput; analysisRecorder?:BookAnalysis; crossAnalysis?:CrossAnalysis; conditionalMingBranches?: boolean },
 ): { slug: string; title?: string; text: string; slots: string[]; reading?: ChapterReading }[] | null {
   const palaces = chaptersOf(chart, { seed: opts.seed, year: opts.year });
   if (!palaces) return null;
@@ -312,7 +313,10 @@ export function bookChapters(
     const selected = p.slug === '命宮' ? revised?.ming : p.slug === '性格的骨架' ? revised?.bone : palaceReading(chart, p.slug, opts.year, opts.separateRuleReferences, opts.analysisRecorder);
     if (!selected) return p;
     const baseSegments = withPalaceAdvice(chart, p.slug, opts.year, palaceNarrative(chart, p.slug, opts.year, selected));
-    const segments = (cross ? withCrossPalaceReading(chart,p.slug,opts.year,baseSegments,cross) : baseSegments)
+    type Row = ReturnType<typeof withCrossPalaceReading>[number] | (typeof baseSegments)[number];
+    const crossed: Row[] = cross ? withCrossPalaceReading(chart,p.slug,opts.year,baseSegments,cross) : baseSegments;
+    // 新書（createBookChapters）命宮／骨架揀句：條件唔成立嘅四化分支唔出；基準入口照舊，歷史比對唔變。
+    const segments = (isMing && opts.conditionalMingBranches ? withConditionalBranches(chart, crossed) : crossed)
       .map((row) => ({ ...row, ...(row.referenceConditions ? { referenceConditions: row.referenceConditions.map(readerReferenceLanguage) } : {}) }));
     const internationalSnapshot = { text: p.text, slots: p.slots, ...('reading' in p && p.reading ? { reading: p.reading } : {}) };
     const reading: ChapterReading = { format: 'ming-expanded-v1', writer: isMing ? 'reader-backed-v1' : 'palace-reader-v1', segments,
@@ -325,13 +329,13 @@ export function bookChapters(
  * The baseline builder stays available for exact historical regression comparisons.
  * Existing saved books are read from their snapshots and never call this function.
  */
-export function createBookChapters(chart:ZChart,opts:Omit<Parameters<typeof bookChapters>[1],'crossPalaceReading'|'separateRuleReferences'|'analysisRecorder'|'crossAnalysis'>){
+export function createBookChapters(chart:ZChart,opts:Omit<Parameters<typeof bookChapters>[1],'crossPalaceReading'|'separateRuleReferences'|'analysisRecorder'|'crossAnalysis'|'conditionalMingBranches'>){
  const birthSex=opts.birthSex??opts.birthInput?.sex;
  const cross=analyzeCrossPalaces(chart,{birthSex});
  const ledger=new BookAnalysis(chart,{...opts,birthSex},cross.facts.map(f=>f.position));
  collectCrossDecisions(ledger,cross);
  const p1=collectBookP1Decisions(ledger);
- const book=bookChapters(chart,{...opts,birthSex,crossPalaceReading:true,separateRuleReferences:true,analysisRecorder:ledger,crossAnalysis:cross});
+ const book=bookChapters(chart,{...opts,birthSex,crossPalaceReading:true,separateRuleReferences:true,analysisRecorder:ledger,crossAnalysis:cross,conditionalMingBranches:true});
  return book?attachBookAnalysis(chart,withBookP1Epilogue(withReadingEpilogue(chart,withBookP1Chapters(alignReviewedChapters(chart,book),p1,ledger.decisions)),p1,ledger.decisions),ledger):null;
 }
 
