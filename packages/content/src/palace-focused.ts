@@ -70,7 +70,8 @@ export function focusedPalaceReading(chart: Chart, palace: string, year: number,
     const text = palace === '田宅'
       ? '田宅亦參照服務機構與環境變動。居住、產業與工作基礎可以分開對照；其中一邊的情況，未能代替另一邊的實際生活。原書亦明說投機買賣的得失，一般不能由田宅宮顯示。'
       : '本章保留原書對關係的觀察範圍；支持、相處磨合與環境阻力分開看，不把一項配置換成伴侶品德、婚姻次數或已發生的結局。';
-    const boundary = make(`${palace}-focused-scope`, '這章的閱讀範圍', text, [palace === '田宅' ? 'property-scope' : 'spouse-scope'], ['這段是原書範圍與編輯閱讀說明，不是另一項已成立的個人結果。']);
+    /* 《深造講義》夫妻宮篇首只得標題（PDF377），冇總論可引；舊 spouse-scope 係巨門專段，唔再掛。JSON 保留俾已存舊書讀。 */
+    const boundary = make(`${palace}-focused-scope`, '這章的閱讀範圍', text, palace === '田宅' ? ['property-scope'] : [], ['這段是原書範圍與編輯閱讀說明，不是另一項已成立的個人結果。']);
     boundary.statements.at(-1)!.kind = 'editorial-explanation';
     result.push(boundary);
   }
