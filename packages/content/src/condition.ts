@@ -114,7 +114,21 @@ export type Condition =
   /** 大限順行／逆行（陽男陰女順行）。 */
   | { decadeOrder: 'forward' | 'backward' }
   /** 而家行緊嘅大限起運歲數（虛歲）喺呢個範圍：`lt` 以下、`gte` 或以上。要流年資料。 */
-  | { decadeAge: { lt?: number; gte?: number } };
+  | { decadeAge: { lt?: number; gte?: number } }
+  /** 日生／夜生，見 `birthHalf`。 */
+  | { birth: BirthHalf };
+
+/**
+ * 日生／夜生（2026-10-26）。王亭之《深造講義》上篇主星論：
+ *   p.9「日生人(寅卯辰巳午未時生人)以太陽為中天主星」；
+ *   p.9–10、p.21「夜生人(申酉戌亥子丑時生人)」。
+ * 只按安命嘅時辰地支分，唔再用真太陽時或節氣另劃日夜；子時（早子晚子）一律夜生。
+ */
+export type BirthHalf = '日生' | '夜生';
+export function birthHalf(chart: Pick<Chart, 'lunar'>): BirthHalf {
+  const s = chart.lunar.shichen;
+  return s >= 2 && s <= 7 ? '日生' : '夜生';
+}
 
 export type FlowName = '祿存' | '擎羊' | '陀羅' | '文昌' | '文曲' | '天魁' | '天鉞' | '天馬';
 export type GejuName = 'baiguan' | 'zaiye' | 'kongku' | 'luku' | 'caiyinShape' | 'caiyin' | 'xingji' | 'shizhong';
@@ -509,6 +523,11 @@ export function evaluate(cond: Condition, context: EvalContext): EvalResult {
     const fwd = BRANCHES.indexOf(d2.branch) === (BRANCHES.indexOf(d1.branch) + 1) % 12;
     if ((cond.decadeOrder === 'forward') !== fwd) return { status: 'unmatched' };
     return { status: 'matched', bindings: [{ layer: 'natal', palace: null, branch: null, star: null, hua: null, note: `大限${fwd ? '順' : '逆'}行` }] };
+  }
+  if ('birth' in cond) {
+    const half = birthHalf(ctx.chart);
+    if (half !== cond.birth) return { status: 'unmatched' };
+    return { status: 'matched', bindings: [{ layer: 'natal', palace: null, branch: null, star: null, hua: null, note: `${BRANCHES[ctx.chart.lunar.shichen]}時生，屬${half}人` }] };
   }
   if ('decadeAge' in cond) {
     if (!ctx.annual) return { status: 'not_applicable', reason: '冇流年資料，唔知行緊邊個大限' };

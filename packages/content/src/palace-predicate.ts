@@ -1,7 +1,7 @@
-import { oppositeBranch, sanFangPalaces, lookupNatalStar, QUERYABLE_NATAL_STARS, type Chart, type Palace, type Sihua } from '@guanwei/ziwei';
-import { evaluate, combineEvaluations, type Condition, type EvalResult } from './condition';
+import { BRANCHES, oppositeBranch, sanFangPalaces, lookupNatalStar, QUERYABLE_NATAL_STARS, type Chart, type Palace, type Sihua } from '@guanwei/ziwei';
+import { evaluate, combineEvaluations, birthHalf, type Condition, type EvalResult } from './condition';
 
-export type PalacePredicate = { op: string; scope?: string; names?: string[]; hua?: string; branches?: string[]; args?: PalacePredicate[] };
+export type PalacePredicate = { op: string; scope?: string; names?: string[]; hua?: string; branches?: string[]; is?: string; args?: PalacePredicate[] };
 export type PalaceEvaluation = { matched: boolean; status: EvalResult['status']; facts: string[]; checks: string[]; reason?: string };
 const label = (p: Palace) => `${p.name.endsWith('宮') ? p.name : `${p.name}宮`}${p.branch}`;
 
@@ -29,7 +29,16 @@ export function evaluatePalacePredicate(when: PalacePredicate, chart: Chart, p: 
     return { matched, status: matched ? 'matched' : 'unmatched', facts: [],
       checks: [`宮支要求${when.branches!.join('／')}，本宮${p.branch}：${matched ? '符合' : '不符合'}。`] };
   }
-  if (!['has', 'lacks-hua'].includes(when.op)) throw Error(`Unknown reviewed predicate: ${when.op}`);
+  if (when.op === 'birth') {
+    // 日生／夜生只由安命時辰定（見 condition `birthHalf`）；唔需要宮位資料。
+    if (when.is !== '日生' && when.is !== '夜生') throw Error(`Unknown birth half: ${when.is}`);
+    const half = birthHalf(chart);
+    const matched = half === when.is;
+    return { matched, status: matched ? 'matched' : 'unmatched', facts: matched ? [`${BRANCHES[chart.lunar.shichen]}時生，屬${half}人`] : [],
+      checks: [`日夜生要求${when.is}人（原書以寅至未時為日生、申至丑時為夜生），本盤${BRANCHES[chart.lunar.shichen]}時生：${matched ? '符合' : '不符合'}。`] };
+  }
+  if (!['has', 'lacks-hua', 'lacks'].includes(when.op)) throw Error(`Unknown reviewed predicate: ${when.op}`);
+  if (when.op === 'lacks' && when.hua) throw Error('lacks takes stars only; use lacks-hua for 四化');
   const names = when.names ?? [];
   const huas = when.hua?.split(' ') ?? [];
   const selected = scope(chart, p, when.scope!);
@@ -39,7 +48,7 @@ export function evaluatePalacePredicate(when: PalacePredicate, chart: Chart, p: 
     { star, at: selected.map((q) => q.branch) },
     ...(huas.length ? [{ any: huas.map((hua): Condition => ({ star, hua: hua as Sihua })) }] : []),
   ] })) };
-  const result = evaluate(when.op === 'lacks-hua' ? { not: cond } : cond, { chart });
+  const result = evaluate(when.op === 'has' ? cond : { not: cond }, { chart });
   // Preserve the original native palace/star order for existing facts. Append helpers only when requested/present.
   const located = candidates.map((star) => lookupNatalStar(chart, star));
   const hits = selected.flatMap((q) => {

@@ -13683,6 +13683,734 @@
         "七殺本宮、紫微本命科與輔佐真在四方；親屬與主管的範圍分開。"
       ],
       "priority": 75
+    },
+    {
+      "id": "siblings-moon-night-bright",
+      "palace": "兄弟",
+      "keys": [
+        "has:太陰"
+      ],
+      "when": {
+        "op": "all",
+        "args": [
+          {
+            "op": "branch",
+            "branches": [
+              "子",
+              "酉",
+              "戌",
+              "亥"
+            ]
+          },
+          {
+            "op": "birth",
+            "is": "夜生"
+          }
+        ]
+      },
+      "heading": "太陰入廟又屬夜生，原書最吉的一支",
+      "text": "太陰守兄弟宮，原書以入廟、夜生人為最吉。這是太陰在兄弟宮相處最和美的一支。",
+      "sources": [
+        "cond2-siblings-moon-night-bright"
+      ],
+      "conditions": [
+        "太陰實坐兄弟宮且入廟，丑宮日月同度另論；太陰廟陷只取各表皆同的兩端（廟旺子丑酉戌亥、落陷卯辰巳午）；日生按原書寅至未時、夜生按申至丑時（上篇主星論p.9、p.21），只按安命時辰分。落陷及見煞的刑克分支不在此採用。"
+      ],
+      "priority": 75,
+      "since": "palace-conditions-v2"
+    },
+    {
+      "id": "siblings-moon-day",
+      "palace": "兄弟",
+      "keys": [
+        "has:太陰"
+      ],
+      "when": {
+        "op": "all",
+        "args": [
+          {
+            "op": "branch",
+            "branches": [
+              "子",
+              "酉",
+              "戌",
+              "亥"
+            ]
+          },
+          {
+            "op": "birth",
+            "is": "日生"
+          }
+        ]
+      },
+      "heading": "日生人遇太陰，入廟也未算和美",
+      "text": "太陰守兄弟宮，原書說日生人值之，雖入廟亦不和美；要見吉曜才轉和美，而且仍有缺憾。重點在相處較難完全稱心，並非關係一定不好。",
+      "sources": [
+        "cond2-siblings-moon-day"
+      ],
+      "conditions": [
+        "太陰實坐兄弟宮且入廟，丑宮日月同度另論；太陰廟陷只取各表皆同的兩端（廟旺子丑酉戌亥、落陷卯辰巳午）；日生按原書寅至未時、夜生按申至丑時（上篇主星論p.9、p.21），只按安命時辰分。見吉曜、見煞兩支未另判；刑克斷語不用。"
+      ],
+      "priority": 74,
+      "since": "palace-conditions-v2"
+    },
+    {
+      "id": "wealth-moon-night-bright",
+      "palace": "財帛",
+      "keys": [
+        "has:太陰"
+      ],
+      "when": {
+        "op": "all",
+        "args": [
+          {
+            "op": "branch",
+            "branches": [
+              "子",
+              "酉",
+              "戌",
+              "亥"
+            ]
+          },
+          {
+            "op": "birth",
+            "is": "夜生"
+          }
+        ]
+      },
+      "heading": "太陰入廟，夜生人原書評價最高",
+      "text": "太陰入廟守財帛宮，原書說夜生人決主富貴，社會地位亦由財富而來；日生人次之。這是原書對太陰財帛評價最高的一支。",
+      "sources": [
+        "cond2-wealth-moon-night-bright"
+      ],
+      "conditions": [
+        "太陰實坐財帛宮且入廟，丑宮日月同度另有專條；太陰廟陷只取各表皆同的兩端（廟旺子丑酉戌亥、落陷卯辰巳午）；日生按原書寅至未時、夜生按申至丑時（上篇主星論p.9、p.21），只按安命時辰分。"
+      ],
+      "priority": 76,
+      "since": "palace-conditions-v2"
+    },
+    {
+      "id": "wealth-moon-day-fallen",
+      "palace": "財帛",
+      "keys": [
+        "has:太陰"
+      ],
+      "when": {
+        "op": "all",
+        "args": [
+          {
+            "op": "branch",
+            "branches": [
+              "卯",
+              "辰",
+              "巳",
+              "午"
+            ]
+          },
+          {
+            "op": "birth",
+            "is": "日生"
+          }
+        ]
+      },
+      "heading": "太陰落陷又屬日生，進財較吃力",
+      "text": "太陰落陷守財帛宮，原書主進財維艱；夜生人尚較吉，日生人更甚。這張盤正是原書說較吃力的一支。",
+      "sources": [
+        "cond2-wealth-moon-day-fallen"
+      ],
+      "conditions": [
+        "太陰實坐財帛宮且落陷；太陰廟陷只取各表皆同的兩端（廟旺子丑酉戌亥、落陷卯辰巳午）；日生按原書寅至未時、夜生按申至丑時（上篇主星論p.9、p.21），只按安命時辰分。"
+      ],
+      "priority": 76,
+      "since": "palace-conditions-v2"
+    },
+    {
+      "id": "wealth-yinyang-night",
+      "palace": "財帛",
+      "keys": [
+        "太陽+太陰"
+      ],
+      "when": {
+        "op": "birth",
+        "is": "夜生"
+      },
+      "heading": "先散後聚，夜生人較優",
+      "text": "太陽、太陰同守財帛，原書的基本性質是先散後聚，丑宮的「後聚」力量大於未宮；原書並明言夜生人優於日生人。",
+      "sources": [
+        "cond2-wealth-yinyang-night"
+      ],
+      "conditions": [
+        "丑未太陽太陰同度實坐財帛宮；日生按原書寅至未時、夜生按申至丑時（上篇主星論p.9、p.21），只按安命時辰分。輔弼魁鉞昌曲見與不見、化祿屬誰的分支另核。"
+      ],
+      "priority": 75,
+      "since": "palace-conditions-v2"
+    },
+    {
+      "id": "wealth-sun-wu-day",
+      "palace": "財帛",
+      "keys": [
+        "太陽"
+      ],
+      "when": {
+        "op": "all",
+        "args": [
+          {
+            "op": "branch",
+            "branches": [
+              "午"
+            ]
+          },
+          {
+            "op": "birth",
+            "is": "日生"
+          },
+          {
+            "op": "has",
+            "scope": "four",
+            "names": [],
+            "hua": "祿 權 科"
+          },
+          {
+            "op": "has",
+            "scope": "four",
+            "names": [
+              "左輔",
+              "右弼",
+              "文昌",
+              "文曲",
+              "天魁",
+              "天鉞"
+            ]
+          },
+          {
+            "op": "any",
+            "args": [
+              {
+                "op": "has",
+                "scope": "four",
+                "names": [],
+                "hua": "祿"
+              },
+              {
+                "op": "has",
+                "scope": "four",
+                "names": [
+                  "祿存"
+                ]
+              }
+            ]
+          },
+          {
+            "op": "lacks-hua",
+            "scope": "four",
+            "names": [
+              "天梁"
+            ],
+            "hua": "祿"
+          }
+        ]
+      },
+      "heading": "午宮太陽，原書既富且貴的一支",
+      "text": "午宮太陽居財帛宮，原書說日生人又有吉化吉曜，且見祿，主既富且貴，財權與地位兼得；子宮者遠不如午宮。",
+      "sources": [
+        "cond2-wealth-sun-wu-day"
+      ],
+      "conditions": [
+        "午宮太陽實坐財帛宮；日生按原書寅至未時、夜生按申至丑時（上篇主星論p.9、p.21），只按安命時辰分；三方四正見祿權科任一吉化、輔佐吉曜（左右昌曲魁鉞）任一，並見化祿或祿存。原書不喜天梁化祿（主貴不主富），見之不採。"
+      ],
+      "priority": 80,
+      "since": "palace-conditions-v2"
+    },
+    {
+      "id": "wealth-ji-chouwei-xing",
+      "palace": "財帛",
+      "keys": [
+        "天機"
+      ],
+      "when": {
+        "op": "all",
+        "args": [
+          {
+            "op": "branch",
+            "branches": [
+              "丑",
+              "未"
+            ]
+          },
+          {
+            "op": "any",
+            "args": [
+              {
+                "op": "has",
+                "scope": "own",
+                "names": [
+                  "天刑"
+                ]
+              },
+              {
+                "op": "has",
+                "scope": "own",
+                "names": [
+                  "擎羊"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "heading": "機巧求財，原書指向法律工作",
+      "text": "丑未天機落陷，與天梁相對，原書主以機關巧計求財，最宜費心機計謀的行業；本宮再見這類刑曜，原書指宜從事法律工作。",
+      "sources": [
+        "cond2-wealth-ji-chouwei-xing"
+      ],
+      "conditions": [
+        "丑未天機獨坐財帛宮；本宮實見天刑或擎羊其一。原書並列的奏書未有排盤資料，不作判定；天梁化科、天機化忌的分支另論。"
+      ],
+      "priority": 74,
+      "since": "palace-conditions-v2"
+    },
+    {
+      "id": "wealth-liang-xing",
+      "palace": "財帛",
+      "keys": [
+        "has:天梁"
+      ],
+      "when": {
+        "op": "has",
+        "scope": "own",
+        "names": [
+          "天刑"
+        ]
+      },
+      "heading": "監管性質，原書指向司法紀律",
+      "text": "天梁居財帛宮，帶管理、監察、查核的性質；與天刑同度，原書轉為刑法紀律的監管，可以司法、軍警一類工作作為求財手段。",
+      "sources": [
+        "cond2-wealth-liang-xing"
+      ],
+      "conditions": [
+        "天梁實坐財帛宮，天刑同在本宮。天月同度的醫藥一支未有排盤資料，不作判定；天梁化祿的糾紛分支另論。"
+      ],
+      "priority": 74,
+      "since": "palace-conditions-v2"
+    },
+    {
+      "id": "wealth-jumen-yang-xing",
+      "palace": "財帛",
+      "keys": [
+        "has:巨門"
+      ],
+      "when": {
+        "op": "all",
+        "args": [
+          {
+            "op": "has",
+            "scope": "own",
+            "names": [
+              "擎羊"
+            ]
+          },
+          {
+            "op": "has",
+            "scope": "own",
+            "names": [
+              "天刑"
+            ]
+          }
+        ]
+      },
+      "heading": "財帛帶競爭，競爭性行業反吉",
+      "text": "巨門、擎羊、天刑同在財帛宮，原書主財帛上的競爭；從事有競爭意味的行業，如法律、拍賣、經紀，原書反主吉祥。",
+      "sources": [
+        "cond2-wealth-jumen-yang-xing"
+      ],
+      "conditions": [
+        "巨門實坐財帛宮，擎羊與天刑同在本宮。原書同句另有詞訟一說，屬事件斷語不用。"
+      ],
+      "priority": 76,
+      "since": "palace-conditions-v2"
+    },
+    {
+      "id": "career-wupo-xing",
+      "palace": "官祿",
+      "keys": [
+        "武曲+破軍"
+      ],
+      "when": {
+        "op": "all",
+        "args": [
+          {
+            "op": "has",
+            "scope": "own",
+            "names": [
+              "天刑"
+            ]
+          },
+          {
+            "op": "lacks",
+            "scope": "own",
+            "names": [
+              "鈴星",
+              "陀羅"
+            ]
+          }
+        ]
+      },
+      "heading": "天刑同度，原書指向紀律與治安",
+      "text": "武曲、破軍在官祿宮與天刑同度，原書說宜軍旅或紀律部隊出身，或負情報治安之責；並以見輔佐吉曜為宜。",
+      "sources": [
+        "cond2-career-wupo-xing"
+      ],
+      "conditions": [
+        "巳亥武破實坐官祿宮，天刑同在本宮。原書下一條武破見鈴星、陀羅、陰煞、華蓋、天刑同度為偏門行業，本宮見鈴陀即不採；煞忌重重須防凶危屬事件斷語不用。"
+      ],
+      "priority": 75,
+      "since": "palace-conditions-v2"
+    },
+    {
+      "id": "career-tanlang-ziwu-xing",
+      "palace": "官祿",
+      "keys": [
+        "貪狼"
+      ],
+      "when": {
+        "op": "all",
+        "args": [
+          {
+            "op": "branch",
+            "branches": [
+              "子",
+              "午"
+            ]
+          },
+          {
+            "op": "has",
+            "scope": "own",
+            "names": [
+              "天刑"
+            ]
+          }
+        ]
+      },
+      "heading": "天刑同度，原書指向規範或幕後策劃",
+      "text": "子午貪狼與天刑同在官祿宮，原書主刑法，或主藝術表演的幕後策劃、編導，取其紀律與原則的意味。",
+      "sources": [
+        "cond2-career-tanlang-ziwu-xing"
+      ],
+      "conditions": [
+        "子午貪狼獨坐官祿宮，天刑同在本宮。"
+      ],
+      "priority": 75,
+      "since": "palace-conditions-v2"
+    },
+    {
+      "id": "career-qisha-yang-xing",
+      "palace": "官祿",
+      "keys": [
+        "has:七殺"
+      ],
+      "when": {
+        "op": "all",
+        "args": [
+          {
+            "op": "has",
+            "scope": "four",
+            "names": [
+              "擎羊"
+            ]
+          },
+          {
+            "op": "has",
+            "scope": "four",
+            "names": [
+              "天刑"
+            ]
+          },
+          {
+            "op": "has",
+            "scope": "four",
+            "names": [
+              "廉貞"
+            ],
+            "hua": "忌"
+          }
+        ]
+      },
+      "heading": "羊刑會照，原書指向需要精細手藝的醫療",
+      "text": "七殺守官祿宮而有煞，見擎羊、天刑，原書說可習外科手術、針灸、牙科一類；廉貞化忌者尤宜。",
+      "sources": [
+        "cond2-career-qisha-yang-xing"
+      ],
+      "conditions": [
+        "七殺實坐官祿宮，三方四正見擎羊、天刑及廉貞化忌。原書下一條有煞而無化忌者轉用利器行業，故本卡只取廉貞化忌「尤宜」一支。"
+      ],
+      "priority": 74,
+      "since": "palace-conditions-v2"
+    },
+    {
+      "id": "friends-moon-night-bright",
+      "palace": "僕役",
+      "keys": [
+        "has:太陰"
+      ],
+      "when": {
+        "op": "all",
+        "args": [
+          {
+            "op": "branch",
+            "branches": [
+              "子",
+              "酉",
+              "戌",
+              "亥"
+            ]
+          },
+          {
+            "op": "birth",
+            "is": "夜生"
+          }
+        ]
+      },
+      "heading": "交遊廣闊，原書說得益友",
+      "text": "太陰入廟守僕役宮，原書說夜生人交遊廣闊，且得益友。",
+      "sources": [
+        "cond2-friends-moon-night-bright"
+      ],
+      "conditions": [
+        "太陰實坐僕役宮且入廟，丑宮日月同度另論；太陰廟陷只取各表皆同的兩端（廟旺子丑酉戌亥、落陷卯辰巳午）；日生按原書寅至未時、夜生按申至丑時（上篇主星論p.9、p.21），只按安命時辰分。太陰四化的分支另論。"
+      ],
+      "priority": 75,
+      "since": "palace-conditions-v2"
+    },
+    {
+      "id": "friends-moon-day-fallen",
+      "palace": "僕役",
+      "keys": [
+        "has:太陰"
+      ],
+      "when": {
+        "op": "all",
+        "args": [
+          {
+            "op": "branch",
+            "branches": [
+              "卯",
+              "辰",
+              "巳",
+              "午"
+            ]
+          },
+          {
+            "op": "birth",
+            "is": "日生"
+          }
+        ]
+      },
+      "heading": "交往廣而不深",
+      "text": "太陰落陷守僕役宮，原書說日生人多泛泛之交。放回這章，是交往的廣度多於深度。",
+      "sources": [
+        "cond2-friends-moon-day-fallen"
+      ],
+      "conditions": [
+        "太陰實坐僕役宮且落陷；太陰廟陷只取各表皆同的兩端（廟旺子丑酉戌亥、落陷卯辰巳午）；日生按原書寅至未時、夜生按申至丑時（上篇主星論p.9、p.21），只按安命時辰分。原書同句「多損友」屬他人品格，不用。"
+      ],
+      "priority": 75,
+      "since": "palace-conditions-v2"
+    },
+    {
+      "id": "wellbeing-sun-night",
+      "palace": "福德",
+      "keys": [
+        "has:太陽"
+      ],
+      "when": {
+        "op": "all",
+        "args": [
+          {
+            "op": "branch",
+            "branches": [
+              "寅",
+              "卯",
+              "辰",
+              "巳",
+              "午",
+              "申",
+              "酉"
+            ]
+          },
+          {
+            "op": "birth",
+            "is": "夜生"
+          }
+        ]
+      },
+      "heading": "夜生人遇太陽，心境不易寧靜",
+      "text": "太陽在福德宮，原書說夜生人一般均主不得寧靜；只有丑未日月同度者例外。",
+      "sources": [
+        "cond2-wellbeing-sun-night"
+      ],
+      "conditions": [
+        "太陽實坐福德宮、不在丑未，亦非落陷；日生按原書寅至未時、夜生按申至丑時（上篇主星論p.9、p.21），只按安命時辰分。"
+      ],
+      "priority": 75,
+      "since": "palace-conditions-v2"
+    },
+    {
+      "id": "wellbeing-sun-night-fallen",
+      "palace": "福德",
+      "keys": [
+        "has:太陽"
+      ],
+      "when": {
+        "op": "all",
+        "args": [
+          {
+            "op": "branch",
+            "branches": [
+              "子",
+              "戌",
+              "亥"
+            ]
+          },
+          {
+            "op": "birth",
+            "is": "夜生"
+          }
+        ]
+      },
+      "heading": "夜生又落陷，原書說更多憂慮",
+      "text": "太陽在福德宮，原書說夜生人一般均主不得寧靜；落陷者更多憂慮，常因小事而鬱鬱不樂。",
+      "sources": [
+        "cond2-wellbeing-sun-night-fallen"
+      ],
+      "conditions": [
+        "太陽實坐福德宮且落陷（子戌亥；丑宮屬太陽太陰同度的例外）；太陽廟陷只取各表皆同的兩端（廟旺寅卯辰巳午、落陷子丑戌亥）；日生按原書寅至未時、夜生按申至丑時（上篇主星論p.9、p.21），只按安命時辰分。與巨門化忌同度尤甚一句未另判。"
+      ],
+      "priority": 77,
+      "since": "palace-conditions-v2"
+    },
+    {
+      "id": "wellbeing-sun-day-fallen",
+      "palace": "福德",
+      "keys": [
+        "has:太陽"
+      ],
+      "when": {
+        "op": "all",
+        "args": [
+          {
+            "op": "branch",
+            "branches": [
+              "子",
+              "戌",
+              "亥"
+            ]
+          },
+          {
+            "op": "birth",
+            "is": "日生"
+          }
+        ]
+      },
+      "heading": "日生而太陽落陷，求全而煩忙",
+      "text": "日生人太陽在福德宮落陷，原書說每有求全之心，因而導致煩忙；巨門同度者尤甚。",
+      "sources": [
+        "cond2-wellbeing-sun-day-fallen"
+      ],
+      "conditions": [
+        "太陽實坐福德宮且落陷（子戌亥；丑宮太陽太陰同度另有專條）；太陽廟陷只取各表皆同的兩端（廟旺寅卯辰巳午、落陷子丑戌亥）；日生按原書寅至未時、夜生按申至丑時（上篇主星論p.9、p.21），只按安命時辰分。"
+      ],
+      "priority": 77,
+      "since": "palace-conditions-v2"
+    },
+    {
+      "id": "wellbeing-yinyang-day",
+      "palace": "福德",
+      "keys": [
+        "太陽+太陰"
+      ],
+      "when": {
+        "op": "birth",
+        "is": "日生"
+      },
+      "heading": "日生人，原書說主天真",
+      "text": "太陰、太陽同度在福德宮，原書說日生人主天真。",
+      "sources": [
+        "cond2-wellbeing-yinyang-day"
+      ],
+      "conditions": [
+        "丑未太陽太陰同度實坐福德宮；日生按原書寅至未時、夜生按申至丑時（上篇主星論p.9、p.21），只按安命時辰分。兩星化祿的修飾另論。"
+      ],
+      "priority": 76,
+      "since": "palace-conditions-v2"
+    },
+    {
+      "id": "wellbeing-yinyang-night",
+      "palace": "福德",
+      "keys": [
+        "太陽+太陰"
+      ],
+      "when": {
+        "op": "birth",
+        "is": "夜生"
+      },
+      "heading": "夜生人，原書說主享受、有生活品味",
+      "text": "太陰、太陽同度在福德宮，原書說夜生人主享受，有生活品味；亦是太陽在福德宮夜生人不得寧靜一說的例外。",
+      "sources": [
+        "cond2-wellbeing-yinyang-night"
+      ],
+      "conditions": [
+        "丑未太陽太陰同度實坐福德宮；日生按原書寅至未時、夜生按申至丑時（上篇主星論p.9、p.21），只按安命時辰分。兩星化祿的修飾另論。"
+      ],
+      "priority": 76,
+      "since": "palace-conditions-v2"
+    },
+    {
+      "id": "wellbeing-fu-yao",
+      "palace": "福德",
+      "keys": [
+        "has:天府"
+      ],
+      "when": {
+        "op": "has",
+        "scope": "own",
+        "names": [
+          "天姚"
+        ]
+      },
+      "heading": "天姚同度，原書說好弄權術",
+      "text": "天府與天姚同在福德宮，原書主好弄權術。",
+      "sources": [
+        "cond2-wellbeing-fu-yao"
+      ],
+      "conditions": [
+        "天府實坐福德宮，天姚同在本宮。"
+      ],
+      "priority": 74,
+      "since": "palace-conditions-v2"
+    },
+    {
+      "id": "wellbeing-fu-xing",
+      "palace": "福德",
+      "keys": [
+        "has:天府"
+      ],
+      "when": {
+        "op": "has",
+        "scope": "own",
+        "names": [
+          "天刑"
+        ]
+      },
+      "heading": "天刑同度，原書說性好挑剔",
+      "text": "天府與天刑同在福德宮，原書主性好挑剔。",
+      "sources": [
+        "cond2-wellbeing-fu-xing"
+      ],
+      "conditions": [
+        "天府實坐福德宮，天刑同在本宮。"
+      ],
+      "priority": 74,
+      "since": "palace-conditions-v2"
     }
   ],
   "scopes": {
@@ -39905,6 +40633,545 @@
         "wtz.deep.p404.b015": "2d3ddd0a1a3d83bfc1459162f48212a9ac5798ad72cbcdbcd857e5a23b263560"
       },
       "sourceNote": "保存所選完整原段及跨頁續文；「……」分隔各抽取段，非連續選段不冒充連續全文。只取子女宮篇首，實際選段位於PDF第404頁；紫微、七殺專段不再作為全章範圍出處。原文字形及疑字保留；現代家庭不沿用子女數目與性別斷語。"
+    },
+    "cond2-siblings-moon-night-bright": {
+      "page": 373,
+      "quotePages": [
+        373,
+        373
+      ],
+      "section": "下篇・宮垣論・兄弟宮・太陰",
+      "excerpt": "·太阴守兄弟宫，入庙，夜生人最吉；落陷，夜生人值之，须见吉曜始主兄弟和荚，若见煞，则多刑克或不和",
+      "quoteBlocks": [
+        "wtz.deep.p373.b016"
+      ],
+      "quoteSpans": [
+        {
+          "id": "wtz.deep.p373.b016",
+          "start": 0,
+          "end": 48
+        }
+      ],
+      "block_sha256": {
+        "wtz.deep.p373.b016": "a474a22b9489ff377e85c98188aec5ceea396bd892d594c0fa2d758efd7ee4bd"
+      },
+      "sourceNote": "保存所選完整原段及跨頁續文；「……」分隔各抽取段，非連續選段不冒充連續全文。實際選段位於PDF第373頁；區間不表示中間每頁均被引出。原文字形及疑字保留，疑句不建立新規則。引文是作者的術數論述，與已核盤面、編輯對照分開；不作病患診斷、親屬存亡、資產回報或某年事件預告。"
+    },
+    "cond2-siblings-moon-day": {
+      "page": 373,
+      "quotePages": [
+        373,
+        374
+      ],
+      "section": "下篇・宮垣論・兄弟宮・太陰",
+      "excerpt": "·太阴守兄弟宫，日生人值之，虽入庙亦不和美；见煞主刑克、不和；见吉曜始\n和美，但亦有缺憾。如日生人值太阴落陷，则刑克甚重。",
+      "quoteBlocks": [
+        "wtz.deep.p373.b017",
+        "wtz.deep.p374.b001"
+      ],
+      "quoteSpans": [
+        {
+          "id": "wtz.deep.p373.b017",
+          "start": 0,
+          "end": 35
+        },
+        {
+          "id": "wtz.deep.p374.b001",
+          "start": 36,
+          "end": 61
+        }
+      ],
+      "block_sha256": {
+        "wtz.deep.p373.b017": "3aed41b6a81ffe6d350ba964a233852d78afa0de0adbaded9001b3af1473e7be",
+        "wtz.deep.p374.b001": "98ad5e81bcae8a32aab8194282b14669bc8db87e3916105fe2c50739a1c3be39"
+      },
+      "sourceNote": "保存所選完整原段及跨頁續文；「……」分隔各抽取段，非連續選段不冒充連續全文。實際選段位於PDF第373、374頁；區間不表示中間每頁均被引出。原文字形及疑字保留，疑句不建立新規則。引文是作者的術數論述，與已核盤面、編輯對照分開；不作病患診斷、親屬存亡、資產回報或某年事件預告。"
+    },
+    "cond2-wealth-moon-night-bright": {
+      "page": 451,
+      "quotePages": [
+        451,
+        451
+      ],
+      "section": "下篇・宮垣論・財帛宮・太陰",
+      "excerpt": "太阴入庙，夜生人决主富贵，其实(即社会地位)亦由富而来；日生人次之。太阴落陷，则进财维艰，夜生人较吉，曰生人更甚。\n……\n。太阴亦喜同会辅佐诸曜，以其亦为夜生人之主星也。",
+      "quoteBlocks": [
+        "wtz.deep.p451.b013",
+        "wtz.deep.p451.b014"
+      ],
+      "quoteSpans": [
+        {
+          "id": "wtz.deep.p451.b013",
+          "start": 0,
+          "end": 57
+        },
+        {
+          "id": "wtz.deep.p451.b014",
+          "start": 61,
+          "end": 85
+        }
+      ],
+      "block_sha256": {
+        "wtz.deep.p451.b013": "7b6bdf60208731ea0c17c286c679992260d8e7442b21ec579fb6a39ec2c47b1d",
+        "wtz.deep.p451.b014": "afaef0a8355d72dfcef79d058b30fc850c84778ac393b2c2bef879a9d1a1fc79"
+      },
+      "sourceNote": "保存所選完整原段及跨頁續文；「……」分隔各抽取段，非連續選段不冒充連續全文。實際選段位於PDF第451頁；區間不表示中間每頁均被引出。原文字形及疑字保留，疑句不建立新規則。引文是作者的術數論述，與已核盤面、編輯對照分開；不作病患診斷、親屬存亡、資產回報或某年事件預告。"
+    },
+    "cond2-wealth-moon-day-fallen": {
+      "page": 451,
+      "quotePages": [
+        451,
+        451
+      ],
+      "section": "下篇・宮垣論・財帛宮・太陰",
+      "excerpt": "太阴入庙，夜生人决主富贵，其实(即社会地位)亦由富而来；日生人次之。太阴落陷，则进财维艰，夜生人较吉，曰生人更甚。",
+      "quoteBlocks": [
+        "wtz.deep.p451.b013"
+      ],
+      "quoteSpans": [
+        {
+          "id": "wtz.deep.p451.b013",
+          "start": 0,
+          "end": 57
+        }
+      ],
+      "block_sha256": {
+        "wtz.deep.p451.b013": "7b6bdf60208731ea0c17c286c679992260d8e7442b21ec579fb6a39ec2c47b1d"
+      },
+      "sourceNote": "保存所選完整原段及跨頁續文；「……」分隔各抽取段，非連續選段不冒充連續全文。實際選段位於PDF第451頁；區間不表示中間每頁均被引出。原文字形及疑字保留，疑句不建立新規則。引文是作者的術數論述，與已核盤面、編輯對照分開；不作病患診斷、親屬存亡、資產回報或某年事件預告。"
+    },
+    "cond2-wealth-yinyang-night": {
+      "page": 440,
+      "quotePages": [
+        440,
+        440
+      ],
+      "section": "下篇・宮垣論・財帛宮・太陽",
+      "excerpt": "·丑未宫『太阳太阴』同度，基本性质主先散后聚。尤以丑宫者， 『后聚』的力量大于未宫。夜生人又优于日生人。",
+      "quoteBlocks": [
+        "wtz.deep.p440.b003"
+      ],
+      "quoteSpans": [
+        {
+          "id": "wtz.deep.p440.b003",
+          "start": 0,
+          "end": 52
+        }
+      ],
+      "block_sha256": {
+        "wtz.deep.p440.b003": "65a0e2a34a677dce1ee976042e458266e7d8504952977f732ffec8cdcab8e193"
+      },
+      "sourceNote": "保存所選完整原段及跨頁續文；「……」分隔各抽取段，非連續選段不冒充連續全文。實際選段位於PDF第440頁；區間不表示中間每頁均被引出。原文字形及疑字保留，疑句不建立新規則。引文是作者的術數論述，與已核盤面、編輯對照分開；不作病患診斷、親屬存亡、資產回報或某年事件預告。"
+    },
+    "cond2-wealth-sun-wu-day": {
+      "page": 439,
+      "quotePages": [
+        439,
+        440
+      ],
+      "section": "下篇・宮垣論・財帛宮・太陽",
+      "excerpt": "·子宫太阳见吉化、吉曜，虽主富贵，然不如午宫者远甚。午宫太阳居财帛宫，若日生人，又有吉化吉曜，且见禄，则主既富且贵，权势及财权皆倾动一时一地。\n……\n·子午太阳守财帛宫，唯不喜天梁化禄，盖益主贵而不主富，稍多进益，即有时\n非尤怨谣忌。",
+      "quoteBlocks": [
+        "wtz.deep.p439.b010",
+        "wtz.deep.p439.b011",
+        "wtz.deep.p440.b001"
+      ],
+      "quoteSpans": [
+        {
+          "id": "wtz.deep.p439.b010",
+          "start": 0,
+          "end": 71
+        },
+        {
+          "id": "wtz.deep.p439.b011",
+          "start": 75,
+          "end": 110
+        },
+        {
+          "id": "wtz.deep.p440.b001",
+          "start": 111,
+          "end": 117
+        }
+      ],
+      "block_sha256": {
+        "wtz.deep.p439.b010": "3d027229299e5e8bcdb48af6fcae68a29fd9a696cd78022775ce89a0948be9c4",
+        "wtz.deep.p439.b011": "b9d8e938eec110f78033c0485fb7f63196ea6c33a2f7cba95ed8f6fdb921d834",
+        "wtz.deep.p440.b001": "a2672eb527e957954018d88761594023ea4b6a53b3f8ce261e783dd8b05572b8"
+      },
+      "sourceNote": "保存所選完整原段及跨頁續文；「……」分隔各抽取段，非連續選段不冒充連續全文。實際選段位於PDF第439、440頁；區間不表示中間每頁均被引出。原文字形及疑字保留，疑句不建立新規則。引文是作者的術數論述，與已核盤面、編輯對照分開；不作病患診斷、親屬存亡、資產回報或某年事件預告。"
+    },
+    "cond2-wealth-ji-chouwei-xing": {
+      "page": 437,
+      "quotePages": [
+        437,
+        437
+      ],
+      "section": "下篇・宮垣論・財帛宮・天機",
+      "excerpt": "·丑未宫天机落陷，与天梁相对，主机关巧计以求财。因此最宜从事费心机计谋人行业，如计算机程序、市场策划之类。倘有天刑、擎羊、奏书等曜，则宜从事法律工作。",
+      "quoteBlocks": [
+        "wtz.deep.p437.b002"
+      ],
+      "quoteSpans": [
+        {
+          "id": "wtz.deep.p437.b002",
+          "start": 0,
+          "end": 75
+        }
+      ],
+      "block_sha256": {
+        "wtz.deep.p437.b002": "e0f3d6b12eb8fcf059adc660b8e00254a588f38fe893b7a237566cb4b0dffb71"
+      },
+      "sourceNote": "保存所選完整原段及跨頁續文；「……」分隔各抽取段，非連續選段不冒充連續全文。實際選段位於PDF第437頁；區間不表示中間每頁均被引出。原文字形及疑字保留，疑句不建立新規則。引文是作者的術數論述，與已核盤面、編輯對照分開；不作病患診斷、親屬存亡、資產回報或某年事件預告。"
+    },
+    "cond2-wealth-liang-xing": {
+      "page": 458,
+      "quotePages": [
+        458,
+        458
+      ],
+      "section": "下篇・宮垣論・財帛宮・天梁",
+      "excerpt": "·天梁有管理、监察、查核的性质。居财帛宫，亦以此类性质为宜。若天月同度，则变为查察病情，故可以医药业求财；若天刑同度，则刑法纪律的监管，故可以司法、军警等业为求财的手段。",
+      "quoteBlocks": [
+        "wtz.deep.p458.b010"
+      ],
+      "quoteSpans": [
+        {
+          "id": "wtz.deep.p458.b010",
+          "start": 0,
+          "end": 85
+        }
+      ],
+      "block_sha256": {
+        "wtz.deep.p458.b010": "e0997f90ad20bda89123785d07175984591ce44ba4d3c9436588e4829f573350"
+      },
+      "sourceNote": "保存所選完整原段及跨頁續文；「……」分隔各抽取段，非連續選段不冒充連續全文。實際選段位於PDF第458頁；區間不表示中間每頁均被引出。原文字形及疑字保留，疑句不建立新規則。引文是作者的術數論述，與已核盤面、編輯對照分開；不作病患診斷、親屬存亡、資產回報或某年事件預告。"
+    },
+    "cond2-wealth-jumen-yang-xing": {
+      "page": 455,
+      "quotePages": [
+        455,
+        455
+      ],
+      "section": "下篇・宮垣論・財帛宮・巨門",
+      "excerpt": "·巨门、擎羊、天刑同度，主词讼，或主财帛竞争。从事有竞争意味的行业，如法律拍卖行、经纪行等，则主吉祥。",
+      "quoteBlocks": [
+        "wtz.deep.p455.b005"
+      ],
+      "quoteSpans": [
+        {
+          "id": "wtz.deep.p455.b005",
+          "start": 0,
+          "end": 51
+        }
+      ],
+      "block_sha256": {
+        "wtz.deep.p455.b005": "56ef12884af3caafa837d8fd83f6123e36a277770b4349d45743dedf2137b84a"
+      },
+      "sourceNote": "保存所選完整原段及跨頁續文；「……」分隔各抽取段，非連續選段不冒充連續全文。實際選段位於PDF第455頁；區間不表示中間每頁均被引出。原文字形及疑字保留，疑句不建立新規則。引文是作者的術數論述，與已核盤面、編輯對照分開；不作病患診斷、親屬存亡、資產回報或某年事件預告。"
+    },
+    "cond2-career-wupo-xing": {
+      "page": 531,
+      "quotePages": [
+        531,
+        531
+      ],
+      "section": "下篇・宮垣論・官祿宮・武曲",
+      "excerpt": "巳亥宫[武曲破军]，常主喜插手任何事业，不考虑自己的特长。故吉则事业众多，凶则事业多变。\n……\n·与天刑同度蕾，宜军旅或纪律部队出身，或负情报治安之责。以见辅佐吉曜为宜，若煞忌重重·则须防凶危。\n……\n·f 武破 l 在事业宫，与铃星、陀罗、阴煞、华盖、天刑同度者，为偏门或半偏行业。",
+      "quoteBlocks": [
+        "wtz.deep.p531.b012",
+        "wtz.deep.p531.b013",
+        "wtz.deep.p531.b014"
+      ],
+      "quoteSpans": [
+        {
+          "id": "wtz.deep.p531.b012",
+          "start": 0,
+          "end": 44
+        },
+        {
+          "id": "wtz.deep.p531.b013",
+          "start": 48,
+          "end": 97
+        },
+        {
+          "id": "wtz.deep.p531.b014",
+          "start": 101,
+          "end": 142
+        }
+      ],
+      "block_sha256": {
+        "wtz.deep.p531.b012": "f2cc46823362e84e8f246d45cb04766036f4a6d510447d9984a4738309c425cd",
+        "wtz.deep.p531.b013": "115356fd4f0c5718a786fac49be836643e809df140302dd0222907762e2efb47",
+        "wtz.deep.p531.b014": "80dbe1144f923245d4224d52ea1423e5bc30153dbe0e762d2b6ffb32b725fe81"
+      },
+      "sourceNote": "保存所選完整原段及跨頁續文；「……」分隔各抽取段，非連續選段不冒充連續全文。實際選段位於PDF第531頁；區間不表示中間每頁均被引出。原文字形及疑字保留，疑句不建立新規則。引文是作者的術數論述，與已核盤面、編輯對照分開；不作病患診斷、親屬存亡、資產回報或某年事件預告。"
+    },
+    "cond2-career-tanlang-ziwu-xing": {
+      "page": 542,
+      "quotePages": [
+        542,
+        542
+      ],
+      "section": "下篇・宮垣論・官祿宮・貪狼",
+      "excerpt": "·子午贪狼与天刑同度，亦主刑法，或主为艺术表演之幕后策划、编导人枕。盖台前表演须完全依照幕后之策划，故亦有纪律、原则的意味也。",
+      "quoteBlocks": [
+        "wtz.deep.p542.b006"
+      ],
+      "quoteSpans": [
+        {
+          "id": "wtz.deep.p542.b006",
+          "start": 0,
+          "end": 63
+        }
+      ],
+      "block_sha256": {
+        "wtz.deep.p542.b006": "193f41a9e59797e2c78518c8b97054b6db5cf7a247689c999df64b8dc435734d"
+      },
+      "sourceNote": "保存所選完整原段及跨頁續文；「……」分隔各抽取段，非連續選段不冒充連續全文。實際選段位於PDF第542頁；區間不表示中間每頁均被引出。原文字形及疑字保留，疑句不建立新規則。引文是作者的術數論述，與已核盤面、編輯對照分開；不作病患診斷、親屬存亡、資產回報或某年事件預告。"
+    },
+    "cond2-career-qisha-yang-xing": {
+      "page": 548,
+      "quotePages": [
+        548,
+        548
+      ],
+      "section": "下篇・宮垣論・官祿宮・七殺",
+      "excerpt": "七杀守事业宫而有煞者，见擎羊、天刑，可习外科手术、针炙、妇产科、牙科等。廉贞化忌者尤宜。\n……\n若有煞而无化忌会合者，则仍以应用利器为主的行业为宜。如雕刻、理发及金属工程等。",
+      "quoteBlocks": [
+        "wtz.deep.p548.b007",
+        "wtz.deep.p548.b008"
+      ],
+      "quoteSpans": [
+        {
+          "id": "wtz.deep.p548.b007",
+          "start": 0,
+          "end": 44
+        },
+        {
+          "id": "wtz.deep.p548.b008",
+          "start": 48,
+          "end": 87
+        }
+      ],
+      "block_sha256": {
+        "wtz.deep.p548.b007": "be905b4c3fb92e3b368edc4a3e9608129919754ab583a217c4de1f8538122adb",
+        "wtz.deep.p548.b008": "66ddd4f9cf2a1632b0310057cc0fc05148d5ad8dc337ae68b3ea437bd62e5b9c"
+      },
+      "sourceNote": "保存所選完整原段及跨頁續文；「……」分隔各抽取段，非連續選段不冒充連續全文。實際選段位於PDF第548頁；區間不表示中間每頁均被引出。原文字形及疑字保留，疑句不建立新規則。引文是作者的術數論述，與已核盤面、編輯對照分開；不作病患診斷、親屬存亡、資產回報或某年事件預告。"
+    },
+    "cond2-friends-moon-night-bright": {
+      "page": 512,
+      "quotePages": [
+        512,
+        512
+      ],
+      "section": "下篇・宮垣論・僕役宮・太陰",
+      "excerpt": "太阴入庙，夜生人，主游广阔，且得益友。若落陷，日生人，则主多泛泛之交，且多损友。",
+      "quoteBlocks": [
+        "wtz.deep.p512.b003"
+      ],
+      "quoteSpans": [
+        {
+          "id": "wtz.deep.p512.b003",
+          "start": 0,
+          "end": 40
+        }
+      ],
+      "block_sha256": {
+        "wtz.deep.p512.b003": "6b73db404a1b79ba05db1d468e3617dce851d63a32eb0cf4a61708b11f55b8af"
+      },
+      "sourceNote": "保存所選完整原段及跨頁續文；「……」分隔各抽取段，非連續選段不冒充連續全文。實際選段位於PDF第512頁；區間不表示中間每頁均被引出。原文字形及疑字保留，疑句不建立新規則。引文是作者的術數論述，與已核盤面、編輯對照分開；不作病患診斷、親屬存亡、資產回報或某年事件預告。"
+    },
+    "cond2-friends-moon-day-fallen": {
+      "page": 512,
+      "quotePages": [
+        512,
+        512
+      ],
+      "section": "下篇・宮垣論・僕役宮・太陰",
+      "excerpt": "太阴入庙，夜生人，主游广阔，且得益友。若落陷，日生人，则主多泛泛之交，且多损友。",
+      "quoteBlocks": [
+        "wtz.deep.p512.b003"
+      ],
+      "quoteSpans": [
+        {
+          "id": "wtz.deep.p512.b003",
+          "start": 0,
+          "end": 40
+        }
+      ],
+      "block_sha256": {
+        "wtz.deep.p512.b003": "6b73db404a1b79ba05db1d468e3617dce851d63a32eb0cf4a61708b11f55b8af"
+      },
+      "sourceNote": "保存所選完整原段及跨頁續文；「……」分隔各抽取段，非連續選段不冒充連續全文。實際選段位於PDF第512頁；區間不表示中間每頁均被引出。原文字形及疑字保留，疑句不建立新規則。引文是作者的術數論述，與已核盤面、編輯對照分開；不作病患診斷、親屬存亡、資產回報或某年事件預告。"
+    },
+    "cond2-wellbeing-sun-night": {
+      "page": 570,
+      "quotePages": [
+        570,
+        570
+      ],
+      "section": "下篇・宮垣論・福德宮・太陽",
+      "excerpt": "夜生人，太阳在福德宫，除在丑未二宫[太阳太阴]同度者外，一般均主不得宁静。落陷者更多忧虑，常因小事而郁郁不乐。尤以与巨门化忌同度者为甚。",
+      "quoteBlocks": [
+        "wtz.deep.p570.b002"
+      ],
+      "quoteSpans": [
+        {
+          "id": "wtz.deep.p570.b002",
+          "start": 0,
+          "end": 68
+        }
+      ],
+      "block_sha256": {
+        "wtz.deep.p570.b002": "daf096aa585d76a5546a8ef3b0336cc06a2b6b3a2417fd4a9a7827e4d0ec34a8"
+      },
+      "sourceNote": "保存所選完整原段及跨頁續文；「……」分隔各抽取段，非連續選段不冒充連續全文。實際選段位於PDF第570頁；區間不表示中間每頁均被引出。原文字形及疑字保留，疑句不建立新規則。引文是作者的術數論述，與已核盤面、編輯對照分開；不作病患診斷、親屬存亡、資產回報或某年事件預告。"
+    },
+    "cond2-wellbeing-sun-night-fallen": {
+      "page": 570,
+      "quotePages": [
+        570,
+        570
+      ],
+      "section": "下篇・宮垣論・福德宮・太陽",
+      "excerpt": "夜生人，太阳在福德宫，除在丑未二宫[太阳太阴]同度者外，一般均主不得宁静。落陷者更多忧虑，常因小事而郁郁不乐。尤以与巨门化忌同度者为甚。",
+      "quoteBlocks": [
+        "wtz.deep.p570.b002"
+      ],
+      "quoteSpans": [
+        {
+          "id": "wtz.deep.p570.b002",
+          "start": 0,
+          "end": 68
+        }
+      ],
+      "block_sha256": {
+        "wtz.deep.p570.b002": "daf096aa585d76a5546a8ef3b0336cc06a2b6b3a2417fd4a9a7827e4d0ec34a8"
+      },
+      "sourceNote": "保存所選完整原段及跨頁續文；「……」分隔各抽取段，非連續選段不冒充連續全文。實際選段位於PDF第570頁；區間不表示中間每頁均被引出。原文字形及疑字保留，疑句不建立新規則。引文是作者的術數論述，與已核盤面、編輯對照分開；不作病患診斷、親屬存亡、資產回報或某年事件預告。"
+    },
+    "cond2-wellbeing-sun-day-fallen": {
+      "page": 570,
+      "quotePages": [
+        570,
+        570
+      ],
+      "section": "下篇・宮垣論・福德宮・太陽",
+      "excerpt": "日生人，太阳在福德宫落陷者，每有求全之心，因而导致烦忙。巨门同度者尤甚。",
+      "quoteBlocks": [
+        "wtz.deep.p570.b003"
+      ],
+      "quoteSpans": [
+        {
+          "id": "wtz.deep.p570.b003",
+          "start": 0,
+          "end": 36
+        }
+      ],
+      "block_sha256": {
+        "wtz.deep.p570.b003": "d27abdbcc3201e81915dc8f6dee64b73681b2f35cb036ee59cd78e1fdb5a6d34"
+      },
+      "sourceNote": "保存所選完整原段及跨頁續文；「……」分隔各抽取段，非連續選段不冒充連續全文。實際選段位於PDF第570頁；區間不表示中間每頁均被引出。原文字形及疑字保留，疑句不建立新規則。引文是作者的術數論述，與已核盤面、編輯對照分開；不作病患診斷、親屬存亡、資產回報或某年事件預告。"
+    },
+    "cond2-wellbeing-yinyang-day": {
+      "page": 576,
+      "quotePages": [
+        576,
+        576
+      ],
+      "section": "下篇・宮垣論・福德宮・太陰",
+      "excerpt": "·[太阴太阳]同度者，若日生人，则主天真；夜生人，则主享受，有生活品味。太阳化禄则开朗；太阴化禄则沉潜。",
+      "quoteBlocks": [
+        "wtz.deep.p576.b002"
+      ],
+      "quoteSpans": [
+        {
+          "id": "wtz.deep.p576.b002",
+          "start": 0,
+          "end": 52
+        }
+      ],
+      "block_sha256": {
+        "wtz.deep.p576.b002": "fe45387407e3be3014123c9615e4172e6d772e89cbcf2a830cdd8ba506f24d3e"
+      },
+      "sourceNote": "保存所選完整原段及跨頁續文；「……」分隔各抽取段，非連續選段不冒充連續全文。實際選段位於PDF第576頁；區間不表示中間每頁均被引出。原文字形及疑字保留，疑句不建立新規則。引文是作者的術數論述，與已核盤面、編輯對照分開；不作病患診斷、親屬存亡、資產回報或某年事件預告。"
+    },
+    "cond2-wellbeing-yinyang-night": {
+      "page": 576,
+      "quotePages": [
+        570,
+        576
+      ],
+      "section": "下篇・宮垣論・福德宮・太陰",
+      "excerpt": "·[太阴太阳]同度者，若日生人，则主天真；夜生人，则主享受，有生活品味。太阳化禄则开朗；太阴化禄则沉潜。\n……\n夜生人，太阳在福德宫，除在丑未二宫[太阳太阴]同度者外，一般均主不得宁静。落陷者更多忧虑，常因小事而郁郁不乐。尤以与巨门化忌同度者为甚。",
+      "quoteBlocks": [
+        "wtz.deep.p576.b002",
+        "wtz.deep.p570.b002"
+      ],
+      "quoteSpans": [
+        {
+          "id": "wtz.deep.p576.b002",
+          "start": 0,
+          "end": 52
+        },
+        {
+          "id": "wtz.deep.p570.b002",
+          "start": 56,
+          "end": 124
+        }
+      ],
+      "block_sha256": {
+        "wtz.deep.p576.b002": "fe45387407e3be3014123c9615e4172e6d772e89cbcf2a830cdd8ba506f24d3e",
+        "wtz.deep.p570.b002": "daf096aa585d76a5546a8ef3b0336cc06a2b6b3a2417fd4a9a7827e4d0ec34a8"
+      },
+      "sourceNote": "保存所選完整原段及跨頁續文；「……」分隔各抽取段，非連續選段不冒充連續全文。實際選段位於PDF第576、570頁；區間不表示中間每頁均被引出。原文字形及疑字保留，疑句不建立新規則。引文是作者的術數論述，與已核盤面、編輯對照分開；不作病患診斷、親屬存亡、資產回報或某年事件預告。"
+    },
+    "cond2-wellbeing-fu-yao": {
+      "page": 575,
+      "quotePages": [
+        575,
+        575
+      ],
+      "section": "下篇・宮垣論・福德宮・天府",
+      "excerpt": "天府与天姚同度，主好弄权术；与天刑同度，性好挑剔；与天月同度，主内向。",
+      "quoteBlocks": [
+        "wtz.deep.p575.b006"
+      ],
+      "quoteSpans": [
+        {
+          "id": "wtz.deep.p575.b006",
+          "start": 0,
+          "end": 35
+        }
+      ],
+      "block_sha256": {
+        "wtz.deep.p575.b006": "ff14b6a294f7287e898f4674f9e3e4dea9a8df2978827870c19f458421ca2eb6"
+      },
+      "sourceNote": "保存所選完整原段及跨頁續文；「……」分隔各抽取段，非連續選段不冒充連續全文。實際選段位於PDF第575頁；區間不表示中間每頁均被引出。原文字形及疑字保留，疑句不建立新規則。引文是作者的術數論述，與已核盤面、編輯對照分開；不作病患診斷、親屬存亡、資產回報或某年事件預告。"
+    },
+    "cond2-wellbeing-fu-xing": {
+      "page": 575,
+      "quotePages": [
+        575,
+        575
+      ],
+      "section": "下篇・宮垣論・福德宮・天府",
+      "excerpt": "天府与天姚同度，主好弄权术；与天刑同度，性好挑剔；与天月同度，主内向。",
+      "quoteBlocks": [
+        "wtz.deep.p575.b006"
+      ],
+      "quoteSpans": [
+        {
+          "id": "wtz.deep.p575.b006",
+          "start": 0,
+          "end": 35
+        }
+      ],
+      "block_sha256": {
+        "wtz.deep.p575.b006": "ff14b6a294f7287e898f4674f9e3e4dea9a8df2978827870c19f458421ca2eb6"
+      },
+      "sourceNote": "保存所選完整原段及跨頁續文；「……」分隔各抽取段，非連續選段不冒充連續全文。實際選段位於PDF第575頁；區間不表示中間每頁均被引出。原文字形及疑字保留，疑句不建立新規則。引文是作者的術數論述，與已核盤面、編輯對照分開；不作病患診斷、親屬存亡、資產回報或某年事件預告。"
     }
   }
 }

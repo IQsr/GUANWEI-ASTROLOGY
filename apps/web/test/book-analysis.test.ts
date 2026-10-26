@@ -15,6 +15,8 @@ import {englishChapters} from '@/lib/english';
 import {japaneseChapters} from '@/lib/japanese';
 import cases from '../../../docs/book-authoring-audit-2026-10-25/case-register.json';
 import holdout from './fixtures/authoring-p0-holdout.json';
+import remainingCards from '../../../packages/content/src/cards/palace-remaining.json';
+import focusedCards from '../../../packages/content/src/cards/palace-focused.json';
 
 const options=(sample:typeof cases[number])=>({seed:sample.seed,year:sample.bookYear,solar:sample.input.solar,place:sample.input.place.label,birthSex:sample.input.sex as 'male'|'female'});
 const chartOf=(input:unknown)=>{const r=cast(input as BirthInput);if(!r.ok)throw Error(r.message);return r.value;};
@@ -28,6 +30,7 @@ function csv(text:string){
   else if(c===','&&!quoted){row.push(field);field='';}else if(c==='\n'&&!quoted){row.push(field.replace(/\r$/,''));rows.push(row);row=[];field='';}else field+=c;}
  if(field||row.length){row.push(field);rows.push(row);}const headers=rows.shift()!;return rows.map(values=>Object.fromEntries(headers.map((h,i)=>[h,values[i]??''])));
 }
+const CONDITIONS_V2=new Set([...remainingCards.rules,...focusedCards.rules].filter(r=>'since' in r).map(r=>r.id));
 const matrix=csv(readFileSync(new URL('../../../docs/book-authoring-audit-2026-10-25/palace-matrix.csv',import.meta.url),'utf8'));
 
 it('176 audited books / 144 structures / 1728 palace rows retain exact non-P1 text/references and all international output while saving shared records',()=>{
@@ -68,7 +71,8 @@ it('176 audited books / 144 structures / 1728 palace rows retain exact non-P1 te
      expect(a.decisions.filter(d=>d.adapter.startsWith('palace.')&&d.kind==='condition').every(d=>d.status==='out_of_scope')).toBe(true);
     }else native++;
     if(ch.slug==='命宮')continue;
-    const recorded=a.decisions.filter(d=>d.adapter.startsWith('palace.')&&d.kind==='condition');
+    // 2026-10-26 palace-conditions-v2 新卡（日夜生、雜曜）唔屬凍結審核表嘅規則範圍；見 content test/palace-conditions-v2.test.ts。
+    const recorded=a.decisions.filter(d=>d.adapter.startsWith('palace.')&&d.kind==='condition'&&!CONDITIONS_V2.has(d.ruleId!));
     expect(recorded.filter(d=>d.status==='supported').map(d=>d.ruleId).sort(),`${sample.id}/${ch.slug}`).toEqual(ids(row['實際命中規則']!).sort());
     expect(recorded.filter(d=>d.presentation==='selected').map(d=>d.ruleId).sort()).toEqual(ids(row['原閱讀器選中規則']!).sort());
     expect(recorded.filter(d=>d.status==='not_supported').map(d=>d.ruleId).sort()).toEqual(ids(row['候選未符合規則ID']!).sort());

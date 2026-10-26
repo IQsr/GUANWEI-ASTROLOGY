@@ -11,7 +11,9 @@ import { evaluatePalacePredicate as evaluate, type PalacePredicate as Predicate 
 type Profile = { id: string; palace: string; stars: string[]; branches: string[]; heading: string; text: string;
   followHeading: string; follow: string; sources: string[]; conditions: string[] };
 type Rule = { id: string; palace: string; keys: string[]; when: Predicate; heading: string; text: string;
-  sources: string[]; conditions: string[]; priority: number };
+  sources: string[]; conditions: string[]; priority: number;
+  /** 2026-10-26 起新增嘅規則（日夜生、雜曜）：只喺新成書入口（separateRuleReferences）評核，基準入口同舊書快照唔變。 */
+  since?: string };
 type Scope = { text: string; advice: string; sources: string[]; conditions: string[] };
 const data = raw as unknown as { palaces: string[]; profiles: Profile[]; rules: Rule[];
   scopes: Record<string, Scope>; sources: typeof raw.sources };
@@ -47,7 +49,7 @@ export function remainingPalaceReading(chart: Chart, palace: string, year: numbe
   const fact = borrowed
     ? `你的${palace}宮在${p.branch}，本宮沒有主星，借對宮${origin.branch}的${names.join('、')}作參照。`
     : `你的${palace}宮在${p.branch}，${names.join('、')}${names.length === 1 ? '坐守' : '同宮'}。${major(opposite).length ? `對宮${label(opposite)}實坐${major(opposite).map((s) => s.name).join('、')}。` : '對宮沒有主星。'}`;
-  const applicable = data.rules.filter((r) => r.palace === palace && r.keys.some((k) => k.startsWith('has:')
+  const applicable = data.rules.filter((r) => r.palace === palace && (!r.since || separateRuleReferences) && r.keys.some((k) => k.startsWith('has:')
     ? names.includes(k.slice(4)) : keyOf(k.split('+')) === key));
   const reviewed = borrowed ? [] : applicable.map((rule) => ({ rule, evaluated: evaluate(rule.when, chart, p) }));
   const matched = reviewed.filter((r) => r.evaluated.matched).sort((a, b) => b.rule.priority - a.rule.priority);
