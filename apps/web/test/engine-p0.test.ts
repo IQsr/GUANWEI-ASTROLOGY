@@ -1,4 +1,4 @@
-import {withHistoricalLifeSteps} from './helpers/life-steps-legacy';
+import {withHistoricalLifeSteps,withHistoricalSpouseScopeReading} from './helpers/life-steps-legacy';
 import {analyzeCrossPalaces} from '../../../packages/content/src/engine-p1-cross';
 import {analyzeNextBatch} from '../../../packages/content/src/engine-p1b';
 import {analyzeFirstBatch} from '../../../packages/content/src/engine-p1a';
@@ -17,7 +17,7 @@ const root=new URL('../../../',import.meta.url);
 const samples=readFixtures(new URL('apps/web/src/lib/free-ming-preview.json',root));
 const examples=readFixtures(new URL('apps/web/test/fixtures/palace-before.json',root)).filter((s)=>['TL','A','C'].includes(s.id??''));
 const hash=(s:string)=>createHash('sha256').update(s).digest('hex');
-const result=[...samples,...examples].map((f,i)=>{const c=cast(f.input);if(!c.ok)throw Error(c.message);return {id:i<samples.length?'preview-'+i:f.id,chart:hash(JSON.stringify(c.value)),book:hash(JSON.stringify(withHistoricalLifeSteps(bookChapters(c.value,{seed:f.seed??'sample',year:2026,solar:f.input.solar,place:f.input.place.label})!,i<samples.length?'preview-'+i:f.id!))),palaces:hash(JSON.stringify(['兄弟','夫妻','子女','財帛','疾厄','遷移','僕役','官祿','田宅','福德','父母'].map(p=>palaceReading(c.value,p,2026))))};});
+const result=[...samples,...examples].map((f,i)=>{const c=cast(f.input);if(!c.ok)throw Error(c.message);return {id:i<samples.length?'preview-'+i:f.id,chart:hash(JSON.stringify(c.value)),book:hash(JSON.stringify(withHistoricalLifeSteps(bookChapters(c.value,{seed:f.seed??'sample',year:2026,solar:f.input.solar,place:f.input.place.label})!,i<samples.length?'preview-'+i:f.id!))),palaces:hash(JSON.stringify(['兄弟','夫妻','子女','財帛','疾厄','遷移','僕役','官祿','田宅','福德','父母'].map(p=>withHistoricalSpouseScopeReading(palaceReading(c.value,p,2026)))))};});
 expect(result).toEqual(baseline);
 },20000);
 
@@ -34,7 +34,7 @@ it('Experimental P1a analysis leaves each sample book and palace reading unchang
     const after=bookChapters(chart,{seed:f.seed??'sample',year:2026,solar:f.input.solar,place:f.input.place.label})!;
     expect(after).toEqual(before);
     expect(hash(JSON.stringify(withHistoricalLifeSteps(after,f.id!)))).toBe(expected.book);
-    expect(hash(JSON.stringify(['兄弟','夫妻','子女','財帛','疾厄','遷移','僕役','官祿','田宅','福德','父母'].map(p=>palaceReading(chart,p,2026))))).toBe(expected.palaces);
+    expect(hash(JSON.stringify(['兄弟','夫妻','子女','財帛','疾厄','遷移','僕役','官祿','田宅','福德','父母'].map(p=>withHistoricalSpouseScopeReading(palaceReading(chart,p,2026)))))).toBe(expected.palaces);
   }
 },20000);
 
@@ -51,7 +51,7 @@ it('Experimental P1b analysis leaves each sample book and palace reading unchang
     const after=bookChapters(chart,{seed:f.seed??'sample',year:2026,solar:f.input.solar,place:f.input.place.label})!;
     expect(after).toEqual(before);
     expect(hash(JSON.stringify(withHistoricalLifeSteps(after,f.id!)))).toBe(expected.book);
-    expect(hash(JSON.stringify(['兄弟','夫妻','子女','財帛','疾厄','遷移','僕役','官祿','田宅','福德','父母'].map(p=>palaceReading(chart,p,2026))))).toBe(expected.palaces);
+    expect(hash(JSON.stringify(['兄弟','夫妻','子女','財帛','疾厄','遷移','僕役','官祿','田宅','福德','父母'].map(p=>withHistoricalSpouseScopeReading(palaceReading(chart,p,2026)))))).toBe(expected.palaces);
   }
 },20000);
 
@@ -68,6 +68,6 @@ it('Experimental four-palace analysis leaves sample chart, book and palace readi
     const after=bookChapters(chart,{seed:f.seed??'sample',year:2026,solar:f.input.solar,place:f.input.place.label})!;
     expect(after).toEqual(before);
     expect(hash(JSON.stringify(withHistoricalLifeSteps(after,f.id!)))).toBe(expected.book);
-    expect(hash(JSON.stringify(['兄弟','夫妻','子女','財帛','疾厄','遷移','僕役','官祿','田宅','福德','父母'].map(p=>palaceReading(chart,p,2026))))).toBe(expected.palaces);
+    expect(hash(JSON.stringify(['兄弟','夫妻','子女','財帛','疾厄','遷移','僕役','官祿','田宅','福德','父母'].map(p=>withHistoricalSpouseScopeReading(palaceReading(chart,p,2026)))))).toBe(expected.palaces);
   }
 },20000);
