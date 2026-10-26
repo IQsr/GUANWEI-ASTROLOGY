@@ -43,3 +43,10 @@ it('reads each palace from its own 三方四正, plus any palace a sentence name
   expect(withConditionalBranches(chart, [seg('太陽化祿另論。')], '命宮')).toEqual([]);
   expect(withConditionalBranches(chart, [seg('福德的太陽化祿另論。')], '命宮')[0]!.text).toBe('福德的太陽化祿另論。');
 });
+
+it('narrows a sentence to the named 四化 that are on the chart, or drops it when no version is reviewed', () => {
+  // 天同化忌在命宮；太陰化忌本盤冇。
+  expect(withConditionalBranches(chart, [seg('天同化忌、太陰化忌及所會陽巨吉化各有不同作用；', '乙。')])[0]!.text)
+    .toBe('天同化忌與所會陽巨吉化各有不同作用。乙。');
+  expect(withConditionalBranches(chart, [seg('甲。', '天同化忌與太陰化忌另論。')])[0]!.text).toBe('甲。');
+});

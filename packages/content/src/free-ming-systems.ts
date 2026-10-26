@@ -16,7 +16,7 @@ const profiles = new Map((data.profiles as Profile[]).map((p) => [p.n, p]));
 /**
  * 2026-10-25「條件唔成立就唔寫」：句子點名嘅四化（例如「破軍化祿或權」、「武曲忌」），
  * 該宮三方四正（借宮就用對宮嗰組；句中點名嘅宮亦計）一個都冇，呢句就唔出。冇點名四化嘅句照舊。
- * 2026-10-25 先做命宮／骨架，2026-10-26 擴到十一宮。
+ * 2026-10-25 先做命宮／骨架，2026-10-26 擴到十一宮；同日再收緊：點名嘅四化有一個唔喺本盤，都唔照原句出（見 PARTIAL）。
  * 只係揀句，唔改句；喺敘事層之後做（見 withConditionalBranches）。舊書照讀快照，基準入口 bookChapters 預設唔開。
  * 新書版本記喺 web `reader-release.ts` MING_BRANCH_FILTER_VERSION／PALACE_BRANCH_FILTER_VERSION。
  */
@@ -41,6 +41,14 @@ const AFTER_DROP = rewrites.afterDrop as Record<string, string>;
 for (const r of [...Object.values(REWRITES).map((x) => x.text), ...Object.values(AFTER_DROP)]) {
   if (huaMentions(r).length) throw Error(`Branch rewrite still names a 四化: ${r}`);
 }
+/** 2026-10-26：句子點名幾個四化、本盤只有其中幾個，用只講本盤有嗰幾個嘅已核版本（key＝本盤有嘅組合）；冇版本就成句唔出。 */
+const hit = (named: { star: string; hua: string }[]) => [...new Set(named.map((n) => `${n.star}${n.hua}`))].sort().join(',');
+const PARTIAL = new Map(Object.entries(rewrites.partial as Record<string, Record<string, string>>).map(([s, v]) =>
+  [s, new Map(Object.entries(v).map(([k, t]) => [k.split(',').sort().join(','), t]))]));
+// 改寫版本只可以點名 key 入面嘅四化。
+for (const [s, v] of PARTIAL) for (const [k, t] of v) {
+  if (hit(huaMentions(t)) !== k) throw Error(`Partial rewrite names other 四化 than ${k}: ${s}`);
+}
 /** state 喺同一段嘅 statements 之間延續：前一條最尾一句刪咗，下一條開頭嘅附屬句都照處理。 */
 function keepBranches(text: string, chart: Chart, four: readonly Palace[], state = { dropped: false }): string {
   let dropped = state.dropped;
@@ -60,6 +68,11 @@ function keepBranches(text: string, chart: Chart, four: readonly Palace[], state
       // 主結論黐住分支：用已核嘅改寫版本（只刪分支子句）；冇改寫就成句唔出。
       const r = REWRITES[s];
       if (r) { out.push(r.text); dropped = Boolean(r.dropNext); } else { close(); dropped = true; }
+      continue;
+    }
+    if (named.some((n) => !onChart(n.star, n.hua))) {
+      const t = PARTIAL.get(s)?.get(hit(named.filter((n) => onChart(n.star, n.hua))));
+      if (t) { out.push(t); dropped = false; } else { close(); dropped = true; }
       continue;
     }
     // 緊跟被刪分支嘅附屬句（「這些配合…」「此處…」）指涉已冇，一齊唔出。
