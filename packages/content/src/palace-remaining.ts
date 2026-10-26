@@ -66,14 +66,17 @@ export function remainingPalaceReading(chart: Chart, palace: string, year: numbe
     statements: [...(prefix ? [{ text: prefix, en: '', kind: 'evidence' as const, source_ids: [`${id}-fact`], citations: [] }] : []),
       { text, en: '', kind, source_ids: [id], citations: refs.map(citeId) }],
   });
-  const checks = reviewed.map(({ rule, evaluated }) => separateRuleReferences
+  /* 2026-10-26 新書（separateRuleReferences）「據」只掛符合或未能判定嘅規則原段；
+   * 未符合嘅分支唔再掛出嚟（決定照記喺 recorder）。基準入口照舊。 */
+  const shown = (r: (typeof reviewed)[number]) => r.evaluated.matched || r.evaluated.status === 'not_applicable';
+  const checks = reviewed.filter((r) => !separateRuleReferences || shown(r)).map(({ rule, evaluated }) => separateRuleReferences
     ? palaceRuleReference(rule, evaluated, selected.some((s) => s.rule.id === rule.id))
     : `${rule.heading}：${evaluated.matched
       ? selected.some((s) => s.rule.id === rule.id) ? '符合本輪已核前提，正文採用' : '符合本輪已核前提，受篇幅排序未另起段，並非被抵銷'
       : '未符合本輪全部前提，未採此個人分支'}。${evaluated.checks.join('')}${rule.conditions.join('；')}`);
   const result = [make(`${profile.id}-base`, profile.heading,
     borrowed ? `這裡參照原書實坐${names.join('、')}的組合主題：${profile.text}以上不是本宮已成立的個人分支。` : profile.text,
-    [...new Set([...profile.sources, ...(separateRuleReferences ? reviewed : matched.filter((r) => !selected.includes(r))).flatMap((r) => r.rule.sources)])], checks, fact)];
+    [...new Set([...profile.sources, ...(separateRuleReferences ? reviewed.filter(shown) : matched.filter((r) => !selected.includes(r))).flatMap((r) => r.rule.sources)])], checks, fact)];
   for (const { rule, evaluated } of selected) result.push(make(rule.id, rule.heading,
     `${evaluated.facts.length ? `本盤${evaluated.facts.join('；')}。` : ''}${rule.text}`, rule.sources, separateRuleReferences ? [palaceRuleReference(rule, evaluated, true)] : [...evaluated.checks, ...rule.conditions]));
   result.push(make(`${profile.id}-follow`, profile.followHeading, profile.follow, profile.sources, [], '', 'editorial-explanation'));

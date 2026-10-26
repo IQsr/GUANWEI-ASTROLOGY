@@ -12,8 +12,8 @@ import remainingReview from '../src/cards/palace-remaining-review.json';
 import focusedReview from '../src/cards/palace-focused-review.json';
 import fixtures from '../../../apps/web/src/lib/free-ming-preview.json';
 
-it('72盤逐項核對保持原有規則條件、結果與引用；未符合與未知分開，要求不寫成本盤已有',()=>{
- let matched=0,unmatched=0,checked=0;
+it('72盤逐項核對保持原有規則條件、結果與引用；未符合分支不再掛出，要求不寫成本盤已有',()=>{
+ let matched=0,checked=0,omitted=0;
  for(const fixture of fixtures){
   const result=cast(fixture.input as BirthInput);if(!result.ok)throw Error(result.message);const chart=result.value;
   for(const palace of [...remaining.palaces,'夫妻','田宅']){
@@ -25,6 +25,16 @@ it('72盤逐項核對保持原有規則條件、結果與引用；未符合與�
     const evaluation=evaluatePalacePredicate(rule.when,chart,p);
     const selected=rows.some(s=>s.statements.some(l=>l.source_ids.includes(rule.id)));
     if(selected)expect(evaluation.status).toBe('matched');
+    // 2026-10-26: an unmatched branch is neither noted nor cited in the new-book reference path.
+    if(evaluation.status==='unmatched'){
+     expect(notes).not.toContain(rule.heading+'。規則要求與限制：');
+     const shownRules=rules.filter(r=>r!==rule&&evaluatePalacePredicate(r.when,chart,p).status!=='unmatched');
+     const sourceIds=new Set(rows.flatMap(s=>s.statements.flatMap(l=>l.citations)));
+     const profileIds=new Set(rows.flatMap(s=>s.statements.filter(l=>!rules.some(r=>l.source_ids.includes(r.id))).flatMap(l=>l.citations)));
+     for(const id of rule.sources){const cite=`palace.${palace==='夫妻'||palace==='田宅'?'focused':'remaining'}.v1:${id}`;
+      if(!shownRules.some(r=>r.sources.includes(id))&&!profileIds.has(cite))expect(sourceIds.has(cite)).toBe(false);}
+     omitted++;continue;
+    }
     // The two approved samples intentionally retain their own original reference path.
     if(!notes.includes(rule.heading+'。規則要求與限制：'))continue;
     const note=palaceRuleReference(rule,evaluation,selected);expect(notes).toContain(note);checked++;
@@ -36,11 +46,10 @@ it('72盤逐項核對保持原有規則條件、結果與引用；未符合與�
     for(const condition of rule.conditions)expect(requirements).toContain(readerReferenceLanguage(condition).replaceAll('沒有由單一化禄觸發不相關組合。', '單一化禄不能代替其他組合所需的配合。'));
     for(const check of evaluation.checks)expect(actual).toContain(readerReferenceLanguage(check));
     if(evaluation.status==='matched'){matched++;expect(actual).toContain('本盤符合');}
-    else if(evaluation.status==='unmatched'){unmatched++;expect(actual).toContain('本盤未符合');}
    }
   }
  }
- expect(checked).toBeGreaterThan(100);expect(matched).toBeGreaterThan(0);expect(unmatched).toBeGreaterThan(0);
+ expect(checked).toBeGreaterThan(30);expect(matched).toBeGreaterThan(0);expect(omitted).toBeGreaterThan(100);
 });
 
 it('缺資料不會標成確認沒有，符合但未另起段也不會標成失效',()=>{
