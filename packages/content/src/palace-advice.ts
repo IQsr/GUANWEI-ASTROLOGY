@@ -4,6 +4,7 @@ import { isYouthReader } from './youth';
 import { xingxiOf } from './xingxi';
 import rawAdvice from './cards/palace-advice.json';
 import links from './cards/palace-advice-links.json';
+import focus from './cards/palace-advice-focus.json';
 
 /** Practical editorial advice; selection follows the existing reading, without adding astrological rules. */
 type AdviceText = { adult: string; youth?: string };
@@ -67,17 +68,56 @@ const mingAdviceTexts: Record<string, number[]> = {
   scope: [12,21,49,55], continuity: [38,48], judgement: [15,60],
 };
 
-/** Direct advice follows the complete combination and any already selected conditional branch. */
-export function withPalaceAdvice(chart: Chart, palace: string, year: number, segments: FreeReadingSegment[]): FreeReadingSegment[] {
+type Modifier = 'ji' | 'quan' | 'lu' | 'ke' | 'sha' | 'fu';
+const pick = (t: AdviceText, youth: boolean) => youth ? t.youth ?? t.adult : t.adult;
+
+/** 新書：本宮有化忌、化權、化祿／祿存、化科、煞曜或輔曜，就加一句點名該星嘅做法（只揀一項）。 */
+function modifierSentence(chart: Chart, palace: string, youth: boolean, skip: Modifier[] = []): { key: Modifier; text: string } | null {
+  const stars = chart.palaces.find((p) => p.name === palace)?.stars ?? [];
+  const hua = (h: string) => stars.filter((s) => s.sihua === h).map((s) => `${s.name}化${h}`);
+  const named = (list: string[]) => stars.filter((s) => list.includes(s.name)).map((s) => s.name);
+  const found: Record<Modifier, string> = {
+    ji: hua('忌').length ? `本宮見${hua('忌').join('、')}。` : '',
+    quan: hua('權').length ? `本宮有${hua('權').join('、')}。` : '',
+    lu: hua('祿').length || named(['祿存']).length ? `本宮有${[...hua('祿'), ...named(['祿存'])].join('、')}。` : '',
+    ke: hua('科').length ? `本宮有${hua('科').join('、')}。` : '',
+    sha: named(focus.sha).length ? `本宮同度${named(focus.sha).join('、')}。` : '',
+    fu: named(focus.fu).length ? `本宮同度${named(focus.fu).join('、')}。` : '',
+  };
+  const key = (focus.modifierOrder as Modifier[]).find((k) => found[k] && !skip.includes(k));
+  if (!key) return null;
+  const tail = (focus.palaceModifiers as Record<string, Partial<Record<Modifier, string>>>)[palace]?.[key] ?? focus.modifiers[key];
+  const domain = (focus.domains as Record<string, AdviceText>)[palace];
+  return { key, text: found[key] + tail.replace('{domain}', domain ? pick(domain, youth) : '') };
+}
+
+/** 新書疾厄：按結論段實際講到的取象揀建議；只講一方面用原有專項建議，講到幾方面就照列。 */
+function healthFocus(segments: FreeReadingSegment[], youth: boolean): { key: string; text?: string } | null {
+  const lead = segments.find((s) => s.slot === '結論') ?? segments[0];
+  if (!lead) return null;
+  const hits = focus.health.families.filter((f) => new RegExp(f.pattern).test(lead.text));
+  if (!hits.length) return { key: 'observation' };
+  if (hits.length === 1 && advice['疾厄']![hits[0]!.key]) return { key: hits[0]!.key };
+  return { key: `mixed.${hits.map((f) => f.key).join('+')}`, text: pick(focus.health.mixed, youth).replace('{labels}', hits.map((f) => f.label).join('、')) };
+}
+
+/** Direct advice follows the complete combination and any already selected conditional branch.
+ * `focused`（只限新書）：主題跟正文改配、疾厄跟結論取象，並按本宮實際星曜加一句。 */
+export function withPalaceAdvice(chart: Chart, palace: string, year: number, segments: FreeReadingSegment[], opts: { focused?: boolean } = {}): FreeReadingSegment[] {
   const youth = isYouthReader(chart, year);
+  const withModifier = (key: string, text: string, skip: Modifier[] = []) => {
+    const m = opts.focused ? modifierSentence(chart, palace, youth, skip) : null;
+    return m ? { key: `${key}+${m.key}`, text: `${text}${m.text}` } : { key, text };
+  };
   if (palace === '命宮') {
     const n = xingxiOf(chart)?.system.n;
     const key = (links.ming as Record<string, string>)[String(n)] ?? Object.entries(mingAdviceTexts).find(([, ids]) => n !== undefined && ids.includes(n))?.[0];
     if (!key) return segments;
-    const selectedAdvice = advice['命宮']![key]!;
-    const text = youth ? selectedAdvice.youth ?? selectedAdvice.adult : selectedAdvice.adult;
+    const ji = opts.focused && key === 'ambition' && chart.palaces.find((p) => p.name === '命宮')?.stars.some((s) => s.kind === 'major' && s.sihua === '忌');
+    const base = ji ? { key: 'ambition-ji', text: pick(focus.ming['ambition-ji'], youth) } : { key, text: pick(advice['命宮']![key]!, youth) };
+    const { key: id, text } = withModifier(base.key, base.text, ji ? ['ji'] : []);
     return segments.map((s) => unsourced(s) && s.statements.every((line) => line.kind === 'editorial-example')
-      ? { ...s, slot: '做法', heading, text, statements: [{ text, en: '', kind: 'editorial-advice', source_ids: [`editorial.advice.命宮.${key}`], citations: [] }] }
+      ? { ...s, slot: '做法', heading, text, statements: [{ text, en: '', kind: 'editorial-advice', source_ids: [`editorial.advice.命宮.${id}`], citations: [] }] }
       : s);
   }
   const config = adviceConfig[palace];
@@ -93,12 +133,14 @@ export function withPalaceAdvice(chart: Chart, palace: string, year: number, seg
   const selectedRule = ruleIds.find((id) => selectedIds.includes(id));
   const ruleAdvice = selectedRule ? (links.rules as Record<string, string>)[selectedRule] : undefined;
   const profileId = selectedIds.find((id) => id in links.profiles);
-  const profileAdvice = profileId ? (links.profiles as Record<string, string>)[profileId] : undefined;
+  const profiles = { ...links.profiles, ...(opts.focused ? focus.profiles : {}) } as Record<string, string>;
+  const profileAdvice = profileId ? profiles[profileId] : undefined;
   const override = ruleAdvice ?? profileAdvice ?? Object.entries(config.selected ?? {}).find(([id]) => selectedIds.includes(id))?.[1];
-  const key = override ?? config.groups.find((g) => g.combinations.includes(combination))?.scene ?? config.otherwise;
-  const selectedAdvice = config.texts[key];
-  if (!selectedAdvice) throw Error(`Missing editorial advice: ${palace}/${key}`);
-  const text = youth ? selectedAdvice.youth ?? selectedAdvice.adult : selectedAdvice.adult;
+  const health = opts.focused && palace === '疾厄' && !ruleAdvice ? healthFocus(segments, youth) : null;
+  const sceneKey = health?.key ?? override ?? config.groups.find((g) => g.combinations.includes(combination))?.scene ?? config.otherwise;
+  const selectedAdvice = health?.text ? { adult: health.text } : config.texts[sceneKey];
+  if (!selectedAdvice) throw Error(`Missing editorial advice: ${palace}/${sceneKey}`);
+  const { key, text } = withModifier(sceneKey, pick(selectedAdvice, youth));
   const closingAdvice: FreeReadingSegment = { slot: '做法', heading, text, statements: [{ text, en: '', kind: 'editorial-advice', source_ids: [`editorial.advice.${palace}.${key}`], citations: [] }] };
   const last = segments.at(-1);
   const body = last && unsourced(last) && last.statements.every((line) => line.kind === 'editorial-advice') ? segments.slice(0, -1) : segments;

@@ -20,7 +20,7 @@ it('the production builder selects all twelve approved cross chapters without a 
  for(const sample of original.filter(c=>['TL','A','C'].includes(c.id))){
   const {chart,options}=get(sample),before=JSON.stringify(chart);
   const current=createBookChapters(chart,options)!;
-  const reviewed=bookChapters(chart,{...options,crossPalaceReading:true,separateRuleReferences:true,conditionalBranches:true})!;
+  const reviewed=bookChapters(chart,{...options,crossPalaceReading:true,separateRuleReferences:true,conditionalBranches:true,focusedAdvice:true})!;
   for(const slug of ['命宮','官祿','財帛','福德']){
    const next=current.find(c=>c.slug===slug)!;
    const {analysis,...saved}=next.reading!;
@@ -82,7 +82,7 @@ it('retains unsupported poles as open comparisons and fixes the reviewed advice/
 it('missing cross prerequisites do not turn into supported readings; a different structure does not reuse a five-case synopsis',()=>{
  const input=original.find(c=>c.id==='C')!,{chart,options}=get(input);delete chart.palaces.find(p=>p.name==='官祿')!.borrowsFrom;
  const current=createBookChapters(chart,options)!;
- expect(current.find(c=>c.slug==='官祿')!.text).toBe(bookChapters(chart,{...options,separateRuleReferences:true,conditionalBranches:true})!.find(c=>c.slug==='官祿')!.text);
+ expect(current.find(c=>c.slug==='官祿')!.text).toBe(bookChapters(chart,{...options,separateRuleReferences:true,conditionalBranches:true,focusedAdvice:true})!.find(c=>c.slug==='官祿')!.text);
  const d=get(cases[3]!);d.chart.palaces.find(p=>p.name==='財帛')!.stars=d.chart.palaces.find(p=>p.name==='財帛')!.stars.filter(s=>s.kind!=='major');
  const base=bookChapters(d.chart,d.options)!;
  const result=withReadingEpilogue(d.chart,base).find(c=>c.slug==='給你的話')!;

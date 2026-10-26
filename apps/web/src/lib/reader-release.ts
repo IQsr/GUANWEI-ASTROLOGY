@@ -6,5 +6,7 @@ export const EPILOGUE_READER_VERSION = 'epilogue-reader-v1';
 export const MING_BRANCH_FILTER_VERSION = 'ming-branch-filter-v1';
 /** 2026-10-26 十一宮：同一揀句規則擴到宮位章（content `withConditionalBranches` palace）。 */
 export const PALACE_BRANCH_FILTER_VERSION = 'palace-branch-filter-v1';
+/** 2026-10-26 十二宮編輯建議：主題跟正文改配、疾厄跟結論取象，並按本宮實際星曜加一句（content `withPalaceAdvice` focused）。 */
+export const FOCUSED_ADVICE_VERSION = 'palace-advice-focus-v1';
 /** 2026-10-26 宮位規則卡加日生／夜生同天刑、天姚（content `palace-conditions-v2`，只入新成書入口）。 */
 export const PALACE_CONDITIONS_VERSION = 'palace-conditions-v2';
