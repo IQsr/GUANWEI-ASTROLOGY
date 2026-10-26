@@ -15,6 +15,51 @@ export const REVIEWED_KEY_DELTAS=[
  {id:'preview-45',slug:'這一年',source:'wtz.deep.p348.b013+wtz.deep.p349.b001',reason:'廉貞寅申流年跨頁重複待核，收起確定關鍵提示',edits:[{slot:'結論',remove:YEAR_KEY}]},
 ] as const;
 
+/** 2026-10-25 reviewed citation removal: 夫妻「這章的閱讀範圍」no longer cites spouse-scope (巨門專段 p396).
+ * 《深造講義》夫妻宮篇首只得標題（PDF377），編輯範圍段改為無據；正文一字不改。 */
+export const REVIEWED_SPOUSE_SCOPE={
+ citation:'palace.focused.v1:spouse-scope',
+ scope:'本章保留原書對關係的觀察範圍；支持、相處磨合與環境阻力分開看，不把一項配置換成伴侶品德、婚姻次數或已發生的結局。',
+ note:'這段說明原書可以參照哪些生活範圍，不表示每一項情況都已發生在你身上。',
+} as const;
+
+type Seg={referenceConditions?:string[];statements?:{citations:string[]}[]};
+type Claim={segment:number;statement:number;citationIds:string[];references:{citationId:string;role:string;blockIds:string[]}[]};
+/** Put back exactly the three removed pieces, so the historical hash still checks every other field. */
+function withHistoricalSpouseScope(chapter:Book[number]):Book[number] {
+ const segments=(chapter.reading?.segments??[]) as Seg[];
+ const index=segments.findIndex(s=>s.referenceConditions?.some(c=>c.endsWith(REVIEWED_SPOUSE_SCOPE.scope)));
+ if(index<0)return chapter;
+ const {citation,note}=REVIEWED_SPOUSE_SCOPE;
+ const next=structuredClone(chapter),seg=(next.reading!.segments as Seg[])[index]!;
+ if(JSON.stringify(seg).includes(citation)||seg.referenceConditions!.includes(note))throw Error('Spouse scope citation still present');
+ const at=seg.referenceConditions!.findIndex(c=>c.endsWith(REVIEWED_SPOUSE_SCOPE.scope));
+ seg.referenceConditions!.splice(at,0,note);
+ const last=seg.statements!.length-1;seg.statements![last]!.citations.push(citation);
+ const analysis=next.reading!.analysis as {claims:Claim[]}|undefined;
+ if(analysis){
+  const claims=analysis.claims.filter(c=>c.segment===index&&c.statement===last);
+  if(claims.length!==1)throw Error('Expected one analysis claim for spouse scope');
+  claims[0]!.citationIds.push(citation);claims[0]!.references.push({citationId:citation,role:'legacy-unclassified',blockIds:[]});
+ }
+ return next;
+}
+
+type ReadingSeg={slot:string;heading?:string;text:string;referenceConditions?:string[];statements:{citations:string[]}[]};
+/** Same reviewed removal for a raw 夫妻 palaceReading(): the scope segment had the preceding follow
+ * segment's shared conditions plus one editorial note, and cited spouse-scope. */
+export function withHistoricalSpouseScopeReading<T>(segments:T):T {
+ const list=segments as unknown as ReadingSeg[]|null;
+ const i=list?.findIndex(s=>s.heading==='這章的閱讀範圍'&&s.text.endsWith(REVIEWED_SPOUSE_SCOPE.scope))??-1;
+ if(!list||i<0)return segments;
+ const seg=list[i]!,prev=list[i-1];
+ if(seg.referenceConditions||seg.statements.length!==1||seg.statements[0]!.citations.length||!prev?.referenceConditions)throw Error('Unexpected spouse scope segment');
+ const {referenceConditions:_,statements,...head}=seg;
+ const restored={...head,referenceConditions:[...prev.referenceConditions,'這段是原書範圍與編輯閱讀說明，不是另一項已成立的個人結果。'],
+  statements:[{...statements[0]!,citations:[REVIEWED_SPOUSE_SCOPE.citation]}]};
+ return list.map((s,k)=>k===i?restored:s) as unknown as T;
+}
+
 /** Restore only historical 十二步 and five individually checked key-sentence deltas.
  * The existing full-book hashes still detect every other field, chapter and ordering change.
  * No expected hash is taken from the current writer.
@@ -23,6 +68,7 @@ export function withHistoricalLifeSteps(book:Book,id:string):Book {
  const row=historical.samples.find(s=>s.id===id);if(!row)throw Error('Missing historical book '+id);
  if(book.filter(c=>c.slug==='一生十二步').length!==1)throw Error('Expected exactly one twelve-step chapter');
  return book.map(current=>{
+  if(current.slug==='夫妻')return withHistoricalSpouseScope(current);
   const old=row.chapters.find(c=>c.slug===current.slug);
   if(current.slug==='一生十二步'){
    if(!old||current.reading?.writer!=='life-steps-reader-v2')throw Error('Missing versioned twelve-step chapter '+id);
