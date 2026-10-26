@@ -42,16 +42,15 @@ it('同梁骨架自行交代祿存與火星分支，不再指向已改走的命�
  expect(next.statements!.map(l=>({...l,text:''}))).toEqual(old.statements!.map(l=>({...l,text:''})));
 });
 
-it('紫府官祿與收結都把未成立分支的規則要求與本盤核對結果分開，原文及例外完整可見',()=>{
+it('紫府官祿與收結不再掛出未成立分支（2026-10-26 條件唔成立就唔寫）；已掛出的原文及例外完整可見',()=>{
  const {current}=books(five[3]!);
+ const rule=remaining.rules.find(r=>r.conditions.some(c=>c.includes('本宮有天相且四方廉貞本命祿')))!;
  for(const slug of ['官祿','給你的話']){
   const chapter=current.find(c=>c.slug===slug)!;
-  const row=chapter.reading!.segments.find(s=>s.referenceConditions?.some(c=>c.includes('本宮有天相且四方廉貞本命祿')))!;
-  const note=row.referenceConditions!.find(c=>c.includes('本宮有天相且四方廉貞本命祿'))!;
-  const [requirement,actual]=note.split('本盤核對結果：');
-  expect(requirement).toContain('規則要求與限制：本宮有天相且四方廉貞本命祿');
-  expect(actual).toContain('核對三方四正廉貞化祿：未見所列配合');
-  expect(actual).toContain('適用判斷：本盤未符合');
+  // The 廉貞祿 branch is unmatched on this chart: neither its requirement note nor its source is shown.
+  expect(chapter.reading!.segments.some(s=>s.referenceConditions?.some(c=>c.includes('本宮有天相且四方廉貞本命祿')))).toBe(false);
+  const shownIds=new Set(chapter.reading!.segments.flatMap(s=>s.statements?.flatMap(l=>l.citations)??[]));
+  for(const source of rule.sources)expect(shownIds.has(`palace.remaining.v1:${source}`)).toBe(false);
   const marked=markBook([{palace:slug,segments:readingSegments(chapter.text,chapter.slots,chapter.reading)}]);
   const notes=citesFor(marked);
   for(const seg of marked[0]!.segments){
@@ -60,9 +59,5 @@ it('紫府官祿與收結都把未成立分支的規則要求與本盤核對結�
    const shown=[...panel.directReferences,...panel.references].flatMap(r=>r.quoteParts??[]);
    for(const ref of refs)for(const part of ref.quoteParts??[])expect(shown.some(p=>p.id===part.id&&p.text===part.text&&p.note===part.note)).toBe(true);
   }
-  const rule=remaining.rules.find(r=>r.conditions.some(c=>c.includes('本宮有天相且四方廉貞本命祿')))!;
-  const shownIds=new Set(row.statements!.flatMap(l=>l.citations));
-  for(const source of rule.sources)expect(shownIds).toContain(`palace.remaining.v1:${source}`);
-  for(const condition of rule.conditions)expect(note).toContain(readerReferenceLanguage(condition));
  }
 });

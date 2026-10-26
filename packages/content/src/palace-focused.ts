@@ -51,11 +51,14 @@ export function focusedPalaceReading(chart: Chart, palace: string, year: number,
       ...(refs.length ? { referenceConditions: [...shared, ...extra] } : {}),
       statements: [...(prefix ? [{ text: prefix, en: '', kind: 'evidence' as const, source_ids: [`${id}-fact`], citations: [] }] : []), statement] };
   };
+  /* 2026-10-26 新書（separateRuleReferences）「據」只掛符合或未能判定嘅規則原段；
+   * 未符合嘅分支唔再掛出嚟（決定照記喺 recorder）。基準入口照舊。 */
+  const shown = (r: (typeof reviewed)[number]) => r.evaluated.matched || r.evaluated.status === 'not_applicable';
   const result = [make(`${profile.id}-base`, profile.heading,
     borrowed ? `這裡參照的是原書實坐${names.join('、')}一組的主題：${profile.text}借入參照仍須保留範圍，以上不是本宮已成立的個人分支。` : profile.text,
-    [...new Set([...profile.sources, ...reviewed.filter((r) => separateRuleReferences || (r.evaluated.matched && !selected.includes(r))).flatMap((r) => r.rule.sources)])],
+    [...new Set([...profile.sources, ...reviewed.filter((r) => separateRuleReferences ? shown(r) : (r.evaluated.matched && !selected.includes(r))).flatMap((r) => r.rule.sources)])],
     borrowed ? [`參照原節實坐宮支${origin.branch}，沒有將其宮支分支當成本宮${p.branch}。`] :
-      reviewed.map(({ rule, evaluated }) => separateRuleReferences
+      reviewed.filter((r) => !separateRuleReferences || shown(r)).map(({ rule, evaluated }) => separateRuleReferences
         ? palaceRuleReference(rule, evaluated, selected.some((s) => s.rule.id === rule.id))
         : `${rule.heading}：${evaluated.matched ? selected.some((s) => s.rule.id === rule.id) ? '符合本輪已核前提，正文採用' : '符合本輪已核前提，受篇幅排序未另起正文段；不可視為已被其他支抵銷' : '未符合本輪全部已核前提，未採其個人分支'}。${evaluated.checks.join('')}`), fact)];
   for (const { rule, evaluated } of selected) {
