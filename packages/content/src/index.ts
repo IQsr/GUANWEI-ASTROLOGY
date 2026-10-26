@@ -32,6 +32,7 @@ export * from './xingxi-chapters';
 export * from './card';
 export * from './ming-writer';
 export * from './free-ming-reader';
+export { withConditionalBranches, huaMentions } from './free-ming-systems';
 export * from './palace-reader';
 export * from './palace-advice';
 export * from './palace-narrative';

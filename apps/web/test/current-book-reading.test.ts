@@ -20,7 +20,7 @@ it('the production builder selects all twelve approved cross chapters without a 
  for(const sample of original.filter(c=>['TL','A','C'].includes(c.id))){
   const {chart,options}=get(sample),before=JSON.stringify(chart);
   const current=createBookChapters(chart,options)!;
-  const reviewed=bookChapters(chart,{...options,crossPalaceReading:true,separateRuleReferences:true})!;
+  const reviewed=bookChapters(chart,{...options,crossPalaceReading:true,separateRuleReferences:true,conditionalMingBranches:true})!;
   for(const slug of ['命宮','官祿','財帛','福德']){
    const next=current.find(c=>c.slug===slug)!;
    const {analysis,...saved}=next.reading!;
