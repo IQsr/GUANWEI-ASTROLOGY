@@ -45,10 +45,29 @@ function withHistoricalSpouseScope(chapter:Book[number]):Book[number] {
  return next;
 }
 
+/** 2026-10-26 reviewed source swap: 兄弟／子女「這章的閱讀範圍」now cite only the 篇首 passages.
+ * The old bundles also quoted 紫微（兄弟）and 紫微／七殺（子女）專段 on every chart. Text is unchanged;
+ * only the citation id differs, so the historical form is the same JSON with the old ids put back. */
+export const REVIEWED_SCOPE_SWAPS=[
+ {from:'palace.remaining.v1:siblings-scope-v2',to:'palace.remaining.v1:siblings-scope'},
+ {from:'palace.remaining.v1:children-scope-v2',to:'palace.remaining.v1:children-scope'},
+] as const;
+function withHistoricalScopeIds<T>(value:T):T {
+ let json=JSON.stringify(value);
+ if(json===undefined)return value;
+ for(const {from,to} of REVIEWED_SCOPE_SWAPS){
+  if(json.includes(`"${to}"`))throw Error('Old scope citation still present: '+to);
+  json=json.replaceAll(`"${from}"`,`"${to}"`);
+ }
+ return JSON.parse(json) as T;
+}
+
 type ReadingSeg={slot:string;heading?:string;text:string;referenceConditions?:string[];statements:{citations:string[]}[]};
 /** Same reviewed removal for a raw 夫妻 palaceReading(): the scope segment had the preceding follow
- * segment's shared conditions plus one editorial note, and cited spouse-scope. */
-export function withHistoricalSpouseScopeReading<T>(segments:T):T {
+ * segment's shared conditions plus one editorial note, and cited spouse-scope.
+ * Also applies the 兄弟／子女 scope id swap, so it can wrap every palace's reading. */
+export function withHistoricalSpouseScopeReading<T>(input:T):T {
+ const segments=withHistoricalScopeIds(input);
  const list=segments as unknown as ReadingSeg[]|null;
  const i=list?.findIndex(s=>s.heading==='這章的閱讀範圍'&&s.text.endsWith(REVIEWED_SPOUSE_SCOPE.scope))??-1;
  if(!list||i<0)return segments;
@@ -67,7 +86,7 @@ export function withHistoricalSpouseScopeReading<T>(segments:T):T {
 export function withHistoricalLifeSteps(book:Book,id:string):Book {
  const row=historical.samples.find(s=>s.id===id);if(!row)throw Error('Missing historical book '+id);
  if(book.filter(c=>c.slug==='一生十二步').length!==1)throw Error('Expected exactly one twelve-step chapter');
- return book.map(current=>{
+ return withHistoricalScopeIds(book).map(current=>{
   if(current.slug==='夫妻')return withHistoricalSpouseScope(current);
   const old=row.chapters.find(c=>c.slug===current.slug);
   if(current.slug==='一生十二步'){
