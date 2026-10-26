@@ -23,7 +23,8 @@ const remove = (c: Chart, names: string[]) => { for (const p of c.palaces) p.sta
 
 it('九宮540選擇入口與54條條件綁定覆核；完整引段與跨頁逐段吻合原索引', () => {
   for (const p of data.palaces) expect(data.profiles.filter((r) => r.palace === p)).toHaveLength(60);
-  expect(data.rules).toHaveLength(54);
+  expect(data.rules.filter((r) => !('since' in r))).toHaveLength(54);
+  expect(data.rules.filter((r) => 'since' in r)).toHaveLength(21);
   expect(data.pdf_sha256).toBe(index.book.sha256);
   expect(audit.profiles.map((p) => p.id)).toEqual(data.profiles.map((p) => p.id));
   expect(audit.rules.map((r) => r.when)).toEqual(data.rules.map((r) => r.when));

@@ -2,8 +2,8 @@
   "version": "two-palaces-review-v1",
   "reviewed_on": "2026-10-22",
   "pdf_sha256": "513e3d068040efe3684eb3c0e44cf6e447787670bbf5d618f022da2d6c55231b",
-  "data_sha256": "15aa6c42f29c593f78a0323e90eb0adfb0e62b90474be355266587ba055e8d65",
-  "reader_sha256": "9a9a807536fc8d6006b4087125c4fb3aa41a4d17f43109a9f97df6be072dc385",
+  "data_sha256": "61f3fed9892a47da20db00202ae4f467307d75e6db92c177f55369de8a5473c1",
+  "reader_sha256": "6dbdcc1f69408eebf2367556bfd53ddf4c250585df311c08d13c9b2bf98009e4",
   "review_scope": "夫妻、田宅各60組實坐星系／宮支主題，以及逐條明示的配曜修飾；不是原引擎全分支校勘，不把路徑覆蓋冒充全部個人推論已驗證。",
   "method": "已逐頁讀夫妻377–404與田宅551–565及相鄰原文；保存本命與運限差別、必要條件、否定及例外。原檔疑字不建立新規則；廟陷日夜、府庫、朝拱及未收雜曜不猜判。",
   "profiles": [
@@ -2942,6 +2942,160 @@
         "規則另須破軍在三方四正實坐；沒有由單一化禄觸發不相關組合。"
       ],
       "decision": "按實際位置核必要前提，正文收窄成閱讀重點；未符合不反推相反結果"
+    },
+    {
+      "id": "spouse-tanlang-ziwu-xing",
+      "when": {
+        "op": "all",
+        "args": [
+          {
+            "op": "branch",
+            "branches": [
+              "子",
+              "午"
+            ]
+          },
+          {
+            "op": "any",
+            "args": [
+              {
+                "op": "has",
+                "scope": "own",
+                "names": [
+                  "天刑"
+                ]
+              },
+              {
+                "op": "has",
+                "scope": "own",
+                "names": [
+                  "地空",
+                  "地劫"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "sources": [
+        "cond2-spouse-tanlang-ziwu-xing"
+      ],
+      "conditions": [
+        "子午貪狼獨坐夫妻宮，本宮實見天刑，或地空、地劫其一；空曜只取地空地劫。原書另說不見則婚姻必有波瀾、見輔佐單星主第三者，屬事件斷語不用。"
+      ],
+      "decision": "2026-10-26 日夜生／雜曜第一批：逐條讀原段前後文，必要條件、否定及例外入 when；事件與他人品格斷語不用；未符合不反推相反結果",
+      "since": "palace-conditions-v2"
+    },
+    {
+      "id": "property-sun-day-fuzuo",
+      "when": {
+        "op": "all",
+        "args": [
+          {
+            "op": "branch",
+            "branches": [
+              "寅",
+              "卯",
+              "辰",
+              "巳",
+              "午"
+            ]
+          },
+          {
+            "op": "birth",
+            "is": "日生"
+          },
+          {
+            "op": "has",
+            "scope": "four",
+            "names": [
+              "左輔",
+              "右弼",
+              "文昌",
+              "文曲",
+              "天魁",
+              "天鉞"
+            ]
+          }
+        ]
+      },
+      "sources": [
+        "cond2-property-sun-day-fuzuo"
+      ],
+      "conditions": [
+        "太陽實坐田宅宮且入廟；太陽廟陷只取各表皆同的兩端（廟旺寅卯辰巳午、落陷子丑戌亥）；日生按原書寅至未時、夜生按申至丑時（上篇主星論p.9、p.21），只按安命時辰分；三方四正見左右昌曲魁鉞任一。"
+      ],
+      "decision": "2026-10-26 日夜生／雜曜第一批：逐條讀原段前後文，必要條件、否定及例外入 when；事件與他人品格斷語不用；未符合不反推相反結果",
+      "since": "palace-conditions-v2"
+    },
+    {
+      "id": "property-sun-night-fallen",
+      "when": {
+        "op": "all",
+        "args": [
+          {
+            "op": "branch",
+            "branches": [
+              "子",
+              "戌",
+              "亥"
+            ]
+          },
+          {
+            "op": "birth",
+            "is": "夜生"
+          }
+        ]
+      },
+      "sources": [
+        "cond2-property-sun-night-fallen"
+      ],
+      "conditions": [
+        "太陽實坐田宅宮且落陷，丑宮日月同度另論；太陽廟陷只取各表皆同的兩端（廟旺寅卯辰巳午、落陷子丑戌亥）；日生按原書寅至未時、夜生按申至丑時（上篇主星論p.9、p.21），只按安命時辰分。"
+      ],
+      "decision": "2026-10-26 日夜生／雜曜第一批：逐條讀原段前後文，必要條件、否定及例外入 when；事件與他人品格斷語不用；未符合不反推相反結果",
+      "since": "palace-conditions-v2"
+    },
+    {
+      "id": "property-moon-day-fallen",
+      "when": {
+        "op": "all",
+        "args": [
+          {
+            "op": "branch",
+            "branches": [
+              "卯",
+              "辰",
+              "巳",
+              "午"
+            ]
+          },
+          {
+            "op": "birth",
+            "is": "日生"
+          },
+          {
+            "op": "lacks",
+            "scope": "own",
+            "names": [
+              "左輔",
+              "右弼",
+              "文昌",
+              "文曲",
+              "天魁",
+              "天鉞"
+            ]
+          }
+        ]
+      },
+      "sources": [
+        "cond2-property-moon-day-fallen"
+      ],
+      "conditions": [
+        "太陰實坐田宅宮且落陷；太陰廟陷只取各表皆同的兩端（廟旺子丑酉戌亥、落陷卯辰巳午）；日生按原書寅至未時、夜生按申至丑時（上篇主星論p.9、p.21），只按安命時辰分。原書下一條太陰與輔佐同度可有祖業且可自置，本宮見左右昌曲魁鉞即不採。"
+      ],
+      "decision": "2026-10-26 日夜生／雜曜第一批：逐條讀原段前後文，必要條件、否定及例外入 when；事件與他人品格斷語不用；未符合不反推相反結果",
+      "since": "palace-conditions-v2"
     }
   ],
   "engine_query_review": "docs/engine-p0-2026-10-23.md",
@@ -2958,5 +3112,6 @@
     "previous_reader_sha256": "00567cc69ca11cf720f9fbb23a9a545f40daf8aeb1fd94e4e981bb55ab7109a5",
     "normal_path_equivalence_sha256": "00567cc69ca11cf720f9fbb23a9a545f40daf8aeb1fd94e4e981bb55ab7109a5",
     "verification": "移除新增的observer入口、紀錄呼叫及專用稿記錄分支後，與修改前讀取器逐位元雜湊相同；另以176書及1728宮位固定矩陣核對實際正文、據、選中及未符結果。"
-  }
+  },
+  "conditions_v2_review": "docs/palace-conditions-v2-2026-10-26.md"
 }

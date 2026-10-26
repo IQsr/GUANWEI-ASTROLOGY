@@ -2,8 +2,8 @@
   "version": "remaining-palaces-review-v1",
   "reviewed_on": "2026-10-22",
   "pdf_sha256": "513e3d068040efe3684eb3c0e44cf6e447787670bbf5d618f022da2d6c55231b",
-  "data_sha256": "14be5fac6be61af800773cffa1c0d87aa05ae7c2a101af5d4e1bdf6e409ed45d",
-  "reader_sha256": "970d372f153c5a15c3369a48a15fb01cac58fb041a148ec1e03d180fae83523b",
+  "data_sha256": "1c8e018871936addb971fffdcf6a997959d4caca35489ee0a00095f0e4c82cbb",
+  "reader_sha256": "faae4483493fe5b8f07d0d7141c6963c2ec74428865742dc295bb2e71f130c8e",
   "review_scope": "九宮342個組合主題，按既有60組幾何建立每宮60個選擇入口（共540）；相同通則在多個宮支共用，不冒充540篇獨立原書論述。財帛太陰辰戌、官祿天機子午兩個已批選段沿用原路徑，因此新增讀稿路徑實際538個。",
   "method": "核讀兄弟366–377、子女404–429、財帛429–463、疾厄463–486、遷移486–503、僕役503–516、官祿516–551、福德565–580、父母580–595相關完整原段及前後文。逐組摘完整段，不用機械標籤代替語意。",
   "limits": [
@@ -11200,6 +11200,608 @@
         "七殺本宮、紫微本命科與輔佐真在四方；親屬與主管的範圍分開。"
       ],
       "decision": "只按列明的充分可觀察前提選段，不由未中反推相反結果；必要例外保留"
+    },
+    {
+      "id": "siblings-moon-night-bright",
+      "when": {
+        "op": "all",
+        "args": [
+          {
+            "op": "branch",
+            "branches": [
+              "子",
+              "酉",
+              "戌",
+              "亥"
+            ]
+          },
+          {
+            "op": "birth",
+            "is": "夜生"
+          }
+        ]
+      },
+      "sources": [
+        "cond2-siblings-moon-night-bright"
+      ],
+      "conditions": [
+        "太陰實坐兄弟宮且入廟，丑宮日月同度另論；太陰廟陷只取各表皆同的兩端（廟旺子丑酉戌亥、落陷卯辰巳午）；日生按原書寅至未時、夜生按申至丑時（上篇主星論p.9、p.21），只按安命時辰分。落陷及見煞的刑克分支不在此採用。"
+      ],
+      "decision": "2026-10-26 日夜生／雜曜第一批：逐條讀原段前後文，必要條件、否定及例外入 when；事件與他人品格斷語不用；未符合不反推相反結果",
+      "since": "palace-conditions-v2"
+    },
+    {
+      "id": "siblings-moon-day",
+      "when": {
+        "op": "all",
+        "args": [
+          {
+            "op": "branch",
+            "branches": [
+              "子",
+              "酉",
+              "戌",
+              "亥"
+            ]
+          },
+          {
+            "op": "birth",
+            "is": "日生"
+          }
+        ]
+      },
+      "sources": [
+        "cond2-siblings-moon-day"
+      ],
+      "conditions": [
+        "太陰實坐兄弟宮且入廟，丑宮日月同度另論；太陰廟陷只取各表皆同的兩端（廟旺子丑酉戌亥、落陷卯辰巳午）；日生按原書寅至未時、夜生按申至丑時（上篇主星論p.9、p.21），只按安命時辰分。見吉曜、見煞兩支未另判；刑克斷語不用。"
+      ],
+      "decision": "2026-10-26 日夜生／雜曜第一批：逐條讀原段前後文，必要條件、否定及例外入 when；事件與他人品格斷語不用；未符合不反推相反結果",
+      "since": "palace-conditions-v2"
+    },
+    {
+      "id": "wealth-moon-night-bright",
+      "when": {
+        "op": "all",
+        "args": [
+          {
+            "op": "branch",
+            "branches": [
+              "子",
+              "酉",
+              "戌",
+              "亥"
+            ]
+          },
+          {
+            "op": "birth",
+            "is": "夜生"
+          }
+        ]
+      },
+      "sources": [
+        "cond2-wealth-moon-night-bright"
+      ],
+      "conditions": [
+        "太陰實坐財帛宮且入廟，丑宮日月同度另有專條；太陰廟陷只取各表皆同的兩端（廟旺子丑酉戌亥、落陷卯辰巳午）；日生按原書寅至未時、夜生按申至丑時（上篇主星論p.9、p.21），只按安命時辰分。"
+      ],
+      "decision": "2026-10-26 日夜生／雜曜第一批：逐條讀原段前後文，必要條件、否定及例外入 when；事件與他人品格斷語不用；未符合不反推相反結果",
+      "since": "palace-conditions-v2"
+    },
+    {
+      "id": "wealth-moon-day-fallen",
+      "when": {
+        "op": "all",
+        "args": [
+          {
+            "op": "branch",
+            "branches": [
+              "卯",
+              "辰",
+              "巳",
+              "午"
+            ]
+          },
+          {
+            "op": "birth",
+            "is": "日生"
+          }
+        ]
+      },
+      "sources": [
+        "cond2-wealth-moon-day-fallen"
+      ],
+      "conditions": [
+        "太陰實坐財帛宮且落陷；太陰廟陷只取各表皆同的兩端（廟旺子丑酉戌亥、落陷卯辰巳午）；日生按原書寅至未時、夜生按申至丑時（上篇主星論p.9、p.21），只按安命時辰分。"
+      ],
+      "decision": "2026-10-26 日夜生／雜曜第一批：逐條讀原段前後文，必要條件、否定及例外入 when；事件與他人品格斷語不用；未符合不反推相反結果",
+      "since": "palace-conditions-v2"
+    },
+    {
+      "id": "wealth-yinyang-night",
+      "when": {
+        "op": "birth",
+        "is": "夜生"
+      },
+      "sources": [
+        "cond2-wealth-yinyang-night"
+      ],
+      "conditions": [
+        "丑未太陽太陰同度實坐財帛宮；日生按原書寅至未時、夜生按申至丑時（上篇主星論p.9、p.21），只按安命時辰分。輔弼魁鉞昌曲見與不見、化祿屬誰的分支另核。"
+      ],
+      "decision": "2026-10-26 日夜生／雜曜第一批：逐條讀原段前後文，必要條件、否定及例外入 when；事件與他人品格斷語不用；未符合不反推相反結果",
+      "since": "palace-conditions-v2"
+    },
+    {
+      "id": "wealth-sun-wu-day",
+      "when": {
+        "op": "all",
+        "args": [
+          {
+            "op": "branch",
+            "branches": [
+              "午"
+            ]
+          },
+          {
+            "op": "birth",
+            "is": "日生"
+          },
+          {
+            "op": "has",
+            "scope": "four",
+            "names": [],
+            "hua": "祿 權 科"
+          },
+          {
+            "op": "has",
+            "scope": "four",
+            "names": [
+              "左輔",
+              "右弼",
+              "文昌",
+              "文曲",
+              "天魁",
+              "天鉞"
+            ]
+          },
+          {
+            "op": "any",
+            "args": [
+              {
+                "op": "has",
+                "scope": "four",
+                "names": [],
+                "hua": "祿"
+              },
+              {
+                "op": "has",
+                "scope": "four",
+                "names": [
+                  "祿存"
+                ]
+              }
+            ]
+          },
+          {
+            "op": "lacks-hua",
+            "scope": "four",
+            "names": [
+              "天梁"
+            ],
+            "hua": "祿"
+          }
+        ]
+      },
+      "sources": [
+        "cond2-wealth-sun-wu-day"
+      ],
+      "conditions": [
+        "午宮太陽實坐財帛宮；日生按原書寅至未時、夜生按申至丑時（上篇主星論p.9、p.21），只按安命時辰分；三方四正見祿權科任一吉化、輔佐吉曜（左右昌曲魁鉞）任一，並見化祿或祿存。原書不喜天梁化祿（主貴不主富），見之不採。"
+      ],
+      "decision": "2026-10-26 日夜生／雜曜第一批：逐條讀原段前後文，必要條件、否定及例外入 when；事件與他人品格斷語不用；未符合不反推相反結果",
+      "since": "palace-conditions-v2"
+    },
+    {
+      "id": "wealth-ji-chouwei-xing",
+      "when": {
+        "op": "all",
+        "args": [
+          {
+            "op": "branch",
+            "branches": [
+              "丑",
+              "未"
+            ]
+          },
+          {
+            "op": "any",
+            "args": [
+              {
+                "op": "has",
+                "scope": "own",
+                "names": [
+                  "天刑"
+                ]
+              },
+              {
+                "op": "has",
+                "scope": "own",
+                "names": [
+                  "擎羊"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "sources": [
+        "cond2-wealth-ji-chouwei-xing"
+      ],
+      "conditions": [
+        "丑未天機獨坐財帛宮；本宮實見天刑或擎羊其一。原書並列的奏書未有排盤資料，不作判定；天梁化科、天機化忌的分支另論。"
+      ],
+      "decision": "2026-10-26 日夜生／雜曜第一批：逐條讀原段前後文，必要條件、否定及例外入 when；事件與他人品格斷語不用；未符合不反推相反結果",
+      "since": "palace-conditions-v2"
+    },
+    {
+      "id": "wealth-liang-xing",
+      "when": {
+        "op": "has",
+        "scope": "own",
+        "names": [
+          "天刑"
+        ]
+      },
+      "sources": [
+        "cond2-wealth-liang-xing"
+      ],
+      "conditions": [
+        "天梁實坐財帛宮，天刑同在本宮。天月同度的醫藥一支未有排盤資料，不作判定；天梁化祿的糾紛分支另論。"
+      ],
+      "decision": "2026-10-26 日夜生／雜曜第一批：逐條讀原段前後文，必要條件、否定及例外入 when；事件與他人品格斷語不用；未符合不反推相反結果",
+      "since": "palace-conditions-v2"
+    },
+    {
+      "id": "wealth-jumen-yang-xing",
+      "when": {
+        "op": "all",
+        "args": [
+          {
+            "op": "has",
+            "scope": "own",
+            "names": [
+              "擎羊"
+            ]
+          },
+          {
+            "op": "has",
+            "scope": "own",
+            "names": [
+              "天刑"
+            ]
+          }
+        ]
+      },
+      "sources": [
+        "cond2-wealth-jumen-yang-xing"
+      ],
+      "conditions": [
+        "巨門實坐財帛宮，擎羊與天刑同在本宮。原書同句另有詞訟一說，屬事件斷語不用。"
+      ],
+      "decision": "2026-10-26 日夜生／雜曜第一批：逐條讀原段前後文，必要條件、否定及例外入 when；事件與他人品格斷語不用；未符合不反推相反結果",
+      "since": "palace-conditions-v2"
+    },
+    {
+      "id": "career-wupo-xing",
+      "when": {
+        "op": "all",
+        "args": [
+          {
+            "op": "has",
+            "scope": "own",
+            "names": [
+              "天刑"
+            ]
+          },
+          {
+            "op": "lacks",
+            "scope": "own",
+            "names": [
+              "鈴星",
+              "陀羅"
+            ]
+          }
+        ]
+      },
+      "sources": [
+        "cond2-career-wupo-xing"
+      ],
+      "conditions": [
+        "巳亥武破實坐官祿宮，天刑同在本宮。原書下一條武破見鈴星、陀羅、陰煞、華蓋、天刑同度為偏門行業，本宮見鈴陀即不採；煞忌重重須防凶危屬事件斷語不用。"
+      ],
+      "decision": "2026-10-26 日夜生／雜曜第一批：逐條讀原段前後文，必要條件、否定及例外入 when；事件與他人品格斷語不用；未符合不反推相反結果",
+      "since": "palace-conditions-v2"
+    },
+    {
+      "id": "career-tanlang-ziwu-xing",
+      "when": {
+        "op": "all",
+        "args": [
+          {
+            "op": "branch",
+            "branches": [
+              "子",
+              "午"
+            ]
+          },
+          {
+            "op": "has",
+            "scope": "own",
+            "names": [
+              "天刑"
+            ]
+          }
+        ]
+      },
+      "sources": [
+        "cond2-career-tanlang-ziwu-xing"
+      ],
+      "conditions": [
+        "子午貪狼獨坐官祿宮，天刑同在本宮。"
+      ],
+      "decision": "2026-10-26 日夜生／雜曜第一批：逐條讀原段前後文，必要條件、否定及例外入 when；事件與他人品格斷語不用；未符合不反推相反結果",
+      "since": "palace-conditions-v2"
+    },
+    {
+      "id": "career-qisha-yang-xing",
+      "when": {
+        "op": "all",
+        "args": [
+          {
+            "op": "has",
+            "scope": "four",
+            "names": [
+              "擎羊"
+            ]
+          },
+          {
+            "op": "has",
+            "scope": "four",
+            "names": [
+              "天刑"
+            ]
+          },
+          {
+            "op": "has",
+            "scope": "four",
+            "names": [
+              "廉貞"
+            ],
+            "hua": "忌"
+          }
+        ]
+      },
+      "sources": [
+        "cond2-career-qisha-yang-xing"
+      ],
+      "conditions": [
+        "七殺實坐官祿宮，三方四正見擎羊、天刑及廉貞化忌。原書下一條有煞而無化忌者轉用利器行業，故本卡只取廉貞化忌「尤宜」一支。"
+      ],
+      "decision": "2026-10-26 日夜生／雜曜第一批：逐條讀原段前後文，必要條件、否定及例外入 when；事件與他人品格斷語不用；未符合不反推相反結果",
+      "since": "palace-conditions-v2"
+    },
+    {
+      "id": "friends-moon-night-bright",
+      "when": {
+        "op": "all",
+        "args": [
+          {
+            "op": "branch",
+            "branches": [
+              "子",
+              "酉",
+              "戌",
+              "亥"
+            ]
+          },
+          {
+            "op": "birth",
+            "is": "夜生"
+          }
+        ]
+      },
+      "sources": [
+        "cond2-friends-moon-night-bright"
+      ],
+      "conditions": [
+        "太陰實坐僕役宮且入廟，丑宮日月同度另論；太陰廟陷只取各表皆同的兩端（廟旺子丑酉戌亥、落陷卯辰巳午）；日生按原書寅至未時、夜生按申至丑時（上篇主星論p.9、p.21），只按安命時辰分。太陰四化的分支另論。"
+      ],
+      "decision": "2026-10-26 日夜生／雜曜第一批：逐條讀原段前後文，必要條件、否定及例外入 when；事件與他人品格斷語不用；未符合不反推相反結果",
+      "since": "palace-conditions-v2"
+    },
+    {
+      "id": "friends-moon-day-fallen",
+      "when": {
+        "op": "all",
+        "args": [
+          {
+            "op": "branch",
+            "branches": [
+              "卯",
+              "辰",
+              "巳",
+              "午"
+            ]
+          },
+          {
+            "op": "birth",
+            "is": "日生"
+          }
+        ]
+      },
+      "sources": [
+        "cond2-friends-moon-day-fallen"
+      ],
+      "conditions": [
+        "太陰實坐僕役宮且落陷；太陰廟陷只取各表皆同的兩端（廟旺子丑酉戌亥、落陷卯辰巳午）；日生按原書寅至未時、夜生按申至丑時（上篇主星論p.9、p.21），只按安命時辰分。原書同句「多損友」屬他人品格，不用。"
+      ],
+      "decision": "2026-10-26 日夜生／雜曜第一批：逐條讀原段前後文，必要條件、否定及例外入 when；事件與他人品格斷語不用；未符合不反推相反結果",
+      "since": "palace-conditions-v2"
+    },
+    {
+      "id": "wellbeing-sun-night",
+      "when": {
+        "op": "all",
+        "args": [
+          {
+            "op": "branch",
+            "branches": [
+              "寅",
+              "卯",
+              "辰",
+              "巳",
+              "午",
+              "申",
+              "酉"
+            ]
+          },
+          {
+            "op": "birth",
+            "is": "夜生"
+          }
+        ]
+      },
+      "sources": [
+        "cond2-wellbeing-sun-night"
+      ],
+      "conditions": [
+        "太陽實坐福德宮、不在丑未，亦非落陷；日生按原書寅至未時、夜生按申至丑時（上篇主星論p.9、p.21），只按安命時辰分。"
+      ],
+      "decision": "2026-10-26 日夜生／雜曜第一批：逐條讀原段前後文，必要條件、否定及例外入 when；事件與他人品格斷語不用；未符合不反推相反結果",
+      "since": "palace-conditions-v2"
+    },
+    {
+      "id": "wellbeing-sun-night-fallen",
+      "when": {
+        "op": "all",
+        "args": [
+          {
+            "op": "branch",
+            "branches": [
+              "子",
+              "戌",
+              "亥"
+            ]
+          },
+          {
+            "op": "birth",
+            "is": "夜生"
+          }
+        ]
+      },
+      "sources": [
+        "cond2-wellbeing-sun-night-fallen"
+      ],
+      "conditions": [
+        "太陽實坐福德宮且落陷（子戌亥；丑宮屬太陽太陰同度的例外）；太陽廟陷只取各表皆同的兩端（廟旺寅卯辰巳午、落陷子丑戌亥）；日生按原書寅至未時、夜生按申至丑時（上篇主星論p.9、p.21），只按安命時辰分。與巨門化忌同度尤甚一句未另判。"
+      ],
+      "decision": "2026-10-26 日夜生／雜曜第一批：逐條讀原段前後文，必要條件、否定及例外入 when；事件與他人品格斷語不用；未符合不反推相反結果",
+      "since": "palace-conditions-v2"
+    },
+    {
+      "id": "wellbeing-sun-day-fallen",
+      "when": {
+        "op": "all",
+        "args": [
+          {
+            "op": "branch",
+            "branches": [
+              "子",
+              "戌",
+              "亥"
+            ]
+          },
+          {
+            "op": "birth",
+            "is": "日生"
+          }
+        ]
+      },
+      "sources": [
+        "cond2-wellbeing-sun-day-fallen"
+      ],
+      "conditions": [
+        "太陽實坐福德宮且落陷（子戌亥；丑宮太陽太陰同度另有專條）；太陽廟陷只取各表皆同的兩端（廟旺寅卯辰巳午、落陷子丑戌亥）；日生按原書寅至未時、夜生按申至丑時（上篇主星論p.9、p.21），只按安命時辰分。"
+      ],
+      "decision": "2026-10-26 日夜生／雜曜第一批：逐條讀原段前後文，必要條件、否定及例外入 when；事件與他人品格斷語不用；未符合不反推相反結果",
+      "since": "palace-conditions-v2"
+    },
+    {
+      "id": "wellbeing-yinyang-day",
+      "when": {
+        "op": "birth",
+        "is": "日生"
+      },
+      "sources": [
+        "cond2-wellbeing-yinyang-day"
+      ],
+      "conditions": [
+        "丑未太陽太陰同度實坐福德宮；日生按原書寅至未時、夜生按申至丑時（上篇主星論p.9、p.21），只按安命時辰分。兩星化祿的修飾另論。"
+      ],
+      "decision": "2026-10-26 日夜生／雜曜第一批：逐條讀原段前後文，必要條件、否定及例外入 when；事件與他人品格斷語不用；未符合不反推相反結果",
+      "since": "palace-conditions-v2"
+    },
+    {
+      "id": "wellbeing-yinyang-night",
+      "when": {
+        "op": "birth",
+        "is": "夜生"
+      },
+      "sources": [
+        "cond2-wellbeing-yinyang-night"
+      ],
+      "conditions": [
+        "丑未太陽太陰同度實坐福德宮；日生按原書寅至未時、夜生按申至丑時（上篇主星論p.9、p.21），只按安命時辰分。兩星化祿的修飾另論。"
+      ],
+      "decision": "2026-10-26 日夜生／雜曜第一批：逐條讀原段前後文，必要條件、否定及例外入 when；事件與他人品格斷語不用；未符合不反推相反結果",
+      "since": "palace-conditions-v2"
+    },
+    {
+      "id": "wellbeing-fu-yao",
+      "when": {
+        "op": "has",
+        "scope": "own",
+        "names": [
+          "天姚"
+        ]
+      },
+      "sources": [
+        "cond2-wellbeing-fu-yao"
+      ],
+      "conditions": [
+        "天府實坐福德宮，天姚同在本宮。"
+      ],
+      "decision": "2026-10-26 日夜生／雜曜第一批：逐條讀原段前後文，必要條件、否定及例外入 when；事件與他人品格斷語不用；未符合不反推相反結果",
+      "since": "palace-conditions-v2"
+    },
+    {
+      "id": "wellbeing-fu-xing",
+      "when": {
+        "op": "has",
+        "scope": "own",
+        "names": [
+          "天刑"
+        ]
+      },
+      "sources": [
+        "cond2-wellbeing-fu-xing"
+      ],
+      "conditions": [
+        "天府實坐福德宮，天刑同在本宮。"
+      ],
+      "decision": "2026-10-26 日夜生／雜曜第一批：逐條讀原段前後文，必要條件、否定及例外入 when；事件與他人品格斷語不用；未符合不反推相反結果",
+      "since": "palace-conditions-v2"
     }
   ],
   "engine_query_review": "docs/engine-p0-2026-10-23.md",
@@ -11216,5 +11818,6 @@
     "previous_reader_sha256": "a8e42dd357fb068bbeae76920bc9b0885cb73469ef3cd247d7cf4f362aa14557",
     "normal_path_equivalence_sha256": "a8e42dd357fb068bbeae76920bc9b0885cb73469ef3cd247d7cf4f362aa14557",
     "verification": "移除新增的observer入口、紀錄呼叫及專用稿記錄分支後，與修改前讀取器逐位元雜湊相同；另以176書及1728宮位固定矩陣核對實際正文、據、選中及未符結果。"
-  }
+  },
+  "conditions_v2_review": "docs/palace-conditions-v2-2026-10-26.md"
 }

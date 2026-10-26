@@ -86,6 +86,7 @@ export const ConditionSchema: z.ZodType<Condition> = z.lazy(() =>
     z.looseObject({ decadeOrder: z.enum(['forward', 'backward']) }),
     z.looseObject({ jia: z.string(), sides: z.tuple([z.array(z.string()).min(1), z.array(z.string()).min(1)]) }),
     z.looseObject({ decadeAge: z.object({ lt: z.number().int().optional(), gte: z.number().int().optional() }) }),
+    z.looseObject({ birth: z.enum(['日生', '夜生']) }),
   ]) as unknown as z.ZodType<Condition>,
 );
 

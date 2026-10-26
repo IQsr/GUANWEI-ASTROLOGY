@@ -96,7 +96,8 @@ function previous(w:PalacePredicate,chart:Chart,p:Palace):{matched:boolean;facts
 }
 
 it('all existing 83 rules preserve their results, facts and check text across the 72 preview charts',()=>{
-  const rules=[...focused.rules,...remaining.rules];expect(rules).toHaveLength(83);
+  // 2026-10-26 palace-conditions-v2 新卡（日夜生、雜曜）只入新成書入口，唔屬呢 83 條舊語義。
+  const rules=[...focused.rules,...remaining.rules].filter((r)=>!('since' in r));expect(rules).toHaveLength(83);
   let checked=0;
   for(const fixture of previews){
     const r=cast(fixture.input as BirthInput);if(!r.ok)throw Error(r.message);

@@ -287,6 +287,9 @@ export function explain(cond: Condition, ctx: EvalContext): MingReason[] {
     const fwd = cond.decadeOrder === 'forward';
     return [{ zh: `你的大限是${fwd ? '順' : '逆'}行的`, en: `your ten-year periods run ${fwd ? 'forward' : 'backward'} around the chart` }];
   }
+  if ('birth' in cond) {
+    return [{ zh: `你是${cond.birth}人`, en: `you were born in the ${cond.birth === '日生' ? 'daytime' : 'night-time'} half of the day` }];
+  }
   if ('decadeAge' in cond) {
     const d = ctx.annual?.decadal;
     if (!d) return [];
