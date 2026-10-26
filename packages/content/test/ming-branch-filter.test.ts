@@ -25,3 +25,21 @@ it('leaves untouched segments identical and drops a segment that has nothing lef
   expect(withConditionalBranches(chart, [plain])[0]).toBe(plain);
   expect(withConditionalBranches(chart, [seg('太陽化祿另論。')])).toEqual([]);
 });
+
+it('uses the reviewed rewrite when a main claim shares its sentence with a missing branch', () => {
+  const [kept] = withConditionalBranches(chart, [seg('天同獨坐，原書重視相處的感情與溝通，但天同化祿另有晚輩另起爐灶的說法。')], '子女');
+  expect(kept!.text).toBe('天同獨坐，原書重視相處的感情與溝通。');
+});
+
+it('rewrites or drops a sentence whose referent was dropped, and closes a dangling semicolon', () => {
+  expect(withConditionalBranches(chart, [seg('原書另在財蔭夾、破軍化祿的配合中談置業或工作環境轉換。', '這些不是同一種結果，也不能只見一個禄字就認定會買樓或得到資產。')], '田宅')[0]!.text)
+    .toBe('不能只見一個禄字就認定會買樓或得到資產。');
+  expect(withConditionalBranches(chart, [seg('甲；', '太陽化祿另論。', '乙。')])[0]!.text).toBe('甲。乙。');
+});
+
+it('reads each palace from its own 三方四正, plus any palace a sentence names', () => {
+  // 太陽化祿在福德戌：福德章保留；命宮章只在句子點名福德時保留。
+  expect(withConditionalBranches(chart, [seg('太陽化祿另論。')], '福德')[0]!.text).toBe('太陽化祿另論。');
+  expect(withConditionalBranches(chart, [seg('太陽化祿另論。')], '命宮')).toEqual([]);
+  expect(withConditionalBranches(chart, [seg('福德的太陽化祿另論。')], '命宮')[0]!.text).toBe('福德的太陽化祿另論。');
+});
