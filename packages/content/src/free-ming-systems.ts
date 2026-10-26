@@ -6,6 +6,7 @@ import type { MingStatement } from './ming-writer';
 import type { FreeReadingSegment } from './free-ming-reader';
 import { systemReadingCiteId } from './free-ming-systems-sources';
 import data from './cards/free-ming-systems.json';
+import rewrites from './cards/branch-rewrites.json';
 
 type Part = { text: string; sources: string[]; conditions?: string[] };
 type Modifier = { id: string; star: string; hua: string; where: string; text: string; sources: string[]; requiresAbsent?: string[] };
@@ -14,9 +15,10 @@ const profiles = new Map((data.profiles as Profile[]).map((p) => [p.n, p]));
 
 /**
  * 2026-10-25「條件唔成立就唔寫」：句子點名嘅四化（例如「破軍化祿或權」、「武曲忌」），
- * 命宮三方四正（借宮就用對宮嗰組）一個都冇，呢句就唔出。冇點名四化嘅句照舊。
+ * 該宮三方四正（借宮就用對宮嗰組；句中點名嘅宮亦計）一個都冇，呢句就唔出。冇點名四化嘅句照舊。
+ * 2026-10-25 先做命宮／骨架，2026-10-26 擴到十一宮。
  * 只係揀句，唔改句；喺敘事層之後做（見 withConditionalBranches）。舊書照讀快照，基準入口 bookChapters 預設唔開。
- * 新書版本記喺 web `reader-release.ts` MING_BRANCH_FILTER_VERSION。
+ * 新書版本記喺 web `reader-release.ts` MING_BRANCH_FILTER_VERSION／PALACE_BRANCH_FILTER_VERSION。
  */
 const HUA_STARS = ['紫微', '天機', '太陽', '武曲', '天同', '廉貞', '天府', '太陰', '貪狼', '巨門', '天相', '天梁', '七殺', '破軍', '文昌', '文曲', '左輔', '右弼'];
 /** 「X化Y」同簡寫「X忌」「天同權與天機科」都算點名。 */
@@ -25,28 +27,60 @@ export function huaMentions(sentence: string): { star: string; hua: string }[] {
   return [...sentence.matchAll(HUA_MENTION)].flatMap((m) => [m[2]!, ...(m[3]!.match(/[祿權科忌]/g) ?? [])].map((hua) => ({ star: m[1]!, hua })));
 }
 const DEPENDENT = /^(這些|此處|這是有條件分支|這一項|它)/;
-function keepBranches(text: string, four: readonly Palace[]): string {
-  const onChart = (star: string, hua: string) => four.some((p) => p.stars.some((s) => s.name === star && s.sihua === hua));
-  let dropped = false;
-  const out = text.split(/(?<=[。；])/).filter((s) => {
+const PALACE_NAME = /(命宮|兄弟|夫妻|子女|財帛|疾厄|遷移|僕役|交友|官祿|事業|田宅|福德|父母)/g;
+const PALACE_ALIAS: Record<string, string> = { 交友: '僕役', 事業: '官祿' };
+/** 一個宮嘅三方四正；空宮用對宮嗰組（同 systemMingReading 借星一致）。 */
+function readingFour(chart: Chart, palace: Palace): Palace[] {
+  const origin = palace.stars.some((s) => s.kind === 'major') ? palace : chart.palaces.find((p) => p.branch === palace.borrowsFrom) ?? palace;
+  return sanFangPalaces(chart.palaces, origin.branch);
+}
+type Rewrite = { text: string; dropNext?: boolean };
+const REWRITES = rewrites.rewrites as Record<string, Rewrite>;
+const AFTER_DROP = rewrites.afterDrop as Record<string, string>;
+// 改寫版本唔可以再點名四化，否則會被同一條規則再篩。
+for (const r of [...Object.values(REWRITES).map((x) => x.text), ...Object.values(AFTER_DROP)]) {
+  if (huaMentions(r).length) throw Error(`Branch rewrite still names a 四化: ${r}`);
+}
+/** state 喺同一段嘅 statements 之間延續：前一條最尾一句刪咗，下一條開頭嘅附屬句都照處理。 */
+function keepBranches(text: string, chart: Chart, four: readonly Palace[], state = { dropped: false }): string {
+  let dropped = state.dropped;
+  const out: string[] = [];
+  // 刪句之後，前一句嘅「；」唔再接下文，轉做「。」。
+  const close = () => { const last = out.at(-1); if (last?.endsWith('；')) out[out.length - 1] = `${last.slice(0, -1)}。`; };
+  for (const s of text.split(/(?<=[。；])/)) {
+    if (dropped && s in AFTER_DROP) { const t = AFTER_DROP[s]!; if (t) out.push(t); else close(); dropped = !t; continue; }
     const named = huaMentions(s);
+    // 句中點名其他宮（跨宮連讀），嗰宮嘅三方四正都算。
+    const extra = [...s.matchAll(PALACE_NAME)].flatMap((m) => {
+      const q = chart.palaces.find((p) => p.name === (PALACE_ALIAS[m[1]!] ?? m[1]!));
+      return q ? readingFour(chart, q) : [];
+    });
+    const onChart = (star: string, hua: string) => [...four, ...extra].some((p) => p.stars.some((x) => x.name === star && x.sihua === hua));
+    if (named.length && !named.some((n) => onChart(n.star, n.hua))) {
+      // 主結論黐住分支：用已核嘅改寫版本（只刪分支子句）；冇改寫就成句唔出。
+      const r = REWRITES[s];
+      if (r) { out.push(r.text); dropped = Boolean(r.dropNext); } else { close(); dropped = true; }
+      continue;
+    }
     // 緊跟被刪分支嘅附屬句（「這些配合…」「此處…」）指涉已冇，一齊唔出。
-    const keep = named.length ? named.some((n) => onChart(n.star, n.hua)) : !(dropped && DEPENDENT.test(s));
-    dropped = !keep;
-    return keep;
-  }).join('');
-  return out.endsWith('；') ? `${out.slice(0, -1)}。` : out;
+    if (dropped && DEPENDENT.test(s)) { close(); continue; }
+    out.push(s); dropped = false;
+  }
+  state.dropped = dropped;
+  const joined = out.join('');
+  return joined.endsWith('；') ? `${joined.slice(0, -1)}。` : joined;
 }
 
-/** 命宮／骨架成稿（敘事層之後）逐條 statement 揀句；段文由 statements 重砌，冇剩就成段唔出。 */
-export function withConditionalBranches<T extends { text: string; statements?: MingStatement[] }>(chart: Chart, segments: T[]): T[] {
-  const m = chart.palaces.find((p) => p.name === '命宮');
-  if (!m) return segments;
-  const origin = m.stars.some((s) => s.kind === 'major') ? m : chart.palaces.find((p) => p.branch === m.borrowsFrom) ?? m;
-  const four = sanFangPalaces(chart.palaces, origin.branch);
+/** 成稿（敘事層之後）逐條 statement 揀句；段文由 statements 重砌，冇剩就成段唔出。
+ * palace：命宮、骨架用「命宮」；十一宮用該宮（2026-10-26 起）。 */
+export function withConditionalBranches<T extends { text: string; statements?: MingStatement[] }>(chart: Chart, segments: T[], palace = '命宮'): T[] {
+  const home = chart.palaces.find((p) => p.name === palace);
+  if (!home) return segments;
+  const four = readingFour(chart, home);
   return segments.flatMap((seg) => {
     if (!seg.statements?.length) return [seg];
-    const next = seg.statements.map((l) => ({ ...l, text: keepBranches(l.text, four) }));
+    const state = { dropped: false };
+    const next = seg.statements.map((l) => ({ ...l, text: keepBranches(l.text, chart, four, state) }));
     if (next.every((l, i) => l.text === seg.statements![i]!.text)) return [seg];
     const statements = next.filter((l) => l.text);
     if (!statements.length) return [];

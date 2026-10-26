@@ -4,3 +4,5 @@ export const BOOK_P1_READER_VERSION = 'book-p1-conditions-v1+book-p1-reading-v2'
 export const EPILOGUE_READER_VERSION = 'epilogue-reader-v1';
 /** 2026-10-25 命宮／骨架：條件唔成立嘅四化分支句唔出（content `systemMingReading` conditionalBranches）。 */
 export const MING_BRANCH_FILTER_VERSION = 'ming-branch-filter-v1';
+/** 2026-10-26 十一宮：同一揀句規則擴到宮位章（content `withConditionalBranches` palace）。 */
+export const PALACE_BRANCH_FILTER_VERSION = 'palace-branch-filter-v1';
