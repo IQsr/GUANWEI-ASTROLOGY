@@ -1,0 +1,85 @@
+{
+  "version": "palace-advice-focus-v1",
+  "reviewed_on": "2026-10-26",
+  "method": "只用於新書（createBookChapters）。建議跟住本章正文同本宮實際星曜：一、主題按正文「關鍵在於」改配（profiles）；二、疾厄按結論段實際講到的取象揀建議，講到幾方面就照列；三、本宮有化忌、化權、化祿／祿存、化科、煞曜或輔曜時，加一句點名該星的做法（只揀一項，次序如 modifierOrder）。全部係編輯建議，不加命理判斷、事件或他人性格。",
+  "profiles": {
+    "career-七殺-子午-base": "execution",
+    "career-七殺-寅申-base": "execution",
+    "career-七殺-辰戌-base": "execution",
+    "career-天同+巨門-丑未-base": "foundation",
+    "career-天同+太陰-子午-base": "managing",
+    "career-天同+天梁-寅申-base": "foundation",
+    "siblings-巨門-巳亥-base": "advice",
+    "siblings-巨門-子午-base": "advice",
+    "siblings-巨門-辰戌-base": "advice",
+    "wealth-太陽-子午-base": "professional",
+    "wealth-太陽-辰戌-base": "professional",
+    "wealth-太陽-巳亥-base": "professional",
+    "wealth-七殺-子午-base": "availability",
+    "wealth-七殺-寅申-base": "availability",
+    "wealth-七殺-辰戌-base": "availability",
+    "wealth-破軍-子午-base": "multiple",
+    "wealth-破軍-寅申-base": "multiple",
+    "wealth-破軍-辰戌-base": "multiple",
+    "wellbeing-七殺-子午-base": "completion",
+    "wellbeing-七殺-寅申-base": "completion",
+    "wellbeing-七殺-辰戌-base": "completion"
+  },
+  "ming": {
+    "ambition-ji": {
+      "adult": "你可以先分清自己真正想追求甚麼，不必因為別人的期待把目標定大。選一個做得完的階段目標，完成後再看是否值得投入更多；需要別人一起做時，也按自己能承擔的步伐答應。"
+    }
+  },
+  "health": {
+    "families": [
+      { "key": "digestion", "label": "消化與腸胃", "pattern": "脾胃|胃|消化|腸|腹脹" },
+      { "key": "respiration", "label": "呼吸", "pattern": "呼吸|肺|咳|氣管|鼻|哮喘|痰" },
+      { "key": "water", "label": "水道與排泄", "pattern": "水濕|水道|浮腫|排泄|脹滿|腎" },
+      { "key": "ache", "label": "筋骨與疼痛", "pattern": "筋骨|筋絡|手足|四肢|疼痛|傷損|牙齒|跌打|骨殖" },
+      { "key": "eyes", "label": "眼目", "pattern": "眼目" },
+      { "key": "skin", "label": "皮膚", "pattern": "皮膚" },
+      { "key": "reproductive", "label": "生殖系統", "pattern": "生殖" }
+    ],
+    "mixed": {
+      "adult": "正文的取象涉及{labels}。你若在這些方面有反覆不適，可以分開記下部位、開始時間、持續多久，以及對日常有甚麼影響；需要求診時，把實際變化說清楚，讓醫護按你的情況評估。",
+      "youth": "正文的取象涉及{labels}。你在這些方面有不舒服時，可以告訴家人或照顧者哪裡不適、何時開始；反覆或持續不適，就請大人陪你求診，把實際感受說清楚。"
+    }
+  },
+  "modifierOrder": ["ji", "quan", "lu", "ke", "sha", "fu"],
+  "sha": ["擎羊", "陀羅", "火星", "鈴星", "地空", "地劫"],
+  "fu": ["左輔", "右弼", "文昌", "文曲", "天魁", "天鉞"],
+  "domains": {
+    "命宮": { "adult": "作重要決定時" },
+    "兄弟": { "adult": "和手足或平輩一起做事時" },
+    "夫妻": { "adult": "和伴侶相處時", "youth": "將來談感情時" },
+    "子女": { "adult": "照顧子女或後輩時", "youth": "和弟妹或低年級同學相處時" },
+    "財帛": { "adult": "安排金錢時", "youth": "安排零用錢時" },
+    "遷移": { "adult": "到外地或新環境時" },
+    "僕役": { "adult": "和朋友、同事合作時", "youth": "和同學、朋友合作時" },
+    "官祿": { "adult": "處理工作時", "youth": "處理功課和活動時" },
+    "田宅": { "adult": "安排住處或共用空間時" },
+    "福德": { "adult": "安排自己的時間與心情時" },
+    "父母": { "adult": "和長輩或上司相處時", "youth": "和父母、老師相處時" }
+  },
+  "modifiers": {
+    "ji": "{domain}，可以把原本的預期和實際情況分開記下；出現落差時，先調整做法和步伐，不必一次推翻整個安排。",
+    "quan": "{domain}，需要你拿主意的事，先分清哪些自己能決定、哪些要與人商量，讓主導不會變成獨力承擔。",
+    "lu": "{domain}，遇到可用的支持或機會，先記下它從哪裡來、能維持多久，再決定投入多少。",
+    "ke": "{domain}，可以把做法、紀錄和別人的意見整理好，需要向人說明時，就有清楚的依據交代。",
+    "sha": "{domain}，可以多留一點緩衝時間；急著決定的事，先確認關鍵細節，再往下做。",
+    "fu": "{domain}，可以主動找可靠的人一起商量，並把各自負責的部分說清楚。"
+  },
+  "palaceModifiers": {
+    "福德": {
+      "fu": "{domain}，可以約一兩個談得來的人一起做喜歡的事，讓休息不必只靠自己撐著。"
+    },
+    "疾厄": {
+      "ji": "紀錄可以保留得久一點，比較前後幾個月的變化，向醫護說明時會更完整。",
+      "quan": "可以替自己定一個做得到的作息安排，再按實際感受調整，不必一下子要求太多。",
+      "lu": "作息與飲食保持穩定的節奏，身體有變化時會更容易察覺。",
+      "ke": "求診時可以帶上過往的紀錄與檢查結果，方便醫護前後比較。",
+      "sha": "活動或運動前後多留意身體反應；有突然出現或明顯加重的不適，就及早求診。",
+      "fu": "身體不適時，可以請家人或朋友陪同求診，一起記下醫護的建議。"
+    }
+  }
+}
