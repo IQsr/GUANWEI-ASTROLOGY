@@ -216,7 +216,7 @@ export function chaptersOf(
  */
 export function bookChapters(
   chart: ZChart,
-  opts: { seed: string; year: number; solar: { y: number; m: number; d: number }; place: string; crossPalaceReading?: boolean; separateRuleReferences?: boolean; birthSex?: 'male'|'female'; birthInput?:BirthInput; analysisRecorder?:BookAnalysis; crossAnalysis?:CrossAnalysis; conditionalBranches?: boolean; focusedAdvice?: boolean },
+  opts: { seed: string; year: number; solar: { y: number; m: number; d: number }; place: string; crossPalaceReading?: boolean; separateRuleReferences?: boolean; birthSex?: 'male'|'female'; birthInput?:BirthInput; analysisRecorder?:BookAnalysis; crossAnalysis?:CrossAnalysis; conditionalBranches?: boolean; focusedAdvice?: boolean; periodChecks?: boolean },
 ): { slug: string; title?: string; text: string; slots: string[]; reading?: ChapterReading }[] | null {
   const palaces = chaptersOf(chart, { seed: opts.seed, year: opts.year });
   if (!palaces) return null;
@@ -239,9 +239,9 @@ export function bookChapters(
   const gujia = gujiaChapter({ chart, year: opts.year });
   /* 大限（2026-09-30）：一生十二步免費，這十年收費；跟成書年份講 */
   const steps = lifeStepsChapter({ chart, year: opts.year, solar: opts.solar });
-  const decade = decadeChapter({ chart, year: opts.year });
+  const decade = decadeChapter({ chart, year: opts.year, periodChecks: opts.periodChecks });
   /* 流年（2026-09-30）：寫書嗰年同下一年，收費 */
-  const liunian = yearChapter({ chart, year: opts.year });
+  const liunian = yearChapter({ chart, year: opts.year, periodChecks: opts.periodChecks });
   /* 給你的話（2026-10-02）：書尾總結，收費 */
   const epilogue = epilogueChapter({ chart, year: opts.year });
 
@@ -329,13 +329,13 @@ export function bookChapters(
  * The baseline builder stays available for exact historical regression comparisons.
  * Existing saved books are read from their snapshots and never call this function.
  */
-export function createBookChapters(chart:ZChart,opts:Omit<Parameters<typeof bookChapters>[1],'crossPalaceReading'|'separateRuleReferences'|'analysisRecorder'|'crossAnalysis'|'conditionalBranches'|'focusedAdvice'>){
+export function createBookChapters(chart:ZChart,opts:Omit<Parameters<typeof bookChapters>[1],'crossPalaceReading'|'separateRuleReferences'|'analysisRecorder'|'crossAnalysis'|'conditionalBranches'|'focusedAdvice'|'periodChecks'>){
  const birthSex=opts.birthSex??opts.birthInput?.sex;
  const cross=analyzeCrossPalaces(chart,{birthSex});
  const ledger=new BookAnalysis(chart,{...opts,birthSex},cross.facts.map(f=>f.position));
  collectCrossDecisions(ledger,cross);
  const p1=collectBookP1Decisions(ledger);
- const book=bookChapters(chart,{...opts,birthSex,crossPalaceReading:true,separateRuleReferences:true,analysisRecorder:ledger,crossAnalysis:cross,conditionalBranches:true,focusedAdvice:true});
+ const book=bookChapters(chart,{...opts,birthSex,crossPalaceReading:true,separateRuleReferences:true,analysisRecorder:ledger,crossAnalysis:cross,conditionalBranches:true,focusedAdvice:true,periodChecks:true});
  return book?attachBookAnalysis(chart,withBookP1Epilogue(withReadingEpilogue(chart,withBookP1Chapters(alignReviewedChapters(chart,book),p1,ledger.decisions)),p1,ledger.decisions),ledger):null;
 }
 

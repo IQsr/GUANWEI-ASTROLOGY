@@ -3,7 +3,7 @@ import {lifeStepsSource} from './life-steps-sources';
 import {crossPalaceSource} from './cross-palace-sources';
 import { locatedQuoteParts, type QuotePart } from './palace-quote-review';
 import { BRANCH_TOPICS, slotPattern, stripOr } from './branch';
-import { DAXIAN_HUA, DAXIAN_PIVOTS, LOOKBACK_EVENTS, firstClause, pivotWhyPattern } from './daxian';
+import { DAXIAN_HUA, DAXIAN_PIVOTS, KONGKU, LOOKBACK_EVENTS, MEET_TAIL, firstClause, pivotWhyPattern } from './daxian';
 import { CORPUS } from './lexicon';
 import { LIFE_LINES } from './life';
 import { PAIR_PLAIN, PALACE_PLAIN } from './palace-plain';
@@ -211,6 +211,12 @@ function build(): { zh: CiteKey[]; en: CiteKey[] } {
     zh.push({ key: `樞紐 ${r.id}`, ids: [r.source.passage_id], re: pivotWhyPattern(r) });
   }
   for (const e of LOOKBACK_EVENTS) zh.push({ key: e.text, ids: e.sources.map((s) => s.passage_id) });
+  /* 2026-10-26：時間章財帛見空劫、冲起本命化曜 */
+  for (const t of [{ text: KONGKU.summary, passage: KONGKU.passage }, ...Object.values(MEET_TAIL)]) {
+    zh.push({ key: t.text, ids: [t.passage] });
+    const e = tmSentence(t.text);
+    if (e) en.push({ key: e, ids: [t.passage] });
+  }
   /* 長嘅行先：一句包含兩條索引句時，揀最具體嗰條 */
   const byLen = (a: CiteKey, b: CiteKey) => b.key.length - a.key.length;
   return { zh: zh.filter((k) => k.ids.every((id) => citation(id))).sort(byLen), en: en.sort(byLen) };

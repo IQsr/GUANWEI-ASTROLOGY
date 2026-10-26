@@ -423,6 +423,17 @@ export function timeTemplate(s: string, missing: string[], h: TimeHelpers): stri
   revised=/^你命盤裡(?:已可確認)?的關鍵大限是(.+)：這(?:幾|一)步(?:值得連同前後兩步一起細讀|前後的選擇與安排，值得多留一份心)。$/.exec(s);
   if(revised)return `The key stages in your chart are ${revised[1]!.split('、').map((x)=>n(x.slice(1,-1))).join(', ')}; consider the choices and arrangements on either side together.`;
   if (KUIYUE_EN[s]) return KUIYUE_EN[s]!;
+  /* 魁鉞位置、冲起本命化曜（2026-10-26，kuiyue.ts kuiyueText、daxian.ts meetSegment） */
+  const kf = /^這(十年|一年)的(天魁|天鉞)落在(\S)宮，(正好落在|正對著)你本命(天魁|天鉞)所在的(\S)宮。$/.exec(s);
+  if (kf) return `${kf[1] === '十年' ? "This decade's" : "This year's"} ${star(kf[2]!)} falls in the ${BRANCH_EN[kf[3]!]} palace, ${kf[4] === '正好落在' ? 'right where' : 'directly opposite where'} your birth chart's ${star(kf[5]!)} sits, in ${BRANCH_EN[kf[6]!]}.`;
+  const mt = /^這(十年|一年)的(\S{2})化(\S)落在你的(\S+?宮)，(?:和(你本命|這十年大限)的(\S{2})化(\S)同宮|正對著(你本命|這十年大限)(\S{2})化(\S)所在的(\S+?宮))。$/.exec(s);
+  if (mt && star(mt[2]!) && HUA_EN[mt[3]!]) {
+    const who = (w: string) => (w === '你本命' ? "your birth chart's" : "this decade's");
+    const head = `${mt[1] === '十年' ? "This decade's" : "This year's"} ${star(mt[2]!)} turned to ${HUA_EN[mt[3]!]} falls in your ${pal(mt[4]!, missing)}`;
+    return mt[5]
+      ? `${head}, the same palace as ${who(mt[5])} ${starsEn(mt[6]!, missing)} turned to ${HUA_EN[mt[7]!]}.`
+      : `${head}, directly opposite ${who(mt[8]!)} ${starsEn(mt[9]!, missing)} turned to ${HUA_EN[mt[10]!]} in your ${pal(mt[11]!, missing)}.`;
+  }
   const month = liuyueEn(s);
   if (month) return month;
 
