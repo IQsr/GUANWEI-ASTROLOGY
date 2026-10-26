@@ -34,7 +34,7 @@ it('176 audited books / 144 structures / 1728 palace rows retain exact non-P1 te
  let structures=0,palaces=0,native=0,borrowed=0,decisions=0,unknown=0,sourcePending=0;
  for(const sample of cases){
   const chart=chartOf(sample.input),frozen=JSON.stringify(chart),opts=options(sample);
-  const previous=withReadingEpilogue(chart,alignReviewedChapters(chart,bookChapters(chart,{...opts,crossPalaceReading:true,separateRuleReferences:true,conditionalBranches:true})!));
+  const previous=withReadingEpilogue(chart,alignReviewedChapters(chart,bookChapters(chart,{...opts,crossPalaceReading:true,separateRuleReferences:true,conditionalBranches:true,focusedAdvice:true})!));
   const current=createBookChapters(chart,opts)!;
   // Reviewed P1 delta: only these two inputs in the frozen 176-case register meet the new complete cards.
   const changed:Record<string,string[]>={RB:['福德','給你的話'],RC:['命宮','性格的骨架','官祿','給你的話']};

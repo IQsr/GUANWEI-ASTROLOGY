@@ -1,4 +1,4 @@
-import { expect, it } from 'vitest';
+import { describe, expect, it } from 'vitest';
 import { cast, type BirthInput, type Chart } from '@guanwei/ziwei';
 import { palaceReading } from '../src/palace-reader';
 import { freeMingReading } from '../src/free-ming-reader';
@@ -90,4 +90,45 @@ it('骨架不是另一宮，保留整章；既有帶據建議不會被篩走', (
   const last = structuredClone(rows.at(-1)!); last.statements[0]!.citations = ['sentinel'];
   const protectedRows = [...rows.slice(0,-1), last];
   expect(withPalaceAdvice(c, '田宅', 2026, protectedRows)).toContainEqual(last);
+});
+
+describe('新書 focused：建議跟正文同本宮星曜', () => {
+  const focused = (c: Chart, p: string, year = 2026) => withPalaceAdvice(c, p, year, original(c, p, year), { focused: true }).find((r) => r.heading === '給你的建議｜編輯建議')!;
+  const SIHUA = /本宮(?:見|有)([^。]+)。/, SAME = /本宮同度([^。]+)。/;
+
+  it('只點名本宮真正有嘅星；冇條件就唔加句；預設照舊', () => {
+    let added = 0;
+    for (const c of charts) for (const p of names) {
+      const row = focused(c, p); const own = c.palaces.find((q) => q.name === p)!.stars;
+      const named = (row.text.match(SIHUA)?.[1] ?? row.text.match(SAME)?.[1])?.split('、') ?? [];
+      if (named.length) added++;
+      for (const n of named) expect(own.some((s) => n === s.name || n === `${s.name}化${s.sihua}`), `${p} ${n}`).toBe(true);
+      expect(row.statements[0]!.kind).toBe('editorial-advice');
+      expect(row.statements[0]!.citations).toEqual([]);
+    }
+    expect(added).toBeGreaterThan(charts.length * 6);
+    const c = charts[0]!;
+    expect(withPalaceAdvice(c, '官祿', 2026, original(c, '官祿'))).toEqual(withPalaceAdvice(c, '官祿', 2026, original(c, '官祿'), {}));
+  });
+
+  it('疾厄跟結論段取象：講呼吸就唔淨講腸胃', () => {
+    for (const c of charts) {
+      const lead = original(c, '疾厄').find((s) => s.slot === '結論')!.text, text = focused(c, '疾厄').text;
+      if (/呼吸|肺/.test(lead)) expect(text).toMatch(/呼吸|咳嗽/);
+      if (!/脾胃|胃|消化|腸|腹脹/.test(lead)) expect(text).not.toMatch(/腸胃|腹脹/);
+    }
+  });
+
+  it('官祿七殺唔再寫「擅長分析和安排」；命宮主星化忌唔寫「想把事情做大」', () => {
+    for (const c of charts) {
+      const career = c.palaces.find((p) => p.name === '官祿')!;
+      if (career.stars.some((s) => s.name === '七殺') && career.stars.filter((s) => s.kind === 'major').length === 1) expect(focused(c, '官祿').text).not.toContain('擅長分析和安排');
+    }
+    const c = structuredClone(charts.find((c) => withPalaceAdvice(c, '命宮', 2026, original(c, '命宮')).some((r) => r.statements.some((s) => s.source_ids.includes('editorial.advice.命宮.ambition'))))!);
+    c.palaces.find((p) => p.name === '命宮')!.stars.find((s) => s.kind === 'major')!.sihua = '忌';
+    const text = focused(c, '命宮').text;
+    expect(text).not.toContain('你想把事情做大');
+    expect(text).toContain('真正想追求甚麼');
+    expect(text).not.toContain('化忌');
+  });
 });
