@@ -253,8 +253,13 @@ for (const t of Object.values(MEET_TAIL)) {
   const p = CORPUS.zhongzhou?.passages[t.passage];
   if (!p || !normaliseForMatch(p.text).includes(normaliseForMatch(t.quote))) throw new Error(`冲起：引文「${t.quote}」唔喺 ${t.passage}`);
 }
-type MeetBase = { who: '你本命' | '這十年大限'; hits: readonly { star: string; hua: Sihua }[] };
-export function meetSegment(chart: Chart, span: '這十年' | '這一年', period: readonly { star: string; hua: Sihua }[], bases: readonly MeetBase[]): { text: string; id: string } | null {
+/** nameAt：嗰層盤（本命、大限）喺某地支叫咩宮；本命唔使傳。 */
+type MeetBase = { who: '你本命' | '這十年大限'; hits: readonly { star: string; hua: Sihua }[]; nameAt?: (branch: Branch) => string | null };
+/**
+ * periodNameAt：呢段時期（大限或流年）盤喺某地支叫咩宮。2026-10-27 盲評：四化段講「落在僕役宮」（時期盤），
+ * 冲起句以前講「落在你的命宮」（本命盤），讀落似同一粒星有兩個宮。而家先講時期盤，括號補本命。
+ */
+export function meetSegment(chart: Chart, span: '這十年' | '這一年', period: readonly { star: string; hua: Sihua }[], bases: readonly MeetBase[], periodNameAt?: (branch: Branch) => string | null): { text: string; id: string } | null {
   const at = (star: string) => chart.palaces.find((p) => p.stars.some((x) => x.name === star)) ?? null;
   const pairs = period.flatMap((h) => {
     const hp = at(h.star);
@@ -264,13 +269,18 @@ export function meetSegment(chart: Chart, span: '這十年' | '這一年', perio
       if (!np || n.star === h.star) return [];
       const same = np.branch === hp.branch;
       if (!same && np.branch !== oppositeBranch(hp.branch)) return [];
-      return [{ h, n, who: b.who, hp, np, same, rank: h.hua === '忌' && n.hua === '忌' ? 0 : h.hua === '忌' && n.hua === '祿' ? 1 : 2 }];
+      return [{ h, n, who: b.who, nameAt: b.nameAt, hp, np, same, rank: h.hua === '忌' && n.hua === '忌' ? 0 : h.hua === '忌' && n.hua === '祿' ? 1 : 2 }];
     }));
   }).sort((a, b) => a.rank - b.rank);
   if (!pairs.length) return null;
-  const facts = pairs.slice(0, 2).map((x) => `${span}的${x.h.star}化${x.h.hua}落在你的${palaceLabel(x.hp.name)}，` + (x.same
-    ? `和${x.who}的${x.n.star}化${x.n.hua}同宮。`
-    : `正對著${x.who}${x.n.star}化${x.n.hua}所在的${palaceLabel(x.np.name)}。`));
+  const facts = pairs.slice(0, 2).map((x) => {
+    const pName = periodNameAt?.(x.hp.branch);
+    const where = pName ? `${palaceLabel(pName)}（你本命的${palaceLabel(x.hp.name)}）` : `你的${palaceLabel(x.hp.name)}`;
+    const baseName = x.nameAt?.(x.np.branch) ?? x.np.name;
+    return `${span}的${x.h.star}化${x.h.hua}落在${where}，` + (x.same
+      ? `和${x.who}的${x.n.star}化${x.n.hua}同宮。`
+      : `正對著${x.who}${x.n.star}化${x.n.hua}所在的${palaceLabel(baseName)}。`);
+  });
   const tail = [MEET_TAIL.jiji, MEET_TAIL.chongpo, MEET_TAIL.generic][pairs[0]!.rank]!;
   return { text: facts.join('') + tail.text, id: tail.id };
 }
@@ -381,8 +391,9 @@ export function areaSegments(
   scope: '這十年' | '這一年',
   /** 新書（`periodChecks`）：財帛天府見空劫換空劫版本 */
   checks = false,
-): { segments: DaxianSegment[]; used: Set<string> } {
+): { segments: DaxianSegment[]; used: Set<string>; kongku?: boolean } {
   const used = new Set<string>();
+  let leaks = false;
   const segments: DaxianSegment[] = [];
   for (const a of AREAS) {
     const p = chart.palaces.find((x) => nameAt(x.branch) === a.palace);
@@ -395,6 +406,7 @@ export function areaSegments(
     if (!found) continue;
     const kongku = checks && a.palace === '財帛' && names.includes('天府') && p.stars.some((s) => s.name === '地空' || s.name === '地劫');
     const pp = kongku ? { ...found, id: KONGKU.id, summary: KONGKU.summary } : found;
+    if (kongku) leaks = true;
     const here = hits.filter((h) => h.palace === a.palace);
     const label = AREA[a.palace]![1];
     /* 化祿化忌同落一格：唔揀邊個，照講有得有失 */
@@ -434,7 +446,7 @@ export function areaSegments(
       rule_ids: [],
     });
   }
-  return { segments, used };
+  return { segments, used, kongku: leaks };
 }
 
 /*
@@ -504,7 +516,8 @@ export function periodGist(
   ji: PeriodHit,
   used: ReadonlySet<string>,
   areasRead: boolean,
-  notes: { luBlocked?: boolean; jiEased?: boolean } = {},
+  /** moneyLeaks：呢段時期財帛用咗空劫版本（守不住）；講錢順嘅半句要跟住講，唔好自己打自己（2026-10-27 盲評） */
+  notes: { luBlocked?: boolean; jiEased?: boolean; moneyLeaks?: boolean } = {},
 ): string {
   const l = huaClause(lu, used, areasRead);
   const j = huaClause(ji, used, areasRead);
@@ -519,7 +532,7 @@ export function periodGist(
   if (same && same === domainOf(j.text)) return `${span}，${yourArea(same)}有得有失：${l.text}；同時，${j.text}。`;
   const at = (c: { text: string; generic: boolean; fits: boolean }, h: PeriodHit) =>
     c.generic || !c.fits ? c.text : `${periodArea(h.palace)}這一方面，${c.text}`;
-  const blocked = notes.luBlocked ? '，只是同時有阻滯' : '';
+  const blocked = notes.luBlocked ? '，只是同時有阻滯' : notes.moneyLeaks && domainOf(l.text) === '財帛' ? '，只是錢進了也容易出' : '';
   const eased = notes.jiEased ? '，不過也有轉圜的餘地' : '';
   const body = `${at(l, lu)}${blocked}；${at(j, ji)}${eased}。`;
   /* 通用句冇「你」：第一句要對住讀者講（lint P2） */
@@ -852,7 +865,7 @@ export function decadeChapter(input: { chart: Chart; year: number; periodChecks?
     : { segments: [], used: new Set<string>() };
   const advice = started ? adviceSegment(hits.map((h) => ({ star: h.star, hua: h.hua, palace: h.decadalPalace })), '這十年') : null;
   const gist =
-    periodGist(span, { star: lu.star, hua: '祿', palace: lu.decadalPalace }, { star: ji.star, hua: '忌', palace: ji.decadalPalace }, areas.used, started) ||
+    periodGist(span, { star: lu.star, hua: '祿', palace: lu.decadalPalace }, { star: ji.star, hua: '忌', palace: ji.decadalPalace }, areas.used, started, { moneyLeaks: areas.kongku }) ||
     fallbackGist;
 
   /* 四化：逐粒講，落喺呢十年嘅邊宮（四方面已經講咗嘅唔再講） */
@@ -869,7 +882,7 @@ export function decadeChapter(input: { chart: Chart; year: number; periodChecks?
     return r ? [{ text: r.text.replace('{star}', h.star), id: r.id }] : [];
   });
   const touched = hits.some((h) => natal.has(h.star));
-  const meet = input.periodChecks ? meetSegment(chart, '這十年', hits, [{ who: '你本命', hits: A.sihua.natal }]) : null;
+  const meet = input.periodChecks ? meetSegment(chart, '這十年', hits, [{ who: '你本命', hits: A.sihua.natal }], started ? (b) => A.overlay.find((o) => o.branch === b)?.decadal ?? null : undefined) : null;
   const interSeg = inter.length || meet
     ? { text: inter.map((i) => i.text).join('') + (meet?.text ?? ''), id: [...inter.map((i) => i.id), ...(meet ? [meet.id] : [])].join('+') }
     : touched

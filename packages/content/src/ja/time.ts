@@ -407,13 +407,15 @@ export function timeTemplate(s: string, missing: string[], h: TimeHelpers): stri
   /* 魁鉞位置、冲起本命化曜（2026-10-26，kuiyue.ts kuiyueText、daxian.ts meetSegment） */
   const kf = /^這(十年|一年)的(天魁|天鉞)落在(\S)宮，(正好落在|正對著)你本命(天魁|天鉞)所在的(\S)宮。$/.exec(s);
   if (kf) return `${kf[1] === '十年' ? 'この十年' : 'この一年'}の${starJa(kf[2]!)}は${kf[3]}宮に入り、あなたの本命の${starJa(kf[5]!)}がある${kf[6]}宮${kf[4] === '正好落在' ? 'とちょうど重なります' : 'と真向かいになります'}。`;
-  const mt = /^這(十年|一年)的(\S{2})化(\S)落在你的(\S+?宮)，(?:和(你本命|這十年大限)的(\S{2})化(\S)同宮|正對著(你本命|這十年大限)(\S{2})化(\S)所在的(\S+?宮))。$/.exec(s);
+  const mt = /^這(十年|一年)的(\S{2})化(\S)落在(?:你的(\S+?宮)|(\S+?宮)（你本命的(\S+?宮)）)，(?:和(你本命|這十年大限)的(\S{2})化(\S)同宮|正對著(你本命|這十年大限)(\S{2})化(\S)所在的(\S+?宮))。$/.exec(s);
   if (mt && starJa(mt[2]!) && HUA[mt[3]!]) {
     const who = (w: string) => (w === '你本命' ? '本命' : 'この十年の大限');
-    const head = `${mt[1] === '十年' ? 'この十年' : 'この一年'}の${starJa(mt[2]!)}${HUA[mt[3]!]}はあなたの${pal(mt[4]!, missing)}に入り、`;
-    return mt[5]
-      ? `${head}${who(mt[5])}の${starsJa(mt[6]!, missing)}${HUA[mt[7]!]}と同じ宮に重なります。`
-      : `${head}${who(mt[8]!)}の${starsJa(mt[9]!, missing)}${HUA[mt[10]!]}がある${pal(mt[11]!, missing)}と真向かいになります。`;
+    const span = mt[1] === '十年' ? 'この十年' : 'この一年';
+    const where = mt[4] ? `あなたの${pal(mt[4], missing)}` : `${span}の${pal(mt[5]!, missing)}（本命の${pal(mt[6]!, missing)}）`;
+    const head = `${span}の${starJa(mt[2]!)}${HUA[mt[3]!]}は${where}に入り、`;
+    return mt[7]
+      ? `${head}${who(mt[7])}の${starsJa(mt[8]!, missing)}${HUA[mt[9]!]}と同じ宮に重なります。`
+      : `${head}${who(mt[10]!)}の${starsJa(mt[11]!, missing)}${HUA[mt[12]!]}がある${pal(mt[13]!, missing)}と真向かいになります。`;
   }
   const month = liuyueJa(s);
   if (month) return month;
@@ -483,12 +485,13 @@ export function timeTemplate(s: string, missing: string[], h: TimeHelpers): stri
     }
     const parts = m[2]!.split('；').map((p) => {
       const blocked = p.endsWith('，只是同時有阻滯');
+      const leaks = p.endsWith('，只是錢進了也容易出');
       const eased = p.endsWith('，不過也有轉圜的餘地');
-      const core = p.replace(/，(只是同時有阻滯|不過也有轉圜的餘地)$/, '');
+      const core = p.replace(/，(只是同時有阻滯|不過也有轉圜的餘地|只是錢進了也容易出)$/, '');
       const at = /^(\S+?)這一方面，(.+)$/.exec(core);
       const clause = HUA_CLAUSE_JA[at ? at[2]! : core];
       if (!clause) return null;
-      return (at ? `${areaJa(at[1]!, missing)}の面では、${clause}。` : `${clause}。`) + (blocked ? 'ただ、同時に阻みもあります。' : '') + (eased ? 'ただ、立て直す余地もあります。' : '');
+      return (at ? `${areaJa(at[1]!, missing)}の面では、${clause}。` : `${clause}。`) + (blocked ? 'ただ、同時に阻みもあります。' : '') + (leaks ? 'ただ、入ったお金も出ていきやすいのです。' : '') + (eased ? 'ただ、立て直す余地もあります。' : '');
     });
     if (parts.length === 2 && parts.every(Boolean)) return `${span(m[1]!)}、${parts.join('')}`;
   }

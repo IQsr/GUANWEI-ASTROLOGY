@@ -20,7 +20,7 @@ const text = (slot: string) => ch.segments.find((s) => s.slot === slot)?.text ??
 
 describe('冲起本命化曜', () => {
   it('大限忌同本命忌同宮：講明位置，唔再講「沒有碰到」', () => {
-    expect(text('互動')).toContain('這十年的巨門化忌落在你的命宮，和你本命的太陽化忌同宮。');
+    expect(text('互動')).toContain('這十年的巨門化忌落在兄弟宮（你本命的命宮），和你本命的太陽化忌同宮。');
     expect(text('互動')).toContain(MEET_TAIL.jiji.text);
     expect(text('互動')).not.toContain('沒有碰到');
   });
@@ -33,7 +33,7 @@ describe('冲起本命化曜', () => {
       if (!c.ok) continue;
       for (const seg of [...(decadeChapter({ chart: c.value, year: 2026, periodChecks: true })?.segments ?? []), ...(yearChapter({ chart: c.value, year: 2026, periodChecks: true })?.segments ?? [])]) {
         if (seg.slot !== '互動' || !seg.text.includes('沒有碰到')) continue;
-        expect(seg.text).not.toMatch(/落在你的\S+?宮，(和|正對著)/);
+        expect(seg.text).not.toMatch(/落在\S+?宮（你本命的\S+?宮），(和|正對著)/);
       }
     }
   });
@@ -53,8 +53,12 @@ describe('大限財帛天府見空劫', () => {
   });
 });
 
+it('這十年財帛見空劫：結論講錢順嘅半句跟住講錢進了也容易出', () => {
+  expect(text('結論')).toContain('財源比較順遂，只是錢進了也容易出');
+});
+
 it('新句英文、日文都譯得到', () => {
-  const paras = ch.segments.filter((s) => ['魁鉞', '互動', '錢'].includes(s.slot)).map((s) => s.text);
+  const paras = ch.segments.filter((s) => ['結論', '魁鉞', '互動', '錢'].includes(s.slot)).map((s) => s.text);
   const e = en(paras), j = ja(paras);
   expect(e.missing).toEqual([]);
   expect(j.missing).toEqual([]);
