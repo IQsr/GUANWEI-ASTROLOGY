@@ -10,7 +10,7 @@ import {referencePresentation} from '@/lib/reference-presentation';
 import {hans} from '@/lib/hans';
 import samples from '../src/lib/random-five-preview.json';
 const unique=<T,>(xs:readonly T[])=>[...new Set(xs)];
-function books(id:string){const s=samples.find(s=>s.id===id)!,r=cast(s.input as BirthInput);if(!r.ok)throw Error(r.message);const opts={seed:s.seed,year:2026,solar:s.input.solar,place:s.input.place.label,birthSex:s.input.sex as 'male'|'female'};return {book:createBookChapters(r.value,opts)!,base:withReadingEpilogue(r.value,alignReviewedChapters(r.value,bookChapters(r.value,{...opts,crossPalaceReading:true,separateRuleReferences:true,conditionalBranches:true,focusedAdvice:true,periodChecks:true})!))};}
+function books(id:string){const s=samples.find(s=>s.id===id)!,r=cast(s.input as BirthInput);if(!r.ok)throw Error(r.message);const opts={seed:s.seed,year:2026,solar:s.input.solar,place:s.input.place.label,birthSex:s.input.sex as 'male'|'female'};return {book:createBookChapters(r.value,opts)!,base:withReadingEpilogue(r.value,alignReviewedChapters(r.value,bookChapters(r.value,{...opts,crossPalaceReading:true,separateRuleReferences:true,conditionalBranches:true,focusedAdvice:true,periodChecks:true,relocateHedges:true})!))};}
 it('Lian closing: inherited wealth conditions and every source survive only as explicitly labelled chapter background',()=>{
  const {book,base}=books('B'),ch=book.find(c=>c.slug==='給你的話')!,row=ch.reading!.segments.find(s=>s.analysisLinks?.decisionIds.includes(LIAN_KEWEN))!;
  const old=base.find(c=>c.slug===ch.slug)!.reading!.segments.find(s=>s.statements?.some(l=>l.source_ids.includes('epilogue.selected.財帛.福德')))!;

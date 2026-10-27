@@ -33,6 +33,7 @@ export * from './card';
 export * from './ming-writer';
 export * from './free-ming-reader';
 export { withConditionalBranches, huaMentions } from './free-ming-systems';
+export { withRelocatedHedges, isRelocatableHedge } from './hedge-relocate';
 export * from './palace-reader';
 export * from './palace-advice';
 export * from './palace-narrative';

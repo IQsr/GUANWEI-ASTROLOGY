@@ -14,7 +14,7 @@ import remaining from '../../../packages/content/src/cards/palace-remaining.json
 function books(sample:{seed:string;input:unknown}){
  const input=sample.input as BirthInput,result=cast(input);if(!result.ok)throw Error(result.message);
  const opts={seed:sample.seed,year:2026,solar:input.solar,place:input.place.label,birthSex:input.sex};
- return {current:createBookChapters(result.value,opts)!,base:bookChapters(result.value,{...opts,crossPalaceReading:true,conditionalBranches:true,focusedAdvice:true,periodChecks:true})!};
+ return {current:createBookChapters(result.value,opts)!,base:bookChapters(result.value,{...opts,crossPalaceReading:true,conditionalBranches:true,focusedAdvice:true,periodChecks:true,relocateHedges:true})!};
 }
 
 it.each([five[0]!,five[2]!])('$id: preserves the separate bone transition and references; P1 C uses its shared decision for body and advice',sample=>{
