@@ -50,6 +50,7 @@ it('v3 drops editor notes outright, keeps explicit book statements and advice', 
   expect(isEditorNote('七殺獨坐，原書明說不能只由七殺就斷在外日多，仍須火鈴同度或祿馬等配合。')).toBe(true);
   expect(isEditorNote('紫微獨坐，原書明說財源充裕未必就能積聚。')).toBe(false);
   expect(isEditorNote('你和後輩之間話說得通，關係少有隔閡。')).toBe(false);
+  expect(isEditorNote('你的朋友誠懇樸實，也肯直言規勸你。')).toBe(false);
   expect(isEditorNote('答應一起做的事另行確認。', 'editorial-advice')).toBe(false);
 });
 

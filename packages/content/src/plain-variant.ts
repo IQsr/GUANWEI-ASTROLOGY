@@ -1,6 +1,7 @@
 import { z } from 'zod';
 import type { Chart } from '@guanwei/ziwei';
 import raw from './plain/variants.json';
+import verdictRaw from './plain/verdict-variants.json';
 import { BRANCH_TOPICS, branchRules } from './branch';
 import { PALACE_PLAIN, PAIR_PLAIN, PalacePlain } from './palace-plain';
 
@@ -30,7 +31,7 @@ export type PlainVariant = z.infer<typeof Variant> & { palace: string; passages:
 
 const RULES = new Map(BRANCH_TOPICS.flatMap((t) => t.rules.map((r) => [r.id, { r, palace: t.topic.palace }] as const)));
 
-export const PLAIN_VARIANTS: PlainVariant[] = (() => {
+function load(raw: unknown, label: string): PlainVariant[] {
   const bad: string[] = [];
   const out: PlainVariant[] = [];
   for (const v of z.array(Variant).parse(raw)) {
@@ -46,9 +47,17 @@ export const PLAIN_VARIANTS: PlainVariant[] = (() => {
     if (!r.success) bad.push(...r.error.issues.map((i) => `${v.target}／${v.rule}：${i.message}`));
     out.push({ ...v, palace: base.palace, passages: [hit.r.source.passage, ...(hit.r.also ?? []).map((a) => a.passage)] });
   }
-  if (bad.length) throw new Error(`帶條件結論句唔合格（${bad.length} 處）：\n${bad.join('\n')}`);
+  if (bad.length) throw new Error(`${label}唔合格（${bad.length} 處）：\n${bad.join('\n')}`);
   return out;
-})();
+}
+
+export const PLAIN_VARIANTS: PlainVariant[] = load(raw, '帶條件結論句');
+
+/*
+ * 新書判斷句專用（2026-10-27，Issac：連事件、對方本人都准講）。只喺 `verdictFor` 用，
+ * 舊書、免費章、給你的話照用上面 PLAIN_VARIANTS，唔會變。次序同 PLAIN_VARIANTS 一樣：先寫先揀。
+ */
+export const VERDICT_VARIANTS: PlainVariant[] = load(verdictRaw, '判斷句變體');
 
 /** 呢張盤喺某宮成立嘅全部細讀規則（唔封頂，同 branchReading 用同一套題目） */
 export function firedRules(chart: Chart, palace: string): Set<string> {
@@ -60,9 +69,9 @@ export function firedRules(chart: Chart, palace: string): Set<string> {
  * 結論冇出處，而呢張盤有變體嘅規則成立：回變體（檔案次序第一條）。否則 undefined。
  * `pp` 係 `conclusionFor()` 回嘅結論。
  */
-export function variantFor(chart: Chart, pp: { id: string; palace: string; source?: unknown }): PlainVariant | undefined {
+export function variantFor(chart: Chart, pp: { id: string; palace: string; source?: unknown }, opts: { verdict?: boolean } = {}): PlainVariant | undefined {
   if (pp.source) return undefined;
-  const mine = PLAIN_VARIANTS.filter((v) => v.target === pp.id);
+  const mine = (opts.verdict ? [...PLAIN_VARIANTS, ...VERDICT_VARIANTS] : PLAIN_VARIANTS).filter((v) => v.target === pp.id);
   if (!mine.length) return undefined;
   const fired = firedRules(chart, pp.palace);
   return mine.find((v) => fired.has(v.rule));

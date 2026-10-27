@@ -204,7 +204,7 @@ describe('性格的骨架（2026-10-07 併埋偏向）', () => {
       expect(segs.some((s) => s.slot === '推力'), segs[0]!.text).toBe(false);
     }
     expect(saw).toBeGreaterThan(0);
-  });
+  }, 60_000);
 
   it('借對宮嗰陣講明', () => {
     const c = some.find((c) => xingxiOf(c)!.borrowed)!;

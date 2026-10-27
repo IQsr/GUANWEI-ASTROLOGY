@@ -23,7 +23,7 @@ it('only uses a sourced verdict, and every cited passage resolves', () => {
       expect(v.text, v.text).toContain('你');
       expect(v.passages.length).toBeGreaterThan(0);
       for (const id of v.passages) expect(citation(id), id).not.toBeNull();
-      expect(p).not.toBe('疾厄');
+      if (p === '疾厄') expect(v.text).toMatch(/^你要留意.+，這是你身體較弱的一環。$/);
     }
   }
   expect(seen).toBeGreaterThan(400);

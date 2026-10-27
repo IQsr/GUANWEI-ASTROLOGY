@@ -2,7 +2,7 @@ import tmRaw from './tm.json';
 import { OLD_WATCH_LEADS, WATCH_LEADS } from '../watch-lead';
 import { LINK_REFS } from '../link';
 import { ALL_JI_WATCH, LEAN_SUMMARY, PAIR_PLAIN } from '../palace-plain';
-import { PLAIN_VARIANTS } from '../plain-variant';
+import { PLAIN_VARIANTS, VERDICT_VARIANTS } from '../plain-variant';
 import { BRANCH_TOPICS, FILL_VERB, MAJOR, OR_VERB, stripOr } from '../branch';
 import { AREA_EN, AREA_ON_EN, BRANCH_EN, PALACE_EN, STAR_EN, cap, listEn, star, starFirst } from './terms';
 import { factTemplate } from './facts';
@@ -33,6 +33,8 @@ for (const x of PAIR_PLAIN) {
 for (const w of ALL_JI_WATCH) TM.sentences[w.zh] = w.en;
 /* 帶條件嘅結論句（plain-variant.ts，2026-10-18）：英文跟條目存 */
 for (const v of PLAIN_VARIANTS) TM.sentences[v.summary] = v.en;
+/* 新書判斷句變體（2026-10-27）：同一句舊書已經有譯法就唔蓋 */
+for (const v of VERDICT_VARIANTS) TM.sentences[v.summary] ??= v.en;
 
 export type Rendered = { text: string; missing: string[] };
 
