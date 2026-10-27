@@ -2,7 +2,7 @@ import { beforeEach, afterEach, describe, expect, it } from 'vitest';
 import { bookState } from '../src/schema';
 import { createTestDb, seedReader, type TestDb } from '../src/testing';
 
-/** 0011：成書要帶住同意咗嘅條款版本 */
+/** 舊 0011（已併入 0001_baseline）：成書要帶住同意咗嘅條款版本 */
 const TERMS = '2026-09-29';
 
 /**
@@ -277,7 +277,7 @@ describe('讀到邊、幾時讀', () => {
   });
 });
 
-describe('條款及私隱政策同意（0011）', () => {
+describe('條款及私隱政策同意（舊 0011）', () => {
   it('成書寫低同意咗邊個版本、幾時', async () => {
     await db.asReader(me);
     const [row] = await cheng();

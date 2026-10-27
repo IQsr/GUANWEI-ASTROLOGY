@@ -75,7 +75,7 @@ export type BookDraft = {
   title: string | null;
   seal: string | null;
   chapters: ChapterDraft[];
-  /** 同意咗邊個版本嘅條款及私隱政策（`lib/legal.ts`）。DB 冇佢就唔成書（0011）。 */
+  /** 同意咗邊個版本嘅條款及私隱政策（`lib/legal.ts`）。DB 冇佢就唔成書（舊 0011，已併入 0001_baseline）。 */
   termsVersion: string;
 };
 

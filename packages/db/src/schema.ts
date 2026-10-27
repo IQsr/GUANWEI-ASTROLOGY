@@ -78,7 +78,7 @@ export const BookRow = z.object({
    * 攞返嘅係同一本書，唔係兩本一模一樣嘅書。
    */
   client_token: uuid.nullable(),
-  /** 同意咗邊個版本嘅條款及私隱政策、幾時（0011）。0011 之前成嘅書兩欄都係 null。 */
+  /** 同意咗邊個版本嘅條款及私隱政策、幾時（舊 0011_terms，已併入 0001_baseline）。嗰次之前成嘅書兩欄都係 null。 */
   terms_version: z.string().nullable(),
   terms_accepted_at: ts.nullable(),
   /** 溯時紀錄記過未（0005）：每本書只記第一次。紀錄本身唔連書。 */

@@ -18,7 +18,7 @@ create or replace function public.create_book(
   p_title    text,    -- 同 p_chart 一齊有或者一齊冇
   p_seal     text,
   p_chapters jsonb,   -- [{slug, ord, tier, title, body, content_version}]
-  p_terms_version text  -- 同意咗邊個版本嘅條款及私隱政策（0011）
+  p_terms_version text  -- 同意咗邊個版本嘅條款及私隱政策（舊 0011，已併入 0001_baseline）
 ) returns uuid
 language plpgsql
 set search_path = public
@@ -35,7 +35,7 @@ begin
   if p_token is null then
     raise exception '成書要一個 token —— 冇佢就防唔到重送' using errcode = '23514';
   end if;
-  -- ⚠ 冇同意條款及私隱政策就唔收生辰（0011）。介面擋一次，呢度再擋一次。
+  -- ⚠ 冇同意條款及私隱政策就唔收生辰（舊 0011，已併入 0001_baseline）。介面擋一次，呢度再擋一次。
   if p_terms_version is null or length(trim(p_terms_version)) = 0 then
     raise exception '未同意條款及私隱政策，成唔到書' using errcode = '23514';
   end if;
