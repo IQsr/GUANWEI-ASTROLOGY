@@ -36,7 +36,7 @@ import {
   LEXICON,
   type Chapter,
 } from '@guanwei/content';
-import { SCHOOL_PROFILE, annual, cast } from '@guanwei/ziwei';
+import { SCHOOL_PROFILE, annual, cast, sanFangPalaces } from '@guanwei/ziwei';
 import type { Chart as ZChart } from '@guanwei/ziwei/contract';
 import { hrefOf, slugOf, textOf } from '@/lib/lexicon';
 import { markBook, type MarkedChapter } from '@/lib/zhu';
@@ -322,7 +322,10 @@ export function bookChapters(
     const branched = opts.conditionalBranches ? withConditionalBranches(chart, crossed, isMing ? '命宮' : p.slug) : crossed;
     // 先加判斷句再搬兜圈句：結論段只得一句兜圈句時，搬走之後判斷句仍然有段落可以落腳
     const judged = opts.verdictLead && p.slug !== '性格的骨架' ? withVerdictLead(chart, p.slug, branched) : branched;
-    const segments = (opts.relocateHedges ? withRelocatedHedges(judged) : judged)
+    // v3：編輯筆記同淨列分支直接刪；本宮三方四正冇火鈴，火鈴句都唔出
+    const home = chart.palaces.find((q) => q.name === (isMing ? '命宮' : p.slug));
+    const fireBell = home ? sanFangPalaces(chart.palaces, home.branch).some((q) => q.stars.some((s) => s.name === '火星' || s.name === '鈴星')) : true;
+    const segments = (opts.relocateHedges ? withRelocatedHedges(judged, { editorNotes: true, absent: { fireBell: !fireBell } }) : judged)
       .map((row) => ({ ...row, ...(row.referenceConditions ? { referenceConditions: row.referenceConditions.map(readerReferenceLanguage) } : {}) }));
     const internationalSnapshot = { text: p.text, slots: p.slots, ...('reading' in p && p.reading ? { reading: p.reading } : {}) };
     const reading: ChapterReading = { format: 'ming-expanded-v1', writer: isMing ? 'reader-backed-v1' : 'palace-reader-v1', segments,

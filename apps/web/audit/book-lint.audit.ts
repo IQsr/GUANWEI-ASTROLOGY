@@ -10,6 +10,7 @@
  *   D. 兜圈句（2026-10-27，盲評「結論只係分開看」）：句子只講方法、分支或否定，冇落判斷。
  *      D1 編輯筆記漏出（另核、未齊、閱讀方法）；D2 只講分開（分開看、兩個層次、各有不同）；
  *      D3 只講唔可以點（不能只、不等於、未必）。只數唔判錯，量住改寫前後嘅基準。
+ *   E. 編輯筆記（2026-10-27）：正文仲有幾多句 content `isEditorNote` 認得嘅句（新書應該係 0）。
  *   V. 判斷句覆蓋（2026-10-27）：命宮同十一宮嘅結論段，有冇一句帶出處嘅「你…」判斷（plain／pair 結論句）。
  * 只讀唔寫：唔改內容、唔寫 DB。每輪換 seed，唔好淨係睇示範盤同固定樣本。
  *
@@ -22,7 +23,7 @@
 import { it } from 'vitest';
 import { mkdirSync, writeFileSync } from 'node:fs';
 import { cast, oppositeBranch, sanFangPalaces, QUERYABLE_NATAL_STARS, type BirthInput, type Chart, type Palace } from '@guanwei/ziwei';
-import { citation } from '@guanwei/content';
+import { citation, isEditorNote } from '@guanwei/content';
 import { createBookChapters } from '@/lib/mingshu';
 import { readingSegments } from '@/lib/chapter-reading';
 
@@ -99,8 +100,12 @@ function lintBook(id: string, input: BirthInput, chart: Chart, out: Finding[], p
       }
       // D. 兜圈句（運限章都計：盲評亦嫌佢哋）
       const lines = seg.statements?.length ? seg.statements.map((l) => ({ text: l.text, source: sourceKey(l.source_ids[0]) })) : [{ text, source: '(無來源)' }];
+      // E 只數新書改寫覆蓋嘅章（命宮、骨架、十一宮），斷句同改寫一樣連「；」都斷
+      if (home && ch.slug !== '身宮與五行局') for (const l of seg.statements ?? []) for (const sen of l.text.match(/[^。；！？]*[。；！？]|[^。；！？]+$/g) ?? [])
+        if (isEditorNote(sen, l.kind)) add('E 編輯筆記留喺正文', 'warn', seg.slot, sen.slice(0, 30), sen);
       for (const l of lines) for (const sen of sentencesOf(l.text)) {
         counts.set(ch.slug, (counts.get(ch.slug) ?? 0) + 1);
+
         const hit = HEDGES.find(([, re]) => re.test(sen));
         if (hit) hedges.push({ kind: hit[0], book: id, chapter: ch.slug, slot: seg.slot, source: l.source, text: sen });
       }
