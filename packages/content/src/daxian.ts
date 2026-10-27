@@ -16,7 +16,7 @@ import { STEPS_UNTIL_AGE, num } from './steps';
 import { FORBIDDEN_TERMS } from './frame';
 import { leanOf, xingxiOf } from './xingxi';
 import { conclusionFor } from './palace-plain';
-import { KUIYUE_SOURCE, KUIYUE_TEXT, kuiyueRises } from './kuiyue';
+import { KUIYUE_SOURCE, KUIYUE_TEXT, kuiyueMatches, kuiyueText } from './kuiyue';
 
 /* ───────────────────────────────────────────────────────────
  * 大限兩章（2026-09-30 · Issac：先做大限，參考書）
@@ -238,6 +238,54 @@ for (const t of Object.values(DAXIAN_FRAMES)) {
   if (bad.length) throw new Error(`大限章框唔准講命理：${bad.join('、')}`);
 }
 
+/*
+ * 冲起（2026-10-26 盲評）：以前「沒有碰到你本命的四化」只核同一粒星，但 p.235 嘅例子係
+ * 「天機化祿冲起太陽化祿」——唔同星、同宮或會照都算冲起。新書而家再核：呢段時期嘅化曜同宮或對宮
+ * 正正有本命（流年再加大限）嘅化曜，就講明位置；同一粒星嘅照舊用 rules.json。
+ * 只取同宮、對宮（取嚴），三合會照唔計。
+ */
+export const MEET_TAIL = {
+  jiji: { text: '兩重化忌碰在一起，本命的化忌被冲起，相關的事這段時期較容易受阻，是最要留意的一點。', id: 'dx.rule.meet', passage: 'daxian.rule.none', quote: '当生年四化被冲会之时，然后始须注意' },
+  chongpo: { text: '原書說化祿最怕被化忌冲破，吉處藏凶：這段時期進財的事要多防一手。', id: 'dx.rule.chongpo', passage: 'daxian.rule.chongpo', quote: '化禄最嫌为忌冲破' },
+  generic: { text: '本命的化曜被冲起，這段時期它也會起作用。', id: 'dx.rule.meet', passage: 'daxian.rule.none', quote: '当生年四化被冲会之时，然后始须注意' },
+} as const;
+for (const t of Object.values(MEET_TAIL)) {
+  const p = CORPUS.zhongzhou?.passages[t.passage];
+  if (!p || !normaliseForMatch(p.text).includes(normaliseForMatch(t.quote))) throw new Error(`冲起：引文「${t.quote}」唔喺 ${t.passage}`);
+}
+type MeetBase = { who: '你本命' | '這十年大限'; hits: readonly { star: string; hua: Sihua }[] };
+export function meetSegment(chart: Chart, span: '這十年' | '這一年', period: readonly { star: string; hua: Sihua }[], bases: readonly MeetBase[]): { text: string; id: string } | null {
+  const at = (star: string) => chart.palaces.find((p) => p.stars.some((x) => x.name === star)) ?? null;
+  const pairs = period.flatMap((h) => {
+    const hp = at(h.star);
+    if (!hp) return [];
+    return bases.flatMap((b) => b.hits.flatMap((n) => {
+      const np = at(n.star);
+      if (!np || n.star === h.star) return [];
+      const same = np.branch === hp.branch;
+      if (!same && np.branch !== oppositeBranch(hp.branch)) return [];
+      return [{ h, n, who: b.who, hp, np, same, rank: h.hua === '忌' && n.hua === '忌' ? 0 : h.hua === '忌' && n.hua === '祿' ? 1 : 2 }];
+    }));
+  }).sort((a, b) => a.rank - b.rank);
+  if (!pairs.length) return null;
+  const facts = pairs.slice(0, 2).map((x) => `${span}的${x.h.star}化${x.h.hua}落在你的${palaceLabel(x.hp.name)}，` + (x.same
+    ? `和${x.who}的${x.n.star}化${x.n.hua}同宮。`
+    : `正對著${x.who}${x.n.star}化${x.n.hua}所在的${palaceLabel(x.np.name)}。`));
+  const tail = [MEET_TAIL.jiji, MEET_TAIL.chongpo, MEET_TAIL.generic][pairs[0]!.rank]!;
+  return { text: facts.join('') + tail.text, id: tail.id };
+}
+
+/*
+ * 大限／流年財帛宮天府見地空、地劫（2026-10-26 盲評）：結論句「守得住」同空劫相反。
+ * 原書財帛宮天府（p.450）：「天府得祿見吉，若有空劫同度，每進財亦必受損失」；空庫再見空劫為府庫空露。
+ */
+export const KONGKU = {
+  id: 'plain.天府.財帛.空劫',
+  summary: '你有理財的心思，但這個宮位同時有地空或地劫，錢容易進了又出；這段時期要防的是守不住。',
+  passage: 'deep.財帛.天府.空劫',
+} as const;
+if (!CORPUS.zhongzhou?.passages[KONGKU.passage]) throw new Error(`空庫：語料庫搵唔到 ${KONGKU.passage}`);
+
 export const STEPS_SLUG = '一生十二步';
 export const DECADE_SLUG = '這十年';
 
@@ -331,6 +379,8 @@ export function areaSegments(
   nameAt: (branch: string) => string | null,
   hits: readonly PeriodHit[],
   scope: '這十年' | '這一年',
+  /** 新書（`periodChecks`）：財帛天府見空劫換空劫版本 */
+  checks = false,
 ): { segments: DaxianSegment[]; used: Set<string> } {
   const used = new Set<string>();
   const segments: DaxianSegment[] = [];
@@ -341,8 +391,10 @@ export function areaSegments(
     const opp = own.length === 0 && p.borrowsFrom ? chart.palaces.find((x) => x.branch === p.borrowsFrom) : undefined;
     const names = (own.length ? own : opp ? majors(opp) : []) as string[];
     const ji = p.stars.find((s) => s.kind === 'major' && s.sihua === '忌')?.name ?? null;
-    const pp = names.length ? conclusionFor(names, a.palace, ji) : undefined;
-    if (!pp) continue;
+    const found = names.length ? conclusionFor(names, a.palace, ji) : undefined;
+    if (!found) continue;
+    const kongku = checks && a.palace === '財帛' && names.includes('天府') && p.stars.some((s) => s.name === '地空' || s.name === '地劫');
+    const pp = kongku ? { ...found, id: KONGKU.id, summary: KONGKU.summary } : found;
     const here = hits.filter((h) => h.palace === a.palace);
     const label = AREA[a.palace]![1];
     /* 化祿化忌同落一格：唔揀邊個，照講有得有失 */
@@ -736,7 +788,8 @@ export function decadeView(chart: Chart, branch: string, hits: { star: string; h
   };
 }
 
-export function decadeChapter(input: { chart: Chart; year: number }): Out {
+/** `periodChecks`（新書）：魁鉞講位置、冲起本命化曜、財帛空劫（2026-10-26）。基準入口唔開，歷史比對唔變。 */
+export function decadeChapter(input: { chart: Chart; year: number; periodChecks?: boolean }): Out {
   const { chart, year } = input;
   const at = decadeAt(chart, year);
   if (!at) return null;
@@ -794,6 +847,7 @@ export function decadeChapter(input: { chart: Chart; year: number }): Out {
         (b) => A.overlay.find((o) => o.branch === b)?.decadal ?? null,
         hits.map((h) => ({ star: h.star, hua: h.hua, palace: h.decadalPalace })),
         '這十年',
+        input.periodChecks,
       )
     : { segments: [], used: new Set<string>() };
   const advice = started ? adviceSegment(hits.map((h) => ({ star: h.star, hua: h.hua, palace: h.decadalPalace })), '這十年') : null;
@@ -815,8 +869,9 @@ export function decadeChapter(input: { chart: Chart; year: number }): Out {
     return r ? [{ text: r.text.replace('{star}', h.star), id: r.id }] : [];
   });
   const touched = hits.some((h) => natal.has(h.star));
-  const interSeg = inter.length
-    ? { text: inter.map((i) => i.text).join(''), id: inter.map((i) => i.id).join('+') }
+  const meet = input.periodChecks ? meetSegment(chart, '這十年', hits, [{ who: '你本命', hits: A.sihua.natal }]) : null;
+  const interSeg = inter.length || meet
+    ? { text: inter.map((i) => i.text).join('') + (meet?.text ?? ''), id: [...inter.map((i) => i.id), ...(meet ? [meet.id] : [])].join('+') }
     : touched
       ? null
       : { text: DAXIAN_RULES.none.text, id: DAXIAN_RULES.none.id };
@@ -831,11 +886,12 @@ export function decadeChapter(input: { chart: Chart; year: number }): Out {
   }
 
   const seg = (slot: string, text: string, source_id: string | null = null): DaxianSegment => ({ slot, text, source_id, rule_ids: [] });
+  const kuiyue = kuiyueMatches(chart, d.branch, flowStars(d.stem, d.branch));
   const segments = [
     seg('結論', gist + when + young + (pivotSteps(chart).steps.includes(d.index) ? '這十年是你命盤裡的關鍵大限之一，這段時期的得失，對你一生影響特別大。' : '')),
     seg('大限', fact + leanLine, x ? `xingxi.${x.system.n}` : null),
     /* 流魁流鉞冲起本命魁鉞（深造講義 p.8、9，`kuiyue.ts`） */
-    ...(kuiyueRises(chart, d.branch, flowStars(d.stem, d.branch)) ? [seg('魁鉞', KUIYUE_TEXT.decade, KUIYUE_SOURCE)] : []),
+    ...(kuiyue.length ? [seg('魁鉞', input.periodChecks ? kuiyueText('decade', kuiyue) : KUIYUE_TEXT.decade, KUIYUE_SOURCE)] : []),
     ...areas.segments,
     seg('四化', huaLines.text, huaLines.id),
     ...(interSeg ? [seg('互動', interSeg.text, interSeg.id)] : []),

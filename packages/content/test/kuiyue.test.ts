@@ -3,7 +3,7 @@
  */
 import { describe, expect, it } from 'vitest';
 import { BRANCHES, annual, cast, flowStars, type Branch } from '@guanwei/ziwei';
-import { KUIYUE_TEXT, kuiyueRises } from '../src/kuiyue';
+import { KUIYUE_TAIL, KUIYUE_TEXT, kuiyueMatches, kuiyueRises, kuiyueText } from '../src/kuiyue';
 import { decadeChapter } from '../src/daxian';
 import { yearChapter } from '../src/liunian';
 import { renderParagraphs } from '../src/en/render';
@@ -49,14 +49,17 @@ describe('流魁流鉞冲起本命魁鉞', () => {
   it('〈這十年〉有條件先出段，出就喺大限段之後', () => {
     let seen = 0;
     for (const c of cs.slice(0, 120)) {
-      const ch = decadeChapter({ chart: c, year: 2026 });
+      const ch = decadeChapter({ chart: c, year: 2026, periodChecks: true });
       if (!ch) continue;
       const slots = ch.segments.map((s) => s.slot);
       const i = slots.indexOf('魁鉞');
       if (i < 0) continue;
       seen++;
       expect(slots[i - 1]).toBe('大限');
-      expect(ch.segments[i]!.text).toBe(KUIYUE_TEXT.decade);
+      const d = annual(c, 2026);
+      const dec = d.ok ? d.value.decadal : null;
+      expect(ch.segments[i]!.text.endsWith(KUIYUE_TAIL.decade)).toBe(true);
+      if (dec) expect(ch.segments[i]!.text).toBe(kuiyueText('decade', kuiyueMatches(c, dec.branch, flowStars(dec.stem, dec.branch))));
     }
     expect(seen).toBeGreaterThan(0);
   });
@@ -67,8 +70,18 @@ describe('流魁流鉞冲起本命魁鉞', () => {
     expect(has(2026)).toBe(false);
   });
 
-  it('英文：兩句都譯得到，過英文檢查', () => {
-    for (const t of Object.values(KUIYUE_TEXT)) {
+  it('段落先講流魁鉞落邊宮、對住本命邊粒（同宮或對宮）', () => {
+    const c = cs[0]!;
+    const kui = c.palaces.find((p) => p.stars.some((s) => s.name === '天魁'))!.branch;
+    expect(kuiyueText('decade', kuiyueMatches(c, kui, { 天魁: kui, 天鉞: opp(kui) }))).toMatch(new RegExp(`^這十年的天魁落在${kui}宮，正好落在你本命天魁所在的${kui}宮。`));
+    expect(kuiyueText('year', kuiyueMatches(c, kui, { 天魁: opp(kui), 天鉞: opp(kui) }))).toMatch(new RegExp(`^這一年的天魁落在${opp(kui)}宮，正對著你本命天魁所在的${kui}宮。`));
+  });
+
+  it('英文：舊句、新句同位置句都譯得到，過英文檢查', () => {
+    const c = cs[0]!;
+    const kui = c.palaces.find((p) => p.stars.some((s) => s.name === '天魁'))!.branch;
+    const fresh = [kuiyueText('decade', kuiyueMatches(c, kui, { 天魁: kui, 天鉞: opp(kui) })), kuiyueText('year', kuiyueMatches(c, kui, { 天魁: opp(kui), 天鉞: opp(kui) }))];
+    for (const t of [...Object.values(KUIYUE_TEXT), ...fresh]) {
       const en = renderParagraphs([t]);
       expect(en.missing, t).toEqual([]);
       expect(scanEnglish(en.paras[0]!), t).toEqual([]);

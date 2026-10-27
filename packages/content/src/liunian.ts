@@ -4,8 +4,8 @@ import { FORBIDDEN_TERMS } from './frame';
 import { palaceLabel } from './link';
 import { leanOf, xingxiOf } from './xingxi';
 import { monthSegment } from './liuyue';
-import { KUIYUE_SOURCE, KUIYUE_TEXT, kuiyueRises } from './kuiyue';
-import { DAXIAN_HUA, DAXIAN_RULES, adviceSegment, area, areaSegments, huaSegment, periodArea, periodGist, decadeView, num, pivotRule, starsOf, yearCN, type DaxianSegment } from './daxian';
+import { KUIYUE_SOURCE, KUIYUE_TEXT, kuiyueMatches, kuiyueText } from './kuiyue';
+import { DAXIAN_HUA, DAXIAN_RULES, adviceSegment, meetSegment, area, areaSegments, huaSegment, periodArea, periodGist, decadeView, num, pivotRule, starsOf, yearCN, type DaxianSegment } from './daxian';
 
 /* ───────────────────────────────────────────────────────────
  * 流年章〈這一年〉（2026-09-30）
@@ -63,7 +63,7 @@ function interplay(A: AnnualChart): { text: string; ids: string[] } {
   return { text: lines.join(''), ids };
 }
 
-export function yearChapter(input: { chart: Chart; year: number }): { slug: string; title: string; segments: DaxianSegment[] } | null {
+export function yearChapter(input: { chart: Chart; year: number; periodChecks?: boolean }): { slug: string; title: string; segments: DaxianSegment[] } | null {
   const { chart, year } = input;
   const a = annual(chart, year);
   if (!a.ok) return null;
@@ -108,7 +108,7 @@ export function yearChapter(input: { chart: Chart; year: number }): { slug: stri
 
   /* 分四方面（工作、錢、感情、心境）：讀流年盤嘅官祿、財帛、夫妻、福德 */
   const periodHits = hits.map((h) => ({ star: h.star, hua: h.hua, palace: h.annualPalace }));
-  const areas = areaSegments(chart, (b) => A.overlay.find((o) => o.branch === b)?.annual ?? null, periodHits, '這一年');
+  const areas = areaSegments(chart, (b) => A.overlay.find((o) => o.branch === b)?.annual ?? null, periodHits, '這一年', input.periodChecks);
   const advice = adviceSegment(periodHits, '這一年');
   /* 第一段結論先行，講同後文同一句（docs/leads-audit-2026-10-17.md B1＋B2） */
   const gist =
@@ -131,7 +131,10 @@ export function yearChapter(input: { chart: Chart; year: number }): { slug: stri
   const touched = A.sihua.annual.some(
     (h) => (A.sihua.decadal ?? []).some((d) => d.star === h.star) || A.sihua.natal.some((n) => n.star === h.star),
   );
-  const interSeg = inter.text ? { text: inter.text, id: inter.ids.join('+') } : touched ? null : { text: NONE_TEXT, id: DAXIAN_RULES.none.id };
+  const meet = !input.periodChecks ? null : meetSegment(chart, '這一年', A.sihua.annual, [{ who: '這十年大限', hits: A.sihua.decadal ?? [] }, { who: '你本命', hits: A.sihua.natal }]);
+  const interSeg = inter.text || meet
+    ? { text: inter.text + (meet?.text ?? ''), id: [...inter.ids, ...(meet ? [meet.id] : [])].join('+') }
+    : touched ? null : { text: NONE_TEXT, id: DAXIAN_RULES.none.id };
 
   /* 逐月 */
   const months = monthSegment(chart, A);
@@ -153,11 +156,12 @@ export function yearChapter(input: { chart: Chart; year: number }): { slug: stri
   }
 
   const seg = (slot: string, text: string, source_id: string | null = null): DaxianSegment => ({ slot, text, source_id, rule_ids: [] });
+  const kuiyue = kuiyueMatches(chart, A.mingGong, A.liuyao.annual);
   const segments = [
     seg('結論', lead, isKey ? pivot!.source : null),
     seg('流年', fact + leanLine, x ? `xingxi.${x.system.n}` : null),
     /* 流魁流鉞冲起本命魁鉞（深造講義 p.8、9，`kuiyue.ts`） */
-    ...(kuiyueRises(chart, A.mingGong, A.liuyao.annual) ? [seg('魁鉞', KUIYUE_TEXT.year, KUIYUE_SOURCE)] : []),
+    ...(kuiyue.length ? [seg('魁鉞', input.periodChecks ? kuiyueText('year', kuiyue) : KUIYUE_TEXT.year, KUIYUE_SOURCE)] : []),
     ...areas.segments,
     seg('四化', huaLines.text, huaLines.id),
     ...(interSeg ? [seg('互動', interSeg.text, interSeg.id)] : []),

@@ -11,3 +11,5 @@ export const PALACE_BRANCH_FILTER_VERSION = 'palace-branch-filter-v2';
 export const FOCUSED_ADVICE_VERSION = 'palace-advice-focus-v1';
 /** 2026-10-26 宮位規則卡加日生／夜生同天刑、天姚（content `palace-conditions-v2`，只入新成書入口）。 */
 export const PALACE_CONDITIONS_VERSION = 'palace-conditions-v2';
+/** 2026-10-26 時間章：魁鉞講明落宮、冲起本命化曜唔只核同一粒星、大限流年財帛天府見空劫（content `periodChecks`，只入新成書入口）。 */
+export const PERIOD_CHECKS_VERSION = 'period-checks-v1';

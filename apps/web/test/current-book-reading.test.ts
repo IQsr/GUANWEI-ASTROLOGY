@@ -14,13 +14,19 @@ import original from './fixtures/palace-before.json';
 import allSystems from '../src/lib/free-ming-preview.json';
 const opts=(c:{seed:string;input:BirthInput})=>({seed:c.seed,year:2026,solar:c.input.solar,place:c.input.place.label,birthSex:c.input.sex});
 const get=(c:{seed:string;input:unknown})=>{const input=c.input as BirthInput,r=cast(input);if(!r.ok)throw Error(r.message);return {chart:r.value,options:opts({...c,input})};};
+/** 2026-10-26 periodChecks：新書嘅這十年、這一年（連英日）只准變成開咗 periodChecks 嘅樣，其餘章照舊。 */
+const PERIOD=['這十年','這一年'];
+const withPeriodChecks=<T extends {slug:string}>(base:T[],chart:Parameters<typeof bookChapters>[0],options:Parameters<typeof bookChapters>[1])=>{
+ const checked=bookChapters(chart,{...options,periodChecks:true})!;
+ return base.map(c=>PERIOD.includes(c.slug)?checked.find(x=>x.slug===c.slug) as unknown as T:c);
+};
 const ids=(c:NonNullable<ReturnType<typeof createBookChapters>>[number])=>[...new Set(c.reading?.segments.flatMap(s=>s.statements?.flatMap(l=>l.citations)??[])??[])];
 
 it('the production builder selects all twelve approved cross chapters without a preview flag',()=>{
  for(const sample of original.filter(c=>['TL','A','C'].includes(c.id))){
   const {chart,options}=get(sample),before=JSON.stringify(chart);
   const current=createBookChapters(chart,options)!;
-  const reviewed=bookChapters(chart,{...options,crossPalaceReading:true,separateRuleReferences:true,conditionalBranches:true,focusedAdvice:true})!;
+  const reviewed=bookChapters(chart,{...options,crossPalaceReading:true,separateRuleReferences:true,conditionalBranches:true,focusedAdvice:true,periodChecks:true})!;
   for(const slug of ['命宮','官祿','財帛','福德']){
    const next=current.find(c=>c.slug===slug)!;
    const {analysis,...saved}=next.reading!;
@@ -63,7 +69,8 @@ it.each(cases)('$id: frozen random input produces one aligned closing snapshot a
   const shown=[...panel.directReferences,...panel.references,...panel.backgrounds.flatMap(g=>g.references)].flatMap(ref=>ref.quoteParts??[]);
   for(const ref of refs)for(const part of ref.quoteParts??[])expect(shown.some(p=>p.id===part.id&&p.text===part.text)).toBe(true);
  }
- expect(englishChapters(current)).toEqual(englishChapters(legacy));expect(japaneseChapters(current)).toEqual(japaneseChapters(legacy));
+ const legacyChecked=withPeriodChecks(legacy,chart,{...options,separateRuleReferences:true});
+ expect(englishChapters(current)).toEqual(englishChapters(legacyChecked));expect(japaneseChapters(current)).toEqual(japaneseChapters(legacyChecked));
  const steps=current.find(c=>c.slug==='一生十二步')!;
  const {analysis:stepsAnalysis,...stepsReading}=steps.reading!;
  expect(stepsAnalysis?.claims.length).toBeGreaterThan(0);
@@ -82,7 +89,7 @@ it('retains unsupported poles as open comparisons and fixes the reviewed advice/
 it('missing cross prerequisites do not turn into supported readings; a different structure does not reuse a five-case synopsis',()=>{
  const input=original.find(c=>c.id==='C')!,{chart,options}=get(input);delete chart.palaces.find(p=>p.name==='官祿')!.borrowsFrom;
  const current=createBookChapters(chart,options)!;
- expect(current.find(c=>c.slug==='官祿')!.text).toBe(bookChapters(chart,{...options,separateRuleReferences:true,conditionalBranches:true,focusedAdvice:true})!.find(c=>c.slug==='官祿')!.text);
+ expect(current.find(c=>c.slug==='官祿')!.text).toBe(bookChapters(chart,{...options,separateRuleReferences:true,conditionalBranches:true,focusedAdvice:true,periodChecks:true})!.find(c=>c.slug==='官祿')!.text);
  const d=get(cases[3]!);d.chart.palaces.find(p=>p.name==='財帛')!.stars=d.chart.palaces.find(p=>p.name==='財帛')!.stars.filter(s=>s.kind!=='major');
  const base=bookChapters(d.chart,d.options)!;
  const result=withReadingEpilogue(d.chart,base).find(c=>c.slug==='給你的話')!;
@@ -93,7 +100,8 @@ it('all 72 existing real/borrowed structures retain their source conditions and 
  for(const sample of allSystems){
   const {chart,options}=get(sample),base=bookChapters(chart,options)!,current=createBookChapters(chart,options)!;
   expect(current).toHaveLength(base.length);expect(current.map(c=>c.slug)).toEqual(base.map(c=>c.slug));
-  expect(englishChapters(current)).toEqual(englishChapters(base));expect(japaneseChapters(current)).toEqual(japaneseChapters(base));
+  const baseChecked=withPeriodChecks(base,chart,options);
+  expect(englishChapters(current)).toEqual(englishChapters(baseChecked));expect(japaneseChapters(current)).toEqual(japaneseChapters(baseChecked));
   const end=current.find(c=>c.slug==='給你的話')!;expect(readingOf(end.reading,end.text)).not.toBeNull();
   for(const row of end.reading!.segments)for(const id of row.statements?.flatMap(l=>l.citations)??[])expect(citation(id),id).not.toBeNull();
  }
