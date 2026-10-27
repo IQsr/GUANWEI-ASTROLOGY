@@ -95,7 +95,7 @@ function lintBook(id: string, input: BirthInput, chart: Chart, out: Finding[], p
       if ((PALACES as readonly string[]).includes(ch.slug) && seg.slot === '結論' && !seenLead.has(ch.slug)) {
         seenLead.add(ch.slug);
         const v = verdicts.get(ch.slug) ?? [0, 0];
-        v[1]++; if (seg.statements?.some((l) => l.source_ids.some((x) => /^(plain|pair|ming\.verdict)\./.test(x)))) v[0]++;
+        v[1]++; if (seg.statements?.some((l) => l.source_ids.some((x) => /^(plain|pair|(?:ming|health)\.verdict)\./.test(x)))) v[0]++;
         verdicts.set(ch.slug, v);
       }
       // D. 兜圈句（運限章都計：盲評亦嫌佢哋）

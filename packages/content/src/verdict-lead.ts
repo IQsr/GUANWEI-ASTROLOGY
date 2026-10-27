@@ -9,6 +9,7 @@ import { normaliseForMatch } from './lexicon';
 import { scanForbidden } from './lint';
 import { scanPlain } from './plain';
 import mingRaw from './plain/ming-verdict.json';
+import healthRaw from './plain/health-verdict.json';
 
 /*
  * 結論段第一句落判斷（2026-10-27，docs/verdict-lead-2026-10-27.md 3a、3b）
@@ -51,6 +52,29 @@ function mingVerdict(chart: Chart): Verdict | null {
   return v ? { text: v.summary, id: `ming.verdict.${x.system.n}`, passages: v.passages } : null;
 }
 
+/*
+ * 疾厄（2026-10-27，Issac：疾厄都要落判斷，只講要留意嘅身體系統）：plain/health-verdict.json 每粒星一個部位，
+ * 出處係宮垣論疾厄宮嗰粒星開頭講五行臟腑嗰句。雙星兩個部位用「、」連，相同就寫一次。唔講病名、輕重。
+ */
+type HealthEntry = { part: string; en: string; ja: string; passage: string; quote: string };
+const HEALTH = new Map(Object.entries((healthRaw as { stars: Record<string, HealthEntry> }).stars));
+export const healthSentence = (parts: string[]) => `你要留意${[...new Set(parts)].join('、')}，這是你身體較弱的一環。`;
+{
+  const bad: string[] = [];
+  for (const [s, e] of HEALTH) {
+    const c = citation(e.passage);
+    if (!c) bad.push(`${s}：出處認唔到 ${e.passage}`);
+    else if (!normaliseForMatch(c.text).includes(normaliseForMatch(e.quote))) bad.push(`${s}：引句唔喺 ${e.passage}「${e.quote}」`);
+    for (const f of [...scanForbidden(healthSentence([e.part]), 'body'), ...scanPlain(healthSentence([e.part]), 'body')]) bad.push(`${s}：${f.message}`);
+  }
+  if (bad.length) throw new Error(`疾厄判斷句唔合格：\n${bad.join('\n')}`);
+}
+function healthVerdict(names: string[]): Verdict | null {
+  const es = names.map((n) => HEALTH.get(n)).filter((e): e is HealthEntry => !!e);
+  if (!es.length) return null;
+  return { text: healthSentence(es.map((e) => e.part)), id: `health.verdict.${names.join('')}`, passages: [...new Set(es.map((e) => e.passage))] };
+}
+
 export function verdictFor(chart: Chart, palace: string): Verdict | null {
   const p = chart.palaces.find((x) => x.name === palace);
   if (!p) return null;
@@ -59,12 +83,13 @@ export function verdictFor(chart: Chart, palace: string): Verdict | null {
   const opp = own.length ? undefined : chart.palaces.find((x) => x.branch === p.borrowsFrom);
   const names = (own.length ? own : opp?.stars.filter((s) => s.kind === 'major') ?? []).map((s) => s.name);
   if (!names.length) return null;
+  if (palace === '疾厄') return healthVerdict(names);
   const ji = p.stars.find((s) => s.kind === 'major' && s.sihua === '忌')?.name ?? null;
   const pp = conclusionFor(names, palace, ji);
   if (!pp) return null;
   if (palace === '財帛' && names.includes('天府') && p.stars.some((s) => s.name === '地空' || s.name === '地劫'))
     return { text: KONGKU.summary, id: KONGKU.id, passages: [KONGKU.passage] };
-  const v = variantFor(chart, pp);
+  const v = variantFor(chart, pp, { verdict: true });
   if (v) return { text: v.summary, id: `${pp.id}#${v.rule}`, passages: v.passages };
   if (pp.source) return { text: pp.summary, id: pp.id, passages: [pp.source.passage_id] };
   return null;

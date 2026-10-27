@@ -17,9 +17,11 @@ export const PERIOD_CHECKS_VERSION = 'period-checks-v2';
 /** 2026-10-27 宮位章、命宮、骨架：判斷唔到嘅分支句同編輯筆記由正文搬去「據」（content `withRelocatedHedges`，只入新成書入口）。 */
 /** v2：「一層…另一層」都搬；判斷句唔郁；先加判斷句再搬。 */
 /** v3：編輯口吻、冇「你」嘅淨列分支直接刪（唔入「據」）；本宮三方四正冇火鈴就唔出火鈴句。 */
-export const HEDGE_RELOCATION_VERSION = 'hedge-relocation-v3';
+/** v4：「規勸你」唔當編輯筆記；疾厄判斷句（health.verdict）同其他判斷句一樣唔搬。 */
+export const HEDGE_RELOCATION_VERSION = 'hedge-relocation-v4';
 /** 2026-10-27 命宮同十一宮結論段：盤面事實後加一句有出處嘅「你…」判斷（content `withVerdictLead`，只入新成書入口）。 */
 /** v2：命宮按六十星系揀判斷句（plain/ming-verdict.json）。 */
-export const VERDICT_LEAD_VERSION = 'verdict-lead-v2';
+/** v3：細讀規則成立就用帶條件判斷句（准講事件、對方）；疾厄講要留意嘅身體系統（plain/health-verdict.json）。 */
+export const VERDICT_LEAD_VERSION = 'verdict-lead-v3';
 /** 2026-10-27 年齡分段：讀書年代建議只畀虛歲十八或以下；十九至二十四用成人建議，這十年／這一年講「讀書和工作上」（content `isSchoolReader`，只入新成書入口）。 */
 export const AGE_BANDS_VERSION = 'age-bands-v1';
