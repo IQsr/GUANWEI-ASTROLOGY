@@ -112,7 +112,7 @@ export function yearChapter(input: { chart: Chart; year: number; periodChecks?: 
   const advice = adviceSegment(periodHits, '這一年');
   /* 第一段結論先行，講同後文同一句（docs/leads-audit-2026-10-17.md B1＋B2） */
   const gist =
-    periodGist('這一年', { star: lu.star, hua: '祿', palace: lu.annualPalace }, { star: ji.star, hua: '忌', palace: ji.annualPalace }, areas.used, true, { luBlocked, jiEased }) ||
+    periodGist('這一年', { star: lu.star, hua: '祿', palace: lu.annualPalace }, { star: ji.star, hua: '忌', palace: ji.annualPalace }, areas.used, true, { luBlocked, jiEased, moneyLeaks: areas.kongku }) ||
     fallbackGist;
   const lead =
     gist +
@@ -131,7 +131,7 @@ export function yearChapter(input: { chart: Chart; year: number; periodChecks?: 
   const touched = A.sihua.annual.some(
     (h) => (A.sihua.decadal ?? []).some((d) => d.star === h.star) || A.sihua.natal.some((n) => n.star === h.star),
   );
-  const meet = !input.periodChecks ? null : meetSegment(chart, '這一年', A.sihua.annual, [{ who: '這十年大限', hits: A.sihua.decadal ?? [] }, { who: '你本命', hits: A.sihua.natal }]);
+  const meet = !input.periodChecks ? null : meetSegment(chart, '這一年', A.sihua.annual, [{ who: '這十年大限', hits: A.sihua.decadal ?? [], nameAt: (b) => A.overlay.find((o) => o.branch === b)?.decadal ?? null }, { who: '你本命', hits: A.sihua.natal }], (b) => A.overlay.find((o) => o.branch === b)?.annual ?? null);
   const interSeg = inter.text || meet
     ? { text: inter.text + (meet?.text ?? ''), id: [...inter.ids, ...(meet ? [meet.id] : [])].join('+') }
     : touched ? null : { text: NONE_TEXT, id: DAXIAN_RULES.none.id };

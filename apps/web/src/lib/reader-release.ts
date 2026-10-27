@@ -12,7 +12,8 @@ export const FOCUSED_ADVICE_VERSION = 'palace-advice-focus-v1';
 /** 2026-10-26 宮位規則卡加日生／夜生同天刑、天姚（content `palace-conditions-v2`，只入新成書入口）。 */
 export const PALACE_CONDITIONS_VERSION = 'palace-conditions-v2';
 /** 2026-10-26 時間章：魁鉞講明落宮、冲起本命化曜唔只核同一粒星、大限流年財帛天府見空劫（content `periodChecks`，只入新成書入口）。 */
-export const PERIOD_CHECKS_VERSION = 'period-checks-v1';
+/** v2（2026-10-27 盲評）：冲起句先講時期盤宮名、括號補本命；財帛見空劫時結論講錢順嘅半句加「只是錢進了也容易出」。 */
+export const PERIOD_CHECKS_VERSION = 'period-checks-v2';
 /** 2026-10-27 宮位章、命宮、骨架：判斷唔到嘅分支句同編輯筆記由正文搬去「據」（content `withRelocatedHedges`，只入新成書入口）。 */
 export const HEDGE_RELOCATION_VERSION = 'hedge-relocation-v1';
 /** 2026-10-27 命宮同十一宮結論段：盤面事實後加一句有出處嘅「你…」判斷（content `withVerdictLead`，只入新成書入口）。 */

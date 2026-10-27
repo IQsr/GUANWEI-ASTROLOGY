@@ -426,13 +426,15 @@ export function timeTemplate(s: string, missing: string[], h: TimeHelpers): stri
   /* 魁鉞位置、冲起本命化曜（2026-10-26，kuiyue.ts kuiyueText、daxian.ts meetSegment） */
   const kf = /^這(十年|一年)的(天魁|天鉞)落在(\S)宮，(正好落在|正對著)你本命(天魁|天鉞)所在的(\S)宮。$/.exec(s);
   if (kf) return `${kf[1] === '十年' ? "This decade's" : "This year's"} ${star(kf[2]!)} falls in the ${BRANCH_EN[kf[3]!]} palace, ${kf[4] === '正好落在' ? 'right where' : 'directly opposite where'} your birth chart's ${star(kf[5]!)} sits, in ${BRANCH_EN[kf[6]!]}.`;
-  const mt = /^這(十年|一年)的(\S{2})化(\S)落在你的(\S+?宮)，(?:和(你本命|這十年大限)的(\S{2})化(\S)同宮|正對著(你本命|這十年大限)(\S{2})化(\S)所在的(\S+?宮))。$/.exec(s);
+  const mt = /^這(十年|一年)的(\S{2})化(\S)落在(?:你的(\S+?宮)|(\S+?宮)（你本命的(\S+?宮)）)，(?:和(你本命|這十年大限)的(\S{2})化(\S)同宮|正對著(你本命|這十年大限)(\S{2})化(\S)所在的(\S+?宮))。$/.exec(s);
   if (mt && star(mt[2]!) && HUA_EN[mt[3]!]) {
     const who = (w: string) => (w === '你本命' ? "your birth chart's" : "this decade's");
-    const head = `${mt[1] === '十年' ? "This decade's" : "This year's"} ${star(mt[2]!)} turned to ${HUA_EN[mt[3]!]} falls in your ${pal(mt[4]!, missing)}`;
-    return mt[5]
-      ? `${head}, the same palace as ${who(mt[5])} ${starsEn(mt[6]!, missing)} turned to ${HUA_EN[mt[7]!]}.`
-      : `${head}, directly opposite ${who(mt[8]!)} ${starsEn(mt[9]!, missing)} turned to ${HUA_EN[mt[10]!]} in your ${pal(mt[11]!, missing)}.`;
+    const span = mt[1] === '十年' ? "this decade's" : "this year's";
+    const where = mt[4] ? `your ${pal(mt[4], missing)}` : `${span} ${pal(mt[5]!, missing)} (your birth chart's ${pal(mt[6]!, missing)})`;
+    const head = `${mt[1] === '十年' ? "This decade's" : "This year's"} ${star(mt[2]!)} turned to ${HUA_EN[mt[3]!]} falls in ${where}`;
+    return mt[7]
+      ? `${head}, the same palace as ${who(mt[7])} ${starsEn(mt[8]!, missing)} turned to ${HUA_EN[mt[9]!]}.`
+      : `${head}, directly opposite ${who(mt[10]!)} ${starsEn(mt[11]!, missing)} turned to ${HUA_EN[mt[12]!]} in ${mt[10] === '你本命' ? 'your' : "this decade's"} ${pal(mt[13]!, missing)}.`;
   }
   const month = liuyueEn(s);
   if (month) return month;
@@ -507,12 +509,13 @@ export function timeTemplate(s: string, missing: string[], h: TimeHelpers): stri
     }
     const parts = m[2]!.split('；').map((p) => {
       const blocked = p.endsWith('，只是同時有阻滯');
+      const leaks = p.endsWith('，只是錢進了也容易出');
       const eased = p.endsWith('，不過也有轉圜的餘地');
-      const core = p.replace(/，(只是同時有阻滯|不過也有轉圜的餘地)$/, '');
+      const core = p.replace(/，(只是同時有阻滯|不過也有轉圜的餘地|只是錢進了也容易出)$/, '');
       const at = /^(\S+?)這一方面，(.+)$/.exec(core);
       const clause = HUA_CLAUSE_EN[at ? at[2]! : core];
       if (!clause) return null;
-      return (at ? `when it comes to ${areaEn(at[1]!, missing)}, ${clause}` : clause) + (blocked ? ', though with some snags at the same time' : '') + (eased ? ', though with room to turn things round' : '');
+      return (at ? `when it comes to ${areaEn(at[1]!, missing)}, ${clause}` : clause) + (blocked ? ', though with some snags at the same time' : '') + (leaks ? ', though money that comes in can easily go out again' : '') + (eased ? ', though with room to turn things round' : '');
     });
     if (parts.length === 2 && parts.every(Boolean)) return `${span}, ${parts.join('; ')}.`;
   }
