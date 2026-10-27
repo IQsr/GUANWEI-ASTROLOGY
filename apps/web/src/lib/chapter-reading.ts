@@ -10,7 +10,7 @@ export type ChapterReading = {
   /** Metadata wrapper for an unchanged legacy chapter: keep its implicit citation lookup. */
   legacyPresentation?: true;
   /** 段落快照的格式不變；另記新書所用的寫作層版本，舊書沒有此欄亦可讀。 */
-  writer?: 'epilogue-reader-v1' | 'life-steps-reader-v2' | 'sentence-backed-v1' | 'reader-backed-v1' | 'palace-reader-v1';
+  writer?: 'epilogue-reader-v1' | 'life-steps-reader-v2' | 'sentence-backed-v1' | 'reader-backed-v1' | 'palace-reader-v1' | 'synthesis-v1';
   segments: {
     slot: string;
     text: string;
@@ -38,7 +38,7 @@ export function readingOf(value: unknown, text: string): ChapterReading | null {
   if (!value || typeof value !== 'object') return null;
   const r = value as Partial<ChapterReading>;
   if (r.format !== 'ming-expanded-v1' || !Array.isArray(r.segments) || !r.international) return null;
-  if (r.writer !== undefined && r.writer !== 'epilogue-reader-v1' && r.writer !== 'life-steps-reader-v2' && r.writer !== 'sentence-backed-v1' && r.writer !== 'reader-backed-v1' && r.writer !== 'palace-reader-v1') return null;
+  if (r.writer !== undefined && r.writer !== 'epilogue-reader-v1' && r.writer !== 'life-steps-reader-v2' && r.writer !== 'sentence-backed-v1' && r.writer !== 'reader-backed-v1' && r.writer !== 'palace-reader-v1' && r.writer !== 'synthesis-v1') return null;
   if (typeof r.international.text !== 'string' || !Array.isArray(r.international.slots) || !r.international.slots.every((s) => typeof s === 'string')) return null;
   if (!r.segments.every((s) => s && typeof s.slot === 'string' && typeof s.text === 'string'
     && (s.analysisLinks === undefined || (Array.isArray(s.analysisLinks.decisionIds) && s.analysisLinks.decisionIds.every(id=>typeof id==='string') && (s.analysisLinks.upstreamFocusIds===undefined || Array.isArray(s.analysisLinks.upstreamFocusIds) && s.analysisLinks.upstreamFocusIds.every(id=>typeof id==='string'))))

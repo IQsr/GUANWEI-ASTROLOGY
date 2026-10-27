@@ -1,0 +1,1007 @@
+{
+ "$note": "綜合判讀層試點判斷卡（2026-10-27，docs/synthesis-layer-2026-10-27.md）。一張卡 = 原書一條有條件嘅斷語。when 用 condition.ts 語言；$L = 卡嘅運限層（annual／decade）。quote 必須係 sources.json 對應段落嘅原文子串（測試核）。",
+ "cards": [
+  {
+   "id": "syn.wealth.tiantong.base",
+   "chapter": "錢",
+   "group": "天同財帛.來源",
+   "specificity": "general",
+   "polarity": "中",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "star": "天同",
+    "in": {
+     "name": "財帛"
+    }
+   },
+   "because": "你的財帛宮坐天同。",
+   "claim": "你的錢要靠自己一手一腳掙回來，不靠家底。",
+   "source": "wtz.deep.p445.b003",
+   "quote": "天同守财帛宫，主白手兴家。"
+  },
+  {
+   "id": "syn.wealth.tiantong.maoyou",
+   "chapter": "錢",
+   "group": "天同財帛.來源",
+   "specificity": "system",
+   "polarity": "中",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "star": "天同",
+    "at": [
+     "卯",
+     "酉"
+    ]
+   },
+   "alone": {
+    "star": "天同",
+    "in": {
+     "name": "財帛"
+    }
+   },
+   "because": "你的財帛宮天同獨坐{branch}宮，對宮是太陰。",
+   "claim": "你的錢要靠自己一手一腳掙回來，不靠家底。",
+   "source": "wtz.deep.p446.b011",
+   "quote": "卯酉宫天同独坐，与太阴对拱，决主白手兴家。"
+  },
+  {
+   "id": "syn.wealth.tiantong.alone",
+   "chapter": "錢",
+   "group": "天同財帛.時序",
+   "specificity": "general",
+   "polarity": "中",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "alone": {
+    "star": "天同",
+    "in": {
+     "name": "財帛"
+    }
+   },
+   "because": "你的財帛宮天同獨坐，沒有其他主星同宮。",
+   "claim": "你這個配置是中年求財辛苦、到晚年才順的一種。",
+   "source": "wtz.deep.p445.b005",
+   "quote": "天同在财帛宫不喜独坐，若独坐，必须中年辛苦求财，至晚年始得顺遂。"
+  },
+  {
+   "id": "syn.wealth.tiantong.huoling",
+   "chapter": "錢",
+   "group": "天同財帛.祖業",
+   "specificity": "general",
+   "polarity": "凶",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "天同",
+      "in": {
+       "name": "財帛"
+      }
+     },
+     {
+      "any": [
+       {
+        "together": [
+         "天同",
+         "火星"
+        ]
+       },
+       {
+        "together": [
+         "天同",
+         "鈴星"
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   "because": "你的財帛宮天同與{fireBell}同度。",
+   "claim": "家裏就算留下甚麼給你，多半守不住；最後還是靠你自己重新建立。",
+   "advice": {
+    "text": "安排長遠的錢時，以自己能持續的收入為主，別把計劃押在家裏留下或答應給你的資產上。",
+    "why": "火鈴同度，原書說祖業守不住"
+   },
+   "source": "wtz.deep.p445.b004",
+   "quote": "火铃同度者，有祖业亦必散尽。然后始主自身创兴。"
+  },
+  {
+   "id": "syn.wealth.tiantong.kongjie",
+   "chapter": "錢",
+   "group": "天同財帛.祖業",
+   "specificity": "general",
+   "polarity": "凶",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "天同",
+      "in": {
+       "name": "財帛"
+      }
+     },
+     {
+      "any": [
+       {
+        "together": [
+         "天同",
+         "地空"
+        ]
+       },
+       {
+        "together": [
+         "天同",
+         "地劫"
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   "because": "你的財帛宮天同與地空、地劫同度。",
+   "claim": "你自己開創的事業，中途也會有破敗；但你有東山再起的能力，結局仍然富足。",
+   "source": "wtz.deep.p445.b004",
+   "quote": "若空劫同度，则自身开创亦何破败，仅能东山复起，结局富裕。"
+  },
+  {
+   "id": "syn.wealth.tiantong.tuoluo",
+   "chapter": "錢",
+   "group": "天同財帛.時序",
+   "specificity": "system",
+   "polarity": "中",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "together": [
+     "天同",
+     "陀羅"
+    ]
+   },
+   "requires": {
+    "star": "天同",
+    "in": {
+     "name": "財帛"
+    }
+   },
+   "because": "你的財帛宮天同與陀羅同度。",
+   "claim": "你的經濟環境往往要到五十歲以後才明顯轉好。",
+   "source": "wtz.deep.p445.b008",
+   "quote": "天同与陀罗同度，往往五十岁后始环境变佳。"
+  },
+  {
+   "id": "syn.wealth.tiantong.lu",
+   "chapter": "錢",
+   "group": "天同財帛.化",
+   "specificity": "general",
+   "polarity": "吉",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "天同",
+      "in": {
+       "name": "財帛"
+      }
+     },
+     {
+      "star": "天同",
+      "hua": "祿"
+     }
+    ]
+   },
+   "because": "你的財帛宮天同化祿。",
+   "claim": "你晚年可以累積成富足的局面。",
+   "source": "wtz.deep.p445.b006",
+   "quote": "天同化禄，决主晚年可成富局。"
+  },
+  {
+   "id": "syn.wealth.tiantong.quan",
+   "chapter": "錢",
+   "group": "天同財帛.化",
+   "specificity": "general",
+   "polarity": "吉",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "天同",
+      "in": {
+       "name": "財帛"
+      }
+     },
+     {
+      "star": "天同",
+      "hua": "權"
+     }
+    ]
+   },
+   "because": "你的財帛宮天同化權。",
+   "claim": "你的收入比較穩定；雖然同樣要白手起家，但不至於一無所有。",
+   "source": "wtz.deep.p445.b007",
+   "quote": "天同化权，一般情形较为稳定，虽亦主白手兴家，但[白手]的程度不致身无分文。"
+  },
+  {
+   "id": "syn.wealth.tiantong.ji",
+   "chapter": "錢",
+   "group": "天同財帛.化",
+   "specificity": "general",
+   "polarity": "凶",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "天同",
+      "in": {
+       "name": "財帛"
+      }
+     },
+     {
+      "star": "天同",
+      "hua": "忌"
+     }
+    ]
+   },
+   "because": "你的財帛宮天同化忌。",
+   "claim": "你一生的財運反覆，順一段、停一段。",
+   "source": "wtz.deep.p445.b009",
+   "quote": "天同化忌，主一生财运反复。"
+  },
+  {
+   "id": "syn.wealth.tiantong.enjoy",
+   "chapter": "錢",
+   "group": "天同財帛.行業",
+   "specificity": "general",
+   "polarity": "中",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "star": "天同",
+    "in": {
+     "name": "財帛"
+    }
+   },
+   "because": "你的財帛宮坐天同。",
+   "claim": "最合你的錢路帶享受性質：讓人放鬆、消遣的生意，或者人們享受時用到的物品。",
+   "source": "wtz.deep.p445.b011",
+   "quote": "凡天同在财帛宫，所业宜带享受性质。或为消遣享受时所应用的物品。"
+  },
+  {
+   "id": "syn.wealth.tianliang.trade",
+   "chapter": "錢",
+   "group": "天梁財帛.行業",
+   "specificity": "general",
+   "polarity": "中",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "star": "天梁",
+    "in": {
+     "name": "財帛"
+    }
+   },
+   "because": "你的財帛宮坐天梁。",
+   "claim": "你求財以受薪、任職為宜，自己做生意容易遇上大困難。",
+   "source": "wtz.deep.p458.b008",
+   "quote": "天梁守财帛宫一般不宜经商。"
+  },
+  {
+   "id": "syn.wealth.tianliang.audit",
+   "chapter": "錢",
+   "group": "天梁財帛.行業",
+   "specificity": "general",
+   "polarity": "中",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "star": "天梁",
+    "in": {
+     "name": "財帛"
+    }
+   },
+   "because": "你的財帛宮坐天梁。",
+   "claim": "最合你的收入來自管理、監察、查核一類的工作。",
+   "source": "wtz.deep.p458.b010",
+   "quote": "天梁有管理、监察、查核的性质。居财帛宫，亦以此类性质为宜。"
+  },
+  {
+   "id": "syn.wealth.tianliang.name",
+   "chapter": "錢",
+   "group": "天梁財帛.次序",
+   "specificity": "general",
+   "polarity": "中",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "star": "天梁",
+    "in": {
+     "name": "財帛"
+    }
+   },
+   "because": "你的財帛宮坐天梁。",
+   "claim": "你先有名聲和信用，收入才跟著來。",
+   "advice": {
+    "text": "選工作時，先揀能累積專業資格和名聲的位置，不必急著揀薪水最高的。",
+    "why": "天梁守財帛先名後利"
+   },
+   "source": "wtz.deep.p458.b012",
+   "quote": "天梁守财帛宫，亦先名后利。"
+  },
+  {
+   "id": "syn.wealth.tianliang.lu",
+   "chapter": "錢",
+   "group": "天梁財帛.化",
+   "specificity": "general",
+   "polarity": "凶",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "天梁",
+      "in": {
+       "name": "財帛"
+      }
+     },
+     {
+      "star": "天梁",
+      "hua": "祿"
+     }
+    ]
+   },
+   "because": "你的財帛宮天梁化祿。",
+   "claim": "你的錢來得容易惹糾紛和困擾；錢越多，背後的閒話也越多。",
+   "source": "wtz.deep.p458.b009",
+   "quote": "天梁不宜化禄，若化禄，反主有纠纷、困扰。"
+  },
+  {
+   "id": "syn.wealth.tianliang.ma",
+   "chapter": "錢",
+   "group": "天梁財帛.積聚",
+   "specificity": "general",
+   "polarity": "凶",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "together": [
+     "天梁",
+     "天馬"
+    ]
+   },
+   "requires": {
+    "star": "天梁",
+    "in": {
+     "name": "財帛"
+    }
+   },
+   "because": "你的財帛宮天梁與天馬同度。",
+   "claim": "你的錢難積聚，而且你會經常轉換工作環境。",
+   "source": "wtz.deep.p459.b003",
+   "quote": "天梁天马同度于财帛宫，财帛难聚。且主时时调换工作环境。"
+  },
+  {
+   "id": "syn.wealth.tianliang.floor",
+   "chapter": "錢",
+   "group": "天梁財帛.底線",
+   "specificity": "general",
+   "polarity": "吉",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "天梁",
+      "in": {
+       "name": "財帛"
+      }
+     },
+     {
+      "sanfangOf": {
+       "name": "財帛"
+      },
+      "count": "malefic",
+      "op": "gte",
+      "n": 1
+     }
+    ]
+   },
+   "because": "你的財帛宮坐天梁，三方四正雖然見煞曜。",
+   "claim": "你的財運就算有起落，最終也不至於真正窮困。",
+   "source": "wtz.deep.p459.b004",
+   "quote": "天梁守财帛，纵见凶曜，亦终不致贫之。"
+  },
+  {
+   "id": "syn.wealth.tianliang.sihai",
+   "chapter": "錢",
+   "group": "天梁財帛.積聚",
+   "specificity": "system",
+   "polarity": "凶",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "star": "天梁",
+    "at": [
+     "巳",
+     "亥"
+    ]
+   },
+   "requires": {
+    "star": "天梁",
+    "in": {
+     "name": "財帛"
+    }
+   },
+   "because": "你的財帛宮天梁坐{branch}宮，對宮是天同。",
+   "claim": "你早年到中年錢比較難儲起來。",
+   "advice": {
+    "text": "收入一到，先固定存起一部分，別等有餘才存。",
+    "why": "巳亥天梁早年至中年財帛難聚"
+   },
+   "source": "wtz.deep.p459.b018",
+   "quote": "由于天同的影响，主早年以至中年财帛难聚。"
+  },
+  {
+   "id": "syn.wealth.tianliang.sihai-luoxian",
+   "chapter": "錢",
+   "group": "天梁財帛.心態",
+   "specificity": "system",
+   "polarity": "中",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "star": "天梁",
+    "at": [
+     "巳",
+     "亥"
+    ]
+   },
+   "requires": {
+    "star": "天梁",
+    "in": {
+     "name": "財帛"
+    }
+   },
+   "bright": {
+    "star": "天梁",
+    "levels": [
+     "陷"
+    ]
+   },
+   "because": "你的財帛宮天梁坐{branch}宮，屬落陷。",
+   "claim": "你的財源不算廣；部分原因在你自己：你看重精神上的滿足，多於看重錢。",
+   "source": "wtz.deep.p460.b002",
+   "quote": "巳亥天梁落陷，财源不广，亦较难积聚，此亦由于本身对财帛并不重视，宁愿重视精神享受有关。"
+  },
+  {
+   "id": "syn.wealth.tianliang.chouwei",
+   "chapter": "錢",
+   "group": "天梁財帛.積聚",
+   "specificity": "system",
+   "polarity": "凶",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "star": "天梁",
+    "at": [
+     "丑",
+     "未"
+    ]
+   },
+   "alone": {
+    "star": "天梁",
+    "in": {
+     "name": "財帛"
+    }
+   },
+   "none": {
+    "jia": "天梁",
+    "sides": [
+     [
+      "左輔"
+     ],
+     [
+      "右弼"
+     ]
+    ]
+   },
+   "because": "你的財帛宮天梁獨坐{branch}宮，對宮是天機。",
+   "claim": "你的財帛起伏較大，不容易一直積存。",
+   "source": "wtz.deep.p459.b011",
+   "quote": "丑未宫天梁独坐，与天机相对，财帛动荡。"
+  },
+  {
+   "id": "syn.year.lu-to-ji",
+   "chapter": "今年",
+   "group": "流年.祿轉忌",
+   "specificity": "general",
+   "polarity": "凶",
+   "weight": "傾",
+   "seat": "both",
+   "layer": [
+    "annual"
+   ],
+   "special": "luToJi",
+   "because": "你本命{star}化祿，今年{star}化忌。",
+   "claim": "今年和{palaceTopic}有關的錢，較容易因財惹麻煩，或者原本的進財能力減弱。",
+   "source": "wtz.deep.p236.b002",
+   "quote": "所以可能因财而惹祸，或原来生财之力大减。"
+  },
+  {
+   "id": "syn.year.ji-to-lu",
+   "chapter": "今年",
+   "group": "流年.忌轉祿",
+   "specificity": "general",
+   "polarity": "吉",
+   "weight": "傾",
+   "seat": "both",
+   "layer": [
+    "annual"
+   ],
+   "special": "jiToLu",
+   "because": "你本命{star}化忌，今年{star}化祿。",
+   "claim": "{palaceTopic}方面原本不利的地方，今年有機會轉為有利。",
+   "source": "wtz.deep.p236.b003",
+   "quote": "所以原来的不利因素，在这段时期可能转化为有利因素，从而获得财富。"
+  },
+  {
+   "id": "syn.year.lu-chongpo",
+   "chapter": "今年",
+   "group": "流年.祿逢沖破",
+   "specificity": "general",
+   "polarity": "凶",
+   "weight": "傾",
+   "seat": "both",
+   "layer": [
+    "annual"
+   ],
+   "special": "luChongPo",
+   "because": "今年{jiStar}化忌落在{jiBranch}宮，正沖你本命{luStar}化祿所在的{luPalace}。",
+   "claim": "今年求財容易「吉處藏凶」：因求財反生意外，或者投入大而沒有回報。",
+   "advice": {
+    "text": "今年涉及{luTopic}的出錢、合夥，先小額、條款寫清楚再落實。",
+    "why": "流年化忌沖本命化祿"
+   },
+   "source": "wtz.deep.p236.b009",
+   "quote": "化禄最嫌为忌冲破，即古人所谓[禄逢冲破，吉处藏凶。一般情形下主因进财而生祸事。例如因求财反生意外；投资大而无进益，以致后劲不继。"
+  },
+  {
+   "id": "syn.year.lu-weak",
+   "chapter": "今年",
+   "group": "流年.化祿位置",
+   "specificity": "general",
+   "polarity": "凶",
+   "weight": "傾",
+   "seat": "both",
+   "layer": [
+    "annual"
+   ],
+   "special": "luWeak",
+   "because": "今年{star}化祿落在{branch}宮，屬子午卯酉四個「弱地」之一。",
+   "claim": "今年{star}化祿帶來的進財機會，多是名聲、面子上的好處，實際到手有限。",
+   "source": "wtz.deep.p236.b008",
+   "quote": "亦不喜居弱地(如子午卯酉四宫)，古云：[禄主躔于弱地，发不主财。]即仅得虚名而无实际。"
+  },
+  {
+   "id": "syn.year.lu-kongjie",
+   "chapter": "今年",
+   "group": "流年.化祿位置",
+   "specificity": "general",
+   "polarity": "凶",
+   "weight": "傾",
+   "seat": "both",
+   "layer": [
+    "annual"
+   ],
+   "special": "luKongJie",
+   "because": "今年{star}化祿落在{branch}宮，與{kongjie}同宮。",
+   "claim": "今年{palaceTopic}帶來的好處，多半打了折扣。",
+   "source": "wtz.deep.p236.b008",
+   "quote": "一般情形下不喜空劫同躔。"
+  },
+  {
+   "id": "syn.year.chang-ke-xian",
+   "chapter": "今年",
+   "group": "流年.文昌化科",
+   "specificity": "general",
+   "polarity": "中",
+   "weight": "傾",
+   "seat": "both",
+   "layer": [
+    "annual"
+   ],
+   "special": "changKeXian",
+   "because": "今年文昌化科，落在{branch}宮，是文昌落陷的位置。",
+   "claim": "今年讀書、考試、寫作會有心得和滿足感，但要轉成實際的資格或名聲，靠的是實際成績。",
+   "source": "wtz.deep.p284.b009",
+   "quote": "唯在落陷的宫垣化科(即在寅、午、戌三宫)则仪主精神上自我满足，有流为纯盗虚声的意味",
+   "age": {
+    "lt": 56
+   }
+  },
+  {
+   "id": "syn.year.chang-ke",
+   "chapter": "今年",
+   "group": "流年.文昌化科",
+   "specificity": "general",
+   "polarity": "吉",
+   "weight": "傾",
+   "seat": "both",
+   "layer": [
+    "annual"
+   ],
+   "special": "changKe",
+   "because": "今年文昌化科，落在{branch}宮。",
+   "claim": "今年利考試、進修和寫作，作品較容易有發表的機會。",
+   "age": {
+    "lt": 56
+   },
+   "source": "wtz.deep.p284.b011",
+   "quote": "大运流上见文昌化科，有时仅主作品得到发表，作家则有伤口出版。亦主利于考试"
+  },
+  {
+   "id": "syn.sys32.lianxiang-ji",
+   "chapter": "今年",
+   "group": "運限.宮度",
+   "specificity": "system",
+   "polarity": "凶",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "annual",
+    "decade"
+   ],
+   "system": [
+    32
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "廉貞",
+      "in": {
+       "name": "命宮",
+       "layer": "$L"
+      }
+     },
+     {
+      "star": "天相",
+      "in": {
+       "name": "命宮",
+       "layer": "$L"
+      }
+     },
+     {
+      "star": "廉貞",
+      "hua": "忌",
+      "layer": "$L"
+     }
+    ]
+   },
+   "because": "你命宮天機坐丑未；{period}的命宮走到廉貞、天相的宮位，而且廉貞化忌。",
+   "claim": "{period}宜守不宜變：想轉換跑道、大幅改動生活安排或加大投資，容易因為求變而破敗。",
+   "advice": {
+    "text": "{period}想做的大改動，先按住；一定要做的，先小規模試。",
+    "why": "天機經行廉相廉忌，求變生破敗"
+   },
+   "source": "wtz.deep.p130.b011",
+   "quote": "[廉贞天相]同垣的宫度，若廉贞化忌，则为天机却求变化而生破败的运势"
+  },
+  {
+   "id": "syn.sys32.tianliang",
+   "chapter": "今年",
+   "group": "運限.宮度",
+   "specificity": "system",
+   "polarity": "吉",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "annual",
+    "decade"
+   ],
+   "system": [
+    32
+   ],
+   "alone": {
+    "star": "天梁",
+    "in": {
+     "name": "命宮",
+     "layer": "$L"
+    }
+   },
+   "because": "你命宮天機坐丑未；{period}的命宮走到天梁獨坐的宮位，三方四正會到吉星。",
+   "claim": "{period}是你謀求發展、容易做出成績的運；計劃時留有餘地，就守得住成果。",
+   "source": "wtz.deep.p131.b002",
+   "quote": "天梁独坐的宫垣。若诸吉齐会卜则为天机谋求发展而有成的运势。尤喜天梁化科．只须于计幼时留有余地，则必可持盈保泰",
+   "when": {
+    "sanfangOf": {
+     "name": "命宮",
+     "layer": "$L"
+    },
+    "count": "benefic",
+    "op": "gte",
+    "n": 2
+   }
+  },
+  {
+   "id": "syn.sys32.tianliang-sha",
+   "chapter": "今年",
+   "group": "運限.宮度.是非",
+   "specificity": "system",
+   "polarity": "凶",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "annual",
+    "decade"
+   ],
+   "system": [
+    32
+   ],
+   "lean": "下游",
+   "alone": {
+    "star": "天梁",
+    "in": {
+     "name": "命宮",
+     "layer": "$L"
+    }
+   },
+   "when": {
+    "sanfangOf": {
+     "name": "命宮",
+     "layer": "$L"
+    },
+    "count": "malefic",
+    "op": "gte",
+    "n": 2
+   },
+   "because": "你命宮的天機本身沒有化祿權科，又有煞曜同度（原書歸作「下游」）；{period}的天梁宮位會到煞曜。",
+   "claim": "{period}遇到爭拗，較容易惹上是非糾紛；退一步比爭到底好。",
+   "source": "wtz.deep.p131.b002",
+   "quote": "唯具下游本质者。则于天梁会恶曜的年限，易惹是非纷争"
+  },
+  {
+   "id": "syn.sys32.qisha",
+   "chapter": "今年",
+   "group": "運限.宮度",
+   "specificity": "system",
+   "polarity": "中",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "annual",
+    "decade"
+   ],
+   "system": [
+    32
+   ],
+   "alone": {
+    "star": "七殺",
+    "in": {
+     "name": "命宮",
+     "layer": "$L"
+    }
+   },
+   "because": "你命宮天機坐丑未；{period}的命宮走到七殺獨坐的宮位。",
+   "claim": "{period}要有吉化、吉星配合，你才適合求變；稍見刑忌，就容易傾敗。",
+   "source": "wtz.deep.p131.b003",
+   "quote": "七杀独坐的宫垣．必须见吉化吉曜，然后天机始可求变化。稍见刑忌，即为倾败之运。"
+  },
+  {
+   "id": "syn.sys32.wuqu-ji",
+   "chapter": "今年",
+   "group": "運限.四化",
+   "specificity": "system",
+   "polarity": "凶",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "annual",
+    "decade"
+   ],
+   "system": [
+    32
+   ],
+   "when": {
+    "star": "武曲",
+    "hua": "忌",
+    "layer": "$L"
+   },
+   "because": "你命宮天機坐丑未；{period}武曲化忌。",
+   "claim": "{period}對你最不利的是武曲化忌，容易遇上重大挫折。",
+   "source": "wtz.deep.p131.b007",
+   "quote": "武曲化忌最不利天机，必生绝大的挫折。"
+  },
+  {
+   "id": "syn.sys52.qisha",
+   "chapter": "今年",
+   "group": "運限.宮度",
+   "specificity": "system",
+   "polarity": "凶",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "annual",
+    "decade"
+   ],
+   "system": [
+    52
+   ],
+   "alone": {
+    "star": "七殺",
+    "in": {
+     "name": "命宮",
+     "layer": "$L"
+    }
+   },
+   "because": "你的命宮是天機、巨門坐守；{period}的命宮走到七殺獨坐的宮位。",
+   "claim": "{period}宜穩不宜搏：順境時想搏大、替自己多拿一份的計劃，容易反過來損到自己。",
+   "advice": {
+    "text": "{period}遇到「穩賺」「快錢」一類的機會，先不要答應。",
+    "why": "機巨行七殺，順境自肥反受損"
+   },
+   "source": "wtz.deep.p192.b005",
+   "quote": "盖本质浮薄者，于七杀年限，每易因顺境而思量自肥的计划，结果受损失的往往是自己。"
+  },
+  {
+   "id": "syn.sys52.tiantong",
+   "chapter": "今年",
+   "group": "運限.宮度",
+   "specificity": "system",
+   "polarity": "吉",
+   "weight": "提",
+   "seat": "seated",
+   "layer": [
+    "annual",
+    "decade"
+   ],
+   "system": [
+    52
+   ],
+   "alone": {
+    "star": "天同",
+    "in": {
+     "name": "命宮",
+     "layer": "$L"
+    }
+   },
+   "none": {
+    "star": "天同",
+    "hua": "忌",
+    "layer": "$L"
+   },
+   "because": "你的命宮是天機、巨門坐守；{period}的命宮走到天同獨坐的宮位。",
+   "claim": "{period}值得留意：原書說天機巨門的人，往往在天同的年份或大限興家立業。",
+   "source": "wtz.deep.p192.b012",
+   "quote": "[机巨]往往在天同躔度的流年或大运兴家立业"
+  },
+  {
+   "id": "syn.sys52.tanlang",
+   "chapter": "今年",
+   "group": "運限.宮度",
+   "specificity": "system",
+   "polarity": "中",
+   "weight": "提",
+   "seat": "seated",
+   "layer": [
+    "annual",
+    "decade"
+   ],
+   "system": [
+    52
+   ],
+   "alone": {
+    "star": "貪狼",
+    "in": {
+     "name": "命宮",
+     "layer": "$L"
+    }
+   },
+   "because": "你的命宮是天機、巨門坐守；{period}的命宮走到貪狼獨坐的宮位。",
+   "claim": "{period}往往是你人生出現重大改變的時候；貪狼化祿或化權，變化才不致帶來不好的影響。",
+   "source": "wtz.deep.p193.b007",
+   "quote": "贪狼独坐的运限，往往为[机巨]发生人生重大改变之期。"
+  },
+  {
+   "id": "syn.sys52.lianzhen",
+   "chapter": "今年",
+   "group": "運限.宮度",
+   "specificity": "system",
+   "polarity": "凶",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "annual",
+    "decade"
+   ],
+   "system": [
+    52
+   ],
+   "alone": {
+    "star": "廉貞",
+    "in": {
+     "name": "命宮",
+     "layer": "$L"
+    }
+   },
+   "because": "你的命宮是天機、巨門坐守；{period}的命宮走到廉貞獨坐的宮位，廉貞又化祿。",
+   "claim": "{period}容易因感情上的困擾而影響健康；有輔佐吉星會合，才能把感情轉化成做事的動力。",
+   "source": "wtz.deep.p192.b006",
+   "quote": "此乃由于廉贞化禄对[机巨]易起感情困挠，而因此招致灾病。必须同时见辅佐占曜会合，始将感情转化为精神，然后事业始得发展。流年如是、大限亦如是。",
+   "when": {
+    "any": [
+     {
+      "star": "廉貞",
+      "hua": "祿"
+     },
+     {
+      "star": "廉貞",
+      "hua": "祿",
+      "layer": "$L"
+     }
+    ]
+   }
+  }
+ ]
+}
