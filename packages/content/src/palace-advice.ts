@@ -1,6 +1,6 @@
 import type { Chart } from '@guanwei/ziwei';
 import type { FreeReadingSegment } from './free-ming-reader';
-import { isYouthReader } from './youth';
+import { isSchoolReader, isYouthReader } from './youth';
 import { xingxiOf } from './xingxi';
 import rawAdvice from './cards/palace-advice.json';
 import links from './cards/palace-advice-links.json';
@@ -103,8 +103,9 @@ function healthFocus(segments: FreeReadingSegment[], youth: boolean): { key: str
 
 /** Direct advice follows the complete combination and any already selected conditional branch.
  * `focused`（只限新書）：主題跟正文改配、疾厄跟結論取象，並按本宮實際星曜加一句。 */
-export function withPalaceAdvice(chart: Chart, palace: string, year: number, segments: FreeReadingSegment[], opts: { focused?: boolean } = {}): FreeReadingSegment[] {
-  const youth = isYouthReader(chart, year);
+export function withPalaceAdvice(chart: Chart, palace: string, year: number, segments: FreeReadingSegment[], opts: { focused?: boolean; ageBands?: boolean } = {}): FreeReadingSegment[] {
+  // ageBands（新書）：讀書年代建議只畀虛歲十八或以下（youth.ts isSchoolReader）
+  const youth = opts.ageBands ? isSchoolReader(chart, year) : isYouthReader(chart, year);
   const withModifier = (key: string, text: string, skip: Modifier[] = []) => {
     const m = opts.focused ? modifierSentence(chart, palace, youth, skip) : null;
     return m ? { key: `${key}+${m.key}`, text: `${text}${m.text}` } : { key, text };

@@ -30,6 +30,19 @@ export function isYouthReader(chart: Chart, year: number): boolean {
   return a.ok && a.value.nominalAge <= YOUTH_MAX_AGE;
 }
 
+/**
+ * 讀書年代（2026-10-27，盲評：二十二歲讀者收到「請大人陪你求診」「安排零用錢」「新班級」）。
+ * 虛歲十八或以下多數仲讀緊書，亦好多時係父母幫子女睇：建議段照用讀書年代講法（家人陪同、零用錢、老師）。
+ * 虛歲十九至二十四改用成人建議（自己求診、自己管錢、工作）；婚姻、子女講「將來」等後生處理照舊用 isYouthReader。
+ * 只入新成書入口（`ageBands`）。
+ */
+export const SCHOOL_MAX_AGE = 18;
+
+export function isSchoolReader(chart: Chart, year: number): boolean {
+  const a = annual(chart, year);
+  return a.ok && a.value.nominalAge <= SCHOOL_MAX_AGE;
+}
+
 export const YOUTH_PREFIX = {
   說到將來的婚姻: { en: 'When it comes to a future marriage', ja: '将来の結婚について言えば' },
   說到將來的子女: { en: 'When it comes to future children', ja: '将来の子どもについて言えば' },
@@ -73,6 +86,8 @@ const SWAPS: [string, string][] = [
   ...Object.entries(YOUTH_LEAN).map(([a, b]) => [`偏向${a}`, `偏向${b}`] as [string, string]),
 ];
 const PERIOD_WORK: [string, string] = ['工作上，', '讀書和打工上，'];
+/** 虛歲十九至二十四（ageBands）：可能仲讀緊書，亦可能已經出嚟做嘢 */
+const PERIOD_WORK_YOUNG: [string, string] = ['工作上，', '讀書和工作上，'];
 
 const LIFE_LATER = new Set(['官祿', '財帛', '遷移', '田宅', '子女']);
 const sentencesOf = (t: string) => t.match(/[^。！？]*[。！？]|[^。！？]+/g) ?? [];
@@ -87,11 +102,12 @@ function prefixed(s: string, p: Prefix): string {
 }
 
 /** `said`：呢段已經加過嘅前綴 —— 同一段連住幾句講婚姻，只喺第一句講「說到將來的婚姻」 */
-function youthSentence(s: string, chapter: string, slot: string, firstOfSlot: boolean, said: Set<Prefix>): string {
+function youthSentence(s: string, chapter: string, slot: string, firstOfSlot: boolean, said: Set<Prefix>, school: boolean): string {
   let out = s;
   for (const [a, b] of SWAPS) out = out.split(a).join(b);
   const period = chapter === DECADE_SLUG || chapter === YEAR_SLUG;
-  if (period && slot === '工作') out = out.split(PERIOD_WORK[0]).join(PERIOD_WORK[1]);
+  const work = school ? PERIOD_WORK : PERIOD_WORK_YOUNG;
+  if (period && slot === '工作') out = out.split(work[0]).join(work[1]);
   const once = (p: Prefix) => {
     if (said.has(p)) return out;
     said.add(p);
@@ -106,14 +122,16 @@ function youthSentence(s: string, chapter: string, slot: string, firstOfSlot: bo
 
 export type YouthChapter = { slug: string; segments: { slot: string; text: string }[] };
 
-/** 成本書過一次。`slug`：宮位章用宮名（「官祿」），其他用章名。 */
-export function youthPass<C extends YouthChapter>(chapters: C[]): C[] {
+/** 成本書過一次。`slug`：宮位章用宮名（「官祿」），其他用章名。
+ * `school`：讀書年代（虛歲十八或以下）；舊書同基準入口唔分，預設 true。 */
+export function youthPass<C extends YouthChapter>(chapters: C[], opts: { school?: boolean } = {}): C[] {
+  const school = opts.school ?? true;
   return chapters.map((c) => ({
     ...c,
     segments: c.segments.map((seg) => {
       const said = new Set<Prefix>();
       const text = sentencesOf(seg.text)
-        .map((s, i) => youthSentence(s, c.slug, seg.slot, i === 0, said))
+        .map((s, i) => youthSentence(s, c.slug, seg.slot, i === 0, said, school))
         .join('');
       return { ...seg, text: c.slug === GUJIA_SLUG && seg.slot === '偏向' ? `${text}${YOUTH_LEAN_NOTE}` : text };
     }),
@@ -123,7 +141,7 @@ export function youthPass<C extends YouthChapter>(chapters: C[]): C[] {
 /** 出處註：認返大人原句（換過嘅偏向名、借貸講法、前綴全部還原） */
 export function adultOf(s: string): string {
   let rest = s;
-  for (const [a, b] of [...SWAPS, PERIOD_WORK]) rest = rest.split(b).join(a);
+  for (const [a, b] of [...SWAPS, PERIOD_WORK, PERIOD_WORK_YOUNG]) rest = rest.split(b).join(a);
   return unyouth(rest).rest;
 }
 

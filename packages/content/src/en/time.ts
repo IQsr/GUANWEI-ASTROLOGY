@@ -115,7 +115,7 @@ function tonesEn(zh: string, year: boolean): string | null {
   return out.length > 1 ? `${out.slice(0, -1).join(', ')}, and also ${out.at(-1)}` : out[0]!;
 }
 const AREA_LABELS = ['工作上', '錢方面', '感情上', '心境上'];
-const AREA_NOUN_EN: Record<string, string> = { 工作上: 'your work', 讀書和打工上: 'your studies and part-time work', 錢方面: 'your finances', 感情上: 'your love life', 心境上: 'your inner life' };
+const AREA_NOUN_EN: Record<string, string> = { 工作上: 'your work', 讀書和打工上: 'your studies and part-time work', 讀書和工作上: 'your studies and work', 錢方面: 'your finances', 感情上: 'your love life', 心境上: 'your inner life' };
 
 /* ── 互動（daxian/rules.json）：本命或大限嘅化 × 呢段時期嘅化 ── */
 const RULE_EN: Record<string, string> = {
@@ -565,7 +565,7 @@ export function timeTemplate(s: string, missing: string[], h: TimeHelpers): stri
   if (m && h.tm(m[2]!)) return `${m[1] === '十年' ? 'During these ten years' : 'This year'}, ${h.lower(h.tm(m[2]!)!)}`;
 
   /* ── 分四方面 ── */
-  m = /^(工作上|讀書和打工上|錢方面|感情上|心境上)，這(十年|一年)(.+)。$/.exec(s);
+  m = /^(工作上|讀書和打工上|讀書和工作上|錢方面|感情上|心境上)，這(十年|一年)(.+)。$/.exec(s);
   if (m) {
     const year = m[2] === '一年';
     const span = year ? 'this year' : 'these ten years';
@@ -591,7 +591,7 @@ export function timeTemplate(s: string, missing: string[], h: TimeHelpers): stri
     const with_ = hits ? `, with ${hits.text}` : '';
     return `${layer} ${pal(m[2]!, missing)} ${seatVerb(m[3]!, missing)}${with_}.`;
   }
-  m = /^(工作上|讀書和打工上|錢方面|感情上|心境上)，(.+)$/.exec(s);
+  m = /^(工作上|讀書和打工上|讀書和工作上|錢方面|感情上|心境上)，(.+)$/.exec(s);
   if (m && h.tm(m[2]!)) {
     const on = AREA_ON_EN[m[1]!]!;
     const en = h.tm(m[2]!)!;

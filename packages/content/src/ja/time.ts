@@ -148,7 +148,7 @@ function tonesJa(zh: string): string | null {
   }
   return out.map((x, i) => (i < out.length - 1 ? x.replace(/です$|ます$/, (e) => (e === 'です' ? 'で' : 'ますし')) : x)).join('、');
 }
-const AREA_NOUN: Record<string, string> = { 工作上: '仕事', 讀書和打工上: '勉強やアルバイト', 錢方面: 'お金', 感情上: '恋愛', 心境上: '心のありよう' };
+const AREA_NOUN: Record<string, string> = { 工作上: '仕事', 讀書和打工上: '勉強やアルバイト', 讀書和工作上: '勉強や仕事', 錢方面: 'お金', 感情上: '恋愛', 心境上: '心のありよう' };
 
 /* ── 互動（daxian/rules.json）── */
 const RULE_JA: Record<string, string> = {
@@ -530,7 +530,7 @@ export function timeTemplate(s: string, missing: string[], h: TimeHelpers): stri
   if (m && h.tm(m[2]!)) return `${span(m[1]!)}のあいだ、${h.tm(m[2]!)!}`;
 
   /* ── 分四方面 ── */
-  m = /^(工作上|讀書和打工上|錢方面|感情上|心境上)，這(十年|一年)(.+)。$/.exec(s);
+  m = /^(工作上|讀書和打工上|讀書和工作上|錢方面|感情上|心境上)，這(十年|一年)(.+)。$/.exec(s);
   if (m) {
     const tones = tonesJa(m[3]!);
     if (tones) return `${AREA_NOUN[m[1]!]}の面では、${span(m[2]!)}は${tones}。`;
@@ -546,7 +546,7 @@ export function timeTemplate(s: string, missing: string[], h: TimeHelpers): stri
     const hits = m[4] ? `。${huaList(m[4], missing)}があります` : '';
     return `${span(m[1]!)}の${pal(m[2]!, missing)}${seatVerb(m[3]!, missing)}${hits}。`;
   }
-  m = /^(工作上|讀書和打工上|錢方面|感情上|心境上)，(.+)$/.exec(s);
+  m = /^(工作上|讀書和打工上|讀書和工作上|錢方面|感情上|心境上)，(.+)$/.exec(s);
   if (m && h.tm(m[2]!)) return `${AREA_ON_JA[m[1]!]}、${h.tm(m[2]!)!}`;
 
   /* 建議段 */

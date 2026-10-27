@@ -33,11 +33,14 @@ function csv(text:string){
 const CONDITIONS_V2=new Set([...remainingCards.rules,...focusedCards.rules].filter(r=>'since' in r).map(r=>r.id));
 const matrix=csv(readFileSync(new URL('../../../docs/book-authoring-audit-2026-10-25/palace-matrix.csv',import.meta.url),'utf8'));
 
-it('176 audited books / 144 structures / 1728 palace rows retain exact non-P1 text/references and all international output while saving shared records',()=>{
+// 長同步迴圈：每輪讓出事件循環，等 vitest worker 同主程序嘅通訊（60 秒時限）唔會被塞住（2026-10-27 CI onTaskUpdate timeout）
+const yieldToRunner=()=>new Promise<void>(r=>setImmediate(r));
+it('176 audited books / 144 structures / 1728 palace rows retain exact non-P1 text/references and all international output while saving shared records',async()=>{
  let structures=0,palaces=0,native=0,borrowed=0,decisions=0,unknown=0,sourcePending=0;
  for(const sample of cases){
+  await yieldToRunner();
   const chart=chartOf(sample.input),frozen=JSON.stringify(chart),opts=options(sample);
-  const previous=withReadingEpilogue(chart,alignReviewedChapters(chart,bookChapters(chart,{...opts,crossPalaceReading:true,separateRuleReferences:true,conditionalBranches:true,focusedAdvice:true,periodChecks:true,relocateHedges:true,verdictLead:true})!));
+  const previous=withReadingEpilogue(chart,alignReviewedChapters(chart,bookChapters(chart,{...opts,crossPalaceReading:true,separateRuleReferences:true,conditionalBranches:true,focusedAdvice:true,periodChecks:true,relocateHedges:true,verdictLead:true,ageBands:true})!));
   const current=createBookChapters(chart,opts)!;
   // Reviewed P1 delta: only these two inputs in the frozen 176-case register meet the new complete cards.
   const changed:Record<string,string[]>={RB:['福德','給你的話'],RC:['命宮','性格的骨架','官祿','給你的話']};

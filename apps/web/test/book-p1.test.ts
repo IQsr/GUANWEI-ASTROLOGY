@@ -71,11 +71,14 @@ it('body, advice, bone and ending save explicit links to the very same supported
  }
 });
 
-it('176 audited books and the frozen 16-input holdout: changed scope is bounded; all other prose and all international snapshots remain exact',()=>{
+// 長同步迴圈：每輪讓出事件循環，等 vitest worker 同主程序嘅通訊（60 秒時限）唔會被塞住（2026-10-27 CI onTaskUpdate timeout）
+const yieldToRunner=()=>new Promise<void>(r=>setImmediate(r));
+it('176 audited books and the frozen 16-input holdout: changed scope is bounded; all other prose and all international snapshots remain exact',async()=>{
  const audit=[],matrix=[];
  for(const s of [...cases,...holdout.map(s=>({...s,bookYear:2026}))]){
+  await yieldToRunner();
   const r=cast(s.input as BirthInput);if(!r.ok)throw Error(r.message);const chart=r.value,opts={seed:s.seed,year:2026,solar:s.input.solar,place:s.input.place.label,birthSex:s.input.sex as 'male'|'female',birthInput:s.input as BirthInput};
-  const previous=withReadingEpilogue(chart,alignReviewedChapters(chart,bookChapters(chart,{...opts,crossPalaceReading:true,separateRuleReferences:true,conditionalBranches:true,focusedAdvice:true,periodChecks:true,relocateHedges:true,verdictLead:true})!));
+  const previous=withReadingEpilogue(chart,alignReviewedChapters(chart,bookChapters(chart,{...opts,crossPalaceReading:true,separateRuleReferences:true,conditionalBranches:true,focusedAdvice:true,periodChecks:true,relocateHedges:true,verdictLead:true,ageBands:true})!));
   const current=createBookChapters(chart,opts)!,evaluated=decide(chart),ds=evaluated.filter(d=>d.status==='supported').map(d=>d.id);
   const allowed=new Set(ds.flatMap(id=>id===LIAN_KEWEN?['福德','給你的話']:['命宮','性格的骨架','官祿','給你的話']));
   const changed=current.filter((c,i)=>c.text!==previous[i]!.text).map(c=>c.slug);expect(changed.every(slug=>allowed.has(slug)),s.id).toBe(true);
