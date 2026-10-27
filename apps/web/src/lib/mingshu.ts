@@ -336,7 +336,10 @@ export function bookChapters(
       for (const q of [chart.palaces[(i + 1) % k]!, chart.palaces[(i + k - 1) % k]!]) for (const s of q.stars) near.add(s.name);
     }
     const absentStars = home ? QUERYABLE_NATAL_STARS.filter((x) => !near.has(x)) : [];
-    const segments = (opts.relocateHedges ? withRelocatedHedges(judged, { editorNotes: true, absent: { fireBell: !fireBell, stars: absentStars } }) : judged)
+    // v6：本宮星（空宮借對宮）帶嘅化，同成張盤嘅「星化X」；冇「你」嘅句講到冇嘅化就唔出
+    const ownStars = home ? (home.stars.some((s) => s.kind === 'major') ? home.stars : [...home.stars, ...(chart.palaces.find((o) => o.branch === home.borrowsFrom)?.stars ?? [])]) : [];
+    const hua = { own: ownStars.flatMap((s) => s.sihua ? [s.sihua] : []), natal: chart.palaces.flatMap((q) => q.stars.flatMap((s) => s.sihua ? [`${s.name}化${s.sihua}`] : [])) };
+    const segments = (opts.relocateHedges ? withRelocatedHedges(judged, { editorNotes: true, absent: { fireBell: !fireBell, stars: absentStars, ...(home ? { hua } : {}) } }) : judged)
       .map((row) => ({ ...row, ...(row.referenceConditions ? { referenceConditions: row.referenceConditions.map(readerReferenceLanguage) } : {}) }));
     const internationalSnapshot = { text: p.text, slots: p.slots, ...('reading' in p && p.reading ? { reading: p.reading } : {}) };
     const reading: ChapterReading = { format: 'ming-expanded-v1', writer: isMing ? 'reader-backed-v1' : 'palace-reader-v1', segments,

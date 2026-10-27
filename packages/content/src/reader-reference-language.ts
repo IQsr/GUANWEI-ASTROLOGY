@@ -107,7 +107,10 @@ const phrases: [string, string][] = [
   ['本輪', '這裡列明的'],
 ];
 
+/** 整理原書時留低嘅內部註（提取序號、待核字形、僅作導航…），讀者唔使見（2026-10-27 雙盲評）。 */
+const INTERNAL = /〔[^〕]*(?:提取|待核|核位|僅作文本導航)[^〕]*〕/g;
+
 /** Do not pass source quotes through this function: original wording is preserved verbatim. */
 export function readerReferenceLanguage(text: string): string {
-  return phrases.reduce((value, [before, after]) => value.replaceAll(before, after), text);
+  return phrases.reduce((value, [before, after]) => value.replaceAll(before, after), text.replace(INTERNAL, ''));
 }

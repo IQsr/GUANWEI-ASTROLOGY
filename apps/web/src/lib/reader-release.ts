@@ -19,7 +19,8 @@ export const PERIOD_CHECKS_VERSION = 'period-checks-v2';
 /** v3：編輯口吻、冇「你」嘅淨列分支直接刪（唔入「據」）；本宮三方四正冇火鈴就唔出火鈴句。 */
 /** v4：「規勸你」唔當編輯筆記；疾厄判斷句（health.verdict）同其他判斷句一樣唔搬。 */
 /** v5：冇「你」又點名本宮四方加夾宮都冇嘅星嘅分支句直接刪（book-lint A3）。 */
-export const HEDGE_RELOCATION_VERSION = 'hedge-relocation-v5';
+/** v6：冇「你」嘅句講本宮冇嘅化（化權、吉化…）直接刪；兩段寫作工序說明唔出。 */
+export const HEDGE_RELOCATION_VERSION = 'hedge-relocation-v6';
 /** 2026-10-27 命宮同十一宮結論段：盤面事實後加一句有出處嘅「你…」判斷（content `withVerdictLead`，只入新成書入口）。 */
 /** v2：命宮按六十星系揀判斷句（plain/ming-verdict.json）。 */
 /** v3：細讀規則成立就用帶條件判斷句（准講事件、對方）；疾厄講要留意嘅身體系統（plain/health-verdict.json）。 */

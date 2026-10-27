@@ -17,12 +17,12 @@ function books(sample:{seed:string;input:unknown}){
  return {current:createBookChapters(result.value,opts)!,base:bookChapters(result.value,{...opts,crossPalaceReading:true,conditionalBranches:true,focusedAdvice:true,periodChecks:true,relocateHedges:true,verdictLead:true,ageBands:true})!};
 }
 
-it.each([five[0]!,five[2]!])('$id: preserves the separate bone transition and references; P1 C uses its shared decision for body and advice',sample=>{
+it.each([five[0]!,five[2]!])('$id: drops the bone transition (v6) and keeps references; P1 C uses its shared decision for body and advice',sample=>{
  const {current,base}=books(sample),chapter=current.find(c=>c.slug==='命宮')!,old=base.find(c=>c.slug===chapter.slug)!;
  const advice=chapter.reading!.segments.filter(s=>s.statements?.some(l=>l.kind==='editorial-advice'&&l.source_ids.some(id=>id.startsWith('editorial.advice.'))));
  expect(advice).toHaveLength(1);expect(chapter.text.split(advice[0]!.text)).toHaveLength(2);
- const transition=old.reading!.segments.find(s=>s.text.startsWith('接下來的「性格的骨架」'))!;
- expect(transition).toBeDefined();expect(chapter.reading!.segments).toContainEqual(transition);
+ // hedge-relocation-v6：新書唔出寫作工序句（「接下來的『性格的骨架』…」）
+ expect(chapter.reading!.segments.some(s=>s.text.startsWith('接下來的「性格的骨架」'))).toBe(false);
  if(sample.id==='C'){
   expect(advice[0]!.analysisLinks?.decisionIds).toEqual([TONG_JI]);
   expect(chapter.text).toContain('天機權成為策動力');
