@@ -10,6 +10,7 @@
  *   D. 兜圈句（2026-10-27，盲評「結論只係分開看」）：句子只講方法、分支或否定，冇落判斷。
  *      D1 編輯筆記漏出（另核、未齊、閱讀方法）；D2 只講分開（分開看、兩個層次、各有不同）；
  *      D3 只講唔可以點（不能只、不等於、未必）。只數唔判錯，量住改寫前後嘅基準。
+ *   V. 判斷句覆蓋（2026-10-27）：命宮同十一宮嘅結論段，有冇一句帶出處嘅「你…」判斷（plain／pair 結論句）。
  * 只讀唔寫：唔改內容、唔寫 DB。每輪換 seed，唔好淨係睇示範盤同固定樣本。
  *
  * 跑法（apps/web）：npm run audit:book
@@ -78,16 +79,24 @@ function birth(r: (n: number) => number): BirthInput {
     place: { lng: 114.17, lat: 22.32, label: '香港' }, sex: r(2) ? 'male' : 'female' };
 }
 
-function lintBook(id: string, input: BirthInput, chart: Chart, out: Finding[], paras: Map<string, Set<string>>, hedges: Hedge[], counts: Map<string, number>) {
+function lintBook(id: string, input: BirthInput, chart: Chart, out: Finding[], paras: Map<string, Set<string>>, hedges: Hedge[], counts: Map<string, number>, verdicts: Map<string, [number, number]>) {
   const book = createBookChapters(chart, { seed: id, year: 2026, solar: input.solar, place: input.place.label, birthSex: input.sex, birthInput: input });
   if (!book) { out.push({ check: 'build', level: 'error', book: id, chapter: '-', slot: '-', detail: '成書失敗', text: '' }); return; }
   const natalHua = new Set(chart.palaces.flatMap((p) => p.stars.filter((s) => s.sihua).map((s) => `${s.name}化${s.sihua}`)));
+  const seenLead = new Set<string>();
   for (const ch of book) {
     const add = (check: string, level: Finding['level'], slot: string, detail: string, text: string) => out.push({ check, level, book: id, chapter: ch.slug, slot, detail, text });
     const home = chapterPalace(ch.slug);
     for (const seg of readingSegments(ch.text, ch.slots ?? [], ch.reading)) {
       const text = seg.text;
       if (text.length > 25) { const key = `${ch.slug}\u0000${text}`; if (!paras.has(key)) paras.set(key, new Set()); paras.get(key)!.add(id); }
+      // V. 判斷句覆蓋：每章第一個結論段
+      if ((PALACES as readonly string[]).includes(ch.slug) && seg.slot === '結論' && !seenLead.has(ch.slug)) {
+        seenLead.add(ch.slug);
+        const v = verdicts.get(ch.slug) ?? [0, 0];
+        v[1]++; if (seg.statements?.some((l) => l.source_ids.some((x) => /^(plain|pair)\./.test(x)))) v[0]++;
+        verdicts.set(ch.slug, v);
+      }
       // D. 兜圈句（運限章都計：盲評亦嫌佢哋）
       const lines = seg.statements?.length ? seg.statements.map((l) => ({ text: l.text, source: sourceKey(l.source_ids[0]) })) : [{ text, source: '(無來源)' }];
       for (const l of lines) for (const sen of sentencesOf(l.text)) {
@@ -136,14 +145,14 @@ it('book lint on fresh random charts', () => {
   const n = Number(process.env.LINT_CHARTS ?? 150);
   const seed = Number(process.env.LINT_SEED ?? new Date().toISOString().slice(0, 10).replace(/-/g, ''));
   const outDir = process.env.LINT_OUT ?? new URL(`../../../tmp/book-lint/${seed}/`, import.meta.url).pathname.replace(/^\/([A-Za-z]:)/, '$1');
-  const r = rng(seed), findings: Finding[] = [], hedges: Hedge[] = [], sentenceCounts = new Map<string, number>(), paras = new Map<string, Set<string>>(), inputs: { id: string; input: BirthInput; ming: string }[] = [];
+  const r = rng(seed), findings: Finding[] = [], hedges: Hedge[] = [], sentenceCounts = new Map<string, number>(), verdicts = new Map<string, [number, number]>(), paras = new Map<string, Set<string>>(), inputs: { id: string; input: BirthInput; ming: string }[] = [];
   while (inputs.length < n) {
     const input = birth(r), c = cast(input);
     if (!c.ok) continue;
     const id = `L${seed}-${inputs.length}`;
     const ming = c.value.palaces.find((p) => p.branch === c.value.mingGong)!;
     inputs.push({ id, input, ming: `${ming.branch}${ming.stars.filter((s) => s.kind === 'major').map((s) => s.name).join('') || '空宮'}` });
-    lintBook(id, input, c.value, findings, paras, hedges, sentenceCounts);
+    lintBook(id, input, c.value, findings, paras, hedges, sentenceCounts, verdicts);
   }
   // C. 模板重複：同一段逐字出現喺 ≥3 本、≥5% 嘅書
   const min = Math.max(3, Math.ceil(n * 0.05));
@@ -160,6 +169,9 @@ it('book lint on fresh random charts', () => {
   const pct = (a: number, b: number) => `${b ? (a / b * 100).toFixed(1) : '0'}%`;
   const leadHedged = new Set(hedges.filter((h) => h.slot === '結論').map((h) => `${h.book}\u0000${h.chapter}`)).size;
   const hedgeRepeats = count(hedges, (h) => `${h.kind}\u0000${h.chapter}\u0000${h.text}`).slice(0, 30);
+  const vAll = [...verdicts.values()].reduce((a, [x, y]) => [a[0] + x, a[1] + y], [0, 0]);
+  const vLines = ['## V 判斷句覆蓋', '', `結論段有帶出處判斷句：${vAll[0]}／${vAll[1]}（${pct(vAll[0], vAll[1])}）。`, '',
+    ...PALACES.filter((p) => verdicts.has(p)).map((p) => { const [x, y] = verdicts.get(p)!; return `- ${p}：${x}／${y}（${pct(x, y)}）`; }), ''];
   const dLines = [
     '## D 兜圈句', '',
     `全書 ${totalSentences} 句，兜圈句 ${hedges.length} 句（${pct(hedges.length, totalSentences)}），平均每本 ${(hedges.length / n).toFixed(1)} 句；「結論」段有兜圈句嘅章：${leadHedged}。`, '',
@@ -174,11 +186,13 @@ it('book lint on fresh random charts', () => {
     '## 總數', '', '| 檢查 | 級別 | 次數 | 涉及書數 |', '|---|---|---|---|',
     ...checks.map((c) => `| ${c} | ${findings.find((f) => f.check === c)!.level} | ${findings.filter((f) => f.check === c).length} | ${booksWith(c)} / ${n} |`),
     `| C 模板重複（5%–90% 書） | warn | ${template.length} 段 | - |`, `| C 固定框架句（≥90% 書） | info | ${framing.length} 段 | - |`,
+    `| V 判斷句覆蓋 | info | ${vAll[0]} 段（${pct(vAll[0], vAll[1])}） | - |`,
     `| D 兜圈句 | info | ${hedges.length} 句（${pct(hedges.length, totalSentences)}） | ${new Set(hedges.map((h) => h.book)).size} / ${n} |`, '',
     '## 按章（A、B）', '', ...by((f) => `${f.check}｜${f.chapter}`).slice(0, 30).map(([k, v]) => `- ${k}：${v}`), '',
     ...checks.flatMap((c) => [`## 例子：${c}`, '', ...sample(c).map((f) => `- **${f.book} ${f.chapter}［${f.slot}］** ${f.detail}\n  > ${f.text.slice(0, 140)}`), '']),
     '## C 模板重複（最多書嘅 25 段）', '', ...template.slice(0, 25).map((x) => `- ${x.books} 本（${Math.round(x.share * 100)}%）［${x.chapter}］${x.text.slice(0, 90)}`), '',
     '## C 固定框架句', '', ...framing.map((x) => `- ${x.books} 本［${x.chapter}］${x.text.slice(0, 60)}`), '',
+    ...vLines,
     ...dLines,
   ];
   mkdirSync(outDir, { recursive: true });
