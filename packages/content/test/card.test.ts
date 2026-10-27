@@ -94,6 +94,8 @@ describe('條件卡：一個話題一把聲', () => {
     for (const [n, charts] of bySystem) {
       const pool = POOL.filter((c) => c.system === n);
       for (const [i, chart] of charts.entries()) {
+        // 長同步迴圈：讓出事件循環，免得 vitest worker 通訊超時（2026-10-27 CI）
+        await new Promise<void>((r) => setImmediate(r));
         for (let year = 2000; year < 2100; year += 1) {
           const a = annual(chart, year);
           if (!a.ok) continue;
