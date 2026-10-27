@@ -1,6 +1,6 @@
 import {it,expect} from 'vitest';
 import {cast,type BirthInput} from '@guanwei/ziwei';
-import {citation} from '@guanwei/content';
+import {citation,verdictFor} from '@guanwei/content';
 import {createBookChapters,bookChapters,citesFor} from '@/lib/mingshu';
 import {readingOf,readingSegments} from '@/lib/chapter-reading';
 import {markBook} from '@/lib/zhu';
@@ -26,7 +26,7 @@ it('the production builder selects all twelve approved cross chapters without a 
  for(const sample of original.filter(c=>['TL','A','C'].includes(c.id))){
   const {chart,options}=get(sample),before=JSON.stringify(chart);
   const current=createBookChapters(chart,options)!;
-  const reviewed=bookChapters(chart,{...options,crossPalaceReading:true,separateRuleReferences:true,conditionalBranches:true,focusedAdvice:true,periodChecks:true,relocateHedges:true})!;
+  const reviewed=bookChapters(chart,{...options,crossPalaceReading:true,separateRuleReferences:true,conditionalBranches:true,focusedAdvice:true,periodChecks:true,relocateHedges:true,verdictLead:true})!;
   for(const slug of ['命宮','官祿','財帛','福德']){
    const next=current.find(c=>c.slug===slug)!;
    const {analysis,...saved}=next.reading!;
@@ -48,7 +48,9 @@ it.each(cases)('$id: frozen random input produces one aligned closing snapshot a
  for(const slug of ['命宮','官祿','財帛','福德']){
   const old=legacy.find(c=>c.slug===slug)!,next=current.find(c=>c.slug===slug)!;
   for(const id of ids(old))expect(ids(next)).toContain(id);
-  const added=ids(next).filter(id=>!ids(old).includes(id));
+  // 2026-10-27 verdictLead：結論判斷句帶自己嘅出處（verdictFor），其餘唔准加
+  const verdict=new Set(verdictFor(chart,slug)?.passages??[]);
+  const added=ids(next).filter(id=>!ids(old).includes(id)&&!verdict.has(id));
   const eligible=sample.id==='B'&&slug==='福德'||sample.id==='C'&&['命宮','官祿'].includes(slug);
   if(eligible)expect(added.every(id=>id.startsWith('book.p1.v1:'))).toBe(true);else expect(added).toEqual([]);
   const conditions=next.reading!.segments.flatMap(s=>s.referenceConditions??[]);
@@ -89,7 +91,7 @@ it('retains unsupported poles as open comparisons and fixes the reviewed advice/
 it('missing cross prerequisites do not turn into supported readings; a different structure does not reuse a five-case synopsis',()=>{
  const input=original.find(c=>c.id==='C')!,{chart,options}=get(input);delete chart.palaces.find(p=>p.name==='官祿')!.borrowsFrom;
  const current=createBookChapters(chart,options)!;
- expect(current.find(c=>c.slug==='官祿')!.text).toBe(bookChapters(chart,{...options,separateRuleReferences:true,conditionalBranches:true,focusedAdvice:true,periodChecks:true,relocateHedges:true})!.find(c=>c.slug==='官祿')!.text);
+ expect(current.find(c=>c.slug==='官祿')!.text).toBe(bookChapters(chart,{...options,separateRuleReferences:true,conditionalBranches:true,focusedAdvice:true,periodChecks:true,relocateHedges:true,verdictLead:true})!.find(c=>c.slug==='官祿')!.text);
  const d=get(cases[3]!);d.chart.palaces.find(p=>p.name==='財帛')!.stars=d.chart.palaces.find(p=>p.name==='財帛')!.stars.filter(s=>s.kind!=='major');
  const base=bookChapters(d.chart,d.options)!;
  const result=withReadingEpilogue(d.chart,base).find(c=>c.slug==='給你的話')!;
