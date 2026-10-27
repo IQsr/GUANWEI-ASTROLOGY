@@ -319,8 +319,9 @@ export function bookChapters(
     const crossed: Row[] = cross ? withCrossPalaceReading(chart,p.slug,opts.year,baseSegments,cross) : baseSegments;
     // 新書（createBookChapters）命宮、骨架同十一宮揀句：條件唔成立嘅四化分支唔出；基準入口照舊，歷史比對唔變。
     const branched = opts.conditionalBranches ? withConditionalBranches(chart, crossed, isMing ? '命宮' : p.slug) : crossed;
-    const relocated = opts.relocateHedges ? withRelocatedHedges(branched) : branched;
-    const segments = (opts.verdictLead && p.slug !== '性格的骨架' ? withVerdictLead(chart, p.slug, relocated) : relocated)
+    // 先加判斷句再搬兜圈句：結論段只得一句兜圈句時，搬走之後判斷句仍然有段落可以落腳
+    const judged = opts.verdictLead && p.slug !== '性格的骨架' ? withVerdictLead(chart, p.slug, branched) : branched;
+    const segments = (opts.relocateHedges ? withRelocatedHedges(judged) : judged)
       .map((row) => ({ ...row, ...(row.referenceConditions ? { referenceConditions: row.referenceConditions.map(readerReferenceLanguage) } : {}) }));
     const internationalSnapshot = { text: p.text, slots: p.slots, ...('reading' in p && p.reading ? { reading: p.reading } : {}) };
     const reading: ChapterReading = { format: 'ming-expanded-v1', writer: isMing ? 'reader-backed-v1' : 'palace-reader-v1', segments,

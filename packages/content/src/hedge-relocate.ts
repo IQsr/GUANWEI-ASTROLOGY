@@ -14,10 +14,11 @@ import type { MingStatement } from './ming-writer';
  * 只入新成書入口（createBookChapters `relocateHedges`）；基準入口同舊書快照唔變。
  */
 const META = /另核|未齊|待核|閱讀方法|閱讀說明|不是另一條命理判斷|合讀|另列待/;
-const SPLIT = /分開(?!記|安排|確認|存|放|開支|使用)|兩個層次|各有(?:不同|自己|各自)|另作區分|不能混(?:用|入|為)|並非同一|不是同一種|各自條件|各自展開|原書(?:明)?分(?!析)|原書(?:把|將)[^。；]{0,40}分(?:開|作|為|列)/;
+const SPLIT = /分開(?!記|安排|確認|存|放|開支|使用)|兩個層次|各有(?:不同|自己|各自)|另作區分|不能混(?:用|入|為)|並非同一|不是同一種|各自條件|各自展開|一層[^。；]{0,40}另一層|原書(?:明)?分(?!析)|原書(?:把|將)[^。；]{0,40}分(?:開|作|為|列)/;
 /** 緊跟被搬句、指涉佢嘅附屬句（同 withConditionalBranches 一樣） */
 const DEPENDENT = /^(這些|此處|這一項|這幾種|這幾項|這兩種|上述|它|兩者)/;
 const ADVICE = new Set<MingStatement['kind']>(['editorial-advice', 'editorial-example']);
+const VERDICT = /^(plain|pair|ming\.verdict)\./;
 
 export function isRelocatableHedge(sentence: string, kind?: MingStatement['kind']): boolean {
   if (META.test(sentence)) return true;
@@ -34,6 +35,8 @@ function split(seg: Seg): { statements: MingStatement[]; moved: string[] } {
   const moved: string[] = [];
   let dropped = false;
   const kept = seg.statements!.map((l) => {
+    // 結論判斷句（verdict-lead）係判斷，唔係兜圈句，唔郁
+    if (VERDICT.test(l.source_ids[0] ?? '')) { dropped = false; return l; }
     const out: string[] = [];
     for (const s of sentences(l.text)) {
       if (isRelocatableHedge(s, l.kind) || (dropped && DEPENDENT.test(s))) { moved.push(s.replace(/；$/, '。')); dropped = true; continue; }

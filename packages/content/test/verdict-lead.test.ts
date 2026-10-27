@@ -53,3 +53,9 @@ it('inserts after the chart facts, once', () => {
   expect(out!.statements!.map((x) => x.text)).toEqual(['事實。', v.text, '要留意。']);
   expect(withVerdictLead(c, '財帛', [out!])[0]).toBe(out);
 });
+
+it('命宮 uses the 六十星系 table: base sentence, or the lean pole only when one side is decided', () => {
+  // 2004-02-14 01:10 男：命宮寅太陽巨門（58），偏向孤立
+  const c = chartOf(2004, 2, 14, 1, 'male');
+  expect(verdictFor(c, '命宮')).toEqual({ text: '你多半要靠自己，身邊的助力較少。', id: 'ming.verdict.58', passages: ['deep.星系58.1'] });
+});

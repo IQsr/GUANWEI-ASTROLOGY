@@ -15,6 +15,8 @@ export const PALACE_CONDITIONS_VERSION = 'palace-conditions-v2';
 /** v2（2026-10-27 盲評）：冲起句先講時期盤宮名、括號補本命；財帛見空劫時結論講錢順嘅半句加「只是錢進了也容易出」。 */
 export const PERIOD_CHECKS_VERSION = 'period-checks-v2';
 /** 2026-10-27 宮位章、命宮、骨架：判斷唔到嘅分支句同編輯筆記由正文搬去「據」（content `withRelocatedHedges`，只入新成書入口）。 */
-export const HEDGE_RELOCATION_VERSION = 'hedge-relocation-v1';
+/** v2：「一層…另一層」都搬；判斷句唔郁；先加判斷句再搬。 */
+export const HEDGE_RELOCATION_VERSION = 'hedge-relocation-v2';
 /** 2026-10-27 命宮同十一宮結論段：盤面事實後加一句有出處嘅「你…」判斷（content `withVerdictLead`，只入新成書入口）。 */
-export const VERDICT_LEAD_VERSION = 'verdict-lead-v1';
+/** v2：命宮按六十星系揀判斷句（plain/ming-verdict.json）。 */
+export const VERDICT_LEAD_VERSION = 'verdict-lead-v2';
