@@ -72,3 +72,10 @@ it('v3 strips an editor tail and keeps the sentence', () => {
   const [out] = withRelocatedHedges([seg(line('留意開拓之後有沒有可交接、維持的流程，這屬編輯例子。', ['c1']))], { editorNotes: true });
   expect(out!.text).toBe('留意開拓之後有沒有可交接、維持的流程。');
 });
+
+it('v5 drops no-你 branch sentences that name stars absent from the palace group', () => {
+  const s = seg(line('你的子女宮在寅。原書另談天馬的離家發展。你身邊有天馬，出外的機會多。本盤沒有天馬，這支不套用。', ['c1']));
+  const out = withRelocatedHedges([s], { editorNotes: true, absent: { stars: ['天馬'] } })[0]!.text;
+  expect(out).toBe('你的子女宮在寅。你身邊有天馬，出外的機會多。本盤沒有天馬，這支不套用。');
+  expect(withRelocatedHedges([s], { editorNotes: true, absent: { stars: ['祿存'] } })[0]!.text).toBe(s.text);
+});

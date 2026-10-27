@@ -36,7 +36,7 @@ import {
   LEXICON,
   type Chapter,
 } from '@guanwei/content';
-import { SCHOOL_PROFILE, annual, cast, sanFangPalaces } from '@guanwei/ziwei';
+import { QUERYABLE_NATAL_STARS, SCHOOL_PROFILE, annual, cast, sanFangPalaces } from '@guanwei/ziwei';
 import type { Chart as ZChart } from '@guanwei/ziwei/contract';
 import { hrefOf, slugOf, textOf } from '@/lib/lexicon';
 import { markBook, type MarkedChapter } from '@/lib/zhu';
@@ -325,7 +325,18 @@ export function bookChapters(
     // v3：編輯筆記同淨列分支直接刪；本宮三方四正冇火鈴，火鈴句都唔出
     const home = chart.palaces.find((q) => q.name === (isMing ? '命宮' : p.slug));
     const fireBell = home ? sanFangPalaces(chart.palaces, home.branch).some((q) => q.stars.some((s) => s.name === '火星' || s.name === '鈴星')) : true;
-    const segments = (opts.relocateHedges ? withRelocatedHedges(judged, { editorNotes: true, absent: { fireBell: !fireBell } }) : judged)
+    // v5：本宮四方（空宮借對宮）加左右夾宮見到嘅星；其餘星只出現喺冇「你」嘅分支句就唔出
+    const near = new Set<string>();
+    if (home) {
+      const k = chart.palaces.length, i = chart.palaces.indexOf(home);
+      for (const q of sanFangPalaces(chart.palaces, home.branch)) {
+        for (const s of q.stars) near.add(s.name);
+        if (!q.stars.some((s) => s.kind === 'major')) for (const s of chart.palaces.find((o) => o.branch === q.borrowsFrom)?.stars ?? []) near.add(s.name);
+      }
+      for (const q of [chart.palaces[(i + 1) % k]!, chart.palaces[(i + k - 1) % k]!]) for (const s of q.stars) near.add(s.name);
+    }
+    const absentStars = home ? QUERYABLE_NATAL_STARS.filter((x) => !near.has(x)) : [];
+    const segments = (opts.relocateHedges ? withRelocatedHedges(judged, { editorNotes: true, absent: { fireBell: !fireBell, stars: absentStars } }) : judged)
       .map((row) => ({ ...row, ...(row.referenceConditions ? { referenceConditions: row.referenceConditions.map(readerReferenceLanguage) } : {}) }));
     const internationalSnapshot = { text: p.text, slots: p.slots, ...('reading' in p && p.reading ? { reading: p.reading } : {}) };
     const reading: ChapterReading = { format: 'ming-expanded-v1', writer: isMing ? 'reader-backed-v1' : 'palace-reader-v1', segments,

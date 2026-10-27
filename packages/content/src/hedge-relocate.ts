@@ -17,6 +17,7 @@ import type { MingStatement } from './ming-writer';
  *   編輯口吻：講本章做咗乜、唔做乜（「本章不推」「未作個人判斷」「編輯對照」「替讀者」）。
  *   淨列分支：冇「你」，只講原書另有修飾、前提、例外，或者只講唔可以點推。
  *   盤上冇嘅火鈴：本宮三方四正冇火星、鈴星，提到火鈴嘅句唔出（由 `absent` 傳入）。
+ *   v5：冇「你」又點名本宮四方加左右夾宮都冇嘅星（`absent.stars`），一樣唔出；句子自己講明本盤冇就留。
  * 建議同判斷句照舊唔郁。
  */
 const META = /另核|未齊|待核|閱讀方法|閱讀說明|不是另一條命理判斷|合讀|另列待/;
@@ -53,7 +54,12 @@ const sentences = (t: string) => t.match(/[^。；！？]*[。；！？]|[^。�
 const union = <T,>(xs: T[]) => [...new Set(xs)];
 
 type Seg = { text: string; statements?: MingStatement[]; referenceConditions?: string[] };
-export type HedgeOptions = { editorNotes?: boolean; absent?: { fireBell?: boolean } };
+export type HedgeOptions = { editorNotes?: boolean; absent?: { fireBell?: boolean; stars?: readonly string[] } };
+/** 句子自己講明本盤冇嗰粒星（好寫法），唔當列條件。同 book-lint A3 一樣。 */
+const SAYS_ABSENT = /本盤(?:沒有|未|並無|不)|這張盤(?:未|沒有)|未採用|不套用|不適用/;
+/** v5：冇「你」、只係點名本宮四方加夾宮都冇嘅星（原書另一支嘅條件），同火鈴一樣刪。 */
+const namesAbsent = (s: string, stars: readonly string[] | undefined) =>
+  !!stars?.length && !s.includes('你') && !SAYS_ABSENT.test(s) && stars.some((x) => s.includes(x));
 
 /** 一段：回剩低嘅 statements、搬走嘅句，同有冇刪過句。 */
 function split(seg: Seg, opts: HedgeOptions = {}): { statements: MingStatement[]; moved: string[]; cut: boolean } {
@@ -68,7 +74,7 @@ function split(seg: Seg, opts: HedgeOptions = {}): { statements: MingStatement[]
       if (s !== raw) cut = true;
       // 附屬句跟前一句：前句刪就刪，前句搬就搬
       const follows = dropped && DEPENDENT.test(s);
-      if ((follows && wasCut) || (opts.editorNotes && (isEditorNote(s, l.kind) || (opts.absent?.fireBell && !ADVICE.has(l.kind) && FIRE_BELL.test(s))))) { cut = wasCut = dropped = true; continue; }
+      if ((follows && wasCut) || (opts.editorNotes && (isEditorNote(s, l.kind) || ((opts.absent?.fireBell && FIRE_BELL.test(s)) || namesAbsent(s, opts.absent?.stars)) && !ADVICE.has(l.kind)))) { cut = wasCut = dropped = true; continue; }
       if (follows || isRelocatableHedge(s, l.kind)) { moved.push(s.replace(/；$/, '。')); dropped = true; wasCut = false; continue; }
       out.push(s); dropped = wasCut = false;
     }
