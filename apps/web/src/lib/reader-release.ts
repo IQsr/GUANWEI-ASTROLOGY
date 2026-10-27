@@ -23,6 +23,7 @@ export const HEDGE_RELOCATION_VERSION = 'hedge-relocation-v4';
 /** v2：命宮按六十星系揀判斷句（plain/ming-verdict.json）。 */
 /** v3：細讀規則成立就用帶條件判斷句（准講事件、對方）；疾厄講要留意嘅身體系統（plain/health-verdict.json）。 */
 /** v4：再加 89 條較少成立嘅規則判斷句（plain/verdict-variants.json 第二批）。 */
-export const VERDICT_LEAD_VERSION = 'verdict-lead-v4';
+/** v5：命宮補太陰太陽坐丑未（按宮）、紫微獨坐子午；天機巳亥偏向未定用兩端共通句。 */
+export const VERDICT_LEAD_VERSION = 'verdict-lead-v5';
 /** 2026-10-27 年齡分段：讀書年代建議只畀虛歲十八或以下；十九至二十四用成人建議，這十年／這一年講「讀書和工作上」（content `isSchoolReader`，只入新成書入口）。 */
 export const AGE_BANDS_VERSION = 'age-bands-v1';
