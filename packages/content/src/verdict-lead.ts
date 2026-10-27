@@ -3,6 +3,12 @@ import type { MingStatement } from './ming-writer';
 import { conclusionFor } from './palace-plain';
 import { variantFor } from './plain-variant';
 import { KONGKU } from './daxian';
+import { leanOf, xingxiOf } from './xingxi';
+import { citation } from './citation';
+import { normaliseForMatch } from './lexicon';
+import { scanForbidden } from './lint';
+import { scanPlain } from './plain';
+import mingRaw from './plain/ming-verdict.json';
 
 /*
  * 結論段第一句落判斷（2026-10-27，docs/verdict-lead-2026-10-27.md 3a、3b）
@@ -17,9 +23,38 @@ import { KONGKU } from './daxian';
  */
 export type Verdict = { text: string; id: string; passages: string[] };
 
+/*
+ * 命宮按六十星系（2026-10-27）：plain 嘅單星句套落雙星命宮唔準，部分星系又冇出處。plain/ming-verdict.json 逐個星系寫，
+ * base 唔分兩端；branches 按命宮地支；poles 只喺 leanOf 判到一端（state 'lean'）先用，打和或者冇訊號就唔寫。
+ */
+type Entry = { summary: string; passages: string[]; quote: string };
+type MingEntry = { base?: Entry; branches?: Record<string, Entry>; poles?: Record<string, Entry> };
+const MING = new Map(Object.entries((mingRaw as { systems: Record<string, MingEntry> }).systems).map(([n, e]) => [Number(n), e]));
+{
+  const bad: string[] = [];
+  for (const [n, e] of MING) for (const v of [e.base, ...Object.values(e.branches ?? {}), ...Object.values(e.poles ?? {})].filter((x): x is Entry => !!x)) {
+    if (!v.summary.includes('你')) bad.push(`${n}：判斷句要對住「你」講`);
+    const cites = v.passages.map((id) => citation(id));
+    if (cites.some((c) => !c)) bad.push(`${n}：出處認唔到 ${v.passages.join(',')}`);
+    else if (!normaliseForMatch(cites[0]!.text).includes(normaliseForMatch(v.quote))) bad.push(`${n}：引句唔喺 ${v.passages[0]}「${v.quote}」`);
+    for (const f of [...scanForbidden(v.summary, 'body'), ...scanPlain(v.summary, 'body')]) bad.push(`${n}：${f.message}`);
+  }
+  if (bad.length) throw new Error(`命宮判斷句唔合格：\n${bad.join('\n')}`);
+}
+function mingVerdict(chart: Chart): Verdict | null {
+  const x = xingxiOf(chart);
+  const e = x && MING.get(x.system.n);
+  if (!x || !e) return null;
+  const m = chart.palaces.find((p) => p.name === '命宮')!;
+  const lean = e.poles ? leanOf(chart, x.system) : null;
+  const v = e.base ?? e.branches?.[x.borrowed ? m.borrowsFrom ?? '' : m.branch] ?? (lean?.state === 'lean' ? e.poles?.[lean.pole] : undefined);
+  return v ? { text: v.summary, id: `ming.verdict.${x.system.n}`, passages: v.passages } : null;
+}
+
 export function verdictFor(chart: Chart, palace: string): Verdict | null {
   const p = chart.palaces.find((x) => x.name === palace);
   if (!p) return null;
+  if (palace === '命宮') { const v = mingVerdict(chart); if (v) return v; }
   const own = p.stars.filter((s) => s.kind === 'major');
   const opp = own.length ? undefined : chart.palaces.find((x) => x.branch === p.borrowsFrom);
   const names = (own.length ? own : opp?.stars.filter((s) => s.kind === 'major') ?? []).map((s) => s.name);

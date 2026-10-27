@@ -11,6 +11,7 @@ it('moves unresolved branch and editor-note sentences, keeps concrete advice and
   expect(isRelocatableHedge('你可以把收入和開支分開記下。', 'editorial-advice')).toBe(false);
   expect(isRelocatableHedge('把日常要用的錢分開。', 'editorial-advice')).toBe(false);
   expect(isRelocatableHedge('能言善辯不等於一定爭吵。')).toBe(false);
+  expect(isRelocatableHedge('太陽的光度是一層，實際有沒有成對輔佐與吉化支持又是另一層，不能只按寅申就定本質。')).toBe(true);
 });
 
 it('keeps the sentence in the reference conditions and the citation on the paragraph', () => {
@@ -33,4 +34,10 @@ it('moves a dependent sentence with it and folds an emptied paragraph into the p
 it('leaves untouched paragraphs identical', () => {
   const plain = seg(line('你的父母宮在子，紫微坐守。', ['c1']));
   expect(withRelocatedHedges([plain])[0]).toBe(plain);
+});
+
+it('never moves a verdict sentence', () => {
+  const verdict: MingStatement = { text: '你們兩人宜各有自己的事業，各自獨立最好。', en: '', kind: 'interpretation', source_ids: ['plain.天梁.夫妻'], citations: ['c1'] };
+  const s = seg(verdict);
+  expect(withRelocatedHedges([s])[0]).toBe(s);
 });
