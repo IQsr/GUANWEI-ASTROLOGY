@@ -18,7 +18,7 @@ import { readLocal, writeLocal } from '@/lib/local';
  * ── 同意咗點記 ──
  *
  * 呢部瀏覽器記住版本（`gw-consent`），唔會每次都彈；
- * 成書嗰陣版本跟住本書寫落 DB（0011），server 同 DB 都會再查一次 —— 呢度只係第一層。
+ * 成書嗰陣版本跟住本書寫落 DB（舊 migration 0011，已併入 0001_baseline），server 同 DB 都會再查一次 —— 呢度只係第一層。
  * 私密視窗記唔到 localStorage：照樣可以同意、照樣成書，只係下次再問。
  *
  * ⚠ 唔係 cookie banner：網站只有兩個必要 cookie（docs/privacy.md 第二節），唔使 cookie 同意。
