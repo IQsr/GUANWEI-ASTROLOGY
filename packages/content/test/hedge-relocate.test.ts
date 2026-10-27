@@ -79,3 +79,16 @@ it('v5 drops no-你 branch sentences that name stars absent from the palace grou
   expect(out).toBe('你的子女宮在寅。你身邊有天馬，出外的機會多。本盤沒有天馬，這支不套用。');
   expect(withRelocatedHedges([s], { editorNotes: true, absent: { stars: ['祿存'] } })[0]!.text).toBe(s.text);
 });
+
+it('v6 drops no-你 sentences about 四化 the palace stars do not carry', () => {
+  const hua = { own: ['祿'], natal: ['天機化祿', '太陰化忌'] };
+  const s = seg(line('化科較重策劃與聲譽。化祿可以帶來流通。天同化權偏向穩定。天機化祿未改變不穩定。本盤沒有化權，這支不套用。你有化權時較能主導。', ['c1']));
+  expect(withRelocatedHedges([s], { editorNotes: true, absent: { hua } })[0]!.text)
+    .toBe('化祿可以帶來流通。天機化祿未改變不穩定。本盤沒有化權，這支不套用。你有化權時較能主導。');
+  expect(withRelocatedHedges([seg(line('天機吉化也要保留同時的太陰等四化。'))], { editorNotes: true, absent: { hua: { own: [], natal: [] } } })).toEqual([]);
+});
+
+it('v6 drops the two workflow notes even when they are advice', () => {
+  const s = seg(line('接下來的「性格的骨架」，會列出盤面與原書的配合。', [], 'editorial-advice'), line('你可以先選一件事。', ['c1'], 'editorial-advice'));
+  expect(withRelocatedHedges([s], { editorNotes: true })[0]!.text).toBe('你可以先選一件事。');
+});

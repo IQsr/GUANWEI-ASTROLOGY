@@ -18,6 +18,9 @@ import type { MingStatement } from './ming-writer';
  *   淨列分支：冇「你」，只講原書另有修飾、前提、例外，或者只講唔可以點推。
  *   盤上冇嘅火鈴：本宮三方四正冇火星、鈴星，提到火鈴嘅句唔出（由 `absent` 傳入）。
  *   v5：冇「你」又點名本宮四方加左右夾宮都冇嘅星（`absent.stars`），一樣唔出；句子自己講明本盤冇就留。
+ *   v6（2026-10-27 雙盲評）：星喺度但個化唔喺度都係列分支 —— 冇「你」嘅句講「化權／化科／吉化」，
+ *       本宮星（空宮借對宮）冇呢個化就刪；講「天機化祿」咁指名嘅，本命冇呢個化先刪（`absent.hua`）。
+ *       兩句講寫作工序嘅固定編輯段（借入星曜不等於…／接下來的「性格的骨架」…）連建議類都刪。
  * 建議同判斷句照舊唔郁。
  */
 const META = /另核|未齊|待核|閱讀方法|閱讀說明|不是另一條命理判斷|合讀|另列待/;
@@ -27,7 +30,7 @@ const DEPENDENT = /^(這些|此處|這一項|這幾種|這幾項|這兩種|上�
 const ADVICE = new Set<MingStatement['kind']>(['editorial-advice', 'editorial-example']);
 const VERDICT = /^(plain|pair|(?:ming|health)\.verdict)\./;
 
-const EDITOR = /本章|這章|這裡(?:不|先|只|有延續)|讀者|替你(?:定|決定|作|認定|選)|替人(?:認定|定|判|作|評定)|定類|定性|判決|診斷|個人判斷|判讀角度|編輯(?:對照|例子|觀察|導航)|星系比較|位置資料|未用顆數|未據此|另行確認|各自核對|[須要]核|核清|核齊|尚未(?:判明|逐項)|未(?:完整|逐項)|條件支|有疑義|必須看本宮|這項修飾|不保證|不預告|(?<!規)勸你|一律勸|不推|不作(?:突然|情緒|個人)|不表示你|放到你身上|原文中分作|須看究竟|各有分別|各有側重|自動(?:判定|成格)|[須要]看相鄰|未在這裡|列出不同|不完全相同|改變(?:原書描述的重點|理解)|原書按[^。；，]{0,30}分(?!析|述)|(?:要求|作用|性|描述|對宮|結構)(?:也|亦)?不同[。；]?$/;
+const EDITOR = /本章|這章|這裡(?:不|先|只|有延續|有限制)|讀者|替你(?:定|決定|作|認定|選)|替人(?:認定|定|判|作|評定)|定類|定性|判決|診斷|個人判斷|判讀角度|編輯(?:對照|例子|觀察|導航)|星系比較|位置資料|未用顆數|未據此|另行確認|各自核對|[須要]核|核清|核齊|尚未(?:判明|逐項)|未(?:完整|逐項)|條件支|有疑義|必須看本宮|這項修飾|不保證|不預告|(?<!規)勸你|一律勸|不推|不作(?:突然|情緒|個人)|不表示你|放到你身上|原文中分作|須看究竟|各有分別|各有側重|自動(?:判定|成格)|[須要]看相鄰|未在這裡|列出不同|不完全相同|改變(?:原書描述的重點|理解)|原書按[^。；，]{0,30}分(?!析|述)|(?:要求|作用|性|描述|對宮|結構)(?:也|亦)?不同[。；]?$/;
 const METHOD = /原書|分支|修飾|前提|條件|格局|格名|夾|廟陷|日夜|宮支|四化|吉化|化祿|化忌|化科|化權|煞|吉曜|輔佐|借入|借星|一支|配合|星名/;
 const ONLY_NOT = /不能|不等於|不代表|未必|不以|不把|不必然|不一定/;
 const BRANCH = /分支|修飾|前提|例外/;
@@ -54,12 +57,24 @@ const sentences = (t: string) => t.match(/[^。；！？]*[。；！？]|[^。�
 const union = <T,>(xs: T[]) => [...new Set(xs)];
 
 type Seg = { text: string; statements?: MingStatement[]; referenceConditions?: string[] };
-export type HedgeOptions = { editorNotes?: boolean; absent?: { fireBell?: boolean; stars?: readonly string[] } };
+export type HedgeOptions = { editorNotes?: boolean; absent?: { fireBell?: boolean; stars?: readonly string[]; hua?: { own: readonly string[]; natal: readonly string[] } } };
 /** 句子自己講明本盤冇嗰粒星（好寫法），唔當列條件。同 book-lint A3 一樣。 */
 const SAYS_ABSENT = /本盤(?:沒有|未|並無|不)|這張盤(?:未|沒有)|未採用|不套用|不適用/;
 /** v5：冇「你」、只係點名本宮四方加夾宮都冇嘅星（原書另一支嘅條件），同火鈴一樣刪。 */
 const namesAbsent = (s: string, stars: readonly string[] | undefined) =>
   !!stars?.length && !s.includes('你') && !SAYS_ABSENT.test(s) && stars.some((x) => s.includes(x));
+const HUA = /(紫微|天機|太陽|武曲|天同|廉貞|天府|太陰|貪狼|巨門|天相|天梁|七殺|破軍|文昌|文曲)?(?:化([祿權科忌])|吉化)/g;
+const GOOD = ['祿', '權', '科'];
+/** v6：冇「你」嘅句講到本宮冇嘅化（own＝本宮星帶嘅化；natal＝成張盤「星化X」）。 */
+function namesAbsentHua(s: string, hua: { own: readonly string[]; natal: readonly string[] } | undefined): boolean {
+  if (!hua || s.includes('你') || s.includes('本盤') || SAYS_ABSENT.test(s)) return false;
+  return [...s.matchAll(HUA)].some(([, star, h]) => {
+    const kinds = h ? [h] : GOOD;
+    return star ? !kinds.some((k) => hua.natal.includes(`${star}化${k}`)) : !kinds.some((k) => hua.own.includes(k));
+  });
+}
+/** v6：講寫作工序嘅固定段，建議類都唔留。 */
+const WORKFLOW = /借入星曜不等於把對宮|這章保留原書主題|接下來的「性格的骨架」/;
 
 /** 一段：回剩低嘅 statements、搬走嘅句，同有冇刪過句。 */
 function split(seg: Seg, opts: HedgeOptions = {}): { statements: MingStatement[]; moved: string[]; cut: boolean } {
@@ -74,7 +89,7 @@ function split(seg: Seg, opts: HedgeOptions = {}): { statements: MingStatement[]
       if (s !== raw) cut = true;
       // 附屬句跟前一句：前句刪就刪，前句搬就搬
       const follows = dropped && DEPENDENT.test(s);
-      if ((follows && wasCut) || (opts.editorNotes && (isEditorNote(s, l.kind) || ((opts.absent?.fireBell && FIRE_BELL.test(s)) || namesAbsent(s, opts.absent?.stars)) && !ADVICE.has(l.kind)))) { cut = wasCut = dropped = true; continue; }
+      if ((follows && wasCut) || (opts.editorNotes && (WORKFLOW.test(s) || isEditorNote(s, l.kind) || ((opts.absent?.fireBell && FIRE_BELL.test(s)) || namesAbsent(s, opts.absent?.stars) || namesAbsentHua(s, opts.absent?.hua)) && !ADVICE.has(l.kind)))) { cut = wasCut = dropped = true; continue; }
       if (follows || isRelocatableHedge(s, l.kind)) { moved.push(s.replace(/；$/, '。')); dropped = true; wasCut = false; continue; }
       out.push(s); dropped = wasCut = false;
     }
@@ -123,10 +138,16 @@ export function withRelocatedHedges<T extends Seg>(segments: T[], opts: HedgeOpt
     let k = -1;
     for (let j = f.at - 1; j >= 0 && k < 0; j--) if (cited(j)) k = j;
     for (let j = f.at + 1; j < rows.length && k < 0; j++) if (cited(j)) k = j;
+    // v6：冇有出處嘅段可以併，就併去最近一段仲有字嘅（例如骨架嘅盤面依據），唔再將刪咗嘅原文搬返出嚟
+    const alive = (k: number) => !!rows[k]?.statements?.length;
+    if (k < 0 && opts.editorNotes) {
+      for (let j = f.at - 1; j >= 0 && k < 0; j--) if (alive(j)) k = j;
+      for (let j = f.at + 1; j < rows.length && k < 0; j++) if (alive(j)) k = j;
+    }
     if (k < 0) { if (f.citations.length) rows[f.at] = f.seg; continue; } // 冇段可以併：有出處就照舊留低，唔好丟咗出處
     const target = rows[k]!;
     const statements = target.statements!;
-    const index = statements.findIndex((l) => l.citations.length);
+    const index = Math.max(0, statements.findIndex((l) => l.citations.length));
     rows[k] = { ...target, statements: statements.map((l, j) => j === index ? { ...l, citations: union([...l.citations, ...f.citations]) } : l),
       referenceConditions: union([...(target.referenceConditions ?? []), ...f.conditions]) };
   }

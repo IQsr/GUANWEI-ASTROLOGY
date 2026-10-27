@@ -67,3 +67,11 @@ it('兩份既有逐項審核同時綁定規則參照格式，沒有改動判斷�
   expect(review.reference_format_review.scope).toContain('判斷前提、選段次序及原文資料不變');
  }
 });
+
+it('strips internal extraction notes from reader-facing section labels', async () => {
+  const { readerReferenceLanguage } = await import('../src/reader-reference-language');
+  expect(readerReferenceLanguage('下篇・宮垣論・官祿宮・巨門〔原提取標題為臣門，待核字形〕')).toBe('下篇・宮垣論・官祿宮・巨門');
+  expect(readerReferenceLanguage('篇首／五官〔傳統疾病論述，僅作文本導航〕')).toBe('篇首／五官');
+  expect(readerReferenceLanguage('紫微〔原提取序號為l，按正文核位〕')).toBe('紫微');
+  expect(readerReferenceLanguage('七殺〔編輯導航：正文起句，原書無獨立標題〕')).toBe('七殺〔按段落起句定位；原書無獨立標題〕');
+});

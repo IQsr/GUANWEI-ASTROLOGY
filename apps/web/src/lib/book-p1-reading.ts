@@ -60,11 +60,12 @@ export function withBookP1Chapters(book:Chapter[],decisions:readonly RuleDecisio
    const generic=sourced.at(-1)!;
    const stable=old.find(s=>s.statements?.some(l=>l.source_ids.includes('career-ji-quan')));
    const stableDecision=allDecisions.find(v=>v.ruleId==='career-ji-quan'&&v.chapters.includes('官祿')&&v.status==='supported');
-   if(!stable||stable===generic||!stableDecision)throw Error('Missing selected native career-ji-quan decision');
-   const combined=paragraph(d,copy[TONG_JI].career,[stable,generic]);
+   if(!stable||!stableDecision)throw Error('Missing selected native career-ji-quan decision');
+   // hedge-relocation-v6 可能已刪走通用細讀（盤上冇嘅化），咁就只合天機化權嗰段
+   const combined=paragraph(d,copy[TONG_JI].career,stable===generic?[stable]:[stable,generic]);
    combined.analysisLinks!.decisionIds=[d.id,stableDecision.id];
    const guidance=advice(d,copy[TONG_JI].careerAdvice);guidance.analysisLinks!.decisionIds=[d.id,stableDecision.id];
-   return update(ch,old.flatMap(s=>s===generic?[]:s===stable?[combined]:isAdvice(s)?[guidance]:[s]));
+   return update(ch,old.flatMap(s=>s===stable?[combined]:s===generic?[]:isAdvice(s)?[guidance]:[s]));
   }
   return ch;
  });
