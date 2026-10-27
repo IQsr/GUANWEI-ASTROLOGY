@@ -33,6 +33,8 @@ import {
   withPalaceAdvice,
   palaceNarrative,
   readerReferenceLanguage,
+  synthWealthChapter,
+  synthYearChapter,
   LEXICON,
   type Chapter,
 } from '@guanwei/content';
@@ -219,7 +221,7 @@ export function chaptersOf(
  */
 export function bookChapters(
   chart: ZChart,
-  opts: { seed: string; year: number; solar: { y: number; m: number; d: number }; place: string; crossPalaceReading?: boolean; separateRuleReferences?: boolean; birthSex?: 'male'|'female'; birthInput?:BirthInput; analysisRecorder?:BookAnalysis; crossAnalysis?:CrossAnalysis; conditionalBranches?: boolean; focusedAdvice?: boolean; periodChecks?: boolean; relocateHedges?: boolean; verdictLead?: boolean; ageBands?: boolean },
+  opts: { seed: string; year: number; solar: { y: number; m: number; d: number }; place: string; crossPalaceReading?: boolean; separateRuleReferences?: boolean; birthSex?: 'male'|'female'; birthInput?:BirthInput; analysisRecorder?:BookAnalysis; crossAnalysis?:CrossAnalysis; conditionalBranches?: boolean; focusedAdvice?: boolean; periodChecks?: boolean; relocateHedges?: boolean; verdictLead?: boolean; ageBands?: boolean; synthesis?: boolean },
 ): { slug: string; title?: string; text: string; slots: string[]; reading?: ChapterReading }[] | null {
   const palaces = chaptersOf(chart, { seed: opts.seed, year: opts.year });
   if (!palaces) return null;
@@ -359,7 +361,24 @@ export function createBookChapters(chart:ZChart,opts:Omit<Parameters<typeof book
  collectCrossDecisions(ledger,cross);
  const p1=collectBookP1Decisions(ledger);
  const book=bookChapters(chart,{...opts,birthSex,crossPalaceReading:true,separateRuleReferences:true,analysisRecorder:ledger,crossAnalysis:cross,conditionalBranches:true,focusedAdvice:true,periodChecks:true,relocateHedges:true,verdictLead:true,ageBands:true});
- return book?attachBookAnalysis(chart,withBookP1Epilogue(withReadingEpilogue(chart,withBookP1Chapters(alignReviewedChapters(chart,book),p1,ledger.decisions)),p1,ledger.decisions),ledger):null;
+ const done=book?attachBookAnalysis(chart,withBookP1Epilogue(withReadingEpilogue(chart,withBookP1Chapters(alignReviewedChapters(chart,book),p1,ledger.decisions)),p1,ledger.decisions),ledger):null;
+ return done&&opts.synthesis?withSynthesis(chart,opts.year,done):done;
+}
+
+/**
+ * 綜合判讀層試點（2026-10-27，docs/synthesis-layer-2026-10-27.md）：財帛章換成「錢」、這一年換成「今年」。
+ * 只喺 `synthesis` 開咗先做，預設關；試點卡未覆蓋嘅盤（冇卡命中）照用舊章。
+ * 換咗嘅章唔再帶舊章嘅 analysis（段落已經唔同）；英日照舊讀成書當刻嘅舊版快照。
+ */
+function withSynthesis<C extends { slug: string; title?: string; text: string; slots: string[]; reading?: ChapterReading }>(chart: ZChart, year: number, book: C[]): C[] {
+  return book.map((ch) => {
+    const segments = ch.slug === '財帛' ? synthWealthChapter(chart) : ch.slug === '這一年' ? synthYearChapter(chart, year) : null;
+    if (!segments) return ch;
+    const reading: ChapterReading = { format: 'ming-expanded-v1', writer: 'synthesis-v1', segments,
+      international: ch.reading?.international ?? { text: ch.text, slots: ch.slots },
+      internationalSnapshot: { text: ch.text, slots: ch.slots, ...(ch.reading ? { reading: ch.reading } : {}) } };
+    return { ...ch, title: ch.slug === '財帛' ? '錢' : '今年', text: segments.map((s) => s.text).join('\n\n'), slots: segments.map((s) => s.slot), reading };
+  });
 }
 
 /**
