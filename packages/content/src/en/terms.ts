@@ -84,6 +84,7 @@ export const AREA_ON_EN: Record<string, string> = {
   說到將來的子女: 'When it comes to future children',
   如果你有伴侶: 'If you have a partner',
   讀書和打工上: 'In your studies and part-time work',
+  讀書和工作上: 'In your studies and work',
   性格上: 'In your character',
   朋輩之間: 'Among your peers',
   感情上: 'In love',

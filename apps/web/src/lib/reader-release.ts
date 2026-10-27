@@ -20,3 +20,5 @@ export const HEDGE_RELOCATION_VERSION = 'hedge-relocation-v2';
 /** 2026-10-27 命宮同十一宮結論段：盤面事實後加一句有出處嘅「你…」判斷（content `withVerdictLead`，只入新成書入口）。 */
 /** v2：命宮按六十星系揀判斷句（plain/ming-verdict.json）。 */
 export const VERDICT_LEAD_VERSION = 'verdict-lead-v2';
+/** 2026-10-27 年齡分段：讀書年代建議只畀虛歲十八或以下；十九至二十四用成人建議，這十年／這一年講「讀書和工作上」（content `isSchoolReader`，只入新成書入口）。 */
+export const AGE_BANDS_VERSION = 'age-bands-v1';

@@ -1,6 +1,6 @@
 import {referenceEditorialWording} from './cross-reference-language';
 import {analyzeCrossPalaces} from '@guanwei/content/engine-p1-cross';
-import {isYouthReader,type MingStatement,readerReferenceLanguage} from '@guanwei/content';
+import {isSchoolReader,isYouthReader,type MingStatement,readerReferenceLanguage} from '@guanwei/content';
 import type {Chart} from '@guanwei/ziwei';
 import type {ChapterReading} from './chapter-reading';
 import data from './cross-palace-reading.json';
@@ -14,7 +14,7 @@ const sourced=(s:Segment)=>s.statements?.some((l)=>l.citations.length)??false;
 const readerNote=(s:string)=>copy.noteReplacements.reduce((text,[before,after])=>text.replaceAll(before!,after!),readerReferenceLanguage(referenceEditorialWording(s)));
 
 /** Selected while creating new books; all source/condition gates remain required. Saved chapters are never recalculated. */
-export function withCrossPalaceReading(chart:Chart,palace:string,year:number,input:Segment[],analysis:CrossAnalysis):Segment[]{
+export function withCrossPalaceReading(chart:Chart,palace:string,year:number,input:Segment[],analysis:CrossAnalysis,opts:{ageBands?:boolean}={}):Segment[]{
   if(analysis.integrity.status!=='matched')return input;
   const entry=data.entries.find((e)=>e.family===analysis.family&&e.palace===palace);
   if(!entry||!entry.requires.every((id)=>analysis.results.some((r)=>r.id===id&&r.status==='supported'))
@@ -49,7 +49,8 @@ export function withCrossPalaceReading(chart:Chart,palace:string,year:number,inp
   const kept=sourceRows.filter((_,i)=>!inherited.includes(i)).map((row)=>({...row,statements:row.statements?.map((line)=>({...line,citations:line.citations.map((id)=>aliases[id]??id)}))}));
   const tail=input.filter((s)=>!sourced(s)).map((s)=>{
     if(!s.statements?.some((l)=>l.source_ids.some((id)=>id.startsWith('editorial.advice.'))))return s;
-    const text=('youthAdvice' in entry&&isYouthReader(chart,year)?entry.youthAdvice:entry.advice)??entry.advice;
+    const young=opts.ageBands?isSchoolReader(chart,year):isYouthReader(chart,year);
+    const text=('youthAdvice' in entry&&young?entry.youthAdvice:entry.advice)??entry.advice;
     return {...s,text,statements:[{text,en:'',kind:'editorial-advice' as const,source_ids:[`editorial.advice.cross.${entry.id}`],citations:[]}]};
   });
   return [...rows,...kept,...tail];
