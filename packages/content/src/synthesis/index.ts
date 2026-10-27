@@ -261,9 +261,27 @@ function segmentOf(j: Judgement, slot: string, heading?: string): SynthesisSegme
     statements, referenceConditions: [`判斷強度：${j.strength}`, `原文：「${j.card.quote}」`] };
 }
 
-/** 排序：強度高先；同強度專條先；再按卡嘅次序（sort 係穩定嘅）。 */
+/** 卡嘅條件有幾多個原子：越多越具體（例如「天同與火星同度」比「天同守財帛」具體）。 */
+function atoms(c: SynthesisCard): number {
+  const count = (x: unknown): number => !x || typeof x !== 'object' ? 0
+    : Array.isArray(x) ? x.reduce((n: number, y) => n + count(y), 0)
+    : 'all' in x || 'any' in x || 'not' in x ? count(Object.values(x)[0])
+    // 「三方見煞／見吉」幾乎每張盤都成立，唔算具體
+    : 'count' in x ? 0 : 1;
+  return count(c.when) + count(c.requires) + count(c.none) + (c.alone ? 1 : 0) + (c.bright ? 1 : 0) + (c.special ? 1 : 0);
+}
+/** 排序：強度高先；同強度專條先；再條件多（具體）先；再按卡嘅次序（sort 係穩定嘅）。 */
 const byStrength = (a: Judgement, b: Judgement) => RANK[a.strength] - RANK[b.strength]
-  || Number(b.card.specificity === 'system') - Number(a.card.specificity === 'system');
+  || Number(b.card.specificity === 'system') - Number(a.card.specificity === 'system')
+  || atoms(b.card) - atoms(a.card);
+
+/** 本命財帛命中嘅卡（裁決前），俾覆蓋審核用。 */
+export function synthWealthHits(chart: Chart): string[] {
+  const cai = chart.palaces.find((p) => p.name === '財帛');
+  if (!cai) return [];
+  return SYNTHESIS_CARDS.filter((c) => c.chapter === '錢' && !(c.seat === 'borrowed' && majors(cai).length) && !(c.seat === 'seated' && !majors(cai).length))
+    .flatMap((c) => matchCard(c, 'natal', { chart }) ? [c.id] : []);
+}
 
 /** 錢章：本命財帛嘅判斷，最多四個；冇卡命中回 null（試點：沿用舊章）。 */
 export function synthWealthChapter(chart: Chart): SynthesisSegment[] | null {
@@ -315,7 +333,7 @@ export function synthesisLint(segs: SynthesisSegment[]): string[] {
   const out: string[] = [];
   for (const s of segs) for (const l of s.statements) {
     if (/剛開始工作|那次|那一次|你肯|你已經/.test(l.text)) out.push(`G6 假設讀者經歷：${l.text}`);
-    if (/一生最|最順|最容易|最差|最好的/.test(l.text) && l.kind !== 'evidence') out.push(`G7 最高級：${l.text}`);
+    if (/一生最|最順|最容易|最差|最好的|最合|最適合/.test(l.text) && l.kind !== 'evidence') out.push(`G7 最高級：${l.text}`);
     if (/[一二三四五六七八九十]成|一半|百分之|\d+%/.test(l.text)) out.push(`G10 自創比例：${l.text}`);
     if (l.kind === 'editorial-advice' && !l.source_ids[0]?.endsWith('.advice')) out.push(`G9 建議冇掛卡：${l.text}`);
     if (/\{\w+\}/.test(l.text)) out.push(`未填變數：${l.text}`);
