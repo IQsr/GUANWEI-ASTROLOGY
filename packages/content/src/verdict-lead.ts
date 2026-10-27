@@ -26,14 +26,15 @@ export type Verdict = { text: string; id: string; passages: string[] };
 
 /*
  * 命宮按六十星系（2026-10-27）：plain 嘅單星句套落雙星命宮唔準，部分星系又冇出處。plain/ming-verdict.json 逐個星系寫，
- * base 唔分兩端；branches 按命宮地支；poles 只喺 leanOf 判到一端（state 'lean'）先用，打和或者冇訊號就唔寫。
+ * base 唔分兩端；branches 按命宮地支；poles 只喺 leanOf 判到一端（state 'lean'）先用。
+ * 打和或者冇訊號：有 fallback（原書兩端共通嘅講法，2026-10-27）就用，冇就唔寫。
  */
 type Entry = { summary: string; passages: string[]; quote: string };
-type MingEntry = { base?: Entry; branches?: Record<string, Entry>; poles?: Record<string, Entry> };
+type MingEntry = { base?: Entry; branches?: Record<string, Entry>; poles?: Record<string, Entry>; fallback?: Entry };
 const MING = new Map(Object.entries((mingRaw as { systems: Record<string, MingEntry> }).systems).map(([n, e]) => [Number(n), e]));
 {
   const bad: string[] = [];
-  for (const [n, e] of MING) for (const v of [e.base, ...Object.values(e.branches ?? {}), ...Object.values(e.poles ?? {})].filter((x): x is Entry => !!x)) {
+  for (const [n, e] of MING) for (const v of [e.base, ...Object.values(e.branches ?? {}), ...Object.values(e.poles ?? {}), e.fallback].filter((x): x is Entry => !!x)) {
     if (!v.summary.includes('你')) bad.push(`${n}：判斷句要對住「你」講`);
     const cites = v.passages.map((id) => citation(id));
     if (cites.some((c) => !c)) bad.push(`${n}：出處認唔到 ${v.passages.join(',')}`);
@@ -48,7 +49,7 @@ function mingVerdict(chart: Chart): Verdict | null {
   if (!x || !e) return null;
   const m = chart.palaces.find((p) => p.name === '命宮')!;
   const lean = e.poles ? leanOf(chart, x.system) : null;
-  const v = e.base ?? e.branches?.[x.borrowed ? m.borrowsFrom ?? '' : m.branch] ?? (lean?.state === 'lean' ? e.poles?.[lean.pole] : undefined);
+  const v = e.base ?? e.branches?.[x.borrowed ? m.borrowsFrom ?? '' : m.branch] ?? (lean?.state === 'lean' ? e.poles?.[lean.pole] : e.fallback);
   return v ? { text: v.summary, id: `ming.verdict.${x.system.n}`, passages: v.passages } : null;
 }
 
