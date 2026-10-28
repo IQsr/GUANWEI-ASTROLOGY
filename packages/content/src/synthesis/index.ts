@@ -126,8 +126,9 @@ const OPPOSITE = (b: string) => BRANCHES[(BRANCHES.indexOf(b) + 6) % 12]!;
 const WEAK = ['子', '午', '卯', '酉'];
 /** 宮名 → 讀者話題（今年章講「同X有關嘅錢」用）。 */
 const TOPIC: Record<string, string> = {
-  命宮: '你自己', 兄弟: '兄弟姊妹、平輩朋友、合作夥伴', 夫妻: '伴侶', 子女: '子女和你提拔的後輩、助手', 財帛: '收入', 疾厄: '身體',
-  遷移: '外出、在外', 僕役: '一般往來的晚輩、下屬', 官祿: '工作', 田宅: '家裏、物業', 福德: '心情、享受', 父母: '長輩、上司',
+  // 2026-10-28：要放得入「在X方面」「和X有關的錢」兩種句式；唔好有「和」、唔好用「你自己」
+  命宮: '個人發展', 兄弟: '兄弟姊妹、平輩、合作夥伴', 夫妻: '伴侶、感情', 子女: '子女、親近的後輩', 財帛: '收入', 疾厄: '身體',
+  遷移: '外出', 僕役: '朋友、一般往來的下屬', 官祿: '工作', 田宅: '家宅、物業', 福德: '心情、享受', 父母: '長輩、上司',
 };
 
 export type Period = { layer: 'decade' | 'annual'; label: string };
@@ -265,7 +266,7 @@ const SPECIAL: Record<NonNullable<SynthesisCard['special']>, (ctx: Ctx) => Recor
     if (!lu?.branch || !a?.sihua.decadal) return null;
     const near = (b: string | null | undefined) => !!b && (b === lu.branch || b === OPPOSITE(lu.branch!));
     const d = a.sihua.decadal.find((x) => x.hua === '祿' && near(x.branch));
-    const what = d ? `這十年的${d.star}化祿` : near(a.liuyao.decadal?.祿存) ? '這十年的流祿存' : null;
+    const what = d ? `這十年的${d.star}化祿` : near(a.liuyao.decadal?.祿存) ? '這十年大限的祿存' : null;
     const at = d ? d.branch : a.liuyao.decadal?.祿存;
     return what ? { star: lu.star, what, rel: at === lu.branch ? '同宮' : '相對' } : null;
   },
