@@ -1,0 +1,152 @@
+[
+ {
+  "id": "syn.wealth.tiantong.maoyou",
+  "chapter": "錢",
+  "group": "天同財帛.來源",
+  "specificity": "system",
+  "polarity": "中",
+  "weight": "斷",
+  "seat": "seated",
+  "layer": [
+   "natal"
+  ],
+  "when": {
+   "star": "天同",
+   "at": [
+    "卯",
+    "酉"
+   ]
+  },
+  "alone": {
+   "star": "天同",
+   "in": {
+    "name": "財帛"
+   }
+  },
+  "because": "你的財帛宮天同獨坐{branch}宮，對宮是太陰。",
+  "claim": "你的錢要靠自己一手一腳掙回來，不靠家底。",
+  "source": "wtz.deep.p446.b011",
+  "quote": "卯酉宫天同独坐，与太阴对拱，决主白手兴家。"
+ },
+ {
+  "id": "syn.wealth.tiantong.huoling",
+  "chapter": "錢",
+  "group": "天同財帛.祖業",
+  "specificity": "general",
+  "polarity": "凶",
+  "weight": "斷",
+  "seat": "seated",
+  "layer": [
+   "natal"
+  ],
+  "when": {
+   "all": [
+    {
+     "star": "天同",
+     "in": {
+      "name": "財帛"
+     }
+    },
+    {
+     "any": [
+      {
+       "together": [
+        "天同",
+        "火星"
+       ]
+      },
+      {
+       "together": [
+        "天同",
+        "鈴星"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  "because": "你的財帛宮天同與{fireBell}同度。",
+  "claim": "家裏就算留下甚麼給你，多半守不住；最後還是靠你自己重新建立。",
+  "advice": {
+   "text": "安排長遠的錢時，以自己能持續的收入為主，別把計劃押在家裏留下或答應給你的資產上。",
+   "why": "火鈴同度，原書說祖業守不住"
+  },
+  "source": "wtz.deep.p445.b004",
+  "quote": "火铃同度者，有祖业亦必散尽。然后始主自身创兴。"
+ },
+ {
+  "id": "syn.wealth.tianliang.sihai-luoxian",
+  "chapter": "錢",
+  "group": "天梁財帛.心態",
+  "specificity": "system",
+  "polarity": "中",
+  "weight": "傾",
+  "seat": "seated",
+  "layer": [
+   "natal"
+  ],
+  "when": {
+   "star": "天梁",
+   "at": [
+    "巳",
+    "亥"
+   ]
+  },
+  "requires": {
+   "star": "天梁",
+   "in": {
+    "name": "財帛"
+   }
+  },
+  "bright": {
+   "star": "天梁",
+   "levels": [
+    "陷"
+   ]
+  },
+  "because": "你的財帛宮天梁坐{branch}宮，屬落陷。",
+  "claim": "你的財源不算廣；部分原因在你自己：你看重精神上的滿足，多於看重錢。",
+  "source": "wtz.deep.p460.b002",
+  "quote": "巳亥天梁落陷，财源不广，亦较难积聚，此亦由于本身对财帛并不重视，宁愿重视精神享受有关。"
+ },
+ {
+  "id": "syn.wealth.tianliang.chouwei",
+  "chapter": "錢",
+  "group": "天梁財帛.積聚",
+  "specificity": "system",
+  "polarity": "凶",
+  "weight": "斷",
+  "seat": "seated",
+  "layer": [
+   "natal"
+  ],
+  "when": {
+   "star": "天梁",
+   "at": [
+    "丑",
+    "未"
+   ]
+  },
+  "alone": {
+   "star": "天梁",
+   "in": {
+    "name": "財帛"
+   }
+  },
+  "none": {
+   "jia": "天梁",
+   "sides": [
+    [
+     "左輔"
+    ],
+    [
+     "右弼"
+    ]
+   ]
+  },
+  "because": "你的財帛宮天梁獨坐{branch}宮，對宮是天機。",
+  "claim": "你的財帛起伏較大，不容易一直積存。",
+  "source": "wtz.deep.p459.b011",
+  "quote": "丑未宫天梁独坐，与天机相对，财帛动荡。"
+ }
+]

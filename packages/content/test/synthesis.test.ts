@@ -105,6 +105,15 @@ describe('今年', () => {
     expect(cai.statements.map((l) => l.source_ids[0])).toContain('syn.cai-year.tanlang.huoling-lu');
     expect(cai.referenceConditions[0]).toBe('判斷強度：提示');
   });
+  it('今年的工作（深造事業章卡，流年官祿重新配對）：本命天機化忌入流年官祿；一生次數類唔轉一年', () => {
+    const c5 = chartOf({ y: 1998, m: 5, d: 21 }, { h: 0, min: 24 }, 'female');
+    const w = synthYearChapter(c5, 2026, { general: true })!.find((s) => s.slot === '今年的工作')!;
+    expect(w.statements[0]!.text).toMatch(/^今年你的事業宮在戌宮，坐天機、天梁。你本命事業宮坐天相/);
+    expect(w.statements.map((l) => l.source_ids[0])).toContain('syn.guan-year.tianji.huaji-change');
+    const c2 = chartOf({ y: 1970, m: 9, d: 1 }, { h: 0, min: 32 }, 'female');
+    const w2 = synthYearChapter(c2, 2026, { general: true })!.find((s) => s.slot === '今年的工作');
+    expect(w2?.text ?? '').not.toContain('挫折');
+  });
   it('23 歲空宮借機巨：機巨卡只限實坐（G1），冇星系運限卡就沿用舊章', () => {
     expect(synthYearChapter(young, 2026)).toBeNull();
   });

@@ -18275,6 +18275,6814 @@
    "layer": [
     "annual"
    ]
+  },
+  {
+   "id": "syn.career.ziwei.independent",
+   "chapter": "事業",
+   "group": "紫微事業.職位",
+   "specificity": "general",
+   "polarity": "中",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "star": "紫微",
+    "in": {
+     "name": "官祿"
+    }
+   },
+   "because": "你的事業宮有紫微坐守。",
+   "claim": "你適合獨立工作，或負責一個部門，工作上能獨當一面。",
+   "source": "wtz.deep.p519.b004",
+   "quote": "紫微在事业宫，主独当一面。但却并不意味其人可以宁行经营，亦不主其人可为领袖。一般情况下仅主独立工作，或负责部门工作。"
+  },
+  {
+   "id": "syn.career.ziwei.huake",
+   "chapter": "事業",
+   "group": "紫微事業.化曜",
+   "specificity": "general",
+   "polarity": "中",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "star": "紫微",
+    "hua": "科"
+   },
+   "requires": {
+    "star": "紫微",
+    "in": {
+     "name": "官祿"
+    }
+   },
+   "because": "你的事業宮紫微化科。",
+   "claim": "你的事業名聲重於實際收益，適合自由職業或專業工作。",
+   "source": "wtz.deep.p519.b007",
+   "quote": "紫微化科在事业宫，主名大于利，故以自由职业，或专业人士为宜。"
+  },
+  {
+   "id": "syn.career.ziwei.huake-lucun",
+   "chapter": "事業",
+   "group": "紫微事業.化曜",
+   "specificity": "general",
+   "polarity": "吉",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "紫微",
+      "hua": "科"
+     },
+     {
+      "meets": "紫微",
+      "stars": [
+       "祿存"
+      ],
+      "reach": "sanfang",
+      "op": "gte",
+      "n": 1
+     }
+    ]
+   },
+   "requires": {
+    "star": "紫微",
+    "in": {
+     "name": "官祿"
+    }
+   },
+   "because": "你的事業宮紫微化科，並與祿存同度或會照。",
+   "claim": "你可兼得名聲與收益，適合從政或主持大企業，尤其適合上市公司及公眾服務行業。",
+   "source": "wtz.deep.p519.b010",
+   "quote": "紫微化科而禄存同度或拱照者，名利双收，以从政或主持大企业机构为宜，尤利上市、公众事业(如电话、快餐、航空、旅游业之类，现代社会类此行业甚多)。"
+  },
+  {
+   "id": "syn.career.ziwei.ziwu-huake-kongjie",
+   "chapter": "事業",
+   "group": "紫微事業.競爭",
+   "specificity": "system",
+   "polarity": "凶",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "紫微",
+      "at": [
+       "子",
+       "午"
+      ]
+     },
+     {
+      "star": "紫微",
+      "hua": "科"
+     },
+     {
+      "meets": "紫微",
+      "stars": [
+       "地空",
+       "地劫"
+      ],
+      "reach": "sanfang",
+      "op": "gte",
+      "n": 2
+     }
+    ]
+   },
+   "requires": {
+    "star": "紫微",
+    "in": {
+     "name": "官祿"
+    }
+   },
+   "because": "你的事業宮紫微坐{branch}宮化科，並會地空、地劫。",
+   "claim": "你在事業上容易樹敵，較適合自由職業，不宜從政。",
+   "source": "wtz.deep.p520.b003",
+   "quote": "子午紫微化科，又见空劫，一生事业中树敌，故不宜从政，以自由职业为宜。"
+  },
+  {
+   "id": "syn.career.ziwei.zipo-pioneering",
+   "chapter": "事業",
+   "group": "紫微事業.創業",
+   "specificity": "system",
+   "polarity": "中",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "紫微",
+      "at": [
+       "丑",
+       "未"
+      ]
+     },
+     {
+      "together": [
+       "紫微",
+       "破軍"
+      ]
+     }
+    ]
+   },
+   "requires": {
+    "star": "紫微",
+    "in": {
+     "name": "官祿"
+    }
+   },
+   "because": "你的事業宮紫微與破軍同坐{branch}宮。",
+   "claim": "你適合發揮開創力，開拓新局面多於守成，也較容易感到勞累。",
+   "source": "wtz.deep.p520.b006",
+   "quote": "丑未宫[紫微破军]在事业宫，以能发挥开创力者为佳。故无论从商从政，皆主开创而不主守成，因而便有劳累之感。"
+  },
+  {
+   "id": "syn.career.ziwei.zipo-pojun-huaquan",
+   "chapter": "事業",
+   "group": "紫微事業.挫折",
+   "specificity": "system",
+   "polarity": "凶",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "together": [
+       "紫微",
+       "破軍"
+      ]
+     },
+     {
+      "star": "破軍",
+      "hua": "權"
+     }
+    ]
+   },
+   "requires": {
+    "star": "紫微",
+    "in": {
+     "name": "官祿"
+    }
+   },
+   "because": "你的事業宮紫微與破軍同度，破軍化權。",
+   "claim": "你的事業波折較多，即使開創出局面，也難以坐享成果。",
+   "source": "wtz.deep.p520.b007",
+   "quote": "破军化权，则事业多波折，且于开创局面之后不能坐享其成。"
+  },
+  {
+   "id": "syn.career.ziwei.zifu-ziwei-huake",
+   "chapter": "事業",
+   "group": "紫微事業.創業",
+   "specificity": "system",
+   "polarity": "中",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "together": [
+       "紫微",
+       "天府"
+      ]
+     },
+     {
+      "star": "紫微",
+      "hua": "科"
+     }
+    ]
+   },
+   "requires": {
+    "star": "紫微",
+    "in": {
+     "name": "官祿"
+    }
+   },
+   "because": "你的事業宮紫微與天府同度，紫微化科。",
+   "claim": "你傾向白手創立事業。",
+   "source": "wtz.deep.p520.b013",
+   "quote": "[紫府]而紫微化科，主白手与创事业；"
+  },
+  {
+   "id": "syn.career.ziwei.zifu-huaquan",
+   "chapter": "事業",
+   "group": "紫微事業.經營",
+   "specificity": "system",
+   "polarity": "凶",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "together": [
+       "紫微",
+       "天府"
+      ]
+     },
+     {
+      "star": "紫微",
+      "hua": "權"
+     }
+    ]
+   },
+   "requires": {
+    "star": "紫微",
+    "in": {
+     "name": "官祿"
+    }
+   },
+   "because": "你的事業宮紫微與天府同度，紫微化權。",
+   "claim": "你經營事業時容易理想過高，財力跟不上計劃。",
+   "source": "wtz.deep.p520.b014",
+   "quote": "若紫微化权，则往往理想过高，财力不足以支持其营运。从政从商皆然。"
+  },
+  {
+   "id": "syn.career.ziwei.zitan-tanlang-huaji",
+   "chapter": "事業",
+   "group": "紫微事業.合作",
+   "specificity": "system",
+   "polarity": "凶",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "together": [
+       "紫微",
+       "貪狼"
+      ]
+     },
+     {
+      "star": "貪狼",
+      "hua": "忌"
+     }
+    ]
+   },
+   "requires": {
+    "star": "紫微",
+    "in": {
+     "name": "官祿"
+    }
+   },
+   "because": "你的事業宮紫微與貪狼同度，貪狼化忌。",
+   "claim": "你與人合作經營事業，往往難以長久。",
+   "source": "wtz.deep.p521.b002",
+   "quote": "紫贪而贪狼化忌，常主与人合作不能长久。"
+  },
+  {
+   "id": "syn.career.ziwei.zixiang-deputy",
+   "chapter": "事業",
+   "group": "紫微事業.職位",
+   "specificity": "system",
+   "polarity": "中",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "together": [
+     "紫微",
+     "天相"
+    ]
+   },
+   "requires": {
+    "star": "紫微",
+    "in": {
+     "name": "官祿"
+    }
+   },
+   "because": "你的事業宮紫微與天相同度。",
+   "claim": "你常擔任副手，實際工作能獨當一面，但名義職位未必反映實際責任。",
+   "source": "wtz.deep.p521.b010",
+   "quote": "[紫相]守事业宫，常居副贰，虽实际工作独当～面，而名义则不如实际。"
+  },
+  {
+   "id": "syn.career.ziwei.zixiang-cooperation",
+   "chapter": "事業",
+   "group": "紫微事業.合作",
+   "specificity": "system",
+   "polarity": "中",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "together": [
+     "紫微",
+     "天相"
+    ]
+   },
+   "requires": {
+    "star": "紫微",
+    "in": {
+     "name": "官祿"
+    }
+   },
+   "because": "你的事業宮紫微與天相同度。",
+   "claim": "你適合與人合作，但要實際參與領導核心的工作。",
+   "source": "wtz.deep.p521.b012",
+   "quote": "[紫相]守事业宫，亦宜与人合作，唯必须实际参加领导核心工作。"
+  },
+  {
+   "id": "syn.career.ziwei.zisha-management",
+   "chapter": "事業",
+   "group": "紫微事業.管理",
+   "specificity": "system",
+   "polarity": "吉",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "紫微",
+      "at": [
+       "巳",
+       "亥"
+      ]
+     },
+     {
+      "together": [
+       "紫微",
+       "七殺"
+      ]
+     }
+    ]
+   },
+   "requires": {
+    "star": "紫微",
+    "in": {
+     "name": "官祿"
+    }
+   },
+   "because": "你的事業宮紫微與七殺同坐{branch}宮。",
+   "claim": "你的特長在於管理，適合以人力資源為主的工作。",
+   "source": "wtz.deep.p521.b015",
+   "quote": "巳亥[紫微七杀]在事业宫，其特长在于管理，故宜以人力资源为主。"
+  },
+  {
+   "id": "syn.career.ziwei.zisha-lianzhen-huaji",
+   "chapter": "事業",
+   "group": "紫微事業.挫折",
+   "specificity": "system",
+   "polarity": "凶",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "together": [
+       "紫微",
+       "七殺"
+      ]
+     },
+     {
+      "star": "廉貞",
+      "hua": "忌"
+     },
+     {
+      "meets": "紫微",
+      "stars": [
+       "廉貞"
+      ],
+      "reach": "sanfang",
+      "op": "gte",
+      "n": 1
+     }
+    ]
+   },
+   "requires": {
+    "star": "紫微",
+    "in": {
+     "name": "官祿"
+    }
+   },
+   "because": "你的事業宮紫微與七殺同度，並會廉貞化忌。",
+   "claim": "你容易因感情用事而使事業受挫。",
+   "source": "wtz.deep.p521.b016",
+   "quote": "[紫杀]不宜见廉贞化忌，否则易生破败，见常因感情用事而来。"
+  },
+  {
+   "id": "syn.career.ziwei.zisha-huake",
+   "chapter": "事業",
+   "group": "紫微事業.管理",
+   "specificity": "system",
+   "polarity": "吉",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "together": [
+       "紫微",
+       "七殺"
+      ]
+     },
+     {
+      "star": "紫微",
+      "hua": "科"
+     }
+    ]
+   },
+   "requires": {
+    "star": "紫微",
+    "in": {
+     "name": "官祿"
+    }
+   },
+   "because": "你的事業宮紫微與七殺同度，紫微化科。",
+   "claim": "你的管理及領導能力較能發揮。",
+   "source": "wtz.deep.p522.b002",
+   "quote": "『紫杀』最喜紫微化科，可加强管理领导之力。"
+  },
+  {
+   "id": "syn.career.tianji.huaquan-stability",
+   "chapter": "事業",
+   "group": "天機事業.變動",
+   "specificity": "general",
+   "polarity": "中",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "star": "天機",
+    "hua": "權"
+   },
+   "requires": {
+    "star": "天機",
+    "in": {
+     "name": "官祿"
+    }
+   },
+   "because": "你的事業宮天機化權。",
+   "claim": "你的事業要先經過一次改變，之後才較能穩定下來。",
+   "source": "wtz.deep.p522.b007",
+   "quote": "天机化权，性质变为稳定。但亦必先发生一次改变，然后才能从事较为稳定的事业。"
+  },
+  {
+   "id": "syn.career.tianji.huake-planning",
+   "chapter": "事業",
+   "group": "天機事業.行業",
+   "specificity": "general",
+   "polarity": "吉",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "star": "天機",
+    "hua": "科"
+   },
+   "requires": {
+    "star": "天機",
+    "in": {
+     "name": "官祿"
+    }
+   },
+   "because": "你的事業宮天機化科。",
+   "claim": "你適合計劃、管理或設計工作，也能在行業中建立聲譽。",
+   "source": "wtz.deep.p522.b008",
+   "quote": "天机化科，则宜计划、管理、设计等工作，在行业中有声誉。"
+  },
+  {
+   "id": "syn.career.tianji.huaji-change",
+   "chapter": "事業",
+   "group": "天機事業.變動",
+   "specificity": "general",
+   "polarity": "凶",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "star": "天機",
+    "hua": "忌"
+   },
+   "requires": {
+    "star": "天機",
+    "in": {
+     "name": "官祿"
+    }
+   },
+   "because": "你的事業宮天機化忌。",
+   "claim": "你的事業剛安定又容易改變，變動常源於計劃錯誤。",
+   "source": "wtz.deep.p522.b009",
+   "quote": "若天机化忌，则主不守一业，甫安定便告更张。所更张皆源于计划错误。"
+  },
+  {
+   "id": "syn.career.tianji.huaji-benefic-brokerage",
+   "chapter": "事業",
+   "group": "天機事業.行業",
+   "specificity": "general",
+   "polarity": "中",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "天機",
+      "hua": "忌"
+     },
+     {
+      "sanfangOf": {
+       "name": "官祿"
+      },
+      "count": "benefic",
+      "op": "gte",
+      "n": 1
+     }
+    ]
+   },
+   "requires": {
+    "star": "天機",
+    "in": {
+     "name": "官祿"
+    }
+   },
+   "because": "你的事業宮天機化忌，並有輔佐吉曜會照。",
+   "claim": "你適合從事經紀業，或擔任代理商。",
+   "source": "wtz.deep.p522.b010",
+   "quote": "天机化忌与吉曜同会者，则以从事经纪业为宜。亦可成为代理商。"
+  },
+  {
+   "id": "syn.career.tianji.mobile-industries",
+   "chapter": "事業",
+   "group": "天機事業.行業",
+   "specificity": "general",
+   "polarity": "中",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "star": "天機",
+    "in": {
+     "name": "官祿"
+    }
+   },
+   "because": "你的事業宮有天機坐守。",
+   "claim": "你適合帶流動或不穩定性質的行業，例如零售、運輸、交通、旅遊或傳播。",
+   "source": "wtz.deep.p522.b011",
+   "quote": "凡事业宫天机坐守，从事行业以带不稳定性质音为宜。零售业无固定客户，为其一例。此外如运输、交通、旅游、传播等行业，亦带不稳定色彩。"
+  },
+  {
+   "id": "syn.career.tianji.ziwu-alone",
+   "chapter": "事業",
+   "group": "天機事業.操勞",
+   "specificity": "system",
+   "polarity": "中",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "天機",
+      "at": [
+       "子",
+       "午"
+      ]
+     },
+     {
+      "opposite": [
+       "天機",
+       "巨門"
+      ]
+     }
+    ]
+   },
+   "alone": {
+    "star": "天機",
+    "in": {
+     "name": "官祿"
+    }
+   },
+   "because": "你的事業宮天機獨坐{branch}宮，對宮為巨門。",
+   "claim": "你即使得到吉曜會照，仍要為事業花費不少心思。",
+   "source": "wtz.deep.p523.b004",
+   "quote": "子午宫天机独坐，对宫巨门，即使会吉星祥曜，其事业亦必费心机。"
+  },
+  {
+   "id": "syn.career.tianji.ziwu-huaji",
+   "chapter": "事業",
+   "group": "天機事業.競爭",
+   "specificity": "system",
+   "polarity": "凶",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "天機",
+      "at": [
+       "子",
+       "午"
+      ]
+     },
+     {
+      "star": "天機",
+      "hua": "忌"
+     }
+    ]
+   },
+   "requires": {
+    "star": "天機",
+    "in": {
+     "name": "官祿"
+    }
+   },
+   "because": "你的事業宮天機坐{branch}宮化忌。",
+   "claim": "你容易因事業而遭到人身攻擊。",
+   "source": "wtz.deep.p523.b008",
+   "quote": "子午天机化忌，必因事业而招人身攻击。"
+  },
+  {
+   "id": "syn.career.tianji.chouwei-finance-planning",
+   "chapter": "事業",
+   "group": "天機事業.行業",
+   "specificity": "system",
+   "polarity": "中",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "天機",
+      "at": [
+       "丑",
+       "未"
+      ]
+     },
+     {
+      "opposite": [
+       "天機",
+       "天梁"
+      ]
+     }
+    ]
+   },
+   "requires": {
+    "star": "天機",
+    "in": {
+     "name": "官祿"
+    }
+   },
+   "because": "你的事業宮天機坐{branch}宮，與天梁相對。",
+   "claim": "你適合在大機構的財經、會計或計劃部門工作，尤其適合帶流動或服務性質的行業。",
+   "source": "wtz.deep.p523.b013",
+   "quote": "天机在丑未富守事业，由于与天梁相对，有计划、监察、管理的意味。故亦可服务大机构任财经部门、会计部门、计划部门之职。如行业带流动、服务色彩：营尤直。"
+  },
+  {
+   "id": "syn.career.tianji.jiyin-no-auspicious-hua",
+   "chapter": "事業",
+   "group": "天機事業.行業",
+   "specificity": "system",
+   "polarity": "中",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "together": [
+     "天機",
+     "太陰"
+    ]
+   },
+   "requires": {
+    "star": "天機",
+    "in": {
+     "name": "官祿"
+    }
+   },
+   "none": {
+    "meets": "天機",
+    "stars": [
+     "化祿",
+     "化權",
+     "化科"
+    ],
+    "reach": "sanfang",
+    "op": "gte",
+    "n": 1
+   },
+   "because": "你的事業宮天機與太陰同度，三方四正不見化祿、化權、化科。",
+   "claim": "你較適合在政府或大機構任職，不宜經商。",
+   "source": "wtz.deep.p524.b004",
+   "quote": "若[天机太阴]守事业宫而无禄、权、科会者，则宜在政府或大机构发展。一般宜任职而不宜经商。"
+  },
+  {
+   "id": "syn.career.tianji.jiju-jumen-huaji",
+   "chapter": "事業",
+   "group": "天機事業.行業",
+   "specificity": "system",
+   "polarity": "中",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "together": [
+       "天機",
+       "巨門"
+      ]
+     },
+     {
+      "star": "巨門",
+      "hua": "忌"
+     }
+    ]
+   },
+   "requires": {
+    "star": "天機",
+    "in": {
+     "name": "官祿"
+    }
+   },
+   "because": "你的事業宮天機與巨門同度，巨門化忌。",
+   "claim": "你適合靠口才或言語表達謀生的工作。",
+   "source": "wtz.deep.p524.b009",
+   "quote": "天机巨门化忌者，若天机化忌，则仅主事业多变迁；巨门化忌，则事业宜注意口舌生财的性质。"
+  },
+  {
+   "id": "syn.career.tianji.jiliang-malefic-skills",
+   "chapter": "事業",
+   "group": "天機事業.行業",
+   "specificity": "system",
+   "polarity": "中",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "together": [
+       "天機",
+       "天梁"
+      ]
+     },
+     {
+      "sanfangOf": {
+       "name": "官祿"
+      },
+      "count": "malefic",
+      "op": "gte",
+      "n": 1
+     }
+    ]
+   },
+   "requires": {
+    "star": "天機",
+    "in": {
+     "name": "官祿"
+    }
+   },
+   "because": "你的事業宮天機與天梁同度，並有煞曜會照。",
+   "claim": "你適合憑專業技能發展事業。",
+   "source": "wtz.deep.p525.b002",
+   "quote": "[天机天梁]见煞，以专业技能为佳。"
+  },
+  {
+   "id": "syn.career.tianji.jiliang-taiyin-hualu",
+   "chapter": "事業",
+   "group": "天機事業.行業",
+   "specificity": "system",
+   "polarity": "吉",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "together": [
+       "天機",
+       "天梁"
+      ]
+     },
+     {
+      "star": "太陰",
+      "hua": "祿"
+     },
+     {
+      "meets": "天機",
+      "stars": [
+       "太陰"
+      ],
+      "reach": "sanfang",
+      "op": "gte",
+      "n": 1
+     }
+    ]
+   },
+   "requires": {
+    "star": "天機",
+    "in": {
+     "name": "官祿"
+    }
+   },
+   "because": "你的事業宮天機與天梁同度，並會太陰化祿。",
+   "claim": "你適合從事財務專業，以監督或管理性質的工作較合適。",
+   "source": "wtz.deep.p525.b003",
+   "quote": "亦喜会太阴化禄，则可从事财务专业，以带监督、管理性质者为宜。"
+  },
+  {
+   "id": "syn.career.tianji.sihai-sector-change",
+   "chapter": "事業",
+   "group": "天機事業.變動",
+   "specificity": "system",
+   "polarity": "中",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "star": "天機",
+    "at": [
+     "巳",
+     "亥"
+    ]
+   },
+   "requires": {
+    "star": "天機",
+    "in": {
+     "name": "官祿"
+    }
+   },
+   "because": "你的事業宮天機坐{branch}宮。",
+   "claim": "你的事業會有重大行業變動，但改變之後仍帶服務性質。",
+   "source": "wtz.deep.p525.b008",
+   "quote": "巳亥天机守事业宫者，无论见吉曜或煞曜，均主有重大行业变动。唯无论如何改变，均不离服务性质。"
+  },
+  {
+   "id": "syn.career.tianji.sihai-huaji-insurance",
+   "chapter": "事業",
+   "group": "天機事業.行業",
+   "specificity": "system",
+   "polarity": "中",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "天機",
+      "at": [
+       "巳",
+       "亥"
+      ]
+     },
+     {
+      "star": "天機",
+      "hua": "忌"
+     }
+    ]
+   },
+   "requires": {
+    "star": "天機",
+    "in": {
+     "name": "官祿"
+    }
+   },
+   "because": "你的事業宮天機坐{branch}宮化忌。",
+   "claim": "你適合從事保險業。",
+   "source": "wtz.deep.p525.b010",
+   "quote": "天机化忌，则宜从事保险。"
+  },
+  {
+   "id": "syn.career.taiyang.temple-scale",
+   "chapter": "事業",
+   "group": "太陽事業.規模",
+   "specificity": "general",
+   "polarity": "吉",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "star": "太陽",
+    "in": {
+     "name": "官祿"
+    }
+   },
+   "bright": {
+    "star": "太陽",
+    "levels": [
+     "廟"
+    ]
+   },
+   "because": "你的事業宮太陽入廟。",
+   "claim": "你的事業發展範圍較廣，也容易建立顯著聲名。",
+   "source": "wtz.deep.p527.b003",
+   "quote": "太阳入庙，然后事业始主广大，兼且亦易声名显赫。"
+  },
+  {
+   "id": "syn.career.taiyang.fallen-reputation",
+   "chapter": "事業",
+   "group": "太陽事業.聲譽",
+   "specificity": "general",
+   "polarity": "中",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "star": "太陽",
+    "in": {
+     "name": "官祿"
+    }
+   },
+   "bright": {
+    "star": "太陽",
+    "levels": [
+     "陷"
+    ]
+   },
+   "because": "你的事業宮太陽落陷。",
+   "claim": "你即使有聲名，也較局限於本地或所屬行業，未必為社會大眾所知。",
+   "source": "wtz.deep.p527.b003",
+   "quote": "若落陷，则纵有声名亦不出乡里，或仅在行业中有声誉，不为社会人士所知。"
+  },
+  {
+   "id": "syn.career.taiyang.huaquan-foreign-connections",
+   "chapter": "事業",
+   "group": "太陽事業.機遇",
+   "specificity": "general",
+   "polarity": "吉",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "太陽",
+      "hua": "權"
+     },
+     {
+      "star": "巨門",
+      "hua": "祿"
+     }
+    ]
+   },
+   "requires": {
+    "star": "太陽",
+    "in": {
+     "name": "官祿"
+    }
+   },
+   "because": "你的事業宮太陽化權，巨門同時化祿。",
+   "claim": "你的事業與異族關係密切，或有機會得到異族的提拔與賞識。",
+   "source": "wtz.deep.p526.b010",
+   "quote": "太阳化权，则巨门必同时化禄。在事业宫，此为受异族提拔、赏识之星系，或一生事业与异族有莫大关系，因此须提高外语知识，俾便适应。"
+  },
+  {
+   "id": "syn.career.taiyang.huake-professions",
+   "chapter": "事業",
+   "group": "太陽事業.行業",
+   "specificity": "general",
+   "polarity": "吉",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "star": "太陽",
+    "hua": "科"
+   },
+   "requires": {
+    "star": "太陽",
+    "in": {
+     "name": "官祿"
+    }
+   },
+   "because": "你的事業宮太陽化科。",
+   "claim": "你適合重視專業聲譽、榮譽感或公信力的工作，例如醫生、律師或社會工作者。",
+   "source": "wtz.deep.p526.b011",
+   "quote": "太阳化科，宜事业有荣誉感。例如名医、名律师，或有声誉的社会工作者之类，皆不出专业人士范围。有时亦表征为一种必须有声誉，或必须受人信赖的行业，"
+  },
+  {
+   "id": "syn.career.taiyang.huaji-speaking",
+   "chapter": "事業",
+   "group": "太陽事業.行業",
+   "specificity": "general",
+   "polarity": "中",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "star": "太陽",
+    "hua": "忌"
+   },
+   "requires": {
+    "star": "太陽",
+    "in": {
+     "name": "官祿"
+    }
+   },
+   "because": "你的事業宮太陽化忌。",
+   "claim": "你適合帶排難解紛或言語表達性質的工作，例如教學或演唱。",
+   "source": "wtz.deep.p527.b002",
+   "quote": "太阳化忌，所从事行业必须有排难解纷，或是非口舌的色彩。但所谓口舌是非却未必指纷争，如教学、演唱等，皆为[口舌以求财。"
+  },
+  {
+   "id": "syn.career.taiyang.kuiyue-opportunities",
+   "chapter": "事業",
+   "group": "太陽事業.機遇",
+   "specificity": "general",
+   "polarity": "吉",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "meets": "太陽",
+    "stars": [
+     "天魁",
+     "天鉞"
+    ],
+    "reach": "sanfang",
+    "op": "gte",
+    "n": 2
+   },
+   "requires": {
+    "star": "太陽",
+    "in": {
+     "name": "官祿"
+    }
+   },
+   "because": "你的事業宮太陽與天魁、天鉞同會。",
+   "claim": "你較容易獲得提拔或工作機會，適合在政府、半官方機構或大企業財團服務。",
+   "source": "wtz.deep.p526.b006",
+   "quote": "太阳与魁钺同会，古人认为乃[近贵]之兆，所谓[近贵]，即是能获人提拔扶持。在现代则为机会的提供。但亦可以看作是在政府部门工作，或半官方机构、，大企业财团服务，较容易受上司常识提拔。"
+  },
+  {
+   "id": "syn.career.taiyang.changqu-arts",
+   "chapter": "事業",
+   "group": "太陽事業.行業",
+   "specificity": "general",
+   "polarity": "中",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "meets": "太陽",
+    "stars": [
+     "文昌",
+     "文曲"
+    ],
+    "reach": "same",
+    "op": "gte",
+    "n": 2
+   },
+   "requires": {
+    "star": "太陽",
+    "in": {
+     "name": "官祿"
+    }
+   },
+   "because": "你的事業宮太陽與文昌、文曲同度。",
+   "claim": "你的事業與文藝、傳播、公關或演藝較有關連。",
+   "source": "wtz.deep.p526.b007",
+   "quote": "若太阳昌曲同躔，其贵反而较轻，仅主其事业与文艺有关，或与传播、公关、演艺等有关。"
+  },
+  {
+   "id": "syn.career.taiyang.zuoyou-less-exertion",
+   "chapter": "事業",
+   "group": "太陽事業.操勞",
+   "specificity": "general",
+   "polarity": "吉",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "meets": "太陽",
+    "stars": [
+     "左輔",
+     "右弼"
+    ],
+    "reach": "same",
+    "op": "gte",
+    "n": 2
+   },
+   "requires": {
+    "star": "太陽",
+    "in": {
+     "name": "官祿"
+    }
+   },
+   "because": "你的事業宮太陽與左輔、右弼同會。",
+   "claim": "你在事業上較少奔波勞累。",
+   "source": "wtz.deep.p526.b008",
+   "quote": "太阳喜左辅、右弼同会事业宫，则可减少其发射力，亦即较少奔劳。"
+  },
+  {
+   "id": "syn.career.taiyang.ziwu-reputation",
+   "chapter": "事業",
+   "group": "太陽事業.行業",
+   "specificity": "system",
+   "polarity": "中",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "太陽",
+      "at": [
+       "子",
+       "午"
+      ]
+     },
+     {
+      "opposite": [
+       "太陽",
+       "天梁"
+      ]
+     }
+    ]
+   },
+   "requires": {
+    "star": "太陽",
+    "in": {
+     "name": "官祿"
+    }
+   },
+   "because": "你的事業宮太陽坐{branch}宮，與天梁對拱。",
+   "claim": "你的事業較重名聲，適合專業工作，或經營商標與商譽。",
+   "source": "wtz.deep.p527.b006",
+   "quote": "子午宫太阳，与天梁对拱，名重于利，最宜专业工作，或建立商标商誉。"
+  },
+  {
+   "id": "syn.career.taiyang.maoyou-yangliang-change",
+   "chapter": "事業",
+   "group": "太陽事業.變動",
+   "specificity": "system",
+   "polarity": "中",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "太陽",
+      "at": [
+       "卯",
+       "酉"
+      ]
+     },
+     {
+      "together": [
+       "太陽",
+       "天梁"
+      ]
+     }
+    ]
+   },
+   "requires": {
+    "star": "太陽",
+    "in": {
+     "name": "官祿"
+    }
+   },
+   "because": "你的事業宮太陽與天梁同坐{branch}宮。",
+   "claim": "你的事業名聲重於收益，適合專業工作；工作環境較常變動，也較多奔忙。",
+   "source": "wtz.deep.p527.b007",
+   "quote": "卯酉宫太阳天梁同度，亦为名重于利，亦宜专业工作，但事业却较子午宫者不稳定，尤以酉宫者为然，必须日夜奔忙，或不居一地，或时时更换工作环境。"
+  },
+  {
+   "id": "syn.career.taiyang.yangliang-service",
+   "chapter": "事業",
+   "group": "太陽事業.行業",
+   "specificity": "system",
+   "polarity": "中",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "together": [
+     "太陽",
+     "天梁"
+    ]
+   },
+   "requires": {
+    "star": "太陽",
+    "in": {
+     "name": "官祿"
+    }
+   },
+   "because": "你的事業宮太陽與天梁同度。",
+   "claim": "你適合醫藥、保險等服務性行業。",
+   "source": "wtz.deep.p527.b008",
+   "quote": "太阳天梁的星系，最宜从事医药、保险等服务性行业。"
+  },
+  {
+   "id": "syn.career.taiyang.sun-moon-administration",
+   "chapter": "事業",
+   "group": "太陽事業.行業",
+   "specificity": "system",
+   "polarity": "中",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "together": [
+     "太陽",
+     "太陰"
+    ]
+   },
+   "requires": {
+    "star": "太陽",
+    "in": {
+     "name": "官祿"
+    }
+   },
+   "because": "你的事業宮太陽與太陰同度。",
+   "claim": "你較適合內務工作，例如行政管理、財務或計劃。",
+   "source": "wtz.deep.p528.b002",
+   "quote": "太阳太阴的星系，在事业宫，比较倾向于内务。故以行政管理财务计划等为宜。"
+  },
+  {
+   "id": "syn.career.taiyang.sun-moon-kongjie",
+   "chapter": "事業",
+   "group": "太陽事業.經營",
+   "specificity": "system",
+   "polarity": "凶",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "together": [
+       "太陽",
+       "太陰"
+      ]
+     },
+     {
+      "meets": "太陽",
+      "stars": [
+       "地空",
+       "地劫"
+      ],
+      "reach": "same",
+      "op": "gte",
+      "n": 2
+     }
+    ]
+   },
+   "requires": {
+    "star": "太陽",
+    "in": {
+     "name": "官祿"
+    }
+   },
+   "because": "你的事業宮太陽、太陰與地空、地劫同度。",
+   "claim": "你憑構想開創事業時，容易因反覆改變主意而進退失據。",
+   "source": "wtz.deep.p528.b005",
+   "quote": "太阳太阴与空劫同度，其由空中楼阁创造事业的能机一般较太阳天梁星系为弱。因易改变主意，反成进退失据。"
+  },
+  {
+   "id": "syn.career.taiyang.yangju-hualu-huaquan",
+   "chapter": "事業",
+   "group": "太陽事業.收入",
+   "specificity": "system",
+   "polarity": "吉",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "together": [
+       "太陽",
+       "巨門"
+      ]
+     },
+     {
+      "any": [
+       {
+        "star": "太陽",
+        "hua": "祿"
+       },
+       {
+        "star": "太陽",
+        "hua": "權"
+       }
+      ]
+     }
+    ]
+   },
+   "requires": {
+    "star": "太陽",
+    "in": {
+     "name": "官祿"
+    }
+   },
+   "because": "你的事業宮太陽與巨門同度，太陽化祿或化權。",
+   "claim": "你可憑異族關係得財，或靠口才、語言、歌唱等才藝取得收入。",
+   "source": "wtz.deep.p528.b013",
+   "quote": "太阳化禄、化权，均主因异族关系而得财。或凭口才、语言、歌唱等才艺以得财。"
+  },
+  {
+   "id": "syn.career.wuqu.huake-reputation",
+   "chapter": "事業",
+   "group": "武曲事業.聲譽",
+   "specificity": "general",
+   "polarity": "吉",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "star": "武曲",
+    "hua": "科"
+   },
+   "requires": {
+    "star": "武曲",
+    "in": {
+     "name": "官祿"
+    }
+   },
+   "because": "你的事業宮武曲化科。",
+   "claim": "你無論從事哪個行業，都要以建立聲譽為重點。",
+   "source": "wtz.deep.p529.b010",
+   "quote": "武曲化科，主声誉，故无论从事何种行业，均以建立声誉为要务。"
+  },
+  {
+   "id": "syn.career.wuqu.huaji-capital",
+   "chapter": "事業",
+   "group": "武曲事業.經營",
+   "specificity": "general",
+   "polarity": "凶",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "star": "武曲",
+    "hua": "忌"
+   },
+   "requires": {
+    "star": "武曲",
+    "in": {
+     "name": "官祿"
+    }
+   },
+   "because": "你的事業宮武曲化忌。",
+   "claim": "你經商時容易感到資金不足，難以按理想發展，較適合憑技藝謀生。",
+   "source": "wtz.deep.p529.b011",
+   "quote": "武曲化忌，经商者每感资金不足，不能依理想发展。故宜从事技艺为宜。"
+  },
+  {
+   "id": "syn.career.wuqu.malefic-crafts",
+   "chapter": "事業",
+   "group": "武曲事業.行業",
+   "specificity": "general",
+   "polarity": "中",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "meets": "武曲",
+    "stars": [
+     "擎羊",
+     "陀羅",
+     "火星",
+     "鈴星",
+     "地空",
+     "地劫"
+    ],
+    "reach": "same",
+    "op": "gte",
+    "n": 1
+   },
+   "requires": {
+    "star": "武曲",
+    "in": {
+     "name": "官祿"
+    }
+   },
+   "because": "你的事業宮武曲與煞曜同度。",
+   "claim": "你適合工程技藝或工藝工作，包括金屬加工等行業。",
+   "source": "wtz.deep.p529.b005",
+   "quote": "武曲又为金星，故主事业性质带有金属。倘与煞谑同躔，主艺占代订定为金匠银匠、铜匠，即称『三匠』 。现代工艺行业为多，凡工程技艺皆属此类。"
+  },
+  {
+   "id": "syn.career.wuqu.wufu-malefic-engineering",
+   "chapter": "事業",
+   "group": "武曲事業.行業",
+   "specificity": "system",
+   "polarity": "中",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "together": [
+       "武曲",
+       "天府"
+      ]
+     },
+     {
+      "meets": "武曲",
+      "stars": [
+       "擎羊",
+       "陀羅",
+       "火星",
+       "鈴星",
+       "地空",
+       "地劫"
+      ],
+      "reach": "same",
+      "op": "gte",
+      "n": 1
+     }
+    ]
+   },
+   "requires": {
+    "star": "武曲",
+    "in": {
+     "name": "官祿"
+    }
+   },
+   "because": "你的事業宮武曲與天府同度，並有煞曜同宮。",
+   "claim": "你適合工程技藝工作。",
+   "source": "wtz.deep.p530.b006",
+   "quote": "[武曲天府]与煞曜同度，则宜工程技艺。"
+  },
+  {
+   "id": "syn.career.wuqu.wufu-tianfu-huake",
+   "chapter": "事業",
+   "group": "武曲事業.行業",
+   "specificity": "system",
+   "polarity": "中",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "together": [
+       "武曲",
+       "天府"
+      ]
+     },
+     {
+      "star": "天府",
+      "hua": "科"
+     }
+    ]
+   },
+   "requires": {
+    "star": "武曲",
+    "in": {
+     "name": "官祿"
+    }
+   },
+   "because": "你的事業宮武曲與天府同度，天府化科。",
+   "claim": "你即使沒有祿曜，也適合從事財經工作。",
+   "source": "wtz.deep.p530.b007",
+   "quote": "[武曲天府]而天府化科，虽无禄，亦以财经事业为宜。"
+  },
+  {
+   "id": "syn.career.wuqu.wutan-tanlang-huaji",
+   "chapter": "事業",
+   "group": "武曲事業.操勞",
+   "specificity": "system",
+   "polarity": "凶",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "武曲",
+      "at": [
+       "丑",
+       "未"
+      ]
+     },
+     {
+      "together": [
+       "武曲",
+       "貪狼"
+      ]
+     },
+     {
+      "star": "貪狼",
+      "hua": "忌"
+     }
+    ]
+   },
+   "requires": {
+    "star": "武曲",
+    "in": {
+     "name": "官祿"
+    }
+   },
+   "because": "你的事業宮武曲與貪狼同坐{branch}宮，貪狼化忌。",
+   "claim": "你常為求財而奔波，經手的事業較多，也可能同時任公職與經商。",
+   "source": "wtz.deep.p530.b009",
+   "quote": "丑未[武曲贪狼]，见贪狼化忌者，终生不得闲暇，奔波劳碌，事业多端，甚或半官半商，为财是务。"
+  },
+  {
+   "id": "syn.career.wuqu.wutan-lu-quan",
+   "chapter": "事業",
+   "group": "武曲事業.行業",
+   "specificity": "system",
+   "polarity": "中",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "together": [
+       "武曲",
+       "貪狼"
+      ]
+     },
+     {
+      "star": "武曲",
+      "hua": "祿"
+     },
+     {
+      "star": "貪狼",
+      "hua": "權"
+     }
+    ]
+   },
+   "requires": {
+    "star": "武曲",
+    "in": {
+     "name": "官祿"
+    }
+   },
+   "because": "你的事業宮武曲與貪狼同度，武曲化祿、貪狼化權。",
+   "claim": "你的事業與財經有關，同時也會經營順應潮流的行業。",
+   "source": "wtz.deep.p530.b012",
+   "quote": "[武曲贪狼]而武曲化禄、贪狼化权者，其事业亦必与财经有关，但同时亦必经营潮流所趋之行业。"
+  },
+  {
+   "id": "syn.career.wuqu.wutan-cooperation",
+   "chapter": "事業",
+   "group": "武曲事業.合作",
+   "specificity": "system",
+   "polarity": "中",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "together": [
+     "武曲",
+     "貪狼"
+    ]
+   },
+   "requires": {
+    "star": "武曲",
+    "in": {
+     "name": "官祿"
+    }
+   },
+   "because": "你的事業宮武曲與貪狼同度。",
+   "claim": "你傾向與人合作，所經營的事業也不只一種。",
+   "source": "wtz.deep.p530.b013",
+   "quote": "[武曲贪狼]守事业宫，喜与人合作，故所业亦不只一端。"
+  },
+  {
+   "id": "syn.career.wuqu.wuxiang-auspicious-hua",
+   "chapter": "事業",
+   "group": "武曲事業.合作",
+   "specificity": "system",
+   "polarity": "中",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "together": [
+       "武曲",
+       "天相"
+      ]
+     },
+     {
+      "meets": "武曲",
+      "stars": [
+       "化祿",
+       "化權",
+       "化科"
+      ],
+      "reach": "sanfang",
+      "op": "gte",
+      "n": 1
+     }
+    ]
+   },
+   "requires": {
+    "star": "武曲",
+    "in": {
+     "name": "官祿"
+    }
+   },
+   "because": "你的事業宮武曲與天相同度，並見化祿、化權或化科。",
+   "claim": "你適合與人合作，但需要承擔實際責任。",
+   "source": "wtz.deep.p531.b003",
+   "quote": "[武曲天相]守事业宫，有吉化，亦主与人合作，且须负实际责任。"
+  },
+  {
+   "id": "syn.career.wuqu.wuxiang-malefic-engineering",
+   "chapter": "事業",
+   "group": "武曲事業.行業",
+   "specificity": "system",
+   "polarity": "中",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "together": [
+       "武曲",
+       "天相"
+      ]
+     },
+     {
+      "sanfangOf": {
+       "name": "官祿"
+      },
+      "count": "malefic",
+      "op": "gte",
+      "n": 1
+     }
+    ]
+   },
+   "requires": {
+    "star": "武曲",
+    "in": {
+     "name": "官祿"
+    }
+   },
+   "because": "你的事業宮武曲與天相同度，並有煞曜會照。",
+   "claim": "你適合從工程技藝發展事業。",
+   "source": "wtz.deep.p531.b004",
+   "quote": "[武曲天相]与煞曜同会者，宜由工程技艺发展。"
+  },
+  {
+   "id": "syn.career.wuqu.wusha-you-fire",
+   "chapter": "事業",
+   "group": "武曲事業.挫折",
+   "specificity": "system",
+   "polarity": "吉",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "武曲",
+      "at": [
+       "酉"
+      ]
+     },
+     {
+      "together": [
+       "武曲",
+       "七殺"
+      ]
+     },
+     {
+      "together": [
+       "武曲",
+       "火星"
+      ]
+     }
+    ]
+   },
+   "requires": {
+    "star": "武曲",
+    "in": {
+     "name": "官祿"
+    }
+   },
+   "because": "你的事業宮武曲與七殺同坐酉宮，並與火星同度。",
+   "claim": "你可經歷挫折磨練而取得成就。",
+   "source": "wtz.deep.p531.b007",
+   "quote": "盖酉宫[武杀]得火星为锻炼，主经挫折而得成就。"
+  },
+  {
+   "id": "syn.career.wuqu.wusha-mao-fire",
+   "chapter": "事業",
+   "group": "武曲事業.挫折",
+   "specificity": "system",
+   "polarity": "凶",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "武曲",
+      "at": [
+       "卯"
+      ]
+     },
+     {
+      "together": [
+       "武曲",
+       "七殺"
+      ]
+     },
+     {
+      "together": [
+       "武曲",
+       "火星"
+      ]
+     }
+    ]
+   },
+   "requires": {
+    "star": "武曲",
+    "in": {
+     "name": "官祿"
+    }
+   },
+   "because": "你的事業宮武曲與七殺同坐卯宮，並與火星同度。",
+   "claim": "你在事業上容易辛勞付出，卻難有成果。",
+   "source": "wtz.deep.p531.b007",
+   "quote": "酉宫[武曲七杀]喜火星同度，卯宫则不喜。盖酉宫[武杀]得火星为锻炼，主经挫折而得成就。卯宫属木，得火星嫌火过旺，纳音属火者尤忌。主辛劳而无结果。"
+  },
+  {
+   "id": "syn.career.wuqu.wusha-delu-finance",
+   "chapter": "事業",
+   "group": "武曲事業.行業",
+   "specificity": "system",
+   "polarity": "吉",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "together": [
+       "武曲",
+       "七殺"
+      ]
+     },
+     {
+      "deLu": "武曲"
+     }
+    ]
+   },
+   "requires": {
+    "star": "武曲",
+    "in": {
+     "name": "官祿"
+    }
+   },
+   "because": "你的事業宮武曲與七殺同度，並見祿存或化祿。",
+   "claim": "你適合財經工作，也擅長營運。",
+   "source": "wtz.deep.p531.b008",
+   "quote": "[武曲七杀]得禄者，亦宜财经工作，且擅长营运。"
+  },
+  {
+   "id": "syn.career.wuqu.wupo-lianzhen-huaji",
+   "chapter": "事業",
+   "group": "武曲事業.凶險",
+   "specificity": "system",
+   "polarity": "凶",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "together": [
+       "武曲",
+       "破軍"
+      ]
+     },
+     {
+      "star": "廉貞",
+      "hua": "忌"
+     },
+     {
+      "meets": "武曲",
+      "stars": [
+       "廉貞"
+      ],
+      "reach": "sanfang",
+      "op": "gte",
+      "n": 1
+     }
+    ]
+   },
+   "requires": {
+    "star": "武曲",
+    "in": {
+     "name": "官祿"
+    }
+   },
+   "because": "你的事業宮武曲與破軍同度，並會廉貞化忌。",
+   "claim": "你要防血光之災，從事軍旅工作較不合適。",
+   "source": "wtz.deep.p532.b003",
+   "quote": "[武破]见廉贞化忌，常主血光之灾，从事军旅者有所不宜。"
+  },
+  {
+   "id": "syn.career.tiantong.baishou",
+   "chapter": "事業",
+   "group": "天同事業.創業",
+   "specificity": "general",
+   "polarity": "中",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "star": "天同",
+    "in": {
+     "name": "官祿"
+    }
+   },
+   "because": "你的事業宮有天同坐守。",
+   "claim": "你的事業要靠自己白手創立，即使有父業也難承繼，要經歷困難才有所成。",
+   "source": "wtz.deep.p532.b005",
+   "quote": "天同守事业宫，主事业必由白手创兴。自另一个意义而言，则是纵有父业亦难承继，有须经历困难然后始事业有成。"
+  },
+  {
+   "id": "syn.career.tiantong.qingyang",
+   "chapter": "事業",
+   "group": "天同事業.競爭",
+   "specificity": "general",
+   "polarity": "凶",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "天同",
+      "in": {
+       "name": "官祿"
+      }
+     },
+     {
+      "together": [
+       "天同",
+       "擎羊"
+      ]
+     }
+    ]
+   },
+   "because": "你的事業宮天同與擎羊同度。",
+   "claim": "你的事業容易出現爭奪與競爭。",
+   "source": "wtz.deep.p532.b009",
+   "quote": "擎羊同度，主事业发生争夺、竞争，"
+  },
+  {
+   "id": "syn.career.tiantong.tuoluo",
+   "chapter": "事業",
+   "group": "天同事業.變動",
+   "specificity": "general",
+   "polarity": "中",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "天同",
+      "in": {
+       "name": "官祿"
+      }
+     },
+     {
+      "together": [
+       "天同",
+       "陀羅"
+      ]
+     }
+    ]
+   },
+   "because": "你的事業宮天同與陀羅同度。",
+   "claim": "你的事業發展到一定階段，容易出現不明顯的變動。",
+   "source": "wtz.deep.p532.b009",
+   "quote": "陀罗同度，主事业发展至一阶段，好发生无形变动："
+  },
+  {
+   "id": "syn.career.tiantong.huoling",
+   "chapter": "事業",
+   "group": "天同事業.壓力",
+   "specificity": "general",
+   "polarity": "凶",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "天同",
+      "in": {
+       "name": "官祿"
+      }
+     },
+     {
+      "meets": "天同",
+      "stars": [
+       "火星",
+       "鈴星"
+      ],
+      "reach": "same",
+      "op": "gte",
+      "n": 1
+     }
+    ]
+   },
+   "because": "你的事業宮天同與火星或鈴星同度。",
+   "claim": "你在事業上容易焦慮，要投入大量心血才有所成。",
+   "source": "wtz.deep.p532.b009",
+   "quote": "火铃同度，主多焦虑，主多焦虑，须呕尽心血后始能有成。"
+  },
+  {
+   "id": "syn.career.tiantong.huaji-sisha",
+   "chapter": "事業",
+   "group": "天同事業.挫折",
+   "specificity": "general",
+   "polarity": "凶",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "天同",
+      "in": {
+       "name": "官祿"
+      }
+     },
+     {
+      "star": "天同",
+      "hua": "忌"
+     },
+     {
+      "meets": "天同",
+      "stars": [
+       "擎羊",
+       "陀羅",
+       "火星",
+       "鈴星"
+      ],
+      "reach": "same",
+      "op": "gte",
+      "n": 1
+     }
+    ]
+   },
+   "because": "你的事業宮天同化忌，並與擎羊、陀羅、火星、鈴星之中的煞曜同度。",
+   "claim": "你的事業容易反覆遇到波折。",
+   "source": "wtz.deep.p532.b009",
+   "quote": "故当四煞同度之时，天同若化为忌星者，则一生事业必波折重重，与天同化忌不与煞星同度者，性质截然不同。"
+  },
+  {
+   "id": "syn.career.tiantong.kongjie",
+   "chapter": "事業",
+   "group": "天同事業.藝術",
+   "specificity": "general",
+   "polarity": "中",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "天同",
+      "in": {
+       "name": "官祿"
+      }
+     },
+     {
+      "meets": "天同",
+      "stars": [
+       "地空",
+       "地劫"
+      ],
+      "reach": "same",
+      "op": "gte",
+      "n": 2
+     }
+    ]
+   },
+   "because": "你的事業宮天同與地空、地劫同度。",
+   "claim": "你的藝術氣質較強，也有建立個人獨特風格的潛質；發展時要形成自己的風格。",
+   "source": "wtz.deep.p532.b011",
+   "quote": "天同与空劫同度，亦加强其艺术气质，唯必须建立个人独特风格，且亦有此潜质。"
+  },
+  {
+   "id": "syn.career.tiantong.fubi-no-ji",
+   "chapter": "事業",
+   "group": "天同事業.助力",
+   "specificity": "general",
+   "polarity": "吉",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "天同",
+      "in": {
+       "name": "官祿"
+      }
+     },
+     {
+      "meets": "天同",
+      "stars": [
+       "左輔",
+       "右弼"
+      ],
+      "reach": "sanfang",
+      "op": "gte",
+      "n": 2
+     }
+    ]
+   },
+   "none": {
+    "star": "天同",
+    "hua": "忌"
+   },
+   "because": "你的事業宮天同會照左輔、右弼，而且天同沒有化忌。",
+   "claim": "你在事業上能得到助力。",
+   "source": "wtz.deep.p533.b002",
+   "quote": "天同与左辅右弼同会，须天同不化忌星始主得助力，否则纵有下属，却有帮不上忙之感，仍须亲力亲为。"
+  },
+  {
+   "id": "syn.career.tiantong.ziwu-tongyin-lu",
+   "chapter": "事業",
+   "group": "天同事業.守成",
+   "specificity": "system",
+   "polarity": "吉",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "天同",
+      "at": [
+       "子",
+       "午"
+      ]
+     },
+     {
+      "together": [
+       "天同",
+       "太陰"
+      ]
+     },
+     {
+      "deLu": "天同"
+     }
+    ]
+   },
+   "requires": {
+    "star": "天同",
+    "in": {
+     "name": "官祿"
+    }
+   },
+   "because": "你的事業宮天同與太陰同坐{branch}宮，三方四正見祿存或化祿。",
+   "claim": "你可承繼父業並守成，或在現成局面下發展，較不宜另作創新。",
+   "source": "wtz.deep.p533.b005",
+   "quote": "子午宫[天同太阴]，若见禄存，或见化禄，则主有父业承继，且可守成。或主在现成局面下发展，不宜创新。"
+  },
+  {
+   "id": "syn.career.tiantong.chouwei-tongju",
+   "chapter": "事業",
+   "group": "天同事業.挫折",
+   "specificity": "system",
+   "polarity": "凶",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "天同",
+      "at": [
+       "丑",
+       "未"
+      ]
+     },
+     {
+      "together": [
+       "天同",
+       "巨門"
+      ]
+     }
+    ]
+   },
+   "requires": {
+    "star": "天同",
+    "in": {
+     "name": "官祿"
+    }
+   },
+   "because": "你的事業宮天同與巨門同坐{branch}宮。",
+   "claim": "你的事業容易半途而廢，即使得到吉曜扶持也要留意這個傾向。",
+   "source": "wtz.deep.p533.b009",
+   "quote": "丑未宫[天同巨门]，即使吉辅诸曜毕集，亦主事业每半途而废。"
+  },
+  {
+   "id": "syn.career.tiantong.yinshen-tongliang",
+   "chapter": "事業",
+   "group": "天同事業.職位",
+   "specificity": "system",
+   "polarity": "中",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "天同",
+      "at": [
+       "寅",
+       "申"
+      ]
+     },
+     {
+      "together": [
+       "天同",
+       "天梁"
+      ]
+     }
+    ]
+   },
+   "requires": {
+    "star": "天同",
+    "in": {
+     "name": "官祿"
+    }
+   },
+   "because": "你的事業宮天同與天梁同坐{branch}宮。",
+   "claim": "你適合出任公職。",
+   "source": "wtz.deep.p534.b004",
+   "quote": "寅申宫[天同天梁]同度，·仅宜出任公职。"
+  },
+  {
+   "id": "syn.career.tiantong.tongliang-changes",
+   "chapter": "事業",
+   "group": "天同事業.變動",
+   "specificity": "system",
+   "polarity": "中",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "天同",
+      "in": {
+       "name": "官祿"
+      }
+     },
+     {
+      "together": [
+       "天同",
+       "天梁"
+      ]
+     }
+    ]
+   },
+   "because": "你的事業宮天同與天梁同度。",
+   "claim": "你的職務或工作環境容易變換，也可能因工作經常奔波、出差。",
+   "source": "wtz.deep.p534.b006",
+   "quote": "[天同天梁]守事业宫，亦主一生职务多变，或时时变换工作环境， ，或因工作须跋涉为劳，或时时须出差工作。"
+  },
+  {
+   "id": "syn.career.lianzhen.changqu-design",
+   "chapter": "事業",
+   "group": "廉貞事業.行業",
+   "specificity": "general",
+   "polarity": "中",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "廉貞",
+      "in": {
+       "name": "官祿"
+      }
+     },
+     {
+      "meets": "廉貞",
+      "stars": [
+       "文昌",
+       "文曲"
+      ],
+      "reach": "sanfang",
+      "op": "gte",
+      "n": 2
+     }
+    ]
+   },
+   "because": "你的事業宮廉貞會照文昌、文曲。",
+   "claim": "你對色彩較敏感，事業偏向繪畫、圖案設計等文藝方向。",
+   "source": "wtz.deep.p535.b003",
+   "quote": "廉贞会文昌、文曲，主文艺，但不倾向于工艺。主对色彩有特殊敏感，故倾向于绘画、图案设计之类。"
+  },
+  {
+   "id": "syn.career.lianzhen.huaji-blood",
+   "chapter": "事業",
+   "group": "廉貞事業.行業",
+   "specificity": "general",
+   "polarity": "中",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "廉貞",
+      "in": {
+       "name": "官祿"
+      }
+     },
+     {
+      "star": "廉貞",
+      "hua": "忌"
+     }
+    ]
+   },
+   "because": "你的事業宮廉貞化忌。",
+   "claim": "你適合從事與血液有關的事業。",
+   "source": "wtz.deep.p535.b007",
+   "quote": "若廉贞化忌，则宜从事与血液有关的事业。"
+  },
+  {
+   "id": "syn.career.lianzhen.ziwu-lianxiang-partnership",
+   "chapter": "事業",
+   "group": "廉貞事業.合作",
+   "specificity": "system",
+   "polarity": "中",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "廉貞",
+      "at": [
+       "子",
+       "午"
+      ]
+     },
+     {
+      "together": [
+       "廉貞",
+       "天相"
+      ]
+     }
+    ]
+   },
+   "requires": {
+    "star": "廉貞",
+    "in": {
+     "name": "官祿"
+    }
+   },
+   "because": "你的事業宮廉貞與天相同坐{branch}宮。",
+   "claim": "你的事業傾向與人合作開展。",
+   "source": "wtz.deep.p535.b010",
+   "quote": "子午宫[廉贞天相]，常主与人合作事业，"
+  },
+  {
+   "id": "syn.career.lianzhen.lianxiang-lu",
+   "chapter": "事業",
+   "group": "廉貞事業.職位",
+   "specificity": "system",
+   "polarity": "吉",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "廉貞",
+      "at": [
+       "子",
+       "午"
+      ]
+     },
+     {
+      "together": [
+       "廉貞",
+       "天相"
+      ]
+     },
+     {
+      "deLu": "廉貞"
+     }
+    ]
+   },
+   "requires": {
+    "star": "廉貞",
+    "in": {
+     "name": "官祿"
+    }
+   },
+   "because": "你的事業宮廉貞與天相同坐{branch}宮，三方四正見祿存或化祿。",
+   "claim": "你適合掌握財權。",
+   "source": "wtz.deep.p536.b003",
+   "quote": "[廉相]会禄(武曲化禄为上，禄存次之)，或会天府化科，宜握财权。"
+  },
+  {
+   "id": "syn.career.lianzhen.chouwei-lianqi-sha",
+   "chapter": "事業",
+   "group": "廉貞事業.行業",
+   "specificity": "system",
+   "polarity": "中",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "廉貞",
+      "at": [
+       "丑",
+       "未"
+      ]
+     },
+     {
+      "together": [
+       "廉貞",
+       "七殺"
+      ]
+     },
+     {
+      "meets": "廉貞",
+      "stars": [
+       "擎羊",
+       "陀羅",
+       "火星",
+       "鈴星",
+       "地空",
+       "地劫"
+      ],
+      "reach": "same",
+      "op": "gte",
+      "n": 1
+     }
+    ]
+   },
+   "requires": {
+    "star": "廉貞",
+    "in": {
+     "name": "官祿"
+    }
+   },
+   "because": "你的事業宮廉貞與七殺同坐{branch}宮，並有煞曜同度。",
+   "claim": "你較宜從事工業。",
+   "source": "wtz.deep.p536.b006",
+   "quote": "丑未宫[廉贞七=杀]·宜武职。军警界出身，或在刑法纪律组织工作，皆为适宜。三方有煞而本宫无煞者尤确。若本宫有煞，则不如从事工业。"
+  },
+  {
+   "id": "syn.career.lianzhen.lianqi-setback",
+   "chapter": "事業",
+   "group": "廉貞事業.挫折",
+   "specificity": "system",
+   "polarity": "凶",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "廉貞",
+      "at": [
+       "丑",
+       "未"
+      ]
+     },
+     {
+      "together": [
+       "廉貞",
+       "七殺"
+      ]
+     }
+    ]
+   },
+   "requires": {
+    "star": "廉貞",
+    "in": {
+     "name": "官祿"
+    }
+   },
+   "because": "你的事業宮廉貞與七殺同坐{branch}宮。",
+   "claim": "你一生事業至少有一次重大挫折。",
+   "source": "wtz.deep.p536.b008",
+   "quote": "[廉贞t杀]坐事业宫，一生必至少有一次重大挫折，"
+  },
+  {
+   "id": "syn.career.lianzhen.yinshen-commerce",
+   "chapter": "事業",
+   "group": "廉貞事業.行業",
+   "specificity": "system",
+   "polarity": "中",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "廉貞",
+      "at": [
+       "寅",
+       "申"
+      ]
+     },
+     {
+      "opposite": [
+       "廉貞",
+       "貪狼"
+      ]
+     }
+    ]
+   },
+   "requires": {
+    "star": "廉貞",
+    "in": {
+     "name": "官祿"
+    }
+   },
+   "because": "你的事業宮廉貞坐{branch}宮，與貪狼相對。",
+   "claim": "你較宜從商。",
+   "source": "wtz.deep.p536.b010",
+   "quote": "寅申宫廉贞守事业宫，与贪狼相对，以从商为宜。"
+  },
+  {
+   "id": "syn.career.lianzhen.maoyou-lianpo-lianlu",
+   "chapter": "事業",
+   "group": "廉貞事業.發展",
+   "specificity": "system",
+   "polarity": "吉",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "廉貞",
+      "at": [
+       "卯",
+       "酉"
+      ]
+     },
+     {
+      "together": [
+       "廉貞",
+       "破軍"
+      ]
+     },
+     {
+      "star": "廉貞",
+      "hua": "祿"
+     }
+    ]
+   },
+   "requires": {
+    "star": "廉貞",
+    "in": {
+     "name": "官祿"
+    }
+   },
+   "because": "你的事業宮廉貞與破軍同坐{branch}宮，而且廉貞化祿。",
+   "claim": "你的事業發展較為順遂。",
+   "source": "wtz.deep.p536.b013",
+   "quote": "卯酉宫[廉贞破军]]必须见禄然后始主事业有成。 以廉贞化禄事业较为顺遂。"
+  },
+  {
+   "id": "syn.career.lianzhen.maoyou-lianpo-pojunlu",
+   "chapter": "事業",
+   "group": "廉貞事業.發展",
+   "specificity": "system",
+   "polarity": "凶",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "廉貞",
+      "at": [
+       "卯",
+       "酉"
+      ]
+     },
+     {
+      "together": [
+       "廉貞",
+       "破軍"
+      ]
+     },
+     {
+      "star": "破軍",
+      "hua": "祿"
+     }
+    ]
+   },
+   "requires": {
+    "star": "廉貞",
+    "in": {
+     "name": "官祿"
+    }
+   },
+   "because": "你的事業宮廉貞與破軍同坐{branch}宮，而且破軍化祿。",
+   "claim": "你的事業不但多勞，也會遇到挫折。",
+   "source": "wtz.deep.p536.b013",
+   "quote": "若破军化禄，则不但多劳，而且事业必有挫折。"
+  },
+  {
+   "id": "syn.career.lianzhen.chenxu-lianfu",
+   "chapter": "事業",
+   "group": "廉貞事業.行業",
+   "specificity": "system",
+   "polarity": "中",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "廉貞",
+      "at": [
+       "辰",
+       "戌"
+      ]
+     },
+     {
+      "together": [
+       "廉貞",
+       "天府"
+      ]
+     }
+    ]
+   },
+   "requires": {
+    "star": "廉貞",
+    "in": {
+     "name": "官祿"
+    }
+   },
+   "because": "你的事業宮廉貞與天府同坐{branch}宮。",
+   "claim": "你的事業偏向財經，也適合經營與金屬有關的行業。",
+   "source": "wtz.deep.p537.b004",
+   "quote": "辰戌宫廉贞天府同度，事业倾向于财经。亦宜经营与金属有关的行业。"
+  },
+  {
+   "id": "syn.career.lianzhen.sihai-liantan-kongjie",
+   "chapter": "事業",
+   "group": "廉貞事業.藝術",
+   "specificity": "system",
+   "polarity": "中",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "廉貞",
+      "at": [
+       "巳",
+       "亥"
+      ]
+     },
+     {
+      "together": [
+       "廉貞",
+       "貪狼"
+      ]
+     },
+     {
+      "meets": "廉貞",
+      "stars": [
+       "地空",
+       "地劫"
+      ],
+      "reach": "same",
+      "op": "gte",
+      "n": 2
+     }
+    ]
+   },
+   "requires": {
+    "star": "廉貞",
+    "in": {
+     "name": "官祿"
+    }
+   },
+   "because": "你的事業宮廉貞與貪狼同坐{branch}宮，並與地空、地劫同度。",
+   "claim": "你適合藝術工作，尤其是表演行業。",
+   "source": "wtz.deep.p537.b008",
+   "quote": "巳亥宫[廉贞贪狼l同度，空劫又同瞍耆，最宜艺术，尤以表演行业为宜。"
+  },
+  {
+   "id": "syn.career.lianzhen.liantan-tanlangji",
+   "chapter": "事業",
+   "group": "廉貞事業.變動",
+   "specificity": "system",
+   "polarity": "中",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "廉貞",
+      "at": [
+       "巳",
+       "亥"
+      ]
+     },
+     {
+      "together": [
+       "廉貞",
+       "貪狼"
+      ]
+     },
+     {
+      "star": "貪狼",
+      "hua": "忌"
+     }
+    ]
+   },
+   "requires": {
+    "star": "廉貞",
+    "in": {
+     "name": "官祿"
+    }
+   },
+   "because": "你的事業宮廉貞與貪狼同坐{branch}宮，而且貪狼化忌。",
+   "claim": "你一生會有一次重大的轉業。",
+   "source": "wtz.deep.p537.b012",
+   "quote": "[廉贪]而贪狼化忌，一生必有一次重大的转业。"
+  },
+  {
+   "id": "syn.career.tianfu.miao-shoucheng",
+   "chapter": "事業",
+   "group": "天府事業.守成",
+   "specificity": "general",
+   "polarity": "吉",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "star": "天府",
+    "in": {
+     "name": "官祿"
+    }
+   },
+   "bright": {
+    "star": "天府",
+    "levels": [
+     "廟"
+    ]
+   },
+   "because": "你的事業宮有天府坐守，而且天府入廟。",
+   "claim": "你能守住現成的事業。",
+   "source": "wtz.deep.p538.b002",
+   "quote": "天府入庙，可守现成事业。"
+  },
+  {
+   "id": "syn.career.tianfu.delu",
+   "chapter": "事業",
+   "group": "天府事業.發展",
+   "specificity": "general",
+   "polarity": "吉",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "天府",
+      "in": {
+       "name": "官祿"
+      }
+     },
+     {
+      "deLu": "天府"
+     }
+    ]
+   },
+   "because": "你的事業宮天府三方四正見祿存或化祿。",
+   "claim": "你的事業較能發展亨通。",
+   "source": "wtz.deep.p538.b004",
+   "quote": "天府必须得禄，然后事业始主亨通。"
+  },
+  {
+   "id": "syn.career.tianfu.no-lu",
+   "chapter": "事業",
+   "group": "天府事業.發展",
+   "specificity": "general",
+   "polarity": "凶",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "star": "天府",
+    "in": {
+     "name": "官祿"
+    }
+   },
+   "none": {
+    "deLu": "天府"
+   },
+   "because": "你的事業宮天府三方四正不見祿存或化祿。",
+   "claim": "你的事業即使表面不錯，也容易外強中乾。",
+   "source": "wtz.deep.p538.b004",
+   "quote": "天府必须得禄，然后事业始主亨通。否则事业虽佳，亦不过外强中干而已。"
+  },
+  {
+   "id": "syn.career.tianfu.huoling",
+   "chapter": "事業",
+   "group": "天府事業.波折",
+   "specificity": "general",
+   "polarity": "凶",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "天府",
+      "in": {
+       "name": "官祿"
+      }
+     },
+     {
+      "meets": "天府",
+      "stars": [
+       "火星",
+       "鈴星"
+      ],
+      "reach": "sanfang",
+      "op": "gte",
+      "n": 1
+     }
+    ]
+   },
+   "because": "你的事業宮天府會照火星或鈴星。",
+   "claim": "你的事業容易波動，較宜向工業或工程發展。",
+   "source": "wtz.deep.p538.b008",
+   "quote": "天府不喜火铃照射，主事业波动。以工业、工程发展者为宜。"
+  },
+  {
+   "id": "syn.career.tianfu.kongjie",
+   "chapter": "事業",
+   "group": "天府事業.發展",
+   "specificity": "general",
+   "polarity": "凶",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "天府",
+      "in": {
+       "name": "官祿"
+      }
+     },
+     {
+      "meets": "天府",
+      "stars": [
+       "地空",
+       "地劫"
+      ],
+      "reach": "same",
+      "op": "gte",
+      "n": 2
+     }
+    ]
+   },
+   "because": "你的事業宮天府與地空、地劫同度。",
+   "claim": "你在事業上容易既想改革又保守，進退失據而妨礙發展；較宜從事實業，避免投機。",
+   "source": "wtz.deep.p538.b009",
+   "quote": "天府有空劫同度者，事业多进退失据，既思改革，又保守，以致事业发展受到障碍。故以从事实业为宜。切忌投机。"
+  },
+  {
+   "id": "syn.career.tianfu.yangtuo",
+   "chapter": "事業",
+   "group": "天府事業.波折",
+   "specificity": "general",
+   "polarity": "凶",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "天府",
+      "in": {
+       "name": "官祿"
+      }
+     },
+     {
+      "meets": "天府",
+      "stars": [
+       "擎羊",
+       "陀羅"
+      ],
+      "reach": "sanfang",
+      "op": "gte",
+      "n": 1
+     }
+    ]
+   },
+   "because": "你的事業宮天府會照擎羊或陀羅。",
+   "claim": "你的事業容易有波折，較宜從事工業或工程。",
+   "source": "wtz.deep.p538.b010",
+   "quote": "天府会羊陀，则主事业有波折，仍以从事工业或工程为佳。"
+  },
+  {
+   "id": "syn.career.tianfu.miao-huake-credit",
+   "chapter": "事業",
+   "group": "天府事業.行業",
+   "specificity": "general",
+   "polarity": "中",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "天府",
+      "in": {
+       "name": "官祿"
+      }
+     },
+     {
+      "star": "天府",
+      "hua": "科"
+     }
+    ]
+   },
+   "bright": {
+    "star": "天府",
+    "levels": [
+     "廟"
+    ]
+   },
+   "none": {
+    "sanfangOf": {
+     "name": "官祿"
+    },
+    "count": "malefic",
+    "op": "gte",
+    "n": 1
+   },
+   "because": "你的事業宮天府入廟並化科，三方四正不見煞曜。",
+   "claim": "你適合從事信貸等事業。",
+   "source": "wtz.deep.p538.b012",
+   "quote": "天府入庙，·化科，则以从事信贷等事业为佳，若有煞，则仍宜工程或工业。"
+  },
+  {
+   "id": "syn.career.tianfu.chouwei",
+   "chapter": "事業",
+   "group": "天府事業.行業",
+   "specificity": "system",
+   "polarity": "中",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "star": "天府",
+    "at": [
+     "丑",
+     "未"
+    ]
+   },
+   "requires": {
+    "star": "天府",
+    "in": {
+     "name": "官祿"
+    }
+   },
+   "because": "你的事業宮天府坐{branch}宮。",
+   "claim": "你一般較宜任武職，或經營工業、工程。",
+   "source": "wtz.deep.p538.b014",
+   "quote": "丑未宫的天府，一般情形下宜任武职，或经营工业工程，"
+  },
+  {
+   "id": "syn.career.tianfu.maoyou-wuqulu",
+   "chapter": "事業",
+   "group": "天府事業.職位",
+   "specificity": "system",
+   "polarity": "吉",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "天府",
+      "at": [
+       "卯",
+       "酉"
+      ]
+     },
+     {
+      "meets": "天府",
+      "stars": [
+       "武曲"
+      ],
+      "reach": "sanfang",
+      "op": "gte",
+      "n": 1
+     },
+     {
+      "star": "武曲",
+      "hua": "祿"
+     }
+    ]
+   },
+   "requires": {
+    "star": "天府",
+    "in": {
+     "name": "官祿"
+    }
+   },
+   "because": "你的事業宮天府坐{branch}宮，會照化祿的武曲。",
+   "claim": "你適合擔任管理財政、賦稅的職務。",
+   "source": "wtz.deep.p539.b004",
+   "quote": "卯酉宫天府，得武曲化禄来会，亦主任财赋之职。"
+  },
+  {
+   "id": "syn.career.tianfu.sihai",
+   "chapter": "事業",
+   "group": "天府事業.發展",
+   "specificity": "system",
+   "polarity": "中",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "star": "天府",
+    "at": [
+     "巳",
+     "亥"
+    ]
+   },
+   "requires": {
+    "star": "天府",
+    "in": {
+     "name": "官祿"
+    }
+   },
+   "because": "你的事業宮天府坐{branch}宮。",
+   "claim": "你宜腳踏實地，在現成局面下穩步發展。",
+   "source": "wtz.deep.p539.b008",
+   "quote": "凡天府在巳亥守事业宫，皆以脚踏实地，在现成局面下稳步发展为宜。"
+  },
+  {
+   "id": "syn.career.taiyin.changqu-status",
+   "chapter": "事業",
+   "group": "太陰事業.地位",
+   "specificity": "general",
+   "polarity": "吉",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "太陰",
+      "in": {
+       "name": "官祿"
+      }
+     },
+     {
+      "meets": "太陰",
+      "stars": [
+       "文昌",
+       "文曲"
+      ],
+      "reach": "sanfang",
+      "op": "gte",
+      "n": 2
+     }
+    ]
+   },
+   "because": "你的事業宮太陰會照文昌、文曲。",
+   "claim": "你能在事業上取得社會地位。",
+   "source": "wtz.deep.p539.b010",
+   "quote": "太阴主富不主贵，故守事业宫时，必以见文昌文曲同会，然后始主其人有社会地位。"
+  },
+  {
+   "id": "syn.career.taiyin.luoxian",
+   "chapter": "事業",
+   "group": "太陰事業.變動",
+   "specificity": "general",
+   "polarity": "凶",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "star": "太陰",
+    "in": {
+     "name": "官祿"
+    }
+   },
+   "bright": {
+    "star": "太陰",
+    "levels": [
+     "陷"
+    ]
+   },
+   "because": "你的事業宮太陰落陷。",
+   "claim": "你的事業變動較多，財帛也較難積聚。",
+   "source": "wtz.deep.p540.b003",
+   "quote": "太阴落陷守事业宫，终生事业变动多端，则帛更难积聚。"
+  },
+  {
+   "id": "syn.career.taiyin.planning",
+   "chapter": "事業",
+   "group": "太陰事業.職責",
+   "specificity": "general",
+   "polarity": "中",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "star": "太陰",
+    "in": {
+     "name": "官祿"
+    }
+   },
+   "because": "你的事業宮有太陰坐守。",
+   "claim": "你較宜負責計劃、策劃，即使職務與財政有關，也較宜做規劃工作。",
+   "source": "wtz.deep.p540.b007",
+   "quote": "太阴为财星，主计划而不主行动，故守事业时，即使所任职务与财政有关，亦仅宜计划策划，而不宜实际行动。"
+  },
+  {
+   "id": "syn.career.taiyin.jumenji",
+   "chapter": "事業",
+   "group": "太陰事業.壓力",
+   "specificity": "general",
+   "polarity": "凶",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "太陰",
+      "in": {
+       "name": "官祿"
+      }
+     },
+     {
+      "meets": "太陰",
+      "stars": [
+       "巨門"
+      ],
+      "reach": "sanfang",
+      "op": "gte",
+      "n": 1
+     },
+     {
+      "star": "巨門",
+      "hua": "忌"
+     }
+    ]
+   },
+   "because": "你的事業宮太陰會照化忌的巨門。",
+   "claim": "你在事業上要費盡心神，或花不少唇舌。",
+   "source": "wtz.deep.p540.b009",
+   "quote": "太阴会巨门化忌者，主事业伤尽脑筋，或须费尽唇舌。"
+  },
+  {
+   "id": "syn.career.taiyin.tianjilu-taiyinji",
+   "chapter": "事業",
+   "group": "太陰事業.投資",
+   "specificity": "system",
+   "polarity": "凶",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "太陰",
+      "in": {
+       "name": "官祿"
+      }
+     },
+     {
+      "any": [
+       {
+        "together": [
+         "太陰",
+         "天機"
+        ]
+       },
+       {
+        "opposite": [
+         "太陰",
+         "天機"
+        ]
+       }
+      ]
+     },
+     {
+      "star": "天機",
+      "hua": "祿"
+     },
+     {
+      "star": "太陰",
+      "hua": "忌"
+     }
+    ]
+   },
+   "because": "你的事業宮太陰化忌，與化祿的天機同度或相對。",
+   "claim": "你不宜投機，容易因投資方向錯誤，或受人引誘誤導而有損失。",
+   "source": "wtz.deep.p540.b011",
+   "quote": "若天机化禄，太阴化忌，则绝不宜投机。盖太阴化忌守事业宫，有投资方向错误，或受人引诱误导而致投资损耗。"
+  },
+  {
+   "id": "syn.career.taiyin.tianliangke",
+   "chapter": "事業",
+   "group": "太陰事業.職責",
+   "specificity": "general",
+   "polarity": "中",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "太陰",
+      "in": {
+       "name": "官祿"
+      }
+     },
+     {
+      "meets": "太陰",
+      "stars": [
+       "天梁"
+      ],
+      "reach": "sanfang",
+      "op": "gte",
+      "n": 1
+     },
+     {
+      "star": "天梁",
+      "hua": "科"
+     }
+    ]
+   },
+   "because": "你的事業宮太陰會照化科的天梁。",
+   "claim": "你適合從事監督、管理工作，或在公證行一類機構工作。",
+   "source": "wtz.deep.p540.b012",
+   "quote": "太阴会天梁化科，宜从事监督、管理工作，或如公证行之类。"
+  },
+  {
+   "id": "syn.career.taiyin.tiantongji-sha",
+   "chapter": "事業",
+   "group": "太陰事業.挫折",
+   "specificity": "general",
+   "polarity": "凶",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "太陰",
+      "in": {
+       "name": "官祿"
+      }
+     },
+     {
+      "meets": "太陰",
+      "stars": [
+       "天同"
+      ],
+      "reach": "sanfang",
+      "op": "gte",
+      "n": 1
+     },
+     {
+      "star": "天同",
+      "hua": "忌"
+     },
+     {
+      "sanfangOf": {
+       "name": "官祿"
+      },
+      "count": "malefic",
+      "op": "gte",
+      "n": 1
+     }
+    ]
+   },
+   "because": "你的事業宮太陰會照化忌的天同，三方四正又見煞曜。",
+   "claim": "你的事業容易遇到挫折。",
+   "source": "wtz.deep.p540.b013",
+   "quote": "唯若天同化忌者，有煞，主事业挫折，无煞，则由低层发展，终能成就。"
+  },
+  {
+   "id": "syn.career.taiyin.tiantongji-no-sha",
+   "chapter": "事業",
+   "group": "太陰事業.發展",
+   "specificity": "general",
+   "polarity": "吉",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "太陰",
+      "in": {
+       "name": "官祿"
+      }
+     },
+     {
+      "meets": "太陰",
+      "stars": [
+       "天同"
+      ],
+      "reach": "sanfang",
+      "op": "gte",
+      "n": 1
+     },
+     {
+      "star": "天同",
+      "hua": "忌"
+     }
+    ]
+   },
+   "none": {
+    "sanfangOf": {
+     "name": "官祿"
+    },
+    "count": "malefic",
+    "op": "gte",
+    "n": 1
+   },
+   "because": "你的事業宮太陰會照化忌的天同，三方四正不見煞曜。",
+   "claim": "你的事業由低層起步，逐步發展後能有所成。",
+   "source": "wtz.deep.p540.b013",
+   "quote": "唯若天同化忌者，有煞，主事业挫折，无煞，则由低层发展，终能成就。"
+  },
+  {
+   "id": "syn.career.taiyin.you-overseas",
+   "chapter": "事業",
+   "group": "太陰事業.發展",
+   "specificity": "system",
+   "polarity": "吉",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "太陰",
+      "at": [
+       "酉"
+      ]
+     },
+     {
+      "opposite": [
+       "太陰",
+       "天同"
+      ]
+     }
+    ]
+   },
+   "requires": {
+    "star": "太陰",
+    "in": {
+     "name": "官祿"
+    }
+   },
+   "because": "你的事業宮太陰坐酉宮，與天同相對。",
+   "claim": "你的事業發展範圍較廣，可拓展至外國，或工作與外國有關。",
+   "source": "wtz.deep.p540.b014",
+   "quote": "卯酉太阴守事业宫，天同对拱。一一般情形下西优于卯，在酉事业广大，可以扩展至外国，或一生事业与外国有关，在卯者，以任职为宜。"
+  },
+  {
+   "id": "syn.career.taiyin.mao-employment",
+   "chapter": "事業",
+   "group": "太陰事業.職位",
+   "specificity": "system",
+   "polarity": "中",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "太陰",
+      "at": [
+       "卯"
+      ]
+     },
+     {
+      "opposite": [
+       "太陰",
+       "天同"
+      ]
+     }
+    ]
+   },
+   "requires": {
+    "star": "太陰",
+    "in": {
+     "name": "官祿"
+    }
+   },
+   "because": "你的事業宮太陰坐卯宮，與天同相對。",
+   "claim": "你較宜受僱任職。",
+   "source": "wtz.deep.p540.b014",
+   "quote": "卯酉太阴守事业宫，天同对拱。一一般情形下西优于卯，在酉事业广大，可以扩展至外国，或一生事业与外国有关，在卯者，以任职为宜。"
+  },
+  {
+   "id": "syn.career.taiyin.chenxu-taiyangji",
+   "chapter": "事業",
+   "group": "太陰事業.職責",
+   "specificity": "system",
+   "polarity": "中",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "太陰",
+      "at": [
+       "辰",
+       "戌"
+      ]
+     },
+     {
+      "opposite": [
+       "太陰",
+       "太陽"
+      ]
+     },
+     {
+      "star": "太陽",
+      "hua": "忌"
+     }
+    ]
+   },
+   "requires": {
+    "star": "太陰",
+    "in": {
+     "name": "官祿"
+    }
+   },
+   "because": "你的事業宮太陰坐{branch}宮，對宮太陽化忌。",
+   "claim": "你較宜負責內務工作。",
+   "source": "wtz.deep.p540.b015",
+   "quote": "辰戌太阴守事业宫，与太阳对拱。若太阳化忌，则宜任职内务，"
+  },
+  {
+   "id": "syn.career.taiyin.sihai-sha",
+   "chapter": "事業",
+   "group": "太陰事業.行業",
+   "specificity": "system",
+   "polarity": "中",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "太陰",
+      "at": [
+       "巳",
+       "亥"
+      ]
+     },
+     {
+      "sanfangOf": {
+       "name": "官祿"
+      },
+      "count": "malefic",
+      "op": "gte",
+      "n": 1
+     }
+    ]
+   },
+   "requires": {
+    "star": "太陰",
+    "in": {
+     "name": "官祿"
+    }
+   },
+   "because": "你的事業宮太陰坐{branch}宮，三方四正見煞曜。",
+   "claim": "你較宜從事工程。",
+   "source": "wtz.deep.p541.b003",
+   "quote": "巳亥宫太阴守事业宫，有煞，以工程为宜，"
+  },
+  {
+   "id": "syn.career.tanlang.social-commerce",
+   "chapter": "事業",
+   "group": "貪狼事業.行業",
+   "specificity": "general",
+   "polarity": "中",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "star": "貪狼",
+    "in": {
+     "name": "官祿"
+    }
+   },
+   "because": "你的事業宮有貪狼坐守。",
+   "claim": "你的事業傾向消費、交際，也可由社交開展事業。",
+   "source": "wtz.deep.p541.b005",
+   "quote": "贪狼守事业宫，主其事业倾向于消费、交际，或由社交而成事业。"
+  },
+  {
+   "id": "syn.career.tanlang.changqu-media",
+   "chapter": "事業",
+   "group": "貪狼事業.行業",
+   "specificity": "general",
+   "polarity": "中",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "貪狼",
+      "in": {
+       "name": "官祿"
+      }
+     },
+     {
+      "meets": "貪狼",
+      "stars": [
+       "文昌",
+       "文曲"
+      ],
+      "reach": "same",
+      "op": "gte",
+      "n": 2
+     }
+    ]
+   },
+   "because": "你的事業宮貪狼與文昌、文曲同度。",
+   "claim": "你可從事帶娛樂性質的傳播事業。",
+   "source": "wtz.deep.p541.b006",
+   "quote": "贪狼与昌曲同度，最宜公开事业，或可从事带娱乐性之传播事业。"
+  },
+  {
+   "id": "syn.career.tanlang.kongjie-changqu",
+   "chapter": "事業",
+   "group": "貪狼事業.行業",
+   "specificity": "general",
+   "polarity": "中",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "貪狼",
+      "in": {
+       "name": "官祿"
+      }
+     },
+     {
+      "meets": "貪狼",
+      "stars": [
+       "地空",
+       "地劫"
+      ],
+      "reach": "same",
+      "op": "gte",
+      "n": 2
+     },
+     {
+      "meets": "貪狼",
+      "stars": [
+       "文昌",
+       "文曲"
+      ],
+      "reach": "sanfang",
+      "op": "gte",
+      "n": 2
+     }
+    ]
+   },
+   "because": "你的事業宮貪狼與地空、地劫同度，並會照文昌、文曲。",
+   "claim": "你的事業可向藝術方向發展。",
+   "source": "wtz.deep.p541.b008",
+   "quote": "贪狼如与空劫同度，须视有无昌曲，有则为艺术，无则宜从事实业。"
+  },
+  {
+   "id": "syn.career.tanlang.kongjie-no-changqu",
+   "chapter": "事業",
+   "group": "貪狼事業.行業",
+   "specificity": "general",
+   "polarity": "中",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "貪狼",
+      "in": {
+       "name": "官祿"
+      }
+     },
+     {
+      "meets": "貪狼",
+      "stars": [
+       "地空",
+       "地劫"
+      ],
+      "reach": "same",
+      "op": "gte",
+      "n": 2
+     }
+    ]
+   },
+   "none": {
+    "meets": "貪狼",
+    "stars": [
+     "文昌",
+     "文曲"
+    ],
+    "reach": "sanfang",
+    "op": "gte",
+    "n": 1
+   },
+   "because": "你的事業宮貪狼與地空、地劫同度，三方四正不見文昌、文曲。",
+   "claim": "你較宜從事實業。",
+   "source": "wtz.deep.p541.b008",
+   "quote": "贪狼如与空劫同度，须视有无昌曲，有则为艺术，无则宜从事实业。"
+  },
+  {
+   "id": "syn.career.tanlang.simu-huoling",
+   "chapter": "事業",
+   "group": "貪狼事業.職位",
+   "specificity": "system",
+   "polarity": "中",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "貪狼",
+      "at": [
+       "辰",
+       "戌",
+       "丑",
+       "未"
+      ]
+     },
+     {
+      "any": [
+       {
+        "together": [
+         "貪狼",
+         "火星"
+        ]
+       },
+       {
+        "together": [
+         "貪狼",
+         "鈴星"
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   "requires": {
+    "star": "貪狼",
+    "in": {
+     "name": "官祿"
+    }
+   },
+   "because": "你的事業宮貪狼坐{branch}宮，與火星或鈴星同度。",
+   "claim": "你可掌兵權，或在警察、紀律、刑法部門任職。",
+   "source": "wtz.deep.p541.b012",
+   "quote": "火贪铃贪于辰戌丑未四宫，乃主持掌兵权，或在警察纪律刑法部门任职。"
+  },
+  {
+   "id": "syn.career.tanlang.yangtuo",
+   "chapter": "事業",
+   "group": "貪狼事業.行業",
+   "specificity": "general",
+   "polarity": "中",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "貪狼",
+      "in": {
+       "name": "官祿"
+      }
+     },
+     {
+      "meets": "貪狼",
+      "stars": [
+       "擎羊",
+       "陀羅"
+      ],
+      "reach": "same",
+      "op": "gte",
+      "n": 1
+     }
+    ]
+   },
+   "because": "你的事業宮貪狼與擎羊或陀羅同度。",
+   "claim": "你較宜從商，行業以消費、裝飾、娛樂或消費品相關者為宜。",
+   "source": "wtz.deep.p541.b013",
+   "quote": "贪狼与羊陀同茺，则以从商为宜。亦须从事消费行业或行业性质与装饰、娱乐、消费品有关。"
+  },
+  {
+   "id": "syn.career.tanlang.fubi",
+   "chapter": "事業",
+   "group": "貪狼事業.規模",
+   "specificity": "general",
+   "polarity": "吉",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "貪狼",
+      "in": {
+       "name": "官祿"
+      }
+     },
+     {
+      "meets": "貪狼",
+      "stars": [
+       "左輔",
+       "右弼"
+      ],
+      "reach": "same",
+      "op": "gte",
+      "n": 2
+     }
+    ]
+   },
+   "because": "你的事業宮貪狼與左輔、右弼同度。",
+   "claim": "你的下屬較多，所經營的事業也有相當氣派。",
+   "source": "wtz.deep.p541.b014",
+   "quote": "贪狼与左辅右弼同度，则主下属众多，故所经营之事业说必有相当气派。"
+  },
+  {
+   "id": "syn.career.tanlang.huaji-competition",
+   "chapter": "事業",
+   "group": "貪狼事業.競爭",
+   "specificity": "general",
+   "polarity": "凶",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "貪狼",
+      "in": {
+       "name": "官祿"
+      }
+     },
+     {
+      "star": "貪狼",
+      "hua": "忌"
+     }
+    ]
+   },
+   "because": "你的事業宮貪狼化忌。",
+   "claim": "你參與的事業容易引起競爭。",
+   "source": "wtz.deep.p542.b001",
+   "quote": "贪狼化忌在事业宫者，主凡插手事业必引起竞争。"
+  },
+  {
+   "id": "syn.career.tanlang.huaji-kongjie",
+   "chapter": "事業",
+   "group": "貪狼事業.競爭",
+   "specificity": "general",
+   "polarity": "凶",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "貪狼",
+      "in": {
+       "name": "官祿"
+      }
+     },
+     {
+      "star": "貪狼",
+      "hua": "忌"
+     },
+     {
+      "meets": "貪狼",
+      "stars": [
+       "地空",
+       "地劫"
+      ],
+      "reach": "same",
+      "op": "gte",
+      "n": 2
+     }
+    ]
+   },
+   "because": "你的事業宮貪狼化忌，並與地空、地劫同度。",
+   "claim": "你的事業容易因競爭而遭遇挫折。",
+   "source": "wtz.deep.p542.b001",
+   "quote": "贪狼化忌在事业宫者，主凡插手事业必引起竞争。有煞曜同度者更甚，空劫同度则主因竞争而遭挫折。"
+  },
+  {
+   "id": "syn.career.tanlang.huaji-benefic",
+   "chapter": "事業",
+   "group": "貪狼事業.發展",
+   "specificity": "general",
+   "polarity": "中",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "貪狼",
+      "in": {
+       "name": "官祿"
+      }
+     },
+     {
+      "star": "貪狼",
+      "hua": "忌"
+     },
+     {
+      "sanfangOf": {
+       "name": "官祿"
+      },
+      "count": "benefic",
+      "op": "gte",
+      "n": 1
+     }
+    ]
+   },
+   "because": "你的事業宮貪狼化忌，三方四正有吉曜同會。",
+   "claim": "你原本理想的事業難達到目標，但可另闢方向，創出新局面。",
+   "source": "wtz.deep.p542.b002",
+   "quote": "若贪狼化忌有吉曜同会，则理想之事业虽不能达到目的·但却别有天地，可由此创建新猷。"
+  },
+  {
+   "id": "syn.career.tanlang.ziwu",
+   "chapter": "事業",
+   "group": "貪狼事業.職位",
+   "specificity": "system",
+   "polarity": "中",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "貪狼",
+      "at": [
+       "子",
+       "午"
+      ]
+     },
+     {
+      "opposite": [
+       "貪狼",
+       "紫微"
+      ]
+     }
+    ]
+   },
+   "requires": {
+    "star": "貪狼",
+    "in": {
+     "name": "官祿"
+    }
+   },
+   "because": "你的事業宮貪狼坐{branch}宮，與紫微相對。",
+   "claim": "你可獨當一面，或從事自由職業；方向以帶藝術、美觀、享受色彩者為宜。",
+   "source": "wtz.deep.p542.b003",
+   "quote": "子午贪狼与紫微对拱，主独当一面，或主自由职业。以带艺术、美观、享受色彩者为宜。"
+  },
+  {
+   "id": "syn.career.tanlang.yinshen-pioneering",
+   "chapter": "事業",
+   "group": "貪狼事業.創業",
+   "specificity": "system",
+   "polarity": "中",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "star": "貪狼",
+    "at": [
+     "寅",
+     "申"
+    ]
+   },
+   "requires": {
+    "star": "貪狼",
+    "in": {
+     "name": "官祿"
+    }
+   },
+   "because": "你的事業宮貪狼坐{branch}宮。",
+   "claim": "你適合開創性行業，也可在既有行業中以特殊作風經營，走出自己的路。",
+   "source": "wtz.deep.p542.b008",
+   "quote": "寅申宫贪狼，以开创性行业为宜。或从事某一行业，却能别开生面，以特殊作风经营，“由此走向成功。"
+  },
+  {
+   "id": "syn.career.tanlang.yinshen-partnership",
+   "chapter": "事業",
+   "group": "貪狼事業.合作",
+   "specificity": "system",
+   "polarity": "中",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "star": "貪狼",
+    "at": [
+     "寅",
+     "申"
+    ]
+   },
+   "requires": {
+    "star": "貪狼",
+    "in": {
+     "name": "官祿"
+    }
+   },
+   "because": "你的事業宮貪狼坐{branch}宮。",
+   "claim": "你的事業傾向與人合作，但容易中途改變安排。",
+   "source": "wtz.deep.p542.b009",
+   "quote": "寅申贪狼守事业宫，时倾向于与人合作，唯多中道更张。"
+  },
+  {
+   "id": "syn.career.tanlang.dynamic-art",
+   "chapter": "事業",
+   "group": "貪狼事業.藝術",
+   "specificity": "general",
+   "polarity": "中",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "star": "貪狼",
+    "in": {
+     "name": "官祿"
+    }
+   },
+   "because": "你的事業宮有貪狼坐守。",
+   "claim": "你的藝術特質偏向動態表現。",
+   "source": "wtz.deep.p541.b009",
+   "quote": "贪狼亦带艺术性质，但廉贞静态，贪狼却为动态。二者基本性质不同。"
+  },
+  {
+   "id": "syn.career.jumen.speech-income",
+   "chapter": "事業",
+   "group": "巨門事業.行業",
+   "specificity": "general",
+   "polarity": "中",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "star": "巨門",
+    "in": {
+     "name": "官祿"
+    }
+   },
+   "because": "你的事業宮有巨門。",
+   "claim": "你主要靠口才謀生，或需要花唇舌來賺取收入。",
+   "source": "wtz.deep.p543.b001",
+   "quote": "·凡巨门在事业宫，基本性质，为[口舌生财故以口才为主，或须费唇舌以谋生。"
+  },
+  {
+   "id": "syn.career.jumen.food-industry",
+   "chapter": "事業",
+   "group": "巨門事業.行業",
+   "specificity": "general",
+   "polarity": "中",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "star": "巨門",
+    "in": {
+     "name": "官祿"
+    }
+   },
+   "because": "你的事業宮有巨門。",
+   "claim": "你也適合從事與飲食有關的行業。",
+   "source": "wtz.deep.p543.b005",
+   "quote": "口舌引伸为饮食，故亦可从事与饮食有关的行业。"
+  },
+  {
+   "id": "syn.career.jumen.lu-reputation",
+   "chapter": "事業",
+   "group": "巨門事業.聲名",
+   "specificity": "general",
+   "polarity": "吉",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "巨門",
+      "in": {
+       "name": "官祿"
+      }
+     },
+     {
+      "any": [
+       {
+        "star": "巨門",
+        "hua": "祿"
+       },
+       {
+        "together": [
+         "巨門",
+         "祿存"
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   "because": "你的事業宮巨門化祿，或與祿存同宮。",
+   "claim": "你的口才有時能轉化為口碑，宜讓聲名自然累積，少主動出鋒頭。",
+   "source": "wtz.deep.p543.b006",
+   "quote": "·巨门喜化禄，或与禄存同度，则有时可将口舌的性质转化为声名。但以不主动出锋头为宜。"
+  },
+  {
+   "id": "syn.career.jumen.ziwu-delu",
+   "chapter": "事業",
+   "group": "巨門事業.時序",
+   "specificity": "system",
+   "polarity": "吉",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "巨門",
+      "in": {
+       "name": "官祿"
+      }
+     },
+     {
+      "star": "巨門",
+      "at": [
+       "子",
+       "午"
+      ]
+     },
+     {
+      "deLu": "巨門"
+     }
+    ]
+   },
+   "because": "你的事業宮巨門坐{branch}宮，三方四正見祿存或化祿。",
+   "claim": "你經過一段時期後，事業會有明顯進展。",
+   "source": "wtz.deep.p543.b009",
+   "quote": "子午巨门得禄，经过一段时期，必然事业猛进。"
+  },
+  {
+   "id": "syn.career.jumen.ziwu-multiple-trades",
+   "chapter": "事業",
+   "group": "巨門事業.時序",
+   "specificity": "system",
+   "polarity": "中",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "巨門",
+      "in": {
+       "name": "官祿"
+      }
+     },
+     {
+      "star": "巨門",
+      "at": [
+       "子",
+       "午"
+      ]
+     }
+    ]
+   },
+   "because": "你的事業宮巨門坐{branch}宮。",
+   "claim": "你的事業不只一端，通常先靠一門行業起家，之後再兼營其他行業。",
+   "source": "wtz.deep.p543.b010",
+   "quote": "子午巨门，事业必不只一端。一般情形为藉一行一业起家，但起家后却兼营别种行业。"
+  },
+  {
+   "id": "syn.career.jumen.ziwu-malefic-changes",
+   "chapter": "事業",
+   "group": "巨門事業.變動",
+   "specificity": "system",
+   "polarity": "凶",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "巨門",
+      "in": {
+       "name": "官祿"
+      }
+     },
+     {
+      "star": "巨門",
+      "at": [
+       "子",
+       "午"
+      ]
+     },
+     {
+      "sanfangOf": {
+       "name": "官祿"
+      },
+      "count": "malefic",
+      "op": "gte",
+      "n": 1
+     }
+    ]
+   },
+   "because": "你的事業宮巨門坐{branch}宮，三方四正見煞曜。",
+   "claim": "你的事業變動較多。",
+   "source": "wtz.deep.p543.b010",
+   "quote": "倘有煞曜，则主事业多变动。"
+  },
+  {
+   "id": "syn.career.jumen.ziwu-qingyang",
+   "chapter": "事業",
+   "group": "巨門事業.挫折",
+   "specificity": "system",
+   "polarity": "凶",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "巨門",
+      "in": {
+       "name": "官祿"
+      }
+     },
+     {
+      "star": "巨門",
+      "at": [
+       "子",
+       "午"
+      ]
+     },
+     {
+      "together": [
+       "巨門",
+       "擎羊"
+      ]
+     }
+    ]
+   },
+   "because": "你的事業宮巨門坐{branch}宮，與擎羊同宮。",
+   "claim": "你要先經歷重大挫折，事業才有所作為。",
+   "source": "wtz.deep.p543.b011",
+   "quote": "子午巨门躔擎羊者，必先经重大挫折，然后始有作为。"
+  },
+  {
+   "id": "syn.career.jumen.chenxu-enjoyment",
+   "chapter": "事業",
+   "group": "巨門事業.行業",
+   "specificity": "system",
+   "polarity": "中",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "巨門",
+      "in": {
+       "name": "官祿"
+      }
+     },
+     {
+      "star": "巨門",
+      "at": [
+       "辰",
+       "戌"
+      ]
+     },
+     {
+      "opposite": [
+       "巨門",
+       "天同"
+      ]
+     }
+    ]
+   },
+   "because": "你的事業宮巨門坐{branch}宮，對宮是天同。",
+   "claim": "你的事業多帶享受色彩，適合飲食、歌唱等行業。",
+   "source": "wtz.deep.p543.b012",
+   "quote": "辰戌宫巨门，对宫天同，事业多带享受色彩。一般以饮食、歌唱界等为宜。"
+  },
+  {
+   "id": "syn.career.jumen.chenxu-huoling",
+   "chapter": "事業",
+   "group": "巨門事業.財源",
+   "specificity": "system",
+   "polarity": "吉",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "巨門",
+      "in": {
+       "name": "官祿"
+      }
+     },
+     {
+      "star": "巨門",
+      "at": [
+       "辰",
+       "戌"
+      ]
+     },
+     {
+      "any": [
+       {
+        "together": [
+         "巨門",
+         "火星"
+        ]
+       },
+       {
+        "together": [
+         "巨門",
+         "鈴星"
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   "because": "你的事業宮巨門坐{branch}宮，與火星或鈴星同宮。",
+   "claim": "你在事業上偶有意外之財，宜收斂鋒芒來保住所得。",
+   "source": "wtz.deep.p543.b015",
+   "quote": "辰戌巨门与火铃同度，决主偶得意外之财。如何保持，则非韬光羊晦不可。"
+  },
+  {
+   "id": "syn.career.jumen.chenxu-freelance",
+   "chapter": "事業",
+   "group": "巨門事業.行業",
+   "specificity": "system",
+   "polarity": "中",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "巨門",
+      "in": {
+       "name": "官祿"
+      }
+     },
+     {
+      "star": "巨門",
+      "at": [
+       "辰",
+       "戌"
+      ]
+     }
+    ]
+   },
+   "because": "你的事業宮巨門坐{branch}宮。",
+   "claim": "你適合從事自由職業。",
+   "source": "wtz.deep.p544.b001",
+   "quote": "辰戌巨门亦宜自由职业。"
+  },
+  {
+   "id": "syn.career.jumen.sihai-luma",
+   "chapter": "事業",
+   "group": "巨門事業.發展",
+   "specificity": "system",
+   "polarity": "中",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "巨門",
+      "in": {
+       "name": "官祿"
+      }
+     },
+     {
+      "star": "巨門",
+      "at": [
+       "巳",
+       "亥"
+      ]
+     },
+     {
+      "opposite": [
+       "巨門",
+       "太陽"
+      ]
+     },
+     {
+      "deLu": "巨門"
+     },
+     {
+      "meets": "巨門",
+      "stars": [
+       "天馬"
+      ],
+      "reach": "sanfang",
+      "op": "gte",
+      "n": 1
+     }
+    ]
+   },
+   "because": "你的事業宮巨門坐{branch}宮，對宮是太陽，三方四正見祿馬。",
+   "claim": "你的事業會在異地扎根。",
+   "source": "wtz.deep.p544.b002",
+   "quote": "巳亥宫巨门太阳相对，亥宫优于巳宫。若见禄马，决主事业扎根于异域。"
+  },
+  {
+   "id": "syn.career.jumen.sihai-status-first",
+   "chapter": "事業",
+   "group": "巨門事業.時序",
+   "specificity": "system",
+   "polarity": "中",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "巨門",
+      "in": {
+       "name": "官祿"
+      }
+     },
+     {
+      "star": "巨門",
+      "at": [
+       "巳",
+       "亥"
+      ]
+     }
+    ]
+   },
+   "because": "你的事業宮巨門坐{branch}宮。",
+   "claim": "你先建立社會地位，財富才隨名譽而來。",
+   "source": "wtz.deep.p544.b003",
+   "quote": "·巳亥宫巨门，亦主先有社会地位·，然后财富始随名誉而来。"
+  },
+  {
+   "id": "syn.career.jumen.sihai-luquan-kuiyue",
+   "chapter": "事業",
+   "group": "巨門事業.扶持",
+   "specificity": "system",
+   "polarity": "吉",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "巨門",
+      "in": {
+       "name": "官祿"
+      }
+     },
+     {
+      "star": "巨門",
+      "at": [
+       "巳",
+       "亥"
+      ]
+     },
+     {
+      "any": [
+       {
+        "star": "巨門",
+        "hua": "祿"
+       },
+       {
+        "star": "巨門",
+        "hua": "權"
+       }
+      ]
+     },
+     {
+      "meets": "巨門",
+      "stars": [
+       "天魁",
+       "天鉞"
+      ],
+      "reach": "sanfang",
+      "op": "gte",
+      "n": 2
+     }
+    ]
+   },
+   "because": "你的事業宮巨門坐{branch}宮，化祿或化權，並會照天魁、天鉞。",
+   "claim": "你會得到異族人士提拔，藉此發家。",
+   "source": "wtz.deep.p544.b005",
+   "quote": "·巳亥巨门化禄、化杈，又见魁铖，主受异族提拔而发家。"
+  },
+  {
+   "id": "syn.career.jumen.sihai-huoling",
+   "chapter": "事業",
+   "group": "巨門事業.挫折",
+   "specificity": "system",
+   "polarity": "凶",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "巨門",
+      "in": {
+       "name": "官祿"
+      }
+     },
+     {
+      "star": "巨門",
+      "at": [
+       "巳",
+       "亥"
+      ]
+     },
+     {
+      "any": [
+       {
+        "together": [
+         "巨門",
+         "火星"
+        ]
+       },
+       {
+        "together": [
+         "巨門",
+         "鈴星"
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   "because": "你的事業宮巨門坐{branch}宮，與火星或鈴星同宮。",
+   "claim": "你要防事業暴發暴敗，宜見好就收。",
+   "source": "wtz.deep.p544.b006",
+   "quote": "·巳亥巨门与火铃同度，亦须防暴发暴败。持盈保泰之道，在于见好收蓬。"
+  },
+  {
+   "id": "syn.career.tianxiang.deputy",
+   "chapter": "事業",
+   "group": "天相事業.職位",
+   "specificity": "general",
+   "polarity": "中",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "star": "天相",
+    "in": {
+     "name": "官祿"
+    }
+   },
+   "because": "你的事業宮有天相。",
+   "claim": "你適合居副手位置，宜避免在名義上擔任最高負責人。",
+   "source": "wtz.deep.p544.b008",
+   "quote": "·天相守事业宫，无论处何地位，均不宜在名义上占取最高位置，以副贰为宜，否则必受人攻击，排挤。"
+  },
+  {
+   "id": "syn.career.tianxiang.lianzhen-lu",
+   "chapter": "事業",
+   "group": "天相事業.開創",
+   "specificity": "system",
+   "polarity": "中",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "天相",
+      "in": {
+       "name": "官祿"
+      }
+     },
+     {
+      "meets": "天相",
+      "stars": [
+       "廉貞"
+      ],
+      "reach": "sanfang",
+      "op": "gte",
+      "n": 1
+     },
+     {
+      "star": "廉貞",
+      "hua": "祿"
+     }
+    ]
+   },
+   "because": "你的事業宮天相會照廉貞化祿。",
+   "claim": "你多替別人開創事業，業務建立後，往往又調任新職，承擔另一項開創工作。",
+   "source": "wtz.deep.p544.b011",
+   "quote": "·会廉贞化禄，事业带开创性，但所开创的事业却不属于自己，往往一业开创即成，便须另调新职，负担新的开创业务。"
+  },
+  {
+   "id": "syn.career.tianxiang.ziwei-quan",
+   "chapter": "事業",
+   "group": "天相事業.四化",
+   "specificity": "system",
+   "polarity": "中",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "天相",
+      "in": {
+       "name": "官祿"
+      }
+     },
+     {
+      "meets": "天相",
+      "stars": [
+       "紫微"
+      ],
+      "reach": "sanfang",
+      "op": "gte",
+      "n": 1
+     },
+     {
+      "star": "紫微",
+      "hua": "權"
+     }
+    ]
+   },
+   "because": "你的事業宮天相會照紫微化權。",
+   "claim": "你的事業名聲和權力，往往大於實際收益。",
+   "source": "wtz.deep.p544.b014",
+   "quote": "·天相与紫微化权相会一名大于利，亦权大于利。"
+  },
+  {
+   "id": "syn.career.tianxiang.ziwei-ke",
+   "chapter": "事業",
+   "group": "天相事業.四化",
+   "specificity": "system",
+   "polarity": "中",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "天相",
+      "in": {
+       "name": "官祿"
+      }
+     },
+     {
+      "meets": "天相",
+      "stars": [
+       "紫微"
+      ],
+      "reach": "sanfang",
+      "op": "gte",
+      "n": 1
+     },
+     {
+      "star": "紫微",
+      "hua": "科"
+     }
+    ]
+   },
+   "because": "你的事業宮天相會照紫微化科。",
+   "claim": "你的事業名聲往往大於實際收益。",
+   "source": "wtz.deep.p544.b015",
+   "quote": "·天相与紫微化科相会，亦名大于利，"
+  },
+  {
+   "id": "syn.career.tianxiang.malefic-disputes",
+   "chapter": "事業",
+   "group": "天相事業.糾紛",
+   "specificity": "general",
+   "polarity": "凶",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "天相",
+      "in": {
+       "name": "官祿"
+      }
+     },
+     {
+      "any": [
+       {
+        "meets": "天相",
+        "stars": [
+         "擎羊",
+         "陀羅",
+         "火星",
+         "鈴星"
+        ],
+        "reach": "sanfang",
+        "op": "gte",
+        "n": 1
+       },
+       {
+        "jia": "天相",
+        "sides": [
+         [
+          "擎羊"
+         ],
+         [
+          "陀羅"
+         ]
+        ]
+       },
+       {
+        "jia": "天相",
+        "sides": [
+         [
+          "火星"
+         ],
+         [
+          "鈴星"
+         ]
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   "because": "你的事業宮天相會照羊陀火鈴，或被羊陀、火鈴夾宮。",
+   "claim": "你的事業容易有糾紛，也容易受人掣肘。",
+   "source": "wtz.deep.p545.b001",
+   "quote": "·天相与羊陀火铃同会，或为羊陀夹、火铃夹者，事业多纠纷，且易受人掣肘。"
+  },
+  {
+   "id": "syn.career.tianxiang.luma-away",
+   "chapter": "事業",
+   "group": "天相事業.發展",
+   "specificity": "general",
+   "polarity": "中",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "天相",
+      "in": {
+       "name": "官祿"
+      }
+     },
+     {
+      "deLu": "天相"
+     },
+     {
+      "meets": "天相",
+      "stars": [
+       "天馬"
+      ],
+      "reach": "sanfang",
+      "op": "gte",
+      "n": 1
+     }
+    ]
+   },
+   "because": "你的事業宮天相，三方四正見祿存或化祿，並見天馬。",
+   "claim": "你有離鄉發展事業的傾向。",
+   "source": "wtz.deep.p545.b004",
+   "quote": "·天相有禄马冲拱，亦主离乡。"
+  },
+  {
+   "id": "syn.career.tianxiang.chouwei-xingji",
+   "chapter": "事業",
+   "group": "天相事業.合作",
+   "specificity": "system",
+   "polarity": "凶",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "天相",
+      "in": {
+       "name": "官祿"
+      }
+     },
+     {
+      "star": "天相",
+      "at": [
+       "丑",
+       "未"
+      ]
+     },
+     {
+      "opposite": [
+       "天相",
+       "紫微"
+      ]
+     },
+     {
+      "opposite": [
+       "天相",
+       "破軍"
+      ]
+     },
+     {
+      "jia": "天相",
+      "sides": [
+       [
+        "化忌"
+       ],
+       [
+        "擎羊"
+       ]
+      ]
+     }
+    ]
+   },
+   "because": "你的事業宮天相坐{branch}宮，對宮是紫微、破軍，並被化忌、擎羊夾宮。",
+   "claim": "你的事業反覆，合作往往不歡而散。",
+   "source": "wtz.deep.p545.b006",
+   "quote": "·丑未宫天相与紫微破军相对，若为刑忌夹，则一生事业反复，与人合作。每每凶终隙未。"
+  },
+  {
+   "id": "syn.career.tianxiang.chouwei-changqu",
+   "chapter": "事業",
+   "group": "天相事業.行業",
+   "specificity": "system",
+   "polarity": "中",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "天相",
+      "in": {
+       "name": "官祿"
+      }
+     },
+     {
+      "star": "天相",
+      "at": [
+       "丑",
+       "未"
+      ]
+     },
+     {
+      "meets": "天相",
+      "stars": [
+       "文昌",
+       "文曲"
+      ],
+      "reach": "sanfang",
+      "op": "gte",
+      "n": 2
+     }
+    ]
+   },
+   "because": "你的事業宮天相坐{branch}宮，會照文昌、文曲。",
+   "claim": "你適合走藝術工作這條路。",
+   "source": "wtz.deep.p545.b007",
+   "quote": "若见昌曲，则为艺术中人。"
+  },
+  {
+   "id": "syn.career.tianxiang.maoyou-authority",
+   "chapter": "事業",
+   "group": "天相事業.職位",
+   "specificity": "system",
+   "polarity": "中",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "天相",
+      "in": {
+       "name": "官祿"
+      }
+     },
+     {
+      "star": "天相",
+      "at": [
+       "卯",
+       "酉"
+      ]
+     }
+    ]
+   },
+   "because": "你的事業宮天相坐{branch}宮。",
+   "claim": "你有一段時期掌握較大權力，但通常仍不是事業的主腦。",
+   "source": "wtz.deep.p545.b009",
+   "quote": "·卯酉天相，在一般情形下权重一时，但究非事业主脑。"
+  },
+  {
+   "id": "syn.career.tianxiang.maoyou-lianzhen-ji",
+   "chapter": "事業",
+   "group": "天相事業.合作",
+   "specificity": "system",
+   "polarity": "凶",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "天相",
+      "in": {
+       "name": "官祿"
+      }
+     },
+     {
+      "star": "天相",
+      "at": [
+       "卯",
+       "酉"
+      ]
+     },
+     {
+      "opposite": [
+       "天相",
+       "廉貞"
+      ]
+     },
+     {
+      "star": "廉貞",
+      "hua": "忌"
+     }
+    ]
+   },
+   "because": "你的事業宮天相坐{branch}宮，對宮廉貞化忌。",
+   "claim": "你的事業合作容易破裂。",
+   "source": "wtz.deep.p545.b011",
+   "quote": "·卯酉天相与廉贞化忌对拱者，与人合作，时生破裂。"
+  },
+  {
+   "id": "syn.career.tianxiang.sihai-wuqu-ji",
+   "chapter": "事業",
+   "group": "天相事業.合作",
+   "specificity": "system",
+   "polarity": "凶",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "天相",
+      "in": {
+       "name": "官祿"
+      }
+     },
+     {
+      "star": "天相",
+      "at": [
+       "巳",
+       "亥"
+      ]
+     },
+     {
+      "opposite": [
+       "天相",
+       "武曲"
+      ]
+     },
+     {
+      "star": "武曲",
+      "hua": "忌"
+     }
+    ]
+   },
+   "because": "你的事業宮天相坐{branch}宮，對宮武曲化忌。",
+   "claim": "你與人合作容易有損失，也容易因錢財而傷了情義。",
+   "source": "wtz.deep.p545.b013",
+   "quote": "·巳亥天相与武曲化忌对拱，与人合作时多损失。目往往因财失义。"
+  },
+  {
+   "id": "syn.career.tianxiang.sihai-no-lu",
+   "chapter": "事業",
+   "group": "天相事業.行業",
+   "specificity": "system",
+   "polarity": "中",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "天相",
+      "in": {
+       "name": "官祿"
+      }
+     },
+     {
+      "star": "天相",
+      "at": [
+       "巳",
+       "亥"
+      ]
+     },
+     {
+      "not": {
+       "deLu": "天相"
+      }
+     }
+    ]
+   },
+   "because": "你的事業宮天相坐{branch}宮，三方四正不見祿存、化祿。",
+   "claim": "你適合從事工程技術工作。",
+   "source": "wtz.deep.p545.b014",
+   "quote": "·巳亥天相守事业宫，不见禄，亦宜工程技术。"
+  },
+  {
+   "id": "syn.career.tianliang.research",
+   "chapter": "事業",
+   "group": "天梁事業.行業",
+   "specificity": "general",
+   "polarity": "中",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "star": "天梁",
+    "in": {
+     "name": "官祿"
+    }
+   },
+   "because": "你的事業宮有天梁。",
+   "claim": "你適合從事科學研究。",
+   "source": "wtz.deep.p546.b005",
+   "quote": "·天梁说为科学研究之星，因科学研究亦有一定法则，兼且面对大众。"
+  },
+  {
+   "id": "syn.career.tianliang.taiyang-industries",
+   "chapter": "事業",
+   "group": "天梁事業.行業",
+   "specificity": "system",
+   "polarity": "中",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "天梁",
+      "in": {
+       "name": "官祿"
+      }
+     },
+     {
+      "meets": "天梁",
+      "stars": [
+       "太陽"
+      ],
+      "reach": "sanfang",
+      "op": "gte",
+      "n": 1
+     }
+    ]
+   },
+   "because": "你的事業宮天梁與太陽同會。",
+   "claim": "你適合傳播、司法、醫藥等工作。",
+   "source": "wtz.deep.p546.b007",
+   "quote": "·大致而言，同拱太阳者，利传播，司法，医药，"
+  },
+  {
+   "id": "syn.career.tianliang.tiantong-industries",
+   "chapter": "事業",
+   "group": "天梁事業.行業",
+   "specificity": "system",
+   "polarity": "中",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "天梁",
+      "in": {
+       "name": "官祿"
+      }
+     },
+     {
+      "meets": "天梁",
+      "stars": [
+       "天同"
+      ],
+      "reach": "sanfang",
+      "op": "gte",
+      "n": 1
+     }
+    ]
+   },
+   "because": "你的事業宮天梁與天同同會。",
+   "claim": "你適合內務、秘書、參贊等工作。",
+   "source": "wtz.deep.p546.b007",
+   "quote": "同拱天同者，宜内务，秘书，参赞"
+  },
+  {
+   "id": "syn.career.tianliang.tianji-industries",
+   "chapter": "事業",
+   "group": "天梁事業.行業",
+   "specificity": "system",
+   "polarity": "中",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "天梁",
+      "in": {
+       "name": "官祿"
+      }
+     },
+     {
+      "meets": "天梁",
+      "stars": [
+       "天機"
+      ],
+      "reach": "sanfang",
+      "op": "gte",
+      "n": 1
+     }
+    ]
+   },
+   "because": "你的事業宮天梁與天機同會。",
+   "claim": "你適合計劃、設計、審核，或半官方事業。",
+   "source": "wtz.deep.p546.b007",
+   "quote": "同拱天机者，宜计划，设计，申核，或半官方事业。"
+  },
+  {
+   "id": "syn.career.tianliang.fallen-freelance",
+   "chapter": "事業",
+   "group": "天梁事業.行業",
+   "specificity": "general",
+   "polarity": "中",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "star": "天梁",
+    "in": {
+     "name": "官祿"
+    }
+   },
+   "bright": {
+    "star": "天梁",
+    "levels": [
+     "陷"
+    ]
+   },
+   "because": "你的事業宮天梁落陷。",
+   "claim": "你適合自由職業，宜選可以逐步累積年資的工作。",
+   "source": "wtz.deep.p546.b008",
+   "quote": "·天梁落陷，以自由职业为宜。亦以有年资可积者为宜。"
+  },
+  {
+   "id": "syn.career.tianliang.hua-quan",
+   "chapter": "事業",
+   "group": "天梁事業.四化",
+   "specificity": "general",
+   "polarity": "中",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "天梁",
+      "in": {
+       "name": "官祿"
+      }
+     },
+     {
+      "star": "天梁",
+      "hua": "權"
+     }
+    ]
+   },
+   "because": "你的事業宮天梁化權。",
+   "claim": "你適合帶權威性質的工作，例如法律、監察或秘書。",
+   "source": "wtz.deep.p546.b010",
+   "quote": "·天梁化权，利于权威性工作，法律固有权威，监察及秘书亦未常示权，于此可细作体会。"
+  },
+  {
+   "id": "syn.career.tianliang.hua-ke",
+   "chapter": "事業",
+   "group": "天梁事業.四化",
+   "specificity": "general",
+   "polarity": "中",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "天梁",
+      "in": {
+       "name": "官祿"
+      }
+     },
+     {
+      "star": "天梁",
+      "hua": "科"
+     }
+    ]
+   },
+   "because": "你的事業宮天梁化科。",
+   "claim": "你宜先爭取社會地位，再讓財富隨名聲而來。",
+   "source": "wtz.deep.p546.b011",
+   "quote": "·天梁化科，以清贵为宜，故须极力争取社会地位，然后财富始随之而来。换言之，名为主，利从于名，本示切不可倒置。"
+  },
+  {
+   "id": "syn.career.tianliang.ziwu-institution",
+   "chapter": "事業",
+   "group": "天梁事業.職位",
+   "specificity": "system",
+   "polarity": "中",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "天梁",
+      "in": {
+       "name": "官祿"
+      }
+     },
+     {
+      "star": "天梁",
+      "at": [
+       "子",
+       "午"
+      ]
+     }
+    ]
+   },
+   "because": "你的事業宮天梁坐{branch}宮。",
+   "claim": "你適合擔任公職，或在大機構任職。",
+   "source": "wtz.deep.p547.b004",
+   "quote": "子午宫天梁，以任公职或大机构职务者为宜。"
+  },
+  {
+   "id": "syn.career.tianliang.chouwei-changes",
+   "chapter": "事業",
+   "group": "天梁事業.變動",
+   "specificity": "system",
+   "polarity": "中",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "天梁",
+      "in": {
+       "name": "官祿"
+      }
+     },
+     {
+      "star": "天梁",
+      "at": [
+       "丑",
+       "未"
+      ]
+     }
+    ]
+   },
+   "because": "你的事業宮天梁坐{branch}宮。",
+   "claim": "你的事業變動較多。",
+   "source": "wtz.deep.p547.b005",
+   "quote": "丑未宫天梁，事业多变。"
+  },
+  {
+   "id": "syn.career.tianliang.chouwei-benefics",
+   "chapter": "事業",
+   "group": "天梁事業.職位",
+   "specificity": "system",
+   "polarity": "中",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "天梁",
+      "in": {
+       "name": "官祿"
+      }
+     },
+     {
+      "star": "天梁",
+      "at": [
+       "丑",
+       "未"
+      ]
+     },
+     {
+      "sanfangOf": {
+       "name": "官祿"
+      },
+      "count": "benefic",
+      "op": "gte",
+      "n": 1
+     }
+    ]
+   },
+   "because": "你的事業宮天梁坐{branch}宮，三方四正會照輔佐吉曜。",
+   "claim": "你容易身兼數職。",
+   "source": "wtz.deep.p547.b005",
+   "quote": "会辅佐吉曜，则主身兼数职。"
+  },
+  {
+   "id": "syn.career.tianliang.chouwei-taiyang-ji",
+   "chapter": "事業",
+   "group": "天梁事業.是非",
+   "specificity": "system",
+   "polarity": "凶",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "天梁",
+      "in": {
+       "name": "官祿"
+      }
+     },
+     {
+      "star": "天梁",
+      "at": [
+       "丑",
+       "未"
+      ]
+     },
+     {
+      "star": "太陽",
+      "hua": "忌"
+     }
+    ]
+   },
+   "because": "你的事業宮天梁坐{branch}宮，本命太陽化忌。",
+   "claim": "你容易因事業上的名聲招來怨言。",
+   "source": "wtz.deep.p547.b006",
+   "quote": "丑未天梁亦不喜欢太阳、太阴化忌，前者主因名招怨，后者主因财招妒。"
+  },
+  {
+   "id": "syn.career.tianliang.chouwei-taiyin-ji",
+   "chapter": "事業",
+   "group": "天梁事業.是非",
+   "specificity": "system",
+   "polarity": "凶",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "天梁",
+      "in": {
+       "name": "官祿"
+      }
+     },
+     {
+      "star": "天梁",
+      "at": [
+       "丑",
+       "未"
+      ]
+     },
+     {
+      "star": "太陰",
+      "hua": "忌"
+     }
+    ]
+   },
+   "because": "你的事業宮天梁坐{branch}宮，本命太陰化忌。",
+   "claim": "你容易因事業上的財利招來妒忌。",
+   "source": "wtz.deep.p547.b006",
+   "quote": "丑未天梁亦不喜欢太阳、太阴化忌，前者主因名招怨，后者主因财招妒。"
+  },
+  {
+   "id": "syn.career.tianliang.chouwei-tianji-ji",
+   "chapter": "事業",
+   "group": "天梁事業.是非",
+   "specificity": "system",
+   "polarity": "凶",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "天梁",
+      "in": {
+       "name": "官祿"
+      }
+     },
+     {
+      "star": "天梁",
+      "at": [
+       "丑",
+       "未"
+      ]
+     },
+     {
+      "opposite": [
+       "天梁",
+       "天機"
+      ]
+     },
+     {
+      "star": "天機",
+      "hua": "忌"
+     }
+    ]
+   },
+   "because": "你的事業宮天梁坐{branch}宮，對宮天機化忌。",
+   "claim": "你容易招來是非和謠言，宜少作澄清，以免增加困擾。",
+   "source": "wtz.deep.p547.b007",
+   "quote": "丑未天梁与天机化忌相对者，一生招是非谣谤，以不澄清为宜。若图澄清，反而更滋困扰。"
+  },
+  {
+   "id": "syn.career.tianliang.sihai-backstage",
+   "chapter": "事業",
+   "group": "天梁事業.職位",
+   "specificity": "system",
+   "polarity": "中",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "天梁",
+      "in": {
+       "name": "官祿"
+      }
+     },
+     {
+      "star": "天梁",
+      "at": [
+       "巳",
+       "亥"
+      ]
+     }
+    ]
+   },
+   "because": "你的事業宮天梁坐{branch}宮。",
+   "claim": "你宜少出鋒頭，即使獨當一面，也適合退居幕後工作。",
+   "source": "wtz.deep.p547.b009",
+   "quote": "·巳亥天梁在事业宫，以不现锋头为宜，虽独当一面工作，亦以退居幕后为佳。"
+  },
+  {
+   "id": "syn.career.qisha.management",
+   "chapter": "事業",
+   "group": "七殺事業.才能",
+   "specificity": "general",
+   "polarity": "吉",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "star": "七殺",
+    "in": {
+     "name": "官祿"
+    }
+   },
+   "because": "你的事業宮有七殺。",
+   "claim": "你的管理能力較強。",
+   "source": "wtz.deep.p547.b012",
+   "quote": "-七杀居事业宫，主管理能力强，尤以紫微七杀为然。"
+  },
+  {
+   "id": "syn.career.qisha.malefic-skills",
+   "chapter": "事業",
+   "group": "七殺事業.行業",
+   "specificity": "general",
+   "polarity": "中",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "七殺",
+      "in": {
+       "name": "官祿"
+      }
+     },
+     {
+      "meets": "七殺",
+      "stars": [
+       "擎羊",
+       "陀羅",
+       "火星",
+       "鈴星",
+       "地空",
+       "地劫"
+      ],
+      "reach": "same",
+      "op": "gte",
+      "n": 1
+     }
+    ]
+   },
+   "because": "你的事業宮七殺與煞曜同宮。",
+   "claim": "你宜學習專門技術，以一技傍身，較不適合管理工作。",
+   "source": "wtz.deep.p548.b002",
+   "quote": "·七杀有煞曜同度，最宜一技傍身，故必需学习专门技术，不宜管理。"
+  },
+  {
+   "id": "syn.career.qisha.hands-on",
+   "chapter": "事業",
+   "group": "七殺事業.工作",
+   "specificity": "general",
+   "polarity": "中",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "star": "七殺",
+    "in": {
+     "name": "官祿"
+    }
+   },
+   "because": "你的事業宮有七殺。",
+   "claim": "你的工作較辛勞，即使有不少下屬，仍要親力親為。",
+   "source": "wtz.deep.p548.b004",
+   "quote": "七杀守业宫者，亦主辛劳，凡事必须亲力亲为。即使下属从多，仍难安逸。"
+  },
+  {
+   "id": "syn.career.qisha.changqu-design",
+   "chapter": "事業",
+   "group": "七殺事業.行業",
+   "specificity": "general",
+   "polarity": "中",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "七殺",
+      "in": {
+       "name": "官祿"
+      }
+     },
+     {
+      "meets": "七殺",
+      "stars": [
+       "文昌",
+       "文曲"
+      ],
+      "reach": "same",
+      "op": "gte",
+      "n": 2
+     }
+    ]
+   },
+   "because": "你的事業宮七殺與文昌、文曲同宮。",
+   "claim": "你適合從事設計工作。",
+   "source": "wtz.deep.p548.b005",
+   "quote": "七杀与昌曲同度，以设计工作为宜。"
+  },
+  {
+   "id": "syn.career.qisha.kongjie-speculation",
+   "chapter": "事業",
+   "group": "七殺事業.經營",
+   "specificity": "general",
+   "polarity": "中",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "七殺",
+      "in": {
+       "name": "官祿"
+      }
+     },
+     {
+      "meets": "七殺",
+      "stars": [
+       "地空",
+       "地劫"
+      ],
+      "reach": "same",
+      "op": "gte",
+      "n": 2
+     }
+    ]
+   },
+   "because": "你的事業宮七殺與地空、地劫同宮。",
+   "claim": "你不適合投機。",
+   "source": "wtz.deep.p548.b006",
+   "quote": "七杀与空劫同度，不宜投机，"
+  },
+  {
+   "id": "syn.career.qisha.huoling-industries",
+   "chapter": "事業",
+   "group": "七殺事業.行業",
+   "specificity": "general",
+   "polarity": "中",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "七殺",
+      "in": {
+       "name": "官祿"
+      }
+     },
+     {
+      "any": [
+       {
+        "together": [
+         "七殺",
+         "火星"
+        ]
+       },
+       {
+        "together": [
+         "七殺",
+         "鈴星"
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   "because": "你的事業宮七殺與火星或鈴星同宮。",
+   "claim": "你適合與金、火有關的行業，例如冶煉、烹飪、首飾。",
+   "source": "wtz.deep.p548.b009",
+   "quote": "七杀与火铃同度，则以见金火的行业为佳，如冶练、烹饪、首饰之类。"
+  },
+  {
+   "id": "syn.career.qisha.ziwu-malefic-design",
+   "chapter": "事業",
+   "group": "七殺事業.行業",
+   "specificity": "system",
+   "polarity": "吉",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "七殺",
+      "in": {
+       "name": "官祿"
+      }
+     },
+     {
+      "star": "七殺",
+      "at": [
+       "子",
+       "午"
+      ]
+     },
+     {
+      "opposite": [
+       "七殺",
+       "武曲"
+      ]
+     },
+     {
+      "opposite": [
+       "七殺",
+       "天府"
+      ]
+     },
+     {
+      "sanfangOf": {
+       "name": "官祿"
+      },
+      "count": "malefic",
+      "op": "gte",
+      "n": 1
+     }
+    ]
+   },
+   "because": "你的事業宮七殺坐{branch}宮，對宮是武曲、天府，三方四正見煞曜。",
+   "claim": "你適合工藝設計，容易有獨特概念並得到欣賞。",
+   "source": "wtz.deep.p548.b010",
+   "quote": "子午宫七杀，与[武曲天府_]相对，有煞者最宜工艺设计，主有独特概念，易为欣赏。"
+  },
+  {
+   "id": "syn.career.qisha.ziwu-wuqu-lu",
+   "chapter": "事業",
+   "group": "七殺事業.行業",
+   "specificity": "system",
+   "polarity": "中",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "七殺",
+      "in": {
+       "name": "官祿"
+      }
+     },
+     {
+      "star": "七殺",
+      "at": [
+       "子",
+       "午"
+      ]
+     },
+     {
+      "meets": "七殺",
+      "stars": [
+       "武曲"
+      ],
+      "reach": "sanfang",
+      "op": "gte",
+      "n": 1
+     },
+     {
+      "star": "武曲",
+      "hua": "祿"
+     }
+    ]
+   },
+   "because": "你的事業宮七殺坐{branch}宮，會照武曲化祿。",
+   "claim": "你適合武職或財經事業。",
+   "source": "wtz.deep.p548.b013",
+   "quote": "子午七杀会武曲化禄，则宜武职，或财经事业，"
+  },
+  {
+   "id": "syn.career.qisha.ziwu-tanlang-lu",
+   "chapter": "事業",
+   "group": "七殺事業.行業",
+   "specificity": "system",
+   "polarity": "中",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "七殺",
+      "in": {
+       "name": "官祿"
+      }
+     },
+     {
+      "star": "七殺",
+      "at": [
+       "子",
+       "午"
+      ]
+     },
+     {
+      "meets": "七殺",
+      "stars": [
+       "貪狼"
+      ],
+      "reach": "sanfang",
+      "op": "gte",
+      "n": 1
+     },
+     {
+      "star": "貪狼",
+      "hua": "祿"
+     }
+    ]
+   },
+   "because": "你的事業宮七殺坐{branch}宮，會照貪狼化祿。",
+   "claim": "你適合從商，但不宜投機。",
+   "source": "wtz.deep.p548.b013",
+   "quote": "会贪狼化禄，则宜从商，唯不利投机，"
+  },
+  {
+   "id": "syn.career.qisha.ziwu-pojun-lu",
+   "chapter": "事業",
+   "group": "七殺事業.財源",
+   "specificity": "system",
+   "polarity": "吉",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "七殺",
+      "in": {
+       "name": "官祿"
+      }
+     },
+     {
+      "star": "七殺",
+      "at": [
+       "子",
+       "午"
+      ]
+     },
+     {
+      "meets": "七殺",
+      "stars": [
+       "破軍"
+      ],
+      "reach": "sanfang",
+      "op": "gte",
+      "n": 1
+     },
+     {
+      "star": "破軍",
+      "hua": "祿"
+     }
+    ]
+   },
+   "because": "你的事業宮七殺坐{branch}宮，會照破軍化祿。",
+   "claim": "你的事業不只一端，財源也來自多個方面。",
+   "source": "wtz.deep.p548.b013",
+   "quote": "会破军化禄，则事业不只一端，有多方面的财源。"
+  },
+  {
+   "id": "syn.career.qisha.ziwu-lucun",
+   "chapter": "事業",
+   "group": "七殺事業.創業",
+   "specificity": "system",
+   "polarity": "中",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "七殺",
+      "in": {
+       "name": "官祿"
+      }
+     },
+     {
+      "star": "七殺",
+      "at": [
+       "子",
+       "午"
+      ]
+     },
+     {
+      "meets": "七殺",
+      "stars": [
+       "祿存"
+      ],
+      "reach": "sanfang",
+      "op": "gte",
+      "n": 1
+     }
+    ]
+   },
+   "because": "你的事業宮七殺坐{branch}宮，會照祿存。",
+   "claim": "你適合任職，不宜自行創業。",
+   "source": "wtz.deep.p548.b013",
+   "quote": "见禄存，以任职为宜，不宜自行创业。"
+  },
+  {
+   "id": "syn.career.qisha.ziwu-tanlang-ji",
+   "chapter": "事業",
+   "group": "七殺事業.挫折",
+   "specificity": "system",
+   "polarity": "凶",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "七殺",
+      "in": {
+       "name": "官祿"
+      }
+     },
+     {
+      "star": "七殺",
+      "at": [
+       "子",
+       "午"
+      ]
+     },
+     {
+      "meets": "七殺",
+      "stars": [
+       "貪狼"
+      ],
+      "reach": "sanfang",
+      "op": "gte",
+      "n": 1
+     },
+     {
+      "star": "貪狼",
+      "hua": "忌"
+     }
+    ]
+   },
+   "because": "你的事業宮七殺坐{branch}宮，會照貪狼化忌。",
+   "claim": "你一生事業至少有一次挫折。",
+   "source": "wtz.deep.p548.b013",
+   "quote": "若贪狼化忌，则一生至少有一次挫折，"
+  },
+  {
+   "id": "syn.career.qisha.yinshen-independent",
+   "chapter": "事業",
+   "group": "七殺事業.職位",
+   "specificity": "system",
+   "polarity": "中",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "七殺",
+      "in": {
+       "name": "官祿"
+      }
+     },
+     {
+      "star": "七殺",
+      "at": [
+       "寅",
+       "申"
+      ]
+     },
+     {
+      "opposite": [
+       "七殺",
+       "紫微"
+      ]
+     },
+     {
+      "opposite": [
+       "七殺",
+       "天府"
+      ]
+     }
+    ]
+   },
+   "because": "你的事業宮七殺坐{branch}宮，對宮是紫微、天府。",
+   "claim": "你在工作上能獨當一面。",
+   "source": "wtz.deep.p549.b001",
+   "quote": "寅申二宫，七杀与[紫微天府]相对，主工作独当一面。"
+  },
+  {
+   "id": "syn.career.qisha.chenxu-reputation",
+   "chapter": "事業",
+   "group": "七殺事業.名利",
+   "specificity": "system",
+   "polarity": "中",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "七殺",
+      "in": {
+       "name": "官祿"
+      }
+     },
+     {
+      "star": "七殺",
+      "at": [
+       "辰",
+       "戌"
+      ]
+     }
+    ]
+   },
+   "because": "你的事業宮七殺坐{branch}宮。",
+   "claim": "你的事業名聲往往大於實際收益。",
+   "source": "wtz.deep.p549.b006",
+   "quote": "辰戌七杀守事业宫，亦一定生名大于利。"
+  },
+  {
+   "id": "syn.career.pojun.industrial-innovation",
+   "chapter": "事業",
+   "group": "破軍事業.行業",
+   "specificity": "general",
+   "polarity": "中",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "star": "破軍",
+    "in": {
+     "name": "官祿"
+    }
+   },
+   "because": "你的事業宮有破軍。",
+   "claim": "你適合工業，特長在於創新，宜留意新產品、新技術，也可考慮帶冒險性質的行業。",
+   "source": "wtz.deep.p550.b004",
+   "quote": "·破军宜于工业，其性质亦同七杀。但-七杀之特长在于管理，而破军之特长却在创新。故宜注意新产品，新技术，或从事冒险性行业。"
+  },
+  {
+   "id": "syn.career.pojun.malefic-engineering",
+   "chapter": "事業",
+   "group": "破軍事業.行業",
+   "specificity": "general",
+   "polarity": "中",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "破軍",
+      "in": {
+       "name": "官祿"
+      }
+     },
+     {
+      "meets": "破軍",
+      "stars": [
+       "擎羊",
+       "陀羅",
+       "火星",
+       "鈴星",
+       "地空",
+       "地劫"
+      ],
+      "reach": "same",
+      "op": "gte",
+      "n": 1
+     }
+    ]
+   },
+   "because": "你的事業宮破軍與煞曜同宮。",
+   "claim": "你適合以工程技術起家。",
+   "source": "wtz.deep.p549.b011",
+   "quote": "若破军与煞曜同度，贝I]宜以工程技术起家。"
+  },
+  {
+   "id": "syn.career.pojun.temple-mixed-commerce",
+   "chapter": "事業",
+   "group": "破軍事業.經營",
+   "specificity": "general",
+   "polarity": "中",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "破軍",
+      "in": {
+       "name": "官祿"
+      }
+     },
+     {
+      "sanfangOf": {
+       "name": "官祿"
+      },
+      "count": "benefic",
+      "op": "gte",
+      "n": 1
+     },
+     {
+      "sanfangOf": {
+       "name": "官祿"
+      },
+      "count": "malefic",
+      "op": "gte",
+      "n": 1
+     }
+    ]
+   },
+   "bright": {
+    "star": "破軍",
+    "levels": [
+     "廟"
+    ]
+   },
+   "because": "你的事業宮破軍入廟，三方四正吉曜、煞曜交集。",
+   "claim": "你可以經商，但成敗容易反覆，宜把握進退時機。",
+   "source": "wtz.deep.p549.b012",
+   "quote": "破军入庙而吉煞交集者，可以经商，是则成败无常，进退之机异常重要。往往成败仅博于一线。"
+  },
+  {
+   "id": "syn.career.pojun.hua-lu-sideline",
+   "chapter": "事業",
+   "group": "破軍事業.時序",
+   "specificity": "general",
+   "polarity": "中",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "破軍",
+      "in": {
+       "name": "官祿"
+      }
+     },
+     {
+      "star": "破軍",
+      "hua": "祿"
+     }
+    ]
+   },
+   "because": "你的事業宮破軍化祿。",
+   "claim": "你常有兼業、兼職，並可能從原本不視為重點的行業或職務起家。",
+   "source": "wtz.deep.p550.b002",
+   "quote": "·若破军化禄，则主兼行漆业， 兼职兼差且往往由不以为重点的行业或职务起家。"
+  },
+  {
+   "id": "syn.career.pojun.fubi-support",
+   "chapter": "事業",
+   "group": "破軍事業.扶持",
+   "specificity": "general",
+   "polarity": "吉",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "破軍",
+      "in": {
+       "name": "官祿"
+      }
+     },
+     {
+      "meets": "破軍",
+      "stars": [
+       "左輔",
+       "右弼"
+      ],
+      "reach": "sanfang",
+      "op": "gte",
+      "n": 2
+     }
+    ]
+   },
+   "because": "你的事業宮破軍會照左輔、右弼。",
+   "claim": "你在工作上可減少辛勞。",
+   "source": "wtz.deep.p550.b006",
+   "quote": "·破军喜见辅弼，则能减少辛劳。"
+  },
+  {
+   "id": "syn.career.pojun.kuiyue-opportunities",
+   "chapter": "事業",
+   "group": "破軍事業.扶持",
+   "specificity": "general",
+   "polarity": "吉",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "破軍",
+      "in": {
+       "name": "官祿"
+      }
+     },
+     {
+      "meets": "破軍",
+      "stars": [
+       "天魁",
+       "天鉞"
+      ],
+      "reach": "sanfang",
+      "op": "gte",
+      "n": 2
+     }
+    ]
+   },
+   "because": "你的事業宮破軍會照天魁、天鉞。",
+   "claim": "你的事業機會較多。",
+   "source": "wtz.deep.p550.b006",
+   "quote": "见魁铖不过多机会而已，"
+  },
+  {
+   "id": "syn.career.pojun.huoling-turbulence",
+   "chapter": "事業",
+   "group": "破軍事業.挫折",
+   "specificity": "general",
+   "polarity": "凶",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "破軍",
+      "in": {
+       "name": "官祿"
+      }
+     },
+     {
+      "any": [
+       {
+        "together": [
+         "破軍",
+         "火星"
+        ]
+       },
+       {
+        "together": [
+         "破軍",
+         "鈴星"
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   "because": "你的事業宮破軍與火星或鈴星同宮。",
+   "claim": "你的事業容易接連出現風波。",
+   "source": "wtz.deep.p550.b009",
+   "quote": "·破军亦不喜与火铃同度，主风波迭起。"
+  },
+  {
+   "id": "syn.career.pojun.kongjie-benefics",
+   "chapter": "事業",
+   "group": "破軍事業.才能",
+   "specificity": "general",
+   "polarity": "吉",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "破軍",
+      "in": {
+       "name": "官祿"
+      }
+     },
+     {
+      "meets": "破軍",
+      "stars": [
+       "地空",
+       "地劫"
+      ],
+      "reach": "same",
+      "op": "gte",
+      "n": 2
+     },
+     {
+      "sanfangOf": {
+       "name": "官祿"
+      },
+      "count": "benefic",
+      "op": "gte",
+      "n": 1
+     }
+    ]
+   },
+   "because": "你的事業宮破軍與地空、地劫同宮，並會照輔佐吉曜。",
+   "claim": "你的創新能力很強。",
+   "source": "wtz.deep.p550.b010",
+   "quote": "·与空劫同度，见吉辅者，创新之能力极强，"
+  },
+  {
+   "id": "syn.career.pojun.yinshen-independent",
+   "chapter": "事業",
+   "group": "破軍事業.創業",
+   "specificity": "system",
+   "polarity": "中",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "破軍",
+      "in": {
+       "name": "官祿"
+      }
+     },
+     {
+      "star": "破軍",
+      "at": [
+       "寅",
+       "申"
+      ]
+     },
+     {
+      "meets": "破軍",
+      "stars": [
+       "武曲",
+       "貪狼"
+      ],
+      "reach": "sanfang",
+      "op": "gte",
+      "n": 2
+     },
+     {
+      "star": "武曲",
+      "hua": "祿"
+     },
+     {
+      "star": "貪狼",
+      "hua": "權"
+     },
+     {
+      "not": {
+       "all": [
+        {
+         "meets": "破軍",
+         "stars": [
+          "文曲"
+         ],
+         "reach": "sanfang",
+         "op": "gte",
+         "n": 1
+        },
+        {
+         "star": "文曲",
+         "hua": "忌"
+        }
+       ]
+      }
+     }
+    ]
+   },
+   "because": "你的事業宮破軍坐{branch}宮，會照武曲化祿、貪狼化權，沒有文曲化忌會照。",
+   "claim": "你適合獨力創業。",
+   "source": "wtz.deep.p550.b015",
+   "quote": "·寅申宫破军守事业宫，亦倾向于合作创业，唯若武曲化禄、贪狼化权来会，只需不会文曲化忌，则仍以独力创业为宜。"
+  },
+  {
+   "id": "syn.career.pojun.yinshen-no-lu-benefics",
+   "chapter": "事業",
+   "group": "破軍事業.經營",
+   "specificity": "system",
+   "polarity": "凶",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "破軍",
+      "in": {
+       "name": "官祿"
+      }
+     },
+     {
+      "star": "破軍",
+      "at": [
+       "寅",
+       "申"
+      ]
+     },
+     {
+      "not": {
+       "deLu": "破軍"
+      }
+     },
+     {
+      "not": {
+       "sanfangOf": {
+        "name": "官祿"
+       },
+       "count": "benefic",
+       "op": "gte",
+       "n": 1
+      }
+     }
+    ]
+   },
+   "because": "你的事業宮破軍坐{branch}宮，三方四正不見祿存、化祿，也不見吉曜。",
+   "claim": "你的事業場面可能很大，實際卻容易外強中乾。",
+   "source": "wtz.deep.p551.b002",
+   "quote": "·寅申破军主事业场而相当大，若无禄，又无吉曜，往往为外强中干。"
+  },
+  {
+   "id": "syn.career.pojun.chenxu-setback-change",
+   "chapter": "事業",
+   "group": "破軍事業.挫折",
+   "specificity": "system",
+   "polarity": "凶",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "破軍",
+      "in": {
+       "name": "官祿"
+      }
+     },
+     {
+      "star": "破軍",
+      "at": [
+       "辰",
+       "戌"
+      ]
+     }
+    ]
+   },
+   "because": "你的事業宮破軍坐{branch}宮。",
+   "claim": "你一生事業至少有一次重大挫折，之後會改行改業。",
+   "source": "wtz.deep.p551.b004",
+   "quote": "·辰戌宫破军落罗网，一生必至少有一次重大挫折，然后改行改业。"
+  },
+  {
+   "id": "syn.career.pojun.chenxu-deputy",
+   "chapter": "事業",
+   "group": "破軍事業.職位",
+   "specificity": "system",
+   "polarity": "中",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "破軍",
+      "in": {
+       "name": "官祿"
+      }
+     },
+     {
+      "star": "破軍",
+      "at": [
+       "辰",
+       "戌"
+      ]
+     }
+    ]
+   },
+   "because": "你的事業宮破軍坐{branch}宮。",
+   "claim": "你多居副手位置，需要借助別人的財力或勢力來起家。",
+   "source": "wtz.deep.p551.b005",
+   "quote": "·辰戌破军亦主为[副贰]必须藉别人财力或势力兴家。"
+  },
+  {
+   "id": "syn.career.pojun.chenxu-finance",
+   "chapter": "事業",
+   "group": "破軍事業.行業",
+   "specificity": "system",
+   "polarity": "中",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "破軍",
+      "in": {
+       "name": "官祿"
+      }
+     },
+     {
+      "star": "破軍",
+      "at": [
+       "辰",
+       "戌"
+      ]
+     },
+     {
+      "meets": "破軍",
+      "stars": [
+       "化祿",
+       "化權",
+       "化科"
+      ],
+      "reach": "sanfang",
+      "op": "gte",
+      "n": 1
+     },
+     {
+      "sanfangOf": {
+       "name": "官祿"
+      },
+      "count": "benefic",
+      "op": "gte",
+      "n": 1
+     }
+    ]
+   },
+   "because": "你的事業宮破軍坐{branch}宮，會照吉化與吉曜。",
+   "claim": "你可以在財經機構任職。",
+   "source": "wtz.deep.p551.b007",
+   "quote": "·有吉化吉曜，可任职财经机构。"
+  },
+  {
+   "id": "syn.career.pojun.chenxu-no-benefic-malefic",
+   "chapter": "事業",
+   "group": "破軍事業.行業",
+   "specificity": "system",
+   "polarity": "中",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "破軍",
+      "in": {
+       "name": "官祿"
+      }
+     },
+     {
+      "star": "破軍",
+      "at": [
+       "辰",
+       "戌"
+      ]
+     },
+     {
+      "not": {
+       "sanfangOf": {
+        "name": "官祿"
+       },
+       "count": "benefic",
+       "op": "gte",
+       "n": 1
+      }
+     },
+     {
+      "not": {
+       "sanfangOf": {
+        "name": "官祿"
+       },
+       "count": "malefic",
+       "op": "gte",
+       "n": 1
+      }
+     }
+    ]
+   },
+   "because": "你的事業宮破軍坐{branch}宮，三方四正不見吉曜，也不見煞曜。",
+   "claim": "你需要靠一技傍身，事業才能有所發展。",
+   "source": "wtz.deep.p551.b006",
+   "quote": "·若无吉曜，又无煞曜(或二者均见，但力量微薄者)则必须一技傍身始能生发。"
   }
  ]
 }

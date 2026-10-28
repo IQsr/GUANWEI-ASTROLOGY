@@ -23,6 +23,7 @@ import type { MingStatement } from '../ming-writer';
 import rawCards from './cards.json';
 import rawSources from './sources.json';
 import rawAnnualCai from './annual-cai.json';
+import rawAnnualGuan from './annual-guan.json';
 
 export const SYNTHESIS_VERSION = 'synthesis-v1';
 export const synthesisCiteId = (block: string) => `syn.v1:${block}`;
@@ -52,7 +53,7 @@ const PalaceRefSchema = z.object({ name: z.string(), layer: z.string().optional(
 const Layer = z.enum(['natal', 'decade', 'annual']);
 export const SynthesisCard = z.object({
   id: z.string().regex(/^syn(\.[a-z0-9-]+){2,3}$/),
-  chapter: z.enum(['錢', '今年']),
+  chapter: z.enum(['錢', '今年', '事業']),
   /** 同一個因素嘅卡一組；裁決時專條（system）壓通則（general）。 */
   group: z.string(),
   specificity: z.enum(['general', 'system']),
@@ -380,51 +381,70 @@ export function synthYearHits(chart: Chart, year: number, layer: 'annual' | 'dec
  * 深造 p.334、p.433：運限宮位係對本命本質嘅反應，所以段首先講本命財帛。強度一律提示。
  */
 
-/** 卡條件入面嘅財帛宮改成流年層；星曜四化、得祿接受本命或者流年。 */
+/** 卡條件入面嘅財帛／官祿宮改成流年層；星曜四化、得祿接受本命或者流年。 */
 function toAnnual(x: unknown): unknown {
   if (Array.isArray(x)) return x.map(toAnnual);
   if (!x || typeof x !== 'object') return x;
   const o = Object.fromEntries(Object.entries(x).map(([k, v]) => [k, toAnnual(v)])) as Record<string, unknown>;
-  if (o.name === '財帛' && o.layer === undefined) return { ...o, layer: 'annual' };
+  if ((o.name === '財帛' || o.name === '官祿') && o.layer === undefined) return { ...o, layer: 'annual' };
   if (('hua' in o || 'deLu' in o) && o.layer === undefined) return { any: [o, { ...o, layer: 'annual' }] };
   return o;
 }
 
-const ANNUAL_CAI: SynthesisCard[] = SYNTHESIS_CARDS.flatMap((c) => {
-  const claim = (rawAnnualCai as { cards: Record<string, string> }).cards[c.id];
-  if (!claim) return [];
+type AnnualPalace = { palace: '財帛' | '官祿'; label: string; chapter: '錢' | '事業'; idFrom: string; idTo: string;
+  claims: Record<string, string>; slot: string; method: string; methodNote: string };
+const ANNUAL_PALACES: AnnualPalace[] = [
+  { palace: '財帛', label: '財帛宮', chapter: '錢', idFrom: 'syn.wealth.', idTo: 'syn.cai-year.', claims: (rawAnnualCai as { cards: Record<string, string> }).cards,
+    slot: '今年的錢', method: 'wtz.deep.p433.b003', methodNote: '方法：深造 p.433、p.334；初階轉錄第7篇「45、流年太歲」、第23篇田宅宮、第24篇福德宮篇首' },
+  { palace: '官祿', label: '事業宮', chapter: '事業', idFrom: 'syn.career.', idTo: 'syn.guan-year.', claims: (rawAnnualGuan as { cards: Record<string, string> }).cards,
+    slot: '今年的工作', method: 'wtz.deep.p334.b002', methodNote: '方法：深造 p.334；初階轉錄第7篇「45、流年太歲」、第22篇事業宮篇首、第23篇田宅宮' },
+];
+
+const annualCards = (cfg: AnnualPalace): SynthesisCard[] => SYNTHESIS_CARDS.flatMap((c) => {
+  const claim = cfg.claims[c.id];
+  if (!claim || c.chapter !== cfg.chapter) return [];
   const t = <T>(v: T) => (v === undefined ? v : (toAnnual(v) as T));
-  return [{ ...c, id: c.id.replace('syn.wealth.', 'syn.cai-year.'), chapter: '今年' as const, group: `流年財帛.${c.group}`, weight: '提' as const,
+  return [{ ...c, id: c.id.replace(cfg.idFrom, cfg.idTo), chapter: '今年' as const, group: `流年${cfg.palace}.${c.group}`, weight: '提' as const,
     layer: ['annual' as const], when: t(c.when), requires: t(c.requires), none: t(c.none),
     ...(c.alone ? { alone: { star: c.alone.star, in: { ...c.alone.in, layer: 'annual' } } } : {}),
-    claim, because: c.because.replaceAll('你的財帛宮', '今年的財帛宮') }];
+    claim, because: c.because.replaceAll(`你的${cfg.label}`, `今年的${cfg.label}`) }];
 });
-const CAI_METHOD = 'wtz.deep.p433.b003';
+const ANNUAL_CARDS = new Map(ANNUAL_PALACES.map((cfg) => [cfg.palace, annualCards(cfg)]));
 
-/** 今年嘅錢：流年財帛宮嘅判斷（最多兩個），段首先講本命財帛底子。 */
-function annualCaiSegment(ctx: Ctx): SynthesisSegment | null {
-  const p = palaceAt(ctx, '財帛', 'annual');
-  const natal = ctx.chart.palaces.find((q) => q.name === '財帛');
+/** 本命嗰宮嘅底子：本命卡第一個判斷。 */
+function natalBase(chart: Chart, cfg: AnnualPalace): string | undefined {
+  if (cfg.chapter === '錢') return synthWealthChapter(chart)?.[0]?.statements[0]?.text;
+  const p = chart.palaces.find((q) => q.name === cfg.palace);
+  if (!p) return undefined;
+  const seated = majors(p).length > 0;
+  return resolve(SYNTHESIS_CARDS.filter((c) => c.chapter === cfg.chapter && !(c.seat === 'seated' && !seated) && !(c.seat === 'borrowed' && seated))
+    .flatMap((c) => { const h = matchCard(c, 'natal', { chart }); return h ? [h] : []; })).sort(byStrength)[0]?.claim;
+}
+
+/** 今年嘅錢／工作：流年財帛或官祿宮嘅判斷（最多兩個），段首先講本命嗰宮嘅底子。 */
+function annualPalaceSegment(ctx: Ctx, cfg: AnnualPalace): SynthesisSegment | null {
+  const p = palaceAt(ctx, cfg.palace, 'annual');
+  const natal = ctx.chart.palaces.find((q) => q.name === cfg.palace);
   if (!p || !natal) return null;
   const seated = majors(p).length > 0;
-  const js = resolve(ANNUAL_CAI.filter((c) => !(c.seat === 'seated' && !seated) && !(c.seat === 'borrowed' && seated))
+  const js = resolve(ANNUAL_CARDS.get(cfg.palace)!.filter((c) => !(c.seat === 'seated' && !seated) && !(c.seat === 'borrowed' && seated))
     .flatMap((c) => { const h = matchCard(c, 'annual', ctx); return h ? [h] : []; })).sort(byStrength).slice(0, 2);
   if (!js.length) return null;
   const names = (q: typeof p) => majors(q).map((s) => s.name).join('、');
-  const base = synthWealthChapter(ctx.chart)?.[0]?.statements[0]?.text;
-  const lead = `今年你的財帛宮在${p.branch}宮，${seated ? `坐${names(p)}` : '是空宮'}。`
-    + (majors(natal).length ? `你本命財帛宮坐${names(natal)}${base ? `，底子是：${base.replace(/。$/, '')}` : ''}；今年是在這個底子上的變化。` : '');
+  const base = natalBase(ctx.chart, cfg);
+  const lead = `今年你的${cfg.label}在${p.branch}宮，${seated ? `坐${names(p)}` : '是空宮'}。`
+    + (majors(natal).length ? `你本命${cfg.label}坐${names(natal)}${base ? `，底子是：${base.replace(/。$/, '')}` : ''}；今年是在這個底子上的變化。` : '');
   const statements: MingStatement[] = [
-    { text: lead, en: '', kind: 'editorial-explanation', source_ids: ['syn.cai-year.lead'], citations: [synthesisCiteId(CAI_METHOD)] },
+    { text: lead, en: '', kind: 'editorial-explanation', source_ids: [`${cfg.idTo}lead`], citations: [synthesisCiteId(cfg.method)] },
     ...js.flatMap((j): MingStatement[] => [
       { text: j.claim, en: '', kind: 'interpretation', source_ids: [j.card.id], citations: [synthesisCiteId(j.card.source)] },
       { text: j.because, en: '', kind: 'evidence', source_ids: [j.card.id], citations: [] },
     ]),
   ];
-  return { slot: '今年的錢', heading: '今年的錢', text: statements.map((l) => l.text).join(''), statements,
-    referenceConditions: ['判斷強度：提示', '方法：深造 p.433、p.334；初階轉錄第7篇「45、流年太歲」、第23篇田宅宮、第24篇福德宮篇首',
-      ...js.map((j) => `原文：「${j.card.quote}」`)] };
+  return { slot: cfg.slot, heading: cfg.slot, text: statements.map((l) => l.text).join(''), statements,
+    referenceConditions: ['判斷強度：提示', cfg.methodNote, ...js.map((j) => `原文：「${j.card.quote}」`)] };
 }
+const annualPalaceSegments = (ctx: Ctx) => ANNUAL_PALACES.flatMap((cfg) => { const x = annualPalaceSegment(ctx, cfg); return x ? [x] : []; });
 
 /* ── 權衡（2026-10-28 盲評 ab7：同一粒流年化祿嘅好壞判斷要併埋一段講）── */
 
@@ -487,8 +507,7 @@ export function synthYearChapter(chart: Chart, year: number, opts: { general?: b
     if (!opts.general) return null;
     const more = all.slice(0, 4);
     if (more.length < 2) return null;
-    const cai = annualCaiSegment(ctx);
-    return [...more.map((j, i) => segmentOf(j, i === 0 ? '結論' : '展開')), ...(cai ? [cai] : [])];
+    return [...more.map((j, i) => segmentOf(j, i === 0 ? '結論' : '展開')), ...annualPalaceSegments(ctx)];
   }
   // 這十年背景：第一個判斷；有相反極性嘅判斷就一齊出（吉凶並見唔可以只報一邊）
   const decade = decades[0];
@@ -499,8 +518,8 @@ export function synthYearChapter(chart: Chart, year: number, opts: { general?: b
   const segs = annualLead
     ? [...now.map((j, i) => segmentOf(j, i === 0 ? '結論' : '展開')), ...ten.map((j, i) => segmentOf(j, '背景', i === 0 ? '這十年' : undefined))]
     : [...ten.map((j, i) => segmentOf(j, i === 0 ? '結論' : '背景', i === 0 ? '這十年' : undefined)), ...now.map((j) => segmentOf(j, '展開'))];
-  const cai = annualCaiSegment(ctx);
-  if (cai) segs.splice(segs.findIndex((x) => x.slot === '背景') < 0 || !annualLead ? segs.length : segs.findIndex((x) => x.slot === '背景'), 0, cai);
+  const bg = segs.findIndex((x) => x.slot === '背景');
+  segs.splice(bg < 0 || !annualLead ? segs.length : bg, 0, ...annualPalaceSegments(ctx));
   const next = annualOf(chart, year + 1);
   if (next.ok) {
     const n = pick('annual', { chart, annual: next.value, age: next.value.nominalAge }).find((j) => j.card.system && j.card.id !== decade?.card.id && j.card.id !== other?.card.id);
@@ -525,7 +544,7 @@ export function synthesisLint(segs: SynthesisSegment[]): string[] {
   }
   for (const s of segs) {
     const strength = s.referenceConditions[0]?.slice(5);
-    if (strength === '提示' && /必|決主|主[^要]/.test(s.statements[0]!.text)) out.push(`強度用詞：提示級用咗肯定詞：${s.text}`);
+    if (strength === '提示' && /(?<!未)必|決主|主[^要]/.test(s.statements[0]!.text)) out.push(`強度用詞：提示級用咗肯定詞：${s.text}`);
   }
   return out;
 }
