@@ -299,6 +299,14 @@ export function synthWealthChapter(chart: Chart): SynthesisSegment[] | null {
   return js.map((j, i) => segmentOf(j, i === 0 ? '結論' : '展開'));
 }
 
+/** 某年命中嘅今年卡（裁決前，流年層），俾覆蓋審核用。 */
+export function synthYearHits(chart: Chart, year: number, layer: 'annual' | 'decade' = 'annual'): string[] {
+  const a = annualOf(chart, year);
+  if (!a.ok) return [];
+  const ctx: Ctx = { chart, annual: a.value, age: a.value.nominalAge };
+  return SYNTHESIS_CARDS.filter((c) => c.chapter === '今年' && c.layer.includes(layer)).flatMap((c) => matchCard(c, layer, ctx) ? [c.id] : []);
+}
+
 /** 今年章：流年判斷最多三個，加這十年背景一個，加明年提示一個；冇星系運限卡命中回 null。 */
 export function synthYearChapter(chart: Chart, year: number): SynthesisSegment[] | null {
   const a = annualOf(chart, year);
@@ -307,15 +315,18 @@ export function synthYearChapter(chart: Chart, year: number): SynthesisSegment[]
   const pick = (layer: 'annual' | 'decade', c2: Ctx) => resolve(SYNTHESIS_CARDS.filter((c) => c.chapter === '今年' && c.layer.includes(layer))
     .flatMap((c) => { const h = matchCard(c, layer, c2); return h ? [h] : []; })).sort(byStrength);
   const now = pick('annual', ctx).slice(0, 3);
-  // 試點：要有命宮星系嘅運限卡做主線先換章；淨係通則卡就比舊章薄，照用舊章
-  if (!now.some((j) => j.card.system)) return null;
-  const segs = now.map((j, i) => segmentOf(j, i === 0 ? '結論' : '展開'));
+  const decades = pick('decade', ctx).filter((j) => j.card.system);
+  // 要有命宮星系嘅運限卡做主線先換章（流年層或者大限層）；淨係通則卡就比舊章薄，照用舊章
+  if (!now.some((j) => j.card.system) && !decades.length) return null;
   // 這十年背景：第一個判斷；有相反極性嘅判斷就一齊出（吉凶並見唔可以只報一邊）
-  const decades = pick('decade', ctx);
   const decade = decades[0];
   const other = decade && decades.find((j) => j !== decade && j.card.polarity !== '中' && decade.card.polarity !== '中' && j.card.polarity !== decade.card.polarity);
-  for (const [i, j] of [decade, other].filter((x): x is Judgement => !!x).entries())
-    segs.push(segmentOf({ ...j, strength: j.strength === '定論' ? '傾向' : j.strength }, '背景', i === 0 ? '這十年' : undefined));
+  const ten = [decade, other].filter((x): x is Judgement => !!x).map((j) => ({ ...j, strength: j.strength === '定論' ? '傾向' as const : j.strength }));
+  // 流年有星系卡：流年做結論，十年做背景；冇：十年做結論（「今年處於…的十年」），流年通則卡跟後
+  const annualLead = now.some((j) => j.card.system);
+  const segs = annualLead
+    ? [...now.map((j, i) => segmentOf(j, i === 0 ? '結論' : '展開')), ...ten.map((j, i) => segmentOf(j, '背景', i === 0 ? '這十年' : undefined))]
+    : [...ten.map((j, i) => segmentOf(j, i === 0 ? '結論' : '背景', i === 0 ? '這十年' : undefined)), ...now.map((j) => segmentOf(j, '展開'))];
   const next = annualOf(chart, year + 1);
   if (next.ok) {
     const n = pick('annual', { chart, annual: next.value, age: next.value.nominalAge }).find((j) => j.card.system && j.card.id !== decade?.card.id && j.card.id !== other?.card.id);

@@ -50,8 +50,7 @@ describe('錢', () => {
     expect(segs[0]!.statements[1]!.text).toBe('你的財帛宮天梁坐巳宮，對宮是天同。');
   });
   it('空宮財帛照用舊章；今年冇星系運限卡亦照用舊章', () => {
-    const other = chartOf({ y: 1996, m: 1, d: 21 }, { h: 8, min: 4 }, 'female');
-    expect(synthYearChapter(other, 2026)).toBeNull(); // 只得通則卡（弱地、文昌落陷），冇星系運限卡
+    expect(sample(60).some((c) => synthYearChapter(c, 2026) === null)).toBe(true); // 冇星系運限卡（流年、大限都冇）就照用舊章
     const empty = sample(400).find((c) => !majorsIn(c, '財帛'))!;
     expect(synthWealthChapter(empty)).toBeNull();
   });
@@ -64,6 +63,11 @@ describe('錢', () => {
 });
 
 describe('今年', () => {
+  it('400 個隨機盤（2026）：有星系運限卡嘅今年章 ≥10%，每章以結論開頭，寫作 lint 全清', () => {
+    const books = sample(400).map((c) => synthYearChapter(c, 2026)).filter((b): b is NonNullable<typeof b> => !!b);
+    expect(books.length / 400).toBeGreaterThanOrEqual(0.1);
+    for (const b of books) { expect(b[0]!.slot).toBe('結論'); expect(synthesisLint(b)).toEqual([]); }
+  });
   it('64 歲天機丑：廉相廉忌求變破敗、祿逢沖破、弱地；十年背景天梁；冇考試句', () => {
     const segs = synthYearChapter(elder, 2026)!;
     expect(ids(segs).slice(0, 3)).toEqual(['syn.sys32.lianxiang-ji', 'syn.year.lu-chongpo', 'syn.year.lu-weak']);
