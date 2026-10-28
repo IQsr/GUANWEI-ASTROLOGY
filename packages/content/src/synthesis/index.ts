@@ -78,7 +78,7 @@ export const SynthesisCard = z.object({
   age: z.object({ gte: z.number().optional(), lt: z.number().optional() }).optional(),
   /** 唔能用條件語言寫嘅流年配對（同一粒星跨層），喺 SPECIAL 實作。 */
   special: z.enum(['luToJi', 'jiToLu', 'luChongPo', 'luWeak', 'luKongJie', 'changKeXian', 'changKe',
-    'decLuToJi', 'decLuChongPo', 'jiToQuanJi', 'jiToQuan', 'dieLuDec', 'dieLuNatal', 'jiLands']).optional(),
+    'decLuToJi', 'decLuChongPo', 'jiToQuanJi', 'jiToQuan', 'dieLuDec', 'dieLuNatal', 'jiLands', 'yangTuoJiaJi']).optional(),
   because: z.string(),
   claim: z.string(),
   /** G9：建議一定要講得出點解係呢個盤。 */
@@ -111,8 +111,8 @@ const OPPOSITE = (b: string) => BRANCHES[(BRANCHES.indexOf(b) + 6) % 12]!;
 const WEAK = ['子', '午', '卯', '酉'];
 /** 宮名 → 讀者話題（今年章講「同X有關嘅錢」用）。 */
 const TOPIC: Record<string, string> = {
-  命宮: '你自己', 兄弟: '兄弟姊妹、合作夥伴', 夫妻: '伴侶', 子女: '子女、後輩', 財帛: '收入', 疾厄: '身體',
-  遷移: '外出、在外', 僕役: '朋友、同事', 官祿: '工作', 田宅: '家裏、物業', 福德: '心情、享受', 父母: '長輩、上司',
+  命宮: '你自己', 兄弟: '兄弟姊妹、平輩朋友、合作夥伴', 夫妻: '伴侶', 子女: '子女和你提拔的後輩、助手', 財帛: '收入', 疾厄: '身體',
+  遷移: '外出、在外', 僕役: '一般往來的晚輩、下屬', 官祿: '工作', 田宅: '家裏、物業', 福德: '心情、享受', 父母: '長輩、上司',
 };
 
 export type Period = { layer: 'decade' | 'annual'; label: string };
@@ -268,7 +268,15 @@ const SPECIAL: Record<NonNullable<SynthesisCard['special']>, (ctx: Ctx) => Recor
     const ji = a?.sihua.annual.find((y) => y.hua === '忌');
     if (!ji?.branch || !ji.annualPalace) return null;
     const ts = [...new Set([ji.annualPalace, ji.natalPalace].filter((x): x is NonNullable<typeof x> => !!x).map(topicOf))];
-    return { star: ji.star, branch: ji.branch, topics: ts.join('，以及') };
+    return { star: ji.star, branch: ji.branch, topics: ts.join('方面，以及') };
+  },
+  /** 流年化忌同本命祿存同度＝羊陀夾忌（p.228）。 */
+  yangTuoJiaJi: ({ chart, annual: a }) => {
+    const ji = a?.sihua.annual.find((y) => y.hua === '忌');
+    const p = ji?.branch ? chart.palaces.find((q) => q.branch === ji.branch) : undefined;
+    if (!ji || !p?.stars.some((s) => s.name === '祿存') || !ji.annualPalace) return null;
+    const ts = [...new Set([ji.annualPalace, ji.natalPalace].filter((x): x is NonNullable<typeof x> => !!x).map(topicOf))];
+    return { star: ji.star, branch: ji.branch!, topics: ts.join('方面，以及') };
   },
 };
 const topicOf = (palace: string) => TOPIC[palace] ?? palace;
@@ -281,7 +289,7 @@ const RANK: Record<Strength, number> = { 定論: 0, 傾向: 1, 提示: 2 };
 /** 重話：一律最高傾向（用戶 2026-10-27 決定）。 */
 const HEAVY = /生離死別|災難|官非|官司|刑克|早寡/;
 
-export type Judgement = SynthesisHit & { strength: Strength; claim: string; because: string; advice?: string };
+export type Judgement = SynthesisHit & { strength: Strength; claim: string; because: string; advice?: string; parts?: Judgement[] };
 
 const fill = (t: string, v: Record<string, string>) => t.replace(/\{(\w+)\}/g, (_, k: string) => v[k] ?? `{${k}}`);
 
@@ -308,6 +316,7 @@ export function resolve(hits: SynthesisHit[]): Judgement[] {
 export type SynthesisSegment = { slot: string; text: string; heading?: string; statements: MingStatement[]; referenceConditions: string[] };
 
 function segmentOf(j: Judgement, slot: string, heading?: string): SynthesisSegment {
+  if (j.parts) return weighedSegment(j, slot, heading);
   const cite = synthesisCiteId(j.card.source);
   const statements: MingStatement[] = [
     { text: j.claim, en: '', kind: 'interpretation', source_ids: [j.card.id], citations: [cite] },
@@ -364,6 +373,46 @@ export function synthYearHits(chart: Chart, year: number, layer: 'annual' | 'dec
   return SYNTHESIS_CARDS.filter((c) => c.chapter === '今年' && c.layer.includes(layer)).flatMap((c) => matchCard(c, layer, ctx) ? [c.id] : []);
 }
 
+/* ── 權衡（2026-10-28 盲評 ab7：同一粒流年化祿嘅好壞判斷要併埋一段講）── */
+
+/** 呢幾張卡都係講「今年化祿嗰粒星」嘅成色。 */
+const ANNUAL_LU = new Set<SynthesisCard['special']>(['luWeak', 'luKongJie', 'dieLuDec', 'dieLuNatal']);
+
+/** 同一粒流年化祿有 ≥2 個判斷就併成一個：先講有助力嗰邊，再講折扣，冇自創淨值。 */
+/** 每張化祿卡喺併段開頭嘅短語。 */
+const LU_PHRASE: Partial<Record<NonNullable<SynthesisCard['special']>, string>> = {
+  dieLuDec: '有{what}相疊', dieLuNatal: '和{what}相疊（力量很輕）', luWeak: '落在弱地，多名聲、少實利', luKongJie: '遇上{kongjie}',
+};
+/** 化忌已經有更具體嘅卡講（祿轉忌、羊陀夾忌），就唔再出一般落點。 */
+const JI_COVERED = new Set<SynthesisCard['special']>(['luToJi', 'decLuToJi', 'yangTuoJiaJi']);
+
+function weigh(input: Judgement[]): Judgement[] {
+  const js = input.some((j) => JI_COVERED.has(j.card.special)) ? input.filter((j) => j.card.special !== 'jiLands') : input;
+  const lu = js.filter((j) => ANNUAL_LU.has(j.card.special));
+  if (lu.length < 2) return js;
+  const parts = [...lu.filter((j) => j.card.polarity === '吉'), ...lu.filter((j) => j.card.polarity !== '吉')];
+  const mixed = parts.some((j) => j.card.polarity === '吉') && parts.some((j) => j.card.polarity === '凶');
+  const star = lu[0]!.vars.star ?? '';
+  const weakest = parts.reduce((w, j) => (RANK[j.strength] > RANK[w.strength] ? j : w));
+  const merged: Judgement = { ...lu[0]!, strength: weakest.strength, parts,
+    claim: '', because: '' };
+  const say = (ps: Judgement[]) => ps.map((p) => fill(LU_PHRASE[p.card.special!] ?? '', p.vars)).join('，又');
+  const goods = parts.filter((p) => p.card.polarity === '吉'), bads = parts.filter((p) => p.card.polarity !== '吉');
+  merged.claim = mixed ? `今年${star}化祿給你的進財，${say(goods)}，但${say(bads)}，實際得益要打折扣。`
+    : bads.length ? `今年${star}化祿給你的進財，${say(bads)}，實際得益要打折扣。` : `今年${star}化祿給你的進財，${say(goods)}，財源較順。`;
+  const at = js.indexOf(lu[0]!);
+  return js.flatMap((j, i) => (i === at ? [merged] : lu.includes(j) ? [] : [j]));
+}
+
+function weighedSegment(j: Judgement, slot: string, heading?: string): SynthesisSegment {
+  const statements: MingStatement[] = [
+    { text: j.claim, en: '', kind: 'interpretation', source_ids: j.parts!.map((p) => p.card.id), citations: [...new Set(j.parts!.map((p) => synthesisCiteId(p.card.source)))] },
+    ...j.parts!.map((p): MingStatement => ({ text: p.because, en: '', kind: 'evidence', source_ids: [p.card.id], citations: [] })),
+  ];
+  return { slot, ...(heading ? { heading } : {}), text: statements.map((l) => l.text).join(''), statements,
+    referenceConditions: [`判斷強度：${j.strength}`, ...j.parts!.map((p) => `原文：「${p.card.quote}」`)] };
+}
+
 /** 今年章：流年判斷最多三個，加這十年背景一個，加明年提示一個；冇星系運限卡命中回 null。 */
 /**
  * `general`：冇星系運限卡嘅年份，用流年四化通則卡（p.236、p.284）砌一個短版（要 ≥2 個判斷）。
@@ -375,7 +424,7 @@ export function synthYearChapter(chart: Chart, year: number, opts: { general?: b
   const ctx: Ctx = { chart, annual: a.value, age: a.value.nominalAge };
   const pick = (layer: 'annual' | 'decade', c2: Ctx) => resolve(SYNTHESIS_CARDS.filter((c) => c.chapter === '今年' && c.layer.includes(layer))
     .flatMap((c) => { const h = matchCard(c, layer, c2); return h ? [h] : []; })).sort(byStrength);
-  const all = pick('annual', ctx);
+  const all = weigh(pick('annual', ctx));
   // 通則卡強度可以高過星系卡；頭三個冇星系卡就將第一張星系卡換入第三位，唔好令星系主線消失
   const sys = all.find((j) => j.card.system);
   const now = sys && !all.slice(0, 3).includes(sys) ? [...all.slice(0, 2), sys] : all.slice(0, 3);

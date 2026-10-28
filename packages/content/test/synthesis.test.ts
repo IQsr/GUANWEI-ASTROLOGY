@@ -88,6 +88,17 @@ describe('今年', () => {
     expect(ids(synthYearChapter(c5, 2026, { general: true }))).toContain('syn.year.ji-to-quan-tianji');
     expect(ids(synthYearChapter(c3, 2026, { general: true }))).toEqual(expect.arrayContaining(['syn.year.dec-lu-to-ji', 'syn.year.die-lu-natal']));
   });
+  it('權衡（ab7）：同一粒流年化祿嘅好壞併成一段，開頭講淨結果；羊陀夾忌（p.228）壓一般化忌落點', () => {
+    const c4 = chartOf({ y: 1974, m: 1, d: 13 }, { h: 8, min: 0 }, 'female');
+    const lead = synthYearChapter(c4, 2026, { general: true })![0]!;
+    expect(lead.statements[0]!.source_ids).toEqual(['syn.year.die-lu-natal', 'syn.year.lu-weak']);
+    expect(lead.statements[0]!.text).toContain('實際得益要打折扣');
+    expect(lead.statements[0]!.citations.length).toBeGreaterThan(0);
+    const c2 = chartOf({ y: 1970, m: 9, d: 1 }, { h: 0, min: 32 }, 'female');
+    const ids2 = ids(synthYearChapter(c2, 2026, { general: true }));
+    expect(ids2).toContain('syn.year.yangtuo-jiaji');
+    expect(ids2).not.toContain('syn.year.ji-lands');
+  });
   it('23 歲空宮借機巨：機巨卡只限實坐（G1），冇星系運限卡就沿用舊章', () => {
     expect(synthYearChapter(young, 2026)).toBeNull();
   });
