@@ -72916,6 +72916,6798 @@
    "claim": "你所置的物業未必在高尚地區，但這不代表產業少。",
    "source": "wtz.deep.p557.b010",
    "quote": "若化禄同时见煞，则主所置产业不在高尚地区而并不主产业少。"
+  },
+  {
+   "id": "syn.wellbeing.ziwei.ziwu-ke",
+   "chapter": "心境",
+   "group": "紫微福德.決斷",
+   "specificity": "system",
+   "polarity": "吉",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "紫微",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "star": "紫微",
+      "at": [
+       "子",
+       "午"
+      ]
+     },
+     {
+      "star": "紫微",
+      "hua": "科"
+     }
+    ]
+   },
+   "because": "你的福德宮紫微坐{branch}宮，紫微化科。",
+   "claim": "你做決定有決斷力，態度較柔和。",
+   "source": "wtz.deep.p566.b008",
+   "quote": "子午宫紫微喜化科不喜化权，二者虽皆主决断，唯化科较柔，化权者较刚，过刚则折，亦容易产生挫折感。"
+  },
+  {
+   "id": "syn.wellbeing.ziwei.ziwu-quan",
+   "chapter": "心境",
+   "group": "紫微福德.決斷",
+   "specificity": "system",
+   "polarity": "中",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "紫微",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "star": "紫微",
+      "at": [
+       "子",
+       "午"
+      ]
+     },
+     {
+      "star": "紫微",
+      "hua": "權"
+     }
+    ]
+   },
+   "because": "你的福德宮紫微坐{branch}宮，紫微化權。",
+   "claim": "你做決定有決斷力，但態度較剛硬，容易產生挫折感。",
+   "source": "wtz.deep.p566.b008",
+   "quote": "子午宫紫微喜化科不喜化权，二者虽皆主决断，唯化科较柔，化权者较刚，过刚则折，亦容易产生挫折感。"
+  },
+  {
+   "id": "syn.wellbeing.ziwei.fubi-support",
+   "chapter": "心境",
+   "group": "紫微福德.人緣",
+   "specificity": "general",
+   "polarity": "吉",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "紫微",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "meets": "紫微",
+      "stars": [
+       "左輔",
+       "右弼"
+      ],
+      "reach": "sanfang",
+      "op": "gte",
+      "n": 2
+     }
+    ]
+   },
+   "because": "你的福德宮紫微在三方四正會齊左輔、右弼。",
+   "claim": "你較有人緣，也較多得到別人的助力。",
+   "source": "wtz.deep.p566.b010",
+   "quote": "凡辅弼同拱，然后多人缘助力。"
+  },
+  {
+   "id": "syn.wellbeing.ziwei.ziwu-yangtuo-jia",
+   "chapter": "心境",
+   "group": "紫微福德.夾曜",
+   "specificity": "system",
+   "polarity": "凶",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "紫微",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "star": "紫微",
+      "at": [
+       "子",
+       "午"
+      ]
+     },
+     {
+      "jia": "紫微",
+      "sides": [
+       [
+        "擎羊"
+       ],
+       [
+        "陀羅"
+       ]
+      ]
+     }
+    ]
+   },
+   "because": "你的福德宮紫微坐{branch}宮，受擎羊、陀羅左右夾。",
+   "claim": "你較固執己見，也較孤僻。",
+   "source": "wtz.deep.p566.b011",
+   "quote": "子午紫徽为羊陀夹，主观而且孤僻，为火铃夹则主思想时不集中。"
+  },
+  {
+   "id": "syn.wellbeing.ziwei.ziwu-huoling-jia",
+   "chapter": "心境",
+   "group": "紫微福德.夾曜",
+   "specificity": "system",
+   "polarity": "凶",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "紫微",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "star": "紫微",
+      "at": [
+       "子",
+       "午"
+      ]
+     },
+     {
+      "jia": "紫微",
+      "sides": [
+       [
+        "火星"
+       ],
+       [
+        "鈴星"
+       ]
+      ]
+     }
+    ]
+   },
+   "because": "你的福德宮紫微坐{branch}宮，受火星、鈴星左右夾。",
+   "claim": "你的思想有時不容易集中。",
+   "source": "wtz.deep.p566.b011",
+   "quote": "子午紫徽为羊陀夹，主观而且孤僻，为火铃夹则主思想时不集中。"
+  },
+  {
+   "id": "syn.wellbeing.ziwei.chouwei-pojun",
+   "chapter": "心境",
+   "group": "紫微福德.親為",
+   "specificity": "system",
+   "polarity": "中",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "紫微",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "star": "紫微",
+      "at": [
+       "丑",
+       "未"
+      ]
+     },
+     {
+      "together": [
+       "紫微",
+       "破軍"
+      ]
+     }
+    ]
+   },
+   "because": "你的福德宮在{branch}宮，由紫微、破軍同守。",
+   "claim": "你喜歡親力親為，不容易放心把事情交給別人。",
+   "source": "wtz.deep.p566.b012",
+   "quote": "丑未[紫微破军1守福德，主其人好亲力亲为，纵有左辅右弼夹，只主助力多，但仍不易放心。"
+  },
+  {
+   "id": "syn.wellbeing.ziwei.tianfu-lucun",
+   "chapter": "心境",
+   "group": "紫微福德.享受",
+   "specificity": "system",
+   "polarity": "中",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "紫微",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "together": [
+       "紫微",
+       "天府"
+      ]
+     },
+     {
+      "together": [
+       "紫微",
+       "祿存"
+      ]
+     }
+    ]
+   },
+   "because": "你的福德宮由紫微、天府同守，祿存也同宮。",
+   "claim": "你的物質享受較多，但也常存自利之心。",
+   "source": "wtz.deep.p567.b004",
+   "quote": "[紫府]与禄存同度，虽多物质享受，但常存自利之心。"
+  },
+  {
+   "id": "syn.wellbeing.ziwei.tanlang-ji",
+   "chapter": "心境",
+   "group": "紫微福德.勞碌",
+   "specificity": "system",
+   "polarity": "凶",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "紫微",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "together": [
+       "紫微",
+       "貪狼"
+      ]
+     },
+     {
+      "star": "貪狼",
+      "hua": "忌"
+     }
+    ]
+   },
+   "because": "你的福德宮由紫微、貪狼同守，貪狼化忌。",
+   "claim": "你多奔波勞碌，也容易因未能當機立斷而後悔。",
+   "source": "wtz.deep.p567.b008",
+   "quote": "倘贪狼化忌，则主多奔波劳碌，且往往因不能当机立断而常生追悔之心。"
+  },
+  {
+   "id": "syn.wellbeing.ziwei.tanlang-huoling",
+   "chapter": "心境",
+   "group": "紫微福德.思考",
+   "specificity": "system",
+   "polarity": "吉",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "紫微",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "together": [
+       "紫微",
+       "貪狼"
+      ]
+     },
+     {
+      "meets": "紫微",
+      "stars": [
+       "火星",
+       "鈴星"
+      ],
+      "reach": "same",
+      "op": "gte",
+      "n": 1
+     }
+    ]
+   },
+   "because": "你的福德宮由紫微、貪狼同守，並有火星或鈴星同宮。",
+   "claim": "你的思想較積極。",
+   "source": "wtz.deep.p567.b009",
+   "quote": "[紫贪]躔火铃，思想积极，"
+  },
+  {
+   "id": "syn.wellbeing.ziwei.tianxiang-benefic",
+   "chapter": "心境",
+   "group": "紫微福德.胸襟",
+   "specificity": "system",
+   "polarity": "吉",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "紫微",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "together": [
+       "紫微",
+       "天相"
+      ]
+     },
+     {
+      "sanfangOf": {
+       "name": "福德"
+      },
+      "count": "benefic",
+      "op": "gte",
+      "n": 1
+     }
+    ]
+   },
+   "because": "你的福德宮由紫微、天相同守，三方四正見輔佐吉曜。",
+   "claim": "你待人較寬厚大度。",
+   "source": "wtz.deep.p567.b010",
+   "quote": "[紫微天相]守福德宫，见辅佐吉曜则宽厚大度。"
+  },
+  {
+   "id": "syn.wellbeing.ziwei.tianxiang-huoling-jia",
+   "chapter": "心境",
+   "group": "紫微福德.投機",
+   "specificity": "system",
+   "polarity": "中",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "紫微",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "together": [
+       "紫微",
+       "天相"
+      ]
+     },
+     {
+      "jia": "天相",
+      "sides": [
+       [
+        "火星"
+       ],
+       [
+        "鈴星"
+       ]
+      ]
+     }
+    ]
+   },
+   "because": "你的福德宮由紫微、天相同守，受火星、鈴星左右夾。",
+   "claim": "你有投機的傾向。",
+   "source": "wtz.deep.p567.b012",
+   "quote": "[紫相]为火铃夹者，主投机。"
+  },
+  {
+   "id": "syn.wellbeing.ziwei.tianxiang-pojun-lu",
+   "chapter": "心境",
+   "group": "紫微福德.創意",
+   "specificity": "system",
+   "polarity": "吉",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "紫微",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "together": [
+       "紫微",
+       "天相"
+      ]
+     },
+     {
+      "opposite": [
+       "紫微",
+       "破軍"
+      ]
+     },
+     {
+      "star": "破軍",
+      "hua": "祿"
+     }
+    ]
+   },
+   "because": "你的福德宮由紫微、天相同守，對宮破軍化祿。",
+   "claim": "你的創造力很強。",
+   "source": "wtz.deep.p567.b013",
+   "quote": "[紫相]喜对宫破军化禄，则创造力极强，"
+  },
+  {
+   "id": "syn.wellbeing.tianji.general-focus",
+   "chapter": "心境",
+   "group": "天機福德.思考",
+   "specificity": "general",
+   "polarity": "中",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "star": "天機",
+    "in": {
+     "name": "福德"
+    }
+   },
+   "because": "你的福德宮有天機坐守。",
+   "claim": "你的興趣多，但思想容易不集中，考慮也欠周密。",
+   "source": "wtz.deep.p568.b006",
+   "quote": "天机守福德宫，一般情形下主多思多虚，兴趣多端，思想不集中，考虑欠周密。"
+  },
+  {
+   "id": "syn.wellbeing.tianji.fallen-worry",
+   "chapter": "心境",
+   "group": "天機福德.思考",
+   "specificity": "general",
+   "polarity": "凶",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "star": "天機",
+    "in": {
+     "name": "福德"
+    }
+   },
+   "bright": {
+    "star": "天機",
+    "levels": [
+     "陷"
+    ]
+   },
+   "because": "你的福德宮天機落陷。",
+   "claim": "你容易學得多卻不扎實，思考時愛鑽牛角尖，也較多憂慮。",
+   "source": "wtz.deep.p568.b006",
+   "quote": "若居陷宫，则更易多学不实，考虑时陷牛角尖，且多优虑。"
+  },
+  {
+   "id": "syn.wellbeing.tianji.huoling-restless",
+   "chapter": "心境",
+   "group": "天機福德.勞心",
+   "specificity": "general",
+   "polarity": "凶",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "天機",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "any": [
+       {
+        "meets": "天機",
+        "stars": [
+         "火星",
+         "鈴星"
+        ],
+        "reach": "same",
+        "op": "gte",
+        "n": 1
+       },
+       {
+        "jia": "天機",
+        "sides": [
+         [
+          "火星"
+         ],
+         [
+          "鈴星"
+         ]
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   "because": "你的福德宮天機與火星或鈴星同宮，或受火星、鈴星左右夾。",
+   "claim": "你身心都較勞累，難得安寧。",
+   "source": "wtz.deep.p568.b007",
+   "quote": "天机如火铃，或火铃夹者，主身劳心劳，不得安宁。"
+  },
+  {
+   "id": "syn.wellbeing.tianji.quan-stability",
+   "chapter": "心境",
+   "group": "天機福德.安定",
+   "specificity": "general",
+   "polarity": "吉",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "天機",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "star": "天機",
+      "hua": "權"
+     }
+    ]
+   },
+   "because": "你的福德宮天機化權。",
+   "claim": "你的心思較安定，動盪較少，考慮事情也較周密。",
+   "source": "wtz.deep.p568.b008",
+   "quote": "天机化禄不如化权，化权则能增加安定，减少动荡·亦使思想之周密性增加。"
+  },
+  {
+   "id": "syn.wellbeing.tianji.jumen-ji",
+   "chapter": "心境",
+   "group": "天機福德.勞心",
+   "specificity": "system",
+   "polarity": "凶",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "天機",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "meets": "天機",
+      "stars": [
+       "巨門"
+      ],
+      "reach": "sanfang",
+      "op": "gte",
+      "n": 1
+     },
+     {
+      "star": "巨門",
+      "hua": "忌"
+     }
+    ]
+   },
+   "because": "你的福德宮天機在三方四正會見巨門，巨門化忌。",
+   "claim": "你容易進退不安，勞心費神。",
+   "source": "wtz.deep.p568.b010",
+   "quote": "若巨门化忌者，进退不安，劳心费神。"
+  },
+  {
+   "id": "syn.wellbeing.tianji.tianliang-no-malefic",
+   "chapter": "心境",
+   "group": "天機福德.自處",
+   "specificity": "system",
+   "polarity": "吉",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "天機",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "any": [
+       {
+        "together": [
+         "天機",
+         "天梁"
+        ]
+       },
+       {
+        "opposite": [
+         "天機",
+         "天梁"
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   "none": {
+    "sanfangOf": {
+     "name": "福德"
+    },
+    "count": "malefic",
+    "op": "gte",
+    "n": 1
+   },
+   "because": "你的福德宮天機與天梁同度或對照，三方四正不見煞曜。",
+   "claim": "你常能自得其樂。",
+   "source": "wtz.deep.p568.b013",
+   "quote": "天机与天梁同度或对拱，无煞者，常能自得其乐，有煞，则思想易走偏锋。"
+  },
+  {
+   "id": "syn.wellbeing.tianji.tianliang-malefic",
+   "chapter": "心境",
+   "group": "天機福德.自處",
+   "specificity": "system",
+   "polarity": "凶",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "天機",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "any": [
+       {
+        "together": [
+         "天機",
+         "天梁"
+        ]
+       },
+       {
+        "opposite": [
+         "天機",
+         "天梁"
+        ]
+       }
+      ]
+     },
+     {
+      "sanfangOf": {
+       "name": "福德"
+      },
+      "count": "malefic",
+      "op": "gte",
+      "n": 1
+     }
+    ]
+   },
+   "because": "你的福德宮天機與天梁同度或對照，三方四正見煞曜。",
+   "claim": "你的思想容易走偏鋒。",
+   "source": "wtz.deep.p568.b013",
+   "quote": "天机与天梁同度或对拱，无煞者，常能自得其乐，有煞，则思想易走偏锋。"
+  },
+  {
+   "id": "syn.wellbeing.tianji.tianliang-ji-insomnia",
+   "chapter": "心境",
+   "group": "天機福德.睡眠",
+   "specificity": "system",
+   "polarity": "凶",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "天機",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "any": [
+       {
+        "together": [
+         "天機",
+         "天梁"
+        ]
+       },
+       {
+        "opposite": [
+         "天機",
+         "天梁"
+        ]
+       }
+      ]
+     },
+     {
+      "star": "天機",
+      "hua": "忌"
+     }
+    ]
+   },
+   "because": "你的福德宮天機與天梁同度或對照，天機化忌。",
+   "claim": "你容易失眠。",
+   "source": "wtz.deep.p569.b001",
+   "quote": "天机天梁而天机化忌，主易失眠。"
+  },
+  {
+   "id": "syn.wellbeing.tianji.tianliang-huoling",
+   "chapter": "心境",
+   "group": "天機福德.煩躁",
+   "specificity": "system",
+   "polarity": "凶",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "天機",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "any": [
+       {
+        "together": [
+         "天機",
+         "天梁"
+        ]
+       },
+       {
+        "opposite": [
+         "天機",
+         "天梁"
+        ]
+       }
+      ]
+     },
+     {
+      "meets": "天機",
+      "stars": [
+       "火星",
+       "鈴星"
+      ],
+      "reach": "same",
+      "op": "gte",
+      "n": 1
+     }
+    ]
+   },
+   "because": "你的福德宮天機與天梁同度或對照，天機並與火星或鈴星同宮。",
+   "claim": "你容易煩躁不安，也容易自尋煩惱。",
+   "source": "wtz.deep.p569.b002",
+   "quote": "天机天梁亦不喜火铃同度，主烦躁不安，易自寻烦恼。"
+  },
+  {
+   "id": "syn.wellbeing.tianji.taiyin-no-malefic",
+   "chapter": "心境",
+   "group": "天機福德.直覺",
+   "specificity": "system",
+   "polarity": "吉",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "天機",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "together": [
+       "天機",
+       "太陰"
+      ]
+     }
+    ]
+   },
+   "none": {
+    "sanfangOf": {
+     "name": "福德"
+    },
+    "count": "malefic",
+    "op": "gte",
+    "n": 1
+   },
+   "because": "你的福德宮由天機、太陰同守，三方四正不見煞曜。",
+   "claim": "你的第六感較強。",
+   "source": "wtz.deep.p569.b003",
+   "quote": "天机太阴的组合，若不见煞，则主第六感觉强。"
+  },
+  {
+   "id": "syn.wellbeing.tianji.taiyin-social",
+   "chapter": "心境",
+   "group": "天機福德.嗜好",
+   "specificity": "system",
+   "polarity": "中",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "天機",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "together": [
+       "天機",
+       "太陰"
+      ]
+     }
+    ]
+   },
+   "because": "你的福德宮由天機、太陰同守。",
+   "claim": "你喜歡熱鬧，但離開交際場合後，也有自己的天地。",
+   "source": "wtz.deep.p569.b004",
+   "quote": "天机太阴，主其人既喜热闹，但离开交际场合，却有个人的天地。"
+  },
+  {
+   "id": "syn.wellbeing.tianji.taiyin-tianji-lu",
+   "chapter": "心境",
+   "group": "天機福德.嗜好",
+   "specificity": "system",
+   "polarity": "吉",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "天機",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "together": [
+       "天機",
+       "太陰"
+      ]
+     },
+     {
+      "star": "天機",
+      "hua": "祿"
+     }
+    ]
+   },
+   "because": "你的福德宮由天機、太陰同守，天機化祿。",
+   "claim": "你的興趣廣泛。",
+   "source": "wtz.deep.p569.b005",
+   "quote": "天机太阴而天机化禄者，兴趣广泛，"
+  },
+  {
+   "id": "syn.wellbeing.tianji.taiyin-lu",
+   "chapter": "心境",
+   "group": "天機福德.籌算",
+   "specificity": "system",
+   "polarity": "吉",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "天機",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "together": [
+       "天機",
+       "太陰"
+      ]
+     },
+     {
+      "star": "太陰",
+      "hua": "祿"
+     }
+    ]
+   },
+   "because": "你的福德宮由天機、太陰同守，太陰化祿。",
+   "claim": "你擅長籌算。",
+   "source": "wtz.deep.p569.b006",
+   "quote": "天机太阴而太阴化禄者，主精于筹算。"
+  },
+  {
+   "id": "syn.wellbeing.taiyang.temple-enjoyment",
+   "chapter": "心境",
+   "group": "太陽福德.享受",
+   "specificity": "general",
+   "polarity": "吉",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "star": "太陽",
+    "in": {
+     "name": "福德"
+    }
+   },
+   "bright": {
+    "star": "太陽",
+    "levels": [
+     "廟"
+    ]
+   },
+   "because": "你的福德宮太陽入廟。",
+   "claim": "你的個性較開朗，即使任勞任怨，也有精神上的享受。",
+   "source": "wtz.deep.p569.b010",
+   "quote": "太阳守福德宫，入庙者，主个性开朗，虽任劳任怨亦有精神享受。"
+  },
+  {
+   "id": "syn.wellbeing.taiyang.fallen-restless",
+   "chapter": "心境",
+   "group": "太陽福德.煩躁",
+   "specificity": "general",
+   "polarity": "凶",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "star": "太陽",
+    "in": {
+     "name": "福德"
+    }
+   },
+   "bright": {
+    "star": "太陽",
+    "levels": [
+     "陷"
+    ]
+   },
+   "because": "你的福德宮太陽落陷。",
+   "claim": "你容易招來是非口舌，心裏也較煩躁不寧。",
+   "source": "wtz.deep.p569.b010",
+   "quote": "太阳守福德宫，入庙者，主个性开朗，虽任劳任怨亦有精神享受。落陷者，则招是非口舌，且烦躁不宁。"
+  },
+  {
+   "id": "syn.wellbeing.taiyang.general-active",
+   "chapter": "心境",
+   "group": "太陽福德.動靜",
+   "specificity": "general",
+   "polarity": "中",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "star": "太陽",
+    "in": {
+     "name": "福德"
+    }
+   },
+   "because": "你的福德宮有太陽坐守。",
+   "claim": "你好動，不喜歡安靜。",
+   "source": "wtz.deep.p569.b011",
+   "quote": "太阳主发射，故在福德宫时，无论入庙落陷，均主人好动不好静。"
+  },
+  {
+   "id": "syn.wellbeing.taiyang.tuoluo-fallen",
+   "chapter": "心境",
+   "group": "太陽福德.煩惱",
+   "specificity": "general",
+   "polarity": "凶",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "太陽",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "together": [
+       "太陽",
+       "陀羅"
+      ]
+     }
+    ]
+   },
+   "bright": {
+    "star": "太陽",
+    "levels": [
+     "陷"
+    ]
+   },
+   "because": "你的福德宮太陽落陷，並與陀羅同宮。",
+   "claim": "你容易自招煩惱，熱心助人反而招來怨恨，也容易被人誤會。",
+   "source": "wtz.deep.p570.b004",
+   "quote": "太阳与陀罗同度，人庙者，仅主烦忙；若落陷，往往自招烦恼，且因热心助人而反招怨恨，或常易招人误会。"
+  },
+  {
+   "id": "syn.wellbeing.taiyang.kongjie",
+   "chapter": "心境",
+   "group": "太陽福德.奔忙",
+   "specificity": "general",
+   "polarity": "凶",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "太陽",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "meets": "太陽",
+      "stars": [
+       "地空",
+       "地劫"
+      ],
+      "reach": "same",
+      "op": "gte",
+      "n": 2
+     }
+    ]
+   },
+   "because": "你的福德宮太陽與地空、地劫同宮。",
+   "claim": "你容易心緒不寧，沒有事情也會奔忙。",
+   "source": "wtz.deep.p570.b005",
+   "quote": "太阳与空劫同芳者，心绪不宁，无事奔忙。"
+  },
+  {
+   "id": "syn.wellbeing.taiyang.taiyin-enjoyment",
+   "chapter": "心境",
+   "group": "太陽福德.享受",
+   "specificity": "system",
+   "polarity": "吉",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "太陽",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "together": [
+       "太陽",
+       "太陰"
+      ]
+     }
+    ]
+   },
+   "because": "你的福德宮由太陽、太陰同守。",
+   "claim": "你能忙裏偷閒，在忙碌中找到安靜的樂趣。",
+   "source": "wtz.deep.p570.b007",
+   "quote": "[太阳太阴]同度者，最能忙里偷闲，忙中得静趣。"
+  },
+  {
+   "id": "syn.wellbeing.taiyang.taiyin-taiyang-ji",
+   "chapter": "心境",
+   "group": "太陽福德.心志",
+   "specificity": "system",
+   "polarity": "凶",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "太陽",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "together": [
+       "太陽",
+       "太陰"
+      ]
+     },
+     {
+      "star": "太陽",
+      "hua": "忌"
+     }
+    ]
+   },
+   "because": "你的福德宮由太陽、太陰同守，太陽化忌。",
+   "claim": "你容易有自卑感。",
+   "source": "wtz.deep.p570.b007",
+   "quote": "唯若太阳化忌，则有自卑感；"
+  },
+  {
+   "id": "syn.wellbeing.taiyang.taiyin-ji",
+   "chapter": "心境",
+   "group": "太陽福德.心志",
+   "specificity": "system",
+   "polarity": "凶",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "太陽",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "together": [
+       "太陽",
+       "太陰"
+      ]
+     },
+     {
+      "star": "太陰",
+      "hua": "忌"
+     }
+    ]
+   },
+   "because": "你的福德宮由太陽、太陰同守，太陰化忌。",
+   "claim": "你容易心志怯弱，缺乏勇氣，只能隨遇而安。",
+   "source": "wtz.deep.p570.b007",
+   "quote": "太阴化忌者，则易心志卑弱，缺乏勇气，仅能随遇而安。"
+  },
+  {
+   "id": "syn.wellbeing.taiyang.tianliang-intervention",
+   "chapter": "心境",
+   "group": "太陽福德.出頭",
+   "specificity": "system",
+   "polarity": "中",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "太陽",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "together": [
+       "太陽",
+       "天梁"
+      ]
+     }
+    ]
+   },
+   "because": "你的福德宮由太陽、天梁同守。",
+   "claim": "你不宜替人強出頭。",
+   "source": "wtz.deep.p570.b009",
+   "quote": "太阳天粱在福德宫者，不宜为人强出头。"
+  },
+  {
+   "id": "syn.wellbeing.taiyang.jumen-ji",
+   "chapter": "心境",
+   "group": "太陽福德.勞心",
+   "specificity": "system",
+   "polarity": "凶",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "太陽",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "together": [
+       "太陽",
+       "巨門"
+      ]
+     },
+     {
+      "star": "巨門",
+      "hua": "忌"
+     }
+    ]
+   },
+   "because": "你的福德宮由太陽、巨門同守，巨門化忌。",
+   "claim": "你常會白費心力。",
+   "source": "wtz.deep.p570.b010",
+   "quote": "巨门化忌者常主枉抛心力；"
+  },
+  {
+   "id": "syn.wellbeing.taiyang.jumen-taiyang-ji",
+   "chapter": "心境",
+   "group": "太陽福德.勞心",
+   "specificity": "system",
+   "polarity": "凶",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "太陽",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "together": [
+       "太陽",
+       "巨門"
+      ]
+     },
+     {
+      "star": "太陽",
+      "hua": "忌"
+     }
+    ]
+   },
+   "because": "你的福德宮由太陽、巨門同守，太陽化忌。",
+   "claim": "你常因理想不能實現而感到困擾、自卑。",
+   "source": "wtz.deep.p570.b010",
+   "quote": "太阳化忌者常因理想不能实现而致困扰自卑。"
+  },
+  {
+   "id": "syn.wellbeing.taiyang.jumen-lu-quan",
+   "chapter": "心境",
+   "group": "太陽福德.滿足",
+   "specificity": "system",
+   "polarity": "吉",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "太陽",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "together": [
+       "太陽",
+       "巨門"
+      ]
+     },
+     {
+      "any": [
+       {
+        "star": "巨門",
+        "hua": "祿"
+       },
+       {
+        "star": "巨門",
+        "hua": "權"
+       }
+      ]
+     }
+    ]
+   },
+   "because": "你的福德宮由太陽、巨門同守，巨門化祿或化權。",
+   "claim": "你常憑口才、方言或外語得到欣賞，從而獲得精神上的滿足。",
+   "source": "wtz.deep.p570.b010",
+   "quote": "若巨门化禄、权者，则常以口才得人赏识，·或以方言，外语而得人欣赏。由是精神上得到满足。"
+  },
+  {
+   "id": "syn.wellbeing.wuqu.material-enjoyment",
+   "chapter": "心境",
+   "group": "武曲福德.享受",
+   "specificity": "general",
+   "polarity": "中",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "star": "武曲",
+    "in": {
+     "name": "福德"
+    }
+   },
+   "because": "你的福德宮有武曲坐守。",
+   "claim": "你的精神享受需要以物質享受為基礎。",
+   "source": "wtz.deep.p571.b002",
+   "quote": "其精神享受亦必以物质享受为基础，化禄者尤甚。"
+  },
+  {
+   "id": "syn.wellbeing.wuqu.lianzhen-lu",
+   "chapter": "心境",
+   "group": "武曲福德.享受",
+   "specificity": "system",
+   "polarity": "吉",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "武曲",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "meets": "武曲",
+      "stars": [
+       "廉貞"
+      ],
+      "reach": "sanfang",
+      "op": "gte",
+      "n": 1
+     },
+     {
+      "star": "廉貞",
+      "hua": "祿"
+     }
+    ]
+   },
+   "because": "你的福德宮武曲在三方四正會見廉貞，廉貞化祿。",
+   "claim": "你較能感到精神愉快。",
+   "source": "wtz.deep.p571.b005",
+   "quote": "武曲喜与廉贞化禄、贪狼化禄相会或同度，前者主精神愉快，后者主多应酬之乐。"
+  },
+  {
+   "id": "syn.wellbeing.wuqu.tanlang-lu",
+   "chapter": "心境",
+   "group": "武曲福德.享受",
+   "specificity": "system",
+   "polarity": "吉",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "武曲",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "meets": "武曲",
+      "stars": [
+       "貪狼"
+      ],
+      "reach": "sanfang",
+      "op": "gte",
+      "n": 1
+     },
+     {
+      "star": "貪狼",
+      "hua": "祿"
+     }
+    ]
+   },
+   "because": "你的福德宮武曲在三方四正會見貪狼，貪狼化祿。",
+   "claim": "你較多享受應酬交際的樂趣。",
+   "source": "wtz.deep.p571.b005",
+   "quote": "武曲喜与廉贞化禄、贪狼化禄相会或同度，前者主精神愉快，后者主多应酬之乐。"
+  },
+  {
+   "id": "syn.wellbeing.wuqu.lianzhen-ji-empty",
+   "chapter": "心境",
+   "group": "武曲福德.空虛",
+   "specificity": "system",
+   "polarity": "凶",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "武曲",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "meets": "武曲",
+      "stars": [
+       "廉貞"
+      ],
+      "reach": "sanfang",
+      "op": "gte",
+      "n": 1
+     },
+     {
+      "star": "廉貞",
+      "hua": "忌"
+     }
+    ]
+   },
+   "because": "你的福德宮武曲在三方四正會見廉貞，廉貞化忌。",
+   "claim": "你常覺得精神空虛。",
+   "source": "wtz.deep.p571.b006",
+   "quote": "武曲与廉贞化忌相会，则常觉精神空虚。"
+  },
+  {
+   "id": "syn.wellbeing.wuqu.lianzhen-ji-malefic",
+   "chapter": "心境",
+   "group": "武曲福德.挫折",
+   "specificity": "system",
+   "polarity": "凶",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "武曲",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "meets": "武曲",
+      "stars": [
+       "廉貞"
+      ],
+      "reach": "sanfang",
+      "op": "gte",
+      "n": 1
+     },
+     {
+      "star": "廉貞",
+      "hua": "忌"
+     },
+     {
+      "sanfangOf": {
+       "name": "福德"
+      },
+      "count": "malefic",
+      "op": "gte",
+      "n": 1
+     }
+    ]
+   },
+   "because": "你的福德宮武曲會見廉貞化忌，三方四正也見煞曜。",
+   "claim": "你的情緒容易有挫折感。",
+   "source": "wtz.deep.p571.b006",
+   "quote": "武曲与廉贞化忌相会，则常觉精神空虚。见煞，则主情绪上有挫折感。"
+  },
+  {
+   "id": "syn.wellbeing.wuqu.tianfu-benefic",
+   "chapter": "心境",
+   "group": "武曲福德.興趣",
+   "specificity": "system",
+   "polarity": "吉",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "武曲",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "together": [
+       "武曲",
+       "天府"
+      ]
+     },
+     {
+      "sanfangOf": {
+       "name": "福德"
+      },
+      "count": "benefic",
+      "op": "gte",
+      "n": 1
+     }
+    ]
+   },
+   "because": "你的福德宮由武曲、天府同守，三方四正見輔佐吉曜。",
+   "claim": "你對商業有興趣，尤其擅長管理。",
+   "source": "wtz.deep.p571.b010",
+   "quote": "见辅佐诸曜则兴趣在于商业，尤擅长管理。"
+  },
+  {
+   "id": "syn.wellbeing.wuqu.tianfu-huoling",
+   "chapter": "心境",
+   "group": "武曲福德.勞心",
+   "specificity": "system",
+   "polarity": "凶",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "武曲",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "together": [
+       "武曲",
+       "天府"
+      ]
+     },
+     {
+      "meets": "武曲",
+      "stars": [
+       "火星",
+       "鈴星"
+      ],
+      "reach": "same",
+      "op": "gte",
+      "n": 1
+     }
+    ]
+   },
+   "because": "你的福德宮由武曲、天府同守，並有火星或鈴星同宮。",
+   "claim": "你不但內心容易憂煎，身體也較勞累。",
+   "source": "wtz.deep.p571.b011",
+   "quote": "武曲天府基本性质为身安心劳，但若火铃同度，则不但内心易忧煎，且亦主劳，；"
+  },
+  {
+   "id": "syn.wellbeing.wuqu.pojun-unsettled",
+   "chapter": "心境",
+   "group": "武曲福德.反覆",
+   "specificity": "system",
+   "polarity": "凶",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "武曲",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "together": [
+       "武曲",
+       "破軍"
+      ]
+     }
+    ]
+   },
+   "because": "你的福德宮由武曲、破軍同守。",
+   "claim": "你的內心多反覆，也較奔波不安。",
+   "source": "wtz.deep.p571.b012",
+   "quote": "武曲破军主内心多反复，且奔波不安。"
+  },
+  {
+   "id": "syn.wellbeing.wuqu.qisha-malefic",
+   "chapter": "心境",
+   "group": "武曲福德.勞累",
+   "specificity": "system",
+   "polarity": "凶",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "武曲",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "together": [
+       "武曲",
+       "七殺"
+      ]
+     },
+     {
+      "sanfangOf": {
+       "name": "福德"
+      },
+      "count": "malefic",
+      "op": "gte",
+      "n": 1
+     }
+    ]
+   },
+   "because": "你的福德宮由武曲、七殺同守，三方四正見煞曜。",
+   "claim": "你身心都較勞累。",
+   "source": "wtz.deep.p571.b014",
+   "quote": "[武曲七杀]同度者，主奔忙。见煞，主身心俱劳。"
+  },
+  {
+   "id": "syn.wellbeing.wuqu.qisha-tianma",
+   "chapter": "心境",
+   "group": "武曲福德.反覆",
+   "specificity": "system",
+   "polarity": "凶",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "武曲",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "together": [
+       "武曲",
+       "七殺"
+      ]
+     },
+     {
+      "meets": "武曲",
+      "stars": [
+       "天馬"
+      ],
+      "reach": "sanfang",
+      "op": "gte",
+      "n": 1
+     }
+    ]
+   },
+   "because": "你的福德宮由武曲、七殺同守，三方四正見天馬。",
+   "claim": "你的方向不定，做事容易反覆進退。",
+   "source": "wtz.deep.p571.b014",
+   "quote": "[武曲七杀]同度者，主奔忙。见煞，主身心俱劳。见天马，主宗旨不定，作事反复进退。"
+  },
+  {
+   "id": "syn.wellbeing.wuqu.tianxiang-kongjie",
+   "chapter": "心境",
+   "group": "武曲福德.空想",
+   "specificity": "system",
+   "polarity": "凶",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "武曲",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "together": [
+       "武曲",
+       "天相"
+      ]
+     },
+     {
+      "meets": "武曲",
+      "stars": [
+       "地空",
+       "地劫"
+      ],
+      "reach": "same",
+      "op": "gte",
+      "n": 2
+     }
+    ]
+   },
+   "because": "你的福德宮由武曲、天相同守，地空、地劫也同宮。",
+   "claim": "你容易流於空想，能說出想法，卻難以付諸行動。",
+   "source": "wtz.deep.p572.b002",
+   "quote": "[武曲天相]最不喜与空劫同度，则主其人过空想，能坐言而不能起行。"
+  },
+  {
+   "id": "syn.wellbeing.wuqu.tanlang-huoxing",
+   "chapter": "心境",
+   "group": "武曲福德.享受",
+   "specificity": "system",
+   "polarity": "中",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "武曲",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "together": [
+       "武曲",
+       "貪狼"
+      ]
+     },
+     {
+      "together": [
+       "武曲",
+       "火星"
+      ]
+     }
+    ]
+   },
+   "because": "你的福德宮由武曲、貪狼同守，火星也同宮。",
+   "claim": "你追求眼前的快樂，有今朝有酒今朝醉的傾向。",
+   "source": "wtz.deep.p572.b004",
+   "quote": "武贪见火星同度，主追求快乐，今朝有酒今朝醉。"
+  },
+  {
+   "id": "syn.wellbeing.tiantong.spiritual-music",
+   "chapter": "心境",
+   "group": "天同福德.情趣",
+   "specificity": "general",
+   "polarity": "吉",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "star": "天同",
+    "in": {
+     "name": "福德"
+    }
+   },
+   "because": "你的福德宮有天同坐守。",
+   "claim": "你的精神生活較豐足，尤其喜歡音樂。",
+   "source": "wtz.deep.p572.b006",
+   "quote": "·福德宫喜见天同，主共人精神生活丰足，尤主性喜音乐。"
+  },
+  {
+   "id": "syn.wellbeing.tiantong.literary-enjoyment",
+   "chapter": "心境",
+   "group": "天同福德.情趣",
+   "specificity": "general",
+   "polarity": "吉",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "天同",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "meets": "天同",
+      "stars": [
+       "文昌",
+       "文曲",
+       "化科"
+      ],
+      "reach": "sanfang",
+      "op": "gte",
+      "n": 1
+     }
+    ]
+   },
+   "because": "你的福德宮天同會見文昌、文曲或化科。",
+   "claim": "你的精神享受較有高雅情趣。",
+   "source": "wtz.deep.p572.b008",
+   "quote": "·天同喜见科文诸曜同会，则主精神享受情趣高雅。"
+  },
+  {
+   "id": "syn.wellbeing.tiantong.huaji-trouble",
+   "chapter": "心境",
+   "group": "天同福德.是非",
+   "specificity": "general",
+   "polarity": "凶",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "天同",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "star": "天同",
+      "hua": "忌"
+     }
+    ]
+   },
+   "because": "你的福德宮天同化忌。",
+   "claim": "你較容易受是非困擾。",
+   "source": "wtz.deep.p572.b010",
+   "quote": "天同化忌，一般主是非困扰，"
+  },
+  {
+   "id": "syn.wellbeing.tiantong.huaquan-stability",
+   "chapter": "心境",
+   "group": "天同福德.情緒",
+   "specificity": "general",
+   "polarity": "吉",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "天同",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "star": "天同",
+      "hua": "權"
+     }
+    ]
+   },
+   "because": "你的福德宮天同化權。",
+   "claim": "你的情緒較穩定，也能自己掌握精神享受的方向。",
+   "source": "wtz.deep.p572.b012",
+   "quote": "天同化权则情绪稳定。亦能主动掌握精神享受的方向。"
+  },
+  {
+   "id": "syn.wellbeing.tiantong.kongjie-instability",
+   "chapter": "心境",
+   "group": "天同福德.情緒",
+   "specificity": "general",
+   "polarity": "凶",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "天同",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "meets": "天同",
+      "stars": [
+       "地空",
+       "地劫"
+      ],
+      "reach": "same",
+      "op": "gte",
+      "n": 1
+     }
+    ]
+   },
+   "because": "你的福德宮天同與地空或地劫同度。",
+   "claim": "你的情緒較不穩定。",
+   "source": "wtz.deep.p572.b014",
+   "quote": "天同与空劫同度，情绪不稳定。"
+  },
+  {
+   "id": "syn.wellbeing.tiantong.jumen-pain",
+   "chapter": "心境",
+   "group": "天同福德.情感",
+   "specificity": "system",
+   "polarity": "凶",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "天同",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "together": [
+       "天同",
+       "巨門"
+      ]
+     }
+    ]
+   },
+   "because": "你的福德宮天同與巨門同宮。",
+   "claim": "你容易沉溺於苦戀或畸戀，因而內心痛苦。",
+   "source": "wtz.deep.p573.b001",
+   "quote": "天同巨门的组合，以巨门能暗蔽天同的情绪，故常主精神享受有阴暗面，特别容易沉溺于苦恋，畸恋，以致形成内心痛苦。"
+  },
+  {
+   "id": "syn.wellbeing.tiantong.jumen-huaji",
+   "chapter": "心境",
+   "group": "天同福德.情感",
+   "specificity": "system",
+   "polarity": "凶",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "天同",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "together": [
+       "天同",
+       "巨門"
+      ]
+     },
+     {
+      "star": "巨門",
+      "hua": "忌"
+     }
+    ]
+   },
+   "because": "你的福德宮天同與巨門同宮，巨門化忌。",
+   "claim": "你的內心痛苦較深。",
+   "source": "wtz.deep.p573.b002",
+   "quote": "天同巨门而巨门化忌者，内心痛苦尤甚："
+  },
+  {
+   "id": "syn.wellbeing.tiantong.jumen-tongji",
+   "chapter": "心境",
+   "group": "天同福德.情感",
+   "specificity": "system",
+   "polarity": "中",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "天同",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "together": [
+       "天同",
+       "巨門"
+      ]
+     },
+     {
+      "star": "天同",
+      "hua": "忌"
+     }
+    ]
+   },
+   "because": "你的福德宮天同與巨門同宮，天同化忌。",
+   "claim": "你雖有內心痛苦，仍能以苦為樂。",
+   "source": "wtz.deep.p573.b002",
+   "quote": "天同化忌者，则虽痛苦而仍能以苦为乐。"
+  },
+  {
+   "id": "syn.wellbeing.tiantong.jumen-tonglu",
+   "chapter": "心境",
+   "group": "天同福德.情感",
+   "specificity": "system",
+   "polarity": "凶",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "天同",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "together": [
+       "天同",
+       "巨門"
+      ]
+     },
+     {
+      "star": "天同",
+      "hua": "祿"
+     }
+    ]
+   },
+   "because": "你的福德宮天同與巨門同宮，天同化祿。",
+   "claim": "你會因難以言明的心事而煩擾。",
+   "source": "wtz.deep.p573.b002",
+   "quote": "若天同化禄，则仅主因隐衷而烦扰；"
+  },
+  {
+   "id": "syn.wellbeing.tiantong.tianliang-peace",
+   "chapter": "心境",
+   "group": "天同福德.安樂",
+   "specificity": "system",
+   "polarity": "吉",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "天同",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "together": [
+       "天同",
+       "天梁"
+      ]
+     }
+    ]
+   },
+   "because": "你的福德宮天同與天梁同宮。",
+   "claim": "你的心境一般較安樂。",
+   "source": "wtz.deep.p573.b003",
+   "quote": "天同天梁的组合，一般情形下主安乐。"
+  },
+  {
+   "id": "syn.wellbeing.tiantong.tianliang-huake",
+   "chapter": "心境",
+   "group": "天同福德.決斷",
+   "specificity": "system",
+   "polarity": "吉",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "天同",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "together": [
+       "天同",
+       "天梁"
+      ]
+     },
+     {
+      "star": "天梁",
+      "hua": "科"
+     }
+    ]
+   },
+   "because": "你的福德宮天同與天梁同宮，天梁化科。",
+   "claim": "你聰明而有決斷，待人圓融，內心有自己的原則。",
+   "source": "wtz.deep.p573.b004",
+   "quote": "天同天梁而天梁化科者主聪明，决断。又主外圆内方。"
+  },
+  {
+   "id": "syn.wellbeing.tiantong.tianliang-hualu",
+   "chapter": "心境",
+   "group": "天同福德.決斷",
+   "specificity": "system",
+   "polarity": "凶",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "天同",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "together": [
+       "天同",
+       "天梁"
+      ]
+     },
+     {
+      "star": "天梁",
+      "hua": "祿"
+     }
+    ]
+   },
+   "because": "你的福德宮天同與天梁同宮，天梁化祿。",
+   "claim": "你內心較易猶豫，往往不知如何進退。",
+   "source": "wtz.deep.p573.b006",
+   "quote": "天同天梁而天梁化禄者，常主内心犹豫，往往进退失据。"
+  },
+  {
+   "id": "syn.wellbeing.tiantong.taiyin-peace",
+   "chapter": "心境",
+   "group": "天同福德.安樂",
+   "specificity": "system",
+   "polarity": "吉",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "天同",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "together": [
+       "天同",
+       "太陰"
+      ]
+     }
+    ]
+   },
+   "because": "你的福德宮天同與太陰同宮。",
+   "claim": "你的心境一般較安樂。",
+   "source": "wtz.deep.p573.b007",
+   "quote": "天同太阴一般情形下亦主安乐。"
+  },
+  {
+   "id": "syn.wellbeing.tiantong.taiyin-huoling",
+   "chapter": "心境",
+   "group": "天同福德.煩惱",
+   "specificity": "system",
+   "polarity": "凶",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "天同",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "together": [
+       "天同",
+       "太陰"
+      ]
+     },
+     {
+      "meets": "天同",
+      "stars": [
+       "火星",
+       "鈴星"
+      ],
+      "reach": "same",
+      "op": "gte",
+      "n": 1
+     }
+    ]
+   },
+   "because": "你的福德宮天同與太陰同宮，並有火星或鈴星同度。",
+   "claim": "你容易因不經心而惹煩惱，也容易受感情影響而看不清事情。",
+   "source": "wtz.deep.p573.b008",
+   "quote": "天同太阴与火铃同度，时常因不经心而惹烦恼。思想上有[盲点]，易因感情而见事不明，"
+  },
+  {
+   "id": "syn.wellbeing.lianzhen.busy-enjoyment",
+   "chapter": "心境",
+   "group": "廉貞福德.情趣",
+   "specificity": "general",
+   "polarity": "中",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "star": "廉貞",
+    "in": {
+     "name": "福德"
+    }
+   },
+   "because": "你的福德宮有廉貞坐守。",
+   "claim": "你較忙碌，樂趣也常從忙碌中來，一般對繪畫及攝影有興趣。",
+   "source": "wtz.deep.p573.b011",
+   "quote": "廉贞守福德宫，主忙碌。·即使能自得其乐，其乐趣仍由忙碌而来。一般兴趣在于绘画及摄影。"
+  },
+  {
+   "id": "syn.wellbeing.lianzhen.hualu-literary",
+   "chapter": "心境",
+   "group": "廉貞福德.藝趣",
+   "specificity": "general",
+   "polarity": "吉",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "廉貞",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "star": "廉貞",
+      "hua": "祿"
+     },
+     {
+      "meets": "廉貞",
+      "stars": [
+       "文昌",
+       "文曲",
+       "化科"
+      ],
+      "reach": "same",
+      "op": "gte",
+      "n": 1
+     }
+    ]
+   },
+   "because": "你的福德宮廉貞化祿，並與文昌、文曲或化科同度。",
+   "claim": "你的情操較高雅，能享受書畫琴棋的樂趣。",
+   "source": "wtz.deep.p573.b013",
+   "quote": "廉贞化禄者，无科文诸曜同度，则情操平庸，有则情操高雅，唯皆能享受书画琴棋之乐。"
+  },
+  {
+   "id": "syn.wellbeing.lianzhen.hualu-no-literary",
+   "chapter": "心境",
+   "group": "廉貞福德.藝趣",
+   "specificity": "general",
+   "polarity": "中",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "廉貞",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "star": "廉貞",
+      "hua": "祿"
+     },
+     {
+      "not": {
+       "meets": "廉貞",
+       "stars": [
+        "文昌",
+        "文曲",
+        "化科"
+       ],
+       "reach": "same",
+       "op": "gte",
+       "n": 1
+      }
+     }
+    ]
+   },
+   "because": "你的福德宮廉貞化祿，沒有文昌、文曲或化科同度。",
+   "claim": "你的情操較平常，仍能享受書畫琴棋的樂趣。",
+   "source": "wtz.deep.p573.b013",
+   "quote": "廉贞化禄者，无科文诸曜同度，则情操平庸，有则情操高雅，唯皆能享受书画琴棋之乐。"
+  },
+  {
+   "id": "syn.wellbeing.lianzhen.huaji-worry",
+   "chapter": "心境",
+   "group": "廉貞福德.憂慮",
+   "specificity": "general",
+   "polarity": "凶",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "廉貞",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "star": "廉貞",
+      "hua": "忌"
+     }
+    ]
+   },
+   "because": "你的福德宮廉貞化忌。",
+   "claim": "你容易多憂多慮，或較神經過敏。",
+   "source": "wtz.deep.p573.b015",
+   "quote": "廉贞化忌，主多忧多虑，或为神经过敏，"
+  },
+  {
+   "id": "syn.wellbeing.lianzhen.huaji-literary",
+   "chapter": "心境",
+   "group": "廉貞福德.藝趣",
+   "specificity": "general",
+   "polarity": "中",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "廉貞",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "star": "廉貞",
+      "hua": "忌"
+     },
+     {
+      "meets": "廉貞",
+      "stars": [
+       "文昌",
+       "文曲",
+       "化科"
+      ],
+      "reach": "same",
+      "op": "gte",
+      "n": 1
+     }
+    ]
+   },
+   "because": "你的福德宮廉貞化忌，並與文昌、文曲或化科同度。",
+   "claim": "你對藝術感覺敏銳，可能把風雅嗜好當作精神享受，但也較多批評，難以隨遇而安。",
+   "source": "wtz.deep.p574.b001",
+   "quote": "·廉贞化忌与科文诸曜同度者，亦有艺术倾向，而且对艺术感觉敏锐，或成为癖好，并以风雅的癖好为精神享受，但多讥评，不能随遇而安。"
+  },
+  {
+   "id": "syn.wellbeing.lianzhen.tianfu-enjoyment",
+   "chapter": "心境",
+   "group": "廉貞福德.安樂",
+   "specificity": "system",
+   "polarity": "吉",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "廉貞",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "together": [
+       "廉貞",
+       "天府"
+      ]
+     }
+    ]
+   },
+   "because": "你的福德宮廉貞與天府同宮。",
+   "claim": "你較能自得其樂。",
+   "source": "wtz.deep.p574.b002",
+   "quote": "[廉贞天府]、[廉贞天相]、[廉贞贪狼]皆主自得其乐；"
+  },
+  {
+   "id": "syn.wellbeing.lianzhen.tianfu-huake",
+   "chapter": "心境",
+   "group": "廉貞福德.自尊",
+   "specificity": "system",
+   "polarity": "中",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "廉貞",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "together": [
+       "廉貞",
+       "天府"
+      ]
+     },
+     {
+      "star": "天府",
+      "hua": "科"
+     }
+    ]
+   },
+   "because": "你的福德宮廉貞與天府同宮，天府化科。",
+   "claim": "你外表平易，內心卻有很強的自尊心。",
+   "source": "wtz.deep.p574.b004",
+   "quote": "[廉贞天府]而天府化科者，外表平易，其实自尊心甚重。"
+  },
+  {
+   "id": "syn.wellbeing.lianzhen.tianxiang-changqu-jia",
+   "chapter": "心境",
+   "group": "廉貞福德.才智",
+   "specificity": "system",
+   "polarity": "吉",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "廉貞",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "together": [
+       "廉貞",
+       "天相"
+      ]
+     },
+     {
+      "jia": "天相",
+      "sides": [
+       [
+        "文昌"
+       ],
+       [
+        "文曲"
+       ]
+      ]
+     }
+    ]
+   },
+   "because": "你的福德宮廉貞與天相同宮，天相受文昌、文曲左右相夾。",
+   "claim": "你頭腦較聰明。",
+   "source": "wtz.deep.p574.b007",
+   "quote": "[廉贞天相]喜昌曲夹，主聪明。"
+  },
+  {
+   "id": "syn.wellbeing.lianzhen.tianxiang-literary",
+   "chapter": "心境",
+   "group": "廉貞福德.藝趣",
+   "specificity": "system",
+   "polarity": "吉",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "廉貞",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "together": [
+       "廉貞",
+       "天相"
+      ]
+     },
+     {
+      "meets": "廉貞",
+      "stars": [
+       "文昌",
+       "文曲",
+       "化科"
+      ],
+      "reach": "same",
+      "op": "gte",
+      "n": 1
+     }
+    ]
+   },
+   "because": "你的福德宮廉貞與天相同宮，並有文昌、文曲或化科同度。",
+   "claim": "你氣質較優雅，藝術感強，也喜歡談論政治或參與政治活動。",
+   "source": "wtz.deep.p574.b007",
+   "quote": "又喜与科文诸曜同度，则气质优雅，艺术感极强。且喜谈论政治，或参与政治活动。"
+  },
+  {
+   "id": "syn.wellbeing.lianzhen.tianxiang-malefic-jia",
+   "chapter": "心境",
+   "group": "廉貞福德.壓力",
+   "specificity": "system",
+   "polarity": "凶",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "廉貞",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "together": [
+       "廉貞",
+       "天相"
+      ]
+     },
+     {
+      "any": [
+       {
+        "jia": "天相",
+        "sides": [
+         [
+          "火星"
+         ],
+         [
+          "鈴星"
+         ]
+        ]
+       },
+       {
+        "jia": "天相",
+        "sides": [
+         [
+          "擎羊"
+         ],
+         [
+          "陀羅"
+         ]
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   "because": "你的福德宮廉貞與天相同宮，天相受火鈴或羊陀左右相夾。",
+   "claim": "你心裏容易感到受壓，因而有旁人難以理解的舉動。",
+   "source": "wtz.deep.p574.b008",
+   "quote": "[廉贞天相]若为火铃夹、羊陀夹，则心理上自然产生压逼感。由是有不可理解之举动。"
+  },
+  {
+   "id": "syn.wellbeing.lianzhen.tanlang-literary",
+   "chapter": "心境",
+   "group": "廉貞福德.藝趣",
+   "specificity": "system",
+   "polarity": "中",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "廉貞",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "together": [
+       "廉貞",
+       "貪狼"
+      ]
+     },
+     {
+      "meets": "廉貞",
+      "stars": [
+       "文昌",
+       "文曲",
+       "化科"
+      ],
+      "reach": "sanfang",
+      "op": "gte",
+      "n": 1
+     }
+    ]
+   },
+   "because": "你的福德宮廉貞與貪狼同宮，會見文昌、文曲或化科。",
+   "claim": "你較重視精神享受。",
+   "source": "wtz.deep.p574.b009",
+   "quote": "[廉贞贪狼]见科文诸曜者，重精神享受；"
+  },
+  {
+   "id": "syn.wellbeing.lianzhen.tanlang-huoxing",
+   "chapter": "心境",
+   "group": "廉貞福德.忙碌",
+   "specificity": "system",
+   "polarity": "凶",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "廉貞",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "together": [
+       "廉貞",
+       "貪狼"
+      ]
+     },
+     {
+      "meets": "廉貞",
+      "stars": [
+       "火星"
+      ],
+      "reach": "same",
+      "op": "gte",
+      "n": 1
+     }
+    ]
+   },
+   "because": "你的福德宮廉貞與貪狼同宮，並有火星同度。",
+   "claim": "你容易無事奔忙，或喜歡無謂的應酬。",
+   "source": "wtz.deep.p574.b010",
+   "quote": "[廉贞贪狼]与火星同度，主无事奔忙，或喜无谓应酬。"
+  },
+  {
+   "id": "syn.wellbeing.lianzhen.pojun-huaji",
+   "chapter": "心境",
+   "group": "廉貞福德.忙碌",
+   "specificity": "system",
+   "polarity": "凶",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "廉貞",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "together": [
+       "廉貞",
+       "破軍"
+      ]
+     },
+     {
+      "star": "廉貞",
+      "hua": "忌"
+     }
+    ]
+   },
+   "because": "你的福德宮廉貞與破軍同宮，廉貞化忌。",
+   "claim": "你容易勞而無功。",
+   "source": "wtz.deep.p574.b011",
+   "quote": "[廉贞破军]在福德宫主劳碌。破军吉化者则劳而有成，若廉贞化忌，则劳而无功。"
+  },
+  {
+   "id": "syn.wellbeing.lianzhen.qisha-pessimism",
+   "chapter": "心境",
+   "group": "廉貞福德.思慮",
+   "specificity": "system",
+   "polarity": "凶",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "廉貞",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "together": [
+       "廉貞",
+       "七殺"
+      ]
+     }
+    ]
+   },
+   "because": "你的福德宮廉貞與七殺同宮。",
+   "claim": "你的思想較消極，凡事喜歡從壞處想。",
+   "source": "wtz.deep.p574.b014",
+   "quote": "[廉贞七杀]思想消极。凡事喜从坏方面着想。"
+  },
+  {
+   "id": "syn.wellbeing.tianfu.cautious",
+   "chapter": "心境",
+   "group": "天府福德.性情",
+   "specificity": "general",
+   "polarity": "中",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "star": "天府",
+    "in": {
+     "name": "福德"
+    }
+   },
+   "because": "你的福德宮有天府坐守。",
+   "claim": "你為人較謹慎。",
+   "source": "wtz.deep.p574.b016",
+   "quote": "·天府在福德宫，主为人谨慎。"
+  },
+  {
+   "id": "syn.wellbeing.tianfu.tuoluo-petty",
+   "chapter": "心境",
+   "group": "天府福德.性情",
+   "specificity": "general",
+   "polarity": "凶",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "天府",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "meets": "天府",
+      "stars": [
+       "陀羅"
+      ],
+      "reach": "same",
+      "op": "gte",
+      "n": 1
+     }
+    ]
+   },
+   "because": "你的福德宮天府與陀羅同度。",
+   "claim": "你較小器。",
+   "source": "wtz.deep.p574.b016",
+   "quote": "唯若与陀罗同度，则主小器；"
+  },
+  {
+   "id": "syn.wellbeing.tianfu.qingyang-doubt",
+   "chapter": "心境",
+   "group": "天府福德.憂慮",
+   "specificity": "general",
+   "polarity": "凶",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "天府",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "meets": "天府",
+      "stars": [
+       "擎羊"
+      ],
+      "reach": "same",
+      "op": "gte",
+      "n": 1
+     }
+    ]
+   },
+   "because": "你的福德宮天府與擎羊同度。",
+   "claim": "你內心較多疑慮和懼怕。",
+   "source": "wtz.deep.p575.b001",
+   "quote": "擎羊同度，内多疑惧；"
+  },
+  {
+   "id": "syn.wellbeing.tianfu.lingxing-worry",
+   "chapter": "心境",
+   "group": "天府福德.憂慮",
+   "specificity": "general",
+   "polarity": "凶",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "天府",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "meets": "天府",
+      "stars": [
+       "鈴星"
+      ],
+      "reach": "same",
+      "op": "gte",
+      "n": 1
+     }
+    ]
+   },
+   "because": "你的福德宮天府與鈴星同度。",
+   "claim": "你容易為自己的決定憂心。",
+   "source": "wtz.deep.p575.b001",
+   "quote": "铃星同度，对自己的决定多忧煎；"
+  },
+  {
+   "id": "syn.wellbeing.tianfu.kongjie-busy",
+   "chapter": "心境",
+   "group": "天府福德.忙碌",
+   "specificity": "general",
+   "polarity": "凶",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "天府",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "meets": "天府",
+      "stars": [
+       "地空",
+       "地劫"
+      ],
+      "reach": "same",
+      "op": "gte",
+      "n": 1
+     }
+    ]
+   },
+   "because": "你的福德宮天府與地空或地劫同度。",
+   "claim": "你容易無事找事做。",
+   "source": "wtz.deep.p575.b001",
+   "quote": "空劫同度，蘑无事找事做，即广府人之所谓[煲无米粥]。"
+  },
+  {
+   "id": "syn.wellbeing.tianfu.huake-promises",
+   "chapter": "心境",
+   "group": "天府福德.信諾",
+   "specificity": "general",
+   "polarity": "吉",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "天府",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "star": "天府",
+      "hua": "科"
+     }
+    ]
+   },
+   "because": "你的福德宮天府化科。",
+   "claim": "你較重視信諾。",
+   "source": "wtz.deep.p575.b002",
+   "quote": "天府化科，则重信诺。"
+  },
+  {
+   "id": "syn.wellbeing.tianfu.benefic-calm",
+   "chapter": "心境",
+   "group": "天府福德.安靜",
+   "specificity": "general",
+   "polarity": "吉",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "天府",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "sanfangOf": {
+       "name": "福德"
+      },
+      "count": "benefic",
+      "op": "gte",
+      "n": 1
+     }
+    ]
+   },
+   "because": "你的福德宮天府會見輔佐吉曜。",
+   "claim": "你的內心較安靜。",
+   "source": "wtz.deep.p575.b003",
+   "quote": "天府喜同会辅佐诸曜。主内心安静，且有决断力。"
+  },
+  {
+   "id": "syn.wellbeing.tianfu.literary-compassion",
+   "chapter": "心境",
+   "group": "天府福德.性情",
+   "specificity": "general",
+   "polarity": "吉",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "天府",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "meets": "天府",
+      "stars": [
+       "文昌",
+       "文曲",
+       "化科"
+      ],
+      "reach": "sanfang",
+      "op": "gte",
+      "n": 1
+     }
+    ]
+   },
+   "because": "你的福德宮天府會見文昌、文曲或化科。",
+   "claim": "你較容易生惻隱之心。",
+   "source": "wtz.deep.p575.b004",
+   "quote": "天府见科文诸曜，则常生恻隐之心。且主聪明而敦厚。"
+  },
+  {
+   "id": "syn.wellbeing.tianfu.kuiyue-generosity",
+   "chapter": "心境",
+   "group": "天府福德.性情",
+   "specificity": "general",
+   "polarity": "吉",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "天府",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "meets": "天府",
+      "stars": [
+       "天魁",
+       "天鉞"
+      ],
+      "reach": "sanfang",
+      "op": "gte",
+      "n": 1
+     }
+    ]
+   },
+   "because": "你的福德宮天府會見天魁或天鉞。",
+   "claim": "你氣度較寬宏。",
+   "source": "wtz.deep.p575.b005",
+   "quote": "天府与魁钺同会，泱泱大度。"
+  },
+  {
+   "id": "syn.wellbeing.tianfu.maoyou-huoling",
+   "chapter": "心境",
+   "group": "天府福德.不安",
+   "specificity": "system",
+   "polarity": "凶",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "天府",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "star": "天府",
+      "at": [
+       "卯",
+       "酉"
+      ]
+     },
+     {
+      "any": [
+       {
+        "meets": "天府",
+        "stars": [
+         "火星",
+         "鈴星"
+        ],
+        "reach": "same",
+        "op": "gte",
+        "n": 1
+       },
+       {
+        "jia": "天府",
+        "sides": [
+         [
+          "火星"
+         ],
+         [
+          "鈴星"
+         ]
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   "because": "你的福德宮天府坐{branch}宮，有火星或鈴星同度，或受火鈴左右相夾。",
+   "claim": "你的身心都較難安靜。",
+   "source": "wtz.deep.p575.b007",
+   "quote": "卯酉宫的天府，身安心劳的性质最为明显。若火铃同度或相夹，尤主身心皆不安静。"
+  },
+  {
+   "id": "syn.wellbeing.tianfu.chouwei-tuoluo",
+   "chapter": "心境",
+   "group": "天府福德.變動",
+   "specificity": "system",
+   "polarity": "凶",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "天府",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "star": "天府",
+      "at": [
+       "丑",
+       "未"
+      ]
+     },
+     {
+      "meets": "天府",
+      "stars": [
+       "陀羅"
+      ],
+      "reach": "same",
+      "op": "gte",
+      "n": 1
+     }
+    ]
+   },
+   "because": "你的福德宮天府坐{branch}宮，與陀羅同度。",
+   "claim": "你較容易生出改變的念頭，因而自招煩惱。",
+   "source": "wtz.deep.p575.b009",
+   "quote": "丑未宫的天府，比较卯酉宫者有冲动。但若陀罗同度，则易生改变之心，因而自招烦恼。"
+  },
+  {
+   "id": "syn.wellbeing.tianfu.sihai-initiative",
+   "chapter": "心境",
+   "group": "天府福德.進取",
+   "specificity": "system",
+   "polarity": "吉",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "天府",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "star": "天府",
+      "at": [
+       "巳",
+       "亥"
+      ]
+     }
+    ]
+   },
+   "because": "你的福德宮天府坐{branch}宮。",
+   "claim": "你的進取心一般較強。",
+   "source": "wtz.deep.p575.b012",
+   "quote": "巳亥宫的天府，一般进取心较强。"
+  },
+  {
+   "id": "syn.wellbeing.taiyin.quiet-preference",
+   "chapter": "心境",
+   "group": "太陰福德.情趣",
+   "specificity": "general",
+   "polarity": "中",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "star": "太陰",
+    "in": {
+     "name": "福德"
+    }
+   },
+   "because": "你的福德宮有太陰坐守。",
+   "claim": "你一般較喜歡寧靜。",
+   "source": "wtz.deep.p575.b014",
+   "quote": "太阴主静，故居福德宫，一般主喜宁静。"
+  },
+  {
+   "id": "syn.wellbeing.taiyin.fallen-malefic-quiet",
+   "chapter": "心境",
+   "group": "太陰福德.情趣",
+   "specificity": "general",
+   "polarity": "吉",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "太陰",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "sanfangOf": {
+       "name": "福德"
+      },
+      "count": "malefic",
+      "op": "gte",
+      "n": 1
+     }
+    ]
+   },
+   "bright": {
+    "star": "太陰",
+    "levels": [
+     "陷"
+    ]
+   },
+   "because": "你的福德宮太陰落陷，並會見煞曜。",
+   "claim": "你仍能在熱鬧中找到安靜的趣味，或忙裏偷閒。",
+   "source": "wtz.deep.p575.b014",
+   "quote": "即使太阴落陷，有煞，亦主其人闹中有静趣，或能忙里偷闲。"
+  },
+  {
+   "id": "syn.wellbeing.taiyin.temple-optimism",
+   "chapter": "心境",
+   "group": "太陰福德.享受",
+   "specificity": "general",
+   "polarity": "吉",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "star": "太陰",
+    "in": {
+     "name": "福德"
+    }
+   },
+   "bright": {
+    "star": "太陰",
+    "levels": [
+     "廟"
+    ]
+   },
+   "because": "你的福德宮太陰入廟。",
+   "claim": "你較有精神享受，也多能保持樂觀。",
+   "source": "wtz.deep.p575.b015",
+   "quote": "太阴在福德宫，入庙，主有精神享受， 。且以乐观者居多。"
+  },
+  {
+   "id": "syn.wellbeing.taiyin.temple-kongjie-dreams",
+   "chapter": "心境",
+   "group": "太陰福德.幻想",
+   "specificity": "general",
+   "polarity": "凶",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "太陰",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "meets": "太陰",
+      "stars": [
+       "地空",
+       "地劫"
+      ],
+      "reach": "sanfang",
+      "op": "gte",
+      "n": 1
+     }
+    ]
+   },
+   "bright": {
+    "star": "太陰",
+    "levels": [
+     "廟"
+    ]
+   },
+   "because": "你的福德宮太陰入廟，並會見地空或地劫。",
+   "claim": "你的樂觀可能來自萬事不經心，或容易多做白日夢、沉醉於夢境。",
+   "source": "wtz.deep.p575.b015",
+   "quote": "唯若见空劫同度或相会，则可能为万事不经心之乐观，或多白日梦，沉醉于梦境。"
+  },
+  {
+   "id": "syn.wellbeing.taiyin.hai-planning",
+   "chapter": "心境",
+   "group": "太陰福德.謀劃",
+   "specificity": "system",
+   "polarity": "吉",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "太陰",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "star": "太陰",
+      "at": [
+       "亥"
+      ]
+     },
+     {
+      "opposite": [
+       "太陰",
+       "天機"
+      ]
+     }
+    ]
+   },
+   "bright": {
+    "star": "太陰",
+    "levels": [
+     "廟"
+    ]
+   },
+   "because": "你的福德宮太陰在亥宮入廟，與天機對拱。",
+   "claim": "你較擅長計劃。",
+   "source": "wtz.deep.p575.b016",
+   "quote": "太阴在亥宫入庙者。与天机相对：故擅长计划。"
+  },
+  {
+   "id": "syn.wellbeing.taiyin.hai-malefic-scheming",
+   "chapter": "心境",
+   "group": "太陰福德.謀劃",
+   "specificity": "system",
+   "polarity": "中",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "太陰",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "star": "太陰",
+      "at": [
+       "亥"
+      ]
+     },
+     {
+      "opposite": [
+       "太陰",
+       "天機"
+      ]
+     },
+     {
+      "sanfangOf": {
+       "name": "福德"
+      },
+      "count": "malefic",
+      "op": "gte",
+      "n": 1
+     }
+    ]
+   },
+   "bright": {
+    "star": "太陰",
+    "levels": [
+     "廟"
+    ]
+   },
+   "because": "你的福德宮太陰在亥宮入廟，與天機對拱，並會見煞曜。",
+   "claim": "你較有心計。",
+   "source": "wtz.deep.p575.b016",
+   "quote": "太阴在亥宫入庙者。与天机相对：故擅长计划。有煞则主心计。"
+  },
+  {
+   "id": "syn.wellbeing.taiyin.fallen-huoxing",
+   "chapter": "心境",
+   "group": "太陰福德.情緒",
+   "specificity": "general",
+   "polarity": "凶",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "太陰",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "meets": "太陰",
+      "stars": [
+       "火星"
+      ],
+      "reach": "same",
+      "op": "gte",
+      "n": 1
+     }
+    ]
+   },
+   "bright": {
+    "star": "太陰",
+    "levels": [
+     "陷"
+    ]
+   },
+   "because": "你的福德宮太陰落陷，與火星同度。",
+   "claim": "你內心較焦躁。",
+   "source": "wtz.deep.p576.b003",
+   "quote": "太阴落陷，火星同度，刚内心焦躁；"
+  },
+  {
+   "id": "syn.wellbeing.taiyin.fallen-lingxing",
+   "chapter": "心境",
+   "group": "太陰福德.情緒",
+   "specificity": "general",
+   "polarity": "凶",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "太陰",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "meets": "太陰",
+      "stars": [
+       "鈴星"
+      ],
+      "reach": "same",
+      "op": "gte",
+      "n": 1
+     }
+    ]
+   },
+   "bright": {
+    "star": "太陰",
+    "levels": [
+     "陷"
+    ]
+   },
+   "because": "你的福德宮太陰落陷，與鈴星同度。",
+   "claim": "你的情緒較不穩定。",
+   "source": "wtz.deep.p576.b003",
+   "quote": "铃星同度，则情绪不稳定；"
+  },
+  {
+   "id": "syn.wellbeing.taiyin.temple-literary",
+   "chapter": "心境",
+   "group": "太陰福德.享受",
+   "specificity": "general",
+   "polarity": "吉",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "太陰",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "meets": "太陰",
+      "stars": [
+       "文昌",
+       "文曲",
+       "化科"
+      ],
+      "reach": "same",
+      "op": "gte",
+      "n": 1
+     }
+    ]
+   },
+   "bright": {
+    "star": "太陰",
+    "levels": [
+     "廟"
+    ]
+   },
+   "because": "你的福德宮太陰入廟，並與文昌、文曲或化科同度。",
+   "claim": "你的享受較高雅。",
+   "source": "wtz.deep.p576.b004",
+   "quote": "太阴入庙与科文诸曜同度者，享受高雅。"
+  },
+  {
+   "id": "syn.wellbeing.taiyin.chenxu-adaptability",
+   "chapter": "心境",
+   "group": "太陰福德.權變",
+   "specificity": "system",
+   "polarity": "中",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "太陰",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "star": "太陰",
+      "at": [
+       "辰",
+       "戌"
+      ]
+     }
+    ]
+   },
+   "because": "你的福德宮太陰坐{branch}宮。",
+   "claim": "你較擅長因應情況變通。",
+   "source": "wtz.deep.p576.b005",
+   "quote": "太阴在辰戌二富，主擅权变。"
+  },
+  {
+   "id": "syn.wellbeing.taiyin.chenxu-huaji-no-malefic",
+   "chapter": "心境",
+   "group": "太陰福德.不安",
+   "specificity": "system",
+   "polarity": "凶",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "太陰",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "star": "太陰",
+      "at": [
+       "辰",
+       "戌"
+      ]
+     },
+     {
+      "star": "太陰",
+      "hua": "忌"
+     },
+     {
+      "not": {
+       "sanfangOf": {
+        "name": "福德"
+       },
+       "count": "malefic",
+       "op": "gte",
+       "n": 1
+      }
+     }
+    ]
+   },
+   "because": "你的福德宮太陰坐{branch}宮，化忌而不見煞曜。",
+   "claim": "你的內心仍較難安寧。",
+   "source": "wtz.deep.p576.b005",
+   "quote": "太阴化忌，不见煞!亦主内心不安宁。"
+  },
+  {
+   "id": "syn.wellbeing.taiyin.chenxu-huaji-malefic",
+   "chapter": "心境",
+   "group": "太陰福德.不安",
+   "specificity": "system",
+   "polarity": "凶",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "太陰",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "star": "太陰",
+      "at": [
+       "辰",
+       "戌"
+      ]
+     },
+     {
+      "star": "太陰",
+      "hua": "忌"
+     },
+     {
+      "sanfangOf": {
+       "name": "福德"
+      },
+      "count": "malefic",
+      "op": "gte",
+      "n": 1
+     }
+    ]
+   },
+   "because": "你的福德宮太陰坐{branch}宮，化忌並會見煞曜。",
+   "claim": "你除了內心不寧，也較勞碌難安。",
+   "source": "wtz.deep.p576.b005",
+   "quote": "见煞，则不但内心不宁，且身劳不安。"
+  },
+  {
+   "id": "syn.wellbeing.tanlang.indulgence",
+   "chapter": "心境",
+   "group": "貪狼福德.享樂",
+   "specificity": "general",
+   "polarity": "中",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "star": "貪狼",
+    "in": {
+     "name": "福德"
+    }
+   },
+   "because": "你的福德宮有貪狼坐守。",
+   "claim": "你較容易放縱自己。",
+   "source": "wtz.deep.p576.b007",
+   "quote": "贪狼在福德宫，主放纵。"
+  },
+  {
+   "id": "syn.wellbeing.tanlang.benefic-hobby",
+   "chapter": "心境",
+   "group": "貪狼福德.嗜好",
+   "specificity": "general",
+   "polarity": "中",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "貪狼",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "sanfangOf": {
+       "name": "福德"
+      },
+      "count": "benefic",
+      "op": "gte",
+      "n": 1
+     }
+    ]
+   },
+   "because": "你的福德宮貪狼會見吉曜。",
+   "claim": "你容易醉心於一種嗜好。",
+   "source": "wtz.deep.p576.b007",
+   "quote": "即使见吉星同会，亦主醉心于一种嗜好。"
+  },
+  {
+   "id": "syn.wellbeing.tanlang.literary-hobby",
+   "chapter": "心境",
+   "group": "貪狼福德.嗜好",
+   "specificity": "general",
+   "polarity": "吉",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "貪狼",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "meets": "貪狼",
+      "stars": [
+       "文昌",
+       "文曲",
+       "化科"
+      ],
+      "reach": "sanfang",
+      "op": "gte",
+      "n": 1
+     }
+    ]
+   },
+   "because": "你的福德宮貪狼會見文昌、文曲或化科。",
+   "claim": "你的嗜好較優雅。",
+   "source": "wtz.deep.p576.b007",
+   "quote": "见科文渚曜则优雅，"
+  },
+  {
+   "id": "syn.wellbeing.tanlang.hualu-material",
+   "chapter": "心境",
+   "group": "貪狼福德.享樂",
+   "specificity": "general",
+   "polarity": "中",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "貪狼",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "star": "貪狼",
+      "hua": "祿"
+     }
+    ]
+   },
+   "because": "你的福德宮貪狼化祿。",
+   "claim": "你較重視物慾上的享受。",
+   "source": "wtz.deep.p576.b008",
+   "quote": "贪狼化禄，增加物欲享受的色彩。"
+  },
+  {
+   "id": "syn.wellbeing.tanlang.huaji-social-busyness",
+   "chapter": "心境",
+   "group": "貪狼福德.應酬",
+   "specificity": "general",
+   "polarity": "凶",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "貪狼",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "star": "貪狼",
+      "hua": "忌"
+     }
+    ]
+   },
+   "because": "你的福德宮貪狼化忌。",
+   "claim": "你容易無事奔忙，多無謂的交際應酬，往往因此白費心力而功敗垂成。",
+   "source": "wtz.deep.p576.b008",
+   "quote": "化忌，则主无事奔忙。多无谓的交际应酬。且往往于奔忙应酬中枉抛心力以致功败垂成。"
+  },
+  {
+   "id": "syn.wellbeing.tanlang.luquan-speculation",
+   "chapter": "心境",
+   "group": "貪狼福德.投機",
+   "specificity": "general",
+   "polarity": "中",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "貪狼",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "any": [
+       {
+        "star": "貪狼",
+        "hua": "祿"
+       },
+       {
+        "star": "貪狼",
+        "hua": "權"
+       }
+      ]
+     }
+    ]
+   },
+   "because": "你的福德宮貪狼化祿或化權。",
+   "claim": "你較喜歡投機。",
+   "source": "wtz.deep.p576.b009",
+   "quote": "贪狼化禄、化权者，主喜投机。"
+  },
+  {
+   "id": "syn.wellbeing.tanlang.wu-reputation",
+   "chapter": "心境",
+   "group": "貪狼福德.名利",
+   "specificity": "system",
+   "polarity": "中",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "貪狼",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "star": "貪狼",
+      "at": [
+       "午"
+      ]
+     }
+    ]
+   },
+   "because": "你的福德宮貪狼坐午宮。",
+   "claim": "你較看重名聲。",
+   "source": "wtz.deep.p576.b012",
+   "quote": "贪狼在午宫者主好名。"
+  },
+  {
+   "id": "syn.wellbeing.tanlang.shen-profit",
+   "chapter": "心境",
+   "group": "貪狼福德.名利",
+   "specificity": "system",
+   "polarity": "中",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "貪狼",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "star": "貪狼",
+      "at": [
+       "申"
+      ]
+     }
+    ]
+   },
+   "because": "你的福德宮貪狼坐申宮。",
+   "claim": "你較看重利益。",
+   "source": "wtz.deep.p576.b012",
+   "quote": "在申宫者主好利。"
+  },
+  {
+   "id": "syn.wellbeing.tanlang.chenxu-speculation",
+   "chapter": "心境",
+   "group": "貪狼福德.投機",
+   "specificity": "system",
+   "polarity": "中",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "貪狼",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "star": "貪狼",
+      "at": [
+       "辰",
+       "戌"
+      ]
+     }
+    ]
+   },
+   "because": "你的福德宮貪狼坐{branch}宮。",
+   "claim": "你較喜歡投機。",
+   "source": "wtz.deep.p576.b012",
+   "quote": "在辰戌二宫者好投机。"
+  },
+  {
+   "id": "syn.wellbeing.tanlang.yangtuo-social-trouble",
+   "chapter": "心境",
+   "group": "貪狼福德.交遊",
+   "specificity": "general",
+   "polarity": "凶",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "貪狼",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "meets": "貪狼",
+      "stars": [
+       "擎羊",
+       "陀羅"
+      ],
+      "reach": "same",
+      "op": "gte",
+      "n": 1
+     }
+    ]
+   },
+   "because": "你的福德宮貪狼與擎羊或陀羅同度。",
+   "claim": "你一生較多困擾糾紛，喜歡交遊，卻容易因交遊惹來是非煩惱。",
+   "source": "wtz.deep.p576.b013",
+   "quote": "贪狼与羊陀同躔，一生多困扰纠纷，喜交游而偏因交游惹是非烦恼。"
+  },
+  {
+   "id": "syn.wellbeing.tanlang.huoling-impatience",
+   "chapter": "心境",
+   "group": "貪狼福德.性情",
+   "specificity": "general",
+   "polarity": "凶",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "貪狼",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "meets": "貪狼",
+      "stars": [
+       "火星",
+       "鈴星"
+      ],
+      "reach": "same",
+      "op": "gte",
+      "n": 1
+     }
+    ]
+   },
+   "because": "你的福德宮貪狼與火星或鈴星同度。",
+   "claim": "你的性子較急。",
+   "source": "wtz.deep.p576.b014",
+   "quote": "贪狼与火铃同度，主性急。"
+  },
+  {
+   "id": "syn.wellbeing.tanlang.huoling-delu",
+   "chapter": "心境",
+   "group": "貪狼福德.享樂",
+   "specificity": "general",
+   "polarity": "中",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "貪狼",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "meets": "貪狼",
+      "stars": [
+       "火星",
+       "鈴星"
+      ],
+      "reach": "same",
+      "op": "gte",
+      "n": 1
+     },
+     {
+      "deLu": "貪狼"
+     }
+    ]
+   },
+   "because": "你的福德宮貪狼與火星或鈴星同度，三方四正又見祿存或化祿。",
+   "claim": "你較喜歡浮華的享受。",
+   "source": "wtz.deep.p576.b014",
+   "quote": "贪狼与火铃同度，主性急。见禄，则主好浮华。"
+  },
+  {
+   "id": "syn.wellbeing.tanlang.huoling-lu-kongjie",
+   "chapter": "心境",
+   "group": "貪狼福德.時序",
+   "specificity": "general",
+   "polarity": "中",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "貪狼",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "meets": "貪狼",
+      "stars": [
+       "火星",
+       "鈴星"
+      ],
+      "reach": "same",
+      "op": "gte",
+      "n": 1
+     },
+     {
+      "deLu": "貪狼"
+     },
+     {
+      "meets": "貪狼",
+      "stars": [
+       "地空",
+       "地劫"
+      ],
+      "reach": "sanfang",
+      "op": "gte",
+      "n": 1
+     }
+    ]
+   },
+   "because": "你的福德宮貪狼與火星或鈴星同度，三方四正見祿存或化祿，並會見地空或地劫。",
+   "claim": "你在中年以後，會由絢爛歸於平淡。",
+   "source": "wtz.deep.p576.b014",
+   "quote": "贪狼与火铃同度，主性急。见禄，则主好浮华。若同时见空劫，则中年以后，绚烂归于平淡。"
+  },
+  {
+   "id": "syn.wellbeing.tanlang.changqu-art",
+   "chapter": "心境",
+   "group": "貪狼福德.藝趣",
+   "specificity": "general",
+   "polarity": "吉",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "貪狼",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "meets": "貪狼",
+      "stars": [
+       "文昌",
+       "文曲"
+      ],
+      "reach": "same",
+      "op": "gte",
+      "n": 1
+     }
+    ]
+   },
+   "because": "你的福德宮貪狼與文昌或文曲同度。",
+   "claim": "你有藝術傾向，較偏向動態的藝術。",
+   "source": "wtz.deep.p576.b014",
+   "quote": "贪狼昌曲同度，倾向于艺术。但多动态倾向。"
+  },
+  {
+   "id": "syn.wellbeing.jumen.worry",
+   "chapter": "心境",
+   "group": "巨門福德.費神",
+   "specificity": "general",
+   "polarity": "凶",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "star": "巨門",
+    "in": {
+     "name": "福德"
+    }
+   },
+   "because": "你的福德宮有巨門坐守。",
+   "claim": "你容易為事情費神。",
+   "source": "wtz.deep.p577.b002",
+   "quote": "巨门临福德宫，其基本意义为费神。"
+  },
+  {
+   "id": "syn.wellbeing.jumen.lu-quan",
+   "chapter": "心境",
+   "group": "巨門福德.四化",
+   "specificity": "general",
+   "polarity": "中",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "巨門",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "any": [
+       {
+        "star": "巨門",
+        "hua": "祿"
+       },
+       {
+        "star": "巨門",
+        "hua": "權"
+       }
+      ]
+     }
+    ]
+   },
+   "because": "你的福德宮有巨門坐守，巨門化祿或化權。",
+   "claim": "你凡事都要過問，很難接受別人的決定，遇事總要加上自己的意見。",
+   "source": "wtz.deep.p577.b004",
+   "quote": "巨门化禄、化权，主人事无大小必须过问，而且很难接受别人的决定，遇事必加己见。"
+  },
+  {
+   "id": "syn.wellbeing.jumen.ji",
+   "chapter": "心境",
+   "group": "巨門福德.四化",
+   "specificity": "general",
+   "polarity": "凶",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "巨門",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "star": "巨門",
+      "hua": "忌"
+     }
+    ]
+   },
+   "because": "你的福德宮有巨門坐守，巨門化忌。",
+   "claim": "你常有追悔，也容易過分追求理想。",
+   "source": "wtz.deep.p577.b004",
+   "quote": "巨门化忌则常追悔，而且过份追求理想。"
+  },
+  {
+   "id": "syn.wellbeing.jumen.taiyang-ji",
+   "chapter": "心境",
+   "group": "巨門福德.太陽",
+   "specificity": "system",
+   "polarity": "凶",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "巨門",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "any": [
+       {
+        "together": [
+         "巨門",
+         "太陽"
+        ]
+       },
+       {
+        "opposite": [
+         "巨門",
+         "太陽"
+        ]
+       }
+      ]
+     },
+     {
+      "star": "太陽",
+      "hua": "忌"
+     }
+    ]
+   },
+   "because": "你的福德宮有巨門坐守，與化忌的太陽同度或相對。",
+   "claim": "你容易因為事事親力親為，反而招來別人的怨恨。",
+   "source": "wtz.deep.p577.b005",
+   "quote": "巨门与太阳化忌同度或相对，则易因事事亲力亲为而反招怨个艮。"
+  },
+  {
+   "id": "syn.wellbeing.jumen.taiyang-auspicious-hua",
+   "chapter": "心境",
+   "group": "巨門福德.太陽",
+   "specificity": "system",
+   "polarity": "中",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "巨門",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "any": [
+       {
+        "together": [
+         "巨門",
+         "太陽"
+        ]
+       },
+       {
+        "opposite": [
+         "巨門",
+         "太陽"
+        ]
+       }
+      ]
+     },
+     {
+      "any": [
+       {
+        "star": "太陽",
+        "hua": "祿"
+       },
+       {
+        "star": "太陽",
+        "hua": "權"
+       },
+       {
+        "star": "太陽",
+        "hua": "科"
+       }
+      ]
+     }
+    ]
+   },
+   "because": "你的福德宮有巨門坐守，與太陽同度或相對，太陽化祿、化權或化科。",
+   "claim": "你雖然操心費神，仍能得到精神上的享受。",
+   "source": "wtz.deep.p577.b005",
+   "quote": "若太阳化禄、杈、科，则虽操心费神而仍能有精神享受。"
+  },
+  {
+   "id": "syn.wellbeing.jumen.tianji-ji",
+   "chapter": "心境",
+   "group": "巨門福德.天機",
+   "specificity": "system",
+   "polarity": "凶",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "巨門",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "any": [
+       {
+        "together": [
+         "巨門",
+         "天機"
+        ]
+       },
+       {
+        "opposite": [
+         "巨門",
+         "天機"
+        ]
+       }
+      ]
+     },
+     {
+      "star": "天機",
+      "hua": "忌"
+     }
+    ]
+   },
+   "because": "你的福德宮有巨門坐守，與化忌的天機同度或相對。",
+   "claim": "你反悔的心很重，容易因此影響人際關係。",
+   "source": "wtz.deep.p577.b006",
+   "quote": "巨门与天机化忌同度或相对，则反悔之心极重，以致人际关系不佳。"
+  },
+  {
+   "id": "syn.wellbeing.jumen.tianji-auspicious-hua",
+   "chapter": "心境",
+   "group": "巨門福德.天機",
+   "specificity": "system",
+   "polarity": "中",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "巨門",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "any": [
+       {
+        "together": [
+         "巨門",
+         "天機"
+        ]
+       },
+       {
+        "opposite": [
+         "巨門",
+         "天機"
+        ]
+       }
+      ]
+     },
+     {
+      "any": [
+       {
+        "star": "天機",
+        "hua": "祿"
+       },
+       {
+        "star": "天機",
+        "hua": "權"
+       },
+       {
+        "star": "天機",
+        "hua": "科"
+       }
+      ]
+     }
+    ]
+   },
+   "because": "你的福德宮有巨門坐守，與天機同度或相對，天機化祿、化權或化科。",
+   "claim": "你雖有追悔，仍會在責任上有所交代。",
+   "source": "wtz.deep.p577.b006",
+   "quote": "天机化禄权科，则其追悔尚有责任上的交代。"
+  },
+  {
+   "id": "syn.wellbeing.jumen.tiantong-ji",
+   "chapter": "心境",
+   "group": "巨門福德.天同",
+   "specificity": "system",
+   "polarity": "凶",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "巨門",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "any": [
+       {
+        "together": [
+         "巨門",
+         "天同"
+        ]
+       },
+       {
+        "opposite": [
+         "巨門",
+         "天同"
+        ]
+       }
+      ]
+     },
+     {
+      "star": "天同",
+      "hua": "忌"
+     }
+    ]
+   },
+   "because": "你的福德宮有巨門坐守，與化忌的天同同度或相對。",
+   "claim": "你內心常覺苦悶，也容易陷入痛苦的感情糾纏。",
+   "source": "wtz.deep.p577.b007",
+   "quote": "巨门与天同化忌同度或相对，则内心常觉苦闷，或易陷痛苦的情网。"
+  },
+  {
+   "id": "syn.wellbeing.jumen.tiantong-lu",
+   "chapter": "心境",
+   "group": "巨門福德.天同",
+   "specificity": "system",
+   "polarity": "吉",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "巨門",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "any": [
+       {
+        "together": [
+         "巨門",
+         "天同"
+        ]
+       },
+       {
+        "opposite": [
+         "巨門",
+         "天同"
+        ]
+       }
+      ]
+     },
+     {
+      "star": "天同",
+      "hua": "祿"
+     }
+    ]
+   },
+   "because": "你的福德宮有巨門坐守，與化祿的天同同度或相對。",
+   "claim": "你追求精神上的享受。",
+   "source": "wtz.deep.p577.b007",
+   "quote": "天同化禄，则主追求精神享受。"
+  },
+  {
+   "id": "syn.wellbeing.jumen.malefic",
+   "chapter": "心境",
+   "group": "巨門福德.煞曜",
+   "specificity": "general",
+   "polarity": "凶",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "巨門",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "sanfangOf": {
+       "name": "福德"
+      },
+      "count": "malefic",
+      "op": "gte",
+      "n": 1
+     }
+    ]
+   },
+   "because": "你的福德宮有巨門坐守，三方四正見煞曜。",
+   "claim": "你容易操心勞碌，進退猶豫，並承受是非帶來的壓力。",
+   "source": "wtz.deep.p577.b008",
+   "quote": "巨门见煞，则操心劳碌，进退犹豫，且招是非压力。"
+  },
+  {
+   "id": "syn.wellbeing.jumen.benefic",
+   "chapter": "心境",
+   "group": "巨門福德.吉曜",
+   "specificity": "general",
+   "polarity": "中",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "巨門",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "sanfangOf": {
+       "name": "福德"
+      },
+      "count": "benefic",
+      "op": "gte",
+      "n": 1
+     }
+    ]
+   },
+   "because": "你的福德宮有巨門坐守，三方四正見吉曜。",
+   "claim": "你較著重追求物質欲望，精神上卻未必愉快。",
+   "source": "wtz.deep.p577.b008",
+   "quote": "见吉曜亦主追求物欲，并非精神上的愉快。"
+  },
+  {
+   "id": "syn.wellbeing.jumen.kongjie",
+   "chapter": "心境",
+   "group": "巨門福德.空劫",
+   "specificity": "general",
+   "polarity": "中",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "巨門",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "meets": "巨門",
+      "stars": [
+       "地空",
+       "地劫"
+      ],
+      "reach": "same",
+      "op": "gte",
+      "n": 2
+     }
+    ]
+   },
+   "because": "你的福德宮有巨門坐守，與地空、地劫同度。",
+   "claim": "你心裏多空想與理想。",
+   "source": "wtz.deep.p577.b008",
+   "quote": "若与空劫同度，则多空想理想。"
+  },
+  {
+   "id": "syn.wellbeing.tianxiang.lianpo",
+   "chapter": "心境",
+   "group": "天相福德.廉破",
+   "specificity": "system",
+   "polarity": "吉",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "天相",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "together": [
+       "廉貞",
+       "破軍"
+      ]
+     },
+     {
+      "opposite": [
+       "天相",
+       "廉貞"
+      ]
+     },
+     {
+      "opposite": [
+       "天相",
+       "破軍"
+      ]
+     }
+    ]
+   },
+   "because": "你的福德宮有天相坐守，對宮是廉貞、破軍。",
+   "claim": "你有較強的正義感與同情心。",
+   "source": "wtz.deep.p577.b011",
+   "quote": "天相与[廉贞破军 l 相对，最有正义感及同情心。"
+  },
+  {
+   "id": "syn.wellbeing.tianxiang.lianpo-no-malefic",
+   "chapter": "心境",
+   "group": "天相福德.廉破",
+   "specificity": "system",
+   "polarity": "吉",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "天相",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "together": [
+       "廉貞",
+       "破軍"
+      ]
+     },
+     {
+      "opposite": [
+       "天相",
+       "廉貞"
+      ]
+     },
+     {
+      "opposite": [
+       "天相",
+       "破軍"
+      ]
+     }
+    ]
+   },
+   "none": {
+    "sanfangOf": {
+     "name": "福德"
+    },
+    "count": "malefic",
+    "op": "gte",
+    "n": 1
+   },
+   "because": "你的福德宮有天相坐守，對宮是廉貞、破軍，三方四正不見煞曜。",
+   "claim": "你的想法不致流於偏激。",
+   "source": "wtz.deep.p577.b011",
+   "quote": "不见煞则不流于偏激"
+  },
+  {
+   "id": "syn.wellbeing.tianxiang.lianpo-no-changqu",
+   "chapter": "心境",
+   "group": "天相福德.廉破",
+   "specificity": "system",
+   "polarity": "吉",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "天相",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "together": [
+       "廉貞",
+       "破軍"
+      ]
+     },
+     {
+      "opposite": [
+       "天相",
+       "廉貞"
+      ]
+     },
+     {
+      "opposite": [
+       "天相",
+       "破軍"
+      ]
+     }
+    ]
+   },
+   "none": {
+    "meets": "天相",
+    "stars": [
+     "文昌",
+     "文曲"
+    ],
+    "reach": "sanfang",
+    "op": "gte",
+    "n": 1
+   },
+   "because": "你的福德宮有天相坐守，對宮是廉貞、破軍，三方四正不見文昌、文曲。",
+   "claim": "你的感情與理智能夠保持平衡。",
+   "source": "wtz.deep.p577.b011",
+   "quote": "不见昌曲则感情：与理智可以平衡。"
+  },
+  {
+   "id": "syn.wellbeing.tianxiang.zipo-malefic",
+   "chapter": "心境",
+   "group": "天相福德.紫破",
+   "specificity": "system",
+   "polarity": "凶",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "天相",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "together": [
+       "紫微",
+       "破軍"
+      ]
+     },
+     {
+      "opposite": [
+       "天相",
+       "紫微"
+      ]
+     },
+     {
+      "opposite": [
+       "天相",
+       "破軍"
+      ]
+     },
+     {
+      "sanfangOf": {
+       "name": "福德"
+      },
+      "count": "malefic",
+      "op": "gte",
+      "n": 1
+     }
+    ]
+   },
+   "because": "你的福德宮有天相坐守，對宮是紫微、破軍，三方四正見煞曜。",
+   "claim": "你的想法偏激，遇事也不負責任。",
+   "source": "wtz.deep.p578.b002",
+   "quote": "天相与紫微破军相对，最易成为政治上的反对派，见煞则偏激，且不负责任。"
+  },
+  {
+   "id": "syn.wellbeing.tianxiang.zipo-changqu",
+   "chapter": "心境",
+   "group": "天相福德.紫破",
+   "specificity": "system",
+   "polarity": "吉",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "天相",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "together": [
+       "紫微",
+       "破軍"
+      ]
+     },
+     {
+      "opposite": [
+       "天相",
+       "紫微"
+      ]
+     },
+     {
+      "opposite": [
+       "天相",
+       "破軍"
+      ]
+     },
+     {
+      "meets": "天相",
+      "stars": [
+       "文昌",
+       "文曲"
+      ],
+      "reach": "sanfang",
+      "op": "gte",
+      "n": 2
+     }
+    ]
+   },
+   "because": "你的福德宮有天相坐守，對宮是紫微、破軍，三方四正見文昌、文曲。",
+   "claim": "你表現溫和，也有責任心。",
+   "source": "wtz.deep.p578.b002",
+   "quote": "见昌曲则表现温和，且负责任。"
+  },
+  {
+   "id": "syn.wellbeing.tianxiang.zipo-ziwei-quan",
+   "chapter": "心境",
+   "group": "天相福德.紫破",
+   "specificity": "system",
+   "polarity": "中",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "天相",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "together": [
+       "紫微",
+       "破軍"
+      ]
+     },
+     {
+      "opposite": [
+       "天相",
+       "紫微"
+      ]
+     },
+     {
+      "opposite": [
+       "天相",
+       "破軍"
+      ]
+     },
+     {
+      "star": "紫微",
+      "hua": "權"
+     }
+    ]
+   },
+   "because": "你的福德宮有天相坐守，對宮是紫微、破軍，紫微化權。",
+   "claim": "你的想法較偏激，但責任心很重。",
+   "source": "wtz.deep.p578.b003",
+   "quote": "若紫微化权]较偏激，但责任心极重；"
+  },
+  {
+   "id": "syn.wellbeing.tianxiang.zipo-ziwei-ke",
+   "chapter": "心境",
+   "group": "天相福德.紫破",
+   "specificity": "system",
+   "polarity": "中",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "天相",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "together": [
+       "紫微",
+       "破軍"
+      ]
+     },
+     {
+      "opposite": [
+       "天相",
+       "紫微"
+      ]
+     },
+     {
+      "opposite": [
+       "天相",
+       "破軍"
+      ]
+     },
+     {
+      "star": "紫微",
+      "hua": "科"
+     }
+    ]
+   },
+   "because": "你的福德宮有天相坐守，對宮是紫微、破軍，紫微化科。",
+   "claim": "你很看重自己的名譽。",
+   "source": "wtz.deep.p578.b003",
+   "quote": "紫微化科，名誉感极重。"
+  },
+  {
+   "id": "syn.wellbeing.tianxiang.wupo",
+   "chapter": "心境",
+   "group": "天相福德.武破",
+   "specificity": "system",
+   "polarity": "中",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "天相",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "together": [
+       "武曲",
+       "破軍"
+      ]
+     },
+     {
+      "opposite": [
+       "天相",
+       "武曲"
+      ]
+     },
+     {
+      "opposite": [
+       "天相",
+       "破軍"
+      ]
+     }
+    ]
+   },
+   "because": "你的福德宮有天相坐守，對宮是武曲、破軍。",
+   "claim": "你責任心強，臨事卻欠定見，容易受人慫恿。",
+   "source": "wtz.deep.p578.b004",
+   "quote": "天相与武曲破军相对最有责任心，却临事欠主张，因而易受人怂恿"
+  },
+  {
+   "id": "syn.wellbeing.tianxiang.wupo-tuoluo",
+   "chapter": "心境",
+   "group": "天相福德.武破",
+   "specificity": "system",
+   "polarity": "凶",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "天相",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "together": [
+       "武曲",
+       "破軍"
+      ]
+     },
+     {
+      "opposite": [
+       "天相",
+       "武曲"
+      ]
+     },
+     {
+      "opposite": [
+       "天相",
+       "破軍"
+      ]
+     },
+     {
+      "together": [
+       "天相",
+       "陀羅"
+      ]
+     }
+    ]
+   },
+   "because": "你的福德宮有天相與陀羅同度，對宮是武曲、破軍。",
+   "claim": "你容易自招煩惱。",
+   "source": "wtz.deep.p578.b004",
+   "quote": "陀罗同度则自招烦恼。"
+  },
+  {
+   "id": "syn.wellbeing.tianxiang.four-malefics",
+   "chapter": "心境",
+   "group": "天相福德.煞曜",
+   "specificity": "general",
+   "polarity": "凶",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "天相",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "meets": "天相",
+      "stars": [
+       "擎羊",
+       "陀羅",
+       "火星",
+       "鈴星"
+      ],
+      "reach": "sanfang",
+      "op": "gte",
+      "n": 1
+     }
+    ]
+   },
+   "because": "你的福德宮有天相坐守，三方四正見擎羊、陀羅、火星或鈴星。",
+   "claim": "你遇事容易多生枝節與障礙。",
+   "source": "wtz.deep.p578.b007",
+   "quote": "天相与四煞同会者，凡事必多生枝节障碍。"
+  },
+  {
+   "id": "syn.wellbeing.tianxiang.kongjie",
+   "chapter": "心境",
+   "group": "天相福德.空劫",
+   "specificity": "general",
+   "polarity": "凶",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "天相",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "meets": "天相",
+      "stars": [
+       "地空",
+       "地劫"
+      ],
+      "reach": "sanfang",
+      "op": "gte",
+      "n": 2
+     }
+    ]
+   },
+   "because": "你的福德宮有天相坐守，三方四正見地空、地劫。",
+   "claim": "你偏於空想，說得出卻難以付諸行動。",
+   "source": "wtz.deep.p578.b007",
+   "quote": "与空劫同会者，偏于空想，坐言不能起行。"
+  },
+  {
+   "id": "syn.wellbeing.tianxiang.de-lu",
+   "chapter": "心境",
+   "group": "天相福德.得祿",
+   "specificity": "general",
+   "polarity": "吉",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "天相",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "deLu": "天相"
+     }
+    ]
+   },
+   "because": "你的福德宮有天相坐守，三方四正見祿存或化祿。",
+   "claim": "你的精神生活充足。",
+   "source": "wtz.deep.p578.b009",
+   "quote": "三相得禄，主精神生活充足。"
+  },
+  {
+   "id": "syn.wellbeing.tianliang.spiritual-enjoyment",
+   "chapter": "心境",
+   "group": "天梁福德.享受",
+   "specificity": "general",
+   "polarity": "中",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "star": "天梁",
+    "in": {
+     "name": "福德"
+    }
+   },
+   "because": "你的福德宮有天梁坐守。",
+   "claim": "你重視精神上的享受。",
+   "source": "wtz.deep.p578.b011",
+   "quote": "天梁主清贵，故居福德宫时，主人重视精神享受。"
+  },
+  {
+   "id": "syn.wellbeing.tianliang.taiyang-miao",
+   "chapter": "心境",
+   "group": "天梁福德.太陽",
+   "specificity": "system",
+   "polarity": "吉",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "天梁",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "meets": "天梁",
+      "stars": [
+       "太陽"
+      ],
+      "reach": "sanfang",
+      "op": "gte",
+      "n": 1
+     }
+    ]
+   },
+   "bright": {
+    "star": "太陽",
+    "levels": [
+     "廟"
+    ]
+   },
+   "because": "你的福德宮有天梁坐守，三方四正見入廟的太陽。",
+   "claim": "你的精神生活豐足。",
+   "source": "wtz.deep.p578.b011",
+   "quote": "同会入庙的太阳，则太阳能解其孤忌之性，自然精神生活丰足。"
+  },
+  {
+   "id": "syn.wellbeing.tianliang.quan",
+   "chapter": "心境",
+   "group": "天梁福德.四化",
+   "specificity": "general",
+   "polarity": "中",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "天梁",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "star": "天梁",
+      "hua": "權"
+     }
+    ]
+   },
+   "because": "你的福德宮有天梁坐守，天梁化權。",
+   "claim": "你的自尊心很重。",
+   "source": "wtz.deep.p578.b012",
+   "quote": "化权，则自尊心极重；"
+  },
+  {
+   "id": "syn.wellbeing.tianliang.ke",
+   "chapter": "心境",
+   "group": "天梁福德.四化",
+   "specificity": "general",
+   "polarity": "吉",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "天梁",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "star": "天梁",
+      "hua": "科"
+     }
+    ]
+   },
+   "because": "你的福德宮有天梁坐守，天梁化科。",
+   "claim": "你聰明敏銳，適合從事學術研究。",
+   "source": "wtz.deep.p578.b012",
+   "quote": "化科则主聪明敏睿，宜学术研究。"
+  },
+  {
+   "id": "syn.wellbeing.tianliang.taiyang-xian",
+   "chapter": "心境",
+   "group": "天梁福德.太陽",
+   "specificity": "system",
+   "polarity": "凶",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "天梁",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "meets": "天梁",
+      "stars": [
+       "太陽"
+      ],
+      "reach": "sanfang",
+      "op": "gte",
+      "n": 1
+     }
+    ]
+   },
+   "bright": {
+    "star": "太陽",
+    "levels": [
+     "陷"
+    ]
+   },
+   "because": "你的福德宮有天梁坐守，三方四正見落陷的太陽。",
+   "claim": "你喜歡管閒事，容易因此自招忙碌。",
+   "source": "wtz.deep.p578.b013",
+   "quote": "太阳落陷与天梁同会，则主好理闲事，以致自招忙碌。"
+  },
+  {
+   "id": "syn.wellbeing.tianliang.taiyang-xian-benefic",
+   "chapter": "心境",
+   "group": "天梁福德.太陽",
+   "specificity": "system",
+   "polarity": "吉",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "天梁",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "meets": "天梁",
+      "stars": [
+       "太陽"
+      ],
+      "reach": "sanfang",
+      "op": "gte",
+      "n": 1
+     },
+     {
+      "sanfangOf": {
+       "name": "福德"
+      },
+      "count": "benefic",
+      "op": "gte",
+      "n": 1
+     }
+    ]
+   },
+   "bright": {
+    "star": "太陽",
+    "levels": [
+     "陷"
+    ]
+   },
+   "because": "你的福德宮有天梁坐守，三方四正見落陷的太陽，也見吉曜。",
+   "claim": "你容易忙於公益事務。",
+   "source": "wtz.deep.p578.b013",
+   "quote": "太阳落陷与天梁同会，则主好理闲事，以致自招忙碌。更见吉曜，却主忙于公益。"
+  },
+  {
+   "id": "syn.wellbeing.tianliang.tianji",
+   "chapter": "心境",
+   "group": "天梁福德.天機",
+   "specificity": "system",
+   "polarity": "凶",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "天梁",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "any": [
+       {
+        "together": [
+         "天梁",
+         "天機"
+        ]
+       },
+       {
+        "opposite": [
+         "天梁",
+         "天機"
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   "because": "你的福德宮有天梁坐守，與天機同度或相對。",
+   "claim": "你容易勞心費神。",
+   "source": "wtz.deep.p579.b002",
+   "quote": "天梁与天机同度或对拱，劳心费神。"
+  },
+  {
+   "id": "syn.wellbeing.tianliang.tianji-ji",
+   "chapter": "心境",
+   "group": "天梁福德.天機",
+   "specificity": "system",
+   "polarity": "凶",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "天梁",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "any": [
+       {
+        "together": [
+         "天梁",
+         "天機"
+        ]
+       },
+       {
+        "opposite": [
+         "天梁",
+         "天機"
+        ]
+       }
+      ]
+     },
+     {
+      "star": "天機",
+      "hua": "忌"
+     }
+    ]
+   },
+   "because": "你的福德宮有天梁坐守，與化忌的天機同度或相對。",
+   "claim": "你容易不安，遇事也欠缺明確的定見。",
+   "source": "wtz.deep.p579.b002",
+   "quote": "天机化忌，则多躇不安，且凡事欠宗旨主张。"
+  },
+  {
+   "id": "syn.wellbeing.tianliang.miao",
+   "chapter": "心境",
+   "group": "天梁福德.廟陷",
+   "specificity": "general",
+   "polarity": "吉",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "star": "天梁",
+    "in": {
+     "name": "福德"
+    }
+   },
+   "bright": {
+    "star": "天梁",
+    "levels": [
+     "廟"
+    ]
+   },
+   "because": "你的福德宮有天梁坐守，天梁入廟。",
+   "claim": "你一生較清閒，有名士風致，不喜歡處理俗務。",
+   "source": "wtz.deep.p579.b003",
+   "quote": "天梁入庙，一生安暇，且有名士风致·不喜处理俗务。"
+  },
+  {
+   "id": "syn.wellbeing.tianliang.xian",
+   "chapter": "心境",
+   "group": "天梁福德.廟陷",
+   "specificity": "general",
+   "polarity": "凶",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "star": "天梁",
+    "in": {
+     "name": "福德"
+    }
+   },
+   "bright": {
+    "star": "天梁",
+    "levels": [
+     "陷"
+    ]
+   },
+   "because": "你的福德宮有天梁坐守，天梁落陷。",
+   "claim": "你容易懶散偷閒。",
+   "source": "wtz.deep.p579.b003",
+   "quote": "若天梁居于陷地，则转化为懒散偷闲。"
+  },
+  {
+   "id": "syn.wellbeing.tianliang.huoxing",
+   "chapter": "心境",
+   "group": "天梁福德.火鈴",
+   "specificity": "general",
+   "polarity": "凶",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "天梁",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "meets": "天梁",
+      "stars": [
+       "火星"
+      ],
+      "reach": "sanfang",
+      "op": "gte",
+      "n": 1
+     }
+    ]
+   },
+   "because": "你的福德宮有天梁坐守，三方四正見火星。",
+   "claim": "你容易煩躁不安。",
+   "source": "wtz.deep.p579.b004",
+   "quote": "天梁踺火星，易烦躁不安；"
+  },
+  {
+   "id": "syn.wellbeing.tianliang.lingxing",
+   "chapter": "心境",
+   "group": "天梁福德.火鈴",
+   "specificity": "general",
+   "polarity": "凶",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "天梁",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "together": [
+       "天梁",
+       "鈴星"
+      ]
+     }
+    ]
+   },
+   "because": "你的福德宮有天梁與鈴星同度。",
+   "claim": "你的思想較多陰暗面。",
+   "source": "wtz.deep.p579.b004",
+   "quote": "铃星同度，思想多阴暗面。"
+  },
+  {
+   "id": "syn.wellbeing.tianliang.tuoluo",
+   "chapter": "心境",
+   "group": "天梁福德.羊陀",
+   "specificity": "general",
+   "polarity": "凶",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "天梁",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "together": [
+       "天梁",
+       "陀羅"
+      ]
+     }
+    ]
+   },
+   "because": "你的福德宮有天梁與陀羅同度。",
+   "claim": "你容易自招煩惱。",
+   "source": "wtz.deep.p579.b004",
+   "quote": "陀罗同度，自招烦恼；"
+  },
+  {
+   "id": "syn.wellbeing.tianliang.kongjie",
+   "chapter": "心境",
+   "group": "天梁福德.空劫",
+   "specificity": "general",
+   "polarity": "中",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "天梁",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "meets": "天梁",
+      "stars": [
+       "地空",
+       "地劫"
+      ],
+      "reach": "same",
+      "op": "gte",
+      "n": 2
+     }
+    ]
+   },
+   "because": "你的福德宮有天梁坐守，與地空、地劫同度。",
+   "claim": "你的理想容易定得太高。",
+   "source": "wtz.deep.p579.b004",
+   "quote": "空劫同度，主理想太高。"
+  },
+  {
+   "id": "syn.wellbeing.qisha.miao",
+   "chapter": "心境",
+   "group": "七殺福德.廟陷",
+   "specificity": "general",
+   "polarity": "中",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "star": "七殺",
+    "in": {
+     "name": "福德"
+    }
+   },
+   "bright": {
+    "star": "七殺",
+    "levels": [
+     "廟"
+    ]
+   },
+   "because": "你的福德宮有七殺坐守，七殺入廟。",
+   "claim": "你有理想，但婚姻較不利，宜遲婚。",
+   "source": "wtz.deep.p579.b007",
+   "quote": "七杀在福德宫，入庙，虽主有理想，但却不利婚姻，故宜迟不宜早。"
+  },
+  {
+   "id": "syn.wellbeing.qisha.xian",
+   "chapter": "心境",
+   "group": "七殺福德.廟陷",
+   "specificity": "general",
+   "polarity": "凶",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "star": "七殺",
+    "in": {
+     "name": "福德"
+    }
+   },
+   "bright": {
+    "star": "七殺",
+    "levels": [
+     "陷"
+    ]
+   },
+   "because": "你的福德宮有七殺坐守，七殺落陷。",
+   "claim": "你的想法容易傾向消極。",
+   "source": "wtz.deep.p579.b007",
+   "quote": "落陷且主思想倾向于消极。"
+  },
+  {
+   "id": "syn.wellbeing.qisha.unrecognized",
+   "chapter": "心境",
+   "group": "七殺福德.理想",
+   "specificity": "general",
+   "polarity": "凶",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "star": "七殺",
+    "in": {
+     "name": "福德"
+    }
+   },
+   "because": "你的福德宮有七殺坐守。",
+   "claim": "你容易覺得懷才不遇。",
+   "source": "wtz.deep.p579.b008",
+   "quote": "七杀的理想，偏重于个人利益，因此每有怀才不遇之心。"
+  },
+  {
+   "id": "syn.wellbeing.qisha.malefic-ji",
+   "chapter": "心境",
+   "group": "七殺福德.理想",
+   "specificity": "general",
+   "polarity": "凶",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "七殺",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "sanfangOf": {
+       "name": "福德"
+      },
+      "count": "malefic",
+      "op": "gte",
+      "n": 1
+     },
+     {
+      "meets": "七殺",
+      "stars": [
+       "化忌"
+      ],
+      "reach": "sanfang",
+      "op": "gte",
+      "n": 1
+     }
+    ]
+   },
+   "because": "你的福德宮有七殺坐守，三方四正同時見煞曜與化忌。",
+   "claim": "你容易滿腹牢騷，想法可能走向偏激。",
+   "source": "wtz.deep.p579.b008",
+   "quote": "若见煞忌，则更主牢骚满腹，可能发展为偏激。"
+  },
+  {
+   "id": "syn.wellbeing.qisha.lianzhen-ji",
+   "chapter": "心境",
+   "group": "七殺福德.廉貞",
+   "specificity": "system",
+   "polarity": "凶",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "七殺",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "meets": "七殺",
+      "stars": [
+       "廉貞"
+      ],
+      "reach": "sanfang",
+      "op": "gte",
+      "n": 1
+     },
+     {
+      "star": "廉貞",
+      "hua": "忌"
+     }
+    ]
+   },
+   "because": "你的福德宮有七殺坐守，三方四正見化忌的廉貞。",
+   "claim": "你容易因感情挫折而不安，也較多無謂的舉動。",
+   "source": "wtz.deep.p579.b009",
+   "quote": "七杀不喜廉贞化忌，主感情上挫折不安，且多无谓的举动；"
+  },
+  {
+   "id": "syn.wellbeing.qisha.wuqu-ji-anxiety",
+   "chapter": "心境",
+   "group": "七殺福德.武曲",
+   "specificity": "system",
+   "polarity": "凶",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "七殺",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "meets": "七殺",
+      "stars": [
+       "武曲"
+      ],
+      "reach": "sanfang",
+      "op": "gte",
+      "n": 1
+     },
+     {
+      "star": "武曲",
+      "hua": "忌"
+     }
+    ]
+   },
+   "because": "你的福德宮有七殺坐守，三方四正見化忌的武曲。",
+   "claim": "你內心容易焦慮。",
+   "source": "wtz.deep.p579.b009",
+   "quote": "见武曲化忌。则内心焦虑。"
+  },
+  {
+   "id": "syn.wellbeing.qisha.wuqu-ji-marriage",
+   "chapter": "心境",
+   "group": "七殺福德.武曲",
+   "specificity": "system",
+   "polarity": "凶",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "七殺",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "any": [
+       {
+        "together": [
+         "七殺",
+         "武曲"
+        ]
+       },
+       {
+        "opposite": [
+         "七殺",
+         "武曲"
+        ]
+       }
+      ]
+     },
+     {
+      "star": "武曲",
+      "hua": "忌"
+     }
+    ]
+   },
+   "because": "你的福德宮有七殺坐守，與化忌的武曲同度或相對。",
+   "claim": "你的婚姻容易有刑剋或分離的情況，或配偶體弱多病。",
+   "source": "wtz.deep.p579.b011",
+   "quote": "七杀与武曲化忌同度或相对，更主对婚姻不利。往往有刑克、生离之事，或主配偶体弱多病"
+  },
+  {
+   "id": "syn.wellbeing.qisha.hasty-decisions",
+   "chapter": "心境",
+   "group": "七殺福德.決斷",
+   "specificity": "general",
+   "polarity": "凶",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "star": "七殺",
+    "in": {
+     "name": "福德"
+    }
+   },
+   "because": "你的福德宮有七殺坐守。",
+   "claim": "你作決定時容易冒失。",
+   "source": "wtz.deep.p579.b012",
+   "quote": "七杀在福德宫者，每主冒昧作出决定。"
+  },
+  {
+   "id": "syn.wellbeing.qisha.wuqu-short-sighted",
+   "chapter": "心境",
+   "group": "七殺福德.決斷",
+   "specificity": "system",
+   "polarity": "凶",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "七殺",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "any": [
+       {
+        "together": [
+         "七殺",
+         "武曲"
+        ]
+       },
+       {
+        "opposite": [
+         "七殺",
+         "武曲"
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   "because": "你的福德宮有七殺坐守，與武曲同度或相對。",
+   "claim": "你作決定時容易考慮不夠周全。",
+   "source": "wtz.deep.p579.b012",
+   "quote": "与武曲同度或对拱者，更主短虑。"
+  },
+  {
+   "id": "syn.wellbeing.qisha.busy",
+   "chapter": "心境",
+   "group": "七殺福德.忙碌",
+   "specificity": "general",
+   "polarity": "中",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "star": "七殺",
+    "in": {
+     "name": "福德"
+    }
+   },
+   "because": "你的福德宮有七殺坐守。",
+   "claim": "你喜歡忙碌，難得清閒。",
+   "source": "wtz.deep.p579.b013",
+   "quote": "七杀守福德宫者，喜忙碌而不得清闲。"
+  },
+  {
+   "id": "syn.wellbeing.qisha.zifu-ziwei-quan",
+   "chapter": "心境",
+   "group": "七殺福德.紫府",
+   "specificity": "system",
+   "polarity": "凶",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "七殺",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "together": [
+       "紫微",
+       "天府"
+      ]
+     },
+     {
+      "opposite": [
+       "七殺",
+       "紫微"
+      ]
+     },
+     {
+      "opposite": [
+       "七殺",
+       "天府"
+      ]
+     },
+     {
+      "star": "紫微",
+      "hua": "權"
+     }
+    ]
+   },
+   "because": "你的福德宮有七殺坐守，對宮是紫微、天府，紫微化權。",
+   "claim": "你凡事喜歡親力親為，卻容易虎頭蛇尾。",
+   "source": "wtz.deep.p579.b013",
+   "quote": "若对宫[紫微天府]而紫微化权者，则凡事喜亲力亲为而虎头蛇尾；"
+  },
+  {
+   "id": "syn.wellbeing.qisha.lianfu",
+   "chapter": "心境",
+   "group": "七殺福德.廉府",
+   "specificity": "system",
+   "polarity": "中",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "七殺",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "together": [
+       "廉貞",
+       "天府"
+      ]
+     },
+     {
+      "opposite": [
+       "七殺",
+       "廉貞"
+      ]
+     },
+     {
+      "opposite": [
+       "七殺",
+       "天府"
+      ]
+     }
+    ]
+   },
+   "because": "你的福德宮有七殺坐守，對宮是廉貞、天府。",
+   "claim": "你忙碌，也喜歡替別人出謀劃策。",
+   "source": "wtz.deep.p580.b001",
+   "quote": "七杀与[廉贞天府]相对者，主忙碌，且喜为人谋"
+  },
+  {
+   "id": "syn.wellbeing.pojun.miao",
+   "chapter": "心境",
+   "group": "破軍福德.廟陷",
+   "specificity": "general",
+   "polarity": "吉",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "star": "破軍",
+    "in": {
+     "name": "福德"
+    }
+   },
+   "bright": {
+    "star": "破軍",
+    "levels": [
+     "廟"
+    ]
+   },
+   "because": "你的福德宮有破軍坐守，破軍入廟。",
+   "claim": "你善於作決斷。",
+   "source": "wtz.deep.p580.b004",
+   "quote": "破军守福德宫，入庙则病善决断；"
+  },
+  {
+   "id": "syn.wellbeing.pojun.xian",
+   "chapter": "心境",
+   "group": "破軍福德.廟陷",
+   "specificity": "general",
+   "polarity": "凶",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "star": "破軍",
+    "in": {
+     "name": "福德"
+    }
+   },
+   "bright": {
+    "star": "破軍",
+    "levels": [
+     "陷"
+    ]
+   },
+   "because": "你的福德宮有破軍坐守，破軍落陷。",
+   "claim": "你成見較多，卻較少決斷。",
+   "source": "wtz.deep.p580.b004",
+   "quote": "落陷则多成见，少决断。"
+  },
+  {
+   "id": "syn.wellbeing.pojun.huoling",
+   "chapter": "心境",
+   "group": "破軍福德.火鈴",
+   "specificity": "general",
+   "polarity": "凶",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "破軍",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "meets": "破軍",
+      "stars": [
+       "火星",
+       "鈴星"
+      ],
+      "reach": "same",
+      "op": "gte",
+      "n": 2
+     }
+    ]
+   },
+   "because": "你的福德宮有破軍坐守，與火星、鈴星同度。",
+   "claim": "你內心容易急躁焦慮。",
+   "source": "wtz.deep.p580.b006",
+   "quote": "破军与火铃同度，内心急躁焦虑；"
+  },
+  {
+   "id": "syn.wellbeing.pojun.yangtuo",
+   "chapter": "心境",
+   "group": "破軍福德.羊陀",
+   "specificity": "general",
+   "polarity": "凶",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "破軍",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "meets": "破軍",
+      "stars": [
+       "擎羊",
+       "陀羅"
+      ],
+      "reach": "same",
+      "op": "gte",
+      "n": 2
+     }
+    ]
+   },
+   "because": "你的福德宮有破軍坐守，與擎羊、陀羅同度。",
+   "claim": "你內心常有追悔，也容易改變心意。",
+   "source": "wtz.deep.p580.b006",
+   "quote": "见羊陀同度，内心多追悔，且多主意改变；"
+  },
+  {
+   "id": "syn.wellbeing.pojun.kongjie",
+   "chapter": "心境",
+   "group": "破軍福德.空劫",
+   "specificity": "general",
+   "polarity": "凶",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "破軍",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "meets": "破軍",
+      "stars": [
+       "地空",
+       "地劫"
+      ],
+      "reach": "same",
+      "op": "gte",
+      "n": 2
+     }
+    ]
+   },
+   "because": "你的福德宮有破軍坐守，與地空、地劫同度。",
+   "claim": "你空想較多，付諸實行的心卻較少。",
+   "source": "wtz.deep.p580.b006",
+   "quote": "见空劫同度，多空想而少实行之心。"
+  },
+  {
+   "id": "syn.wellbeing.pojun.changqu-malefic",
+   "chapter": "心境",
+   "group": "破軍福德.昌曲",
+   "specificity": "general",
+   "polarity": "凶",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "破軍",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "meets": "破軍",
+      "stars": [
+       "文昌",
+       "文曲"
+      ],
+      "reach": "same",
+      "op": "gte",
+      "n": 2
+     },
+     {
+      "sanfangOf": {
+       "name": "福德"
+      },
+      "count": "malefic",
+      "op": "gte",
+      "n": 1
+     }
+    ]
+   },
+   "because": "你的福德宮有破軍與文昌、文曲同度，三方四正又見煞曜。",
+   "claim": "你容易表現虛偽。",
+   "source": "wtz.deep.p580.b007",
+   "quote": "破军不喜昌曲同度，若更见煞，则主虚伪。"
+  },
+  {
+   "id": "syn.wellbeing.pojun.changqu-no-malefic",
+   "chapter": "心境",
+   "group": "破軍福德.昌曲",
+   "specificity": "general",
+   "polarity": "凶",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "破軍",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "meets": "破軍",
+      "stars": [
+       "文昌",
+       "文曲"
+      ],
+      "reach": "same",
+      "op": "gte",
+      "n": 2
+     }
+    ]
+   },
+   "none": {
+    "sanfangOf": {
+     "name": "福德"
+    },
+    "count": "malefic",
+    "op": "gte",
+    "n": 1
+   },
+   "because": "你的福德宮有破軍與文昌、文曲同度，三方四正不見煞曜。",
+   "claim": "你心裏較多猶豫與猜疑。",
+   "source": "wtz.deep.p580.b007",
+   "quote": "不见煞，则多犹豫胡疑。"
+  },
+  {
+   "id": "syn.wellbeing.pojun.lianxiang-lianzhen-ji",
+   "chapter": "心境",
+   "group": "破軍福德.廉相",
+   "specificity": "system",
+   "polarity": "凶",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "破軍",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "together": [
+       "廉貞",
+       "天相"
+      ]
+     },
+     {
+      "opposite": [
+       "破軍",
+       "廉貞"
+      ]
+     },
+     {
+      "opposite": [
+       "破軍",
+       "天相"
+      ]
+     },
+     {
+      "star": "廉貞",
+      "hua": "忌"
+     }
+    ]
+   },
+   "because": "你的福德宮有破軍坐守，對宮是廉貞、天相，廉貞化忌。",
+   "claim": "你容易惶惶不安，難以安心度日。",
+   "source": "wtz.deep.p580.b008",
+   "quote": "破军与[廉贞天相]相对，普通情形下少忧虑，唯廉贞化忌，则惶惶不可终日。"
+  },
+  {
+   "id": "syn.wellbeing.pojun.wuxiang",
+   "chapter": "心境",
+   "group": "破軍福德.武相",
+   "specificity": "system",
+   "polarity": "凶",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "破軍",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "together": [
+       "武曲",
+       "天相"
+      ]
+     },
+     {
+      "opposite": [
+       "破軍",
+       "武曲"
+      ]
+     },
+     {
+      "opposite": [
+       "破軍",
+       "天相"
+      ]
+     }
+    ]
+   },
+   "because": "你的福德宮有破軍坐守，對宮是武曲、天相。",
+   "claim": "你凡事勞心勞力，不肯相信別人。",
+   "source": "wtz.deep.p580.b009",
+   "quote": "破军与f武曲天相]相对，主凡事劳心劳力，不肯信人。"
+  },
+  {
+   "id": "syn.wellbeing.pojun.wuxiang-wuqu-ji",
+   "chapter": "心境",
+   "group": "破軍福德.武相",
+   "specificity": "system",
+   "polarity": "凶",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "破軍",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "together": [
+       "武曲",
+       "天相"
+      ]
+     },
+     {
+      "opposite": [
+       "破軍",
+       "武曲"
+      ]
+     },
+     {
+      "opposite": [
+       "破軍",
+       "天相"
+      ]
+     },
+     {
+      "star": "武曲",
+      "hua": "忌"
+     }
+    ]
+   },
+   "because": "你的福德宮有破軍坐守，對宮是武曲、天相，武曲化忌。",
+   "claim": "你容易憂慮煩惱，遇事也常反覆。",
+   "source": "wtz.deep.p580.b009",
+   "quote": "若武曲化忌，则忧虑烦恼，且凡事反复。"
+  },
+  {
+   "id": "syn.wellbeing.pojun.zixiang-ziwei-ke",
+   "chapter": "心境",
+   "group": "破軍福德.紫相",
+   "specificity": "system",
+   "polarity": "中",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "破軍",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "together": [
+       "紫微",
+       "天相"
+      ]
+     },
+     {
+      "opposite": [
+       "破軍",
+       "紫微"
+      ]
+     },
+     {
+      "opposite": [
+       "破軍",
+       "天相"
+      ]
+     },
+     {
+      "star": "紫微",
+      "hua": "科"
+     }
+    ]
+   },
+   "because": "你的福德宮有破軍坐守，對宮是紫微、天相，紫微化科。",
+   "claim": "你的自信心較強。",
+   "source": "wtz.deep.p580.b010",
+   "quote": "若紫微化科则自信心尤强；"
+  },
+  {
+   "id": "syn.wellbeing.pojun.zixiang-ziwei-quan",
+   "chapter": "心境",
+   "group": "破軍福德.紫相",
+   "specificity": "system",
+   "polarity": "凶",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "破軍",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "together": [
+       "紫微",
+       "天相"
+      ]
+     },
+     {
+      "opposite": [
+       "破軍",
+       "紫微"
+      ]
+     },
+     {
+      "opposite": [
+       "破軍",
+       "天相"
+      ]
+     },
+     {
+      "star": "紫微",
+      "hua": "權"
+     }
+    ]
+   },
+   "because": "你的福德宮有破軍坐守，對宮是紫微、天相，紫微化權。",
+   "claim": "你容易過分以自我為中心。",
+   "source": "wtz.deep.p580.b010",
+   "quote": "紫微化权则过份自我中心。"
+  },
+  {
+   "id": "syn.wellbeing.pojun.benefic",
+   "chapter": "心境",
+   "group": "破軍福德.創見",
+   "specificity": "general",
+   "polarity": "吉",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "破軍",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "sanfangOf": {
+       "name": "福德"
+      },
+      "count": "benefic",
+      "op": "gte",
+      "n": 1
+     }
+    ]
+   },
+   "because": "你的福德宮有破軍坐守，三方四正見輔佐吉曜。",
+   "claim": "你較多創見。",
+   "source": "wtz.deep.p580.b011",
+   "quote": "破军见辅佐吉曜，则主多创见。"
+  },
+  {
+   "id": "syn.wellbeing.pojun.lu-quan-huoyang",
+   "chapter": "心境",
+   "group": "破軍福德.四化",
+   "specificity": "general",
+   "polarity": "凶",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "破軍",
+      "in": {
+       "name": "福德"
+      }
+     },
+     {
+      "any": [
+       {
+        "star": "破軍",
+        "hua": "祿"
+       },
+       {
+        "star": "破軍",
+        "hua": "權"
+       }
+      ]
+     },
+     {
+      "meets": "破軍",
+      "stars": [
+       "火星",
+       "擎羊"
+      ],
+      "reach": "sanfang",
+      "op": "gte",
+      "n": 2
+     }
+    ]
+   },
+   "because": "你的福德宮有破軍坐守，破軍化祿或化權，三方四正又見火星、擎羊。",
+   "claim": "你容易好高騖遠。",
+   "source": "wtz.deep.p580.b012",
+   "quote": "破军化禄化权，又见火星、擎羊者，主好高鹜远。"
   }
  ]
 }

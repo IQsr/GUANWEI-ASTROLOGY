@@ -9,6 +9,7 @@ import annualFumu from '../src/synthesis/annual-fumu.json';
 import annualXiongdi from '../src/synthesis/annual-xiongdi.json';
 import annualZinv from '../src/synthesis/annual-zinv.json';
 import annualTian from '../src/synthesis/annual-tian.json';
+import annualFude from '../src/synthesis/annual-fude.json';
 
 const place = { lng: 114.17, lat: 22.32, label: '香港' };
 const chartOf = (solar: BirthInput['solar'], time: BirthInput['time'], sex: BirthInput['sex']) => {
@@ -131,8 +132,8 @@ describe('今年', () => {
       const ps = (synthYearChapter(c, y, { general: true }) ?? []).filter((s) => /^今年(的|與)/.test(s.slot));
       expect(ps.length).toBeLessThanOrEqual(3);
     }
-    for (const a of [annualFumu, annualXiongdi, annualZinv, annualTian]) for (const t of Object.values(a.cards))
-      expect(t).not.toMatch(/兒子|女兒|人數|祖業|離婚|手術|開刀|血光|死亡|早逝|流產/);
+    for (const a of [annualFumu, annualXiongdi, annualZinv, annualTian, annualFude]) for (const t of Object.values(a.cards))
+      expect(t).not.toMatch(/兒子|女兒|人數|祖業|離婚|手術|開刀|血光|死亡|早逝|流產|畸戀/);
   }, 30000);
   it('讀者見到嘅節名冇索引編輯註（〔編輯導航…〕）', () => {
     for (const s of SYNTHESIS_SOURCES) expect(synthesisSource(synthesisCiteId(s.id))!.section).not.toMatch(/〔|編輯/);
