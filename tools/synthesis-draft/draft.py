@@ -30,6 +30,24 @@ PALACES = {
     '子女': dict(part='children', prefix='children', label='子女宮', chapter='家人', annual='zinv'),
 }
 BATCHES = [['紫微', '天機', '太陽', '武曲'], ['天同', '廉貞', '天府', '太陰', '貪狼'], ['巨門', '天相', '天梁', '七殺', '破軍']]
+# 非官祿宮嘅 yearClaim 規則（官祿嗰份嘅例子係事業事件，唔啱用）
+YEAR_COMMON = """- 一生次數（「一生至少一次」）、時序（「晚年」「遲婚」）、性格、才能、適合度 → yearClaim 寫 null。
+- yearClaim 唔可以用「必」「決」「一定」「最」。
+"""
+YEAR = {
+    '夫妻': """## 額外欄位 yearClaim（一定要有）
+- 如果呢個判斷係**感情上嘅狀況**（例如爭執、冷淡、聚少離多、第三者干擾、感情受外人影響），寫一句「今年…」嘅一年內講法，例如 claim「夫妻之間易生口角」→ yearClaim「今年感情上較易有口角」。
+- 講**配偶本人**（性格、年紀、外貌、出身）→ null。
+- 講**離婚、再婚、生離死別、刑剋**嘅 → 一律 null（唔可以寫成「今年要防離婚」）。
+""" + YEAR_COMMON,
+    '疾厄': """## 額外欄位 yearClaim（一定要有）
+- 如果呢個判斷係**身體某方面較弱、易有某類毛病**，寫一句「今年要多留意…」嘅一年內講法，例如 claim「易有腸胃毛病」→ yearClaim「今年要多留意腸胃」。
+- 講**重病、絕症、開刀、意外、血光、死亡、壽元**嘅 → 一律 null。
+- yearClaim 只可以講「留意」，唔可以講「會病」「會發作」。
+""" + YEAR_COMMON,
+}
+# yearClaim 一律唔收嘅字（離婚、重病、意外之類唔可以寫成一年講法）
+YEAR_BAN = re.compile(r'離婚|离婚|再婚|分手|離異|生離|死別|刑剋|刑克|開刀|开刀|手術|手术|血光|意外|死亡|壽|寿|絕症|癌|流產|流产|小產')
 LIFETIME = re.compile(r'一生|至少有?一次|終生|终生|晚年|中年|早年')
 
 
@@ -50,6 +68,8 @@ def spec_for(palace):
                  ('星坐本命事業宮', f'星坐本命{c["label"]}'), ('你要寫嘅係事業宮', f'你要寫嘅係{c["label"]}'),
                  ('tmp/synth-draft/examples.json', 'tools/synthesis-draft/examples.json')]:
         s = s.replace(a, b)
+    if palace in YEAR:
+        s = s[:s.index('## 額外欄位 yearClaim')] + YEAR[palace]
     return s
 
 
@@ -103,7 +123,7 @@ def merge(palace):
     year = {}
     for x, _ in good:
         yc = x.pop('yearClaim', None)
-        if yc and not LIFETIME.search(x['quote'] + x['claim']):
+        if yc and not LIFETIME.search(x['quote'] + x['claim']) and not YEAR_BAN.search(yc + x['claim']):
             year[x['id']] = yc
     C['cards'] += [x for x, _ in good if x['id'] not in have]
     cache = {}

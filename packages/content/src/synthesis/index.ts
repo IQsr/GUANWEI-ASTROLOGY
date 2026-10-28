@@ -24,6 +24,8 @@ import rawCards from './cards.json';
 import rawSources from './sources.json';
 import rawAnnualCai from './annual-cai.json';
 import rawAnnualGuan from './annual-guan.json';
+import rawAnnualFuqi from './annual-fuqi.json';
+import rawAnnualJie from './annual-jie.json';
 
 export const SYNTHESIS_VERSION = 'synthesis-v1';
 export const synthesisCiteId = (block: string) => `syn.v1:${block}`;
@@ -53,7 +55,7 @@ const PalaceRefSchema = z.object({ name: z.string(), layer: z.string().optional(
 const Layer = z.enum(['natal', 'decade', 'annual']);
 export const SynthesisCard = z.object({
   id: z.string().regex(/^syn(\.[a-z0-9-]+){2,3}$/),
-  chapter: z.enum(['錢', '今年', '事業']),
+  chapter: z.enum(['錢', '今年', '事業', '感情', '健康']),
   /** 同一個因素嘅卡一組；裁決時專條（system）壓通則（general）。 */
   group: z.string(),
   specificity: z.enum(['general', 'system']),
@@ -381,23 +383,28 @@ export function synthYearHits(chart: Chart, year: number, layer: 'annual' | 'dec
  * 深造 p.334、p.433：運限宮位係對本命本質嘅反應，所以段首先講本命財帛。強度一律提示。
  */
 
-/** 卡條件入面嘅財帛／官祿宮改成流年層；星曜四化、得祿接受本命或者流年。 */
+/** 卡條件入面嘅財帛／官祿／夫妻／疾厄宮改成流年層；星曜四化、得祿接受本命或者流年。 */
+const ANNUAL_NAMES = new Set(['財帛', '官祿', '夫妻', '疾厄']);
 function toAnnual(x: unknown): unknown {
   if (Array.isArray(x)) return x.map(toAnnual);
   if (!x || typeof x !== 'object') return x;
   const o = Object.fromEntries(Object.entries(x).map(([k, v]) => [k, toAnnual(v)])) as Record<string, unknown>;
-  if ((o.name === '財帛' || o.name === '官祿') && o.layer === undefined) return { ...o, layer: 'annual' };
+  if (ANNUAL_NAMES.has(o.name as string) && o.layer === undefined) return { ...o, layer: 'annual' };
   if (('hua' in o || 'deLu' in o) && o.layer === undefined) return { any: [o, { ...o, layer: 'annual' }] };
   return o;
 }
 
-type AnnualPalace = { palace: '財帛' | '官祿'; label: string; chapter: '錢' | '事業'; idFrom: string; idTo: string;
+type AnnualPalace = { palace: '財帛' | '官祿' | '夫妻' | '疾厄'; label: string; chapter: '錢' | '事業' | '感情' | '健康'; idFrom: string; idTo: string;
   claims: Record<string, string>; slot: string; method: string; methodNote: string };
 const ANNUAL_PALACES: AnnualPalace[] = [
   { palace: '財帛', label: '財帛宮', chapter: '錢', idFrom: 'syn.wealth.', idTo: 'syn.cai-year.', claims: (rawAnnualCai as { cards: Record<string, string> }).cards,
     slot: '今年的錢', method: 'wtz.deep.p433.b003', methodNote: '方法：深造 p.433、p.334；初階轉錄第7篇「45、流年太歲」、第23篇田宅宮、第24篇福德宮篇首' },
   { palace: '官祿', label: '事業宮', chapter: '事業', idFrom: 'syn.career.', idTo: 'syn.guan-year.', claims: (rawAnnualGuan as { cards: Record<string, string> }).cards,
     slot: '今年的工作', method: 'wtz.deep.p334.b002', methodNote: '方法：深造 p.334；初階轉錄第7篇「45、流年太歲」、第22篇事業宮篇首、第23篇田宅宮' },
+  { palace: '夫妻', label: '夫妻宮', chapter: '感情', idFrom: 'syn.spouse.', idTo: 'syn.fuqi-year.', claims: (rawAnnualFuqi as { cards: Record<string, string> }).cards,
+    slot: '今年的感情', method: 'wtz.deep.p334.b002', methodNote: '方法：深造 p.334；初階轉錄第7篇「45、流年太歲」、第9篇「４、根據宮位元的觀察，追查運限」（流年夫妻宮例）' },
+  { palace: '疾厄', label: '疾厄宮', chapter: '健康', idFrom: 'syn.health.', idTo: 'syn.jie-year.', claims: (rawAnnualJie as { cards: Record<string, string> }).cards,
+    slot: '今年的身體', method: 'wtz.deep.p477.b011', methodNote: '方法：深造 p.477（疾厄星系「無論流年、大限、天盤，皆主克應」，仍須注意疾厄宮之本質）、p.334；初階轉錄第7篇「45、流年太歲」、第23篇田宅宮' },
 ];
 
 const annualCards = (cfg: AnnualPalace): SynthesisCard[] => SYNTHESIS_CARDS.flatMap((c) => {
@@ -421,7 +428,7 @@ function natalBase(chart: Chart, cfg: AnnualPalace): string | undefined {
     .flatMap((c) => { const h = matchCard(c, 'natal', { chart }); return h ? [h] : []; })).sort(byStrength)[0]?.claim;
 }
 
-/** 今年嘅錢／工作：流年財帛或官祿宮嘅判斷（最多兩個），段首先講本命嗰宮嘅底子。 */
+/** 今年嘅錢／工作／感情／身體：流年財帛、官祿、夫妻或疾厄宮嘅判斷（最多兩個），段首先講本命嗰宮嘅底子。 */
 function annualPalaceSegment(ctx: Ctx, cfg: AnnualPalace): SynthesisSegment | null {
   const p = palaceAt(ctx, cfg.palace, 'annual');
   const natal = ctx.chart.palaces.find((q) => q.name === cfg.palace);

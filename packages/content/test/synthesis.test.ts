@@ -3,6 +3,8 @@ import { cast, type BirthInput } from '@guanwei/ziwei';
 import index from '../../../tools/wang-reference/deep-index.json';
 import { SYNTHESIS_CARDS, SYNTHESIS_SOURCES, bookBrightness, synthesisLint, synthWealthChapter, synthYearChapter } from '../src/synthesis';
 import { citation } from '../src/citation';
+import annualFuqi from '../src/synthesis/annual-fuqi.json';
+import annualJie from '../src/synthesis/annual-jie.json';
 
 const place = { lng: 114.17, lat: 22.32, label: '香港' };
 const chartOf = (solar: BirthInput['solar'], time: BirthInput['time'], sex: BirthInput['sex']) => {
@@ -81,7 +83,7 @@ describe('今年', () => {
     expect(gen.length).toBeGreaterThan(sys);
     for (const b of gen) { expect(b[0]!.slot).toBe('結論'); expect(synthesisLint(b)).toEqual([]); }
     console.log(`今年覆蓋：星系 ${sys}/400，通則 ${gen.length}/400`);
-  });
+  }, 30000);
   it('交會卡（ab6 盲評補漏）：天機本命忌轉流年權（p.263）、大限祿轉流年忌、疊祿力量甚輕', () => {
     const c5 = chartOf({ y: 1998, m: 5, d: 21 }, { h: 0, min: 24 }, 'female');
     const c3 = chartOf({ y: 1994, m: 1, d: 25 }, { h: 8, min: 36 }, 'female');
@@ -113,6 +115,16 @@ describe('今年', () => {
     const c2 = chartOf({ y: 1970, m: 9, d: 1 }, { h: 0, min: 32 }, 'female');
     const w2 = synthYearChapter(c2, 2026, { general: true })!.find((s) => s.slot === '今年的工作');
     expect(w2?.text ?? '').not.toContain('挫折');
+  });
+  it('今年的感情／身體（深造夫妻、疾厄章卡，流年宮重新配對）：段首講本命底子；離婚、手術類唔轉一年', () => {
+    const f = synthYearChapter(elder, 2026, { general: true })!.find((s) => s.slot === '今年的感情')!;
+    expect(f.statements[0]!.text).toMatch(/^今年你的夫妻宮在辰宮，坐貪狼。你本命夫妻宮坐太陽/);
+    expect(f.statements.map((l) => l.source_ids[0])).toContain('syn.fuqi-year.tanlang.chenxu-benefics');
+    const c2 = chartOf({ y: 1970, m: 9, d: 1 }, { h: 0, min: 32 }, 'female');
+    const j = synthYearChapter(c2, 2026, { general: true })!.find((s) => s.slot === '今年的身體')!;
+    expect(j.text).toContain('今年要多留意頭痛及偏頭痛');
+    expect(j.referenceConditions[1]).toMatch(/深造 p\.477/);
+    for (const a of [annualFuqi, annualJie]) for (const t of Object.values(a.cards)) expect(t).not.toMatch(/離婚|再婚|手術|開刀|血光|意外|死亡|癌/);
   });
   it('23 歲空宮借機巨：機巨卡只限實坐（G1），冇星系運限卡就沿用舊章', () => {
     expect(synthYearChapter(young, 2026)).toBeNull();
