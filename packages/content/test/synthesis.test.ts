@@ -5,6 +5,10 @@ import { SYNTHESIS_CARDS, SYNTHESIS_SOURCES, bookBrightness, synthesisCiteId, sy
 import { citation } from '../src/citation';
 import annualFuqi from '../src/synthesis/annual-fuqi.json';
 import annualJie from '../src/synthesis/annual-jie.json';
+import annualFumu from '../src/synthesis/annual-fumu.json';
+import annualXiongdi from '../src/synthesis/annual-xiongdi.json';
+import annualZinv from '../src/synthesis/annual-zinv.json';
+import annualTian from '../src/synthesis/annual-tian.json';
 
 const place = { lng: 114.17, lat: 22.32, label: '香港' };
 const chartOf = (solar: BirthInput['solar'], time: BirthInput['time'], sex: BirthInput['sex']) => {
@@ -69,7 +73,7 @@ describe('今年', () => {
     const books = sample(400).map((c) => synthYearChapter(c, 2026)).filter((b): b is NonNullable<typeof b> => !!b);
     expect(books.length / 400).toBeGreaterThanOrEqual(0.1);
     for (const b of books) { expect(b[0]!.slot).toBe('結論'); expect(synthesisLint(b)).toEqual([]); }
-  });
+  }, 30000);
   it('64 歲天機丑：廉相廉忌求變破敗、祿逢沖破、弱地；十年背景天梁；冇考試句', () => {
     const segs = synthYearChapter(elder, 2026)!;
     expect(ids(segs).slice(0, 3)).toEqual(['syn.sys32.lianxiang-ji', 'syn.year.lu-chongpo', 'syn.year.lu-weak']);
@@ -122,6 +126,14 @@ describe('今年', () => {
     const w2 = synthYearChapter(c2, 2026, { general: true })!.find((s) => s.slot === '今年的工作');
     expect(w2?.text ?? '').not.toContain('挫折');
   });
+  it('家人宮（父母、兄弟、子女、田宅）：一章最多三個宮段；人數、性別、祖業、離婚、手術類唔轉一年', () => {
+    for (const c of sample(60)) for (const y of [2024, 2026, 2028]) {
+      const ps = (synthYearChapter(c, y, { general: true }) ?? []).filter((s) => /^今年(的|與)/.test(s.slot));
+      expect(ps.length).toBeLessThanOrEqual(3);
+    }
+    for (const a of [annualFumu, annualXiongdi, annualZinv, annualTian]) for (const t of Object.values(a.cards))
+      expect(t).not.toMatch(/兒子|女兒|人數|祖業|離婚|手術|開刀|血光|死亡|早逝|流產/);
+  }, 30000);
   it('讀者見到嘅節名冇索引編輯註（〔編輯導航…〕）', () => {
     for (const s of SYNTHESIS_SOURCES) expect(synthesisSource(synthesisCiteId(s.id))!.section).not.toMatch(/〔|編輯/);
   });

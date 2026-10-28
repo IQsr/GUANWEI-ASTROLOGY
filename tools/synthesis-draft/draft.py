@@ -23,11 +23,11 @@ PALACES = {
     '疾厄': dict(part='health', prefix='health', label='疾厄宮', chapter='健康', annual='jie'),
     '遷移': dict(part='travel', prefix='travel', label='遷移宮', chapter='遷移', annual='qian'),
     '僕役': dict(part='friends', prefix='friends', label='交友宮', chapter='交友', annual='puyi'),
-    '田宅': dict(part='property', prefix='property', label='田宅宮', chapter='家人', annual='tian'),
+    '田宅': dict(part='property', prefix='property', label='田宅宮', chapter='田宅', annual='tian'),
     '福德': dict(part='wellbeing', prefix='wellbeing', label='福德宮', chapter='心境', annual='fude'),
-    '父母': dict(part='parents', prefix='parents', label='父母宮', chapter='家人', annual='fumu'),
-    '兄弟': dict(part='siblings', prefix='siblings', label='兄弟宮', chapter='家人', annual='xiongdi'),
-    '子女': dict(part='children', prefix='children', label='子女宮', chapter='家人', annual='zinv'),
+    '父母': dict(part='parents', prefix='parents', label='父母宮', chapter='父母', annual='fumu'),
+    '兄弟': dict(part='siblings', prefix='siblings', label='兄弟宮', chapter='兄弟', annual='xiongdi'),
+    '子女': dict(part='children', prefix='children', label='子女宮', chapter='子女', annual='zinv'),
 }
 BATCHES = [['紫微', '天機', '太陽', '武曲'], ['天同', '廉貞', '天府', '太陰', '貪狼'], ['巨門', '天相', '天梁', '七殺', '破軍']]
 # 非官祿宮嘅 yearClaim 規則（官祿嗰份嘅例子係事業事件，唔啱用）
@@ -45,9 +45,25 @@ YEAR = {
 - 講**重病、絕症、開刀、意外、血光、死亡、壽元**嘅 → 一律 null。
 - yearClaim 只可以講「留意」，唔可以講「會病」「會發作」。
 """ + YEAR_COMMON,
+    '父母': """## 額外欄位 yearClaim（一定要有）
+- 如果呢個判斷係**同長輩、上司、父母相處嘅狀況**（例如易有意見不合、得到提攜、關係疏離），寫一句「今年…」嘅一年內講法，例如 claim「與上司易生意見」→ yearClaim「今年與上司、長輩較易意見不合」。
+- 講**父母本人**（性格、出身、壽元、健康、早逝、刑剋、離異）→ 一律 null。
+""" + YEAR_COMMON,
+    '兄弟': """## 額外欄位 yearClaim（一定要有）
+- 如果呢個判斷係**同兄弟姊妹、平輩朋友、合作夥伴相處嘅狀況**（例如合作易生糾紛、得到助力、因財不和），寫一句「今年…」嘅一年內講法，例如 claim「與兄弟易因財不和」→ yearClaim「今年與兄弟姊妹或合作夥伴較易因錢不和」。
+- 講**兄弟姊妹人數、排行、本人性格、刑剋**→ 一律 null。
+""" + YEAR_COMMON,
+    '子女': """## 額外欄位 yearClaim（一定要有）
+- 如果呢個判斷係**同子女、後輩、下屬嘅相處狀況**（例如易有隔膜、子女難管教、後輩得力），寫一句「今年…」嘅一年內講法，而且要寫成條件句：「今年如有子女或帶後輩，…」。
+- 講**子女人數、生男生女、得子遲早、流產、刑剋、子女本人性格**→ 一律 null。
+""" + YEAR_COMMON,
+    '田宅': """## 額外欄位 yearClaim（一定要有）
+- 如果呢個判斷係**家居、物業、家庭環境嘅狀況**（例如易有搬遷、家宅不寧、置業有阻、破耗祖業），寫一句「今年…」嘅一年內講法，例如 claim「家宅多變動」→ yearClaim「今年家居、物業上較多變動」。
+- 講**一生置業多少、祖業有無**→ null。
+""" + YEAR_COMMON,
 }
 # yearClaim 一律唔收嘅字（離婚、重病、意外之類唔可以寫成一年講法）
-YEAR_BAN = re.compile(r'離婚|离婚|再婚|分手|離異|生離|死別|刑剋|刑克|開刀|开刀|手術|手术|血光|意外|死亡|壽|寿|絕症|癌|流產|流产|小產')
+YEAR_BAN = re.compile(r'早逝|刑傷|生男|生女|離婚|离婚|再婚|分手|離異|生離|死別|刑剋|刑克|開刀|开刀|手術|手术|血光|意外|死亡|壽|寿|絕症|癌|流產|流产|小產')
 LIFETIME = re.compile(r'一生|至少有?一次|終生|终生|晚年|中年|早年')
 
 
