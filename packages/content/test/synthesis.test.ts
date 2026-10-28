@@ -131,6 +131,12 @@ describe('今年', () => {
     for (const c of sample(60)) for (const y of [2024, 2026, 2028]) {
       const ps = (synthYearChapter(c, y, { general: true }) ?? []).filter((s) => /^今年(的|與)/.test(s.slot));
       expect(ps.length).toBeLessThanOrEqual(3);
+      // 盲評 ab9：冇底子唔寫過橋句；「或」入面嘅化唔改成本命化；唔假設有物業、下屬
+      for (const s of ps) {
+        expect(s.text).not.toMatch(/或本命化/);
+        if (s.text.includes('底子上的變化')) expect(s.text).toContain('底子是');
+        expect(s.text).not.toMatch(/今年你的(產業|下屬)/);
+      }
     }
     for (const a of [annualFumu, annualXiongdi, annualZinv, annualTian, annualFude]) for (const t of Object.values(a.cards))
       expect(t).not.toMatch(/兒子|女兒|人數|祖業|離婚|手術|開刀|血光|死亡|早逝|流產|畸戀/);
@@ -139,9 +145,9 @@ describe('今年', () => {
     for (const s of SYNTHESIS_SOURCES) expect(synthesisSource(synthesisCiteId(s.id))!.section).not.toMatch(/〔|編輯/);
   });
   it('今年的感情／身體（深造夫妻、疾厄章卡，流年宮重新配對）：段首講本命底子；離婚、手術類唔轉一年', () => {
-    const f = synthYearChapter(elder, 2026, { general: true })!.find((s) => s.slot === '今年的感情')!;
-    expect(f.statements[0]!.text).toMatch(/^今年你的夫妻宮在辰宮，坐貪狼。你本命夫妻宮坐太陽/);
-    expect(f.statements.map((l) => l.source_ids[0])).toContain('syn.fuqi-year.tanlang.chenxu-benefics');
+    // 盲評 ab9：辰宮貪狼本命化忌，「辰戌貪狼見吉」嘅吉卡冇考慮忌，唔出
+    const f = synthYearChapter(elder, 2026, { general: true })!.find((s) => s.slot === '今年的感情');
+    expect(f?.statements.map((l) => l.source_ids[0]) ?? []).not.toContain('syn.fuqi-year.tanlang.chenxu-benefics');
     const c2 = chartOf({ y: 1970, m: 9, d: 1 }, { h: 0, min: 32 }, 'female');
     const j = synthYearChapter(c2, 2026, { general: true })!.find((s) => s.slot === '今年的身體')!;
     expect(j.text).toContain('今年要多留意頭痛及偏頭痛');

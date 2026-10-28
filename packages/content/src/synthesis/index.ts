@@ -473,6 +473,25 @@ function huaAtoms(x: unknown, out: { star: string; hua: string }[] = []): { star
 }
 const NATAL_CARD = new Map(SYNTHESIS_CARDS.map((c) => [c.id, c]));
 
+const SHA = ['擎羊', '陀羅', '火星', '鈴星', '地空', '地劫'];
+/** 吉卡冇講到、但宮內實有嘅反向條件：主星帶化忌（本命或流年），或者三方四正見兩粒以上煞而卡冇提煞。 */
+function opposed(ctx: Ctx, p: Chart['palaces'][number], card: SynthesisCard): boolean {
+  const text = JSON.stringify([card.when, card.requires, card.none, card.quote]);
+  const ji = majors(p).some((s) => s.sihua === '忌' || ctx.annual?.sihua.annual.some((y) => y.hua === '忌' && y.star === s.name));
+  if (ji && !text.includes('忌')) return true;
+  const i = BRANCHES.indexOf(p.branch);
+  const four = [0, 4, 6, 8].map((d) => BRANCHES[(i + d) % 12]!);
+  const sha = ctx.chart.palaces.filter((q) => four.includes(q.branch)).flatMap((q) => q.stars).filter((s) => SHA.includes(s.name)).length;
+  return sha >= 2 && !text.includes('煞') && !SHA.some((s) => text.includes(s)) && !/[羊陀火鈴空劫]/.test(card.quote);
+}
+
+/** 盲評 ab9：唔假設讀者有物業、有下屬。 */
+function forReader(cfg: AnnualPalace, s: string): string {
+  if (cfg.palace === '田宅') return s.replace(/^(今年)?你的產業/, '$1如有物業，產業');
+  if (cfg.palace === '僕役' || cfg.palace === '子女') return s.replace(/^(今年)?你的下屬/, '$1如有下屬，下屬');
+  return s;
+}
+
 /** 今年嘅錢／工作／感情／身體：流年財帛、官祿、夫妻或疾厄宮嘅判斷（最多兩個），段首先講本命嗰宮嘅底子。 */
 function annualPalaceSegment(ctx: Ctx, cfg: AnnualPalace, said: string): { seg: SynthesisSegment; specific: number } | null {
   const p = palaceAt(ctx, cfg.palace, 'annual');
@@ -490,19 +509,24 @@ function annualPalaceSegment(ctx: Ctx, cfg: AnnualPalace, said: string): { seg: 
       let because = j.because;
       for (const h of natalOnly) {
         const k = because.indexOf(`化${h.hua}`, Math.max(0, because.indexOf(h.star)));
-        because = k >= 0 ? `${because.slice(0, k)}本命化${h.hua}${because.slice(k + 2)}` : `${because}${h.star}化${h.hua}是本命帶來的。`;
+        // 「化祿或化權」入面嘅一粒唔好改成「化祿或本命化權」，句尾補一句
+        const alt = k >= 0 && (because[k - 1] === '或' || because.slice(k + 2, k + 3) === '或');
+        because = k >= 0 && !alt ? `${because.slice(0, k)}本命化${h.hua}${because.slice(k + 2)}` : `${because}${h.star}化${h.hua}是本命帶來的。`;
       }
       return [{ ...j, because }];
-    }).slice(0, 2);
+    })
+    // 盲評 ab9：宮內有卡冇考慮嘅反向條件（主星帶忌、三方四正見兩粒以上煞）就唔出吉句，免得淨揀好嗰面
+    .filter((j) => j.card.polarity !== '吉' || !opposed(ctx, p, j.card))
+    .slice(0, 2);
   if (!js.length) return null;
   const names = (q: typeof p) => majors(q).map((s) => s.name).join('、');
   const base = natalBase(ctx.chart, cfg);
   const lead = `今年你的${cfg.label}在${p.branch}宮，${seated ? `坐${names(p)}` : '是空宮'}。`
-    + (majors(natal).length ? `你本命${cfg.label}坐${names(natal)}${base ? `，底子是：${base.text.replace(/。$/, '')}` : ''}；今年是在這個底子上的變化。` : '');
+    + (majors(natal).length ? `你本命${cfg.label}坐${names(natal)}${base ? `，底子是：${forReader(cfg, base.text).replace(/。$/, '')}；今年是在這個底子上的變化。` : '。'}` : '');
   const statements: MingStatement[] = [
     { text: lead, en: '', kind: 'editorial-explanation', source_ids: [`${cfg.idTo}lead`], citations: [...(base?.citations ?? []), synthesisCiteId(cfg.method)] },
     ...js.flatMap((j): MingStatement[] => [
-      { text: j.claim, en: '', kind: 'interpretation', source_ids: [j.card.id], citations: [synthesisCiteId(j.card.source)] },
+      { text: forReader(cfg, j.claim), en: '', kind: 'interpretation', source_ids: [j.card.id], citations: [synthesisCiteId(j.card.source)] },
       { text: j.because, en: '', kind: 'evidence', source_ids: [j.card.id], citations: [] },
     ]),
   ];
