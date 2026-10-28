@@ -34,7 +34,11 @@ export const synthesisCiteId = (block: string) => `syn.v1:${block}`;
 
 export type SynthesisSource = { id: string; sha256: string; page: number; section: string; excerpt: string };
 const SOURCES = new Map(Object.values((rawSources as { sources: Record<string, SynthesisSource> }).sources).map((s) => [synthesisCiteId(s.id), s]));
-export const synthesisSource = (citeId: string) => SOURCES.get(citeId) ?? null;
+/** 讀者見到嘅節名：刪走索引加嘅〔編輯導航…〕〔原提取序號…〕註（2026-10-28 盲評 ab8：唔可以出現喺付費正文）。 */
+export const synthesisSource = (citeId: string): SynthesisSource | null => {
+  const s = SOURCES.get(citeId);
+  return s ? { ...s, section: s.section.replace(/〔[^〕]*〕/g, '').trim() } : null;
+};
 export const SYNTHESIS_SOURCES = [...SOURCES.values()];
 
 /* ── 廟陷（G2）────────────────────────────────────────
@@ -418,31 +422,60 @@ const annualCards = (cfg: AnnualPalace): SynthesisCard[] => SYNTHESIS_CARDS.flat
 });
 const ANNUAL_CARDS = new Map(ANNUAL_PALACES.map((cfg) => [cfg.palace, annualCards(cfg)]));
 
-/** 本命嗰宮嘅底子：本命卡第一個判斷。 */
-function natalBase(chart: Chart, cfg: AnnualPalace): string | undefined {
-  if (cfg.chapter === '錢') return synthWealthChapter(chart)?.[0]?.statements[0]?.text;
+/** 本命嗰宮嘅底子：本命卡第一個判斷，連埋佢自己嘅出處。 */
+function natalBase(chart: Chart, cfg: AnnualPalace): { text: string; citations: string[] } | undefined {
+  if (cfg.chapter === '錢') {
+    const st = synthWealthChapter(chart)?.[0]?.statements[0];
+    return st ? { text: st.text, citations: st.citations } : undefined;
+  }
   const p = chart.palaces.find((q) => q.name === cfg.palace);
   if (!p) return undefined;
   const seated = majors(p).length > 0;
-  return resolve(SYNTHESIS_CARDS.filter((c) => c.chapter === cfg.chapter && !(c.seat === 'seated' && !seated) && !(c.seat === 'borrowed' && seated))
-    .flatMap((c) => { const h = matchCard(c, 'natal', { chart }); return h ? [h] : []; })).sort(byStrength)[0]?.claim;
+  const j = resolve(SYNTHESIS_CARDS.filter((c) => c.chapter === cfg.chapter && !(c.seat === 'seated' && !seated) && !(c.seat === 'borrowed' && seated))
+    .flatMap((c) => { const h = matchCard(c, 'natal', { chart }); return h ? [h] : []; })).sort(byStrength)[0];
+  return j ? { text: j.claim, citations: [synthesisCiteId(j.card.source)] } : undefined;
 }
 
+/** 卡條件入面嘅 {star, hua}（冇寫層 = 流年版本命、流年都收）。 */
+function huaAtoms(x: unknown, out: { star: string; hua: string }[] = []): { star: string; hua: string }[] {
+  if (Array.isArray(x)) x.forEach((y) => huaAtoms(y, out));
+  else if (x && typeof x === 'object') {
+    const o = x as Record<string, unknown>;
+    if (typeof o.star === 'string' && typeof o.hua === 'string' && o.layer === undefined) out.push({ star: o.star, hua: o.hua });
+    Object.values(o).forEach((v) => huaAtoms(v, out));
+  }
+  return out;
+}
+const NATAL_CARD = new Map(SYNTHESIS_CARDS.map((c) => [c.id, c]));
+
 /** 今年嘅錢／工作／感情／身體：流年財帛、官祿、夫妻或疾厄宮嘅判斷（最多兩個），段首先講本命嗰宮嘅底子。 */
-function annualPalaceSegment(ctx: Ctx, cfg: AnnualPalace): SynthesisSegment | null {
+function annualPalaceSegment(ctx: Ctx, cfg: AnnualPalace, said: string): SynthesisSegment | null {
   const p = palaceAt(ctx, cfg.palace, 'annual');
   const natal = ctx.chart.palaces.find((q) => q.name === cfg.palace);
   if (!p || !natal) return null;
   const seated = majors(p).length > 0;
   const js = resolve(ANNUAL_CARDS.get(cfg.palace)!.filter((c) => !(c.seat === 'seated' && !seated) && !(c.seat === 'borrowed' && seated))
-    .flatMap((c) => { const h = matchCard(c, 'annual', ctx); return h ? [h] : []; })).sort(byStrength).slice(0, 2);
+    .flatMap((c) => { const h = matchCard(c, 'annual', ctx); return h ? [h] : []; })).sort(byStrength)
+    // 盲評 ab8：本命化曜坐今年宮，要講明係本命；前面四化段已經講咗「本命某星化某」就唔再重講
+    .flatMap((j) => {
+      const natalOnly = huaAtoms(NATAL_CARD.get(j.card.id.replace(cfg.idTo, cfg.idFrom)))
+        .filter((h) => ctx.annual?.sihua.natal.some((y) => y.star === h.star && y.hua === h.hua)
+          && !ctx.annual.sihua.annual.some((y) => y.star === h.star && y.hua === h.hua));
+      if (natalOnly.some((h) => said.includes(`本命${h.star}化${h.hua}`))) return [];
+      let because = j.because;
+      for (const h of natalOnly) {
+        const k = because.indexOf(`化${h.hua}`, Math.max(0, because.indexOf(h.star)));
+        because = k >= 0 ? `${because.slice(0, k)}本命化${h.hua}${because.slice(k + 2)}` : `${because}${h.star}化${h.hua}是本命帶來的。`;
+      }
+      return [{ ...j, because }];
+    }).slice(0, 2);
   if (!js.length) return null;
   const names = (q: typeof p) => majors(q).map((s) => s.name).join('、');
   const base = natalBase(ctx.chart, cfg);
   const lead = `今年你的${cfg.label}在${p.branch}宮，${seated ? `坐${names(p)}` : '是空宮'}。`
-    + (majors(natal).length ? `你本命${cfg.label}坐${names(natal)}${base ? `，底子是：${base.replace(/。$/, '')}` : ''}；今年是在這個底子上的變化。` : '');
+    + (majors(natal).length ? `你本命${cfg.label}坐${names(natal)}${base ? `，底子是：${base.text.replace(/。$/, '')}` : ''}；今年是在這個底子上的變化。` : '');
   const statements: MingStatement[] = [
-    { text: lead, en: '', kind: 'editorial-explanation', source_ids: [`${cfg.idTo}lead`], citations: [synthesisCiteId(cfg.method)] },
+    { text: lead, en: '', kind: 'editorial-explanation', source_ids: [`${cfg.idTo}lead`], citations: [...(base?.citations ?? []), synthesisCiteId(cfg.method)] },
     ...js.flatMap((j): MingStatement[] => [
       { text: j.claim, en: '', kind: 'interpretation', source_ids: [j.card.id], citations: [synthesisCiteId(j.card.source)] },
       { text: j.because, en: '', kind: 'evidence', source_ids: [j.card.id], citations: [] },
@@ -451,7 +484,10 @@ function annualPalaceSegment(ctx: Ctx, cfg: AnnualPalace): SynthesisSegment | nu
   return { slot: cfg.slot, heading: cfg.slot, text: statements.map((l) => l.text).join(''), statements,
     referenceConditions: ['判斷強度：提示', cfg.methodNote, ...js.map((j) => `原文：「${j.card.quote}」`)] };
 }
-const annualPalaceSegments = (ctx: Ctx) => ANNUAL_PALACES.flatMap((cfg) => { const x = annualPalaceSegment(ctx, cfg); return x ? [x] : []; });
+const annualPalaceSegments = (ctx: Ctx, prior: SynthesisSegment[]) => {
+  const said = prior.map((x) => x.text).join('');
+  return ANNUAL_PALACES.flatMap((cfg) => { const x = annualPalaceSegment(ctx, cfg, said); return x ? [x] : []; });
+};
 
 /* ── 權衡（2026-10-28 盲評 ab7：同一粒流年化祿嘅好壞判斷要併埋一段講）── */
 
@@ -514,7 +550,8 @@ export function synthYearChapter(chart: Chart, year: number, opts: { general?: b
     if (!opts.general) return null;
     const more = all.slice(0, 4);
     if (more.length < 2) return null;
-    return [...more.map((j, i) => segmentOf(j, i === 0 ? '結論' : '展開')), ...annualPalaceSegments(ctx)];
+    const head = more.map((j, i) => segmentOf(j, i === 0 ? '結論' : '展開'));
+    return [...head, ...annualPalaceSegments(ctx, head)];
   }
   // 這十年背景：第一個判斷；有相反極性嘅判斷就一齊出（吉凶並見唔可以只報一邊）
   const decade = decades[0];
@@ -526,7 +563,7 @@ export function synthYearChapter(chart: Chart, year: number, opts: { general?: b
     ? [...now.map((j, i) => segmentOf(j, i === 0 ? '結論' : '展開')), ...ten.map((j, i) => segmentOf(j, '背景', i === 0 ? '這十年' : undefined))]
     : [...ten.map((j, i) => segmentOf(j, i === 0 ? '結論' : '背景', i === 0 ? '這十年' : undefined)), ...now.map((j) => segmentOf(j, '展開'))];
   const bg = segs.findIndex((x) => x.slot === '背景');
-  segs.splice(bg < 0 || !annualLead ? segs.length : bg, 0, ...annualPalaceSegments(ctx));
+  segs.splice(bg < 0 || !annualLead ? segs.length : bg, 0, ...annualPalaceSegments(ctx, segs));
   const next = annualOf(chart, year + 1);
   if (next.ok) {
     const n = pick('annual', { chart, annual: next.value, age: next.value.nominalAge }).find((j) => j.card.system && j.card.id !== decade?.card.id && j.card.id !== other?.card.id);

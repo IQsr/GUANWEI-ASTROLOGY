@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { cast, type BirthInput } from '@guanwei/ziwei';
 import index from '../../../tools/wang-reference/deep-index.json';
-import { SYNTHESIS_CARDS, SYNTHESIS_SOURCES, bookBrightness, synthesisLint, synthWealthChapter, synthYearChapter } from '../src/synthesis';
+import { SYNTHESIS_CARDS, SYNTHESIS_SOURCES, bookBrightness, synthesisCiteId, synthesisLint, synthesisSource, synthWealthChapter, synthYearChapter } from '../src/synthesis';
 import { citation } from '../src/citation';
 import annualFuqi from '../src/synthesis/annual-fuqi.json';
 import annualJie from '../src/synthesis/annual-jie.json';
@@ -107,14 +107,23 @@ describe('今年', () => {
     expect(cai.statements.map((l) => l.source_ids[0])).toContain('syn.cai-year.tanlang.huoling-lu');
     expect(cai.referenceConditions[0]).toBe('判斷強度：提示');
   });
-  it('今年的工作（深造事業章卡，流年官祿重新配對）：本命天機化忌入流年官祿；一生次數類唔轉一年', () => {
+  it('今年的工作（深造事業章卡，流年官祿重新配對）：本命化曜講明係本命；四化段講過就唔重講；底子掛自己出處（盲評 ab8）', () => {
     const c5 = chartOf({ y: 1998, m: 5, d: 21 }, { h: 0, min: 24 }, 'female');
-    const w = synthYearChapter(c5, 2026, { general: true })!.find((s) => s.slot === '今年的工作')!;
-    expect(w.statements[0]!.text).toMatch(/^今年你的事業宮在戌宮，坐天機、天梁。你本命事業宮坐天相/);
-    expect(w.statements.map((l) => l.source_ids[0])).toContain('syn.guan-year.tianji.huaji-change');
+    const y5 = synthYearChapter(c5, 2026, { general: true })!;
+    expect(y5.map((s) => s.text).join('')).toContain('你本命天機化忌，今年天機化權');
+    expect(y5.find((s) => s.slot === '今年的工作')).toBeUndefined();
+    const c = chartOf({ y: 1993, m: 1, d: 1 }, { h: 8, min: 0 }, 'female');
+    const w = synthYearChapter(c, 2026, { general: true })!.find((s) => s.slot === '今年的工作')!;
+    expect(w.statements.map((l) => l.source_ids[0])).toContain('syn.guan-year.wuqu.huaji-capital');
+    expect(w.text).toContain('武曲本命化忌');
+    expect(w.statements[0]!.citations.length).toBe(2);
+    expect(w.statements[0]!.citations.at(-1)).toBe(synthesisCiteId('wtz.deep.p334.b002'));
     const c2 = chartOf({ y: 1970, m: 9, d: 1 }, { h: 0, min: 32 }, 'female');
     const w2 = synthYearChapter(c2, 2026, { general: true })!.find((s) => s.slot === '今年的工作');
     expect(w2?.text ?? '').not.toContain('挫折');
+  });
+  it('讀者見到嘅節名冇索引編輯註（〔編輯導航…〕）', () => {
+    for (const s of SYNTHESIS_SOURCES) expect(synthesisSource(synthesisCiteId(s.id))!.section).not.toMatch(/〔|編輯/);
   });
   it('今年的感情／身體（深造夫妻、疾厄章卡，流年宮重新配對）：段首講本命底子；離婚、手術類唔轉一年', () => {
     const f = synthYearChapter(elder, 2026, { general: true })!.find((s) => s.slot === '今年的感情')!;
