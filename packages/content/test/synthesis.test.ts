@@ -99,6 +99,12 @@ describe('今年', () => {
     expect(ids2).toContain('syn.year.yangtuo-jiaji');
     expect(ids2).not.toContain('syn.year.ji-lands');
   });
+  it('今年的錢（初階第7、23篇＋深造 p.433）：流年財帛寅宮火貪見祿存，段首先講本命財帛底子', () => {
+    const cai = synthYearChapter(young, 2026, { general: true })!.find((s) => s.slot === '今年的錢')!;
+    expect(cai.statements[0]!.text).toMatch(/^今年你的財帛宮在寅宮，坐貪狼。你本命財帛宮坐天梁/);
+    expect(cai.statements.map((l) => l.source_ids[0])).toContain('syn.cai-year.tanlang.huoling-lu');
+    expect(cai.referenceConditions[0]).toBe('判斷強度：提示');
+  });
   it('23 歲空宮借機巨：機巨卡只限實坐（G1），冇星系運限卡就沿用舊章', () => {
     expect(synthYearChapter(young, 2026)).toBeNull();
   });
