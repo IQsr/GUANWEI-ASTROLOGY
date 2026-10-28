@@ -136,6 +136,9 @@ describe('今年', () => {
         expect(s.text).not.toMatch(/或本命化/);
         if (s.text.includes('底子上的變化')) expect(s.text).toContain('底子是');
         expect(s.text).not.toMatch(/今年你的(產業|下屬)/);
+        // 2026-10-28 掃描：底子句唔出破相、手術、生離；理由句講盤上實況（化曜唔重複「本命」）
+        expect(s.statements[0]!.text.split('；')[0]).not.toMatch(/破相|手術|生離|意外(?!之財)|死別/);
+        expect(s.text).not.toMatch(/本命本命|化祿、化權或化科。|同宮或相對/);
       }
     }
     for (const a of [annualFumu, annualXiongdi, annualZinv, annualTian, annualFude]) for (const t of Object.values(a.cards))
