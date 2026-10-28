@@ -17676,6 +17676,133 @@
    "claim": "{period}有建立成果的機會，也可能成為發跡的契機。",
    "source": "wtz.deep.p217.b013",
    "quote": "天相会吉化(尤喜破军化禄、武曲化禄)，则尖刻者亦主有所创建，此时即应善自持盈保泰。而明断者即为发迹的机遇。"
+  },
+  {
+   "id": "syn.year.dec-lu-to-ji",
+   "group": "流年.祿轉忌",
+   "polarity": "凶",
+   "weight": "提",
+   "special": "decLuToJi",
+   "because": "這十年{star}化祿，今年{star}卻化忌。",
+   "claim": "今年和{palaceTopic}有關的錢，這十年原本靠{star}帶來的進財之力會減弱，也較容易因財惹麻煩。",
+   "source": "wtz.deep.p236.b002",
+   "quote": "所以可能因财而惹祸，或原来生财之力大减。",
+   "chapter": "今年",
+   "specificity": "general",
+   "seat": "both",
+   "layer": [
+    "annual"
+   ]
+  },
+  {
+   "id": "syn.year.dec-lu-chongpo",
+   "group": "流年.祿逢沖破",
+   "polarity": "凶",
+   "weight": "傾",
+   "special": "decLuChongPo",
+   "because": "{jiStar}化忌落在{jiBranch}宮，正沖{luStar}化祿所在的{luPalace}。",
+   "claim": "今年求財容易「吉處藏凶」：因求財反生意外，或者投入大而沒有回報。",
+   "advice": {
+    "text": "今年涉及{luTopic}的出錢、合夥，先小額、條款寫清楚再落實。",
+    "why": "大限、流年祿忌相沖"
+   },
+   "source": "wtz.deep.p236.b009",
+   "quote": "化禄最嫌为忌冲破，即古人所谓[禄逢冲破，吉处藏凶。一般情形下主因进财而生祸事。",
+   "chapter": "今年",
+   "specificity": "general",
+   "seat": "both",
+   "layer": [
+    "annual"
+   ]
+  },
+  {
+   "id": "syn.year.ji-to-quan-tianji",
+   "group": "流年.忌轉權",
+   "polarity": "凶",
+   "weight": "傾",
+   "special": "jiToQuanJi",
+   "because": "你本命天機化忌，今年天機化權。",
+   "claim": "今年在{palaceTopic}方面，容易主動去改一些不必改的東西，結果欲進反退。",
+   "advice": {
+    "text": "今年{palaceTopic}方面想作大改動時，先想清楚不改會怎樣，再決定。",
+    "why": "本命天機忌，流年轉權"
+   },
+   "source": "wtz.deep.p263.b010",
+   "quote": "在流年或大运之内，常常主动招惹不必要的改变，或主滥权弄权而惹麻烦。往往欲进反退，求荣得辱。",
+   "chapter": "今年",
+   "specificity": "general",
+   "seat": "both",
+   "layer": [
+    "annual"
+   ]
+  },
+  {
+   "id": "syn.year.ji-to-quan",
+   "group": "流年.忌轉權",
+   "polarity": "凶",
+   "weight": "傾",
+   "special": "jiToQuan",
+   "because": "你本命{star}化忌，今年{star}化權。",
+   "claim": "今年{palaceTopic}方面要防受人壓制，{star}化權在這裏不算喜事。",
+   "source": "wtz.deep.p237.b006",
+   "quote": "若原局化忌，忽在运限化为权星，则需防压制之力量]抬头，不为喜事。",
+   "chapter": "今年",
+   "specificity": "general",
+   "seat": "both",
+   "layer": [
+    "annual"
+   ]
+  },
+  {
+   "id": "syn.year.die-lu-dec",
+   "group": "流年.疊祿",
+   "polarity": "吉",
+   "weight": "傾",
+   "special": "dieLuDec",
+   "because": "今年{star}化祿，與{what}同宮或相對，成「疊祿」。",
+   "claim": "今年{star}化祿有{what}相疊，財源較順。",
+   "source": "wtz.deep.p431.b007",
+   "quote": "原局化禄或禄存，与大运化禄或禄存同度或相对，亦名『迭禄』，主财源顺遂。大运与流年亦可构成[迭禄]",
+   "chapter": "今年",
+   "specificity": "general",
+   "seat": "both",
+   "layer": [
+    "annual"
+   ]
+  },
+  {
+   "id": "syn.year.die-lu-natal",
+   "group": "流年.疊祿",
+   "polarity": "吉",
+   "weight": "提",
+   "special": "dieLuNatal",
+   "because": "今年{star}化祿，與{what}同宮或相對。",
+   "claim": "今年{star}化祿和{what}相疊，有些助力，但力量很輕，不宜因此估高今年的進財。",
+   "source": "wtz.deep.p431.b007",
+   "quote": "唯流年与原局构成之[迭禄]，则力量甚轻。",
+   "chapter": "今年",
+   "specificity": "general",
+   "seat": "both",
+   "layer": [
+    "annual"
+   ]
+  },
+  {
+   "id": "syn.year.ji-lands",
+   "group": "流年.化忌落點",
+   "polarity": "凶",
+   "weight": "提",
+   "special": "jiLands",
+   "because": "今年{star}化忌，落在{branch}宮。",
+   "claim": "今年{topics}方面，較多阻滯。",
+   "source": "wtz.deep.p235.b001",
+   "quote": "化忌一般意义为障碍。",
+   "chapter": "今年",
+   "specificity": "general",
+   "seat": "both",
+   "layer": [
+    "annual"
+   ]
   }
  ]
 }

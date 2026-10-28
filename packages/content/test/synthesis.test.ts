@@ -82,6 +82,12 @@ describe('今年', () => {
     for (const b of gen) { expect(b[0]!.slot).toBe('結論'); expect(synthesisLint(b)).toEqual([]); }
     console.log(`今年覆蓋：星系 ${sys}/400，通則 ${gen.length}/400`);
   });
+  it('交會卡（ab6 盲評補漏）：天機本命忌轉流年權（p.263）、大限祿轉流年忌、疊祿力量甚輕', () => {
+    const c5 = chartOf({ y: 1998, m: 5, d: 21 }, { h: 0, min: 24 }, 'female');
+    const c3 = chartOf({ y: 1994, m: 1, d: 25 }, { h: 8, min: 36 }, 'female');
+    expect(ids(synthYearChapter(c5, 2026, { general: true }))).toContain('syn.year.ji-to-quan-tianji');
+    expect(ids(synthYearChapter(c3, 2026, { general: true }))).toEqual(expect.arrayContaining(['syn.year.dec-lu-to-ji', 'syn.year.die-lu-natal']));
+  });
   it('23 歲空宮借機巨：機巨卡只限實坐（G1），冇星系運限卡就沿用舊章', () => {
     expect(synthYearChapter(young, 2026)).toBeNull();
   });
