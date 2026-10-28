@@ -61,6 +61,17 @@ YEAR = {
 - 如果呢個判斷係**家居、物業、家庭環境嘅狀況**（例如易有搬遷、家宅不寧、置業有阻、破耗祖業），寫一句「今年…」嘅一年內講法，例如 claim「家宅多變動」→ yearClaim「今年家居、物業上較多變動」。
 - 講**一生置業多少、祖業有無**→ null。
 """ + YEAR_COMMON,
+    '遷移': """## 額外欄位 yearClaim（一定要有）
+- 如果呢個判斷係**外出、出行、在外發展、在外人際嘅狀況**（例如在外得助、在外多是非、出行多阻滯、宜外出發展），寫一句「今年…」嘅一年內講法，例如 claim「在外易惹是非」→ yearClaim「今年在外較易惹是非」。
+- 講**一生宜唔宜離鄉、移民、客死**→ null。
+""" + YEAR_COMMON,
+    '僕役': """## 額外欄位 yearClaim（一定要有）
+- 如果呢個判斷係**同下屬、一般朋友、往來晚輩嘅相處狀況**（例如易受朋友拖累、下屬得力、因朋友破財），寫一句「今年…」嘅一年內講法，例如 claim「易因朋友破財」→ yearClaim「今年較易因朋友而破財」。
+""" + YEAR_COMMON,
+    '福德': """## 額外欄位 yearClaim（一定要有）
+- 如果呢個判斷係**心情、精神狀態、享受、嗜好上嘅狀況**（例如易煩躁、多憂慮、忙中取樂、精神空虛），寫一句「今年…」嘅一年內講法，例如 claim「你容易思慮過多」→ yearClaim「今年心裏較易思慮過多」。
+- 講**壽元、一生福澤厚薄、晚年享福**→ null。
+""" + YEAR_COMMON,
 }
 # yearClaim 一律唔收嘅字（離婚、重病、意外之類唔可以寫成一年講法）
 YEAR_BAN = re.compile(r'早逝|刑傷|生男|生女|離婚|离婚|再婚|分手|離異|生離|死別|刑剋|刑克|開刀|开刀|手術|手术|血光|意外|死亡|壽|寿|絕症|癌|流產|流产|小產')
@@ -128,8 +139,9 @@ def merge(palace):
             if f'"{palace}"' not in json.dumps([x.get('when'), x.get('requires'), x.get('alone')], ensure_ascii=False): why.append(f'no {palace} condition')
             if re.search(r'原書|王亭之|一生最|最順|你曾|那次|你剛', x.get('claim', '') + x.get('because', '')): why.append('banned word')
             if re.search(r'大運|大运|流年|運限|运限|大限', x.get('claim', '') + x.get('quote', '')): why.append('運限 sentence')
-            if x.get('yearClaim') and re.search(r'必|決|一定|最', x['yearClaim']): why.append('yearClaim strong word')
+            if x.get('yearClaim') and re.search(r'必|決|一定|最', x['yearClaim']): x['yearClaim'] = None  # 一年講法太肯定：卡照收，唔要一年講法
             if not x.get('id', '').startswith(f'syn.{c["prefix"]}.'): why.append('id prefix')
+            if not re.match(r'^syn(\.[a-z0-9-]+){2,3}$', x.get('id', '')): why.append('id format')
             (bad if why else good).append((x, why))
     for x, w in bad:
         print('BAD', x.get('id'), w)
@@ -154,7 +166,9 @@ def merge(palace):
     ap = os.path.join(SYN, f'annual-{c["annual"]}.json')
     A = json.load(open(ap, encoding='utf-8')) if os.path.exists(ap) else {
         '$note': f'流年{palace}：{c["label"]}卡喺流年{palace}宮重新配對嘅一年講法（Codex yearClaim）；一生次數、時序類唔收。', 'cards': {}}
-    A['cards'].update(year)
+    # 重跑唔可以覆寫人手改過嘅講法；人手刪走嘅 id 記喺 $dropped
+    for k, v in year.items():
+        if k not in A.get('$dropped', []): A['cards'].setdefault(k, v)
     json.dump(A, open(ap, 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
     print(f'ok {len(good)} bad {len(bad)} yearClaim {len(year)}', Counter(x['id'].split('.')[2] for x, _ in good))
 

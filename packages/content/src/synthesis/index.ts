@@ -30,6 +30,9 @@ import rawAnnualFumu from './annual-fumu.json';
 import rawAnnualXiongdi from './annual-xiongdi.json';
 import rawAnnualZinv from './annual-zinv.json';
 import rawAnnualTian from './annual-tian.json';
+import rawAnnualQian from './annual-qian.json';
+import rawAnnualPuyi from './annual-puyi.json';
+import rawAnnualFude from './annual-fude.json';
 
 export const SYNTHESIS_VERSION = 'synthesis-v1';
 export const synthesisCiteId = (block: string) => `syn.v1:${block}`;
@@ -63,7 +66,7 @@ const PalaceRefSchema = z.object({ name: z.string(), layer: z.string().optional(
 const Layer = z.enum(['natal', 'decade', 'annual']);
 export const SynthesisCard = z.object({
   id: z.string().regex(/^syn(\.[a-z0-9-]+){2,3}$/),
-  chapter: z.enum(['錢', '今年', '事業', '感情', '健康', '父母', '兄弟', '子女', '田宅']),
+  chapter: z.enum(['錢', '今年', '事業', '感情', '健康', '父母', '兄弟', '子女', '田宅', '遷移', '交友', '心境']),
   /** 同一個因素嘅卡一組；裁決時專條（system）壓通則（general）。 */
   group: z.string(),
   specificity: z.enum(['general', 'system']),
@@ -392,7 +395,7 @@ export function synthYearHits(chart: Chart, year: number, layer: 'annual' | 'dec
  */
 
 /** 卡條件入面嘅財帛／官祿／夫妻／疾厄宮改成流年層；星曜四化、得祿接受本命或者流年。 */
-const ANNUAL_NAMES = new Set(['財帛', '官祿', '夫妻', '疾厄', '父母', '兄弟', '子女', '田宅']);
+const ANNUAL_NAMES = new Set(['財帛', '官祿', '夫妻', '疾厄', '父母', '兄弟', '子女', '田宅', '遷移', '僕役', '福德']);
 function toAnnual(x: unknown): unknown {
   if (Array.isArray(x)) return x.map(toAnnual);
   if (!x || typeof x !== 'object') return x;
@@ -402,7 +405,8 @@ function toAnnual(x: unknown): unknown {
   return o;
 }
 
-type AnnualPalace = { palace: '財帛' | '官祿' | '夫妻' | '疾厄' | '父母' | '兄弟' | '子女' | '田宅'; label: string; chapter: '錢' | '事業' | '感情' | '健康' | '父母' | '兄弟' | '子女' | '田宅'; idFrom: string; idTo: string;
+type AnnualPalace = { palace: '財帛' | '官祿' | '夫妻' | '疾厄' | '父母' | '兄弟' | '子女' | '田宅' | '遷移' | '僕役' | '福德'; label: string;
+  chapter: '錢' | '事業' | '感情' | '健康' | '父母' | '兄弟' | '子女' | '田宅' | '遷移' | '交友' | '心境'; idFrom: string; idTo: string;
   claims: Record<string, string>; slot: string; method: string; methodNote: string;
   /** 底子只揀有一年講法嘅卡（父母、兄弟、子女：唔好用「子女四人」「父母災病」呢類講人本身嘅判斷做底子）。 */
   baseFromYear?: boolean };
@@ -423,6 +427,12 @@ const ANNUAL_PALACES: AnnualPalace[] = [
     slot: '今年與子女、後輩', method: 'wtz.deep.p334.b002', methodNote: '方法：深造 p.334；初階轉錄第7篇「45、流年太歲」、第23篇田宅宮' },
   { palace: '田宅', label: '田宅宮', chapter: '田宅', idFrom: 'syn.property.', idTo: 'syn.tian-year.', claims: (rawAnnualTian as { cards: Record<string, string> }).cards,
     slot: '今年的家宅', method: 'wtz.deep.p334.b002', methodNote: '方法：深造 p.334；初階轉錄第7篇「45、流年太歲」、第23篇田宅宮（流年田宅宮條文「以此為例」）' },
+  { palace: '遷移', label: '遷移宮', chapter: '遷移', idFrom: 'syn.travel.', idTo: 'syn.qian-year.', claims: (rawAnnualQian as { cards: Record<string, string> }).cards,
+    slot: '今年在外', method: 'wtz.deep.p334.b002', methodNote: '方法：深造 p.334；初階轉錄第7篇「45、流年太歲」、第23篇田宅宮' },
+  { baseFromYear: true, palace: '僕役', label: '交友宮', chapter: '交友', idFrom: 'syn.friends.', idTo: 'syn.puyi-year.', claims: (rawAnnualPuyi as { cards: Record<string, string> }).cards,
+    slot: '今年與朋友、下屬', method: 'wtz.deep.p334.b002', methodNote: '方法：深造 p.334；初階轉錄第7篇「45、流年太歲」、第23篇田宅宮' },
+  { palace: '福德', label: '福德宮', chapter: '心境', idFrom: 'syn.wellbeing.', idTo: 'syn.fude-year.', claims: (rawAnnualFude as { cards: Record<string, string> }).cards,
+    slot: '今年的心境', method: 'wtz.deep.p334.b002', methodNote: '方法：深造 p.334；初階轉錄第7篇「45、流年太歲」、第23篇田宅宮' },
 ];
 
 const annualCards = (cfg: AnnualPalace): SynthesisCard[] => SYNTHESIS_CARDS.flatMap((c) => {
@@ -500,12 +510,13 @@ function annualPalaceSegment(ctx: Ctx, cfg: AnnualPalace, said: string): { seg: 
     referenceConditions: ['判斷強度：提示', cfg.methodNote, ...js.map((j) => `原文：「${j.card.quote}」`)] },
     specific: js.filter((j) => j.card.specificity === 'system').length };
 }
-/** 一章最多幾個宮段：八個宮全出太長；講明宮位或雙星（system）嘅段優先，同分照宮位次序。 */
+/** 一章最多幾個宮段：十一個宮全出太長。錢、工作、感情、身體（問題章）先；同一層講明宮位或雙星（system）嘅段優先，再照宮位次序。 */
+const CORE_PALACES = new Set(['財帛', '官祿', '夫妻', '疾厄']);
 const MAX_PALACE_SEGMENTS = 3;
 const annualPalaceSegments = (ctx: Ctx, prior: SynthesisSegment[]) => {
   const said = prior.map((x) => x.text).join('');
-  const segs = ANNUAL_PALACES.flatMap((cfg, i) => { const x = annualPalaceSegment(ctx, cfg, said); return x ? [{ ...x, i }] : []; });
-  return segs.sort((p, q) => q.specific - p.specific || p.i - q.i).slice(0, MAX_PALACE_SEGMENTS).sort((p, q) => p.i - q.i).map((x) => x.seg);
+  const segs = ANNUAL_PALACES.flatMap((cfg, i) => { const x = annualPalaceSegment(ctx, cfg, said); return x ? [{ ...x, i, core: CORE_PALACES.has(cfg.palace) ? 1 : 0 }] : []; });
+  return segs.sort((p, q) => q.core - p.core || q.specific - p.specific || p.i - q.i).slice(0, MAX_PALACE_SEGMENTS).sort((p, q) => p.i - q.i).map((x) => x.seg);
 };
 
 /* ── 權衡（2026-10-28 盲評 ab7：同一粒流年化祿嘅好壞判斷要併埋一段講）── */
