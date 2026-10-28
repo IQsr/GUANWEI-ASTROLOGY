@@ -366,7 +366,7 @@ export function createBookChapters(chart:ZChart,opts:Omit<Parameters<typeof book
 }
 
 /**
- * 綜合判讀層試點（2026-10-27，docs/synthesis-layer-2026-10-27.md）：財帛章換成「錢」、這一年換成「今年」。
+ * 綜合判讀層試點（2026-10-27，docs/synthesis-layer-2026-10-27.md）：財帛章、這一年章嘅正文換成綜合判讀層（「錢」「今年」），章名照舊。
  * 只喺 `synthesis` 開咗先做，預設關；試點卡未覆蓋嘅盤（冇卡命中）照用舊章。
  * 換咗嘅章唔再帶舊章嘅 analysis（段落已經唔同）；英日照舊讀成書當刻嘅舊版快照。
  */
@@ -377,7 +377,8 @@ function withSynthesis<C extends { slug: string; title?: string; text: string; s
     const reading: ChapterReading = { format: 'ming-expanded-v1', writer: 'synthesis-v1', segments,
       international: ch.reading?.international ?? { text: ch.text, slots: ch.slots },
       internationalSnapshot: { text: ch.text, slots: ch.slots, ...(ch.reading ? { reading: ch.reading } : {}) } };
-    return { ...ch, title: ch.slug === '財帛' ? '錢' : '今年', text: segments.map((s) => s.text).join('\n\n'), slots: segments.map((s) => s.slot), reading };
+    // 章名照舊（2026-10-28）：財帛章冇 title，由 chapterDrafts 按次序砌「十 · 財帛」；改成「錢」會令佢冇號、後面宮位章全部錯號，英日亦冇譯名
+    return { ...ch, text: segments.map((s) => s.text).join('\n\n'), slots: segments.map((s) => s.slot), reading };
   });
 }
 

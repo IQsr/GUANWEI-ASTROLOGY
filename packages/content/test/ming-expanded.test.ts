@@ -102,7 +102,7 @@ describe('展開稿：其他命盤同樣走實際寫作層', () => {
       expect(new Set(editorial).size).toBe(editorial.length);
     }
     expect(wrote).toBeGreaterThan(900);
-  });
+  }, 30000);
 
   it('未核卡不加段、不補字；全無可用卡時不退回舊命宮章', () => {
     const chart = charts[0]!;

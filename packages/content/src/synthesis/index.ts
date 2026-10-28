@@ -712,9 +712,12 @@ export function synthYearChapter(chart: Chart, year: number, opts: { general?: b
   if (!now.some((j) => j.card.system) && !decades.length) {
     if (!opts.general) return null;
     const more = all.slice(0, 4);
-    if (more.length < 2) return null;
+    if (!more.length) return null;
     const head = more.map((j, i) => segmentOf(j, i === 0 ? '結論' : '展開'));
-    return concreteSegs(ctx, [...head, ...annualPalaceSegments(ctx, head)]);
+    const palaces = annualPalaceSegments(ctx, head);
+    // 2026-10-28：年長讀者冇文昌化科卡（限虛歲 <56），通常只剩一張通則卡；有流年宮段補足就照成章
+    if (more.length < 2 && !palaces.length) return null;
+    return concreteSegs(ctx, [...head, ...palaces]);
   }
   // 這十年背景：第一個判斷；有相反極性嘅判斷就一齊出（吉凶並見唔可以只報一邊）
   const decade = decades[0];
