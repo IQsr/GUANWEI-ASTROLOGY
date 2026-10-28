@@ -369,7 +369,7 @@ export function createBookChapters(chart:ZChart,opts:Omit<Parameters<typeof book
  */
 function withSynthesis<C extends { slug: string; title?: string; text: string; slots: string[]; reading?: ChapterReading }>(chart: ZChart, year: number, book: C[]): C[] {
   return book.map((ch) => {
-    const segments = ch.slug === '財帛' ? synthWealthChapter(chart) : ch.slug === '這一年' ? synthYearChapter(chart, year) : null;
+    const segments = ch.slug === '財帛' ? synthWealthChapter(chart) : ch.slug === '這一年' ? synthYearChapter(chart, year, { general: true }) : null;
     if (!segments) return ch;
     const reading: ChapterReading = { format: 'ming-expanded-v1', writer: 'synthesis-v1', segments,
       international: ch.reading?.international ?? { text: ch.text, slots: ch.slots },

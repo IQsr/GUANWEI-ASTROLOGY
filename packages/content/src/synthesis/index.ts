@@ -308,7 +308,11 @@ export function synthYearHits(chart: Chart, year: number, layer: 'annual' | 'dec
 }
 
 /** 今年章：流年判斷最多三個，加這十年背景一個，加明年提示一個；冇星系運限卡命中回 null。 */
-export function synthYearChapter(chart: Chart, year: number): SynthesisSegment[] | null {
+/**
+ * `general`：冇星系運限卡嘅年份，用流年四化通則卡（p.236、p.284）砌一個短版（要 ≥2 個判斷）。
+ * 2026-10-28 盲評（tmp/ab6-20261028）五盤全勝舊章，準確度 7.6 對 4.8；但嫌薄，要補交會卡。
+ */
+export function synthYearChapter(chart: Chart, year: number, opts: { general?: boolean } = {}): SynthesisSegment[] | null {
   const a = annualOf(chart, year);
   if (!a.ok) return null;
   const ctx: Ctx = { chart, annual: a.value, age: a.value.nominalAge };
@@ -317,7 +321,10 @@ export function synthYearChapter(chart: Chart, year: number): SynthesisSegment[]
   const now = pick('annual', ctx).slice(0, 3);
   const decades = pick('decade', ctx).filter((j) => j.card.system);
   // 要有命宮星系嘅運限卡做主線先換章（流年層或者大限層）；淨係通則卡就比舊章薄，照用舊章
-  if (!now.some((j) => j.card.system) && !decades.length) return null;
+  if (!now.some((j) => j.card.system) && !decades.length) {
+    if (!opts.general || now.length < 2) return null;
+    return now.map((j, i) => segmentOf(j, i === 0 ? '結論' : '展開'));
+  }
   // 這十年背景：第一個判斷；有相反極性嘅判斷就一齊出（吉凶並見唔可以只報一邊）
   const decade = decades[0];
   const other = decade && decades.find((j) => j !== decade && j.card.polarity !== '中' && decade.card.polarity !== '中' && j.card.polarity !== decade.card.polarity);

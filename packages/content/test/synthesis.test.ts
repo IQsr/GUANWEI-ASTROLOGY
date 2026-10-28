@@ -74,6 +74,14 @@ describe('今年', () => {
     expect(segs.find((s) => s.slot === '背景')?.statements[0]!.source_ids[0]).toMatch(/^syn\.sys32\.tianliang/);
     expect(segs.map((s) => s.text).join('')).not.toContain('考試');
   });
+  it('通則版：冇星系運限卡嘅年份用流年四化通則卡（≥2 個判斷），覆蓋多過星系版，lint 全清', () => {
+    const charts = sample(400);
+    const sys = charts.filter((c) => synthYearChapter(c, 2026)).length;
+    const gen = charts.map((c) => synthYearChapter(c, 2026, { general: true })).filter((b): b is NonNullable<typeof b> => !!b);
+    expect(gen.length).toBeGreaterThan(sys);
+    for (const b of gen) { expect(b[0]!.slot).toBe('結論'); expect(synthesisLint(b)).toEqual([]); }
+    console.log(`今年覆蓋：星系 ${sys}/400，通則 ${gen.length}/400`);
+  });
   it('23 歲空宮借機巨：機巨卡只限實坐（G1），冇星系運限卡就沿用舊章', () => {
     expect(synthYearChapter(young, 2026)).toBeNull();
   });
