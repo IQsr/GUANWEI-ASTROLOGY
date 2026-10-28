@@ -17820,6 +17820,461 @@
    "layer": [
     "annual"
    ]
+  },
+  {
+   "id": "syn.year.cai-yangliang-ji",
+   "group": "流年財帛.應期.陽梁",
+   "polarity": "凶",
+   "weight": "傾",
+   "when": {
+    "all": [
+     {
+      "star": "太陽",
+      "in": {
+       "name": "財帛"
+      }
+     },
+     {
+      "star": "天梁",
+      "in": {
+       "name": "財帛"
+      }
+     },
+     {
+      "star": "太陽",
+      "at": [
+       "卯",
+       "酉"
+      ]
+     },
+     {
+      "any": [
+       {
+        "hua": "忌",
+        "in": {
+         "name": "財帛",
+         "layer": "annual"
+        },
+        "layer": "annual"
+       },
+       {
+        "hua": "忌",
+        "in": {
+         "name": "財帛",
+         "layer": "annual"
+        },
+        "layer": "decade"
+       },
+       {
+        "hua": "忌",
+        "in": {
+         "name": "財帛",
+         "layer": "annual"
+        }
+       }
+      ]
+     },
+     {
+      "any": [
+       {
+        "star": "地空",
+        "in": {
+         "name": "財帛",
+         "layer": "annual"
+        }
+       },
+       {
+        "star": "地空",
+        "in": {
+         "name": "命宮",
+         "layer": "annual"
+        }
+       },
+       {
+        "star": "地空",
+        "in": {
+         "name": "官祿",
+         "layer": "annual"
+        }
+       },
+       {
+        "star": "地空",
+        "in": {
+         "name": "福德",
+         "layer": "annual"
+        }
+       },
+       {
+        "star": "地劫",
+        "in": {
+         "name": "財帛",
+         "layer": "annual"
+        }
+       },
+       {
+        "star": "地劫",
+        "in": {
+         "name": "命宮",
+         "layer": "annual"
+        }
+       },
+       {
+        "star": "地劫",
+        "in": {
+         "name": "官祿",
+         "layer": "annual"
+        }
+       },
+       {
+        "star": "地劫",
+        "in": {
+         "name": "福德",
+         "layer": "annual"
+        }
+       }
+      ]
+     }
+    ]
+   },
+   "because": "你本命財帛宮太陽、天梁同坐{branch}宮；今年的財帛宮見化忌，又會到地空或地劫。",
+   "claim": "今年是你財帛較困乏的一年。",
+   "source": "wtz.deep.p441.b001",
+   "quote": "若无此大运，则于流年见同样情形时亦克应。",
+   "chapter": "今年",
+   "specificity": "general",
+   "seat": "both",
+   "layer": [
+    "annual"
+   ]
+  },
+  {
+   "id": "syn.year.cai-wuqu-kongjie",
+   "group": "流年財帛.應期.武曲",
+   "polarity": "凶",
+   "weight": "傾",
+   "when": {
+    "all": [
+     {
+      "star": "武曲",
+      "in": {
+       "name": "財帛"
+      }
+     },
+     {
+      "any": [
+       {
+        "star": "武曲",
+        "hua": "祿"
+       },
+       {
+        "star": "武曲",
+        "hua": "權"
+       },
+       {
+        "star": "武曲",
+        "hua": "科"
+       }
+      ]
+     },
+     {
+      "any": [
+       {
+        "together": [
+         "武曲",
+         "地空"
+        ]
+       },
+       {
+        "together": [
+         "武曲",
+         "地劫"
+        ]
+       }
+      ]
+     },
+     {
+      "any": [
+       {
+        "hua": "忌",
+        "in": {
+         "name": "財帛",
+         "layer": "annual"
+        },
+        "layer": "annual"
+       },
+       {
+        "hua": "忌",
+        "in": {
+         "name": "財帛",
+         "layer": "annual"
+        },
+        "layer": "decade"
+       },
+       {
+        "hua": "忌",
+        "in": {
+         "name": "財帛",
+         "layer": "annual"
+        }
+       }
+      ]
+     }
+    ]
+   },
+   "because": "你本命財帛宮武曲化吉，但與空劫同度；今年的財帛宮見化忌。",
+   "claim": "今年你較容易感到手頭困乏。",
+   "source": "wtz.deep.p443.b002",
+   "quote": "武曲化禄、权、科而见空劫，则一生必有一段时期感到困乏。以大运财帛宫化忌之年，或见煞耗空劫之年为克应。",
+   "chapter": "今年",
+   "specificity": "general",
+   "seat": "both",
+   "layer": [
+    "annual"
+   ]
+  },
+  {
+   "id": "syn.year.cai-zipo-chouwei",
+   "group": "流年財帛.應期.紫破",
+   "polarity": "凶",
+   "weight": "傾",
+   "when": {
+    "all": [
+     {
+      "star": "紫微",
+      "in": {
+       "name": "財帛"
+      }
+     },
+     {
+      "together": [
+       "紫微",
+       "破軍"
+      ]
+     },
+     {
+      "star": "紫微",
+      "at": [
+       "丑",
+       "未"
+      ]
+     },
+     {
+      "any": [
+       {
+        "star": "紫微",
+        "in": {
+         "name": "命宮",
+         "layer": "annual"
+        }
+       },
+       {
+        "star": "天相",
+        "in": {
+         "name": "命宮",
+         "layer": "annual"
+        }
+       }
+      ]
+     }
+    ]
+   },
+   "because": "你本命財帛宮紫微、破軍同坐{branch}宮，今年流年命宮行到丑、未宮。",
+   "claim": "如果之前得過一筆意外之財，今年要防出現很大的破耗。",
+   "source": "wtz.deep.p434.b004",
+   "quote": "唯得意外财后，必于流年经行至丑或未宫时，即生极大破耗。",
+   "chapter": "今年",
+   "specificity": "general",
+   "seat": "both",
+   "layer": [
+    "annual"
+   ]
+  },
+  {
+   "id": "syn.year.cai-tianxiang-chouwei",
+   "group": "流年財帛.應期.天相",
+   "polarity": "吉",
+   "weight": "傾",
+   "when": {
+    "all": [
+     {
+      "star": "天相",
+      "in": {
+       "name": "財帛"
+      }
+     },
+     {
+      "star": "天相",
+      "at": [
+       "丑",
+       "未"
+      ]
+     },
+     {
+      "any": [
+       {
+        "star": "紫微",
+        "in": {
+         "name": "命宮",
+         "layer": "annual"
+        }
+       },
+       {
+        "star": "天相",
+        "in": {
+         "name": "命宮",
+         "layer": "annual"
+        }
+       }
+      ]
+     }
+    ]
+   },
+   "because": "你本命財帛宮天相坐{branch}宮，今年流年命宮行到天相或紫微破軍的宮位。",
+   "claim": "今年有突然發達的機會。",
+   "source": "wtz.deep.p457.b007",
+   "quote": "常以『紫破』或天相大运或流年，为突发克应之期。",
+   "chapter": "今年",
+   "specificity": "general",
+   "seat": "both",
+   "layer": [
+    "annual"
+   ]
+  },
+  {
+   "id": "syn.year.guan-wuqu-ji",
+   "group": "流年官祿.應期.武曲",
+   "polarity": "凶",
+   "weight": "傾",
+   "when": {
+    "all": [
+     {
+      "star": "武曲",
+      "in": {
+       "name": "官祿"
+      }
+     },
+     {
+      "star": "武曲",
+      "hua": "忌",
+      "layer": "annual"
+     }
+    ]
+   },
+   "because": "你本命官祿宮坐武曲，今年武曲化忌。",
+   "claim": "今年要小心財力不足以發展事業。",
+   "source": "wtz.deep.p530.b001",
+   "quote": "武曲化忌的大运流年，亦应小心财力不足以发展事业的现象。",
+   "chapter": "今年",
+   "specificity": "general",
+   "seat": "both",
+   "layer": [
+    "annual"
+   ]
+  },
+  {
+   "id": "syn.year.cai-lingchangtuowu",
+   "group": "流年財帛.應期.鈴昌陀武",
+   "polarity": "凶",
+   "weight": "傾",
+   "when": {
+    "all": [
+     {
+      "star": "武曲",
+      "in": {
+       "name": "財帛",
+       "layer": "annual"
+      }
+     },
+     {
+      "not": {
+       "star": "武曲",
+       "in": {
+        "name": "財帛"
+       }
+      }
+     },
+     {
+      "any": [
+       {
+        "together": [
+         "武曲",
+         "文昌"
+        ]
+       },
+       {
+        "opposite": [
+         "武曲",
+         "文昌"
+        ]
+       }
+      ]
+     },
+     {
+      "any": [
+       {
+        "together": [
+         "武曲",
+         "鈴星"
+        ]
+       },
+       {
+        "opposite": [
+         "武曲",
+         "鈴星"
+        ]
+       }
+      ]
+     },
+     {
+      "any": [
+       {
+        "together": [
+         "武曲",
+         "陀羅"
+        ]
+       },
+       {
+        "opposite": [
+         "武曲",
+         "陀羅"
+        ]
+       }
+      ]
+     },
+     {
+      "any": [
+       {
+        "flow": "擎羊",
+        "layer": "annual",
+        "in": {
+         "name": "財帛",
+         "layer": "annual"
+        },
+        "reach": "sanfang"
+       },
+       {
+        "flow": "陀羅",
+        "layer": "annual",
+        "in": {
+         "name": "財帛",
+         "layer": "annual"
+        },
+        "reach": "sanfang"
+       }
+      ]
+     }
+    ]
+   },
+   "because": "今年的財帛宮在{branch}宮，武曲與文昌、鈴星、陀羅同度或相對（「鈴昌陀武」），又有流年羊陀沖起。",
+   "claim": "今年財務有重大破敗的傾向。",
+   "source": "wtz.deep.p442.b009",
+   "quote": "则当大运或流年财帛宫值此星系时，有流煞冲起，亦有破败的倾向。",
+   "chapter": "今年",
+   "specificity": "general",
+   "seat": "both",
+   "layer": [
+    "annual"
+   ]
   }
  ]
 }

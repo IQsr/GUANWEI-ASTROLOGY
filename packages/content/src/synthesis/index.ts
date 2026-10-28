@@ -22,6 +22,7 @@ import { xingxiOf } from '../xingxi';
 import type { MingStatement } from '../ming-writer';
 import rawCards from './cards.json';
 import rawSources from './sources.json';
+import rawAnnualCai from './annual-cai.json';
 
 export const SYNTHESIS_VERSION = 'synthesis-v1';
 export const synthesisCiteId = (block: string) => `syn.v1:${block}`;
@@ -373,6 +374,58 @@ export function synthYearHits(chart: Chart, year: number, layer: 'annual' | 'dec
   return SYNTHESIS_CARDS.filter((c) => c.chapter === '今年' && c.layer.includes(layer)).flatMap((c) => matchCard(c, layer, ctx) ? [c.id] : []);
 }
 
+/* ── 流年財帛（2026-10-28）──────────────────────────────
+ * 錢章卡（深造財帛章條文）喺流年財帛宮重新配對，claim 換成一年內嘅講法（annual-cai.json）。
+ * 方法：初階轉錄第7篇（流年十二宮可推財帛運程）、第23篇（宮位條文「以此為例」用落大限流年宮）；
+ * 深造 p.334、p.433：運限宮位係對本命本質嘅反應，所以段首先講本命財帛。強度一律提示。
+ */
+
+/** 卡條件入面嘅財帛宮改成流年層；星曜四化、得祿接受本命或者流年。 */
+function toAnnual(x: unknown): unknown {
+  if (Array.isArray(x)) return x.map(toAnnual);
+  if (!x || typeof x !== 'object') return x;
+  const o = Object.fromEntries(Object.entries(x).map(([k, v]) => [k, toAnnual(v)])) as Record<string, unknown>;
+  if (o.name === '財帛' && o.layer === undefined) return { ...o, layer: 'annual' };
+  if (('hua' in o || 'deLu' in o) && o.layer === undefined) return { any: [o, { ...o, layer: 'annual' }] };
+  return o;
+}
+
+const ANNUAL_CAI: SynthesisCard[] = SYNTHESIS_CARDS.flatMap((c) => {
+  const claim = (rawAnnualCai as { cards: Record<string, string> }).cards[c.id];
+  if (!claim) return [];
+  const t = <T>(v: T) => (v === undefined ? v : (toAnnual(v) as T));
+  return [{ ...c, id: c.id.replace('syn.wealth.', 'syn.cai-year.'), chapter: '今年' as const, group: `流年財帛.${c.group}`, weight: '提' as const,
+    layer: ['annual' as const], when: t(c.when), requires: t(c.requires), none: t(c.none),
+    ...(c.alone ? { alone: { star: c.alone.star, in: { ...c.alone.in, layer: 'annual' } } } : {}),
+    claim, because: c.because.replaceAll('你的財帛宮', '今年的財帛宮') }];
+});
+const CAI_METHOD = 'wtz.deep.p433.b003';
+
+/** 今年嘅錢：流年財帛宮嘅判斷（最多兩個），段首先講本命財帛底子。 */
+function annualCaiSegment(ctx: Ctx): SynthesisSegment | null {
+  const p = palaceAt(ctx, '財帛', 'annual');
+  const natal = ctx.chart.palaces.find((q) => q.name === '財帛');
+  if (!p || !natal) return null;
+  const seated = majors(p).length > 0;
+  const js = resolve(ANNUAL_CAI.filter((c) => !(c.seat === 'seated' && !seated) && !(c.seat === 'borrowed' && seated))
+    .flatMap((c) => { const h = matchCard(c, 'annual', ctx); return h ? [h] : []; })).sort(byStrength).slice(0, 2);
+  if (!js.length) return null;
+  const names = (q: typeof p) => majors(q).map((s) => s.name).join('、');
+  const base = synthWealthChapter(ctx.chart)?.[0]?.statements[0]?.text;
+  const lead = `今年你的財帛宮在${p.branch}宮，${seated ? `坐${names(p)}` : '是空宮'}。`
+    + (majors(natal).length ? `你本命財帛宮坐${names(natal)}${base ? `，底子是：${base.replace(/。$/, '')}` : ''}；今年是在這個底子上的變化。` : '');
+  const statements: MingStatement[] = [
+    { text: lead, en: '', kind: 'editorial-explanation', source_ids: ['syn.cai-year.lead'], citations: [synthesisCiteId(CAI_METHOD)] },
+    ...js.flatMap((j): MingStatement[] => [
+      { text: j.claim, en: '', kind: 'interpretation', source_ids: [j.card.id], citations: [synthesisCiteId(j.card.source)] },
+      { text: j.because, en: '', kind: 'evidence', source_ids: [j.card.id], citations: [] },
+    ]),
+  ];
+  return { slot: '今年的錢', heading: '今年的錢', text: statements.map((l) => l.text).join(''), statements,
+    referenceConditions: ['判斷強度：提示', '方法：深造 p.433、p.334；初階轉錄第7篇「45、流年太歲」、第23篇田宅宮、第24篇福德宮篇首',
+      ...js.map((j) => `原文：「${j.card.quote}」`)] };
+}
+
 /* ── 權衡（2026-10-28 盲評 ab7：同一粒流年化祿嘅好壞判斷要併埋一段講）── */
 
 /** 呢幾張卡都係講「今年化祿嗰粒星」嘅成色。 */
@@ -434,7 +487,8 @@ export function synthYearChapter(chart: Chart, year: number, opts: { general?: b
     if (!opts.general) return null;
     const more = all.slice(0, 4);
     if (more.length < 2) return null;
-    return more.map((j, i) => segmentOf(j, i === 0 ? '結論' : '展開'));
+    const cai = annualCaiSegment(ctx);
+    return [...more.map((j, i) => segmentOf(j, i === 0 ? '結論' : '展開')), ...(cai ? [cai] : [])];
   }
   // 這十年背景：第一個判斷；有相反極性嘅判斷就一齊出（吉凶並見唔可以只報一邊）
   const decade = decades[0];
@@ -445,6 +499,8 @@ export function synthYearChapter(chart: Chart, year: number, opts: { general?: b
   const segs = annualLead
     ? [...now.map((j, i) => segmentOf(j, i === 0 ? '結論' : '展開')), ...ten.map((j, i) => segmentOf(j, '背景', i === 0 ? '這十年' : undefined))]
     : [...ten.map((j, i) => segmentOf(j, i === 0 ? '結論' : '背景', i === 0 ? '這十年' : undefined)), ...now.map((j) => segmentOf(j, '展開'))];
+  const cai = annualCaiSegment(ctx);
+  if (cai) segs.splice(segs.findIndex((x) => x.slot === '背景') < 0 || !annualLead ? segs.length : segs.findIndex((x) => x.slot === '背景'), 0, cai);
   const next = annualOf(chart, year + 1);
   if (next.ok) {
     const n = pick('annual', { chart, annual: next.value, age: next.value.nominalAge }).find((j) => j.card.system && j.card.id !== decade?.card.id && j.card.id !== other?.card.id);
