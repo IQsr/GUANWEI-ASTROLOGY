@@ -56,10 +56,19 @@ describe('錢', () => {
     expect(ids(segs)).toEqual(['syn.wealth.tianliang.sihai', 'syn.wealth.tianliang.name', 'syn.wealth.tianliang.sihai-luoxian', 'syn.wealth.tianliang.trade']);
     expect(segs[0]!.statements[1]!.text).toBe('你的財帛宮天梁坐巳宮，對宮是天同。');
   });
-  it('空宮財帛照用舊章；今年冇星系運限卡亦照用舊章', () => {
+  it('今年冇星系運限卡照用舊章', () => {
     expect(sample(60).some((c) => synthYearChapter(c, 2026) === null)).toBe(true); // 冇星系運限卡（流年、大限都冇）就照用舊章
-    const empty = sample(400).find((c) => !majorsIn(c, '財帛'))!;
-    expect(synthWealthChapter(empty)).toBeNull();
+  });
+  it('空宮財帛借福德星曜（初階第9篇借星安宮）：≥95% 有錢章，只用借星卡，借星句只喺第一段講全', () => {
+    const charts = sample(400).filter((c) => !majorsIn(c, '財帛'));
+    const books = charts.map((c) => synthWealthChapter(c));
+    expect(books.filter(Boolean).length / charts.length).toBeGreaterThanOrEqual(0.95);
+    for (const b of books) if (b) {
+      expect(ids(b).every((id) => id?.endsWith('.borrowed'))).toBe(true);
+      expect(b[0]!.statements[1]!.text).toMatch(/^你的財帛宮沒有主星，要借對宮福德宮的星曜來看：/);
+      for (const s of b.slice(1)) expect(s.text).not.toContain('你的財帛宮沒有主星');
+      expect(synthesisLint(b)).toEqual([]);
+    }
   });
   it('400 個隨機盤：財帛有主星就有錢章（≥99%），每章 1–4 個判斷，寫作 lint 全清', () => {
     const charts = sample(400).filter((c) => majorsIn(c, '財帛'));
