@@ -59,14 +59,15 @@ describe('錢', () => {
   it('今年冇星系運限卡照用舊章', () => {
     expect(sample(60).some((c) => synthYearChapter(c, 2026) === null)).toBe(true); // 冇星系運限卡（流年、大限都冇）就照用舊章
   });
-  it('空宮財帛借福德星曜（初階第9篇借星安宮）：≥95% 有錢章，只用借星卡，借星句只喺第一段講全', () => {
+  it('空宮財帛借福德星曜（初階第9篇借星安宮）：≥95% 有錢章，只用借星卡，成組星只喺第一段講', () => {
     const charts = sample(400).filter((c) => !majorsIn(c, '財帛'));
     const books = charts.map((c) => synthWealthChapter(c));
     expect(books.filter(Boolean).length / charts.length).toBeGreaterThanOrEqual(0.95);
     for (const b of books) if (b) {
       expect(ids(b).every((id) => id?.endsWith('.borrowed'))).toBe(true);
-      expect(b[0]!.statements[1]!.text).toMatch(/^你的財帛宮沒有主星，要借對宮福德宮的星曜來看：/);
-      for (const s of b.slice(1)) expect(s.text).not.toContain('你的財帛宮沒有主星');
+      expect(b[0]!.statements[1]!.text).toMatch(/^你的財帛宮沒有主星，要連同對宮福德宮整組星曜一起看：.+。這一點看的是對宮福德宮的/);
+      for (const s of b.slice(1)) { expect(s.text).not.toContain('你的財帛宮沒有主星'); expect(s.statements[1]!.text).toMatch(/^這一點看的是對宮福德宮的/); }
+      for (const s of b) expect(s.statements[1]!.text).not.toMatch(/坐守|借入的/);
       expect(synthesisLint(b)).toEqual([]);
     }
   });

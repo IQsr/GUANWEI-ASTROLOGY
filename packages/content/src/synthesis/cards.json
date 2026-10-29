@@ -2182,7 +2182,79 @@
    "because": "你的財帛宮武曲與貪狼同坐，三方四正見吉曜。",
    "claim": "你的社交較活躍，財源也從交際應酬而來。",
    "source": "wtz.deep.p443.b006",
-   "quote": "[武曲贪狼]见吉曜，尤其是文曲文昌，为社交活跃之征兆，其财亦由交际应酬而来。"
+   "quote": "[武曲贪狼]见吉曜，尤其是文曲文昌，为社交活跃之征兆，其财亦由交际应酬而来。",
+   "none": {
+    "any": [
+     {
+      "sanfangOf": {
+       "name": "財帛"
+      },
+      "count": "malefic",
+      "op": "gte",
+      "n": 1
+     },
+     {
+      "star": "武曲",
+      "hua": "忌"
+     },
+     {
+      "star": "貪狼",
+      "hua": "忌"
+     }
+    ]
+   }
+  },
+  {
+   "id": "syn.wealth.wuqu.tanlang-sha-social",
+   "chapter": "錢",
+   "group": "武曲財帛.應酬",
+   "specificity": "system",
+   "polarity": "凶",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "together": [
+       "武曲",
+       "貪狼"
+      ]
+     },
+     {
+      "any": [
+       {
+        "sanfangOf": {
+         "name": "財帛"
+        },
+        "count": "malefic",
+        "op": "gte",
+        "n": 1
+       },
+       {
+        "star": "武曲",
+        "hua": "忌"
+       },
+       {
+        "star": "貪狼",
+        "hua": "忌"
+       }
+      ]
+     }
+    ]
+   },
+   "requires": {
+    "star": "武曲",
+    "in": {
+     "name": "財帛"
+    }
+   },
+   "because": "你的財帛宮武曲與貪狼同坐，三方四正見煞忌。",
+   "claim": "你雖然常要交際應酬，卻往往勞而無功，花了心力也換不到錢。",
+   "source": "wtz.deep.p443.b006",
+   "quote": "若见煞忌空劫刑耗，则虽终日应酬，亦劳而无功。"
   },
   {
    "id": "syn.wealth.wuqu.yinshen-tianxiang-management",
@@ -3875,6 +3947,60 @@
    "claim": "你擅長運用金錢，卻不太擅長守財，往往傾向以進取甚至投機的方式求財。",
    "source": "wtz.deep.p453.b004",
    "quote": "贪狼守财帛，主擅长运用金钱，但却不擅长守财，且常常有以攻为守的倾向，因此往往倾向于投机。"
+  },
+  {
+   "id": "syn.wealth.tanlang.sha-no-speculation",
+   "chapter": "錢",
+   "group": "貪狼財帛.投機",
+   "specificity": "general",
+   "polarity": "凶",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "貪狼",
+      "in": {
+       "name": "財帛"
+      }
+     },
+     {
+      "any": [
+       {
+        "sanfangOf": {
+         "name": "財帛"
+        },
+        "contains": "擎羊"
+       },
+       {
+        "sanfangOf": {
+         "name": "財帛"
+        },
+        "contains": "陀羅"
+       },
+       {
+        "sanfangOf": {
+         "name": "財帛"
+        },
+        "contains": "地空"
+       },
+       {
+        "sanfangOf": {
+         "name": "財帛"
+        },
+        "contains": "地劫"
+       }
+      ]
+     }
+    ]
+   },
+   "because": "你的財帛宮有貪狼坐守，三方四正見擎羊、陀羅、地空、地劫一類煞曜。",
+   "claim": "你不宜投機，否則容易傾家。",
+   "source": "wtz.deep.p453.b005",
+   "quote": "贪狼与羊陀、空劫、大耗会同，则以不投机为宜，否则倾家。"
   },
   {
    "id": "syn.wealth.tanlang.huaquan",

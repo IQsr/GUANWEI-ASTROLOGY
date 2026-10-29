@@ -143,20 +143,21 @@ function borrowed(c: SynthesisCard): SynthesisCard[] {
   if (c.chapter !== '錢' || c.seat !== 'seated' || c.bright || c.special || !c.when) return [];
   if (![c.when, c.requires, c.none].every(borrowSafe)) return [];
   const from = '財帛', to = BORROW_FROM[from]!;
-  const rest = c.because.replace(/^你的財帛宮(由|有)?/, '').replace(/^坐(?!守)/, '借入的是');
+  // 「坐守」「坐X」唔寫：借入唔等於實坐（盲評 ab10）
+  const rest = c.because.replace(/^你的財帛宮(由|有)?/, '').replace(/^坐(?!守)/, '').replace(/坐守/, '').replace(/。$/, '');
   return [{ ...c, id: `${c.id}.borrowed`, seat: 'borrowed',
     when: { all: [{ empty: { name: from } }, borrowCond(c.when, from, to)] },
     ...(c.requires !== undefined ? { requires: borrowCond(c.requires, from, to) } : {}),
     ...(c.none !== undefined ? { none: borrowCond(c.none, from, to) } : {}),
     ...(c.alone ? { alone: { star: c.alone.star, in: { ...c.alone.in, name: to } } } : {}),
-    because: `${BORROW_LEAD}${rest}` }];
+    because: `這一點看的是對宮福德宮的${rest}。` }];
 }
-const BORROW_LEAD = '你的財帛宮沒有主星，要借對宮福德宮的星曜來看：';
-/** 借星講法只喺第一段講全句，之後段落簡寫。 */
-function shortBorrow(seg: SynthesisSegment, i: number): SynthesisSegment {
-  if (i === 0 || !seg.text.includes(BORROW_LEAD)) return seg;
-  const f = (t: string) => t.replace(`${BORROW_LEAD}借入的是`, '借入的星曜是').replace(BORROW_LEAD, '借入的星曜：');
-  return { ...seg, text: f(seg.text), statements: seg.statements.map((st) => ({ ...st, text: f(st.text) })) };
+/** 借星：第一段先講一次成組借入（初階第9篇第39段：唔止借正曜），之後每段只講睇邊粒。 */
+function borrowLead(chart: Chart): string {
+  const name = (p: Chart['palaces'][number]) => p.stars.map((x) => x.name + (x.sihua ? `化${x.sihua}` : '')).join('、');
+  const cai = chart.palaces.find((p) => p.name === '財帛')!, fu = chart.palaces.find((p) => p.name === '福德')!;
+  const own = cai.stars.length ? `，加上財帛宮本身的${name(cai)}` : '';
+  return `你的財帛宮沒有主星，要連同對宮福德宮整組星曜一起看：${name(fu)}${own}。`;
 }
 export const SYNTHESIS_CARDS: SynthesisCard[] = [...BASE_CARDS, ...BASE_CARDS.flatMap(borrowed)];
 
@@ -429,7 +430,11 @@ export function synthWealthChapter(chart: Chart): SynthesisSegment[] | null {
   });
   const js = resolve(hits).sort(byStrength).slice(0, 4);
   if (!js.length) return null;
-  return js.map((j, i) => shortBorrow(segmentOf(j, i === 0 ? '結論' : '展開'), i));
+  const segs = js.map((j, i) => segmentOf(j, i === 0 ? '結論' : '展開'));
+  if (majors(cai).length) return segs;
+  const lead = borrowLead(chart), [first, ...more] = segs;
+  return [{ ...first!, text: first!.text.replace(first!.statements[1]!.text, lead + first!.statements[1]!.text),
+    statements: first!.statements.map((st, k) => (k === 1 ? { ...st, text: lead + st.text } : st)) }, ...more];
 }
 
 /** 某年命中嘅今年卡（裁決前，流年層），俾覆蓋審核用。 */
