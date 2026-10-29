@@ -119,6 +119,8 @@ const BASE_CARDS: SynthesisCard[] = (rawCards as { cards: unknown[] }).cards.map
  * 只借條件借入後仍然睇得啱嘅卡：夾、對宮、三方會照、得祿、地支、廟陷都以星所在宮計，借入後會睇錯宮（第42段：三方要另借），唔借。
  */
 const BORROW_FROM: Record<string, string> = { 財帛: '福德' };
+/** 錢章輔煞通則卡（財帛篇首 p.430–432，唔分主星）：另計，最多兩段，唔同主星卡爭位。 */
+const MINOR_GROUP = '輔煞.';
 function borrowSafe(x: unknown): boolean {
   if (Array.isArray(x)) return x.every(borrowSafe);
   if (!x || typeof x !== 'object') return true;
@@ -150,7 +152,7 @@ function borrowed(c: SynthesisCard): SynthesisCard[] {
     ...(c.requires !== undefined ? { requires: borrowCond(c.requires, from, to) } : {}),
     ...(c.none !== undefined ? { none: borrowCond(c.none, from, to) } : {}),
     ...(c.alone ? { alone: { star: c.alone.star, in: { ...c.alone.in, name: to } } } : {}),
-    because: `這一點看的是對宮福德宮的${rest}。` }];
+    because: c.group.startsWith(MINOR_GROUP) ? c.because.replace(/^你的財帛宮/, '你的財帛宮連同借入的福德宮星曜，') : `這一點看的是對宮福德宮的${rest}。` }];
 }
 /** 借星：第一段先講一次成組借入（初階第9篇第39段：唔止借正曜），之後每段只講睇邊粒。 */
 function borrowLead(chart: Chart): string {
@@ -244,6 +246,16 @@ function matchCard(card: SynthesisCard, layer: 'natal' | 'decade' | 'annual', ct
   const fireIn = card.seat === 'borrowed' && card.chapter === '錢' ? ['財帛', '福德'] : ['財帛'];
   const fire = ctx.chart.palaces.filter((p) => fireIn.includes(p.name)).flatMap((p) => p.stars).filter((s) => s.name === '火星' || s.name === '鈴星').map((s) => s.name);
   if (fire?.length) vars.fireBell = fire.join('、');
+  if (card.group.startsWith(MINOR_GROUP)) {
+    const names = new Set<string>(), walk = (x: unknown): void => {
+      if (Array.isArray(x)) x.forEach(walk);
+      else if (x && typeof x === 'object') { const o = x as Record<string, unknown>; if (typeof o.star === 'string' && o.in) names.add(o.star); Object.values(o).forEach(walk); }
+    };
+    walk(card.when);
+    const here = ctx.chart.palaces.filter((p) => fireIn.includes(p.name)).flatMap((p) => p.stars);
+    const ji = JSON.stringify(card.when).includes('"hua":"忌","in"') ? here.filter((s) => s.sihua === '忌').map((s) => `化忌的${s.name}`) : [];
+    vars.minor = [...here.filter((s) => names.has(s.name) && s.name !== '火星' && s.name !== '鈴星').map((s) => s.name), ...ji].join('、');
+  }
   return { card, layer, vars, bindings };
 }
 
@@ -428,7 +440,12 @@ export function synthWealthChapter(chart: Chart): SynthesisSegment[] | null {
     const h = matchCard(c, 'natal', ctx);
     return h ? [h] : [];
   });
-  const js = resolve(hits).sort(byStrength).slice(0, 4);
+  const all = resolve(hits).sort(byStrength), minor = (j: Judgement) => j.card.group.startsWith(MINOR_GROUP);
+  // 輔煞兩段：凶、非凶各揀一張先（盲評 ab10：地空、火忌風險唔可以俾吉卡擠走），唔夠先補同類
+  const ms = all.filter(minor), bad = ms.find((j) => j.card.polarity === '凶'), good = ms.find((j) => j.card.polarity !== '凶');
+  const two = [bad, good].filter((j): j is Judgement => !!j);
+  for (const j of ms) if (two.length < 2 && !two.includes(j)) two.push(j);
+  const js = [...all.filter((j) => !minor(j)).slice(0, 4), ...two];
   if (!js.length) return null;
   const segs = js.map((j, i) => segmentOf(j, i === 0 ? '結論' : '展開'));
   if (majors(cai).length) return segs;

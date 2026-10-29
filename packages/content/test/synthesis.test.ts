@@ -49,7 +49,7 @@ it('uses the book brightness for the cells the 2026-10-27 report settled', () =>
 
 describe('錢', () => {
   it('天同酉 獨坐 火星同度：白手興家（專條壓通則）、祖業守不住（條件多先）、中年辛苦晚年順、享受性質', () => {
-    expect(ids(synthWealthChapter(elder))).toEqual(['syn.wealth.tiantong.maoyou', 'syn.wealth.tiantong.huoling', 'syn.wealth.tiantong.alone', 'syn.wealth.tiantong.enjoy']);
+    expect(ids(synthWealthChapter(elder))).toEqual(['syn.wealth.tiantong.maoyou', 'syn.wealth.tiantong.huoling', 'syn.wealth.tiantong.alone', 'syn.wealth.tiantong.enjoy', 'syn.wealth.minor.huoling']); // 輔煞：財帛火星
   });
   it('天梁巳 對天同：早中年難聚（專條先）、先名後利、落陷財源不廣、任職為宜', () => {
     const segs = synthWealthChapter(young)!;
@@ -66,16 +66,16 @@ describe('錢', () => {
     for (const b of books) if (b) {
       expect(ids(b).every((id) => id?.endsWith('.borrowed'))).toBe(true);
       expect(b[0]!.statements[1]!.text).toMatch(/^你的財帛宮沒有主星，要連同對宮福德宮整組星曜一起看：.+。這一點看的是對宮福德宮的/);
-      for (const s of b.slice(1)) { expect(s.text).not.toContain('你的財帛宮沒有主星'); expect(s.statements[1]!.text).toMatch(/^這一點看的是對宮福德宮的/); }
-      for (const s of b) expect(s.statements[1]!.text).not.toMatch(/坐守|借入的/);
+      for (const s of b.slice(1)) { expect(s.text).not.toContain('你的財帛宮沒有主星'); expect(s.statements[1]!.text).toMatch(/^(這一點看的是對宮福德宮的|你的財帛宮連同借入的福德宮星曜，)/); }
+      for (const s of b) expect(s.statements[1]!.text).not.toMatch(/坐守|借入的(是|星曜：)/);
       expect(synthesisLint(b)).toEqual([]);
     }
   });
-  it('400 個隨機盤：財帛有主星就有錢章（≥99%），每章 1–4 個判斷，寫作 lint 全清', () => {
+  it('400 個隨機盤：財帛有主星就有錢章（≥99%），每章 1–6 個判斷（主星最多 4、輔煞最多 2），寫作 lint 全清', () => {
     const charts = sample(400).filter((c) => majorsIn(c, '財帛'));
     const books = charts.map((c) => synthWealthChapter(c));
     expect(books.filter(Boolean).length / charts.length).toBeGreaterThanOrEqual(0.99);
-    for (const b of books) if (b) { expect(b.length).toBeGreaterThanOrEqual(1); expect(b.length).toBeLessThanOrEqual(4); expect(synthesisLint(b)).toEqual([]); }
+    for (const b of books) if (b) { expect(b.length).toBeGreaterThanOrEqual(1); expect(b.length).toBeLessThanOrEqual(6); expect(synthesisLint(b)).toEqual([]); }
   });
 });
 
@@ -181,4 +181,16 @@ it('G1–G10 writing lint is clean on both A/B charts', () => {
     expect(synthesisLint(synthWealthChapter(c) ?? [])).toEqual([]);
     expect(synthesisLint(synthYearChapter(c, 2026) ?? [])).toEqual([]);
   }
+});
+
+describe('錢章輔煞通則（財帛篇首 p.430–432）', () => {
+  it('400 盤：輔煞最多兩段，理由句有星名、冇空變數', () => {
+    for (const c of sample(400)) {
+      const b = synthWealthChapter(c);
+      if (!b) continue;
+      const minor = b.filter((s) => s.statements[0]!.source_ids[0]!.includes('.minor.'));
+      expect(minor.length).toBeLessThanOrEqual(2);
+      for (const s of minor) expect(s.statements[1]!.text).not.toMatch(/有。|有，|與同度|\{|，。/);
+    }
+  });
 });
