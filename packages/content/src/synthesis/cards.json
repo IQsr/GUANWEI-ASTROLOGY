@@ -2182,7 +2182,79 @@
    "because": "你的財帛宮武曲與貪狼同坐，三方四正見吉曜。",
    "claim": "你的社交較活躍，財源也從交際應酬而來。",
    "source": "wtz.deep.p443.b006",
-   "quote": "[武曲贪狼]见吉曜，尤其是文曲文昌，为社交活跃之征兆，其财亦由交际应酬而来。"
+   "quote": "[武曲贪狼]见吉曜，尤其是文曲文昌，为社交活跃之征兆，其财亦由交际应酬而来。",
+   "none": {
+    "any": [
+     {
+      "sanfangOf": {
+       "name": "財帛"
+      },
+      "count": "malefic",
+      "op": "gte",
+      "n": 1
+     },
+     {
+      "star": "武曲",
+      "hua": "忌"
+     },
+     {
+      "star": "貪狼",
+      "hua": "忌"
+     }
+    ]
+   }
+  },
+  {
+   "id": "syn.wealth.wuqu.tanlang-sha-social",
+   "chapter": "錢",
+   "group": "武曲財帛.應酬",
+   "specificity": "system",
+   "polarity": "凶",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "together": [
+       "武曲",
+       "貪狼"
+      ]
+     },
+     {
+      "any": [
+       {
+        "sanfangOf": {
+         "name": "財帛"
+        },
+        "count": "malefic",
+        "op": "gte",
+        "n": 1
+       },
+       {
+        "star": "武曲",
+        "hua": "忌"
+       },
+       {
+        "star": "貪狼",
+        "hua": "忌"
+       }
+      ]
+     }
+    ]
+   },
+   "requires": {
+    "star": "武曲",
+    "in": {
+     "name": "財帛"
+    }
+   },
+   "because": "你的財帛宮武曲與貪狼同坐，三方四正見煞忌。",
+   "claim": "你雖然常要交際應酬，卻往往勞而無功，花了心力也換不到錢。",
+   "source": "wtz.deep.p443.b006",
+   "quote": "若见煞忌空劫刑耗，则虽终日应酬，亦劳而无功。"
   },
   {
    "id": "syn.wealth.wuqu.yinshen-tianxiang-management",
@@ -3875,6 +3947,60 @@
    "claim": "你擅長運用金錢，卻不太擅長守財，往往傾向以進取甚至投機的方式求財。",
    "source": "wtz.deep.p453.b004",
    "quote": "贪狼守财帛，主擅长运用金钱，但却不擅长守财，且常常有以攻为守的倾向，因此往往倾向于投机。"
+  },
+  {
+   "id": "syn.wealth.tanlang.sha-no-speculation",
+   "chapter": "錢",
+   "group": "貪狼財帛.投機",
+   "specificity": "general",
+   "polarity": "凶",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "貪狼",
+      "in": {
+       "name": "財帛"
+      }
+     },
+     {
+      "any": [
+       {
+        "sanfangOf": {
+         "name": "財帛"
+        },
+        "contains": "擎羊"
+       },
+       {
+        "sanfangOf": {
+         "name": "財帛"
+        },
+        "contains": "陀羅"
+       },
+       {
+        "sanfangOf": {
+         "name": "財帛"
+        },
+        "contains": "地空"
+       },
+       {
+        "sanfangOf": {
+         "name": "財帛"
+        },
+        "contains": "地劫"
+       }
+      ]
+     }
+    ]
+   },
+   "because": "你的財帛宮有貪狼坐守，三方四正見擎羊、陀羅、地空、地劫一類煞曜。",
+   "claim": "你不宜投機，否則容易傾家。",
+   "source": "wtz.deep.p453.b005",
+   "quote": "贪狼与羊陀、空劫、大耗会同，则以不投机为宜，否则倾家。"
   },
   {
    "id": "syn.wealth.tanlang.huaquan",
@@ -79708,6 +79834,534 @@
    "claim": "你容易好高騖遠。",
    "source": "wtz.deep.p580.b012",
    "quote": "破军化禄化权，又见火星、擎羊者，主好高鹜远。"
+  },
+  {
+   "id": "syn.wealth.minor.luma",
+   "chapter": "錢",
+   "group": "輔煞.祿存",
+   "specificity": "general",
+   "polarity": "吉",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "any": [
+     {
+      "all": [
+       {
+        "star": "祿存",
+        "in": {
+         "name": "財帛"
+        }
+       },
+       {
+        "star": "天馬",
+        "in": {
+         "name": "財帛"
+        }
+       }
+      ]
+     },
+     {
+      "all": [
+       {
+        "star": "祿存",
+        "in": {
+         "name": "財帛"
+        }
+       },
+       {
+        "star": "天馬",
+        "in": {
+         "name": "福德"
+        }
+       }
+      ]
+     },
+     {
+      "all": [
+       {
+        "star": "天馬",
+        "in": {
+         "name": "財帛"
+        }
+       },
+       {
+        "star": "祿存",
+        "in": {
+         "name": "福德"
+        }
+       }
+      ]
+     }
+    ]
+   },
+   "because": "你的財帛宮有祿存、天馬同度或相對，即「祿馬交馳」。",
+   "claim": "你的錢財容易流通。",
+   "source": "wtz.deep.p430.b007",
+   "quote": "凡『禄马交驰』 ，则钱财容易流通"
+  },
+  {
+   "id": "syn.wealth.minor.lucun",
+   "chapter": "錢",
+   "group": "輔煞.祿存",
+   "specificity": "general",
+   "polarity": "中",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "star": "祿存",
+    "in": {
+     "name": "財帛"
+    }
+   },
+   "because": "你的財帛宮有祿存，但不見天馬。",
+   "claim": "你較會把錢積存下來，但錢生錢、流通的力量不大。",
+   "source": "wtz.deep.p430.b007",
+   "quote": "则不过积财而已",
+   "none": {
+    "any": [
+     {
+      "star": "天馬",
+      "in": {
+       "name": "財帛"
+      }
+     },
+     {
+      "star": "天馬",
+      "in": {
+       "name": "福德"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "syn.wealth.minor.fubi",
+   "chapter": "錢",
+   "group": "輔煞.輔弼",
+   "specificity": "general",
+   "polarity": "吉",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "any": [
+     {
+      "star": "左輔",
+      "in": {
+       "name": "財帛"
+      }
+     },
+     {
+      "star": "右弼",
+      "in": {
+       "name": "財帛"
+      }
+     }
+    ]
+   },
+   "because": "你的財帛宮有{minor}。",
+   "claim": "你可以憑別人的助力生財，也可以考慮獨立經營。",
+   "source": "wtz.deep.p431.b005",
+   "quote": "财帛宫见辅弼，则可凭别人助力以生财，所以可考虑独立经营"
+  },
+  {
+   "id": "syn.wealth.minor.kuiyue",
+   "chapter": "錢",
+   "group": "輔煞.魁鉞",
+   "specificity": "general",
+   "polarity": "吉",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "any": [
+     {
+      "star": "天魁",
+      "in": {
+       "name": "財帛"
+      }
+     },
+     {
+      "star": "天鉞",
+      "in": {
+       "name": "財帛"
+      }
+     }
+    ]
+   },
+   "because": "你的財帛宮有{minor}。",
+   "claim": "你有生財的機會，這些機會往往隨著制度、規則的改變而來。",
+   "source": "wtz.deep.p431.b005",
+   "quote": "见魁钺，则有生财的机会"
+  },
+  {
+   "id": "syn.wealth.minor.changqu-ji",
+   "chapter": "錢",
+   "group": "輔煞.昌曲",
+   "specificity": "general",
+   "polarity": "凶",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "any": [
+     {
+      "all": [
+       {
+        "star": "文昌",
+        "in": {
+         "name": "財帛"
+        }
+       },
+       {
+        "star": "文昌",
+        "hua": "忌"
+       }
+      ]
+     },
+     {
+      "all": [
+       {
+        "star": "文曲",
+        "in": {
+         "name": "財帛"
+        }
+       },
+       {
+        "star": "文曲",
+        "hua": "忌"
+       }
+      ]
+     }
+    ]
+   },
+   "because": "你的財帛宮有{minor}化忌。",
+   "claim": "你要防文書出錯帶來的損失，例如空頭支票、合約糾紛。",
+   "source": "wtz.deep.p431.b004",
+   "quote": "此二星化忌皆有文书失误的性质，须防空头支票，合同纠纷等损失"
+  },
+  {
+   "id": "syn.wealth.minor.changqu",
+   "chapter": "錢",
+   "group": "輔煞.昌曲",
+   "specificity": "general",
+   "polarity": "中",
+   "weight": "提",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "any": [
+     {
+      "star": "文昌",
+      "in": {
+       "name": "財帛"
+      }
+     },
+     {
+      "star": "文曲",
+      "in": {
+       "name": "財帛"
+      }
+     }
+    ]
+   },
+   "because": "你的財帛宮有{minor}。",
+   "claim": "這主要增加你的名聲，未必直接多賺錢；有時也代表你可憑文藝或學術賺錢。",
+   "source": "wtz.deep.p431.b005",
+   "quote": "见昌曲，则不过增加声誉"
+  },
+  {
+   "id": "syn.wealth.minor.yang-sha",
+   "chapter": "錢",
+   "group": "輔煞.擎羊",
+   "specificity": "general",
+   "polarity": "凶",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "擎羊",
+      "in": {
+       "name": "財帛"
+      }
+     },
+     {
+      "sanfangOf": {
+       "name": "財帛"
+      },
+      "count": "malefic",
+      "op": "gte",
+      "n": 2
+     }
+    ]
+   },
+   "because": "你的財帛宮有擎羊，三方四正還有其他煞曜。",
+   "claim": "你求財時會遇上惡性競爭。",
+   "source": "wtz.deep.p431.b011",
+   "quote": "会合其它煞星，则主恶性竞争"
+  },
+  {
+   "id": "syn.wealth.minor.yang",
+   "chapter": "錢",
+   "group": "輔煞.擎羊",
+   "specificity": "general",
+   "polarity": "凶",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "star": "擎羊",
+    "in": {
+     "name": "財帛"
+    }
+   },
+   "because": "你的財帛宮有擎羊。",
+   "claim": "你求財時競爭較多。",
+   "source": "wtz.deep.p431.b011",
+   "quote": "擎羊坐财帛宫，基本主竞争"
+  },
+  {
+   "id": "syn.wealth.minor.tuo",
+   "chapter": "錢",
+   "group": "輔煞.陀羅",
+   "specificity": "general",
+   "polarity": "凶",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "star": "陀羅",
+    "in": {
+     "name": "財帛"
+    }
+   },
+   "because": "你的財帛宮有陀羅。",
+   "claim": "你進財容易拖延，錢常要遲些才到手。",
+   "source": "wtz.deep.p432.b003",
+   "quote": "陀罗坐财帛宫，主拖延"
+  },
+  {
+   "id": "syn.wealth.minor.huoling-kong",
+   "chapter": "錢",
+   "group": "輔煞.火鈴",
+   "specificity": "general",
+   "polarity": "凶",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "any": [
+       {
+        "star": "火星",
+        "in": {
+         "name": "財帛"
+        }
+       },
+       {
+        "star": "鈴星",
+        "in": {
+         "name": "財帛"
+        }
+       }
+      ]
+     },
+     {
+      "any": [
+       {
+        "star": "地空",
+        "in": {
+         "name": "財帛"
+        }
+       },
+       {
+        "star": "地劫",
+        "in": {
+         "name": "財帛"
+        }
+       },
+       {
+        "hua": "忌",
+        "in": {
+         "name": "財帛"
+        }
+       }
+      ]
+     }
+    ]
+   },
+   "because": "你的財帛宮{fireBell}與{minor}同度。",
+   "claim": "你的錢容易功虧一簣，或者突然出現大損失。",
+   "source": "wtz.deep.p432.b006",
+   "quote": "往往主功亏于篑，或突然发生倾败",
+   "none": {
+    "any": [
+     {
+      "star": "貪狼",
+      "in": {
+       "name": "財帛"
+      }
+     },
+     {
+      "star": "貪狼",
+      "in": {
+       "name": "福德"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "syn.wealth.minor.huoling",
+   "chapter": "錢",
+   "group": "輔煞.火鈴",
+   "specificity": "general",
+   "polarity": "凶",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "any": [
+     {
+      "star": "火星",
+      "in": {
+       "name": "財帛"
+      }
+     },
+     {
+      "star": "鈴星",
+      "in": {
+       "name": "財帛"
+      }
+     }
+    ]
+   },
+   "because": "你的財帛宮有{fireBell}。",
+   "claim": "你進財較困難，也較勞心勞力。",
+   "source": "wtz.deep.p432.b006",
+   "quote": "为增加进财的困难",
+   "none": {
+    "any": [
+     {
+      "star": "貪狼",
+      "in": {
+       "name": "財帛"
+      }
+     },
+     {
+      "star": "貪狼",
+      "in": {
+       "name": "福德"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "syn.wealth.minor.kongjie-wenqu",
+   "chapter": "錢",
+   "group": "輔煞.空劫",
+   "specificity": "general",
+   "polarity": "凶",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "any": [
+       {
+        "star": "地空",
+        "in": {
+         "name": "財帛"
+        }
+       },
+       {
+        "star": "地劫",
+        "in": {
+         "name": "財帛"
+        }
+       }
+      ]
+     },
+     {
+      "star": "文曲",
+      "in": {
+       "name": "財帛"
+      }
+     },
+     {
+      "star": "文曲",
+      "hua": "忌"
+     }
+    ]
+   },
+   "because": "你的財帛宮有{minor}，又有文曲化忌。",
+   "claim": "你要防被盜、遺失或受騙而損失錢財。",
+   "source": "wtz.deep.p432.b011",
+   "quote": "主被盗、遗失、受骗，因此损失钱财"
+  },
+  {
+   "id": "syn.wealth.minor.kongjie",
+   "chapter": "錢",
+   "group": "輔煞.空劫",
+   "specificity": "general",
+   "polarity": "凶",
+   "weight": "傾",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "any": [
+     {
+      "star": "地空",
+      "in": {
+       "name": "財帛"
+      }
+     },
+     {
+      "star": "地劫",
+      "in": {
+       "name": "財帛"
+      }
+     }
+    ]
+   },
+   "because": "你的財帛宮有{minor}。",
+   "claim": "你的財運容易突然出現挫折性的變化。",
+   "source": "wtz.deep.p432.b010",
+   "quote": "地空地劫基本上不利财帛，主突然产生挫折性的变化"
   }
  ]
 }

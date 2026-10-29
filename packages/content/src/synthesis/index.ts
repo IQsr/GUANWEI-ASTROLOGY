@@ -103,7 +103,7 @@ export const SynthesisCard = z.object({
 }).strict();
 export type SynthesisCard = z.infer<typeof SynthesisCard>;
 
-export const SYNTHESIS_CARDS: SynthesisCard[] = (rawCards as { cards: unknown[] }).cards.map((c) => {
+const BASE_CARDS: SynthesisCard[] = (rawCards as { cards: unknown[] }).cards.map((c) => {
   const card = SynthesisCard.parse(c);
   for (const k of ['when', 'requires', 'none'] as const) if (card[k] !== undefined) ConditionSchema.parse(subst(card[k], 'annual'));
   const src = SOURCES.get(synthesisCiteId(card.source));
@@ -112,6 +112,56 @@ export const SYNTHESIS_CARDS: SynthesisCard[] = (rawCards as { cards: unknown[] 
   if (!card.special && !card.when && !card.alone) throw Error(`${card.id}: 冇條件`);
   return card;
 });
+
+/*
+ * 財帛空宮借星（2026-10-29）。初階轉錄第9篇第38–41段「借星安宮」：本宮無正曜，要借對宮成組星曜入本宮；
+ * 本宮同對宮合起來嘅性質，大致等於借入之後。所以錢章嘅實坐卡，喺財帛空宮時改睇福德（財帛對宮）。
+ * 只借條件借入後仍然睇得啱嘅卡：夾、對宮、三方會照、得祿、地支、廟陷都以星所在宮計，借入後會睇錯宮（第42段：三方要另借），唔借。
+ */
+const BORROW_FROM: Record<string, string> = { 財帛: '福德' };
+/** 錢章輔煞通則卡（財帛篇首 p.430–432，唔分主星）：另計，最多兩段，唔同主星卡爭位。 */
+const MINOR_GROUP = '輔煞.';
+function borrowSafe(x: unknown): boolean {
+  if (Array.isArray(x)) return x.every(borrowSafe);
+  if (!x || typeof x !== 'object') return true;
+  const o = x as Record<string, unknown>;
+  if ('all' in o) return borrowSafe(o.all);
+  if ('any' in o) return borrowSafe(o.any);
+  if ('not' in o) return borrowSafe(o.not);
+  if (('star' in o || 'hua' in o) && ('in' in o || 'hua' in o)) return true;
+  if ('together' in o || 'sanfangOf' in o) return true;
+  return 'meets' in o && o.reach === 'same';
+}
+/** 「X 坐財帛」「化X落財帛」→ 財帛或者福德（財帛自己嘅輔煞照計，主星一定喺福德）。 */
+function borrowCond(x: unknown, from: string, to: string): unknown {
+  if (Array.isArray(x)) return x.map((y) => borrowCond(y, from, to));
+  if (!x || typeof x !== 'object') return x;
+  const o = x as Record<string, unknown>;
+  if ((typeof o.star === 'string' || typeof o.hua === 'string') && (o.in as { name?: string } | undefined)?.name === from)
+    return { any: [o, { ...o, in: { ...(o.in as object), name: to } }] };
+  return Object.fromEntries(Object.entries(o).map(([k, v]) => [k, borrowCond(v, from, to)]));
+}
+function borrowed(c: SynthesisCard): SynthesisCard[] {
+  if (c.chapter !== '錢' || c.seat !== 'seated' || c.bright || c.special || !c.when) return [];
+  if (![c.when, c.requires, c.none].every(borrowSafe)) return [];
+  const from = '財帛', to = BORROW_FROM[from]!;
+  // 「坐守」「坐X」唔寫：借入唔等於實坐（盲評 ab10）
+  const rest = c.because.replace(/^你的財帛宮(由|有)?/, '').replace(/^坐(?!守)/, '').replace(/坐守/, '').replace(/。$/, '');
+  return [{ ...c, id: `${c.id}.borrowed`, seat: 'borrowed',
+    when: { all: [{ empty: { name: from } }, borrowCond(c.when, from, to)] },
+    ...(c.requires !== undefined ? { requires: borrowCond(c.requires, from, to) } : {}),
+    ...(c.none !== undefined ? { none: borrowCond(c.none, from, to) } : {}),
+    ...(c.alone ? { alone: { star: c.alone.star, in: { ...c.alone.in, name: to } } } : {}),
+    because: c.group.startsWith(MINOR_GROUP) ? c.because.replace(/^你的財帛宮/, '你的財帛宮連同借入的福德宮星曜，') : `這一點看的是對宮福德宮的${rest}。` }];
+}
+/** 借星：第一段先講一次成組借入（初階第9篇第39段：唔止借正曜），之後每段只講睇邊粒。 */
+function borrowLead(chart: Chart): string {
+  const name = (p: Chart['palaces'][number]) => p.stars.map((x) => x.name + (x.sihua ? `化${x.sihua}` : '')).join('、');
+  const cai = chart.palaces.find((p) => p.name === '財帛')!, fu = chart.palaces.find((p) => p.name === '福德')!;
+  const own = cai.stars.length ? `，加上財帛宮本身的${name(cai)}` : '';
+  return `你的財帛宮沒有主星，要連同對宮福德宮整組星曜一起看：${name(fu)}${own}。`;
+}
+export const SYNTHESIS_CARDS: SynthesisCard[] = [...BASE_CARDS, ...BASE_CARDS.flatMap(borrowed)];
 
 /** 將條件入面嘅 `$L` 換成卡而家評估嗰層。 */
 function subst<T>(x: T, layer: string): T {
@@ -192,8 +242,20 @@ function matchCard(card: SynthesisCard, layer: 'natal' | 'decade' | 'annual', ct
     if (!extra) return null;
     Object.assign(vars, extra);
   }
-  const fire = ctx.chart.palaces.find((p) => p.name === '財帛')?.stars.filter((s) => s.name === '火星' || s.name === '鈴星').map((s) => s.name);
+  // 借星卡：火鈴可以喺財帛自己或者借入嘅福德
+  const fireIn = card.seat === 'borrowed' && card.chapter === '錢' ? ['財帛', '福德'] : ['財帛'];
+  const fire = ctx.chart.palaces.filter((p) => fireIn.includes(p.name)).flatMap((p) => p.stars).filter((s) => s.name === '火星' || s.name === '鈴星').map((s) => s.name);
   if (fire?.length) vars.fireBell = fire.join('、');
+  if (card.group.startsWith(MINOR_GROUP)) {
+    const names = new Set<string>(), walk = (x: unknown): void => {
+      if (Array.isArray(x)) x.forEach(walk);
+      else if (x && typeof x === 'object') { const o = x as Record<string, unknown>; if (typeof o.star === 'string' && o.in) names.add(o.star); Object.values(o).forEach(walk); }
+    };
+    walk(card.when);
+    const here = ctx.chart.palaces.filter((p) => fireIn.includes(p.name)).flatMap((p) => p.stars);
+    const ji = JSON.stringify(card.when).includes('"hua":"忌","in"') ? here.filter((s) => s.sihua === '忌').map((s) => `化忌的${s.name}`) : [];
+    vars.minor = [...here.filter((s) => names.has(s.name) && s.name !== '火星' && s.name !== '鈴星').map((s) => s.name), ...ji].join('、');
+  }
   return { card, layer, vars, bindings };
 }
 
@@ -378,9 +440,18 @@ export function synthWealthChapter(chart: Chart): SynthesisSegment[] | null {
     const h = matchCard(c, 'natal', ctx);
     return h ? [h] : [];
   });
-  const js = resolve(hits).sort(byStrength).slice(0, 4);
+  const all = resolve(hits).sort(byStrength), minor = (j: Judgement) => j.card.group.startsWith(MINOR_GROUP);
+  // 輔煞兩段：凶、非凶各揀一張先（盲評 ab10：地空、火忌風險唔可以俾吉卡擠走），唔夠先補同類
+  const ms = all.filter(minor), bad = ms.find((j) => j.card.polarity === '凶'), good = ms.find((j) => j.card.polarity !== '凶');
+  const two = [bad, good].filter((j): j is Judgement => !!j);
+  for (const j of ms) if (two.length < 2 && !two.includes(j)) two.push(j);
+  const js = [...all.filter((j) => !minor(j)).slice(0, 4), ...two];
   if (!js.length) return null;
-  return js.map((j, i) => segmentOf(j, i === 0 ? '結論' : '展開'));
+  const segs = js.map((j, i) => segmentOf(j, i === 0 ? '結論' : '展開'));
+  if (majors(cai).length) return segs;
+  const lead = borrowLead(chart), [first, ...more] = segs;
+  return [{ ...first!, text: first!.text.replace(first!.statements[1]!.text, lead + first!.statements[1]!.text),
+    statements: first!.statements.map((st, k) => (k === 1 ? { ...st, text: lead + st.text } : st)) }, ...more];
 }
 
 /** 某年命中嘅今年卡（裁決前，流年層），俾覆蓋審核用。 */
