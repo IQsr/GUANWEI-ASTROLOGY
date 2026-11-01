@@ -13,16 +13,21 @@ describe('Supabase keepalive', () => {
     expect(cronAuthorized(null, 's3cret')).toBe(false);
   });
 
-  it('用 anon key 讀一行 books，唔帶其他嘢', async () => {
+  it('用 anon key call keepalive()，唔讀任何表', async () => {
     const calls: { url: string; init?: RequestInit }[] = [];
     const fake = (async (url: string, init?: RequestInit) => {
       calls.push({ url, init });
-      return new Response('[]', { status: 200 });
+      return new Response('true', { status: 200 });
     }) as unknown as typeof fetch;
     const result = await pingSupabase({ url: 'https://x.supabase.co/', anonKey: 'anon' }, fake);
     expect(result).toEqual({ ok: true });
-    expect(calls[0]!.url).toBe('https://x.supabase.co/rest/v1/books?select=id&limit=1');
-    expect(calls[0]!.init?.headers).toEqual({ apikey: 'anon', authorization: 'Bearer anon' });
+    expect(calls[0]!.url).toBe('https://x.supabase.co/rest/v1/rpc/keepalive');
+    expect(calls[0]!.init?.method).toBe('POST');
+    expect(calls[0]!.init?.headers).toEqual({
+      apikey: 'anon',
+      authorization: 'Bearer anon',
+      'content-type': 'application/json',
+    });
   });
 
   it('Supabase 回錯就報返個 status', async () => {
