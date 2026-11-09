@@ -209,3 +209,11 @@ describe('盲評 ab11 修正（2026-11-09）', () => {
     expect(t.split('今年的疾厄宮由天梁坐守。').length).toBeLessThanOrEqual(2);
   });
 });
+
+describe('錢章結論合句（盲評 ab11、ab12，2026-11-09）', () => {
+  it('主星一吉一凶併成「甲；不過乙」，輔煞卡唔併入主線', () => {
+    const lead = (y: number, m: number, d: number, h: number, min: number, s: 'male' | 'female') => synthWealthChapter(chartOf({ y, m, d }, { h, min }, s))![0]!.statements[0]!.text;
+    expect(lead(1983, 3, 7, 10, 20, 'male')).toBe('你的財源隨社會地位而來；不過你的錢容易流散出去。');
+    expect(lead(2001, 2, 14, 14, 15, 'female')).not.toContain('不過'); // 紫微（主星）同文昌化忌（輔煞）講緊兩件事
+  });
+});

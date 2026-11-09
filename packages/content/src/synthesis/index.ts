@@ -493,9 +493,10 @@ export function synthWealthChapter(chart: Chart): SynthesisSegment[] | null {
   const js = wealthJudgements(chart);
   if (!cai || !js.length) return null;
   // 最強嗰個判斷（專條先）做主線，配最強嗰張相反一邊（凶對非凶）嘅卡；主星卡優先，冇先用輔煞卡
+  // 盲評 ab12：輔煞卡（文昌化忌）同主線講緊兩件事，硬接「不過」唔係轉折，所以兩邊都要係主星卡先併
   const main = js[0]!, bad = (j: Judgement) => j.card.polarity === '凶';
-  const star = (j: Judgement) => !j.card.group.startsWith(MINOR_GROUP), other = (j: Judgement) => j !== main && bad(j) !== bad(main);
-  const partner = js.find((j) => other(j) && star(j)) ?? js.find(other);
+  const star = (j: Judgement) => !j.card.group.startsWith(MINOR_GROUP);
+  const partner = star(main) ? js.find((j) => j !== main && star(j) && bad(j) !== bad(main)) : undefined;
   const rest = js.filter((j) => j !== main && j !== partner);
   // 句內次序：財源、性質（非凶）先講，「不過」接限制（凶）
   const segs = [partner ? (bad(main) ? pairSegment(partner, main, '結論') : pairSegment(main, partner, '結論')) : segmentOf(main, '結論'), ...rest.map((j) => segmentOf(j, '展開'))];
