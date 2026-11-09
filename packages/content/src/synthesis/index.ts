@@ -93,7 +93,8 @@ export const SynthesisCard = z.object({
   age: z.object({ gte: z.number().optional(), lt: z.number().optional() }).optional(),
   /** 唔能用條件語言寫嘅流年配對（同一粒星跨層），喺 SPECIAL 實作。 */
   special: z.enum(['luToJi', 'jiToLu', 'luChongPo', 'luWeak', 'luKongJie', 'changKeXian', 'changKe',
-    'decLuToJi', 'decLuChongPo', 'jiToQuanJi', 'jiToQuan', 'dieLuDec', 'dieLuNatal', 'jiLands', 'yangTuoJiaJi']).optional(),
+    'decLuToJi', 'decLuChongPo', 'jiToQuanJi', 'jiToQuan', 'dieLuDec', 'dieLuNatal', 'jiLands', 'yangTuoJiaJi',
+    'decJiToLu', 'decJiToQuanJi', 'decJiToQuan', 'decJiLands']).optional(),
   because: z.string(),
   claim: z.string(),
   /** G9：建議一定要講得出點解係呢個盤。 */
@@ -321,6 +322,34 @@ const SPECIAL: Record<NonNullable<SynthesisCard['special']>, (ctx: Ctx) => Recor
     const n = a?.sihua.natal.find((x) => x.hua === '忌' && x.star !== '天機' && a.sihua.annual.some((y) => y.hua === '權' && y.star === x.star));
     const q = n && a!.sihua.annual.find((y) => y.hua === '權' && y.star === n.star);
     return q?.annualPalace ? { star: q.star, palaceTopic: topicOf(q.annualPalace) } : null;
+  },
+  // ── 2026-11-09 大限化忌 × 流年（盲評 ab11、ab12：兩次都話大限化曜冇用齊）──
+  // p.235：推斷流年「通常只需視大限及流年兩組化曜」，所以本命→運限嘅條文照用落大限→流年（同 decLuToJi 一樣）
+  /** 大限化忌嗰粒今年化祿（p.236 b003 原局忌、運限祿）。 */
+  decJiToLu: ({ annual: a }) => {
+    const s = a?.sihua.decadal?.find((d) => d.hua === '忌' && a.sihua.annual.some((y) => y.hua === '祿' && y.star === d.star));
+    const lu = s && a!.sihua.annual.find((y) => y.hua === '祿' && y.star === s.star);
+    return s && lu?.annualPalace ? { star: s.star, palaceTopic: topicOf(lu.annualPalace) } : null;
+  },
+  /** 大限天機化忌，今年天機化權（p.263 b010 專條，原文講明「在流年或大運之內」）。 */
+  decJiToQuanJi: ({ annual: a }) => {
+    if (!a?.sihua.decadal?.some((d) => d.hua === '忌' && d.star === '天機')) return null;
+    const q = a.sihua.annual.find((y) => y.hua === '權' && y.star === '天機');
+    return q?.annualPalace ? { palaceTopic: topicOf(q.annualPalace) } : null;
+  },
+  /** 大限化忌，今年同一粒化權（p.237 b006 通則）；天機有專條。 */
+  decJiToQuan: ({ annual: a }) => {
+    const d = a?.sihua.decadal?.find((x) => x.hua === '忌' && x.star !== '天機' && a.sihua.annual.some((y) => y.hua === '權' && y.star === x.star));
+    const q = d && a!.sihua.annual.find((y) => y.hua === '權' && y.star === d.star);
+    return q?.annualPalace ? { star: q.star, palaceTopic: topicOf(q.annualPalace) } : null;
+  },
+  /** 大限化忌今年落喺邊個流年宮（p.235 化忌為障礙；大限化曜係呢段時期嘅環境）。命宮唔講（太泛）。 */
+  decJiLands: ({ annual: a }) => {
+    const ji = a?.sihua.decadal?.find((d) => d.hua === '忌');
+    if (!ji?.branch || !ji.annualPalace || ji.annualPalace === '命宮') return null;
+    // 宮名跟宮段標題用讀者叫法（交友宮、事業宮）
+    const label = ({ 僕役: '交友宮', 官祿: '事業宮' } as Record<string, string>)[ji.annualPalace] ?? `${ji.annualPalace}宮`.replace('宮宮', '宮');
+    return { star: ji.star, branch: ji.branch, annualPalace: label, topic: topicOf(ji.annualPalace) };
   },
   /** 流年化祿同大限化祿／大限祿存同度或相對（p.431：大運與流年亦可構成疊祿）。 */
   dieLuDec: ({ annual: a }) => {
@@ -830,6 +859,18 @@ function weighedSegment(j: Judgement, slot: string, heading?: string): Synthesis
     referenceConditions: [`判斷強度：${j.strength}`, ...j.parts!.map((p) => `原文：「${p.card.quote}」`)] };
 }
 
+/**
+ * 大限化忌同今年嘅交涉（忌轉祿、忌轉權、落點）一定要有一個位（盲評 ab11、ab12：大限訊號冇用齊）。
+ * p.235：推斷流年「通常只需視大限及流年兩組化曜」。頭幾個冇就換走最後一個唔係星系卡嘅判斷。
+ */
+const DECADE_JI = new Set<SynthesisCard['special']>(['decJiToLu', 'decJiToQuanJi', 'decJiToQuan', 'decJiLands']);
+function withDecade(top: Judgement[], all: Judgement[]): Judgement[] {
+  const dec = all.find((j) => DECADE_JI.has(j.card.special));
+  if (!dec || top.includes(dec)) return top;
+  const k = top.map((j) => !j.card.system).lastIndexOf(true);
+  return k < 0 ? [...top, dec] : [...top.slice(0, k), ...top.slice(k + 1), dec];
+}
+
 /** 今年章：流年判斷最多三個，加這十年背景一個，加明年提示一個；冇星系運限卡命中回 null。 */
 /**
  * `general`：冇星系運限卡嘅年份，用流年四化通則卡（p.236、p.284）砌一個短版（要 ≥2 個判斷）。
@@ -844,12 +885,12 @@ export function synthYearChapter(chart: Chart, year: number, opts: { general?: b
   const all = dedupe(weigh(pick('annual', ctx)));
   // 通則卡強度可以高過星系卡；頭三個冇星系卡就將第一張星系卡換入第三位，唔好令星系主線消失
   const sys = all.find((j) => j.card.system);
-  const now = sys && !all.slice(0, 3).includes(sys) ? [...all.slice(0, 2), sys] : all.slice(0, 3);
+  const now = withDecade(sys && !all.slice(0, 3).includes(sys) ? [...all.slice(0, 2), sys] : all.slice(0, 3), all);
   const decades = pick('decade', ctx).filter((j) => j.card.system);
   // 要有命宮星系嘅運限卡做主線先換章（流年層或者大限層）；淨係通則卡就比舊章薄，照用舊章
   if (!now.some((j) => j.card.system) && !decades.length) {
     if (!opts.general) return null;
-    const more = all.slice(0, 4);
+    const more = withDecade(all.slice(0, 4), all);
     if (!more.length) return null;
     const head = more.map((j, i) => segmentOf(j, i === 0 ? '結論' : '展開'));
     const palaces = annualPalaceSegments(ctx, head);

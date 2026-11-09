@@ -90,7 +90,8 @@ describe('今年', () => {
   }, 30000);
   it('64 歲天機丑：廉相廉忌求變破敗、祿逢沖破、弱地；十年背景天梁；冇考試句', () => {
     const segs = synthYearChapter(elder, 2026)!;
-    expect(ids(segs).slice(0, 3)).toEqual(['syn.sys32.lianxiang-ji', 'syn.year.lu-chongpo', 'syn.year.lu-weak']);
+    // 2026-11-09：大限化忌落點一定有位（p.235），換走第三位嘅弱地通則
+    expect(ids(segs).slice(0, 3)).toEqual(['syn.sys32.lianxiang-ji', 'syn.year.lu-chongpo', 'syn.year.dec-ji-lands']);
     expect(segs.find((s) => s.slot === '背景')?.statements[0]!.source_ids[0]).toMatch(/^syn\.sys32\.tianliang/);
     expect(segs.map((s) => s.text).join('')).not.toContain('考試');
   });
@@ -215,5 +216,15 @@ describe('錢章結論合句（盲評 ab11、ab12，2026-11-09）', () => {
     const lead = (y: number, m: number, d: number, h: number, min: number, s: 'male' | 'female') => synthWealthChapter(chartOf({ y, m, d }, { h, min }, s))![0]!.statements[0]!.text;
     expect(lead(1983, 3, 7, 10, 20, 'male')).toBe('你的財源隨社會地位而來；不過你的錢容易流散出去。');
     expect(lead(2001, 2, 14, 14, 15, 'female')).not.toContain('不過'); // 紫微（主星）同文昌化忌（輔煞）講緊兩件事
+  });
+});
+
+describe('大限化忌 × 今年（p.235「通常只需視大限及流年兩組化曜」，2026-11-09）', () => {
+  const ids = (y: number, m: number, d: number, h: number, min: number, s: 'male' | 'female') =>
+    (synthYearChapter(chartOf({ y, m, d }, { h, min }, s), 2026, { general: true }) ?? []).flatMap((x) => x.statements.flatMap((st) => st.source_ids));
+  it('限忌轉年祿（p.236）、限天機忌轉年權（p.263）、限忌落流年宮都有位出', () => {
+    expect(ids(1991, 11, 2, 22, 5, 'female')).toContain('syn.year.dec-ji-to-lu');
+    expect(ids(1970, 8, 30, 3, 50, 'male')).toContain('syn.year.dec-ji-to-quan-tianji');
+    expect(ids(1958, 7, 19, 6, 40, 'male')).toContain('syn.year.dec-ji-lands');
   });
 });
