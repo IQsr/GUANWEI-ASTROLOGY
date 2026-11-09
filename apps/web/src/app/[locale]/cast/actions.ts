@@ -118,6 +118,8 @@ export async function castChart(raw: unknown): Promise<CastOutcome> {
       place: req.place.label,
       birthSex: req.sex,
       birthInput: {...base,time:req.time,options:{timeBasis:req.timeBasis}},
+      // 綜合判讀層（docs/synthesis-switch-on-plan.md）：Vercel 環境變數 SYNTHESIS_BOOKS=1 先開，改完要 redeploy；只影響新書
+      synthesis: process.env.SYNTHESIS_BOOKS === '1',
     });
     if (!chapters) {
       return { ok: false, code: 'NOT_IMPLEMENTED', message: 'NOT_IMPLEMENTED' };

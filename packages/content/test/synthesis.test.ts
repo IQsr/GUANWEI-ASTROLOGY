@@ -194,3 +194,15 @@ describe('錢章輔煞通則（財帛篇首 p.430–432）', () => {
     }
   });
 });
+
+describe('盲評 ab11 修正（2026-11-09）', () => {
+  const text = (c: ReturnType<typeof chartOf>) => (synthYearChapter(c, 2026, { general: true }) ?? []).map((s) => s.text).join('\n');
+  it('紫貪田宅見煞：唔講住宅美麗，改講外表豪華（p.552 b007）', () => {
+    const t = text(chartOf({ y: 1991, m: 11, d: 2 }, { h: 22, min: 5 }, 'female'));
+    expect(t).not.toContain('居住環境較美麗');
+  });
+  it('同一宮兩個判斷理由一樣，理由只講一次', () => {
+    const t = text(chartOf({ y: 1983, m: 3, d: 7 }, { h: 10, min: 20 }, 'male'));
+    expect(t.split('今年的疾厄宮由天梁坐守。').length).toBeLessThanOrEqual(2);
+  });
+});
