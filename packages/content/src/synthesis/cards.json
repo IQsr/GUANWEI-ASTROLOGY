@@ -17948,6 +17948,74 @@
    ]
   },
   {
+   "chapter": "今年",
+   "specificity": "general",
+   "seat": "both",
+   "layer": [
+    "annual"
+   ],
+   "id": "syn.year.dec-ji-to-lu",
+   "group": "流年.忌轉祿",
+   "polarity": "吉",
+   "weight": "傾",
+   "special": "decJiToLu",
+   "because": "這十年{star}化忌，今年{star}化祿。",
+   "claim": "{palaceTopic}方面，這十年原本不利的地方，今年有機會轉為有利。",
+   "source": "wtz.deep.p236.b003",
+   "quote": "所以原来的不利因素，在这段时期可能转化为有利因素，从而获得财富。"
+  },
+  {
+   "chapter": "今年",
+   "specificity": "general",
+   "seat": "both",
+   "layer": [
+    "annual"
+   ],
+   "id": "syn.year.dec-ji-to-quan-tianji",
+   "group": "流年.忌轉權",
+   "polarity": "凶",
+   "weight": "傾",
+   "special": "decJiToQuanJi",
+   "because": "這十年天機化忌，今年天機化權。",
+   "claim": "今年在{palaceTopic}方面，容易主動去改一些不必改的東西，結果欲進反退。",
+   "source": "wtz.deep.p263.b010",
+   "quote": "在流年或大运之内，常常主动招惹不必要的改变，或主滥权弄权而惹麻烦。往往欲进反退，求荣得辱。"
+  },
+  {
+   "chapter": "今年",
+   "specificity": "general",
+   "seat": "both",
+   "layer": [
+    "annual"
+   ],
+   "id": "syn.year.dec-ji-to-quan",
+   "group": "流年.忌轉權",
+   "polarity": "凶",
+   "weight": "傾",
+   "special": "decJiToQuan",
+   "because": "這十年{star}化忌，今年{star}化權。",
+   "claim": "今年{palaceTopic}方面要防受人壓制，{star}化權在這裏不算喜事。",
+   "source": "wtz.deep.p237.b006",
+   "quote": "若原局化忌，忽在运限化为权星，则需防压制之力量]抬头，不为喜事。"
+  },
+  {
+   "chapter": "今年",
+   "specificity": "general",
+   "seat": "both",
+   "layer": [
+    "annual"
+   ],
+   "id": "syn.year.dec-ji-lands",
+   "group": "流年.大限化忌落點",
+   "polarity": "凶",
+   "weight": "提",
+   "special": "decJiLands",
+   "because": "這十年{star}化忌在{branch}宮，今年這一宮是你的{annualPalace}。",
+   "claim": "今年你在{topic}方面，仍受這十年{star}化忌的阻滯。",
+   "source": "wtz.deep.p235.b001",
+   "quote": "化忌一般意义为障碍。"
+  },
+  {
    "id": "syn.year.cai-yangliang-ji",
    "group": "流年財帛.應期.陽梁",
    "polarity": "凶",
