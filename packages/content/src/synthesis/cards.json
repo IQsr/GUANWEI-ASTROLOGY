@@ -55033,7 +55033,55 @@
    "because": "你的田宅宮紫微與貪狼同宮，三方四正見輔佐吉曜。",
    "claim": "你的住宅美麗。",
    "source": "wtz.deep.p552.b007",
-   "quote": "紫徽与贪狼同度，见辅佐吉曜，住宅必美丽。"
+   "quote": "紫徽与贪狼同度，见辅佐吉曜，住宅必美丽。",
+   "none": {
+    "sanfangOf": {
+     "name": "田宅"
+    },
+    "count": "malefic",
+    "op": "gte",
+    "n": 1
+   }
+  },
+  {
+   "id": "syn.property.ziwei.tanlang-malefic-facade",
+   "chapter": "田宅",
+   "group": "紫微田宅.住宅",
+   "specificity": "system",
+   "polarity": "凶",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "紫微",
+      "in": {
+       "name": "田宅"
+      }
+     },
+     {
+      "together": [
+       "紫微",
+       "貪狼"
+      ]
+     },
+     {
+      "sanfangOf": {
+       "name": "田宅"
+      },
+      "count": "malefic",
+      "op": "gte",
+      "n": 1
+     }
+    ]
+   },
+   "because": "你的田宅宮紫微與貪狼同宮，三方四正見煞曜。",
+   "claim": "你的住宅多半只是外表豪華。",
+   "source": "wtz.deep.p552.b007",
+   "quote": "若见煞，则仅为外表豪华。"
   },
   {
    "id": "syn.property.ziwei.tanlang-huoling-growth",
@@ -55100,7 +55148,94 @@
    "because": "你的田宅宮紫微、貪狼同宮，另有火星或鈴星同度，三方四正同時見吉化與吉曜。",
    "claim": "你的產業會突然增加。",
    "source": "wtz.deep.p552.b007",
-   "quote": "火铃同度而见吉化吉曜，产业突然增加，"
+   "quote": "火铃同度而见吉化吉曜，产业突然增加，",
+   "none": {
+    "meets": "紫微",
+    "stars": [
+     "地空",
+     "地劫"
+    ],
+    "reach": "sanfang",
+    "op": "gte",
+    "n": 1
+   }
+  },
+  {
+   "id": "syn.property.ziwei.tanlang-huoling-kongjie-swing",
+   "chapter": "田宅",
+   "group": "紫微田宅.置業",
+   "specificity": "system",
+   "polarity": "凶",
+   "weight": "斷",
+   "seat": "seated",
+   "layer": [
+    "natal"
+   ],
+   "when": {
+    "all": [
+     {
+      "star": "紫微",
+      "in": {
+       "name": "田宅"
+      }
+     },
+     {
+      "together": [
+       "紫微",
+       "貪狼"
+      ]
+     },
+     {
+      "any": [
+       {
+        "together": [
+         "紫微",
+         "火星"
+        ]
+       },
+       {
+        "together": [
+         "紫微",
+         "鈴星"
+        ]
+       }
+      ]
+     },
+     {
+      "meets": "紫微",
+      "stars": [
+       "化祿",
+       "化權",
+       "化科"
+      ],
+      "reach": "sanfang",
+      "op": "gte",
+      "n": 1
+     },
+     {
+      "sanfangOf": {
+       "name": "田宅"
+      },
+      "count": "benefic",
+      "op": "gte",
+      "n": 1
+     },
+     {
+      "meets": "紫微",
+      "stars": [
+       "地空",
+       "地劫"
+      ],
+      "reach": "sanfang",
+      "op": "gte",
+      "n": 1
+     }
+    ]
+   },
+   "because": "你的田宅宮紫微、貪狼同宮，另有火星或鈴星同度，三方四正見吉化與吉曜，同時會地空或地劫。",
+   "claim": "你的產業容易暴得暴失。",
+   "source": "wtz.deep.p552.b007",
+   "quote": "唯若同时见空劫刑耗，则暴得暴失"
   },
   {
    "id": "syn.property.ziwei.tanlang-lu-trading",

@@ -705,9 +705,10 @@ function annualPalaceSegment(ctx: Ctx, cfg: AnnualPalace, said: string): { seg: 
     + (majors(natal).length ? `你本命${cfg.label}坐${names(natal)}${base ? `，底子是：${forReader(cfg, base.text).replace(/。$/, '')}；今年是在這個底子上的變化。` : '。'}` : '');
   const statements: MingStatement[] = [
     { text: lead, en: '', kind: 'editorial-explanation', source_ids: [`${cfg.idTo}lead`], citations: [...(base?.citations ?? []), synthesisCiteId(cfg.method)] },
-    ...js.flatMap((j): MingStatement[] => [
+    // 盲評 ab11：兩個判斷理由一樣（例如兩張天梁疾厄卡）就只喺第二個後面講一次理由
+    ...js.flatMap((j, k): MingStatement[] => [
       { text: forReader(cfg, j.claim), en: '', kind: 'interpretation', source_ids: [j.card.id], citations: [synthesisCiteId(j.card.source)] },
-      { text: j.because, en: '', kind: 'evidence', source_ids: [j.card.id], citations: [] },
+      ...(js[k + 1]?.because === j.because ? [] : [{ text: j.because, en: '', kind: 'evidence' as const, source_ids: js.slice(k > 0 && js[k - 1]!.because === j.because ? k - 1 : k, k + 1).map((x) => x.card.id), citations: [] }]),
     ]),
   ];
   return { seg: { slot: cfg.slot, heading: cfg.slot, text: statements.map((l) => l.text).join(''), statements,
