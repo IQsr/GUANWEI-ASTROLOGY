@@ -49,11 +49,14 @@ it('uses the book brightness for the cells the 2026-10-27 report settled', () =>
 
 describe('錢', () => {
   it('天同酉 獨坐 火星同度：白手興家（專條壓通則）、祖業守不住（條件多先）、中年辛苦晚年順、享受性質', () => {
-    expect(ids(synthWealthChapter(elder))).toEqual(['syn.wealth.tiantong.maoyou', 'syn.wealth.tiantong.huoling', 'syn.wealth.tiantong.alone', 'syn.wealth.tiantong.enjoy', 'syn.wealth.minor.huoling']); // 輔煞：財帛火星
+    // 盲評 ab11：結論段 = 主線（白手興家）＋限制（祖業守不住）
+    expect(synthWealthChapter(elder)![0]!.statements[0]!.source_ids).toEqual(['syn.wealth.tiantong.maoyou', 'syn.wealth.tiantong.huoling']);
+    expect(ids(synthWealthChapter(elder))).toEqual(['syn.wealth.tiantong.maoyou', 'syn.wealth.tiantong.alone', 'syn.wealth.tiantong.enjoy', 'syn.wealth.minor.huoling']); // 輔煞：財帛火星
   });
   it('天梁巳 對天同：早中年難聚（專條先）、先名後利、落陷財源不廣、任職為宜', () => {
     const segs = synthWealthChapter(young)!;
-    expect(ids(segs)).toEqual(['syn.wealth.tianliang.sihai', 'syn.wealth.tianliang.name', 'syn.wealth.tianliang.sihai-luoxian', 'syn.wealth.tianliang.trade']);
+    expect(segs[0]!.statements[0]!.source_ids).toEqual(['syn.wealth.tianliang.name', 'syn.wealth.tianliang.sihai']); // 結論 = 先名後利，不過早中年難聚（專條）
+    expect(ids(segs)).toEqual(['syn.wealth.tianliang.name', 'syn.wealth.tianliang.sihai-luoxian', 'syn.wealth.tianliang.trade']);
     expect(segs[0]!.statements[1]!.text).toBe('你的財帛宮天梁坐巳宮，對宮是天同。');
   });
   it('今年冇星系運限卡照用舊章', () => {
@@ -65,7 +68,7 @@ describe('錢', () => {
     expect(books.filter(Boolean).length / charts.length).toBeGreaterThanOrEqual(0.95);
     for (const b of books) if (b) {
       expect(ids(b).every((id) => id?.endsWith('.borrowed'))).toBe(true);
-      expect(b[0]!.statements[1]!.text).toMatch(/^你的財帛宮沒有主星，要連同對宮福德宮整組星曜一起看：.+。這一點看的是對宮福德宮的/);
+      expect(b[0]!.statements[1]!.text).toMatch(/^你的財帛宮沒有主星，要連同對宮福德宮整組星曜一起看：.+。這(一|兩)點看的是對宮福德宮的/);
       for (const s of b.slice(1)) { expect(s.text).not.toContain('你的財帛宮沒有主星'); expect(s.statements[1]!.text).toMatch(/^(這一點看的是對宮福德宮的|你的財帛宮連同借入的福德宮星曜，)/); }
       for (const s of b) expect(s.statements[1]!.text).not.toMatch(/坐守|借入的(是|星曜：)/);
       expect(synthesisLint(b)).toEqual([]);
@@ -204,5 +207,13 @@ describe('盲評 ab11 修正（2026-11-09）', () => {
   it('同一宮兩個判斷理由一樣，理由只講一次', () => {
     const t = text(chartOf({ y: 1983, m: 3, d: 7 }, { h: 10, min: 20 }, 'male'));
     expect(t.split('今年的疾厄宮由天梁坐守。').length).toBeLessThanOrEqual(2);
+  });
+});
+
+describe('錢章結論合句（盲評 ab11、ab12，2026-11-09）', () => {
+  it('主星一吉一凶併成「甲；不過乙」，輔煞卡唔併入主線', () => {
+    const lead = (y: number, m: number, d: number, h: number, min: number, s: 'male' | 'female') => synthWealthChapter(chartOf({ y, m, d }, { h, min }, s))![0]!.statements[0]!.text;
+    expect(lead(1983, 3, 7, 10, 20, 'male')).toBe('你的財源隨社會地位而來；不過你的錢容易流散出去。');
+    expect(lead(2001, 2, 14, 14, 15, 'female')).not.toContain('不過'); // 紫微（主星）同文昌化忌（輔煞）講緊兩件事
   });
 });

@@ -407,6 +407,25 @@ function segmentOf(j: Judgement, slot: string, heading?: string): SynthesisSegme
     statements, referenceConditions: [`判斷強度：${j.strength}`, `原文：「${j.card.quote}」`] };
 }
 
+/** 主線加限制併成一個結論：「甲；不過乙。」跟住兩張卡各自嘅理由。強度取弱嗰個。 */
+function pairSegment(main: Judgement, limit: Judgement, slot: string): SynthesisSegment {
+  const strength = RANK[limit.strength] > RANK[main.strength] ? limit.strength : main.strength;
+  const claim = `${main.claim.replace(/。$/, '')}；不過${limit.claim}`;
+  const ids = [main.card.id, limit.card.id];
+  // 理由：一樣或者一句包住另一句（「太陽坐守」對「太陽坐守，沒有太陰同度」）就只講長嗰句；兩句借星講法併成一句
+  const [m, l] = [main.because, limit.because], short = (x: string) => x.replace(/^你的財帛宮(由|有)?坐?/, '').replace(/坐守|。/g, '');
+  const BORROW = '這一點看的是對宮福德宮的';
+  const because = m === l || (short(l).includes(short(m)) || short(m).includes(short(l))) ? [m.length >= l.length ? m : l]
+    : m.startsWith(BORROW) && l.startsWith(BORROW) ? [`這兩點看的是對宮福德宮的${m.slice(BORROW.length, -1)}、${l.slice(BORROW.length, -1)}。`]
+    : [m, l];
+  const statements: MingStatement[] = [
+    { text: claim, en: '', kind: 'interpretation', source_ids: ids, citations: [...new Set([main, limit].map((j) => synthesisCiteId(j.card.source)))] },
+    ...because.map((text): MingStatement => ({ text, en: '', kind: 'evidence', source_ids: ids, citations: [] })),
+  ];
+  return { slot, text: statements.map((l) => l.text).join(''), statements,
+    referenceConditions: [`判斷強度：${strength}`, `原文：「${main.card.quote}」`, `原文：「${limit.card.quote}」`] };
+}
+
 /** 卡嘅條件有幾多個原子：越多越具體（例如「天同與火星同度」比「天同守財帛」具體）。 */
 function atoms(c: SynthesisCard): number {
   const count = (x: unknown): number => !x || typeof x !== 'object' ? 0
@@ -429,11 +448,28 @@ export function synthWealthHits(chart: Chart): string[] {
     .flatMap((c) => matchCard(c, 'natal', { chart }) ? [c.id] : []);
 }
 
-/** 錢章：本命財帛嘅判斷，最多四個；冇卡命中回 null（試點：沿用舊章）。 */
-export function synthWealthChapter(chart: Chart): SynthesisSegment[] | null {
+/** 兩句意思差唔多（字面雙字組重疊 ≥ 一半）。盲評 ab10、ab11：同義卡分開兩段講。 */
+/** 虛字同時段詞唔計（佢哋令吉凶相反嘅句都好似一樣）。 */
+const FILLER = /\{\w+\}|今年|這十年|你的|你|容易|較為|較易|較|比較|也|亦|會|可能|往往|多半|有機會|之象|的|了|得到|能/g;
+const bigrams = (s: string) => new Set([...s.replace(FILLER, '').replace(/[，。、；：「」（）\s]/g, '')].flatMap((ch, i, a) => (i ? [a[i - 1]! + ch] : [])));
+export function sameMeaning(a: string, b: string): boolean {
+  const x = bigrams(a), y = bigrams(b);
+  if (Math.min(x.size, y.size) < 3) return false;
+  let n = 0;
+  for (const g of x) if (y.has(g)) n++;
+  // 主語一樣（兄弟姊妹、求財時）就易誤判：長嗰句都要有四成重疊
+  return n / Math.min(x.size, y.size) >= 0.6 && n / Math.max(x.size, y.size) >= 0.4;
+}
+/** 同吉凶、意思差唔多就留前面嗰個（前面強度較高）。 */
+// 身體唔刪：「腎臟」「神經系統」字面似但係兩樣病（2026-11-09 掃描）
+const isHealth = (j: Judgement) => j.card.chapter === '健康' || j.card.group.startsWith('流年疾厄');
+const dedupe = (js: Judgement[]) => js.filter((j, i) => isHealth(j) || !js.slice(0, i).some((o) => o.card.polarity === j.card.polarity && sameMeaning(o.claim, j.claim)));
+
+/** 錢章揀出嚟嘅判斷（主星最多四、輔煞最多二，刪同義）；底子句同錢章共用。 */
+function wealthJudgements(chart: Chart): Judgement[] {
   const ctx: Ctx = { chart };
   const cai = chart.palaces.find((p) => p.name === '財帛');
-  if (!cai) return null;
+  if (!cai) return [];
   const hits = SYNTHESIS_CARDS.filter((c) => c.chapter === '錢').flatMap((c) => {
     if (c.seat === 'borrowed' && majors(cai).length) return [];
     if (c.seat === 'seated' && !majors(cai).length) return [];
@@ -445,9 +481,25 @@ export function synthWealthChapter(chart: Chart): SynthesisSegment[] | null {
   const ms = all.filter(minor), bad = ms.find((j) => j.card.polarity === '凶'), good = ms.find((j) => j.card.polarity !== '凶');
   const two = [bad, good].filter((j): j is Judgement => !!j);
   for (const j of ms) if (two.length < 2 && !two.includes(j)) two.push(j);
-  const js = [...all.filter((j) => !minor(j)).slice(0, 4), ...two];
-  if (!js.length) return null;
-  const segs = js.map((j, i) => segmentOf(j, i === 0 ? '結論' : '展開'));
+  return dedupe([...all.filter((j) => !minor(j)).slice(0, 4), ...two]);
+}
+
+/**
+ * 錢章：本命財帛嘅判斷；冇卡命中回 null（沿用舊章）。
+ * 盲評 ab11（2026-11-09）：逐星排列冇結論。結論段將主線同最重嘅限制（第一張凶卡）併成一句，理由兩句一齊交代，後面唔再重講。
+ */
+export function synthWealthChapter(chart: Chart): SynthesisSegment[] | null {
+  const cai = chart.palaces.find((p) => p.name === '財帛');
+  const js = wealthJudgements(chart);
+  if (!cai || !js.length) return null;
+  // 最強嗰個判斷（專條先）做主線，配最強嗰張相反一邊（凶對非凶）嘅卡；主星卡優先，冇先用輔煞卡
+  // 盲評 ab12：輔煞卡（文昌化忌）同主線講緊兩件事，硬接「不過」唔係轉折，所以兩邊都要係主星卡先併
+  const main = js[0]!, bad = (j: Judgement) => j.card.polarity === '凶';
+  const star = (j: Judgement) => !j.card.group.startsWith(MINOR_GROUP);
+  const partner = star(main) ? js.find((j) => j !== main && star(j) && bad(j) !== bad(main)) : undefined;
+  const rest = js.filter((j) => j !== main && j !== partner);
+  // 句內次序：財源、性質（非凶）先講，「不過」接限制（凶）
+  const segs = [partner ? (bad(main) ? pairSegment(partner, main, '結論') : pairSegment(main, partner, '結論')) : segmentOf(main, '結論'), ...rest.map((j) => segmentOf(j, '展開'))];
   if (majors(cai).length) return segs;
   const lead = borrowLead(chart), [first, ...more] = segs;
   return [{ ...first!, text: first!.text.replace(first!.statements[1]!.text, lead + first!.statements[1]!.text),
@@ -521,10 +573,10 @@ const annualCards = (cfg: AnnualPalace): SynthesisCard[] => SYNTHESIS_CARDS.flat
 const ANNUAL_CARDS = new Map(ANNUAL_PALACES.map((cfg) => [cfg.palace, annualCards(cfg)]));
 
 /** 本命嗰宮嘅底子：本命卡第一個判斷，連埋佢自己嘅出處。 */
-function natalBase(chart: Chart, cfg: AnnualPalace): { text: string; citations: string[] } | undefined {
+function natalBase(chart: Chart, cfg: AnnualPalace): { text: string; citations: string[]; polarity: SynthesisCard['polarity'] } | undefined {
   if (cfg.chapter === '錢') {
-    const st = synthWealthChapter(chart)?.[0]?.statements[0];
-    return st ? { text: st.text, citations: st.citations } : undefined;
+    const j = wealthJudgements(chart)[0];
+    return j ? { text: j.claim, citations: [synthesisCiteId(j.card.source)], polarity: j.card.polarity } : undefined;
   }
   const p = chart.palaces.find((q) => q.name === cfg.palace);
   if (!p) return undefined;
@@ -532,7 +584,21 @@ function natalBase(chart: Chart, cfg: AnnualPalace): { text: string; citations: 
   const j = resolve(SYNTHESIS_CARDS.filter((c) => c.chapter === cfg.chapter && !(c.seat === 'seated' && !seated) && !(c.seat === 'borrowed' && seated)
       && (!cfg.baseFromYear || c.id in cfg.claims) && !BASE_BAN.test(c.claim))
     .flatMap((c) => { const h = matchCard(c, 'natal', { chart }); return h ? [h] : []; })).sort(byStrength)[0];
-  return j ? { text: j.claim, citations: [synthesisCiteId(j.card.source)] } : undefined;
+  return j ? { text: j.claim, citations: [synthesisCiteId(j.card.source)], polarity: j.card.polarity } : undefined;
+}
+
+/**
+ * 底子同今年嘅關係（盲評 ab11：「今年是在這個底子上的變化」只係並列，冇講係延續定轉向）。
+ * 只按卡嘅吉凶比較，唔加新判斷：今年判斷全吉／全凶先講方向，好壞並見就照講並見。
+ */
+function bridge(base: SynthesisCard['polarity'], js: Judgement[]): string {
+  const ps = new Set(js.map((j) => j.card.polarity).filter((p) => p !== '中'));
+  const now = ps.size === 1 ? [...ps][0] : ps.size > 1 ? '並見' : '中';
+  if (now === '並見') return '今年在這方面好壞並見';
+  if (base === '中' || now === '中') return '今年是在這個底子上的變化';
+  // 唔講「底子嘅弱點今年再現」：本命同今年講嘅往往唔係同一件事（例如眼睛、血分），原書冇咁連
+  if (base === now) return now === '吉' ? '今年這方面同樣較順' : '今年這方面同樣要留神';
+  return now === '吉' ? '底子雖有不足，今年這方面卻有轉好的地方' : '底子雖好，今年這方面卻有不利的變化';
 }
 
 /** 卡條件入面嘅 {star, hua}（冇寫層 = 流年版本命、流年都收）。 */
@@ -678,7 +744,7 @@ function annualPalaceSegment(ctx: Ctx, cfg: AnnualPalace, said: string): { seg: 
   const natal = ctx.chart.palaces.find((q) => q.name === cfg.palace);
   if (!p || !natal) return null;
   const seated = majors(p).length > 0;
-  const js = resolve(ANNUAL_CARDS.get(cfg.palace)!.filter((c) => !(c.seat === 'seated' && !seated) && !(c.seat === 'borrowed' && seated))
+  const found = resolve(ANNUAL_CARDS.get(cfg.palace)!.filter((c) => !(c.seat === 'seated' && !seated) && !(c.seat === 'borrowed' && seated))
     .flatMap((c) => { const h = matchCard(c, 'annual', ctx); return h ? [h] : []; })).sort(byStrength)
     // 盲評 ab8：本命化曜坐今年宮，要講明係本命；前面四化段已經講咗「本命某星化某」就唔再重講
     .flatMap((j) => {
@@ -696,13 +762,13 @@ function annualPalaceSegment(ctx: Ctx, cfg: AnnualPalace, said: string): { seg: 
       return [{ ...j, because }];
     })
     // 盲評 ab9：宮內有卡冇考慮嘅反向條件（主星帶忌、三方四正見兩粒以上煞）就唔出吉句，免得淨揀好嗰面
-    .filter((j) => !opposed(ctx, p, j.card, cfg.palace))
-    .slice(0, 2);
+    .filter((j) => !opposed(ctx, p, j.card, cfg.palace));
+  const js = dedupe(found).slice(0, 2);
   if (!js.length) return null;
   const names = (q: typeof p) => majors(q).map((s) => s.name).join('、');
   const base = natalBase(ctx.chart, cfg);
   const lead = `今年你的${cfg.label}在${p.branch}宮，${seated ? `坐${names(p)}` : '是空宮'}。`
-    + (majors(natal).length ? `你本命${cfg.label}坐${names(natal)}${base ? `，底子是：${forReader(cfg, base.text).replace(/。$/, '')}；今年是在這個底子上的變化。` : '。'}` : '');
+    + (majors(natal).length ? `你本命${cfg.label}坐${names(natal)}${base ? `，底子是：${forReader(cfg, base.text).replace(/。$/, '')}；${bridge(base.polarity, js)}。` : '。'}` : '');
   const statements: MingStatement[] = [
     { text: lead, en: '', kind: 'editorial-explanation', source_ids: [`${cfg.idTo}lead`], citations: [...(base?.citations ?? []), synthesisCiteId(cfg.method)] },
     // 盲評 ab11：兩個判斷理由一樣（例如兩張天梁疾厄卡）就只喺第二個後面講一次理由
@@ -775,7 +841,7 @@ export function synthYearChapter(chart: Chart, year: number, opts: { general?: b
   const ctx: Ctx = { chart, annual: a.value, age: a.value.nominalAge };
   const pick = (layer: 'annual' | 'decade', c2: Ctx) => resolve(SYNTHESIS_CARDS.filter((c) => c.chapter === '今年' && c.layer.includes(layer))
     .flatMap((c) => { const h = matchCard(c, layer, c2); return h ? [h] : []; })).sort(byStrength);
-  const all = weigh(pick('annual', ctx));
+  const all = dedupe(weigh(pick('annual', ctx)));
   // 通則卡強度可以高過星系卡；頭三個冇星系卡就將第一張星系卡換入第三位，唔好令星系主線消失
   const sys = all.find((j) => j.card.system);
   const now = sys && !all.slice(0, 3).includes(sys) ? [...all.slice(0, 2), sys] : all.slice(0, 3);
