@@ -1039,7 +1039,11 @@ export function synthLookback(chart: Chart, year: number, max = 2): LookbackLine
     for (const j of general) if (j.card.system) yield { j, topic: j.card.group };
     for (const cfg of LOOKBACK_PALACES) {
       const x = annualPalaceSegment(ctx, cfg, '');
-      if (x) for (const j of x.judged) yield { j: { ...j, claim: forReader(cfg, j.claim) }, topic: x.topic };
+      const p = palaceAt(ctx, cfg.palace, 'annual');
+      // 盲評 ab17：吉句（連「中」：有利但勞心嗰類）要冇反面條件先講（同宮羊陀火鈴空劫、本宮或對宮有大限／流年化忌），唔好淨揀好嗰半句
+      const against = !!p && (p.stars.some((s) => SHA.includes(s.name))
+        || [...(ctx.annual?.sihua.annual ?? []), ...(ctx.annual?.sihua.decadal ?? [])].some((h) => h.hua === '忌' && (h.branch === p.branch || h.branch === OPPOSITE(p.branch))));
+      if (x) for (const j of x.judged) if (!(against && j.card.polarity !== '凶')) yield { j: { ...j, claim: forReader(cfg, j.claim) }, topic: x.topic };
     }
     for (const j of general) if (!j.card.system) yield { j, topic: j.card.group };
   }
@@ -1048,7 +1052,8 @@ export function synthLookback(chart: Chart, year: number, max = 2): LookbackLine
   for (const { j, topic } of ordered()) {
     if (out.length >= max) break;
     // 建議式判斷（「今年要…」「不宜…」）講過去唔通，唔出
-    if (topics.has(topic) || isHealth(j) || /^今年(要|不宜|宜|可按|應)/.test(j.claim) || BASE_BAN.test(j.claim) || HEAVY.test(j.claim) || LOOKBACK_BAN.test(j.claim + j.because) || out.some((o) => o.id === j.card.id || sameMeaning(o.claim, j.claim))) continue;
+    // 盲評 ab17：「要防」「要留意」「把握進退」呢類提醒，讀者唔知要回想乜
+    if (topics.has(topic) || isHealth(j) || /^今年(要|不宜|宜|可按|應)|要防|要留意|要注意|宜|把握/.test(j.claim) || BASE_BAN.test(j.claim) || HEAVY.test(j.claim) || LOOKBACK_BAN.test(j.claim + j.because) || out.some((o) => o.id === j.card.id || sameMeaning(o.claim, j.claim))) continue;
     topics.add(topic);
     out.push({ id: j.card.id, claim: past(j.claim), because: past(concrete(ctx, j.because)), cite: synthesisCiteId(j.card.source), quote: j.card.quote, polarity: j.card.polarity });
   }

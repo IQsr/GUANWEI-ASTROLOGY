@@ -730,7 +730,8 @@ function computeLookBack(chart:Chart,year:number,solarBorn?:number):DaxianSegmen
   for(const r of [...latest.filter((x)=>x.key||x.event),...latest.filter((x)=>!(x.key||x.event))]){if(selected.length>=3)break;if(selected.some((s)=>s.year===r.year||Math.abs(s.year-r.year)<3||s.A.mingGong===r.A.mingGong))continue;selected.push(r);}
   for(const r of selected){
     if(realAgeIn(r.year,r.A.nominalAge,solarBorn)<18)continue;
-    r.cards=synthLookback(chart,r.year,r.event?1:2);
+    // 過唔到全書禁字（例如「化解」屬商業恐嚇）嘅句唔出
+    r.cards=synthLookback(chart,r.year,3).filter((c)=>!scanForbidden(c.claim+c.because,'body').length).slice(0,r.event?1:2);
     if(!r.event&&!r.cards.length)r.qs=quanshuLookback(chart,r.A);
   }
   const segs:DaxianSegment[]=selected.sort((a,b)=>a.year-b.year).map((r)=>{
@@ -788,7 +789,8 @@ function computeLookBack(chart:Chart,year:number,solarBorn?:number):DaxianSegmen
 export const LOOKBACK_CLOSE_ID='lookback.close';
 /** 回看新句（今年卡、全書後備、收尾句）未有英日譯：英日版略過（Issac 2026-11-10：英日讀者暫看舊章）。 */
 export const isLookbackZhOnly=(ids:readonly string[])=>ids.some((id)=>id.startsWith('syn.')||id.startsWith('qs.')||id===LOOKBACK_CLOSE_ID);
-export const LOOKBACK_CLOSE='這幾年對你來說是不是對得上，可以自己回想；對不上的，就當那一年的訊號沒有落在你身上。';
+// 盲評 ab17：舊收尾「對不上就當訊號沒有落在你身上」令乜都吸收得到，削弱可信度；改成請讀者逐條判斷
+export const LOOKBACK_CLOSE='這幾年的講法，哪一條對得上、哪一條對不上，你可以逐條對照自己的經歷。';
 /** Compatibility for callers that need one segment; the chapter uses the separate dated paragraphs. */
 export function lookBack(chart:Chart,year:number,solarBorn?:number):DaxianSegment|null{return lookBackSegments(chart,year,solarBorn)[0]??null;}
 
