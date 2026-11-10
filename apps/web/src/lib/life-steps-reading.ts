@@ -1,4 +1,4 @@
-import {En,Ja,isLookbackZhOnly} from '@guanwei/content';
+import {En,Ja,afterCondition,isLookbackZhOnly} from '@guanwei/content';
 import type {ChapterReading} from './chapter-reading';
 type Segment=ChapterReading['segments'][number];
 type Line=NonNullable<Segment['statements']>[number];
@@ -17,8 +17,6 @@ function keepFor(lines:Line[],translates:(zh:string)=>boolean):(l:Line)=>boolean
     return l.kind==='interpretation'||translates(l.text);
   };
 }
-/** 「If you had a partner at the time,」後面接嘅句唔好大階 */
-const afterComma=(prev:string|undefined,t:string)=>!prev?.endsWith(',')?t:/^That year, /.test(t)?t.slice('That year, '.length):/^That year\b/.test(t)?'t'+t.slice(1):t;
 
 /** Keep reviewed evidence in the saved snapshot; this narrative chapter does not show reference panels. */
 export function lifeStepsReading(input:Segment[]):ChapterReading {
@@ -31,7 +29,7 @@ export function lifeStepsReading(input:Segment[]):ChapterReading {
    let cursor=0;return segments.map((s)=>{
      // 句數要同中文一樣（chapter-reading readingOf 逐句核）：略過嘅句留空
      let prev:string|undefined;
-     const statements=s.statements.map((line)=>{if(!keep(line))return {...line,text:''};const raw=out.paras[cursor++]!;const text=locale==='en'?afterComma(prev,raw):prev?.endsWith('、')?raw.replace(/^その年は、/,''):raw;prev=text;return {...line,text,en:locale==='en'?text:line.en};});
+     const statements=s.statements.map((line)=>{if(!keep(line))return {...line,text:''};const raw=out.paras[cursor++]!;const text=afterCondition(locale,prev,raw);prev=text;return {...line,text,en:locale==='en'?text:line.en};});
      const texts=statements.map((l)=>l.text).filter(Boolean);
      return {...s,heading:undefined,text:texts.join(locale==='en'?' ':''),statements};
    });

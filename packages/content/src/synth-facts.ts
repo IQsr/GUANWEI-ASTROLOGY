@@ -194,3 +194,9 @@ import trRaw from './synth-tr.json';
 const TR = trRaw as Record<string, Tr>;
 /** 綜合判讀層一句（固定句、會變嘅判斷、證據句）→ 英日；認唔到 null */
 export const synthSentence = (zh: string): Tr | null => TR[zh] ?? synthClaim(zh) ?? synthFact(zh);
+
+/** 條件句（「If you had a partner at the time,」／「当時パートナーがいたなら、」）後面嗰句：唔再重複「That year,」／「その年は、」 */
+export function afterCondition(locale: 'en' | 'ja', prev: string | undefined, text: string): string {
+  if (locale === 'en') return !prev?.endsWith(',') ? text : text.startsWith('That year, ') ? text.slice('That year, '.length) : /^That year\b/.test(text) ? 't' + text.slice(1) : text;
+  return prev?.endsWith('、') ? text.replace(/^その年は、/, '') : text;
+}
