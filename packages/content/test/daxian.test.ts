@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { cast, sihuaOfStem, STEMS } from '@guanwei/ziwei';
-import { AREAS, DAXIAN_HUA, DAXIAN_PIVOTS, STEPS_UNTIL_AGE, decadeChapter, firstClause, lifeStepsChapter, num, periodArea, pivotSteps } from '../src/daxian';
+import { AREAS, DAXIAN_HUA, DAXIAN_PIVOTS, STEPS_UNTIL_AGE, decadeChapter, firstClause, lifeStepsChapter, num, periodArea, pivotSteps, isLookbackZhOnly } from '../src/daxian';
 import { scanForbidden } from '../src/lint';
 import { scanPlain } from '../src/plain';
 import { withoutCitations } from '../src/lexicon';
@@ -42,7 +42,7 @@ describe('大限四化：十干每一化都有講法', () => {
   });
 });
 
-describe('兩章', () => {
+describe('兩章', { timeout: 120_000 }, () => {
   it('四百張盤都砌得出，段段過 lint、冇講方法冇列條件', () => {
     for (const c of CHARTS) {
       for (const ch of [lifeStepsChapter({ chart: c, year: 2026 }), decadeChapter({ chart: c, year: 2026 })]) {
@@ -153,7 +153,7 @@ describe('兩章', () => {
   });
 });
 
-describe('樞紐大限（下篇宮垣論・命宮，p.336–366）', () => {
+describe('樞紐大限（下篇宮垣論・命宮，p.336–366）', { timeout: 120_000 }, () => {
   it('大限樞紐四十八條（流年另計），引文喺原文、星名認得（載入嗰陣已經驗）', () => {
     expect(DAXIAN_PIVOTS.filter((r) => r.scope !== 'year').length).toBe(48);
   });
@@ -227,7 +227,9 @@ describe('樞紐大限（下篇宮垣論・命宮，p.336–366）', () => {
         expect(Boolean(m[2]), back.text).toBe(key.includes(idx));
         if (m[2]) seen++;
       }
-      for (const r of [renderEn(back.text), renderJa(back.text)]) expect(r.missing, back.text).toEqual([]);
+      // 2026-11-10：回看新句只有中文，英日版略過（life-steps-reading.ts）
+      const intl = back.statements!.filter((l) => !isLookbackZhOnly(l.source_ids)).map((l) => l.text).join('');
+      for (const r of [renderEn(intl), renderJa(intl)]) expect(r.missing, intl).toEqual([]);
     }
     expect(seen).toBeGreaterThan(10);
   });

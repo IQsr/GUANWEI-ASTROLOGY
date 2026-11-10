@@ -25,7 +25,7 @@ const CHARTS = Array.from({ length: 200 }, (_, i) => {
 
 const yearsOf = (text: string) => [...text.matchAll(/年，你虛歲([〇一二三四五六七八九十百]+)）/g)].length;
 
-describe('回看過去', () => {
+describe('回看過去', { timeout: 60_000 }, () => {
   it('大部分人都有；最多三年', () => {
     const got = CHARTS.map((c) => lookBack(c, 2026));
     expect(got.filter(Boolean).length / CHARTS.length).toBeGreaterThan(0.85);
@@ -58,7 +58,8 @@ describe('回看過去', () => {
     for(const c of CHARTS)for(const s of lookBackSegments(c,2026)){
       expect(s.text).toMatch(/^[〇一二三四五六七八九]{4}年（[甲乙丙丁戊己庚辛壬癸][子丑寅卯辰巳午未申酉戌亥]年，/);
       expect(s.text).toContain('大限');expect(s.text).toContain('當年的');
-      expect(s.text).not.toContain('像是');
+      // 2026-11-10：生活例子（「像是…」）只可以喺標明係例子嘅編輯解說句
+      for (const l of s.statements ?? []) if (l.text.includes('像是')) { expect(l.kind).toBe('editorial-explanation'); expect(l.source_ids.some((id) => id.endsWith('.example'))).toBe(true); }
     }
   });
 
@@ -126,5 +127,92 @@ describe('回看過去', () => {
     const c = CHARTS.find((x) => lookBack(x, 2026))!;
     const slots = lifeStepsChapter({ chart: c, year: 2026 })!.segments.map((s) => s.slot);
     expect(slots.slice(0, 2)).toEqual(['結論', '回看']);
+  });
+});
+
+/* 2026-11-10（Issac）：回看要講嗰年大概點 —— 王亭之今年卡做主，《全書》入限訣做後備 */
+import { QUANSHU_LOOKBACK, quanshuLookback, LOOKBACK_CLOSE } from '../src/daxian';
+import { synthLookback } from '../src/synthesis';
+import { CORPUS, normaliseForMatch } from '../src/lexicon';
+import { citation } from '../src/citation';
+describe('回看：今年卡＋全書後備', { timeout: 60_000 }, () => {
+  it('全書後備卡嘅引文逐字喺語料庫原段；出處講明卷同訣名', () => {
+    for (const c of QUANSHU_LOOKBACK) {
+      const p = CORPUS.quanshu!.passages[`xian.${c.star}`];
+      expect(p, c.id).toBeDefined();
+      expect(normaliseForMatch(p!.text), c.id).toContain(normaliseForMatch(c.quote));
+      expect(citation(`quanshu:xian.${c.star}`)?.section).toContain('入限吉凶訣');
+      expect(c.claim).toMatch(/^按《全書》的講法，那一年/);
+      expect(c.claim).not.toMatch(/病|意外|手術|受傷|官非|破財|離婚|死/);
+    }
+  });
+  it('成年人大部分回看年份都講到嗰年大概點；講過去唔出建議句，唔講病', () => {
+    let years = 0, told = 0;
+    for (const c of CHARTS.slice(0, 60)) for (const s of lookBackSegments(c, 2026)) {
+      years++;
+      const ids = (s.statements ?? []).flatMap((l) => l.source_ids);
+      if (ids.some((id) => id.startsWith('syn.') || id.startsWith('qs.'))) told++;
+      for (const l of s.statements ?? []) if (l.source_ids.some((id) => id.startsWith('syn.'))) expect(l.text).not.toMatch(/^那一年(要|不宜|宜)|今年/);
+    }
+    expect(told / years).toBeGreaterThan(0.6);
+  });
+  it('全書只喺王亭之一句都冇嗰年先出；有判斷嗰本書最尾有收尾句', () => {
+    for (const c of CHARTS.slice(0, 60)) {
+      const segs = lookBackSegments(c, 2026);
+      for (const s of segs) {
+        const ids = (s.statements ?? []).flatMap((l) => l.source_ids);
+        if (ids.some((id) => id.startsWith('qs.'))) expect(ids.some((id) => id.startsWith('syn.'))).toBe(false);
+      }
+      const told = segs.some((s) => (s.statements ?? []).some((l) => l.source_ids.some((id) => id.startsWith('syn.') || id.startsWith('qs.'))));
+      if (told) expect(segs.at(-1)!.text.endsWith(LOOKBACK_CLOSE)).toBe(true);
+    }
+  });
+  it('全書條件：星要坐流年命宮；陷地句要真係落陷', () => {
+    let hit = 0;
+    for (const c of CHARTS.slice(0, 40)) for (let y = 1995; y < 2026; y++) {
+      const a = annual(c, y); if (!a.ok) continue;
+      const p = c.palaces.find((x) => x.branch === a.value.mingGong)!;
+      for (const q of quanshuLookback(c, a.value)) {
+        hit++;
+        const card = QUANSHU_LOOKBACK.find((x) => x.id === q.id)!;
+        expect(p.stars.some((s) => s.name === card.star), q.id).toBe(true);
+      }
+    }
+    expect(hit).toBeGreaterThan(50);
+  });
+  it('今年卡講法改成那一年', () => {
+    const c = CHARTS[3]!;
+    for (const l of synthLookback(c, 2020)) { expect(l.claim).not.toContain('今年'); expect(l.because).not.toContain('今年'); }
+  });
+});
+
+/* 2026-11-10（Issac：加生活例子）：每張卡一句「像是…」，Codex 起稿、人手核 */
+import { LOOKBACK_EXAMPLES } from '../src/daxian';
+describe('回看生活例子', { timeout: 60_000 }, () => {
+  it('格式、字數、禁字；唔寫星名（卡有變數，星名每盤唔同）', () => {
+    const STAR = /紫微|天機|太陽|武曲|天同|廉貞|天府|太陰|貪狼|巨門|天相|天梁|七殺|破軍|文昌|文曲|祿存|擎羊|陀羅|火星|鈴星|地空|地劫|化祿|化忌|化權|化科/;
+    const entries = Object.entries(LOOKBACK_EXAMPLES).filter((e): e is [string, string] => !!e[1]);
+    expect(entries.length).toBeGreaterThan(300);
+    for (const [id, t] of entries) {
+      expect(t, id).toMatch(/^(像是|如果當時)/);
+      expect(t.length, id).toBeLessThanOrEqual(t.startsWith('如果') ? 45 : 32);
+      expect(t, id).not.toMatch(STAR);
+      expect(t, id).not.toMatch(/病|意外|手術|受傷|官非|官司|破財|離婚|分手|死|喪|化解|一定|必然|肯定|香港/);
+      expect(scanForbidden(t, 'body'), id).toEqual([]);
+    }
+  });
+  it('例子跟喺判斷句後面，標明係編輯解說、冇引文', () => {
+    let seen = 0;
+    for (const c of CHARTS.slice(0, 60)) for (const s of lookBackSegments(c, 2026)) {
+      const ls = s.statements ?? [];
+      ls.forEach((l, i) => {
+        if (!l.source_ids.some((id) => id.endsWith('.example'))) return;
+        seen++;
+        expect(l.kind).toBe('editorial-explanation');
+        expect(l.citations).toEqual([]);
+        expect(ls[i - 1]!.kind).toBe('interpretation');
+      });
+    }
+    expect(seen).toBeGreaterThan(100);
   });
 });

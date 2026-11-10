@@ -393,7 +393,7 @@ export function timeTemplate(s: string, missing: string[], h: TimeHelpers): stri
   const voice=lifeVoiceTranslation(s,'ja');
   if(voice)return voice;
   if(REVIEWED_LIFE_TEXT[s])return REVIEWED_LIFE_TEXT[s]!;
-  const lifeSeat=/^這一年的命宮在(\S)，(.+)。$/.exec(s);
+  const lifeSeat=/^[這那]一年的命宮在(\S)，(.+)。$/.exec(s);
   if(lifeSeat)return `その年の命宮は${lifeSeat[1]}${seat(lifeSeat[2]!,missing)}。`;
   let revised=/^(\S+?)年（(\S)(\S)年，你虛歲(\S+?)），你在第(\S+?)個大限之內，流年命宮在(\S)，(.+)。$/.exec(s);
   if(revised)return `${n(revised[1]!)}年（数え${n(revised[4]!)}歳）は第${n(revised[5]!)}大限の中にあり、流年命宮は${revised[6]}${seat(revised[7]!,missing)}。`;

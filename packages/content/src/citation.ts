@@ -91,6 +91,13 @@ export function citation(id: string): Citation | null {
     bookEn: 'Advanced Lectures on Zhongzhou School Zi Wei Dou Shu',
     page: locator.page, section: locator.section, text: locator.excerpt.join('……'), pageConvention: 'pdf', excerpt: true,
   };
+  // 《全書》後備（2026-11-10 回看入限訣）：公有領域明刊本，冇作者、冇頁碼，只講卷同節
+  if (id.startsWith('quanshu:')) {
+    const q = CORPUS.quanshu?.passages[id.slice('quanshu:'.length)] as { chapter?: string; ref?: string; text: string } | undefined;
+    if (!q) return null;
+    return { id, author: '', authorEn: '', book: '紫微斗數全書', bookEn: 'Complete Book of Zi Wei Dou Shu', page: 0, pageConvention: 'pdf',
+      section: [q.chapter, q.ref].filter(Boolean).join(' · '), text: q.text.replace(/\s+/g, '') };
+  }
   const p = CORPUS.zhongzhou?.passages[id] as { chapter?: string; ref?: string; lines?: [number, number]; text: string } | undefined;
   if (!p || !p.lines) return null;
   return {
