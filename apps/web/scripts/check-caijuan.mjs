@@ -74,14 +74,23 @@ try {
     check('唔用推銷字眼', !uncut.text.includes(w), `出現咗「${w}」`);
   }
 
-  /* ⚠ 唔用模糊偷睇：一個糊咗嘅正文即係「睇得到但唔畀你睇」。 */
-  const blurred = await page.evaluate(() =>
-    [...document.querySelectorAll('.weicai *')].filter((el) => {
-      const f = getComputedStyle(el).filter;
-      return f && f.includes('blur');
-    }).length,
-  );
-  check('冇模糊偷睇', blurred === 0, `${blurred} 個元素糊咗`);
+  /*
+   * ⚠ 2026-11-10（Issac 拍板，推翻「冇模糊偷睇」）：未裁章先俾結論段，下面糊住**假字**。
+   * 新規矩：糊住嘅只准係 `.weicai-mo` 嗰格假字（messages weicai.filler1–3），結論段本身唔糊，亦唔准糊住正文。
+   */
+  const blur = await page.evaluate(() => {
+    const els = [...document.querySelectorAll('.weicai *')].filter((el) => (getComputedStyle(el).filter || '').includes('blur'));
+    const lead = document.querySelector('.weicai-lead > p:nth-of-type(2)');
+    return {
+      n: els.length,
+      onlyMo: els.every((el) => el.classList.contains('weicai-mo')),
+      leadClear: lead ? !(getComputedStyle(lead).filter || '').includes('blur') && !lead.closest('.weicai-mo') : true,
+      hidden: els.every((el) => el.getAttribute('aria-hidden') === 'true'),
+    };
+  });
+  check('糊住嘅只係 .weicai-mo 假字', blur.onlyMo, `${blur.n} 個元素糊咗，唔係全部喺 .weicai-mo`);
+  check('結論段唔糊', blur.leadClear, '結論段糊咗');
+  check('糊住嗰格讀屏器唔讀', blur.hidden, '冇 aria-hidden');
 
   /* ── 二、裂開 1600ms，一次 ────────────────────────── */
   await page.locator('[data-demo="cut"]').click();
