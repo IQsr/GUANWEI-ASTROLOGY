@@ -1027,7 +1027,7 @@ export type LookbackLine = { id: string; claim: string; because: string; cite: s
 const past = (s: string) => s.replaceAll('今年', '那一年').replaceAll('明年', '翌年').replaceAll('那一年這一宮是', '那一年正是');
 /** 回看免費章唔講病、意外、官非、破財、離婚、死（2026-10-02 回看規矩，2026-11-10 保留）。 */
 // 2026-11-10 生活例子核稿：喪事、第三者、婚外、有家室追求、感情向外發展，免費章（伴侶都可能睇到）唔講
-const LOOKBACK_BAN = /病|意外|手術|受傷|官非|破財|離婚|死|喪|第三者|婚外|有家室|向外發展/;
+const LOOKBACK_BAN = /病|意外|手術|受傷|官非|破財|破產|傾家|離婚|死|喪|第三者|婚外|有家室|向外發展/;
 /** 回看改寫（2026-11-10，Issac：太闊／複合判斷）：claim null 唔出；example 覆蓋生活例子。 */
 export const LOOKBACK_CLAIMS = (rawLookbackClaims as { cards: Record<string, { claim: string | null; example?: string | null }> }).cards;
 const YEAR_ANNUAL = SYNTHESIS_CARDS.filter((c) => c.chapter === '今年' && c.layer.includes('annual'));

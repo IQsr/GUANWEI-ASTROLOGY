@@ -1,4 +1,5 @@
 import tmRaw from './tm.json';
+import { synthSentence } from '../synth-facts';
 import { OLD_WATCH_LEADS, WATCH_LEADS } from '../watch-lead';
 import { LINK_REFS } from '../link';
 import { ALL_JI_WATCH, LEAN_SUMMARY, PAIR_PLAIN } from '../palace-plain';
@@ -260,7 +261,7 @@ function refPart(part: string, missing: string[]): string | null {
  *   「天同改造的成本高⋯。」（原句「它改造的成本高⋯。」）→ 原句譯文，開頭 It 換星名
  */
 function lookupSentence(s: string): string | null {
-  const direct = TM.sentences[s];
+  const direct = TM.sentences[s] ?? synthSentence(s)?.en;
   if (direct) return direct;
   /* 細讀例外句（assemble.ts `bridgeExceptions`，2026-10-18）：「不過，同宮有鈴星，⋯」 */
   const but = /^(?:不過，|但)(.+)$/.exec(s);

@@ -241,3 +241,26 @@ describe('回看判斷改寫', { timeout: 120_000 }, () => {
     expect(seen).toBeGreaterThan(20);
   });
 });
+
+/* 2026-11-10（Issac：英日版跟返新版本）：回看新句英日譯 */
+import { isLookbackZhOnly } from '../src/daxian';
+import { En, Ja } from '../src';
+import { scanEnglish } from '../src/en/lint';
+import { scanJapanese } from '../src/ja/lint';
+describe('回看新句英日譯', { timeout: 300_000 }, () => {
+  it('判斷句、例子、條件、收尾句九成五以上譯得到；證據句九成以上；過英日 lint、冇中文漏出', () => {
+    const n = { claim: 0, claimOk: 0, fact: 0, factOk: 0 };
+    for (const c of CHARTS.slice(0, 120)) for (const s of lookBackSegments(c, 2026)) for (const l of s.statements ?? []) {
+      if (!isLookbackZhOnly(l.source_ids)) continue;
+      const en = En.renderParagraphs([l.text]), ja = Ja.renderParagraphs([l.text]);
+      const ok = !en.missing.length && !ja.missing.length;
+      if (l.kind === 'evidence') { n.fact++; n.factOk += +ok; } else { n.claim++; n.claimOk += +ok; }
+      if (!ok) continue;
+      expect(scanEnglish(en.paras[0]!), l.text).toEqual([]);
+      expect(scanJapanese(ja.paras[0]!), l.text).toEqual([]);
+      expect(en.paras[0], l.text).not.toMatch(/[一-鿿]/);
+    }
+    expect(n.claimOk / n.claim).toBeGreaterThan(0.95);
+    expect(n.factOk / n.fact).toBeGreaterThan(0.9);
+  });
+});
