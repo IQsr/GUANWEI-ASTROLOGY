@@ -216,3 +216,28 @@ describe('回看生活例子', { timeout: 60_000 }, () => {
     expect(seen).toBeGreaterThan(100);
   });
 });
+
+/* 2026-11-10（Issac：太闊、一句講兩件事嘅判斷要改）：回看專用改寫，唔改今年章 */
+import { LOOKBACK_CLAIMS } from '../src/synthesis';
+describe('回看判斷改寫', { timeout: 120_000 }, () => {
+  it('改寫句格式同禁字', () => {
+    for (const [id, o] of Object.entries(LOOKBACK_CLAIMS)) {
+      if (o.claim === null) continue;
+      expect(o.claim, id).toMatch(id.startsWith('qs.') ? /^按《全書》的講法，那一年/ : /^那一年|^如果|^.{2,20}方面/);
+      expect(o.claim, id).not.toMatch(/今年|病|意外|手術|受傷|官非|破財|離婚|死|喪|第三者|婚外|一定|必然|肯定/);
+      expect(scanForbidden(o.claim, 'body'), id).toEqual([]);
+      if (o.example) expect(o.example, id).toMatch(/^(像是|如果當時有[^，]+，像是)/);
+    }
+  });
+  it('唔出嘅卡唔會出；改寫卡出改寫句', () => {
+    const skip = new Set(Object.entries(LOOKBACK_CLAIMS).filter(([, o]) => o.claim === null).map(([id]) => id));
+    let seen = 0;
+    const texts = new Map(Object.entries(LOOKBACK_CLAIMS).filter(([, o]) => o.claim).map(([id, o]) => [id, o.claim!]));
+    for (const c of CHARTS.slice(0, 80)) for (const s of lookBackSegments(c, 2026)) for (const l of s.statements ?? []) {
+      const id = l.source_ids[0]!;
+      expect(skip.has(id), id).toBe(false);
+      if (texts.has(id) && l.kind === 'interpretation') { seen++; expect(l.text.replace(/。$/, "")).toBe(texts.get(id)!.replace(/。$/, "")); }
+    }
+    expect(seen).toBeGreaterThan(20);
+  });
+});

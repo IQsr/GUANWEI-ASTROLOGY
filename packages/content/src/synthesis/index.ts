@@ -22,6 +22,7 @@ import { xingxiOf } from '../xingxi';
 import type { MingStatement } from '../ming-writer';
 import rawCards from './cards.json';
 import rawSources from './sources.json';
+import rawLookbackClaims from './lookback-claims.json';
 import rawAnnualCai from './annual-cai.json';
 import rawAnnualGuan from './annual-guan.json';
 import rawAnnualFuqi from './annual-fuqi.json';
@@ -1027,6 +1028,8 @@ const past = (s: string) => s.replaceAll('今年', '那一年').replaceAll('明�
 /** 回看免費章唔講病、意外、官非、破財、離婚、死（2026-10-02 回看規矩，2026-11-10 保留）。 */
 // 2026-11-10 生活例子核稿：喪事、第三者、婚外、有家室追求、感情向外發展，免費章（伴侶都可能睇到）唔講
 const LOOKBACK_BAN = /病|意外|手術|受傷|官非|破財|離婚|死|喪|第三者|婚外|有家室|向外發展/;
+/** 回看改寫（2026-11-10，Issac：太闊／複合判斷）：claim null 唔出；example 覆蓋生活例子。 */
+export const LOOKBACK_CLAIMS = (rawLookbackClaims as { cards: Record<string, { claim: string | null; example?: string | null }> }).cards;
 const YEAR_ANNUAL = SYNTHESIS_CARDS.filter((c) => c.chapter === '今年' && c.layer.includes('annual'));
 /** 身體唔做回看（唔講病名；「那一年要多留意X」讀落似補建議）；錢、工作、感情先。 */
 const LOOKBACK_PALACES = [...ANNUAL_PALACES.filter((c) => CORE_PALACES.has(c.palace)), ...ANNUAL_PALACES.filter((c) => !CORE_PALACES.has(c.palace))].filter((c) => c.palace !== '疾厄');
@@ -1053,11 +1056,13 @@ export function synthLookback(chart: Chart, year: number, max = 2): LookbackLine
   const topics = new Set<string>();
   for (const { j, topic } of ordered()) {
     if (out.length >= max) break;
+    const over = LOOKBACK_CLAIMS[j.card.id];
+    if (over && over.claim === null) continue;
     // 建議式判斷（「今年要…」「不宜…」）講過去唔通，唔出
     // 盲評 ab17：「要防」「要留意」「把握進退」呢類提醒，讀者唔知要回想乜
     if (topics.has(topic) || isHealth(j) || /^今年(要|不宜|宜|可按|應)|要防|要留意|要注意|宜|把握/.test(j.claim) || BASE_BAN.test(j.claim) || HEAVY.test(j.claim) || LOOKBACK_BAN.test(j.claim + j.because) || out.some((o) => o.id === j.card.id || sameMeaning(o.claim, j.claim))) continue;
     topics.add(topic);
-    out.push({ id: j.card.id, claim: past(j.claim), because: past(concrete(ctx, j.because)), cite: synthesisCiteId(j.card.source), quote: j.card.quote, polarity: j.card.polarity });
+    out.push({ id: j.card.id, claim: over?.claim ?? past(j.claim), because: past(concrete(ctx, j.because)), cite: synthesisCiteId(j.card.source), quote: j.card.quote, polarity: j.card.polarity });
   }
   return out;
 }

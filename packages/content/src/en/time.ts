@@ -134,7 +134,7 @@ const RULES = (rulesRaw as { rules: { id: string; text: string }[] }).rules.map(
     `^${esc(r.text)
       .replace(esc('{star}'), '(\\S{2})')
       .replace('在你本命', '(在你本命|在這十年的大限)')
-      .replace(/這十年(又|卻)/, '這(十年|一年)$1')}$`,
+      .replace(/這十年(又|卻)/, '[這那](十年|一年)$1')}$`,
   ),
 }));
 
@@ -667,7 +667,7 @@ export function timeTemplate(s: string, missing: string[], h: TimeHelpers): stri
     const rm = r.re.exec(s);
     if (!rm || !star(rm[1]!)) continue;
     const where = rm[2] === '在你本命' ? 'in your birth chart' : 'in your ten-year stage';
-    const span = rm[3] === '十年' ? 'in these ten years' : 'this year';
+    const span = rm[3] === '十年' ? 'in these ten years' : /那一年(又|卻)/.test(s) ? 'that year' : 'this year';
     return RULE_EN[r.id]!.replace('{S}', star(rm[1]!)!).replace('{where}', where).replace('{span}', span);
   }
 

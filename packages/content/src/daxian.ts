@@ -10,7 +10,7 @@ import pivotsRaw from './daxian/pivots.json';
 import eventsRaw from './daxian/events.json';
 import quanshuLookbackRaw from './daxian/quanshu-lookback.json';
 import lookbackExamplesRaw from './daxian/lookback-examples.json';
-import { bookBrightness, synthLookback, type LookbackLine } from './synthesis';
+import { bookBrightness, synthLookback, LOOKBACK_CLAIMS, type LookbackLine } from './synthesis';
 import { CORPUS, cjkCount, normaliseForMatch } from './lexicon';
 import { scanForbidden } from './lint';
 import { scanPlain } from './plain';
@@ -696,8 +696,8 @@ export function quanshuLookback(chart:Chart,A:AnnualChart):QuanshuLine[]{
     if(w.bright==='miaowang'&&!['廟','旺'].includes(b??''))return false;
     if(w.bright==='xian'&&b!=='陷')return false;
     if(w.bright==='notxian'&&(!b||b==='陷'))return false;
-    return true;
-  }).slice(0,2).map((c)=>({id:c.id,claim:c.claim,quote:c.quote,cite:`quanshu:xian.${c.star}`,polarity:c.polarity}));
+    return LOOKBACK_CLAIMS[c.id]?.claim!==null;
+  }).slice(0,2).map((c)=>({id:c.id,claim:LOOKBACK_CLAIMS[c.id]?.claim??c.claim,quote:c.quote,cite:`quanshu:xian.${c.star}`,polarity:c.polarity}));
 }
 
 /**
@@ -707,7 +707,7 @@ export function quanshuLookback(chart:Chart,A:AnnualChart):QuanshuLine[]{
 export const LOOKBACK_EXAMPLES:Record<string,string|null>=lookbackExamplesRaw as Record<string,string|null>;
 /** 判斷句連例子。盲評 ab19：「如果當時有伴侶」要放喺成句判斷前面，唔好判斷先預設咗讀者有伴侶。 */
 function judged(id:string,claim:string,cite:string):MingStatement[]{
-  const t=LOOKBACK_EXAMPLES[id];
+  const o=LOOKBACK_CLAIMS[id]?.example,t=o!==undefined?o:LOOKBACK_EXAMPLES[id];
   const m=t?.match(/^(如果當時有[^，]+)，(像是.+)$/);
   const cond=m&&!/如有/.test(claim)?[{text:m[1]+'，',en:'',kind:'editorial-explanation' as const,source_ids:[`${id}.applies`],citations:[]}]:[];
   const ex=t?(m?m[2]!:t):null;
@@ -760,9 +760,10 @@ function computeLookBack(chart:Chart,year:number,solarBorn?:number):DaxianSegmen
     const ji=A.sihua.annual.find((h)=>h.hua==='忌'),lu=A.sihua.annual.find((h)=>h.hua==='祿');
     if(ji&&lu)add(`當年的${lu.star}化祿在${palaceLabel(lu.annualPalace!)}，${ji.star}化忌在${palaceLabel(ji.annualPalace!)}。`,['method']);
     // These two general four-transformation interactions are stated explicitly at PDF236.
+    // PDF236 祿忌轉換：回看只用「祿轉忌」（錢轉差，讀者對照得到）；「忌轉祿：原來不利的地方轉為有利」冇講邊方面，2026-11-10 Issac 要求刪太闊判斷
     const natal=new Map(A.sihua.natal.map((h)=>[h.star,h.hua]));
-    const interaction=A.sihua.annual.map((h)=>({h,rule:DAXIAN_RULES.rules.find((r)=>['dx.rule.lu_to_ji','dx.rule.ji_to_lu'].includes(r.id)&&r.natal===natal.get(h.star)&&r.decade===h.hua)})).find((r)=>r.rule);
-    if(interaction?.rule)add(interaction.rule.text.replace('{star}',interaction.h.star).replace('這十年','這一年'),['method'],'interpretation');
+    const interaction=A.sihua.annual.map((h)=>({h,rule:DAXIAN_RULES.rules.find((r)=>r.id==='dx.rule.lu_to_ji'&&r.natal===natal.get(h.star)&&r.decade===h.hua)})).find((r)=>r.rule);
+    if(interaction?.rule)add(interaction.rule.text.replace('{star}',interaction.h.star).replace('這十年','那一年'),['method'],'interpretation');
     if(event)add(event.text+'。',event.sources.map((s)=>s.passage_id),'interpretation');
     if(key){lines[0]!.source_ids.push(pivot!.source);lines[0]!.citations.push(lifeStepsCite(pivot!.source));}
     const young=realAgeIn(r.year,A.nominalAge,solarBorn)<18;

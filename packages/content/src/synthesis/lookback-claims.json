@@ -1,0 +1,403 @@
+{
+ "note": "回看專用改寫（2026-11-10）：太闊或一句講兩件事嘅判斷。claim null＝回看唔出；只影響一生十二步回看，唔改今年章。",
+ "cards": {
+  "syn.puyi-year.jumen.no-jihua-malefic": {
+   "claim": "那一年朋友或下屬較難給你助力。",
+   "example": "像是請朋友或同事幫忙，最後仍要自己處理"
+  },
+  "syn.cai-year.lianzhen.competition": {
+   "claim": "那一年求財要面對競爭。",
+   "example": "像是爭取賺錢機會時，同時有幾個人競逐"
+  },
+  "syn.xiongdi-year.tianxiang.linked-malefic": {
+   "claim": null
+  },
+  "syn.fumu-year.wuqu.generation-gap": {
+   "claim": "那一年較難得到父母助力。",
+   "example": "像是想請父母幫忙處理日常事情，最後仍要自行安排"
+  },
+  "syn.tian-year.jumen.fengshui-sensitive": {
+   "claim": null
+  },
+  "syn.qian-year.taiyang.jumen-business": {
+   "claim": "那一年你在外較易得到異鄉或外地人的賞識。",
+   "example": "像是到外地辦事時，當地人特別欣賞你的做法"
+  },
+  "syn.year.lu-kongjie": {
+   "claim": null
+  },
+  "syn.xiongdi-year.tianliang.tianji-auspicious": {
+   "claim": "那一年與兄弟姊妹較易相處和美。",
+   "example": "如果當時有兄弟姊妹，像是見面時相處融洽，少有爭執"
+  },
+  "syn.cai-year.jumen.earning": {
+   "claim": "那一年求財較費心神。",
+   "example": "像是為了爭取一筆收入，花了不少心思"
+  },
+  "syn.year.dec-ji-to-lu": {
+   "claim": null
+  },
+  "syn.tian-year.tianxiang.fengshui-sensitive": {
+   "claim": null
+  },
+  "syn.guan-year.tianxiang.ziwei-quan": {
+   "claim": "那一年事業上的名聲可能比實際收益更突出。",
+   "example": "像是工作獲公開表揚，收入卻沒有明顯增加"
+  },
+  "syn.zinv-year.wuqu.pojun-conflict": {
+   "claim": "那一年如有子女或帶後輩，你與他們較容易不和。"
+  },
+  "syn.xiongdi-year.tanlang.outside-sihai": {
+   "claim": "那一年與兄弟姊妹較易相處和睦。"
+  },
+  "syn.xiongdi-year.tianxiang.linked-auspicious": {
+   "claim": null
+  },
+  "syn.guan-year.taiyang.maoyou-yangliang-change": {
+   "claim": "那一年工作上可能較多奔忙。",
+   "example": "像是工作要往返不同地點，日程排得很滿"
+  },
+  "syn.qian-year.tianji.taiyin-wealth": {
+   "claim": "那一年你出門求財時較忙碌。",
+   "example": "像是為了外地的工作，行程排得很滿"
+  },
+  "syn.fude-year.lianzhen.busy-enjoyment": {
+   "claim": "那一年較能從忙碌中找到樂趣。",
+   "example": "像是行程雖忙，卻做得頗為起勁"
+  },
+  "syn.cai-year.tanlang.huaquan": {
+   "claim": "那一年投機傾向會增加。",
+   "example": "像是常留意短線買賣，想快點賺一筆"
+  },
+  "syn.tian-year.taiyin.taiyang-prosperity": {
+   "claim": null
+  },
+  "syn.sys18.shapolang-turning": {
+   "claim": null
+  },
+  "syn.tian-year.pojun.fengshui-unaffected": {
+   "claim": null
+  },
+  "syn.xiongdi-year.tianliang.taiyin-auspicious": {
+   "claim": "那一年與兄弟姊妹較易相處和美。",
+   "example": "如果當時有兄弟姊妹，像是見面時相處融洽，少有爭執"
+  },
+  "syn.fude-year.tianji.general-focus": {
+   "claim": "那一年你的思緒較易分散。",
+   "example": "像是做事時常想到別的事，難以專心"
+  },
+  "syn.sys38.jumen-annual": {
+   "claim": null
+  },
+  "syn.xiongdi-year.wuqu.chenxu-benefic": {
+   "claim": "那一年與兄弟姊妹及朋友較能和好。",
+   "example": "如果當時有兄弟姊妹，像是之前的心結得以放下"
+  },
+  "syn.puyi-year.tiantong.general": {
+   "claim": "那一年你較容易結交朋友。",
+   "example": "像是在聚會或工作中，較容易與新認識的人建立交情"
+  },
+  "syn.puyi-year.taiyin.jihua-benefic-malefic": {
+   "claim": "那一年你的得力下屬較容易更換。",
+   "example": "如果當時有下屬，像是熟悉工作的人離開，又要換人接手"
+  },
+  "syn.puyi-year.qisha.few": {
+   "claim": "那一年你的交遊圈較窄。",
+   "example": "像是平日來往的朋友只有少數幾個"
+  },
+  "syn.qian-year.jumen.sun-siw-u-ji": {
+   "claim": "那一年在外較易接連遇到是非口舌。"
+  },
+  "syn.year.chang-ke": {
+   "claim": "那一年如有參加考試，較容易取得理想成績。"
+  },
+  "syn.cai-year.tianxiang.maoyou-malefics": {
+   "claim": "那一年財源不穩定。",
+   "example": "像是每月收入忽多忽少"
+  },
+  "syn.fuqi-year.ziwei.sihai-benefics-distance": {
+   "claim": "那一年你與配偶較易聚少離多。",
+   "example": "如果當時有配偶，像是兩人的日程難以配合，較少有時間見面"
+  },
+  "syn.cai-year.jumen.earning.borrowed": {
+   "claim": "那一年求財較費心神。",
+   "example": "像是為了爭取一筆收入，花了不少心思"
+  },
+  "syn.puyi-year.tianxiang.lianzhen-malefic": {
+   "claim": null
+  },
+  "syn.sys47.qisha-change": {
+   "claim": null
+  },
+  "syn.zinv-year.tianji.staff-turnover": {
+   "claim": "那一年如有追隨你的下屬或晚輩，他們可能較常更換。",
+   "example": "如果當時有下屬或晚輩，像是較常要安排新人接替原來的人手"
+  },
+  "syn.sys36.tiantong": {
+   "claim": null
+  },
+  "syn.qian-year.tianxiang.lianzhen": {
+   "claim": null
+  },
+  "syn.puyi-year.tiantong.kongjie": {
+   "claim": "那一年你較容易遭朋友或下屬背棄。"
+  },
+  "syn.tian-year.jumen.ji-home-unrest": {
+   "claim": "那一年你較容易遠離家室。",
+   "example": "像是那段時間住在別處，較少回家"
+  },
+  "syn.sys45.tianliang": {
+   "claim": "那一年往往有離鄉發展的情形。"
+  },
+  "syn.sys52.tanlang": {
+   "claim": null
+  },
+  "syn.qian-year.tianliang.tianji-benefics": {
+   "claim": "那一年在外機遇較多。",
+   "example": "像是到外地時接連遇到工作機會"
+  },
+  "syn.xiongdi-year.lianzhen.yinshen-harmony": {
+   "claim": "那一年與兄弟姊妹感情和美。",
+   "example": "如果當時有兄弟姊妹，像是聊天投契，見面融洽"
+  },
+  "qs.xian.ziwei.ji": {
+   "claim": "按《全書》的講法，那一年收入較有起色",
+   "example": "像是薪金有所增加"
+  },
+  "qs.xian.qisha.ji": {
+   "claim": null
+  },
+  "syn.qian-year.tianxiang.ziwei-no-malefics": {
+   "claim": "那一年你在外較易受到尊崇。",
+   "example": "像是到外地工作時，獲當地人敬重"
+  },
+  "syn.qian-year.pojun.yinshenyou-fallen": {
+   "claim": null
+  },
+  "syn.puyi-year.tianfu.you-no-jihua": {
+   "claim": "那一年你較難從朋友或下屬得到助力。",
+   "example": "像是請朋友幫忙，能出力的人不多"
+  },
+  "qs.xian.jumen.ji": {
+   "claim": null
+  },
+  "syn.sys32.wuqu-ji": {
+   "claim": null
+  },
+  "syn.fumu-year.ziwei.qisha-three-hua": {
+   "claim": "那一年與父母感情較融洽。",
+   "example": "像是與父母談得投契，少有爭執"
+  },
+  "syn.sys56.tianfu": {
+   "claim": null
+  },
+  "syn.xiongdi-year.tiantong.chenxu-benefic": {
+   "claim": "那一年與朋友合作的機會較多。",
+   "example": "像是有朋友提出一起做項目"
+  },
+  "syn.cai-year.tanlang.huaquan.borrowed": {
+   "claim": "那一年投機傾向會增加。",
+   "example": "像是常留意短線買賣，想快點賺一筆"
+  },
+  "syn.puyi-year.lianzhen.pojun-lianzhen-lu": {
+   "claim": "那一年你的朋友及下屬較容易更換。",
+   "example": "像是原本常來往的朋友逐漸少見，轉而與其他朋友來往"
+  },
+  "syn.sys10.wuxiang-wuji": {
+   "claim": null
+  },
+  "syn.qian-year.tiantong.taiyin-bright": {
+   "claim": "那一年出外的奔波較少。"
+  },
+  "syn.puyi-year.lianzhen.changqu": {
+   "claim": "那一年你較多詩酒往來的朋友。",
+   "example": "像是常與朋友吃飯喝酒、談文論藝"
+  },
+  "syn.puyi-year.wuqu.ji-loss": {
+   "claim": "那一年你較易因朋友或下屬而蒙受損失。",
+   "example": "像是借錢給朋友後難以收回"
+  },
+  "syn.guan-year.tianji.sihai-sector-change": {
+   "claim": "那一年事業上可能出現較大的行業變動。",
+   "example": "像是轉到另一個行業工作"
+  },
+  "syn.tian-year.taiyin.temple-property": {
+   "claim": null
+  },
+  "syn.fude-year.tianji.taiyin-social": {
+   "claim": "那一年喜歡熱鬧。",
+   "example": "像是樂於參加聚會，與人一起消磨時間"
+  },
+  "syn.sys15.tongliang-lucun": {
+   "claim": null
+  },
+  "syn.qian-year.lianzhen.hua-lu-popularity": {
+   "claim": "那一年在外較有人緣。"
+  },
+  "syn.xiongdi-year.tiantong.maoyou-friends": {
+   "claim": "那一年交友面較廣。"
+  },
+  "syn.sys35.wupo-jihua": {
+   "claim": null
+  },
+  "syn.tian-year.pojun.lu-quan-renovation": {
+   "claim": "那一年你較容易拆建翻新舊宅。",
+   "example": "像是把舊居重新裝修"
+  },
+  "syn.qian-year.tianji.kongjie": {
+   "claim": null
+  },
+  "syn.qian-year.tiantong.jumen-benefics": {
+   "claim": "那一年在外有機會得財。",
+   "example": "像是到外地接到有收入的工作"
+  },
+  "syn.qian-year.ziwei.qingyang": {
+   "claim": null
+  },
+  "syn.sys52.tiantong": {
+   "claim": null
+  },
+  "syn.sys37.jumen": {
+   "claim": null
+  },
+  "syn.cai-year.pojun.chenxu-tuoluo": {
+   "claim": null
+  },
+  "syn.sys47.tianliang-health": {
+   "claim": null
+  },
+  "syn.sys51.jiju": {
+   "claim": null
+  },
+  "syn.zinv-year.tianji.jumen-self-ji": {
+   "claim": "那一年如有子女或帶後輩，你與他們較容易分離。"
+  },
+  "syn.puyi-year.tianji.chouwei-malefic": {
+   "claim": null
+  },
+  "syn.sys44.tiantong-jihua": {
+   "claim": null
+  },
+  "qs.xian.taiyin.ji": {
+   "claim": "按《全書》的講法，那一年較利置業"
+  },
+  "syn.sys20.tianxiang": {
+   "claim": null
+  },
+  "syn.qian-year.jumen.tianji-ji": {
+   "claim": "那一年在外人緣較少。",
+   "example": "像是到外地與人來往時，較難建立熟絡的關係"
+  },
+  "qs.xian.tiantong.ji": {
+   "claim": "按《全書》的講法，那一年家中喜事較多"
+  },
+  "syn.qian-year.qisha.lucun-malefics": {
+   "claim": null
+  },
+  "qs.xian.tanlang.ji": {
+   "claim": null
+  },
+  "syn.sys8.tongju-lu-xianghe": {
+   "claim": null
+  },
+  "syn.sys8.qisha-xianghe": {
+   "claim": null
+  },
+  "syn.fude-year.jumen.tiantong-ji": {
+   "claim": "那一年容易陷入痛苦的感情糾纏。"
+  },
+  "syn.xiongdi-year.tianxiang.linked-ji": {
+   "claim": null
+  },
+  "syn.fude-year.tiantong.taiyin-huoling": {
+   "claim": "那一年較易因不經心而惹煩惱。"
+  },
+  "syn.sys16.zipo-turning": {
+   "claim": null
+  },
+  "syn.zinv-year.tianji.ziwu-staff": {
+   "claim": "那一年如有直接帶領的下屬，較容易出現人手更換。"
+  },
+  "syn.qian-year.tianji.tianliang-support": {
+   "claim": "那一年你出門較易有人扶持。",
+   "example": "像是出外辦事時，有人主動幫忙接洽"
+  },
+  "syn.puyi-year.tianliang.no-benefic": {
+   "claim": "那一年你的交遊圈較窄。",
+   "example": "像是平日來往的朋友只有少數幾個"
+  },
+  "syn.puyi-year.tiantong.tianliang": {
+   "claim": "那一年你較容易得到朋友直言規勸。"
+  },
+  "syn.fude-year.wuqu.pojun-unsettled": {
+   "claim": "那一年對同一件事的想法較容易反覆改變。"
+  },
+  "syn.sys12.liantan-lu-ji": {
+   "claim": null
+  },
+  "syn.sys12.taiyin-xian-jiyao": {
+   "claim": null
+  },
+  "syn.tian-year.qisha.lianzhen-ji-sorrow": {
+   "claim": null
+  },
+  "syn.qian-year.tianxiang.wupo-benefics": {
+   "claim": null
+  },
+  "syn.puyi-year.lianzhen.tanlang-hualu-benefic": {
+   "claim": "那一年你較容易因交際應酬而得財。"
+  },
+  "syn.qian-year.tianfu.tuoluo-delay": {
+   "claim": "那一年出門較易拖延。",
+   "example": "像是原定的出發日期需要延後"
+  },
+  "syn.sys21.tiantong-jihua": {
+   "claim": null
+  },
+  "syn.sys41.wupo-wuqu-lu": {
+   "claim": null
+  },
+  "qs.xian.tianliang.ji": {
+   "claim": "按《全書》的講法，那一年較有升職的機會"
+  },
+  "syn.qian-year.ziwei.tuoluo": {
+   "claim": null
+  },
+  "syn.xiongdi-year.taiyang.maoyou-tianliang-malefic": {
+   "claim": "那一年與兄弟姊妹較易分離。"
+  },
+  "syn.sys53.tongyin-tiantong-ji": {
+   "claim": "那一年想安靜休息，卻難以如願。",
+   "example": "像是想留一段時間安靜休息，卻較難如願"
+  },
+  "syn.xiongdi-year.lianzhen.chouwei-malefic": {
+   "claim": "那一年與兄弟姊妹容易只是表面和洽。",
+   "example": "如果當時有兄弟姊妹，像是見面客氣，卻少談心事"
+  },
+  "syn.fumu-year.wuqu.tanlang-huoling-superior": {
+   "claim": "那一年較易與上司有權利糾紛。"
+  },
+  "syn.sys34.taiyang-xian": {
+   "claim": null
+  },
+  "syn.sys38.wupo-jihua-annual": {
+   "claim": null
+  },
+  "syn.fuqi-year.tianfu.maoyou-benefics": {
+   "claim": "那一年你與伴侶感情較佳。",
+   "example": "如果當時有伴侶，像是相處融洽，少有爭執"
+  },
+  "syn.qian-year.tanlang.lianzhen-hardship": {
+   "claim": null
+  },
+  "syn.sys34.wupo-jihua": {
+   "claim": null
+  },
+  "syn.sys46.tianliang-ke": {
+   "claim": null
+  },
+  "syn.qian-year.tiantong.general-blessing": {
+   "claim": null
+  }
+ }
+}
