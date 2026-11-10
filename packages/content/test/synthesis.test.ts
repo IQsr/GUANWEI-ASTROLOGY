@@ -33,7 +33,8 @@ function sample(n: number) {
   }
   return out;
 }
-const ids = (segs: { statements: { source_ids: string[] }[] }[] | null) => segs?.map((s) => s.statements[0]!.source_ids[0]) ?? [];
+// 章首總覽句（syn.year.overview）唔係卡，讀第一張卡要跳過佢
+const ids = (segs: { statements: { source_ids: string[] }[] }[] | null) => segs?.map((s) => s.statements.find((st) => st.source_ids[0] !== 'syn.year.overview')!.source_ids[0]) ?? [];
 
 it('every source paragraph matches the reference index fingerprint, page and section', () => {
   const blocks = new Map((index as { blocks: { id: string; text_sha256: string; pdf_page: number; section_title: string }[] }).blocks.map((b) => [b.id, b]));
@@ -114,7 +115,10 @@ describe('今年', () => {
   });
   it('權衡（ab7）：同一粒流年化祿嘅好壞併成一段，開頭講淨結果；羊陀夾忌（p.228）壓一般化忌落點', () => {
     const c4 = chartOf({ y: 1974, m: 1, d: 13 }, { h: 8, min: 0 }, 'female');
-    const lead = synthYearChapter(c4, 2026, { general: true })![0]!;
+    const first = synthYearChapter(c4, 2026, { general: true })![0]!;
+    // 2026-11-10：第一段先係章首總覽句，跟住先係結論判斷
+    expect(first.statements[0]!.source_ids[0]).toBe('syn.year.overview');
+    const lead = { statements: first.statements.slice(1) };
     expect(lead.statements[0]!.source_ids).toEqual(['syn.year.die-lu-natal', 'syn.year.lu-weak']);
     expect(lead.statements[0]!.text).toContain('實際得益要打折扣');
     expect(lead.statements[0]!.citations.length).toBeGreaterThan(0);
@@ -240,5 +244,17 @@ describe('按話題裁決（2026-11-10，盲評 ab13）', () => {
     expect(money.text).toContain('今年廉貞化忌落在寅宮');
     expect(segs.filter((s) => s.text.includes('今年廉貞化忌落在寅宮')).length).toBe(1);
     expect(segs.at(-1)!.text).toBe('這一章用到的運限：你今年虛歲57，行53至62歲的戊子大限（本命僕役宮）。這十年的四化是貪狼化祿、太陰化權、太陽化科、天機化忌；今年的四化是天同化祿、天機化權、文昌化科、廉貞化忌。');
+  });
+});
+
+describe('今年章首總覽（2026-11-10，盲評 ab14）', () => {
+  it('按話題分較有利／有機會同時要防／要放慢多留神；權衡併咗嘅疊祿弱地逐張計', () => {
+    const t = synthYearChapter(chartOf({ y: 1983, m: 3, d: 7 }, { h: 10, min: 20 }, 'male'), 2026, { general: true })![0]!.statements[0]!.text;
+    expect(t).toBe('今年整體來看：較有利的是「考試、進修」；有機會、同時要防的是「收入」；要放慢、多留神的是「朋友、一般往來的下屬」「工作」「身體」。下面逐項講原因。');
+  });
+  it('「出錢、合夥先小額」淨係錢、合作相關話題先出（子女、伴侶、心情唔出）', () => {
+    const t = (y: number, m: number, d: number, h: number, min: number, s: 'male' | 'female') => (synthYearChapter(chartOf({ y, m, d }, { h, min }, s), 2026, { general: true }) ?? []).map((x) => x.text).join('');
+    expect(t(1983, 3, 7, 10, 20, 'male')).not.toContain('涉及子女、親近的後輩的出錢');
+    expect(t(1970, 8, 30, 3, 50, 'male')).not.toContain('涉及心情、享受的出錢');
   });
 });
