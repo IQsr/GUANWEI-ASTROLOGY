@@ -91,7 +91,10 @@ describe('今年', () => {
   it('64 歲天機丑：廉相廉忌求變破敗、祿逢沖破、弱地；十年背景天梁；冇考試句', () => {
     const segs = synthYearChapter(elder, 2026)!;
     // 2026-11-09：大限化忌落點一定有位（p.235），換走第三位嘅弱地通則
-    expect(ids(segs).slice(0, 3)).toEqual(['syn.sys32.lianxiang-ji', 'syn.year.lu-chongpo', 'syn.year.dec-ji-lands']);
+    // 2026-11-10：祿逢沖破落喺有宮段嘅宮，就併入嗰宮段（按話題裁決），段首係方向句
+    expect(ids(segs).slice(0, 2)).toEqual(['syn.sys32.lianxiang-ji', 'syn.year.dec-ji-lands']);
+    const merged = segs.find((s) => s.slot.startsWith('今年') && s.statements.some((st) => st.source_ids.includes('syn.year.lu-chongpo')))!;
+    expect(merged.statements[0]!.text).toMatch(/^今年在.+方面，(機會和風險落在同一宮|要留神的訊號集中在這一宮|有利的訊號集中在這一宮)。$/);
     expect(segs.find((s) => s.slot === '背景')?.statements[0]!.source_ids[0]).toMatch(/^syn\.sys32\.tianliang/);
     expect(segs.map((s) => s.text).join('')).not.toContain('考試');
   });
@@ -226,5 +229,16 @@ describe('大限化忌 × 今年（p.235「通常只需視大限及流年兩組�
     expect(ids(1991, 11, 2, 22, 5, 'female')).toContain('syn.year.dec-ji-to-lu');
     expect(ids(1970, 8, 30, 3, 50, 'male')).toContain('syn.year.dec-ji-to-quan-tianji');
     expect(ids(1958, 7, 19, 6, 40, 'male')).toContain('syn.year.dec-ji-lands');
+  });
+});
+
+describe('按話題裁決（2026-11-10，盲評 ab13）', () => {
+  it('今年化忌就喺流年財帛宮：併入今年的錢段，段首講方向；尾段列大限同兩組四化', () => {
+    const segs = synthYearChapter(chartOf({ y: 1970, m: 8, d: 30 }, { h: 3, min: 50 }, 'male'), 2026, { general: true })!;
+    const money = segs.find((s) => s.slot === '今年的錢')!;
+    expect(money.text).toMatch(/^今年在收入方面，要留神的訊號集中在這一宮。今年你的財帛宮在寅宮/);
+    expect(money.text).toContain('今年廉貞化忌落在寅宮');
+    expect(segs.filter((s) => s.text.includes('今年廉貞化忌落在寅宮')).length).toBe(1);
+    expect(segs.at(-1)!.text).toBe('這一章用到的運限：你今年虛歲57，行53至62歲的戊子大限（本命僕役宮）。這十年的四化是貪狼化祿、太陰化權、太陽化科、天機化忌；今年的四化是天同化祿、天機化權、文昌化科、廉貞化忌。');
   });
 });
