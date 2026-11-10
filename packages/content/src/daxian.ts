@@ -9,6 +9,7 @@ import rulesRaw from './daxian/rules.json';
 import pivotsRaw from './daxian/pivots.json';
 import eventsRaw from './daxian/events.json';
 import quanshuLookbackRaw from './daxian/quanshu-lookback.json';
+import lookbackExamplesRaw from './daxian/lookback-examples.json';
 import { bookBrightness, synthLookback, type LookbackLine } from './synthesis';
 import { CORPUS, cjkCount, normaliseForMatch } from './lexicon';
 import { scanForbidden } from './lint';
@@ -699,6 +700,13 @@ export function quanshuLookback(chart:Chart,A:AnnualChart):QuanshuLine[]{
   }).slice(0,2).map((c)=>({id:c.id,claim:c.claim,quote:c.quote,cite:`quanshu:xian.${c.star}`,polarity:c.polarity}));
 }
 
+/**
+ * 回看生活例子（2026-11-10，Issac：回看要講大概發生咩事）：每張卡一句「像是…」，編輯解說，唔係原文，唔表示已發生。
+ * 由 Codex 起稿、逐句人手核（tmp/lookback-examples）；冇例子嘅卡就唔出。
+ */
+export const LOOKBACK_EXAMPLES:Record<string,string|null>=lookbackExamplesRaw as Record<string,string|null>;
+function exampleOf(id:string):MingStatement[]{const t=LOOKBACK_EXAMPLES[id];return t?[{text:t+'。',en:'',kind:'editorial-explanation',source_ids:[`${id}.example`],citations:[]}]:[];}
+
 /** Past dates are selected as reading examples, never as evidence that an event happened. */
 /** 同一張盤同一年只計一次（每年要配今年卡，約十毫秒一年）。 */
 const LOOKBACK_MEMO=new WeakMap<Chart,Map<string,DaxianSegment[]>>();
@@ -767,8 +775,8 @@ function computeLookBack(chart:Chart,year:number,solarBorn?:number):DaxianSegmen
     }
     // Keep the date and stage first, then explain the focus before the supporting star positions.
     // 有判斷就先講判斷（結論先），唔再加編輯提示
-    const meaning:MingStatement[]=[...cards.flatMap((c):MingStatement[]=>[{text:c.claim,en:'',kind:'interpretation',source_ids:[c.id],citations:[c.cite]},{text:c.because,en:'',kind:'evidence',source_ids:[c.id],citations:[]}]),
-      ...qs.map((q):MingStatement=>({text:q.claim+'。',en:'',kind:'interpretation',source_ids:[q.id],citations:[q.cite]}))];
+    const meaning:MingStatement[]=[...cards.flatMap((c):MingStatement[]=>[{text:c.claim,en:'',kind:'interpretation',source_ids:[c.id],citations:[c.cite]},...exampleOf(c.id),{text:c.because,en:'',kind:'evidence',source_ids:[c.id],citations:[]}]),
+      ...qs.flatMap((q):MingStatement[]=>[{text:q.claim+'。',en:'',kind:'interpretation',source_ids:[q.id],citations:[q.cite]},...exampleOf(q.id)])];
     lines.splice(1,0,...(meaning.length?meaning:focus));
     const ids=[...new Set(lines.flatMap((l)=>l.citations))];
     return {slot:'回看',heading:`${yearCN(r.year)}年`,text:lines.map((l)=>l.text).join(''),statements:lines,source_id:ids.join('+')||null,rule_ids:[],

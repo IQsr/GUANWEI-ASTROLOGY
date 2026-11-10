@@ -1025,7 +1025,8 @@ export type LookbackLine = { id: string; claim: string; because: string; cite: s
 // 「那一年這一宮是你的X宮」唔講方法（plain P1）：改「那一年正是你的X宮」
 const past = (s: string) => s.replaceAll('今年', '那一年').replaceAll('明年', '翌年').replaceAll('那一年這一宮是', '那一年正是');
 /** 回看免費章唔講病、意外、官非、破財、離婚、死（2026-10-02 回看規矩，2026-11-10 保留）。 */
-const LOOKBACK_BAN = /病|意外|手術|受傷|官非|破財|離婚|死/;
+// 2026-11-10 生活例子核稿：喪事、第三者、婚外、有家室追求、感情向外發展，免費章（伴侶都可能睇到）唔講
+const LOOKBACK_BAN = /病|意外|手術|受傷|官非|破財|離婚|死|喪|第三者|婚外|有家室|向外發展/;
 const YEAR_ANNUAL = SYNTHESIS_CARDS.filter((c) => c.chapter === '今年' && c.layer.includes('annual'));
 /** 身體唔做回看（唔講病名；「那一年要多留意X」讀落似補建議）；錢、工作、感情先。 */
 const LOOKBACK_PALACES = [...ANNUAL_PALACES.filter((c) => CORE_PALACES.has(c.palace)), ...ANNUAL_PALACES.filter((c) => !CORE_PALACES.has(c.palace))].filter((c) => c.palace !== '疾厄');

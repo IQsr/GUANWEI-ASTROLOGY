@@ -58,7 +58,8 @@ describe('回看過去', { timeout: 60_000 }, () => {
     for(const c of CHARTS)for(const s of lookBackSegments(c,2026)){
       expect(s.text).toMatch(/^[〇一二三四五六七八九]{4}年（[甲乙丙丁戊己庚辛壬癸][子丑寅卯辰巳午未申酉戌亥]年，/);
       expect(s.text).toContain('大限');expect(s.text).toContain('當年的');
-      expect(s.text).not.toContain('像是');
+      // 2026-11-10：生活例子（「像是…」）只可以喺標明係例子嘅編輯解說句
+      for (const l of s.statements ?? []) if (l.text.includes('像是')) { expect(l.kind).toBe('editorial-explanation'); expect(l.source_ids.some((id) => id.endsWith('.example'))).toBe(true); }
     }
   });
 
@@ -182,5 +183,36 @@ describe('回看：今年卡＋全書後備', { timeout: 60_000 }, () => {
   it('今年卡講法改成那一年', () => {
     const c = CHARTS[3]!;
     for (const l of synthLookback(c, 2020)) { expect(l.claim).not.toContain('今年'); expect(l.because).not.toContain('今年'); }
+  });
+});
+
+/* 2026-11-10（Issac：加生活例子）：每張卡一句「像是…」，Codex 起稿、人手核 */
+import { LOOKBACK_EXAMPLES } from '../src/daxian';
+describe('回看生活例子', { timeout: 60_000 }, () => {
+  it('格式、字數、禁字；唔寫星名（卡有變數，星名每盤唔同）', () => {
+    const STAR = /紫微|天機|太陽|武曲|天同|廉貞|天府|太陰|貪狼|巨門|天相|天梁|七殺|破軍|文昌|文曲|祿存|擎羊|陀羅|火星|鈴星|地空|地劫|化祿|化忌|化權|化科/;
+    const entries = Object.entries(LOOKBACK_EXAMPLES).filter((e): e is [string, string] => !!e[1]);
+    expect(entries.length).toBeGreaterThan(300);
+    for (const [id, t] of entries) {
+      expect(t, id).toMatch(/^(像是|如果當時)/);
+      expect(t.length, id).toBeLessThanOrEqual(t.startsWith('如果') ? 45 : 32);
+      expect(t, id).not.toMatch(STAR);
+      expect(t, id).not.toMatch(/病|意外|手術|受傷|官非|官司|破財|離婚|分手|死|喪|化解|一定|必然|肯定|香港/);
+      expect(scanForbidden(t, 'body'), id).toEqual([]);
+    }
+  });
+  it('例子跟喺判斷句後面，標明係編輯解說、冇引文', () => {
+    let seen = 0;
+    for (const c of CHARTS.slice(0, 60)) for (const s of lookBackSegments(c, 2026)) {
+      const ls = s.statements ?? [];
+      ls.forEach((l, i) => {
+        if (!l.source_ids.some((id) => id.endsWith('.example'))) return;
+        seen++;
+        expect(l.kind).toBe('editorial-explanation');
+        expect(l.citations).toEqual([]);
+        expect(ls[i - 1]!.kind).toBe('interpretation');
+      });
+    }
+    expect(seen).toBeGreaterThan(100);
   });
 });
