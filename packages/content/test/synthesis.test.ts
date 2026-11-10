@@ -70,7 +70,7 @@ describe('錢', () => {
     for (const b of books) if (b) {
       expect(ids(b).every((id) => id?.endsWith('.borrowed'))).toBe(true);
       expect(b[0]!.statements[1]!.text).toMatch(/^你的財帛宮沒有主星，要連同對宮福德宮整組星曜一起看：.+。這(一|兩)點看的是對宮福德宮的/);
-      for (const s of b.slice(1)) { expect(s.text).not.toContain('你的財帛宮沒有主星'); expect(s.statements[1]!.text).toMatch(/^(這一點看的是對宮福德宮的|你的財帛宮連同借入的福德宮星曜，)/); }
+      for (const s of b.slice(1)) { expect(s.text).not.toContain('你的財帛宮沒有主星'); expect(s.statements.find((st) => st.kind === 'evidence')!.text).toMatch(/^(這一點看的是對宮福德宮的|你的財帛宮連同借入的福德宮星曜，)/); }
       for (const s of b) expect(s.statements[1]!.text).not.toMatch(/坐守|借入的(是|星曜：)/);
       expect(synthesisLint(b)).toEqual([]);
     }
@@ -274,5 +274,20 @@ describe('今年財帛空宮借對宮（初階第9篇借星安宮，盲評 ab15�
       expect(seg.text).not.toContain('對宮福德宮的');
     }
     expect(SYNTHESIS_CARDS.filter((c) => c.chapter === '錢').every((c) => !c.because.includes('不見天馬'))).toBe(true); // 田宅「三方四正不見天馬」講明範圍，唔使改
+  });
+});
+
+describe('守財方向相反並排講（用戶 2026-11-10 揀，原書冇講邊個條件優先）', () => {
+  it('祿存「較會積存」同主星「不容易積存」放埋一段，各自跟理由；唔判輕重', () => {
+    const books = sample(400).map((c) => synthWealthChapter(c)).filter((b): b is NonNullable<typeof b> => !!b);
+    const hit = books.filter((b) => b.some((s) => s.text.startsWith('在守財這一點上')));
+    expect(hit.length).toBeGreaterThan(3);
+    for (const b of hit) {
+      const seg = b.find((s) => s.text.startsWith('在守財這一點上'))!;
+      expect(seg.statements.map((st) => st.kind)).toEqual(['editorial-explanation', 'interpretation', 'evidence', 'interpretation', 'evidence']);
+      expect(seg.text).toMatch(/一是.+二是/);
+      for (const st of seg.statements.filter((x) => x.kind === 'interpretation')) expect(b.filter((s) => s.text.includes(st.text.slice(2))).length).toBe(1); // 兩句只喺並排段出現
+      expect(synthesisLint(b)).toEqual([]);
+    }
   });
 });

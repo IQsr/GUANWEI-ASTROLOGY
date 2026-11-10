@@ -468,6 +468,25 @@ function segmentOf(j: Judgement, slot: string, heading?: string): SynthesisSegme
     statements, referenceConditions: [`判斷強度：${j.strength}`, `原文：「${j.card.quote}」`] };
 }
 
+/** 守得住錢／守唔住錢嘅講法（錢章卡 claim）。 */
+const KEEP_POS = /較能守住錢|擅長把錢積存|較會把錢積存|逐步積聚|儲財能力|有儲錢和理財的能力/;
+// 「財源充裕也不代表能積存」（紫微）係提醒，唔係守唔住，唔計
+const KEEP_NEG = /難積聚|不容易一直積存|不容易積存|不太擅長守財/;
+/** 兩個方向相反嘅判斷並排：「守財這一點，盤上有兩個方向相反的條件：一是…；二是…」，各自跟出處理由。 */
+function conflictSegment(a: Judgement, b: Judgement): SynthesisSegment {
+  const intro = '在守財這一點上，盤上有兩個方向相反的條件，各有根據：';
+  const statements: MingStatement[] = [
+    { text: intro, en: '', kind: 'editorial-explanation', source_ids: [a.card.id, b.card.id], citations: [] },
+    { text: `一是${a.claim}`, en: '', kind: 'interpretation', source_ids: [a.card.id], citations: [synthesisCiteId(a.card.source)] },
+    { text: a.because, en: '', kind: 'evidence', source_ids: [a.card.id], citations: [] },
+    { text: `二是${b.claim}`, en: '', kind: 'interpretation', source_ids: [b.card.id], citations: [synthesisCiteId(b.card.source)] },
+    { text: b.because, en: '', kind: 'evidence', source_ids: [b.card.id], citations: [] },
+  ];
+  const strength = RANK[a.strength] > RANK[b.strength] ? a.strength : b.strength;
+  return { slot: '展開', text: statements.map((l) => l.text).join(''), statements,
+    referenceConditions: [`判斷強度：${strength}`, `原文：「${a.card.quote}」`, `原文：「${b.card.quote}」`] };
+}
+
 /** 主線加限制併成一個結論：「甲；不過乙。」跟住兩張卡各自嘅理由。強度取弱嗰個。 */
 function pairSegment(main: Judgement, limit: Judgement, slot: string): SynthesisSegment {
   const strength = RANK[limit.strength] > RANK[main.strength] ? limit.strength : main.strength;
@@ -551,20 +570,27 @@ function wealthJudgements(chart: Chart): Judgement[] {
  */
 export function synthWealthChapter(chart: Chart): SynthesisSegment[] | null {
   const cai = chart.palaces.find((p) => p.name === '財帛');
-  const js = wealthJudgements(chart);
+  let js = wealthJudgements(chart);
   if (!cai || !js.length) return null;
+  // 守財方向相反（盲評 ab15 盤4；用戶 2026-11-10 揀「並排講明各自條件」）：原書冇講邊個條件優先，所以唔判輕重，兩句放埋一段，各自講出處條件
+  const keep = js.find((j) => KEEP_POS.test(j.claim)), lose = js.find((j) => KEEP_NEG.test(j.claim));
+  const conflict = keep && lose && keep !== lose ? conflictSegment(keep, lose) : undefined;
+  if (conflict) js = js.filter((j) => j !== keep && j !== lose);
   // 最強嗰個判斷（專條先）做主線，配最強嗰張相反一邊（凶對非凶）嘅卡；主星卡優先，冇先用輔煞卡
   // 盲評 ab12：輔煞卡（文昌化忌）同主線講緊兩件事，硬接「不過」唔係轉折，所以兩邊都要係主星卡先併
-  const main = js[0]!, bad = (j: Judgement) => j.card.polarity === '凶';
+  const main = js[0], bad = (j: Judgement) => j.card.polarity === '凶';
   const star = (j: Judgement) => !j.card.group.startsWith(MINOR_GROUP);
-  const partner = star(main) ? js.find((j) => j !== main && star(j) && bad(j) !== bad(main)) : undefined;
+  const partner = main && star(main) ? js.find((j) => j !== main && star(j) && bad(j) !== bad(main)) : undefined;
   const rest = js.filter((j) => j !== main && j !== partner);
   // 句內次序：財源、性質（非凶）先講，「不過」接限制（凶）
-  const segs = [partner ? (bad(main) ? pairSegment(partner, main, '結論') : pairSegment(main, partner, '結論')) : segmentOf(main, '結論'), ...rest.map((j) => segmentOf(j, '展開'))];
+  const lead0 = !main ? [] : [partner ? (bad(main) ? pairSegment(partner, main, '結論') : pairSegment(main, partner, '結論')) : segmentOf(main, '結論')];
+  const segs = [...lead0, ...(conflict ? [conflict] : []), ...rest.map((j) => segmentOf(j, '展開'))];
+  segs[0] = { ...segs[0]!, slot: '結論' };
   if (majors(cai).length) return segs;
-  const lead = borrowLead(chart), [first, ...more] = segs;
-  return [{ ...first!, text: first!.text.replace(first!.statements[1]!.text, lead + first!.statements[1]!.text),
-    statements: first!.statements.map((st, k) => (k === 1 ? { ...st, text: lead + st.text } : st)) }, ...more];
+  // 借星成組講法放喺第一句理由前面
+  const lead = borrowLead(chart), [first, ...more] = segs, k = first!.statements.findIndex((st) => st.kind === 'evidence');
+  return [{ ...first!, text: first!.text.replace(first!.statements[k]!.text, lead + first!.statements[k]!.text),
+    statements: first!.statements.map((st, i) => (i === k ? { ...st, text: lead + st.text } : st)) }, ...more];
 }
 
 /** 某年命中嘅今年卡（裁決前，流年層），俾覆蓋審核用。 */
