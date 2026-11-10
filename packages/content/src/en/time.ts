@@ -412,7 +412,7 @@ export function timeTemplate(s: string, missing: string[], h: TimeHelpers): stri
   const voice=lifeVoiceTranslation(s,'en');
   if(voice)return voice;
   if(REVIEWED_LIFE_TEXT[s])return REVIEWED_LIFE_TEXT[s]!;
-  const lifeSeat=/^這一年的命宮在(\S)，(.+)。$/.exec(s);
+  const lifeSeat=/^[這那]一年的命宮在(\S)，(.+)。$/.exec(s);
   if(lifeSeat)return `That year's Life Palace was in ${BRANCH_EN[lifeSeat[1]!]??lifeSeat[1]}${seat(lifeSeat[2]!,missing)}.`;
   let revised=/^(\S+?)年（(\S)(\S)年，你虛歲(\S+?)），你在第(\S+?)個大限之內，流年命宮在(\S)，(.+)。$/.exec(s);
   if(revised)return `In ${n(revised[1]!)}, aged ${agePoint(n(revised[4]!)!)}, you were in stage ${n(revised[5]!)}; the annual Life Palace was in ${BRANCH_EN[revised[6]!]??revised[6]}${seat(revised[7]!,missing)}.`;

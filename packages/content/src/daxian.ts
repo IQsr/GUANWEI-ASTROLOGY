@@ -755,7 +755,7 @@ function computeLookBack(chart:Chart,year:number,solarBorn?:number):DaxianSegmen
     const lines:MingStatement[]=[];
     const add=(text:string,ids:string[]=[],kind:MingStatement['kind']='evidence')=>lines.push({text,en:'',kind,source_ids:ids,citations:ids.map(lifeStepsCite)});
     add(prefix+(turn?`你走進第${num(turn.index)}個大限，${keys.includes(turn.index)?'也是你人生較重要的一步，':''}${starsOf(chart,chart.palaces.find((p)=>p.branch===turn.branch)!)}。`:`你在第${num(A.decadal!.index)}個大限之內，流年命宮在${p.branch}，${starsOf(chart,p)}。`));
-    if(turn)add(`這一年的命宮在${p.branch}，${starsOf(chart,p)}。`);
+    if(turn)add(`那一年的命宮在${p.branch}，${starsOf(chart,p)}。`);
 
     const ji=A.sihua.annual.find((h)=>h.hua==='忌'),lu=A.sihua.annual.find((h)=>h.hua==='祿');
     if(ji&&lu)add(`當年的${lu.star}化祿在${palaceLabel(lu.annualPalace!)}，${ji.star}化忌在${palaceLabel(ji.annualPalace!)}。`,['method']);
