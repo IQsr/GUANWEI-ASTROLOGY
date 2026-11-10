@@ -8,6 +8,8 @@ import huaRaw from './daxian/hua.json';
 import rulesRaw from './daxian/rules.json';
 import pivotsRaw from './daxian/pivots.json';
 import eventsRaw from './daxian/events.json';
+import quanshuLookbackRaw from './daxian/quanshu-lookback.json';
+import { bookBrightness, synthLookback, type LookbackLine } from './synthesis';
 import { CORPUS, cjkCount, normaliseForMatch } from './lexicon';
 import { scanForbidden } from './lint';
 import { scanPlain } from './plain';
@@ -667,25 +669,72 @@ export function lookBackEvent(chart:Chart,A:AnnualChart):(typeof LOOKBACK_EVENTS
   return null;
 }
 
+/*
+ * 回看後備：《全書》卷二「某星入限吉凶訣」（2026-11-10，Issac：王亭之主、全書後備）。
+ * 原文講「二限」；本書以流年命宮（太歲宮，卷三「太歲在命宮行者禍福尤緊」）代，條件只用宮內實坐嘅星曜。
+ */
+type QsWhen={sha?:boolean;yangtuo?:boolean;kongjie?:boolean;good?:boolean;hua?:string[];bright?:'miao'|'miaowang'|'xian'|'notxian'};
+const QsCard=z.object({id:z.string(),star:z.string(),polarity:z.enum(['吉','凶']),when:z.custom<QsWhen>(),claim:z.string(),quote:z.string()});
+export const QUANSHU_LOOKBACK=z.object({cards:z.array(QsCard)}).parse(quanshuLookbackRaw).cards;
+export type QuanshuLine={id:string;claim:string;quote:string;cite:string;polarity:'吉'|'凶'};
+const QUANSHU_NOTE='《全書》入限訣原以大小二限論；本書只在王亭之條文未有該年判斷時，以流年命宮（太歲宮）實坐的主星、廟陷及同宮煞曜、吉曜套用，屬後備參考。';
+const GOOD6=['左輔','右弼','文昌','文曲','天魁','天鉞'];
+export function quanshuLookback(chart:Chart,A:AnnualChart):QuanshuLine[]{
+  const p=chart.palaces.find((x)=>x.branch===A.mingGong);if(!p)return [];
+  const has=(ns:string[])=>p.stars.some((s)=>ns.includes(s.name));
+  const hua=[...A.sihua.natal,...A.sihua.annual];
+  return QUANSHU_LOOKBACK.filter((c)=>{
+    const star=p.stars.find((s)=>s.name===c.star);if(!star)return false;
+    const w=c.when,b=bookBrightness(star,p.branch);
+    if(w.sha!==undefined&&has(SHA4)!==w.sha)return false;
+    if(w.yangtuo&&!has(['擎羊','陀羅']))return false;
+    if(w.kongjie&&!has(['地空','地劫']))return false;
+    if(w.good&&!has(GOOD6))return false;
+    if(w.hua&&!hua.some((h)=>h.star===c.star&&w.hua!.includes(h.hua)))return false;
+    if(w.bright==='miao'&&b!=='廟')return false;
+    if(w.bright==='miaowang'&&!['廟','旺'].includes(b??''))return false;
+    if(w.bright==='xian'&&b!=='陷')return false;
+    if(w.bright==='notxian'&&(!b||b==='陷'))return false;
+    return true;
+  }).slice(0,2).map((c)=>({id:c.id,claim:c.claim,quote:c.quote,cite:`quanshu:xian.${c.star}`,polarity:c.polarity}));
+}
+
 /** Past dates are selected as reading examples, never as evidence that an event happened. */
+/** 同一張盤同一年只計一次（每年要配今年卡，約十毫秒一年）。 */
+const LOOKBACK_MEMO=new WeakMap<Chart,Map<string,DaxianSegment[]>>();
 export function lookBackSegments(chart:Chart,year:number,solarBorn?:number):DaxianSegment[]{
+  const memo=LOOKBACK_MEMO.get(chart)??new Map<string,DaxianSegment[]>();LOOKBACK_MEMO.set(chart,memo);
+  const k=`${year}:${solarBorn??""}`;
+  if(!memo.has(k))memo.set(k,computeLookBack(chart,year,solarBorn));
+  return memo.get(k)!.map((s)=>({...s,...(s.statements?{statements:[...s.statements]}:{})}));
+}
+function computeLookBack(chart:Chart,year:number,solarBorn?:number):DaxianSegment[]{
   const pivot=pivotRule(chart,'year'),keys=pivotSteps(chart).steps;
-  const rows:{year:number;A:AnnualChart;turn:Chart['decadals'][number]|undefined;key:boolean;event:ReturnType<typeof lookBackEvent>}[]=[];
+  const rows:{year:number;A:AnnualChart;turn:Chart['decadals'][number]|undefined;key:boolean;event:ReturnType<typeof lookBackEvent>;cards:LookbackLine[];qs:QuanshuLine[]}[]=[];
   for(let y=chart.lunar.y+LOOKBACK_FROM_AGE-1;y<year;y++){
     const result=annual(chart,y);if(!result.ok)continue;const A=result.value;
     if(realAgeIn(y,A.nominalAge,solarBorn)<LOOKBACK_FROM_AGE)continue;
     const turn=chart.decadals.find((d)=>d.fromAge===A.nominalAge);
     const p=chart.palaces.find((p)=>p.branch===A.mingGong)!;
     const key=Boolean(pivot?.isPivot(p,A));
-    const event=realAgeIn(y,A.nominalAge,solarBorn)>=18?lookBackEvent(chart,A):null;
-    if(turn||key||event)rows.push({year:y,A,turn,key,event});
+    const adult=realAgeIn(y,A.nominalAge,solarBorn)>=18;
+    const event=adult?lookBackEvent(chart,A):null;
+    // 2026-11-10：王亭之今年卡做主（改講「那一年」），一句都冇先用《全書》入限訣
+    // 成年嘅年份都可以入選（今年卡差唔多年年有）；卡淨係為揀中嗰幾年先配，逐年配太慢
+    if(turn||key||event||adult)rows.push({year:y,A,turn,key,event,cards:[],qs:[]});
   }
   // Most recent examples with different Life Palace branches; include a decade boundary when available.
   const latest=[...rows].reverse();const selected:typeof rows=[];
   const boundary=latest.find((r)=>r.turn);if(boundary)selected.push(boundary);
-  for(const r of latest){if(selected.length>=3)break;if(selected.some((s)=>s.year===r.year||Math.abs(s.year-r.year)<3||s.A.mingGong===r.A.mingGong))continue;selected.push(r);}
-  return selected.sort((a,b)=>a.year-b.year).map((r)=>{
-    const {A,turn,key,event}=r,p=chart.palaces.find((p)=>p.branch===A.mingGong)!;
+  // 樞紐年、有原文事件嘅年份先揀，其餘按近年
+  for(const r of [...latest.filter((x)=>x.key||x.event),...latest.filter((x)=>!(x.key||x.event))]){if(selected.length>=3)break;if(selected.some((s)=>s.year===r.year||Math.abs(s.year-r.year)<3||s.A.mingGong===r.A.mingGong))continue;selected.push(r);}
+  for(const r of selected){
+    if(realAgeIn(r.year,r.A.nominalAge,solarBorn)<18)continue;
+    r.cards=synthLookback(chart,r.year,r.event?1:2);
+    if(!r.event&&!r.cards.length)r.qs=quanshuLookback(chart,r.A);
+  }
+  const segs:DaxianSegment[]=selected.sort((a,b)=>a.year-b.year).map((r)=>{
+    const {A,turn,key,event,cards,qs}=r,p=chart.palaces.find((p)=>p.branch===A.mingGong)!;
     const prefix=`${yearCN(r.year)}年（${A.ganzhi.join('')}年，你虛歲${num(A.nominalAge)}），`;
     const lines:MingStatement[]=[];
     const add=(text:string,ids:string[]=[],kind:MingStatement['kind']='evidence')=>lines.push({text,en:'',kind,source_ids:ids,citations:ids.map(lifeStepsCite)});
@@ -716,14 +765,30 @@ export function lookBackSegments(chart:Chart,year:number,solarBorn?:number):Daxi
       else if(ji?.annualPalace==='疾厄')focusLine('pace',[],'editorial-advice');
     }
     // Keep the date and stage first, then explain the focus before the supporting star positions.
-    lines.splice(1,0,...focus);
+    // 有判斷就先講判斷（結論先），唔再加編輯提示
+    const meaning:MingStatement[]=[...cards.flatMap((c):MingStatement[]=>[{text:c.claim,en:'',kind:'interpretation',source_ids:[c.id],citations:[c.cite]},{text:c.because,en:'',kind:'evidence',source_ids:[c.id],citations:[]}]),
+      ...qs.map((q):MingStatement=>({text:q.claim+'。',en:'',kind:'interpretation',source_ids:[q.id],citations:[q.cite]}))];
+    lines.splice(1,0,...(meaning.length?meaning:focus));
     const ids=[...new Set(lines.flatMap((l)=>l.citations))];
     return {slot:'回看',heading:`${yearCN(r.year)}年`,text:lines.map((l)=>l.text).join(''),statements:lines,source_id:ids.join('+')||null,rule_ids:[],
       referenceFocus:ids.flatMap((id)=>lifeStepsSource(id)?.quoteSpans.filter((span)=>!id.endsWith(':method')||span.id===(interaction?.rule?.id==='dx.rule.lu_to_ji'?'wtz.deep.p236.b002':interaction?'wtz.deep.p236.b003':'wtz.deep.p235.b005')).map((span)=>span.id)??[]),
       referenceApplicability:[`本盤當年為${A.ganzhi.join('')}，流年命宮在${p.branch}；${A.decadal?`所處大限為第${num(A.decadal.index)}步（虛歲${num(A.decadal.fromAge)}至${num(A.decadal.toAge)}歲）`:'尚未起大限'}。`,...(key?[`本命${starsOf(chart,chart.palaces.find((p)=>p.name==='命宮')!)}；本年行到該星系原文列明的樞紐宮垣。`]:[]),...(event?.rules??[])],
-      referenceConditions:['年份取自已走過的大限交界及可確認的樞紐宮垣，最多列三個不同宮位的近年例子；不是按事件吉凶計分，也不是完整的重要年份名單。','四化先看星曜與原局、大限的交會，再分具體得失；只見某宮有祿或忌，尚不足以確定生活事件。','生活上的整理與做法屬編輯解說或建議，不表示曾發生某件往事。天機祿只取主動策劃的方向，未推為獲利；天機忌只在本年福德落點解說計劃與思慮，未套疾病分支；文昌忌只取文件及責任核對，未推為實際損失。',...(event?[`本段判讀只採${event.sources.map((s)=>s.passage_id==='huigu.jumen'?'巨門原段的完整限制':'武曲羊陀夾忌的周轉限制').join('、')}；其餘星系案例不套入。`]:[])]};
+      referenceConditions:['年份取自已走過的大限交界及可確認的樞紐宮垣，最多列三個不同宮位的近年例子；不是按事件吉凶計分，也不是完整的重要年份名單。','四化先看星曜與原局、大限的交會，再分具體得失；只見某宮有祿或忌，尚不足以確定生活事件。','生活上的整理與做法屬編輯解說或建議，不表示曾發生某件往事。天機祿只取主動策劃的方向，未推為獲利；天機忌只在本年福德落點解說計劃與思慮，未套疾病分支；文昌忌只取文件及責任核對，未推為實際損失。',...(event?[`本段判讀只採${event.sources.map((s)=>s.passage_id==='huigu.jumen'?'巨門原段的完整限制':'武曲羊陀夾忌的周轉限制').join('、')}；其餘星系案例不套入。`]:[]),
+        ...cards.map((c)=>`王亭之今年條文用於該年：「${c.quote}」；講的是那一年盤上的傾向，不表示曾發生某件事。`),
+        ...(qs.length?[QUANSHU_NOTE,...qs.map((q)=>`原文：「${q.quote}」`)]:[])]};
   });
+  // 舊書收尾句（2026-11-10 復原）：請讀者自己對照，唔係話已經發生
+  const last=segs.at(-1);
+  if(last&&selected.some((r)=>r.cards.length||r.qs.length)){
+    const close:MingStatement={text:LOOKBACK_CLOSE,en:'',kind:'editorial-explanation',source_ids:[LOOKBACK_CLOSE_ID],citations:[]};
+    last.statements=[...(last.statements??[]),close];last.text+=close.text;
+  }
+  return segs;
 }
+export const LOOKBACK_CLOSE_ID='lookback.close';
+/** 回看新句（今年卡、全書後備、收尾句）未有英日譯：英日版略過（Issac 2026-11-10：英日讀者暫看舊章）。 */
+export const isLookbackZhOnly=(ids:readonly string[])=>ids.some((id)=>id.startsWith('syn.')||id.startsWith('qs.')||id===LOOKBACK_CLOSE_ID);
+export const LOOKBACK_CLOSE='這幾年對你來說是不是對得上，可以自己回想；對不上的，就當那一年的訊號沒有落在你身上。';
 /** Compatibility for callers that need one segment; the chapter uses the separate dated paragraphs. */
 export function lookBack(chart:Chart,year:number,solarBorn?:number):DaxianSegment|null{return lookBackSegments(chart,year,solarBorn)[0]??null;}
 

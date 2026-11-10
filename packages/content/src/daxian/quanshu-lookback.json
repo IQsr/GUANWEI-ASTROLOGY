@@ -1,0 +1,28 @@
+{
+  "$note": "回看後備（2026-11-10，Issac：王亭之主、全書後備）。只喺王亭之今年卡對嗰年一句都出唔到先用。出處：《紫微斗數全書》卷二「某星入限吉凶訣」。原文講「二限」（大小限）；本書以流年命宮（太歲宮）代，referenceConditions 講明。只收條件核得到嘅句：星坐流年命宮、廟旺／落陷、宮內羊陀火鈴、吉曜、化曜。死傷、官非、刑杖、孝服、產難嘅句唔收。",
+  "cards": [
+    { "id": "qs.xian.ziwei.ji", "star": "紫微", "polarity": "吉", "when": { "sha": false, "good": true }, "claim": "按《全書》的講法，那一年福祿較旺，收入或職位較有起色", "quote": "二限相逢福禄兴" },
+    { "id": "qs.xian.tianji.ji", "star": "天機", "polarity": "吉", "when": { "sha": false, "hua": ["祿", "權", "科"] }, "claim": "按《全書》的講法，那一年出入經營較易遇到貴人", "quote": "出入经营多遇贵" },
+    { "id": "qs.xian.tianji.xiong", "star": "天機", "polarity": "凶", "when": { "sha": true }, "claim": "按《全書》的講法，那一年家裡家外的事都較多，不易安寧", "quote": "家事纷纷外事多" },
+    { "id": "qs.xian.taiyang.ji", "star": "太陽", "polarity": "吉", "when": { "bright": "miaowang", "sha": false }, "claim": "按《全書》的講法，那一年較利添財進業，家庭關係也較和合", "quote": "添财进业福非常" },
+    { "id": "qs.xian.taiyang.xiong", "star": "太陽", "polarity": "凶", "when": { "bright": "xian", "sha": true }, "claim": "按《全書》的講法，那一年做事較多阻滯，也較易有額外的破費", "quote": "加忌逢凶多阻滞" },
+    { "id": "qs.xian.wuqu.ji", "star": "武曲", "polarity": "吉", "when": { "bright": "miao", "sha": false }, "claim": "按《全書》的講法，那一年財運較興旺", "quote": "若还入庙主财兴" },
+    { "id": "qs.xian.tiantong.ji", "star": "天同", "polarity": "吉", "when": { "bright": "notxian", "sha": false }, "claim": "按《全書》的講法，那一年家中喜事較多，財祿也有增添", "quote": "喜气盈门万事荣" },
+    { "id": "qs.xian.tiantong.xiong", "star": "天同", "polarity": "凶", "when": { "bright": "xian", "sha": true }, "claim": "按《全書》的講法，那一年做事容易美中不足", "quote": "作事美中终不足" },
+    { "id": "qs.xian.lianzhen.ji", "star": "廉貞", "polarity": "吉", "when": { "bright": "miaowang", "sha": false, "good": true }, "claim": "按《全書》的講法，那一年財物較能積蓄，做事也較得意", "quote": "财物自然多蓄积" },
+    { "id": "qs.xian.tianfu.ji", "star": "天府", "polarity": "吉", "when": { "sha": false }, "claim": "按《全書》的講法，那一年較易添財進喜，家宅也較安穩", "quote": "添财进喜永无灾" },
+    { "id": "qs.xian.taiyin.ji", "star": "太陰", "polarity": "吉", "when": { "bright": "notxian", "sha": false }, "claim": "按《全書》的講法，那一年較利置業進財，家中也較易有喜事", "quote": "添屋进财福非轻" },
+    { "id": "qs.xian.taiyin.xiong", "star": "太陰", "polarity": "凶", "when": { "bright": "xian", "yangtuo": true }, "claim": "按《全書》的講法，那一年較多破耗和事後後悔的事", "quote": "限至太阴居反背" },
+    { "id": "qs.xian.tanlang.ji", "star": "貪狼", "polarity": "吉", "when": { "bright": "miao", "sha": false }, "claim": "按《全書》的講法，那一年事情較和諧順利", "quote": "若还入庙事和谐" },
+    { "id": "qs.xian.tanlang.xiong", "star": "貪狼", "polarity": "凶", "when": { "bright": "xian" }, "claim": "按《全書》的講法，那一年花在玩樂應酬上的錢較多", "quote": "赌荡风流去财宝" },
+    { "id": "qs.xian.jumen.ji", "star": "巨門", "polarity": "吉", "when": { "hua": ["權"] }, "claim": "按《全書》的講法，那一年求謀較易成事，即使有口舌也能化解", "quote": "最喜求谋万事成" },
+    { "id": "qs.xian.jumen.xiong", "star": "巨門", "polarity": "凶", "when": { "bright": "xian" }, "claim": "按《全書》的講法，那一年較易無端捲入口舌是非", "quote": "巨门限陷最乖张" },
+    { "id": "qs.xian.tianxiang.ji", "star": "天相", "polarity": "吉", "when": { "sha": false }, "claim": "按《全書》的講法，那一年做事謀劃較能遂意", "quote": "动作谋为皆遂意" },
+    { "id": "qs.xian.tianxiang.xiong", "star": "天相", "polarity": "凶", "when": { "yangtuo": true, "kongjie": true }, "claim": "按《全書》的講法，那一年口舌是非較多", "quote": "羊陀空劫重相会" },
+    { "id": "qs.xian.tianliang.ji", "star": "天梁", "polarity": "吉", "when": { "bright": "miaowang", "sha": false }, "claim": "按《全書》的講法，那一年較有升職、加薪一類的機會", "quote": "加官进职迎新禄" },
+    { "id": "qs.xian.qisha.ji", "star": "七殺", "polarity": "吉", "when": { "sha": false }, "claim": "按《全書》的講法，那一年做事從容，家道較有發展", "quote": "从容和缓家道发" },
+    { "id": "qs.xian.qisha.xiong", "star": "七殺", "polarity": "凶", "when": { "sha": true }, "claim": "按《全書》的講法，那一年做事較艱難，得失較多", "quote": "作事艰难俱有失" },
+    { "id": "qs.xian.pojun.ji", "star": "破軍", "polarity": "吉", "when": { "bright": "miao", "sha": false }, "claim": "按《全書》的講法，那一年福祿較旺", "quote": "庙地方知福禄昌" },
+    { "id": "qs.xian.pojun.xiong", "star": "破軍", "polarity": "凶", "when": { "sha": true }, "claim": "按《全書》的講法，那一年較易有破耗", "quote": "杀凑破军防破耗" }
+  ]
+}

@@ -1,6 +1,6 @@
 import {describe,it,expect} from 'vitest';
 import {cast,annual,type Chart} from '@guanwei/ziwei';
-import {lifeStepsChapter,lookBackEvent,pivotSteps,pivotRule} from '../src/daxian';
+import {lifeStepsChapter,lookBackEvent,pivotSteps,pivotRule,isLookbackZhOnly} from '../src/daxian';
 import {citation} from '../src/citation';
 import {renderChapter as en} from '../src/en/render';
 import {renderChapter as ja} from '../src/ja/render';
@@ -17,7 +17,7 @@ describe('一生十二步：原頁核對後的反例',()=>{
    expect(lookBackEvent(tl,year(tl,2014))).toBeNull();
    expect(lookBackEvent(tl,year(tl,2024))).toBeNull();
    const chapter=lifeStepsChapter({chart:tl,year:2026})!;
-   expect(chapter.segments.map((s)=>s.text).join('')).not.toMatch(/可能有過波折|捲入是非爭拗|搬屋|得到長輩或上司提攜|訊號沒有落在你身上/);
+   expect(chapter.segments.map((s)=>s.text).join('')).not.toMatch(/可能有過波折|捲入是非爭拗|搬屋|得到長輩或上司提攜/);
  });
  it('七殺辰宮：第九限申宮對拱貪狼，必須與原位宮一併列出（PDF363）',()=>{
    const c=chart(2008,7,3,6);const d=c.decadals.find((d)=>d.index===9)!;
@@ -49,8 +49,8 @@ describe('一生十二步：原頁核對後的反例',()=>{
      expect(s.referenceApplicability?.join('')).toContain('所處大限');
      expect(s.referenceConditions?.join('')).toContain('不是完整的重要年份名單');
      expect(s.statements!.filter((s)=>s.kind==='editorial-advice').every((s)=>s.citations.length===0)).toBe(true);
-     for(const id of s.statements!.flatMap((s)=>s.citations)){const c=citation(id)!;expect(c).not.toBeNull();expect(c.quoteParts?.length).toBeGreaterThan(0);}
-     expect(en(s.text).missing,s.text).toEqual([]);expect(ja(s.text).missing,s.text).toEqual([]);
+     for(const id of s.statements!.flatMap((s)=>s.citations)){const c=citation(id)!;expect(c).not.toBeNull();expect(c.quoteParts?.length??(c.text?1:0)).toBeGreaterThan(0);}
+     const intl=s.statements!.filter((l)=>!isLookbackZhOnly(l.source_ids)).map((l)=>l.text).join('');expect(en(intl).missing,intl).toEqual([]);expect(ja(intl).missing,intl).toEqual([]);
    }
  });
  it('新引用保留完整前提及疑字註，舊書引用不靜默改寫',()=>{

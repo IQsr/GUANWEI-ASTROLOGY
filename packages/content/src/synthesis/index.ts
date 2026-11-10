@@ -1017,6 +1017,45 @@ export function synthYearChapter(chart: Chart, year: number, opts: { general?: b
 }
 
 /**
+ * 回看（2026-11-10，Issac：一生十二步回看要講返嗰年大概點）。
+ * 已過去嘅年份用同一批今年卡（王亭之）判斷，改講「那一年」；唔出建議（講過去冇得建議）。
+ * 先星系卡，再流年宮卡（錢、工作、感情、身體先），再通則卡；同一話題只出一個。重字（BASE_BAN、HEAVY）唔出。
+ */
+export type LookbackLine = { id: string; claim: string; because: string; cite: string; quote: string; polarity: SynthesisCard['polarity'] };
+// 「那一年這一宮是你的X宮」唔講方法（plain P1）：改「那一年正是你的X宮」
+const past = (s: string) => s.replaceAll('今年', '那一年').replaceAll('明年', '翌年').replaceAll('那一年這一宮是', '那一年正是');
+/** 回看免費章唔講病、意外、官非、破財、離婚、死（2026-10-02 回看規矩，2026-11-10 保留）。 */
+const LOOKBACK_BAN = /病|意外|手術|受傷|官非|破財|離婚|死/;
+const YEAR_ANNUAL = SYNTHESIS_CARDS.filter((c) => c.chapter === '今年' && c.layer.includes('annual'));
+/** 身體唔做回看（唔講病名；「那一年要多留意X」讀落似補建議）；錢、工作、感情先。 */
+const LOOKBACK_PALACES = [...ANNUAL_PALACES.filter((c) => CORE_PALACES.has(c.palace)), ...ANNUAL_PALACES.filter((c) => !CORE_PALACES.has(c.palace))].filter((c) => c.palace !== '疾厄');
+export function synthLookback(chart: Chart, year: number, max = 2): LookbackLine[] {
+  const a = annualOf(chart, year);
+  if (!a.ok) return [];
+  const ctx: Ctx = { chart, annual: a.value, age: a.value.nominalAge };
+  const general = dedupe(weigh(resolve(YEAR_ANNUAL.flatMap((c) => { const h = matchCard(c, 'annual', ctx); return h ? [h] : []; })).sort(byStrength))).filter((j) => !j.parts);
+  // 逐宮慢慢計，夠數就停（一本書要計幾年，十一宮全計太慢）
+  function* ordered() {
+    for (const j of general) if (j.card.system) yield { j, topic: j.card.group };
+    for (const cfg of LOOKBACK_PALACES) {
+      const x = annualPalaceSegment(ctx, cfg, '');
+      if (x) for (const j of x.judged) yield { j: { ...j, claim: forReader(cfg, j.claim) }, topic: x.topic };
+    }
+    for (const j of general) if (!j.card.system) yield { j, topic: j.card.group };
+  }
+  const out: LookbackLine[] = [];
+  const topics = new Set<string>();
+  for (const { j, topic } of ordered()) {
+    if (out.length >= max) break;
+    // 建議式判斷（「今年要…」「不宜…」）講過去唔通，唔出
+    if (topics.has(topic) || isHealth(j) || /^今年(要|不宜|宜|可按|應)/.test(j.claim) || BASE_BAN.test(j.claim) || HEAVY.test(j.claim) || LOOKBACK_BAN.test(j.claim + j.because) || out.some((o) => o.id === j.card.id || sameMeaning(o.claim, j.claim))) continue;
+    topics.add(topic);
+    out.push({ id: j.card.id, claim: past(j.claim), because: past(concrete(ctx, j.because)), cite: synthesisCiteId(j.card.source), quote: j.card.quote, polarity: j.card.polarity });
+  }
+  return out;
+}
+
+/**
  * 章首總覽（2026-11-10，盲評 ab14：讀者讀完仍然唔清楚今年邊方面可以進、邊方面要保留）。
  * 每個判斷按話題歸類，只睇卡嘅吉凶：淨吉＝較有利；吉凶都有＝有機會、同時要防；淨凶＝要放慢、多留神。中性唔計。
  * 財祿類通則卡（祿轉忌、祿逢沖破、疊祿、弱地）講嘅係進財，歸「收入」；其餘用卡自己嘅話題。
