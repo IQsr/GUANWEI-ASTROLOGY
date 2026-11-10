@@ -133,8 +133,21 @@ describe('⚠ 唔用 modal、唔用模糊偷睇、唔用倒數', () => {
      */
     const to = raw.indexOf('/* ===', at);
     const slice = raw.slice(at, to === -1 ? raw.length : to).replace(/\/\*[\s\S]*?\*\//g, '');
-    expect(slice).not.toMatch(/blur\(/);
+    /*
+     * 2026-11-10（Issac 拍板）：推翻「冇 blur」。未裁章先俾結論段，下面用糊咗嘅**假字**示意。
+     * 新規矩：blur 只准喺 `.weicai-mo` 一個 rule 入面；糊住嘅只准係 messages 嘅假字（下一個 test）。
+     */
+    const rules = [...slice.matchAll(/([^{}]+)\{([^}]*)\}/g)].filter(([, , body]) => /blur\(/.test(body!)).map(([, sel]) => sel!.trim());
+    expect(rules).toEqual(['.weicai-mo']);
     expect(slice).toMatch(/clip-path/);
+  });
+
+  it('糊住嘅係假字，唔係正文：.weicai-mo 入面淨係 weicai.filler1–3，結論段唔糊', () => {
+    const src = code(join(SRC, 'components/Weicai.tsx'));
+    const block = src.slice(src.indexOf('weicai-mo'), src.indexOf('</div>', src.indexOf('weicai-mo')));
+    expect(block).toMatch(/FILLER_KEYS\.map/);
+    expect(block).not.toMatch(/\{lead\}|\{body|segments|\.text/); // class 名 text-body 唔算
+    expect(src).toMatch(/FILLER_KEYS = \['filler1', 'filler2', 'filler3'\]/);
   });
 
   it('冇倒數', () => {

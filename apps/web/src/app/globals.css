@@ -1719,6 +1719,24 @@
   max-width: var(--banxin);
 }
 
+/*
+ * 未裁章嘅結論段同糊住嘅假字（2026-11-10）。⚠ 糊住嘅係固定假字，唔係正文（見 Weicai.tsx）。
+ * 漸隱落去，示意後面仲有；唔可以揀、唔可以撳。
+ */
+.weicai-lead {
+  max-width: var(--banxin);
+}
+.weicai-mo {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2em;
+  filter: blur(5px);
+  user-select: none;
+  pointer-events: none;
+  -webkit-mask-image: linear-gradient(to bottom, #000 30%, transparent);
+  mask-image: linear-gradient(to bottom, #000 30%, transparent);
+}
+
 /* 一版未裁嘅紙。左邊齊，右邊撕開。 */
 .weicai-zhi {
   clip-path: var(--mao);
