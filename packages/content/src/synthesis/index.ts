@@ -997,7 +997,9 @@ function topicsOfHead(j: Judgement): string[] {
 export const OVERVIEW_ID = 'syn.year.overview';
 function withOverview(segs: SynthesisSegment[], heads: Judgement[], palaces: { topic: string; judged: Judgement[] }[]): SynthesisSegment[] {
   const pol = new Map<string, Set<string>>(), ids: string[] = [];
-  const add = (t: string, j: Judgement) => { if (j.card.polarity === '中') return; (pol.get(t) ?? pol.set(t, new Set()).get(t)!).add(j.card.polarity); ids.push(j.card.id); };
+  // 盲評 ab15 盤2：「力量很輕」嘅疊祿、提示級嘅吉句唔計做轉好，否則總結會將正文嘅保留判斷升格；凶訊號照計
+  const weakGood = (j: Judgement) => j.card.polarity === '吉' && (j.strength === '提示' || j.card.special === 'dieLuNatal');
+  const add = (t: string, j: Judgement) => { if (j.card.polarity === '中' || weakGood(j)) return; (pol.get(t) ?? pol.set(t, new Set()).get(t)!).add(j.card.polarity); ids.push(j.card.id); };
   // 權衡併咗嘅判斷（例如疊祿但落弱地）逐張卡計吉凶
   for (const j of heads) for (const t of topicsOfHead(j)) for (const x of j.parts ?? [j]) add(t, x);
   for (const p of palaces) for (const j of p.judged) add(p.topic, j);
@@ -1005,7 +1007,7 @@ function withOverview(segs: SynthesisSegment[], heads: Judgement[], palaces: { t
   const good = of((x) => x.size === 1 && x.has('吉')), both = of((x) => x.size > 1), bad = of((x) => x.size === 1 && x.has('凶'));
   if (good.length + both.length + bad.length < 2 || !segs.length) return segs;
   const j = (ts: string[]) => ts.map((t) => `「${t}」`).join('');
-  const parts = [good.length ? `較有利的是${j(good)}` : '', both.length ? `有機會、同時要防的是${j(both)}` : '', bad.length ? `要放慢、多留神的是${j(bad)}` : ''].filter(Boolean);
+  const parts = [good.length ? `有轉好機會的是${j(good)}` : '', both.length ? `有機會、同時要防的是${j(both)}` : '', bad.length ? `要放慢、多留神的是${j(bad)}` : ''].filter(Boolean);
   const text = `今年整體來看：${parts.join('；')}。下面逐項講原因。`;
   const [first, ...rest] = segs;
   const st: MingStatement = { text, en: '', kind: 'editorial-explanation', source_ids: [OVERVIEW_ID, ...new Set(ids)], citations: [] };

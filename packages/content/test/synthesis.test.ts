@@ -248,13 +248,18 @@ describe('按話題裁決（2026-11-10，盲評 ab13）', () => {
 });
 
 describe('今年章首總覽（2026-11-10，盲評 ab14）', () => {
-  it('按話題分較有利／有機會同時要防／要放慢多留神；權衡併咗嘅疊祿弱地逐張計', () => {
+  it('按話題分有轉好機會／有機會同時要防／要放慢多留神；權衡併咗嘅疊祿弱地逐張計；力量很輕嘅疊祿唔計轉好（ab15）', () => {
     const t = synthYearChapter(chartOf({ y: 1983, m: 3, d: 7 }, { h: 10, min: 20 }, 'male'), 2026, { general: true })![0]!.statements[0]!.text;
-    expect(t).toBe('今年整體來看：較有利的是「考試、進修」；有機會、同時要防的是「收入」；要放慢、多留神的是「朋友、一般往來的下屬」「工作」「身體」。下面逐項講原因。');
+    expect(t).toBe('今年整體來看：有轉好機會的是「考試、進修」；有機會、同時要防的是「收入」；要放慢、多留神的是「朋友、一般往來的下屬」「工作」「身體」。下面逐項講原因。');
   });
   it('「出錢、合夥先小額」淨係錢、合作相關話題先出（子女、伴侶、心情唔出）', () => {
     const t = (y: number, m: number, d: number, h: number, min: number, s: 'male' | 'female') => (synthYearChapter(chartOf({ y, m, d }, { h, min }, s), 2026, { general: true }) ?? []).map((x) => x.text).join('');
     expect(t(1983, 3, 7, 10, 20, 'male')).not.toContain('涉及子女、親近的後輩的出錢');
     expect(t(1970, 8, 30, 3, 50, 'male')).not.toContain('涉及心情、享受的出錢');
   });
+});
+
+it('章首總覽唔將「力量很輕」嘅疊祿升格做收入轉好（盲評 ab15 盤2）', () => {
+  const t = synthYearChapter(chartOf({ y: 1991, m: 11, d: 2 }, { h: 22, min: 5 }, 'female'), 2026, { general: true })![0]!.statements[0]!.text;
+  expect(t).not.toMatch(/有轉好機會的是[^；]*「收入」/);
 });
