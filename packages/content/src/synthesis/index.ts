@@ -1045,7 +1045,8 @@ export function synthLookback(chart: Chart, year: number, max = 2): LookbackLine
         || [...(ctx.annual?.sihua.annual ?? []), ...(ctx.annual?.sihua.decadal ?? [])].some((h) => h.hua === '忌' && (h.branch === p.branch || h.branch === OPPOSITE(p.branch))));
       if (x) for (const j of x.judged) if (!(against && j.card.polarity !== '凶')) yield { j: { ...j, claim: forReader(cfg, j.claim) }, topic: x.topic };
     }
-    for (const j of general) if (!j.card.system) yield { j, topic: j.card.group };
+    // 盲評 ab18：化忌落點通則（「X方面較多阻滯」）太空泛，讀者無從對照；回看唔用
+    for (const j of general) if (!j.card.system && j.card.special !== 'jiLands' && j.card.special !== 'decJiLands') yield { j, topic: j.card.group };
   }
   const out: LookbackLine[] = [];
   const topics = new Set<string>();
