@@ -59,6 +59,21 @@ function clean(s: string): string {
 }
 
 /**
+ * 未裁章嘅結論段（2026-11-10，Issac：未買嘅章先俾結論，後面糊住）。
+ * 同目次問目一樣嘅第一段（DB 0008 `chapter_leads()` 只開第一段），按 locale 轉：英日用成書當刻嘅舊章快照第一段再譯。
+ */
+export function localizedLead(leads: readonly ChapterLead[], slug: string, locale: string): string | null {
+  const l = leads.find((x) => x.slug === slug);
+  if (!l) return null;
+  const intl = isEnglish(locale) || isJapanese(locale);
+  const text = clean(intl && l.internationalLead !== undefined ? l.internationalLead : l.lead);
+  if (!text) return null;
+  if (isEnglish(locale)) return englishChapters([{ text, slots: [] }])[0]?.[0]?.text ?? null;
+  if (isJapanese(locale)) return japaneseChapters([{ text, slots: [] }])[0]?.[0]?.text ?? null;
+  return zhFor(locale, text);
+}
+
+/**
  * 第一段嘅出處（2026-10-18 · docs/leads-audit-2026-10-17.md A2 第二步）。
  *
  * 一律用中文原段配（`citeOf` 嘅中文索引最齊；出處係同一段原文，同讀者用乜語言無關），

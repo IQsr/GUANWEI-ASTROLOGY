@@ -48,7 +48,8 @@ export function WeicaiDemo() {
             </div>
           </Caikai>
         ) : (
-          <Weicai title="二 · 兄弟" slots={SLOTS} bookId="demo" slug="兄弟" isAnonymous={false} />
+          /* 2026-11-10：未裁章先俾結論段（第一段），下面糊住假字 */
+          <Weicai title="二 · 兄弟" slots={SLOTS} lead={BODY[0]} bookId="demo" slug="兄弟" isAnonymous={false} />
         )}
       </div>
     </div>

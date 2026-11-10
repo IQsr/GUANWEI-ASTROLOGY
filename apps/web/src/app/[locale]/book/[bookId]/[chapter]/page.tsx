@@ -28,6 +28,7 @@ import { chapterHref, chapterParam, contentsHref, neighbours } from '@/lib/journ
 import { displayTitle, englishChapters, isEnglish } from '@/lib/english';
 import { bookTitleFor, isJapanese, japaneseChapters } from '@/lib/japanese';
 import { zhFor } from '@/lib/hans';
+import { localizedLead } from '@/lib/wenmu';
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -153,6 +154,8 @@ export default async function ChapterPage({
    * 攞唔到正文就唔使問 —— 一版未裁嘅頁冇嘢好裁。
    */
   const justCut = here && body !== null ? await cutPage(here.id) : false;
+  /* 未裁章先俾結論段（2026-11-10，Issac）：DB 0008 `chapter_leads()` 只開第一段；全章正文照舊要票 */
+  const lead = here && body === null ? localizedLead(await port.leads(bookId).catch(() => []), here.slug, locale) : null;
   /* 章尾金線星盤（2026-10-04）：點出呢章講緊嗰一格 */
   const dialRaw = chart && here ? dialFor(chart, here.slug, layers, en, isJapanese(locale)) : null;
   const dial = dialRaw ? { ...dialRaw, caption: zhFor(locale, dialRaw.caption) } : null;
@@ -194,6 +197,7 @@ export default async function ChapterPage({
               <Weicai
                 title={here.title}
                 slots={fetched.at(-1)?.slots ?? []}
+                lead={lead}
                 bookId={bookId}
                 slug={here.slug}
                 isAnonymous={isAnonymous}

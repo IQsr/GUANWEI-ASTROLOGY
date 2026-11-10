@@ -7,13 +7,19 @@ import { cutTarget, deckle, notches } from '@/lib/weicai';
  *
  * ⚠ 呢個 component 冇 state、冇 effect、冇 JS。
  *
- * 佢係一版紙。一版紙唔需要 hydrate —— 而且呢一版正正係
- * 「唔准喺讀嘅過程入面插一個銷售動作」嗰條規矩嘅落腳點：
- * 冇 modal、冇糊咗嘅正文、冇倒數，所以佢冇任何嘢要郁。
+ * 佢係一版紙。一版紙唔需要 hydrate；冇 modal、冇倒數，所以佢冇任何嘢要郁。
+ *
+ * 2026-11-10（Issac 拍板，推翻舊規矩「冇糊咗嘅正文」）：未裁章先俾結論段，下面用糊咗嘅**假字**示意後面仲有原因、細讀、建議。
+ * ⚠ 糊住嘅唔係正文：係messages `weicai.filler1–3` 嘅固定假字。真正文冇送去瀏覽器（DB `chapter_body()` 照舊要票），
+ *   所以撳開 devtools、拎走 blur 都讀唔到內容。結論段嚟自 0008 `chapter_leads()`（只開第一段）。
  */
+/** 假字三行，喺 messages `weicai.filler1–3`。 */
+const FILLER_KEYS = ['filler1', 'filler2', 'filler3'] as const;
+
 export function Weicai({
   title,
   slots,
+  lead,
   bookId,
   slug,
   isAnonymous,
@@ -21,6 +27,8 @@ export function Weicai({
   title: string;
   /** 呢一版有幾多格、係乜嘢格。⚠ 格嘅名唔係內容（0006）。 */
   slots: readonly string[];
+  /** 已按 locale 轉好嘅結論段；冇就照舊淨係一版未裁嘅紙。 */
+  lead?: string | null;
   bookId: string;
   slug: string;
   isAnonymous: boolean;
@@ -30,11 +38,24 @@ export function Weicai({
 
   return (
     <div className="weicai">
-      <div className="weicai-zhi" style={{ ['--mao' as string]: deckle(notches(slots.length)) }}>
+      {lead ? (
+        <div className="weicai-lead">
+          <p className="font-sans text-cap tracking-[0.2em] text-ink-3">{t('leadLabel')}</p>
+          <p className="mt-4 max-w-banxin text-body leading-[1.95] text-ink">{lead}</p>
+          {/* 假字，唔係正文：讀屏器同複製都唔會攞到 */}
+          <div className="weicai-mo mt-8" aria-hidden="true">
+            {FILLER_KEYS.map((k) => (
+              <p key={k} className="text-body leading-[1.95] text-ink-2">{t(k)}</p>
+            ))}
+          </div>
+        </div>
+      ) : null}
+
+      <div className={`weicai-zhi${lead ? ' mt-8' : ''}`} style={{ ['--mao' as string]: deckle(notches(slots.length)) }}>
         <p className="font-sans text-cap tracking-[0.2em] text-ink-3">{title}</p>
 
         <p className="mt-5 max-w-banxin text-body leading-[1.95] text-ink-2">
-          {t('notYet')}
+          {lead ? t('restNotYet') : t('notYet')}
         </p>
 
         {slots.length > 0 ? (
