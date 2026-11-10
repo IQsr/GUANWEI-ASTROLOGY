@@ -391,6 +391,7 @@ const SPECIAL: Record<NonNullable<SynthesisCard['special']>, (ctx: Ctx) => Recor
   },
 };
 const topicOf = (palace: string) => TOPIC[palace] ?? palace;
+const MONEY_TOPICS = new Set(['財帛', '官祿', '兄弟', '僕役', '田宅'].map((p) => TOPIC[p]!));
 
 /**
  * 跨層卡嘅訊號落喺邊幾個地支（今年化曜所在、被沖嗰宮）。今年章按呢個將訊號併入同宮嘅話題段（2026-11-10，盲評 ab13：訊號寫咗出嚟但未改變該話題嘅結論）。
@@ -445,7 +446,9 @@ export function resolve(hits: SynthesisHit[]): Judgement[] {
     // 吉凶並見：同一 group 同層有相反極性嘅卡命中（未經去重嗰批），呢張降到傾向
     if (strength === '定論' && kept.some((o) => o !== h && o.layer === h.layer && o.card.group === h.card.group
       && ((o.card.polarity === '吉' && h.card.polarity === '凶') || (o.card.polarity === '凶' && h.card.polarity === '吉')))) strength = '傾向';
-    return { ...h, strength, claim, because: fill(h.card.because, h.vars), ...(h.card.advice ? { advice: fill(h.card.advice.text, h.vars) } : {}) };
+    // 盲評 ab14：「出錢、合夥先小額」套落子女、伴侶、心情就失真；淨係錢、合作相關嘅話題先出建議
+    const adviceFits = !(h.card.special === 'luChongPo' || h.card.special === 'decLuChongPo') || MONEY_TOPICS.has(h.vars.luTopic ?? '');
+    return { ...h, strength, claim, because: fill(h.card.because, h.vars), ...(h.card.advice && adviceFits ? { advice: fill(h.card.advice.text, h.vars) } : {}) };
   });
 }
 
@@ -797,7 +800,7 @@ function forReader(cfg: AnnualPalace, s: string): string {
 }
 
 /** 今年嘅錢／工作／感情／身體：流年財帛、官祿、夫妻或疾厄宮嘅判斷（最多兩個），段首先講本命嗰宮嘅底子。 */
-function annualPalaceSegment(ctx: Ctx, cfg: AnnualPalace, said: string, heads: Judgement[] = []): { seg: SynthesisSegment; specific: number; moved: Judgement[] } | null {
+function annualPalaceSegment(ctx: Ctx, cfg: AnnualPalace, said: string, heads: Judgement[] = []): { seg: SynthesisSegment; specific: number; moved: Judgement[]; topic: string; judged: Judgement[] } | null {
   const p = palaceAt(ctx, cfg.palace, 'annual');
   const natal = ctx.chart.palaces.find((q) => q.name === cfg.palace);
   if (!p || !natal) return null;
@@ -849,7 +852,7 @@ function annualPalaceSegment(ctx: Ctx, cfg: AnnualPalace, said: string, heads: J
   ];
   return { seg: { slot: cfg.slot, heading: cfg.slot, text: statements.map((l) => l.text).join(''), statements,
     referenceConditions: ['判斷強度：提示', cfg.methodNote, ...[...moved, ...js].map((j) => `原文：「${j.card.quote}」`)] },
-    specific: js.filter((j) => j.card.specificity === 'system').length, moved };
+    specific: js.filter((j) => j.card.specificity === 'system').length, moved, topic, judged: [...moved, ...js] };
 }
 /** 一章最多幾個宮段：十一個宮全出太長。錢、工作、感情、身體（問題章）先；同一層講明宮位或雙星（system）嘅段優先，再照宮位次序。 */
 const CORE_PALACES = new Set(['財帛', '官祿', '夫妻', '疾厄']);
@@ -865,11 +868,9 @@ const annualPalaceSegments = (ctx: Ctx, prior: SynthesisSegment[], heads: Judgem
   const out = picked.sort((p, q) => p.i - q.i).map((x) => {
     const mine = x.moved.filter((j) => !taken.has(j));
     mine.forEach((j) => taken.add(j));
-    if (mine.length === x.moved.length) return x.seg;
-    const again = annualPalaceSegment(ctx, ANNUAL_PALACES[x.i]!, said, mine)!;
-    return again.seg;
+    return mine.length === x.moved.length ? x : annualPalaceSegment(ctx, ANNUAL_PALACES[x.i]!, said, mine)!;
   });
-  return { segs: out, moved: taken };
+  return { segs: out.map((x) => x.seg), moved: taken, topics: out.map((x) => ({ topic: x.topic, judged: x.judged })) };
 };
 
 /* ── 權衡（2026-10-28 盲評 ab7：同一粒流年化祿嘅好壞判斷要併埋一段講）── */
@@ -945,11 +946,12 @@ export function synthYearChapter(chart: Chart, year: number, opts: { general?: b
     if (!opts.general) return null;
     const more = withDecade(all.slice(0, 4), all);
     if (!more.length) return null;
-    const { segs: palaces, moved } = annualPalaceSegments(ctx, more.map((j, i) => segmentOf(j, i === 0 ? '結論' : '展開')), more);
-    const head = more.filter((j) => !moved.has(j)).map((j, i) => segmentOf(j, i === 0 ? '結論' : '展開'));
+    const { segs: palaces, moved, topics } = annualPalaceSegments(ctx, more.map((j, i) => segmentOf(j, i === 0 ? '結論' : '展開')), more);
+    const left = more.filter((j) => !moved.has(j));
+    const head = left.map((j, i) => segmentOf(j, i === 0 ? '結論' : '展開'));
     // 2026-10-28：年長讀者冇文昌化科卡（限虛歲 <56），通常只剩一張通則卡；有流年宮段補足就照成章
     if (more.length < 2 && !palaces.length) return null;
-    return concreteSegs(ctx, [...head, ...palaces, ...decadeFacts(ctx)]);
+    return concreteSegs(ctx, withOverview([...head, ...palaces, ...decadeFacts(ctx)], left, topics));
   }
   // 這十年背景：第一個判斷；有相反極性嘅判斷就一齊出（吉凶並見唔可以只報一邊）
   const decade = decades[0];
@@ -960,11 +962,14 @@ export function synthYearChapter(chart: Chart, year: number, opts: { general?: b
   const build = (heads: Judgement[]) => annualLead
     ? [...heads.map((j, i) => segmentOf(j, i === 0 ? '結論' : '展開')), ...ten.map((j, i) => segmentOf(j, '背景', i === 0 ? '這十年' : undefined))]
     : [...ten.map((j, i) => segmentOf(j, i === 0 ? '結論' : '背景', i === 0 ? '這十年' : undefined)), ...heads.map((j) => segmentOf(j, '展開'))];
-  const { segs: palaces, moved } = annualPalaceSegments(ctx, build(now), now, annualLead);
-  const segs = build(now.filter((j) => !moved.has(j)));
+  const { segs: palaces, moved, topics } = annualPalaceSegments(ctx, build(now), now, annualLead);
+  const left = now.filter((j) => !moved.has(j));
+  const segs = build(left);
   const bg = segs.findIndex((x) => x.slot === '背景');
   segs.splice(bg < 0 || !annualLead ? segs.length : bg, 0, ...palaces);
   segs.push(...decadeFacts(ctx));
+  const overviewed = withOverview(segs, [...left, ...ten], topics);
+  segs.splice(0, segs.length, ...overviewed);
   const next = annualOf(chart, year + 1);
   if (next.ok) {
     const n = pick('annual', { chart, annual: next.value, age: next.value.nominalAge }).find((j) => j.card.system && j.card.id !== decade?.card.id && j.card.id !== other?.card.id);
@@ -974,6 +979,39 @@ export function synthYearChapter(chart: Chart, year: number, opts: { general?: b
     }
   }
   return concreteSegs(ctx, segs);
+}
+
+/**
+ * 章首總覽（2026-11-10，盲評 ab14：讀者讀完仍然唔清楚今年邊方面可以進、邊方面要保留）。
+ * 每個判斷按話題歸類，只睇卡嘅吉凶：淨吉＝較有利；吉凶都有＝有機會、同時要防；淨凶＝要放慢、多留神。中性唔計。
+ * 財祿類通則卡（祿轉忌、祿逢沖破、疊祿、弱地）講嘅係進財，歸「收入」；其餘用卡自己嘅話題。
+ */
+const MONEY_SPECIAL = new Set<SynthesisCard['special']>(['luToJi', 'luChongPo', 'luWeak', 'luKongJie', 'decLuToJi', 'decLuChongPo', 'dieLuDec', 'dieLuNatal']);
+function topicsOfHead(j: Judgement): string[] {
+  if (j.parts) return topicsOfHead(j.parts[0]!);
+  if (MONEY_SPECIAL.has(j.card.special)) return [TOPIC['財帛']!];
+  if (j.card.special === 'changKe' || j.card.special === 'changKeXian') return ['考試、進修'];
+  const v = j.vars.palaceTopic ?? j.vars.topic ?? j.vars.topics;
+  return v ? v.split('方面，以及') : [];
+}
+export const OVERVIEW_ID = 'syn.year.overview';
+function withOverview(segs: SynthesisSegment[], heads: Judgement[], palaces: { topic: string; judged: Judgement[] }[]): SynthesisSegment[] {
+  const pol = new Map<string, Set<string>>(), ids: string[] = [];
+  // 盲評 ab15 盤2：「力量很輕」嘅疊祿、提示級嘅吉句唔計做轉好，否則總結會將正文嘅保留判斷升格；凶訊號照計
+  const weakGood = (j: Judgement) => j.card.polarity === '吉' && (j.strength === '提示' || j.card.special === 'dieLuNatal');
+  const add = (t: string, j: Judgement) => { if (j.card.polarity === '中' || weakGood(j)) return; (pol.get(t) ?? pol.set(t, new Set()).get(t)!).add(j.card.polarity); ids.push(j.card.id); };
+  // 權衡併咗嘅判斷（例如疊祿但落弱地）逐張卡計吉凶
+  for (const j of heads) for (const t of topicsOfHead(j)) for (const x of j.parts ?? [j]) add(t, x);
+  for (const p of palaces) for (const j of p.judged) add(p.topic, j);
+  const of = (f: (x: Set<string>) => boolean) => [...pol].filter(([, x]) => f(x)).map(([t]) => t);
+  const good = of((x) => x.size === 1 && x.has('吉')), both = of((x) => x.size > 1), bad = of((x) => x.size === 1 && x.has('凶'));
+  if (good.length + both.length + bad.length < 2 || !segs.length) return segs;
+  const j = (ts: string[]) => ts.map((t) => `「${t}」`).join('');
+  const parts = [good.length ? `有轉好機會的是${j(good)}` : '', both.length ? `有機會、同時要防的是${j(both)}` : '', bad.length ? `要放慢、多留神的是${j(bad)}` : ''].filter(Boolean);
+  const text = `今年整體來看：${parts.join('；')}。下面逐項講原因。`;
+  const [first, ...rest] = segs;
+  const st: MingStatement = { text, en: '', kind: 'editorial-explanation', source_ids: [OVERVIEW_ID, ...new Set(ids)], citations: [] };
+  return [{ ...first!, text: text + first!.text, statements: [st, ...first!.statements] }, ...rest];
 }
 
 /**
