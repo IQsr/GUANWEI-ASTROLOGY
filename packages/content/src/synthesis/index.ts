@@ -623,15 +623,17 @@ const ANNUAL_PALACES: AnnualPalace[] = [
 ];
 
 const annualCards = (cfg: AnnualPalace): SynthesisCard[] => SYNTHESIS_CARDS.flatMap((c) => {
-  const claim = cfg.claims[c.id];
+  // 2026-11-10 盲評 ab15：今年財帛空宮都要借對宮整組（初階第9篇借星安宮）；借星卡用返原卡嘅一年講法
+  const claim = cfg.claims[c.id] ?? (c.seat === 'borrowed' ? cfg.claims[c.id.replace(/\.borrowed$/, '')] : undefined);
   if (!claim || c.chapter !== cfg.chapter) return [];
   const t = <T>(v: T) => (v === undefined ? v : (toAnnual(v) as T));
   return [{ ...c, id: c.id.replace(cfg.idFrom, cfg.idTo), chapter: '今年' as const, group: `流年${cfg.palace}.${c.group}`, weight: '提' as const,
     layer: ['annual' as const], when: t(c.when), requires: t(c.requires), none: t(c.none),
     ...(c.alone ? { alone: { star: c.alone.star, in: { ...c.alone.in, layer: 'annual' } } } : {}),
-    claim, because: c.because.replaceAll(`你的${cfg.label}`, `今年的${cfg.label}`) }];
+    claim, because: c.because.replaceAll(`你的${cfg.label}`, `今年的${cfg.label}`).replace('這一點看的是對宮福德宮的', '這一點看的是今年財帛宮對宮（今年的福德宮）的')
+      .replace('連同借入的福德宮星曜', '連同借入的對宮星曜') }];
 });
-const ANNUAL_CARDS = new Map(ANNUAL_PALACES.map((cfg) => [cfg.palace, annualCards(cfg)]));
+export const ANNUAL_CARDS = new Map(ANNUAL_PALACES.map((cfg) => [cfg.palace, annualCards(cfg)]));
 
 /** 本命嗰宮嘅底子：本命卡第一個判斷，連埋佢自己嘅出處。 */
 function natalBase(chart: Chart, cfg: AnnualPalace): { text: string; citations: string[]; polarity: SynthesisCard['polarity'] } | undefined {
@@ -830,7 +832,12 @@ function annualPalaceSegment(ctx: Ctx, cfg: AnnualPalace, said: string, heads: J
   const moved = heads.filter((h) => h.vars.at?.includes(p.branch));
   const names = (q: typeof p) => majors(q).map((s) => s.name).join('、');
   const base = natalBase(ctx.chart, cfg);
-  const lead = `今年你的${cfg.label}在${p.branch}宮，${seated ? `坐${names(p)}` : '是空宮'}。`
+  // 空宮：講明借對宮邊幾粒（成組借入，連本宮輔煞）
+  const opp = palaceAt(ctx, cfg.palace === '財帛' ? '福德' : '', 'annual');
+  const starsOf = (q: typeof p) => q.stars.map((x) => x.name + (x.sihua ? `化${x.sihua}` : '')).join('、');
+  const emptyNote = !seated && opp && majors(opp).length && js.some((j) => j.card.seat === 'borrowed')
+    ? `是空宮，要連同對宮${opp.branch}宮整組星曜一起看：${starsOf(opp)}${p.stars.length ? `，加上本宮的${starsOf(p)}` : ''}` : '是空宮';
+  const lead = `今年你的${cfg.label}在${p.branch}宮，${seated ? `坐${names(p)}` : emptyNote}。`
     + (majors(natal).length ? `你本命${cfg.label}坐${names(natal)}${base ? `，底子是：${forReader(cfg, base.text).replace(/。$/, '')}${moved.length ? '' : `；${bridge(base.polarity, js)}`}。` : '。'}` : '');
   const topic = topicOf(cfg.palace);
   const ps = new Set([...moved, ...js].map((j) => j.card.polarity).filter((x) => x !== '中'));
@@ -862,7 +869,9 @@ const annualPalaceSegments = (ctx: Ctx, prior: SynthesisSegment[], heads: Judgem
   const said = prior.map((x) => x.text).join('');
   const movable = keepFirst ? heads.slice(1) : heads;
   const segs = ANNUAL_PALACES.flatMap((cfg, i) => { const x = annualPalaceSegment(ctx, cfg, said, movable); return x ? [{ ...x, i, core: CORE_PALACES.has(cfg.palace) ? 1 : 0 }] : []; });
-  const picked = segs.sort((p, q) => q.core - p.core || q.moved.length - p.moved.length || q.specific - p.specific || p.i - q.i).slice(0, MAX_PALACE_SEGMENTS);
+  // 盲評 ab15：今年財帛（收入）係最影響付費價值嘅話題，有內容就一定入選
+  const money = (x: { i: number }) => Number(ANNUAL_PALACES[x.i]!.palace === '財帛');
+  const picked = segs.sort((p, q) => money(q) - money(p) || q.core - p.core || q.moved.length - p.moved.length || q.specific - p.specific || p.i - q.i).slice(0, MAX_PALACE_SEGMENTS);
   // 一個訊號只併入一宮（化忌同被沖嗰宮都喺同一章時，併入先出嗰個）
   const taken = new Set<Judgement>();
   const out = picked.sort((p, q) => p.i - q.i).map((x) => {

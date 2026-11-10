@@ -263,3 +263,16 @@ it('章首總覽唔將「力量很輕」嘅疊祿升格做收入轉好（盲評 
   const t = synthYearChapter(chartOf({ y: 1991, m: 11, d: 2 }, { h: 22, min: 5 }, 'female'), 2026, { general: true })![0]!.statements[0]!.text;
   expect(t).not.toMatch(/有轉好機會的是[^；]*「收入」/);
 });
+
+describe('今年財帛空宮借對宮（初階第9篇借星安宮，盲評 ab15，2026-11-10）', () => {
+  it('流年財帛空宮：有借星卡就出今年的錢段，段首講明借對宮整組；天馬理由句唔講「不見天馬」', () => {
+    const charts = sample(200).filter((c) => { const a = synthYearChapter(c, 2026, { general: true }); return a?.some((s) => s.slot === '今年的錢' && s.statements.some((st) => st.source_ids.some((i) => i.endsWith('.borrowed')))); });
+    expect(charts.length).toBeGreaterThan(10);
+    for (const c of charts) {
+      const seg = synthYearChapter(c, 2026, { general: true })!.find((s) => s.slot === '今年的錢')!;
+      expect(seg.text).toMatch(/是空宮，要連同對宮.宮整組星曜一起看：/);
+      expect(seg.text).not.toContain('對宮福德宮的');
+    }
+    expect(SYNTHESIS_CARDS.filter((c) => c.chapter === '錢').every((c) => !c.because.includes('不見天馬'))).toBe(true); // 田宅「三方四正不見天馬」講明範圍，唔使改
+  });
+});
