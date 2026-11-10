@@ -705,7 +705,14 @@ export function quanshuLookback(chart:Chart,A:AnnualChart):QuanshuLine[]{
  * 由 Codex 起稿、逐句人手核（tmp/lookback-examples）；冇例子嘅卡就唔出。
  */
 export const LOOKBACK_EXAMPLES:Record<string,string|null>=lookbackExamplesRaw as Record<string,string|null>;
-function exampleOf(id:string):MingStatement[]{const t=LOOKBACK_EXAMPLES[id];return t?[{text:t+'。',en:'',kind:'editorial-explanation',source_ids:[`${id}.example`],citations:[]}]:[];}
+/** 判斷句連例子。盲評 ab19：「如果當時有伴侶」要放喺成句判斷前面，唔好判斷先預設咗讀者有伴侶。 */
+function judged(id:string,claim:string,cite:string):MingStatement[]{
+  const t=LOOKBACK_EXAMPLES[id];
+  const m=t?.match(/^(如果當時有[^，]+)，(像是.+)$/);
+  const cond=m&&!/如有/.test(claim)?[{text:m[1]+'，',en:'',kind:'editorial-explanation' as const,source_ids:[`${id}.applies`],citations:[]}]:[];
+  const ex=t?(m?m[2]!:t):null;
+  return [...cond,{text:claim,en:'',kind:'interpretation',source_ids:[id],citations:[cite]},...(ex?[{text:ex+'。',en:'',kind:'editorial-explanation' as const,source_ids:[`${id}.example`],citations:[]}]:[])];
+}
 
 /** Past dates are selected as reading examples, never as evidence that an event happened. */
 /** 同一張盤同一年只計一次（每年要配今年卡，約十毫秒一年）。 */
@@ -775,8 +782,8 @@ function computeLookBack(chart:Chart,year:number,solarBorn?:number):DaxianSegmen
     }
     // Keep the date and stage first, then explain the focus before the supporting star positions.
     // 有判斷就先講判斷（結論先），唔再加編輯提示
-    const meaning:MingStatement[]=[...cards.flatMap((c):MingStatement[]=>[{text:c.claim,en:'',kind:'interpretation',source_ids:[c.id],citations:[c.cite]},...exampleOf(c.id),{text:c.because,en:'',kind:'evidence',source_ids:[c.id],citations:[]}]),
-      ...qs.flatMap((q):MingStatement[]=>[{text:q.claim+'。',en:'',kind:'interpretation',source_ids:[q.id],citations:[q.cite]},...exampleOf(q.id)])];
+    const meaning:MingStatement[]=[...cards.flatMap((c):MingStatement[]=>[...judged(c.id,c.claim,c.cite),{text:c.because,en:'',kind:'evidence',source_ids:[c.id],citations:[]}]),
+      ...qs.flatMap((q):MingStatement[]=>judged(q.id,q.claim+'。',q.cite))];
     lines.splice(1,0,...(meaning.length?meaning:focus));
     const ids=[...new Set(lines.flatMap((l)=>l.citations))];
     return {slot:'回看',heading:`${yearCN(r.year)}年`,text:lines.map((l)=>l.text).join(''),statements:lines,source_id:ids.join('+')||null,rule_ids:[],
