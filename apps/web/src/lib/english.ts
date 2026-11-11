@@ -68,10 +68,10 @@ export function englishChapters(chs: readonly { text: string; slots: readonly st
  * 而且去到這十年、這一年，同一個宮名會見到唔同嘅星，唔講清楚就似資料前後矛盾。
  */
 export const EN_READING_GUIDE =
-  'How to read this book: each chapter reads one of the twelve palaces, the areas of life such as work, money and relationships, through the stars that sit in it. ' +
-  'Names such as Zi, Si or You are the twelve positions on the chart, taken from the Chinese earthly branches. ' +
+  'How to read this book: the chart is divided into twelve palaces, each standing for an area of life such as work, money or relationships, and most chapters look at one of them through the stars it holds. ' +
+  'The chart also has twelve positions, named after the Chinese earthly branches; Zi, Si and You are three of these names. ' +
   'Your Five-Element Bureau (for example, Water Two) sets the age at which your ten-year stages begin. ' +
-  'Abundance, Authority, Recognition and Obstruction are the four transformations: your birth year, each ten-year stage and each year turn four stars in these ways, which colours the palaces they fall in. ' +
+  'Abundance, Authority, Recognition and Obstruction are the four transformations. Your birth year, each ten-year stage and each year mark four stars with them, and that changes how those stars, and the palaces they sit in, are read. ' +
   'The chapters on these ten years and this year read the same chart again from a different starting palace, so a palace name there can hold different stars from your birth chart; that is how the method works, not a mistake.';
 
 /**

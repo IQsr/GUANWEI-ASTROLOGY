@@ -346,7 +346,7 @@ function template(s: string, missing: string[]): string | null {
       if (pm) return `when it comes to ${areaEn(pm[1]!)}, ${span} run${year ? 's' : ''} most smoothly, so it's worth giving it extra thought`;
       pm = /^(\S+?)方面的決定，多花一點時間再定，(急著要答覆的事，先放一晚|簽字、承諾之前多問一句)$/.exec(part);
       if (pm) {
-        const tail = pm[2]!.startsWith('急') ? 'and let anything that needs an urgent answer wait a night' : 'and ask one more question before you sign or commit to anything';
+        const tail = pm[2]!.startsWith('急') ? 'and if something needs an urgent answer, let it wait a night' : 'and make sure you understand what you are committing to before you sign or promise anything';
         return `with decisions about ${areaEn(pm[1]!)}, take a little more time, ${tail}`;
       }
       if (part === '這方面有得著也有牽掛，進一步之前，先想好退路') return 'it brings gains and worries alike, so before you go further, work out your way back';
@@ -369,9 +369,9 @@ function template(s: string, missing: string[]): string | null {
     const item = listItem(li[3]!, missing);
     if (item === null) return null;
     const nth = { 一: 'first', 二: 'second', 三: 'third' }[li[2]!]!;
-    const HEAD: Record<string, string> = { 你可以倚仗的: 'What you can rely on: ', 你要記住的: 'What to keep in mind: ', 其他可以倚仗的: 'More you can rely on: ', 其他要記住的: 'More to keep in mind: ' };
+    const HEAD: Record<string, string> = { 你可以倚仗的: 'What you can rely on. ', 你要記住的: 'What to keep in mind. ', 其他可以倚仗的: 'You can also rely on a few other things. ', 其他要記住的: 'A few other things to keep in mind. ' };
     const head = li[1] ? HEAD[li[1]]! : '';
-    return head ? `${head}${nth}, ${item}` : `${cap(nth)}, ${item}`;
+    return `${head}${cap(nth)}, ${item}`;
   }
 
   /* 開場事實：你的命宮坐天同、天梁。 */
@@ -577,7 +577,8 @@ export function renderParagraph(zh: string): Rendered {
  * 主星第一次出現加意思（2026-10-05，睇稿回饋：英文讀者唔知 Tian Tong 係乜）：
  * 「Tian Tong」→「Tian Tong (the Contented)」，一章一次。輔星煞星喺模板度已經加咗。
  */
-const MAJORS = Object.values(STAR_EN).slice(0, 14);
+/* 2026-11-11 審稿：輔星煞星（Zuo Fu、Tian Kui、Lu Cun…）都要有英文名，一章一次；模板已經加咗嘅（後面有括號）唔再加 */
+const MAJORS = Object.values(STAR_EN);
 /* 「in Wei」或者一對「in Zi or Wu」（條文講兩個位置） */
 const BRANCH_AT = /\b(in|at|to|palace,) (Zi|Chou|Yin|Mao|Chen|Si|Wu|Wei|Shen|You|Xu|Hai)( or (?:Zi|Chou|Yin|Mao|Chen|Si|Wu|Wei|Shen|You|Xu|Hai))?\b(?! [A-Z(])(?!'s)(?! \()/;
 export const BRANCH_NOTE = 'of the twelve positions on the chart';
@@ -590,7 +591,8 @@ function glossFirst(text: string): string {
   for (const { pinyin, gloss } of MAJORS) {
     /* 唔加喺「Tian Ji's」嗰種所有格度：「Tian Ji (the Strategist)'s」好難讀，留畀下一次出現 */
     const re = new RegExp(`\\b${pinyin}\\b(?! \\()(?!'s)`);
-    if (re.test(out)) out = out.replace(re, `${pinyin} (${gloss})`);
+    /* 同一個說明（Wen Chang、Wen Qu 都係「a Scholar star」）一章出一次就夠 */
+    if (re.test(out) && !out.includes(`(${gloss})`)) out = out.replace(re, `${pinyin} (${gloss})`);
   }
   /*
    * 地支位置第一次出現加說明（2026-11-11 審稿：讀者唔知 Wei、Hai 係乜）：「in Wei」→「in Wei (one of the twelve positions on the chart)」，一章一次。

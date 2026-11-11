@@ -291,6 +291,12 @@ const BRIDGE: Record<string, Tr> = {
   '底子雖好，今年這方面卻有不利的變化': { en: 'That tendency is a good one, but this year brings some unfavourable changes here.', ja: '土台は良いものの、今年はこの面に不利な変化があります。' },
 };
 const topicTr = (zh: string) => TOPIC_TR[zh] ?? null;
+/* 英文訊號句（2026-11-11 審稿：「dealings with … needs」單複數錯）：話題放句尾，唔使夾動詞 */
+const VERDICT_EN: Record<string, (t: string) => string> = {
+  機會和風險落在同一宮: (t) => `This year brings both chances and risks for ${t}.`,
+  要留神的訊號集中在這一宮: (t) => `This year, take extra care with ${t}.`,
+  有利的訊號集中在這一宮: (t) => `This year looks favourable for ${t}.`,
+};
 const WHEN: Record<string, Tr> = { 這十年: { en: "this decade's", ja: 'この十年の' }, 今年: { en: "this year's", ja: '今年の' }, 明年: { en: "next year's", ja: '来年の' }, 那一年: { en: "that year's", ja: 'その年の' } };
 /* 今年卡會變嘅判斷（cards.json syn.year.*：{palaceTopic}{topics}{star}{what}） */
 const topicsTr = (zh: string): Tr | null => { const ts = zh.split('方面，以及').map(topicTr); if (!ts.every(Boolean)) return null; return ts.length === 1 ? ts[0]! : { en: listEn(ts.map((t) => t!.en)), ja: ts.map((t) => t!.ja).join('、') }; };
@@ -311,7 +317,7 @@ const luSay = (zh: string): Tr | null => { const xs = zh.split('，又').map((x)
 function synthYearClaim(zh: string): Tr | null {
   let m: RegExpExecArray | null, t: Tr | null;
   if ((m = /^今年和(.+)有關的錢，較容易因財惹麻煩，或者原本的進財能力減弱。$/.exec(zh)) && (t = topicTr(m[1]!)))
-    return { en: `This year, money connected with ${t.en} is more likely to cause trouble, or the income you usually get there may fall.`, ja: `今年は、${t.ja}に関わるお金が問題になったり、本来の稼ぐ力が弱まったりしやすくなります。` };
+    return { en: `This year, money matters connected with ${t.en} are more likely to cause trouble, or the income linked to them may fall.`, ja: `今年は、${t.ja}に関わるお金が問題になったり、本来の稼ぐ力が弱まったりしやすくなります。` };
   if ((m = new RegExp(`^今年和(.+)有關的錢，這十年原本靠(${S})帶來的進財之力會減弱，也較容易因財惹麻煩。$`).exec(zh)) && (t = topicTr(m[1]!)))
     return { en: `This year, the income connected with ${t.en} that ${sEn(m[2]!)} has brought you this decade may fall, and money there is more likely to cause trouble.`, ja: `今年は、この十年${sJa(m[2]!)}がもたらしてきた、${t.ja}に関わる収入が減り、お金の問題も起こりやすくなります。` };
   if ((m = /^(.+)方面原本不利的地方，今年有機會轉為有利。$/.exec(zh)) && (t = topicTr(m[1]!)))
@@ -333,7 +339,7 @@ function synthYearClaim(zh: string): Tr | null {
   if ((m = /^今年你在(.+)方面，要防因事破財。$/.exec(zh)) && (t = topicsTr(m[1]!)))
     return { en: `This year, in ${t.en}, guard against losing money over some matter.`, ja: `今年は${t.ja}の面で、何かの事情でお金を失わないよう用心してください。` };
   if ((m = /^今年你在(.+)方面，較多阻滯。$/.exec(zh)) && (t = topicsTr(m[1]!)))
-    return { en: `This year, ${t.en} may not go as smoothly as you would like.`, ja: `今年は${t.ja}が、思うように進みにくくなります。` };
+    return { en: `This year, things may not go as smoothly as you would like with ${t.en}.`, ja: `今年は${t.ja}が、思うように進みにくくなります。` };
   if ((m = new RegExp(`^今年你在(.+)方面，仍受這十年(${S})化忌的阻滯。$`).exec(zh)) && (t = topicTr(m[1]!)))
     return { en: `This year, ${t.en} may still meet obstacles, because ${sEn(m[2]!)} turns to Obstruction for this decade.`, ja: `今年も${t.ja}は、この十年の${sJa(m[2]!)}化忌の影響で、思うように進みにくい状態が続きます。` };
   if ((m = new RegExp(`^今年(${S})化祿給你的進財，(.+?)(?:，但(.+?))?，(實際得益要打折扣|財源較順)。$`).exec(zh))) {
@@ -358,7 +364,7 @@ function synthYearLine(zh: string): Tr | null {
     return { en: `This year at a glance — ${en.join('; ')}.`, ja: `今年の全体像：${ja.join('；')}。` };
   }
   if ((m = /^今年在(.+)方面，(.+)。$/.exec(zh)) && topicTr(m[1]!) && VERDICT[m[2]!])
-    return { en: `This year, ${topicTr(m[1]!)!.en} ${VERDICT[m[2]!]!.en}.`, ja: `今年の${topicTr(m[1]!)!.ja}は、${VERDICT[m[2]!]!.ja}。` };
+    return { en: VERDICT_EN[m[2]!]!(topicTr(m[1]!)!.en), ja: `今年の${topicTr(m[1]!)!.ja}は、${VERDICT[m[2]!]!.ja}。` };
   if ((m = /^今年涉及(.+)的出錢、合夥，先小額、條款寫清楚再落實。$/.exec(zh)) && topicTr(m[1]!))
     return { en: `This year, when money or partnerships involve ${topicTr(m[1]!)!.en}, start small and put the terms in writing before you commit.`, ja: `今年、${topicTr(m[1]!)!.ja}に関わるお金の支出や共同事業は、まず小さく始め、条件を書面にしてから進めてください。` };
   if ((m = /^今年(.+)方面想作大改動時，先想清楚不改會怎樣，再決定。$/.exec(zh)) && topicTr(m[1]!))
@@ -379,7 +385,7 @@ function synthYearLine(zh: string): Tr | null {
     if (!m[3]) return head;
     const base = TR[m[3] + '。']; if (!base) return null;
     const br = m[4] ? BRIDGE[m[4]]! : null;
-    return { en: `${head.en} By nature, ${lowerFirst(base.en)}${br ? ` ${br.en}` : ''}`, ja: `${head.ja}もともとの傾向として、${base.ja}${br ? br.ja : ''}` };
+    return { en: `${head.en} Your birth chart points to this: ${base.en}${br ? ` ${br.en}` : ''}`, ja: `${head.ja}もともとの傾向として、${base.ja}${br ? br.ja : ''}` };
   }
   /* 運限：這一章用到的運限：你今年虛歲28，行26至35歲的丙子大限（本命夫妻宮）。 */
   if ((m = new RegExp(`^這一章用到的運限：你今年虛歲(\\d+)，行(\\d+)至(\\d+)歲的([甲乙丙丁戊己庚辛壬癸])${B}大限（本命${P}）。$`).exec(zh))) {
