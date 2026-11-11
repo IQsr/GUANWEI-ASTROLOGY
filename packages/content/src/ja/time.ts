@@ -398,7 +398,7 @@ export function timeTemplate(s: string, missing: string[], h: TimeHelpers): stri
   let revised=/^(\S+?)年（(\S)(\S)年，你虛歲(\S+?)），你在第(\S+?)個大限之內，流年命宮在(\S)，(.+)。$/.exec(s);
   if(revised)return `${n(revised[1]!)}年（数え${n(revised[4]!)}歳）は第${n(revised[5]!)}大限の中にあり、流年命宮は${revised[6]}${seat(revised[7]!,missing)}。`;
   revised=/^(\S+?)年（(\S)(\S)年，你虛歲(\S+?)），你走進第(\S+?)個大限，((?:正是開頭說的關鍵大限|也是你人生較重要的一步)，)?(.+)。$/.exec(s);
-  if(revised)return `${n(revised[1]!)}年（数え${n(revised[4]!)}歳）に第${n(revised[5]!)}大限へ入りました${revised[6]?'。冒頭に挙げた重要な大限です':''}${seat(revised[7]!,missing)}。`;
+  if(revised)return `${n(revised[1]!)}年（数え${n(revised[4]!)}歳）に第${n(revised[5]!)}大限へ入りました${revised[6]?'。冒頭に挙げた重要な大限です':''}${seat(revised[7]!,missing).replace(/^で、主星/,'。この大限は主星').replace(/^で、/,'。この大限には')}。`;
   revised=/^當年的(\S{2})化祿在(\S+宮)，(\S{2})化忌在(\S+宮)。$/.exec(s);
   if(revised)return `その年は${starsJa(revised[1]!,missing)}が${pal(revised[2]!,missing)}で化禄に、${starsJa(revised[3]!,missing)}が${pal(revised[4]!,missing)}で化忌になりました。`;
   revised=/^你命盤裡(?:已可確認)?的關鍵大限是(.+)：這(?:幾|一)步(?:值得連同前後兩步一起細讀|前後的選擇與安排，值得多留一份心)。$/.exec(s);

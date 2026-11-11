@@ -9,6 +9,7 @@ export * from './lint';
 export * from './condition';
 export * from './rule';
 export * from './registry';
+export { afterCondition } from './synth-facts';
 export * from './lexicon';
 export * from './lexicon-data';
 export * from './baseblock';

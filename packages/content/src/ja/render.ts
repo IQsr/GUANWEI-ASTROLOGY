@@ -1,4 +1,5 @@
 import tmRaw from './tm.json';
+import { synthSentence } from '../synth-facts';
 import slotsRaw from './slots.json';
 import { OLD_WATCH_LEADS, WATCH_LEADS } from '../watch-lead';
 import { LINK_REFS } from '../link';
@@ -158,7 +159,7 @@ export function tmSentence(zh: string): string | null {
 }
 
 function lookupSentence(s: string): string | null {
-  const direct = tmSentence(s);
+  const direct = tmSentence(s) ?? synthSentence(s)?.ja;
   if (direct) return direct;
   /* 細讀例外句（assemble.ts `bridgeExceptions`，2026-10-18）：「不過，同宮有鈴星，⋯」 */
   const but = /^(?:不過，|但)(.+)$/.exec(s);
