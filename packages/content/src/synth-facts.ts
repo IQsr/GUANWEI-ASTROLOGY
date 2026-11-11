@@ -21,6 +21,8 @@ const HUA_JA: Record<string, string> = { 祿: '化禄', 權: '化権', 科: '化
 const GROUP: Record<string, Tr> = {
   煞曜: { en: 'harsh stars', ja: '煞星' }, 吉曜: { en: 'helpful stars', ja: '吉星' }, 輔佐吉曜: { en: 'supporting helpful stars', ja: '補佐の吉星' },
   吉化: { en: 'favourable transformations', ja: '吉化' }, 化忌: { en: 'an Obstruction', ja: '化忌' }, 祿馬: { en: 'Lu Cun or an Abundance with Tian Ma', ja: '禄馬' },
+  化祿: { en: 'an Abundance', ja: '化禄' }, 化權: { en: 'an Authority', ja: '化権' }, 化科: { en: 'a Recognition', ja: '化科' },
+  煞忌: { en: 'harsh stars or an Obstruction', ja: '煞星・化忌' }, 昌曲: { en: 'Wen Chang and Wen Qu', ja: '文昌・文曲' }, 左右: { en: 'Zuo Fu and You Bi', ja: '左輔・右弼' },
 };
 
 const sEn = (zh: string) => STAR_EN[zh]?.pinyin ?? null;
@@ -30,6 +32,9 @@ const palJa = (zh: string) => PALACE_JA[PAL[zh]!] ?? null;
 const bEn = (b: string) => BRANCH_EN[b]!;
 /** 星名清單，或者「煞曜、吉曜」呢類組名 */
 function list(zh: string): Tr | null {
+  // 「擎羊、陀羅、地空、地劫一類煞曜」
+  const kind = /^(.+)一類煞曜$/.exec(zh);
+  if (kind) { const l = list(kind[1]!); return l && { en: `harsh stars such as ${l.en.replace(/ and ([^,]+)$/, ' or $1')}`, ja: `${l.ja}などの煞星` }; }
   const or = /或/.test(zh);
   const ALL = new RegExp(S, 'g');
   // 「武曲七殺」冇分隔都拆得開
@@ -53,11 +58,18 @@ const huaTail = (natal: string | undefined, h: string): Tr => ({ en: `in ${HUA_E
 
 /** 首截（宮名後面）：講宮內有乜 */
 const HEAD: [RegExp, (m: RegExpExecArray) => Tr | null][] = [
+  [new RegExp(`^坐${L}$`), (m) => { const l = list(m[1]!); return l && { en: l.en, ja: `${l.ja}が入る` }; }],
+  [new RegExp(`^(${S})得祿$`), (m) => ({ en: `${sEn(m[1]!)} with an Abundance or Lu Cun`, ja: `${sJa(m[1]!)}が禄を得る` })],
+  [new RegExp(`^(${S})(?:獨)?坐${B}宮(入廟|落陷)$`), (m) => ({ en: `${sEn(m[1]!)} in ${bEn(m[2]!)}, at its ${m[3] === '入廟' ? 'strongest' : 'weakest'}`, ja: `${sJa(m[1]!)}が${m[2]}宮に入り、${m[3] === '入廟' ? '廟に入る' : '陥る'}` })],
+  [new RegExp(`^(${S})(?:獨)?坐${B}宮並化${H}$`), (m) => ({ en: `${sEn(m[1]!)} in ${bEn(m[2]!)}, in ${HUA_EN[m[3]!]}`, ja: `${sJa(m[1]!)}が${m[2]}宮に入り、${HUA_JA[m[3]!]}` })],
+  [new RegExp(`^(${S})的三方四正(不見|見)(.+)$`), (m) => { const b = list(m[3]!); return b && (m[2] === '見' ? { en: `${sEn(m[1]!)}, with ${b.en} in its four directions`, ja: `${sJa(m[1]!)}の三方四正に${b.ja}` } : { en: `${sEn(m[1]!)}, with no ${b.en.replace(' and ', ' or ')} in its four directions`, ja: `${sJa(m[1]!)}の三方四正に${b.ja}なし` }); }],
+  [new RegExp(`^(${S})與(${S})同坐$`), (m) => ({ en: `${sEn(m[1]!)} with ${sEn(m[2]!)}`, ja: `${sJa(m[1]!)}と${sJa(m[2]!)}が同宮` })],
+  [new RegExp(`^(${S})與(.+?)同度$`), (m) => { const b = list(m[2]!); return b && { en: `${sEn(m[1]!)} with ${b.en}`, ja: `${sJa(m[1]!)}と${b.ja}が同宮` }; }],
   [new RegExp(`^(?:有|由)?${L}(?:坐守|獨坐|同守)?$`), (m) => { const l = list(m[1]!); return l && { en: l.en, ja: `${l.ja}が入る` }; }],
   [new RegExp(`^(?:有|由)?${L}(?:坐|同坐)${B}宮$`), (m) => { const l = list(m[1]!); return l && { en: `${l.en} in ${bEn(m[2]!)}`, ja: `${l.ja}が${m[2]}宮に入る` }; }],
   [new RegExp(`^${L}獨坐${B}宮$`), (m) => { const l = list(m[1]!); return l && { en: `${l.en} alone in ${bEn(m[2]!)}`, ja: `${l.ja}が${m[2]}宮に単独で入る` }; }],
   [new RegExp(`^在${B}宮$`), (m) => ({ en: `in ${bEn(m[1]!)}`, ja: `${m[1]}宮にある` })],
-  [new RegExp(`^(?:有|由)?${L}(?:與|、)${L}(?:同度|同宮|同會)$`), (m) => { const a = list(m[1]!), b = list(m[2]!); return a && b && { en: `${a.en} with ${b.en}`, ja: `${a.ja}と${b.ja}が同宮` }; }],
+  [new RegExp(`^(?:有|由)?${L}(?:與|、)${L}(?:同度|同宮|同會|同坐)$`), (m) => { const a = list(m[1]!), b = list(m[2]!); return a && b && { en: `${a.en} with ${b.en}`, ja: `${a.ja}と${b.ja}が同宮` }; }],
   [new RegExp(`^${L}(?:與|、)${L}同坐${B}宮$`), (m) => { const a = list(m[1]!), b = list(m[2]!); return a && b && { en: `${a.en} with ${b.en} in ${bEn(m[3]!)}`, ja: `${a.ja}と${b.ja}が${m[3]}宮に同宮` }; }],
   [new RegExp(`^${L}與${L}相對$`), (m) => { const a = list(m[1]!), b = list(m[2]!); return a && b && { en: `${a.en}, facing ${b.en} in the opposite palace`, ja: `${a.ja}が入り、向かいの宮の${b.ja}と向き合う` }; }],
   [new RegExp(`^${L}(?:會照|會見|在三方四正會見)(.+)$`), (m) => { const a = list(m[1]!), b = list(m[2]!.replace(/^(.+?)(本命)?化([祿權科忌])$/, '$1$2化$3')); return a && b && { en: `${a.en}, linked with ${b.en}`, ja: `${a.ja}に${b.ja}が会照` }; }],
@@ -72,10 +84,17 @@ const HEAD: [RegExp, (m: RegExpExecArray) => Tr | null][] = [
 
 /** 之後各截：附加條件 */
 const MOD: [RegExp, (m: RegExpExecArray) => Tr | null][] = [
+  [/^有(.+)$/, (m) => { const l = list(m[1]!); return l && { en: l.en, ja: `${l.ja}がある` }; }],
+  [/^(?:並且)?得祿$/, () => ({ en: 'with an Abundance or Lu Cun', ja: '禄を得る' })],
+  [/^天馬不在.+?或對宮$/, () => ({ en: 'but Tian Ma is neither in this palace nor opposite', ja: '天馬は本宮にも対宮にもない' })],
+  [/^未成「祿馬交馳」$/, () => ({ en: 'so the "Abundance and Horse in motion" pairing is not formed', ja: '「禄馬交馳」にはならない' })],
+  [/^即「祿馬交馳」$/, () => ({ en: 'forming "Abundance and Horse in motion"', ja: '「禄馬交馳」となる' })],
+  [/^沒有其他主星同宮$/, () => ({ en: 'with no other major star in the palace', ja: 'ほかの主星は同宮しない' })],
+  [/^三方四正(?:還有其他|雖然見)煞曜$/, () => ({ en: 'with harsh stars in its four directions too', ja: '三方四正にも煞星' })],
   [new RegExp(`^(並|另有|或)?與?(.+?)(?:同度|同宮)$`), (m) => { if (m[2]!.startsWith('沒有')) return null; const b = list(m[2]!.replace(/^與/, '')); return b && { en: `${m[1] === '或' ? 'or ' : ''}with ${b.en} in the same palace`, ja: `${m[1] === '或' ? 'または' : ''}${b.ja}と同宮` }; }],
   [new RegExp(`^沒有(.+?)(?:或化科)?同度$`), (m) => { const b = list(m[1]!); return b && { en: `with no ${b.en.replace(' and ', ' or ')} in the same palace`, ja: `${b.ja}とは同宮しない` }; }],
   [new RegExp(`^(?:與對宮的|與廟旺的|與|${S}又與)?(.+?)相對$|^對宮(?:為|是)(.+)$`), (m) => { const z = m[1] ?? m[2]!; const b = list(z); return b && { en: `facing ${/廟旺/.test(m[0]) ? 'a strong ' : ''}${b.en} in the opposite palace`, ja: `向かいの宮の${/廟旺/.test(m[0]) ? '廟旺の' : ''}${b.ja}と向き合う` }; }],
-  [new RegExp(`^三方四正(?:又|雖|同時)?見(.+)$`), (m) => { const b = list(m[1]!.replace(/或化祿$/, '')); return b && { en: `with ${b.en}${/或化祿$/.test(m[1]!) ? ' or an Abundance' : ''} in its four directions`, ja: `三方四正に${b.ja}${/或化祿$/.test(m[1]!) ? 'または化禄' : ''}` }; }],
+  [new RegExp(`^三方四正(?:又|雖|同時|雖然)?見(.+)$`), (m) => { const b = list(m[1]!.replace(/或化祿$/, '')); return b && { en: `with ${b.en}${/或化祿$/.test(m[1]!) ? ' or an Abundance' : ''} in its four directions`, ja: `三方四正に${b.ja}${/或化祿$/.test(m[1]!) ? 'または化禄' : ''}` }; }],
   [new RegExp(`^三方四正(?:不見|沒有)(.+?)(?:照會)?$`), (m) => { const b = list(m[1]!); return b && { en: `with no ${b.en.replace(' and ', ' or ')} in its four directions`, ja: `三方四正に${b.ja}なし` }; }],
   [/^三方四正吉曜與煞曜交集$/, () => ({ en: 'with helpful and harsh stars mixed in its four directions', ja: '三方四正に吉星と煞星が交じる' })],
   [new RegExp(`^(?:並|也|又|同時|而且)?(?:會見|會照|會到|會|見|又見)(.+)$`), (m) => { const b = list(m[1]!.replace(/化([祿權科忌])、化([祿權科忌])$/, '化$1')); return b && { en: `meeting ${b.en}`, ja: `${b.ja}と会う` }; }],
@@ -93,6 +112,7 @@ const MOD: [RegExp, (m: RegExpExecArray) => Tr | null][] = [
   [new RegExp(`^由${L}(?:與|、)${L}同度$`), (m) => { const a = list(m[1]!), b = list(m[2]!); return a && b && { en: `held by ${a.en} with ${b.en}`, ja: `${a.ja}と${b.ja}が同宮` }; }],
   [/^三方四正(?:會見|會)(.+)$/, (m) => { const b = list(m[1]!); return b && { en: `with ${b.en} in its four directions`, ja: `三方四正に${b.ja}` }; }],
   [/^形成祿馬配合$/, () => ({ en: 'forming the Abundance–Horse pairing', ja: '禄馬の組み合わせとなる' })],
+  [/^對宮(.+?)(?:同度)?$/, (m) => { const b = list(m[1]!); return b && { en: `facing ${b.en} in the opposite palace`, ja: `向かいの宮に${b.ja}` }; }],
   [new RegExp(`^落在${B}宮$`), (m) => ({ en: `in ${bEn(m[1]!)}`, ja: `${m[1]}宮に入る` })],
   [new RegExp(`^(${S})有吉化$`), (m) => ({ en: `${sEn(m[1]!)} with a favourable transformation`, ja: `${sJa(m[1]!)}に吉化あり` })],
 ];
@@ -153,6 +173,20 @@ export function synthFact(zh: string): Tr | null {
     const rest = s.slice(yr[1]!.length);
     for (const [re, f] of [...WHOLE.slice(1), WHOLE[0]!]) { const w = re.exec(rest); const t = w && f(w, YR[yr[1]!]!); if (t) return t; }
   }
+  /* 借對宮（初階第9篇借星安宮）：財帛宮冇主星，連對宮整組星一齊睇 */
+  if ((m = new RegExp(`^你的${P}沒有主星，要連同對宮${P}整組星曜一起看：(.+?)(?:，加上${P}本身的(.+))?$`).exec(s))) {
+    const a = list(m[3]!), b = m[5] ? list(m[5]) : null; if (!a || (m[5] && !b)) return null;
+    return { en: `Your ${palEn(m[1]!)} has no major star, so it is read together with the whole set in the opposite ${palEn(m[2]!)}: ${a.en}${b ? `, plus the palace's own ${b.en}` : ''}.`, ja: `あなたの${palJa(m[1]!)}には主星がないので、向かいの${palJa(m[2]!)}の星をまとめて見ます：${a.ja}${b ? `、それに${palJa(m[1]!)}自身の${b.ja}` : ''}。` };
+  }
+  if ((m = new RegExp(`^這(一|兩)點看的是對宮${P}的([^，]+)((?:，[^，]+)*)$`).exec(s))) {
+    const h = piece(HEAD, m[3]!.replace(/^(.+?)(本命)?化([祿權科忌])$/, '有$1$2化$3')) ?? (list(m[3]!) && { en: list(m[3]!)!.en, ja: list(m[3]!)!.ja }); if (!h) return null;
+    const mods: Tr[] = []; for (const x of m[4]!.split('，').filter(Boolean)) { const t = piece(MOD, x); if (!t) return null; mods.push(t); }
+    return { en: `${m[1] === '一' ? 'This point reads' : 'These points read'} the opposite ${palEn(m[2]!)}: ${[h.en, ...mods.map((t) => t.en)].join(', ')}.`, ja: `${m[1] === '一' ? 'この点' : 'この二点'}は向かいの${palJa(m[2]!)}を見ています：${[h.ja, ...mods.map((t) => t.ja)].join('、')}。` };
+  }
+  if ((m = new RegExp(`^你的${P}連同借入的${P}星曜，(.+)$`).exec(s))) {
+    const mods: Tr[] = []; for (const x of m[3]!.split('，')) { const t = piece(MOD, x); if (!t) return null; mods.push(t); }
+    return { en: `Your ${palEn(m[1]!)}, counting the stars borrowed from the ${palEn(m[2]!)}: ${mods.map((t) => t.en).join(', ')}.`, ja: `あなたの${palJa(m[1]!)}（借りた${palJa(m[2]!)}の星を含む）：${mods.map((t) => t.ja).join('、')}。` };
+  }
   /* X的Y宮：首截 + 附加 */
   const head = new RegExp(`^(那一年|今年|你)的${P}(.*)$`).exec(s);
   if (!head) return null;
@@ -191,9 +225,30 @@ export function synthClaim(zh: string): Tr | null {
 
 /* 固定句（判斷、例子、條件、全書、收尾）：Codex 起稿、人手核（tmp/lookback-intl），中文原句做 key */
 import trRaw from './synth-tr.json';
-const TR = trRaw as Record<string, Tr>;
+const TR: Record<string, Tr> = { ...(trRaw as Record<string, Tr>) };
+// 多句條目（「甲。乙。」）：翻譯模組逐句查，所以句數對得上就逐句加返
+for (const [zh, t] of Object.entries(trRaw as Record<string, Tr>)) {
+  const z = zh.split(/(?<=。)/).filter(Boolean), e = t.en.split(/(?<=[.!?])\s+/), j = t.ja.split(/(?<=。)/).filter(Boolean);
+  if (z.length > 1 && z.length === e.length && z.length === j.length) z.forEach((s, i) => { TR[s] ??= { en: e[i]!, ja: j[i]! }; });
+}
 /** 綜合判讀層一句（固定句、會變嘅判斷、證據句）→ 英日；認唔到 null */
-export const synthSentence = (zh: string): Tr | null => TR[zh] ?? synthClaim(zh) ?? synthFact(zh);
+export const synthSentence = (zh: string): Tr | null => TR[zh] ?? synthClaim(zh) ?? synthJoined(zh) ?? synthFact(zh);
+
+/* 綜合判讀層砌出嚟嘅合併句（synthesis/index.ts）：「甲；不過乙。」（主線加限制）、「一是…」「二是…」（兩個相反條件），甲乙都係原卡句 */
+const lowerFirst = (s: string) => (/^[A-Z][a-z]+ [A-Z]/.test(s) ? s : s.charAt(0).toLowerCase() + s.slice(1));
+function synthJoined(zh: string): Tr | null {
+  const but = /^(.+?)；不過(.+)$/.exec(zh);
+  if (but) {
+    const a = TR[but[1]! + '。'], b = TR[but[2]!];
+    return a && b ? { en: `${a.en.replace(/\.$/, '')}; however, ${lowerFirst(b.en)}`, ja: `${a.ja}ただし、${b.ja}` } : null;
+  }
+  const nth = /^(一|二)是(.+)$/.exec(zh);
+  if (nth) {
+    const t = TR[nth[2]!]; if (!t) return null;
+    return { en: `${nth[1] === '一' ? 'First' : 'Second'}, ${lowerFirst(t.en)}`, ja: `${nth[1] === '一' ? 'ひとつは、' : 'もうひとつは、'}${t.ja}` };
+  }
+  return null;
+}
 
 /** 條件句（「If you had a partner at the time,」／「当時パートナーがいたなら、」）後面嗰句：唔再重複「That year,」／「その年は、」 */
 export function afterCondition(locale: 'en' | 'ja', prev: string | undefined, text: string): string {
