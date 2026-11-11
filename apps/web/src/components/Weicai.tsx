@@ -1,4 +1,4 @@
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import { cutTarget, deckle, notches } from '@/lib/weicai';
 
@@ -35,6 +35,13 @@ export function Weicai({
 }) {
   const t = useTranslations('weicai');
   const target = cutTarget(bookId, isAnonymous, slug);
+  /*
+   * 格名（2026-11-11）：DB 存嘅係中文內部格名（結論、細讀、今年的錢…）。中文照舊直接出（呢個 component 亦喺 client 用，唔可以 import server-only 嘅 hans）；英日用 messages `weicai.slots` 譯名；
+   * 冇譯名嘅格英日唔出名（只留格），唔好喺英日頁漏中文。
+   */
+  const locale = useLocale();
+  const zh = locale.startsWith('zh');
+  const labels = slots.map((s) => (zh ? s : t.has(`slots.${s}`) ? t(`slots.${s}`) : ''));
 
   return (
     <div className="weicai">
@@ -62,7 +69,7 @@ export function Weicai({
           <ul className="weicai-ge mt-8">
             {slots.map((slot, i) => (
               <li key={`${slot}-${i}`}>
-                <span>{slot}</span>
+                <span>{labels[i]}</span>
                 <i aria-hidden="true" />
               </li>
             ))}

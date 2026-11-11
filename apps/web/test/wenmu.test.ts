@@ -73,3 +73,16 @@ describe('目次問目', () => {
     }
   });
 });
+
+/* 2026-11-11：未裁章結論段（Weicai）英日讀起書時存嘅新版首段（0012 chapter_leads_v3），唔再用舊章快照 */
+describe('未裁章結論段讀英日新版', () => {
+  const lead = { slug: '財帛', lead: '中文新版首段。', quote: null, internationalLead: '舊版首段。',
+    localized: { en: { answer: 'New English lead.', citations: [] }, ja: { answer: '新しい結論。', citations: [] } } };
+  it('有新版就用新版；中文照舊；冇新版退返舊章快照', async () => {
+    const { localizedLead } = await import('@/lib/wenmu');
+    expect(localizedLead([lead], '財帛', 'en')).toBe('New English lead.');
+    expect(localizedLead([lead], '財帛', 'ja')).toBe('新しい結論。');
+    expect(localizedLead([lead], '財帛', 'zh-Hant')).toBe('中文新版首段。');
+    expect(localizedLead([{ ...lead, localized: undefined }], '財帛', 'en')).not.toBe('New English lead.');
+  });
+});

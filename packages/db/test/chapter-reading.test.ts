@@ -10,12 +10,13 @@ let deep: string;
 let ending: string;
 const epilogueSnapshot={format:'ming-expanded-v1',writer:'epilogue-reader-v1',segments:[{slot:'撮要',text:'同一本正文的收結。',referenceConditions:['本命主星及四化條件保留。'],referenceApplicability:['本段連讀命宮、官祿。'],statements:[{text:'同一本正文的收結。',source_ids:['epilogue.selected.命宮.官祿'],citations:['saved.original.source']}]}],international:{text:'舊版收結。',slots:['結論']},internationalSnapshot:{text:'舊版收結。',slots:['結論']}};
 const snapshot = { analysis:{version:'book-analysis-v1',privateMarker:'P0-INTERNAL-CHAPTER-TRACE',chapter:{chapter:'命宮',focus:[{id:'focus:命宮:selected'}]},conditions:['required-before-result'],exceptions:['retained-exception']}, format: 'ming-expanded-v1', segments: [{ slot: '結論', text: '展開正文。', statements: [{ citations: ['source.test'] }] }], international: { text: '舊版首段。\n\n舊版後文不可預覽。', slots: ['開場', '結構'] } };
+const localizedSnapshot = { ...snapshot, writer: 'synthesis-v1', localized: { version: 'ming-translations-v1', en: [{ slot: '結論', text: 'New English lead.' }, { slot: '展開', text: 'ENGLISH-LATER-TEXT' }], ja: [{ slot: '結論', text: '新しい日本語の結論。' }, { slot: '展開', text: 'JA-LATER-TEXT' }] } };
 const token = '33333333-3333-4333-8333-333333333333';
 const subject = { name: '測試', birth_date: '1990-03-21', birth_time: '14:20', birth_tz: 'Asia/Hong_Kong', birth_place: '香港', lng: 114.17, lat: 22.32, sex: 'female' };
 const chart = { engine_version: 'test', school_profile_id: 'test', payload: {} };
 const chapters = [
   { slug: '命宮', ord: 1, tier: 'free', title: '命宮', body: '展開正文。', content_version: 'rules+ming-expanded-v1', slots: ['結論'], reading: snapshot },
-  { slug: '兄弟', ord: 2, tier: 'deep', title: '兄弟', body: '展開正文。', content_version: 'rules+ming-expanded-v1', slots: ['結論'], reading: snapshot },
+  { slug: '兄弟', ord: 2, tier: 'deep', title: '兄弟', body: '展開正文。', content_version: 'rules+ming-expanded-v1', slots: ['結論'], reading: localizedSnapshot },
   {slug:'給你的話',ord:4,tier:'deep',title:'給你的話',body:'同一本正文的收結。',content_version:'rules+ming-expanded-v1+cross-palace-production-v1+epilogue-reader-v1',slots:['撮要'],reading:epilogueSnapshot},
   { slug: '舊章', ord: 3, tier: 'free', title: '舊章', body: '原文。', content_version: 'old', slots: ['正文'] },
 ];
@@ -67,11 +68,26 @@ it('目次只開每版首段及首段來源，不洩漏英日快照後文', asyn
   expect(JSON.stringify(rows)).not.toContain('required-before-result');
 });
 
+it('v3（0012）：未裁章另開英日新版首段，只開第一段；其他讀者、匿名讀唔到', async () => {
+  await db.asReader(me);
+  const rows = await db.sql('select * from chapter_leads_v3($1)', [book]);
+  const d = rows.find((r) => r.slug === '兄弟')!;
+  expect(d.en_lead).toBe('New English lead.');
+  expect(d.ja_lead).toBe('新しい日本語の結論。');
+  expect(d.international_lead).toBe('舊版首段。');
+  expect(rows.find((r) => r.slug === '命宮')!.en_lead).toBeNull();
+  expect(JSON.stringify(rows)).not.toContain('LATER-TEXT');
+  await db.asReader(other);
+  expect(await db.sql('select * from chapter_leads_v3($1)', [book])).toEqual([]);
+  await db.asAnon();
+  await expect(db.sql('select * from chapter_leads_v3($1)', [book])).rejects.toThrow(/permission denied/);
+});
+
 it('有購買權限後才可經同一 RPC 讀深度章快照', async () => {
   await db.asOwner();
   await db.sql("insert into entitlements(reader_id,book_id,product,stripe_payment_id) values($1,$2,'deep','reading-test')", [me, book]);
   await db.asReader(me);
-  expect((await db.sql('select chapter_reading($1) as data', [deep]))[0]!.data).toEqual(snapshot);
+  expect((await db.sql('select chapter_reading($1) as data', [deep]))[0]!.data).toEqual(localizedSnapshot);
 });
 
 it('收結正文、出處、條件及英日原版經實際儲存與讀取完整保留，其他讀者仍不可讀',async()=>{
