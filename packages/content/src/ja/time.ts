@@ -63,7 +63,8 @@ function seatIn(zh: string, missing: string[]): string {
   let m = /^坐(.+)$/.exec(zh);
   if (m) return `には${starsJa(m[1]!, missing)}が入っています`;
   m = /^沒有主星，借對(?:宮|面宮位)的(.+)$/.exec(zh);
-  if (m) return `には主星がないので、向かいの宮の${starsJa(m[1]!, missing)}を借りています`;
+  // 2026-11-11 審稿：「星を借りています」讀者唔明 → 講清楚係一齊睇向かいの宮
+  if (m) return `には主星がないため、向かいの宮の${starsJa(m[1]!, missing)}をあわせて見ます`;
   return 'には主星がありません';
 }
 /** 依據括號入面：「官祿宮坐太陰」→「官禄宮には太陰」 */
@@ -440,7 +441,8 @@ export function timeTemplate(s: string, missing: string[], h: TimeHelpers): stri
   }
   m = new RegExp(`^第(\\S+?)步　(\\S+?)至(\\S+?)歲　(\\S+?宮)，(${SEAT})。$`).exec(s);
   if (m && n(m[1]!) && n(m[2]!) && n(m[3]!)) {
-    return `第${kanjiNum(n(m[1]!)!)}段階　${kazoeRange(n(m[2]!)!, n(m[3]!)!)}　${pal(m[4]!, missing)}${seat(m[5]!, missing)}。`;
+    // 2026-11-11 審稿：「命宮で、…が入っています」場所助詞唔自然 → 年齡後斷句，「命宮には…が入っています」
+    return `第${kanjiNum(n(m[1]!)!)}段階　${kazoeRange(n(m[2]!)!, n(m[3]!)!)}。${pal(m[4]!, missing)}${seatIn(m[5]!, missing)}。`;
   }
   /* 關鍵大限點解（daxian.ts pivotWhy，2026-10-18） */
   m = /^你的命宮在(\S)，(坐[^：，]+|沒有主星，借對面宮位的[^：，]+)((?:，[^：]+)?)：這樣的命盤，行到(.+)的大限，(?:就是一生的轉折點|是原書列出的關鍵宮垣)。$/.exec(s);
