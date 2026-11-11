@@ -590,7 +590,8 @@ function glossFirst(text: string): string {
   let out = text;
   for (const { pinyin, gloss } of MAJORS) {
     /* 唔加喺「Tian Ji's」嗰種所有格度：「Tian Ji (the Strategist)'s」好難讀，留畀下一次出現 */
-    const re = new RegExp(`\\b${pinyin}\\b(?! \\()(?!'s)`);
+    /* 括號入面嘅星名標記（「(Tai Yang)」）唔加說明，免得括號套括號 */
+    const re = new RegExp(`(?<!\\()\\b${pinyin}\\b(?! \\()(?!'s)(?!\\))`);
     /* 同一個說明（Wen Chang、Wen Qu 都係「a Scholar star」）一章出一次就夠 */
     if (re.test(out) && !out.includes(`(${gloss})`)) out = out.replace(re, `${pinyin} (${gloss})`);
   }
