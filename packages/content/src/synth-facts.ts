@@ -161,9 +161,9 @@ export function synthFact(zh: string): Tr | null {
     return { en: `In your birth chart, ${sEn(m[1]!)} turns to ${HUA_EN[m[2]!]}; ${YR[m[3]!]!.en.toLowerCase()}, ${sEn(m[4]!)} ${m[3] === '今年' ? 'turns' : 'turned'} to ${HUA_EN[m[5]!]}.`, ja: `本命では${sJa(m[1]!)}${HUA_JA[m[2]!]}、${YR[m[3]!]!.ja}は${sJa(m[4]!)}${HUA_JA[m[5]!]}${m[3] === '今年' ? 'です' : 'でした'}。` };
   if ((m = new RegExp(`^這十年(${S})化${H}，(那一年|今年)(${S})卻?化${H}$`).exec(s)))
     return { en: `For this decade, ${sEn(m[1]!)} turns to ${HUA_EN[m[2]!]}, but ${YR[m[3]!]!.en.toLowerCase()}, ${sEn(m[4]!)} ${m[3] === '今年' ? 'turns' : 'turned'} to ${HUA_EN[m[5]!]}.`, ja: `この十年は${sJa(m[1]!)}${HUA_JA[m[2]!]}ですが、${YR[m[3]!]!.ja}は${sJa(m[4]!)}が${HUA_JA[m[5]!]}${m[3] === '今年' ? 'します' : 'でした'}。` };
-  if ((m = new RegExp(`^你的命宮是${L}(?:獨)?坐${B}${B}；(那一年|今年)的命宮走到(${S})獨坐的宮位$`).exec(s))) {
+  if ((m = new RegExp(`^你的命宮是${L}(?:獨)?坐${B}${B}?；(那一年|今年)的命宮走到(${S})獨坐的宮位$`).exec(s))) {
     const l = list(m[1]!); if (!l) return null;
-    return { en: `Your Life Palace holds ${l.en} in ${bEn(m[2]!)} or ${bEn(m[3]!)}; ${YR[m[4]!]!.en.toLowerCase()}'s Life Palace moved to a palace held by ${sEn(m[5]!)} alone.`, ja: `あなたの命宮は${m[2]}${m[3]}の${l.ja}で、${YR[m[4]!]!.ja}の命宮は${sJa(m[5]!)}が単独で入る宮に巡りました。` };
+    return { en: `Your Life Palace holds ${l.en} in ${bEn(m[2]!)}${m[3] ? ` or ${bEn(m[3])}` : ''}; ${YR[m[4]!]!.en.toLowerCase()}'s Life Palace moved to a palace held by ${sEn(m[5]!)} alone.`, ja: `あなたの命宮は${m[2]}${m[3] ?? ''}の${l.ja}で、${YR[m[4]!]!.ja}の命宮は${sJa(m[5]!)}が単独で入る宮に巡りました。` };
   }
   if ((m = new RegExp(`^這十年(${S})化${H}$`).exec(s))) return { en: `This decade, ${sEn(m[1]!)} turns to ${HUA_EN[m[2]!]}.`, ja: `この十年は${sJa(m[1]!)}${HUA_JA[m[2]!]}です。` };
   if ((m = new RegExp(`^(${S})化${H}是本命帶來的$`).exec(s))) return { en: `${sEn(m[1]!)}'s ${HUA_EN[m[2]!]} comes from your birth chart.`, ja: `${sJa(m[1]!)}の${HUA_JA[m[2]!]}は本命によるものです。` };
@@ -416,11 +416,11 @@ function synthYearLine(zh: string): Tr | null {
     return { en: `This year's ${sEn(m[1]!)} ${HUA_EN[m[2]!]} falls in ${bEn(m[3]!)}, in the same palace as ${l.en}.`, ja: `今年の${sJa(m[1]!)}${HUA_JA[m[2]!]}は${m[3]}宮に落ち、${l.ja}と同宮します。` };
   }
   /* 你的命宮是巨門獨坐子午；這十年的命宮走到紫微、破軍的宮位（，而且廉貞化忌）。 */
-  if ((m = new RegExp(`^你(?:的)?命宮(?:是)?${L}(?:獨)?坐${B}${B}；(這十年|今年|明年|那一年)的命宮走到(?:${L}的|(${S})獨坐的)宮位(?:，而且(${S})化${H})?。$`).exec(zh))) {
+  if ((m = new RegExp(`^你(?:的)?命宮(?:是)?${L}(?:獨)?坐${B}${B}?；(這十年|今年|明年|那一年)的命宮走到(?:${L}的|(${S})獨坐的)宮位(?:，而且(${S})化${H})?。$`).exec(zh))) {
     const l = list(m[1]!), t = m[5] ? list(m[5]) : null; if (!l || (m[5] && !t)) return null;
     const w = WHEN[m[4]!]!, to = t ? { en: `held by ${t.en}`, ja: `${t.ja}が入る` } : { en: `held by ${sEn(m[6]!)} alone`, ja: `${sJa(m[6]!)}が単独で入る` };
     const hua = m[7] ? { en: `, with ${sEn(m[7])} in ${HUA_EN[m[8]!]}`, ja: `。しかも${sJa(m[7])}${HUA_JA[m[8]!]}です` } : { en: '', ja: '' };
-    return { en: `Your Life Palace holds ${l.en} in ${bEn(m[2]!)} or ${bEn(m[3]!)}; ${w.en} Life Palace moves to a palace ${to.en}${hua.en}.`, ja: `あなたの命宮は${m[2]}${m[3]}の${l.ja}で、${w.ja}命宮は${to.ja}宮に巡ります${hua.ja}。` };
+    return { en: `Your Life Palace holds ${l.en} in ${bEn(m[2]!)}${m[3] ? ` or ${bEn(m[3])}` : ''}; ${w.en} Life Palace moves to a palace ${to.en}${hua.en}.`, ja: `あなたの命宮は${m[2]}${m[3] ?? ''}の${l.ja}で、${w.ja}命宮は${to.ja}宮に巡ります${hua.ja}。` };
   }
   return null;
 }
