@@ -55,3 +55,18 @@ describe('這一年章英日譯', { timeout: 300_000 }, () => {
     expect(evOk / ev).toBeGreaterThan(0.9);
   });
 });
+
+/* 2026-11-11 審稿：日文「子宮」易讀成器官 → 「子の宮」；英文地支位置第一次出現加說明 */
+describe('地支講法', () => {
+  it('日文：子宮 → 子の宮，其他地支照舊', () => {
+    expect(Ja.clearJa('今年の文昌化科は子宮に入り、丑宮と向き合う。')).toBe('今年の文昌化科は子の宮に入り、丑宮と向き合う。');
+    expect(Ja.clearJa('子女宮')).toBe('子女宮');
+  });
+  it('英文：介詞後面嘅地支加說明一次，唔撞星名', () => {
+    expect(En.glossBranch('The palace was in Wei, and later in Hai.')).toBe('The palace was in Wei (one of the twelve positions on the chart), and later in Hai.');
+    expect(En.glossBranch('Linked with Wu Qu and Tai Yin.')).toBe('Linked with Wu Qu and Tai Yin.');
+    expect(En.glossBranch('in You Bi')).toBe('in You Bi');
+    const once = En.glossBranch('in Zi');
+    expect(En.glossBranch(once)).toBe(once);
+  });
+});

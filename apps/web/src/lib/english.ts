@@ -31,11 +31,25 @@ export function displayTitle(title: string, locale: string): string {
 }
 
 /** 由第一章到而家呢章（按次序），回每章嘅段落（同中文段一一對應，格名照用）。 */
+/** 存咗嘅英文快照（2026-11-11 前起嘅書）冇地支說明：讀出時喺第一個地支位置補返（一章一次）。 */
+function withBranchNote(segs: ChapterReading['segments']): ChapterReading['segments'] {
+  if (segs.some((s) => s.text.includes(En.BRANCH_NOTE))) return segs;
+  const k = segs.findIndex((s) => En.glossBranch(s.text) !== s.text);
+  if (k < 0) return segs;
+  return segs.map((s, i) => {
+    if (i !== k) return s;
+    const j = s.statements?.findIndex((l) => En.glossBranch(l.text) !== l.text) ?? -1;
+    if (j < 0) return { ...s, text: En.glossBranch(s.text) };
+    const statements = s.statements!.map((l, n) => (n === j ? { ...l, text: En.glossBranch(l.text) } : l));
+    return { ...s, text: s.text.replace(s.statements![j]!.text, () => statements[j]!.text), statements };
+  });
+}
+
 export function englishChapters(chs: readonly { text: string; slots: readonly string[]; reading?: unknown }[]): ChapterReading['segments'][] {
   const st = En.newBookState();
   return internationalBodies(chs).map((c, i) => {
     const ming = internationalMing(chs[i]!, 'en');
-    if (ming !== null) return ming;
+    if (ming !== null) return withBranchNote(ming);
     const paras = paragraphs(c.text, c.slots);
     const en = En.renderParagraphs(
       paras.map((p) => p.text),
