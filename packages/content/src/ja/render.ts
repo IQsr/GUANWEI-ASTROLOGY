@@ -4,8 +4,8 @@ import slotsRaw from './slots.json';
 import { OLD_WATCH_LEADS, WATCH_LEADS } from '../watch-lead';
 import { LINK_REFS } from '../link';
 import { FILL_VERB, MAJOR, OR_VERB, stripOr } from '../branch';
-import { AREA_JA, AREA_ON_JA, HUA_JA, PALACE_JA, listJa, starJa } from './terms';
-import { factTemplate } from './facts';
+import { AREA_JA, AREA_ON_JA, HUA_JA, PALACE_JA, STAR_JA, listJa, starJa } from './terms';
+import { factTemplate, palaceJaOf } from './facts';
 import { YOUTH_PREFIX, unyouth } from '../youth';
 import { timeTemplate } from './time';
 
@@ -507,7 +507,21 @@ export function renderParagraphs(zhParas: readonly string[]): { paras: string[];
     carry = (/宮坐|來讀/.test(p) ? firstOf(MAJOR_RE, p) : lastOf(MAJOR_RE, p)) ?? carry;
     return out;
   });
-  return { paras, missing };
+  return { paras: borrowNoteJa(zhParas, paras), missing };
+}
+
+/* 借星（2026-11-11）：英文 borrowNote 同一做法；第一句「<主星>が<宮>に」後面補「（向かいの宮から借りた星）」 */
+const MAJOR_KANJI = Object.values(STAR_JA).slice(0, 14).map((x) => x.kanji).join('|');
+function borrowNoteJa(zhParas: readonly string[], paras: string[]): string[] {
+  let out = paras;
+  for (const m of zhParas.join('').matchAll(/你的(\S{1,3}宮)沒有主星，借對/g)) {
+    const pal = palaceJaOf(m[1]!);
+    if (!pal) continue;
+    const re = new RegExp(`((?:${MAJOR_KANJI})(?:・(?:${MAJOR_KANJI}))?)が${pal}に(?!（)`);
+    const at = out.findIndex((p) => re.test(p));
+    if (at >= 0) out = out.map((p, i) => (i === at ? p.replace(re, `$1が${pal}（向かいの宮から借りた星）に`) : p));
+  }
+  return out;
 }
 
 export function renderChapter(zh: string): Rendered {

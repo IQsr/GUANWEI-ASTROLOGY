@@ -617,12 +617,28 @@ export function renderChapter(zh: string, st: BookState = newBookState()): Rende
  * 逐段譯，段數同輸入一樣（網站要靠段數對返每段嘅格名，見 apps/web `lib/suidu.ts` paragraphs()）。
  * 主星第一次出現加意思係成章計，所以先合埋做一次，再切返開。
  */
+/*
+ * 借星（2026-11-11 英文審稿）：宮內冇主星、讀對宮借入嘅主星時，細讀原句「太陽巨門在官祿宮」英文會讀成星坐喺本宮。
+ * 中文同一章前面已經講明「你的官祿宮沒有主星，借對面…來讀」，中文照舊；英文喺第一句「<主星> in your <宮>」後面補一句借對宮。
+ */
+const MAJOR_PINYIN = Object.values(STAR_EN).slice(0, 14).map((x) => x.pinyin).join('|');
+function borrowNote(zhParas: readonly string[], en: string): string {
+  let out = en;
+  for (const m of zhParas.join('').matchAll(/你的(\S{1,3}宮)沒有主星，借對/g)) {
+    const pal = PALACE_EN[m[1]!.replace(/宮$/, '')];
+    if (!pal) continue;
+    const re = new RegExp(`\\b((?:${MAJOR_PINYIN})(?: \\([^)]*\\))?(?: and (?:${MAJOR_PINYIN})(?: \\([^)]*\\))?)?) in your ${pal}\\b(?! \\()`);
+    out = out.replace(re, `$1 in your ${pal} (read from the opposite palace)`);
+  }
+  return out;
+}
+
 export function renderParagraphs(zhParas: readonly string[], st: BookState = newBookState()): { paras: string[]; missing: string[] } {
   const missing: string[] = [];
   const paras = zhParas.map((p) => paragraphSentences(p, missing));
   const avoid = new Set(paras.flat().flatMap((en) => (OPENER.test(en) ? [] : VARIANTS.filter((v) => en.startsWith(v)))));
   const SEP = String.fromCharCode(0);
-  const joined = glossFirst(paras.map((ss) => ss.map((en) => rotateOpener(en, st, avoid)).join(' ')).join(SEP));
+  const joined = borrowNote(zhParas, glossFirst(paras.map((ss) => ss.map((en) => rotateOpener(en, st, avoid)).join(' ')).join(SEP)));
   return { paras: joined.split(SEP), missing };
 }
 

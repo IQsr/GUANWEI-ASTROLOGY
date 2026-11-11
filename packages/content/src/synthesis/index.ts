@@ -736,6 +736,11 @@ const MINOR = '擎羊|陀羅|火星|鈴星|地空|地劫|左輔|右弼|天魁|�
 const branchOf = (ctx: Ctx, star: string) => ctx.chart.palaces.find((q) => q.stars.some((s) => s.name === star))?.branch;
 const subjectBefore = (t: string, at: number) => [...t.slice(0, at).matchAll(MAJOR_RE)].pop()?.[0];
 function concrete(ctx: Ctx, t: string): string {
+  // 「你的命宮是天機獨坐子午」→ 呢張盤實際嗰個地支（2026-11-11 英文審稿：個人命書唔好寫兩個位置）
+  t = t.replace(new RegExp(`^(你的命宮是)((?:${MAJOR_RE.source})(?:、(?:${MAJOR_RE.source}))*)(獨)?坐([子丑寅卯辰巳午未申酉戌亥])([子丑寅卯辰巳午未申酉戌亥])(?=；)`), (m, head: string, stars: string, alone = '', a: string, b: string) => {
+    const at = branchOf(ctx, stars.split('、')[0]!);
+    return at === a || at === b ? `${head}${stars}${alone}坐${at}` : m;
+  });
   if (/這十年|明年/.test(t)) return t;
   const inAt = (star: string | undefined, near: boolean) => {
     const b = star && branchOf(ctx, star);
