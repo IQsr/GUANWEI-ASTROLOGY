@@ -115,15 +115,23 @@ export function serverJuan(): JuanPort {
       const sb = supabaseServer();
       if (!(await signedIn(sb))) return [];
       /* ⚠ 只開第一段同一句引文（0008）；全章正文照舊行 `chapter_body()` */
-      const { data, error } = await sb.rpc('chapter_leads_v2', { p_book: bookId });
+      /* 0012 v3 多咗英日新版首段（reading.localized）；未 migrate 嘅環境退返 v2 */
+      let res = await sb.rpc('chapter_leads_v3', { p_book: bookId });
+      if (res.error) res = await sb.rpc('chapter_leads_v2', { p_book: bookId });
+      const { data, error } = res;
       if (error) throw error;
-      return ((data ?? []) as { slug: string; lead: string | null; quote: string | null; international_lead: string | null; citations: string[] | null }[]).map((r) => ({
-        slug: r.slug,
-        lead: r.lead ?? '',
-        quote: r.quote ?? null,
-        ...(r.international_lead != null ? { internationalLead: r.international_lead } : {}),
-        ...(r.citations != null ? { citations: r.citations } : {}),
-      }));
+      return ((data ?? []) as { slug: string; lead: string | null; quote: string | null; international_lead: string | null; citations: string[] | null; en_lead?: string | null; ja_lead?: string | null }[]).map((r) => {
+        const cites = r.citations ?? [];
+        const localized = { ...(r.en_lead ? { en: { answer: r.en_lead, citations: cites } } : {}), ...(r.ja_lead ? { ja: { answer: r.ja_lead, citations: cites } } : {}) };
+        return {
+          slug: r.slug,
+          lead: r.lead ?? '',
+          quote: r.quote ?? null,
+          ...(r.international_lead != null ? { internationalLead: r.international_lead } : {}),
+          ...(r.citations != null ? { citations: r.citations } : {}),
+          ...(Object.keys(localized).length ? { localized } : {}),
+        };
+      });
     },
   };
 }

@@ -65,6 +65,9 @@ function clean(s: string): string {
 export function localizedLead(leads: readonly ChapterLead[], slug: string, locale: string): string | null {
   const l = leads.find((x) => x.slug === slug);
   if (!l) return null;
+  // 起書時存咗英日新版（綜合判讀層章等，0012）就用佢，同裁開之後讀到嘅第一段一樣
+  const saved = isEnglish(locale) ? l.localized?.en?.answer : isJapanese(locale) ? l.localized?.ja?.answer : undefined;
+  if (saved && clean(saved)) return clean(saved);
   const intl = isEnglish(locale) || isJapanese(locale);
   const text = clean(intl && l.internationalLead !== undefined ? l.internationalLead : l.lead);
   if (!text) return null;
