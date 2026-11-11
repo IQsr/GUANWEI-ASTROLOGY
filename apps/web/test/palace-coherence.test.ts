@@ -1,3 +1,7 @@
+import {vi,afterAll as historicalAfterAll} from 'vitest';
+/* 樣本書存檔鎖：用刪句表之前嘅星性原文生成（packages/content/src/baseblock-data.ts `HISTORICAL_BASE`） */
+vi.hoisted(()=>{process.env.GUANWEI_HISTORICAL_BASE='1';});
+historicalAfterAll(()=>{delete process.env.GUANWEI_HISTORICAL_BASE;});
 import { expect, it } from 'vitest';
 import { cast, type BirthInput } from '@guanwei/ziwei';
 import { citation, freeMingReading, palaceReading, readerReferenceLanguage } from '@guanwei/content';

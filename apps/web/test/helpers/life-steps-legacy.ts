@@ -1,3 +1,4 @@
+import './historical-base';
 import {isDeepStrictEqual} from 'node:util';
 import historical from '../fixtures/life-steps-legacy-base.json';
 import type {bookChapters} from '@/lib/mingshu';
