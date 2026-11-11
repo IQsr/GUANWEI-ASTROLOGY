@@ -5,6 +5,7 @@ import {withBookP1Chapters,withBookP1Epilogue} from './book-p1-reading';
 import type {BirthInput} from '@guanwei/ziwei';
 import type {CrossAnalysis} from './cross-palace-chapters';
 import {lifeStepsReading} from './life-steps-reading';
+import {localizeSynthesis} from './synthesis-reading';
 import {alignReviewedChapters,withReadingEpilogue} from './epilogue-reading';
 import 'server-only';
 import {withCrossPalaceReading,analyzeCrossPalaces} from '@/lib/cross-palace-chapters';
@@ -374,9 +375,11 @@ function withSynthesis<C extends { slug: string; title?: string; text: string; s
   return book.map((ch) => {
     const segments = ch.slug === '財帛' ? synthWealthChapter(chart) : ch.slug === '這一年' ? synthYearChapter(chart, year, { general: true }) : null;
     if (!segments) return ch;
+    // 英日快照（2026-11-11）：句句譯得到先用新版，否則英日照舊讀舊章
+    const localized = localizeSynthesis(segments);
     const reading: ChapterReading = { format: 'ming-expanded-v1', writer: 'synthesis-v1', segments,
       international: ch.reading?.international ?? { text: ch.text, slots: ch.slots },
-      internationalSnapshot: { text: ch.text, slots: ch.slots, ...(ch.reading ? { reading: ch.reading } : {}) } };
+      internationalSnapshot: { text: ch.text, slots: ch.slots, ...(ch.reading ? { reading: ch.reading } : {}) }, ...(localized ? { localized } : {}) };
     // 章名照舊（2026-10-28）：財帛章冇 title，由 chapterDrafts 按次序砌「十 · 財帛」；改成「錢」會令佢冇號、後面宮位章全部錯號，英日亦冇譯名
     return { ...ch, text: segments.map((s) => s.text).join('\n\n'), slots: segments.map((s) => s.slot), reading };
   });

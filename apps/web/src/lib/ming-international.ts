@@ -52,6 +52,8 @@ export function internationalMing(chapter: { text: string; reading?: unknown }, 
     return original.reading ? internationalMing(original, locale) : null;
   }
   if(reading.writer==='life-steps-reader-v2')return reading.localized?.[locale]??null;
+  // 綜合判讀章（財帛等，2026-11-11）：有英日快照就讀新版；冇就回 null，照舊讀舊章快照（international）
+  if(reading.writer==='synthesis-v1')return reading.localized?.[locale]??null;
   if (reading.writer !== 'sentence-backed-v1') return null;
   return reading.localized?.[locale] ?? translateMing(reading, locale);
 }
