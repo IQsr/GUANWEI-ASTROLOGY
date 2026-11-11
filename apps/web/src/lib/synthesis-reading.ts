@@ -1,4 +1,4 @@
-import {En,Ja} from '@guanwei/content';
+import {En,Ja,synthHeading} from '@guanwei/content';
 import type {ChapterReading} from './chapter-reading';
 type Segment=ChapterReading['segments'][number];
 type Line=NonNullable<Segment['statements']>[number];
@@ -21,7 +21,8 @@ export function localizeSynthesis(segments:Segment[]):ChapterReading['localized'
     return segments.map((s)=>{
       // 句數要同中文一樣（readingOf 逐句核）：略過嘅句留空
       const statements=(s.statements??[]).map((l)=>{if(!keep(l))return {...l,text:''};const text=out.paras[cursor++]!;return {...l,text,en:locale==='en'?text:l.en};});
-      return {...s,heading:undefined,text:statements.map((l)=>l.text).filter(Boolean).join(locale==='en'?' ':''),statements};
+      const heading=s.heading?synthHeading(s.heading)?.[locale]:undefined;
+      return {...s,heading,text:statements.map((l)=>l.text).filter(Boolean).join(locale==='en'?' ':''),statements};
     });
   };
   const en=one('en'),ja=one('ja');

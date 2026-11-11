@@ -1,4 +1,4 @@
-import { BRANCH_EN, PALACE_EN, STAR_EN, listEn } from './en/terms';
+import { BRANCH_EN, PALACE_EN, STAR_EN, STEM_EN, listEn } from './en/terms';
 import { PALACE_JA, STAR_JA, listJa } from './ja/terms';
 
 /*
@@ -72,7 +72,7 @@ const HEAD: [RegExp, (m: RegExpExecArray) => Tr | null][] = [
   [new RegExp(`^(?:有|由)?${L}(?:與|、)${L}(?:同度|同宮|同會|同坐)$`), (m) => { const a = list(m[1]!), b = list(m[2]!); return a && b && { en: `${a.en} with ${b.en}`, ja: `${a.ja}と${b.ja}が同宮` }; }],
   [new RegExp(`^${L}(?:與|、)${L}同坐${B}宮$`), (m) => { const a = list(m[1]!), b = list(m[2]!); return a && b && { en: `${a.en} with ${b.en} in ${bEn(m[3]!)}`, ja: `${a.ja}と${b.ja}が${m[3]}宮に同宮` }; }],
   [new RegExp(`^${L}與${L}相對$`), (m) => { const a = list(m[1]!), b = list(m[2]!); return a && b && { en: `${a.en}, facing ${b.en} in the opposite palace`, ja: `${a.ja}が入り、向かいの宮の${b.ja}と向き合う` }; }],
-  [new RegExp(`^${L}(?:會照|會見|在三方四正會見)(.+)$`), (m) => { const a = list(m[1]!), b = list(m[2]!.replace(/^(.+?)(本命)?化([祿權科忌])$/, '$1$2化$3')); return a && b && { en: `${a.en}, linked with ${b.en}`, ja: `${a.ja}に${b.ja}が会照` }; }],
+  [new RegExp(`^${L}(?:會照|會見|在三方四正會見|會)(.+)$`), (m) => { const a = list(m[1]!), b = list(m[2]!.replace(/^(.+?)(本命)?化([祿權科忌])$/, '$1$2化$3')); return a && b && { en: `${a.en}, linked with ${b.en}`, ja: `${a.ja}に${b.ja}が会照` }; }],
   [new RegExp(`^(?:有)?(${S})(本命)?化${H}$`), (m) => { const t = huaTail(m[2], m[3]!); return { en: `${sEn(m[1]!)} ${t.en}`, ja: `${sJa(m[1]!)}${t.ja}` }; }],
   [new RegExp(`^(${S})化${H}、化${H}$`), (m) => ({ en: `${sEn(m[1]!)} in ${HUA_EN[m[2]!]} and ${HUA_EN[m[3]!]}`, ja: `${sJa(m[1]!)}${HUA_JA[m[2]!]}・${HUA_JA[m[3]!]}` })],
   [new RegExp(`^(${S})(?:坐${B}宮)?落陷$`), (m) => ({ en: `${sEn(m[1]!)}${m[2] ? ` in ${bEn(m[2])}` : ''}, at its weakest`, ja: `${sJa(m[1]!)}${m[2] ? `が${m[2]}宮に入り` : 'が'}陥る` })],
@@ -84,6 +84,9 @@ const HEAD: [RegExp, (m: RegExpExecArray) => Tr | null][] = [
 
 /** 之後各截：附加條件 */
 const MOD: [RegExp, (m: RegExpExecArray) => Tr | null][] = [
+  [new RegExp(`^並化${H}(?:、化${H})?$`), (m) => ({ en: `in ${HUA_EN[m[1]!]}${m[2] && m[2] !== m[1] ? ` and ${HUA_EN[m[2]]}` : ''}`, ja: `${HUA_JA[m[1]!]}${m[2] && m[2] !== m[1] ? `・${HUA_JA[m[2]]}` : ''}` })],
+  [new RegExp(`^與${L}同會$`), (m) => { const b = list(m[1]!); return b && { en: `linked with ${b.en}`, ja: `${b.ja}と会う` }; }],
+  [new RegExp(`^(${S})得祿或化科$`), (m) => ({ en: `${sEn(m[1]!)} with an Abundance, Lu Cun or a Recognition`, ja: `${sJa(m[1]!)}が禄を得るか化科` })],
   [/^有(.+)$/, (m) => { const l = list(m[1]!); return l && { en: l.en, ja: `${l.ja}がある` }; }],
   [/^(?:並且)?得祿$/, () => ({ en: 'with an Abundance or Lu Cun', ja: '禄を得る' })],
   [/^天馬不在.+?或對宮$/, () => ({ en: 'but Tian Ma is neither in this palace nor opposite', ja: '天馬は本宮にも対宮にもない' })],
@@ -135,6 +138,9 @@ const WHOLE: [RegExp, (m: RegExpExecArray, yr: Tr) => Tr | null][] = [
   [new RegExp(`^(${S})化${H}，與這十年(大限)?的(${S})(化祿)?(同宮|相對)，成「疊祿」$`), (m, yr) => ({
     en: `${yr.en}, ${sEn(m[1]!)} turned to ${HUA_EN[m[2]!]}, ${m[6] === '同宮' ? 'in the same palace as' : 'facing'} ${m[5] ? `this decade's ${sEn(m[4]!)} in Abundance` : `this decade's ${sEn(m[4]!)}`}: a "stacked Abundance".`,
     ja: `${yr.ja}は${sJa(m[1]!)}が${HUA_JA[m[2]!]}し、この十年の${sJa(m[4]!)}${m[5] ? '化禄' : ''}と${m[6] === '同宮' ? '同宮' : '向き合い'}、「畳禄」となります。` })],
+  [new RegExp(`^(${S})化${H}，與本命(?:的(${S})化祿|祿存)(同宮|相對)$`), (m, yr) => ({
+    en: `${yr.en}, ${sEn(m[1]!)} turned to ${HUA_EN[m[2]!]}, ${m[4] === '同宮' ? 'in the same palace as' : 'facing'} your natal ${m[3] ? `${sEn(m[3])} in Abundance` : 'Lu Cun'}.`,
+    ja: `${yr.ja}は${sJa(m[1]!)}が${HUA_JA[m[2]!]}し、本命の${m[3] ? `${sJa(m[3])}化禄` : '禄存'}と${m[4] === '同宮' ? '同宮します' : '向き合います'}。` })],
   [new RegExp(`^(${S})化祿落在${B}宮，屬子午卯酉四個「弱地」之一$`), (m, yr) => ({
     en: `${yr.en}, ${sEn(m[1]!)}'s Abundance fell in ${bEn(m[2]!)}, one of the four "weak positions" (Zi, Wu, Mao, You).`,
     ja: `${yr.ja}の${sJa(m[1]!)}化禄は${m[2]}宮に落ち、子午卯酉の四つの「弱地」のひとつです。` })],
@@ -153,7 +159,7 @@ export function synthFact(zh: string): Tr | null {
   /* 你本命X化忌，那一年X化祿 */
   if ((m = new RegExp(`^你本命(${S})化${H}，(那一年|今年)(${S})化${H}$`).exec(s)))
     return { en: `In your birth chart ${sEn(m[1]!)} is in ${HUA_EN[m[2]!]}; ${YR[m[3]!]!.en.toLowerCase()} ${sEn(m[4]!)} turned to ${HUA_EN[m[5]!]}.`, ja: `本命では${sJa(m[1]!)}${HUA_JA[m[2]!]}、${YR[m[3]!]!.ja}は${sJa(m[4]!)}${HUA_JA[m[5]!]}です。` };
-  if ((m = new RegExp(`^這十年(${S})化${H}，(那一年|今年)(${S})卻化${H}$`).exec(s)))
+  if ((m = new RegExp(`^這十年(${S})化${H}，(那一年|今年)(${S})卻?化${H}$`).exec(s)))
     return { en: `This decade ${sEn(m[1]!)} is in ${HUA_EN[m[2]!]}, but ${YR[m[3]!]!.en.toLowerCase()} ${sEn(m[4]!)} turned to ${HUA_EN[m[5]!]}.`, ja: `この十年は${sJa(m[1]!)}${HUA_JA[m[2]!]}ですが、${YR[m[3]!]!.ja}は${sJa(m[4]!)}が${HUA_JA[m[5]!]}します。` };
   if ((m = new RegExp(`^你的命宮是${L}(?:獨)?坐${B}${B}；(那一年|今年)的命宮走到(${S})獨坐的宮位$`).exec(s))) {
     const l = list(m[1]!); if (!l) return null;
@@ -171,7 +177,9 @@ export function synthFact(zh: string): Tr | null {
   const yr = /^(那一年|今年)/.exec(s);
   if (yr) {
     const rest = s.slice(yr[1]!.length);
-    for (const [re, f] of [...WHOLE.slice(1), WHOLE[0]!]) { const w = re.exec(rest); const t = w && f(w, YR[yr[1]!]!); if (t) return t; }
+    // 今年（這一年章）用現在式：規則按回看寫成過去式
+    const now = (t: Tr): Tr => (yr[1] === '今年' ? { ...t, en: t.en.replace(/\bturned to\b/g, 'turns to').replace(/\bfell in\b/g, 'falls in') } : t);
+    for (const [re, f] of [...WHOLE.slice(1), WHOLE[0]!]) { const w = re.exec(rest); const t = w && f(w, YR[yr[1]!]!); if (t) return now(t); }
   }
   /* 借對宮（初階第9篇借星安宮）：財帛宮冇主星，連對宮整組星一齊睇 */
   if ((m = new RegExp(`^你的${P}沒有主星，要連同對宮${P}整組星曜一起看：(.+?)(?:，加上${P}本身的(.+))?$`).exec(s))) {
@@ -206,7 +214,7 @@ export function synthFact(zh: string): Tr | null {
 const TOPIC_TR: Record<string, Tr> = {
   個人發展: { en: 'your own development', ja: '自分自身の歩み' }, '兄弟姊妹、平輩、合作夥伴': { en: 'siblings, peers and partners in joint ventures', ja: '兄弟姉妹・同輩・共同事業の相手' },
   '伴侶、感情': { en: 'your partner and relationships', ja: 'パートナーや恋愛' }, '子女、親近的後輩': { en: 'children and younger people close to you', ja: '子どもや身近な後輩' },
-  收入: { en: 'income', ja: '収入' }, 身體: { en: 'your health', ja: '体' }, 外出: { en: 'time away from home', ja: '外出' },
+  收入: { en: 'income', ja: '収入' }, '考試、進修': { en: 'exams and further study', ja: '試験や学び' }, 身體: { en: 'your health', ja: '体' }, 外出: { en: 'time away from home', ja: '外出' },
   '朋友、一般往來的下屬': { en: 'friends and the people who work under you', ja: '友人や付き合いのある部下' }, 工作: { en: 'work', ja: '仕事' },
   '家宅、物業': { en: 'home and property', ja: '家や不動産' }, '心情、享受': { en: 'your mood and pleasures', ja: '気持ちや楽しみ' }, '長輩、上司': { en: 'elders and superiors', ja: '目上の人や上司' },
 };
@@ -232,7 +240,13 @@ for (const [zh, t] of Object.entries(trRaw as Record<string, Tr>)) {
   if (z.length > 1 && z.length === e.length && z.length === j.length) z.forEach((s, i) => { TR[s] ??= { en: e[i]!, ja: j[i]! }; });
 }
 /** 綜合判讀層一句（固定句、會變嘅判斷、證據句）→ 英日；認唔到 null */
-export const synthSentence = (zh: string): Tr | null => TR[zh] ?? synthClaim(zh) ?? synthJoined(zh) ?? synthFact(zh);
+const synthOne = (zh: string): Tr | null => TR[zh] ?? synthClaim(zh) ?? synthJoined(zh) ?? synthYearLine(zh) ?? synthFact(zh);
+/** 綜合判讀層一句 → 英日；認唔到 null。這一年章「明年」段係今年卡將「今年」換「明年」（synthesis/index.ts），譯法照換 */
+export const synthSentence = (zh: string): Tr | null => {
+  const t = synthOne(zh); if (t || !zh.includes('明年')) return t;
+  const n = synthOne(zh.replaceAll('明年', '今年')); if (!n) return null;
+  return { en: n.en.replace(/\bThis year\b/g, 'Next year').replace(/\bthis year\b/g, 'next year'), ja: n.ja.replaceAll('今年', '来年') };
+};
 
 /* 綜合判讀層砌出嚟嘅合併句（synthesis/index.ts）：「甲；不過乙。」（主線加限制）、「一是…」「二是…」（兩個相反條件），甲乙都係原卡句 */
 const lowerFirst = (s: string) => (/^[A-Z][a-z]+ [A-Z]/.test(s) ? s : s.charAt(0).toLowerCase() + s.slice(1));
@@ -254,4 +268,165 @@ function synthJoined(zh: string): Tr | null {
 export function afterCondition(locale: 'en' | 'ja', prev: string | undefined, text: string): string {
   if (locale === 'en') return !prev?.endsWith(',') ? text : text.startsWith('That year, ') ? text.slice('That year, '.length) : /^That year\b/.test(text) ? 't' + text.slice(1) : text;
   return prev?.endsWith('、') ? text.replace(/^その年は、/, '') : text;
+}
+
+/* ── 這一年章（2026-11-11）：程式砌嘅句（synthesis/index.ts 嘅總覽、訊號句、段首、建議、運限）；底子句查固定句表 ── */
+const BUCKET: Record<string, Tr> = {
+  有轉好機會的是: { en: 'room to improve', ja: '好転のチャンスがあるのは' },
+  '有機會、同時要防的是': { en: 'chances and risks together', ja: 'チャンスと同時に用心が要るのは' },
+  '要放慢、多留神的是': { en: 'slow down and take more care', ja: 'ペースを落として気をつけたいのは' },
+};
+const VERDICT: Record<string, Tr> = {
+  機會和風險落在同一宮: { en: 'chances and risks fall in the same palace', ja: 'チャンスとリスクが同じ宮に集まっています' },
+  要留神的訊號集中在這一宮: { en: 'the warning signs gather in this palace', ja: '用心すべきサインがこの宮に集まっています' },
+  有利的訊號集中在這一宮: { en: 'the favourable signs gather in this palace', ja: '有利なサインがこの宮に集まっています' },
+};
+const BRIDGE: Record<string, Tr> = {
+  今年在這方面好壞並見: { en: 'This year brings both good and bad here.', ja: '今年はこの面で良し悪しが入り交じります。' },
+  今年是在這個底子上的變化: { en: "This year's changes play out on that base.", ja: '今年の変化はこの土台の上で起こります。' },
+  今年這方面同樣較順: { en: 'This year, this area runs fairly smoothly as well.', ja: '今年もこの面は比較的順調です。' },
+  今年這方面同樣要留神: { en: 'This year, this area needs the same care.', ja: '今年もこの面には同じく注意が要ります。' },
+  '底子雖有不足，今年這方面卻有轉好的地方': { en: 'The base has its weak points, but this year there is some improvement here.', ja: '土台には弱さがありますが、今年はこの面に好転するところがあります。' },
+  '底子雖好，今年這方面卻有不利的變化': { en: 'The base is good, but this year brings some unfavourable changes here.', ja: '土台は良いものの、今年はこの面に不利な変化があります。' },
+};
+const topicTr = (zh: string) => TOPIC_TR[zh] ?? null;
+const WHEN: Record<string, Tr> = { 這十年: { en: "this decade's", ja: 'この十年の' }, 今年: { en: "this year's", ja: '今年の' }, 明年: { en: "next year's", ja: '来年の' }, 那一年: { en: "that year's", ja: 'その年の' } };
+/* 今年卡會變嘅判斷（cards.json syn.year.*：{palaceTopic}{topics}{star}{what}） */
+const topicsTr = (zh: string): Tr | null => { const ts = zh.split('方面，以及').map(topicTr); if (!ts.every(Boolean)) return null; return ts.length === 1 ? ts[0]! : { en: listEn(ts.map((t) => `"${t!.en}"`)), ja: ts.map((t) => `「${t!.ja}」`).join('と') }; };
+const whatTr = (zh: string): Tr | null => {
+  const m = new RegExp(`^(這十年的|你本命|本命的?)(${S})化祿$`).exec(zh);
+  if (m) return m[1] === '這十年的' ? { en: `this decade's ${sEn(m[2]!)} Abundance`, ja: `この十年の${sJa(m[2]!)}化禄` } : { en: `your natal ${sEn(m[2]!)} Abundance`, ja: `本命の${sJa(m[2]!)}化禄` };
+  if (/^這十年(大限)?的祿存$/.test(zh)) return { en: "this decade's Lu Cun", ja: 'この十年の禄存' };
+  if (/^(你)?本命(的)?祿存$/.test(zh)) return { en: 'your natal Lu Cun', ja: '本命の禄存' };
+  return null;
+};
+const LU_EN: [RegExp, (m: RegExpExecArray) => Tr | null][] = [
+  [/^有(.+)相疊$/, (m) => { const w = whatTr(m[1]!); return w && { en: `it stacks with ${w.en}`, ja: `${w.ja}と重なる` }; }],
+  [/^和(.+)相疊（力量很輕）$/, (m) => { const w = whatTr(m[1]!); return w && { en: `it stacks lightly with ${w.en}`, ja: `${w.ja}とわずかに重なる` }; }],
+  [/^落在弱地，多名聲、少實利$/, () => ({ en: 'it falls in a weak position, bringing more reputation than real gain', ja: '弱地に落ちて名声は得ても実利は少ない' })],
+  [/^遇上(.+)$/, (m) => { const l = list(m[1]!); return l && { en: `it meets ${l.en}`, ja: `${l.ja}に出会う` }; }],
+];
+const luSay = (zh: string): Tr | null => { const xs = zh.split('，又').map((x) => piece(LU_EN, x)); return xs.every(Boolean) ? { en: listEn(xs.map((x) => x!.en)), ja: xs.map((x) => x!.ja).join('うえに、') } : null; };
+function synthYearClaim(zh: string): Tr | null {
+  let m: RegExpExecArray | null, t: Tr | null;
+  if ((m = /^今年和(.+)有關的錢，較容易因財惹麻煩，或者原本的進財能力減弱。$/.exec(zh)) && (t = topicTr(m[1]!)))
+    return { en: `This year, money tied to ${t.en} is more likely to bring trouble, or your usual ways of earning from it may weaken.`, ja: `今年は${t.ja}に関わるお金が面倒を招きやすく、またはもともとの稼ぐ力が弱まりやすくなります。` };
+  if ((m = new RegExp(`^今年和(.+)有關的錢，這十年原本靠(${S})帶來的進財之力會減弱，也較容易因財惹麻煩。$`).exec(zh)) && (t = topicTr(m[1]!)))
+    return { en: `This year, the income ${sEn(m[2]!)} has brought you this decade through ${t.en} will weaken, and money there is more likely to bring trouble.`, ja: `今年は、この十年${sJa(m[2]!)}がもたらしてきた${t.ja}に関わる収入が弱まり、お金が面倒を招きやすくなります。` };
+  if ((m = /^(.+)方面原本不利的地方，今年有機會轉為有利。$/.exec(zh)) && (t = topicTr(m[1]!)))
+    return { en: `What has been unfavourable in ${t.en} may turn favourable this year.`, ja: `${t.ja}の面でもともと不利だったところが、今年は有利に転じる可能性があります。` };
+  if ((m = /^(.+)方面，這十年原本不利的地方，今年有機會轉為有利。$/.exec(zh)) && (t = topicTr(m[1]!)))
+    return { en: `What has been unfavourable in ${t.en} this decade may turn favourable this year.`, ja: `${t.ja}の面で、この十年もともと不利だったところが、今年は有利に転じる可能性があります。` };
+  if ((m = new RegExp(`^今年(${S})化祿給你帶來的進財機會，多是名聲、面子上的好處，實際到手有限。$`).exec(zh)))
+    return { en: `This year, the earning chances ${sEn(m[1]!)}'s Abundance brings you are mostly about reputation and appearances; what actually reaches your pocket is limited.`, ja: `今年${sJa(m[1]!)}の化禄がもたらす収入の機会は、名声や体面の面が大きく、実際に手元に入るものは限られます。` };
+  if ((m = /^今年在(.+)方面得到的好處，會打折扣。$/.exec(zh)) && (t = topicTr(m[1]!)))
+    return { en: `This year, the gains you make in ${t.en} will be discounted.`, ja: `今年${t.ja}の面で得る利益は、割り引いて考える必要があります。` };
+  if ((m = /^今年在(.+)方面，容易主動去改一些不必改的東西，結果欲進反退。$/.exec(zh)) && (t = topicTr(m[1]!)))
+    return { en: `This year, in ${t.en}, you may be inclined to change things that do not need changing, and end up going backwards.`, ja: `今年は${t.ja}の面で、変える必要のないものを自分から変えたくなり、進もうとしてかえって後退しやすくなります。` };
+  if ((m = new RegExp(`^今年(.+)方面要防受人壓制，(${S})化權在這裏不算喜事。$`).exec(zh)) && (t = topicTr(m[1]!)))
+    return { en: `This year, in ${t.en}, watch out for being held down by others; ${sEn(m[2]!)}'s Authority here is not good news.`, ja: `今年は${t.ja}の面で人に抑えつけられないよう用心してください。ここでの${sJa(m[2]!)}化権は喜ばしいものではありません。` };
+  if ((m = new RegExp(`^今年(${S})化祿有(.+)相疊，財源較順。$`).exec(zh)) && (t = whatTr(m[2]!)))
+    return { en: `This year, ${sEn(m[1]!)}'s Abundance stacks with ${t.en}, and income comes more smoothly.`, ja: `今年は${sJa(m[1]!)}の化禄が${t.ja}と重なり、収入の流れがよりスムーズです。` };
+  if ((m = new RegExp(`^今年(${S})化祿和(.+)相疊，有些助力，但力量很輕，不宜因此估高今年的進財。$`).exec(zh)) && (t = whatTr(m[2]!)))
+    return { en: `This year, ${sEn(m[1]!)}'s Abundance stacks with ${t.en}, which helps a little, but the effect is light; do not count on higher income because of it.`, ja: `今年は${sJa(m[1]!)}の化禄が${t.ja}と重なり、多少の助けにはなりますが力は弱く、これで今年の収入を高く見積もらないほうがよいでしょう。` };
+  if ((m = /^今年你在(.+)方面，要防因事破財。$/.exec(zh)) && (t = topicsTr(m[1]!)))
+    return { en: `This year, in ${t.en}, guard against losing money over some matter.`, ja: `今年は${t.ja}の面で、何かの事情でお金を失わないよう用心してください。` };
+  if ((m = /^今年你在(.+)方面，較多阻滯。$/.exec(zh)) && (t = topicsTr(m[1]!)))
+    return { en: `This year you meet more obstacles in ${t.en}.`, ja: `今年は${t.ja}の面で、滞りが多くなります。` };
+  if ((m = new RegExp(`^今年你在(.+)方面，仍受這十年(${S})化忌的阻滯。$`).exec(zh)) && (t = topicTr(m[1]!)))
+    return { en: `This year, ${t.en} is still held back by this decade's ${sEn(m[2]!)} Obstruction.`, ja: `今年も${t.ja}の面は、この十年の${sJa(m[2]!)}化忌による滞りを受けています。` };
+  if ((m = new RegExp(`^今年(${S})化祿給你的進財，(.+?)(?:，但(.+?))?，(實際得益要打折扣|財源較順)。$`).exec(zh))) {
+    const a = luSay(m[2]!), b = m[3] ? luSay(m[3]) : null; if (!a || (m[3] && !b)) return null;
+    const end = m[4] === '財源較順' ? { en: 'so income comes more smoothly', ja: '収入の流れは比較的スムーズです' } : { en: 'so the real gain should be discounted', ja: '実際の利益は割り引いて考える必要があります' };
+    return { en: `This year, as for the income ${sEn(m[1]!)}'s Abundance brings you: ${a.en}${b ? `, but ${b.en}` : ''}, ${end.en}.`, ja: `今年${sJa(m[1]!)}の化禄による収入は、${a.ja}${b ? `が、${b.ja}` : ''}ので、${end.ja}。` };
+  }
+  return null;
+}
+function synthYearLine(zh: string): Tr | null {
+  let m: RegExpExecArray | null;
+  const c = synthYearClaim(zh); if (c) return c;
+  if (zh === '下面逐項講原因。') return { en: 'The reasons follow, one by one.', ja: '以下、項目ごとに理由を説明します。' };
+  if ((m = /^今年整體來看：(.+)。$/.exec(zh))) {
+    const en: string[] = [], ja: string[] = [];
+    for (const part of m[1]!.split('；')) {
+      const b = Object.keys(BUCKET).find((k) => part.startsWith(k)); if (!b) return null;
+      const ts = [...part.slice(b.length).matchAll(/「([^」]+)」/g)].map((x) => topicTr(x[1]!));
+      if (!ts.length || ts.some((t) => !t)) return null;
+      en.push(`${BUCKET[b]!.en}: ${ts.map((t) => `"${t!.en}"`).join(', ')}`); ja.push(`${BUCKET[b]!.ja}${ts.map((t) => `「${t!.ja}」`).join('')}`);
+    }
+    return { en: `This year at a glance — ${en.join('; ')}.`, ja: `今年の全体像：${ja.join('；')}。` };
+  }
+  if ((m = /^今年在(.+)方面，(.+)。$/.exec(zh)) && topicTr(m[1]!) && VERDICT[m[2]!])
+    return { en: `This year, for ${topicTr(m[1]!)!.en}, ${VERDICT[m[2]!]!.en}.`, ja: `今年の${topicTr(m[1]!)!.ja}については、${VERDICT[m[2]!]!.ja}。` };
+  if ((m = /^今年涉及(.+)的出錢、合夥，先小額、條款寫清楚再落實。$/.exec(zh)) && topicTr(m[1]!))
+    return { en: `This year, when money or partnerships involve ${topicTr(m[1]!)!.en}, start small and put the terms in writing before you commit.`, ja: `今年、${topicTr(m[1]!)!.ja}に関わるお金の支出や共同事業は、まず小さく始め、条件を書面にしてから進めてください。` };
+  if ((m = /^今年(.+)方面想作大改動時，先想清楚不改會怎樣，再決定。$/.exec(zh)) && topicTr(m[1]!))
+    return { en: `This year, before making a big change in ${topicTr(m[1]!)!.en}, think through what happens if you leave things as they are, then decide.`, ja: `今年、${topicTr(m[1]!)!.ja}で大きく変えたくなったら、変えなかったらどうなるかをまず考えてから決めてください。` };
+  /* 段首：今年你的財帛宮在丑宮，坐廉貞、七殺。／是空宮（，要連同對宮…） */
+  if ((m = new RegExp(`^今年你的${P}在${B}宮，(?:坐${L}|是空宮(?:，要連同對宮${B}宮整組星曜一起看：(.+?)(?:，加上本宮的(.+))?)?)。$`).exec(zh))) {
+    const pe = palEn(m[1]!), pj = palJa(m[1]!); if (!pe || !pj) return null;
+    const at = { en: `This year your ${pe} is in ${bEn(m[2]!)}`, ja: `今年のあなたの${pj}は${m[2]}宮にあり` };
+    if (m[3]) { const l = list(m[3]); return l && { en: `${at.en}, holding ${l.en}.`, ja: `${at.ja}、${l.ja}が入ります。` }; }
+    if (!m[4]) return { en: `${at.en}, and it is empty.`, ja: `${at.ja}、空宮です。` };
+    const a = list(m[5]!), b = m[6] ? list(m[6]) : null; if (!a || (m[6] && !b)) return null;
+    return { en: `${at.en}. It has no major star, so it is read together with the whole set in the opposite palace, ${bEn(m[4])}: ${a.en}${b ? `, plus this palace's own ${b.en}` : ''}.`, ja: `${at.ja}、空宮なので、向かいの${m[4]}宮の星をまとめて見ます：${a.ja}${b ? `、それに本宮の${b.ja}` : ''}。` };
+  }
+  /* 你本命財帛宮坐天機、太陰，底子是：…；今年… */
+  if ((m = new RegExp(`^你本命${P}坐${L}(?:，底子是：(.+?)(?:；(${Object.keys(BRIDGE).join('|')}))?)?。$`).exec(zh))) {
+    const pe = palEn(m[1]!), pj = palJa(m[1]!), l = list(m[2]!); if (!pe || !pj || !l) return null;
+    const head = { en: `In your birth chart, the ${pe} holds ${l.en}.`, ja: `本命の${pj}には${l.ja}が入ります。` };
+    if (!m[3]) return head;
+    const base = TR[m[3] + '。']; if (!base) return null;
+    const br = m[4] ? BRIDGE[m[4]]! : null;
+    return { en: `${head.en} Your base pattern here: ${base.en}${br ? ` ${br.en}` : ''}`, ja: `${head.ja}もともとの傾向として、${base.ja}${br ? br.ja : ''}` };
+  }
+  /* 運限：這一章用到的運限：你今年虛歲28，行26至35歲的丙子大限（本命夫妻宮）。 */
+  if ((m = new RegExp(`^這一章用到的運限：你今年虛歲(\\d+)，行(\\d+)至(\\d+)歲的([甲乙丙丁戊己庚辛壬癸])${B}大限（本命${P}）。$`).exec(zh))) {
+    const pe = palEn(m[6]!), pj = palJa(m[6]!); if (!pe || !pj) return null;
+    const n = +m[1]!, a = +m[2]!, b = +m[3]!;
+    return { en: `Periods used in this chapter: this year you are ${n - 2} or ${n - 1} (${n} by Chinese reckoning), in the ${STEM_EN[m[4]!]} ${bEn(m[5]!)} ten-year period (roughly ages ${a - 1} to ${b - 1}; ${a}–${b} by Chinese reckoning), which sits in your natal ${pe}.`,
+      ja: `この章で使う運限：今年あなたは数え${n}歳で、${a}〜${b}歳の${m[4]}${m[5]}大限（本命の${pj}）を歩んでいます。` };
+  }
+  if ((m = new RegExp(`^這十年的四化是(${S})化祿、(${S})化權、(${S})化科、(${S})化忌；今年的四化是(${S})化祿、(${S})化權、(${S})化科、(${S})化忌。$`).exec(zh))) {
+    const x = m;
+    const four = (i: number): Tr => ({ en: `${sEn(x[i]!)} in Abundance, ${sEn(x[i + 1]!)} in Authority, ${sEn(x[i + 2]!)} in Recognition and ${sEn(x[i + 3]!)} in Obstruction`, ja: `${sJa(x[i]!)}化禄・${sJa(x[i + 1]!)}化権・${sJa(x[i + 2]!)}化科・${sJa(x[i + 3]!)}化忌` });
+    return { en: `This decade's transformations: ${four(1).en}. This year's: ${four(5).en}.`, ja: `この十年の四化は${four(1).ja}、今年の四化は${four(5).ja}です。` };
+  }
+  /* 這十年太陰化忌在酉宮，今年這一宮是你的田宅宮。 */
+  if ((m = new RegExp(`^這十年(${S})化${H}在${B}宮，今年這一宮是你的${P}。$`).exec(zh))) {
+    const pe = palEn(m[4]!), pj = palJa(m[4]!); if (!pe || !pj) return null;
+    return { en: `This decade's ${sEn(m[1]!)} ${HUA_EN[m[2]!]} sits in ${bEn(m[3]!)}, which is this year's ${pe}.`, ja: `この十年の${sJa(m[1]!)}${HUA_JA[m[2]!]}は${m[3]}宮にあり、今年はその宮があなたの${pj}です。` };
+  }
+  /* 今年太陰化忌落在戌宮，正沖這十年太陽化祿所在的今年兄弟宮。 */
+  if ((m = new RegExp(`^今年(${S})化忌落在${B}宮，正沖(這十年|你本命)(${S})化祿所在的(?:今年)?${P}。$`).exec(zh))) {
+    const pe = palEn(m[5]!), pj = palJa(m[5]!); if (!pe || !pj) return null;
+    const who = m[3] === '這十年' ? { en: "this decade's", ja: 'この十年の' } : { en: 'your natal', ja: '本命の' };
+    return { en: `This year's ${sEn(m[1]!)} Obstruction falls in ${bEn(m[2]!)}, directly opposite ${who.en} ${sEn(m[4]!)} Abundance in this year's ${pe}.`, ja: `今年の${sJa(m[1]!)}化忌は${m[2]}宮に落ち、${who.ja}${sJa(m[4]!)}化禄がある今年の${pj}を正面から沖します。` };
+  }
+  /* 今年天機化祿落在亥宮，與地空、地劫同宮。 */
+  if ((m = new RegExp(`^今年(${S})化${H}落在${B}宮，與${L}同宮。$`).exec(zh))) {
+    const l = list(m[4]!); if (!l) return null;
+    return { en: `This year's ${sEn(m[1]!)} ${HUA_EN[m[2]!]} falls in ${bEn(m[3]!)}, in the same palace as ${l.en}.`, ja: `今年の${sJa(m[1]!)}${HUA_JA[m[2]!]}は${m[3]}宮に落ち、${l.ja}と同宮します。` };
+  }
+  /* 你的命宮是巨門獨坐子午；這十年的命宮走到紫微、破軍的宮位（，而且廉貞化忌）。 */
+  if ((m = new RegExp(`^你(?:的)?命宮(?:是)?${L}(?:獨)?坐${B}${B}；(這十年|今年|明年|那一年)的命宮走到(?:${L}的|(${S})獨坐的)宮位(?:，而且(${S})化${H})?。$`).exec(zh))) {
+    const l = list(m[1]!), t = m[5] ? list(m[5]) : null; if (!l || (m[5] && !t)) return null;
+    const w = WHEN[m[4]!]!, to = t ? { en: `held by ${t.en}`, ja: `${t.ja}が入る` } : { en: `held by ${sEn(m[6]!)} alone`, ja: `${sJa(m[6]!)}が単独で入る` };
+    const hua = m[7] ? { en: `, with ${sEn(m[7])} in ${HUA_EN[m[8]!]}`, ja: `。しかも${sJa(m[7])}${HUA_JA[m[8]!]}です` } : { en: '', ja: '' };
+    return { en: `Your Life Palace holds ${l.en} in ${bEn(m[2]!)} or ${bEn(m[3]!)}; ${w.en} Life Palace moves to a palace ${to.en}${hua.en}.`, ja: `あなたの命宮は${m[2]}${m[3]}の${l.ja}で、${w.ja}命宮は${to.ja}宮に巡ります${hua.ja}。` };
+  }
+  return null;
+}
+
+/* 這一年章小標題（synthesis/index.ts ANNUAL_PALACES 嘅 slot、明年段「2027 年」、運限段） */
+const HEADING: Record<string, Tr> = {
+  今年的錢: { en: 'Money this year', ja: '今年のお金' }, 今年的工作: { en: 'Work this year', ja: '今年の仕事' }, 今年的感情: { en: 'Relationships this year', ja: '今年の恋愛・パートナー' },
+  今年的身體: { en: 'Health this year', ja: '今年の体' }, 今年的家宅: { en: 'Home and property this year', ja: '今年の家・不動産' }, 今年的心境: { en: 'Your state of mind this year', ja: '今年の心持ち' },
+  今年在外: { en: 'Away from home this year', ja: '今年の外出' }, '今年與子女、後輩': { en: 'Children and younger people this year', ja: '今年の子ども・後輩との関係' },
+  '今年與平輩、夥伴': { en: 'Peers and partners this year', ja: '今年の同輩・仲間との関係' }, '今年與朋友、下屬': { en: 'Friends and subordinates this year', ja: '今年の友人・部下との関係' },
+  '今年與長輩、上司': { en: 'Elders and superiors this year', ja: '今年の目上の人・上司との関係' }, 這一章用到的運限: { en: 'Periods used in this chapter', ja: 'この章で使う運限' },
+};
+export function synthHeading(zh: string): Tr | null {
+  const y = /^(\d{4}) 年$/.exec(zh);
+  return y ? { en: y[1]!, ja: `${y[1]}年` } : HEADING[zh] ?? null;
 }
