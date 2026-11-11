@@ -172,7 +172,7 @@ export function factTemplate(s: string, missing: string[]): string | null {
     return `You lean towards ${poleEn(m[1]!, missing)} because your chart has ${evEn(m[2]!, missing)}; ${evEn(m[4]!, missing)} points towards ${poleEn(m[3]!, missing)}, but there is less of it.`;
   }
   m = /^說你偏向(\S+?)，是因為你的盤上有([^；]+?)；偏向(\S+?)的，你的盤上沒有。$/.exec(s);
-  if (m) return `You lean towards ${poleEn(m[1]!, missing)} because your chart has ${evEn(m[2]!, missing)}; nothing in it points towards ${poleEn(m[3]!, missing)}.`;
+  if (m) return `You lean more towards ${poleEn(m[1]!, missing)} than ${poleEn(m[3]!, missing)}, since your chart has ${evEn(m[2]!, missing)}.`;
   m = /^說你偏向(\S+?)，是因為你的盤上有([^；]+?)。$/.exec(s);
   if (m) return `You lean towards ${poleEn(m[1]!, missing)} because your chart has ${evEn(m[2]!, missing)}.`;
   m = /^兩邊在你的盤上都有根據：偏向(\S+?)的是(.+?)，偏向(\S+?)的是(.+?)。$/.exec(s);

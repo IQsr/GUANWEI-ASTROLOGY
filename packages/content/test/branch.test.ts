@@ -496,11 +496,11 @@ describe('「或」填實（2026-10-14）：條件寫「火星或鈴星」「子
     for (const v of old) {
       if (v.text.includes('〔')) continue;
       const out = renderParagraph(stripOr(v.text));
-      if (out.missing.length || out.text.replace(/\s*\((?:the [^)]*|(?:one|two) of the twelve positions on the chart)\)/g, '') !== stripOr(v.en)) bad.push(`${v.id}：${out.text}`);
+      if (out.missing.length || out.text.replace(/\s*\((?:the [^)]*|a [^)]*|Fire|Bell|Void|Loss|(?:one|two) of the twelve positions on the chart)\)/g, '') !== stripOr(v.en)) bad.push(`${v.id}：${out.text}`);
     }
     expect(bad).toEqual([]);
     /* 舊句有〔〕：書入面存嘅係填咗星嘅版本（60 本抽樣見過嘅兩句） */
-    expect(renderParagraph('見紫微化權、祿存或文昌文曲，你的產業耐久而豐盛。').text).toMatch(/^With Zi Wei \(the Emperor\) in Authority, Lu Cun, Wen Chang or Wen Qu, your property lasts/);
+    expect(renderParagraph('見紫微化權、祿存或文昌文曲，你的產業耐久而豐盛。').text).toMatch(/^With Zi Wei \(the Emperor\) in Authority, Lu Cun(?: \([^)]*\))?, Wen Chang(?: \([^)]*\))? or Wen Qu(?: \([^)]*\))?, your property lasts/);
     expect(renderParagraph('天機太陰見火星或空劫，你更不宜自己出來經商。').missing).toEqual([]);
   });
 

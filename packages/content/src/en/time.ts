@@ -100,7 +100,7 @@ function pivotGroupsEn(zh: string, missing: string[]): string {
 const TONES: [string, (year: boolean) => string][] = [
   ['有發揮的空間，也要多扛一點', (y) => `give${y ? 's' : ''} you room to make your mark, and ask${y ? 's' : ''} you to carry a little more`],
   ['比較順', (y) => `run${y ? 's' : ''} relatively smoothly`],
-  ['容易得到認可', (y) => `tend${y ? 's' : ''} to bring recognition`],
+  ['容易得到認可', (y) => `tend${y ? 's' : ''} to earn you recognition`],
   ['要多留神', (y) => `call${y ? 's' : ''} for extra care`],
 ];
 function tonesEn(zh: string, year: boolean): string | null {
@@ -119,7 +119,7 @@ const AREA_NOUN_EN: Record<string, string> = { 工作上: 'your work', 讀書和
 
 /* ── 互動（daxian/rules.json）：本命或大限嘅化 × 呢段時期嘅化 ── */
 const RULE_EN: Record<string, string> = {
-  'dx.rule.stack.祿': '{S} turns to Abundance {where}, and to Abundance again {span}; the two stack up, and greatly strengthen what it means for your income.',
+  'dx.rule.stack.祿': '{S} turns to Abundance {where}, and again {span}; together they strongly reinforce its effect on your income.',
   'dx.rule.stack.權': '{S} turns to Authority {where}, and to Authority again {span}: power stacked this heavily can draw pushback.',
   'dx.rule.lu_to_ji': '{S} turns to Abundance {where}, but to Obstruction {span}: money may bring trouble, or your usual ways of earning may weaken.',
   'dx.rule.ji_to_lu': '{S} turns to Obstruction {where}, but to Abundance {span}: what used to work against you may turn in your favour during this period.',
@@ -421,7 +421,7 @@ export function timeTemplate(s: string, missing: string[], h: TimeHelpers): stri
   revised=/^當年的(\S{2})化祿在(\S+宮)，(\S{2})化忌在(\S+宮)。$/.exec(s);
   if(revised)return `That year's ${starsEn(revised[1]!,missing)} turned to Abundance in the ${pal(revised[2]!,missing)}, while ${starsEn(revised[3]!,missing)} turned to Obstruction in the ${pal(revised[4]!,missing)}.`;
   revised=/^你命盤裡(?:已可確認)?的關鍵大限是(.+)：這(?:幾|一)步(?:值得連同前後兩步一起細讀|前後的選擇與安排，值得多留一份心)。$/.exec(s);
-  if(revised){const ks=revised[1]!.split('、').map((x)=>ordinalWord(n(x.slice(1,-1))!));return `${ks.length>1?`Your ${listEn(ks)} stages are key periods`:`Your ${ks[0]} stage is a key period`} in your chart; for ${ks.length>1?'each one':'it'}, consider the decisions made before it alongside those made after.`;}
+  if(revised){const ks=revised[1]!.split('、').map((x)=>ordinalWord(n(x.slice(1,-1))!));return `${ks.length>1?`Your ${listEn(ks)} stages are key periods`:`Your ${ks[0]} stage is a key period`} in your chart; the choices you make around ${ks.length>1?'them':'it'} deserve extra care.`;}
   if (KUIYUE_EN[s]) return KUIYUE_EN[s]!;
   /* 魁鉞位置、冲起本命化曜（2026-10-26，kuiyue.ts kuiyueText、daxian.ts meetSegment） */
   const kf = /^這(十年|一年)的(天魁|天鉞)落在(\S)宮，(正好落在|正對著)你本命(天魁|天鉞)所在的(\S)宮。$/.exec(s);
@@ -431,10 +431,10 @@ export function timeTemplate(s: string, missing: string[], h: TimeHelpers): stri
     const who = (w: string) => (w === '你本命' ? "your birth chart's" : "this decade's");
     const span = mt[1] === '十年' ? "this decade's" : "this year's";
     const where = mt[4] ? `your ${pal(mt[4], missing)}` : `${span} ${pal(mt[5]!, missing)} (your birth chart's ${pal(mt[6]!, missing)})`;
-    const head = `${mt[1] === '十年' ? "This decade's" : "This year's"} ${star(mt[2]!)} turned to ${HUA_EN[mt[3]!]} falls in ${where}`;
+    const head = `${mt[1] === '十年' ? 'In this decade' : 'This year'}, ${star(mt[2]!)} turns to ${HUA_EN[mt[3]!]} in ${where}`;
     return mt[7]
-      ? `${head}, the same palace as ${who(mt[7])} ${starsEn(mt[8]!, missing)} turned to ${HUA_EN[mt[9]!]}.`
-      : `${head}, directly opposite ${who(mt[10]!)} ${starsEn(mt[11]!, missing)} turned to ${HUA_EN[mt[12]!]} in ${mt[10] === '你本命' ? 'your' : "this decade's"} ${pal(mt[13]!, missing)}.`;
+      ? `${head}, the same palace where ${starsEn(mt[8]!, missing)} turns to ${HUA_EN[mt[9]!]} in ${mt[7] === '你本命' ? 'your birth chart' : 'this decade'}.`
+      : `${head}, directly opposite your ${pal(mt[13]!, missing)}, where ${starsEn(mt[11]!, missing)} turns to ${HUA_EN[mt[12]!]} in ${mt[10] === '你本命' ? 'your birth chart' : 'this decade'}.`;
   }
   const month = liuyueEn(s);
   if (month) return month;
@@ -541,7 +541,7 @@ export function timeTemplate(s: string, missing: string[], h: TimeHelpers): stri
     return `${span}, ${areaEn(m[2]!, missing)} go${PLURAL_AREA.has(m[2]!) ? '' : 'es'} through bigger ups and downs, with gains and worries alike.`;
   }
   m = new RegExp(`^這個大限落在你的(\\S+?宮)，(${SEAT})，宮干是(\\S)。$`).exec(s);
-  if (m && STEM_EN[m[3]!]) return `This stage falls in your ${pal(m[1]!, missing)}${seat(m[2]!, missing)}, and its palace stem is ${STEM_EN[m[3]!]}.`;
+  if (m && STEM_EN[m[3]!]) return `This stage falls in your ${pal(m[1]!, missing)}${seat(m[2]!, missing)}.`;
 
   /* ── 這一年 · 結論、流年命宮、明年 ── */
   m = /^寫這本書的(\S+?)年是(\S)(\S)年，你虛歲(\S+?)。$/.exec(s);
@@ -576,9 +576,9 @@ export function timeTemplate(s: string, missing: string[], h: TimeHelpers): stri
     const year = m[2] === '一年';
     const span = year ? 'this year' : 'these ten years';
     const on = AREA_ON_EN[m[1]!]!;
-    const tones = tonesEn(m[3]!, year);
+    const tones = tonesEn(m[3]!, !/ and |finances/.test(AREA_NOUN_EN[m[1]!] ?? ''));
     /* 2026-10-14：下一句（結論句）多數又係「With money⋯」開頭 —— 呢句將方面擺尾，唔好兩句同一個開頭 */
-    if (tones) return `${year ? 'This year' : 'These ten years'} ${tones} when it comes to ${AREA_NOUN_EN[m[1]!]}.`;
+    if (tones) return `${year ? 'This year' : 'Over these ten years'}, ${AREA_NOUN_EN[m[1]!]} ${tones}.`;
     const en = h.tm(`${m[3]}。`);
     if (en) {
       /* 結論句本身已經以方面開頭（「At work you're⋯」）就剝走 */
@@ -607,12 +607,12 @@ export function timeTemplate(s: string, missing: string[], h: TimeHelpers): stri
 
   /* 建議段（2026-10-13 起） */
   m = /^這(十年|一年)最順的是(.+?)，力氣放在這裡，最容易見到回報。$/.exec(s);
-  if (m && ADVICE_EN[m[2]!]) return `${m[1] === '十年' ? 'Over these ten years' : 'This year'}, things run most smoothly when it comes to ${ADVICE_EN[m[2]!]}; put your effort there and it pays back most readily.`;
+  if (m && ADVICE_EN[m[2]!]) return `${m[1] === '十年' ? 'Over these ten years' : 'This year'}, the area that goes most smoothly is ${ADVICE_EN[m[2]!]}, and effort you put in there is the most likely to pay off.`;
   m = /^(?:牽涉到(.+?)的決定，多花一點時間再定|關於(.+?)，決定之前多花一點時間)，(簽字、承諾之前多問一句|答應別人之前多問一句|急著要答覆的事，先放一晚)。$/.exec(s);
   if (m) m = [m[0], m[1] ?? m[2], m[3]] as unknown as RegExpExecArray;
   if (m && ADVICE_EN[m[1]!]) {
-    const tail = m[2]!.startsWith('急') ? 'let anything that needs an urgent answer wait a night' : m[2]!.startsWith('答應') ? 'ask one more question before you agree to anything' : 'ask one more question before you sign or commit to anything';
-    return `With decisions involving ${ADVICE_EN[m[1]!]}, take a little more time, and ${tail}.`;
+    const tail = m[2]!.startsWith('急') ? 'if something needs an urgent answer, let it wait a night' : m[2]!.startsWith('答應') ? 'check what you are agreeing to before you say yes' : 'make sure you understand what you are committing to before you sign or promise anything';
+    return `Take a little more time over decisions about ${ADVICE_EN[m[1]!]}, and ${tail}.`;
   }
   m = /^這(十年|一年)，(.+?)有得著也有牽掛，進一步之前，先想好退路。$/.exec(s);
   if (m && ADVICE_EN[m[2]!]) return `${m[1] === '十年' ? 'Over these ten years' : 'This year'}, ${ADVICE_EN[m[2]!]} bring gains and worries alike, so before you go further, work out your way back.`;
@@ -625,10 +625,10 @@ export function timeTemplate(s: string, missing: string[], h: TimeHelpers): stri
       const span = pm[1] === '十年' ? 'over these ten years' : 'this year';
       const en = (zh: string | undefined) => (zh ? (ADVICE_EN[zh] ?? null) : null);
       if (pm[5]) return en(pm[5]) && `${span}, think carefully before moving either way on ${en(pm[5])}`;
-      if (pm[4]) return en(pm[4]) && `${span}, go slower on ${en(pm[4])}`;
+      if (pm[4]) return en(pm[4]) && `${span}, take more time over ${en(pm[4])}`;
       const put = en(pm[2]);
       if (!put) return null;
-      return pm[3] ? en(pm[3]) && `${span}, put your effort into ${put} and go slower on ${en(pm[3])}` : `${span}, put your effort into ${put}`;
+      return pm[3] ? en(pm[3]) && `${span}, put your effort into ${put} and take more time over ${en(pm[3])}` : `${span}, put your effort into ${put}`;
     });
     if (parts.every(Boolean)) return `As for timing: ${parts.join('; ')}.`;
   }
@@ -655,7 +655,7 @@ export function timeTemplate(s: string, missing: string[], h: TimeHelpers): stri
     }
   }
   m = /^(\S{2})化(\S)，(.+)$/.exec(s);
-  if (m && star(m[1]!) && HUA_EN[m[2]!] && h.tm(m[3]!)) return `With ${star(m[1]!)} turning to ${HUA_EN[m[2]!]}, ${h.lower(h.tm(m[3]!)!)}`;
+  if (m && star(m[1]!) && HUA_EN[m[2]!] && h.tm(m[3]!)) { const body = h.tm(m[3]!)!; return `${body.replace(/[.;]$/, '')} (${star(m[1]!)} turns to ${HUA_EN[m[2]!]}).`; }
   /* 2026-10-13 起：「天機化權落在這一年的疾厄宮，⋯」 */
   m = /^(\S{2})化(\S)落在這(十年|一年)的(\S+?宮)，(.+)$/.exec(s);
   if (m && star(m[1]!) && HUA_EN[m[2]!] && h.tm(m[5]!)) {
