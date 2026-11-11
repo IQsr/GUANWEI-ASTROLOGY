@@ -493,11 +493,17 @@ function paragraphJa(zh: string, missing: string[], carry?: string): string {
 const PARA = String.fromCharCode(10, 10);
 
 /** 逐段譯，段數同輸入一樣（網站要靠段數對返每段嘅格名） */
+/**
+ * 地支「子」嘅宮（2026-11-11 審稿）：「子宮」日本讀者會讀成器官，寫「子の宮」。其餘地支照「丑宮」等。
+ * 存咗嘅舊書（localized 快照）喺網站 japaneseChapters 讀出時再過一次。
+ */
+export const clearJa = (s: string): string => s.replace(/子宮/g, '子の宮');
+
 export function renderParagraphs(zhParas: readonly string[]): { paras: string[]; missing: string[] } {
   const missing: string[] = [];
   let carry: string | undefined;
   const paras = zhParas.map((p) => {
-    const out = paragraphJa(p, missing, carry);
+    const out = clearJa(paragraphJa(p, missing, carry));
     carry = (/宮坐|來讀/.test(p) ? firstOf(MAJOR_RE, p) : lastOf(MAJOR_RE, p)) ?? carry;
     return out;
   });

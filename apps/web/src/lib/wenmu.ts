@@ -1,4 +1,4 @@
-import { citation, citeOf } from '@guanwei/content';
+import { Ja, citation, citeOf } from '@guanwei/content';
 import { englishChapters, isEnglish } from '@/lib/english';
 import { isJapanese, japaneseChapters } from '@/lib/japanese';
 import { zhFor } from '@/lib/hans';
@@ -66,7 +66,7 @@ export function localizedLead(leads: readonly ChapterLead[], slug: string, local
   const l = leads.find((x) => x.slug === slug);
   if (!l) return null;
   // 起書時存咗英日新版（綜合判讀層章等，0012）就用佢，同裁開之後讀到嘅第一段一樣
-  const saved = isEnglish(locale) ? l.localized?.en?.answer : isJapanese(locale) ? l.localized?.ja?.answer : undefined;
+  const saved = isEnglish(locale) ? l.localized?.en?.answer : isJapanese(locale) && l.localized?.ja?.answer ? Ja.clearJa(l.localized.ja.answer) : undefined;
   if (saved && clean(saved)) return clean(saved);
   const intl = isEnglish(locale) || isJapanese(locale);
   const text = clean(intl && l.internationalLead !== undefined ? l.internationalLead : l.lead);
@@ -121,7 +121,7 @@ export function buildAsks(leads: readonly ChapterLead[], locale: string): AskIte
     const ja = japaneseChapters(picked.map((p) => ({ text: clean(p.lead.lead), slots: [] })));
     return picked.map((p, i) => {
       const local = p.lead.localized?.ja;
-      return { key: p.key, slug: p.slug, answer: local?.answer ?? ja[i]?.[0]?.text ?? '', ...(local?.detail ? { detail: local.detail } : {}), quote: null, sources: sourcesOf(clean(p.lead.lead), locale, local?.citations) };
+      return { key: p.key, slug: p.slug, answer: Ja.clearJa(local?.answer ?? ja[i]?.[0]?.text ?? ''), ...(local?.detail ? { detail: local.detail } : {}), quote: null, sources: sourcesOf(clean(p.lead.lead), locale, local?.citations) };
     });
   }
   return picked.map((p) => ({

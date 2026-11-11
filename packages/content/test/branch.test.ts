@@ -496,7 +496,7 @@ describe('「或」填實（2026-10-14）：條件寫「火星或鈴星」「子
     for (const v of old) {
       if (v.text.includes('〔')) continue;
       const out = renderParagraph(stripOr(v.text));
-      if (out.missing.length || out.text.replace(/\s*\(the [^)]*\)/g, '') !== stripOr(v.en)) bad.push(`${v.id}：${out.text}`);
+      if (out.missing.length || out.text.replace(/\s*\((?:the [^)]*|(?:one|two) of the twelve positions on the chart)\)/g, '') !== stripOr(v.en)) bad.push(`${v.id}：${out.text}`);
     }
     expect(bad).toEqual([]);
     /* 舊句有〔〕：書入面存嘅係填咗星嘅版本（60 本抽樣見過嘅兩句） */

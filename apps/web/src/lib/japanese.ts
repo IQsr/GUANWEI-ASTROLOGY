@@ -28,7 +28,8 @@ export function japaneseTitle(title: string): string {
 export function japaneseChapters(chs: readonly { text: string; slots: readonly string[]; reading?: unknown }[]): ChapterReading['segments'][] {
   return internationalBodies(chs).map((c, i) => {
     const ming = internationalMing(chs[i]!, 'ja');
-    if (ming !== null) return ming;
+    // 存咗嘅英日快照可能仲寫「子宮」（2026-11-11 前起嘅書）：讀出時改「子の宮」
+    if (ming !== null) return ming.map((s) => ({ ...s, text: Ja.clearJa(s.text), ...(s.statements ? { statements: s.statements.map((l) => ({ ...l, text: Ja.clearJa(l.text) })) } : {}) }));
     const paras = paragraphs(c.text, c.slots);
     const ja = Ja.renderParagraphs(paras.map((p) => p.text)).paras;
     return paras.map((p, i) => ({ slot: p.slot ?? '正文', text: ja[i] ?? '' }));
