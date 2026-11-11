@@ -36,8 +36,12 @@ jobs:
       #    （闊度、動畫時序、有幾多個掣、有冇價錢出現過）。
       #    所以佢同 build 分開兩步：build 要喺 Vercel 上面跑得，
       #    而 Vercel 冇 Chromium。
+      # 2026-11-11：security.ubuntu.com 解析唔到時 --with-deps（apt）會失敗；
+      #    runner image 本身已有 Chromium 大部分系統庫，退返只裝瀏覽器。真係缺庫，Verify 會報。
       - name: Install Chromium
-        run: pnpm --filter @guanwei/web exec playwright install --with-deps chromium
+        run: |
+          pnpm --filter @guanwei/web exec playwright install --with-deps chromium \
+            || { echo "::warning::apt 裝唔到 Chromium 系統庫，改為只裝瀏覽器"; pnpm --filter @guanwei/web exec playwright install chromium; }
 
       - name: Verify
         run: pnpm verify
