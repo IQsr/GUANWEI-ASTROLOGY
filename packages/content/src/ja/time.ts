@@ -449,6 +449,12 @@ export function timeTemplate(s: string, missing: string[], h: TimeHelpers): stri
   }
   if (s === '關鍵大限。') return '大切な大限です。';
   if (s === '寫這本書時，你在這一步。') return 'この本を書いた時点で、あなたはこの段階にいました。';
+  /* 九十歲後嘅幾步一句列出（2026-11-11） */
+  m = /^第(\S+?)(?:至第(\S+?))?步　虛歲(\S+?)歲以後，(?:依次)?是(\S+?)，這裡不再細列。$/.exec(s);
+  if (m && n(m[1]!) && n(m[3]!)) {
+    const pals = m[4]!.split('、').map((p) => palaceJaOf(p));
+    if (pals.every(Boolean)) return `${m[2] ? `第${kanjiNum(n(m[1]!)!)}〜第${kanjiNum(n(m[2])!)}段階` : `第${kanjiNum(n(m[1]!)!)}段階`}　${kazoe(n(m[3]!)!)}以降は、${m[2] ? '順に' : ''}${pals.join('・')}です。ここでは詳しく扱いません。`;
+  }
   m = /^之後的大限從虛歲(\S+?)歲起，這裡不再細列。$/.exec(s);
   if (m && n(m[1]!)) return `その後の大限は${kazoe(n(m[1]!)!)}から始まりますが、ここでは詳しく挙げません。`;
 

@@ -470,6 +470,12 @@ export function timeTemplate(s: string, missing: string[], h: TimeHelpers): stri
   }
   if (s === '關鍵大限。') return 'A key stage.';
   if (s === '寫這本書時，你在這一步。') return 'You were on this step when this book was written.';
+  /* 九十歲後嘅幾步一句列出（2026-11-11） */
+  m = /^第(\S+?)(?:至第(\S+?))?步　虛歲(\S+?)歲以後，(?:依次)?是(\S+?)，這裡不再細列。$/.exec(s);
+  if (m && n(m[1]!) && n(m[3]!)) {
+    const pals = m[4]!.split('、').map((p) => palaceEn(p));
+    if (pals.every(Boolean)) return `${m[2] ? `Steps ${n(m[1]!)} to ${n(m[2])}` : `Step ${n(m[1]!)}`}, from ${ageStart(n(m[3]!)!)}, ${m[2] ? `fall in your ${listEn(pals as string[])} in turn` : `falls in your ${pals[0]}`}; ${m[2] ? 'they are' : 'it is'} not covered in detail here.`;
+  }
   m = /^之後的大限從虛歲(\S+?)歲起，這裡不再細列。$/.exec(s);
   if (m && n(m[1]!)) return `The stages after that begin at ${ageStart(n(m[1]!)!)} and aren't listed here.`;
 

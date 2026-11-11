@@ -830,7 +830,9 @@ export function lifeStepsChapter(input: { chart: Chart; year: number; solar?: { 
   const shown = chart.decadals.filter((d) => d.fromAge < STEPS_UNTIL_AGE);
   /* 先按本盤列出可核對的過去年份，不把生活例子當成已發生的事。 */
   const back = lookBackSegments(chart, year, input.solar?.y);
-  const rest = chart.decadals.find((d) => d.fromAge >= STEPS_UNTIL_AGE);
+  /* 九十歲後嘅幾步（2026-11-11，Issac：章名叫十二步，就要見到十二步）：唔逐步講，一句列出步數同宮位；歲數只講幾時起，唔出一百幾歲 */
+  const rest = chart.decadals.filter((d) => d.fromAge >= STEPS_UNTIL_AGE);
+  const restPalaces = rest.map((d) => palaceLabel(chart.palaces.find((x) => x.branch === d.branch)!.name));
   const pv = pivotSteps(chart);
   const keySteps = pv.steps.filter((n) => shown.some((d) => d.index === n));
   const keyPalaces = keySteps.map((n) => chart.palaces.find((p) => p.branch === chart.decadals.find((d) => d.index === n)!.branch)!);
@@ -861,7 +863,9 @@ export function lifeStepsChapter(input: { chart: Chart; year: number; solar?: { 
           ...(pv.rule?.unresolvedTianji&&(chart.palaces.find((p)=>p.name==='命宮')!.borrowsFrom??chart.mingGong)==='卯'?['原文反背用詞有分歧；目前只標不受分歧影響的巨門、廉相、七殺。天機一支待釐清，不硬判為有或沒有。']:[])] },
       ...back,
       ...steps,
-      ...(rest ? [{ slot: '步', text: `之後的大限從虛歲${num(rest.fromAge)}歲起，這裡不再細列。`, source_id: null, rule_ids: [] }] : []),
+      ...(rest.length ? [{ slot: '步', text: rest.length > 1
+        ? `第${num(rest[0]!.index)}至第${num(rest.at(-1)!.index)}步　虛歲${num(rest[0]!.fromAge)}歲以後，依次是${restPalaces.join('、')}，這裡不再細列。`
+        : `第${num(rest[0]!.index)}步　虛歲${num(rest[0]!.fromAge)}歲以後，是${restPalaces[0]}，這裡不再細列。`, source_id: null, rule_ids: [] }] : []),
       { slot: '留白', text: DAXIAN_FRAMES.stepsClose, source_id: null, rule_ids: [] },
     ],
   };

@@ -56,13 +56,14 @@ describe('兩章', { timeout: 120_000 }, () => {
     }
   });
 
-  it('列到九十歲左右起步嗰幾步，之後一句帶過；標住寫書嗰陣行到邊步', () => {
+  it('列到九十歲左右起步嗰幾步，之後一句列出步數同宮位（2026-11-11：十二步齊）；標住寫書嗰陣行到邊步', () => {
     const c = CHARTS[0]!;
     const ch = lifeStepsChapter({ chart: c, year: 2026 })!;
     const shown = c.decadals.filter((d) => d.fromAge < STEPS_UNTIL_AGE).length;
     const rows = ch.segments.filter((s) => s.slot === '步');
     expect(rows).toHaveLength(shown + (shown < 12 ? 1 : 0));
     expect(ch.segments.map((s) => s.text).join('')).not.toMatch(/一百/);
+    if (shown < 12) expect(rows.at(-1)!.text).toMatch(new RegExp(`至第十二步　虛歲[^，]+歲以後，依次是(?:[^、，]+宮、){${11 - shown}}[^、，]+宮，這裡不再細列。`));
     expect(ch.segments.filter((s) => s.text.includes('寫這本書時，你在這一步')).length).toBeLessThanOrEqual(1);
   });
 
