@@ -421,7 +421,7 @@ export function timeTemplate(s: string, missing: string[], h: TimeHelpers): stri
   revised=/^當年的(\S{2})化祿在(\S+宮)，(\S{2})化忌在(\S+宮)。$/.exec(s);
   if(revised)return `That year's ${starsEn(revised[1]!,missing)} turned to Abundance in the ${pal(revised[2]!,missing)}, while ${starsEn(revised[3]!,missing)} turned to Obstruction in the ${pal(revised[4]!,missing)}.`;
   revised=/^你命盤裡(?:已可確認)?的關鍵大限是(.+)：這(?:幾|一)步(?:值得連同前後兩步一起細讀|前後的選擇與安排，值得多留一份心)。$/.exec(s);
-  if(revised)return `The key stages in your chart are ${revised[1]!.split('、').map((x)=>n(x.slice(1,-1))).join(', ')}; consider the choices and arrangements on either side together.`;
+  if(revised){const ks=revised[1]!.split('、').map((x)=>ordinalWord(n(x.slice(1,-1))!));return `${ks.length>1?`Your ${listEn(ks)} stages are key periods`:`Your ${ks[0]} stage is a key period`} in your chart; for ${ks.length>1?'each one':'it'}, consider the decisions made before it alongside those made after.`;}
   if (KUIYUE_EN[s]) return KUIYUE_EN[s]!;
   /* 魁鉞位置、冲起本命化曜（2026-10-26，kuiyue.ts kuiyueText、daxian.ts meetSegment） */
   const kf = /^這(十年|一年)的(天魁|天鉞)落在(\S)宮，(正好落在|正對著)你本命(天魁|天鉞)所在的(\S)宮。$/.exec(s);

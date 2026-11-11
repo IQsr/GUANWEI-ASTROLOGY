@@ -17,8 +17,8 @@ export const LIFE_STEPS_VOICE = {
   },
   "study": {
     "zh": "這一年，適合把想學、想試的事排出次序，一步一步做出來。跟家人或老師談清楚自己的想法，也有助把眼前的安排接起來。",
-    "en": "For that year, it helped to put what you wanted to learn or try in order and work through it step by step. Talking your ideas through with family or teachers could help connect the arrangements around you.",
-    "ja": "この年は、学びたいことや試したいことに順番をつけ、一歩ずつ取り組むとよい時期です。家族や先生に自分の考えを伝えることも、日々の段取りをつなぐ助けになります。"
+    "en": "For that year, it helped to put what you wanted to learn or try in order and work through it step by step. Talking your ideas through with family or teachers could also have made your plans easier to fit together.",
+    "ja": "この年は、学びたいことや試したいことに順番をつけ、一歩ずつ取り組むのに向いた時期でした。家族や先生に自分の考えを伝えることも、日々の予定を立てやすくする助けになったでしょう。"
   },
   "planning": {
     "zh": "這一年，較費心的是計劃能否照原來的步伐推進。事情容易有延誤，心思也容易停在反覆推敲上；把已能決定的部分先定下來，會較容易找回節奏。",
