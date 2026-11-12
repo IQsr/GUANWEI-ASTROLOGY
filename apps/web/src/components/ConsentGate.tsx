@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { useTranslations } from 'next-intl';
-import { Link } from '@/i18n/navigation';
+import { Link, useRouter } from '@/i18n/navigation';
 import { hasConsented, LEGAL_VERSION } from '@/lib/legal';
 import { readLocal, writeLocal } from '@/lib/local';
 
@@ -27,6 +27,8 @@ export function ConsentGate({ onConsent }: { onConsent: () => void }) {
   const t = useTranslations('consent');
   const [open, setOpen] = useState(false);
   const accept = useRef<HTMLButtonElement>(null);
+  const dialog = useRef<HTMLDialogElement>(null);
+  const router = useRouter();
 
   useEffect(() => {
     if (hasConsented(readLocal('consent'))) onConsent();
@@ -35,8 +37,16 @@ export function ConsentGate({ onConsent }: { onConsent: () => void }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  /*
+   * 原生 `<dialog>` ＋ `showModal()`（2026-11-12）：瀏覽器自己將背後成版設做 inert ——
+   * Tab 走唔出張卡、螢幕閱讀器讀唔到背後嘅落款表單，唔使自己寫 focus trap。
+   * 之前係 `<div role="dialog">`，鍵盤可以 Tab 去背後未同意就填表。
+   */
   useEffect(() => {
-    if (open) accept.current?.focus();
+    const d = dialog.current;
+    if (!open || !d) return;
+    if (!d.open) d.showModal();
+    accept.current?.focus();
   }, [open]);
 
   if (!open) return null;
@@ -54,14 +64,23 @@ export function ConsentGate({ onConsent }: { onConsent: () => void }) {
    * 卡太高（英文、細手機）就成個遮罩捲，唔好俾頂同底切走。
    */
   return createPortal(
-    <div className="fixed inset-0 z-50 overflow-y-auto bg-[rgb(0_0_0/0.55)]">
+    /*
+     * `<dialog>` 本身做成個遮罩（貼滿視窗、自己捲），張卡喺入面置中 —— 版面同以前一樣。
+     * `role="dialog"` 係多餘但留低：驗收腳本（scripts/_server.mjs）用 `[role="dialog"]` 搵個掣。
+     * Esc：唔同意就返首頁（同「返回」連結一樣），唔可以撳 Esc 就閂咗張卡去填表。
+     */
+    <dialog
+      ref={dialog}
+      role="dialog"
+      aria-labelledby="consent-title"
+      onCancel={(e) => {
+        e.preventDefault();
+        router.push('/');
+      }}
+      className="fixed inset-0 z-50 m-0 h-full max-h-none w-full max-w-none overflow-y-auto border-0 bg-[rgb(0_0_0/0.55)] p-0"
+    >
       <div className="flex min-h-full items-center justify-center px-4 py-8">
-      <div
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby="consent-title"
-        className="w-full max-w-[30rem] bg-[var(--paper)] p-8 text-[var(--ink)] shadow-2xl"
-      >
+      <div className="w-full max-w-[30rem] bg-[var(--paper)] p-8 text-[var(--ink)] shadow-2xl">
         <h2 id="consent-title" className="text-h2 font-semibold tracking-[0.12em]">
           {t('title')}
         </h2>
@@ -94,7 +113,7 @@ export function ConsentGate({ onConsent }: { onConsent: () => void }) {
         </div>
       </div>
       </div>
-    </div>,
+    </dialog>,
     document.body,
   );
 }

@@ -83,6 +83,12 @@ export function Shelf({
 
   return (
     <div className="jia-wai">
+      {/*
+       * 間房張相係 CSS 背景（globals.css `.jia-tu`），橫屏直屏各一張：預載啱嗰張，唔使等 CSS（2026-11-12，LCP）。
+       * media 要同 globals.css 嗰條 `orientation` 一樣，唔係就會載多一張。
+       */}
+      <link rel="preload" as="image" href="/img/study/zhai-wide.webp" media="(orientation: landscape)" fetchPriority="high" />
+      <link rel="preload" as="image" href="/img/study/zhai-tall.webp" media="(orientation: portrait)" fetchPriority="high" />
       {/* 成版底色：同張相地板一樣嘅暖黑，捲落去都唔會見到另一隻色 */}
       <div className="zhai-di" aria-hidden="true" />
       <div className="jia" data-dim={dim}>

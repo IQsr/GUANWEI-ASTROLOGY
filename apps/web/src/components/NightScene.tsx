@@ -24,6 +24,11 @@ export function NightScene({ variant }: { variant: 'home' | 'desk' | 'table' }) 
   if (variant === 'home') {
     return (
       <>
+        {/*
+         * 首頁最大嗰幅畫係 CSS 背景（globals.css `.ye-tu`）：瀏覽器要載完 CSS 先知要攞張相。
+         * 預載 ＋ 高優先，HTML 一到就開始攞（2026-11-12，LCP）。React 會將 <link> 搬上 <head>。
+         */}
+        <link rel="preload" as="image" href="/hero/study.webp" fetchPriority="high" />
         <div className="ye-tu" aria-hidden="true" />
         <StarWindow />
         <div className="ye-an" aria-hidden="true" />
