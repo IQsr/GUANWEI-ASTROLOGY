@@ -7,6 +7,7 @@ import {markBook} from '@/lib/zhu';
 import {paragraphCitations} from '@/lib/paragraph-citations';
 import {referencePresentation} from '@/lib/reference-presentation';
 import {englishChapters} from '@/lib/english';
+import {enNoMing} from './helpers/en-no-ming';
 import {japaneseChapters} from '@/lib/japanese';
 import {withReadingEpilogue} from '@/lib/epilogue-reading';
 import cases from '../src/lib/random-five-preview.json';
@@ -73,7 +74,7 @@ it.each(cases)('$id: frozen random input produces one aligned closing snapshot a
   for(const ref of refs)for(const part of ref.quoteParts??[])expect(shown.some(p=>p.id===part.id&&p.text===part.text)).toBe(true);
  }
  const legacyChecked=withPeriodChecks(legacy,chart,{...options,separateRuleReferences:true});
- expect(englishChapters(current)).toEqual(englishChapters(legacyChecked));expect(japaneseChapters(current)).toEqual(japaneseChapters(legacyChecked));
+ expect(enNoMing(current)).toEqual(enNoMing(legacyChecked));expect(japaneseChapters(current)).toEqual(japaneseChapters(legacyChecked));
  const steps=current.find(c=>c.slug==='一生十二步')!;
  const {analysis:stepsAnalysis,...stepsReading}=steps.reading!;
  expect(stepsAnalysis?.claims.length).toBeGreaterThan(0);
@@ -104,7 +105,7 @@ it('all 72 existing real/borrowed structures retain their source conditions and 
   const {chart,options}=get(sample),base=bookChapters(chart,options)!,current=createBookChapters(chart,options)!;
   expect(current).toHaveLength(base.length);expect(current.map(c=>c.slug)).toEqual(base.map(c=>c.slug));
   const baseChecked=withPeriodChecks(base,chart,options);
-  expect(englishChapters(current)).toEqual(englishChapters(baseChecked));expect(japaneseChapters(current)).toEqual(japaneseChapters(baseChecked));
+  expect(enNoMing(current)).toEqual(enNoMing(baseChecked));expect(japaneseChapters(current)).toEqual(japaneseChapters(baseChecked));
   const end=current.find(c=>c.slug==='給你的話')!;expect(readingOf(end.reading,end.text)).not.toBeNull();
   for(const row of end.reading!.segments)for(const id of row.statements?.flatMap(l=>l.citations)??[])expect(citation(id),id).not.toBeNull();
  }

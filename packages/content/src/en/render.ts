@@ -9,6 +9,8 @@ import { AREA_EN, AREA_ON_EN, BRANCH_EN, PALACE_EN, STAR_EN, cap, listEn, star, 
 import { factTemplate } from './facts';
 import { YOUTH_PREFIX, unyouth } from '../youth';
 import { timeTemplate } from './time';
+import { mingFact } from './ming-facts';
+import mingReader from './ming-reader.json';
 
 /* ───────────────────────────────────────────────────────────
  * 英文版：由砌好嘅中文章逐句譯（2026-10-05 · 試做命宮）
@@ -260,8 +262,10 @@ function refPart(part: string, missing: string[]): string | null {
  *   「天同：不搶、不計較⋯。」→「Tian Tong: 」＋ 原句
  *   「天同改造的成本高⋯。」（原句「它改造的成本高⋯。」）→ 原句譯文，開頭 It 換星名
  */
+/** 新版命宮、骨架嘅英文（只供英文，見 ming-reader.json $note） */
+const MING_READER = (mingReader as { sentences: Record<string, string> }).sentences;
 function lookupSentence(s: string): string | null {
-  const direct = TM.sentences[s] ?? synthSentence(s)?.en;
+  const direct = TM.sentences[s] ?? MING_READER[s] ?? synthSentence(s)?.en ?? mingFact(s);
   if (direct) return direct;
   /* 細讀例外句（assemble.ts `bridgeExceptions`，2026-10-18）：「不過，同宮有鈴星，⋯」 */
   const but = /^(?:不過，|但)(.+)$/.exec(s);

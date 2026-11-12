@@ -14,29 +14,37 @@ This chart is your own base map, and it doesn't change over your lifetime. Every
 
 ## 命宮
 
-### Who you are
+### Keeping feelings inside or expressing them openly
 
-For Tai Yin in Si or Hai (two of the twelve positions on the chart), the focus is the balance of reserve and expression, rather than quietness or openness alone.
+You're reserved by nature, and mostly keep what's on your mind to yourself. The theme of your Life Palace is whether you express your feelings and thoughts outwardly or keep them to yourself at first. Restraint can be a strength of Tai Yin (the Moon) here, but holding too much in is not necessarily better.
 
-Reserve still needs a suitable measure of expression to become the contained brilliance described in the source.
+### Distinctions to make when reading these stars
 
-Excessive display has limits: reputation and substantial achievement are distinguished in the source.
+The book treats outward expression and restraint as a difference of degree, judging them alongside the four transformations, supporting stars and the time of birth.
 
-The preferred structure is slightly greater reserve with suitable expression; the accompanying stars determine whether that balance holds.
+### Advice for you (editorial)
 
-### What the chart shows
-
-Who you are: your Life Palace holds Tai Yin in the Hai position.
+When you give your view, start with the problem you most want solved, then your reasons, and leave time to hear how the other person has taken it. After saying something important, check whether you both understood the same thing, rather than relying only on your own sense that you explained it clearly.
 
 ## 性格的骨架
 
-In your chart, the signals towards restraint and towards display are both faint; neither side weighs more. You're still young: what's written here is a tendency in your chart, not a fixed outcome, and how your road goes is still up to you.
+### Evidence from your chart
 
-Your Life Palace sits in Hai (one of the twelve positions on the chart), shaped by Tai Yin (the Moon). Tai Yin's true nature is restraint — the old texts speak of brilliance held within. Restraint needs balance: too much becomes calculation, too little leaves only an empty reputation. Best is a little more restraint than display, with some room to show what you can do.
+Your Life Palace holds Tai Yin (the Moon) in Hai (one of the twelve positions on the chart).
 
-Your strength is composure: you don't show off, and you work steadily.
+### Star groupings actually listed in your chart
 
-These are tendencies you were born with; how you act on them is up to you, and in the right setting they become strengths.
+In your Life Palace and its linked palaces, the birth-chart transformations are: Tian Liang (the Sage) turning to Recognition in your Career Palace. Your Life Palace also holds Tian Ma (the Horse).
+
+### How to read these stars together
+
+Tai Yin occupies Si or Hai alone, opposite Tian Ji (the Strategist), and meets Tai Yang (the Sun) and Tian Liang and, through borrowing from the opposite palace, Tian Tong (the Blessed) and Ju Men (the Great Gate). The stars in the opposite and linked palaces all affect how you express yourself, so Si or Hai alone, or a single transformation, is still not enough to describe the whole.
+
+### Conditions you must keep in view
+
+This section also warns of the problems of excessive restraint. Whether you were born by day or night, the palace's branch and the different supporting and harsh stars also each modify the reading.
+
+You are still growing, so start by noticing how you react in different situations; one moment of self-expression is not a fixed personality. If something in this chapter doesn't sound like you, you can note down where it doesn't fit.
 
 ## 身宮與五行局
 

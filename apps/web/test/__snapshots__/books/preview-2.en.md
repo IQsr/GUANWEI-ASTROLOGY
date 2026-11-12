@@ -14,31 +14,35 @@ This chart is your own base map, and it doesn't change over your lifetime. Every
 
 ## 命宮
 
-### Who you are
+### Caring about feelings while handling practical choices
 
-Lian Zhen with Tian Fu calls for attention to both conflict and reconciliation between feeling and reason.
+You often feel a pull between emotion and reason, and tend to maintain familiar relationships and arrangements. Your Life Palace brings emotion and reason into the same question: the relationships you want to keep and the arrangements you know may not naturally align with the choices reason calls for. What matters is whether the two can work together.
 
-Lian Zhen already combines conflicting emotional and rational qualities; neither side alone describes the pattern.
+### Distinctions to make when reading these stars
 
-Tian Fu favours reason but also preserves existing arrangements and relationships, so it does not necessarily settle the direction.
+Having Tian Fu (the Treasury) and Lian Zhen (the Upright) in the same palace does not mean reason has already found an answer for your feelings. The book instead points out that maintaining existing relationships and being content with things as they are may also allow the original conflict to continue.
 
-Preserving an arrangement differs from resolving the inner conflict; maintaining the status quo is not itself reconciliation.
+### Advice for you (editorial)
 
-### What the chart shows
-
-Who you are: your Life Palace holds Lian Zhen and Tian Fu in the Chen position.
+You can first write down the two or three things that matter most to you, then compare your current options against each one. When someone's expectations differ from yours, making your boundaries clear early makes it easier to get along than reluctantly agreeing and later changing your mind. This palace has Tian Fu turning to Recognition. When making important decisions, you can organise your methods, records and other people's views, so you have a clear basis for your explanation when needed.
 
 ## 性格的骨架
 
-You lean towards reason: you decide on the merits and see the stakes clearly, though others sometimes find you cool.
+### Evidence from your chart
 
-Your Life Palace sits in Chen (one of the twelve positions on the chart), shaped by Lian Zhen (the Upright) and Tian Fu (the Treasury). Lian Zhen carries a pull between feeling and reason in itself: it values emotion and also integrity. Tian Fu in the same palace is rational and content with things as they are, but it can't resolve Lian Zhen's contradiction.
+Your Life Palace holds Lian Zhen (the Upright) and Tian Fu (the Treasury) together in Chen (one of the twelve positions on the chart).
 
-You lean more towards reason than feeling, since your chart has Wu Qu (the General) turning to Authority.
+### Star groupings actually listed in your chart
 
-With reason running strong, so long as a phase does not stir emotional trouble or leave you short of means, it is generally a good one.
+In your Life Palace and its linked palaces, the birth-chart transformations are: Tian Fu turning to Recognition in your Life Palace and Wu Qu (the General) turning to Authority in your Career Palace.
 
-These are tendencies you were born with; how you act on them is up to you, and in the right setting they become strengths.
+### How to read these stars together
+
+Lian Zhen and Tian Fu share Chen or Xu, with Qi Sha (the Warrior) in the opposite palace, and meet Zi Wei (the Emperor) and Wu Qu and Tian Xiang (the Minister). Alongside the relationship between emotion and reason in this palace, the reading needs to consider the direction of the influence brought by Qi Sha, Zi Wei and other stars.
+
+### Conditions you must keep in view
+
+With these stars, Tian Fu receiving Abundance or meeting Wen Chang (a Scholar star) and Wen Qu can deepen the emotional element, so neither can always be taken as strengthening reason.
 
 ## 身宮與五行局
 

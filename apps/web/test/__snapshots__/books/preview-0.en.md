@@ -14,31 +14,35 @@ This chart is your own base map, and it doesn't change over your lifetime. Every
 
 ## 命宮
 
-### Who you are
+### Balancing inner fulfilment with practical daily life
 
-For Zi Wei alone, the balance between inner needs and material life is central to understanding this pattern.
+You have strong personal views, are decisive, and have the ability to lead and organise. The focus of your Life Palace is how you balance the life you truly enjoy with material pleasures and your ability to get things done. These two sides can support each other, or they may each have their own needs.
 
-Its inner side includes preferences, interests and the personal judgement behind decisions.
+### Distinctions to make when reading these stars
 
-Its material side includes comfort, leadership and organisation, distinct from personal interests.
+The book places interests, likes and dislikes, and personal judgement on the side of your inner life, and enjoyment, leadership and organisation on the material side; the stars linked to them change the balance, so Zi Wei (the Emperor) alone cannot tell you which side is stronger.
 
-The accompanying stars can strengthen, weaken or transform either side, so their balance depends on the full combination.
+### Advice for you (editorial)
 
-### What the chart shows
-
-Who you are: your Life Palace holds Zi Wei in the Wu position.
+You can first clarify what you want to preserve and what you are willing to make changes for. Before you agree to a new request, take a moment to weigh the trade-off, and speak up before resentment builds. You Bi (the Right Aide) also sits in this palace. Before an important decision, talk it through with someone reliable, and agree who is responsible for which part.
 
 ## 性格的骨架
 
-You lean towards the material: practical, focused on results, good at organising people and resources.
+### Evidence from your chart
 
-Your Life Palace sits in Wu (one of the twelve positions on the chart), shaped by Zi Wei (the Emperor). Zi Wei is the imperial star, which is why your views are so firm. It has two sides: one about taste and personal interests, the other about leading, organising and enjoying life; the stars around it decide which weighs more in you.
+Your Life Palace holds Zi Wei (the Emperor) in Wu (one of the twelve positions on the chart).
 
-You lean towards the material because your chart has Lian Zhen (the Upright) turning to Abundance and Zi Wei sharing a palace with You Bi (the Right Aide); Lian Zhen sharing a palace with Wen Chang (a Scholar star) points towards the inner life, but there is less of it.
+### Star groupings actually listed in your chart
 
-With the material side strong, the phases that run through Po Jun (the Vanguard), Lian Zhen–Tian Fu (the Treasury), Wu Qu (the General)–Tian Xiang (the Minister), Qi Sha (the Warrior) or Tian Ji (the Strategist) are your times to rise or prosper, when that palace leans material too. Those phases run roughly 14 to 23 (15–24 by Chinese reckoning, already behind you), roughly 24 to 33 (25–34 by Chinese reckoning, already behind you), roughly 44 to 53 (45–54 by Chinese reckoning, already behind you) and roughly 84 to 93 (85–94 by Chinese reckoning). When a phase runs through Qi Sha, change comes at once for you, and mostly in your material life. That phase runs roughly ages 24 to 33; 25–34 by Chinese reckoning, and you have already been through it: compare it with what happened then.
+In your Life Palace and its linked palaces, the birth-chart transformations are: Lian Zhen (the Upright) turning to Abundance in your Career Palace and Wu Qu (the General) turning to Recognition in your Wealth Palace. Your Life Palace also holds You Bi (the Right Aide).
 
-These are tendencies you were born with; how you act on them is up to you, and in the right setting they become strengths.
+### How to read these stars together
+
+Zi Wei sits alone at Zi or Wu, with Tan Lang (the Wolf) in the opposite palace and links to Wu Qu, Tian Xiang (the Minister), Lian Zhen and Tian Fu (the Treasury). These groups of stars affect your inner and material life differently, and the underlying structure depends on how they strengthen, weaken or transform one another.
+
+### Conditions you must keep in view
+
+When these indications appear together, you cannot simply add up the stars and assume that the two needs are balanced.
 
 ## 身宮與五行局
 
