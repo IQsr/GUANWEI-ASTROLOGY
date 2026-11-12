@@ -8,7 +8,7 @@ import {paragraphCitations} from '@/lib/paragraph-citations';
 import {referencePresentation} from '@/lib/reference-presentation';
 import {readerReferenceLanguage} from '@guanwei/content';
 import five from '../src/lib/random-five-preview.json';
-import three from './fixtures/palace-before.json';
+import three from './fixtures/sample-charts.json';
 import remaining from '../../../packages/content/src/cards/palace-remaining.json';
 
 function books(sample:{seed:string;input:unknown}){

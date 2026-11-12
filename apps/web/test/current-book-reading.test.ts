@@ -10,7 +10,7 @@ import {englishChapters} from '@/lib/english';
 import {japaneseChapters} from '@/lib/japanese';
 import {withReadingEpilogue} from '@/lib/epilogue-reading';
 import cases from '../src/lib/random-five-preview.json';
-import original from './fixtures/palace-before.json';
+import original from './fixtures/sample-charts.json';
 import allSystems from '../src/lib/free-ming-preview.json';
 const opts=(c:{seed:string;input:BirthInput})=>({seed:c.seed,year:2026,solar:c.input.solar,place:c.input.place.label,birthSex:c.input.sex});
 const get=(c:{seed:string;input:unknown})=>{const input=c.input as BirthInput,r=cast(input);if(!r.ok)throw Error(r.message);return {chart:r.value,options:opts({...c,input})};};

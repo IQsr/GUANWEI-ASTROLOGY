@@ -5,7 +5,7 @@ import { referencePresentation, referenceNoteSentences } from '@/lib/reference-p
 import { bookChapters, citesFor } from '@/lib/mingshu';
 import { markBook } from '@/lib/zhu';
 import { readingSegments } from '@/lib/chapter-reading';
-import samples from './fixtures/palace-before.json';
+import samples from './fixtures/sample-charts.json';
 
 const charts = samples.map((s) => { const c=cast(s.input as BirthInput);if(!c.ok)throw Error(c.message);return {id:s.id,chart:c.value}; });
 const chart = (id: string) => charts.find((s) => s.id===id)!.chart;

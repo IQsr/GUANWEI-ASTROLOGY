@@ -6,7 +6,7 @@ import {markBook} from '@/lib/zhu';
 import {paragraphCitations} from '@/lib/paragraph-citations';
 import {englishChapters} from '@/lib/english';
 import {internationalMing} from '@/lib/ming-international';
-import samples from './fixtures/palace-before.json';
+import samples from './fixtures/sample-charts.json';
 
 it.each(samples)('$id：十二步正文不顯示據，原文與限制仍保存在各語快照',(sample)=>{
  const c=cast(sample.input as Parameters<typeof cast>[0]);if(!c.ok)throw new Error(c.message);

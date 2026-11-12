@@ -8,7 +8,7 @@ import { bookChapters,citesFor,localizeMarked } from '@/lib/mingshu';
 import { markBook } from '@/lib/zhu';
 import { readingSegments,readingOf } from '@/lib/chapter-reading';
 import { referencePresentation } from '@/lib/reference-presentation';
-import samples from './fixtures/palace-before.json';
+import samples from './fixtures/sample-charts.json';
 
 const fixture=(id:string)=>samples.find(s=>s.id===id)!;
 const chart=(id:string)=>{const r=cast(fixture(id).input as BirthInput);if(!r.ok)throw Error(r.message);return r.value;};

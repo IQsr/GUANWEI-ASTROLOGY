@@ -2,7 +2,7 @@ import previews from '../../../apps/web/src/lib/free-ming-preview.json';
 import { expect, it } from 'vitest';
 import { cast, BRANCHES, P1A_STARS, P1A_QUERY_VERSION, lookupNatalStar, queryNatalStar, natalStarCoverage, type BirthInput, type Chart } from '../src/index';
 import wenmo from './fixtures/wenmo-charts.json';
-import fixtures from '../../../apps/web/test/fixtures/palace-before.json';
+import fixtures from '../../../apps/web/test/fixtures/sample-charts.json';
 const options = { catalogue: 'p1a' } as const;
 const charts = fixtures.filter((f) => ['TL','A','C'].includes(f.id)).map((f) => {
   const r=cast(f.input as BirthInput);if(!r.ok)throw Error(r.message);return {id:f.id,chart:r.value};

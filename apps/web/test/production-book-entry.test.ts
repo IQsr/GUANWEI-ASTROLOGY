@@ -3,7 +3,7 @@ import {cast} from '@guanwei/ziwei';
 import {createBookChapters} from '@/lib/mingshu';
 import {LEGAL_VERSION} from '@/lib/legal';
 import type {BookDraft} from '@/lib/chengshu';
-import samples from './fixtures/palace-before.json';
+import samples from './fixtures/sample-charts.json';
 import randomFive from '../src/lib/random-five-preview.json';
 const kept=vi.hoisted(()=>({drafts:[] as BookDraft[]}));
 vi.mock('@/lib/chengshu.server',()=>({castQuotaLeft:async()=>null,serverChengshu:()=>({create:async(draft:BookDraft)=>{kept.drafts.push(draft);return 'local-test-book';}})}));

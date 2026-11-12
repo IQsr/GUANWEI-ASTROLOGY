@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { cast, BRANCHES, lookupNatalStar, queryNatalStar, natalStarCoverage, natalTableCoverage, HELPER_STARS, peachStars, tianxingBranch, type Chart, type BirthInput } from '../src/index';
-import fixtures from '../../../apps/web/test/fixtures/palace-before.json';
+import fixtures from '../../../apps/web/test/fixtures/sample-charts.json';
 import wenmo from './fixtures/wenmo-charts.json';
 
 const charts = fixtures.filter((f) => ['TL', 'A', 'C'].includes(f.id)).map((f) => {

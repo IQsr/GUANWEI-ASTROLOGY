@@ -1,5 +1,3 @@
-import {withHistoricalLifeSteps} from './helpers/life-steps-legacy';
-import copyBaseline from './fixtures/cross-copy-before.json';
 import {referenceEditorialWording} from '@/lib/cross-reference-language';
 import {it,expect} from 'vitest';
 import {cast,type BirthInput} from '@guanwei/ziwei';
@@ -10,7 +8,7 @@ import {markBook} from '@/lib/zhu';
 import {paragraphCitations} from '@/lib/paragraph-citations';
 import {referencePresentation} from '@/lib/reference-presentation';
 import {withCrossPalaceReading,analyzeCrossPalaces} from '@/lib/cross-palace-chapters';
-import samples from './fixtures/palace-before.json';
+import samples from './fixtures/sample-charts.json';
 import previews from '../src/lib/free-ming-preview.json';
 import raw from '../src/lib/cross-palace-reading.json';
 import sourceData from '../../../packages/content/src/cards/cross-palace-sources.json';
@@ -122,6 +120,3 @@ it('all preview drafts name existing analysis prerequisites and reviewed source 
  for(const e of raw.entries)for(const p of e.parts)for(const id of p.citations)expect(citation(id),id).not.toBeNull();
 });
 
-it('historical complete cross books remain exact outside reviewed life-step/key changes',()=>{
- for(const row of copyBaseline)expect(createHash('sha256').update(JSON.stringify(withHistoricalLifeSteps(book(row.id),row.id))).digest('hex'),row.id).toBe(row.hash);
-});

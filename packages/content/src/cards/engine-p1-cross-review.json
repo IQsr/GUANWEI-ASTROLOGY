@@ -17,7 +17,7 @@
     "packages/content/package.json": "41d4820c7c6fa10a8ecd6dc768400ded0cfd94220a6df470fe473de8ba4e73aa",
     "packages/content/src/engine-p1-cross.ts": "4d83e5cc3be09638e9648129937eaeaf9bb14ddb7d2deb690748f135abb322e8",
     "packages/content/src/cards/engine-p1-cross-rules.json": "9f4c21b20ffb9a8ee33228997e5709f36601a7f8720d374f208ae5ad818d63d3",
-    "packages/content/test/engine-p1-cross.test.ts": "3c95a8d2806bfd82595851fae90ff4f738647bf0ad4a3c43ebd0ea2e12b294b0",
+    "packages/content/test/engine-p1-cross.test.ts": "e1f22b4c32510c0136b52a068e12bf2952d18b2bbdbcb36fe22cdf388b7870ad",
     "packages/content/src/engine-p1a.ts": "fdbf2729415f978ca8c4b2977e06c3155ec8b1b3279e6f8cc9197c5436bfe7fb",
     "packages/content/src/engine-p1b.ts": "51c9001916ebbfdf657456bd94799ae989ba44cddffc09418f58bfb5e7046fe1",
     "packages/content/src/pilot-analysis.ts": "fac16efc111736eea1f1af2f570909dc621e12e60a22445f1648a64e74121688",
@@ -26,9 +26,9 @@
     "packages/ziwei/src/chart/sanfang.ts": "06990ffa7ed3bb39e27742851ebec09609830760fb3e057b0bd54b8f7f80f2be",
     "packages/ziwei/src/chart/major-stars.ts": "63e43df38719ba9244558494c835c94b9c71b842e43f4c47be4c3e1a2187fbe5",
     "tools/wang-reference/deep-index.json": "0e1b0d35997e77e81f24755bfc7e174dfd378007d3cc4b64f853dab6bd1dfae8",
-    "apps/web/test/engine-p0.test.ts": "4b9305b55f0a75ddae5da14c2c66602112b4972f4579662c86a6678dc141064c",
+    "apps/web/test/engine-p0.test.ts": "6ce25b5479b43754e1fc710c352e60613f613916a0624b40b47544975e502948",
     "apps/web/src/lib/free-ming-preview.json": "18dacef35e624cca7dd0bc798c8f22e266494045554edeac298c3f3d3482166e",
-    "apps/web/test/fixtures/palace-before.json": "683ca7824ed040ae5fa0e6fcfcc9d1d83ebcfb07b200ae6627a9f82f8b7ba0da",
+    "apps/web/test/fixtures/sample-charts.json": "6bde97153b1f3fea2322b21e6f7c3b9c869ea8b8fce5f3039814a9fc3fa4906f",
     "docs/engine-p1-cross-2026-10-24.md": "b9d3d15b88c7923efe8e420346d02d26a5d272601f9f0708b6afe23381ae47df"
   },
   "samples": [

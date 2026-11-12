@@ -9,7 +9,7 @@ import { ConditionSchema } from '../src/rule';
 import ruleData from '../src/cards/engine-p1a-rules.json';
 import deep from '../../../tools/wang-reference/deep-index.json';
 import initial from '../../../tools/wang-reference/initial-index.json';
-import fixtures from '../../../apps/web/test/fixtures/palace-before.json';
+import fixtures from '../../../apps/web/test/fixtures/sample-charts.json';
 const query={catalogue:'p1a'} as const;
 const charts=Object.fromEntries(fixtures.filter((f)=>['TL','A','C'].includes(f.id)).map((f)=>{const r=cast(f.input as BirthInput);if(!r.ok)throw Error(r.message);return [f.id,r.value];}));
 const result=(chart:Chart,id:string)=>analyzeFirstBatch(chart).results.find((r)=>r.id===id)!;

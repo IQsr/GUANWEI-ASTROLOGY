@@ -1,7 +1,7 @@
 import {it,expect} from 'vitest';
 import {cast} from '@guanwei/ziwei';
 import {isLookbackZhOnly,lifeStepsChapter} from '../src/daxian';
-import samples from '../../../apps/web/test/fixtures/palace-before.json';
+import samples from '../../../apps/web/test/fixtures/sample-charts.json';
 import {renderChapter as en} from '../src/en/render';
 import {renderChapter as ja} from '../src/ja/render';
 import {citation} from '../src/citation';

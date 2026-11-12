@@ -7,26 +7,26 @@ import { japaneseChapters } from '@/lib/japanese';
 import { markBook } from '@/lib/zhu';
 import { buildAsks, leadsFromBodies } from '@/lib/wenmu';
 import { chapterDrafts, readingContentVersion } from '@/lib/chengshu';
-import fixtures from './fixtures/free-ming-before.json';
+import fixtures from './fixtures/sample-charts.json';
 import { paragraphCitations } from '@/lib/paragraph-citations';
 
-type Saved = { slug: string; text: string; slots: string[]; reading?: ChapterReading };
 const books = fixtures.map((b) => {
   const input = b.input as BirthInput; const r = cast(input); if (!r.ok) throw Error(r.message);
   const now = bookChapters(r.value, { seed: b.seed, year: 2026, solar: input.solar, place: input.place.label })!;
-  return { id: b.id, before: b.saved as unknown as Saved[], now };
+  return { id: b.id, now };
 });
 
-it('三組新書及骨架保存閱讀快照；舊書正文、英日版本逐字保持', () => {
+/* 2026-11-12：舊版書刪晒，唔再同舊存檔比；英日照讀成書時存低嘅原版快照（internationalSnapshot）。 */
+it('三組新書及骨架保存閱讀快照；英日讀快照', () => {
   for (const b of books) {
     const revised = b.now.filter((c) => c.slug === '命宮' || c.slug === '性格的骨架');
     expect(revised).toHaveLength(2);
     for (const c of revised) {
       expect(c.reading?.writer).toBe('reader-backed-v1');
       expect(readingOf(JSON.parse(JSON.stringify(c.reading)), c.text)).toEqual(c.reading);
-      const original = b.before.find((p) => p.slug === c.slug)!;
-      const snapshot = { text: original.text, slots: original.slots, ...(original.reading ? { reading: original.reading } : {}) };
-      expect(c.reading!.internationalSnapshot).toEqual(snapshot);
+      const snapshot = c.reading!.internationalSnapshot!;
+      expect(snapshot.text.length).toBeGreaterThan(0);
+      const original = { slug: c.slug, title: c.title, text: snapshot.text, slots: snapshot.slots, ...(snapshot.reading ? { reading: snapshot.reading } : {}) };
       const before = JSON.stringify(original);
       expect(englishChapters([c])).toEqual(englishChapters([original]));
       expect(japaneseChapters([c])).toEqual(japaneseChapters([original]));
