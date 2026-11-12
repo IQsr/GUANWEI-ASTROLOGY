@@ -101,6 +101,16 @@ function palaceFact(s: string): string | null {
     const pal = palace(m[1]!), l = stars(m[3]!);
     return pal && l ? `The opposite palace, your ${pal} in ${BRANCH_EN[m[2]!]}, holds ${l}.` : null;
   }
+  /* 給你的話：本盤財帛宮在子，天同、太陰實坐，兩星本身都沒有本命四化。 */
+  if ((m = new RegExp(`^本盤(${P})宮在(${B})，(${S})、(${S})實坐，兩星本身都沒有本命四化。$`).exec(s))) {
+    const pal = palace(m[1]!), l = stars(`${m[3]}、${m[4]}`);
+    return pal && l ? `Your ${pal} is in ${BRANCH_EN[m[2]!]}, holding ${l}; neither star has a birth-chart transformation.` : null;
+  }
+  /* 給你的話：本盤對宮太陽化祿。 */
+  if ((m = new RegExp(`^本盤對宮(${S})化([祿權科忌])。$`).exec(s))) {
+    const h = hua(m[1]!, m[2]!);
+    return h ? `In your chart, the opposite palace has ${h}.` : null;
+  }
   /* 本盤辰時生，屬日生人；天鉞在疾厄宮未三方會照。／本盤左輔在夫妻宮未三方會照；右弼在… */
   if ((m = /^本盤(.+)。$/.exec(s))) {
     const parts = m[1]!.split('；');

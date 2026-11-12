@@ -288,11 +288,21 @@ If your housing or daily arrangements mean you see your parents less often, agre
 
 ## 給你的話
 
-You're pulled back and forth between enjoying life and keeping to principle, unable to let go of either, and the two don't reconcile easily. What you can rely on most: work with an element of change suits you; you're good at finding room within shifting circumstances. Above all, keep in mind: you want to settle, but the conditions for ease often don't come together, and things tend to drag.
+### Start with your priorities when choosing
 
-You can also rely on a few other things. First, in your inner life, you like to be on the go; completely idle, you feel uneasy, and you're only comfortable with something to do. Second, with money you build up slowly: small amounts, over a long time, without fuss. Third, away from home you're usually blessed, and life tends to go more pleasantly than at home.
+You value principles and discipline, and take an orderly approach to what you do. Your Life Palace is in Shen (one of the twelve positions on the chart), with Tian Tong (the Blessed) and Tian Liang (the Sage) together; Tian Tong turns to Obstruction, and Qing Yang (the Blade) and Tuo Luo (the Weight) flank the palace. The enjoyment you want from life and the standards you won't let go of can easily pull against each other; when you have to decide whether to stay or go, or what to keep, calling yourself either feeling-led or principle-led doesn't capture this back-and-forth.
 
-A few other things to keep in mind. First, in love, your caring often comes out as questioning, and questioning is all your partner hears. Second, in your circle, you can give direction more easily than closeness, so you have few deep friendships. Third, when choosing work and surroundings, it helps to be clear whether you want ease or ambition.
+### How you work and what you take on
+
+Work with an element of change suits you; you're good at finding room within shifting circumstances. Your Career Palace is in Zi, with Tian Ji (the Strategist) as its sole major star and Ju Men (the Great Gate) in the opposite palace. Your work centres on responding to different demands and handling change, with continued care and effort needed afterwards; a job's daily tasks reveal this quality more clearly than its title. The changes described in the book may also mean frequently changing clients, tasks and surroundings, rather than leaving your existing job every time.
+
+### Your earnings and how you arrange resources
+
+With money you build up slowly: small amounts, over a long time, without fuss. Your Wealth Palace is in Chen with Tai Yin (the Moon), so earning money centres on planning, using resources and building them up. Tai Yang (the Sun) turns to Abundance in your opposite Wellbeing Palace, and the book gives the general order as establishing your standing first, then developing sources of income. In your chart, first building your standing and resources at work, then looking at how to expand your sources of income, fits the whole picture better than focusing only on immediate earnings.
+
+### Feeling settled after you commit
+
+You like to be on the go; completely idle, you feel uneasy, and you're only comfortable with something to do. Your Wellbeing Palace is in Xu, with Tai Yang turning to Abundance and Ling Xing (Bell) also in this palace. Tai Yang brings activity and ambition, while Ling Xing adds mental restlessness; progress in work or earning money does not necessarily make it easy for you to stop. Read alongside the adaptability in your Career Palace and the effort you put into earning money, this palace asks whether you feel satisfied after being busy, rather than simply how much more you could get done.
 
 As for timing: over these ten years, put your effort into matters with elders and bosses and take more time over your love life; this year, put your effort into your own interests and state of mind and take more time over working with siblings and peers.
 

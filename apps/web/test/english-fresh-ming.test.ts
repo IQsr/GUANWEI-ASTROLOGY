@@ -7,7 +7,7 @@ import previews from '../src/lib/free-ming-preview.json';
 
 /*
  * 2026-11-12 英文第一批：新版命宮、性格的骨架（reader-backed-v1）英文直接由新中文逐條 statement 譯；
- * 第二批：十一宮（palace-reader-v1）同樣做法，
+ * 第二批：十一宮（palace-reader-v1）、第三批：給你的話（epilogue-reader-v1）同樣做法，
  * 小標題、出處記號跟住 statement；有一句譯唔到就成章讀舊快照（唔出半中半英）。
  */
 const books = (previews as unknown as { input: BirthInput; seed?: string }[]).slice(0, 12).map((p) => {
@@ -15,7 +15,7 @@ const books = (previews as unknown as { input: BirthInput; seed?: string }[]).sl
   return createBookChapters(r.value, { seed: p.seed ?? 'sample', year: 2026, solar: p.input.solar, place: p.input.place.label, birthSex: p.input.sex, birthInput: p.input, synthesis: true })!;
 });
 
-const FRESH = new Set(['reader-backed-v1', 'palace-reader-v1']);
+const FRESH = new Set(['reader-backed-v1', 'palace-reader-v1', 'epilogue-reader-v1']);
 
 it('命宮、骨架、十一宮英文逐條 statement 對應新中文，小標題用英文', () => {
   for (const book of books) {
