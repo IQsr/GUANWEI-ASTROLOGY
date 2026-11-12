@@ -9,7 +9,7 @@ import {alignReviewedChapters,withReadingEpilogue} from '@/lib/epilogue-reading'
 import {readingOf,readingSegments} from '@/lib/chapter-reading';
 import {englishChapters} from '@/lib/english';
 import {enNoMing} from './helpers/en-no-ming';
-import {japaneseChapters} from '@/lib/japanese';
+import {jaNoMing} from './helpers/ja-no-ming';
 import {markBook} from '@/lib/zhu';
 import {paragraphCitations} from '@/lib/paragraph-citations';
 import {referencePresentation} from '@/lib/reference-presentation';
@@ -88,7 +88,7 @@ it('176 audited books and the frozen 16-input holdout: changed scope is bounded;
    expect(readingOf(JSON.parse(JSON.stringify(ch.reading)),ch.text),s.id+'/'+ch.slug).not.toBeNull();
    if(!allowed.has(ch.slug)){const old=previous.find(c=>c.slug===ch.slug)!;expect(readingSegments(ch.text,ch.slots,ch.reading)).toEqual(readingSegments(old.text,old.slots,old.reading));}
   }
-  expect(enNoMing(current),s.id).toEqual(enNoMing(previous));expect(japaneseChapters(current),s.id).toEqual(japaneseChapters(previous));
+  expect(enNoMing(current),s.id).toEqual(enNoMing(previous));expect(jaNoMing(current),s.id).toEqual(jaNoMing(previous));
   matrix.push({id:s.id,decisions:evaluated.map(d=>({id:d.id,status:d.status})),changed});
   if(ds.length)audit.push({id:s.id,input:s.input,decisions:ds,changed,chapters:current.filter(c=>allowed.has(c.slug)).map(c=>({slug:c.slug,text:c.text,segments:c.reading!.segments}))});
  }

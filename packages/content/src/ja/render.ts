@@ -8,6 +8,8 @@ import { AREA_JA, AREA_ON_JA, HUA_JA, PALACE_JA, STAR_JA, listJa, starJa } from 
 import { factTemplate, palaceJaOf } from './facts';
 import { YOUTH_PREFIX, unyouth } from '../youth';
 import { timeTemplate } from './time';
+import { mingFact } from './ming-facts';
+import mingReader from './ming-reader.json';
 
 /* ───────────────────────────────────────────────────────────
  * 日文版：由砌好嘅中文章逐句譯（2026-10-15 起）
@@ -158,8 +160,10 @@ export function tmSentence(zh: string): string | null {
   return zh.startsWith(WATCH_LEADS[0]) ? WATCH_JA[WATCH_LEADS[0]] + direct : direct;
 }
 
+/** 新版命宮、骨架嘅日文（見 ming-reader.json $note） */
+const MING_READER = (mingReader as { sentences: Record<string, string> }).sentences;
 function lookupSentence(s: string): string | null {
-  const direct = tmSentence(s) ?? synthSentence(s)?.ja;
+  const direct = tmSentence(s) ?? MING_READER[s] ?? synthSentence(s)?.ja ?? mingFact(s);
   if (direct) return direct;
   /* 細讀例外句（assemble.ts `bridgeExceptions`，2026-10-18）：「不過，同宮有鈴星，⋯」 */
   const but = /^(?:不過，|但)(.+)$/.exec(s);
