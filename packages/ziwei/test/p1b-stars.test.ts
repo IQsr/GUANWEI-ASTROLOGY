@@ -1,6 +1,6 @@
 import {expect,it} from 'vitest';
 import {cast,lookupNatalStar,queryNatalStar,natalStarCoverage,P1B_STARS,STEMS,type BirthInput,type Chart} from '../src/index';
-import fixtures from '../../../apps/web/test/fixtures/palace-before.json';
+import fixtures from '../../../apps/web/test/fixtures/sample-charts.json';
 import previews from '../../../apps/web/src/lib/free-ming-preview.json';
 import wenmo from './fixtures/wenmo-charts.json';
 const rows=fixtures.filter((f)=>['TL','A','C'].includes(f.id)).map((f)=>{const r=cast(f.input as BirthInput);if(!r.ok)throw Error(r.message);return{id:f.id,chart:r.value,sex:f.input.sex as 'male'|'female'};});

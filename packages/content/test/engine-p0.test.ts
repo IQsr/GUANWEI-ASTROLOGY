@@ -9,7 +9,7 @@ import { Rule, runRule } from '../src/rule';
 import { CARDS, cardsFor, type Card } from '../src/card';
 import focused from '../src/cards/palace-focused.json';
 import remaining from '../src/cards/palace-remaining.json';
-import fixtures from '../../../apps/web/test/fixtures/palace-before.json';
+import fixtures from '../../../apps/web/test/fixtures/sample-charts.json';
 import previews from '../../../apps/web/src/lib/free-ming-preview.json';
 
 const charts=fixtures.filter((f)=>['TL','A','C'].includes(f.id)).map((f)=>{const r=cast(f.input as BirthInput);if(!r.ok)throw Error(r.message);return r.value;});

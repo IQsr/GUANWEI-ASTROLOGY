@@ -6,7 +6,7 @@ import { markBook } from '@/lib/zhu';
 import { paragraphCitations } from '@/lib/paragraph-citations';
 import { englishChapters } from '@/lib/english';
 import { japaneseChapters } from '@/lib/japanese';
-import fixtures from './fixtures/palace-before.json';
+import fixtures from './fixtures/sample-charts.json';
 
 const names = ['命宮', '兄弟', '夫妻', '子女', '財帛', '疾厄', '遷移', '僕役', '官祿', '田宅', '福德', '父母'];
 it('三組完整成書都有十二段編輯建議；存讀、繁簡、每段單據與完整原版英日保留', () => {

@@ -1,7 +1,3 @@
-import {afterAll as historicalAfterAll} from 'vitest';
-/* 樣本書存檔鎖：用刪句表之前嘅星性原文生成（packages/content/src/baseblock-data.ts `HISTORICAL_BASE`） */
-vi.hoisted(()=>{process.env.GUANWEI_HISTORICAL_BASE='1';});
-historicalAfterAll(()=>{delete process.env.GUANWEI_HISTORICAL_BASE;});
 import { expect, it, vi } from 'vitest';
 import { cast, type BirthInput } from '@guanwei/ziwei';
 import { bookChapters, citesFor, localizeMarked } from '@/lib/mingshu';
@@ -12,34 +8,32 @@ import { markBook } from '@/lib/zhu';
 import { chapterDrafts, readingContentVersion } from '@/lib/chengshu';
 import { PALACE_READER_SLUGS } from '@guanwei/content/ming-version';
 import { paragraphCitations } from '@/lib/paragraph-citations';
-import fixtures from './fixtures/palace-before.json';
+import fixtures from './fixtures/sample-charts.json';
 
 const books = fixtures.map((f) => {
   const input = f.input as BirthInput; const result = cast(input); if (!result.ok) throw Error(result.message);
-  return { before: f.saved as { slug: string; text: string; slots: string[]; reading?: ChapterReading }[],
+  return {
     now: bookChapters(result.value, { seed: f.seed, year: 2026, solar: input.solar, place: input.place.label })! };
 });
 
-it('十一宮新正文存完整原版快照；英日與舊書逐字相同，免費章版本不混用', () => {
+/* 2026-11-12：舊版書刪晒，唔再同舊存檔比；英日照讀成書時存低嘅原版快照（internationalSnapshot）。 */
+it('十一宮新正文存完整原版快照；英日讀快照，免費章版本不混用', () => {
   for (const b of books) {
-    const frozen = JSON.stringify(b.before);
     const palaces = b.now.filter((c) => PALACE_READER_SLUGS.some((p) => p === c.slug));
     expect(palaces).toHaveLength(11);
     for (const c of palaces) {
-      const old = b.before.find((p) => p.slug === c.slug)!;
-      expect(c.text).not.toBe(old.text);
       expect(c.reading?.writer).toBe('palace-reader-v1');
-      expect(c.reading?.internationalSnapshot).toEqual({ text: old.text, slots: old.slots });
+      const snap = c.reading!.internationalSnapshot!;
+      expect(snap.text.length).toBeGreaterThan(0);
+      expect(snap.slots.every((s) => typeof s === 'string')).toBe(true);
+      expect(c.text).not.toBe(snap.text);
+      const old = { slug: c.slug, title: c.title, text: snap.text, slots: snap.slots };
       expect(readingOf(JSON.parse(JSON.stringify(c.reading)), c.text)).toEqual(c.reading);
       expect(englishChapters([c])).toEqual(englishChapters([old]));
       expect(japaneseChapters([c])).toEqual(japaneseChapters([old]));
     }
-    expect(JSON.stringify(b.before)).toBe(frozen);
     expect(b.now.find((c) => c.slug === '命宮')?.reading?.writer).toBe('reader-backed-v1');
     expect(b.now.find((c) => c.slug === '性格的骨架')?.reading?.writer).toBe('reader-backed-v1');
-    for (const c of b.now.filter((p) => !PALACE_READER_SLUGS.some((s) => s === p.slug) && !['命宮', '性格的骨架', '一生十二步'].includes(p.slug))) {
-      expect(c.text).toBe(b.before.find((p) => p.slug === c.slug)!.text);
-    }
     expect(b.now.find((c) => c.slug === '一生十二步')?.reading?.writer).toBe('life-steps-reader-v2');
     for (const d of chapterDrafts(b.now, readingContentVersion('test'))) if (PALACE_READER_SLUGS.some((p) => p === d.slug)) {
       expect(d.reading?.writer).toBe('palace-reader-v1');

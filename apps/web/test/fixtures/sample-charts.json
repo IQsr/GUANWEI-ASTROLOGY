@@ -1,0 +1,68 @@
+[
+  {
+    "id": "TL",
+    "input": {
+      "solar": {
+        "y": 1990,
+        "m": 3,
+        "d": 21
+      },
+      "time": {
+        "h": 14,
+        "min": 20
+      },
+      "tz": "Asia/Hong_Kong",
+      "place": {
+        "lng": 114.17,
+        "lat": 22.32,
+        "label": "香港"
+      },
+      "sex": "female"
+    },
+    "seed": "sample"
+  },
+  {
+    "id": "A",
+    "input": {
+      "solar": {
+        "y": 1992,
+        "m": 9,
+        "d": 12
+      },
+      "time": {
+        "h": 19,
+        "min": 41
+      },
+      "sex": "male",
+      "tz": "Australia/Sydney",
+      "place": {
+        "lng": 151.2093,
+        "lat": -33.8688,
+        "label": "悉尼"
+      }
+    },
+    "seed": "trilingual-review-2026-10-21-A"
+  },
+  {
+    "id": "C",
+    "input": {
+      "solar": {
+        "y": 2012,
+        "m": 4,
+        "d": 20
+      },
+      "time": {
+        "h": 13,
+        "min": 29
+      },
+      "sex": "female",
+      "tz": "America/New_York",
+      "place": {
+        "lng": -74.006,
+        "lat": 40.7128,
+        "label": "紐約"
+      }
+    },
+    "seed": "trilingual-review-2026-10-21-C"
+  }
+]

@@ -10,7 +10,7 @@ import audit from '../src/cards/engine-p1-cross-review.json';
 import p1a from '../src/cards/engine-p1a-review.json';
 import p1b from '../src/cards/engine-p1b-review.json';
 import deep from '../../../tools/wang-reference/deep-index.json';
-import fixtures from '../../../apps/web/test/fixtures/palace-before.json';
+import fixtures from '../../../apps/web/test/fixtures/sample-charts.json';
 import previews from '../../../apps/web/src/lib/free-ming-preview.json';
 const hash=(r:unknown)=>createHash('sha256').update(JSON.stringify(r)).digest('hex');
 const samples=Object.fromEntries(fixtures.filter((f)=>['TL','A','C'].includes(f.id)).map((f)=>{const r=cast(f.input as BirthInput);if(!r.ok)throw Error(r.message);return[f.id,{chart:r.value,sex:f.input.sex as 'male'|'female'}];}));

@@ -5,7 +5,7 @@ import { referencePresentation } from '@/lib/reference-presentation';
 import { bookChapters, citesFor } from '@/lib/mingshu';
 import { markBook } from '@/lib/zhu';
 import { readingSegments } from '@/lib/chapter-reading';
-import samples from './fixtures/palace-before.json';
+import samples from './fixtures/sample-charts.json';
 import fixtures from '../src/lib/free-ming-preview.json';
 
 const castChart=(input:unknown) => {const c=cast(input as BirthInput);if(!c.ok)throw Error(c.message);return c.value;};

@@ -5,7 +5,7 @@ import {bookChapters,citesFor,localizeMarked} from '@/lib/mingshu';
 import {markBook} from '@/lib/zhu';
 import {readingSegments,readingOf} from '@/lib/chapter-reading';
 import {referencePresentation} from '@/lib/reference-presentation';
-import samples from './fixtures/palace-before.json';
+import samples from './fixtures/sample-charts.json';
 const chart=(id:string)=>{const f=samples.find(f=>f.id===id)!;const c=cast(f.input as BirthInput);if(!c.ok)throw Error(c.message);return c.value;};
 const read=(c:Chart,p:string)=>palaceNarrative(c,p,2026,palaceReading(c,p,2026)!);
 const book=(id:string)=>{const f=samples.find(f=>f.id===id)!;return bookChapters(chart(id),{seed:f.seed,year:2026,solar:f.input.solar,place:f.input.place.label})!;};

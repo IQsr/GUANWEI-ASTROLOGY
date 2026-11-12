@@ -10,7 +10,7 @@ import {ConditionSchema} from '../src/rule';
 import data from '../src/cards/engine-p1b-rules.json';
 import deep from '../../../tools/wang-reference/deep-index.json';
 import initial from '../../../tools/wang-reference/initial-index.json';
-import fixtures from '../../../apps/web/test/fixtures/palace-before.json';
+import fixtures from '../../../apps/web/test/fixtures/sample-charts.json';
 import p1aReview from '../src/cards/engine-p1a-review.json';
 const rows=Object.fromEntries(fixtures.filter((f)=>['TL','A','C'].includes(f.id)).map((f)=>{const c=cast(f.input as BirthInput);if(!c.ok)throw Error(c.message);return[f.id,{chart:c.value,sex:f.input.sex as 'male'|'female'}];}));
 const report=(id:string)=>analyzeNextBatch(rows[id]!.chart,{birthSex:rows[id]!.sex});

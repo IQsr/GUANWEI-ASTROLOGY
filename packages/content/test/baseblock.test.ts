@@ -23,7 +23,6 @@ import {
   withoutCitations,
   lexiconOf,
 } from '../src/index';
-import { BASE_CUTS, HISTORICAL_BASE, RAW_BASE_ROWS, applyBaseCuts } from '../src/baseblock-data';
 
 const PAL = ['命宮', '兄弟', '夫妻', '子女', '財帛', '疾厄', '遷移', '僕役', '官祿', '田宅', '福德', '父母'];
 
@@ -250,32 +249,3 @@ describe('宮位基塊唔講「廟旺時⋯落陷時⋯」兩頭（2026-10-13）
   });
 });
 
-/**
- * 刪句表（2026-11-11 英文審稿）：同一格前文已講過嘅重述句，載入時刪走；原文照留。
- * 樣本書存檔鎖用 `GUANWEI_HISTORICAL_BASE=1` 照舊生成，所以呢度要確保：
- * 刪句表每條都對得上原文、只係刪走嗰一句、而平時（冇開舊版開關）真係刪咗。
- */
-describe('刪句表', () => {
-  it('每條刪句喺原文剛好出現一次，刪完只少咗嗰句', () => {
-    expect(HISTORICAL_BASE).toBe(false);
-    expect(BASE_CUTS).toHaveLength(30);
-    const raw = new Map(RAW_BASE_ROWS.map((r) => [r.id, r.body]));
-    for (const c of BASE_CUTS) {
-      const body = raw.get(c.id);
-      expect(body, c.id).toBeTruthy();
-      expect(body!.split(c.cut).length, `${c.id}「${c.cut}」`).toBe(2);
-      expect(c.cut, c.id).toMatch(/^[^。！？]+[。！？]$/);
-    }
-    for (const b of BASE_BLOCKS) {
-      const cuts = BASE_CUTS.filter((c) => c.id === b.id);
-      let expected = raw.get(b.id)!;
-      for (const c of cuts) expected = expected.replace(c.cut, () => '');
-      expect(b.body, b.id).toBe(expected);
-      for (const c of cuts) expect(b.body.includes(c.cut), b.id).toBe(false);
-    }
-  });
-
-  it('原文改咗、刪句對唔上就 throw，唔會靜靜雞跳過', () => {
-    expect(() => applyBaseCuts([{ id: BASE_CUTS[0]!.id, body: '改過嘅原文。' }])).toThrow('刪句表對唔上原文');
-  });
-});

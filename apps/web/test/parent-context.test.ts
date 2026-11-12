@@ -4,7 +4,7 @@ import { citation,palaceReading,palaceNarrative } from '@guanwei/content';
 import { bookChapters,citesFor } from '@/lib/mingshu';
 import { markBook } from '@/lib/zhu';
 import { readingSegments } from '@/lib/chapter-reading';
-import samples from './fixtures/palace-before.json';
+import samples from './fixtures/sample-charts.json';
 
 const fixture=samples.find(s=>s.id==='A')!;
 const chart=()=>{const c=cast(fixture.input as BirthInput);if(!c.ok)throw Error(c.message);return c.value;};
