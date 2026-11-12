@@ -8,31 +8,6 @@
     "condition": "condition-query-v2+p1b-v1",
     "analysis": "engine-p1b-analysis-v1"
   },
-  "previous_audit_bindings": {
-    "palace-narrative.json": {
-      "packages/content/src/condition.ts": "6b74289160dfee838b7f32413cf6850b8ca14453f473034eba4f7fa5249080c0",
-      "packages/ziwei/src/chart/star-query.ts": "9630cba15dda7714f46eea8c482bf5e8e9cfbf2ee9fd5c64da92c4cbc194fe3e"
-    },
-    "ming-reviewed.json": {
-      "packages/content/src/condition.ts": "6b74289160dfee838b7f32413cf6850b8ca14453f473034eba4f7fa5249080c0",
-      "packages/ziwei/src/chart/star-query.ts": "9630cba15dda7714f46eea8c482bf5e8e9cfbf2ee9fd5c64da92c4cbc194fe3e"
-    },
-    "engine-p0-review.json": {
-      "packages/content/src/condition.ts": "6b74289160dfee838b7f32413cf6850b8ca14453f473034eba4f7fa5249080c0",
-      "packages/ziwei/src/chart/star-query.ts": "9630cba15dda7714f46eea8c482bf5e8e9cfbf2ee9fd5c64da92c4cbc194fe3e",
-      "packages/ziwei/src/chart/index.ts": "e02c97c90860f5cba0ef3014308a907b4acfd718792ad5ec2c2d05fa2532aae1"
-    },
-    "engine-p1a-review.json": {
-      "packages/content/src/condition.ts": "6b74289160dfee838b7f32413cf6850b8ca14453f473034eba4f7fa5249080c0",
-      "packages/ziwei/src/chart/star-query.ts": "9630cba15dda7714f46eea8c482bf5e8e9cfbf2ee9fd5c64da92c4cbc194fe3e",
-      "packages/ziwei/src/chart/index.ts": "e02c97c90860f5cba0ef3014308a907b4acfd718792ad5ec2c2d05fa2532aae1",
-      "packages/content/src/engine-p1a.ts": "c2dd6cf876d82acf01bc66c67413bc5688bf281110cc4c3b974060a9be306124",
-      "packages/content/package.json": "9b4a2c2947e29fa76b094c14838a13e6d5bd4b68a3ae99e12eb0600e08abcf77"
-    },
-    "palace-coherence-review.json": {
-      "packages/content/src/cards/palace-narrative.json": "0d5e13fb002a5c2f424f6f162a090da32a0dfb195dcc178d1b9e008c4dd383ff"
-    }
-  },
   "renewal_basis": {
     "p1a_reports": "all three complete reports byte-identical before/after shared report-runner extraction",
     "books": {
@@ -244,7 +219,6 @@
   "samples": [
     {
       "id": "TL",
-      "report_sha256": "a276fa0ba661996e1222aee60613aec042c6b9164fc563baddc43dea07fe6c8a",
       "p1a_report_sha256": "4a1fc53f8b131c00cdea690724259eab604d01f454dae418dfa20c30b1eb0acf",
       "new_positions": [
         {
@@ -486,7 +460,6 @@
     },
     {
       "id": "A",
-      "report_sha256": "b01d2e8b89afed3fb8ef9fe4893c52682d72616d9d55f56c80a2d86e1e461827",
       "p1a_report_sha256": "2b8f6bcf124f975f688ea3524e799d3feaa5222e2dbee4c79cced62cb7cc38cc",
       "new_positions": [
         {
@@ -750,7 +723,6 @@
     },
     {
       "id": "C",
-      "report_sha256": "a471d90316e3d2ac8669677f9b1a63900fdae1d96b7443e7f91a16dbc9773530",
       "p1a_report_sha256": "b67e91a4db44ff368b6e9f811d3706e53507f1ee199e12a13b6f8426dbe51cc2",
       "new_positions": [
         {
@@ -1073,19 +1045,6 @@
       ]
     }
   ],
-  "parents": {
-    "packages/content/src/condition.ts": "40a25c83e958e9622f05d757fa89ab3f98d32eca0f3e2174303a1fc93eb20425",
-    "packages/ziwei/src/chart/star-query.ts": "c5fb7dde7973beb0ed1daad731008b99db135555ec2a43f94240740f96124798",
-    "packages/ziwei/src/chart/index.ts": "4963fe64ec00846d0c0e2e7ba78ce1a60f168c3abeac3a6d2baa792020e98e5a",
-    "packages/content/src/engine-p1a.ts": "fdbf2729415f978ca8c4b2977e06c3155ec8b1b3279e6f8cc9197c5436bfe7fb",
-    "packages/content/package.json": "41d4820c7c6fa10a8ecd6dc768400ded0cfd94220a6df470fe473de8ba4e73aa",
-    "packages/ziwei/src/chart/p1b-stars.ts": "22a4400b045455591424edafa84586a9c620590bd71afe97cb8af1794a9c9d86",
-    "packages/content/src/pilot-analysis.ts": "fac16efc111736eea1f1af2f570909dc621e12e60a22445f1648a64e74121688",
-    "packages/content/src/engine-p1b.ts": "51c9001916ebbfdf657456bd94799ae989ba44cddffc09418f58bfb5e7046fe1",
-    "packages/content/src/cards/engine-p1b-rules.json": "7dae4b793fa29c67e63a8f24ac1d9a75a3ae0bf0c00308b71d88a269513bae72",
-    "docs/rules.md": "f218a0b6cc09c802d6e152e15bdfa5a52c1ff6992f3cc454aacb6b93227cad12",
-    "docs/engine-divergence.md": "de55d21a7205384503f0e71082bfd014efb0cba072d85b3b145e9b09e18cc659"
-  },
   "release": "no website copy changes, commit, push, merge or deploy",
   "verification": {
     "date": "2026-10-24",

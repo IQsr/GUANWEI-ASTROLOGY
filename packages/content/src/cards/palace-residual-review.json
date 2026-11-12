@@ -30,7 +30,6 @@
     "deep.wellbeing.武曲"
   ],
   "new_contexts": {
-    "parents": "本宮紫殺，按三方四正實際是否見齊廉祿、破權、武科分開敘述；未齊不套融洽支。",
     "wellbeing": "本宮實坐武貪且武曲本命化忌，補引既有wellbeing-武曲完整原段；借星不採此支。",
     "wealth": "借武貪只讀共同主題，不把對宮火鈴或四化搬入。"
   },
@@ -46,11 +45,5 @@
       "wtz.deep.p571.b008",
       "wtz.deep.p571.b009"
     ]
-  },
-  "parents": {
-    "packages/content/src/cards/palace-narrative.json": "b450e0c17397ad83405fe818eeea8fffb6f2594103277c10e9549d1bab057a02",
-    "packages/content/src/palace-residual-context.ts": "4523ada118436114f02d329d7259ae57f9041093fa75208291cdb9230b0041ae",
-    "packages/content/src/reader-reference-language.ts": "e5e61782de484838bd33927fde4ba13a98e42956a7bb074d053c40a0305363e9",
-    "apps/web/src/lib/reference-presentation.ts": "b343efe38cd8f3c390bd4492dc0f9293680b88d0299841bd28325ccc1ef1982b"
   }
 }

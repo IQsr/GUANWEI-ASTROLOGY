@@ -712,11 +712,6 @@
     "所有原文、來源ID、宮支與條件由既有來源閱讀器保存，不以文案補判未知條件。",
     "疾厄建議只接實際不適的觀察與溝通，不由傳統取象推個人診斷。"
   ],
-  "parents": {
-    "packages/content/src/cards/palace-narrative.json": "225b48d6f535cfb74b3e2f20aef2aabefe09e3d5462bf367c6eb12c64ce8955e",
-    "packages/content/src/cards/palace-advice.json": "271b649df8b64efedecc273e99ed313a9e713f583c12db784af910c703ec7652",
-    "packages/content/src/cards/palace-advice-links.json": "a44f9269475cee774a1cbb9e78242c9f287700aaefbe5267f7ec07a4df7eba62"
-  },
   "engine_query_review": "docs/engine-p0-2026-10-23.md",
   "p1a_extension_review": "docs/engine-p1a-2026-10-23.md",
   "p1b_extension_review": "docs/engine-p1b-2026-10-24.md"

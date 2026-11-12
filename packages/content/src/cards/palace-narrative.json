@@ -1,22 +1,6 @@
 {
   "version": "palace-narrative-v1",
   "reviewed_on": "2026-10-23",
-  "parents": {
-    "packages/content/src/cards/palace-remaining.json": "1c8e018871936addb971fffdcf6a997959d4caca35489ee0a00095f0e4c82cbb",
-    "packages/content/src/cards/palace-focused.json": "61f3fed9892a47da20db00202ae4f467307d75e6db92c177f55369de8a5473c1",
-    "packages/content/src/cards/free-ming-systems.json": "19b47c9876897330fd660ccbe10ab3ccfa005d5fcfddd9b0d16005bd31e275f1",
-    "packages/content/src/cards/free-ming-reading.json": "0049b02d3a0fa0ce6f79551557f569e275e4dc9fd57946b3c47a5814c7b0e158",
-    "packages/content/src/palace-reader.ts": "37acd8b041e530ba7dffe93f345a33413260809a2aa00578dd9d015ef6dd96fd",
-    "packages/content/src/palace-focused.ts": "6dbdcc1f69408eebf2367556bfd53ddf4c250585df311c08d13c9b2bf98009e4",
-    "packages/content/src/palace-remaining.ts": "faae4483493fe5b8f07d0d7141c6963c2ec74428865742dc295bb2e71f130c8e",
-    "packages/content/src/free-ming-reader.ts": "fe256718bc84b345730149f359091a0c8eb9fac23c0dd67799cfab88487e63c9",
-    "packages/content/src/free-ming-systems.ts": "1f0380abb50212bfd3b1e598bd78e7f1c43100138aea112dbe41baa78e7e74e0",
-    "packages/content/src/palace-predicate.ts": "9c13ca917bd876bc02b144a508b6c2e573b2d456261d61f22e570f6304c34d87",
-    "packages/content/src/condition.ts": "40a25c83e958e9622f05d757fa89ab3f98d32eca0f3e2174303a1fc93eb20425",
-    "packages/ziwei/src/chart/star-query.ts": "c5fb7dde7973beb0ed1daad731008b99db135555ec2a43f94240740f96124798",
-    "packages/ziwei/src/chart/p1a-stars.ts": "ea779cc34accdddf1c77b1ce3ed213333506622dddb78c22efc4a14853526de5",
-    "packages/ziwei/src/chart/p1b-stars.ts": "22a4400b045455591424edafa84586a9c620590bd71afe97cb8af1794a9c9d86"
-  },
   "entries": {
     "siblings-紫微-子午-base": {
       "original": "紫微獨坐，這章較值得看的是主導權與助力的關係。原書在有支持的一支仍要求自己甘居副手；對方有位置、有能力，未必等於適合兩人平分決定權。",

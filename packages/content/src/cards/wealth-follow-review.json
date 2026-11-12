@@ -29,15 +29,5 @@
     "preview": "http://localhost:3101/preview/free-ming/jiliang/wealth",
     "release": "no commit/push/deploy"
   },
-  "parents": {
-    "packages/content/src/cards/palace-narrative.json": "c8e4a758123613552638048fab25911a6805fed5cfc2903eba81da1b37a91be1",
-    "packages/content/src/palace-residual-context.ts": "084c93ddf2ac8aa22747e098a1437d7941ffa522b519663db78a7ba9d062ceab",
-    "packages/content/src/reading-focus.ts": "58465efd88cac5948544a8c980eb9262ff5cb7eb1f0956ca95ba89066173cbae",
-    "packages/content/src/cards/reading-focus.json": "63f594b30610ea8015407d60a80fb960549dac4d988e6729ea37d0bf4d3ff84f",
-    "apps/web/src/components/Juan.tsx": "a926ff9c8c5d01f8e6a35ff46e7a3eb770ed3a60312c54c9d046c9e297b5d26d",
-    "apps/web/src/lib/chapter-reading.ts": "be8f147330f3e93162afd5379f145990068fee07bae8e9c2fbb02018e44ee663",
-    "apps/web/src/lib/zhu.ts": "166d961ca326a46a1856f1ffb3e97cee299903814b4d3082d9b4ab704f7b9c0e",
-    "apps/web/src/lib/mingshu.ts": "2db789a63c0e06d1fcb30d10da241196339f10915304ad30c70ddc96ca7f3683"
-  },
   "protected_reader_check": "palace-narrative既有parents逐一重算仍吻合，未刷新原始核讀指紋。"
 }

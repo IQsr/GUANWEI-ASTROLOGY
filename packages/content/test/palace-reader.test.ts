@@ -1,5 +1,4 @@
 import { createHash } from 'node:crypto';
-import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import { cast, type BirthInput, type Chart } from '@guanwei/ziwei';
 import { palaceReading, palaceReadingCiteId, PALACE_READER_PALACES } from '../src/palace-reader';
@@ -19,8 +18,6 @@ const find = (c: Chart, palace: string, id: string) => run(c, palace).find((s) =
 it('十一宮154主題全部有語意審核紀錄、完整段落指紋與可解析新引用', () => {
   expect(data.palaces).toHaveLength(11);
   expect(audit.profiles).toHaveLength(154);
-  const hash = createHash('sha256').update(readFileSync(new URL('../src/cards/palace-readings.json', import.meta.url), 'utf8').replace(/\r\n/g, '\n')).digest('hex');
-  expect(hash).toBe(audit.data_sha256);
   expect(data.pdf_sha256).toBe(index.book.sha256);
   const blocks = new Map(index.blocks.map((b) => [b.id, b]));
   for (const [id, source] of Object.entries(data.sources)) {

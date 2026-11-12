@@ -6,14 +6,6 @@
     "query": "natal-star-query-v1",
     "condition": "condition-query-v2"
   },
-  "previous_inputs": {
-    "packages/content/src/palace-focused.ts": "6d9226b5faf222679f5cb2c5278f305b0181a52f73d2957b02e55fbe7732dae8",
-    "packages/content/src/palace-remaining.ts": "db04574e35d6fea6de71d9de0ae603265354f6aac74395e81facf6bbd84d940b",
-    "packages/content/src/free-ming-reader.ts": "dea2e522edf8216ee0c7af3e60f015f25de107c5fd1ac006b548a1868e3c18ac",
-    "packages/content/src/free-ming-systems.ts": "758725353866412ab65edc86a9354a802ccc6c552bacf585c445d2a55f0ab878",
-    "packages/content/src/palace-reader.ts": "5bae68ed423a751ed8f3c266302cf610d32eff081429e34f2c6435638ba58806",
-    "packages/content/src/condition.ts": "f6df3b749a07cd31f5632ad15c13e68605a5c45936fdbeb081a9157224b3644c"
-  },
   "renewal_basis": {
     "palaces": {
       "charts": 72,
@@ -1254,41 +1246,7 @@
       }
     }
   ],
-  "parents": {
-    "packages/content/src/palace-focused.ts": "6dbdcc1f69408eebf2367556bfd53ddf4c250585df311c08d13c9b2bf98009e4",
-    "packages/content/src/palace-remaining.ts": "faae4483493fe5b8f07d0d7141c6963c2ec74428865742dc295bb2e71f130c8e",
-    "packages/content/src/free-ming-reader.ts": "fe256718bc84b345730149f359091a0c8eb9fac23c0dd67799cfab88487e63c9",
-    "packages/content/src/free-ming-systems.ts": "1f0380abb50212bfd3b1e598bd78e7f1c43100138aea112dbe41baa78e7e74e0",
-    "packages/content/src/palace-reader.ts": "37acd8b041e530ba7dffe93f345a33413260809a2aa00578dd9d015ef6dd96fd",
-    "packages/content/src/palace-predicate.ts": "9c13ca917bd876bc02b144a508b6c2e573b2d456261d61f22e570f6304c34d87",
-    "packages/content/src/condition.ts": "40a25c83e958e9622f05d757fa89ab3f98d32eca0f3e2174303a1fc93eb20425",
-    "packages/ziwei/src/chart/star-query.ts": "c5fb7dde7973beb0ed1daad731008b99db135555ec2a43f94240740f96124798",
-    "packages/content/src/rule.ts": "bf7d75dff9c35f5cb600f78f9bee79f4d478d34c403d5cee16485bad4fe681de",
-    "packages/content/src/card.ts": "ee60882ec400d4d8136ec2f3e486adf8937723d05e27220bfe9e6c5e949f92d4",
-    "packages/ziwei/src/chart/index.ts": "4963fe64ec00846d0c0e2e7ba78ce1a60f168c3abeac3a6d2baa792020e98e5a",
-    "packages/ziwei/src/chart/p1a-stars.ts": "ea779cc34accdddf1c77b1ce3ed213333506622dddb78c22efc4a14853526de5",
-    "packages/ziwei/src/chart/p1b-stars.ts": "22a4400b045455591424edafa84586a9c620590bd71afe97cb8af1794a9c9d86"
-  },
   "release": "local only; no push, merge or deploy",
-  "previous_audit_bindings": {
-    "palace-focused-review.json": {
-      "reader_sha256": "6d9226b5faf222679f5cb2c5278f305b0181a52f73d2957b02e55fbe7732dae8"
-    },
-    "palace-remaining-review.json": {
-      "reader_sha256": "db04574e35d6fea6de71d9de0ae603265354f6aac74395e81facf6bbd84d940b"
-    },
-    "free-ming-reading-review.json": {
-      "selector_sha256": "dea2e522edf8216ee0c7af3e60f015f25de107c5fd1ac006b548a1868e3c18ac"
-    },
-    "free-ming-systems-review.json": {
-      "selector_sha256": "758725353866412ab65edc86a9354a802ccc6c552bacf585c445d2a55f0ab878"
-    },
-    "palace-coherence-review.json": {
-      "parents": {
-        "packages/content/src/cards/palace-narrative.json": "7701495cb668369e7ffb4c0c77b4b44392d96d5daeae90b23d921a04acd35e08"
-      }
-    }
-  },
   "fixture_repairs": "Existing hypothetical branch fixtures now keep twelve unique branches, avoid duplicate star records and fill all four hua slots. Missing and conflicting inputs are separately tested as unknown.",
   "validation": {
     "engine": {

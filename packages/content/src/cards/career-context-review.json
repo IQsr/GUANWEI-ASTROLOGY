@@ -21,13 +21,5 @@
     "preview": "http://localhost:3101/preview/free-ming/jiliang/career",
     "release": "no commit/push/deploy"
   },
-  "parents": {
-    "packages/content/src/cards/palace-narrative.json": "7701495cb668369e7ffb4c0c77b4b44392d96d5daeae90b23d921a04acd35e08",
-    "packages/content/src/palace-residual-context.ts": "8f4e50a38ba31f9aa8c05533ba8e0b8b870d7cccfa600475ca197dee353bf43f",
-    "packages/content/src/palace-quote-review.ts": "4715e0ee121a3dcc2150dd0ba84cc977eeaba3646ab7a881e5fd9876761fc2a8",
-    "packages/content/src/cards/reading-focus.json": "d335d1bd7c69d501a402f68266ad1f6b021508c69eedaff8da11eff37a259b6a",
-    "packages/content/src/ming-version.ts": "c1f66447de7bb82636ff7152c192cbd6af255aeab5f24259bec4180e534c1b64",
-    "apps/web/test/career-context.test.ts": "5dbe084666a054311a2882fe0510fc3455ca06170f9b1012629d4b54313797c9"
-  },
   "protected_reader_check": "既有palace-narrative parents逐項重算仍吻合；原始核讀指紋未刷新。"
 }

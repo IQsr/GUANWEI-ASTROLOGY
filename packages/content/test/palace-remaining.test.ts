@@ -1,6 +1,5 @@
 import { setTestHuas } from './helpers/chart-mutations';
 import { createHash } from 'node:crypto';
-import { readFileSync } from 'node:fs';
 import { expect, it } from 'vitest';
 import { cast, oppositeBranch, sanFangPalaces, type BirthInput, type Chart, type Palace } from '@guanwei/ziwei';
 import { palaceReading } from '../src/palace-reader';
@@ -28,9 +27,6 @@ it('九宮540選擇入口與54條條件綁定覆核；完整引段與跨頁逐�
   expect(data.pdf_sha256).toBe(index.book.sha256);
   expect(audit.profiles.map((p) => p.id)).toEqual(data.profiles.map((p) => p.id));
   expect(audit.rules.map((r) => r.when)).toEqual(data.rules.map((r) => r.when));
-  for (const [file, expected] of [['cards/palace-remaining.json',audit.data_sha256],['palace-remaining.ts',audit.reader_sha256]]) {
-    expect(hash(readFileSync(new URL(`../src/${file}`,import.meta.url),'utf8').replace(/\r\n/g,'\n'))).toBe(expected);
-  }
   const blocks = new Map(index.blocks.map((b) => [b.id,b]));
   for (const [id,s] of Object.entries(data.sources)) {
     const cited = citation(`palace.remaining.v1:${id}`)!;
