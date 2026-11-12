@@ -14,37 +14,31 @@ This chart is your own base map, and it doesn't change over your lifetime. Every
 
 ## 命宮
 
-### Who you are
+### How much you want, and what you want
 
-Tan Lang in Zi or Wu (two of the twelve positions on the chart) is read through desire: first its strength, then what it seeks.
+Your desires are strong: you go after what you want, and you're good at socialising. Wanting a lot does not necessarily mean that every desire is equally strong.
 
-Material desire and emotional desire point in different directions and should not be treated as one need.
+### Distinctions to make when reading these stars
 
-The source does not prefer ever stronger desire; both excess and deficiency have limits, and balance matters.
+The book first separates strong desires from weak ones, then material desires from romantic ones; it also warns that desires can fall out of balance when they are either too strong or too weak.
 
-Balance also has a direction: emotional and material desires can differ, so one overall strength label is insufficient.
+### Advice for you (editorial)
 
-### How you relate to people
-
-Social exchange is one side of this pattern; the source connects it to material pursuit rather than every form of cultural companionship.
-
-### What the chart shows
-
-Who you are: your Life Palace holds Tan Lang in the Wu position.
+If you want to take something further, you can first set a milestone you can reach. When you need others to work with you, first agree on who is responsible for what, rather than making the pace of progress depend entirely on you. Ling Xing (Bell) also sits in this palace. Before an important decision, give yourself a little extra time; if something has to be decided quickly, check the key details first.
 
 ## 性格的骨架
 
-Your desires run light: you don't compete and aren't easily led by wanting — watch that you don't back off too quickly when you meet resistance.
+### Evidence from your chart
 
-Your Life Palace sits in Wu (one of the twelve positions on the chart), shaped by Tan Lang (the Wolf). Tan Lang's true nature is desire: wanting, and wanting something specific. Where desire is strong, it matters whether it leans towards possessions or towards romance; whether Zi Wei (the Emperor) in the opposite palace has support strengthens or tempers it.
+Your Life Palace holds Tan Lang (the Wolf) in Wu (one of the twelve positions on the chart).
 
-You lean more towards light desire than strong desire, since your chart has Tan Lang sharing a palace with Ling Xing (Bell).
+### Star groupings actually listed in your chart
 
-Light desire isn't a bad thing: as long as you don't sink into indulgence, when a time for striving comes, you can still achieve a great deal. With desire running low, you can still achieve a great deal in a phase that spurs you on: Qi Sha (the Warrior) or Po Jun (the Vanguard) with Abundance or Authority, Tai Yang (the Sun)–Tian Liang (the Sage) in Recognition, Lian Zhen (the Upright)–Tian Fu (the Treasury) well transformed. Those phases run roughly 32 to 41 (33–42 by Chinese reckoning, already behind you), roughly 42 to 51 (43–52 by Chinese reckoning, already behind you) and roughly 82 to 91 (83–92 by Chinese reckoning).
+Your Life Palace also holds Ling Xing (Bell).
 
-Your strength is a calm mind that takes gain and loss lightly.
+### How to read these stars together
 
-These are tendencies you were born with; how you act on them is up to you, and in the right setting they become strengths.
+Tan Lang sits alone in Zi or Wu, with Zi Wei (the Emperor) in the opposite palace and Po Jun (the Vanguard) and Qi Sha (the Warrior) in the linked palaces.
 
 ## 身宮與五行局
 

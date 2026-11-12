@@ -12,6 +12,7 @@ import {chapterDrafts,readingContentVersion} from '@/lib/chengshu';
 import {markBook} from '@/lib/zhu';
 import {leadsFromBodies} from '@/lib/wenmu';
 import {englishChapters} from '@/lib/english';
+import {enNoMing} from './helpers/en-no-ming';
 import {japaneseChapters} from '@/lib/japanese';
 import cases from '../../../docs/book-authoring-audit-2026-10-25/case-register.json';
 import holdout from './fixtures/authoring-p0-holdout.json';
@@ -49,7 +50,7 @@ it('176 audited books / 144 structures / 1728 palace rows retain exact non-P1 te
   expect(unaffected(current).map(c=>[c.slug,c.title,c.text,c.slots]),sample.id).toEqual(unaffected(previous).map(c=>[c.slug,c.title,c.text,c.slots]));
   const beforeMarked=markBook(segments(unaffected(previous))),afterMarked=markBook(segments(unaffected(current)));
   expect(afterMarked,sample.id).toEqual(beforeMarked);expect(citesFor(afterMarked),sample.id).toEqual(citesFor(beforeMarked));
-  expect(englishChapters(current),sample.id).toEqual(englishChapters(previous));expect(japaneseChapters(current),sample.id).toEqual(japaneseChapters(previous));
+  expect(enNoMing(current),sample.id).toEqual(enNoMing(previous));expect(japaneseChapters(current),sample.id).toEqual(japaneseChapters(previous));
   expect(leadsFromBodies(unaffected(current).map(c=>({...c,body:c.text}))),sample.id).toEqual(leadsFromBodies(unaffected(previous).map(c=>({...c,body:c.text}))));
   const stored=JSON.parse(JSON.stringify(chapterDrafts(current,readingContentVersion('test'))));
   for(const ch of current){

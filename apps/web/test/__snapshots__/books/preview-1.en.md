@@ -14,33 +14,35 @@ This chart is your own base map, and it doesn't change over your lifetime. Every
 
 ## 命宮
 
-### Who you are
+### Responding to your surroundings when things change
 
-For Po Jun in Yin or Shen (two of the twelve positions on the chart), resistance and accommodation in the face of change are an important distinction.
+You don't settle for how things are; when the old way stops working, you tear it down and start again. What deserves attention in your Life Palace is whether you find it easier to adapt to existing arrangements or need to break with established ways. These two responses lead to changes of different sizes, and having Po Jun (the Vanguard) in your Life Palace does not necessarily mean you often change direction.
 
-The source links stronger resistance with larger changes and stronger accommodation with smaller changes.
+### Distinctions to make when reading these stars
 
-The saddle image describes a rise, a setback and a renewed rise, rather than an uninterrupted ascent.
+Receiving support does not necessarily change your direction: some supporting stars simply strengthen your existing tendencies.
 
-Both frequent job changes and a long stay with one organisation can occur; the distinction concerns the scale of change.
+### Advice for you (editorial)
 
-### What the chart shows
-
-Who you are: your Life Palace holds Po Jun in the Shen position.
+When you have a new idea, first try one small task you can finish before deciding whether to change direction. Each time you change course, tie up the previous piece of work properly; that way your flexibility adds up to results. This palace has Po Jun turning to Authority. When an important decision calls for you to take the lead, first distinguish what you can decide yourself from what needs discussion, so leading does not become carrying everything alone.
 
 ## 性格的骨架
 
-You lean towards rebellion: you aren't afraid to tear things down and start again, and each change is a real turn.
+### Evidence from your chart
 
-Your Life Palace sits in Shen (one of the twelve positions on the chart), shaped by Po Jun (the Vanguard). Po Jun is the star of change. Among people with Po Jun, some keep switching tracks and others stay in one place to the end; the difference lies in whether its compliant side or its rebellious side weighs more.
+Your Life Palace holds Po Jun (the Vanguard) in Shen (one of the twelve positions on the chart).
 
-You lean more towards rebellion than going with the flow, since your chart has Ling Xing (Bell) in your Life Palace.
+### Star groupings actually listed in your chart
 
-When Po Jun leans towards rebellion, life's changes are bigger and the saddle-shaped rises and falls are sharper. Your fortunes run like a saddle: on the way up a sudden setback turns them down, and then they climb again; how deep the dips go depends on whether the compliant or the rebellious side is stronger.
+In your Life Palace and its linked palaces, the birth-chart transformations are: Po Jun turning to Authority in your Life Palace and Wu Qu (the General) turning to Recognition in your Travel Palace. Your Life Palace also holds Ling Xing (Bell) and Tian Ma (the Horse).
 
-Your strength is that you aren't afraid to start over; when you fall, you get back up.
+### How to read these stars together
 
-These are tendencies you were born with; how you act on them is up to you, and in the right setting they become strengths.
+Po Jun occupies Yin or Shen alone, with Wu Qu and Tian Xiang (the Minister) in the opposite palace, and Qi Sha (the Warrior) and Tan Lang (the Wolf) in the linked palaces.
+
+### Conditions you must keep in view
+
+Having both Wen Chang (a Scholar star) and Wen Qu present differs from having only one of them.
 
 ## 身宮與五行局
 

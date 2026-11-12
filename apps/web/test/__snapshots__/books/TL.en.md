@@ -14,43 +14,37 @@ This chart is your own base map, and it doesn't change over your lifetime. Every
 
 ## 命宮
 
-### The pattern and its foundations
+### Principles you keep, with room for feelings
 
-Tian Tong and Tian Liang share Yin or Shen, with no major star in the opposite palace, and meet Tian Ji and Tai Yin to form the Ji Yue Tong Liang configuration.
+You value principles and discipline, and take an orderly approach to what you do. Your Life Palace is in Shen (one of the twelve positions on the chart), with Tian Tong (the Blessed) and Tian Liang (the Sage) together; Tian Tong turns to Obstruction, and Qing Yang (the Blade) and Tuo Luo (the Weight) flank the palace. The enjoyment you want from life and the standards you won't let go of can easily pull against each other; when you have to decide whether to stay or go, or what to keep, calling yourself either feeling-led or principle-led doesn't capture this back-and-forth.
 
-Wang Tingzhi describes this Tian Tong–Tian Liang configuration as more stable than the related Ji Yue Tong Liang configuration with Tian Ji and Tai Yin in the Life Palace.
+### Linking your choices to work and saving
 
-### Where enjoyment meets principle
+Tai Yin (the Moon) in your Wealth Palace builds through planning, and it also meets Tian Tong turning to Obstruction in your Life Palace, so earning money takes real effort. Knowing how to arrange things and finding them easy to do are two different matters.
 
-Its character is read through the distinction between enjoyment or romance and principles or discipline.
+### Advice for you (editorial)
 
-That distinction affects decisions to stay or leave, so the same pair does not imply identical priorities.
-
-Tian Tong concerns emotion and Tian Liang principle, so sharing a palace still allows conflict between feeling and standards.
-
-Structural stability does not remove inner conflict; both qualities appear in the same source passage.
-
-### The possibility and conditions of balance
-
-Enjoyment and principle can also be reconciled; conflict is not the only form of this combination.
-
-How the two sides work together also depends on supporting stars, malefics, the four transformations and miscellaneous stars; one side alone cannot determine the whole character.
-
-When Tian Tong and Tian Liang share their palace with Zuo Fu and You Bi or Wen Chang and Wen Qu, the source describes a possible reconciliation of romance with principle and discipline; that reconciliation has accompanying conditions.
-
-### What the chart shows
-
-Who you are: your Life Palace holds Tian Tong and Tian Liang in the Shen position.
+When you face a choice, first work out whether what you want to protect is a principle or just one way of doing things. Methods can change; leave room for follow-up and rest after each change, and don't treat every extra effort as a sign you fell short.
 
 ## 性格的骨架
 
-You're pulled back and forth between enjoying life and keeping to principle, unable to let go of either, and the two don't reconcile easily. Your Tian Tong (the Blessed) is in Obstruction and flanked by Qing Yang (the Blade) and Tuo Luo (the Weight), the hardest arrangement of these stars for holding both sides together.
+### Evidence from your chart
 
-Your Life Palace sits in Shen (one of the twelve positions on the chart), shaped by Tian Tong and Tian Liang (the Sage). Tian Tong with Tian Liang, joined by Tian Ji (the Strategist) and Tai Yin (the Moon), forms a pure Ji Yue Tong Liang pattern. Tian Tong brings romance and Tian Liang principle, and which way you lean has a big effect on where you go and when you stay.
+Your Life Palace holds Tian Tong (the Blessed) and Tian Liang (the Sage) together in Shen (one of the twelve positions on the chart).
 
-Your Tian Tong in Obstruction has Lu Cun (the Keeper of Abundance) alongside, but there's a malefic in the palace: it's hard for you to stay with one line of work, changes come often, and settling takes extra effort. These stars meet Tian Ma (the Horse): your ideals run ahead of what is practical, so bring plans down to a concrete next step.
+### Why conflicting pulls come first here
 
-These are tendencies you were born with; how you act on them is up to you, and in the right setting they become strengths.
+Your Life Palace is in Shen, with Tian Tong and Tian Liang together; Tian Tong turns to Obstruction, with Tuo Luo (the Weight) and Qing Yang (the Blade) in the palaces on either side. The book explains this flanking separately, and it concerns wavering between enjoyment and principle. Even though Huo Xing (Fire) in the same palace brings a stronger sense of principle, the tension these special conditions point to still stays in the reading.
+
+### Lu Cun and Huo Xing, read together
+
+Lu Cun (the Keeper of Abundance) and Huo Xing are both in your Life Palace. When the book discusses Tian Tong and Tian Liang with Tian Tong turning to Obstruction, it first requires Lu Cun in the same or the opposite palace, then separates cases with and without Huo Xing, Ling Xing (Bell), Di Kong (Void) or Di Jie (Loss) in the palace; you have Huo Xing there, so the 'without' branch does not apply to you. What this branch points to is change along the way, read together with the pull between enjoyment and principle above; it does not mean you will necessarily change jobs, and Lu Cun in the palace alone does not make your path steady.
+
+### Your ideals still need practical plans behind them
+
+Your Life Palace also contains Tian Ma (the Horse). When discussing Tian Tong and Tian Liang together with Tian Ma, the book also points out a tendency for ideals to lose touch with reality.
+
+If you are considering a new direction, you can try a small part of it first, then check the time, resources and cost you are willing to bear. This is a way of observing suggested by the editor, rather than your chart deciding whether you stay or leave.
 
 ## 身宮與五行局
 

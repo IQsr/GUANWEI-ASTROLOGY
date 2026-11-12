@@ -2,7 +2,7 @@ import { En } from '@guanwei/content';
 import { paragraphs } from '@/lib/suidu';
 import { zhFor } from '@/lib/hans';
 import { isJapanese, japaneseTitle } from '@/lib/japanese';
-import { internationalBodies } from '@/lib/chapter-reading';
+import { internationalBodies, readingOf } from '@/lib/chapter-reading';
 import { internationalMing } from '@/lib/ming-international';
 import type { ChapterReading } from '@/lib/chapter-reading';
 
@@ -45,9 +45,36 @@ function withBranchNote(segs: ChapterReading['segments']): ChapterReading['segme
   });
 }
 
+/**
+ * 新版命宮、性格的骨架（reader-backed-v1，2026-11-12 英文第一批）：英文直接由成書時嘅新中文逐條 statement 譯，
+ * 唔再讀舊版快照。statement 一條對一段英文，出處記號照跟住 statement。
+ * 有一句或者一個小標題譯唔到 → 回 null，成章照舊讀快照（唔出半中半英）。日文未切換。
+ */
+function freshEnglish(ch: { text: string; reading?: unknown }, st: En.BookState): ChapterReading['segments'] | null {
+  const r = readingOf(ch.reading, ch.text);
+  if (r?.writer !== 'reader-backed-v1') return null;
+  const items = r.segments.flatMap((s) => (s.statements?.length ? s.statements.map((l) => l.text) : [s.text]));
+  if (En.renderParagraphs(items).missing.length) return null;
+  if (r.segments.some((s) => s.heading && !En.headingEn(s.heading))) return null;
+  const en = En.renderParagraphs(items, st).paras.map(plainEn);
+  let k = 0;
+  return r.segments.map((s) => {
+    const head = {
+      slot: s.slot,
+      ...(s.heading ? { heading: En.headingEn(s.heading)! } : {}),
+      ...(s.referenceDisplay ? { referenceDisplay: s.referenceDisplay } : {}),
+    };
+    if (!s.statements?.length) return { ...head, text: en[k++]! };
+    const statements = s.statements.map((l) => { const text = en[k++]!; return { ...l, text, en: text }; });
+    return { ...head, text: statements.map((l) => l.text).join(' '), statements };
+  });
+}
+
 export function englishChapters(chs: readonly { text: string; slots: readonly string[]; reading?: unknown }[]): ChapterReading['segments'][] {
   const st = En.newBookState();
   return internationalBodies(chs).map((c, i) => {
+    const fresh = freshEnglish(chs[i]!, st);
+    if (fresh) return fresh;
     const ming = internationalMing(chs[i]!, 'en');
     if (ming !== null) return withBranchNote(ming);
     const paras = paragraphs(c.text, c.slots);
