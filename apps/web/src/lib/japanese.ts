@@ -1,7 +1,7 @@
 import { Ja } from '@guanwei/content';
 import { paragraphs } from '@/lib/suidu';
 import { zhFor } from '@/lib/hans';
-import { internationalBodies } from '@/lib/chapter-reading';
+import { internationalBodies, readingOf } from '@/lib/chapter-reading';
 import { internationalMing } from '@/lib/ming-international';
 import type { ChapterReading } from '@/lib/chapter-reading';
 
@@ -24,9 +24,36 @@ export function japaneseTitle(title: string): string {
   return Ja.chapterTitleJa(title) ?? title;
 }
 
+/**
+ * 新版命宮、性格的骨架（reader-backed-v1，2026-11-12 日文第一批）：日文直接由成書時嘅新中文逐條 statement 譯，
+ * 唔再讀舊版快照。statement 一條對一段日文，出處記號照跟住 statement。
+ * 有一句或者一個小標題譯唔到 → 回 null，成章照舊讀快照（唔出半中半日）。十一宮、給你的話未切換。
+ */
+function freshJapanese(ch: { text: string; reading?: unknown }): ChapterReading['segments'] | null {
+  const r = readingOf(ch.reading, ch.text);
+  if (r?.writer !== 'reader-backed-v1') return null;
+  const items = r.segments.flatMap((s) => (s.statements?.length ? s.statements.map((l) => l.text) : [s.text]));
+  const { paras: ja, missing } = Ja.renderParagraphs(items);
+  if (missing.length) return null;
+  if (r.segments.some((s) => s.heading && !Ja.headingJa(s.heading))) return null;
+  let k = 0;
+  return r.segments.map((s) => {
+    const head = {
+      slot: s.slot,
+      ...(s.heading ? { heading: Ja.headingJa(s.heading)! } : {}),
+      ...(s.referenceDisplay ? { referenceDisplay: s.referenceDisplay } : {}),
+    };
+    if (!s.statements?.length) return { ...head, text: ja[k++]! };
+    const statements = s.statements.map((l) => ({ ...l, text: ja[k++]! }));
+    return { ...head, text: statements.map((l) => l.text).join(''), statements };
+  });
+}
+
 /** 由第一章到而家呢章（按次序），回每章嘅段落（同中文段一一對應，格名照用）。 */
 export function japaneseChapters(chs: readonly { text: string; slots: readonly string[]; reading?: unknown }[]): ChapterReading['segments'][] {
   return internationalBodies(chs).map((c, i) => {
+    const fresh = freshJapanese(chs[i]!);
+    if (fresh) return fresh;
     const ming = internationalMing(chs[i]!, 'ja');
     // 存咗嘅英日快照可能仲寫「子宮」（2026-11-11 前起嘅書）：讀出時改「子の宮」
     if (ming !== null) return ming.map((s) => ({ ...s, text: Ja.clearJa(s.text), ...(s.statements ? { statements: s.statements.map((l) => ({ ...l, text: Ja.clearJa(l.text) })) } : {}) }));
