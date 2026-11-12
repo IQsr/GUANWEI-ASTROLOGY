@@ -1,5 +1,7 @@
 # Book image assets — 2026-10-06
 
+> 2026-11-12：呢度列嘅 PNG 原檔已由 `apps/web/public/img/book/` 刪走（冇頁面用，合共約 21MB；網站只用 `.webp`）。要攞返原檔，喺 git 歷史度搵（刪除之前最後一個 commit：`f621d7d`）。
+
 Generated with the built-in image_gen tool. These are the native generated PNGs, copied into the project without resizing or recompression. The tool returned smaller dimensions than the requested approximate book/desk sizes and a larger paper tile than the requested 1024 square. Dimensions below are actual, not requested.
 
 | Asset | Public URL | Actual size | Background |

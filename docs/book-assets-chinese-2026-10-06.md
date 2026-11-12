@@ -1,5 +1,7 @@
 # Thin Chinese book variants — 2026-10-06
 
+> 2026-11-12：呢度列嘅 PNG 原檔已由 `apps/web/public/img/book/` 刪走（冇頁面用，合共約 21MB；網站只用 `.webp`）。要攞返原檔，喺 git 歷史度搵（刪除之前最後一個 commit：`f621d7d`）。
+
 Created with the built-in image_gen tool by editing the original book assets after the user requested a thinner Chinese-style book.
 
 | Asset | Public URL | Actual dimensions | Background |

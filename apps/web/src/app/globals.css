@@ -34,6 +34,9 @@
 .fanye-tai,
 .yindao {
   /* ── 紙 ── */
+  /* 命盤字級單位（2026-11-12）：跟讀者嘅字體大小設定放大，但封頂 112.5% ——
+     個盤係固定格仔，實測英文盤去到 125% 宮名會截字、150% 星名會爆出隔籬格。 */
+  --pan-u: min(1rem, 18px);
   --paper: #eee6d8;
   --paper-2: #e6dcc9;
   --paper-3: #dacdb6;
@@ -687,7 +690,7 @@
 
   .xing > .zi {
     display: block;
-    font-size: clamp(9.5px, 1.8cqi, 14px);
+    font-size: clamp(calc(var(--pan-u) * 0.59375), 1.8cqi, calc(var(--pan-u) * 0.875));
     font-weight: 500;
     line-height: 1.08;
     letter-spacing: 0;
@@ -696,16 +699,16 @@
 
   /* 英文命盤：拼音逐個音節直排（Tian／Tong），字母比漢字闊，收細少少 */
   .pan-wrap[data-lang="en"] .xing > .zi {
-    font-size: clamp(8.5px, 1.6cqi, 12.5px);
+    font-size: clamp(calc(var(--pan-u) * 0.53125), 1.6cqi, calc(var(--pan-u) * 0.78125));
     line-height: 1.12;
   }
 
   .pan-wrap[data-lang="en"] .xing[data-kind="aux"] > .zi {
-    font-size: clamp(7.5px, 1.4cqi, 11px);
+    font-size: clamp(calc(var(--pan-u) * 0.46875), 1.4cqi, calc(var(--pan-u) * 0.6875));
   }
 
   .xing[data-kind="aux"] > .zi {
-    font-size: clamp(8.5px, 1.58cqi, 12.5px);
+    font-size: clamp(calc(var(--pan-u) * 0.53125), 1.58cqi, calc(var(--pan-u) * 0.78125));
     font-weight: 300;
     color: var(--ink-2);
   }
@@ -714,7 +717,7 @@
   .miaowang {
     display: block;
     margin-top: 2px;
-    font-size: clamp(7.5px, 1.34cqi, 10.5px);
+    font-size: clamp(calc(var(--pan-u) * 0.46875), 1.34cqi, calc(var(--pan-u) * 0.65625));
     line-height: 1.25;
     color: var(--ink-3);
   }
@@ -728,7 +731,7 @@
     margin-top: 3px;
     padding: 1px 1.5px;
     border: 1px solid currentColor;
-    font-size: clamp(7px, 1.22cqi, 9.5px);
+    font-size: clamp(calc(var(--pan-u) * 0.4375), 1.22cqi, calc(var(--pan-u) * 0.59375));
     line-height: 1;
     color: var(--indigo);
   }
@@ -753,7 +756,7 @@
   }
 
   .gong-ming {
-    font-size: clamp(9px, 1.55cqi, 12px);
+    font-size: clamp(calc(var(--pan-u) * 0.5625), 1.55cqi, calc(var(--pan-u) * 0.75));
     letter-spacing: 0.04em;
     color: var(--ink-2);
   }
@@ -765,20 +768,20 @@
 
   .gong-shen {
     margin-left: 2px;
-    font-size: clamp(8px, 1.35cqi, 10px);
+    font-size: clamp(calc(var(--pan-u) * 0.5), 1.35cqi, calc(var(--pan-u) * 0.625));
     color: var(--cinnabar);
   }
 
   .gong-daxian {
     overflow: hidden;
-    font-size: clamp(7.5px, 1.28cqi, 10px);
+    font-size: clamp(calc(var(--pan-u) * 0.46875), 1.28cqi, calc(var(--pan-u) * 0.625));
     font-variant-numeric: tabular-nums;
     text-overflow: ellipsis;
     color: var(--ink-3);
   }
 
   .gong-zhi {
-    font-size: clamp(8.5px, 1.45cqi, 11.5px);
+    font-size: clamp(calc(var(--pan-u) * 0.53125), 1.45cqi, calc(var(--pan-u) * 0.71875));
     letter-spacing: 0.02em;
     color: var(--ink-3);
   }
@@ -3043,7 +3046,7 @@
     z-index: 3;
     transform: translateX(-50%);
     font-family: var(--font-sans-stack);
-    font-size: 11px;
+    font-size: 0.6875rem;
     letter-spacing: 0.2em;
     color: var(--ink-3);
     pointer-events: none;
@@ -3106,7 +3109,7 @@
   }
 
   .zhang-ti-yin > span {
-    font-size: 11px;
+    font-size: 0.6875rem;
     padding: 3px 2px;
   }
 
@@ -3957,37 +3960,37 @@
   }
 
   .shuzhuo-zuo .xing > .zi {
-    font-size: 11px;
+    font-size: calc(var(--pan-u) * 0.6875);
   }
 
   .shuzhuo-zuo .xing[data-kind="aux"] > .zi {
-    font-size: 10px;
+    font-size: calc(var(--pan-u) * 0.625);
   }
 
   .shuzhuo-zuo .miaowang,
   .shuzhuo-zuo .sihua {
-    font-size: 9px;
+    font-size: calc(var(--pan-u) * 0.5625);
   }
 
   .shuzhuo-zuo .gong-ming {
-    font-size: 10.5px;
+    font-size: calc(var(--pan-u) * 0.65625);
   }
 
   .shuzhuo-zuo .gong-zhi {
-    font-size: 10px;
+    font-size: calc(var(--pan-u) * 0.625);
   }
 
   .shuzhuo-zuo .gong-daxian {
-    font-size: 9px;
+    font-size: calc(var(--pan-u) * 0.5625);
   }
 
   /* 英文：拼音比漢字闊，細一個碼；一格四粒星准摺第二行 */
   .shuzhuo-zuo .pan-wrap[data-lang="en"] .xing > .zi {
-    font-size: 10px;
+    font-size: calc(var(--pan-u) * 0.625);
   }
 
   .shuzhuo-zuo .pan-wrap[data-lang="en"] .xing[data-kind="aux"] > .zi {
-    font-size: 9px;
+    font-size: calc(var(--pan-u) * 0.5625);
   }
 
   .shuzhuo-zuo .pan-wrap[data-lang="en"] .xing-lie {
@@ -3997,12 +4000,12 @@
   }
 
   .shuzhuo-zuo .pan-wrap[data-lang="en"] .gong-ming {
-    font-size: 9.5px;
+    font-size: calc(var(--pan-u) * 0.59375);
   }
 
   .shuzhuo-zuo .pan-wrap[data-lang="en"] .gong-zhi,
   .shuzhuo-zuo .pan-wrap[data-lang="en"] .gong-daxian {
-    font-size: 9px;
+    font-size: calc(var(--pan-u) * 0.5625);
   }
 }
 
@@ -5295,4 +5298,26 @@ select.zhou-xian {
     outline: 2px solid Highlight;
     outline-offset: 2px;
   }
+}
+
+
+/* 跳到內容：平時收埋喺畫面外，鍵盤 Tab 到先現身（2026-11-12 · Modern Web Guidance skip links）。 */
+.skip-link {
+  position: fixed;
+  top: 8px;
+  left: 8px;
+  z-index: 100;
+  padding: 0.5rem 0.875rem;
+  border: 1px solid var(--ink-3);
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-sans-stack);
+  font-size: 0.875rem;
+  transform: translateY(-200%);
+}
+
+.skip-link:focus-visible {
+  transform: none;
+  outline: 2px solid var(--indigo);
+  outline-offset: 2px;
 }

@@ -66,6 +66,7 @@ export default async function LocaleLayout({
     notFound();
   }
   setRequestLocale(locale);
+  const t = await getTranslations({ locale, namespace: 'nav' });
 
   return (
     <html lang={locale} suppressHydrationWarning>
@@ -75,10 +76,16 @@ export default async function LocaleLayout({
       </head>
       <body className="relative">
         <NextIntlClientProvider>
+          {/* 鍵盤用戶第一下 Tab 就見到，撳落去跳過頁頂導覽（Modern Web Guidance · skip links）。 */}
+          <a href="#content" className="skip-link">
+            {t('skip')}
+          </a>
           <PageFade />
           <div className="relative z-[1]">
             <SiteHeader />
-            {children}
+            <div id="content" tabIndex={-1} className="outline-none">
+              {children}
+            </div>
             <SiteFooter />
           </div>
         </NextIntlClientProvider>
