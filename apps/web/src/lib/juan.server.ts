@@ -1,9 +1,6 @@
 import 'server-only';
-import {BOOK_ANALYSIS_VERSION} from '@guanwei/content/analysis-contract';
-import {EPILOGUE_READER_VERSION} from './reader-release';
 import { supabaseServer } from '@/lib/supabase.server';
 import type { ChapterMeta, JuanPort } from '@/lib/juan-view';
-import { PALACE_READER_SLUGS, PALACE_READER_VERSION } from '@guanwei/content/ming-version';
 
 /**
  * 命書嘅真 adapter（工單 F1）
@@ -73,7 +70,7 @@ export function serverJuan(): JuanPort {
       if (!(await signedIn(sb))) return null;
       const { data: row, error } = await sb
         .from('chapters')
-        .select('id, slots, content_version')
+        .select('id, slots')
         .eq('book_id', bookId)
         .eq('slug', slug)
         .maybeSingle();
@@ -83,12 +80,9 @@ export function serverJuan(): JuanPort {
       /* ⚠ 正文一定要行 `chapter_body()`；`slots` 就直接 select 得到（0006）。 */
       const { data, error: bodyError } = await sb.rpc('chapter_body', { p_chapter: row.id });
       if (bodyError) throw bodyError;
+      /* 2026-11-12 舊版書刪晒之後，每本書每章都有成書時存低嘅 reading（0010） */
       let reading: unknown;
-      const version = String(row.content_version);
-      const savedPalace = PALACE_READER_SLUGS.some((name) => name === slug) && version.includes(`+${PALACE_READER_VERSION}+`);
-      const savedEpilogue = slug === '給你的話' && version.split('+').includes(EPILOGUE_READER_VERSION);
-      const savedReading = version.split('+').includes(BOOK_ANALYSIS_VERSION) || savedEpilogue || slug === '命宮' || (slug === '性格的骨架' && version.includes('+reader-backed-v1')) || savedPalace;
-      if (data !== null && String(row.content_version).includes('+ming-expanded-v1') && savedReading) {
+      if (data !== null) {
         const result = await sb.rpc('chapter_reading', { p_chapter: row.id });
         if (result.error) throw result.error;
         reading = result.data;
@@ -115,10 +109,8 @@ export function serverJuan(): JuanPort {
       const sb = supabaseServer();
       if (!(await signedIn(sb))) return [];
       /* ⚠ 只開第一段同一句引文（0008）；全章正文照舊行 `chapter_body()` */
-      /* 0012 v3 多咗英日新版首段（reading.localized）；未 migrate 嘅環境退返 v2 */
-      let res = await sb.rpc('chapter_leads_v3', { p_book: bookId });
-      if (res.error) res = await sb.rpc('chapter_leads_v2', { p_book: bookId });
-      const { data, error } = res;
+      /* 0012 v3：多咗英日新版首段（reading.localized） */
+      const { data, error } = await sb.rpc('chapter_leads_v3', { p_book: bookId });
       if (error) throw error;
       return ((data ?? []) as { slug: string; lead: string | null; quote: string | null; international_lead: string | null; citations: string[] | null; en_lead?: string | null; ja_lead?: string | null }[]).map((r) => {
         const cites = r.citations ?? [];

@@ -20,7 +20,7 @@ describe('命盤英文標籤', () => {
   });
 
   it('中宮嗰行同章名一樣', () => {
-    for (const t of ['序 · 你的命盤', '性格的骨架', '三方四正', '身宮與五行局', '一生十二步', '這十年', '這一年', '給你的話']) {
+    for (const t of ['序 · 你的命盤', '性格的骨架', '身宮與五行局', '一生十二步', '這十年', '這一年', '給你的話']) {
       const slug = t.split(' · ')[0]!;
       expect(En.chapterTitleEn(t)!.startsWith(slugEn(slug)), t).toBe(true);
     }

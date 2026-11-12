@@ -45,7 +45,7 @@ export const ganzhiPy = (zh: string) => [...zh].map((c) => STEM_PY[c] ?? BRANCH_
 
 /** 命盤中宮嗰行（章 slug → 英文）。宮位章用「Life Palace」，其餘章同章名一樣（content chapterTitleEn）。 */
 const SLUG_EN: Record<string, string> = {
-  序: 'Preface', 性格的骨架: 'The Shape of Your Character', 三方四正: 'The Four Directions',
+  序: 'Preface', 性格的骨架: 'The Shape of Your Character',
   身宮與五行局: 'The Body Palace and the Five-Element Bureau', 一生十二步: 'Twelve Steps of a Life',
   這十年: 'These Ten Years', 這一年: 'This Year', 給你的話: 'For You',
 };
@@ -60,7 +60,7 @@ export const jaZi = (s: string) => [...s.replace('僕役', '交友')].map((c) =>
 
 /** 命盤中宮嗰行（章 slug → 日文）。宮位章用「命宮」「交友宮」，其餘同章名一樣（content chapterTitleJa）。 */
 const SLUG_JA: Record<string, string> = {
-  序: '序', 性格的骨架: '性格の骨格', 三方四正: '三方四正', 身宮與五行局: '身宮と五行局', 一生十二步: '一生の十二段階',
+  序: '序', 性格的骨架: '性格の骨格', 身宮與五行局: '身宮と五行局', 一生十二步: '一生の十二段階',
   這十年: 'この十年', 這一年: 'この一年', 給你的話: 'あなたへ',
 };
 export const slugJa = (slug: string) => SLUG_JA[slug] ?? (PALACE_SHORT[slug.replace(/宮$/, '')] ? jaZi(slug.endsWith('宮') ? slug : `${slug}宮`) : slug);
