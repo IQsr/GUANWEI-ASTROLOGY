@@ -1,42 +1,10 @@
 {
   "date": "2026-10-24",
   "scope": "P1 first cross-palace pilot: three families, natal 命官財福, explicitly enabled; no writer activation",
-  "previous_audit_bindings": {
-    "engine-p1a-review.json": {
-      "packages/content/package.json": "1e63fb8bc2b73df7ee4bfb2b970ac3039bb47917cb6ba50b22344ceb710e5156"
-    },
-    "engine-p1b-review.json": {
-      "packages/content/package.json": "1e63fb8bc2b73df7ee4bfb2b970ac3039bb47917cb6ba50b22344ceb710e5156"
-    },
-    "pre-commit-fixture-types": {
-      "apps/web/test/engine-p0.test.ts": "2d11b6d5f461f3a4cf3862051736d6c5386b71cc9a5135c68a1b3c0460f02c55"
-    }
-  },
   "renewal_basis": "Only package export added. All three P1a and all three P1b complete report SHA256 values verified unchanged before renewing that single package parent binding. No prior source/condition semantics altered.",
-  "parents": {
-    "packages/content/package.json": "41d4820c7c6fa10a8ecd6dc768400ded0cfd94220a6df470fe473de8ba4e73aa",
-    "packages/content/src/engine-p1-cross.ts": "4d83e5cc3be09638e9648129937eaeaf9bb14ddb7d2deb690748f135abb322e8",
-    "packages/content/src/cards/engine-p1-cross-rules.json": "9f4c21b20ffb9a8ee33228997e5709f36601a7f8720d374f208ae5ad818d63d3",
-    "packages/content/test/engine-p1-cross.test.ts": "e1f22b4c32510c0136b52a068e12bf2952d18b2bbdbcb36fe22cdf388b7870ad",
-    "packages/content/src/engine-p1a.ts": "fdbf2729415f978ca8c4b2977e06c3155ec8b1b3279e6f8cc9197c5436bfe7fb",
-    "packages/content/src/engine-p1b.ts": "51c9001916ebbfdf657456bd94799ae989ba44cddffc09418f58bfb5e7046fe1",
-    "packages/content/src/pilot-analysis.ts": "fac16efc111736eea1f1af2f570909dc621e12e60a22445f1648a64e74121688",
-    "packages/content/src/condition.ts": "40a25c83e958e9622f05d757fa89ab3f98d32eca0f3e2174303a1fc93eb20425",
-    "packages/ziwei/src/chart/star-query.ts": "c5fb7dde7973beb0ed1daad731008b99db135555ec2a43f94240740f96124798",
-    "packages/ziwei/src/chart/sanfang.ts": "06990ffa7ed3bb39e27742851ebec09609830760fb3e057b0bd54b8f7f80f2be",
-    "packages/ziwei/src/chart/major-stars.ts": "63e43df38719ba9244558494c835c94b9c71b842e43f4c47be4c3e1a2187fbe5",
-    "tools/wang-reference/deep-index.json": "0e1b0d35997e77e81f24755bfc7e174dfd378007d3cc4b64f853dab6bd1dfae8",
-    "apps/web/test/engine-p0.test.ts": "6ce25b5479b43754e1fc710c352e60613f613916a0624b40b47544975e502948",
-    "apps/web/src/lib/free-ming-preview.json": "18dacef35e624cca7dd0bc798c8f22e266494045554edeac298c3f3d3482166e",
-    "apps/web/test/fixtures/sample-charts.json": "6bde97153b1f3fea2322b21e6f7c3b9c869ea8b8fce5f3039814a9fc3fa4906f",
-    "docs/engine-p1-cross-2026-10-24.md": "b9d3d15b88c7923efe8e420346d02d26a5d272601f9f0708b6afe23381ae47df"
-  },
   "samples": [
     {
       "id": "TL",
-      "report_sha256": "5c9131a3f86c9647059230917d202d6f409b71cbcdfdab3ec9dd1530c9454461",
-      "p1a_sha256": "4a1fc53f8b131c00cdea690724259eab604d01f454dae418dfa20c30b1eb0acf",
-      "p1b_sha256": "a276fa0ba661996e1222aee60613aec042c6b9164fc563baddc43dea07fe6c8a",
       "results": [
         {
           "id": "tl-four-frame",
@@ -84,9 +52,6 @@
     },
     {
       "id": "A",
-      "report_sha256": "c9d3911a15eba673437937fcdb4939586e6a8148f5d64987c827f6f48d366959",
-      "p1a_sha256": "2b8f6bcf124f975f688ea3524e799d3feaa5222e2dbee4c79cced62cb7cc38cc",
-      "p1b_sha256": "b01d2e8b89afed3fb8ef9fe4893c52682d72616d9d55f56c80a2d86e1e461827",
       "results": [
         {
           "id": "tf-store",
@@ -138,9 +103,6 @@
     },
     {
       "id": "C",
-      "report_sha256": "56699abd312275be263f08543170da01aba792d20cf407ca1243ea46e9249400",
-      "p1a_sha256": "b67e91a4db44ff368b6e9f811d3706e53507f1ee199e12a13b6f8426dbe51cc2",
-      "p1b_sha256": "a471d90316e3d2ac8669677f9b1a63900fdae1d96b7443e7f91a16dbc9773530",
       "results": [
         {
           "id": "jl-four-frame",

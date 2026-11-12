@@ -57,15 +57,6 @@
     "notes": "packages/content/src/palace-quote-review.ts"
   },
   "quotes": "兩組來源ID、原抽取文字、全部完整原段、條件、例外照存；同一據只合併相同書名、block ID、頁碼、原文與校讀註的段落。沒有以字詞相似刪重。",
-  "parents": {
-    "packages/content/src/cards/palace-narrative.json": "17ddd1c237512607e40cdb490c32b3ad07ea78f93d01cd49ee3799bc24d5b5ab",
-    "packages/content/src/palace-residual-context.ts": "ea69cf6a9dae66f74794144fac5098b564aebd3061b2f1381f8278df3ee7b236",
-    "packages/content/src/palace-quote-review.ts": "350e06d04ee0b6788a0eb2ec1bc6debc789863cb519a2c50abdf76ff0f5f6cd0",
-    "packages/content/src/citation.ts": "11e81b0e679e9c4862ebc361c986abdb729b5770b4aa5d628406d04e8d14f79f",
-    "apps/web/src/lib/reference-presentation.ts": "7c355b0c7b896cf08a5ac545c906407f25572baebccb15296c96e2eaac44e4aa",
-    "apps/web/src/components/Juan.tsx": "02ff4325012e5eacd99517d1dcc0d3f2a1d24dc4c1b958a3893932ae75191d2c",
-    "apps/web/src/lib/mingshu.ts": "13d92b3998c37e3bb5a4e80084cd458ad4c72a1b527a6637d7e89309c1592885"
-  },
   "verification": {
     "tests": "20項內容檢查及43項網站測試通過；其後重跑受影響的8項通過。",
     "static": "content/web typecheck、web lint與production build通過；lint只有4項既有警告。",

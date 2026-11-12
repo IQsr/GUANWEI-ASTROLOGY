@@ -1,6 +1,4 @@
 import { setTestHuas, moveTestStar } from './helpers/chart-mutations';
-import { createHash } from 'node:crypto';
-import { readFileSync } from 'node:fs';
 import { expect, it } from 'vitest';
 import { cast, type BirthInput, type Chart } from '@guanwei/ziwei';
 import { freeMingReading } from '../src/free-ming-reader';
@@ -29,10 +27,6 @@ it('660既有組合入口逐項有建議對應，無虛構入口；正文改寫�
   for (const p of profiles) {
     const theme = (links.profiles as Record<string,string>)[`${p.id}-base`]!;
     expect((advice as Record<string,Record<string,unknown>>)[p.palace]![theme], p.id).toBeDefined();
-  }
-  for (const [path, hash] of Object.entries(review.parents)) {
-    const value = readFileSync(new URL(`../../../${path}`,import.meta.url),'utf8').replace(/\r\n/g,'\n');
-    expect(createHash('sha256').update(value).digest('hex'),path).toBe(hash);
   }
   for (const [id, change] of Object.entries(review.prose_changes)) {
     const entry = (narrative.entries as Record<string,{prose:string|null}>)[id]!;

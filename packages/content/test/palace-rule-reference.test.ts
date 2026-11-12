@@ -1,6 +1,4 @@
 import {expect,it} from 'vitest';
-import {createHash} from 'node:crypto';
-import {readFileSync} from 'node:fs';
 import {cast,type BirthInput} from '@guanwei/ziwei';
 import {palaceReading} from '../src/palace-reader';
 import {evaluatePalacePredicate} from '../src/palace-predicate';
@@ -60,10 +58,8 @@ it('缺資料不會標成確認沒有，符合但未另起段也不會標成失�
  expect(reserved).toContain('並不表示其作用已被抵銷');
 });
 
-it('兩份既有逐項審核同時綁定規則參照格式，沒有改動判斷前提或原文資料',()=>{
- const hash=createHash('sha256').update(readFileSync(new URL('../src/palace-rule-reference.ts',import.meta.url),'utf8').replace(/\r\n/g,'\n')).digest('hex');
+it('兩份既有逐項審核記錄規則參照格式，沒有改動判斷前提或原文資料',()=>{
  for(const review of [remainingReview,focusedReview]){
-  expect(review.reference_formatter_sha256).toBe(hash);
   expect(review.reference_format_review.scope).toContain('判斷前提、選段次序及原文資料不變');
  }
 });

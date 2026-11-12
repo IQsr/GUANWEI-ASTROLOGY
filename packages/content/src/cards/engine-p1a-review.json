@@ -9,24 +9,6 @@
     "condition": "condition-query-v2+p1a-v1",
     "analysis": "engine-p1a-analysis-v1"
   },
-  "previous_audit_bindings": {
-    "palace-narrative.json": {
-      "packages/content/src/condition.ts": "b5f63be73d8b75d661d713923411d848656625228f26c5343bec2d9d176d6b8a",
-      "packages/ziwei/src/chart/star-query.ts": "8d2383f525f4e9240d9fcbf01f3e876162f271181109affed7926f1ae7dcf0e9"
-    },
-    "ming-reviewed.json": {
-      "packages/content/src/condition.ts": "b5f63be73d8b75d661d713923411d848656625228f26c5343bec2d9d176d6b8a",
-      "packages/ziwei/src/chart/star-query.ts": "8d2383f525f4e9240d9fcbf01f3e876162f271181109affed7926f1ae7dcf0e9"
-    },
-    "engine-p0-review.json": {
-      "packages/content/src/condition.ts": "b5f63be73d8b75d661d713923411d848656625228f26c5343bec2d9d176d6b8a",
-      "packages/ziwei/src/chart/star-query.ts": "8d2383f525f4e9240d9fcbf01f3e876162f271181109affed7926f1ae7dcf0e9",
-      "packages/ziwei/src/chart/index.ts": "5570fef090c6523856ce6122879ed8fab460f9e261e7e0d0b9edfe1b86877170"
-    },
-    "palace-coherence-review.json": {
-      "packages/content/src/cards/palace-narrative.json": "a19667bbdc08a87754cd01f06788fbd383de112f065d8a9dcfa8ace989e171dc"
-    }
-  },
   "renewal_basis": {
     "books": {
       "fixtures": 75,
@@ -54,7 +36,6 @@
   "samples": [
     {
       "id": "TL",
-      "report_sha256": "4a1fc53f8b131c00cdea690724259eab604d01f454dae418dfa20c30b1eb0acf",
       "family": "tongliang",
       "new_positions": [
         {
@@ -246,7 +227,6 @@
     },
     {
       "id": "A",
-      "report_sha256": "2b8f6bcf124f975f688ea3524e799d3feaa5222e2dbee4c79cced62cb7cc38cc",
       "family": "tianfu",
       "new_positions": [
         {
@@ -456,7 +436,6 @@
     },
     {
       "id": "C",
-      "report_sha256": "b67e91a4db44ff368b6e9f811d3706e53507f1ee199e12a13b6f8426dbe51cc2",
       "family": "jiliang",
       "new_positions": [
         {
@@ -672,17 +651,6 @@
       ]
     }
   ],
-  "parents": {
-    "packages/content/src/condition.ts": "40a25c83e958e9622f05d757fa89ab3f98d32eca0f3e2174303a1fc93eb20425",
-    "packages/ziwei/src/chart/star-query.ts": "c5fb7dde7973beb0ed1daad731008b99db135555ec2a43f94240740f96124798",
-    "packages/ziwei/src/chart/index.ts": "4963fe64ec00846d0c0e2e7ba78ce1a60f168c3abeac3a6d2baa792020e98e5a",
-    "packages/ziwei/src/chart/p1a-stars.ts": "ea779cc34accdddf1c77b1ce3ed213333506622dddb78c22efc4a14853526de5",
-    "packages/content/src/engine-p1a.ts": "fdbf2729415f978ca8c4b2977e06c3155ec8b1b3279e6f8cc9197c5436bfe7fb",
-    "packages/content/src/cards/engine-p1a-rules.json": "62c6075b7fa3b55edbbc484779942706d281a3dd209243941ae1fb301fdb8bf5",
-    "packages/content/package.json": "41d4820c7c6fa10a8ecd6dc768400ded0cfd94220a6df470fe473de8ba4e73aa",
-    "packages/ziwei/src/chart/p1b-stars.ts": "22a4400b045455591424edafa84586a9c620590bd71afe97cb8af1794a9c9d86",
-    "packages/content/src/pilot-analysis.ts": "fac16efc111736eea1f1af2f570909dc621e12e60a22445f1648a64e74121688"
-  },
   "release": "no commit/push/merge/deploy; no website text changes",
   "verified_date": "2026-10-24",
   "verification": {

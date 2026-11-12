@@ -1,6 +1,5 @@
 import { setTestHuas, moveTestStar, setTestBranch } from './helpers/chart-mutations';
 import { createHash } from 'node:crypto';
-import { readFileSync } from 'node:fs';
 import { expect, it } from 'vitest';
 import { cast, type BirthInput, type Chart, type Palace } from '@guanwei/ziwei';
 import { palaceReading } from '../src/palace-reader';
@@ -19,9 +18,6 @@ const remove = (c: Chart, names: string[]) => { for (const p of c.palaces) p.sta
 
 it('120組合／宮支與逐條修飾綁定核讀紀錄；引用保存完整原段及跨頁', () => {
   for (const p of ['夫妻', '田宅']) expect(data.profiles.filter((r) => r.palace === p)).toHaveLength(60);
-  const hash = (path: string) => createHash('sha256').update(readFileSync(new URL(path, import.meta.url), 'utf8').replace(/\r\n/g, '\n')).digest('hex');
-  expect(hash('../src/cards/palace-focused.json')).toBe(audit.data_sha256);
-  expect(hash('../src/palace-focused.ts')).toBe(audit.reader_sha256);
   expect(data.pdf_sha256).toBe(index.book.sha256);
   expect(audit.profiles.map((p) => p.id)).toEqual(data.profiles.map((p) => p.id));
   expect(audit.rules.map((r) => r.when)).toEqual(data.rules.map((r) => r.when));

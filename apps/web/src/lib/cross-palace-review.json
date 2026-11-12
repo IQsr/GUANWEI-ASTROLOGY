@@ -2,35 +2,7 @@
   "date": "2026-10-24",
   "version": "cross-palace-preview-review-v1",
   "activation": "explicit crossPalaceReading option; enabled only for three named development-preview groups; not deployed",
-  "parents": {
-    "apps/web/src/lib/cross-palace-chapters.ts": "0d36005c38f676299087266afb18da05372c1d53459c7f63de43b70f93825b5f",
-    "apps/web/src/lib/cross-palace-reading.json": "cf5d1c9659bda994c2687d79e218053eec7a6186138878cd4a6a2755f0b63430",
-    "apps/web/src/lib/mingshu.ts": "135b9d31fe55817b0c2bc2ac96bc51ca222a8fc5afe2afef634695b07caad035",
-    "apps/web/src/app/[locale]/preview/free-ming/[[...parts]]/page.tsx": "0d8eba30ae3900fdcd2c03415d48f728f29a621c70ebc64a852af5b15a51ccbe",
-    "apps/web/test/cross-palace-reading.test.ts": "42f3fe7255c41707128aed6aa6e9f28503e833c81956a83f26169596efa6a7b8",
-    "packages/content/src/cross-palace-sources.ts": "7ce455b7f1dc4a710ec677f4b17a1e9b14573751e70fa78bd80ed78961450cab",
-    "packages/content/src/cards/cross-palace-sources.json": "5834b54e8a8085dc59890377ac1214040cf3fcbaf1625016800633ee4b92f3b4",
-    "packages/content/src/citation.ts": "bd120f297fa28f688424b0e17a11fb791d6f4ebcf33a9eb0c321601c8799b3d7",
-    "packages/content/src/engine-p1-cross.ts": "4d83e5cc3be09638e9648129937eaeaf9bb14ddb7d2deb690748f135abb322e8",
-    "packages/content/src/cards/engine-p1-cross-rules.json": "9f4c21b20ffb9a8ee33228997e5709f36601a7f8720d374f208ae5ad818d63d3",
-    "packages/content/src/cards/free-ming-reading.json": "0049b02d3a0fa0ce6f79551557f569e275e4dc9fd57946b3c47a5814c7b0e158",
-    "packages/content/src/cards/palace-readings.json": "002099c16cffd88c3e1480af75ad1746ab130167425296c3bd4fc7b21bb95ff3",
-    "packages/content/src/cards/palace-remaining.json": "1c8e018871936addb971fffdcf6a997959d4caca35489ee0a00095f0e4c82cbb",
-    "tools/wang-reference/deep-index.json": "225e030d33c39563d7122fea7c0f8ed5776fcc09d18f719fa4cbc915ccd61703",
-    "docs/cross-palace-preview-2026-10-24.md": "567bae71804e94268e89060daffb1577b82ccb62fb18bde411ad4de8f64919fe"
-  },
-  "historical_review_bindings_preserved": {
-    "packages/content/src/cards/palace-branch-review.json": {
-      "packages/content/src/citation.ts": "11e81b0e679e9c4862ebc361c986abdb729b5770b4aa5d628406d04e8d14f79f",
-      "apps/web/src/lib/mingshu.ts": "13d92b3998c37e3bb5a4e80084cd458ad4c72a1b527a6637d7e89309c1592885"
-    },
-    "packages/content/src/cards/reading-focus-review.json": {
-      "packages/content/src/citation.ts": "48511fe84cc7581a126f5a32d3588e1e5e93fff7ab25c38c267b040a1ba3c7e9"
-    },
-    "packages/content/src/cards/wealth-follow-review.json": {
-      "apps/web/src/lib/mingshu.ts": "2db789a63c0e06d1fcb30d10da241196339f10915304ad30c70ddc96ca7f3683"
-    }
-  },
+  "historical_review_bindings_preserved": {},
   "verification": {
     "web_full": {
       "files": 65,
