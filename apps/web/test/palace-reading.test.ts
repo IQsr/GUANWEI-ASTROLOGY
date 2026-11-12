@@ -16,8 +16,8 @@ const books = fixtures.map((f) => {
     now: bookChapters(result.value, { seed: f.seed, year: 2026, solar: input.solar, place: input.place.label })! };
 });
 
-/* 2026-11-12：舊版書刪晒，唔再同舊存檔比；英日照讀成書時存低嘅原版快照（internationalSnapshot）。 */
-it('十一宮新正文存完整原版快照；英日讀快照，免費章版本不混用', () => {
+/* 2026-11-12：舊版書刪晒，唔再同舊存檔比；日文照讀成書時存低嘅原版快照（internationalSnapshot），英文第 6 批起由新中文譯。 */
+it('十一宮新正文存完整原版快照；英文由新中文譯（譯唔到讀快照）、日文讀快照，免費章版本不混用', () => {
   for (const b of books) {
     const palaces = b.now.filter((c) => PALACE_READER_SLUGS.some((p) => p === c.slug));
     expect(palaces).toHaveLength(11);
@@ -29,7 +29,12 @@ it('十一宮新正文存完整原版快照；英日讀快照，免費章版本�
       expect(c.text).not.toBe(snap.text);
       const old = { slug: c.slug, title: c.title, text: snap.text, slots: snap.slots };
       expect(readingOf(JSON.parse(JSON.stringify(c.reading)), c.text)).toEqual(c.reading);
-      expect(englishChapters([c])).toEqual(englishChapters([old]));
+      /* 2026-11-12 英文第 6 批：十一宮英文由新中文直接譯（english.ts freshEnglish）；有句譯唔到先成章退返快照 */
+      const en = englishChapters([c])[0]!;
+      if (JSON.stringify(en) !== JSON.stringify(englishChapters([old])[0])) {
+        expect(en.map((s) => s.slot)).toEqual(c.reading!.segments.map((s) => s.slot));
+        for (const s of en) expect(s.text).not.toMatch(/[㐀-鿿〔〕]/);
+      }
       expect(japaneseChapters([c])).toEqual(japaneseChapters([old]));
     }
     expect(b.now.find((c) => c.slug === '命宮')?.reading?.writer).toBe('reader-backed-v1');

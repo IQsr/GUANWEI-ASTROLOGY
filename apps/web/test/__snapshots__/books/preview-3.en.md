@@ -128,45 +128,45 @@ Periods used in this chapter: this year you are 16 or 17 (18 by Chinese reckonin
 
 ## 兄弟
 
-With friends, a light touch is what lasts longest. The catch is that when you get too close, you pull back completely once you're disappointed.
+### Consider relationship foundations alongside available resources
 
-Your Siblings Palace: Lian Zhen (the Upright) and Tian Fu (the Treasury).
+Your Siblings Palace is in Xu (one of the twelve positions on the chart), with Lian Zhen (the Upright) and Tian Fu (the Treasury) together. The opposite palace, your Friends Palace in Chen, holds Qi Sha (the Warrior). With friends, a light touch is what lasts longest. With Lian Zhen and Tian Fu sharing a palace, the book only describes better support when Tian Fu's storehouse is neither empty nor exposed. With these stars, first consider what your relatives and friends have to contribute, then whether those resources can actually reach where you need them; a spoken promise and the ability to follow through cannot count as the same support.
 
-Among your peers, you draw a clear line around your friendships (Lian Zhen). You give your all to those you count as friends and can barely be bothered with pleasantries for the rest. Your friendships are deep and few, and once you're disappointed you withdraw completely. When working together you play by the rules and won't tolerate those who don't — that's where most friction comes from, and why your circle changes so little. Few friendships, but each carries weight. Among your peers, Tian Fu makes you the one who can take the weight. Friends come to you when something goes wrong, usually to help clear up rather than for ideas. Being able to take the weight builds your standing in a group steadily, and also means you often take on more than you were asked for.
+### See how this applies to everyday life
 
-Lian Zhen–Tian Fu meets Lu: you have many siblings and a wide circle of friends. Tian Fu meets Zuo Fu (the Left Aide) and You Bi (the Right Aide): you have many siblings.
+If you need to contribute together, distinguish between resources you can actually use and spoken promises.
 
-With friends, a little distance makes things last longer: lend less, go into business together less, ask fewer questions. A friendship can run deep and still have clear lines.
+### Advice for you (editorial)
+
+When you ask your siblings for help, be specific about what you need: introductions to useful contacts, their time or a share of the responsibility. First check which part they can manage, then plan your next step, so you both understand what 'help' means. Zuo Fu (the Left Aide) also sits in this palace. As you work with siblings or peers, take the initiative to discuss things with reliable people and clarify what each of you is responsible for.
 
 ## 夫妻
 
-In love you tend to show feeling by taking care of things rather than by saying it. The trade-off is that you look after your partner well, but rarely say what you want yourself.
+### Consider distance caused by circumstances within your relationship too
 
-Your Partnership Palace holds no major star of its own, so it is read through Tai Yang (the Sun) and Tian Liang (the Sage) in the Career Palace opposite.
+Your Partnership Palace, in You (one of the twelve positions on the chart), has no major star, so it is read with reference to Tai Yang (the Sun) and Tian Liang (the Sage) from the opposite palace in Mao. You go through ups and downs before marriage, and may get back together with someone from the past. Start by looking at how much room you both have to spend time together, and whether outside responsibilities make it hard to stay in step.
 
-Making plans, organising people and taking the lead come naturally to you; putting your own needs into words is harder.
+### Assess support through more than one condition
 
-Your relationships tend towards one kind of imbalance: you keep providing, while your partner doesn't know what you want. In love, you naturally take the giving role (Tian Liang). You care for your partner, shoulder responsibility and take on the difficulties. This makes a relationship solid, and can also make it feel parental — you think for your partner, but rarely put your own needs on the table.
+When discussing compatibility and growing old together, the book still requires favourable supporting stars and allows for difficulties before marriage or a period of separation afterwards.
 
-When it comes to a future marriage, the road to marriage has its twists; it may even be an old flame you meet again. Because the road to marriage has its twists, the bond afterwards is often all the deeper.
+### Advice for you (editorial)
 
-How you are in love often follows your work: when things go well at work, things go well between you; when work gets chaotic, the relationship easily gets pushed aside.
-
-You arrange lifts, book tables and handle the household chores for your partner, but rarely say that you're tired or what you want. Let them do something for you now and then, and the relationship will be more balanced.
+When it comes to a future marriage, pay attention to whether you can both keep making time for each other. When life changes, rearrange time together and contact with each other, rather than letting being busy become the only explanation you give.
 
 ## 子女
 
-You encourage the people you mentor to go their own way, and you're even pleased when they overturn your methods. The other side of this is that you're always changing, while what they often need from you is the part that stays the same.
+### Give independence and generation gaps separate attention
 
-Your Children Palace: Po Jun (the Vanguard).
+Your Children Palace is in Shen (one of the twelve positions on the chart), held by Po Jun (the Vanguard). The opposite palace, your Property Palace in Yin, holds Wu Qu (the General) and Tian Xiang (the Minister). With Po Jun alone in this palace at Zi or Wu, the book discusses a generation gap with younger people close to you. What matters is how the other person becomes independent, and whether you can keep communicating.
 
-This gives them a great deal of freedom, and may also leave them without a steady reference point.
+### See how this applies to everyday life
 
-Di Jie (Loss) also sits here, making gains harder to hold on to: arrangements made for the people you mentor are easily upset, so keep a fallback.
+As younger people begin making their own plans, your relationship needs new ways to communicate; pay more attention to whether they are still willing to discuss things than whether they keep following the old approach.
 
-When you're nurturing a project or a person, there are more variables to handle along the way, and the right moment to let go is hard to judge.
+### Advice for you (editorial)
 
-Later on, when children or younger people strike out on a new path, you're only pleased. You're always changing yourself, so give them one or two rules that stay the same; they'll feel more secure.
+When you spend time with younger pupils or those less experienced than you, give them room to grow for themselves. Once you study separately or join different activities, agree on how to keep in touch; you do not have to be there for everything to show you care. Di Jie (Loss) also sits in this palace. Allow a little extra time with younger siblings or pupils; if you are in a hurry to make a decision, check the key details before going ahead.
 
 ## 財帛
 
@@ -182,93 +182,97 @@ Take care to avoid losses from problems with paperwork, such as bad cheques or c
 
 ## 疾厄
 
-Your tiredness mostly comes from taking things on yourself, and not feeling easy handing them over. For you, sharing out the work lightens the load more than resting does.
+### Food and absorption: central to spleen and earth symbolism
 
-Your Health Palace: Zi Wei (the Emperor).
+Your Health Palace is in Wu (one of the twelve positions on the chart), held by Zi Wei (the Emperor). The opposite palace, your Parents Palace in Zi, holds Tan Lang (the Wolf). Keep an eye on your spleen and how well you absorb nourishment. This is the weaker side of your health. In Wang Tingzhi's traditional approach to health readings, Zi Wei's health associations begin with the spleen's earth function and the absorption of food. This same theme includes both weakness and overactivity, with the distinction depending on supporting stars, depletion, and the involvement of Di Kong (Void) and Di Jie (Loss).
 
-The Complete Book says Zi Wei brings "few troubles": what wears you down rarely comes from big events. Your long-term tiredness is mostly responsibilities stacking up, not one big thing. Letting go solves more than resting does. The reminder for you is to share the work, not to rest.
+### Deficiency and overactivity are two different directions
 
-When the work piles up, you'd rather stay late yourself than hand it to someone else. Try handing one task over completely, judging only the result and not the process; you'll feel much lighter.
+In the book, the interpretation of Zi Wei as a ruler outside the court or an isolated ruler tends towards insufficient spleen earth function; the interpretation with many supporting stars instead discusses excessive spleen earth function. When you read about Zi Wei, keep both possible directions in mind.
 
-This chapter makes no medical judgements.
+### Advice for you (editorial)
+
+If you feel unwell, tell your family or carer where you feel uncomfortable, when it started and whether it affects your activities. If the discomfort keeps coming back or does not go away, ask an adult to go with you to see a doctor and explain clearly how you feel. Lu Cun (the Keeper of Abundance) also sits in this palace. Keep your daily routine and meals regular, so you find it easier to notice changes in your body.
 
 ## 遷移
 
-Going out into the world serves you better than staying put; new surroundings tend to make things go more smoothly. What complicates this is that if you stay in one place too long, your quick-wittedness turns into restlessness and fault-finding.
+### Indications of movement may not mean relocation
 
-Your Travel Palace: Tian Ji (the Strategist).
+Your Travel Palace is in Si (one of the twelve positions on the chart), held by Tian Ji (the Strategist). The opposite palace, your Life Palace in Hai, holds Tai Yin (the Moon). Going out into the world serves you better than staying put; new surroundings tend to make things go more smoothly. When Tian Ji sits alone, the book explicitly says that change may simply mean being away from home frequently for work or moving between organisations, rather than necessarily settling far away. First consider why you move about in your daily life, then whether you can get support.
 
-You tend to move more often than other people and adapt faster to new rules and people (Tian Ji). Changing surroundings comes easily to you, and starting again costs you less than it costs most people.
+### See how this applies to everyday life
 
-With Tuo Luo (the Weight) in the palace, there is talk and dispute when you are away.
+The old saying that you meet helpful people when you go away does not apply universally; you still need to compare your Life Palace with your Travel Palace, taking its linked palaces and the opposite palace into account.
 
-Later on, that said, you're suited to studying, working or spending long stretches away from home; you do more once you leave familiar ground. You quickly get the measure of the rules and people in a new place.
+### Advice for you (editorial)
+
+Before you join activities that involve travelling between places, plan travel, homework and rest time together with your family. If you need someone to take you, collect you or help, explain this clearly in good time. Tuo Luo (the Weight) also sits in this palace. When you travel elsewhere or enter a new environment, allow a little extra time; if you are in a hurry to make a decision, check the key details before going ahead.
 
 ## 僕役
 
-In a crowd you tend to keep to yourself, and working alone suits you better than going into partnership. Keep in mind that the trust you earn doesn't always turn into closeness.
+### More people may not mean more practical support
 
-Your Friends Palace: Qi Sha (the Warrior).
+Your Friends Palace is in Chen (one of the twelve positions on the chart), held by Qi Sha (the Warrior). The opposite palace, your Siblings Palace in Xu, holds Lian Zhen (the Upright) and Tian Fu (the Treasury). In a crowd you tend to keep to yourself, and working alone suits you better than going into partnership. When Qi Sha is alone in this palace, the book explicitly says that supporting stars can increase the number of people without thereby increasing the help you receive; receiving Abundance adds another layer of support. What matters is whether the work can actually be shared, beyond the number of people available.
 
-In a group, you rely on results rather than connections (Qi Sha). People respect you and rely on you, but don't necessarily get close, and you don't work on that side of things either. So your weight in an organisation doesn't necessarily match your popularity, and you don't mind.
+### More staff needn't mean a lighter burden
 
-With Qi Sha in your Friends Palace, you tend to keep apart; avoid business partnerships, and do not listen to gossip.
+In your chart, Zuo Fu (the Left Aide) faces this palace from your Siblings Palace in Xu, the opposite palace; You Bi (the Right Aide) sits in this palace, your Friends Palace in Chen. Once your team grows, what truly eases your workload is still having someone who can take over a whole area of work.
 
-Dealings within a group flow relatively freely; making a connection or finding someone takes fewer steps.
+### Advice for you (editorial)
 
-You don't move in wide circles or enjoy socialising, and at work you let your results speak. Be especially careful about going into business with partners; running your own piece of it usually suits you better.
+When you let capable people take over work, set out both their decision-making authority and their responsibilities. First clarify what they can handle themselves and what needs joint agreement, then follow up on results and progress, rather than asking for independence while taking back control of every decision. You Bi also sits in this palace. When you work with classmates or friends, seek out someone reliable to discuss things with and be clear about what each of you is responsible for.
 
 ## 官祿
 
-Service industries suit you best, such as healthcare or insurance — work that looks after people. The risk is that you can get things moving, and you also tend to take all the gatekeeping on yourself.
+### How expertise and principles serve practical needs
 
-Your Career Palace: Tai Yang (the Sun) and Tian Liang (the Sage).
+Your Career Palace is in Mao (one of the twelve positions on the chart), with Tai Yang (the Sun) and Tian Liang (the Sage) together. The opposite palace has no major star. Service industries suit you best, such as healthcare or insurance — work that looks after people. When Tai Yang and Tian Liang share a palace, the book understands social service, oversight and management, and academic research through the same set of principles. What matters is how your work addresses specific problems, beyond simply naming professions such as medicine or law.
 
-You step to the front (Tai Yang). You do best in visible roles involving people and outside contacts. But you tend to be worn down by prolonged work whose results stay out of sight. You're good at getting things moving, less so at seeing them through. You put following the rules before results (Tian Liang). You're suited to roles that need someone to judge right and wrong and take responsibility, and to teaching and supervision. By contrast, where flexibility or quick shortcuts are needed, you come across as stubborn. Tian Liang turns to Recognition: your sense of fairness is written into the rules, and your protection is given proper standing. This transformation is closest to Tian Liang's true nature.
+### Build professional standing and actual income separately
 
-When it comes to a future marriage, your Career and Partnership Palaces are both favourable: you and your partner can work together, or both succeed separately, and the relationship stays warm. With Tai Yang and Tian Liang in your Career Palace, reputation counts for more than money; professional work suits you, above all service fields such as medicine or insurance. Tai Yang brings standing and sits well in the Career Palace: in good times you are known in your field, and even in bad times people follow you. Tian Liang in Recognition: aim for respected rather than lucrative roles; win your standing first and the money follows.
+In your chart, Tian Liang turning to Recognition sits in this palace, your Career Palace in Mao. With Tian Liang turning to Recognition, the book emphasises establishing your standing first and letting income follow your reputation. Your chart places greater value on developing professional judgement that others can trust; once your reputation begins to grow, you still need to agree clearly on your actual responsibilities and pay.
 
-Later on, outward-facing work with principles suits you, such as teaching, public service or professional advice; when you lead things in front of people, share out the responsibility for finishing them too.
+### Advice for you (editorial)
+
+Choose a skill that interests you and keep practising it, asking a teacher for help with anything you do not understand. Use what you have learnt in something you make or a practical task, and see what else you need to learn. This palace has Tian Liang turning to Recognition. For homework and activities, organise your methods, records and other people's comments, so you have clear information to refer to if you need to explain things.
 
 ## 田宅
 
-Finance-related organisations suit you as a workplace. The catch is that you decide quickly; leave a little room for living comfortably too.
+### Consider existing foundations alongside external constraints
 
-Your Property Palace: Wu Qu (the General) and Tian Xiang (the Minister).
+Your Property Palace is in Yin (one of the twelve positions on the chart), with Wu Qu (the General) and Tian Xiang (the Minister) together. Finance-related organisations suit you as a workplace. With Wu Qu and Tian Xiang sharing a palace, the book considers whether you can take things over and also emphasises the palaces flanking Tian Xiang and the support of Tian Fu (the Treasury). The key is how you use resources and whether any constraints make your existing arrangements difficult to maintain.
 
-With Wu Qu, big enough, good value, easy to sell on later — these persuade you more than comfort does. You decide quickly about where to live, hesitate little, and rarely pay extra for a feeling. You want a presentable home that complies with the rules (Tian Xiang). You care more about complete paperwork, getting on with neighbours and avoiding mistakes than whether the space suits your taste. You'll pay extra for things to be right, and you struggle to accept an arrangement with flaws. Wu Qu turns to Abundance: resources and execution connect, you get things done and get the reward, and effort brings a real return.
+### Flanking a palace and connecting to it differ
 
-With Wu Qu in your Property Palace, financial institutions are good places to work. Tian Xiang meets Di Kong (Void): property tends to bring arguments and disputes.
+With Wu Qu and Tian Xiang, notice where your support comes from and where it faces constraints. The flanking arrangement described in the book must be formed by the two immediately neighbouring palaces. Seeing the same stars in the palace being read, the opposite palace or the linked palaces cannot replace that arrangement. Whether you can use the resources therefore also needs to be understood alongside your actual authority and responsibilities.
 
-Later on, when buying or renting, you look at practicality and value: transport, floor space, how easy it will be to sell on. Don't just look at the numbers when viewing; factor in how comfortable it will be to live there.
+### Advice for you (editorial)
+
+Check with your family which learning materials, space and support you can use regularly, then plan for what you need. First get used to making good use of what you have, and if you want more, explain what it is for and how you will look after it. This palace has Wu Qu turning to Abundance. As you arrange your home or a shared space, if useful support or an opportunity arises, first note where it comes from and how long it can last, then decide how much to commit.
 
 ## 福德
 
-Your inner life is rich; a little music and some free time are enough to content you. The trade-off is that you're easily content, so you're not much inclined to leave a position that's already good enough.
+### Consider your emotional commitment alongside your inner needs
 
-Your Wellbeing Palace: Tian Tong (the Blessed) and Ju Men (the Great Gate).
+Your Wellbeing Palace is in Chou (one of the twelve positions on the chart), with Tian Tong (the Blessed) and Ju Men (the Great Gate) together. The opposite palace has no major star. Your inner life is rich; a little music and some free time are enough to content you. When Tian Tong and Ju Men share a palace, the book reads emotional investment alongside inner distress and distinguishes how each star undergoes the four transformations. Notice whether you explain your needs clearly or simply keep weighing them up in your mind.
 
-Tian Tong is the natural ruler of wellbeing, so this is where it serves you best. It doesn't take much to settle you — no achievements, no recognition, just a stretch of time with no one chasing you. The difficulty lies on the other side: being easily settled also means little motivation to leave comfort behind. So your peace of mind is usually steady, and long-term dissatisfaction tends not to be pain but a feeling of being stuck that you can't put into words. You only settle once your questions are answered — anything unresolved stays open, and Ju Men rarely gets everything resolved. So your mental drain comes from the number of open questions, not how hard things are. Wen Qu turns to Obstruction: words spoken and written easily cause misunderstandings, so confirm what needs confirming, and put verbal agreements in writing.
+### See how this applies to everyday life
 
-Tian Tong meets Wen Chang (a Scholar star) and Wen Qu: you enjoy life in refined ways, with real taste. With Tian Tong in your Wellbeing Palace, your inner life is rich, with a special love of music, though that does not necessarily mean material plenty. With Ju Men in your Wellbeing Palace, your mind is taxed: you decide too quickly and regret it later, or insist on doing everything yourself.
+Tian Tong and Ju Men link your emotional investment with what you weigh up in your mind. If you never clearly explain which need or expectation is really on your mind, it is easy to keep going over things internally; talking things through and repeatedly thinking them over offer different outlets.
 
-Before you can be still, you usually have to put a few things in order first; only then does your mind let go.
+### Advice for you (editorial)
 
-You know how to enjoy life: music, a good series, a long, slow meal are enough to make you happy. When things get too comfortable, give yourself a small goal so the days don't all run together.
+Make rest part of your daily plans, with time when you do not have to reply, care for anyone or report on what you have achieved. Agree this time with the people around you, so you can pause without worrying. This palace has Wen Qu (a Scholar star) turning to Obstruction. When you manage your time and emotional needs, record your original expectations separately from what actually happens; if they differ, first adjust your approach and pace, without needing to overturn the whole arrangement at once.
 
 ## 父母
 
-You don't clash head-on with elders and managers, but you don't take much restraining either. The other side of this is that you act first and explain later, so your elders are often the last to know.
+### Distinguish distance from the quality of support
 
-Your Parents Palace: Tan Lang (the Wolf).
+Your Parents Palace is in Zi (one of the twelve positions on the chart), held by Tan Lang (the Wolf). The opposite palace, your Health Palace in Wu, holds Zi Wei (the Emperor). There's often a distance between you and your parents or bosses. What matters is how the relationship continues, and whether the other person's resources can help you in practice.
 
-Not clashing keeps relationships smooth on the surface, though it doesn't actually comply much. Tan Lang turns to Authority: your desire gains momentum, and you dare to want and you get. What complicates this is that your direction is set by whatever you want at the moment.
+### Advice for you (editorial)
 
-Tan Lang in Zi (one of the twelve positions on the chart) with Huo Xing (Fire): you leave your parents young. With Tan Lang in Authority in the Parents Palace, the palace often describes your bosses: you generally do well in a large organisation, or your boss holds an important post. Huo Xing in the Parents Palace can simply mean strained relationships, with your parents and with your bosses.
-
-When something needs settling with elders or bosses, you have a fairly direct way in and don't need to go round in circles.
-
-You don't fight company rules head-on, but you always find a gap to do what you want and report it afterwards. Giving people a heads-up on important things will save misunderstandings later.
+When you need help from your parents or carers, explain clearly what you are missing and which step you do not know how to do. Once you have had help, try to finish the parts you can take responsibility for yourself, then tell them how you are getting on. This palace has Tan Lang turning to Authority. When dealing with your parents or teachers, if a decision falls to you, first work out what you can decide yourself and what you need to discuss with others, so taking the lead does not leave you carrying everything alone.
 
 ## 給你的話
 

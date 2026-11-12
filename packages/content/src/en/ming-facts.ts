@@ -64,5 +64,52 @@ export function mingFact(s: string): string | null {
     const l = stars(m[1]!);
     return l ? `${l} also ${m[1]!.includes('、') ? 'sit' : 'sits'} in this palace.` : null;
   }
+  return palaceFact(s);
+}
+
+/* ── 十一宮（palace-reader-v1，2026-11-12 英文第二批） ── */
+const L = `((?:${S})(?:、(?:${S}))*)`;
+const WHERE: Record<string, (p: string) => string> = {
+  同宮: (p) => `sits in this palace, your ${p}`,
+  三方會照: (p) => `reaches this palace from your ${p}, one of its linked palaces`,
+  對照: (p) => `faces this palace from your ${p}, the opposite palace`,
+};
+/** 「天府化科在福德宮亥同宮」→ "Tian Fu turning to Recognition sits in this palace, your Wellbeing Palace in Hai" */
+function placed(c: string): string | null {
+  const r = new RegExp(`^(${S})(?:化([祿權科忌]))?在(${P})宮(${B})(同宮|三方會照|對照)$`).exec(c);
+  if (!r) return null;
+  const who = r[2] ? hua(r[1]!, r[2]) : star(r[1]!), pal = palace(r[3]!);
+  return who && pal ? `${who} ${WHERE[r[5]!]!(`${pal} in ${BRANCH_EN[r[4]!]}`)}` : null;
+}
+const DAY = new RegExp(`^(${B})時生，屬([日夜])生人$`);
+
+function palaceFact(s: string): string | null {
+  let m: RegExpExecArray | null;
+  /* 你的子女宮在午，天梁坐守。／你的夫妻宮在未，廉貞、七殺同宮。 */
+  if ((m = new RegExp(`^你的(${P})宮在(${B})，${L}(坐守|同宮)。$`).exec(s))) {
+    const pal = palace(m[1]!), l = stars(m[3]!);
+    if (!pal || !l) return null;
+    return m[4] === '坐守' ? `Your ${pal} is in ${BRANCH_EN[m[2]!]}, held by ${l}.` : `Your ${pal} is in ${BRANCH_EN[m[2]!]}, with ${l} together.`;
+  }
+  /* 你的兄弟宮在申，本宮沒有主星，借對宮寅的天機、太陰作參照。（亦有「本盤官祿宮在申，…」） */
+  if ((m = new RegExp(`^(?:你的|本盤)(${P})宮在(${B})，本宮沒有主星，借對宮(${B})的${L}作參照。$`).exec(s))) {
+    const pal = palace(m[1]!), l = stars(m[4]!);
+    return pal && l ? `Your ${pal}, in ${BRANCH_EN[m[2]!]}, has no major star, so it is read with reference to ${l} from the opposite palace in ${BRANCH_EN[m[3]!]}.` : null;
+  }
+  /* 對宮田宅宮子實坐太陽。 */
+  if ((m = new RegExp(`^對宮(${P})宮(${B})實坐${L}。$`).exec(s))) {
+    const pal = palace(m[1]!), l = stars(m[3]!);
+    return pal && l ? `The opposite palace, your ${pal} in ${BRANCH_EN[m[2]!]}, holds ${l}.` : null;
+  }
+  /* 本盤辰時生，屬日生人；天鉞在疾厄宮未三方會照。／本盤左輔在夫妻宮未三方會照；右弼在… */
+  if ((m = /^本盤(.+)。$/.exec(s))) {
+    const parts = m[1]!.split('；');
+    const d = DAY.exec(parts[0]!);
+    const day = d ? `You were born in the ${BRANCH_EN[d[1]!]} hour, which counts as a ${d[2] === '日' ? 'daytime' : 'night-time'} birth.` : null;
+    const out = parts.slice(d ? 1 : 0).map(placed);
+    if (!out.every(Boolean)) return null;
+    const rest = out.length ? `In your chart, ${out.join('; ')}.` : '';
+    return [day, rest].filter(Boolean).join(' ');
+  }
   return null;
 }

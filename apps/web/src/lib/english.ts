@@ -46,13 +46,13 @@ function withBranchNote(segs: ChapterReading['segments']): ChapterReading['segme
 }
 
 /**
- * 新版命宮、性格的骨架（reader-backed-v1，2026-11-12 英文第一批）：英文直接由成書時嘅新中文逐條 statement 譯，
+ * 新版命宮、性格的骨架（reader-backed-v1，2026-11-12 英文第一批）同十一宮（palace-reader-v1，第二批）：英文直接由成書時嘅新中文逐條 statement 譯，
  * 唔再讀舊版快照。statement 一條對一段英文，出處記號照跟住 statement。
  * 有一句或者一個小標題譯唔到 → 回 null，成章照舊讀快照（唔出半中半英）。日文未切換。
  */
 function freshEnglish(ch: { text: string; reading?: unknown }, st: En.BookState): ChapterReading['segments'] | null {
   const r = readingOf(ch.reading, ch.text);
-  if (r?.writer !== 'reader-backed-v1') return null;
+  if (r?.writer !== 'reader-backed-v1' && r?.writer !== 'palace-reader-v1') return null;
   const items = r.segments.flatMap((s) => (s.statements?.length ? s.statements.map((l) => l.text) : [s.text]));
   if (En.renderParagraphs(items).missing.length) return null;
   if (r.segments.some((s) => s.heading && !En.headingEn(s.heading))) return null;
