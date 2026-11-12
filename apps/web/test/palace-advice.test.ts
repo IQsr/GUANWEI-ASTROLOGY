@@ -34,7 +34,12 @@ it('三組完整成書都有十二段編輯建議；存讀、繁簡、每段單�
       }
       const old = c.reading!.internationalSnapshot!;
       const frozen = { ...c, text: old.text, slots: old.slots, reading: old.reading };
-      expect(englishChapters([c])).toEqual(englishChapters([frozen]));
+      /* 2026-11-12 英文第 6 批：十一宮英文由新中文直接譯（english.ts freshEnglish）；有句譯唔到先成章退返快照 */
+      const en = englishChapters([c])[0]!;
+      if (JSON.stringify(en) !== JSON.stringify(englishChapters([frozen])[0])) {
+        expect(en.map((s) => s.slot)).toEqual(c.reading!.segments.map((s) => s.slot));
+        for (const s of en) expect(s.text).not.toMatch(/[㐀-鿿〔〕]/);
+      }
       expect(japaneseChapters([c])).toEqual(japaneseChapters([frozen]));
     }
     expect(chapters.find((c) => c.slug === '性格的骨架')!.reading!.segments.some((s) => s.heading === '給你的建議｜編輯建議')).toBe(false);
