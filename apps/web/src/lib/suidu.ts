@@ -70,11 +70,10 @@ export const SLOT_FOCUS: Record<string, Focus> = {
 
 /**
  * 唔係逐宮章、但讀緊某一宮嘅章：個盤亮邊一宮。
- * 性格的骨架、三方四正讀嘅都係命宮嗰個星系（`@guanwei/content` xingxi）。
+ * 性格的骨架讀嘅係命宮嗰個星系（`@guanwei/content` xingxi）。
  */
 export const CHAPTER_PALACE: Record<string, string> = {
   性格的骨架: '命宮',
-  三方四正: '命宮' /* 舊書 */,
 };
 
 export function focusOf(slot: string): Focus {

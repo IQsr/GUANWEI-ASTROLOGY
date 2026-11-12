@@ -88,14 +88,11 @@ vi.mock('@/lib/supabase.server', () => ({ supabaseServer: () => ({
   rpc: async (name: string) => { db.calls.push(name); return { data: name === 'chapter_body' ? db.body : db.reading, error: null }; },
 }) }));
 
-it('真書 adapter 讀回骨架快照；舊骨架與無正文情況不額外取註資料', async () => {
+it('真書 adapter 讀回骨架快照；無正文情況不額外取註資料', async () => {
   const { serverJuan } = await import('@/lib/juan.server');
   db.version = readingContentVersion('rules@test'); db.body = '正文。'; db.calls = [];
   expect((await serverJuan().body('book', '性格的骨架'))?.reading).toEqual(db.reading);
   expect(db.calls).toEqual(['chapter_body', 'chapter_reading']);
-  db.version = 'rules+ming-expanded-v1+sentence-backed-v1'; db.calls = [];
-  expect((await serverJuan().body('book', '性格的骨架'))?.reading).toBeUndefined();
-  expect(db.calls).toEqual(['chapter_body']);
   db.version = readingContentVersion('rules@test'); db.body = null; db.calls = [];
   expect((await serverJuan().body('book', '性格的骨架'))?.text).toBeNull();
   expect(db.calls).toEqual(['chapter_body']);

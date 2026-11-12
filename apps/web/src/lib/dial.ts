@@ -6,15 +6,14 @@ import { branchPy, jaZi, palaceShort, starPy } from '@/lib/chart-labels';
  * 章尾圓形星盤點出邊一格（2026-10-04）。
  *
  *   宮位章                                   嗰一宮
- *   性格的骨架、三方四正、序、一生十二步、給你的話   命宮
+ *   性格的骨架、序、一生十二步、給你的話   命宮
  *   身宮與五行局                               身宮
  *   這十年                                     大限命宮（左頁嘅大限層）
  *   這一年                                     流年命宮（左頁嘅流年層）
  *
  * 說明文字係書嘅內容：中文書寫中文；英文閱讀模式（`en`）用拼音同英文宮名（2026-10-05）。
  */
-/* 三方四正：舊書先有（2026-10-07 併入骨架） */
-const MING_CHAPTERS = ['序', '性格的骨架', '三方四正', '一生十二步', '給你的話'];
+const MING_CHAPTERS = ['序', '性格的骨架', '一生十二步', '給你的話'];
 
 function majors(chart: Chart, p: Palace): string[] {
   const own = p.stars.filter((s) => s.kind === 'major').map((s) => s.name);

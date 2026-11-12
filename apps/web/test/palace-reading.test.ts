@@ -95,7 +95,7 @@ vi.mock('@/lib/supabase.server', () => ({ supabaseServer: () => ({
   rpc: async (name: string) => { db.calls.push(name); return { data: name === 'chapter_body' ? db.body : db.reading, error: null }; },
 }) }));
 
-it('只有新版本且正文可讀時才取十一宮快照，舊章、未購買、未登入均不取', async () => {
+it('正文可讀時才取十一宮快照，未購買、未登入均不取', async () => {
   const { serverJuan } = await import('@/lib/juan.server');
   db.version = readingContentVersion('test'); db.body = '正文。'; db.signedIn = true;
   for (const slug of PALACE_READER_SLUGS) {
@@ -103,9 +103,6 @@ it('只有新版本且正文可讀時才取十一宮快照，舊章、未購買�
     expect((await serverJuan().body('book', slug))?.reading).toEqual(db.reading);
     expect(db.calls).toEqual(['chapter_body', 'chapter_reading']);
   }
-  db.version = 'test+ming-expanded-v1+reader-backed-v1+content-2026-10-22-reference-context'; db.calls = [];
-  expect((await serverJuan().body('book', '官祿'))?.reading).toBeUndefined();
-  expect(db.calls).toEqual(['chapter_body']);
   db.version = readingContentVersion('test'); db.body = null; db.calls = [];
   expect((await serverJuan().body('book', '官祿'))?.text).toBeNull(); expect(db.calls).toEqual(['chapter_body']);
   db.body = '正文。'; db.signedIn = false; db.calls = [];

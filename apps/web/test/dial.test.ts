@@ -21,7 +21,7 @@ const branchOf = (name: string) => CHART.palaces.find((p) => p.name === name)!.b
 describe('章尾星盤', () => {
   it('宮位章點出嗰一宮；總結類嘅章點命宮', () => {
     expect(dialFor(CHART, '夫妻', L)!.branch).toBe(branchOf('夫妻'));
-    for (const s of ['序', '性格的骨架', '三方四正', '一生十二步', '給你的話']) {
+    for (const s of ['序', '性格的骨架', '一生十二步', '給你的話']) {
       expect(dialFor(CHART, s, L)!.branch, s).toBe(branchOf('命宮'));
     }
   });
