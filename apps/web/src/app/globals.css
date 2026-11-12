@@ -5283,3 +5283,16 @@ select.zhou-xian {
   animation-delay: 60ms;
   animation-fill-mode: both;
 }
+
+/* ============================================================
+   高對比模式（Windows forced-colors）嘅焦點框（2026-11-12）
+   `.ruled`、`.zhou-xian` 用 box-shadow 做焦點提示，強制配色會剷走 box-shadow，
+   鍵盤用戶就睇唔到焦點喺邊。呢度補返一條真 outline。
+   ============================================================ */
+@media (forced-colors: active) {
+  .ruled:focus-visible,
+  .zhou-xian:focus-visible {
+    outline: 2px solid Highlight;
+    outline-offset: 2px;
+  }
+}
