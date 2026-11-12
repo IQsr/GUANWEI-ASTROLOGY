@@ -266,11 +266,21 @@ When parents or more experienced people help you, ask them to explain the method
 
 ## 給你的話
 
-Your life doesn't run in a straight line: you rise, fall back once, and climb again. What you can rely on most: at work, your career tends to involve consumption and socialising, and many openings come through social life. Above all, keep in mind: you'll pay a price for a fresh start, which is both a strength and a risk.
+### Start with your priorities when choosing
 
-You can also rely on a few other things. First, your strength is that you aren't afraid to start over; when you fall, you get back up. Second, in your inner life, you're calmest with something worth throwing yourself into; idleness makes you restless. Third, with money, you come to hold the purse strings, and you lean towards attack rather than defence, earning by opening new ground.
+You don't settle for how things are; when the old way stops working, you tear it down and start again. What deserves attention in your Life Palace is whether you find it easier to adapt to existing arrangements or need to break with established ways. These two responses lead to changes of different sizes, and having Po Jun (the Vanguard) in your Life Palace does not necessarily mean you often change direction.
 
-A few other things to keep in mind. First, what wears on you most is spent warmth — you give out too much and don't top yourself back up. Second, in love, taking a step back doesn't mean losing your footing. Third, before each change, it helps to be clear whether you're changing your method or your direction.
+### How you work and what you take on
+
+Your Career Palace is in Zi (one of the twelve positions on the chart), held by Tan Lang (the Wolf). The opposite palace, your Partnership Palace in Wu, holds Zi Wei (the Emperor). Your career tends to involve consumption and socialising, and many openings come through social life. When Tan Lang sits alone, the book emphasises spending, decoration, entertainment and contact with the wider world, and distinguishes arts involving movement from other work. The key is how your interactions lead to results you can deliver.
+
+### Your earnings and how you arrange resources
+
+Your Wealth Palace is in Chen, held by Qi Sha (the Warrior). The opposite palace, your Wellbeing Palace in Xu, holds Lian Zhen (the Upright) and Tian Fu (the Treasury). You come to hold the purse strings, and you lean towards attack rather than defence, earning by opening new ground. When Qi Sha sits alone, the book emphasises mobilising resources for new ventures, but lists receiving Abundance as an important prerequisite. The key is how many resources you actually control, then what limits apply to what you put in and get back.
+
+### Feeling settled after you commit
+
+Your Wellbeing Palace is in Xu, with Lian Zhen and Tian Fu together. The opposite palace, your Wealth Palace in Chen, holds Qi Sha. You're calmest with something worth throwing yourself into; idleness makes you restless. With Lian Zhen and Tian Fu in the same palace, the book allows for finding contentment while busy, while also distinguishing conditions involving harsh stars, Tian Fu's reserves and other factors. Notice whether you can still enjoy the experience once the practical arrangements are secure.
 
 As for timing: over these ten years, put your effort into the next generation and your own work and take more time over looking after your body and mind; this year, put your effort into looking after your body and mind and take more time over your work.
 

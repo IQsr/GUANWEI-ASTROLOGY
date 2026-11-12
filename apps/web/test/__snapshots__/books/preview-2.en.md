@@ -282,11 +282,21 @@ If your housing or daily arrangements mean you see your parents less often, agre
 
 ## 給你的話
 
-You care deeply and you hold to principles, and the two often pull against each other inside you. What you can rely on most: you work with both pen and sword: in desk roles you bring drive, and in action roles you bring order. Above all, keep in mind: the intensity inside you doesn't match your steady surface, so people often underestimate how much you care.
+### Start with your priorities when choosing
 
-You can also rely on a few other things. First, your strength is seeing clearly what is at stake, so your decisions have solid ground. Second, disputes easily multiply in your circle of friends. Third, with money, your sources of income are usually ample, but the money doesn't easily stay put.
+You often feel a pull between emotion and reason, and tend to maintain familiar relationships and arrangements. Your Life Palace brings emotion and reason into the same question: the relationships you want to keep and the arrangements you know may not naturally align with the choices reason calls for. What matters is whether the two can work together.
 
-A few other things to keep in mind. First, with where you live you want to settle, but the conditions often don't come together, and making a home tends to drag. Second, in love, what your partner feels from you is often intensity rather than steadiness. Third, your decisions improve when feeling and reason each keep to their own side.
+### How you work and what you take on
+
+Your Career Palace is in Shen (one of the twelve positions on the chart), with Wu Qu (the General) and Tian Xiang (the Minister) together. The opposite palace, your Partnership Palace in Yin, holds Po Jun (the Vanguard). You work with both pen and sword: in desk roles you bring drive, and in action roles you bring order. When Wu Qu and Tian Xiang share a palace, the book uses civilian work done in a military manner and military work done in a civilian manner to explain the difference between your line of work and your daily responsibilities. Look beyond your job title to whether your actual responsibilities involve work with the outside world or internal management.
+
+### Your earnings and how you arrange resources
+
+Your Wealth Palace is in Zi, held by Zi Wei (the Emperor). The opposite palace, your Wellbeing Palace in Wu, holds Tan Lang (the Wolf). Your sources of income are usually ample, but the money doesn't easily stay put. When Zi Wei sits alone, the book explicitly says that plentiful sources of income do not necessarily lead to savings. The key is how many resources you can access and direct, then how much becomes available for your own use.
+
+### Feeling settled after you commit
+
+Your Wellbeing Palace is in Wu, held by Tan Lang. The opposite palace, your Wealth Palace in Zi, holds Zi Wei. When you enjoy yourself you easily let go, and there's always one pastime you throw yourself into. When Tan Lang sits alone, the book takes deep absorption in an interest as its theme, then makes further distinctions according to Recognition, literary stars, void stars, Hua Gai and romance stars. Notice whether your interests enrich your life and whether you can decide how much to put into them.
 
 As for timing: over these ten years, put your effort into looking after your body and mind and take more time over working with siblings and peers; this year, put your effort into matters with elders and bosses and take more time over your love life.
 

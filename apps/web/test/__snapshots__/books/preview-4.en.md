@@ -274,11 +274,21 @@ If you and your parents tend to understand things differently when you talk, dis
 
 ## 給你的話
 
-What you want is concrete, and desire is what drives you. What you can rely on most: at work, you're a strong manager, suited to leading teams and managing people. Above all, keep in mind: when you want too many things, your energy scatters halfway.
+### Start with your priorities when choosing
 
-You can also rely on a few other things. First, your strength is a calm mind that takes gain and loss lightly. Second, both at home and in the organisation you work for, disputes easily multiply. Third, with money, your strength is opening up new sources of income, not careful, penny-counting money management.
+Your desires are strong: you go after what you want, and you're good at socialising. Wanting a lot does not necessarily mean that every desire is equally strong.
 
-A few other things to keep in mind. First, you want things easy with your elders and superiors, so what needs discussing tends to be left undiscussed. Second, in love, you expect a lot, yet you tend to push dissatisfaction down to keep the peace, and held too long it only gets heavier. Third, your desires work best neither too high nor too low, but just right.
+### How you work and what you take on
+
+Your Career Palace is in Xu (one of the twelve positions on the chart), held by Qi Sha (the Warrior). The opposite palace, your Partnership Palace in Chen, holds Lian Zhen (the Upright) and Tian Fu (the Treasury). You're a strong manager, suited to leading teams and managing people. With Qi Sha alone in this palace, the book includes a management role, but places more emphasis on specialist skills and doing the work yourself when harsh stars are in this palace. The key is whether you most need to coordinate people or tackle difficult work yourself.
+
+### Your earnings and how you arrange resources
+
+Your Wealth Palace is in Yin, held by Po Jun (the Vanguard). The opposite palace, your Wellbeing Palace in Shen, holds Wu Qu (the General) and Tian Xiang (the Minister). Your strength is opening up new sources of income, not careful, penny-counting money management. Notice how new ways of earning develop, and how you deal with those who follow your lead and compete once you establish them.
+
+### Feeling settled after you commit
+
+Your Wellbeing Palace is in Shen, with Wu Qu and Tian Xiang together. The opposite palace, your Wealth Palace in Yin, holds Po Jun. Your peace of mind rests largely on material footing; only when life is secure can you relax. Pay attention to whether you can retain your own judgement within other people's arrangements and when you need to decide for yourself.
 
 As for timing: over these ten years, put your effort into looking after your body and mind and take more time over opportunities out in the world; this year, put your effort into matters with elders and bosses and take more time over your love life.
 

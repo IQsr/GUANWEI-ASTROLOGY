@@ -276,11 +276,21 @@ When you need help from your parents or carers, explain clearly what you are mis
 
 ## 給你的話
 
-You're reserved and low-key, and your talents mostly stay inside. What you can rely on most: at work, service industries suit you best, such as healthcare or insurance — work that looks after people. Above all, keep in mind: you don't fight, but you remember for a long time, so it's best to talk things out early.
+### Start with your priorities when choosing
 
-You can also rely on a few other things. First, your strength is composure: you don't show off, and you work steadily. Second, at home, finance-related organisations suit you as a workplace. Third, you're well suited to businesses that help people relax and enjoy themselves.
+You're reserved by nature, and mostly keep what's on your mind to yourself. The theme of your Life Palace is whether you express your feelings and thoughts outwardly or keep them to yourself at first. Restraint can be a strength of Tai Yin (the Moon) here, but holding too much in is not necessarily better.
 
-A few other things to keep in mind. First, in your inner life, you're easily content, so you're not much inclined to leave a position that's already good enough. Second, in love, you look after your partner well, but rarely say what you want yourself. Third, if you hold back too tightly, others can't see what you think.
+### How you work and what you take on
+
+Your Career Palace is in Mao (one of the twelve positions on the chart), with Tai Yang (the Sun) and Tian Liang (the Sage) together. The opposite palace has no major star. Service industries suit you best, such as healthcare or insurance — work that looks after people. When Tai Yang and Tian Liang share a palace, the book understands social service, oversight and management, and academic research through the same set of principles. What matters is how your work addresses specific problems, beyond simply naming professions such as medicine or law. In your chart, Tian Liang turning to Recognition sits in this palace, your Career Palace in Mao. With Tian Liang turning to Recognition, the book emphasises establishing your standing first and letting income follow your reputation. Your chart places greater value on developing professional judgement that others can trust; once your reputation begins to grow, you still need to agree clearly on your actual responsibilities and pay.
+
+### Your earnings and how you arrange resources
+
+Your Wealth Palace, in Wei, has no major star, so it is read with reference to Tian Tong (the Blessed) and Ju Men (the Great Gate) from the opposite palace in Chou. You're well suited to businesses that help people relax and enjoy themselves. When Tian Tong and Ju Men share a palace, the book emphasises earning through speech, and also requires you to check the flanking palaces and other supporting factors. The key is how much explanation, back and forth and coordination you need before a payment comes through.
+
+### Feeling settled after you commit
+
+Your Wellbeing Palace is in Chou, with Tian Tong and Ju Men together. The opposite palace has no major star. Your inner life is rich; a little music and some free time are enough to content you. When Tian Tong and Ju Men share a palace, the book reads emotional investment alongside inner distress and distinguishes how each star undergoes the four transformations. Notice whether you explain your needs clearly or simply keep weighing them up in your mind.
 
 As for timing: over these ten years, put your effort into matters with elders and bosses and take more time over your love life; this year, put your effort into looking after your body and mind and take more time over your work.
 

@@ -280,11 +280,21 @@ If you and your parents tend to understand things differently when you talk, dis
 
 ## 給你的話
 
-You have strong views and clear likes and dislikes; you make up your mind and are used to deciding for yourself. What you can rely on most: at work you value style and specification; commercial work suits you. Above all, keep in mind: when no one steps in to help, you tend to carry it all alone.
+### Start with your priorities when choosing
 
-You can also rely on a few other things. First, your strength is a mind of your own and the ability to organise people and things. Second, with money, you earn through a particular skill; your craft is your capital. Third, out in the world you socialise a lot, with dinners and gatherings often filling your diary.
+You have strong personal views, are decisive, and have the ability to lead and organise. The focus of your Life Palace is how you balance the life you truly enjoy with material pleasures and your ability to get things done. These two sides can support each other, or they may each have their own needs.
 
-A few other things to keep in mind. First, you give a lot to those you bring up, but the response often falls short, and what it drains most is your goodwill. Second, in love, you assume your partner understands, when they may have no idea what you're thinking. Third, when you trust your own judgement too much, you can stop hearing other people.
+### How you work and what you take on
+
+Your Career Palace is in Xu (one of the twelve positions on the chart), with Lian Zhen (the Upright) and Tian Fu (the Treasury) together. The opposite palace, your Partnership Palace in Chen, holds Qi Sha (the Warrior). At work you value style and specification; commercial work suits you. When Lian Zhen and Tian Fu share a palace, the book places more emphasis on practical work in finance or economics, or work involving metals, and treats Lian Zhen turning to Abundance as a separate case. The key is how you use resources and whether your reliability carries through into your work.
+
+### Your earnings and how you arrange resources
+
+Your Wealth Palace is in Yin, with Wu Qu (the General) and Tian Xiang (the Minister) together. The opposite palace, your Wellbeing Palace in Shen, holds Po Jun (the Vanguard). You earn through a particular skill; your craft is your capital. The key is what work generates your income, without equating handling money with being good at managing it.
+
+### Feeling settled after you commit
+
+Your Wellbeing Palace is in Shen, held by Po Jun. The opposite palace, your Wealth Palace in Yin, holds Wu Qu and Tian Xiang. You're full of ideas and often have original insights. When Po Jun sits alone, the book emphasises doing things yourself and readily wanting change, while distinguishing fresh ideas brought by supporting stars from the gap between ideas and action under Di Kong (Void) and Di Jie (Loss). Notice whether a new idea becomes something you can complete.
 
 As for timing: over these ten years, put your effort into matters with elders and bosses and take more time over your love life; this year, put your effort into looking after your body and mind and take more time over your work.
 
