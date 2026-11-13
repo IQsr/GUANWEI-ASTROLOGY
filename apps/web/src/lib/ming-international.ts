@@ -53,7 +53,7 @@ export function internationalMing(chapter: { text: string; reading?: unknown }, 
   }
   if(reading.writer==='life-steps-reader-v2')return reading.localized?.[locale]??null;
   // 綜合判讀章（財帛等，2026-11-11）：有英日快照就讀新版；冇就回 null，照舊讀舊章快照（international）
-  if(reading.writer==='synthesis-v1')return reading.localized?.[locale]??null;
+  if(reading.writer==='synthesis-v1')return reading.localized?.[locale]?.filter((s)=>s.text)??null; // 空段 = 呢個語言譯唔到嘅尾段（財帛補返嗰兩節），略過
   if (reading.writer !== 'sentence-backed-v1') return null;
   return reading.localized?.[locale] ?? translateMing(reading, locale);
 }

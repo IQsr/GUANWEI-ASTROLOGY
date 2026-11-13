@@ -27,9 +27,10 @@ it('開咗綜合判讀層：章名同編號唔變，中文讀到新章；財帛�
     enOn.forEach((segs, i) => { if (!newer.includes(i)) expect(segs.map((x) => x.slot), on[i]!.slug).toEqual(enOff[i]!.map((x) => x.slot)); });
     jaOn.forEach((segs, i) => { if (!newer.includes(i)) expect(segs.map((x) => x.slot), on[i]!.slug).toEqual(jaOff[i]!.map((x) => x.slot)); });
     for (const i of newer) {
-      const r = on[i]!.reading as { localized: { en: unknown; ja: unknown } };
-      expect(enOn[i]).toEqual(r.localized.en);
-      expect(jaOn[i]).toEqual(r.localized.ja);
+      const r = on[i]!.reading as { localized: { en: { text: string }[]; ja: { text: string }[] } };
+      /* 2026-11-13 財帛章尾補返舊章兩節：呢個語言譯唔到嘅尾段存做空段，讀嗰陣略過 */
+      expect(enOn[i]).toEqual(r.localized.en.filter((x) => x.text));
+      expect(jaOn[i]).toEqual(r.localized.ja.filter((x) => x.text));
       expect(enOn[i]!.map((x) => x.text).join(' ')).not.toMatch(/[一-鿿]/);
     }
   }

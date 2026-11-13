@@ -182,6 +182,14 @@ You're good at financial planning and putting money to use, and the results give
 
 Your financial fortunes tend to take a sudden turn for the worse. Your Wealth Palace: Di Kong (Void).
 
+### Growing income still calls for effort
+
+Tian Tong (the Blessed) turning to Obstruction in your Life Palace also links with Tai Yin (the Moon) in your Wealth Palace, for which the book explicitly describes earning money through both mental and physical effort. Whether your sources of income are growing and whether the effort feels light can have different answers at the same time.
+
+### Advice for you (editorial)
+
+When you assess a source of income, include the time, costs and ongoing responsibilities it will continue to require. Check that your existing arrangements can cope before taking on new commitments, so growth in your income can leave lasting results.
+
 ## 疾厄
 
 ### Tian Fu mainly represents stomach deficiency and excess
