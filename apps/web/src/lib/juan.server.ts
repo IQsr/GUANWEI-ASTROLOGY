@@ -53,7 +53,8 @@ export function serverJuan(): JuanPort {
        * 付完款之後深度章照樣寫住「未裁」。問同一個 `has_entitlement()`，
        * 同 `/pay` 嗰邊一樣 —— 唔喺前端自己估。
        */
-      const { data: cut, error: cutError } = await sb.rpc('has_entitlement', { p_book: bookId });
+      /* 2026-11-13：改問 `book_open()`（0013）= 有票，或者限時全開期間。`/pay` 照舊問 has_entitlement。 */
+      const { data: cut, error: cutError } = await sb.rpc('book_open', { p_book: bookId });
       if (cutError) throw cutError;
 
       return {
