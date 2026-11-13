@@ -1,5 +1,5 @@
-import { Ja, citation, citeOf } from '@guanwei/content';
-import { englishChapters, isEnglish } from '@/lib/english';
+import { En, Ja, citation, citeOf } from '@guanwei/content';
+import { englishChapters, isEnglish, plainEn } from '@/lib/english';
 import { isJapanese, japaneseChapters } from '@/lib/japanese';
 import { zhFor } from '@/lib/hans';
 import type { ChapterLead } from '@/lib/juan-view';
@@ -58,6 +58,25 @@ function clean(s: string): string {
   return s.replace(/\*\*/g, '').trim();
 }
 
+/** 譯唔到嘅句會以〔中文〕出現（english.ts／japanese.ts）：目次同未裁頁係書嘅門面，寧願少一句都唔出中文 */
+const dropUntranslated = (s: string) => s.replace(/〔[^〕]*〕/g, '').replace(/ {2,}/g, ' ').trim();
+
+/**
+ * 英文第一段（2026-11-13，Issac 抽書見到目次出〔中文〕）。
+ * 以前一律譯**舊版**第一段（`internationalLead`）：同撳入去章節讀到嘅新版英文唔同，舊句冇譯文嗰陣仲會出〔中文〕。
+ * 而家先譯**新版**中文第一段（同閱讀頁 `freshEnglish` 同一份逐句譯文）；有句譯唔到先退返舊版，舊版都有漏就剔走嗰句。
+ */
+function englishLead(lead: string, oldLead: string | undefined): string {
+  const zh = clean(lead);
+  const lines = zh.match(/[^。！？]*[。！？]|[^。！？]+$/g)?.map((x) => x.trim()).filter(Boolean) ?? [];
+  if (lines.length) {
+    const r = En.renderParagraphs(lines);
+    if (!r.missing.length) return r.paras.map(plainEn).join(' ');
+  }
+  const text = clean(oldLead ?? lead);
+  return text ? dropUntranslated(englishChapters([{ text, slots: [] }])[0]?.[0]?.text ?? '') : '';
+}
+
 /**
  * 未裁章嘅結論段（2026-11-10，Issac：未買嘅章先俾結論，後面糊住）。
  * 同目次問目一樣嘅第一段（DB 0008 `chapter_leads()` 只開第一段），按 locale 轉：英日用成書當刻嘅舊章快照第一段再譯。
@@ -68,11 +87,10 @@ export function localizedLead(leads: readonly ChapterLead[], slug: string, local
   // 起書時存咗英日新版（綜合判讀層章等，0012）就用佢，同裁開之後讀到嘅第一段一樣
   const saved = isEnglish(locale) ? l.localized?.en?.answer : isJapanese(locale) && l.localized?.ja?.answer ? Ja.clearJa(l.localized.ja.answer) : undefined;
   if (saved && clean(saved)) return clean(saved);
-  const intl = isEnglish(locale) || isJapanese(locale);
-  const text = clean(intl && l.internationalLead !== undefined ? l.internationalLead : l.lead);
+  if (isEnglish(locale)) return englishLead(l.lead, l.internationalLead) || null;
+  const text = clean(isJapanese(locale) && l.internationalLead !== undefined ? l.internationalLead : l.lead);
   if (!text) return null;
-  if (isEnglish(locale)) return englishChapters([{ text, slots: [] }])[0]?.[0]?.text ?? null;
-  if (isJapanese(locale)) return japaneseChapters([{ text, slots: [] }])[0]?.[0]?.text ?? null;
+  if (isJapanese(locale)) return dropUntranslated(japaneseChapters([{ text, slots: [] }])[0]?.[0]?.text ?? '') || null;
   return zhFor(locale, text);
 }
 
@@ -101,6 +119,7 @@ function sourcesOf(lead: string, locale: string, citations?: string[]): AskSourc
  */
 export function buildAsks(leads: readonly ChapterLead[], locale: string): AskItem[] {
   const international = isEnglish(locale) || isJapanese(locale);
+  const zhLead = new Map(leads.map((l) => [l.slug, l.lead]));
   const bySlug = new Map(leads.map((l) => [l.slug, international && l.internationalLead !== undefined
     ? { ...l, lead: l.internationalLead, citations: undefined } : l]));
   const picked = ASKS.flatMap((a) => {
@@ -110,18 +129,22 @@ export function buildAsks(leads: readonly ChapterLead[], locale: string): AskIte
   if (picked.length === 0) return [];
 
   if (isEnglish(locale)) {
-    const en = englishChapters(picked.map((p) => ({ text: clean(p.lead.lead), slots: [] })));
-    return picked.map((p, i) => {
+    return picked.flatMap((p) => {
       const local = p.lead.localized?.en;
-      return { key: p.key, slug: p.slug, answer: local?.answer ?? en[i]?.[0]?.text ?? '', ...(local?.detail ? { detail: local.detail } : {}), quote: null, sources: sourcesOf(clean(p.lead.lead), locale, local?.citations) };
+      const answer = dropUntranslated(local?.answer ?? '') || englishLead(zhLead.get(p.slug) ?? p.lead.lead, p.lead.lead);
+      const detail = local?.detail ? dropUntranslated(local.detail) : '';
+      // 一句都譯唔到就成題唔出，唔好出一題空白答案
+      return answer ? [{ key: p.key, slug: p.slug, answer, ...(detail ? { detail } : {}), quote: null, sources: sourcesOf(clean(p.lead.lead), locale, local?.citations) }] : [];
     });
   }
   /* 日文（2026-10-15）：同閱讀頁一樣逐句譯；引文係中文原句，唔出 */
   if (isJapanese(locale)) {
     const ja = japaneseChapters(picked.map((p) => ({ text: clean(p.lead.lead), slots: [] })));
-    return picked.map((p, i) => {
+    return picked.flatMap((p, i) => {
       const local = p.lead.localized?.ja;
-      return { key: p.key, slug: p.slug, answer: Ja.clearJa(local?.answer ?? ja[i]?.[0]?.text ?? ''), ...(local?.detail ? { detail: local.detail } : {}), quote: null, sources: sourcesOf(clean(p.lead.lead), locale, local?.citations) };
+      const answer = dropUntranslated(Ja.clearJa(local?.answer ?? ja[i]?.[0]?.text ?? ''));
+      const detail = local?.detail ? dropUntranslated(local.detail) : '';
+      return answer ? [{ key: p.key, slug: p.slug, answer, ...(detail ? { detail } : {}), quote: null, sources: sourcesOf(clean(p.lead.lead), locale, local?.citations) }] : [];
     });
   }
   return picked.map((p) => ({
@@ -150,7 +173,10 @@ export function withMingDetail(leads: readonly ChapterLead[], chapter: { text: s
   if (!first || (detail?.slot !== '展開' && !crossDetail)) return [...leads];
   const localized: ChapterLead['localized'] = {};
   for (const locale of ['en', 'ja'] as const) {
-    const segments = internationalMing({ text: chapter!.text!, reading: chapter!.reading }, locale);
+    // 英文（2026-11-13）：同閱讀頁同一條路（新版逐句譯文優先），唔好再淨係讀舊版快照 —— 目次同章節要講同一番說話
+    const segments = locale === 'en'
+      ? englishChapters([{ text: chapter!.text!, slots: [], reading: chapter!.reading }])[0]?.filter((x) => !/[〔〕]/.test(x.text))
+      : internationalMing({ text: chapter!.text!, reading: chapter!.reading }, locale);
     if (segments?.[0]) localized[locale] = { answer: segments[0].text, ...(segments[1] ? { detail: segments[1].text } : {}),
       citations: [...new Set(segments.slice(0, 2).flatMap((s) => s.statements?.flatMap((l) => l.citations) ?? []))] };
   }

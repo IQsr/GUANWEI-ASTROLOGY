@@ -3,6 +3,7 @@ import { createElement, type ReactElement } from 'react';
 import { sampleBook } from '@/lib/sample-book';
 import { leadsFromBodies } from '@/lib/wenmu';
 import { internationalMing } from '@/lib/ming-international';
+import { englishChapters } from '@/lib/english';
 import type { JuanPort } from '@/lib/juan-view';
 import type { AskItem } from '@/lib/wenmu';
 
@@ -55,7 +56,8 @@ it('saved-book contents use the chapter snapshot in every locale, without readin
       expect(body.mock.calls.map(([, slug]) => slug), locale).toEqual(['序', '命宮']);
       expect(ming.sources.length, locale).toBeGreaterThan(0);
       if (locale === 'en' || locale === 'ja') {
-        const segments = internationalMing(snapshot, locale)!;
+        // 2026-11-13：英文目次同閱讀頁同一條路（新版逐句譯文優先）；日文未切換，照舊讀快照
+        const segments = locale === 'en' ? englishChapters([snapshot])[0]! : internationalMing(snapshot, locale)!;
         expect(ming.answer, locale).toBe(segments[0]!.text);
         expect(ming.detail, locale).toBe(segments[1]!.text);
         expect(ming.sources.map((s) => s.id), locale).toEqual([...new Set(segments.slice(0, 2).flatMap((s) => s.statements?.flatMap((l) => l.citations) ?? []))]);
