@@ -9,6 +9,7 @@ import '../fonts';
 import { SiteHeader } from '@/components/SiteHeader';
 import { PageFade } from '@/components/PageFade';
 import { SiteFooter } from '@/components/SiteFooter';
+import { SkipLink, SkipTarget } from '@/components/SkipLink';
 import '../globals.css';
 
 export function generateStaticParams() {
@@ -75,10 +76,11 @@ export default async function LocaleLayout({
       </head>
       <body className="relative">
         <NextIntlClientProvider>
+          <SkipLink />
           <PageFade />
           <div className="relative z-[1]">
             <SiteHeader />
-            {children}
+            <SkipTarget>{children}</SkipTarget>
             <SiteFooter />
           </div>
         </NextIntlClientProvider>
