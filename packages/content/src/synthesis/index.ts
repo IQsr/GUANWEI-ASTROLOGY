@@ -861,7 +861,8 @@ function annualPalaceSegment(ctx: Ctx, cfg: AnnualPalace, said: string, heads: J
   const js = dedupe(found).slice(0, 2);
   if (!js.length) return null;
   // 2026-11-10 按話題裁決：跨層訊號（化祿、化忌、大限化忌）落喺呢一宮就併入嚟，同呢一宮嘅判斷一齊睇（盲評 ab13 盤5：廉忌就喺今年財帛宮，卻分開兩段講）
-  const moved = heads.filter((h) => h.vars.at?.includes(p.branch));
+  // 2026-11-13 英文 final check：講進財成色嘅卡（疊祿、弱地、空劫）只併入財帛段；化祿嗰粒星坐疾厄宮時，健康一節會夾住一句「財源較順」，仲令總覽將健康計做有吉訊號
+  const moved = heads.filter((h) => h.vars.at?.includes(p.branch) && (cfg.palace === '財帛' || !ANNUAL_LU.has((h.parts?.[0] ?? h).card.special)));
   const names = (q: typeof p) => majors(q).map((s) => s.name).join('、');
   const base = natalBase(ctx.chart, cfg);
   // 空宮：講明借對宮邊幾粒（成組借入，連本宮輔煞）

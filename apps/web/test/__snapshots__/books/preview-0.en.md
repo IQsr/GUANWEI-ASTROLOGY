@@ -112,13 +112,15 @@ Circumstances are only the backdrop; what you make of these ten years, and how f
 
 ## 這一年
 
-This year at a glance — chances and risks together: "your health"; worth slowing down and taking more care over: "income", "work", "dealings with children and younger people close to you". The reasons follow, one by one. This year, money matters connected with work are more likely to cause trouble, or the income linked to them may fall. In your birth chart, Lian Zhen (the Upright) turns to Abundance; this year, Lian Zhen turns to Obstruction.
+This year at a glance — chances and risks together: "income"; worth slowing down and taking more care over: "work", "your health", "dealings with children and younger people close to you". The reasons follow, one by one. This year, money matters connected with work are more likely to cause trouble, or the income linked to them may fall. In your birth chart, Lian Zhen (the Upright) turns to Abundance; this year, Lian Zhen turns to Obstruction.
+
+This year, Tian Tong's Abundance stacks with this decade's Tian Tong (the Blessed) Abundance, and income comes more smoothly. This year, Tian Tong turns to Abundance, in the same palace as this decade's Tian Tong in Abundance: a "stacked Abundance".
 
 This year, work may still meet obstacles, because Lian Zhen turns to Obstruction for this decade. This decade's Lian Zhen Obstruction sits in Xu (one of the twelve positions on the chart), which is this year's Career Palace.
 
 ### Health this year
 
-This year brings both chances and risks for your health. This year your Health Palace is in Chou, holding Tian Tong (the Blessed) and Ju Men (the Great Gate). In your birth chart, the Health Palace holds Tian Tong and Ju Men. Your birth chart points to this: You tend to have oesophageal, tracheal or intestinal problems, as well as neuralgia. This year, Tian Tong's Abundance stacks with this decade's Tian Tong Abundance, and income comes more smoothly. This year, Tian Tong turns to Abundance, in the same palace as this decade's Tian Tong in Abundance: a "stacked Abundance". This year, keep a closer eye on your oesophagus, trachea and intestines, and nerve pain. This year's Health Palace: Tian Tong with Ju Men. This year, keep a closer eye on your digestive system. This year's Health Palace: Ju Men, linked with Tian Tong in Abundance.
+This year your Health Palace is in Chou, holding Tian Tong and Ju Men (the Great Gate). In your birth chart, the Health Palace holds Tian Tong and Ju Men. Your birth chart points to this: You tend to have oesophageal, tracheal or intestinal problems, as well as neuralgia. This area needs care again this year. This year, keep a closer eye on your oesophagus, trachea and intestines, and nerve pain. This year's Health Palace: Tian Tong with Ju Men. This year, keep a closer eye on your digestive system. This year's Health Palace: Ju Men, linked with Tian Tong in Abundance.
 
 ### Children and younger people this year
 
