@@ -81,8 +81,10 @@ it('六十星系與借星的成書、序列化、英日書頁保留每句同一�
     const drafts = [{ slug: '命宮', body: chapter.text, reading }];
     for (const locale of ['en', 'ja'] as const) {
       const asks = buildAsks(leadsFromBodies(drafts), locale);
-      expect(asks[0]!.answer).toBe(reading.localized[locale][0].text);
-      expect(asks[0]!.detail).toBe(reading.localized[locale][1].text);
+      // 2026-11-13：英文目次同閱讀頁一樣（englishChapters：同一份快照，另加地支說明）
+      const page = locale === 'en' ? englishChapters([{ text: chapter.text, slots: [], reading }])[0]! : reading.localized[locale];
+      expect(asks[0]!.answer).toBe(page[0].text);
+      expect(asks[0]!.detail).toBe(page[1].text);
       expect(asks[0]!.sources).toHaveLength(2);
     }
     seen.add(ming.system.n);
