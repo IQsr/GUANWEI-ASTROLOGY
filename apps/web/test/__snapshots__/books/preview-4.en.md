@@ -186,6 +186,14 @@ You usually need to change industries before you start becoming wealthy. Your We
 
 Your financial fortunes tend to take a sudden turn for the worse. Your Wealth Palace: Di Jie (Loss).
 
+### See how this applies to everyday life
+
+After Po Jun (the Vanguard) opens up a source of income, there is still the stage of keeping it going. A new approach that brings in income does not automatically mean you are good at keeping what you gain; further investment, competition and day-to-day management still affect how heavy this pioneering is to carry.
+
+### Advice for you (editorial)
+
+When you start an extra source of income, record separately what each one takes, when it pays and what responsibilities follow. Make sure your existing work is being followed up before widening your scope step by step, so new opportunities do not crowd out what you have already promised. Di Jie (Loss) also sits in this palace. With money matters, give yourself a little extra time; if something has to be decided quickly, check the key details first.
+
 ## 疾厄
 
 ### Tian Tong and Ju Men: bodily passages and pain as health themes

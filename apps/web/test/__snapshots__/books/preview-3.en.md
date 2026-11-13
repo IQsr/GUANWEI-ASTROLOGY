@@ -182,6 +182,14 @@ Your efforts to gain money tend to fall short at the final step, or you suddenly
 
 Take care to avoid losses from problems with paperwork, such as bad cheques or contract disputes. Your Wealth Palace, counting the stars borrowed from the Wellbeing Palace: Wen Chang and Wen Qu in Obstruction.
 
+### See how this applies to everyday life
+
+With Tian Tong (the Blessed) and Ju Men (the Great Gate), earning is not only about explaining things clearly; it is also about how much effort the explaining, co-ordinating and following up take.
+
+### Advice for you (editorial)
+
+When you join a group activity that handles money, include the preparing, explaining and following up when the work is divided. Agree first where the money is spent and who accounts for it, rather than looking only at how much was collected. Qing Yang (the Blade) and Ling Xing (Bell) also sit in this palace. With your pocket money, give yourself a little extra time; if something has to be decided quickly, check the key details first.
+
 ## 疾厄
 
 ### Food and absorption: central to spleen and earth symbolism

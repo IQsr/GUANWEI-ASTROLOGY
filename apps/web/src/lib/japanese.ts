@@ -68,6 +68,11 @@ export function japaneseChapters(chs: readonly { text: string; slots: readonly s
  * 其他語言照 `zhFor`（簡體轉、繁體英文照舊）。
  */
 export function bookTitleFor(locale: string, title: string): string {
+  /* 英文（2026-11-13）：以前照出中文「無名命書」；跟封面嘅寫法（messages `naming.book`／`namelessBook`） */
+  if (locale === 'en') {
+    const e = /^(.+?)命書$/.exec(title);
+    return !e ? title : e[1] === '無名' ? 'A nameless book' : `${e[1]}'s book`;
+  }
   if (!isJapanese(locale)) return zhFor(locale, title);
   /* 介面文案本身已經係日文（「見本の命書」） */
   if (title.endsWith('の命書')) return title;

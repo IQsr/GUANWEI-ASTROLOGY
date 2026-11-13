@@ -182,6 +182,14 @@ Your finances tend to fluctuate, usually because you get drawn into other people
 
 Your money tends to circulate readily.
 
+### See how this applies to everyday life
+
+Notice where the competition, the delays and the spending each arise.
+
+### Advice for you (editorial)
+
+You can turn your strongest skill into results other people can understand, and agree the scope and the fee before taking on a job. Work you keep doing well is worth building on; do not let extra requests keep piling up without matching arrangements. Lu Cun (the Keeper of Abundance) also sits in this palace. When support or an opportunity turns up around money, note where it comes from and how long it is likely to last before deciding how much to put in.
+
 ## 疾厄
 
 ### Tian Tong and Ju Men: bodily passages and pain as health themes

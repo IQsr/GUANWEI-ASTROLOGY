@@ -373,10 +373,16 @@ export function createBookChapters(chart:ZChart,opts:Omit<Parameters<typeof book
  */
 function withSynthesis<C extends { slug: string; title?: string; text: string; slots: string[]; reading?: ChapterReading }>(chart: ZChart, year: number, book: C[]): C[] {
   return book.map((ch) => {
-    const segments = ch.slug === '財帛' ? synthWealthChapter(chart) : ch.slug === '這一年' ? synthYearChapter(chart, year, { general: true }) : null;
-    if (!segments) return ch;
+    const synth = ch.slug === '財帛' ? synthWealthChapter(chart) : ch.slug === '這一年' ? synthYearChapter(chart, year, { general: true }) : null;
+    if (!synth) return ch;
+    // 財帛章補返兩節（2026-11-13，Issac：財帛講得比其他宮少）：判斷句後面接返舊章嘅跨宮說明（細讀）同「給你的建議」（做法）。
+    // 舊章淨係重講星曜條文嘅細讀段（冇編輯說明句）唔接 —— 判斷句已經講咗，接埋就重複。
+    const extra = ch.slug === '財帛' && ch.reading?.writer === 'palace-reader-v1'
+      ? ch.reading.segments.filter((s) => s.slot === '做法' || (s.slot === '細讀' && s.statements?.some((l) => l.kind === 'editorial-explanation')))
+      : [];
+    const segments: ChapterReading['segments'] = [...synth, ...extra];
     // 英日快照（2026-11-11）：句句譯得到先用新版，否則英日照舊讀舊章
-    const localized = localizeSynthesis(segments);
+    const localized = localizeSynthesis(segments, synth.length);
     const reading: ChapterReading = { format: 'ming-expanded-v1', writer: 'synthesis-v1', segments,
       international: ch.reading?.international ?? { text: ch.text, slots: ch.slots },
       internationalSnapshot: { text: ch.text, slots: ch.slots, ...(ch.reading ? { reading: ch.reading } : {}) }, ...(localized ? { localized } : {}) };
