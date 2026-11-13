@@ -118,6 +118,8 @@ This year at a glance — likely to go better: "your own development", "exams an
 
 This year, conditions favour your exams, further study and writing, and you are more likely to have opportunities to publish your work. This year: Wen Chang (a Scholar star) in Recognition, in Mao (one of the twelve positions on the chart).
 
+This year, Tian Tong's Abundance stacks with your natal Lu Cun (the Keeper of Abundance), which helps a little, but the effect is light; do not count on higher income because of it. This year, Tian Tong turns to Abundance, in the same palace as your natal Lu Cun.
+
 This year, dealings with children and younger people close to you may still meet obstacles, because Wen Chang turns to Obstruction for this decade. This decade's Wen Chang Obstruction sits in Mao, which is this year's Children Palace.
 
 ### Work this year
@@ -130,7 +132,7 @@ This year your Health Palace is in Chou, holding Zi Wei (the Emperor) and Po Jun
 
 ### Your state of mind this year
 
-This year looks favourable for your mood and pleasures. This year your Wellbeing Palace is in Shen, holding Tian Tong and Tian Liang (the Sage). In your birth chart, the Wellbeing Palace holds Tai Yang. Your birth chart points to this: You tend to attract disputes and arguments, and feel relatively irritable and unsettled. This year, Tian Tong's Abundance stacks with your natal Lu Cun (the Keeper of Abundance), which helps a little, but the effect is light; do not count on higher income because of it. This year, Tian Tong turns to Abundance, in the same palace as your natal Lu Cun. This year, you place more value on pleasures that enrich your inner life. This year's Wellbeing Palace: Tian Liang.
+This year your Wellbeing Palace is in Shen, holding Tian Tong and Tian Liang (the Sage). In your birth chart, the Wellbeing Palace holds Tai Yang. Your birth chart points to this: You tend to attract disputes and arguments, and feel relatively irritable and unsettled. This year builds on that tendency. This year, you place more value on pleasures that enrich your inner life. This year's Wellbeing Palace: Tian Liang.
 
 ### Periods used in this chapter
 

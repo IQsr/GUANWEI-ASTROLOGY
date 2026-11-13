@@ -19,6 +19,17 @@ describe('條款及私隱政策（2026-09-29）', () => {
     for (const v of [LEGAL.operator, LEGAL.contact, LEGAL.governingLaw]) expect(v).toMatch(/^〔.+〕$/);
   });
 
+  /** 2026-11-13：值未定都好，讀者見到嘅頁面唔可以有〔方括號〕（測試者會以為個站未整好） */
+  it('頁面上冇〔方括號〕：四個語言、兩份文件', () => {
+    for (const kind of ['terms', 'privacy'] as const) {
+      for (const locale of ['zh-Hant', 'zh-Hans', 'en', 'ja']) {
+        const doc = legalDoc(kind, locale);
+        const text = [doc.title, doc.updated, ...doc.sections.flatMap((x) => [x.h, ...x.p])].join(' ');
+        expect(text).not.toMatch(/[〔〕]/);
+      }
+    }
+  });
+
   it('兩份文件、兩個語言都有齊，而且段數一樣', () => {
     for (const kind of ['terms', 'privacy'] as const) {
       const zh = legalDoc(kind, 'zh-Hant');

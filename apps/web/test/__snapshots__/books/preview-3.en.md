@@ -112,7 +112,9 @@ Circumstances are only the backdrop; what you make of these ten years, and how f
 
 ## 這一年
 
-This year at a glance — likely to go better: "exams and further study"; chances and risks together: "your health"; worth slowing down and taking more care over: "work", "dealings with siblings, peers and business partners". The reasons follow, one by one. This year, conditions favour your exams, further study and writing, and you are more likely to have opportunities to publish your work. This year: Wen Chang (a Scholar star) in Recognition, in Chou (one of the twelve positions on the chart).
+This year at a glance — likely to go better: "exams and further study", "income"; worth slowing down and taking more care over: "work", "dealings with siblings, peers and business partners", "your health". The reasons follow, one by one. This year, conditions favour your exams, further study and writing, and you are more likely to have opportunities to publish your work. This year: Wen Chang (a Scholar star) in Recognition, in Chou (one of the twelve positions on the chart).
+
+This year, Tian Tong's Abundance stacks with this decade's Tian Tong (the Blessed) Abundance, and income comes more smoothly. This year, Tian Tong turns to Abundance, in the same palace as this decade's Tian Tong in Abundance: a "stacked Abundance".
 
 This year, things may not go as smoothly as you would like with work and dealings with siblings, peers and business partners. This year: Lian Zhen (the Upright) in Obstruction, in Xu.
 
@@ -120,7 +122,7 @@ This year, work may still meet obstacles, because Lian Zhen turns to Obstruction
 
 ### Health this year
 
-This year brings both chances and risks for your health. This year your Health Palace is in Chou, holding Tian Tong (the Blessed) and Ju Men (the Great Gate). In your birth chart, the Health Palace holds Zi Wei (the Emperor). This year, Tian Tong's Abundance stacks with this decade's Tian Tong Abundance, and income comes more smoothly. This year, Tian Tong turns to Abundance, in the same palace as this decade's Tian Tong in Abundance: a "stacked Abundance". This year, keep a closer eye on sciatic nerve and bone problems. This year's Health Palace: Tian Tong with Ju Men, meeting Ling Xing (Bell). This year, keep a closer eye on your oesophagus, trachea and intestines, and nerve pain. This year's Health Palace: Tian Tong with Ju Men.
+This year your Health Palace is in Chou, holding Tian Tong and Ju Men (the Great Gate). In your birth chart, the Health Palace holds Zi Wei (the Emperor). This year, keep a closer eye on sciatic nerve and bone problems. This year's Health Palace: Tian Tong with Ju Men, meeting Ling Xing (Bell). This year, keep a closer eye on your oesophagus, trachea and intestines, and nerve pain. This year's Health Palace: Tian Tong with Ju Men.
 
 ### Periods used in this chapter
 
