@@ -14,10 +14,13 @@ export function ChapterNav({
   bookId,
   prev,
   next,
+  nextOpen,
 }: {
   bookId: string;
   prev: ChapterLink | null;
   next: ChapterLink | null;
+  /** 下一章而家讀唔讀到（買咗，或者限時全開緊）。唔傳就照章節類別標 —— 2026-11-13：全開期間仲標「未裁」，讀者以為後面鎖住 */
+  nextOpen?: boolean;
 }) {
   const t = useTranslations('chapter');
   const tb = useTranslations('book');
@@ -46,7 +49,7 @@ export function ChapterNav({
           <span className="text-cap tracking-[0.16em] text-ink-3">{t('next')}</span>
           <span className="font-serif tracking-[0.08em] text-ink">
             {next.title}
-            {next.tier === 'deep' ? (
+            {next.tier === 'deep' && !nextOpen ? (
               <span className="ms-3 text-cap tracking-[0.14em] text-gold-ink">{tb('uncutTag')}</span>
             ) : null}
           </span>
