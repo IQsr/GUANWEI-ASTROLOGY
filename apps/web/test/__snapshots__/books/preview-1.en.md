@@ -178,6 +178,14 @@ You tend to take charge of finances and favour breaking new ground. Your Wealth 
 
 Your financial fortunes tend to take a sudden turn for the worse. Your Wealth Palace: Di Jie (Loss).
 
+### See how this applies to everyday life
+
+Getting started means drawing on resources, and also bearing the gap between what you put in and what comes back. Receiving Abundance, favourable stars and the palace's position change the nature of this burden, yet the book's wealth formation still comes with risk.
+
+### Advice for you (editorial)
+
+Before you commit to an expense, check how much you can really draw on, when the money arrives and which sums are already set aside for something else. Other people's trust and your own promises both have to tie back to that figure; if the timing does not line up, adjust your arrangements early. Di Jie (Loss) also sits in this palace. With money matters, give yourself a little extra time; if something has to be decided quickly, check the key details first.
+
 ## 疾厄
 
 ### Tai Yang and Tian Liang: endocrine, heart and brain symbolism

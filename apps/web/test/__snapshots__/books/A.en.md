@@ -186,6 +186,14 @@ You tend to encounter cash-flow difficulties. This point is based on the opposit
 
 Your financial fortunes tend to take a sudden turn for the worse. Your Wealth Palace, counting the stars borrowed from the Wellbeing Palace: Di Kong.
 
+### You can build up savings, but watch whether your wants grow with them
+
+Tian Fu (the Treasury) with Abundance in your Life Palace leans towards managing and building up resources; Wu Qu (the General) and Tan Lang (the Wolf) in your Wellbeing Palace, with Wu Qu turning to Obstruction, draw your attention towards the pursuit of wealth and inner enjoyment. Once your sources of income expand, the time, socialising and follow-up responsibilities may grow too. This palace is about how much you gain, but also how much you give to keep that income going, and whether what you have achieved is really there for you to enjoy.
+
+### Advice for you (editorial)
+
+Keep three figures apart: what you earn, what it costs to keep that income going, and what you can actually keep. Before committing to something new, ask yourself whether it meets a real need or simply adds another target to chase.
+
 ## 疾厄
 
 ### Tian Tong and Tai Yin: dampness and depletion
@@ -290,11 +298,21 @@ If you and your parents tend to understand things differently when you talk, dis
 
 ## 給你的話
 
-On the surface there's no big move, but quietly you've already built something. What you can rely on most: at work, you're most at home as a deputy or the one who carries things out; there's no need to fight for the top title. Above all, keep in mind: when a quick decision is needed, you'll seem half a beat behind.
+### Start with your priorities when choosing
 
-You can also rely on a few other things. First, your strength is being grounded and far-sighted. Second, your friends come from all walks of life, but they come and go, changing often. Third, with money, you earn by taking action and know how to make money with money; you're rarely content with just a salary.
+Your strength is holding what you have; keeping an existing position steady suits you better than starting something new. This support can gradually turn into results; but having reserves and being able to build them up is still a separate question from how large a venture you can run.
 
-A few other things to keep in mind. First, inwardly, what you want to do but can't can build into a pent-up frustration. Second, in love, say where your lines are in advance, rather than waiting for your partner to guess. Third, steady as you are, when a chance comes you need to dare to move.
+### How you work and what you take on
+
+You're most at home as a deputy or the one who carries things out; there's no need to fight for the top title. Your Career Palace is in Mao (one of the twelve positions on the chart) with Tian Xiang (the Minister), emphasising work entrusted to you, coordination and responsibilities within an organisation. Tian Fu (the Treasury) and Lu Cun (the Keeper of Abundance) share your Life Palace, supporting resource management; how much work you take on still needs to be considered alongside the resources you can draw on and the authority you have. Being responsible for getting things done well and holding the top position in name place different demands on you.
+
+### Your earnings and how you arrange resources
+
+You earn by taking action and know how to make money with money; you're rarely content with just a salary. Your Wealth Palace is in Wei and borrows Wu Qu (the General) and Tan Lang (the Wolf) from your Wellbeing Palace as a reference. For money in this chart, the key question is how much is really left for your own use after you have opened up new income. The income figure you see is not necessarily the balance you have to spend.
+
+### Feeling settled after you commit
+
+Your peace of mind rests largely on material footing; only when life is secure can you relax. Your Wellbeing Palace is in Chou, with Wu Qu and Tan Lang sharing the palace and Wu Qu turning to Obstruction. This interpretation links your pursuit of wealth with inner enjoyment; having more and feeling more satisfied may progress at different rates.
 
 As for timing: over these ten years, put your effort into your own interests and state of mind and take more time over working with siblings and peers; this year, put your effort into opportunities out in the world and take more time over matters at home.
 

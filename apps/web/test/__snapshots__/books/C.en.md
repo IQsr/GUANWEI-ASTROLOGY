@@ -186,6 +186,18 @@ You're suited to earning through leisure and enjoyment: businesses that help peo
 
 You can earn money with help from others, and you can also consider running a business independently. Your Wealth Palace: Zuo Fu (the Left Aide).
 
+### Linking how you work with how you arrange what you earn
+
+Your Career Palace borrows Tai Yang (the Sun) and Ju Men (the Great Gate), a reference for expression, explanation and dealings with the outside world; Tian Tong (the Blessed) and Tai Yin (the Moon) in your Wealth Palace then ask what needs that work finally answers and how resources are arranged. Your empty Wellbeing Palace sits opposite your Wealth Palace, and the extra toil of Qing Yang (the Blade) in this palace still counts: having things to enjoy and having the time and energy to enjoy them are two different matters.
+
+### Distinguish your sources of income from the money you keep
+
+Your Wealth Palace is in Wu (one of the twelve positions on the chart), holding Tian Tong (the Blessed) and Tai Yin (the Moon); neither star has a birth-chart transformation. The book lists Tian Tong and Tai Yin in Zi or Wu as more favourable for sources of income when Tian Tong occupies the Wealth Palace; in your chart, read this theme of earning first, as the separately listed effects of turning to Abundance, Authority and Obstruction are not inherent in the two stars themselves. In daily life, the money you receive, the money already committed to a purpose and the balance you can ultimately keep are three different things. Even if you temporarily have an extra sum available, your remaining balance may still not increase alongside it if your later needs also grow.
+
+### Advice for you (editorial)
+
+Keep your pocket money, the costs you have already agreed to pay and the money you can keep separate. When extra money comes in, look at your existing arrangements first, and keep time for the activities you really enjoy rather than only adding new spending.
+
 ## 疾厄
 
 ### Tian Fu mainly represents stomach deficiency and excess
@@ -286,11 +298,21 @@ If you want to make a decision yourself, first explain clearly to your parents o
 
 ## 給你的話
 
-You react quickly, see accurately, and have your own principles. What you can rely on most: at work, in your field you easily gain a name and the power to draw people; outward-facing, people-facing roles suit you best. Above all, keep in mind: you're good at finding a way round obstacles, but you can also avoid things that need you to stay and see them through.
+### Start with your priorities when choosing
 
-You can also rely on a few other things. First, your strength is quick judgement; you often spot a problem at a glance. Second, you're well suited to businesses that help people relax and enjoy themselves. Third, out in the world, going out into the world serves you better than staying put; new surroundings tend to make things go more smoothly.
+You are sensitive and changeable, yet also value principles and discipline; when these two forces are balanced, your judgement is clear and decisive. Your Life Palace is in Xu (one of the twelve positions on the chart), where Tian Ji (the Strategist) and Tian Liang (the Sage) share the palace, bringing together sensitivity to change and respect for principles. When you notice a new situation, you still need to separate what is known from what is still a guess, and then explain what your judgement rests on. This is the point your chart firmly supports; with supporting and harsh stars both present, there is not enough to settle on either clear judgement or sharpness.
 
-A few other things to keep in mind. First, with those you bring up, what you've decided can easily get stuck, and pushing harder only takes more effort. Second, in love, you look after them a lot but say little about yourself, and when you do speak it's mostly questions, so they hear only doubt. Third, when you see a problem, it helps to leave some room when you say so.
+### How you work and what you take on
+
+In your field you easily gain a name and the power to draw people; outward-facing, people-facing roles suit you best. Your Career Palace is in Yin with no major star, so it borrows Tai Yang (the Sun) and Ju Men (the Great Gate) from the opposite Partnership Palace in Shen as a reference. The book's basic themes are speech, different backgrounds and external affairs; when you consider future work, first look at whether it involves explaining, negotiating and connecting different demands, then consider job titles. Your presentations and group discussions now can also help you understand the difference between expressing ideas and moving things forward.
+
+### Your earnings and how you arrange resources
+
+You're well suited to businesses that help people relax and enjoy themselves. Your Wealth Palace is in Wu, where Tian Tong (the Blessed) and Tai Yin (the Moon) share the palace; neither star carries a birth transformation of its own. This pairing can be understood through needs to do with enjoyment, planning and building up; Zuo Fu (the Left Aide) and the minor star Tian Fu (the Blessing star) are also in your Wealth Palace, adding outside help and enjoyment respectively. Getting resources, what those resources are already earmarked for and how much is finally left are still three different things. Your Wealth Palace is in Wu, holding Tian Tong and Tai Yin; neither star has a birth-chart transformation. The book lists Tian Tong and Tai Yin in Zi or Wu as more favourable for sources of income when Tian Tong occupies the Wealth Palace; in your chart, read this theme of earning first, as the separately listed effects of turning to Abundance, Authority and Obstruction are not inherent in the two stars themselves. In daily life, the money you receive, the money already committed to a purpose and the balance you can ultimately keep are three different things. Even if you temporarily have an extra sum available, your remaining balance may still not increase alongside it if your later needs also grow.
+
+### Feeling settled after you commit
+
+Your inner life is rich; a little music and some free time are enough to content you. Your Wellbeing Palace is in Zi with no major star, so it borrows Tian Tong and Tai Yin from the opposite Wealth Palace in Wu as a reference; Qing Yang (the Blade) still sits in your Wellbeing Palace itself. Tian Tong and Tai Yin in your Wealth Palace bring a focus on enjoyment and organising resources, but this does not remove the extra effort indicated by this palace itself. You need to consider both whether you have the means to enjoy things and whether you have the time and energy to do so.
 
 As for timing: over these ten years, put your effort into your love life and take more time over matters with elders and bosses; this year, put your effort into your own plans and take more time over the next generation and your own work.
 

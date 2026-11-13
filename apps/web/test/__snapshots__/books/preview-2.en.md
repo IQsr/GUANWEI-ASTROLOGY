@@ -182,6 +182,10 @@ You have several sources of income. Your Wealth Palace: Zi Wei (the Emperor) in 
 
 Even plentiful sources of income don't mean you can hold on to the money and build up savings. Your Wealth Palace: Zi Wei.
 
+### See how this applies to everyday life
+
+If large sums pass through your hands, look at the costs and the responsibilities separately.
+
 ### Advice for you (editorial)
 
 When you manage a sum of money, first distinguish what truly belongs to you from what you are holding for someone else or what is set aside for another purpose. Write down clearly who has permission to spend, the accounts and when you need to report back, and you will also find it easier to keep track of how much is available for your own use.
