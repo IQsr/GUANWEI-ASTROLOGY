@@ -115,7 +115,8 @@ export function Chart({
                 interactive ? () => onSelect(selected === index ? null : index) : undefined
               }
             >
-              <span className="xing-lie">
+              {/* 星多嘅宮（2026-11-13）：六粒起收窄間距同輔星字，八粒起准摺行 —— 手機最右嗰行輔星以前俾格仔切走 */}
+              <span className="xing-lie" data-many={(palace?.stars.length ?? 0) >= 8 ? '2' : (palace?.stars.length ?? 0) >= 6 ? '1' : undefined}>
                 {palace?.stars.map((star) => (
                   <span key={star.name} className="xing" data-kind={star.kind} title={en ? `${star.name} ${starPy(star.name)}` : undefined}>
                     {(en ? starPy(star.name).split(' ') : [...h(star.name)]).map((c, i) => (

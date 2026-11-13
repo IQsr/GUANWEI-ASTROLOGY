@@ -149,7 +149,8 @@ export function Yindao({
         const edge = b.querySelector<HTMLElement>('.shuzhuo-bian-you');
         const r = (arrow ?? edge)?.getBoundingClientRect();
         const er = edge?.getBoundingClientRect();
-        if (r && er && r.height > 0) setFlipSpot({ x: er.left - 10, y: Math.min(Math.max(r.top + r.height / 2, 80), vh - 140) });
+        /* 手機（2026-11-13）：箭咀喺畫面中間，紙箋會蓋住正文同打開咗嘅命盤 —— 落去畫面底，留返最底嗰行畀「向下捲動」嗰張 */
+        if (r && er && r.height > 0) setFlipSpot({ x: er.left - 10, y: small ? vh - 200 : Math.min(Math.max(r.top + r.height / 2, 80), vh - 140) });
         else setFlipSpot(null);
       }
     };

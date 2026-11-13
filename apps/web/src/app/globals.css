@@ -677,6 +677,35 @@
     align-items: flex-start;
   }
 
+  /* 星多嘅宮（2026-11-13）：一行排唔落，最右嗰粒俾格仔切走半個字。
+     六粒起間距收到 1px；細盤（手機）連輔星字都收細；八粒起准摺行。 */
+  .xing-lie[data-many] {
+    gap: 1px;
+  }
+
+  .xing-lie[data-many="2"] {
+    flex-wrap: wrap;
+    align-content: flex-start;
+  }
+
+  @container (max-width: 420px) {
+    .xing-lie[data-many] .xing[data-kind="aux"] > .zi {
+      font-size: calc(var(--pan-u) * 0.46875);
+    }
+  }
+
+  /* 英文：宮名（Partnership）長過格仔時，截宮名，唔好截地支 */
+  .pan-wrap[data-lang="en"] .gong-ming {
+    min-width: 0;
+    overflow: hidden;
+    letter-spacing: 0;
+    text-overflow: ellipsis;
+  }
+
+  .pan-wrap[data-lang="en"] .gong-zhi {
+    flex: none;
+  }
+
   /* 星名直排。刻意唔用 writing-mode: vertical-rl —— 佢靠字體嘅直排
      度量（vmtx），字體未載入或者 fallback 嗰陣兩個字會疊埋一齊。
      逐個字一行，邊度都啱。 */
@@ -1967,9 +1996,10 @@
 
 /* 落款：導覽照舊黏喺頂，本書捲上去唔好同導覽啲字疊埋 —— 少少半透深底 */
 .dao[data-over="night"]:not([data-float]) {
-  background: rgb(11 13 11 / 0.35);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  /* 2026-11-13：0.35 → 0.92。手機成頁捲，正文喺導覽底下透上嚟同 logo 撞字 */
+  background: rgb(11 13 11 / 0.92);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 /* 夜景上面（首頁、落款）：透明、夜色字 */

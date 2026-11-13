@@ -216,7 +216,7 @@ export default async function ChapterPage({
           {dial && body !== null ? <StarDial {...dial} en={en} /> : null}
           {/* 時辰小實驗（2026-10-05）：讀完回看過去，最想知「準唔準」嗰陣 */}
           {here.slug === '一生十二步' && chart && body !== null ? <ShiyanCard bookId={bookId} /> : null}
-          <ChapterNav bookId={bookId} prev={prev} next={next} />
+          <ChapterNav bookId={bookId} prev={prev} next={next} nextOpen={Boolean(ahead?.text)} />
         </BookSpread>
       )}
     </main>
