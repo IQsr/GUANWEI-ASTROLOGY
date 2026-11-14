@@ -108,6 +108,8 @@ export function Juanshou({
           {to ? (
             <Link
               href={to.href}
+              /* 目次係即場計嘅頁，prefetch 冇用仲會逼開新 instance（見 PageTurnLink） */
+              prefetch={to.href.startsWith('/book/') ? false : undefined}
               className="font-sans text-cap tracking-[0.2em] text-ink-3 transition-colors duration-200 ease-ink hover:text-ink-2"
             >
               ← {toLabel}

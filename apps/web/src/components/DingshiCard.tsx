@@ -14,7 +14,7 @@ export function DingshiCard({ bookId }: { bookId: string }) {
         <span className="rounded-sm border border-cinnabar px-2 py-0.5 font-sans text-cap tracking-[0.08em] text-cinnabar">{t('badge')}</span>
       </h2>
       <p className="font-serif text-body leading-[1.9] text-ink-2">{t('cardBody')}</p>
-      <Link href={`/book/${bookId}/dingshi`} className="btn-mo self-start">
+      <Link href={`/book/${bookId}/dingshi`} prefetch={false} className="btn-mo self-start">
         {t('cardCta')}
         <span className="btn-jiantou" aria-hidden="true">→</span>
       </Link>

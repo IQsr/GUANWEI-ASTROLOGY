@@ -12,7 +12,7 @@ export function ShiyanCard({ bookId }: { bookId: string }) {
       <h2 className="font-serif text-h3 tracking-[0.2em]">{t('cardTitle')}</h2>
       <p className="font-serif text-body leading-[1.9] text-ink-2">{t('cardSub')}</p>
       <p className="text-cap tracking-[0.08em] text-ink-3">{t('cardBody')}</p>
-      <Link href={`/book/${bookId}/shiyan`} className="lian self-start text-sm">
+      <Link href={`/book/${bookId}/shiyan`} prefetch={false} className="lian self-start text-sm">
         {t('cardCta')} →
       </Link>
     </aside>

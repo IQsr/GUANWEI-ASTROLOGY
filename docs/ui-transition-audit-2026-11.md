@@ -83,7 +83,7 @@ Vercel 係 Hobby 計劃，runtime log 只留一個鐘、而且只有 console 輸
 **建議（由易到難）**：
 
 1. ~~開 Fluid Compute~~ —— 已經開咗，冇得再做。
-2. **本書入面嘅連結關咗 prefetch**（目次嗰十幾條、`PageTurnLink`）：呢啲頁係 `force-dynamic` 又冇 `loading.tsx`，prefetch 只攞到空殼，淨係得個「逼開新 instance」嘅壞處。改動細（`<Link prefetch={false}>`）。
+2. **本書入面嘅連結關咗 prefetch**（目次嗰十幾條、`PageTurnLink`）：呢啲頁係 `force-dynamic` 又冇 `loading.tsx`，prefetch 只攞到空殼，淨係得個「逼開新 instance」嘅壞處。改動細（`<Link prefetch={false}>`）。 **已做（2026-11-14）**：`PageTurnLink`（只限 `/book/…`，示範書照舊）、`Juanshou` 返目次、`ShiyanCard`、`DingshiCard`。⚠ 效果要 merge 上正式站之後先量得到（本機冇資料庫、preview 有登入保護）。
 3. **保溫**：用排程每幾分鐘打一次 `/shelf`。Hobby 嘅 Vercel Cron 最密一日一次，要用外面嘅排程（例如 GitHub Actions 每 5 分鐘）。治標，但對「測試者第一下入嚟」最直接。
 4. **縮細 function**：英文、日文譯表同綜合判讀卡改做用到先讀（而家一啟動就全部載入）。治本，但係中等改動，要量過先知慳幾多。
 
@@ -168,6 +168,7 @@ Vercel 係 Hobby 計劃，runtime log 只留一個鐘、而且只有 console 輸
 ## 四、今次改咗乜
 
 - `apps/web/src/components/Luokuan.tsx`：落印嗰刻預先載定封面、書桌、攤開嗰本書嘅相（第 6 項）。
+- `PageTurnLink.tsx`、`Juanshou.tsx`、`ShiyanCard.tsx`、`DingshiCard.tsx`：讀者自己本書入面嘅連結關咗 prefetch（第 2 項補充）。
 - 其餘全部冇郁。
 
 ## 五、等你揀
