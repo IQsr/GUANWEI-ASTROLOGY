@@ -168,5 +168,12 @@ export function PageTurnLink({
   };
 
   /* `data-page-turn`：全站淡入（PageFade）唔好截呢條 —— 本書有自己嘅翻頁 */
-  return <Link href={href} onClick={handle} data-page-turn="" {...rest} />;
+  /*
+   * 讀者自己嘅書（/book/…）唔 prefetch（2026-11-14 · docs/ui-transition-audit-2026-11.md 第 2 項）：
+   * 嗰啲頁每次即場計、又冇 loading 骨架，prefetch 只攞到 0.5KB 空殼，慳唔到時間；
+   * 但目次十幾條連結一齊問，Vercel 就開一批新 instance（每個冷啟動約 5 秒），
+   * 讀者跟住撳第一章有機會派去一個仲啟動緊嘅。示範書（/sample）係靜態頁，prefetch 有用，照舊。
+   */
+  const prefetch = href.startsWith('/book/') ? false : undefined;
+  return <Link href={href} prefetch={prefetch} onClick={handle} data-page-turn="" {...rest} />;
 }

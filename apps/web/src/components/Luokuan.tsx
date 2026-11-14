@@ -14,6 +14,24 @@ import { LEGAL_VERSION } from "@/lib/legal";
 import { EMPTY_DRAFT, toCastRequest, type Draft } from "@/lib/luokuan";
 
 /**
+ * 落印嗰刻先載定封面同書桌嗰幾張相（2026-11-14 · docs/ui-transition-audit-2026-11.md 第 6 項）
+ *
+ * 呢幾張都係 CSS 背景，元件出現先至開始下載：量到封面（cover.webp，163KB）喺題名幕出咗之後
+ * 先攞，手機 4G 遲 300ms 先有；揭開之後張枱（desk.webp）同攤開嗰本書（open-book.webp）再遲約 400ms。
+ * 排盤個 server action 最快都要一秒幾，趁嗰段時間攞定，題名幕一出就有封面。
+ * 唔用 `<link rel="preload">`：讀者填表唔止幾秒，瀏覽器會警告「preload 咗冇用」。
+ */
+function warmBookImages() {
+  const en = document.documentElement.lang.toLowerCase().startsWith("en");
+  const files = [en ? "cover-en.webp" : "cover.webp", ...(en ? ["qian-en.webp"] : []), "desk.webp", "open-book.webp", "paper.webp"];
+  for (const file of files) {
+    const img = new Image();
+    img.decoding = "async";
+    img.src = `/img/book/${file}`;
+  }
+}
+
+/**
  * 開卷落款（工單 E4 · 架構 §3 · 視覺系統 §9）
  *
  * ── 2026-10-06：落款改做一幅卷軸（`Juanzhou`）──
@@ -75,6 +93,7 @@ export function Luokuan() {
     setSealed(true);
     setFolded(false);
     setCasting(true);
+    warmBookImages();
     const result = await castChart({
       ...request,
       name: nameOf(filled.name),
