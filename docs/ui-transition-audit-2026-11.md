@@ -83,7 +83,17 @@ Vercel 係 Hobby 計劃，runtime log 只留一個鐘、而且只有 console 輸
 **建議（由易到難）**：
 
 1. ~~開 Fluid Compute~~ —— 已經開咗，冇得再做。
-2. **本書入面嘅連結關咗 prefetch**（目次嗰十幾條、`PageTurnLink`）：呢啲頁係 `force-dynamic` 又冇 `loading.tsx`，prefetch 只攞到空殼，淨係得個「逼開新 instance」嘅壞處。改動細（`<Link prefetch={false}>`）。 **已做（2026-11-14）**：`PageTurnLink`（只限 `/book/…`，示範書照舊）、`Juanshou` 返目次、`ShiyanCard`、`DingshiCard`。⚠ 效果要 merge 上正式站之後先量得到（本機冇資料庫、preview 有登入保護）。
+2. **本書入面嘅連結關咗 prefetch**（目次嗰十幾條、`PageTurnLink`）：呢啲頁係 `force-dynamic` 又冇 `loading.tsx`，prefetch 只攞到空殼，淨係得個「逼開新 instance」嘅壞處。改動細（`<Link prefetch={false}>`）。 **已做（2026-11-14）**：`PageTurnLink`（只限 `/book/…`，示範書照舊）、`Juanshou` 返目次、`ShiyanCard`、`DingshiCard`。
+
+   **merge 之後重量（2026-11-14，正式站 `0390e82`，桌面，每輪新 context 入目次再撳命宮）**：
+
+   | | 目次後 `/book/` prefetch | 撳命宮後 TTFB | 換到頁 | 慢（>2 秒）嘅次數 |
+   |---|---|---|---|---|
+   | 改之前 | 2 個（捲落去會再多） | 186–283ms；慢嗰兩次 2351、2951ms | 706–1072ms；慢嗰兩次 3036、3726ms | 6 次有 2 次 |
+   | 改之後 | 0 個 | 116–172ms | 524–950ms | 8 次有 0 次 |
+
+   樣本細（6 輪對 8 輪），但方向清楚。目次仲有 4 個 prefetch 係導覽條嗰啲（書齋、設定都係即場計），冇郁。
+   靜咗一排之後第一個請求照舊要 4–5.7 秒（今次暖機量到 3935ms），呢樣關 prefetch 幫唔到。
 3. **保溫**：用排程每幾分鐘打一次 `/shelf`。Hobby 嘅 Vercel Cron 最密一日一次，要用外面嘅排程（例如 GitHub Actions 每 5 分鐘）。治標，但對「測試者第一下入嚟」最直接。
 4. **縮細 function**：英文、日文譯表同綜合判讀卡改做用到先讀（而家一啟動就全部載入）。治本，但係中等改動，要量過先知慳幾多。
 
