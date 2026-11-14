@@ -96,6 +96,7 @@ export function englishChapters(chs: readonly { text: string; slots: readonly st
  */
 export const EN_READING_GUIDE =
   'How to read this book: the chart is divided into twelve palaces, each standing for an area of life such as work, money or relationships, and most chapters look at one of them through the stars it holds. ' +
+  'One palace name needs a word of explanation: the Travel Palace is about how you fare away from your home ground, such as moving, working elsewhere and how people outside your own circle receive you; it is not about holidays. ' +
   'The chart also has twelve positions, named after the Chinese earthly branches; Zi, Si and You are three of these names. ' +
   'Your Five-Element Bureau (for example, Water Two) sets the age at which your ten-year stages begin. ' +
   'Abundance, Authority, Recognition and Obstruction are the four transformations. Your birth year, each ten-year stage and each year mark four stars with them, and that changes how those stars, and the palaces they sit in, are read. ' +

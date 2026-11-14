@@ -8,7 +8,7 @@ Your Five-Element Bureau is the Metal Four Bureau. Your Life Palace sits in Shen
 
 This chart is calculated by the method of the Zhongzhou School (Wang Tingzhi). Your birth time has been adjusted to true solar time for the longitude of your birthplace.
 
-How to read this book: the chart is divided into twelve palaces, each standing for an area of life such as work, money or relationships, and most chapters look at one of them through the stars it holds. The chart also has twelve positions, named after the Chinese earthly branches; Zi, Si and You are three of these names. Your Five-Element Bureau (for example, Water Two) sets the age at which your ten-year stages begin. Abundance, Authority, Recognition and Obstruction are the four transformations. Your birth year, each ten-year stage and each year mark four stars with them, and that changes how those stars, and the palaces they sit in, are read. The chapters on these ten years and this year read the same chart again from a different starting palace, so a palace name there can hold different stars from your birth chart; that is how the method works, not a mistake.
+How to read this book: the chart is divided into twelve palaces, each standing for an area of life such as work, money or relationships, and most chapters look at one of them through the stars it holds. One palace name needs a word of explanation: the Travel Palace is about how you fare away from your home ground, such as moving, working elsewhere and how people outside your own circle receive you; it is not about holidays. The chart also has twelve positions, named after the Chinese earthly branches; Zi, Si and You are three of these names. Your Five-Element Bureau (for example, Water Two) sets the age at which your ten-year stages begin. Abundance, Authority, Recognition and Obstruction are the four transformations. Your birth year, each ten-year stage and each year mark four stars with them, and that changes how those stars, and the palaces they sit in, are read. The chapters on these ten years and this year read the same chart again from a different starting palace, so a palace name there can hold different stars from your birth chart; that is how the method works, not a mistake.
 
 This chart is your own base map, and it doesn't change over your lifetime. Every chapter you open from here on is a reading of you.
 
@@ -34,7 +34,7 @@ Your Life Palace holds Po Jun (the Vanguard) in Shen (one of the twelve position
 
 ### Star groupings actually listed in your chart
 
-In your Life Palace and its linked palaces, the birth-chart transformations are: Po Jun turning to Authority in your Life Palace and Wu Qu (the General) turning to Recognition in your Travel Palace. Your Life Palace also holds Ling Xing (Bell) and Tian Ma (the Horse).
+In your Life Palace and its linked palaces, the birth-chart transformations are: Po Jun turning to Authority in your Life Palace and Wu Qu (the General) turning to Recognition in your Travel Palace (how you fare away from home, not holiday travel). Your Life Palace also holds Ling Xing (Bell) and Tian Ma (the Horse).
 
 ### How to read these stars together
 
@@ -76,7 +76,7 @@ Step 5 — roughly ages 43 to 52; 44–53 by Chinese reckoning — your Wealth P
 
 Step 6 — roughly ages 53 to 62; 54–63 by Chinese reckoning — your Health Palace, shaped by Tai Yang and Tian Liang. A key stage.
 
-Step 7 — roughly ages 63 to 72; 64–73 by Chinese reckoning — your Travel Palace, shaped by Wu Qu and Tian Xiang. A key stage.
+Step 7 — roughly ages 63 to 72; 64–73 by Chinese reckoning — your Travel Palace (how you fare away from home, not holiday travel), shaped by Wu Qu and Tian Xiang. A key stage.
 
 Step 8 — roughly ages 73 to 82; 74–83 by Chinese reckoning — your Friends Palace, shaped by Tian Tong and Ju Men. A key stage.
 
@@ -200,7 +200,7 @@ If you have recurring discomfort, note where it occurs, when it starts, how long
 
 ### Consider promotion alongside the authority and responsibilities involved
 
-Your Travel Palace is in Yin (one of the twelve positions on the chart), with Wu Qu (the General) and Tian Xiang (the Minister) together. The opposite palace, your Life Palace in Shen, holds Po Jun (the Vanguard). Out in the world you easily end up isolated, with few to look out for you. Start with the role your new surroundings offer you, then consider whether you have enough support to fulfil its responsibilities.
+Your Travel Palace (how you fare away from home, not holiday travel) is in Yin (one of the twelve positions on the chart), with Wu Qu (the General) and Tian Xiang (the Minister) together. The opposite palace, your Life Palace in Shen, holds Po Jun (the Vanguard). Out in the world you easily end up isolated, with few to look out for you. Start with the role your new surroundings offer you, then consider whether you have enough support to fulfil its responsibilities.
 
 ### Advice for you (editorial)
 

@@ -8,7 +8,7 @@ Your Five-Element Bureau is the Metal Four Bureau. Your Life Palace sits in Chen
 
 This chart is calculated by the method of the Zhongzhou School (Wang Tingzhi). Your birth time has been adjusted to true solar time for the longitude of your birthplace.
 
-How to read this book: the chart is divided into twelve palaces, each standing for an area of life such as work, money or relationships, and most chapters look at one of them through the stars it holds. The chart also has twelve positions, named after the Chinese earthly branches; Zi, Si and You are three of these names. Your Five-Element Bureau (for example, Water Two) sets the age at which your ten-year stages begin. Abundance, Authority, Recognition and Obstruction are the four transformations. Your birth year, each ten-year stage and each year mark four stars with them, and that changes how those stars, and the palaces they sit in, are read. The chapters on these ten years and this year read the same chart again from a different starting palace, so a palace name there can hold different stars from your birth chart; that is how the method works, not a mistake.
+How to read this book: the chart is divided into twelve palaces, each standing for an area of life such as work, money or relationships, and most chapters look at one of them through the stars it holds. One palace name needs a word of explanation: the Travel Palace is about how you fare away from your home ground, such as moving, working elsewhere and how people outside your own circle receive you; it is not about holidays. The chart also has twelve positions, named after the Chinese earthly branches; Zi, Si and You are three of these names. Your Five-Element Bureau (for example, Water Two) sets the age at which your ten-year stages begin. Abundance, Authority, Recognition and Obstruction are the four transformations. Your birth year, each ten-year stage and each year mark four stars with them, and that changes how those stars, and the palaces they sit in, are read. The chapters on these ten years and this year read the same chart again from a different starting palace, so a palace name there can hold different stars from your birth chart; that is how the method works, not a mistake.
 
 This chart is your own base map, and it doesn't change over your lifetime. Every chapter you open from here on is a reading of you.
 
@@ -76,7 +76,7 @@ Step 5 — roughly ages 43 to 52; 44–53 by Chinese reckoning — your Career P
 
 Step 6 — roughly ages 53 to 62; 54–63 by Chinese reckoning — your Friends Palace, shaped by Tai Yang and Tian Liang. A key stage.
 
-Step 7 — roughly ages 63 to 72; 64–73 by Chinese reckoning — your Travel Palace, shaped by Qi Sha.
+Step 7 — roughly ages 63 to 72; 64–73 by Chinese reckoning — your Travel Palace (how you fare away from home, not holiday travel), shaped by Qi Sha.
 
 Step 8 — roughly ages 73 to 82; 74–83 by Chinese reckoning — your Health Palace, shaped by Tian Ji.
 
@@ -208,7 +208,7 @@ If you have recurring pain, note where it occurs, how long it lasts and which mo
 
 ### Time away: look separately at signs of movement
 
-Your Travel Palace is in Xu (one of the twelve positions on the chart), held by Qi Sha (the Warrior). The opposite palace, your Life Palace in Chen, holds Lian Zhen (the Upright) and Tian Fu (the Treasury). You spend more of your days away than at home. Distinguish your influence, your opportunities to develop and whether you will actually move.
+Your Travel Palace (how you fare away from home, not holiday travel) is in Xu (one of the twelve positions on the chart), held by Qi Sha (the Warrior). The opposite palace, your Life Palace in Chen, holds Lian Zhen (the Upright) and Tian Fu (the Treasury). You spend more of your days away than at home. Distinguish your influence, your opportunities to develop and whether you will actually move.
 
 ### See how this applies to everyday life
 
