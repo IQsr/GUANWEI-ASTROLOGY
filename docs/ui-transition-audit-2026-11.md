@@ -78,11 +78,11 @@ Vercel 係 Hobby 計劃，runtime log 只留一個鐘、而且只有 console 輸
 - **同一時間 8 個章節請求**（站已經暖）：第一輪 920、1209、1233、**4745、5480、5481、5596、5597**ms；第二輪全部 960–1161ms；第三輪又有一個 3989ms。即係 **一個 instance 一次只接一個請求，同時嚟多幾個，Vercel 就開新 instance，每個新開嘅都要冷啟動**。
 - 呢個解釋到點解「活躍緊都撞到」：**目次一出，Next 會同時 prefetch 畫面上十幾條章節連結**（量到 5–11 個 `_rsc` 請求同一刻發出，每個只攞到 0.5KB 空殼，冇用），逼 Vercel 開一批新 instance；讀者跟住撳第一章，就有機會派去一個仲啟動緊嘅 instance —— 所以先至有 2.4–3 秒以上嗰幾次。
 - **點解冷啟動要 5 秒**：章節頁個 function 追蹤到 654 個檔、共 **33MB**，入面一個 **13.6MB 嘅 JS chunk**（成個規則庫同詞條庫），另外幾個 1–3MB 嘅 JSON（`cards/ming.json` 3.3MB、`palace-remaining.json` 1.9MB、`synthesis/cards.json` 1.7MB、`synth-tr.json` 1.0MB）。每次冷啟動都要讀晒、parse 晒。
-- **冇核實到**：Vercel 專案有冇開 Fluid Compute（connector 睇唔到呢個設定）。由同時請求嘅表現睇，似係冇開，或者開咗都照樣開新 instance。
+- **Fluid Compute**：Issac 確認本身已經開咗（2026-11-14）。即係開咗都照樣會喺一批請求同時到嗰陣開新 instance（上面嗰個實驗就係喺開咗嘅情況下量嘅），所以唔可以靠佢解決。
 
 **建議（由易到難）**：
 
-1. **去 Vercel 專案設定睇 Fluid Compute 有冇開**（Settings → Functions）。開咗之後一個 instance 可以同時接多個請求，prefetch 嗰批唔使再開新 instance。Hobby 都用得，唔使改程式碼。你自己撳。
+1. ~~開 Fluid Compute~~ —— 已經開咗，冇得再做。
 2. **本書入面嘅連結關咗 prefetch**（目次嗰十幾條、`PageTurnLink`）：呢啲頁係 `force-dynamic` 又冇 `loading.tsx`，prefetch 只攞到空殼，淨係得個「逼開新 instance」嘅壞處。改動細（`<Link prefetch={false}>`）。
 3. **保溫**：用排程每幾分鐘打一次 `/shelf`。Hobby 嘅 Vercel Cron 最密一日一次，要用外面嘅排程（例如 GitHub Actions 每 5 分鐘）。治標，但對「測試者第一下入嚟」最直接。
 4. **縮細 function**：英文、日文譯表同綜合判讀卡改做用到先讀（而家一啟動就全部載入）。治本，但係中等改動，要量過先知慳幾多。
@@ -173,7 +173,7 @@ Vercel 係 Hobby 計劃，runtime log 只留一個鐘、而且只有 console 輸
 ## 五、等你揀
 
 1. 字體：黑體用系統字（1a）？宋體轉靜態字重（1b）？
-2. 冷啟動（已核實）：你去睇 Fluid Compute 有冇開；要唔要我關咗本書入面嘅 prefetch、加保溫排程？
+2. 冷啟動（已核實）：Fluid Compute 已經開咗；要唔要我關咗本書入面嘅 prefetch、加保溫排程？
 3. 轉頁：加 `staleTimes`（3a）同撳嗰刻嘅即時反應（3b）？
 4. 卷軸動畫改做法（5）、首頁入場縮短（7）—— 兩樣都要你睇效果。
 
