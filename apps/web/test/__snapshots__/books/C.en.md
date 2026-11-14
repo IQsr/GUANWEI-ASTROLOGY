@@ -8,7 +8,7 @@ Your Five-Element Bureau is the Metal Four Bureau. Your Life Palace and Body Pal
 
 This chart is calculated by the method of the Zhongzhou School (Wang Tingzhi). Your birth time has been adjusted to true solar time for the longitude of your birthplace.
 
-How to read this book: the chart is divided into twelve palaces, each standing for an area of life such as work, money or relationships, and most chapters look at one of them through the stars it holds. The chart also has twelve positions, named after the Chinese earthly branches; Zi, Si and You are three of these names. Your Five-Element Bureau (for example, Water Two) sets the age at which your ten-year stages begin. Abundance, Authority, Recognition and Obstruction are the four transformations. Your birth year, each ten-year stage and each year mark four stars with them, and that changes how those stars, and the palaces they sit in, are read. The chapters on these ten years and this year read the same chart again from a different starting palace, so a palace name there can hold different stars from your birth chart; that is how the method works, not a mistake.
+How to read this book: the chart is divided into twelve palaces, each standing for an area of life such as work, money or relationships, and most chapters look at one of them through the stars it holds. One palace name needs a word of explanation: the Travel Palace is about how you fare away from your home ground, such as moving, working elsewhere and how people outside your own circle receive you; it is not about holidays. The chart also has twelve positions, named after the Chinese earthly branches; Zi, Si and You are three of these names. Your Five-Element Bureau (for example, Water Two) sets the age at which your ten-year stages begin. Abundance, Authority, Recognition and Obstruction are the four transformations. Your birth year, each ten-year stage and each year mark four stars with them, and that changes how those stars, and the palaces they sit in, are read. The chapters on these ten years and this year read the same chart again from a different starting palace, so a palace name there can hold different stars from your birth chart; that is how the method works, not a mistake.
 
 This chart is your own base map, and it doesn't change over your lifetime. Every chapter you open from here on is a reading of you.
 
@@ -70,7 +70,7 @@ Step 5 — roughly ages 43 to 52; 44–53 by Chinese reckoning — your Wealth P
 
 Step 6 — roughly ages 53 to 62; 54–63 by Chinese reckoning — your Health Palace, shaped by Tian Fu.
 
-Step 7 — roughly ages 63 to 72; 64–73 by Chinese reckoning — your Travel Palace, which has no major star and borrows Tian Ji and Tian Liang from the opposite palace.
+Step 7 — roughly ages 63 to 72; 64–73 by Chinese reckoning — your Travel Palace (how you fare away from home, not holiday travel), which has no major star and borrows Tian Ji and Tian Liang from the opposite palace.
 
 Step 8 — roughly ages 73 to 82; 74–83 by Chinese reckoning — your Friends Palace, shaped by Lian Zhen (the Upright) and Po Jun (the Vanguard).
 
@@ -220,7 +220,7 @@ If you often have tummy trouble, tell your family or carer when it happens and w
 
 ### Opportunities for support may still come without stability
 
-Your Travel Palace, in Chen (one of the twelve positions on the chart), has no major star, so it is read with reference to Tian Ji (the Strategist) and Tian Liang (the Sage) from the opposite palace in Xu. Going out into the world serves you better than staying put; new surroundings tend to make things go more smoothly. When Tian Ji and Tian Liang share a palace, the book describes opportunities and support already being available, but also says you may still face instability even with favourable stars. What matters is whether you can sustain the opportunity after receiving help.
+Your Travel Palace (how you fare away from home, not holiday travel), in Chen (one of the twelve positions on the chart), has no major star, so it is read with reference to Tian Ji (the Strategist) and Tian Liang (the Sage) from the opposite palace in Xu. Going out into the world serves you better than staying put; new surroundings tend to make things go more smoothly. When Tian Ji and Tian Liang share a palace, the book describes opportunities and support already being available, but also says you may still face instability even with favourable stars. What matters is whether you can sustain the opportunity after receiving help.
 
 ### Advice for you (editorial)
 

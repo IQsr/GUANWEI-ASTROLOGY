@@ -8,7 +8,7 @@ Your Five-Element Bureau is the Earth Five Bureau. Your Life Palace and Body Pal
 
 This chart is calculated by the method of the Zhongzhou School (Wang Tingzhi). Your birth time has been adjusted to true solar time for the longitude of your birthplace.
 
-How to read this book: the chart is divided into twelve palaces, each standing for an area of life such as work, money or relationships, and most chapters look at one of them through the stars it holds. The chart also has twelve positions, named after the Chinese earthly branches; Zi, Si and You are three of these names. Your Five-Element Bureau (for example, Water Two) sets the age at which your ten-year stages begin. Abundance, Authority, Recognition and Obstruction are the four transformations. Your birth year, each ten-year stage and each year mark four stars with them, and that changes how those stars, and the palaces they sit in, are read. The chapters on these ten years and this year read the same chart again from a different starting palace, so a palace name there can hold different stars from your birth chart; that is how the method works, not a mistake.
+How to read this book: the chart is divided into twelve palaces, each standing for an area of life such as work, money or relationships, and most chapters look at one of them through the stars it holds. One palace name needs a word of explanation: the Travel Palace is about how you fare away from your home ground, such as moving, working elsewhere and how people outside your own circle receive you; it is not about holidays. The chart also has twelve positions, named after the Chinese earthly branches; Zi, Si and You are three of these names. Your Five-Element Bureau (for example, Water Two) sets the age at which your ten-year stages begin. Abundance, Authority, Recognition and Obstruction are the four transformations. Your birth year, each ten-year stage and each year mark four stars with them, and that changes how those stars, and the palaces they sit in, are read. The chapters on these ten years and this year read the same chart again from a different starting palace, so a palace name there can hold different stars from your birth chart; that is how the method works, not a mistake.
 
 This chart is your own base map, and it doesn't change over your lifetime. Every chapter you open from here on is a reading of you.
 
@@ -50,7 +50,7 @@ Where you put your effort is usually the same way others would describe you: you
 
 Your Body Palace sits in the same palace as your Life Palace, shaped by Zi Wei (the Emperor). With Zi Wei in your Body Palace, the places you put your effort into as life goes on tend to bring money and good fortune.
 
-You belong to the Earth Five Bureau. Your ten-year stages begin at around age 4 (5 by Chinese reckoning), and move on every ten years. When this book was written (2026), you were 71 or 72 (73 by Chinese reckoning), in your seventh ten-year stage (roughly ages 64 to 73; 65–74 by Chinese reckoning). It falls in your Travel Palace, shaped by Tan Lang (the Wolf). The next one begins at around age 74 (75 by Chinese reckoning) and moves to your Friends Palace.
+You belong to the Earth Five Bureau. Your ten-year stages begin at around age 4 (5 by Chinese reckoning), and move on every ten years. When this book was written (2026), you were 71 or 72 (73 by Chinese reckoning), in your seventh ten-year stage (roughly ages 64 to 73; 65–74 by Chinese reckoning). It falls in your Travel Palace (how you fare away from home, not holiday travel), shaped by Tan Lang (the Wolf). The next one begins at around age 74 (75 by Chinese reckoning) and moves to your Friends Palace.
 
 Your Body Palace shows where you tend to put the most effort over your life, and effort spent there is the most likely to pay off.
 
@@ -76,7 +76,7 @@ Step 5 — roughly ages 44 to 53; 45–54 by Chinese reckoning — your Wealth P
 
 Step 6 — roughly ages 54 to 63; 55–64 by Chinese reckoning — your Health Palace, shaped by Tian Tong (the Blessed) and Ju Men (the Great Gate).
 
-Step 7 — roughly ages 64 to 73; 65–74 by Chinese reckoning — your Travel Palace, shaped by Tan Lang. You were on this step when this book was written.
+Step 7 — roughly ages 64 to 73; 65–74 by Chinese reckoning — your Travel Palace (how you fare away from home, not holiday travel), shaped by Tan Lang. You were on this step when this book was written.
 
 Step 8 — roughly ages 74 to 83; 75–84 by Chinese reckoning — your Friends Palace, shaped by Tai Yin (the Moon).
 
@@ -90,7 +90,7 @@ These twelve stages give a framework for reading your life; what you do within e
 
 Over these ten years, your income has a chance to grow; when it comes to your love life, your relationships may meet setbacks. When this book was written (2026), you were 71 or 72 (73 by Chinese reckoning), in your seventh ten-year stage (roughly ages 64 to 73; 65–74 by Chinese reckoning).
 
-This stage falls in your Travel Palace, shaped by Tan Lang (the Wolf). During these ten years, your desires run strong: clear goals, active pursuit — watch that what you want doesn't end up chasing you.
+This stage falls in your Travel Palace (how you fare away from home, not holiday travel), shaped by Tan Lang (the Wolf). During these ten years, your desires run strong: clear goals, active pursuit — watch that what you want doesn't end up chasing you.
 
 This decade's Career Palace holds Qi Sha (the Warrior). At work, you're a strong manager, suited to leading teams and managing people.
 
@@ -128,7 +128,7 @@ This year your Children Palace is in Mao, holding Tai Yang (the Sun) and Tian Li
 
 ### Periods used in this chapter
 
-Periods used in this chapter: this year you are 71 or 72 (73 by Chinese reckoning), in the Bing Zi ten-year period (roughly ages 64 to 73; 65–74 by Chinese reckoning), which sits in your natal Travel Palace. This decade, Tian Tong turns to Abundance, Tian Ji (the Strategist) to Authority, Wen Chang (a Scholar star) to Recognition and Lian Zhen to Obstruction. This year, Tian Tong turns to Abundance, Tian Ji to Authority, Wen Chang to Recognition and Lian Zhen to Obstruction.
+Periods used in this chapter: this year you are 71 or 72 (73 by Chinese reckoning), in the Bing Zi ten-year period (roughly ages 64 to 73; 65–74 by Chinese reckoning), which sits in your natal Travel Palace (how you fare away from home, not holiday travel). This decade, Tian Tong turns to Abundance, Tian Ji (the Strategist) to Authority, Wen Chang (a Scholar star) to Recognition and Lian Zhen to Obstruction. This year, Tian Tong turns to Abundance, Tian Ji to Authority, Wen Chang to Recognition and Lian Zhen to Obstruction.
 
 ## 兄弟
 
@@ -208,7 +208,7 @@ The main text's symbolic associations concern digestion and the stomach and inte
 
 ### A lively social scene differs from real benefit
 
-Your Travel Palace is in Zi (one of the twelve positions on the chart), held by Tan Lang (the Wolf). The opposite palace, your Life Palace in Wu, holds Zi Wei (the Emperor). Out in the world you socialise a lot, with dinners and gatherings often filling your diary. Notice whether your social life brings practical support, beyond how many activities you attend.
+Your Travel Palace (how you fare away from home, not holiday travel) is in Zi (one of the twelve positions on the chart), held by Tan Lang (the Wolf). The opposite palace, your Life Palace in Wu, holds Zi Wei (the Emperor). Out in the world you socialise a lot, with dinners and gatherings often filling your diary. Notice whether your social life brings practical support, beyond how many activities you attend.
 
 ### Advice for you (editorial)
 

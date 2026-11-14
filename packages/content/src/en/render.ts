@@ -586,6 +586,12 @@ const MAJORS = Object.values(STAR_EN);
 /* 「in Wei」或者一對「in Zi or Wu」（條文講兩個位置） */
 const BRANCH_AT = /\b(in|at|to|palace,) (Zi|Chou|Yin|Mao|Chen|Si|Wu|Wei|Shen|You|Xu|Hai)( or (?:Zi|Chou|Yin|Mao|Chen|Si|Wu|Wei|Shen|You|Xu|Hai))?\b(?! [A-Z(])(?!'s)(?! \()/;
 export const BRANCH_NOTE = 'of the twelve positions on the chart';
+/**
+ * 遷移宮第一次出現加說明（2026-11-14，測試者回饋：見到 Travel Palace 以為講旅遊）。
+ * 個名照用（坊間英文斗數書都叫 Travel Palace，Issac 揀保留），一章一次講明係離開本地之後嘅際遇。
+ */
+export const TRAVEL_NOTE = 'how you fare away from home, not holiday travel';
+const TRAVEL_AT = /\bTravel Palace\b(?! \()(?!'s)(?!\))/;
 /** 第一個地支位置加說明；已經有就唔再加（存咗嘅快照讀出時亦用，見 apps/web english.ts） */
 export function glossBranch(text: string): string {
   return text.includes(BRANCH_NOTE) ? text : text.replace(BRANCH_AT, (_, p: string, b: string, or?: string) => `${p} ${b}${or ?? ''} (${or ? 'two' : 'one'} ${BRANCH_NOTE})`);
@@ -603,6 +609,7 @@ function glossFirst(text: string): string {
    * 地支位置第一次出現加說明（2026-11-11 審稿：讀者唔知 Wei、Hai 係乜）：「in Wei」→「in Wei (one of the twelve positions on the chart)」，一章一次。
    * 只認介詞後面、唔接大楷字嘅地支，免得撞「Wu Qu」「Tai Yin」「You Bi」呢類星名。
    */
+  if (TRAVEL_AT.test(out) && !out.includes(TRAVEL_NOTE)) out = out.replace(TRAVEL_AT, `Travel Palace (${TRAVEL_NOTE})`);
   return glossBranch(out);
 }
 

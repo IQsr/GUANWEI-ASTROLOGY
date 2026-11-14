@@ -8,7 +8,7 @@ Your Five-Element Bureau is the Fire Six Bureau. Your Life Palace sits in Hai (o
 
 This chart is calculated by the method of the Zhongzhou School (Wang Tingzhi). Your birth time has been adjusted to true solar time for the longitude of your birthplace.
 
-How to read this book: the chart is divided into twelve palaces, each standing for an area of life such as work, money or relationships, and most chapters look at one of them through the stars it holds. The chart also has twelve positions, named after the Chinese earthly branches; Zi, Si and You are three of these names. Your Five-Element Bureau (for example, Water Two) sets the age at which your ten-year stages begin. Abundance, Authority, Recognition and Obstruction are the four transformations. Your birth year, each ten-year stage and each year mark four stars with them, and that changes how those stars, and the palaces they sit in, are read. The chapters on these ten years and this year read the same chart again from a different starting palace, so a palace name there can hold different stars from your birth chart; that is how the method works, not a mistake.
+How to read this book: the chart is divided into twelve palaces, each standing for an area of life such as work, money or relationships, and most chapters look at one of them through the stars it holds. One palace name needs a word of explanation: the Travel Palace is about how you fare away from your home ground, such as moving, working elsewhere and how people outside your own circle receive you; it is not about holidays. The chart also has twelve positions, named after the Chinese earthly branches; Zi, Si and You are three of these names. Your Five-Element Bureau (for example, Water Two) sets the age at which your ten-year stages begin. Abundance, Authority, Recognition and Obstruction are the four transformations. Your birth year, each ten-year stage and each year mark four stars with them, and that changes how those stars, and the palaces they sit in, are read. The chapters on these ten years and this year read the same chart again from a different starting palace, so a palace name there can hold different stars from your birth chart; that is how the method works, not a mistake.
 
 This chart is your own base map, and it doesn't change over your lifetime. Every chapter you open from here on is a reading of you.
 
@@ -50,7 +50,7 @@ You are still growing, so start by noticing how you react in different situation
 
 You put your effort outwards: you can apply yourself better in unfamiliar places than in familiar ones.
 
-Your Body Palace falls in your Travel Palace, shaped by Tian Ji (the Strategist).
+Your Body Palace falls in your Travel Palace (how you fare away from home, not holiday travel), shaped by Tian Ji (the Strategist).
 
 You belong to the Fire Six Bureau. Your ten-year stages begin at around age 5 (6 by Chinese reckoning), and move on every ten years. When this book was written (2026), you were 16 or 17 (18 by Chinese reckoning), in your second ten-year stage (roughly ages 15 to 24; 16–25 by Chinese reckoning). It falls in your Parents Palace, shaped by Tan Lang (the Wolf). The next one begins at around age 25 (26 by Chinese reckoning) and moves to your Wellbeing Palace.
 
@@ -62,7 +62,7 @@ Your ten-year stages begin at around age 5 (6 by Chinese reckoning) and move on 
 
 In 2021, aged 11 or 12, you were in stage 1; the annual Life Palace was in Chou (one of the twelve positions on the chart), shaped by Tian Tong (the Blessed) and Ju Men (the Great Gate). For that year, it helped to put what you wanted to learn or try in order and work through it step by step. Talking your ideas through with family or teachers could also have made your plans easier to fit together. That year's Ju Men turned to Abundance in the Life Palace, while Wen Chang (a Scholar star) turned to Obstruction in the Life Palace.
 
-In 2024, aged 14 or 15, you entered stage 2, shaped by Tan Lang (the Wolf). For that year, it helped to put what you wanted to learn or try in order and work through it step by step. Talking your ideas through with family or teachers could also have made your plans easier to fit together. That year's Life Palace was in Chen, shaped by Qi Sha (the Warrior). That year's Lian Zhen (the Upright) turned to Abundance in the Travel Palace, while Tai Yang (the Sun) turned to Obstruction in the Siblings Palace.
+In 2024, aged 14 or 15, you entered stage 2, shaped by Tan Lang (the Wolf). For that year, it helped to put what you wanted to learn or try in order and work through it step by step. Talking your ideas through with family or teachers could also have made your plans easier to fit together. That year's Life Palace was in Chen, shaped by Qi Sha (the Warrior). That year's Lian Zhen (the Upright) turned to Abundance in the Travel Palace (how you fare away from home, not holiday travel), while Tai Yang (the Sun) turned to Obstruction in the Siblings Palace.
 
 Step 1 — roughly ages 5 to 14; 6–15 by Chinese reckoning — your Life Palace, shaped by Tai Yin (the Moon).
 
@@ -208,7 +208,7 @@ If you feel unwell, tell your family or carer where you feel uncomfortable, when
 
 ### Indications of movement may not mean relocation
 
-Your Travel Palace is in Si (one of the twelve positions on the chart), held by Tian Ji (the Strategist). The opposite palace, your Life Palace in Hai, holds Tai Yin (the Moon). Going out into the world serves you better than staying put; new surroundings tend to make things go more smoothly. When Tian Ji sits alone, the book explicitly says that change may simply mean being away from home frequently for work or moving between organisations, rather than necessarily settling far away. First consider why you move about in your daily life, then whether you can get support.
+Your Travel Palace (how you fare away from home, not holiday travel) is in Si (one of the twelve positions on the chart), held by Tian Ji (the Strategist). The opposite palace, your Life Palace in Hai, holds Tai Yin (the Moon). Going out into the world serves you better than staying put; new surroundings tend to make things go more smoothly. When Tian Ji sits alone, the book explicitly says that change may simply mean being away from home frequently for work or moving between organisations, rather than necessarily settling far away. First consider why you move about in your daily life, then whether you can get support.
 
 ### See how this applies to everyday life
 
