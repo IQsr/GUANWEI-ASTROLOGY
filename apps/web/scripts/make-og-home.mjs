@@ -3,7 +3,7 @@
  *
  * 參考實體書效果圖：墨綠底、燙金標誌同字、一條燙金細線。
  * 同 `make-og.mjs` 一樣用 Playwright 影一版真 HTML：顏色由 globals.css 抽，標誌由 BrandMark 嘅 path 抄
- * （改標誌要兩邊一齊改 —— 標誌係過渡版本，正式版到咗再統一）。
+ * （改標誌要兩邊一齊改）。2026-11-15 換成「星敘」圓印。
  *
  *   node scripts/make-og-home.mjs   →   public/og.png
  */
@@ -21,13 +21,16 @@ const site = readFileSync('src/lib/site.ts', 'utf8');
 const MARK = site.match(/export const MARK = '([^']+)'/)[1];
 const LATIN = site.match(/export const LATIN = '([^']+)'/)[1];
 
-const mark = (size) => `<svg viewBox="0 0 100 100" width="${size}" height="${size}" fill="none" stroke="${gilt}" stroke-linecap="round" stroke-linejoin="round">
-  <circle cx="50" cy="50" r="44" stroke-width="1.6"/>
-  <ellipse cx="50" cy="50" rx="43" ry="15" stroke-width="1" transform="rotate(-24 50 50)"/>
-  <path d="M50 20 L57 33 L57 76 L43 76 L43 33 Z" stroke-width="1.6"/>
-  <circle cx="78" cy="36" r="2.6" fill="${gilt}" stroke="none"/>
-  <circle cx="23" cy="64" r="1.8" fill="${gilt}" stroke="none"/>
-  <circle cx="66" cy="83" r="1.4" fill="${gilt}" stroke="none"/>
+const mark = (size) => `<svg viewBox="0 0 200 200" width="${size}" height="${size}" fill="none" stroke="${gilt}" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+  <defs><clipPath id="yin"><circle cx="100" cy="100" r="88"/></clipPath></defs>
+  <g clip-path="url(#yin)">
+    <rect x="76" y="28" width="48" height="26" rx="6"/><path d="M76 41 L124 41"/>
+    <path d="M66 60 L66 68 L200 68"/><path d="M100 60 L100 94"/><path d="M0 81 L134 81"/><path d="M0 94 L200 94"/>
+    <path d="M40 128 L40 116 Q40 108 48 108 L88 108 Q96 108 96 116 L96 128"/><path d="M68 108 L68 200"/><path d="M54 122 L82 122"/><path d="M0 136 L84 136"/><path d="M52 150 L52 166"/><path d="M84 150 L84 166"/>
+    <path d="M136 106 L136 119"/><path d="M136 113 L200 113"/>
+    <path d="M112 130 L160 130 L160 144 L140 144 L140 166 L122 166 L122 200"/><path d="M120 155 L156 155 L156 200"/>
+  </g>
+  <circle cx="100" cy="100" r="90" stroke-width="5.5"/>
 </svg>`;
 
 const html = `<!doctype html><meta charset="utf-8">

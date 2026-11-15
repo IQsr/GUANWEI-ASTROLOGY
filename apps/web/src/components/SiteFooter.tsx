@@ -81,7 +81,7 @@ export function SiteFooter() {
         <div className="wei-shang">
           <div className="max-w-[22rem]">
             <Link href="/" className="inline-flex items-center gap-3 leading-none" aria-label={t('homeAria')}>
-              <BrandMark size={28} className={overNight ? 'text-gilt' : 'text-gold-ink'} />
+              <BrandMark size={32} className={overNight ? 'text-gilt' : 'text-gold-ink'} />
               <span className="flex flex-col">
                 <span className="pin-tracking font-serif text-[1.125rem] font-medium tracking-[0.32em]">{MARK}</span>
                 <span className="pin-tracking mt-1 font-latin text-[0.5625rem] tracking-[0.5em] opacity-80">{LATIN}</span>
