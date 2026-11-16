@@ -5,12 +5,15 @@
  * 同 `make-og.mjs` 一樣用 Playwright 影一版真 HTML：顏色由 globals.css 抽，標誌由 BrandMark 嘅 path 抄
  * （改標誌要兩邊一齊改）。2026-11-15 換成「星敘」圓印。
  *
- *   node scripts/make-og-home.mjs   →   public/og.png
+ *   node scripts/make-og-home.mjs   →   public/og.png（中文）＋ public/og-en.png（英文）
+ *
+ * 2026-11-16 加英文版：Issac 發現分享出去張卡淨係得中文。英文版個印照舊（印文永遠係「星敘」），
+ * 大字換成 STELLOGUE，下面兩行用返英文首頁嗰句。Playfair Display 由 node_modules 直接嵌入，
+ * 同網站英文標題同一隻字。日文版未做（要先睇假名用咩字先靚）。
  */
 import { launchBrowser } from './_server.mjs';
 import { readFileSync, writeFileSync } from 'node:fs';
 
-const OUT = 'public/og.png';
 const css = readFileSync('src/app/globals.css', 'utf8');
 const tok = (name) => css.match(new RegExp(`--${name}:\\s*([^;]+);`))?.[1]?.trim() ?? '';
 const jade = tok('jade');
@@ -33,8 +36,34 @@ const mark = (size) => `<svg viewBox="0 0 200 200" width="${size}" height="${siz
   <circle cx="100" cy="100" r="90" stroke-width="5.5"/>
 </svg>`;
 
-const html = `<!doctype html><meta charset="utf-8">
+const playfair = readFileSync(
+  'node_modules/@fontsource-variable/playfair-display/files/playfair-display-latin-wght-normal.woff2',
+).toString('base64');
+const en = JSON.parse(readFileSync('messages/en.json', 'utf8'));
+
+/** 每個語言一張。`brand` 係右邊嗰疊字。 */
+const CARDS = [
+  {
+    out: 'public/og.png',
+    brand: `<h1>${MARK}</h1>
+  <div class="latin">${LATIN}</div>
+  <div class="line"></div>
+  <p>以星為序，以你為章。</p>
+  <div class="kind">紫微斗數・專屬個人命書</div>`,
+  },
+  {
+    out: 'public/og-en.png',
+    cls: 'en',
+    brand: `<h1>${LATIN}</h1>
+  <div class="line"></div>
+  <p>${en.ruzhai.headline.join('<br>')}</p>
+  <div class="kind">Zi Wei Dou Shu · Your personal book of Chinese astrology</div>`,
+  },
+];
+
+const page = ({ brand, cls = '' }) => `<!doctype html><meta charset="utf-8">
 <style>
+  @font-face { font-family:"Playfair Display"; font-weight:400 900; src:url(data:font/woff2;base64,${playfair}) format("woff2") }
   html,body { margin:0; padding:0 }
   body {
     width:1200px; height:630px; background:${jade}; color:${gilt};
@@ -50,7 +79,14 @@ const html = `<!doctype html><meta charset="utf-8">
   .line { width:340px; height:1px; background:${rule}; margin:22px 0 10px }
   p { margin:0; font-size:32px; letter-spacing:.2em; line-height:1.7 }
   .kind { font-size:22px; letter-spacing:.3em; color:${gilt2}; margin-top:6px }
+  /* 英文版：字母闊過漢字，字距收細；標語用 Playfair，同網站英文標題一樣 */
+  body.en { gap:72px; padding:0 96px; font-family:"Playfair Display",Georgia,serif }
+  .en h1 { font-size:78px; letter-spacing:.2em; font-weight:500 }
+  .en .line { margin:26px 0 14px }
+  .en p { font-size:38px; letter-spacing:.01em; line-height:1.4 }
+  .en .kind { font-size:19px; letter-spacing:.06em; margin-top:16px }
 </style>
+<body class="${cls}">
 <svg class="orbit" width="900" height="900" viewBox="-450 -450 900 900" fill="none" stroke="${gilt}">
   <circle r="420" stroke-width="1"/><circle r="320" stroke-width="1"/><circle r="220" stroke-width="1"/><circle r="120" stroke-width="1"/>
   <ellipse rx="430" ry="150" stroke-width="1" transform="rotate(-24)"/>
@@ -59,18 +95,17 @@ const html = `<!doctype html><meta charset="utf-8">
 </svg>
 ${mark(220)}
 <div class="brand">
-  <h1>${MARK}</h1>
-  <div class="latin">${LATIN}</div>
-  <div class="line"></div>
-  <p>以星為序，以你為章。</p>
-  <div class="kind">紫微斗數・專屬個人命書</div>
+  ${brand}
 </div>`;
 
 const b = await launchBrowser();
 const p = await b.newPage({ viewport: { width: 1200, height: 630 }, deviceScaleFactor: 1 });
-await p.setContent(html, { waitUntil: 'load' });
-await p.waitForTimeout(400);
-const shot = await p.screenshot({ type: 'png' });
+for (const card of CARDS) {
+  await p.setContent(page(card), { waitUntil: 'load' });
+  await p.evaluate(() => document.fonts.ready);
+  await p.waitForTimeout(400);
+  const shot = await p.screenshot({ type: 'png' });
+  writeFileSync(card.out, shot);
+  console.log(`✓ ${card.out}（${(shot.length / 1024).toFixed(0)} KB，墨綠 ${jade} 燙金 ${gilt}）`);
+}
 await b.close();
-writeFileSync(OUT, shot);
-console.log(`✓ ${OUT}（${(shot.length / 1024).toFixed(0)} KB，墨綠 ${jade} 燙金 ${gilt}）`);
