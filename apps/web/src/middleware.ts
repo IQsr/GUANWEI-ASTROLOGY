@@ -33,6 +33,7 @@ const intl = createMiddleware(routing);
  * 將來加第三種語言而詞條未有，佢嘅 `/xx/lexicon` 照舊 301 返繁中。
  */
 const LEXICON = '/lexicon';
+const SKYLAB = '/skylab';
 
 /**
  * 私密層（架構 §2）。得呢幾條路要 session。
@@ -83,6 +84,24 @@ export default async function middleware(req: NextRequest) {
       url.pathname = pathname.slice(`/${locale}`.length);
       return NextResponse.redirect(url, 301);
     }
+  }
+
+  /*
+   * Sky Lab（2026-11-16）：得中文（繁、簡）。同藏經閣未有英文嗰陣一樣嘅做法 ——
+   * `/en/skylab…`、`/ja/skylab…` 301 返冇前綴嗰條；冇前綴嘅直落繁中，唔偵測語言
+   * （唔係嘅話英文瀏覽器會被搬去 `/en/skylab`，再被 301 返嚟，兜圈）。
+   * ⚠ 常數寫喺呢度，唔 import lib/skylab.ts：嗰個檔有成份論文，唔好拖入 middleware。
+   */
+  for (const locale of ['en', 'ja']) {
+    const prefixed = `/${locale}${SKYLAB}`;
+    if (pathname === prefixed || pathname.startsWith(`${prefixed}/`)) {
+      const url = req.nextUrl.clone();
+      url.pathname = pathname.slice(`/${locale}`.length);
+      return NextResponse.redirect(url, 301);
+    }
+  }
+  if (pathname === SKYLAB || pathname.startsWith(`${SKYLAB}/`)) {
+    return NextResponse.rewrite(new URL(`/zh-Hant${pathname}${req.nextUrl.search}`, req.url));
   }
 
   /* 冇前綴嘅 /lexicon：直接行，唔好畀 Accept-Language 搬走佢。 */
