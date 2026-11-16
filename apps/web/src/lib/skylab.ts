@@ -18,6 +18,30 @@ export const isLabLocale = (l: string) => (LAB_LOCALES as readonly string[]).inc
 export const LAB_PATH = '/skylab';
 export const LAB_BYLINE = '星敘 Sky Lab';
 
+/**
+ * 頁面上嘅標題字（摘要、參考文獻…）。Sky Lab 得中文，冇英、日版，所以唔入 messages：
+ * 佢哋係文件嘅一部分，同 legal-text.ts 一樣。簡體由 OpenCC 轉。
+ */
+export const LAB_UI = {
+  dataAsOf: '專題資料截至',
+  summary: '提要',
+  path: '研究經過',
+  involves: '所涉：',
+  papers: '論文',
+  paper: '論文',
+  topics: '專題一覽',
+  topic: '專題',
+  owed: '所欠：',
+  counting: '計數與讀法',
+  abstract: '摘要',
+  keywords: '關鍵詞',
+  notes: '註',
+  refs: '參考文獻',
+  cite: '引用格式',
+  book: '《三辰通載》',
+  total: (n: number, parts: string) => `共 ${n} 題：${parts}。`,
+} as const;
+
 /* ── 專題一覽 ─────────────────────────────────────────── */
 
 /** 證據類型 */

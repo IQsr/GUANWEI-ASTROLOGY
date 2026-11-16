@@ -50,6 +50,7 @@ const ALLOWED = {
   'lib/chapter-reading.ts': '存檔段落格名預設「正文」（資料鍵，不直接顯示）',
   'lib/ming-international.ts': '命宮逐句快照的段落格名與話題分隔符（資料鍵）；譯文及盤面句在 content 翻譯層',
   'lib/lexicon.ts': '英文出處（2026-10-05）：《全書》卷名、篇名係對照表嘅 key（語料資料），值係英文書目',
+  'lib/skylab.ts': 'Sky Lab 研究報告全文（2026-11-16）：總覽、專題表、論文同版面標題；得中文一份（簡體由 OpenCC 轉），冇英日版，係文件內容唔係介面字',
   'lib/legal-text.ts': '條款及私隱政策全文：中英各一份，有版本號（LEGAL_VERSION）嘅文件內容，唔係介面字',
   'lib/legal.ts': '營運者名稱等未定嘅〔方括號〕假值（placeholder，測試守住，定咗真值就改）',
   'lib/dingshi.server.ts': '伺服器 log（「記錄唔到」）：寫畀我哋睇，讀者見唔到',

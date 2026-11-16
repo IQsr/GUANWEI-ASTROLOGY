@@ -5,7 +5,7 @@ import { Link } from '@/i18n/navigation';
 import { zhFor } from '@/lib/hans';
 import { localePath } from '@/lib/lexicon';
 import { SITE_URL } from '@/lib/site';
-import { LAB_BYLINE, LAB_LOCALES, LAB_PATH, PAPERS, citeOf, isLabLocale, paperHref, paperOf, type Block } from '@/lib/skylab';
+import { LAB_BYLINE, LAB_LOCALES, LAB_PATH, LAB_UI, PAPERS, citeOf, isLabLocale, paperHref, paperOf, type Block } from '@/lib/skylab';
 import { Rich } from '../rich';
 
 /**
@@ -73,7 +73,7 @@ export default async function SkyLabPaper({ params }: { params: Promise<{ locale
         return (
           <blockquote key={i} lang={lang} className="lab-q">
             {z(b.t)}
-            <cite>{z(`《三辰通載》${b.src}`)}</cite>
+            <cite>{z(`${LAB_UI.book}${b.src}`)}</cite>
           </blockquote>
         );
       case 'table':
@@ -135,17 +135,17 @@ export default async function SkyLabPaper({ params }: { params: Promise<{ locale
           <span className="mx-2" aria-hidden="true">
             ·
           </span>
-          {z('專題')} <span data-nums>{p.topics.join('、')}</span>
+          {z(LAB_UI.topic)} <span data-nums>{p.topics.join('、')}</span>
         </p>
 
         {p.draftNote ? <p className="lab-draft">{z(p.draftNote)}</p> : null}
 
         <section className="lab-abs">
-          <h2>{z('摘要')}</h2>
+          <h2>{z(LAB_UI.abstract)}</h2>
           <p>{z(p.abstract)}</p>
           <h2>Abstract</h2>
           <p lang="en">{p.abstractEn}</p>
-          <h2>{z('關鍵詞')}</h2>
+          <h2>{z(LAB_UI.keywords)}</h2>
           <p>{z(p.keywords.join('；'))}</p>
         </section>
 
@@ -156,21 +156,21 @@ export default async function SkyLabPaper({ params }: { params: Promise<{ locale
           </section>
         ))}
 
-        <h2 className="lab-h2">{z('註')}</h2>
+        <h2 className="lab-h2">{z(LAB_UI.notes)}</h2>
         <ul className="lab-small">
           {p.notes.map((n) => (
             <li key={n}>{z(n)}</li>
           ))}
         </ul>
 
-        <h2 className="lab-h2">{z('參考文獻')}</h2>
+        <h2 className="lab-h2">{z(LAB_UI.refs)}</h2>
         <ul className="lab-small" data-nums>
           {p.refs.map((r) => (
             <li key={r}>{z(r)}</li>
           ))}
         </ul>
 
-        <h2 className="lab-h2">{z('引用格式')}</h2>
+        <h2 className="lab-h2">{z(LAB_UI.cite)}</h2>
         <p className="lab-small" data-nums>
           {z(citeOf(p, `${SITE_URL}${paperHref(p)}`))}
         </p>

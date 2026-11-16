@@ -4,7 +4,7 @@ import { setRequestLocale } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import { zhFor } from '@/lib/hans';
 import { localePath } from '@/lib/lexicon';
-import { ALL_TOPICS, LAB_BYLINE, LAB_LOCALES, LAB_PATH, LINES, OVERVIEW, PAPERS, STATUS_LABEL, isLabLocale, paperHref, paperOf } from '@/lib/skylab';
+import { ALL_TOPICS, LAB_BYLINE, LAB_LOCALES, LAB_PATH, LAB_UI, LINES, OVERVIEW, PAPERS, STATUS_LABEL, isLabLocale, paperHref, paperOf } from '@/lib/skylab';
 import { Rich } from './rich';
 
 /**
@@ -58,11 +58,11 @@ export default async function SkyLabIndex({ params }: { params: Promise<{ locale
           <span className="mx-2" aria-hidden="true">
             ·
           </span>
-          {z('專題資料截至')} <span data-nums>{OVERVIEW.dataDate}</span>
+          {z(LAB_UI.dataAsOf)} <span data-nums>{OVERVIEW.dataDate}</span>
         </p>
 
         <section className="lab-abs">
-          <h2>{z('提要')}</h2>
+          <h2>{z(LAB_UI.summary)}</h2>
           {OVERVIEW.abstract.map((p) => (
             <p key={p}>
               <Rich text={z(p)} />
@@ -72,13 +72,13 @@ export default async function SkyLabIndex({ params }: { params: Promise<{ locale
           <p lang="en">{OVERVIEW.abstractEn}</p>
         </section>
 
-        <h2 className="lab-h2">{z('研究經過')}</h2>
+        <h2 className="lab-h2">{z(LAB_UI.path)}</h2>
         {OVERVIEW.path.map((st) => (
           <section key={st.no}>
             <h3 className="lab-h3" data-nums>
               {z(`${st.no}　${st.title}`)}
             </h3>
-            {st.lines ? <p className="lab-small" data-nums>{z(`所涉：${st.lines}`)}</p> : null}
+            {st.lines ? <p className="lab-small" data-nums>{z(`${LAB_UI.involves}${st.lines}`)}</p> : null}
             {st.paras.map((para) => (
               <p key={para} className="lab-p">
                 <Rich text={z(para)} />
@@ -115,7 +115,7 @@ export default async function SkyLabIndex({ params }: { params: Promise<{ locale
           </section>
         ))}
 
-        <h2 className="lab-h2">{z('論文')}</h2>
+        <h2 className="lab-h2">{z(LAB_UI.papers)}</h2>
         <ul className="lab-small">
           {PAPERS.map((p) => (
             <li key={p.slug}>
@@ -134,9 +134,9 @@ export default async function SkyLabIndex({ params }: { params: Promise<{ locale
           ))}
         </ul>
 
-        <h2 className="lab-h2">{z('專題一覽')}</h2>
+        <h2 className="lab-h2">{z(LAB_UI.topics)}</h2>
         <p className="lab-small" data-nums>
-          {z(`共 ${ALL_TOPICS.length} 題：${STATUS_LABEL.done} ${count('done')}，${STATUS_LABEL.neg} ${count('neg')}，${STATUS_LABEL.open} ${count('open')}。`)}
+          {z(LAB_UI.total(ALL_TOPICS.length, `${STATUS_LABEL.done} ${count('done')}，${STATUS_LABEL.neg} ${count('neg')}，${STATUS_LABEL.open} ${count('open')}`))}
         </p>
         <ul className="lab-small">
           {OVERVIEW.kinds.map(([k, d]) => (
@@ -168,12 +168,12 @@ export default async function SkyLabIndex({ params }: { params: Promise<{ locale
                       <span>{z(t.kind)}</span>
                       {paper ? (
                         <Link href={paperHref(paper)} className="lab-link">
-                          {z('論文')} {paper.id}
+                          {z(LAB_UI.paper)} {paper.id}
                         </Link>
                       ) : null}
                     </span>
                     <span className="lab-topic-n">
-                      {t.status === 'open' ? z('所欠：') : null}
+                      {t.status === 'open' ? z(LAB_UI.owed) : null}
                       {z(t.note)}
                     </span>
                   </li>
@@ -183,7 +183,7 @@ export default async function SkyLabIndex({ params }: { params: Promise<{ locale
           </section>
         ))}
 
-        <h2 className="lab-h2">{z('計數與讀法')}</h2>
+        <h2 className="lab-h2">{z(LAB_UI.counting)}</h2>
         <ul className="lab-ul">
           {OVERVIEW.counting.map((c) => (
             <li key={c}>{z(c)}</li>
