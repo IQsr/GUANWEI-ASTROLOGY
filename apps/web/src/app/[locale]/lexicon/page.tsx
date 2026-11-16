@@ -4,7 +4,7 @@ import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { lexiconCoverage, singleBookEntries } from '@guanwei/content';
 import { Link } from '@/i18n/navigation';
 import { ReturnToReading } from '@/components/ReturnToReading';
-import { OG_LEXICON } from '@/lib/site';
+import { ogLexiconFor } from '@/lib/site';
 import { KINDS, LEXICON_LOCALES, entriesOf, hrefOf, isLexiconLocale, lexiconAlternates, localePath, teaserFor, textOf } from '@/lib/lexicon';
 import { LexiconCta } from '@/components/LexiconCta';
 
@@ -27,7 +27,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       description: t('description'),
       type: 'website',
       url: localePath('/lexicon', locale),
-      images: [{ url: OG_LEXICON, width: 1200, height: 630, alt: t('ogAlt') }],
+      images: [{ url: ogLexiconFor(locale), width: 1200, height: 630, alt: t('ogAlt') }],
     },
     /**
      * 全站得兩版可索引：入齋（/）同呢度（架構 §9）。

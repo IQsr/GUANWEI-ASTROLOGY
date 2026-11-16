@@ -9,9 +9,11 @@
  *
  * 2026-11-16 加英文版：Issac 發現分享出去張卡淨係得中文。英文版個印照舊（印文永遠係「星敘」），
  * 大字換成 STELLOGUE，下面兩行用返英文首頁嗰句。Playfair Display 由 node_modules 直接嵌入，
- * 同網站英文標題同一隻字。日文版未做（要先睇假名用咩字先靚）。
+ * 同網站英文標題同一隻字。同日加埋日文版（og-ja.png）：Noto Serif JP，同網站日文內文同一隻字，
+ * 用 file:// 開（見 _og.mjs）。
  */
 import { launchBrowser } from './_server.mjs';
+import { shoot, fontLinks } from './_og.mjs';
 import { readFileSync, writeFileSync } from 'node:fs';
 
 const css = readFileSync('src/app/globals.css', 'utf8');
@@ -40,6 +42,7 @@ const playfair = readFileSync(
   'node_modules/@fontsource-variable/playfair-display/files/playfair-display-latin-wght-normal.woff2',
 ).toString('base64');
 const en = JSON.parse(readFileSync('messages/en.json', 'utf8'));
+const ja = JSON.parse(readFileSync('messages/ja.json', 'utf8'));
 
 /** 每個語言一張。`brand` 係右邊嗰疊字。 */
 const CARDS = [
@@ -59,9 +62,20 @@ const CARDS = [
   <p>${en.ruzhai.headline.join('<br>')}</p>
   <div class="kind">Zi Wei Dou Shu · Your personal book of Chinese astrology</div>`,
   },
+  {
+    out: 'public/og-ja.png',
+    cls: 'ja',
+    fonts: ['noto-serif-jp'],
+    brand: `<h1>${MARK}</h1>
+  <div class="latin">${LATIN}</div>
+  <div class="line"></div>
+  <p>${ja.ruzhai.headline.join('')}</p>
+  <div class="kind">紫微斗数・あなただけの命書</div>`,
+  },
 ];
 
-const page = ({ brand, cls = '' }) => `<!doctype html><meta charset="utf-8">
+const page = ({ brand, cls = '', fonts = [] }) => `<!doctype html><meta charset="utf-8">
+${fontLinks(fonts)}
 <style>
   @font-face { font-family:"Playfair Display"; font-weight:400 900; src:url(data:font/woff2;base64,${playfair}) format("woff2") }
   html,body { margin:0; padding:0 }
@@ -85,6 +99,10 @@ const page = ({ brand, cls = '' }) => `<!doctype html><meta charset="utf-8">
   .en .line { margin:26px 0 14px }
   .en p { font-size:38px; letter-spacing:.01em; line-height:1.4 }
   .en .kind { font-size:19px; letter-spacing:.06em; margin-top:16px }
+  /* 日文版：Noto Serif JP；假名疏啲，字距收少少先唔會甩行 */
+  body.ja { font-family:"Noto Serif JP Variable","Noto Serif JP",serif }
+  .ja p { font-size:31px; letter-spacing:.12em }
+  .ja .kind { letter-spacing:.2em }
 </style>
 <body class="${cls}">
 <svg class="orbit" width="900" height="900" viewBox="-450 -450 900 900" fill="none" stroke="${gilt}">
@@ -101,10 +119,7 @@ ${mark(220)}
 const b = await launchBrowser();
 const p = await b.newPage({ viewport: { width: 1200, height: 630 }, deviceScaleFactor: 1 });
 for (const card of CARDS) {
-  await p.setContent(page(card), { waitUntil: 'load' });
-  await p.evaluate(() => document.fonts.ready);
-  await p.waitForTimeout(400);
-  const shot = await p.screenshot({ type: 'png' });
+  const shot = await shoot(p, page(card), { viaFile: Boolean(card.fonts?.length) });
   writeFileSync(card.out, shot);
   console.log(`✓ ${card.out}（${(shot.length / 1024).toFixed(0)} KB，墨綠 ${jade} 燙金 ${gilt}）`);
 }
