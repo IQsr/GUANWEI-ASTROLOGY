@@ -62,6 +62,11 @@ const GROUPS = [
       { href: '/privacy', key: 'privacy' },
     ],
   },
+  /* Sky Lab（2026-11-16）：研究報告。全站只有呢一個入口（Issac：同命書保持距離） */
+  {
+    key: 'research',
+    links: [{ href: '/skylab', key: 'skylab' }],
+  },
 ] as const;
 
 export function SiteFooter() {

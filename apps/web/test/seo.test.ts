@@ -8,6 +8,7 @@
 import { describe, expect, it } from 'vitest';
 import { LEXICON } from '@guanwei/content';
 import { DISALLOWED, robotsTxt, sitemapEntries, sitemapXml } from '@/lib/seo';
+import { PAPERS } from '@/lib/skylab';
 import { hrefOf, relatedOf, slugOf } from '@/lib/lexicon';
 import { SITE_URL } from '@/lib/site';
 
@@ -15,7 +16,8 @@ describe('sitemap 涵蓋全部詞條頁', () => {
   /* 繁中 1 ＋ 1 ＋ 35；簡體 1 ＋ 1 ＋ 35（2026-10-08）；英文 1 ＋ 35 */
   it('首頁 ＋ 目錄 ＋ 35 條（繁中、簡體、英文各一套）', () => {
     const e = sitemapEntries();
-    expect(e).toHaveLength(110);
+    /* 110 ＋ Sky Lab（總覽 ＋ 每篇論文，繁、簡各一） */
+    expect(e).toHaveLength(110 + (1 + PAPERS.length) * 2);
     expect(e[0]!.loc).toBe(`${SITE_URL}/`);
     expect(e[1]!.loc).toBe(`${SITE_URL}/lexicon`);
   });

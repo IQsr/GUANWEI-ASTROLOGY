@@ -131,7 +131,15 @@ try {
   /* ── 三、sitemap 內容 ─────────────────────────────── */
   const xml = await fetch(`${BASE}/sitemap.xml`).then((r) => r.text());
   const locs = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
-  check('sitemap 條數', locs.length === 110, `${locs.length} 條，應該 110（繁中、簡體各：首頁 ＋ 目錄 ＋ 35 詞條；英文：目錄 ＋ 35 詞條）`);
+  /* 2026-11-16 加 Sky Lab：繁中、簡體各 總覽 ＋ 1 篇論文 = 4 條。出多一篇論文要 +2。 */
+  check('sitemap 條數', locs.length === 114, `${locs.length} 條，應該 114（繁中、簡體各：首頁 ＋ 目錄 ＋ 35 詞條 ＋ Sky Lab 總覽 ＋ 1 篇論文；英文：目錄 ＋ 35 詞條）`);
+  check('sitemap 有 Sky Lab', locs.some((l) => l.endsWith('/skylab')) && locs.some((l) => l.endsWith('/skylab/bianjia')), '搵唔到 /skylab 或者論文');
+
+  /* Sky Lab 得中文：冇前綴 200（英文瀏覽器都唔搬）；/en、/ja 前綴 301 返冇前綴 */
+  const lab = await fetch(`${BASE}/skylab/bianjia`, { headers: { 'accept-language': 'en-US,en;q=0.9' }, redirect: 'manual' });
+  check('/skylab/bianjia (en 瀏覽器)', lab.status === 200, `HTTP ${lab.status}`);
+  const labEn = await fetch(`${BASE}/en/skylab`, { redirect: 'manual' });
+  check('/en/skylab', labEn.status === 301 && (labEn.headers.get('location') ?? '').endsWith('/skylab'), `HTTP ${labEn.status} → ${labEn.headers.get('location')}`);
   check('sitemap 中文 encode', locs.some((l) => l.includes('%E7%B4%AB%E5%BE%AE')), '搵唔到 encode 咗嘅紫微');
   for (const leak of ['/cast', '/shelf', '/book', '/claim', '/account', '/pay']) {
     check('sitemap 白名單', !locs.some((l) => l.includes(leak)), `私密層 ${leak} 漏咗入 sitemap`);

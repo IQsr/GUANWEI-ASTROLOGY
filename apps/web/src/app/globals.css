@@ -2173,6 +2173,19 @@
   white-space: nowrap;
 }
 
+/* 四組（2026-11-16 加咗「研究」）：手機三欄會逼，改兩欄；768 起四欄一行 */
+@media (max-width: 767px) {
+  .wei-zu {
+    grid-template-columns: repeat(2, auto);
+  }
+}
+
+@media (min-width: 768px) {
+  .wei-zu {
+    grid-template-columns: repeat(4, auto);
+  }
+}
+
 @media (min-width: 768px) {
   .wei-zu {
     gap: 24px 72px;
@@ -5350,4 +5363,297 @@ select.zhou-xian {
   transform: none;
   outline: 2px solid var(--indigo);
   outline-offset: 2px;
+}
+
+
+/* ============================================================
+   Sky Lab（2026-11-16）：研究報告，淨色紙面，似期刊
+
+   同成個網站嘅暗房刻意唔同：冇背景相、冇金字，一入嚟就知呢度係另一種嘢。
+   色跟紙墨 token（--paper／--ink），所以夜讀會自動變深底。字體照用現有嗰套。
+   ============================================================ */
+.lab {
+  max-width: 46rem;
+  margin-inline: auto;
+  padding-inline: clamp(16px, 4vw, 40px);
+  padding-bottom: 96px;
+  color: var(--ink);
+}
+
+.lab-wide {
+  max-width: 60rem;
+}
+
+.lab-mast {
+  padding-block: 8px 20px;
+  border-bottom: 2px solid var(--ink);
+  font-family: var(--font-latin-stack);
+  font-size: var(--text-cap);
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px 24px;
+  color: var(--ink-2);
+}
+
+.lab-mast a:hover,
+.lab-mast a:focus-visible {
+  color: var(--cinnabar);
+}
+
+.lab-title {
+  margin-top: 40px;
+  font-size: var(--text-h1);
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+}
+
+.lab-title-en {
+  margin-top: 10px;
+  font-family: var(--font-latin-stack);
+  font-size: var(--text-lead);
+  font-style: italic;
+  line-height: 1.5;
+  color: var(--ink-2);
+}
+
+.lab-meta {
+  margin-top: 20px;
+  font-family: var(--font-sans-stack);
+  font-size: var(--text-sm);
+  line-height: 1.9;
+  color: var(--ink-3);
+}
+
+.lab-draft {
+  margin-top: 24px;
+  padding: 12px 16px;
+  border: 1px solid var(--cinnabar);
+  font-family: var(--font-sans-stack);
+  font-size: var(--text-sm);
+  line-height: 1.9;
+  color: var(--ink-2);
+}
+
+.lab-abs {
+  margin-top: 32px;
+  padding-block: 20px;
+  border-block: 1px solid var(--rule);
+}
+
+.lab-abs h2,
+.lab-cap {
+  font-family: var(--font-sans-stack);
+  font-size: var(--text-cap);
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  color: var(--ink-3);
+}
+
+.lab-abs h2 + p ~ h2 {
+  margin-top: 20px;
+}
+
+.lab-abs p {
+  margin-top: 10px;
+  font-size: var(--text-body);
+  line-height: 1.95;
+  text-align: justify;
+}
+
+.lab-abs p[lang="en"] {
+  font-family: var(--font-latin-stack);
+  line-height: 1.7;
+  text-align: start;
+}
+
+.lab-h2 {
+  margin-top: 56px;
+  font-size: var(--text-h2);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+}
+
+.lab-h3 {
+  margin-top: 32px;
+  font-size: var(--text-h3);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.lab-p {
+  margin-top: 16px;
+  font-size: var(--text-body);
+  line-height: 1.95;
+  text-align: justify;
+}
+
+.lab-ul {
+  margin-top: 16px;
+  padding-inline-start: 1.4em;
+  list-style: disc;
+  font-size: var(--text-body);
+  line-height: 1.95;
+}
+
+.lab-ul li + li {
+  margin-top: 8px;
+}
+
+.lab-q {
+  margin-top: 20px;
+  padding-inline-start: 20px;
+  border-inline-start: 2px solid var(--rule);
+  font-size: var(--text-body);
+  line-height: 1.95;
+}
+
+.lab-q cite {
+  display: block;
+  margin-top: 6px;
+  font-family: var(--font-sans-stack);
+  font-size: var(--text-cap);
+  font-style: normal;
+  color: var(--ink-3);
+}
+
+/* 表：期刊式三線表（頂、表頭底、底），冇直線 */
+.lab-tbl-wrap {
+  margin-top: 24px;
+  overflow-x: auto;
+}
+
+.lab-tbl {
+  width: 100%;
+  border-collapse: collapse;
+  border-block: 2px solid var(--ink);
+  font-family: var(--font-sans-stack);
+  font-size: var(--text-sm);
+  line-height: 1.8;
+}
+
+.lab-tbl caption {
+  caption-side: top;
+  padding-bottom: 8px;
+  text-align: start;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.lab-tbl th {
+  padding: 8px 12px 8px 0;
+  border-bottom: 1px solid var(--ink);
+  text-align: start;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.lab-tbl td {
+  padding: 8px 12px 8px 0;
+  border-bottom: 1px solid var(--rule);
+  vertical-align: top;
+}
+
+.lab-tbl tr:last-child td {
+  border-bottom: 0;
+}
+
+.lab-tbl-note {
+  margin-top: 6px;
+  font-family: var(--font-sans-stack);
+  font-size: var(--text-cap);
+  color: var(--ink-3);
+}
+
+.lab-small {
+  margin-top: 12px;
+  font-family: var(--font-sans-stack);
+  font-size: var(--text-sm);
+  line-height: 1.9;
+  color: var(--ink-2);
+  overflow-wrap: anywhere;
+}
+
+.lab-small li + li {
+  margin-top: 6px;
+}
+
+.lab-link {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.lab-link:hover,
+.lab-link:focus-visible {
+  color: var(--cinnabar);
+}
+
+/* 專題一覽：一題一行。手機疊埋，桌面三欄（編號・題目同結果・狀態） */
+.lab-topics {
+  margin-top: 16px;
+  border-top: 1px solid var(--ink);
+}
+
+.lab-topic {
+  display: grid;
+  grid-template-columns: 2.2rem 1fr;
+  gap: 4px 12px;
+  padding-block: 14px;
+  border-bottom: 1px solid var(--rule);
+}
+
+.lab-topic-no {
+  font-family: var(--font-sans-stack);
+  font-size: var(--text-sm);
+  color: var(--ink-3);
+}
+
+.lab-topic-t {
+  font-size: var(--text-body);
+  font-weight: 600;
+  line-height: 1.7;
+}
+
+.lab-topic-n {
+  grid-column: 2;
+  font-family: var(--font-sans-stack);
+  font-size: var(--text-sm);
+  line-height: 1.9;
+  color: var(--ink-2);
+}
+
+.lab-topic-tags {
+  grid-column: 2;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-sans-stack);
+  font-size: var(--text-cap);
+  color: var(--ink-3);
+}
+
+.lab-st {
+  display: inline-block;
+  padding: 0 8px;
+  border: 1px solid currentColor;
+  font-size: var(--text-cap);
+  line-height: 1.7;
+  white-space: nowrap;
+}
+
+.lab-st[data-st="done"] {
+  color: var(--ink);
+}
+
+.lab-st[data-st="neg"] {
+  color: var(--ink-3);
+}
+
+.lab-st[data-st="open"] {
+  color: var(--cinnabar);
+  border-style: dashed;
 }

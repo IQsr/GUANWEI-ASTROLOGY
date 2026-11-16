@@ -1,6 +1,7 @@
 import { LEXICON } from '@guanwei/content';
 import { SITE_URL } from './site';
 import { canonicalOf } from './lexicon';
+import { LAB_PATH, PAPERS, paperHref } from './skylab';
 
 /**
  * sitemap 同 robots 嘅內容（工單 D2）
@@ -45,6 +46,11 @@ export function sitemapEntries(): SitemapEntry[] {
       changefreq: 'monthly',
       priority: '0.5',
     })),
+    /* Sky Lab（2026-11-16）：研究報告，得繁、簡 */
+    ...[LAB_PATH, ...PAPERS.map(paperHref)].flatMap((path) => [
+      { loc: `${SITE_URL}${path}`, changefreq: 'monthly', priority: '0.6' },
+      { loc: `${SITE_URL}/zh-Hans${path}`, changefreq: 'monthly', priority: '0.5' },
+    ]),
     /* 英文藏經閣（2026-10-05） */
     { loc: `${SITE_URL}/en/lexicon`, changefreq: 'weekly', priority: '0.7' },
     ...LEXICON.map((e) => ({
@@ -92,6 +98,7 @@ export function robotsTxt(): string {
     'User-agent: *',
     'Allow: /$',
     'Allow: /lexicon',
+    'Allow: /skylab',
     ...DISALLOWED.map((p) => `Disallow: ${p}`),
     '',
     `Sitemap: ${SITE_URL}/sitemap.xml`,
