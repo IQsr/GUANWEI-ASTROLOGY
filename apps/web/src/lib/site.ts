@@ -17,12 +17,14 @@ export const OG_IMAGE = '/og.png';
 
 /**
  * 英文版首頁嘅 OG 圖（2026-11-16）：同一張設計，字換成英文。
- * 個印照舊係「星敘」。其他語言（繁、簡、日）暫時用返中文嗰張。
+ * 個印照舊係「星敘」。同日加埋日文。繁、簡用返中文嗰張。
  */
 export const OG_IMAGE_EN = '/og-en.png';
+export const OG_IMAGE_JA = '/og-ja.png';
 
 /** 首頁分享圖：跟語言揀。 */
-export const ogImageFor = (locale: string) => (locale === 'en' ? OG_IMAGE_EN : OG_IMAGE);
+export const ogImageFor = (locale: string) =>
+  locale === 'en' ? OG_IMAGE_EN : locale === 'ja' ? OG_IMAGE_JA : OG_IMAGE;
 
 /**
  * 藏經閣嘅 OG 圖（工單 D2）。
@@ -41,6 +43,13 @@ export const ogImageFor = (locale: string) => (locale === 'en' ? OG_IMAGE_EN : O
  * 唔係手畫，所以改 token 佢跟得返。
  */
 export const OG_LEXICON = '/og-lexicon.png';
+export const OG_LEXICON_EN = '/og-lexicon-en.png';
+
+/**
+ * 藏經閣分享圖：跟語言揀（2026-11-16）。仍然係每個語言一張，唔係每條一張。
+ * 冇日文嗰張：/ja/lexicon 會 301 去中文藏經閣（日文藏經閣未有），整咗都冇頁用。
+ */
+export const ogLexiconFor = (locale: string) => (locale === 'en' ? OG_LEXICON_EN : OG_LEXICON);
 
 /**
  * 品牌字。**唔跟語言變。**

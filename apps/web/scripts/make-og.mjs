@@ -16,11 +16,14 @@
  * 張圖要用返站上嘅 token（紙色、墨色、宋體、朱砂方印）。
  * 手畫一次 SVG 就係第二套值，日後改 token 佢唔會跟 —— 又多一處要記得同步。
  * render 一版真 HTML 再影，用嘅就係同一份 `globals.css`。
+ *
+ * 2026-11-16 加英文（og-lexicon-en.png）：字由 messages 攞，朱砂方印照舊係「星敘」，
+ * 用 Playfair Display（見 _og.mjs）。冇日文：日文藏經閣未有，/ja/lexicon 會轉去中文。
  */
 import { launchBrowser } from './_server.mjs';
+import { shoot, fontLinks } from './_og.mjs';
 import { readFileSync, writeFileSync } from 'node:fs';
 
-const OUT = 'public/og-lexicon.png';
 const css = readFileSync('src/app/globals.css', 'utf8');
 
 /* 由 globals.css 抽返 token —— 唔喺呢度再寫一次 hex。 */
@@ -36,7 +39,16 @@ const site = readFileSync('src/lib/site.ts', 'utf8');
 const MARK = site.match(/export const MARK = '([^']+)'/)[1];
 const LATIN = site.match(/export const LATIN = '([^']+)'/)[1];
 
-const html = `<!doctype html><meta charset="utf-8">
+const msg = (l) => JSON.parse(readFileSync(`messages/${l}.json`, 'utf8')).lexicon;
+const en = msg('en');
+
+const CARDS = [
+  { out: 'public/og-lexicon.png', title: '藏經閣', intro: '紫微斗數的詞條。每一條都列明出處，引文逐字抄自原書，可以自己核。', brand: `${MARK} · 藏經閣` },
+  { out: 'public/og-lexicon-en.png', cls: 'en', fonts: ['playfair-display'], title: en.title, intro: en.intro, brand: `${LATIN} · ${en.title.toUpperCase()}` },
+];
+
+const page = ({ title, intro, brand, cls = '', fonts = [] }) => `<!doctype html><meta charset="utf-8">
+${fontLinks(fonts)}
 <style>
   @page { margin: 0 }
   html,body { margin:0; padding:0 }
@@ -57,22 +69,27 @@ const html = `<!doctype html><meta charset="utf-8">
     padding:9px 7px; color:${paper}; font-weight:600; font-size:23px; line-height:1.06;
   }
   .brand { font-size:21px; letter-spacing:.34em; color:${ink3} }
+  body.en { font-family:"Playfair Display Variable",Georgia,serif; font-weight:400; letter-spacing:0 }
+  .en h1 { font-weight:600; letter-spacing:.04em }
+  .en p { font-size:28px; line-height:1.6; max-width:960px }
+  .en .yin { font-family:"Noto Serif CJK TC","Noto Serif TC",serif }
+  .en .brand { font-size:18px; letter-spacing:.3em }
 </style>
+<body class="${cls}">
 <div class="cap">${LATIN}</div>
-<h1>藏經閣</h1>
+<h1>${title}</h1>
 <div class="line"></div>
-<p>紫微斗數的詞條。每一條都列明出處，引文逐字抄自原書，可以自己核。</p>
+<p>${intro}</p>
 <div class="foot">
   <span class="yin"><span>${[...MARK].map((c) => `<span>${c}</span>`).join('')}</span></span>
-  <span class="brand">${MARK} · 藏經閣</span>
+  <span class="brand">${brand}</span>
 </div>`;
 
 const b = await launchBrowser();
 const p = await b.newPage({ viewport: { width: 1200, height: 630 }, deviceScaleFactor: 1 });
-await p.setContent(html, { waitUntil: 'load' });
-await p.waitForTimeout(400);
-const shot = await p.screenshot({ type: 'png' });
+for (const card of CARDS) {
+  const shot = await shoot(p, page(card), { viaFile: Boolean(card.fonts?.length) });
+  writeFileSync(card.out, shot);
+  console.log(`✓ ${card.out}（${(shot.length / 1024).toFixed(0)} KB，紙 ${paper} 墨 ${ink} 朱砂 ${cinnabar}）`);
+}
 await b.close();
-
-writeFileSync(OUT, shot);
-console.log(`✓ ${OUT}（${(shot.length / 1024).toFixed(0)} KB，紙 ${paper} 墨 ${ink} 朱砂 ${cinnabar}）`);

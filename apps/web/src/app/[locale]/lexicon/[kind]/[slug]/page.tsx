@@ -7,7 +7,7 @@ import { ReturnToReading } from '@/components/ReturnToReading';
 import { LEXICON_LOCALES, allEntryParams, bookEn, canonicalOf, citationRefEn, entryOf, hrefOf, isKind, isLexiconLocale, lexiconAlternates, localePath, relatedOf, teaserFor, textOf } from '@/lib/lexicon';
 import { zhFor } from '@/lib/hans';
 import { LexiconCta } from '@/components/LexiconCta';
-import { OG_LEXICON } from '@/lib/site';
+import { ogLexiconFor } from '@/lib/site';
 
 /**
  * 詞條頁（工單 D1）
@@ -73,7 +73,7 @@ export async function generateMetadata({
       description,
       type: 'article',
       url: path,
-      images: [{ url: OG_LEXICON, width: 1200, height: 630, alt: t('ogAlt') }],
+      images: [{ url: ogLexiconFor(locale), width: 1200, height: 630, alt: t('ogAlt') }],
     },
   };
 }
