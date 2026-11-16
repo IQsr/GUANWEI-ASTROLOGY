@@ -16,6 +16,15 @@ export const SITE_URL =
 export const OG_IMAGE = '/og.png';
 
 /**
+ * 英文版首頁嘅 OG 圖（2026-11-16）：同一張設計，字換成英文。
+ * 個印照舊係「星敘」。其他語言（繁、簡、日）暫時用返中文嗰張。
+ */
+export const OG_IMAGE_EN = '/og-en.png';
+
+/** 首頁分享圖：跟語言揀。 */
+export const ogImageFor = (locale: string) => (locale === 'en' ? OG_IMAGE_EN : OG_IMAGE);
+
+/**
  * 藏經閣嘅 OG 圖（工單 D2）。
  *
  * ⚠ 架構 §1 寫住「分享：**完全唔分享** → 命書冇 public link、冇 OG、全部 noindex」。

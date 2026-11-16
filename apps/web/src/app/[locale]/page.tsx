@@ -5,7 +5,7 @@ import { Link } from '@/i18n/navigation';
 import { Seal } from '@/components/Seal';
 import { NightScene } from '@/components/NightScene';
 import { ResumeLink } from '@/components/ResumeLink';
-import { MARK, OG_IMAGE } from '@/lib/site';
+import { MARK, ogImageFor } from '@/lib/site';
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -65,7 +65,7 @@ export async function generateMetadata({
       title,
       description: t('meta'),
       type: 'website',
-      images: [{ url: OG_IMAGE, width: 1200, height: 630, alt: t('sealLabel') }],
+      images: [{ url: ogImageFor(locale), width: 1200, height: 630, alt: t('sealLabel') }],
     },
   };
 }
