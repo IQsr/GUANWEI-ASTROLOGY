@@ -144,6 +144,7 @@ export const LINES: TopicLine[] = [
       { no: 26, kind: '重建', status: 'done', title: '卷三十大觀二年（1108）例：原影轉錄、換日、回算', note: '十二月初八為儒略 1109 年 1 月 10 日；太陽在牛宿 5.7 度，屬丑，與書中「丑上安命」相合。圖不載七政，書中星位無從逐顆核。' },
       { no: 27, kind: '模型', status: 'done', title: '三辰十二宮細界與宿寬的天空年代', note: '宮界為周天 365.255 度的十二等分，零點斗 13.69 度相當於約公元 300 年的冬至點，非宋代實測；宿寬近赤道距星間隔，但不能定年。' },
       { no: 28, kind: '文獻', status: 'done', paper: 'fude', title: '卷一〈再論福德宮變格〉與希臘星命術福點算法的比對', note: '書中推福德宮之法：晝生由日數至月，夜生由月數至日，再由命宮數出同樣宮數。量度的兩點、晝夜對調、投出的起點，與希臘福點算法逐項相合。希臘三家之中與多羅修斯所載最合。所得之位何以稱「相貌」，未解；希臘一方只核英譯。' },
+      { no: 29, kind: '文獻', status: 'done', paper: 'wangdu', title: '各曜「行度」所載旺度與希臘、印度擢升度數的比對', note: '書中以宿度記各曜旺度。按書中自身的宮界換算，日、月、木、土四曜為所在宮的 19.0、2.8–3.8、15.2、21.3 度，與希臘所傳 19、3、15、21 度相合；日、木二曜與印度所傳 10、5 度不合。火、金二曜不合，水星差約 3 度，此三曜未核影像。' },
     ],
   },
 ];
@@ -160,7 +161,7 @@ export const OVERVIEW = {
     '據此提出工作假說：**斗數沿用了一套外來星命框架的宮位名目與部分星名，而以按生辰計數安置的星，取代實際天體。**這是假說，不是結論。由該框架過渡到斗數安星規則的文獻，至今未見。',
   ],
   abstractEn:
-    'This programme asks one question: can the placement rules of Zi Wei Dou Shu be derived from any historically attested astronomical coordinate, observation or counting procedure? It does not test predictive validity. The work proceeded in three steps. First, geometric tests of the Dou Shu stars against the actual sky found no correspondence; apparent matches are reproduced by ordinary sidereal-time rhythm and by modelling choices. Second, a Southern Song manual of planetary horoscopy already carries the twelve-house topics and a number of the star names used in Dou Shu, there attached to real planets in real signs. Third, the sign boundaries in that manual are an equal division whose zero point matches the winter solstice of about AD 300, not the Song sky, which is consistent with a fixed sidereal zodiac inherited from the Western horoscopic tradition. The working hypothesis is that Dou Shu kept the house topics and some names of an imported horoscopic framework while replacing the planets with stars placed by counting from the birth date. No transitional text documenting that step has been found. Each of the twenty-eight studies is listed below with its evidence type and status.',
+    'This programme asks one question: can the placement rules of Zi Wei Dou Shu be derived from any historically attested astronomical coordinate, observation or counting procedure? It does not test predictive validity. The work proceeded in three steps. First, geometric tests of the Dou Shu stars against the actual sky found no correspondence; apparent matches are reproduced by ordinary sidereal-time rhythm and by modelling choices. Second, a Southern Song manual of planetary horoscopy already carries the twelve-house topics and a number of the star names used in Dou Shu, there attached to real planets in real signs. Third, the sign boundaries in that manual are an equal division whose zero point matches the winter solstice of about AD 300, not the Song sky, which is consistent with a fixed sidereal zodiac inherited from the Western horoscopic tradition. The working hypothesis is that Dou Shu kept the house topics and some names of an imported horoscopic framework while replacing the planets with stars placed by counting from the birth date. No transitional text documenting that step has been found. Each of the twenty-nine studies is listed below with its evidence type and status.',
   /**
    * 研究經過（2026-11-16，Issac：要講返條路點行 —— 先睇星同天象有冇關係，冇；
    * 再睇古書，見到框架係外來、改編過）。
@@ -213,12 +214,13 @@ export const OVERVIEW = {
     {
       no: '第三步',
       title: '這套星命框架本身從何而來',
-      lines: '專題 27、28',
+      lines: '專題 27、28、29',
       paras: [
         '既然名目見於七政四餘，下一個問題是：七政四餘的框架是否宋人按當時天象所定。可供檢驗的是《三辰通載》卷一的十二宮界，即各宮在二十八宿度數上的起訖。冬至點因歲差在宿度上每世紀後退約 1.4 度，所以每條宮界都可以反推它對應哪個年代的天空。',
         '量度結果：十二宮界是周天 365.255 度的十二等分，全表只有一個參數，即零點。零點在斗宿 13.69 度，與約公元 300 年的冬至點相差不到 0.02 度；與宋代的冬至點相差約 11 度。以 1100 年的天空量度，十二條宮界全部向同一方向偏 8 至 16 度。',
         '即是說，此書雖以太陽實際位置安命，所用的十二宮卻不是宋代實測，而是承襲而來、固定在恆星上的宮。這個零點所在的年代，正是印度恆星黃道各派零點所在的範圍。書中十二宮用寶瓶、磨竭、人馬、天蝎等名，是黃道十二宮的譯名；平台錄文的目錄末並列有「西天」「聿斯經」（未核影像）。',
         '算法上另有一項旁證（專題 28，論文 SL-02）。書中卷一推福德宮之法，晝生由太陽數至太陰，夜生由太陰數至太陽，再由命宮數出同樣宮數。這與希臘星命術的「福點」算法逐項相合；夜生對調一項，希臘各家說法不同，此書與多羅修斯所載相同。',
+        '度數上又有一項旁證（專題 29，論文 SL-03）。書中各曜的「旺度」以宿度記載，按書中自身的宮界換算，太陽在白羊宮 19.0 度，木星在巨蟹宮 15.2 度，與希臘所傳的 19 度、15 度相合，而與印度所傳的 10 度、5 度不合。七曜之中四曜相合，火、金二曜不合。',
         '黃道十二宮與十二位之法經印度傳入中國，是學界通說；本計劃未對這段傳播史作獨立考訂，只報告上述量度與之相符。',
         '**這一步的結論：《三辰通載》的十二宮是承襲的恆星宮，其零點與西來星命傳統相符，不是宋人實測。**',
       ],
@@ -236,7 +238,7 @@ export const OVERVIEW = {
     },
   ],
   counting: [
-    '二十八個專題是整理口徑，不是二十八次互相獨立的驗證；部分是同一假說的來源核讀、補表、反事實或敏感度續查。',
+    '二十九個專題是整理口徑，不是二十九次互相獨立的驗證；部分是同一假說的來源核讀、補表、反事實或敏感度續查。',
     '「模型」類結果取決於所列假設（選日、月份接法、宮位粗分、閏月處理等），不是歷史因果的量度。',
     '「未完成」的專題只列所欠，不列結論。',
   ],
@@ -675,6 +677,183 @@ export const PAPERS: Paper[] = [
       '〔5〕Paulus Alexandrinus, Introduction, ch. 23. Dorian Gieseler Greenbaum 英譯，收入 Late Classical Astrology: Paulus Alexandrinus and Olympiodorus, Reston: ARHAT, 2001。本文未見原書，據轉述。',
       '〔6〕Bill M. Mak, “Yusi Jing – A treatise of ‘Western’ Astral Science in Chinese and its versified version Xitian yusi jing”, SCIAMVS 15 (2014), pp. 105–169。本文未見全文。',
       '〔7〕Jeffrey Kotyk, “Buddhist Astrology and Astral Magic in the Tang Dynasty”, PhD dissertation, Leiden University, 2017；及同作者 “Dorotheus in East Asia”, huayanzang.blogspot.com, 2018。本文據後者。',
+    ],
+  },
+  {
+    slug: 'wangdu',
+    id: 'SL-03',
+    title: '《三辰通載》各曜旺度與希臘擢升度數',
+    titleEn: 'The wang degrees of the planets in the Sanchen tongzai and the Hellenistic exaltation degrees',
+    version: '稿本 0.1',
+    date: '2026-11-16',
+    draftNote:
+      '本稿為初稿。日、月、木、土四曜的引文已逐字核過原書影像；火、金、水三曜只據平台錄文，列於表四，不入結論。希臘一方據多羅修斯英譯；印度一方只據一篇論文的摘要與轉述。',
+    topics: [29],
+    abstract:
+      '《三辰通載》各曜有「行度」一節，以二十八宿度數記該曜的「旺度」。本文取書中卷一的十二宮界與宿寬，把旺度換算為所在宮內的度數，與希臘星命術的擢升（exaltation）度數比對。已核影像的四曜：太陽在白羊宮 19.0 度，太陰在金牛宮 2.8 至 3.8 度，木星在巨蟹宮 15.2 度，土星在天秤宮 21.3 度。多羅修斯（Dorotheus）所傳為 19、3、15、21 度，四項相差均在一度之內。太陽、木星兩項，印度所傳為 10 度、5 度，與此書不合。錄文層的三曜：水星差約 3 度，火星、金星不合。七曜的旺宮則全與希臘擢升之宮相同。換算未作任何擬合。',
+    abstractEn:
+      'For each planet the Sanchen tongzai has a section on its “course” that states its wang (flourishing) degree in lunar-lodge degrees. Using the book’s own sign boundaries and lodge widths from chapter 1, this note converts those values into degrees within the sign and compares them with the Hellenistic exaltation degrees. For the four planets whose passages were collated against the scanned exemplar the results are: Sun, Aries 19.0°; Moon, Taurus 2.8–3.8°; Jupiter, Cancer 15.2°; Saturn, Libra 21.3°. Dorotheus (I.2) gives 19°, 3°, 15° and 21°; all four agree within one degree. For the Sun and Jupiter the Indian tradition has 10° and 5°, which the Chinese text does not follow. Three planets were read only in the platform transcription: Mercury is about 3° off, and Mars and Venus do not agree. All seven wang signs coincide with the Hellenistic signs of exaltation. No fitting was applied in the conversion.',
+    keywords: ['三辰通載', '七政四餘', '旺度', '擢升', '希臘星命術', '恆星黃道'],
+    sections: [
+      {
+        no: '一',
+        title: '問題',
+        blocks: [
+          { k: 'p', t: '希臘星命術為七曜各定一個擢升之宮，並在宮內指定一個度數。印度星命術承其宮，而太陽、木星兩曜的度數不同：希臘 19 度、15 度，印度 10 度、5 度。Gansten 認為印度的數字出自同一個希臘文來源〔3〕；差異的成因，舊說以為是希臘字母數字的脫誤。' },
+          { k: 'p', t: '因此，擢升度數可以用來分辨一部星命書所承的是哪一路數字。本文的問題是：《三辰通載》所記各曜的旺度，換算為宮內度數之後，與哪一路相合。' },
+        ],
+      },
+      {
+        no: '二',
+        title: '材料與方法',
+        blocks: [
+          { k: 'h', t: '2.1 版本與證據層級' },
+          { k: 'p', t: '《三辰通載》用識典古籍平台所收三十卷本〔1〕，版本情況見論文 SL-01 第 2.1 節。' },
+          { k: 'ul', items: [
+            '影像層：日、月、木、土四曜的行度一節，於 2026-11-16 在平台閱讀器逐字核讀原書掃描影像，分別在卷四〈太陽行度〉第 1、2 葉，卷七、卷九、卷十三各卷第 1 葉。',
+            '錄文層：火、金、水三曜的行度，及各曜廟旺樂諸節，據平台錄文，未核影像。',
+            '希臘一方：多羅修斯《星占詩》卷一第 2 章，據 Pingree 英譯〔2〕，已檢讀譯文。',
+            '印度一方：據 Gansten 一文的摘要及他人轉述〔3〕，未讀全文。',
+          ] },
+          { k: 'h', t: '2.2 名目的對應' },
+          { k: 'p', t: '書中各曜有「廟」「旺」「樂」之宮。就所見各條，廟即希臘的本宮，旺即希臘的擢升之宮。例如木星廟在雙魚、旺在巨蟹，火星廟在天蝎、旺在磨竭（錄文層），均與希臘相同。七曜的旺宮見表一。' },
+          {
+            k: 'table',
+            caption: '表一　七曜旺宮',
+            head: ['曜', '《三辰通載》旺宮', '希臘擢升之宮', '層級'],
+            rows: [
+              ['太陽', '白羊', '白羊', '影像層'],
+              ['太陰', '金牛', '金牛', '影像層'],
+              ['木星', '巨蟹', '巨蟹', '影像層'],
+              ['土星', '天秤（秤宮）', '天秤', '影像層'],
+              ['火星', '磨竭', '磨竭', '錄文層'],
+              ['金星', '雙魚（魚宮）', '雙魚', '錄文層'],
+              ['水星', '雙女', '雙女', '錄文層'],
+            ],
+            note: '希臘一欄據〔2〕。宮的層面，希臘與印度相同，不能用來分辨。',
+          },
+          { k: 'h', t: '2.3 換算' },
+          { k: 'p', t: '書中旺度以「某宿某度」記。要與希臘的宮內度數比較，須知該宿度距所在宮的起點多遠。本文用書中卷一自身的數據：' },
+          { k: 'ul', items: [
+            '十二宮界：卷一所載十二宮終點的宿度（專題 18、27）。某宮的起點即前一宮的終點。',
+            '宿寬：卷一〈周天黃道二十八宿求度數〉所載各宿度數（專題 16）。',
+            '由宮起點順數至旺度所在，得距離若干古度；周天 365.255 古度當 360 度，乘以 360/365.255，得宮內度數。',
+          ] },
+          { k: 'p', t: '全程不作擬合：不選距星，不調零點，不改宿寬。宮界與宿寬的讀法沿用專題 16、18 的既有結果，在本文比對之前已經定下。' },
+          { k: 'p', t: '須說明兩處：木星一項所用的巨蟹宮起點（申宮終點，井 16.5621 度），原文末位單位有疑，專題 18 校改一字後採用；土星一項所用的天秤宮起點（巳宮一欄，軫 15.8759 度），原文作「起」，專題 18 按欄位解釋為終點。' },
+        ],
+      },
+      {
+        no: '三',
+        title: '結果',
+        blocks: [
+          { k: 'h', t: '3.1 四曜原文（影像層）' },
+          { k: 'q', src: '卷四 太陽行度', t: '日在婁星八度十八度以上至九度為正旺。……白羊宮躔婁宿九度為旺度。' },
+          { k: 'q', src: '卷七 太陰行度', t: '胃宿十度以上至五十一分為正旺。……在金牛宮胃十度外、十一度內為旺度。' },
+          { k: 'q', src: '卷九 木星行度', t: '在井宿二十九度以上至三十度為向旺，鬼宿二度為正旺。……木在巨蟹宮，臨鬼初度為旺度。' },
+          { k: 'q', src: '卷十三 土星行度', t: '在亢宿六度為旺度。……若在秤宮，亢四度後、七度前，旺度。' },
+          { k: 'p', t: '標點及省略號為本文所加。太陽一條「八度十八度」，下文作「在八度十八分以下為向旺」，前一「度」字疑當作「分」；本文照錄。' },
+          { k: 'h', t: '3.2 換算' },
+          {
+            k: 'table',
+            caption: '表二　四曜旺度的換算',
+            head: ['曜', '旺度', '宮起點', '距起點（古度）', '宮內度數'],
+            rows: [
+              ['太陽', '婁 9 度', '白羊：奎 7.2484', '19.25', '18.97'],
+              ['太陰', '胃 10 至 11 度', '金牛：胃 7.1863', '2.81 至 3.81', '2.77 至 3.76'],
+              ['木星', '鬼 2 度（正旺）', '巨蟹：井 16.5621', '15.44', '15.22'],
+              ['土星', '亢 6 度', '天秤：軫 15.8759', '21.62', '21.31'],
+            ],
+            note: '所用宿寬：奎 17.5，井 30，軫 18.5，角 13。太陽「正旺」的下限婁 8 度 18 分當 18.17 度；木星另一說「鬼初度」當 13.24 度；土星「亢四度後、七度前」當 19.34 至 22.30 度。',
+          },
+          { k: 'h', t: '3.3 比對' },
+          {
+            k: 'table',
+            caption: '表三　四曜旺度與希臘、印度擢升度數',
+            head: ['曜', '《三辰通載》', '希臘（多羅修斯 I.2）', '差', '印度'],
+            rows: [
+              ['太陽', '白羊 18.97', '白羊 19', '−0.03', '10'],
+              ['太陰', '金牛 2.77 至 3.76', '金牛 3', '在範圍內', '未查'],
+              ['木星', '巨蟹 15.22', '巨蟹 15', '+0.22', '5'],
+              ['土星', '天秤 21.31', '天秤 21', '+0.31', '未查'],
+            ],
+            note: '希臘一欄據〔2〕。印度太陽、木星兩項據〔3〕的轉述；太陰、土星兩項本文未查實，不列。',
+          },
+          { k: 'p', t: '四項與希臘數字相差均不足半度。太陽、木星兩項，與印度的 10 度、5 度相差九至十度。' },
+          { k: 'h', t: '3.4 其餘三曜（錄文層）' },
+          { k: 'p', t: '以下據平台錄文，未核影像，不入本文結論。' },
+          {
+            k: 'table',
+            caption: '表四　火、金、水三曜（錄文層，未核影像）',
+            head: ['曜', '錄文所載旺度', '宮內度數', '希臘（多羅修斯 I.2）', '合否'],
+            rows: [
+              ['水星', '雙女宮，軫 4 度為正旺', '18.29', '雙女 15', '差約 3 度'],
+              ['火星', '磨竭宮，斗 18 至 21 度並牛初度', '4.25 至 10.16', '磨竭 28', '不合'],
+              ['金星', '魚宮，室 7 度 13 分為正旺', '3.27', '雙魚 27', '不合'],
+            ],
+            note: '換算同表二。水星另有「翼宿十二度為次旺」，當 7.45 度。金星另有「室七度及十三度」之文，十三度當 9.06 度。',
+          },
+        ],
+      },
+      {
+        no: '四',
+        title: '討論',
+        blocks: [
+          { k: 'h', t: '4.1 四項相合的份量' },
+          { k: 'p', t: '希臘的四個數字是 19、3、15、21，彼此無規律。四曜的旺度各在不同的宿、不同的宮，換算所用的四條宮界各自獨立讀出。四項同時落在半度之內，不能以偶合解釋。' },
+          { k: 'p', t: '換算又只有一個自由度可言，即宮界的零點；零點若移一度，四項會同時偏一度。零點是專題 27 據卷一宮界讀出的，並非為本文調定。' },
+          { k: 'h', t: '4.2 太陽與木星' },
+          { k: 'p', t: '這兩項是分辨希臘與印度的關鍵。此書作 19 度、15 度，與希臘同，與印度的 10 度、5 度不同。即是說，此書的旺度不是經由帶有 10 度、5 度的印度文本而來。' },
+          { k: 'p', t: '這與論文 SL-02 的結果一致：該文比對福德宮變格的算法，夜生對調一項同樣與多羅修斯所載最合。兩項證據性質不同，一為算法，一為數字，指向相同。' },
+          { k: 'h', t: '4.3 與宮界年代的關係' },
+          { k: 'p', t: '專題 27 量得此書十二宮界的零點相當於約公元 300 年的冬至點，是固定在恆星上的宮。本文的旺度以宿度記載，即同樣固定在恆星上；換算回宮內度數而與希臘數字相合，說明書中的宮界與旺度屬於同一套座標。兩組數據來自卷一與各曜卷，互相印證。' },
+          { k: 'h', t: '4.4 不合的三曜' },
+          { k: 'p', t: '火星、金星不合，水星差約 3 度。可能的原因有三：錄文有誤；原書傳抄有誤；或此三曜另有所本。本文未核影像，不能判斷，亦不以其中任何一種解釋來消去這三項。' },
+          { k: 'p', t: '可以留意的是，錄文所載火星旺度「斗十八度至二十一度，並牛宿初度」，與影像層所見土星正廟「二十度以上至牛三度」的範圍相近；兩者同在磨竭宮。是否有文字相涉，待核影像。' },
+          { k: 'h', t: '4.5 本文不能支持的推論' },
+          { k: 'ul', items: [
+            '此書直接譯自多羅修斯。19、3、15、21 是希臘各家通行的數字，本文只用多羅修斯作代表，不能指向某一家。',
+            '此書的星命術與印度無關。本文只比對旺度；羅睺、計都等顯然另有印度淵源。',
+            '七曜旺度全合希臘。已核影像者四曜；另三曜在錄文層並不相合。',
+          ] },
+        ],
+      },
+      {
+        no: '五',
+        title: '局限',
+        blocks: [
+          { k: 'ul', items: [
+            '火、金、水三曜未核影像。',
+            '換算倚賴卷一的宮界與宿寬。木星、土星兩項所用宮界，各有一處校讀（見 2.3）。',
+            '印度一方只據一篇論文的摘要與轉述；太陰、土星的印度度數未查實。',
+            '希臘一方只用多羅修斯一家的英譯，未比對瓦倫斯、托勒密等所載，亦未核原典。',
+            '書中「正旺」「次旺」「向旺」「背旺」各有範圍，本文取「旺度」「正旺」之值，其餘範圍的含義未作分析。',
+            '版本：只用一個平台本，未與他本對校。',
+          ] },
+        ],
+      },
+      {
+        no: '六',
+        title: '後續工作',
+        blocks: [
+          { k: 'ul', items: [
+            '核讀火、金、水三曜行度的影像。',
+            '讀 Gansten 全文，補齊印度七曜度數及其出處。',
+            '以同法換算各曜「正廟」的度數範圍，看與希臘的界（terms）或其他分度有無對應。',
+            '查《星學大成》所載旺度，與本書比較。',
+            '比對四餘（紫氣、月孛、羅睺、計都）的廟旺，看其規則是否仿七曜而設。',
+          ] },
+        ],
+      },
+    ],
+    notes: [
+      '註一　「擢升」為本文對 exaltation 的譯名。',
+      '註二　古度指周天 365.255 度制下的一度。',
+    ],
+    refs: [
+      '〔1〕［宋］錢如璧：《三辰通載》三十卷。識典古籍平台，https://www.shidianguji.com/book/7461522579262537769 （2026-11-16 檢視）。',
+      '〔2〕Dorotheus of Sidon, Carmen Astrologicum, I.2. David Pingree 英譯（Leipzig: Teubner, 1976）。本文據 Deborah Houlding 重排的卷一譯文，skyscript.co.uk/dorotheus1.pdf（2026-11-16 檢視）。',
+      '〔3〕Martin Gansten, “A Note on the Indian Planetary Exaltations and their Greek-Language Sources”, History of Science in South Asia 8 (2020), pp. 77–82, doi:10.18732/hssa66。本文據摘要及轉述，未讀全文。',
     ],
   },
 ];

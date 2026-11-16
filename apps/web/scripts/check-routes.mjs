@@ -131,8 +131,8 @@ try {
   /* ── 三、sitemap 內容 ─────────────────────────────── */
   const xml = await fetch(`${BASE}/sitemap.xml`).then((r) => r.text());
   const locs = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
-  /* 2026-11-16 加 Sky Lab：繁中、簡體各 總覽 ＋ 2 篇論文 = 6 條。出多一篇論文要 +2。 */
-  check('sitemap 條數', locs.length === 116, `${locs.length} 條，應該 116（繁中、簡體各：首頁 ＋ 目錄 ＋ 35 詞條 ＋ Sky Lab 總覽 ＋ 2 篇論文；英文：目錄 ＋ 35 詞條）`);
+  /* 2026-11-16 加 Sky Lab：繁中、簡體各 總覽 ＋ 3 篇論文 = 8 條。出多一篇論文要 +2。 */
+  check('sitemap 條數', locs.length === 118, `${locs.length} 條，應該 118（繁中、簡體各：首頁 ＋ 目錄 ＋ 35 詞條 ＋ Sky Lab 總覽 ＋ 3 篇論文；英文：目錄 ＋ 35 詞條）`);
   check('sitemap 有 Sky Lab', locs.some((l) => l.endsWith('/skylab')) && locs.some((l) => l.endsWith('/skylab/bianjia')), '搵唔到 /skylab 或者論文');
 
   /* Sky Lab 得中文：冇前綴 200（英文瀏覽器都唔搬）；/en、/ja 前綴 301 返冇前綴 */
