@@ -143,6 +143,7 @@ export const LINES: TopicLine[] = [
       { no: 25, kind: '文獻', status: 'neg', paper: 'bianjia', title: '三十卷錄文全書檢索：月建、月將、安命法、斗數星名', note: '錄文無「月建」「月將」，安命只見太陽加時一法，月建代月將之說無文字支持。斗數多個星名在書中是某曜在某宮或某宿的別名。' },
       { no: 26, kind: '重建', status: 'done', title: '卷三十大觀二年（1108）例：原影轉錄、換日、回算', note: '十二月初八為儒略 1109 年 1 月 10 日；太陽在牛宿 5.7 度，屬丑，與書中「丑上安命」相合。圖不載七政，書中星位無從逐顆核。' },
       { no: 27, kind: '模型', status: 'done', title: '三辰十二宮細界與宿寬的天空年代', note: '宮界為周天 365.255 度的十二等分，零點斗 13.69 度相當於約公元 300 年的冬至點，非宋代實測；宿寬近赤道距星間隔，但不能定年。' },
+      { no: 28, kind: '文獻', status: 'done', paper: 'fude', title: '卷一〈再論福德宮變格〉與希臘星命術福點算法的比對', note: '書中推福德宮之法：晝生由日數至月，夜生由月數至日，再由命宮數出同樣宮數。量度的兩點、晝夜對調、投出的起點，與希臘福點算法逐項相合。所得之位何以稱「相貌」，未解；希臘一方未核原典。' },
     ],
   },
 ];
@@ -159,7 +160,7 @@ export const OVERVIEW = {
     '據此提出工作假說：**斗數沿用了一套外來星命框架的宮位名目與部分星名，而以按生辰計數安置的星，取代實際天體。**這是假說，不是結論。由該框架過渡到斗數安星規則的文獻，至今未見。',
   ],
   abstractEn:
-    'This programme asks one question: can the placement rules of Zi Wei Dou Shu be derived from any historically attested astronomical coordinate, observation or counting procedure? It does not test predictive validity. The work proceeded in three steps. First, geometric tests of the Dou Shu stars against the actual sky found no correspondence; apparent matches are reproduced by ordinary sidereal-time rhythm and by modelling choices. Second, a Southern Song manual of planetary horoscopy already carries the twelve-house topics and a number of the star names used in Dou Shu, there attached to real planets in real signs. Third, the sign boundaries in that manual are an equal division whose zero point matches the winter solstice of about AD 300, not the Song sky, which is consistent with a fixed sidereal zodiac inherited from the Western horoscopic tradition. The working hypothesis is that Dou Shu kept the house topics and some names of an imported horoscopic framework while replacing the planets with stars placed by counting from the birth date. No transitional text documenting that step has been found. Each of the twenty-seven studies is listed below with its evidence type and status.',
+    'This programme asks one question: can the placement rules of Zi Wei Dou Shu be derived from any historically attested astronomical coordinate, observation or counting procedure? It does not test predictive validity. The work proceeded in three steps. First, geometric tests of the Dou Shu stars against the actual sky found no correspondence; apparent matches are reproduced by ordinary sidereal-time rhythm and by modelling choices. Second, a Southern Song manual of planetary horoscopy already carries the twelve-house topics and a number of the star names used in Dou Shu, there attached to real planets in real signs. Third, the sign boundaries in that manual are an equal division whose zero point matches the winter solstice of about AD 300, not the Song sky, which is consistent with a fixed sidereal zodiac inherited from the Western horoscopic tradition. The working hypothesis is that Dou Shu kept the house topics and some names of an imported horoscopic framework while replacing the planets with stars placed by counting from the birth date. No transitional text documenting that step has been found. Each of the twenty-eight studies is listed below with its evidence type and status.',
   /**
    * 研究經過（2026-11-16，Issac：要講返條路點行 —— 先睇星同天象有冇關係，冇；
    * 再睇古書，見到框架係外來、改編過）。
@@ -212,11 +213,12 @@ export const OVERVIEW = {
     {
       no: '第三步',
       title: '這套星命框架本身從何而來',
-      lines: '專題 27',
+      lines: '專題 27、28',
       paras: [
         '既然名目見於七政四餘，下一個問題是：七政四餘的框架是否宋人按當時天象所定。可供檢驗的是《三辰通載》卷一的十二宮界，即各宮在二十八宿度數上的起訖。冬至點因歲差在宿度上每世紀後退約 1.4 度，所以每條宮界都可以反推它對應哪個年代的天空。',
         '量度結果：十二宮界是周天 365.255 度的十二等分，全表只有一個參數，即零點。零點在斗宿 13.69 度，與約公元 300 年的冬至點相差不到 0.02 度；與宋代的冬至點相差約 11 度。以 1100 年的天空量度，十二條宮界全部向同一方向偏 8 至 16 度。',
         '即是說，此書雖以太陽實際位置安命，所用的十二宮卻不是宋代實測，而是承襲而來、固定在恆星上的宮。這個零點所在的年代，正是印度恆星黃道各派零點所在的範圍。書中十二宮用寶瓶、磨竭、人馬、天蝎等名，是黃道十二宮的譯名；平台錄文的目錄末並列有「西天」「聿斯經」（未核影像）。',
+        '算法上另有一項旁證（專題 28，論文 SL-02）。書中卷一推福德宮之法，晝生由太陽數至太陰，夜生由太陰數至太陽，再由命宮數出同樣宮數。這與希臘星命術的「福點」算法逐項相合，包括夜生對調一項。',
         '黃道十二宮與十二位之法經印度傳入中國，是學界通說；本計劃未對這段傳播史作獨立考訂，只報告上述量度與之相符。',
         '**這一步的結論：《三辰通載》的十二宮是承襲的恆星宮，其零點與西來星命傳統相符，不是宋人實測。**',
       ],
@@ -234,7 +236,7 @@ export const OVERVIEW = {
     },
   ],
   counting: [
-    '二十七個專題是整理口徑，不是二十七次互相獨立的驗證；部分是同一假說的來源核讀、補表、反事實或敏感度續查。',
+    '二十八個專題是整理口徑，不是二十八次互相獨立的驗證；部分是同一假說的來源核讀、補表、反事實或敏感度續查。',
     '「模型」類結果取決於所列假設（選日、月份接法、宮位粗分、閏月處理等），不是歷史因果的量度。',
     '「未完成」的專題只列所欠，不列結論。',
   ],
@@ -507,6 +509,162 @@ export const PAPERS: Paper[] = [
     refs: [
       '〔1〕［宋］錢如璧：《三辰通載》三十卷。識典古籍平台，https://www.shidianguji.com/book/7461522579262537769 （2026-10-17、2026-11-16 檢視）。',
       '〔2〕趙江紅：〈靜嘉堂藏孤本《三辰通載》考略〉，《中國典籍與文化》2020 年第 2 期，頁 131–144。本文僅據摘要。',
+    ],
+  },
+  {
+    slug: 'fude',
+    id: 'SL-02',
+    title: '《三辰通載》福德宮變格與希臘星命術的福點算法',
+    titleEn: 'The variant rule for the Fude house in the Sanchen tongzai and the Hellenistic Lot of Fortune',
+    version: '稿本 0.1',
+    date: '2026-11-16',
+    draftNote:
+      '本稿為初稿。《三辰通載》一方的兩段引文已逐字核過原書影像。希臘一方只據英譯與轉述，未核希臘文原典；表二的章節出處須待覆核。',
+    topics: [28],
+    abstract:
+      '《三辰通載》卷一有〈再論福德宮變格〉一節，述推福德宮之法：晝生者由太陽數至太陰，夜生者由太陰數至太陽，得其相去宮數，再由命宮數出同樣宮數。本文把此法分解為四個要素，與希臘星命術的「福點」（Lot of Fortune）算法比對。四個要素全部相合：所量的兩點為日、月；晝生由日至月；夜生對調；由上升點（命宮）投出。其中夜生對調一項，在希臘傳統內部並非各家皆然，故此書所載與瓦倫斯（Valens）、保羅（Paulus）一系相合。此法在書中稱為「變格」，與「福德第十一宮」的常法並存。所得之位，原文稱「相位」「相貌」，其義本文未能解釋。斗數的福德宮為固定宮位，不由日月推算。',
+    abstractEn:
+      'Chapter 1 of the Sanchen tongzai, a Southern Song manual of planetary horoscopy, contains a section on a “variant rule” for the Fude (Fortune-and-Virtue) house: for a day birth count the signs from the Sun to the Moon, for a night birth from the Moon to the Sun, then count the same number of signs from the Life house. Both passages have been collated against the scanned exemplar. Broken into four elements, the rule agrees with the Hellenistic Lot of Fortune on every one: the two points measured are the luminaries; by day the interval runs from Sun to Moon; by night it is reversed; and it is projected from the ascendant. The nocturnal reversal is not universal within the Greek tradition, so the Chinese rule agrees specifically with the line represented by Valens and Paulus. The text presents this as a variant alongside the ordinary eleventh-house Fude. The place so found is called xiangwei or xiangmao in the text, which this note cannot yet explain. In Zi Wei Dou Shu the Fude palace is a fixed position and is not computed from the Sun and Moon. The Greek side rests on translations and secondary reports and has not been checked against the Greek texts.',
+    keywords: ['三辰通載', '七政四餘', '福德宮', '福點', '希臘星命術', '都利聿斯經'],
+    sections: [
+      {
+        no: '一',
+        title: '問題',
+        blocks: [
+          { k: 'p', t: '七政四餘的十二宮、十二位來自域外，是學界通說。但名目相同只是一類證據：名目可以意譯、可以附會。算法則不同。一條有多個步驟、且含條件分支的算法，如在兩個傳統中逐步相同，偶合的可能很低。' },
+          { k: 'p', t: '本文處理一條這樣的算法：《三辰通載》卷一推福德宮的「變格」。問題是：此法的每一步，是否與希臘星命術的福點算法相同；如相同，與希臘哪一系相同。' },
+        ],
+      },
+      {
+        no: '二',
+        title: '材料與方法',
+        blocks: [
+          { k: 'h', t: '2.1 版本' },
+          { k: 'p', t: '《三辰通載》用識典古籍平台所收三十卷本〔1〕，版本情況及其限制見論文 SL-01 第 2.1 節。' },
+          { k: 'h', t: '2.2 證據層級' },
+          { k: 'ul', items: [
+            '影像層：3.1 節兩段引文，於 2026-11-16 在平台閱讀器逐字核讀原書掃描影像，在卷一第 24、25 葉（中縫葉次二十四、二十五）。',
+            '錄文層：3.5 節所引各句，據平台錄文，未核影像。',
+            '希臘一方：瓦倫斯據 Riley 英譯的轉引〔2〕；保羅據轉述〔3〕。均未核希臘文原典。',
+          ] },
+          { k: 'h', t: '2.3 比對方法' },
+          { k: 'p', t: '把算法分解為四個要素，逐項比對：一，所量的兩點；二，晝生時量度的方向；三，夜生時量度的方向；四，投出的起點。四項俱合，方稱算法相同。' },
+        ],
+      },
+      {
+        no: '三',
+        title: '結果',
+        blocks: [
+          { k: 'h', t: '3.1 原文' },
+          { k: 'p', t: '此節題「再論福德宮變格」，先歌後文。歌訣前六句：' },
+          { k: 'q', src: '卷一 再論福德宮變格（第 24 葉）', t: '福德一宮人莫窮，晝生從日夜月從。數取日月相去位，還從東山配其終。數盡之處為相位，次看何宿守其中。' },
+          { k: 'p', t: '其後散文重述一遍：' },
+          { k: 'q', src: '卷一 再論福德宮變格（第 25 葉）', t: '凡推其福德宮，日生則從太陽數至太陰，夜生則從太陰數至太陽，數其相去幾宮，然後從命宮數其相去宮位，即為相貌，次則福德。' },
+          { k: 'p', t: '標點為本文所加。「東山」指東方地平，即命宮所在；同卷論立命，謂命「常在地局卯上」（見 SL-01 第 2.2 節）。' },
+          { k: 'h', t: '3.2 算法分解' },
+          {
+            k: 'table',
+            caption: '表一　〈再論福德宮變格〉的算法',
+            head: ['步驟', '晝生', '夜生', '原文'],
+            rows: [
+              ['一　量度', '由太陽數至太陰', '由太陰數至太陽', '「日生則從太陽數至太陰，夜生則從太陰數至太陽」'],
+              ['二　記數', '得相去宮數', '得相去宮數', '「數其相去幾宮」'],
+              ['三　投出', '由命宮數出同樣宮數', '由命宮數出同樣宮數', '「然後從命宮數其相去宮位」'],
+            ],
+            note: '以宮為單位，不以度。由命宮數出時的方向，原文未言。',
+          },
+          { k: 'h', t: '3.3 與希臘福點比對' },
+          { k: 'p', t: '希臘星命術的福點（κλῆρος τύχης）算法為：量日、月之間的距離，再由上升點投出同樣距離。瓦倫斯《選集》2.3 述晝生之法，由日至月，由上升點量出等距；3.11 述夜生之法，改為由月至日〔2〕。保羅《導論》第 23 章列諸點算法，福點同為晝夜對調〔3〕。' },
+          {
+            k: 'table',
+            caption: '表二　四個要素的比對',
+            head: ['要素', '希臘福點（瓦倫斯、保羅）', '《三辰通載》', '合否'],
+            rows: [
+              ['所量兩點', '太陽、月亮', '太陽、太陰', '合'],
+              ['晝生方向', '由日至月', '由太陽數至太陰', '合'],
+              ['夜生方向', '對調，由月至日', '對調，由太陰數至太陽', '合'],
+              ['投出起點', '上升點', '命宮（東山）', '合'],
+            ],
+            note: '希臘一方據〔2〕〔3〕，未核原典。希臘算法以度計，《三辰》此節以宮計。',
+          },
+          { k: 'h', t: '3.4 夜生對調' },
+          { k: 'p', t: '四項之中，夜生對調最有鑑別力。希臘傳統內部於此並不一致：瓦倫斯、保羅對調；托勒密《四書》是否對調，現代學者仍有爭論，一說他晝夜同用一式。' },
+          { k: 'p', t: '《三辰通載》明言「晝生從日夜月從」，與對調一系相合，與晝夜同式之說不合。' },
+          { k: 'h', t: '3.5 同卷其他相關文句（錄文層）' },
+          { k: 'p', t: '以下據平台錄文，未核影像，只作線索記錄，不作本文論據：' },
+          { k: 'ul', items: [
+            '論十二位高下，謂第三宮「閑極」，五星無力，唯月在此為宜。',
+            '論相貌宮，引「經云」，謂第六宮與第十二宮相對，兩位多凶忌。',
+            '論十二位高下，以卯、巳、午為最強，即第一、第十一、第十宮。',
+          ] },
+          { k: 'p', t: '希臘十二位之說亦有月喜第三位、第六與第十二位為凶位、第一第十第十一位為強位等說法。此為本文作者的一般認識，未逐條查證出處，待另文處理。' },
+        ],
+      },
+      {
+        no: '四',
+        title: '討論',
+        blocks: [
+          { k: 'h', t: '4.1 吻合的性質' },
+          { k: 'p', t: '此法有三個步驟、一個條件分支，四個要素全合。尤其夜生對調一項，並無天文上的必然，純屬術法上的約定；兩個傳統各自獨立定出同一約定的可能很低。' },
+          { k: 'p', t: '因此可以說：《三辰通載》所載推福德宮的變格，與希臘福點算法同出一源。這是算法層面的證據，較名目相同更強。' },
+          { k: 'h', t: '4.2 「變格」與常法並存' },
+          { k: 'p', t: '同卷另有〈論福德宮〉，謂「福德第十一宮號福德」，即福德宮為由命宮起數的第十一位。本節題為「再論」「變格」，是在常法之外另立一法。' },
+          { k: 'p', t: '希臘星命術亦是兩者並存：十二位之中第十一位主吉，福點則另由日月推算。此書的安排與之相應，但本文未查希臘第十一位的名義與「福德」是否對應，不作斷言。' },
+          { k: 'h', t: '4.3 傳入途徑：前人研究' },
+          { k: 'p', t: '希臘星命術的「點」見於中文文獻，前人已有論述。本文只轉述，未讀全文：' },
+          { k: 'ul', items: [
+            '《都利聿斯經》於唐貞元年間（785–805）譯為中文，相傳由西天竺人李彌乾攜入。其來源，矢野道雄主托勒密，麥文彪主多羅修斯（Dorotheus）〔4〕。',
+            'Kotyk 在道藏《靈臺經》中指出更多多羅修斯佚文，尤其關於諸點者；並認為中譯所據最可能是中古波斯文（Pahlavi）譯本〔5〕。',
+          ] },
+          { k: 'p', t: '依此，途徑是希臘、波斯、中國，而以「西天竺」為名義上的來處。本文的比對與此說相容，但不能獨立證明途徑：《三辰通載》此節不注出處，本文亦未比對《靈臺經》原文。' },
+          { k: 'h', t: '4.4 與斗數的關係' },
+          { k: 'p', t: '斗數十二宮亦有福德宮，位置固定，由命宮起數而得，不由日月推算。斗數沒有與此變格相當的算法。' },
+          { k: 'p', t: '這與研究總覽的工作假說一致：名目留在斗數之中，以實際天體位置為輸入的算法則不見。但這只是一致，不是證明。' },
+          { k: 'h', t: '4.5 本文不能支持的推論' },
+          { k: 'ul', items: [
+            '《三辰通載》此節直接譯自某一希臘或波斯文本。本文只證算法相同，未證文本承襲。',
+            '斗數的福德宮出於福點。斗數福德宮是固定宮位，與此變格算法無涉。',
+            '此法經印度傳入。本文未查印度星命文獻有無此法。',
+          ] },
+        ],
+      },
+      {
+        no: '五',
+        title: '局限',
+        blocks: [
+          { k: 'ul', items: [
+            '「即為相貌，次則福德」一句未解。按算法，數盡之處應即所求之位；原文卻稱之為「相位」「相貌」，而以福德為其「次」。相貌是第十二宮之名。此處是另有一套由該位起數的十二位，還是文字有誤，本文不能判斷。',
+            '由命宮數出的方向，原文未言。',
+            '希臘一方未核原典。瓦倫斯據英譯轉引，保羅據轉述，托勒密一說據現代討論。章節出處待覆核。',
+            '多羅修斯原書及《靈臺經》未讀。',
+            '版本：只用一個平台本，未與他本對校。',
+          ] },
+        ],
+      },
+      {
+        no: '六',
+        title: '後續工作',
+        blocks: [
+          { k: 'ul', items: [
+            '取 Pingree、Dykes 的多羅修斯譯本及 Greenbaum 的保羅譯本，核定希臘一方的章節與文字。',
+            '讀《靈臺經》諸點各條，與本節逐句比對。',
+            '核讀 3.5 節各句的影像，另文比對十二位的強弱、喜樂之說。',
+            '查《星學大成》有無同法，及其文字與本節的異同。',
+            '查印度星命文獻有無日月相去、晝夜對調之法。',
+          ] },
+        ],
+      },
+    ],
+    notes: [
+      '註一　「福點」為本文對 Lot of Fortune 的譯名。中文古籍中與之對應的名稱，本文未考。',
+      '註二　瓦倫斯、保羅、多羅修斯、托勒密為本文所用譯名。',
+    ],
+    refs: [
+      '〔1〕［宋］錢如璧：《三辰通載》三十卷。識典古籍平台，https://www.shidianguji.com/book/7461522579262537769 （2026-11-16 檢視）。',
+      '〔2〕Vettius Valens, Anthologies 2.3, 3.11. Mark T. Riley 英譯，轉引自 Philip A. Harland, “Egyptian wisdom: Vettius Valens and others on Petosiris and pharaoh Nechepsos as astrologers”, philipharland.com（2026-11-16 檢視）。本文未見 Riley 譯本全文。',
+      '〔3〕Paulus Alexandrinus, Introduction, ch. 23. Dorian Gieseler Greenbaum 英譯，收入 Late Classical Astrology: Paulus Alexandrinus and Olympiodorus, Reston: ARHAT, 2001。本文未見原書，據轉述。',
+      '〔4〕Bill M. Mak, “Yusi Jing – A treatise of ‘Western’ Astral Science in Chinese and its versified version Xitian yusi jing”, SCIAMVS 15 (2014), pp. 105–169。本文未見全文。',
+      '〔5〕Jeffrey Kotyk, “Buddhist Astrology and Astral Magic in the Tang Dynasty”, PhD dissertation, Leiden University, 2017；及同作者 “Dorotheus in East Asia”, huayanzang.blogspot.com, 2018。本文據後者。',
     ],
   },
 ];
