@@ -72,6 +72,49 @@ export default async function SkyLabIndex({ params }: { params: Promise<{ locale
           <p lang="en">{OVERVIEW.abstractEn}</p>
         </section>
 
+        <h2 className="lab-h2">{z('研究經過')}</h2>
+        {OVERVIEW.path.map((st) => (
+          <section key={st.no}>
+            <h3 className="lab-h3" data-nums>
+              {z(`${st.no}　${st.title}`)}
+            </h3>
+            {st.lines ? <p className="lab-small" data-nums>{z(`所涉：${st.lines}`)}</p> : null}
+            {st.paras.map((para) => (
+              <p key={para} className="lab-p">
+                <Rich text={z(para)} />
+              </p>
+            ))}
+            {'table' in st && st.table ? (
+              <div>
+                <div className="lab-tbl-wrap">
+                  <table className="lab-tbl">
+                    <caption>{z(st.table.caption)}</caption>
+                    <thead>
+                      <tr>
+                        {st.table.head.map((h) => (
+                          <th key={h} scope="col">
+                            {z(h)}
+                          </th>
+                        ))}
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {st.table.rows.map((r) => (
+                        <tr key={r[0]}>
+                          {r.map((c, j) => (
+                            <td key={j}>{z(c)}</td>
+                          ))}
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+                <p className="lab-tbl-note">{z(st.table.note)}</p>
+              </div>
+            ) : null}
+          </section>
+        ))}
+
         <h2 className="lab-h2">{z('論文')}</h2>
         <ul className="lab-small">
           {PAPERS.map((p) => (

@@ -131,11 +131,84 @@ export const OVERVIEW = {
   dataDate: '2026-10-17',
   abstract: [
     '本計劃只問一個問題：紫微斗數的規則，能否由某一套有史料根據的天文座標、觀測或計數程序導出。不檢驗術數的吉凶或預測效力。',
-    '至今完成二十七個專題，分七條主線。結論是：**仍未找到由具體天文觀測或座標程序通往斗數現行安星規則的直接歷史推導鏈。**',
-    '現階段既不能說斗數是出生星圖的抽象，也不能說它與天文全無關係。可以確定的是：相關的星命傳統確有以太陽度數安命的原文；斗數與其他材料之間有具體的星名、職司與計數用語可比；而若干看似吻合的現象，可由共通的恆星時節奏與建模選擇解釋。',
+    '研究分三步。第一步檢驗斗數諸星與實際天象的幾何關係，未見對應。第二步轉查星命文獻：斗數的十二宮名目與一批星名，已見於以實際天象論命的七政四餘書。第三步量度該書的十二宮界：零點相當於約公元 300 年的冬至點，不是宋代實測，與西來星命傳統固定在恆星上的黃道十二宮相符。',
+    '據此提出工作假說：**斗數沿用了一套外來星命框架的宮位名目與部分星名，而以按生辰計數安置的星，取代實際天體。**這是假說，不是結論。由該框架過渡到斗數安星規則的文獻，至今未見。',
   ],
   abstractEn:
-    'This programme asks one question: can the placement rules of Zi Wei Dou Shu be derived from any historically attested astronomical coordinate, observation or counting procedure? It does not test predictive validity. Across twenty-seven studies in seven lines of inquiry, no direct historical derivation from an astronomical procedure to the current star-placement rules has been found. Related horoscopic traditions do place the Life palace from the solar position, and star names, offices and counting terms are shared across sources; but several apparent matches are reproduced by ordinary sidereal-time rhythm and by modelling choices. Each study is listed below with its evidence type and status.',
+    'This programme asks one question: can the placement rules of Zi Wei Dou Shu be derived from any historically attested astronomical coordinate, observation or counting procedure? It does not test predictive validity. The work proceeded in three steps. First, geometric tests of the Dou Shu stars against the actual sky found no correspondence; apparent matches are reproduced by ordinary sidereal-time rhythm and by modelling choices. Second, a Southern Song manual of planetary horoscopy already carries the twelve-house topics and a number of the star names used in Dou Shu, there attached to real planets in real signs. Third, the sign boundaries in that manual are an equal division whose zero point matches the winter solstice of about AD 300, not the Song sky, which is consistent with a fixed sidereal zodiac inherited from the Western horoscopic tradition. The working hypothesis is that Dou Shu kept the house topics and some names of an imported horoscopic framework while replacing the planets with stars placed by counting from the birth date. No transitional text documenting that step has been found. Each of the twenty-seven studies is listed below with its evidence type and status.',
+  /**
+   * 研究經過（2026-11-16，Issac：要講返條路點行 —— 先睇星同天象有冇關係，冇；
+   * 再睇古書，見到框架係外來、改編過）。
+   * ⚠ 第三步個結論係「工作假說」，唔好寫成定論；錄文層嘅嘢要標。
+   */
+  path: [
+    {
+      no: '第一步',
+      title: '斗數諸星與實際天象有沒有幾何關係',
+      lines: '主線一、三、四、六',
+      paras: [
+        '出發點是最直接的設想：斗數的星既以北斗、南斗、紫微為名，其位置或次序可能來自某種實際觀測，例如斗柄所指、某一時刻的星空，或某一座標框架下的投影。',
+        '為此先重建可以核對的宋代天空與曆日（專題 1–3），再逐一檢驗：斗柄作定序指針（專題 8、9）；命宮、身宮、斗君與北斗指向的對照（專題 10）；黃道、赤道、地平及升點共七十六個投影假說（專題 14）。',
+        '結果是未見對應。斗柄模型不能導出安星的位置與間隔。命宮、身宮與北斗指向之間的相似節奏，織女等其他亮星同樣具備（專題 12）；扣除共通的恆星時後，剩餘量可由日期與座標幾何重現（專題 13）。',
+        '對初期看似吻合的例子，另做了反事實與敏感度檢查（專題 19–24）。吻合的數量隨選日、月份接法、宮位粗分與閏月處理而變；最初的八組吻合，其實是四對相隔六個時辰的同一結果。',
+        '**這一步的結論：在所測範圍內，斗數安星規則不能由實際天象的幾何關係導出。**',
+      ],
+    },
+    {
+      no: '第二步',
+      title: '轉查文獻：同時代的星命書怎樣用這些名目',
+      lines: '主線二、五、七',
+      paras: [
+        '幾何一路不通，改問文獻。斗數現存各本只教人怎樣排，不解釋為何這樣定（專題 4–7）。於是轉看與斗數相鄰、而確以實際天象論命的一系：七政四餘，所據為《星學大成》與《三辰通載》。',
+        '這一系以太陽實際所在之宮配生時定命宮（專題 15、25），是真正的出生星圖。專題 26 以書中大觀二年（1108）一例回算，太陽位置與書中所定命宮相合。',
+        '在《三辰通載》裡，見到兩類與斗數共有的成分。其一是十二宮的名目，見下表。其二是星名：紫微、天相、天梁等名，在書中是某一曜行至某一宮或某一宿的別名（論文 SL-01）。',
+        '兩者的分別同樣清楚。此書用這些名目時，所指是實際天體與實際位置；斗數用同一批名目，位置卻由生年月日時計數而得。書中亦未見以月份代替太陽宮的簡便安命法（專題 25）。',
+        '**這一步的結論：斗數的宮位名目與部分星名並非獨有，已見於一套以實際天象為據的星命體系；所不同者是安置的方法。**',
+      ],
+      table: {
+        caption: '十二宮名目對照',
+        head: ['序', '《三辰通載》卷一（錄文層）', '斗數現行'],
+        rows: [
+          ['一', '命', '命'],
+          ['二', '財帛', '兄弟'],
+          ['三', '兄弟', '夫妻'],
+          ['四', '田宅', '子女'],
+          ['五', '男女', '財帛'],
+          ['六', '奴僕', '疾厄'],
+          ['七', '妻妾', '遷移'],
+          ['八', '疾厄', '奴僕'],
+          ['九', '遷移', '官祿'],
+          ['十', '祿號', '田宅'],
+          ['十一', '福德', '福德'],
+          ['十二', '相貌', '父母'],
+        ],
+        note: '兩者都由命宮起逆數地支。命、財帛、兄弟、田宅、奴僕、疾厄、遷移、福德八名全同；男女與子女、妻妾與夫妻、祿號與官祿，名異而所司相近；相貌與父母是否相當，待核。次序則大半不同。《三辰》一欄據平台錄文，未核影像；「祿號」照錄文。斗數一欄為現行通用名目，未據《全書》原文核定。',
+      },
+    },
+    {
+      no: '第三步',
+      title: '這套星命框架本身從何而來',
+      lines: '專題 27',
+      paras: [
+        '既然名目見於七政四餘，下一個問題是：七政四餘的框架是否宋人按當時天象所定。可供檢驗的是《三辰通載》卷一的十二宮界，即各宮在二十八宿度數上的起訖。冬至點因歲差在宿度上每世紀後退約 1.4 度，所以每條宮界都可以反推它對應哪個年代的天空。',
+        '量度結果：十二宮界是周天 365.255 度的十二等分，全表只有一個參數，即零點。零點在斗宿 13.69 度，與約公元 300 年的冬至點相差不到 0.02 度；與宋代的冬至點相差約 11 度。以 1100 年的天空量度，十二條宮界全部向同一方向偏 8 至 16 度。',
+        '即是說，此書雖以太陽實際位置安命，所用的十二宮卻不是宋代實測，而是承襲而來、固定在恆星上的宮。這個零點所在的年代，正是印度恆星黃道各派零點所在的範圍。書中十二宮用寶瓶、磨竭、人馬、天蝎等名，是黃道十二宮的譯名；平台錄文的目錄末並列有「西天」「聿斯經」（未核影像）。',
+        '黃道十二宮與十二位之法經印度傳入中國，是學界通說；本計劃未對這段傳播史作獨立考訂，只報告上述量度與之相符。',
+        '**這一步的結論：《三辰通載》的十二宮是承襲的恆星宮，其零點與西來星命傳統相符，不是宋人實測。**',
+      ],
+    },
+    {
+      no: '現階段',
+      title: '工作假說與所欠',
+      lines: '',
+      paras: [
+        '三步合起來，得出一個工作假說：斗數沿用了一套外來星命框架的宮位名目與部分星名，而以按生辰計數安置的星，取代實際天體。',
+        '這個假說能解釋第一步的負面結果：若斗數的星本來就不是觀測所得，自然不能由天象的幾何關係導出。',
+        '它尚欠三項證據：一，由七政四餘過渡到斗數的文獻，至今未見；二，星名相同可以出於共同的更早來源，借用的方向未定；三，斗數另有一批星名屬北斗名號（貪狼、巨門、廉貞、武曲等），在《三辰通載》的錄文中並無命中，來源須另行考查。',
+        '因此現階段只能說：斗數不是出生星圖；它與一套以星圖為本的外來星命體系共用部分名目；兩者之間的改編過程，尚無文獻可證。',
+      ],
+    },
+  ],
   counting: [
     '二十七個專題是整理口徑，不是二十七次互相獨立的驗證；部分是同一假說的來源核讀、補表、反事實或敏感度續查。',
     '「模型」類結果取決於所列假設（選日、月份接法、宮位粗分、閏月處理等），不是歷史因果的量度。',
